@@ -8,6 +8,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob\dataSynchronizationStatus;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob\destinationEndpoint;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob\errorDetails;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob\fullDataCheckStatus;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob\incDataCheckStatus;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob\migrationMode;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob\performance;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\dtsJobList\reverseJob\precheckStatus;
@@ -183,6 +185,16 @@ class reverseJob extends Model
     public $expireTime;
 
     /**
+     * @var fullDataCheckStatus
+     */
+    public $fullDataCheckStatus;
+
+    /**
+     * @var incDataCheckStatus
+     */
+    public $incDataCheckStatus;
+
+    /**
      * @description The memory that has been used. Unit: MB.
      *
      * @example 500
@@ -274,6 +286,8 @@ class reverseJob extends Model
         'errorMessage'                  => 'ErrorMessage',
         'etlSafeCheckpoint'             => 'EtlSafeCheckpoint',
         'expireTime'                    => 'ExpireTime',
+        'fullDataCheckStatus'           => 'FullDataCheckStatus',
+        'incDataCheckStatus'            => 'IncDataCheckStatus',
         'memUsage'                      => 'MemUsage',
         'migrationMode'                 => 'MigrationMode',
         'payType'                       => 'PayType',
@@ -354,6 +368,12 @@ class reverseJob extends Model
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->fullDataCheckStatus) {
+            $res['FullDataCheckStatus'] = null !== $this->fullDataCheckStatus ? $this->fullDataCheckStatus->toMap() : null;
+        }
+        if (null !== $this->incDataCheckStatus) {
+            $res['IncDataCheckStatus'] = null !== $this->incDataCheckStatus ? $this->incDataCheckStatus->toMap() : null;
         }
         if (null !== $this->memUsage) {
             $res['MemUsage'] = $this->memUsage;
@@ -456,6 +476,12 @@ class reverseJob extends Model
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['FullDataCheckStatus'])) {
+            $model->fullDataCheckStatus = fullDataCheckStatus::fromMap($map['FullDataCheckStatus']);
+        }
+        if (isset($map['IncDataCheckStatus'])) {
+            $model->incDataCheckStatus = incDataCheckStatus::fromMap($map['IncDataCheckStatus']);
         }
         if (isset($map['MemUsage'])) {
             $model->memUsage = $map['MemUsage'];

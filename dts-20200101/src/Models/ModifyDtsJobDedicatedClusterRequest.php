@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDtsJobDedicatedClusterRequest extends Model
 {
     /**
+     * @example dtsxxxx
+     *
      * @var string
      */
     public $dedicatedClusterId;
 
     /**
+     * @example ["dtsxxxx01", "dtsxxx02"]
+     *
      * @var string
      */
     public $dtsJobIds;
@@ -24,6 +28,8 @@ class ModifyDtsJobDedicatedClusterRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

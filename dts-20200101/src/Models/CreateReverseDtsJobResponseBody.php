@@ -6,21 +6,21 @@ namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDtsJobDedicatedClusterResponseBody extends Model
+class CreateReverseDtsJobResponseBody extends Model
 {
     /**
-     * @example 500
+     * @example dtsor1f9kr822l****
      *
      * @var string
      */
-    public $code;
+    public $dtsInstanceId;
 
     /**
-     * @example Type
+     * @example n99m9jx822k****
      *
      * @var string
      */
-    public $dynamicMessage;
+    public $dtsJobId;
 
     /**
      * @example InternalError
@@ -39,7 +39,7 @@ class ModifyDtsJobDedicatedClusterResponseBody extends Model
     /**
      * @example 200
      *
-     * @var int
+     * @var string
      */
     public $httpStatusCode;
 
@@ -53,12 +53,12 @@ class ModifyDtsJobDedicatedClusterResponseBody extends Model
     /**
      * @example true
      *
-     * @var bool
+     * @var string
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'dynamicMessage' => 'DynamicMessage',
+        'dtsInstanceId'  => 'DtsInstanceId',
+        'dtsJobId'       => 'DtsJobId',
         'errCode'        => 'ErrCode',
         'errMessage'     => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
@@ -73,11 +73,11 @@ class ModifyDtsJobDedicatedClusterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->dtsInstanceId) {
+            $res['DtsInstanceId'] = $this->dtsInstanceId;
         }
-        if (null !== $this->dynamicMessage) {
-            $res['DynamicMessage'] = $this->dynamicMessage;
+        if (null !== $this->dtsJobId) {
+            $res['DtsJobId'] = $this->dtsJobId;
         }
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
@@ -101,16 +101,16 @@ class ModifyDtsJobDedicatedClusterResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDtsJobDedicatedClusterResponseBody
+     * @return CreateReverseDtsJobResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['DtsInstanceId'])) {
+            $model->dtsInstanceId = $map['DtsInstanceId'];
         }
-        if (isset($map['DynamicMessage'])) {
-            $model->dynamicMessage = $map['DynamicMessage'];
+        if (isset($map['DtsJobId'])) {
+            $model->dtsJobId = $map['DtsJobId'];
         }
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];

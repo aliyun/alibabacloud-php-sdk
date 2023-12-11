@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\CreateJobMonitorRuleRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateJobMonitorRuleResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateMigrationJobRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateMigrationJobResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\CreateReverseDtsJobRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\CreateReverseDtsJobResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateSubscriptionInstanceRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateSubscriptionInstanceResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateSynchronizationJobRequest;
@@ -190,6 +192,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\StartDtsJobsRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\StartDtsJobsResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\StartMigrationJobRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\StartMigrationJobResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\StartReverseWriterRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\StartReverseWriterResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\StartSubscriptionInstanceRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\StartSubscriptionInstanceResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\StartSynchronizationJobRequest;
@@ -1770,6 +1774,49 @@ class Dts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMigrationJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateReverseDtsJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateReverseDtsJobResponse
+     */
+    public function createReverseDtsJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateReverseDtsJob',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateReverseDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateReverseDtsJobRequest $request
+     *
+     * @return CreateReverseDtsJobResponse
+     */
+    public function createReverseDtsJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createReverseDtsJobWithOptions($request, $runtime);
     }
 
     /**
@@ -5165,6 +5212,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->dtsInstanceId)) {
             $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
         if (!Utils::isUnset($request->fileOssUrl)) {
             $query['FileOssUrl'] = $request->fileOssUrl;
         }
@@ -6292,6 +6342,52 @@ class Dts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startMigrationJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartReverseWriterRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StartReverseWriterResponse
+     */
+    public function startReverseWriterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkPoint)) {
+            $query['CheckPoint'] = $request->checkPoint;
+        }
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartReverseWriter',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartReverseWriterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartReverseWriterRequest $request
+     *
+     * @return StartReverseWriterResponse
+     */
+    public function startReverseWriter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startReverseWriterWithOptions($request, $runtime);
     }
 
     /**

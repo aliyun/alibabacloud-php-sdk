@@ -30,6 +30,16 @@ class migrationMode extends Model
     public $dataSynchronization;
 
     /**
+     * @var bool
+     */
+    public $fullDataCheck;
+
+    /**
+     * @var bool
+     */
+    public $incDataCheck;
+
+    /**
      * @description Indicates whether initial schema synchronization is performed. Valid values:
      * -  **true**
      * -  **false**
@@ -41,6 +51,8 @@ class migrationMode extends Model
     protected $_name = [
         'dataInitialization'      => 'DataInitialization',
         'dataSynchronization'     => 'DataSynchronization',
+        'fullDataCheck'           => 'FullDataCheck',
+        'incDataCheck'            => 'IncDataCheck',
         'structureInitialization' => 'StructureInitialization',
     ];
 
@@ -56,6 +68,12 @@ class migrationMode extends Model
         }
         if (null !== $this->dataSynchronization) {
             $res['DataSynchronization'] = $this->dataSynchronization;
+        }
+        if (null !== $this->fullDataCheck) {
+            $res['FullDataCheck'] = $this->fullDataCheck;
+        }
+        if (null !== $this->incDataCheck) {
+            $res['IncDataCheck'] = $this->incDataCheck;
         }
         if (null !== $this->structureInitialization) {
             $res['StructureInitialization'] = $this->structureInitialization;
@@ -77,6 +95,12 @@ class migrationMode extends Model
         }
         if (isset($map['DataSynchronization'])) {
             $model->dataSynchronization = $map['DataSynchronization'];
+        }
+        if (isset($map['FullDataCheck'])) {
+            $model->fullDataCheck = $map['FullDataCheck'];
+        }
+        if (isset($map['IncDataCheck'])) {
+            $model->incDataCheck = $map['IncDataCheck'];
         }
         if (isset($map['StructureInitialization'])) {
             $model->structureInitialization = $map['StructureInitialization'];

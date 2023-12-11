@@ -47,6 +47,11 @@ class ModifyDtsJobShrinkRequest extends Model
     public $dtsInstanceId;
 
     /**
+     * @var string
+     */
+    public $dtsJobId;
+
+    /**
      * @description The operator that is related to the extract, transform, and load (ETL) feature and dedicated to T+1 business.
      *
      * @example {
@@ -126,6 +131,7 @@ class ModifyDtsJobShrinkRequest extends Model
         'dataSynchronization'        => 'DataSynchronization',
         'dbListShrink'               => 'DbList',
         'dtsInstanceId'              => 'DtsInstanceId',
+        'dtsJobId'                   => 'DtsJobId',
         'etlOperatorColumnReference' => 'EtlOperatorColumnReference',
         'fileOssUrl'                 => 'FileOssUrl',
         'filterTableName'            => 'FilterTableName',
@@ -157,6 +163,9 @@ class ModifyDtsJobShrinkRequest extends Model
         }
         if (null !== $this->dtsInstanceId) {
             $res['DtsInstanceId'] = $this->dtsInstanceId;
+        }
+        if (null !== $this->dtsJobId) {
+            $res['DtsJobId'] = $this->dtsJobId;
         }
         if (null !== $this->etlOperatorColumnReference) {
             $res['EtlOperatorColumnReference'] = $this->etlOperatorColumnReference;
@@ -208,6 +217,9 @@ class ModifyDtsJobShrinkRequest extends Model
         }
         if (isset($map['DtsInstanceId'])) {
             $model->dtsInstanceId = $map['DtsInstanceId'];
+        }
+        if (isset($map['DtsJobId'])) {
+            $model->dtsJobId = $map['DtsJobId'];
         }
         if (isset($map['EtlOperatorColumnReference'])) {
             $model->etlOperatorColumnReference = $map['EtlOperatorColumnReference'];
