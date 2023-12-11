@@ -29,7 +29,7 @@ class DescribeRdsVSwitchsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs.
+     * @description This parameter is no longer used.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -53,10 +53,14 @@ class DescribeRdsVSwitchsRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of virtual private cloud (VPC).
+     * @description The virtual private cloud (VPC) ID of the instance.
      *
-     * > *   You can call the [DescribeRdsVpcs](~~208327~~) operation to query the available VPCs.
-     * > *   This parameter is required.
+     * >
+     *
+     *   You can call the [DescribeRdsVpcs](~~208327~~) operation to query the available VPC IDs.
+     *
+     *   This parameter must be specified.
+     *
      * @example vpc-bp*******************
      *
      * @var string

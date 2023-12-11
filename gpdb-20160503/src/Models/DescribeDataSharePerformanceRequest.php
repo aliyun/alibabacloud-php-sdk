@@ -30,7 +30,7 @@ class DescribeDataSharePerformanceRequest extends Model
     public $key;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID of the instance.
      *
      * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -40,7 +40,7 @@ class DescribeDataSharePerformanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     * @description This parameter is no longer used.
      *
      * @example rg-bp67acfmxazb4p****
      *

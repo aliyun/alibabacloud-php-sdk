@@ -185,11 +185,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceMode;
 
     /**
-     * @description The type of the network interface card (NIC) that is used by the instance. Valid values:
-     *
-     *   **0**: Internet.
-     *   **1**: internal network.
-     *   **2**: VPC.
+     * @description An invalid parameter. It is no longer returned when you call this operation.
      *
      * @example 2
      *
@@ -467,7 +463,7 @@ class DBInstanceAttribute extends Model
     public $runningTime;
 
     /**
-     * @description The IP address whitelist of the instance.
+     * @description An invalid parameter. It is no longer returned when you call this operation.
      *
      * @example 127.0.0.1
      *
@@ -575,7 +571,7 @@ class DBInstanceAttribute extends Model
      *   **TB SSD**
      *   **GB HDD**
      *
-     * >  This parameter is returned only for instances in reserved storage mode or Serverless mode.
+     * >  This parameter is returned only for instances in reserved storage mode.
      * @example GB SSD
      *
      * @var string
@@ -583,7 +579,7 @@ class DBInstanceAttribute extends Model
     public $storageUnit;
 
     /**
-     * @description Indicates whether the instance supports backup and restoration.
+     * @description Indicates whether the instance supports backup and restoration. Valid values:
      *
      *   **true**
      *   **false**

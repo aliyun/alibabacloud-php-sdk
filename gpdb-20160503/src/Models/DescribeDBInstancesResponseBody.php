@@ -10,12 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesResponseBody extends Model
 {
     /**
-     * @description The type of the Serverless mode. Valid values:
+     * @description The queried instances.
      *
-     *   **Manual**: manual scheduling.
-     *   **Auto**: automatic scheduling.
-     *
-     * > This parameter is returned only for instances in Serverless mode.
      * @var items
      */
     public $items;

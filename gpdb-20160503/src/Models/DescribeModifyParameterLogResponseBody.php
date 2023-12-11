@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeModifyParameterLogResponseBody extends Model
 {
     /**
-     * @description Indicates whether the modification takes effect.
+     * @description The queried parameter modification logs.
      *
      * @var changelogs[]
      */

@@ -29,7 +29,7 @@ class ModifyDBInstanceDescriptionRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     * @description This parameter is no longer used.
      *
      * @example rg-bp67acfmxazb4p****
      *

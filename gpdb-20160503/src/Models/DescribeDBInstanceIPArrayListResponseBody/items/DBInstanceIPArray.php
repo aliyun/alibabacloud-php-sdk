@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceIPArray extends Model
 {
     /**
-     * @description The attribute of the IP address whitelist. By default, this parameter is empty. A whitelist with the `hidden` attribute does not appear in the console.
+     * @description The attribute of the IP address whitelist. By default, this parameter is empty. A whitelist with the `hidden` attribute is not displayed in the console.
      *
      * @example hidden
      *
@@ -27,7 +27,7 @@ class DBInstanceIPArray extends Model
     public $DBInstanceIPArrayName;
 
     /**
-     * @description The IP addresses listed in the whitelist. You can add up to 1,000 IP addresses to the whitelist. Separate multiple IP addresses with commas (,). The IP addresses must use one of the following formats:
+     * @description The IP addresses listed in the whitelist. Up to 1,000 IP addresses are contained in a whitelist and separated by commas (,). The IP addresses must use one of the following formats:
      *
      *   0.0.0.0/0
      *   10.23.12.24. This is a standard IP address.

@@ -27,7 +27,7 @@ class items extends Model
     public $nodeAddress;
 
     /**
-     * @description The ID of the node group.
+     * @description The node group ID.
      *
      * @example -1
      *
@@ -36,7 +36,7 @@ class items extends Model
     public $nodeCID;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example 1
      *
@@ -65,10 +65,10 @@ class items extends Model
     /**
      * @description The initial role of the node. Valid values:
      *
-     *   **primary**: primary node
-     *   **mirror**: secondary node
+     *   **primary**: primary node.
+     *   **mirror**: secondary node.
      *
-     * If the value of this parameter is the same as that of **NodeRole**, no primary/secondary switchover occurs. If the value of this parameter is not the same as that of **NodeRole**, a primary/secondary switchover occurs.
+     * If the value of this parameter is the same as that of **NodeRole**, no primary/secondary switchover occurs. If the value of this parameter is different from that of **NodeRole**, a primary/secondary switchover occurs.
      * @example primary
      *
      * @var string
@@ -91,8 +91,8 @@ class items extends Model
     /**
      * @description The current role of the node. Valid values:
      *
-     *   **primary**: primary node
-     *   **mirror**: secondary node
+     *   **primary**: primary node.
+     *   **mirror**: secondary node.
      *
      * @example primary
      *
@@ -115,9 +115,9 @@ class items extends Model
     /**
      * @description The type of the node. Valid values:
      *
-     *   **master**: primary coordinator node
-     *   **slave**: standby coordinator node
-     *   **segment**: compute node
+     *   **master**: primary coordinator node.
+     *   **slave**: standby coordinator node.
+     *   **segment**: compute node.
      *
      * @example master
      *

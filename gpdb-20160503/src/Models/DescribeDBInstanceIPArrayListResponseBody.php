@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceIPArrayListResponseBody extends Model
 {
     /**
-     * @description The attribute of the IP address whitelist. By default, this parameter is empty. A whitelist with the `hidden` attribute does not appear in the console.
+     * @description The queried IP address whitelists.
      *
      * @var items
      */

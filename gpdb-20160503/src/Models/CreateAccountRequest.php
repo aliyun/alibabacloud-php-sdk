@@ -69,7 +69,7 @@ class CreateAccountRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs.
+     * @description This parameter is no longer used.
      *
      * @example rg-bp67acfmxazb4p****
      *

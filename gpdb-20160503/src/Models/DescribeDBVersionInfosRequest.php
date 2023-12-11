@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBVersionInfosRequest extends Model
 {
     /**
+     * @description The resource type of the instance. Valid values:
+     *
+     *   **StorageElastic**: elastic storage mode.
+     *   **Serverless**: Serverless mode.
+     *
      * @example StorageElastic
      *
      * @var string
@@ -16,7 +21,9 @@ class DescribeDBVersionInfosRequest extends Model
     public $DBInstanceMode;
 
     /**
-     * @example 6.3.10.20。
+     * @description The minor version number that does not include the prefix.
+     *
+     * @example 6.3.10.20
      *
      * @var string
      */
@@ -28,6 +35,9 @@ class DescribeDBVersionInfosRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -35,6 +45,8 @@ class DescribeDBVersionInfosRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string

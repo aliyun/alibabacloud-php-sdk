@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCollectionDataRequest extends Model
 {
     /**
+     * @description The name of the collection.
+     *
      * @example document
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteCollectionDataRequest extends Model
     public $collection;
 
     /**
+     * @description The data that you want to delete.
+     *
      * @example {"title":["a","b"]}
      *
      * @var string
@@ -23,11 +27,18 @@ class DeleteCollectionDataRequest extends Model
     public $collectionData;
 
     /**
+     * @description The data filter to delete.
+     *
+     * @example a < 10
+     *
      * @var string
      */
     public $collectionDataFilter;
 
     /**
+     * @description The instance ID.
+     *
+     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -35,6 +46,8 @@ class DeleteCollectionDataRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example mynamespace
      *
      * @var string
@@ -42,6 +55,8 @@ class DeleteCollectionDataRequest extends Model
     public $namespace;
 
     /**
+     * @description The password of the namespace.
+     *
      * @example testpassword
      *
      * @var string
@@ -54,6 +69,9 @@ class DeleteCollectionDataRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * > You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

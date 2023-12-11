@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceIPArrayListRequest extends Model
 {
     /**
+     * @description The name of the IP address whitelist. If you do not specify this parameter, the default whitelist is queried.
+     *
+     * >  Each instance supports up to 50 IP address whitelists.
+     * @example Default
+     *
      * @var string
      */
     public $DBInstanceIPArrayName;

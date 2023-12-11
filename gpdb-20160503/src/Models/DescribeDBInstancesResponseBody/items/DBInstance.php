@@ -31,9 +31,9 @@ class DBInstance extends Model
     /**
      * @description The edition of the instance. Valid values:
      *
-     *   **Basic**: Basic Edition
-     *   **HighAvailability**: High-availability Edition
-     *   **Finance**: Enterprise Edition
+     *   **Basic**: Basic Edition.
+     *   **HighAvailability**: High-availability Edition.
+     *   **Finance**: Enterprise Edition.
      *
      * @example HighAvailability
      *
@@ -51,7 +51,7 @@ class DBInstance extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example gp-bp12ga6v69h86****
      *
@@ -62,9 +62,9 @@ class DBInstance extends Model
     /**
      * @description The resource type of the instance. Valid values:
      *
-     *   **Serverless**: Serverless mode
-     *   **StorageElastic**: elastic storage mode
-     *   **Classic**: reserved storage mode
+     *   **Serverless**: Serverless mode.
+     *   **StorageElastic**: elastic storage mode.
+     *   **Classic**: reserved storage mode.
      *
      * @example StorageElastic
      *
@@ -75,9 +75,9 @@ class DBInstance extends Model
     /**
      * @description The type of the network interface card (NIC) that is used by the instance. Valid values:
      *
-     *   **0**: Internet
-     *   **1**: internal network
-     *   **2**: VPC
+     *   **0**: Internet.
+     *   **1**: internal network.
+     *   **2**: VPC.
      *
      * @example 2
      *
@@ -95,7 +95,7 @@ class DBInstance extends Model
     public $DBInstanceStatus;
 
     /**
-     * @description The database engine that the instance runs.
+     * @description The database engine of the instance.
      *
      * @example gpdb
      *
@@ -115,7 +115,7 @@ class DBInstance extends Model
     /**
      * @description The expiration time of the instance. The time is displayed in UTC.
      *
-     * >  For pay-as-you-go instances, `2999-09-08T16:00:00Z` is returned.
+     * > The expiration time of a pay-as-you-go instance is `2999-09-08T16:00:00Z`.
      * @example 2999-09-08T16:00:00Z
      *
      * @var string
@@ -125,8 +125,8 @@ class DBInstance extends Model
     /**
      * @description The resource type of the instance. Valid values:
      *
-     *   **cluster**: elastic storage mode or Serverless mode
-     *   **replicaSet**: reserved storage mode
+     *   **cluster**: Serverless mode or elastic storage mode.
+     *   **replicaSet**: reserved storage mode.
      *
      * @example cluster
      *
@@ -137,8 +137,8 @@ class DBInstance extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **Classic**
-     *   **VPC**
+     *   **Classic**: classic network.
+     *   **VPC**: VPC.
      *
      * @example VPC
      *
@@ -163,9 +163,15 @@ class DBInstance extends Model
     public $lockMode;
 
     /**
-     * @description The reason why the cluster is locked.
+     * @description The reason why the instance is locked. Valid values:
      *
-     * >  This parameter is returned only when the cluster is locked. The value is **instance_expire**.
+     *   **0**: The instance is not locked.
+     *   **1**: The instance is manually locked.
+     *   **2**: The instance is automatically locked due to instance expiration.
+     *   **3**: The instance is automatically locked due to instance restoration.
+     *   **4**: The instance is automatically locked due to exhausted storage.
+     *
+     * > If the instance is in reserved storage mode and unlocked, null is returned.
      * @example 0
      *
      * @var string
@@ -184,8 +190,8 @@ class DBInstance extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   **Postpaid**: pay-as-you-go
-     *   **Prepaid**: subscription
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
      *
      * @example Postpaid
      *
@@ -194,7 +200,7 @@ class DBInstance extends Model
     public $payType;
 
     /**
-     * @description The region ID of the instance.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -223,10 +229,10 @@ class DBInstance extends Model
     /**
      * @description The type of the Serverless mode. Valid values:
      *
-     *   **Manual**: manual scheduling
-     *   **Auto**: automatic scheduling
+     *   **Manual**: manual scheduling.
+     *   **Auto**: automatic scheduling.
      *
-     * >  This parameter is returned only for instances in Serverless mode.
+     * > This parameter is returned only for instances in Serverless mode.
      * @example Manual
      *
      * @var string
@@ -234,7 +240,7 @@ class DBInstance extends Model
     public $serverlessMode;
 
     /**
-     * @description The storage capacity. Unit: GB.
+     * @description The storage capacity of the instance. Unit: GB.
      *
      * @example 50
      *
@@ -245,8 +251,8 @@ class DBInstance extends Model
     /**
      * @description The storage type of the instance. Valid values:
      *
-     *   **cloud_essd**: enhanced SSD (ESSD)
-     *   **cloud_efficiency**: ultra disk
+     *   **cloud_essd**: enhanced SSD (ESSD).
+     *   **cloud_efficiency**: ultra disk.
      *
      * @example cloud_essd
      *
@@ -255,14 +261,14 @@ class DBInstance extends Model
     public $storageType;
 
     /**
-     * @description The tags of the instance. Each tag is a key-value pair.
+     * @description The tags that are added to the instance.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-bp1cpq8mr64paltkb****
      *
@@ -271,7 +277,7 @@ class DBInstance extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of virtual private cloud (VPC).
+     * @description The VPC ID.
      *
      * @example vpc-bp19ame5m1r3oejns****
      *
@@ -280,7 +286,7 @@ class DBInstance extends Model
     public $vpcId;
 
     /**
-     * @description The zone ID of the instance.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-h
      *

@@ -19,7 +19,7 @@ class DescribeTagsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details of the tags.
+     * @description The queried tags.
      *
      * @var tags[]
      */

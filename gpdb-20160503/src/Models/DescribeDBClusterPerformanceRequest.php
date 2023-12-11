@@ -67,6 +67,11 @@ class DescribeDBClusterPerformanceRequest extends Model
     public $nodes;
 
     /**
+     * @var string
+     */
+    public $resourceGroupName;
+
+    /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDTHH:mmZ` format.
      *
      * > You can query monitoring information only within the last 30 days.
@@ -76,12 +81,13 @@ class DescribeDBClusterPerformanceRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceId' => 'DBInstanceId',
-        'endTime'      => 'EndTime',
-        'key'          => 'Key',
-        'nodeType'     => 'NodeType',
-        'nodes'        => 'Nodes',
-        'startTime'    => 'StartTime',
+        'DBInstanceId'      => 'DBInstanceId',
+        'endTime'           => 'EndTime',
+        'key'               => 'Key',
+        'nodeType'          => 'NodeType',
+        'nodes'             => 'Nodes',
+        'resourceGroupName' => 'ResourceGroupName',
+        'startTime'         => 'StartTime',
     ];
 
     public function validate()
@@ -105,6 +111,9 @@ class DescribeDBClusterPerformanceRequest extends Model
         }
         if (null !== $this->nodes) {
             $res['Nodes'] = $this->nodes;
+        }
+        if (null !== $this->resourceGroupName) {
+            $res['ResourceGroupName'] = $this->resourceGroupName;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -135,6 +144,9 @@ class DescribeDBClusterPerformanceRequest extends Model
         }
         if (isset($map['Nodes'])) {
             $model->nodes = $map['Nodes'];
+        }
+        if (isset($map['ResourceGroupName'])) {
+            $model->resourceGroupName = $map['ResourceGroupName'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

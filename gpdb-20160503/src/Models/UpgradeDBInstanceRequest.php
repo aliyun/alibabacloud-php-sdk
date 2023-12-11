@@ -47,9 +47,8 @@ class UpgradeDBInstanceRequest extends Model
     public $instanceSpec;
 
     /**
-     * @description The number of coordinator nodes. Valid values: 1 and 2.
+     * @description This parameter is no longer used.
      *
-     * > This parameter is available only for China site (aliyun.com).
      * @example 2
      *
      * @var string

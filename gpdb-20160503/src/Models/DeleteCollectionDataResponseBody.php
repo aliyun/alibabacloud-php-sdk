@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCollectionDataResponseBody extends Model
 {
     /**
+     * @description The number of rows that are affected by the request.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteCollectionDataResponseBody extends Model
     public $appliedRows;
 
     /**
+     * @description The returned message.
+     *
      * @example Successful
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteCollectionDataResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -30,6 +36,11 @@ class DeleteCollectionDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

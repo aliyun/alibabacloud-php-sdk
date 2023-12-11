@@ -121,6 +121,11 @@ class DescribeDBInstancesShrinkRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'DBInstanceCategoriesShrink' => 'DBInstanceCategories',
         'DBInstanceDescription'      => 'DBInstanceDescription',
@@ -135,6 +140,7 @@ class DescribeDBInstancesShrinkRequest extends Model
         'regionId'                   => 'RegionId',
         'resourceGroupId'            => 'ResourceGroupId',
         'tag'                        => 'Tag',
+        'vpcId'                      => 'VpcId',
     ];
 
     public function validate()
@@ -188,6 +194,9 @@ class DescribeDBInstancesShrinkRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -245,6 +254,9 @@ class DescribeDBInstancesShrinkRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

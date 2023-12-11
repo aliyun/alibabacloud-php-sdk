@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpsertCollectionDataRequest extends Model
 {
     /**
+     * @description The name of the collection.
+     *
      * @example document
      *
      * @var string
@@ -17,6 +19,9 @@ class UpsertCollectionDataRequest extends Model
     public $collection;
 
     /**
+     * @description The instance ID.
+     *
+     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -24,6 +29,8 @@ class UpsertCollectionDataRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example mynamespace
      *
      * @var string
@@ -31,6 +38,8 @@ class UpsertCollectionDataRequest extends Model
     public $namespace;
 
     /**
+     * @description The password of the namespace.
+     *
      * @example testpassword
      *
      * @var string
@@ -43,6 +52,9 @@ class UpsertCollectionDataRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * > You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

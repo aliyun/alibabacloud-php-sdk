@@ -1898,6 +1898,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->nodes)) {
             $query['Nodes'] = $request->nodes;
         }
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
+        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -2684,6 +2687,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

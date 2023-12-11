@@ -30,11 +30,11 @@ class DescribeDBInstanceIndexUsageRequest extends Model
     /**
      * @description The number of entries per page. Valid values:
      *
-     *   **20**
+     *   **30**
      *   **50**
      *   **100**
      *
-     * Default value: **20**.
+     * Default value: **30**.
      * @example 20
      *
      * @var int

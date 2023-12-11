@@ -209,9 +209,8 @@ class CreateDBInstanceRequest extends Model
     public $masterCU;
 
     /**
-     * @description The number of coordinator nodes. Valid values: 1 and 2.
+     * @description This parameter is no longer used.
      *
-     * > If you do not specify this parameter, 1 is used.
      * @example 1
      *
      * @var string

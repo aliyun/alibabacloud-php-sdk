@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class changelogs extends Model
 {
     /**
-     * @description The time when the configuration change takes effect.
+     * @description The effective time.
      *
      * @example 2020-05-05T11:22:22Z
      *
@@ -27,7 +27,7 @@ class changelogs extends Model
     public $parameterName;
 
     /**
-     * @description Indicates whether the configuration change takes effect.
+     * @description Indicates whether the modification takes effect.
      *
      * @example true
      *

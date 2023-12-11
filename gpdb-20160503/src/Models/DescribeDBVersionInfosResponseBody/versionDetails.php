@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class versionDetails extends Model
 {
     /**
+     * @description The queried minor version information about the instance in Serverless mode.
+     *
      * @example "Serverless": [
      * ]
      * @var mixed
@@ -16,6 +18,8 @@ class versionDetails extends Model
     public $serverless;
 
     /**
+     * @description The queried minor version information about the instance in elastic storage mode.
+     *
      * @example "StorageElasic": [
      * ]
      * @var mixed
