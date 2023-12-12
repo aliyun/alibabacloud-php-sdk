@@ -15,16 +15,22 @@ class SubmitTracemuResponseBody extends Model
     public $data;
 
     /**
+     * @example ok
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 610393F5324544B46C60****
+     *
      * @var string
      */
     public $requestID;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $statusCode;

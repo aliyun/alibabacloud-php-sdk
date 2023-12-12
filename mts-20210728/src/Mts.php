@@ -113,19 +113,6 @@ class Mts extends OpenApiClient
 
     /**
      * @param QueryCopyrightRequest $request
-     *
-     * @return QueryCopyrightResponse
-     */
-    public function queryCopyright($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->queryCopyrightWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param QueryCopyrightRequest $request
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
      *
@@ -173,16 +160,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryCopyrightExtractRequest $request
+     * @param QueryCopyrightRequest $request
      *
-     * @return QueryCopyrightExtractResponse
+     * @return QueryCopyrightResponse
      */
-    public function queryCopyrightExtract($request)
+    public function queryCopyright($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->queryCopyrightExtractWithOptions($request, $headers, $runtime);
+        return $this->queryCopyrightWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -219,16 +206,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryTraceAbRequest $request
+     * @param QueryCopyrightExtractRequest $request
      *
-     * @return QueryTraceAbResponse
+     * @return QueryCopyrightExtractResponse
      */
-    public function queryTraceAb($request)
+    public function queryCopyrightExtract($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->queryTraceAbWithOptions($request, $headers, $runtime);
+        return $this->queryCopyrightExtractWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -268,16 +255,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryTraceExtractRequest $request
+     * @param QueryTraceAbRequest $request
      *
-     * @return QueryTraceExtractResponse
+     * @return QueryTraceAbResponse
      */
-    public function queryTraceExtract($request)
+    public function queryTraceAb($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->queryTraceExtractWithOptions($request, $headers, $runtime);
+        return $this->queryTraceAbWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -314,16 +301,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryTraceMuRequest $request
+     * @param QueryTraceExtractRequest $request
      *
-     * @return QueryTraceMuResponse
+     * @return QueryTraceExtractResponse
      */
-    public function queryTraceMu($request)
+    public function queryTraceExtract($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->queryTraceMuWithOptions($request, $headers, $runtime);
+        return $this->queryTraceExtractWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -378,16 +365,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitCopyrightExtractRequest $request
+     * @param QueryTraceMuRequest $request
      *
-     * @return SubmitCopyrightExtractResponse
+     * @return QueryTraceMuResponse
      */
-    public function submitCopyrightExtract($request)
+    public function queryTraceMu($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->submitCopyrightExtractWithOptions($request, $headers, $runtime);
+        return $this->queryTraceMuWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -406,6 +393,9 @@ class Mts extends OpenApiClient
         }
         if (!Utils::isUnset($request->input)) {
             $body['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $body['Params'] = $request->params;
         }
         if (!Utils::isUnset($request->url)) {
             $body['Url'] = $request->url;
@@ -433,16 +423,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitCopyrightJobRequest $request
+     * @param SubmitCopyrightExtractRequest $request
      *
-     * @return SubmitCopyrightJobResponse
+     * @return SubmitCopyrightExtractResponse
      */
-    public function submitCopyrightJob($request)
+    public function submitCopyrightExtract($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->submitCopyrightJobWithOptions($request, $headers, $runtime);
+        return $this->submitCopyrightExtractWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -512,16 +502,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitImageCopyrightRequest $request
+     * @param SubmitCopyrightJobRequest $request
      *
-     * @return SubmitImageCopyrightResponse
+     * @return SubmitCopyrightJobResponse
      */
-    public function submitImageCopyright($request)
+    public function submitCopyrightJob($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->submitImageCopyrightWithOptions($request, $headers, $runtime);
+        return $this->submitCopyrightJobWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -567,16 +557,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitTraceAbRequest $request
+     * @param SubmitImageCopyrightRequest $request
      *
-     * @return SubmitTraceAbResponse
+     * @return SubmitImageCopyrightResponse
      */
-    public function submitTraceAb($request)
+    public function submitImageCopyright($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->submitTraceAbWithOptions($request, $headers, $runtime);
+        return $this->submitImageCopyrightWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -637,16 +627,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitTraceExtractRequest $request
+     * @param SubmitTraceAbRequest $request
      *
-     * @return SubmitTraceExtractResponse
+     * @return SubmitTraceAbResponse
      */
-    public function submitTraceExtract($request)
+    public function submitTraceAb($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->submitTraceExtractWithOptions($request, $headers, $runtime);
+        return $this->submitTraceAbWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -692,16 +682,16 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitTracemuRequest $request
+     * @param SubmitTraceExtractRequest $request
      *
-     * @return SubmitTracemuResponse
+     * @return SubmitTraceExtractResponse
      */
-    public function submitTracemu($request)
+    public function submitTraceExtract($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->submitTracemuWithOptions($request, $headers, $runtime);
+        return $this->submitTraceExtractWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -744,5 +734,18 @@ class Mts extends OpenApiClient
         ]);
 
         return SubmitTracemuResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitTracemuRequest $request
+     *
+     * @return SubmitTracemuResponse
+     */
+    public function submitTracemu($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitTracemuWithOptions($request, $headers, $runtime);
     }
 }

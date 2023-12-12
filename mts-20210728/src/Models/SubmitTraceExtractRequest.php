@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SubmitTraceExtractRequest extends Model
 {
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $callBack;
 
     /**
+     * @example {"Bucket":"example","Location":"oss-cn-shanghai","Object":"example.mp4"}
+     *
      * @var string
      */
     public $input;
 
     /**
+     * @example http://example.com/test.mp4
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example 51test
+     *
      * @var string
      */
     public $userData;

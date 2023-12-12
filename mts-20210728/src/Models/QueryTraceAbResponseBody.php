@@ -15,16 +15,22 @@ class QueryTraceAbResponseBody extends Model
     public $data;
 
     /**
+     * @example ok
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 61038D31354232E106FB****
+     *
      * @var string
      */
     public $requestID;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $statusCode;

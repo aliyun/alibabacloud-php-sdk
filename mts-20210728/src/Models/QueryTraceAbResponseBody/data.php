@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $callback;
 
     /**
+     * @example 1727441315
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1727441315
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example {"Bucket":"exampleBucket","Location":"oss-cn-shanghai","Object":"test.jpeg"}
+     *
      * @var string
      */
     public $input;
 
     /**
+     * @example bfb786c639894f4d80648792021e****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $level;
 
     /**
+     * @example 437bd2b516ffda105d07b12a9a82****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example {"Bucket":"ivison-test","Location":"oss-cn-shanghai","Dir":"out/"}
+     *
      * @var string
      */
     public $output;
 
     /**
+     * @example {"Code":"success","Message":"ok"}
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example {"uid":134669327666****}
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @example 134669327666****
+     *
      * @var int
      */
     public $userId;

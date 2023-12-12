@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryTraceAbRequest extends Model
 {
     /**
+     * @example a20f60d76ac9485496c4a1c6fa70****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 437bd2b516ffda105d07b12a9a82****
+     *
      * @var string
      */
     public $mediaId;

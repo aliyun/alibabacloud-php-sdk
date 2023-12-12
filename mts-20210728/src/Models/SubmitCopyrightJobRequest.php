@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class SubmitCopyrightJobRequest extends Model
 {
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $callBack;
 
     /**
+     * @example 地址 : 上海市浦东新区上科路366号川和路55弄2号5层水印信息描述
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example.flv"}
+     *
      * @var string
      */
     public $input;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $level;
 
     /**
+     * @example 平头哥(上海)半导体技术有限公司水印信息
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example.flv"}
+     *
      * @var string
      */
     public $output;
 
     /**
+     * @example {"vsid":"198"}
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $totalTime;
 
     /**
+     * @example http://www.example.com/video/test.mp4
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @example abcd
+     *
      * @var string
      */
     public $visibleMessage;

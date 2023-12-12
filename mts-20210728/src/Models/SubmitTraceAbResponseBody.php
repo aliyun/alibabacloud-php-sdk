@@ -15,16 +15,22 @@ class SubmitTraceAbResponseBody extends Model
     public $data;
 
     /**
+     * @example ok
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 610399D2334334AE2CB70C28
+     *
      * @var string
      */
     public $requestID;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $statusCode;

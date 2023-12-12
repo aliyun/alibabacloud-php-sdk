@@ -9,27 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SubmitCopyrightExtractRequest extends Model
 {
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $callBack;
 
     /**
+     * @example {"Bucket":"example","Location":"oss-cn-shanghai","Object":"example.mp4"}
+     *
      * @var string
      */
     public $input;
 
     /**
+     * @example {"strength":"1"}
+     *
+     * @var string
+     */
+    public $params;
+
+    /**
+     * @example http://example.com/test.mp4
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example 23test
+     *
      * @var string
      */
     public $userData;
     protected $_name = [
         'callBack' => 'CallBack',
         'input'    => 'Input',
+        'params'   => 'Params',
         'url'      => 'Url',
         'userData' => 'UserData',
     ];
@@ -46,6 +62,9 @@ class SubmitCopyrightExtractRequest extends Model
         }
         if (null !== $this->input) {
             $res['Input'] = $this->input;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -70,6 +89,9 @@ class SubmitCopyrightExtractRequest extends Model
         }
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
+        }
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];

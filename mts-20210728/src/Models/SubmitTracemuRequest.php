@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SubmitTracemuRequest extends Model
 {
     /**
+     * @example https://cipher.abc.com
+     *
      * @var string
      */
     public $keyUri;
 
     /**
+     * @example 437bd2b516ffda105d07b12a9a82****
+     *
      * @var string
      */
     public $mediaId;
 
     /**
+     * @example {"Bucket":"exampleBucket","Location":"oss-cn-shanghai","Object":"out.m3u8"}
+     *
      * @var string
      */
     public $output;
 
     /**
+     * @example 平头哥半导体科技有限公司
+     *
      * @var string
      */
     public $trace;

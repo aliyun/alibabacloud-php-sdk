@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class QueryTraceMuRequest extends Model
 {
     /**
+     * @example 1527441300
+     *
      * @var int
      */
     public $createTimeEnd;
 
     /**
+     * @example 1527441300
+     *
      * @var int
      */
     public $createTimeStart;
 
     /**
+     * @example bfb786c639894f4d80648792021e****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $level;
 
     /**
+     * @example 78
+     *
      * @var int
      */
     public $messageId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;

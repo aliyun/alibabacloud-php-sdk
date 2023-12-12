@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SubmitImageCopyrightRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $level;
 
     /**
+     * @example 平头哥半导体科技有限公司
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example {"Bucket":"abc-test","Location":"oss-cn-shanghai","Object":"out.jpeg"}
+     *
      * @var string
      */
     public $output;
 
     /**
+     * @example {"width":2999, "height":2999, "afa": 3, "type":1, "version":0}
+     *
      * @var string
      */
     public $params;

@@ -15,11 +15,15 @@ class QueryCopyrightResponseBody extends Model
     public $data;
 
     /**
+     * @example 61038D1A424235AE267B9817
+     *
      * @var string
      */
     public $requestID;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $statusCode;

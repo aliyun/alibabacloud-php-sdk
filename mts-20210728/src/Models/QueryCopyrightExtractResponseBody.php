@@ -15,16 +15,22 @@ class QueryCopyrightExtractResponseBody extends Model
     public $data;
 
     /**
+     * @example ok
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 54BB917F-DD35-4F32-BABA-E60E31B21W63
+     *
      * @var string
      */
     public $requestID;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $statusCode;

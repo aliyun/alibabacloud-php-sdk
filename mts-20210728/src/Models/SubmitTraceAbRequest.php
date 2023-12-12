@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class SubmitTraceAbRequest extends Model
 {
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $callBack;
 
     /**
+     * @example Qh6OdgIMcliQSI1fReOw****
+     *
      * @var string
      */
     public $cipherBase64ed;
 
     /**
+     * @example {"Bucket":"ivison-test","Location":"oss-cn-shanghai","Object":"test.mp4"}
+     *
      * @var string
      */
     public $input;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $level;
 
     /**
+     * @example {"Bucket":"ivison-test","Location":"oss-cn-shanghai","Dir":"out/"}
+     *
      * @var string
      */
     public $output;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example 360
+     *
      * @var int
      */
     public $totalTime;
 
     /**
+     * @example http://example.com/image_01.jpg
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example {uid:1765****}
+     *
      * @var string
      */
     public $userData;

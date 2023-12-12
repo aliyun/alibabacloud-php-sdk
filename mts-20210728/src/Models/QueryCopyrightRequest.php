@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class QueryCopyrightRequest extends Model
 {
     /**
+     * @example 1627357322
+     *
      * @var int
      */
     public $createTimeEnd;
 
     /**
+     * @example 1627357322
+     *
      * @var int
      */
     public $createTimeStart;
 
     /**
+     * @example e44f30ce-21d9-4814-901d-7925f748****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $level;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
