@@ -32,11 +32,17 @@ class transcription extends Model
      * @var int
      */
     public $outputLevel;
+
+    /**
+     * @var string
+     */
+    public $phraseId;
     protected $_name = [
         'audioEventDetectionEnabled' => 'AudioEventDetectionEnabled',
         'diarization'                => 'Diarization',
         'diarizationEnabled'         => 'DiarizationEnabled',
         'outputLevel'                => 'OutputLevel',
+        'phraseId'                   => 'PhraseId',
     ];
 
     public function validate()
@@ -57,6 +63,9 @@ class transcription extends Model
         }
         if (null !== $this->outputLevel) {
             $res['OutputLevel'] = $this->outputLevel;
+        }
+        if (null !== $this->phraseId) {
+            $res['PhraseId'] = $this->phraseId;
         }
 
         return $res;
@@ -81,6 +90,9 @@ class transcription extends Model
         }
         if (isset($map['OutputLevel'])) {
             $model->outputLevel = $map['OutputLevel'];
+        }
+        if (isset($map['PhraseId'])) {
+            $model->phraseId = $map['PhraseId'];
         }
 
         return $model;
