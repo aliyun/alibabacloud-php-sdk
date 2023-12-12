@@ -40,6 +40,16 @@ class CreateLindormInstanceRequest extends Model
     public $archVersion;
 
     /**
+     * @var string
+     */
+    public $autoRenewDuration;
+
+    /**
+     * @var bool
+     */
+    public $autoRenewal;
+
+    /**
      * @description The cold storage capacity of the instance. By default, if you leave this parameter unspecified, cold storage is not enabled for the instance. Unit: GB. Valid values: **800** to **1000000**.
      *
      * @example 800
@@ -447,6 +457,8 @@ class CreateLindormInstanceRequest extends Model
         'arbiterVSwitchId'     => 'ArbiterVSwitchId',
         'arbiterZoneId'        => 'ArbiterZoneId',
         'archVersion'          => 'ArchVersion',
+        'autoRenewDuration'    => 'AutoRenewDuration',
+        'autoRenewal'          => 'AutoRenewal',
         'coldStorage'          => 'ColdStorage',
         'coreSingleStorage'    => 'CoreSingleStorage',
         'coreSpec'             => 'CoreSpec',
@@ -502,6 +514,12 @@ class CreateLindormInstanceRequest extends Model
         }
         if (null !== $this->archVersion) {
             $res['ArchVersion'] = $this->archVersion;
+        }
+        if (null !== $this->autoRenewDuration) {
+            $res['AutoRenewDuration'] = $this->autoRenewDuration;
+        }
+        if (null !== $this->autoRenewal) {
+            $res['AutoRenewal'] = $this->autoRenewal;
         }
         if (null !== $this->coldStorage) {
             $res['ColdStorage'] = $this->coldStorage;
@@ -637,6 +655,12 @@ class CreateLindormInstanceRequest extends Model
         }
         if (isset($map['ArchVersion'])) {
             $model->archVersion = $map['ArchVersion'];
+        }
+        if (isset($map['AutoRenewDuration'])) {
+            $model->autoRenewDuration = $map['AutoRenewDuration'];
+        }
+        if (isset($map['AutoRenewal'])) {
+            $model->autoRenewal = $map['AutoRenewal'];
         }
         if (isset($map['ColdStorage'])) {
             $model->coldStorage = $map['ColdStorage'];

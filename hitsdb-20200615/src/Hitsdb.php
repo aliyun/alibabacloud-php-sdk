@@ -6,14 +6,22 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateLdpsComputeGroupRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateLdpsComputeGroupResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateLdpsNamespaceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateLdpsNamespaceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateLindormInstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DeleteLdpsComputeGroupRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DeleteLdpsComputeGroupResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetEngineDefaultAuthRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetEngineDefaultAuthResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsComputeGroupRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsComputeGroupResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsNamespacedQuotaRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsNamespacedQuotaResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsResourceCostRequest;
@@ -24,6 +32,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceListResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListLdpsComputeGroupsRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListLdpsComputeGroupsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyInstancePayTypeRequest;
@@ -32,6 +42,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\RenewLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\RenewLindormInstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\RestartLdpsComputeGroupRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\RestartLdpsComputeGroupResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\SwitchLSQLV3MySQLServiceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\SwitchLSQLV3MySQLServiceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\TagResourcesRequest;
@@ -40,6 +52,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateInstanceIpWhiteListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateInstanceIpWhiteListResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLdpsComputeGroupRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLdpsComputeGroupResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpgradeLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpgradeLindormInstanceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -79,6 +93,73 @@ class Hitsdb extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CreateLdpsComputeGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateLdpsComputeGroupResponse
+     */
+    public function createLdpsComputeGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->properties)) {
+            $query['Properties'] = $request->properties;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLdpsComputeGroup',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateLdpsComputeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateLdpsComputeGroupRequest $request
+     *
+     * @return CreateLdpsComputeGroupResponse
+     */
+    public function createLdpsComputeGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLdpsComputeGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -165,6 +246,12 @@ class Hitsdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->archVersion)) {
             $query['ArchVersion'] = $request->archVersion;
+        }
+        if (!Utils::isUnset($request->autoRenewDuration)) {
+            $query['AutoRenewDuration'] = $request->autoRenewDuration;
+        }
+        if (!Utils::isUnset($request->autoRenewal)) {
+            $query['AutoRenewal'] = $request->autoRenewal;
         }
         if (!Utils::isUnset($request->coldStorage)) {
             $query['ColdStorage'] = $request->coldStorage;
@@ -313,6 +400,70 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * @param DeleteLdpsComputeGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteLdpsComputeGroupResponse
+     */
+    public function deleteLdpsComputeGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLdpsComputeGroup',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteLdpsComputeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteLdpsComputeGroupRequest $request
+     *
+     * @return DeleteLdpsComputeGroupResponse
+     */
+    public function deleteLdpsComputeGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLdpsComputeGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -371,6 +522,67 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * @param GetEngineDefaultAuthRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetEngineDefaultAuthResponse
+     */
+    public function getEngineDefaultAuthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEngineDefaultAuth',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEngineDefaultAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetEngineDefaultAuthRequest $request
+     *
+     * @return GetEngineDefaultAuthResponse
+     */
+    public function getEngineDefaultAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEngineDefaultAuthWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetInstanceIpWhiteListRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -426,6 +638,70 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceIpWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLdpsComputeGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetLdpsComputeGroupResponse
+     */
+    public function getLdpsComputeGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLdpsComputeGroup',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLdpsComputeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetLdpsComputeGroupRequest $request
+     *
+     * @return GetLdpsComputeGroupResponse
+     */
+    public function getLdpsComputeGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLdpsComputeGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -761,6 +1037,67 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * @param ListLdpsComputeGroupsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListLdpsComputeGroupsResponse
+     */
+    public function listLdpsComputeGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLdpsComputeGroups',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLdpsComputeGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListLdpsComputeGroupsRequest $request
+     *
+     * @return ListLdpsComputeGroupsResponse
+     */
+    public function listLdpsComputeGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLdpsComputeGroupsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTagResourcesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1038,6 +1375,70 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * @param RestartLdpsComputeGroupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RestartLdpsComputeGroupResponse
+     */
+    public function restartLdpsComputeGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartLdpsComputeGroup',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RestartLdpsComputeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RestartLdpsComputeGroupRequest $request
+     *
+     * @return RestartLdpsComputeGroupResponse
+     */
+    public function restartLdpsComputeGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartLdpsComputeGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SwitchLSQLV3MySQLServiceRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1297,6 +1698,73 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateInstanceIpWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateLdpsComputeGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateLdpsComputeGroupResponse
+     */
+    public function updateLdpsComputeGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->properties)) {
+            $query['Properties'] = $request->properties;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLdpsComputeGroup',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateLdpsComputeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateLdpsComputeGroupRequest $request
+     *
+     * @return UpdateLdpsComputeGroupResponse
+     */
+    public function updateLdpsComputeGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLdpsComputeGroupWithOptions($request, $runtime);
     }
 
     /**
