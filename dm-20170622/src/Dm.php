@@ -484,6 +484,9 @@ class Dm extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tagDescription)) {
+            $query['TagDescription'] = $request->tagDescription;
+        }
         if (!Utils::isUnset($request->tagName)) {
             $query['TagName'] = $request->tagName;
         }
@@ -1392,6 +1395,9 @@ class Dm extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tagDescription)) {
+            $query['TagDescription'] = $request->tagDescription;
         }
         if (!Utils::isUnset($request->tagId)) {
             $query['TagId'] = $request->tagId;

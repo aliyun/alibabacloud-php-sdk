@@ -14,6 +14,8 @@ class htmlBodyPlaceHolders extends Model
     public $placeHolders;
 
     /**
+     * @example test1***@example.net
+     *
      * @var string
      */
     public $toAddress;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SingleSendMailV2ResponseBody extends Model
 {
     /**
+     * @example xxxxxx
+     *
      * @var string
      */
     public $envId;
 
     /**
+     * @example 2D086F6-8F31-4658-84C1-006DED011A85
+     *
      * @var string
      */
     public $requestId;

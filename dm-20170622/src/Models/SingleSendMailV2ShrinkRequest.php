@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SingleSendMailV2ShrinkRequest extends Model
 {
     /**
+     * @example test***@example.net
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $addressType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $clickTrace;
@@ -29,6 +35,8 @@ class SingleSendMailV2ShrinkRequest extends Model
     public $fromAlias;
 
     /**
+     * @example body
+     *
      * @var string
      */
     public $htmlBody;
@@ -44,6 +52,8 @@ class SingleSendMailV2ShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @example test2***@example.net
+     *
      * @var string
      */
     public $replyAddress;
@@ -54,6 +64,8 @@ class SingleSendMailV2ShrinkRequest extends Model
     public $replyAddressAlias;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $replyToAddress;
@@ -69,21 +81,29 @@ class SingleSendMailV2ShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example Subject
+     *
      * @var string
      */
     public $subject;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $tagName;
 
     /**
+     * @example body
+     *
      * @var string
      */
     public $textBody;
 
     /**
+     * @example test1***@example.net
+     *
      * @var string
      */
     public $toAddress;
