@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ProduceEditingProjectVideoRequest extends Model
 {
     /**
+     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Multi-application service](~~113600~~).
+     *
+     * @example app-****
+     *
      * @var string
      */
     public $appId;

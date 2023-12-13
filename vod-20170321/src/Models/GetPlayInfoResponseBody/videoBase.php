@@ -66,6 +66,11 @@ class videoBase extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $storageClass;
+
+    /**
      * @description The title of the audio or video file.
      *
      * @example ApsaraVideo VOD
@@ -89,6 +94,7 @@ class videoBase extends Model
         'duration'     => 'Duration',
         'mediaType'    => 'MediaType',
         'status'       => 'Status',
+        'storageClass' => 'StorageClass',
         'title'        => 'Title',
         'videoId'      => 'VideoId',
     ];
@@ -117,6 +123,9 @@ class videoBase extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->storageClass) {
+            $res['StorageClass'] = $this->storageClass;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -153,6 +162,9 @@ class videoBase extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StorageClass'])) {
+            $model->storageClass = $map['StorageClass'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

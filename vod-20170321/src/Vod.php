@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\AddTranscodeTemplateGroupRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddTranscodeTemplateGroupResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddVodDomainRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddVodDomainResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\AddVodStorageForAppRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\AddVodStorageForAppResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddVodTemplateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddVodTemplateResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddWatermarkRequest;
@@ -776,6 +778,55 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addVodDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddVodStorageForAppRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddVodStorageForAppResponse
+     */
+    public function addVodStorageForAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->storageLocation)) {
+            $query['StorageLocation'] = $request->storageLocation;
+        }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddVodStorageForApp',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddVodStorageForAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddVodStorageForAppRequest $request
+     *
+     * @return AddVodStorageForAppResponse
+     */
+    public function addVodStorageForApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addVodStorageForAppWithOptions($request, $runtime);
     }
 
     /**
@@ -8656,6 +8707,9 @@ class Vod extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->allowUpdateWithoutTimeLimit)) {
+            $query['AllowUpdateWithoutTimeLimit'] = $request->allowUpdateWithoutTimeLimit;
+        }
         if (!Utils::isUnset($request->mediaIds)) {
             $query['MediaIds'] = $request->mediaIds;
         }
