@@ -1479,6 +1479,9 @@ class BssOpenApi extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->pipCode)) {
+            $query['PipCode'] = $request->pipCode;
+        }
         if (!Utils::isUnset($request->productCode)) {
             $query['ProductCode'] = $request->productCode;
         }
@@ -2325,6 +2328,9 @@ class BssOpenApi extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceID)) {
             $query['InstanceID'] = $request->instanceID;
+        }
+        if (!Utils::isUnset($request->isHideZeroCharge)) {
+            $query['IsHideZeroCharge'] = $request->isHideZeroCharge;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 1857xxxxx489
      *
@@ -19,7 +19,7 @@ class data extends Model
     public $accountID;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The name of the Alibaba Cloud account.
      *
      * @example test@test.aliyunid.com
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $accountName;
 
     /**
-     * @description The data returned.
+     * @description The billing cycle. Format: YYYY-MM.
      *
      * @example 2020-03
      *
@@ -37,14 +37,14 @@ class data extends Model
     public $billingCycle;
 
     /**
-     * @description The total number of returned entries.
+     * @description The details of the bills.
      *
      * @var items
      */
     public $items;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -53,7 +53,7 @@ class data extends Model
     public $pageNum;
 
     /**
-     * @description The billing cycle. Format: YYYY-MM.
+     * @description The number of entries returned per page.
      *
      * @example 20
      *
@@ -62,7 +62,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The ID of your Alibaba Cloud account.
+     * @description The total number of returned entries.
      *
      * @example 1
      *

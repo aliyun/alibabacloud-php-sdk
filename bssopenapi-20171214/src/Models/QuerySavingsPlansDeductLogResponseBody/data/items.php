@@ -16,6 +16,16 @@ class items extends Model
     public $billModule;
 
     /**
+     * @var string
+     */
+    public $billingCycle;
+
+    /**
+     * @var string
+     */
+    public $billingOfficialPrice;
+
+    /**
      * @description The service for which the fee is deducted.
      *
      * @var string
@@ -50,6 +60,11 @@ class items extends Model
     public $deductRate;
 
     /**
+     * @var string
+     */
+    public $deductedOfficialPrice;
+
+    /**
      * @description The discount used for the current deduction.
      *
      * @example 0.069
@@ -77,11 +92,26 @@ class items extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $instanceSpec;
+
+    /**
+     * @var string
+     */
+    public $instanceTypeFamily;
+
+    /**
      * @example 1906589291020438
      *
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $region;
 
     /**
      * @description The type of the savings plan. Valid values:
@@ -113,18 +143,24 @@ class items extends Model
      */
     public $userId;
     protected $_name = [
-        'billModule'       => 'BillModule',
-        'deductCommodity'  => 'DeductCommodity',
-        'deductFee'        => 'DeductFee',
-        'deductInstanceId' => 'DeductInstanceId',
-        'deductRate'       => 'DeductRate',
-        'discountRate'     => 'DiscountRate',
-        'endTime'          => 'EndTime',
-        'instanceId'       => 'InstanceId',
-        'ownerId'          => 'OwnerId',
-        'savingsType'      => 'SavingsType',
-        'startTime'        => 'StartTime',
-        'userId'           => 'UserId',
+        'billModule'            => 'BillModule',
+        'billingCycle'          => 'BillingCycle',
+        'billingOfficialPrice'  => 'BillingOfficialPrice',
+        'deductCommodity'       => 'DeductCommodity',
+        'deductFee'             => 'DeductFee',
+        'deductInstanceId'      => 'DeductInstanceId',
+        'deductRate'            => 'DeductRate',
+        'deductedOfficialPrice' => 'DeductedOfficialPrice',
+        'discountRate'          => 'DiscountRate',
+        'endTime'               => 'EndTime',
+        'instanceId'            => 'InstanceId',
+        'instanceSpec'          => 'InstanceSpec',
+        'instanceTypeFamily'    => 'InstanceTypeFamily',
+        'ownerId'               => 'OwnerId',
+        'region'                => 'Region',
+        'savingsType'           => 'SavingsType',
+        'startTime'             => 'StartTime',
+        'userId'                => 'UserId',
     ];
 
     public function validate()
@@ -136,6 +172,12 @@ class items extends Model
         $res = [];
         if (null !== $this->billModule) {
             $res['BillModule'] = $this->billModule;
+        }
+        if (null !== $this->billingCycle) {
+            $res['BillingCycle'] = $this->billingCycle;
+        }
+        if (null !== $this->billingOfficialPrice) {
+            $res['BillingOfficialPrice'] = $this->billingOfficialPrice;
         }
         if (null !== $this->deductCommodity) {
             $res['DeductCommodity'] = $this->deductCommodity;
@@ -149,6 +191,9 @@ class items extends Model
         if (null !== $this->deductRate) {
             $res['DeductRate'] = $this->deductRate;
         }
+        if (null !== $this->deductedOfficialPrice) {
+            $res['DeductedOfficialPrice'] = $this->deductedOfficialPrice;
+        }
         if (null !== $this->discountRate) {
             $res['DiscountRate'] = $this->discountRate;
         }
@@ -158,8 +203,17 @@ class items extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->instanceSpec) {
+            $res['InstanceSpec'] = $this->instanceSpec;
+        }
+        if (null !== $this->instanceTypeFamily) {
+            $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
         if (null !== $this->savingsType) {
             $res['SavingsType'] = $this->savingsType;
@@ -185,6 +239,12 @@ class items extends Model
         if (isset($map['BillModule'])) {
             $model->billModule = $map['BillModule'];
         }
+        if (isset($map['BillingCycle'])) {
+            $model->billingCycle = $map['BillingCycle'];
+        }
+        if (isset($map['BillingOfficialPrice'])) {
+            $model->billingOfficialPrice = $map['BillingOfficialPrice'];
+        }
         if (isset($map['DeductCommodity'])) {
             $model->deductCommodity = $map['DeductCommodity'];
         }
@@ -197,6 +257,9 @@ class items extends Model
         if (isset($map['DeductRate'])) {
             $model->deductRate = $map['DeductRate'];
         }
+        if (isset($map['DeductedOfficialPrice'])) {
+            $model->deductedOfficialPrice = $map['DeductedOfficialPrice'];
+        }
         if (isset($map['DiscountRate'])) {
             $model->discountRate = $map['DiscountRate'];
         }
@@ -206,8 +269,17 @@ class items extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['InstanceSpec'])) {
+            $model->instanceSpec = $map['InstanceSpec'];
+        }
+        if (isset($map['InstanceTypeFamily'])) {
+            $model->instanceTypeFamily = $map['InstanceTypeFamily'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
         if (isset($map['SavingsType'])) {
             $model->savingsType = $map['SavingsType'];

@@ -59,6 +59,11 @@ class DescribeSplitItemBillRequest extends Model
     public $instanceID;
 
     /**
+     * @var bool
+     */
+    public $isHideZeroCharge;
+
+    /**
      * @description The maximum number of entries to query. Default value: 20. Maximum value: 300.
      *
      * @example 20
@@ -129,6 +134,7 @@ class DescribeSplitItemBillRequest extends Model
         'billingDate'      => 'BillingDate',
         'granularity'      => 'Granularity',
         'instanceID'       => 'InstanceID',
+        'isHideZeroCharge' => 'IsHideZeroCharge',
         'maxResults'       => 'MaxResults',
         'nextToken'        => 'NextToken',
         'ownerId'          => 'OwnerId',
@@ -160,6 +166,9 @@ class DescribeSplitItemBillRequest extends Model
         }
         if (null !== $this->instanceID) {
             $res['InstanceID'] = $this->instanceID;
+        }
+        if (null !== $this->isHideZeroCharge) {
+            $res['IsHideZeroCharge'] = $this->isHideZeroCharge;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -217,6 +226,9 @@ class DescribeSplitItemBillRequest extends Model
         }
         if (isset($map['InstanceID'])) {
             $model->instanceID = $map['InstanceID'];
+        }
+        if (isset($map['IsHideZeroCharge'])) {
+            $model->isHideZeroCharge = $map['IsHideZeroCharge'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

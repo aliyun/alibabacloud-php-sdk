@@ -56,12 +56,18 @@ class data extends Model
      * @var string
      */
     public $mybankCreditAmount;
+
+    /**
+     * @var string
+     */
+    public $quotaLimit;
     protected $_name = [
         'availableAmount'     => 'AvailableAmount',
         'availableCashAmount' => 'AvailableCashAmount',
         'creditAmount'        => 'CreditAmount',
         'currency'            => 'Currency',
         'mybankCreditAmount'  => 'MybankCreditAmount',
+        'quotaLimit'          => 'QuotaLimit',
     ];
 
     public function validate()
@@ -85,6 +91,9 @@ class data extends Model
         }
         if (null !== $this->mybankCreditAmount) {
             $res['MybankCreditAmount'] = $this->mybankCreditAmount;
+        }
+        if (null !== $this->quotaLimit) {
+            $res['QuotaLimit'] = $this->quotaLimit;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class data extends Model
         }
         if (isset($map['MybankCreditAmount'])) {
             $model->mybankCreditAmount = $map['MybankCreditAmount'];
+        }
+        if (isset($map['QuotaLimit'])) {
+            $model->quotaLimit = $map['QuotaLimit'];
         }
 
         return $model;

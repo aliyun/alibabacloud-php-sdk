@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
-     * @description The aftertaxt amount of the order.
+     * @description The after-tax amount of the order.
      *
      * @example 0
      *

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSavingsPlansInstanceResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
      * @example PARAM_ERROR
      *
      * @var string
@@ -17,16 +19,24 @@ class CreateSavingsPlansInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned.
+     *
+     * @example The parameter must be specified.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 26dabb0c-8ca0-4aa0-8143-30499f3fe304
      *
      * @var string
@@ -34,6 +44,8 @@ class CreateSavingsPlansInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

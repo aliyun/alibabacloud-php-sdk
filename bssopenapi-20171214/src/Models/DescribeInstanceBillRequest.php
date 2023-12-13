@@ -106,6 +106,11 @@ class DescribeInstanceBillRequest extends Model
     public $ownerId;
 
     /**
+     * @var string
+     */
+    public $pipCode;
+
+    /**
      * @description The code of the service.
      *
      * @example rds
@@ -145,6 +150,7 @@ class DescribeInstanceBillRequest extends Model
         'maxResults'       => 'MaxResults',
         'nextToken'        => 'NextToken',
         'ownerId'          => 'OwnerId',
+        'pipCode'          => 'PipCode',
         'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
         'subscriptionType' => 'SubscriptionType',
@@ -186,6 +192,9 @@ class DescribeInstanceBillRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pipCode) {
+            $res['PipCode'] = $this->pipCode;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
@@ -237,6 +246,9 @@ class DescribeInstanceBillRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PipCode'])) {
+            $model->pipCode = $map['PipCode'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];

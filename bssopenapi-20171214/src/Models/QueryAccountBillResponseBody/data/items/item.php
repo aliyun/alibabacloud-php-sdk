@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
-     * @description The billing date.
+     * @description The amount deducted by using credit refunds.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class item extends Model
     public $adjustAmount;
 
     /**
-     * @description The amount deducted by using prepaid cards.
+     * @description The ID of the account to which the bill belongs.
      *
      * @example 1857xxxxx489
      *
@@ -27,7 +27,7 @@ class item extends Model
     public $billAccountID;
 
     /**
-     * @description The name of the member.
+     * @description The name of the account to which the bill belongs.
      *
      * @example test@test.aliyunid.com
      *
@@ -36,7 +36,7 @@ class item extends Model
     public $billAccountName;
 
     /**
-     * @description The code of the service. The service code is consistent with that displayed in User Center.
+     * @description The billing date.
      *
      * @example 2021-03-01
      *
@@ -45,14 +45,7 @@ class item extends Model
     public $billingDate;
 
     /**
-     * @description The billing method. Valid values:
-     *
-     *   Subscription: the subscription billing method
-     *   PayAsYouGo: the pay-as-you-go billing method
-     *
-     **
-     *
-     ****A value is returned only if the IsGroupByProduct parameter is set to true.
+     * @description The business type.
      *
      * @example trusteeship
      *
@@ -61,7 +54,7 @@ class item extends Model
     public $bizType;
 
     /**
-     * @description Not allocated
+     * @description The amount paid in cash. The amount that was deducted by using credit refunds is not included.
      *
      * @example 0
      *
@@ -70,143 +63,13 @@ class item extends Model
     public $cashAmount;
 
     /**
-     * @description The discount amount.
+     * @description The cost center.
      *
-     * @example The unsettled amount or the amount settled with credits.
+     * @example Not allocated
      *
      * @var string
      */
     public $costUnit;
-
-    /**
-     * @description The amount deducted by using credit refunds.
-     *
-     * @example CNY
-     *
-     * @var string
-     */
-    public $currency;
-
-    /**
-     * @description The name of the account to which the bill belongs.
-     *
-     * @example 0
-     *
-     * @var float
-     */
-    public $deductedByCashCoupons;
-
-    /**
-     * @description The ID of the member.
-     *
-     * @example 0
-     *
-     * @var float
-     */
-    public $deductedByCoupons;
-
-    /**
-     * @description The business type.
-     *
-     * @example 0
-     *
-     * @var float
-     */
-    public $deductedByPrepaidCard;
-
-    /**
-     * @description The ID of the account to which the bill belongs.
-     *
-     * @example 0
-     *
-     * @var float
-     */
-    public $invoiceDiscount;
-
-    /**
-     * @description The amount paid in cash. The amount that was deducted by using credit refunds is included.
-     *
-     * @example 0
-     *
-     * @var float
-     */
-    public $outstandingAmount;
-
-    /**
-     * @description The amount deducted by using vouchers.
-     *
-     * @example 325434254
-     *
-     * @var string
-     */
-    public $ownerID;
-
-    /**
-     * @description The name of the service.
-     *
-     **
-     *
-     ****A value is returned only if the **IsGroupByProduct **parameter is set to true.
-     *
-     * @example aligzncloudtest2
-     *
-     * @var string
-     */
-    public $ownerName;
-
-    /**
-     * @description The amount deducted by using coupons.
-     *
-     * @example 0
-     *
-     * @var float
-     */
-    public $paymentAmount;
-
-    /**
-     * @description The name of the Alibaba Cloud account.
-     *
-     * @example rds
-     *
-     * @var string
-     */
-    public $pipCode;
-
-    /**
-     * @description The details of the bills.
-     *
-     * @example 0
-     *
-     * @var float
-     */
-    public $pretaxAmount;
-
-    /**
-     * @description The cost center.
-     *
-     * @example 0
-     *
-     * @var float
-     */
-    public $pretaxGrossAmount;
-
-    /**
-     * @description The pretax gross amount.
-     *
-     * @example rds
-     *
-     * @var string
-     */
-    public $productCode;
-
-    /**
-     * @description The pretax amount.
-     *
-     * @example rds
-     *
-     * @var string
-     */
-    public $productName;
 
     /**
      * @description The type of the currency. Valid values:
@@ -215,6 +78,138 @@ class item extends Model
      *   USD
      *   JPY
      *
+     * @example CNY
+     *
+     * @var string
+     */
+    public $currency;
+
+    /**
+     * @description The amount deducted by using vouchers.
+     *
+     * @example 0
+     *
+     * @var float
+     */
+    public $deductedByCashCoupons;
+
+    /**
+     * @description The amount deducted by using coupons.
+     *
+     * @example 0
+     *
+     * @var float
+     */
+    public $deductedByCoupons;
+
+    /**
+     * @description The amount deducted by using prepaid cards.
+     *
+     * @example 0
+     *
+     * @var float
+     */
+    public $deductedByPrepaidCard;
+
+    /**
+     * @description The discount amount.
+     *
+     * @example 0
+     *
+     * @var float
+     */
+    public $invoiceDiscount;
+
+    /**
+     * @description The unsettled amount or the amount settled with credits.
+     *
+     * @example 0
+     *
+     * @var float
+     */
+    public $outstandingAmount;
+
+    /**
+     * @description The ID of the member.
+     *
+     * @example 325434254
+     *
+     * @var string
+     */
+    public $ownerID;
+
+    /**
+     * @description The name of the member.
+     *
+     * @example aligzncloudtest2
+     *
+     * @var string
+     */
+    public $ownerName;
+
+    /**
+     * @description The amount paid in cash. The amount that was deducted by using credit refunds is included.
+     *
+     * @example 0
+     *
+     * @var float
+     */
+    public $paymentAmount;
+
+    /**
+     * @description The code of the service. The service code is consistent with that displayed in User Center.
+     *
+     * @example rds
+     *
+     * @var string
+     */
+    public $pipCode;
+
+    /**
+     * @description The pretax amount.
+     *
+     * @example 0
+     *
+     * @var float
+     */
+    public $pretaxAmount;
+
+    /**
+     * @description The pretax gross amount.
+     *
+     * @example 0
+     *
+     * @var float
+     */
+    public $pretaxGrossAmount;
+
+    /**
+     * @description The code of the service.
+     *
+     * >A value is returned only if the **IsGroupByProduct** parameter is set to true.
+     * @example rds
+     *
+     * @var string
+     */
+    public $productCode;
+
+    /**
+     * @description The name of the service.
+     *
+     * > A value is returned only if the **IsGroupByProduct** parameter is set to true.
+     * @example rds
+     *
+     * @var string
+     */
+    public $productName;
+
+    /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: the subscription billing method
+     *   PayAsYouGo: the pay-as-you-go billing method
+     *
+     * > A value is returned only if the IsGroupByProduct parameter is set to true.
      * @example PayAsYouGo
      *
      * @var string

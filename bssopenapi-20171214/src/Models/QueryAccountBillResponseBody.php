@@ -10,12 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryAccountBillResponseBody extends Model
 {
     /**
-     * @description The granularity at which bills are queried. Valid values:
+     * @description The status code returned.
      *
-     *   MONTHLY: queries bills by month. The data queried is consistent with the data that is displayed for the specified billing cycle on the Billing Details tab of the Bill Details page in User Center.
-     *   DAILY: queries bills by day. The data queried is consistent with the data that is displayed for the specified day on the Billing Details tab of the Bill Details page in User Center.
-     *
-     * You must set the BillingDate parameter before you can set the Granularity parameter to DAILY.
      * @example Success
      *
      * @var string
@@ -23,14 +19,14 @@ class QueryAccountBillResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The data returned.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The billing date. This parameter is required only if the Granularity parameter is set to DAILY. Format: YYYY-MM-DD.
+     * @description The message returned.
      *
      * @example Successful!
      *
@@ -39,7 +35,7 @@ class QueryAccountBillResponseBody extends Model
     public $message;
 
     /**
-     * @description The status code returned.
+     * @description The ID of the request.
      *
      * @example 3BFC23FE-A182-4D96-A1E4-7521B30B8E43
      *
@@ -48,7 +44,7 @@ class QueryAccountBillResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The message returned.
+     * @description Indicates whether the request is successful.
      *
      * @example true
      *
