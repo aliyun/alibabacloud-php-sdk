@@ -19,9 +19,15 @@ class UpdateQuotaRequest extends Model
      * @var Label[]
      */
     public $labels;
+
+    /**
+     * @var string
+     */
+    public $queueStrategy;
     protected $_name = [
-        'description' => 'Description',
-        'labels'      => 'Labels',
+        'description'   => 'Description',
+        'labels'        => 'Labels',
+        'queueStrategy' => 'QueueStrategy',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class UpdateQuotaRequest extends Model
                     $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->queueStrategy) {
+            $res['QueueStrategy'] = $this->queueStrategy;
         }
 
         return $res;
@@ -66,6 +75,9 @@ class UpdateQuotaRequest extends Model
                     $model->labels[$n++] = null !== $item ? Label::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['QueueStrategy'])) {
+            $model->queueStrategy = $map['QueueStrategy'];
         }
 
         return $model;

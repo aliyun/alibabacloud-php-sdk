@@ -1901,6 +1901,9 @@ class PaiStudio extends OpenApiClient
         if (!Utils::isUnset($request->labels)) {
             $body['Labels'] = $request->labels;
         }
+        if (!Utils::isUnset($request->queueStrategy)) {
+            $body['QueueStrategy'] = $request->queueStrategy;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
