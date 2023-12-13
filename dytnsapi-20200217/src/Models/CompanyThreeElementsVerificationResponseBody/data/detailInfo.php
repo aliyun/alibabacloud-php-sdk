@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class detailInfo extends Model
 {
     /**
-     * @example 示例值
+     * @description The business status of the enterprise.
+     *
+     * @example Active
      *
      * @var string
      */
     public $enterpriseStatus;
 
     /**
-     * @example 示例值示例值示例值
+     * @description The business term of the enterprise.
+     *
+     * @example 2023-05-25/2053-05-24
      *
      * @var string
      */

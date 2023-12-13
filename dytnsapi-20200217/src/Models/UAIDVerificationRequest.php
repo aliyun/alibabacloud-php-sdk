@@ -6,50 +6,40 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribePhoneNumberAnalysisAIRequest extends Model
+class UAIDVerificationRequest extends Model
 {
     /**
-     * @description The authorization code.
-     *
-     * >  On the ****[**Labels**](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click Activate Now, enter the required information, and then submit your application. After your application is approved, you can obtain an authorization code.
-     * @example HwD***nG
+     * @example HwD97InG
      *
      * @var string
      */
     public $authCode;
 
     /**
-     * @description The phone number to be queried.
-     *
-     * @example 187****5620
+     * @example CM
      *
      * @var string
      */
-    public $inputNumber;
+    public $carrier;
 
     /**
-     * @description The model parameter configuration. This field is required by some labels.
-     *
-     * @example {"trainingJobId": "17**********48"}
+     * @example 示例值
      *
      * @var string
      */
-    public $modelConfig;
+    public $ip;
+
+    /**
+     * @example b8b5b3a*******0b9893484fdf412c99
+     *
+     * @var string
+     */
+    public $outId;
 
     /**
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @description The score threshold for the phone number. Valid values: **0 to 100**.
-     *
-     * >  The system provided by Alibaba Cloud determines whether to accept the specified score threshold. When the system does not accept the specified score threshold, the value of this field is invalid.
-     * @example 96
-     *
-     * @var int
-     */
-    public $rate;
 
     /**
      * @var string
@@ -60,14 +50,30 @@ class DescribePhoneNumberAnalysisAIRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @example MIGfMA0********3DQEBAQUAA4GNADCB
+     *
+     * @var string
+     */
+    public $token;
+
+    /**
+     * @example Md****a3Em
+     *
+     * @var string
+     */
+    public $userGrantId;
     protected $_name = [
         'authCode'             => 'AuthCode',
-        'inputNumber'          => 'InputNumber',
-        'modelConfig'          => 'ModelConfig',
+        'carrier'              => 'Carrier',
+        'ip'                   => 'Ip',
+        'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
-        'rate'                 => 'Rate',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'token'                => 'Token',
+        'userGrantId'          => 'UserGrantId',
     ];
 
     public function validate()
@@ -80,23 +86,29 @@ class DescribePhoneNumberAnalysisAIRequest extends Model
         if (null !== $this->authCode) {
             $res['AuthCode'] = $this->authCode;
         }
-        if (null !== $this->inputNumber) {
-            $res['InputNumber'] = $this->inputNumber;
+        if (null !== $this->carrier) {
+            $res['Carrier'] = $this->carrier;
         }
-        if (null !== $this->modelConfig) {
-            $res['ModelConfig'] = $this->modelConfig;
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
+        }
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->rate) {
-            $res['Rate'] = $this->rate;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
+        }
+        if (null !== $this->userGrantId) {
+            $res['UserGrantId'] = $this->userGrantId;
         }
 
         return $res;
@@ -105,7 +117,7 @@ class DescribePhoneNumberAnalysisAIRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribePhoneNumberAnalysisAIRequest
+     * @return UAIDVerificationRequest
      */
     public static function fromMap($map = [])
     {
@@ -113,23 +125,29 @@ class DescribePhoneNumberAnalysisAIRequest extends Model
         if (isset($map['AuthCode'])) {
             $model->authCode = $map['AuthCode'];
         }
-        if (isset($map['InputNumber'])) {
-            $model->inputNumber = $map['InputNumber'];
+        if (isset($map['Carrier'])) {
+            $model->carrier = $map['Carrier'];
         }
-        if (isset($map['ModelConfig'])) {
-            $model->modelConfig = $map['ModelConfig'];
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
+        }
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['Rate'])) {
-            $model->rate = $map['Rate'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
+        }
+        if (isset($map['UserGrantId'])) {
+            $model->userGrantId = $map['UserGrantId'];
         }
 
         return $model;

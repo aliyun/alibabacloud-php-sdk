@@ -9,11 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The basic carrier. Valid values:
+     *
+     *   **China Mobile**
+     *   **China Unicom**
+     *   **China Telecom**
+     *
+     * @example China Mobile
+     *
      * @var string
      */
     public $basicCarrier;
 
     /**
+     * @description Indicates whether the specified name, phone number, and ID card number belong to the same user. Valid values:
+     *
+     * **1**: The specified name, phone number, and ID card number belong to the same user.
+     * **0**: The specified name, phone number, and ID card number do not belong to the same user.
+     * **2**: The specified name, phone number, and ID card number cannot be found.
+     *
+     **Note** The phone number registration data of a user is usually updated one or three days after registration. The registration data can be queried only after the update. The following table shows the verification results under different phone number states.
+     *
+     * |China Telecom|Verifications can be carried out normally.|The specified name, phone number, and ID card number cannot be found.|The specified name, phone number, and ID card number cannot be found.|
      * @example 1
      *
      * @var int

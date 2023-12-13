@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PhoneNumberEncryptRequest extends Model
 {
     /**
+     * @description The authorization code.
+     *
+     * >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization code (also known as authorization ID).
      * @example QASDW@#**
      *
      * @var string
@@ -16,6 +19,9 @@ class PhoneNumberEncryptRequest extends Model
     public $authCode;
 
     /**
+     * @description The phone number to be queried.
+     *
+     * >  You can query only one phone number at a time.
      * @example 1390000****
      *
      * @var string
@@ -23,6 +29,9 @@ class PhoneNumberEncryptRequest extends Model
     public $inputNumber;
 
     /**
+     * @description The encryption method of the phone number. Set the value to **NORMAL**.
+     *
+     * >  Only the NORMAL encryption method is supported.
      * @example NORMAL
      *
      * @var string

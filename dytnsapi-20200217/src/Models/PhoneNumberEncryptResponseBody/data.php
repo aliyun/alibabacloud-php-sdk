@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The encrypted phone number.
+     *
      * @example 1400513****
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $encryptedNumber;
 
     /**
+     * @description The time when the phone number expires.
+     *
      * @example 2022-05-27 16:05:23
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $expireTime;
 
     /**
+     * @description The original phone number.
+     *
      * @example 1390000****
      *
      * @var string

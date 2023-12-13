@@ -10,32 +10,45 @@ use AlibabaCloud\Tea\Model;
 class QueryTagListPageResponseBody extends Model
 {
     /**
-     * @example 示例值示例值
+     * @description The response code. **OK** indicates that the request is successful.
+     *
+     * @example OK
      *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
-     * @example 示例值
+     * @description The returned message.
+     *
+     * @example OK
      *
      * @var string
      */
     public $message;
 
     /**
-     * @example 示例值示例值
+     * @description The request ID.
+     *
+     * @example A4475657-BB7E-585D-9E09-37934F096103
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

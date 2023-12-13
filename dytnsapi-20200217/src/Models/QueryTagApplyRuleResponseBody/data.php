@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 申请材料要求
+     * @description The requirements for application materials.
      *
-     * @example 示例值示例值
+     * @example Requirements for application materials
      *
      * @var string
      */
     public $applyMaterialDesc;
 
     /**
-     * @description 是否自动审批
+     * @description Indicates whether the application is automatically approved.
      *
      * @example 16
      *
@@ -27,16 +27,16 @@ class data extends Model
     public $autoAudit;
 
     /**
-     * @description 计费标准说明链接
+     * @description The URL for the billing documentation.
      *
-     * @example 示例值示例值示例值
+     * @example aliyundoc.com
      *
      * @var string
      */
     public $chargingStandardLink;
 
     /**
-     * @description 是否支持加密查询
+     * @description indicates whether encrypted queries are supported.
      *
      * @example 99
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $encryptedQuery;
 
     /**
-     * @description 是否需要提供申请材料
+     * @description Indicates whether application materials are required.
      *
      * @example 46
      *
@@ -54,9 +54,9 @@ class data extends Model
     public $needApplyMaterial;
 
     /**
-     * @description 服务协议链接
+     * @description The URL for the service agreement.
      *
-     * @example 示例值示例值示例值
+     * @example example.aliyundoc.com
      *
      * @var string
      */

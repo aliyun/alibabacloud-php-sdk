@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class QueryUsageStatisticsByTagIdRequest extends Model
 {
     /**
-     * @description 开始时间
+     * @description The beginning of the time range to query.
      *
-     * @example 示例值
+     * @example 20230308
      *
      * @var string
      */
     public $beginTime;
 
     /**
-     * @description 结束时间
+     * @description The end of the time range to query.
      *
-     * @example 示例值示例值示例值
+     * @example 20230406
      *
      * @var string
      */
@@ -32,6 +32,8 @@ class QueryUsageStatisticsByTagIdRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -39,6 +41,8 @@ class QueryUsageStatisticsByTagIdRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -56,7 +60,7 @@ class QueryUsageStatisticsByTagIdRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description 结束时间
+     * @description The tag ID.
      *
      * @example 14
      *

@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 授权码
+     * @description The authorization code.
      *
-     * @example 示例值示例值
+     * @example g61I8UV5zd
      *
      * @var string
      */
     public $authorizationCode;
 
     /**
-     * @description 查询失败号码数
+     * @description The numbers for which the query failed.
      *
      * @example 71
      *
@@ -27,16 +27,16 @@ class data extends Model
     public $failTotal;
 
     /**
-     * @description 创建时间
+     * @description The creation time.
      *
-     * @example 示例值示例值示例值
+     * @example 20230312
      *
      * @var string
      */
     public $gmtDateStr;
 
     /**
-     * @description 授权码使用记录 id
+     * @description The ID of the authorization code usage record.
      *
      * @example 17
      *
@@ -45,16 +45,16 @@ class data extends Model
     public $id;
 
     /**
-     * @description 行业名称
+     * @description The industry name.
      *
-     * @example 示例值示例值
+     * @example Home security
      *
      * @var string
      */
     public $industryName;
 
     /**
-     * @description 客户 pid
+     * @description The customer product ID (PID).
      *
      * @example 89
      *
@@ -63,16 +63,16 @@ class data extends Model
     public $partnerId;
 
     /**
-     * @description 场景名称
+     * @description The scene name.
      *
-     * @example 示例值示例值
+     * @example Return visit
      *
      * @var string
      */
     public $sceneName;
 
     /**
-     * @description 查询成功号码数
+     * @description The numbers for which the query succeeded.
      *
      * @example 93
      *
@@ -81,7 +81,7 @@ class data extends Model
     public $successTotal;
 
     /**
-     * @description 标签名称
+     * @description The tag name.
      *
      * @example 69
      *
@@ -90,16 +90,16 @@ class data extends Model
     public $tagId;
 
     /**
-     * @description 标签名称
+     * @description The tag name.
      *
-     * @example 示例值
+     * @example Alibaba Cloud Query
      *
      * @var string
      */
     public $tagName;
 
     /**
-     * @description 查询总号码数
+     * @description The total quantity of numbers that are involved in the query.
      *
      * @example 41
      *

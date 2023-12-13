@@ -24,7 +24,7 @@ class QueryTagApplyRuleRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description 标签id
+     * @description The tag ID.
      *
      * @example 61
      *

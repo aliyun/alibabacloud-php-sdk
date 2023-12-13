@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class DescribePhoneNumberOnlineTimeResponseBody extends Model
 {
     /**
+     * @description The response code. Valid values:
+     *
+     *   **OK**: The request is successful.
+     *   **PortabilityNumberNotSupported**: The phone number that is involved in mobile number portability is not supported.
+     *   **RequestFrequencyLimit**: Repeated queries for the same phone number at a high frequency within a short period of time are prohibited due to restrictions that are set by carriers. If this error code is returned, please try again later.
+     *
+     * >  You are charged if the value of Code is OK and the value of VerifyResult is not -1. For more information, see [Pricing](~~154751~~).
      * @example OK
      *
      * @var string
@@ -17,11 +24,15 @@ class DescribePhoneNumberOnlineTimeResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -29,6 +40,8 @@ class DescribePhoneNumberOnlineTimeResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example CC3BB6D2-2FDF-4321-9DCE-B38165CE4C47
      *
      * @var string

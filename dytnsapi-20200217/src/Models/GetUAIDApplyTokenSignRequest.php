@@ -6,63 +6,61 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribePhoneNumberOnlineTimeRequest extends Model
+class GetUAIDApplyTokenSignRequest extends Model
 {
     /**
-     * @description The authorization code.
-     *
-     * >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization code (also known as authorization ID).
-     * @example QASDW@#**
+     * @example HwD97InG
      *
      * @var string
      */
     public $authCode;
 
     /**
-     * @description The carrier. Valid values:
-     *
-     *   **MOBILE**: China Mobile
-     *   **UNICOM**: China Unicom
-     *   **TELECOM**: China Telecom
-     *
-     * >  Alibaba Cloud automatically determines the carrier based on the carrier who assigns the phone number. Therefore, the value of this field does not affect the query result.
-     * @example UNICOM
+     * @example CM
      *
      * @var string
      */
     public $carrier;
 
     /**
-     * @description The phone number to be queried.
-     *
-     *   If the value of Mask is NORMAL, specify an 11-digit phone number in plaintext.
-     *   If the value of Mask is MD5, specify a 32-bit string that is encrypted by using MD5.
-     *   If the value of Mask is SHA256, specify a 64-bit string that is encrypted by using SHA256.
-     *
-     * >  Letters in the encrypted strings are not case-sensitive.
-     * @example 1390000****
+     * @example 30300
      *
      * @var string
      */
-    public $inputNumber;
+    public $clientType;
 
     /**
-     * @description The encryption method of the phone number. Valid values:
-     *
-     *   **NORMAL**: The phone number is not encrypted.
-     *   **MD5**
-     *   **SHA256**
-     *
-     * @example NORMAL
+     * @example 示例值示例值
      *
      * @var string
      */
-    public $mask;
+    public $format;
+
+    /**
+     * @example b8b5b3a*******0b9893484fdf412c99
+     *
+     * @var string
+     */
+    public $outId;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @example 955EC1A869852EA8BC66F********D7C6E92017BBD5B001C736EFEAFB775C232
+     *
+     * @var string
+     */
+    public $paramKey;
+
+    /**
+     * @example B2F0D4CD7A216D16CE2AF4BBC********29A454FDDD991F919106C12CB89ABA8
+     *
+     * @var string
+     */
+    public $paramStr;
 
     /**
      * @var string
@@ -73,14 +71,25 @@ class DescribePhoneNumberOnlineTimeRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @example 20121227180001165
+     *
+     * @var string
+     */
+    public $time;
     protected $_name = [
         'authCode'             => 'AuthCode',
         'carrier'              => 'Carrier',
-        'inputNumber'          => 'InputNumber',
-        'mask'                 => 'Mask',
+        'clientType'           => 'ClientType',
+        'format'               => 'Format',
+        'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
+        'paramKey'             => 'ParamKey',
+        'paramStr'             => 'ParamStr',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'time'                 => 'Time',
     ];
 
     public function validate()
@@ -96,20 +105,32 @@ class DescribePhoneNumberOnlineTimeRequest extends Model
         if (null !== $this->carrier) {
             $res['Carrier'] = $this->carrier;
         }
-        if (null !== $this->inputNumber) {
-            $res['InputNumber'] = $this->inputNumber;
+        if (null !== $this->clientType) {
+            $res['ClientType'] = $this->clientType;
         }
-        if (null !== $this->mask) {
-            $res['Mask'] = $this->mask;
+        if (null !== $this->format) {
+            $res['Format'] = $this->format;
+        }
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->paramKey) {
+            $res['ParamKey'] = $this->paramKey;
+        }
+        if (null !== $this->paramStr) {
+            $res['ParamStr'] = $this->paramStr;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -118,7 +139,7 @@ class DescribePhoneNumberOnlineTimeRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribePhoneNumberOnlineTimeRequest
+     * @return GetUAIDApplyTokenSignRequest
      */
     public static function fromMap($map = [])
     {
@@ -129,20 +150,32 @@ class DescribePhoneNumberOnlineTimeRequest extends Model
         if (isset($map['Carrier'])) {
             $model->carrier = $map['Carrier'];
         }
-        if (isset($map['InputNumber'])) {
-            $model->inputNumber = $map['InputNumber'];
+        if (isset($map['ClientType'])) {
+            $model->clientType = $map['ClientType'];
         }
-        if (isset($map['Mask'])) {
-            $model->mask = $map['Mask'];
+        if (isset($map['Format'])) {
+            $model->format = $map['Format'];
+        }
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ParamKey'])) {
+            $model->paramKey = $map['ParamKey'];
+        }
+        if (isset($map['ParamStr'])) {
+            $model->paramStr = $map['ParamStr'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

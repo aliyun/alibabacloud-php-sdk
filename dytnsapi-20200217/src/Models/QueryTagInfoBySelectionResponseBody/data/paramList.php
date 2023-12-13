@@ -10,25 +10,25 @@ use AlibabaCloud\Tea\Model;
 class paramList extends Model
 {
     /**
-     * @description 参数英文名
+     * @description The English name of the parameter.
      *
-     * @example 示例值
+     * @example preame
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description 输入提示
+     * @description The input hint.
      *
-     * @example 示例值示例值
+     * @example none
      *
      * @var string
      */
     public $hint;
 
     /**
-     * @description 是否必填
+     * @description Indicates whether the parameter is required.
      *
      * @example false
      *
@@ -37,25 +37,25 @@ class paramList extends Model
     public $must;
 
     /**
-     * @description 参数中文名
+     * @description The Chinese name of the parameter.
      *
-     * @example 示例值
+     * @example none
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 类型EnumUIWidgetTypes对应的code
+     * @description The type. The code that corresponds to EnumUIWidgetTypes.
      *
-     * @example 示例值示例值
+     * @example aqzx
      *
      * @var string
      */
     public $type;
 
     /**
-     * @description 枚举值定义，code:desc
+     * @description The definitions of the enumerated values such as Code or Desc.
      *
      * @var valueDict[]
      */

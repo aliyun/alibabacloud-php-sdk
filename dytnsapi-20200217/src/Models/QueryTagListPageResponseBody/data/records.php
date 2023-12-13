@@ -9,34 +9,34 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
-     * @description 前端调用的api名称
+     * @description The API operation that is called by the frontend.
      *
-     * @example 示例值示例值
+     * @example TwoElementsVerification
      *
      * @var string
      */
     public $apiName;
 
     /**
-     * @description code
+     * @description Code
      *
-     * @example 示例值示例值示例值
+     * @example OK
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description API文档链接
+     * @description The URL for the API documentation.
      *
-     * @example 示例值示例值示例值
+     * @example https://help.aliyun.com/document_detail/388997.html?spm=a2c4g.388997.0.0.cf804cc7DX4vlP
      *
      * @var string
      */
     public $docAddress;
 
     /**
-     * @description 标签 id
+     * @description The tag ID.
      *
      * @example 75
      *
@@ -45,7 +45,7 @@ class records extends Model
     public $id;
 
     /**
-     * @description 行业id
+     * @description The industry ID.
      *
      * @example 2
      *
@@ -54,25 +54,25 @@ class records extends Model
     public $industryId;
 
     /**
-     * @description 行业名称
+     * @description The industry name.
      *
-     * @example 示例值示例值示例值
+     * @example Test
      *
      * @var string
      */
     public $industryName;
 
     /**
-     * @description 标签介绍
+     * @description The tag description.
      *
-     * @example 示例值示例值示例值
+     * @example for autotest new
      *
      * @var string
      */
     public $introduction;
 
     /**
-     * @description 是否已经申请开通
+     * @description Indicates whether the number is activated.
      *
      * @example 45
      *
@@ -81,25 +81,26 @@ class records extends Model
     public $isOpen;
 
     /**
-     * @description 标签名称
+     * @description The tag name.
      *
-     * @example 示例值
+     * @example Aliyun
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 0 隐藏 1 公开
+     * @description *   0: The number is hidden.
+     *   1: The number is public.
      *
-     * @example 示例值示例值示例值
+     * @example 1
      *
      * @var string
      */
     public $saleStatusStr;
 
     /**
-     * @description 场景id
+     * @description The scene ID.
      *
      * @example 13
      *
@@ -108,9 +109,9 @@ class records extends Model
     public $sceneId;
 
     /**
-     * @description 场景名称
+     * @description The scene name.
      *
-     * @example 示例值示例值
+     * @example check
      *
      * @var string
      */

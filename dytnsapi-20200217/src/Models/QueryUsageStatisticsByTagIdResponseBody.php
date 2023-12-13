@@ -10,32 +10,45 @@ use AlibabaCloud\Tea\Model;
 class QueryUsageStatisticsByTagIdResponseBody extends Model
 {
     /**
-     * @example 示例值示例值示例值
+     * @description The response code. **OK** indicates that the request is successful.
+     *
+     * @example OK
      *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
-     * @example 示例值示例值示例值
+     * @description The returned message.
+     *
+     * @example OK
      *
      * @var string
      */
     public $message;
 
     /**
-     * @example 示例值示例值
+     * @description The request ID.
+     *
+     * @example D45CC751-34DF-5797-81FB-9A2ED6DC024B
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful.
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

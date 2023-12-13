@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The specified phone number.
+     *
      * @example 189****1234
      *
      * @var string
@@ -16,6 +18,13 @@ class data extends Model
     public $number;
 
     /**
+     * @description The returned status for the queried phone number. Valid values:
+     *
+     *   **EMPTY**: The queried phone number is a nonexistent number.
+     *   **NORMAL**: The queried phone number is valid.
+     *   **SUSPECT_EMPTY**: The queried phone number is suspected to be a nonexistent number.
+     *   **UNKNOWN**: The queried phone number is unknown.
+     *
      * @example EMPTY
      *
      * @var string

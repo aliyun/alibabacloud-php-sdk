@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class PhoneNumberEncryptResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   Other values indicate that the request failed. For more information, see [Error codes](~~109196~~).
+     *
      * @example OK
      *
      * @var string
@@ -17,11 +22,15 @@ class PhoneNumberEncryptResponseBody extends Model
     public $code;
 
     /**
+     * @description Details about the returned entries.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -29,6 +38,8 @@ class PhoneNumberEncryptResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example CC3BB6D2-2FDF-4321-9DCE-B38165CE4C47
      *
      * @var string

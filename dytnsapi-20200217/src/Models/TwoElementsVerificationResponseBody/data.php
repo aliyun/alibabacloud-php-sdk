@@ -9,11 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The basic carriers. Valid values:
+     *
+     *   **China Mobile**
+     *   **China Unicom**
+     *   **China Telecom**
+     *
+     * >  You are not allowed to verify numbers assigned by China Broadnet.
+     * @example China Mobile
+     *
      * @var string
      */
     public $basicCarrier;
 
     /**
+     * @description Indicates whether the specified name and phone number belong to the same user. Valid values:
+     *
+     * **1**: The specified name and phone number belong to the same user.
+     *
+     * **0**: The specified name and phone number do not belong to the same user.
+     *
+     * **2**: The specified name and phone number cannot be found.
+     *
+     * |China Telecom|Verifications can be carried out normally.|The specified name and phone number cannot be found.|The specified name and phone number cannot be found.|
      * @example 1
      *
      * @var int

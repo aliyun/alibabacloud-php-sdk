@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribePhoneNumberAnalysisAIResponseBody extends Model
 {
     /**
+     * @description The response code. Valid values:
+     *
+     *   OK: The request is successful.
+     *
      * @example OK
      *
      * @var string
@@ -17,11 +21,15 @@ class DescribePhoneNumberAnalysisAIResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -29,6 +37,8 @@ class DescribePhoneNumberAnalysisAIResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 68A40250-50CD-034C-B728-0BD******177
      *
      * @var string

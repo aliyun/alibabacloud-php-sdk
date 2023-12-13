@@ -14,6 +14,8 @@ class QueryTagListPageRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 18
      *
      * @var int
@@ -21,6 +23,8 @@ class QueryTagListPageRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 66
      *
      * @var int

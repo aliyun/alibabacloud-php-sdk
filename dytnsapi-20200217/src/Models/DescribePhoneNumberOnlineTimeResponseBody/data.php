@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The carrier code. Valid values:
+     *
+     *   **CMCC**: China Mobile
+     *   **CUCC**: China Unicom
+     *   **CTCC**: China Telecom
+     *   **CBN**: China Broadnet
+     *
      * @example CMCC
      *
      * @var string
@@ -16,6 +23,16 @@ class data extends Model
     public $carrierCode;
 
     /**
+     * @description The enumerated value of the usage period of a phone number. Valid values:
+     *
+     *   **-1**: No usage period information is available for the phone number.
+     *   **0**: The phone number status is abnormal. For example, the phone number is a nonexistent number.
+     *   **1** :\[0-3) months.
+     *   **2** :\[3-6] months.
+     *   **3** :(6-12] months.
+     *   **4** :(12-24] months.
+     *   **5** :(24,+) months.
+     *
      * @example 1
      *
      * @var string

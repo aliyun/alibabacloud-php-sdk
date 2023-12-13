@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class InvalidPhoneNumberFilterRequest extends Model
 {
     /**
+     * @description The authorization code.
+     *
+     * >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization code (also known as authorization ID).
      * @example QASDW@#**
      *
      * @var string
@@ -16,6 +19,8 @@ class InvalidPhoneNumberFilterRequest extends Model
     public $authCode;
 
     /**
+     * @description The phone number to be queried.
+     *
      * @example 1390000****
      *
      * @var string
@@ -23,6 +28,9 @@ class InvalidPhoneNumberFilterRequest extends Model
     public $inputNumber;
 
     /**
+     * @description The encryption method of the phone number.
+     *
+     * >  Only the NORMAL encryption method is supported.
      * @example NORMAL
      *
      * @var string

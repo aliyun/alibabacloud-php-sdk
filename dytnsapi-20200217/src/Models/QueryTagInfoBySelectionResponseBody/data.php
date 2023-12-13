@@ -10,50 +10,55 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 可用的授权码列表
+     * @description The list of available authorization codes.
      *
      * @var string[]
      */
     public $authCodeList;
 
     /**
-     * @description API demo链接
+     * @var string
+     */
+    public $complexityType;
+
+    /**
+     * @description The URL for the API demo.
      *
-     * @example 示例值
+     * @example https://help.aliyun.com/document_detail/388997.html?spm=a2c4g.2573870.0.0.3aa921cbOrtqJz
      *
      * @var string
      */
     public $demoAddress;
 
     /**
-     * @description API文档链接
+     * @description The URL for the API documentation.
      *
-     * @example 示例值示例值
+     * @example https://help.aliyun.com/document_detail/388997.html?spm=a2c4g.2573870.0.0.3aa921cbOrtqJz
      *
      * @var string
      */
     public $docAddress;
 
     /**
-     * @description 枚举值定义链接
+     * @description The URL for the definitions of the enumerated values.
      *
-     * @example 示例值示例值
+     * @example example.aliyundoc.com
      *
      * @var string
      */
     public $enumDefinitionAddress;
 
     /**
-     * @description 流程名称
+     * @description The flow name.
      *
-     * @example 示例值示例值
+     * @example process name
      *
      * @var string
      */
     public $flowName;
 
     /**
-     * @description 行业id
+     * @description The industry ID.
      *
      * @example 83
      *
@@ -62,23 +67,28 @@ class data extends Model
     public $industryId;
 
     /**
-     * @description 行业名称
+     * @description The industry name.
      *
-     * @example 示例值示例值
+     * @example logistics
      *
      * @var string
      */
     public $industryName;
 
     /**
-     * @description 标签参数列表
+     * @description The list of tag parameters.
      *
      * @var paramList[]
      */
     public $paramList;
 
     /**
-     * @description 场景id
+     * @var string
+     */
+    public $richTextDescription;
+
+    /**
+     * @description The scene ID.
      *
      * @example 41
      *
@@ -87,16 +97,16 @@ class data extends Model
     public $sceneId;
 
     /**
-     * @description 场景名称
+     * @description The scene name.
      *
-     * @example 示例值示例值示例值
+     * @example General scenario
      *
      * @var string
      */
     public $sceneName;
 
     /**
-     * @description 标签id
+     * @description The tag ID.
      *
      * @example 31
      *
@@ -105,15 +115,16 @@ class data extends Model
     public $tagId;
 
     /**
-     * @description 标签名称
+     * @description The tag name.
      *
-     * @example 示例值
+     * @example Number ownership
      *
      * @var string
      */
     public $tagName;
     protected $_name = [
         'authCodeList'          => 'AuthCodeList',
+        'complexityType'        => 'ComplexityType',
         'demoAddress'           => 'DemoAddress',
         'docAddress'            => 'DocAddress',
         'enumDefinitionAddress' => 'EnumDefinitionAddress',
@@ -121,6 +132,7 @@ class data extends Model
         'industryId'            => 'IndustryId',
         'industryName'          => 'IndustryName',
         'paramList'             => 'ParamList',
+        'richTextDescription'   => 'RichTextDescription',
         'sceneId'               => 'SceneId',
         'sceneName'             => 'SceneName',
         'tagId'                 => 'TagId',
@@ -136,6 +148,9 @@ class data extends Model
         $res = [];
         if (null !== $this->authCodeList) {
             $res['AuthCodeList'] = $this->authCodeList;
+        }
+        if (null !== $this->complexityType) {
+            $res['ComplexityType'] = $this->complexityType;
         }
         if (null !== $this->demoAddress) {
             $res['DemoAddress'] = $this->demoAddress;
@@ -163,6 +178,9 @@ class data extends Model
                     $res['ParamList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->richTextDescription) {
+            $res['RichTextDescription'] = $this->richTextDescription;
         }
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
@@ -193,6 +211,9 @@ class data extends Model
                 $model->authCodeList = $map['AuthCodeList'];
             }
         }
+        if (isset($map['ComplexityType'])) {
+            $model->complexityType = $map['ComplexityType'];
+        }
         if (isset($map['DemoAddress'])) {
             $model->demoAddress = $map['DemoAddress'];
         }
@@ -219,6 +240,9 @@ class data extends Model
                     $model->paramList[$n++] = null !== $item ? paramList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RichTextDescription'])) {
+            $model->richTextDescription = $map['RichTextDescription'];
         }
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];

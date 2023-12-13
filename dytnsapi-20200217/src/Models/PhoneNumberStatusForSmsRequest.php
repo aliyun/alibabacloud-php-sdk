@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PhoneNumberStatusForSmsRequest extends Model
 {
     /**
+     * @description The authorization code.
+     *
+     * >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization code (also known as authorization ID).
      * @example zf08***pi6
      *
      * @var string
@@ -16,6 +19,13 @@ class PhoneNumberStatusForSmsRequest extends Model
     public $authCode;
 
     /**
+     * @description The phone number to be queried.
+     *
+     *   If the value of Mask is NORMAL, specify an 11-digit phone number in plaintext.
+     *   If the value of Mask is MD5, specify a 32-bit string that is encrypted by using MD5.
+     *   If the value of Mask is SHA256, specify a 64-bit string that is encrypted by using SHA256.
+     *
+     * >  Letters in the encrypted strings are not case-sensitive.
      * @example 181****1234
      *
      * @var string
@@ -23,6 +33,12 @@ class PhoneNumberStatusForSmsRequest extends Model
     public $inputNumber;
 
     /**
+     * @description The encryption method of the phone number. Valid values:
+     *
+     *   **NORMAL**: plaintext
+     *   **MD5**
+     *   **SHA256**
+     *
      * @example NORMAL
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class QueryTagInfoBySelectionRequest extends Model
 {
     /**
-     * @description 行业id
+     * @description The industry ID.
      *
      * @example 58
      *
@@ -33,7 +33,7 @@ class QueryTagInfoBySelectionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description 场景id
+     * @description The scene ID.
      *
      * @example 83
      *
@@ -42,7 +42,7 @@ class QueryTagInfoBySelectionRequest extends Model
     public $sceneId;
 
     /**
-     * @description 标签id
+     * @description The tag ID.
      *
      * @example 71
      *

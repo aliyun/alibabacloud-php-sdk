@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CompanyThreeElementsVerificationRequest extends Model
 {
     /**
+     * @description The authorization code.
+     *
+     * >  On the [My Applications](https://dytns.console.aliyun.com/analysis/apply) page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/overview?spm=a2c4g.608385.0.0.79847f8b3awqUC), you can obtain the authorization code (also known as authorization ID).
      * @example Dd1r***4id
      *
      * @var string
@@ -16,6 +19,8 @@ class CompanyThreeElementsVerificationRequest extends Model
     public $authCode;
 
     /**
+     * @description The enterprise name.
+     *
      * @example 示例值
      *
      * @var string
@@ -23,6 +28,8 @@ class CompanyThreeElementsVerificationRequest extends Model
     public $epCertName;
 
     /**
+     * @description The business license number.
+     *
      * @example 9242032*******J627
      *
      * @var string
@@ -30,6 +37,9 @@ class CompanyThreeElementsVerificationRequest extends Model
     public $epCertNo;
 
     /**
+     * @description The name of the legal representative.
+     *
+     * >  If an enterprise has multiple legal representatives, separate them with commas (,).
      * @example 示例值示例值
      *
      * @var string

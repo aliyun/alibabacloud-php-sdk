@@ -9,18 +9,18 @@ use AlibabaCloud\Tea\Model;
 class valueDict extends Model
 {
     /**
-     * @description 英文名
+     * @description The English name.
      *
-     * @example 示例值示例值
+     * @example Aliyun
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description 中文名
+     * @description The Chinese name.
      *
-     * @example 示例值示例值
+     * @example 阿里云
      *
      * @var string
      */

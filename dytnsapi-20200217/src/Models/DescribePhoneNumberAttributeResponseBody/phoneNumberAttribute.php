@@ -9,21 +9,36 @@ use AlibabaCloud\Tea\Model;
 class phoneNumberAttribute extends Model
 {
     /**
+     * @description The basic carrier. Valid values:
+     *
+     *   **China Mobile**
+     *   **China Unicom**
+     *   **China Telecom**
+     *
      * @var string
      */
     public $basicCarrier;
 
     /**
+     * @description The actual carrier, including the virtual network operator (VNO). If the phone number involves mobile number portability, the value of this parameter is the carrier after mobile number portability.
+     *
      * @var string
      */
     public $carrier;
 
     /**
+     * @description The city where the phone number is registered.
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @description Indicates whether the phone number involves mobile number portability. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -31,11 +46,17 @@ class phoneNumberAttribute extends Model
     public $isNumberPortability;
 
     /**
+     * @description The number segment to which the phone number belongs.
+     *
+     * @example 139
+     *
      * @var int
      */
     public $numberSegment;
 
     /**
+     * @description The province where the phone number is registered.
+     *
      * @var string
      */
     public $province;

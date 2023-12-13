@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class DescribePhoneNumberAttributeResponseBody extends Model
 {
     /**
+     * @description The response code. Valid values:
+     *
+     *   **OK**: The request is successful.
+     *   **InvalidParameter**: The specified phone number is invalid or the parameter format is invalid.
+     *   **PhoneNumberNotfound**: No attribute information can be found for the specified phone number.
+     *   **isp.UNKNOWN**: An unknown exception occurred.
+     *
      * @example OK
      *
      * @var string
@@ -17,6 +24,8 @@ class DescribePhoneNumberAttributeResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -24,11 +33,15 @@ class DescribePhoneNumberAttributeResponseBody extends Model
     public $message;
 
     /**
+     * @description The attribute information about the phone number.
+     *
      * @var phoneNumberAttribute
      */
     public $phoneNumberAttribute;
 
     /**
+     * @description The request ID.
+     *
      * @example CC3BB6D2-2FDF-4321-9DCE-B38165CE4C47
      *
      * @var string

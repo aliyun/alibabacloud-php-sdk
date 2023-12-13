@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ThreeElementsVerificationRequest extends Model
 {
     /**
+     * @description The authorization code.
+     *
+     * >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization code (also known as authorization ID).
      * @example QASDW@#**
      *
      * @var string
@@ -16,6 +19,13 @@ class ThreeElementsVerificationRequest extends Model
     public $authCode;
 
     /**
+     * @description The ID card number to be verified.
+     *
+     *   If the value of Mask is NORMAL, specify a value in plaintext for this field.
+     *   If the value of Mask is MD5, specify a MD5-encrypted value for this field.
+     *   If the value of Mask is SHA256, specify a SHA256-encrypted value for this field.
+     *
+     * >  Letters in the encrypted strings are not case-sensitive.
      * @example 83d8040d3cb2181e04****dc6ff5566d4493876a4a5da782887446356b0a787e
      *
      * @var string
@@ -23,6 +33,13 @@ class ThreeElementsVerificationRequest extends Model
     public $certCode;
 
     /**
+     * @description The phone number to be verified.
+     *
+     *   If the value of Mask is NORMAL, specify a value in plaintext for this field.
+     *   If the value of Mask is MD5, specify a MD5-encrypted value for this field.
+     *   If the value of Mask is SHA256, specify a SHA256-encrypted value for this field.
+     *
+     * >  Letters in the encrypted strings are not case-sensitive.
      * @example 1390000****
      *
      * @var string
@@ -30,6 +47,12 @@ class ThreeElementsVerificationRequest extends Model
     public $inputNumber;
 
     /**
+     * @description The encryption method. Valid values:
+     *
+     *   **NORMAL**: The phone number is not encrypted.
+     *   **MD5**
+     *   **SHA256**
+     *
      * @example MD5
      *
      * @var string
@@ -37,6 +60,15 @@ class ThreeElementsVerificationRequest extends Model
     public $mask;
 
     /**
+     * @description The name to be verified.
+     *
+     *   If the value of Mask is NORMAL, specify a value in plaintext for this field.
+     *   If the value of Mask is MD5, specify a MD5-encrypted value for this field.
+     *   If the value of Mask is SHA256, specify a SHA256-encrypted value for this field.
+     *
+     * >  Letters in the encrypted strings are not case-sensitive.
+     * @example Aliyun
+     *
      * @var string
      */
     public $name;

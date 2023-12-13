@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the enterprise.
+     *
      * @var detailInfo
      */
     public $detailInfo;
 
     /**
+     * @description The fields to be verified.
+     *
      * @var string[]
      */
     public $inconsistentData;
 
     /**
+     * @description The code of the verification result. Valid values:
+     *
+     *   0: The two elements belong to the same enterprise.
+     *   1: The two elements belong to the same enterprise, but the business status of the enterprise is abnormal.
+     *   3: The two elements do not belong to the same enterprise.
+     *   4: No information about the enterprise is found.
+     *
      * @example 0
      *
      * @var string
@@ -27,6 +38,11 @@ class data extends Model
     public $reasonCode;
 
     /**
+     * @description The verification result. Valid values:
+     *
+     *   true: The two elements belong to the same enterprise and the business status of the enterprise is Active.
+     *   false: The two elements do not belong to the same enterprise.
+     *
      * @example true
      *
      * @var string

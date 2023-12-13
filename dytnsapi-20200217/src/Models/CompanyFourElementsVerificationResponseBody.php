@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CompanyFourElementsVerificationResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
      * @example -
      *
      * @var string
@@ -17,6 +19,8 @@ class CompanyFourElementsVerificationResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
+     * @description The response code.
+     *
      * @example OK
      *
      * @var string
@@ -24,11 +28,15 @@ class CompanyFourElementsVerificationResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -36,6 +44,8 @@ class CompanyFourElementsVerificationResponseBody extends Model
     public $message;
 
     /**
+     * @description The unique request ID. It is a common parameter and can be used to troubleshoot issues.
+     *
      * @example CC3BB6D2-2FDF-4321-9DCE-B38165CE4C47
      *
      * @var string

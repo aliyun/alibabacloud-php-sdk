@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberOperatorAttrib
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberOperatorAttributeResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneTwiceTelVerifyRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneTwiceTelVerifyResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\GetUAIDApplyTokenSignRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\GetUAIDApplyTokenSignResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberConvertServiceRequest;
@@ -58,6 +60,8 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ThreeElementsVerificationRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ThreeElementsVerificationResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\TwoElementsVerificationRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\TwoElementsVerificationResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\UAIDVerificationRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\UAIDVerificationResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -98,10 +102,14 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param CompanyFourElementsVerificationRequest $request
-     * @param RuntimeOptions                         $runtime
+     * *   Before you call this operation, make sure that you are familiar with the billing of services related to four-element verification for enterprises. For more information, see [Billing](https://help.aliyun.com/document_detail/154751.html?spm=a2c4g.154007.0.0.3edd7eb6E90YT4).
+     *   * *   You are charged only if the value of VerifyResult is true or false and the value of ReasonCode is 0, 1, or 2.
+     *   * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   *
+     * @param CompanyFourElementsVerificationRequest $request CompanyFourElementsVerificationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CompanyFourElementsVerificationResponse
+     * @return CompanyFourElementsVerificationResponse CompanyFourElementsVerificationResponse
      */
     public function companyFourElementsVerificationWithOptions($request, $runtime)
     {
@@ -150,9 +158,13 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param CompanyFourElementsVerificationRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the billing of services related to four-element verification for enterprises. For more information, see [Billing](https://help.aliyun.com/document_detail/154751.html?spm=a2c4g.154007.0.0.3edd7eb6E90YT4).
+     *   * *   You are charged only if the value of VerifyResult is true or false and the value of ReasonCode is 0, 1, or 2.
+     *   * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   *
+     * @param CompanyFourElementsVerificationRequest $request CompanyFourElementsVerificationRequest
      *
-     * @return CompanyFourElementsVerificationResponse
+     * @return CompanyFourElementsVerificationResponse CompanyFourElementsVerificationResponse
      */
     public function companyFourElementsVerification($request)
     {
@@ -162,10 +174,14 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param CompanyThreeElementsVerificationRequest $request
-     * @param RuntimeOptions                          $runtime
+     * *   Before you call this operation, make sure that you are familiar with the billing of services related to three-element verification for enterprises. For more information, see [Billing](https://help.aliyun.com/document_detail/154751.html?spm=a2c4g.154007.0.0.3edd7eb6E90YT4).
+     *   * *   You are charged only if the value of VerifyResult is true or false and the value of ReasonCode is 0, 1, or 2.
+     *   * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   *
+     * @param CompanyThreeElementsVerificationRequest $request CompanyThreeElementsVerificationRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CompanyThreeElementsVerificationResponse
+     * @return CompanyThreeElementsVerificationResponse CompanyThreeElementsVerificationResponse
      */
     public function companyThreeElementsVerificationWithOptions($request, $runtime)
     {
@@ -211,9 +227,13 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param CompanyThreeElementsVerificationRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the billing of services related to three-element verification for enterprises. For more information, see [Billing](https://help.aliyun.com/document_detail/154751.html?spm=a2c4g.154007.0.0.3edd7eb6E90YT4).
+     *   * *   You are charged only if the value of VerifyResult is true or false and the value of ReasonCode is 0, 1, or 2.
+     *   * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   *
+     * @param CompanyThreeElementsVerificationRequest $request CompanyThreeElementsVerificationRequest
      *
-     * @return CompanyThreeElementsVerificationResponse
+     * @return CompanyThreeElementsVerificationResponse CompanyThreeElementsVerificationResponse
      */
     public function companyThreeElementsVerification($request)
     {
@@ -223,10 +243,14 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param CompanyTwoElementsVerificationRequest $request
-     * @param RuntimeOptions                        $runtime
+     * *   Before you call this operation, make sure that you are familiar with the billing of services related to two-element verification for enterprises. For more information, see [Billing](https://help.aliyun.com/document_detail/154751.html?spm=a2c4g.154007.0.0.3edd7eb6E90YT4).
+     *   * *   You are charged only if the value of VerifyResult is true or false and the value of ReasonCode is 0 or 1.
+     *   * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   *
+     * @param CompanyTwoElementsVerificationRequest $request CompanyTwoElementsVerificationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CompanyTwoElementsVerificationResponse
+     * @return CompanyTwoElementsVerificationResponse CompanyTwoElementsVerificationResponse
      */
     public function companyTwoElementsVerificationWithOptions($request, $runtime)
     {
@@ -269,9 +293,13 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param CompanyTwoElementsVerificationRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the billing of services related to two-element verification for enterprises. For more information, see [Billing](https://help.aliyun.com/document_detail/154751.html?spm=a2c4g.154007.0.0.3edd7eb6E90YT4).
+     *   * *   You are charged only if the value of VerifyResult is true or false and the value of ReasonCode is 0 or 1.
+     *   * *   Before you call this operation, perform the following operations: Log on to the [Cell Phone Number Service console](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fdytns.console.aliyun.com%2Foverview%3Fspm%3Da2c4g.608385.0.0.79847f8b3awqUC\\&lang=zh). On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   *
+     * @param CompanyTwoElementsVerificationRequest $request CompanyTwoElementsVerificationRequest
      *
-     * @return CompanyTwoElementsVerificationResponse
+     * @return CompanyTwoElementsVerificationResponse CompanyTwoElementsVerificationResponse
      */
     public function companyTwoElementsVerification($request)
     {
@@ -281,10 +309,19 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeEmptyNumberRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   You can call this operation to verify whether a phone number is a nonexistent number. When you call this operation to verify a number, the system charges you CNY 0.01 per verification based on the number of verifications. **Before you call this operation, make sure that you are familiar with the billing of Cell Phone Number Service.**
+     *   * *   You are charged only if the value of Code is OK and the value of Status is not UNKNOWN.
+     *   * *   The prediction is not strictly accurate because Cell Phone Number Service predicts the nonexistent number probability by using AI algorithms. The accuracy rate of the prediction and the recall rate of empty numbers are about 95%. **Pay attention to this point when you call this operation**.
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   * ### [](#)Authorization information
+     *   * By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   *
+     * @param DescribeEmptyNumberRequest $request DescribeEmptyNumberRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEmptyNumberResponse
+     * @return DescribeEmptyNumberResponse DescribeEmptyNumberResponse
      */
     public function describeEmptyNumberWithOptions($request, $runtime)
     {
@@ -327,9 +364,18 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeEmptyNumberRequest $request
+     * *   You can call this operation to verify whether a phone number is a nonexistent number. When you call this operation to verify a number, the system charges you CNY 0.01 per verification based on the number of verifications. **Before you call this operation, make sure that you are familiar with the billing of Cell Phone Number Service.**
+     *   * *   You are charged only if the value of Code is OK and the value of Status is not UNKNOWN.
+     *   * *   The prediction is not strictly accurate because Cell Phone Number Service predicts the nonexistent number probability by using AI algorithms. The accuracy rate of the prediction and the recall rate of empty numbers are about 95%. **Pay attention to this point when you call this operation**.
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   * ### [](#)Authorization information
+     *   * By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   *
+     * @param DescribeEmptyNumberRequest $request DescribeEmptyNumberRequest
      *
-     * @return DescribeEmptyNumberResponse
+     * @return DescribeEmptyNumberResponse DescribeEmptyNumberResponse
      */
     public function describeEmptyNumber($request)
     {
@@ -403,10 +449,12 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneNumberAnalysisAIRequest $request
-     * @param RuntimeOptions                       $runtime
+     * Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the Labels page, find the label that you want to use, click Activate Now, enter the required information, and then submit your application. After your application is approved, you can use the label. Before you call this operation, make sure that you are familiar with the billing of Cell Phone Number Service.
+     *   *
+     * @param DescribePhoneNumberAnalysisAIRequest $request DescribePhoneNumberAnalysisAIRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePhoneNumberAnalysisAIResponse
+     * @return DescribePhoneNumberAnalysisAIResponse DescribePhoneNumberAnalysisAIResponse
      */
     public function describePhoneNumberAnalysisAIWithOptions($request, $runtime)
     {
@@ -452,9 +500,11 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneNumberAnalysisAIRequest $request
+     * Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the Labels page, find the label that you want to use, click Activate Now, enter the required information, and then submit your application. After your application is approved, you can use the label. Before you call this operation, make sure that you are familiar with the billing of Cell Phone Number Service.
+     *   *
+     * @param DescribePhoneNumberAnalysisAIRequest $request DescribePhoneNumberAnalysisAIRequest
      *
-     * @return DescribePhoneNumberAnalysisAIResponse
+     * @return DescribePhoneNumberAnalysisAIResponse DescribePhoneNumberAnalysisAIResponse
      */
     public function describePhoneNumberAnalysisAI($request)
     {
@@ -464,10 +514,18 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneNumberAttributeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @deprecated : DescribePhoneNumberAttribute is deprecated, please use Dytnsapi::2020-02-17::DescribePhoneNumberOperatorAttribute instead.
+     *   * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 2,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * Deprecated
      *
-     * @return DescribePhoneNumberAttributeResponse
+     * @param DescribePhoneNumberAttributeRequest $request DescribePhoneNumberAttributeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribePhoneNumberAttributeResponse DescribePhoneNumberAttributeResponse
      */
     public function describePhoneNumberAttributeWithOptions($request, $runtime)
     {
@@ -504,9 +562,17 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneNumberAttributeRequest $request
+     * @deprecated : DescribePhoneNumberAttribute is deprecated, please use Dytnsapi::2020-02-17::DescribePhoneNumberOperatorAttribute instead.
+     *   * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 2,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * Deprecated
      *
-     * @return DescribePhoneNumberAttributeResponse
+     * @param DescribePhoneNumberAttributeRequest $request DescribePhoneNumberAttributeRequest
+     *
+     * @return DescribePhoneNumberAttributeResponse DescribePhoneNumberAttributeResponse
      */
     public function describePhoneNumberAttribute($request)
     {
@@ -516,10 +582,15 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneNumberOnlineTimeRequest $request
-     * @param RuntimeOptions                       $runtime
+     * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribePhoneNumberOnlineTimeRequest $request DescribePhoneNumberOnlineTimeRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePhoneNumberOnlineTimeResponse
+     * @return DescribePhoneNumberOnlineTimeResponse DescribePhoneNumberOnlineTimeResponse
      */
     public function describePhoneNumberOnlineTimeWithOptions($request, $runtime)
     {
@@ -565,9 +636,14 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneNumberOnlineTimeRequest $request
+     * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribePhoneNumberOnlineTimeRequest $request DescribePhoneNumberOnlineTimeRequest
      *
-     * @return DescribePhoneNumberOnlineTimeResponse
+     * @return DescribePhoneNumberOnlineTimeResponse DescribePhoneNumberOnlineTimeResponse
      */
     public function describePhoneNumberOnlineTime($request)
     {
@@ -577,10 +653,15 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneNumberOperatorAttributeRequest $request
-     * @param RuntimeOptions                              $runtime
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154008~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   You can call this operation to obtain the carrier, registration location, and mobile number portability information about a phone number. You can query phone numbers in **plaintext** and phone numbers that are encrypted by using **MD5** and **SHA256**.
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   *
+     * @param DescribePhoneNumberOperatorAttributeRequest $request DescribePhoneNumberOperatorAttributeRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePhoneNumberOperatorAttributeResponse
+     * @return DescribePhoneNumberOperatorAttributeResponse DescribePhoneNumberOperatorAttributeResponse
      */
     public function describePhoneNumberOperatorAttributeWithOptions($request, $runtime)
     {
@@ -623,9 +704,14 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneNumberOperatorAttributeRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154008~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   You can call this operation to obtain the carrier, registration location, and mobile number portability information about a phone number. You can query phone numbers in **plaintext** and phone numbers that are encrypted by using **MD5** and **SHA256**.
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   *
+     * @param DescribePhoneNumberOperatorAttributeRequest $request DescribePhoneNumberOperatorAttributeRequest
      *
-     * @return DescribePhoneNumberOperatorAttributeResponse
+     * @return DescribePhoneNumberOperatorAttributeResponse DescribePhoneNumberOperatorAttributeResponse
      */
     public function describePhoneNumberOperatorAttribute($request)
     {
@@ -635,10 +721,18 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneTwiceTelVerifyRequest $request
-     * @param RuntimeOptions                     $runtime
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   You are charged for phone number verifications only if the value of Code is OK and the value of VerifyResult is not 0.
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ## [](#qps)QPS limits
+     *   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   * ## [](#)Authorization information
+     *   * By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   *
+     * @param DescribePhoneTwiceTelVerifyRequest $request DescribePhoneTwiceTelVerifyRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePhoneTwiceTelVerifyResponse
+     * @return DescribePhoneTwiceTelVerifyResponse DescribePhoneTwiceTelVerifyResponse
      */
     public function describePhoneTwiceTelVerifyWithOptions($request, $runtime)
     {
@@ -684,9 +778,17 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneTwiceTelVerifyRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   You are charged for phone number verifications only if the value of Code is OK and the value of VerifyResult is not 0.
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ## [](#qps)QPS limits
+     *   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   * ## [](#)Authorization information
+     *   * By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   *
+     * @param DescribePhoneTwiceTelVerifyRequest $request DescribePhoneTwiceTelVerifyRequest
      *
-     * @return DescribePhoneTwiceTelVerifyResponse
+     * @return DescribePhoneTwiceTelVerifyResponse DescribePhoneTwiceTelVerifyResponse
      */
     public function describePhoneTwiceTelVerify($request)
     {
@@ -696,10 +798,87 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param InvalidPhoneNumberFilterRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param GetUAIDApplyTokenSignRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return InvalidPhoneNumberFilterResponse
+     * @return GetUAIDApplyTokenSignResponse
+     */
+    public function getUAIDApplyTokenSignWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->carrier)) {
+            $query['Carrier'] = $request->carrier;
+        }
+        if (!Utils::isUnset($request->clientType)) {
+            $query['ClientType'] = $request->clientType;
+        }
+        if (!Utils::isUnset($request->format)) {
+            $query['Format'] = $request->format;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->paramKey)) {
+            $query['ParamKey'] = $request->paramKey;
+        }
+        if (!Utils::isUnset($request->paramStr)) {
+            $query['ParamStr'] = $request->paramStr;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->time)) {
+            $query['Time'] = $request->time;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUAIDApplyTokenSign',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUAIDApplyTokenSignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUAIDApplyTokenSignRequest $request
+     *
+     * @return GetUAIDApplyTokenSignResponse
+     */
+    public function getUAIDApplyTokenSign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUAIDApplyTokenSignWithOptions($request, $runtime);
+    }
+
+    /**
+     * Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param InvalidPhoneNumberFilterRequest $request InvalidPhoneNumberFilterRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return InvalidPhoneNumberFilterResponse InvalidPhoneNumberFilterResponse
      */
     public function invalidPhoneNumberFilterWithOptions($request, $runtime)
     {
@@ -742,9 +921,13 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param InvalidPhoneNumberFilterRequest $request
+     * Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param InvalidPhoneNumberFilterRequest $request InvalidPhoneNumberFilterRequest
      *
-     * @return InvalidPhoneNumberFilterResponse
+     * @return InvalidPhoneNumberFilterResponse InvalidPhoneNumberFilterResponse
      */
     public function invalidPhoneNumberFilter($request)
     {
@@ -812,10 +995,14 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberEncryptRequest $request
-     * @param RuntimeOptions            $runtime
+     * Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberEncryptRequest $request PhoneNumberEncryptRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return PhoneNumberEncryptResponse
+     * @return PhoneNumberEncryptResponse PhoneNumberEncryptResponse
      */
     public function phoneNumberEncryptWithOptions($request, $runtime)
     {
@@ -858,9 +1045,13 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberEncryptRequest $request
+     * Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberEncryptRequest $request PhoneNumberEncryptRequest
      *
-     * @return PhoneNumberEncryptResponse
+     * @return PhoneNumberEncryptResponse PhoneNumberEncryptResponse
      */
     public function phoneNumberEncrypt($request)
     {
@@ -870,10 +1061,16 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberStatusForAccountRequest $request
-     * @param RuntimeOptions                     $runtime
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberStatusForAccountRequest $request PhoneNumberStatusForAccountRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return PhoneNumberStatusForAccountResponse
+     * @return PhoneNumberStatusForAccountResponse PhoneNumberStatusForAccountResponse
      */
     public function phoneNumberStatusForAccountWithOptions($request, $runtime)
     {
@@ -916,9 +1113,15 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberStatusForAccountRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberStatusForAccountRequest $request PhoneNumberStatusForAccountRequest
      *
-     * @return PhoneNumberStatusForAccountResponse
+     * @return PhoneNumberStatusForAccountResponse PhoneNumberStatusForAccountResponse
      */
     public function phoneNumberStatusForAccount($request)
     {
@@ -928,10 +1131,16 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberStatusForPublicRequest $request
-     * @param RuntimeOptions                    $runtime
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberStatusForPublicRequest $request PhoneNumberStatusForPublicRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return PhoneNumberStatusForPublicResponse
+     * @return PhoneNumberStatusForPublicResponse PhoneNumberStatusForPublicResponse
      */
     public function phoneNumberStatusForPublicWithOptions($request, $runtime)
     {
@@ -974,9 +1183,15 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberStatusForPublicRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberStatusForPublicRequest $request PhoneNumberStatusForPublicRequest
      *
-     * @return PhoneNumberStatusForPublicResponse
+     * @return PhoneNumberStatusForPublicResponse PhoneNumberStatusForPublicResponse
      */
     public function phoneNumberStatusForPublic($request)
     {
@@ -986,10 +1201,16 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberStatusForRealRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberStatusForRealRequest $request PhoneNumberStatusForRealRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return PhoneNumberStatusForRealResponse
+     * @return PhoneNumberStatusForRealResponse PhoneNumberStatusForRealResponse
      */
     public function phoneNumberStatusForRealWithOptions($request, $runtime)
     {
@@ -1032,9 +1253,15 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberStatusForRealRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberStatusForRealRequest $request PhoneNumberStatusForRealRequest
      *
-     * @return PhoneNumberStatusForRealResponse
+     * @return PhoneNumberStatusForRealResponse PhoneNumberStatusForRealResponse
      */
     public function phoneNumberStatusForReal($request)
     {
@@ -1044,10 +1271,16 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberStatusForSmsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberStatusForSmsRequest $request PhoneNumberStatusForSmsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return PhoneNumberStatusForSmsResponse
+     * @return PhoneNumberStatusForSmsResponse PhoneNumberStatusForSmsResponse
      */
     public function phoneNumberStatusForSmsWithOptions($request, $runtime)
     {
@@ -1090,9 +1323,15 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberStatusForSmsRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberStatusForSmsRequest $request PhoneNumberStatusForSmsRequest
      *
-     * @return PhoneNumberStatusForSmsResponse
+     * @return PhoneNumberStatusForSmsResponse PhoneNumberStatusForSmsResponse
      */
     public function phoneNumberStatusForSms($request)
     {
@@ -1102,10 +1341,17 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberStatusForVirtualRequest $request
-     * @param RuntimeOptions                     $runtime
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   You are charged only if the value of Code is OK and the value of IsPrivacyNumber is true or false.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberStatusForVirtualRequest $request PhoneNumberStatusForVirtualRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return PhoneNumberStatusForVirtualResponse
+     * @return PhoneNumberStatusForVirtualResponse PhoneNumberStatusForVirtualResponse
      */
     public function phoneNumberStatusForVirtualWithOptions($request, $runtime)
     {
@@ -1148,9 +1394,16 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberStatusForVirtualRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   You are charged only if the value of Code is OK and the value of IsPrivacyNumber is true or false.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberStatusForVirtualRequest $request PhoneNumberStatusForVirtualRequest
      *
-     * @return PhoneNumberStatusForVirtualResponse
+     * @return PhoneNumberStatusForVirtualResponse PhoneNumberStatusForVirtualResponse
      */
     public function phoneNumberStatusForVirtual($request)
     {
@@ -1160,10 +1413,16 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberStatusForVoiceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberStatusForVoiceRequest $request PhoneNumberStatusForVoiceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return PhoneNumberStatusForVoiceResponse
+     * @return PhoneNumberStatusForVoiceResponse PhoneNumberStatusForVoiceResponse
      */
     public function phoneNumberStatusForVoiceWithOptions($request, $runtime)
     {
@@ -1206,9 +1465,15 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param PhoneNumberStatusForVoiceRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   By default, only Alibaba Cloud accounts can call this operation. RAM users can call this operation only after the RAM users are granted the related permissions. For more information, see [Grant permissions to RAM users](~~154006~~).
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 300 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PhoneNumberStatusForVoiceRequest $request PhoneNumberStatusForVoiceRequest
      *
-     * @return PhoneNumberStatusForVoiceResponse
+     * @return PhoneNumberStatusForVoiceResponse PhoneNumberStatusForVoiceResponse
      */
     public function phoneNumberStatusForVoice($request)
     {
@@ -1499,10 +1764,16 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param ThreeElementsVerificationRequest $request
-     * @param RuntimeOptions                   $runtime
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * *   You are charged only if the value of Code is OK and the value of IsConsistent is not 2.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ThreeElementsVerificationRequest $request ThreeElementsVerificationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ThreeElementsVerificationResponse
+     * @return ThreeElementsVerificationResponse ThreeElementsVerificationResponse
      */
     public function threeElementsVerificationWithOptions($request, $runtime)
     {
@@ -1551,9 +1822,15 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param ThreeElementsVerificationRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * *   You are charged only if the value of Code is OK and the value of IsConsistent is not 2.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ThreeElementsVerificationRequest $request ThreeElementsVerificationRequest
      *
-     * @return ThreeElementsVerificationResponse
+     * @return ThreeElementsVerificationResponse ThreeElementsVerificationResponse
      */
     public function threeElementsVerification($request)
     {
@@ -1563,10 +1840,16 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param TwoElementsVerificationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * *   You are charged only if the value of Code is OK and the value of IsConsistent is not 2.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param TwoElementsVerificationRequest $request TwoElementsVerificationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return TwoElementsVerificationResponse
+     * @return TwoElementsVerificationResponse TwoElementsVerificationResponse
      */
     public function twoElementsVerificationWithOptions($request, $runtime)
     {
@@ -1612,14 +1895,87 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param TwoElementsVerificationRequest $request
+     * *   Before you call this operation, make sure that you are familiar with the [billing](~~154751~~) of Cell Phone Number Service.
+     *   * *   Before you call this operation, perform the following operations: Log on to the Cell Phone Number Service console. On the [Labels](https://dytns.console.aliyun.com/analysis/square) page, find the label that you want to use, click **Activate Now**, enter the required information, and then submit your application. After your application is approved, you can use the label.
+     *   * *   You are charged only if the value of Code is OK and the value of IsConsistent is not 2.
+     *   * ### [](#qps)QPS limits
+     *   * You can call this operation up to 200 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param TwoElementsVerificationRequest $request TwoElementsVerificationRequest
      *
-     * @return TwoElementsVerificationResponse
+     * @return TwoElementsVerificationResponse TwoElementsVerificationResponse
      */
     public function twoElementsVerification($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->twoElementsVerificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UAIDVerificationRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UAIDVerificationResponse
+     */
+    public function uAIDVerificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->carrier)) {
+            $query['Carrier'] = $request->carrier;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->userGrantId)) {
+            $query['UserGrantId'] = $request->userGrantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UAIDVerification',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UAIDVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UAIDVerificationRequest $request
+     *
+     * @return UAIDVerificationResponse
+     */
+    public function uAIDVerification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uAIDVerificationWithOptions($request, $runtime);
     }
 }

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The returned code.
+     *
+     *   YES: The specified phone number is valid.
+     *   NO: The specified phone number is invalid.
+     *   UNKNOWN: The specified phone number is unknown
+     *
      * @example YES
      *
      * @var string
@@ -16,6 +22,8 @@ class data extends Model
     public $code;
 
     /**
+     * @description The specified phone number.
+     *
      * @example 187****5620
      *
      * @var string
