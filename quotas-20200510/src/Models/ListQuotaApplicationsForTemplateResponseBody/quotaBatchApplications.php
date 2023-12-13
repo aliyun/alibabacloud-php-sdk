@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class quotaBatchApplications extends Model
 {
     /**
+     * @var string[]
+     */
+    public $aliyunUids;
+
+    /**
      * @description The time when the quota increase application was submitted. The value is displayed in UTC.
      *
      * @example 2022-09-23T02:38:18Z
@@ -101,7 +106,13 @@ class quotaBatchApplications extends Model
      * @var string
      */
     public $quotaCategory;
+
+    /**
+     * @var string
+     */
+    public $reason;
     protected $_name = [
+        'aliyunUids'              => 'AliyunUids',
         'applyTime'               => 'ApplyTime',
         'auditStatusVos'          => 'AuditStatusVos',
         'batchQuotaApplicationId' => 'BatchQuotaApplicationId',
@@ -112,6 +123,7 @@ class quotaBatchApplications extends Model
         'productCode'             => 'ProductCode',
         'quotaActionCode'         => 'QuotaActionCode',
         'quotaCategory'           => 'QuotaCategory',
+        'reason'                  => 'Reason',
     ];
 
     public function validate()
@@ -121,6 +133,9 @@ class quotaBatchApplications extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliyunUids) {
+            $res['AliyunUids'] = $this->aliyunUids;
+        }
         if (null !== $this->applyTime) {
             $res['ApplyTime'] = $this->applyTime;
         }
@@ -157,6 +172,9 @@ class quotaBatchApplications extends Model
         if (null !== $this->quotaCategory) {
             $res['QuotaCategory'] = $this->quotaCategory;
         }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
+        }
 
         return $res;
     }
@@ -169,6 +187,11 @@ class quotaBatchApplications extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliyunUids'])) {
+            if (!empty($map['AliyunUids'])) {
+                $model->aliyunUids = $map['AliyunUids'];
+            }
+        }
         if (isset($map['ApplyTime'])) {
             $model->applyTime = $map['ApplyTime'];
         }
@@ -204,6 +227,9 @@ class quotaBatchApplications extends Model
         }
         if (isset($map['QuotaCategory'])) {
             $model->quotaCategory = $map['QuotaCategory'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
 
         return $model;
