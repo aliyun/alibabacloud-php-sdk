@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class upgradeConfig extends Model
 {
     /**
-     * @example false
+     * @example true
      *
      * @var bool
      */
     public $autoUpgrade;
 
     /**
-     * @example 0
+     * @example 1
      *
      * @var int
      */
     public $maxUnavailable;
 
     /**
-     * @example 0
+     * @example 5
      *
      * @var int
      */
     public $surge;
 
     /**
-     * @example 0
+     * @example 50
      *
      * @var int
      */

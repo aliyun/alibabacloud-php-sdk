@@ -16,8 +16,16 @@ class DeleteClusterNodepoolResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example T-655ace947e0e6603af000004
+     *
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'requestId' => 'request_id',
+        'taskId'    => 'task_id',
     ];
 
     public function validate()
@@ -29,6 +37,9 @@ class DeleteClusterNodepoolResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
+        }
+        if (null !== $this->taskId) {
+            $res['task_id'] = $this->taskId;
         }
 
         return $res;
@@ -44,6 +55,9 @@ class DeleteClusterNodepoolResponseBody extends Model
         $model = new self();
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
+        }
+        if (isset($map['task_id'])) {
+            $model->taskId = $map['task_id'];
         }
 
         return $model;

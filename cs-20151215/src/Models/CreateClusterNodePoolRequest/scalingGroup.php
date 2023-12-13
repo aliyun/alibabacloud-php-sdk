@@ -36,6 +36,13 @@ class scalingGroup extends Model
     public $autoRenewPeriod;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $cisEnabled;
+
+    /**
      * @description Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created due to reasons such as the cost or insufficient inventory. This parameter takes effect when you set `multi_az_policy` to `COST_OPTIMIZED`. Valid values:
      *
      *   `true`: automatically creates pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created.
@@ -151,6 +158,13 @@ class scalingGroup extends Model
     public $keyPair;
 
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $loginAsNonRoot;
+
+    /**
      * @description The password for SSH logon. You must set this parameter or the `key_pair` parameter. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
      *
      * @example Hello1234
@@ -227,6 +241,8 @@ class scalingGroup extends Model
      * Default value: `AliyunLinux`.
      * @example AliyunLinux
      *
+     * @deprecated
+     *
      * @var string
      */
     public $platform;
@@ -273,6 +289,13 @@ class scalingGroup extends Model
      * @var string[]
      */
     public $securityGroupIds;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $socEnabled;
 
     /**
      * @description The number of instance types that are available for creating preemptible instances. Auto Scaling creates preemptible instances of multiple instance types that are available at the lowest cost. Valid values: 1 to 10.
@@ -326,6 +349,11 @@ class scalingGroup extends Model
     public $systemDiskBurstingEnabled;
 
     /**
+     * @var string[]
+     */
+    public $systemDiskCategories;
+
+    /**
      * @description The type of system disk. Valid values:
      *
      *   `cloud_efficiency`: ultra disk.
@@ -338,6 +366,27 @@ class scalingGroup extends Model
      * @var string
      */
     public $systemDiskCategory;
+
+    /**
+     * @example aes-256
+     *
+     * @var string
+     */
+    public $systemDiskEncryptAlgorithm;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $systemDiskEncrypted;
+
+    /**
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
+     *
+     * @var string
+     */
+    public $systemDiskKmsKeyId;
 
     /**
      * @description The performance level (PL) of the system disk that you want to use for the node. This parameter takes effect only for ESSDs.
@@ -391,6 +440,7 @@ class scalingGroup extends Model
     protected $_name = [
         'autoRenew'                           => 'auto_renew',
         'autoRenewPeriod'                     => 'auto_renew_period',
+        'cisEnabled'                          => 'cis_enabled',
         'compensateWithOnDemand'              => 'compensate_with_on_demand',
         'dataDisks'                           => 'data_disks',
         'deploymentsetId'                     => 'deploymentset_id',
@@ -402,6 +452,7 @@ class scalingGroup extends Model
         'internetChargeType'                  => 'internet_charge_type',
         'internetMaxBandwidthOut'             => 'internet_max_bandwidth_out',
         'keyPair'                             => 'key_pair',
+        'loginAsNonRoot'                      => 'login_as_non_root',
         'loginPassword'                       => 'login_password',
         'multiAzPolicy'                       => 'multi_az_policy',
         'onDemandBaseCapacity'                => 'on_demand_base_capacity',
@@ -414,12 +465,17 @@ class scalingGroup extends Model
         'scalingPolicy'                       => 'scaling_policy',
         'securityGroupId'                     => 'security_group_id',
         'securityGroupIds'                    => 'security_group_ids',
+        'socEnabled'                          => 'soc_enabled',
         'spotInstancePools'                   => 'spot_instance_pools',
         'spotInstanceRemedy'                  => 'spot_instance_remedy',
         'spotPriceLimit'                      => 'spot_price_limit',
         'spotStrategy'                        => 'spot_strategy',
         'systemDiskBurstingEnabled'           => 'system_disk_bursting_enabled',
+        'systemDiskCategories'                => 'system_disk_categories',
         'systemDiskCategory'                  => 'system_disk_category',
+        'systemDiskEncryptAlgorithm'          => 'system_disk_encrypt_algorithm',
+        'systemDiskEncrypted'                 => 'system_disk_encrypted',
+        'systemDiskKmsKeyId'                  => 'system_disk_kms_key_id',
         'systemDiskPerformanceLevel'          => 'system_disk_performance_level',
         'systemDiskProvisionedIops'           => 'system_disk_provisioned_iops',
         'systemDiskSize'                      => 'system_disk_size',
@@ -439,6 +495,9 @@ class scalingGroup extends Model
         }
         if (null !== $this->autoRenewPeriod) {
             $res['auto_renew_period'] = $this->autoRenewPeriod;
+        }
+        if (null !== $this->cisEnabled) {
+            $res['cis_enabled'] = $this->cisEnabled;
         }
         if (null !== $this->compensateWithOnDemand) {
             $res['compensate_with_on_demand'] = $this->compensateWithOnDemand;
@@ -479,6 +538,9 @@ class scalingGroup extends Model
         if (null !== $this->keyPair) {
             $res['key_pair'] = $this->keyPair;
         }
+        if (null !== $this->loginAsNonRoot) {
+            $res['login_as_non_root'] = $this->loginAsNonRoot;
+        }
         if (null !== $this->loginPassword) {
             $res['login_password'] = $this->loginPassword;
         }
@@ -515,6 +577,9 @@ class scalingGroup extends Model
         if (null !== $this->securityGroupIds) {
             $res['security_group_ids'] = $this->securityGroupIds;
         }
+        if (null !== $this->socEnabled) {
+            $res['soc_enabled'] = $this->socEnabled;
+        }
         if (null !== $this->spotInstancePools) {
             $res['spot_instance_pools'] = $this->spotInstancePools;
         }
@@ -536,8 +601,20 @@ class scalingGroup extends Model
         if (null !== $this->systemDiskBurstingEnabled) {
             $res['system_disk_bursting_enabled'] = $this->systemDiskBurstingEnabled;
         }
+        if (null !== $this->systemDiskCategories) {
+            $res['system_disk_categories'] = $this->systemDiskCategories;
+        }
         if (null !== $this->systemDiskCategory) {
             $res['system_disk_category'] = $this->systemDiskCategory;
+        }
+        if (null !== $this->systemDiskEncryptAlgorithm) {
+            $res['system_disk_encrypt_algorithm'] = $this->systemDiskEncryptAlgorithm;
+        }
+        if (null !== $this->systemDiskEncrypted) {
+            $res['system_disk_encrypted'] = $this->systemDiskEncrypted;
+        }
+        if (null !== $this->systemDiskKmsKeyId) {
+            $res['system_disk_kms_key_id'] = $this->systemDiskKmsKeyId;
         }
         if (null !== $this->systemDiskPerformanceLevel) {
             $res['system_disk_performance_level'] = $this->systemDiskPerformanceLevel;
@@ -577,6 +654,9 @@ class scalingGroup extends Model
         }
         if (isset($map['auto_renew_period'])) {
             $model->autoRenewPeriod = $map['auto_renew_period'];
+        }
+        if (isset($map['cis_enabled'])) {
+            $model->cisEnabled = $map['cis_enabled'];
         }
         if (isset($map['compensate_with_on_demand'])) {
             $model->compensateWithOnDemand = $map['compensate_with_on_demand'];
@@ -619,6 +699,9 @@ class scalingGroup extends Model
         if (isset($map['key_pair'])) {
             $model->keyPair = $map['key_pair'];
         }
+        if (isset($map['login_as_non_root'])) {
+            $model->loginAsNonRoot = $map['login_as_non_root'];
+        }
         if (isset($map['login_password'])) {
             $model->loginPassword = $map['login_password'];
         }
@@ -659,6 +742,9 @@ class scalingGroup extends Model
                 $model->securityGroupIds = $map['security_group_ids'];
             }
         }
+        if (isset($map['soc_enabled'])) {
+            $model->socEnabled = $map['soc_enabled'];
+        }
         if (isset($map['spot_instance_pools'])) {
             $model->spotInstancePools = $map['spot_instance_pools'];
         }
@@ -680,8 +766,22 @@ class scalingGroup extends Model
         if (isset($map['system_disk_bursting_enabled'])) {
             $model->systemDiskBurstingEnabled = $map['system_disk_bursting_enabled'];
         }
+        if (isset($map['system_disk_categories'])) {
+            if (!empty($map['system_disk_categories'])) {
+                $model->systemDiskCategories = $map['system_disk_categories'];
+            }
+        }
         if (isset($map['system_disk_category'])) {
             $model->systemDiskCategory = $map['system_disk_category'];
+        }
+        if (isset($map['system_disk_encrypt_algorithm'])) {
+            $model->systemDiskEncryptAlgorithm = $map['system_disk_encrypt_algorithm'];
+        }
+        if (isset($map['system_disk_encrypted'])) {
+            $model->systemDiskEncrypted = $map['system_disk_encrypted'];
+        }
+        if (isset($map['system_disk_kms_key_id'])) {
+            $model->systemDiskKmsKeyId = $map['system_disk_kms_key_id'];
         }
         if (isset($map['system_disk_performance_level'])) {
             $model->systemDiskPerformanceLevel = $map['system_disk_performance_level'];

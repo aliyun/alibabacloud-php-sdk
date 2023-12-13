@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\autoScaling;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\interconnectConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\kubernetesConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\management;
+use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\nodeConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\nodepoolInfo;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\scalingGroup;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\teeConfig;
@@ -61,6 +62,11 @@ class Nodepool extends Model
     public $maxNodes;
 
     /**
+     * @var nodeConfig
+     */
+    public $nodeConfig;
+
+    /**
      * @var nodepoolInfo
      */
     public $nodepoolInfo;
@@ -82,6 +88,7 @@ class Nodepool extends Model
         'kubernetesConfig'   => 'kubernetes_config',
         'management'         => 'management',
         'maxNodes'           => 'max_nodes',
+        'nodeConfig'         => 'node_config',
         'nodepoolInfo'       => 'nodepool_info',
         'scalingGroup'       => 'scaling_group',
         'teeConfig'          => 'tee_config',
@@ -114,6 +121,9 @@ class Nodepool extends Model
         }
         if (null !== $this->maxNodes) {
             $res['max_nodes'] = $this->maxNodes;
+        }
+        if (null !== $this->nodeConfig) {
+            $res['node_config'] = null !== $this->nodeConfig ? $this->nodeConfig->toMap() : null;
         }
         if (null !== $this->nodepoolInfo) {
             $res['nodepool_info'] = null !== $this->nodepoolInfo ? $this->nodepoolInfo->toMap() : null;
@@ -156,6 +166,9 @@ class Nodepool extends Model
         }
         if (isset($map['max_nodes'])) {
             $model->maxNodes = $map['max_nodes'];
+        }
+        if (isset($map['node_config'])) {
+            $model->nodeConfig = nodeConfig::fromMap($map['node_config']);
         }
         if (isset($map['nodepool_info'])) {
             $model->nodepoolInfo = nodepoolInfo::fromMap($map['nodepool_info']);

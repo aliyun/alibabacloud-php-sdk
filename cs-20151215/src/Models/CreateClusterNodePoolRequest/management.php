@@ -68,6 +68,8 @@ class management extends Model
     /**
      * @description The configurations about auto update. The configurations take effect only when you specify `enable=true`.
      *
+     * @deprecated
+     *
      * @var upgradeConfig
      */
     public $upgradeConfig;

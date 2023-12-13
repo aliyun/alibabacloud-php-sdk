@@ -51,6 +51,13 @@ class DataDisk extends Model
     public $fileSystem;
 
     /**
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
+     *
+     * @var string
+     */
+    public $kmsKeyId;
+
+    /**
      * @example /mnt/path1
      *
      * @var string
@@ -84,6 +91,7 @@ class DataDisk extends Model
         'category'             => 'category',
         'encrypted'            => 'encrypted',
         'fileSystem'           => 'file_system',
+        'kmsKeyId'             => 'kms_key_id',
         'mountTarget'          => 'mount_target',
         'performanceLevel'     => 'performance_level',
         'provisionedIops'      => 'provisioned_iops',
@@ -114,6 +122,9 @@ class DataDisk extends Model
         }
         if (null !== $this->fileSystem) {
             $res['file_system'] = $this->fileSystem;
+        }
+        if (null !== $this->kmsKeyId) {
+            $res['kms_key_id'] = $this->kmsKeyId;
         }
         if (null !== $this->mountTarget) {
             $res['mount_target'] = $this->mountTarget;
@@ -156,6 +167,9 @@ class DataDisk extends Model
         }
         if (isset($map['file_system'])) {
             $model->fileSystem = $map['file_system'];
+        }
+        if (isset($map['kms_key_id'])) {
+            $model->kmsKeyId = $map['kms_key_id'];
         }
         if (isset($map['mount_target'])) {
             $model->mountTarget = $map['mount_target'];

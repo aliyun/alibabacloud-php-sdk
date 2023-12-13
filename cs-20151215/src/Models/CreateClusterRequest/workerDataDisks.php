@@ -18,7 +18,7 @@ class workerDataDisks extends Model
     public $category;
 
     /**
-     * @description Specifies whether to encrypt the data disks. Valid values:
+     * @description Specifies whether to encrypt a data disk. Valid values:
      *
      *   `true`: encrypts a data disk.
      *   `false`: does not encrypt a data disk.
@@ -31,7 +31,7 @@ class workerDataDisks extends Model
     public $encrypted;
 
     /**
-     * @description The PL of a data disk. This parameter takes effect only for ESSDs. You can specify a higher PL if you increase the size of a data disk. For more information, see [ESSDs](~~122389~~).
+     * @description The performance level (PL) of a data disk. This parameter takes effect only on ESSDs. You can specify a higher PL if you increase the size of a data disk. For more information, see [ESSDs](~~122389~~).
      *
      * @example PL1
      *

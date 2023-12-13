@@ -100,6 +100,11 @@ class scalingGroup extends Model
     public $keyPair;
 
     /**
+     * @var bool
+     */
+    public $loginAsNonRoot;
+
+    /**
      * @example Hello1234,,
      *
      * @var string
@@ -143,6 +148,8 @@ class scalingGroup extends Model
 
     /**
      * @example AliyunLinux
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -211,11 +218,35 @@ class scalingGroup extends Model
     public $systemDiskBurstingEnabled;
 
     /**
+     * @var string[]
+     */
+    public $systemDiskCategories;
+
+    /**
      * @example cloud_efficiency
      *
      * @var string
      */
     public $systemDiskCategory;
+
+    /**
+     * @example aes-256
+     *
+     * @var string
+     */
+    public $systemDiskEncryptAlgorithm;
+
+    /**
+     * @var bool
+     */
+    public $systemDiskEncrypted;
+
+    /**
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
+     *
+     * @var string
+     */
+    public $systemDiskKmsKeyId;
 
     /**
      * @example PL1
@@ -261,6 +292,7 @@ class scalingGroup extends Model
         'internetChargeType'                  => 'internet_charge_type',
         'internetMaxBandwidthOut'             => 'internet_max_bandwidth_out',
         'keyPair'                             => 'key_pair',
+        'loginAsNonRoot'                      => 'login_as_non_root',
         'loginPassword'                       => 'login_password',
         'multiAzPolicy'                       => 'multi_az_policy',
         'onDemandBaseCapacity'                => 'on_demand_base_capacity',
@@ -278,7 +310,11 @@ class scalingGroup extends Model
         'spotPriceLimit'                      => 'spot_price_limit',
         'spotStrategy'                        => 'spot_strategy',
         'systemDiskBurstingEnabled'           => 'system_disk_bursting_enabled',
+        'systemDiskCategories'                => 'system_disk_categories',
         'systemDiskCategory'                  => 'system_disk_category',
+        'systemDiskEncryptAlgorithm'          => 'system_disk_encrypt_algorithm',
+        'systemDiskEncrypted'                 => 'system_disk_encrypted',
+        'systemDiskKmsKeyId'                  => 'system_disk_kms_key_id',
         'systemDiskPerformanceLevel'          => 'system_disk_performance_level',
         'systemDiskProvisionedIops'           => 'system_disk_provisioned_iops',
         'systemDiskSize'                      => 'system_disk_size',
@@ -338,6 +374,9 @@ class scalingGroup extends Model
         if (null !== $this->keyPair) {
             $res['key_pair'] = $this->keyPair;
         }
+        if (null !== $this->loginAsNonRoot) {
+            $res['login_as_non_root'] = $this->loginAsNonRoot;
+        }
         if (null !== $this->loginPassword) {
             $res['login_password'] = $this->loginPassword;
         }
@@ -395,8 +434,20 @@ class scalingGroup extends Model
         if (null !== $this->systemDiskBurstingEnabled) {
             $res['system_disk_bursting_enabled'] = $this->systemDiskBurstingEnabled;
         }
+        if (null !== $this->systemDiskCategories) {
+            $res['system_disk_categories'] = $this->systemDiskCategories;
+        }
         if (null !== $this->systemDiskCategory) {
             $res['system_disk_category'] = $this->systemDiskCategory;
+        }
+        if (null !== $this->systemDiskEncryptAlgorithm) {
+            $res['system_disk_encrypt_algorithm'] = $this->systemDiskEncryptAlgorithm;
+        }
+        if (null !== $this->systemDiskEncrypted) {
+            $res['system_disk_encrypted'] = $this->systemDiskEncrypted;
+        }
+        if (null !== $this->systemDiskKmsKeyId) {
+            $res['system_disk_kms_key_id'] = $this->systemDiskKmsKeyId;
         }
         if (null !== $this->systemDiskPerformanceLevel) {
             $res['system_disk_performance_level'] = $this->systemDiskPerformanceLevel;
@@ -478,6 +529,9 @@ class scalingGroup extends Model
         if (isset($map['key_pair'])) {
             $model->keyPair = $map['key_pair'];
         }
+        if (isset($map['login_as_non_root'])) {
+            $model->loginAsNonRoot = $map['login_as_non_root'];
+        }
         if (isset($map['login_password'])) {
             $model->loginPassword = $map['login_password'];
         }
@@ -539,8 +593,22 @@ class scalingGroup extends Model
         if (isset($map['system_disk_bursting_enabled'])) {
             $model->systemDiskBurstingEnabled = $map['system_disk_bursting_enabled'];
         }
+        if (isset($map['system_disk_categories'])) {
+            if (!empty($map['system_disk_categories'])) {
+                $model->systemDiskCategories = $map['system_disk_categories'];
+            }
+        }
         if (isset($map['system_disk_category'])) {
             $model->systemDiskCategory = $map['system_disk_category'];
+        }
+        if (isset($map['system_disk_encrypt_algorithm'])) {
+            $model->systemDiskEncryptAlgorithm = $map['system_disk_encrypt_algorithm'];
+        }
+        if (isset($map['system_disk_encrypted'])) {
+            $model->systemDiskEncrypted = $map['system_disk_encrypted'];
+        }
+        if (isset($map['system_disk_kms_key_id'])) {
+            $model->systemDiskKmsKeyId = $map['system_disk_kms_key_id'];
         }
         if (isset($map['system_disk_performance_level'])) {
             $model->systemDiskPerformanceLevel = $map['system_disk_performance_level'];

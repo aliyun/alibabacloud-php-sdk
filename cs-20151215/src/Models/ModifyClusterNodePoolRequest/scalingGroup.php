@@ -73,6 +73,13 @@ class scalingGroup extends Model
     public $imageId;
 
     /**
+     * @example AliyunLinux
+     *
+     * @var string
+     */
+    public $imageType;
+
+    /**
      * @description The billing method of the nodes in the node pool. Valid values:
      *
      *   `PrePaid`: subscription.
@@ -199,6 +206,8 @@ class scalingGroup extends Model
      *
      * @example AliyunLinux
      *
+     * @deprecated
+     *
      * @var string
      */
     public $platform;
@@ -272,6 +281,18 @@ class scalingGroup extends Model
     public $spotStrategy;
 
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $systemDiskBurstingEnabled;
+
+    /**
+     * @var string[]
+     */
+    public $systemDiskCategories;
+
+    /**
      * @description The type of system disk. Valid values:
      *
      *   `cloud_efficiency`: ultra disk.
@@ -285,6 +306,27 @@ class scalingGroup extends Model
     public $systemDiskCategory;
 
     /**
+     * @example aes-256
+     *
+     * @var string
+     */
+    public $systemDiskEncryptAlgorithm;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $systemDiskEncrypted;
+
+    /**
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
+     *
+     * @var string
+     */
+    public $systemDiskKmsKeyId;
+
+    /**
      * @description The performance level (PL) of the system disk that you want to use for the node. This parameter takes effect only for enhanced SSDs. You can specify a higher PL if you increase the size of the system disk. For more information, see [ESSDs](~~122389~~).
      *
      * @example PL1
@@ -292,6 +334,13 @@ class scalingGroup extends Model
      * @var string
      */
     public $systemDiskPerformanceLevel;
+
+    /**
+     * @example 1000
+     *
+     * @var int
+     */
+    public $systemDiskProvisionedIops;
 
     /**
      * @description The system disk size of a node. Unit: GiB.
@@ -325,6 +374,7 @@ class scalingGroup extends Model
         'dataDisks'                           => 'data_disks',
         'desiredSize'                         => 'desired_size',
         'imageId'                             => 'image_id',
+        'imageType'                           => 'image_type',
         'instanceChargeType'                  => 'instance_charge_type',
         'instanceTypes'                       => 'instance_types',
         'internetChargeType'                  => 'internet_charge_type',
@@ -344,8 +394,14 @@ class scalingGroup extends Model
         'spotInstanceRemedy'                  => 'spot_instance_remedy',
         'spotPriceLimit'                      => 'spot_price_limit',
         'spotStrategy'                        => 'spot_strategy',
+        'systemDiskBurstingEnabled'           => 'system_disk_bursting_enabled',
+        'systemDiskCategories'                => 'system_disk_categories',
         'systemDiskCategory'                  => 'system_disk_category',
+        'systemDiskEncryptAlgorithm'          => 'system_disk_encrypt_algorithm',
+        'systemDiskEncrypted'                 => 'system_disk_encrypted',
+        'systemDiskKmsKeyId'                  => 'system_disk_kms_key_id',
         'systemDiskPerformanceLevel'          => 'system_disk_performance_level',
+        'systemDiskProvisionedIops'           => 'system_disk_provisioned_iops',
         'systemDiskSize'                      => 'system_disk_size',
         'tags'                                => 'tags',
         'vswitchIds'                          => 'vswitch_ids',
@@ -381,6 +437,9 @@ class scalingGroup extends Model
         }
         if (null !== $this->imageId) {
             $res['image_id'] = $this->imageId;
+        }
+        if (null !== $this->imageType) {
+            $res['image_type'] = $this->imageType;
         }
         if (null !== $this->instanceChargeType) {
             $res['instance_charge_type'] = $this->instanceChargeType;
@@ -445,11 +504,29 @@ class scalingGroup extends Model
         if (null !== $this->spotStrategy) {
             $res['spot_strategy'] = $this->spotStrategy;
         }
+        if (null !== $this->systemDiskBurstingEnabled) {
+            $res['system_disk_bursting_enabled'] = $this->systemDiskBurstingEnabled;
+        }
+        if (null !== $this->systemDiskCategories) {
+            $res['system_disk_categories'] = $this->systemDiskCategories;
+        }
         if (null !== $this->systemDiskCategory) {
             $res['system_disk_category'] = $this->systemDiskCategory;
         }
+        if (null !== $this->systemDiskEncryptAlgorithm) {
+            $res['system_disk_encrypt_algorithm'] = $this->systemDiskEncryptAlgorithm;
+        }
+        if (null !== $this->systemDiskEncrypted) {
+            $res['system_disk_encrypted'] = $this->systemDiskEncrypted;
+        }
+        if (null !== $this->systemDiskKmsKeyId) {
+            $res['system_disk_kms_key_id'] = $this->systemDiskKmsKeyId;
+        }
         if (null !== $this->systemDiskPerformanceLevel) {
             $res['system_disk_performance_level'] = $this->systemDiskPerformanceLevel;
+        }
+        if (null !== $this->systemDiskProvisionedIops) {
+            $res['system_disk_provisioned_iops'] = $this->systemDiskProvisionedIops;
         }
         if (null !== $this->systemDiskSize) {
             $res['system_disk_size'] = $this->systemDiskSize;
@@ -501,6 +578,9 @@ class scalingGroup extends Model
         }
         if (isset($map['image_id'])) {
             $model->imageId = $map['image_id'];
+        }
+        if (isset($map['image_type'])) {
+            $model->imageType = $map['image_type'];
         }
         if (isset($map['instance_charge_type'])) {
             $model->instanceChargeType = $map['instance_charge_type'];
@@ -569,11 +649,31 @@ class scalingGroup extends Model
         if (isset($map['spot_strategy'])) {
             $model->spotStrategy = $map['spot_strategy'];
         }
+        if (isset($map['system_disk_bursting_enabled'])) {
+            $model->systemDiskBurstingEnabled = $map['system_disk_bursting_enabled'];
+        }
+        if (isset($map['system_disk_categories'])) {
+            if (!empty($map['system_disk_categories'])) {
+                $model->systemDiskCategories = $map['system_disk_categories'];
+            }
+        }
         if (isset($map['system_disk_category'])) {
             $model->systemDiskCategory = $map['system_disk_category'];
         }
+        if (isset($map['system_disk_encrypt_algorithm'])) {
+            $model->systemDiskEncryptAlgorithm = $map['system_disk_encrypt_algorithm'];
+        }
+        if (isset($map['system_disk_encrypted'])) {
+            $model->systemDiskEncrypted = $map['system_disk_encrypted'];
+        }
+        if (isset($map['system_disk_kms_key_id'])) {
+            $model->systemDiskKmsKeyId = $map['system_disk_kms_key_id'];
+        }
         if (isset($map['system_disk_performance_level'])) {
             $model->systemDiskPerformanceLevel = $map['system_disk_performance_level'];
+        }
+        if (isset($map['system_disk_provisioned_iops'])) {
+            $model->systemDiskProvisionedIops = $map['system_disk_provisioned_iops'];
         }
         if (isset($map['system_disk_size'])) {
             $model->systemDiskSize = $map['system_disk_size'];

@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesToNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesToNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelClusterUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelComponentUpgradeResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CancelOperationPlanResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelTaskResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowResponse;
@@ -116,6 +117,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\EdgeClusterAddEdgeMachineRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\EdgeClusterAddEdgeMachineResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterAddonInstanceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterCheckResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerResponse;
@@ -124,6 +126,9 @@ use AlibabaCloud\SDK\CS\V20151215\Models\GrantPermissionsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GrantPermissionsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListAddonsRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListAddonsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterAddonInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterChecksRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterChecksResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesRequest;
@@ -490,6 +495,46 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->cancelComponentUpgradeWithOptions($clusterId, $componentId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $planId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CancelOperationPlanResponse
+     */
+    public function cancelOperationPlanWithOptions($planId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'CancelOperationPlan',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/operation/plans/' . OpenApiUtilClient::getEncodeParam($planId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelOperationPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $planId
+     *
+     * @return CancelOperationPlanResponse
+     */
+    public function cancelOperationPlan($planId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cancelOperationPlanWithOptions($planId, $headers, $runtime);
     }
 
     /**
@@ -1052,6 +1097,9 @@ class CS extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxNodes)) {
             $body['max_nodes'] = $request->maxNodes;
+        }
+        if (!Utils::isUnset($request->nodeConfig)) {
+            $body['node_config'] = $request->nodeConfig;
         }
         if (!Utils::isUnset($request->nodepoolInfo)) {
             $body['nodepool_info'] = $request->nodepoolInfo;
@@ -4008,6 +4056,48 @@ class CS extends OpenApiClient
 
     /**
      * @param string         $clusterId
+     * @param string         $instanceName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetClusterAddonInstanceResponse
+     */
+    public function getClusterAddonInstanceWithOptions($clusterId, $instanceName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetClusterAddonInstance',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/addon_instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClusterAddonInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $clusterId
+     * @param string $instanceName
+     *
+     * @return GetClusterAddonInstanceResponse
+     */
+    public function getClusterAddonInstance($clusterId, $instanceName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getClusterAddonInstanceWithOptions($clusterId, $instanceName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $clusterId
      * @param string         $checkId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -4241,6 +4331,107 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->installClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListAddonsRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAddonsResponse
+     */
+    public function listAddonsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['cluster_id'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterSpec)) {
+            $query['cluster_spec'] = $request->clusterSpec;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['cluster_type'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->clusterVersion)) {
+            $query['cluster_version'] = $request->clusterVersion;
+        }
+        if (!Utils::isUnset($request->profile)) {
+            $query['profile'] = $request->profile;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['region_id'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAddons',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/addons',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAddonsRequest $request
+     *
+     * @return ListAddonsResponse
+     */
+    public function listAddons($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAddonsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $clusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListClusterAddonInstancesResponse
+     */
+    public function listClusterAddonInstancesWithOptions($clusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterAddonInstances',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/addon_instances',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListClusterAddonInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $clusterId
+     *
+     * @return ListClusterAddonInstancesResponse
+     */
+    public function listClusterAddonInstances($clusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listClusterAddonInstancesWithOptions($clusterId, $headers, $runtime);
     }
 
     /**

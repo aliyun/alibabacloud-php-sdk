@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
-     * @description 注册集群 API Server SLB 访问控制列表。
+     * @description The network access control list (ACL) of the SLB instance associated with the API server if the cluster is a registered cluster.
      *
      * @var string[]
      */
@@ -24,22 +24,22 @@ class CreateClusterRequest extends Model
      *   Specify the Flannel plug-in in the following format: \[{"name":"flannel","config":""}].
      *   Specify the Terway plug-in in the following format: \[{"name": "terway-eniip","config": ""}].
      *
-     **Volume plug-in**: required. The `csi` and `flexvolume` volume plug-ins are supported.
+     **Volume plug-in**: required. The `CSI` and `FlexVolume` volume plug-ins are supported.
      *
      *   Specify the `CSI` plug-in in the following format: \[{"name":"csi-plugin","config": ""},{"name": "csi-provisioner","config": ""}].
-     *   Specify the `FlexVolume plug-in` in the following format: \[{"name": "flexvolume","config": ""}].
+     *   Specify the `FlexVolume` plug-in in the following format: \[{"name": "flexvolume","config": ""}].
      *
-     **Simple Log Service component**: optional. We recommend that you enable Simple Log Service. If Log Service is disabled, you cannot use the cluster auditing feature.
+     **Simple Log Service component**: optional. We recommend that you enable Simple Log Service. If Simple Log Service is disabled, you cannot use the cluster auditing feature.
      *
      *   Use an existing `Simple Log Service project`: \[{"name": "logtail-ds","config": "{"IngressDashboardEnabled":"true","sls_project_name":"your_sls_project_name"}"}].
      *   To create a `Simple Log Service project`, specify the component in the following format: \[{"name": "logtail-ds","config": "{"IngressDashboardEnabled":"true"}"}].
      *
-     **Ingress controller**`: optional. By default, the nginx-ingress-controller component is installed in ACK dedicated clusters.`
+     **Ingress controller**: optional. By default, the `nginx-ingress-controller` component is installed in ACK dedicated clusters.
      *
      *   To install nginx-ingress-controller and enable Internet access, specify the Ingress controller in the following format: \[{"name":"nginx-ingress-controller","config":"{"IngressSlbNetworkType":"internet"}"}].
      *   If you do not want to install nginx-ingress-controller, specify the component in the following format: \[{"name": "nginx-ingress-controller","config": "","disabled": true}].
      *
-     **Event center**: Optional. By default, the event center feature is enabled.
+     **Event center**: optional. By default, the event center feature is enabled.
      *
      * Enable the ack-node-problem-detector component in the following format: \[{"name":"ack-node-problem-detector","config":"{"sls_project_name":"your_sls_project_name"}"}].
      * @var Addon[]
@@ -106,10 +106,10 @@ class CreateClusterRequest extends Model
     /**
      * @description The type of ACK managed cluster. Valid values:
      *
-     *   `ack.pro.small`: ACK Pro clusters
-     *   `ack.standard`: ACK Basic clusters
+     *   `ack.pro.small`: ACK Pro cluster.
+     *   `ack.standard`: ACK Basic cluster.
      *
-     * For more information, see [Introduction to ACK managed clusters](https://help.aliyun.com/document_detail/173290.html).
+     * For more information, see [Overview of ACK Pro clusters](https://help.aliyun.com/document_detail/173290.html).
      * @example ack.pro.small
      *
      * @var string
@@ -117,12 +117,12 @@ class CreateClusterRequest extends Model
     public $clusterSpec;
 
     /**
-     * @description The type of the cluster. Valid values:
+     * @description The cluster type. Valid values:
      *
-     *   `Kubernetes`: ACK dedicated clusters
-     *   `ManagedKubernetes`: ACK managed clusters or ACK Edge clusters
-     *   `Ask`: ACK Serverless Basic clusters
-     *   `ExternalKubernetes`: external clusters that are registered to ACK
+     *   `Kubernetes`: ACK dedicated cluster.
+     *   `ManagedKubernetes`: ACK Basic cluster or ACK Edge cluster.
+     *   `Ask`: ACK Serverless Basic cluster.
+     *   `ExternalKubernetes`: external cluster that is registered to ACK.
      *
      * @example Kubernetes
      *
@@ -133,7 +133,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The CIDR block of pods. You can specify 10.0.0.0/8, 172.16-31.0.0/12-16, 192.168.0.0/16, or their subnets as the CIDR block of pods. The CIDR block of pods cannot overlap with the CIDR block of the VPC in which the cluster is deployed and the CIDR blocks of existing clusters in the VPC. You cannot modify the pod CIDR block after the cluster is created.
      *
-     * > If the cluster uses Flannel, this parameter is required.
+     * >  This parameter is required if the cluster uses the Flannel plug-in.
      * @example 172.20.0.0/16
      *
      * @var string
@@ -149,7 +149,7 @@ class CreateClusterRequest extends Model
     public $controlplaneLogComponents;
 
     /**
-     * @description The Simple Log Service project that is used to store the log of control plane components. You can use an existing project or create one. If you choose to create a Simple Log Service project, the created project is named in the `k8s-log-{ClusterID}` format.
+     * @description The Simple Log Service project that is used to store the logs of control plane components. You can use an existing project or create one. If you choose to create a Simple Log Service project, the created project is named in the `k8s-log-{ClusterID}` format.
      *
      * @example k8s-log-xxx
      *
@@ -167,7 +167,7 @@ class CreateClusterRequest extends Model
     public $controlplaneLogTtl;
 
     /**
-     * @description The CPU management policy. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later.
+     * @description The CPU management policy of the nodes in a node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later.
      *
      *   `static`: allows pods with specific resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
      *   `none`: specifies that the default CPU affinity is used.
@@ -204,8 +204,8 @@ class CreateClusterRequest extends Model
     /**
      * @description Specifies whether to perform a rollback if the cluster fails to be created. Valid values:
      *
-     *   `true`: performs a rollback if the system fails to create the cluster
-     *   `false`: does not perform a rollback if the system fails to create the cluster
+     *   `true`: performs a rollback if the system fails to create the cluster.
+     *   `false`: does not perform a rollback if the system fails to create the cluster.
      *
      * Default value: `true`.
      * @example true
@@ -226,7 +226,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The ID of a key that is managed by Key Management Service (KMS). The key is used to encrypt data disks. For more information, see [KMS](~~28935~~).
      *
-     * > This feature supports only ACK Pro clusters.
+     * >  This feature supports only ACK Pro clusters.
      * @example 0fe64791-55eb-4fc7-84c5-c6c7cdca****
      *
      * @var string
@@ -293,9 +293,9 @@ class CreateClusterRequest extends Model
     public $imageType;
 
     /**
-     * @description The list of existing Elastic Compute Service (ECS) instances that are specified as worker nodes for the cluster.
+     * @description The list of existing ECS instances that are specified as worker nodes for the cluster.
      *
-     * > This parameter is required when you create worker nodes on existing ECS instances.
+     * >  This parameter is required when you create worker nodes on existing ECS instances.
      * @var string[]
      */
     public $instances;
@@ -312,7 +312,7 @@ class CreateClusterRequest extends Model
     /**
      * @description Specifies whether to create an advanced security group. This parameter takes effect only if `security_group_id` is left empty.
      *
-     * > To use a basic security group, make sure that the sum of the number of cluster nodes and the number of pods that use Terway does not exceed 2,000. Therefore, if the cluster uses Terway, we recommend that you use an advanced security group.
+     * >  To use a basic security group, make sure that the sum of the number of nodes in the cluster and the number of pods that use Terway does not exceed 2,000. Therefore, if the cluster uses Terway, we recommend that you use an advanced security group.
      *
      *   `true`: creates an advanced security group.
      *   `false`: does not create an advanced security group.
@@ -392,7 +392,7 @@ class CreateClusterRequest extends Model
     public $loginPassword;
 
     /**
-     * @description Specifies whether to enable auto-renewal for master nodes. This parameter takes effect and is required only if `master_instance_charge_type` is set to `PrePaid`.
+     * @description Specifies whether to enable auto-renewal for master nodes. This parameter takes effect only if `master_instance_charge_type` is set to `PrePaid`. Valid values:
      *
      *   `true`: enables auto-renewal.
      *   `false`: disables auto-renewal.
@@ -457,7 +457,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The billing cycle of master nodes. This parameter is required if master_instance_charge_type is set to `PrePaid`.
      *
-     * Set the value to `Month`. Resources are billed only on a monthly basis.
+     * Set the value to `Month`. Master nodes are billed only on a monthly basis.
      * @example Month
      *
      * @var string
@@ -469,7 +469,7 @@ class CreateClusterRequest extends Model
      *
      *   `cloud_efficiency`: ultra disk.
      *   `cloud_ssd`: standard SSD.
-     *   `cloud_essd`: enhanced SSD (ESSD).
+     *   `cloud_essd`: ESSD.
      *
      * Default value: `cloud_ssd`. The default value may vary in different zones.
      * @example cloud_ssd
@@ -479,7 +479,7 @@ class CreateClusterRequest extends Model
     public $masterSystemDiskCategory;
 
     /**
-     * @description The performance level (PL) of the system disk that you want to use for master nodes. This parameter takes effect only for ESSDs. For more information about the relationship between disk PLs and disk sizes, see [ESSDs](~~122389~~).
+     * @description The performance level (PL) of the system disk that you want to use for master nodes. This parameter takes effect only for enhanced SSDs. For more information about the relationship between disk PLs and disk sizes, see [ESSDs](~~122389~~).
      *
      * @example PL1
      *
@@ -515,9 +515,9 @@ class CreateClusterRequest extends Model
     public $masterVswitchIds;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
-     * The name must be 1 to 63 characters in length and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
+     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
      * @example cluster-demo
      *
      * @var string
@@ -538,7 +538,7 @@ class CreateClusterRequest extends Model
     public $natGateway;
 
     /**
-     * @description The maximum number of IP addresses that can be assigned to nodes. This number is determined by the node CIDR block. This parameter takes effect only if the cluster uses Flannel.
+     * @description The maximum number of IP addresses that can be assigned to nodes. This number is determined by the node CIDR block. This parameter takes effect only if the cluster uses Flannel as the network plug-in.
      *
      * Default value: `26`.
      * @example 25
@@ -573,7 +573,7 @@ class CreateClusterRequest extends Model
     public $nodePortRange;
 
     /**
-     * @description 节点池列表。
+     * @description The list of node pools.
      *
      * @var Nodepool[]
      */
@@ -639,9 +639,9 @@ class CreateClusterRequest extends Model
     public $platform;
 
     /**
-     * @description The list of pod vSwiches. You need to specify at least one pod vSwitch for each node vSwitch and the pod vSwitches must not be the same as the node vSwitches (`vswitch`). We recommend that you specify pod vSwitches whose mask lengths are no greater than 19.
+     * @description The list of pod vSwitches. You need to specify at least one pod vSwitch for each node vSwitch and the pod vSwitches must not be the same as the node vSwitches (`vswitch`). We recommend that you specify pod vSwitches whose mask lengths are no greater than 19.
      *
-     * > When the cluster uses Terway, the `pod_vswitch_ids` parameter is required.
+     * >  The `pod_vswitch_ids` parameter is required if the cluster uses Terway as the network plug-in.
      * @var string[]
      */
     public $podVswitchIds;
@@ -661,8 +661,8 @@ class CreateClusterRequest extends Model
     /**
      * @description The kube-proxy mode. Valid values:
      *
-     *   `iptables`: iptables is a kube-proxy mode. It uses iptables rules to conduct Service discovery and load balancing. The performance of this mode is limited by the size of the cluster. This mode is suitable for clusters that run a small number of Services.
-     *   `ipvs`: a high-performance kube-proxy mode. It uses Linux IP Virtual Server (IPVS) to conduct Service discovery and load balancing. This mode is suitable for clusters that run a large number of Services. We recommend that you use this mode in scenarios where high-performance load balancing is required.
+     *   `iptables`: iptables is a mature and stable kube-proxy mode. It uses iptables rules to conduct service discovery and load balancing. The performance of this mode is restricted by the size of the Kubernetes cluster. This mode is suitable for Kubernetes clusters that manage a small number of Services.
+     *   `ipvs`: IPVS is a high-performance kube-proxy mode. It uses Linux Virtual Server (LVS) to conduct service discovery and load balancing. This mode is suitable for clusters that manage a large number of Services. We recommend that you use this mode in scenarios where high-performance load balancing is required.
      *
      * Default value: `ipvs`.
      * @example ipvs
@@ -679,7 +679,7 @@ class CreateClusterRequest extends Model
     public $rdsInstances;
 
     /**
-     * @description The region ID of the cluster.
+     * @description The ID of the region in which you want to deploy the cluster.
      *
      * @example cn-beijing
      *
@@ -688,7 +688,7 @@ class CreateClusterRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the cluster belongs. You can use this parameter to isolate different clusters.
+     * @description The ID of the resource group to which the cluster belongs. You can use resource groups to isolate clusters.
      *
      * @example rg-acfm3mkrure****
      *
@@ -699,7 +699,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The container runtime. The default container runtime is Docker. containerd and Sandboxed-Container are also supported.
      *
-     * For more information about how to select a proper container runtime, see [How to select between Docker and Sandboxed-Container](https://help.aliyun.com/document_detail/160313.html).
+     * For more information about how to select a proper container runtime, see [Comparison of Docker, containerd, and Sandboxed-Container](https://help.aliyun.com/document_detail/160313.html).
      * @var Runtime
      */
     public $runtime;
@@ -736,7 +736,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The type of service discovery that is implemented in the `ACK Serverless` cluster.
      *
-     *   `CoreDNS`:a standard service discovery plug-in provided by open source Kubernetes. To use the Domain Name System (DNS) resolution, you must provision pods. By default, two elastic container instances are used. The specification of each instance is 0.25 CPU cores and 512 MiB of memory.
+     *   `CoreDNS`: a standard service discovery plug-in provided by open source Kubernetes. To use the Domain Name System (DNS) resolution, you must provision pods. By default, two elastic container instances are used. The specification of each instance is 0.25 CPU cores and 512 MiB of memory.
      *   `PrivateZone`: a DNS resolution service provided by Alibaba Cloud. You must activate Alibaba Cloud DNS PrivateZone before you can use it for service discovery.
      *
      * By default, this parameter is not specified.
@@ -758,12 +758,12 @@ class CreateClusterRequest extends Model
     public $snatEntry;
 
     /**
-     * @description Reinforcement based on Multi-Level Protection Scheme (MLPS). For more information, see [ACK reinforcement based on MLPS](~~196148~~).
+     * @description Reinforcement based on classified protection. For more information, see [ACK reinforcement based on classified protection](~~196148~~).
      *
      * Valid values:
      *
-     *   `true`: enables reinforcement based on MLPS.
-     *   `false`: disables reinforcement based on MLPS.
+     *   `true`: enables reinforcement based on classified protection.
+     *   `false`: disables reinforcement based on classified protection.
      *
      * Default value: `false`.
      * @example false
@@ -786,7 +786,7 @@ class CreateClusterRequest extends Model
     public $sshFlags;
 
     /**
-     * @description The labels that you want to add to nodes. You must add labels based on the following rules:
+     * @description The labels that you want to add to nodes. You must add tags based on the following rules:
      *
      *   Each label is a case-sensitive key-value pair. You can add up to 20 labels.
      *   A key must be unique and cannot exceed 64 characters in length. A value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with aliyun, acs:, https://, or http://. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
@@ -796,7 +796,7 @@ class CreateClusterRequest extends Model
     public $tags;
 
     /**
-     * @description The taints that you want to add to nodes. Taints are added to nodes to prevent pods from being scheduled to inappropriate nodes. However, tolerations allow pods to be scheduled to nodes with matching taints. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+     * @description The taints of the nodes in the node pool. Taints are added to nodes to prevent pods from being scheduled to inappropriate nodes. However, tolerations allow pods to be scheduled to nodes with matching taints. For more information, see [Taints and Tolerations](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
      *
      * @var Taint[]
      */
@@ -840,7 +840,7 @@ class CreateClusterRequest extends Model
     public $userData;
 
     /**
-     * @description The virtual private cloud (VPC) in which you want to deploy the cluster. You must specify a VPC when you create the cluster.
+     * @description The virtual private cloud (VPC) in which you want to deploy the cluster. This parameter is required.
      *
      * @example vpc-2zeik9h3ahvv2zz95****
      *
@@ -940,7 +940,7 @@ class CreateClusterRequest extends Model
     public $workerPeriodUnit;
 
     /**
-     * @description The category of the system disk that you attach to the worker node. For more information, see [Elastic Block Storage overview](~~63136~~).
+     * @description The category of the system disk that you attach to the worker node. For more information, see [Elastic Block Storage devices](~~63136~~).
      *
      * Valid values:
      *
@@ -1000,7 +1000,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The list of vSwitches that are specified for nodes. Each node is allocated a vSwitch.
      *
-     * The ` worker_vswitch_ids  `parameter is optional but the `vswitch_ids` parameter is required when you create an ACK managed cluster that does not contain nodes.
+     * The `worker_vswitch_ids` parameter is optional but the `vswitch_ids` parameter is required when you create an ACK managed cluster that does not contain nodes.
      * @deprecated
      *
      * @var string[]
