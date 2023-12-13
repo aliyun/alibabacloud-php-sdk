@@ -223,11 +223,6 @@ class DescribeDBInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The tags of the instance.
      *
      * @var tag[]
@@ -283,7 +278,6 @@ class DescribeDBInstancesRequest extends Model
         'resourceGroupId'       => 'ResourceGroupId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
-        'securityToken'         => 'SecurityToken',
         'tag'                   => 'Tag',
         'vSwitchId'             => 'VSwitchId',
         'vpcId'                 => 'VpcId',
@@ -362,9 +356,6 @@ class DescribeDBInstancesRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -461,9 +452,6 @@ class DescribeDBInstancesRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

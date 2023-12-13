@@ -18,7 +18,7 @@ class replicaSet extends Model
     public $connectionDomain;
 
     /**
-     * @description The port of the node.
+     * @description The port number that is used to connect to the node.
      *
      * @example 3717
      *
@@ -36,11 +36,11 @@ class replicaSet extends Model
     public $expiredTime;
 
     /**
-     * @description The network type. Valid values:
+     * @description The network type of the instance. Valid values:
      *
-     *   **VPC**
-     *   **Classic**
-     *   **Public**
+     *   **VPC**: the virtual private cloud (VPC)
+     *   **Classic**: the classic network
+     *   **Public**: the Internet
      *
      * @example VPC
      *
@@ -49,7 +49,7 @@ class replicaSet extends Model
     public $networkType;
 
     /**
-     * @description The role of the node in the replica set.
+     * @description The role of the node in the replica set instance. Valid values:
      *
      *   **Primary**
      *   **Secondary**

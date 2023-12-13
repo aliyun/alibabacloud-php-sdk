@@ -129,11 +129,6 @@ class DescribeRunningLogRecordsRequest extends Model
     public $roleType;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2019-01-01T12:10Z
@@ -156,7 +151,6 @@ class DescribeRunningLogRecordsRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'roleId'               => 'RoleId',
         'roleType'             => 'RoleType',
-        'securityToken'        => 'SecurityToken',
         'startTime'            => 'StartTime',
     ];
 
@@ -208,9 +202,6 @@ class DescribeRunningLogRecordsRequest extends Model
         }
         if (null !== $this->roleType) {
             $res['RoleType'] = $this->roleType;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -268,9 +259,6 @@ class DescribeRunningLogRecordsRequest extends Model
         }
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

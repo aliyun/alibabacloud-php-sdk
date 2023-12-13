@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterBackupsResponseBody extends Model
 {
     /**
+     * @description The cluster backup sets. A cluster backup file contains the backup sets of each node.
+     *
      * @var clusterBackups[]
      */
     public $clusterBackups;
 
     /**
+     * @description The maximum number of entries returned.
+     *
      * @example 10
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeClusterBackupsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The page number of the page returned.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeClusterBackupsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The maximum number of entries returned.
+     *
      * @example 30
      *
      * @var int
@@ -36,6 +44,8 @@ class DescribeClusterBackupsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 2F42BB4E-461F-5B55-A37C-53B1141C****
      *
      * @var string

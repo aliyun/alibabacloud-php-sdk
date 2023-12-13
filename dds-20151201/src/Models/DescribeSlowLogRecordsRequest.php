@@ -112,11 +112,6 @@ class DescribeSlowLogRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2021-08-15T14:13Z
@@ -137,7 +132,6 @@ class DescribeSlowLogRecordsRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'startTime'            => 'StartTime',
     ];
 
@@ -183,9 +177,6 @@ class DescribeSlowLogRecordsRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -237,9 +228,6 @@ class DescribeSlowLogRecordsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

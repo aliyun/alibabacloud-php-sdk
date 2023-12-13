@@ -71,11 +71,6 @@ class CheckRecoveryConditionRequest extends Model
     public $restoreTime;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The operation that you want to perform. Set the value to **CheckRecoveryCondition**.
      *
      * @example dds-bp1378****
@@ -92,7 +87,6 @@ class CheckRecoveryConditionRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'restoreTime'          => 'RestoreTime',
-        'securityToken'        => 'SecurityToken',
         'sourceDBInstance'     => 'SourceDBInstance',
     ];
 
@@ -126,9 +120,6 @@ class CheckRecoveryConditionRequest extends Model
         }
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = $this->restoreTime;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->sourceDBInstance) {
             $res['SourceDBInstance'] = $this->sourceDBInstance;
@@ -168,9 +159,6 @@ class CheckRecoveryConditionRequest extends Model
         }
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SourceDBInstance'])) {
             $model->sourceDBInstance = $map['SourceDBInstance'];

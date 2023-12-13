@@ -150,11 +150,6 @@ class ModifyDBInstanceSpecRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
         'autoPay'              => 'AutoPay',
         'businessInfo'         => 'BusinessInfo',
@@ -171,7 +166,6 @@ class ModifyDBInstanceSpecRequest extends Model
         'replicationFactor'    => 'ReplicationFactor',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -225,9 +219,6 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -285,9 +276,6 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

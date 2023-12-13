@@ -72,11 +72,6 @@ class AllocateNodePrivateNetworkAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The zone ID of the instance.
      *
      * >  You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the zone ID of the instance.
@@ -94,7 +89,6 @@ class AllocateNodePrivateNetworkAddressRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'zoneId'               => 'ZoneId',
     ];
 
@@ -128,9 +122,6 @@ class AllocateNodePrivateNetworkAddressRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -170,9 +161,6 @@ class AllocateNodePrivateNetworkAddressRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

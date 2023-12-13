@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\CheckCloudResourceAuthorizedRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CheckCloudResourceAuthorizedResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CheckRecoveryConditionRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CheckRecoveryConditionResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\CreateAccountRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateBackupResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateDBInstanceRequest;
@@ -36,6 +38,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTaskCountRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTaskCountResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTaskTypeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTaskTypeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditLogFilterRequest;
@@ -74,6 +78,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstancesRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstancesResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceSSLResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceSwitchLogRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceSwitchLogResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceTDEInfoRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceTDEInfoResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeErrorLogRecordsRequest;
@@ -82,10 +88,16 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeGlobalSecurityIPGroupRelationR
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeGlobalSecurityIPGroupRelationResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeHistoryTasksRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeHistoryTasksResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeHistoryTasksStatRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeHistoryTasksStatResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeInstanceAutoRenewalAttributeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeInstanceAutoRenewalAttributeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeKernelReleaseNotesRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeKernelReleaseNotesResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeKmsKeysRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeKmsKeysResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeMongoDBLogConfigRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeMongoDBLogConfigResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeParameterModificationHistoryRequest;
@@ -176,6 +188,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\ModifySecurityGroupConfigurationReques
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifySecurityGroupConfigurationResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifySecurityIpsResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyTaskInfoRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyTaskInfoResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ReleaseNodePrivateNetworkAddressRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ReleaseNodePrivateNetworkAddressResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ReleasePublicNetworkAddressRequest;
@@ -341,9 +355,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->zoneId)) {
             $query['ZoneId'] = $request->zoneId;
         }
@@ -408,9 +419,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -467,9 +475,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->targetRegionId)) {
             $query['TargetRegionId'] = $request->targetRegionId;
@@ -542,9 +547,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->restoreTime)) {
             $query['RestoreTime'] = $request->restoreTime;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->sourceDBInstance)) {
             $query['SourceDBInstance'] = $request->sourceDBInstance;
         }
@@ -584,6 +586,67 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * @param CreateAccountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateAccountResponse
+     */
+    public function createAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAccount',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAccountRequest $request
+     *
+     * @return CreateAccountResponse
+     */
+    public function createAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * ## Usage
      *   * When you call this operation, the instance must be in the Running state.
      *   *
@@ -613,9 +676,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -757,9 +817,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityIPList)) {
             $query['SecurityIPList'] = $request->securityIPList;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->srcDBInstanceId)) {
             $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
@@ -936,9 +993,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->shardDirect)) {
             $query['ShardDirect'] = $request->shardDirect;
         }
@@ -1025,9 +1079,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->shardDirect)) {
             $query['ShardDirect'] = $request->shardDirect;
@@ -1159,9 +1210,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->securityIPList)) {
             $query['SecurityIPList'] = $request->securityIPList;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->srcDBInstanceId)) {
             $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
         }
@@ -1249,9 +1297,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1389,9 +1434,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1458,9 +1500,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1517,9 +1556,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1579,9 +1615,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1610,6 +1643,91 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeActiveOperationTaskTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeActiveOperationTasksRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeActiveOperationTasksResponse
+     */
+    public function describeActiveOperationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allowCancel)) {
+            $query['AllowCancel'] = $request->allowCancel;
+        }
+        if (!Utils::isUnset($request->allowChange)) {
+            $query['AllowChange'] = $request->allowChange;
+        }
+        if (!Utils::isUnset($request->changeLevel)) {
+            $query['ChangeLevel'] = $request->changeLevel;
+        }
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->insName)) {
+            $query['InsName'] = $request->insName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeActiveOperationTasks',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeActiveOperationTasksRequest $request
+     *
+     * @return DescribeActiveOperationTasksResponse
+     */
+    public function describeActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -1643,9 +1761,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->roleType)) {
             $query['RoleType'] = $request->roleType;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1709,9 +1824,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1799,9 +1911,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -1897,9 +2006,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->storageSupport)) {
             $query['StorageSupport'] = $request->storageSupport;
         }
@@ -1965,9 +2071,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2038,9 +2141,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->storageType)) {
             $query['StorageType'] = $request->storageType;
@@ -2123,9 +2223,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->restoreTime)) {
             $query['RestoreTime'] = $request->restoreTime;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->sourceDBInstance)) {
             $query['SourceDBInstance'] = $request->sourceDBInstance;
@@ -2270,9 +2367,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -2307,10 +2401,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterBackupsRequest $request
-     * @param RuntimeOptions                $runtime
+     * For a sharded cluster instance that is created before October 19, 2023 and uses cloud disks, you must call the [TransferClusterBackup](~~2587931~~) operation to switch the instance from the shard backup mode to the cluster backup mode before you call the DescribeClusterBackups operation.
+     *   * By default, cloud disk-based sharded cluster instances that are created after October 19, 2023 are in the cluster backup mode.
+     *   *
+     * @param DescribeClusterBackupsRequest $request DescribeClusterBackupsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterBackupsResponse
+     * @return DescribeClusterBackupsResponse DescribeClusterBackupsResponse
      */
     public function describeClusterBackupsWithOptions($request, $runtime)
     {
@@ -2346,9 +2443,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -2371,9 +2465,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterBackupsRequest $request
+     * For a sharded cluster instance that is created before October 19, 2023 and uses cloud disks, you must call the [TransferClusterBackup](~~2587931~~) operation to switch the instance from the shard backup mode to the cluster backup mode before you call the DescribeClusterBackups operation.
+     *   * By default, cloud disk-based sharded cluster instances that are created after October 19, 2023 are in the cluster backup mode.
+     *   *
+     * @param DescribeClusterBackupsRequest $request DescribeClusterBackupsRequest
      *
-     * @return DescribeClusterBackupsResponse
+     * @return DescribeClusterBackupsResponse DescribeClusterBackupsResponse
      */
     public function describeClusterBackups($request)
     {
@@ -2383,10 +2480,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterRecoverTimeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
+     *   * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. The DescribeClusterRecoverTime operation is applicable only to instances that are switched to the cluster backup mode or instances that are created on or after October 19, 2023.
+     *   *
+     * @param DescribeClusterRecoverTimeRequest $request DescribeClusterRecoverTimeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterRecoverTimeResponse
+     * @return DescribeClusterRecoverTimeResponse DescribeClusterRecoverTimeResponse
      */
     public function describeClusterRecoverTimeWithOptions($request, $runtime)
     {
@@ -2411,9 +2511,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterRecoverTimeRequest $request
+     * *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
+     *   * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. The DescribeClusterRecoverTime operation is applicable only to instances that are switched to the cluster backup mode or instances that are created on or after October 19, 2023.
+     *   *
+     * @param DescribeClusterRecoverTimeRequest $request DescribeClusterRecoverTimeRequest
      *
-     * @return DescribeClusterRecoverTimeResponse
+     * @return DescribeClusterRecoverTimeResponse DescribeClusterRecoverTimeResponse
      */
     public function describeClusterRecoverTime($request)
     {
@@ -2520,9 +2623,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2580,9 +2680,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2654,9 +2751,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->roleId)) {
             $query['RoleId'] = $request->roleId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -2720,9 +2814,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2759,7 +2850,69 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query whether TDE is enabled for an ApsaraDB for MongoDB instance.
+     * @param DescribeDBInstanceSwitchLogRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDBInstanceSwitchLogResponse
+     */
+    public function describeDBInstanceSwitchLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceSwitchLog',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstanceSwitchLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceSwitchLogRequest $request
+     *
+     * @return DescribeDBInstanceSwitchLogResponse
+     */
+    public function describeDBInstanceSwitchLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceSwitchLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * >  For more information about this function, see [Configure TDE](~~131048~~).
+     *   * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     *   * *   A replica set or sharded cluster instance is used.
+     *   * *   The storage engine of the instance is WiredTiger.
+     *   * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine.
      *   *
      * @param DescribeDBInstanceTDEInfoRequest $request DescribeDBInstanceTDEInfoRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2785,9 +2938,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2807,7 +2957,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query whether TDE is enabled for an ApsaraDB for MongoDB instance.
+     * >  For more information about this function, see [Configure TDE](~~131048~~).
+     *   * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     *   * *   A replica set or sharded cluster instance is used.
+     *   * *   The storage engine of the instance is WiredTiger.
+     *   * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine.
      *   *
      * @param DescribeDBInstanceTDEInfoRequest $request DescribeDBInstanceTDEInfoRequest
      *
@@ -2897,9 +3051,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
@@ -2997,9 +3148,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
@@ -3090,9 +3238,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->roleType)) {
             $query['RoleType'] = $request->roleType;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -3211,6 +3356,161 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * @param DescribeHistoryTasksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeHistoryTasksResponse
+     */
+    public function describeHistoryTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fromExecTime)) {
+            $query['FromExecTime'] = $request->fromExecTime;
+        }
+        if (!Utils::isUnset($request->fromStartTime)) {
+            $query['FromStartTime'] = $request->fromStartTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->toExecTime)) {
+            $query['ToExecTime'] = $request->toExecTime;
+        }
+        if (!Utils::isUnset($request->toStartTime)) {
+            $query['ToStartTime'] = $request->toStartTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHistoryTasks',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHistoryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHistoryTasksRequest $request
+     *
+     * @return DescribeHistoryTasksResponse
+     */
+    public function describeHistoryTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHistoryTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeHistoryTasksStatRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeHistoryTasksStatResponse
+     */
+    public function describeHistoryTasksStatWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fromExecTime)) {
+            $query['FromExecTime'] = $request->fromExecTime;
+        }
+        if (!Utils::isUnset($request->fromStartTime)) {
+            $query['FromStartTime'] = $request->fromStartTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->toExecTime)) {
+            $query['ToExecTime'] = $request->toExecTime;
+        }
+        if (!Utils::isUnset($request->toStartTime)) {
+            $query['ToStartTime'] = $request->toStartTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHistoryTasksStat',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHistoryTasksStatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHistoryTasksStatRequest $request
+     *
+     * @return DescribeHistoryTasksStatResponse
+     */
+    public function describeHistoryTasksStat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHistoryTasksStatWithOptions($request, $runtime);
+    }
+
+    /**
      * This operation is applicable to subscription instances.
      *   *
      * @param DescribeInstanceAutoRenewalAttributeRequest $request DescribeInstanceAutoRenewalAttributeRequest
@@ -3248,9 +3548,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3309,9 +3606,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3343,6 +3637,58 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * @param DescribeKmsKeysRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeKmsKeysResponse
+     */
+    public function describeKmsKeysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeKmsKeys',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeKmsKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeKmsKeysRequest $request
+     *
+     * @return DescribeKmsKeysResponse
+     */
+    public function describeKmsKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKmsKeysWithOptions($request, $runtime);
+    }
+
+    /**
      * This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      *   * This operation depends on the audit log feature of ApsaraDB for MongoDB. You can enable the audit log feature based on your business needs. For more information, see [Enable the audit log feature](~~59903~~)
      *   * *   Starting from January 6, 2022, the official edition of the audit log feature has been launched in all regions, and new applications for the free trial edition have ended. For more information, see [Notice on official launch of the pay-as-you-go audit log feature and no more application for the free trial edition](~~377480~~)
@@ -3371,9 +3717,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3444,9 +3787,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3511,9 +3851,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3577,9 +3914,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3660,9 +3994,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3694,7 +4025,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  To query available regions and zones where ApsaraDB for MongoDB instances can be created, call the [DescribeAvailableResource](~~149719~~) operation.
+     * >  To query available regions and zones in which an ApsaraDB for MongoDB instance can be created, call the [DescribeAvailableResource](~~149719~~) operation.
      *   *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -3723,9 +4054,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3745,7 +4073,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  To query available regions and zones where ApsaraDB for MongoDB instances can be created, call the [DescribeAvailableResource](~~149719~~) operation.
+     * >  To query available regions and zones in which an ApsaraDB for MongoDB instance can be created, call the [DescribeAvailableResource](~~149719~~) operation.
      *   *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
@@ -3790,9 +4118,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3853,9 +4178,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3889,8 +4211,8 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  For more information, see [View the zone of a node](~~123825~~).
-     *   * This operation is applicable only to replica set and sharded cluster instances, but not to standalone instances.
+     * > For more information, see [View the zone of a node](~~123825~~).
+     *   * This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
      *   *
      * @param DescribeRoleZoneInfoRequest $request DescribeRoleZoneInfoRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3916,9 +4238,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3938,8 +4257,8 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  For more information, see [View the zone of a node](~~123825~~).
-     *   * This operation is applicable only to replica set and sharded cluster instances, but not to standalone instances.
+     * > For more information, see [View the zone of a node](~~123825~~).
+     *   * This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
      *   *
      * @param DescribeRoleZoneInfoRequest $request DescribeRoleZoneInfoRequest
      *
@@ -4007,9 +4326,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->roleType)) {
             $query['RoleType'] = $request->roleType;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -4071,9 +4387,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4128,9 +4441,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4191,9 +4501,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4275,9 +4582,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -4406,9 +4710,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->targetRegionId)) {
             $query['TargetRegionId'] = $request->targetRegionId;
         }
@@ -4481,9 +4782,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4564,9 +4862,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->shardsInfo)) {
             $query['ShardsInfo'] = $request->shardsInfo;
@@ -4854,9 +5149,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4921,9 +5213,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->roleType)) {
             $query['RoleType'] = $request->roleType;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4992,9 +5281,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->serviceType)) {
             $query['ServiceType'] = $request->serviceType;
@@ -5151,9 +5437,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5215,9 +5498,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5278,9 +5558,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5344,9 +5621,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5419,9 +5693,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5458,7 +5729,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to replica set instances and sharded cluster instances.
+     * This operation is applicable to replica set instances and sharded cluster instances, but not standalone instances. You can call this operation to change the network of an instance from a classic network to a VPC.
      *   *
      * @param ModifyDBInstanceNetworkTypeRequest $request ModifyDBInstanceNetworkTypeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -5493,9 +5764,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->retainClassic)) {
             $query['RetainClassic'] = $request->retainClassic;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
@@ -5524,7 +5792,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * This operation is applicable only to replica set instances and sharded cluster instances.
+     * This operation is applicable to replica set instances and sharded cluster instances, but not standalone instances. You can call this operation to change the network of an instance from a classic network to a VPC.
      *   *
      * @param ModifyDBInstanceNetworkTypeRequest $request ModifyDBInstanceNetworkTypeRequest
      *
@@ -5571,9 +5839,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->SSLAction)) {
             $query['SSLAction'] = $request->SSLAction;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5670,9 +5935,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5746,9 +6008,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->roleARN)) {
             $query['RoleARN'] = $request->roleARN;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->TDEStatus)) {
             $query['TDEStatus'] = $request->TDEStatus;
@@ -5824,9 +6083,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5888,9 +6144,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5951,9 +6204,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6023,9 +6273,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6089,9 +6336,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->vpcAuthMode)) {
             $query['VpcAuthMode'] = $request->vpcAuthMode;
@@ -6189,9 +6433,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         if (!Utils::isUnset($request->switchTime)) {
             $query['SwitchTime'] = $request->switchTime;
         }
@@ -6280,9 +6521,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6357,9 +6595,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6427,9 +6662,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6491,9 +6723,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityGroupId)) {
             $query['SecurityGroupId'] = $request->securityGroupId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6564,9 +6793,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->securityIps)) {
             $query['SecurityIps'] = $request->securityIps;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6595,6 +6821,67 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySecurityIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyTaskInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyTaskInfoResponse
+     */
+    public function modifyTaskInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->actionParams)) {
+            $query['ActionParams'] = $request->actionParams;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->stepName)) {
+            $query['StepName'] = $request->stepName;
+        }
+        if (!Utils::isUnset($request->taskAction)) {
+            $query['TaskAction'] = $request->taskAction;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTaskInfo',
+            'version'     => '2015-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyTaskInfoRequest $request
+     *
+     * @return ModifyTaskInfoResponse
+     */
+    public function modifyTaskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTaskInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -6630,9 +6917,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6694,9 +6978,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6771,9 +7052,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6843,9 +7121,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6907,9 +7182,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6973,9 +7245,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7045,9 +7314,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->roleIds)) {
             $query['RoleIds'] = $request->roleIds;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->switchMode)) {
             $query['SwitchMode'] = $request->switchMode;
@@ -7169,10 +7435,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param TransferClusterBackupRequest $request
-     * @param RuntimeOptions               $runtime
+     * *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
+     *   * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. Cloud disk-based sharded cluster instances that are created on or after October 19, 2023 are set to the cluster backup mode by default.
+     *   *
+     * @param TransferClusterBackupRequest $request TransferClusterBackupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransferClusterBackupResponse
+     * @return TransferClusterBackupResponse TransferClusterBackupResponse
      */
     public function transferClusterBackupWithOptions($request, $runtime)
     {
@@ -7193,9 +7462,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7215,9 +7481,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param TransferClusterBackupRequest $request
+     * *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
+     *   * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. Cloud disk-based sharded cluster instances that are created on or after October 19, 2023 are set to the cluster backup mode by default.
+     *   *
+     * @param TransferClusterBackupRequest $request TransferClusterBackupRequest
      *
-     * @return TransferClusterBackupResponse
+     * @return TransferClusterBackupResponse TransferClusterBackupResponse
      */
     public function transferClusterBackup($request)
     {
@@ -7278,9 +7547,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7367,9 +7633,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7521,9 +7784,6 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7587,9 +7847,6 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

@@ -58,11 +58,6 @@ class ModifyAccountDescriptionRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
         'accountDescription'   => 'AccountDescription',
         'accountName'          => 'AccountName',
@@ -71,7 +66,6 @@ class ModifyAccountDescriptionRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -101,9 +95,6 @@ class ModifyAccountDescriptionRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -137,9 +128,6 @@ class ModifyAccountDescriptionRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

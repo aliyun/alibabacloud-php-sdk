@@ -49,11 +49,6 @@ class ModifyDBInstanceSSLRequest extends Model
      * @var string
      */
     public $SSLAction;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
         'ownerAccount'         => 'OwnerAccount',
@@ -61,7 +56,6 @@ class ModifyDBInstanceSSLRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'SSLAction'            => 'SSLAction',
-        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -88,9 +82,6 @@ class ModifyDBInstanceSSLRequest extends Model
         }
         if (null !== $this->SSLAction) {
             $res['SSLAction'] = $this->SSLAction;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -121,9 +112,6 @@ class ModifyDBInstanceSSLRequest extends Model
         }
         if (isset($map['SSLAction'])) {
             $model->SSLAction = $map['SSLAction'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

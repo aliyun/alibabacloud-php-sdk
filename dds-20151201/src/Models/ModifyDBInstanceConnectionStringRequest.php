@@ -75,11 +75,6 @@ class ModifyDBInstanceConnectionStringRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
         'currentConnectionString' => 'CurrentConnectionString',
         'DBInstanceId'            => 'DBInstanceId',
@@ -90,7 +85,6 @@ class ModifyDBInstanceConnectionStringRequest extends Model
         'ownerId'                 => 'OwnerId',
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
         'resourceOwnerId'         => 'ResourceOwnerId',
-        'securityToken'           => 'SecurityToken',
     ];
 
     public function validate()
@@ -126,9 +120,6 @@ class ModifyDBInstanceConnectionStringRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -168,9 +159,6 @@ class ModifyDBInstanceConnectionStringRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

@@ -341,11 +341,6 @@ class CreateDBInstanceRequest extends Model
     public $securityIPList;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The business information. This is an additional parameter.
      *
      * @example dds-bp1ee12ad351****
@@ -459,7 +454,6 @@ class CreateDBInstanceRequest extends Model
         'restoreTime'            => 'RestoreTime',
         'secondaryZoneId'        => 'SecondaryZoneId',
         'securityIPList'         => 'SecurityIPList',
-        'securityToken'          => 'SecurityToken',
         'srcDBInstanceId'        => 'SrcDBInstanceId',
         'storageEngine'          => 'StorageEngine',
         'storageType'            => 'StorageType',
@@ -571,9 +565,6 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->srcDBInstanceId) {
             $res['SrcDBInstanceId'] = $this->srcDBInstanceId;
@@ -709,9 +700,6 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SrcDBInstanceId'])) {
             $model->srcDBInstanceId = $map['SrcDBInstanceId'];

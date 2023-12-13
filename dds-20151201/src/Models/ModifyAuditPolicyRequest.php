@@ -59,11 +59,6 @@ class ModifyAuditPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The type of the audit log feature. Valid values:
      *
      *   **Trail**: the free trial edition
@@ -92,7 +87,6 @@ class ModifyAuditPolicyRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'serviceType'          => 'ServiceType',
         'storagePeriod'        => 'StoragePeriod',
     ];
@@ -124,9 +118,6 @@ class ModifyAuditPolicyRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
@@ -166,9 +157,6 @@ class ModifyAuditPolicyRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];

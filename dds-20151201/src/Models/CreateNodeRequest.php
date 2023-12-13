@@ -153,11 +153,6 @@ class CreateNodeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description Specifies whether to apply for an endpoint for the shard node. Default value: false. Valid values:
      *
      *   **true**: applies for an endpoint for the shard node.
@@ -184,7 +179,6 @@ class CreateNodeRequest extends Model
         'readonlyReplicas'     => 'ReadonlyReplicas',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'shardDirect'          => 'ShardDirect',
     ];
 
@@ -239,9 +233,6 @@ class CreateNodeRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->shardDirect) {
             $res['ShardDirect'] = $this->shardDirect;
@@ -302,9 +293,6 @@ class CreateNodeRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['ShardDirect'])) {
             $model->shardDirect = $map['ShardDirect'];

@@ -92,11 +92,6 @@ class CreateNodeBatchRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @example false
      *
      * @var bool
@@ -116,7 +111,6 @@ class CreateNodeBatchRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'shardDirect'          => 'ShardDirect',
     ];
 
@@ -165,9 +159,6 @@ class CreateNodeBatchRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->shardDirect) {
             $res['ShardDirect'] = $this->shardDirect;
@@ -222,9 +213,6 @@ class CreateNodeBatchRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['ShardDirect'])) {
             $model->shardDirect = $map['ShardDirect'];

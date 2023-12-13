@@ -38,11 +38,6 @@ class DescribeUserEncryptionKeyListRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
      *
      * @example cn-shanghai
@@ -56,7 +51,6 @@ class DescribeUserEncryptionKeyListRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'targetRegionId'       => 'TargetRegionId',
     ];
 
@@ -81,9 +75,6 @@ class DescribeUserEncryptionKeyListRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->targetRegionId) {
             $res['TargetRegionId'] = $this->targetRegionId;
@@ -114,9 +105,6 @@ class DescribeUserEncryptionKeyListRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['TargetRegionId'])) {
             $model->targetRegionId = $map['TargetRegionId'];

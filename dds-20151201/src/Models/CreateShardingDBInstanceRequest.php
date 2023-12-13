@@ -334,11 +334,6 @@ class CreateShardingDBInstanceRequest extends Model
     public $securityIPList;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The source instance ID.
      *
      * > This parameter is required only if you call this operation to clone an instance. If you specify this parameter, you must also specify **RestoreTime**.
@@ -442,7 +437,6 @@ class CreateShardingDBInstanceRequest extends Model
         'restoreTime'            => 'RestoreTime',
         'secondaryZoneId'        => 'SecondaryZoneId',
         'securityIPList'         => 'SecurityIPList',
-        'securityToken'          => 'SecurityToken',
         'srcDBInstanceId'        => 'SrcDBInstanceId',
         'storageEngine'          => 'StorageEngine',
         'storageType'            => 'StorageType',
@@ -557,9 +551,6 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->srcDBInstanceId) {
             $res['SrcDBInstanceId'] = $this->srcDBInstanceId;
@@ -698,9 +689,6 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SrcDBInstanceId'])) {
             $model->srcDBInstanceId = $map['SrcDBInstanceId'];

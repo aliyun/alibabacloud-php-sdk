@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceRequest extends Model
 {
     /**
+     * @description The instance type of the instance.
+     *
+     * @example dds.mongo.standard
+     *
      * @var string
      */
     public $DBInstanceClass;
@@ -26,14 +30,18 @@ class DescribeAvailableResourceRequest extends Model
     public $dbType;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     * @example 5.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
-     * @description The billing method of the instance. Default value: PrePaid. Valid values:
+     * @description The billing method of the instance. Valid values:
      *
-     *   **PrePaid**: subscription
+     *   **PrePaid** (default): subscription
      *   **PostPaid**: pay-as-you-go
      *
      * @example PrePaid
@@ -81,11 +89,17 @@ class DescribeAvailableResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
+     * @description The storage type of the instance. Valid values:
+     *
+     * - **local_ssd**: local SSD
+     * - **cloud_essd1**: PL1 enhanced SSD (ESSD)
+     * - **cloud_essd2**: PL2 ESSD
+     * - **cloud_essd3**: PL3 ESSD
+     * - **cloud_auto**: ESSD AutoPL
+     *
+     * By default, this parameter is empty, which indicates that all types of storage resources are queried.
+     * @example local_ssd
+     *
      * @var string
      */
     public $storageType;
@@ -109,7 +123,6 @@ class DescribeAvailableResourceRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'storageType'          => 'StorageType',
         'zoneId'               => 'ZoneId',
     ];
@@ -150,9 +163,6 @@ class DescribeAvailableResourceRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
@@ -201,9 +211,6 @@ class DescribeAvailableResourceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];

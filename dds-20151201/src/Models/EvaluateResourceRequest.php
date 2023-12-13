@@ -104,11 +104,6 @@ class EvaluateResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The node information about the sharded cluster instance. This parameter is required when you check whether resources are sufficient for creating or upgrading a sharded cluster instance.
      *
      * Parameters in the example:
@@ -162,7 +157,6 @@ class EvaluateResourceRequest extends Model
         'replicationFactor'    => 'ReplicationFactor',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'shardsInfo'           => 'ShardsInfo',
         'storage'              => 'Storage',
         'zoneId'               => 'ZoneId',
@@ -207,9 +201,6 @@ class EvaluateResourceRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->shardsInfo) {
             $res['ShardsInfo'] = $this->shardsInfo;
@@ -264,9 +255,6 @@ class EvaluateResourceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['ShardsInfo'])) {
             $model->shardsInfo = $map['ShardsInfo'];

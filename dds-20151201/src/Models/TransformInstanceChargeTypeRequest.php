@@ -14,7 +14,7 @@ class TransformInstanceChargeTypeRequest extends Model
      *   **true**
      *   **false**
      *
-     * > Default value: **true**.
+     * >  Default value: **true**.
      * @example true
      *
      * @var bool
@@ -84,7 +84,10 @@ class TransformInstanceChargeTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The subscription duration of the instance. Unit: months. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9******, **12**, **24**, and **36**.
+     * @description The subscription duration. Valid values:
+     *
+     *   If the PricingCycle parameter is set to Month, the valid values of this parameter range from **1** to **9**.
+     *   If the PricingCycle parameter is set to Year, the valid values of this parameter are **1**, **2**, **3**, and **5**.
      *
      * @example 1
      *
@@ -93,6 +96,12 @@ class TransformInstanceChargeTypeRequest extends Model
     public $period;
 
     /**
+     * @description The unit of the subscription duration. Valid values:
+     *
+     *   **Month**
+     *   **Year**
+     *
+     * Default value: Month.
      * @example Month
      *
      * @var string
@@ -108,11 +117,6 @@ class TransformInstanceChargeTypeRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
         'autoPay'              => 'AutoPay',
         'autoRenew'            => 'AutoRenew',
@@ -126,7 +130,6 @@ class TransformInstanceChargeTypeRequest extends Model
         'pricingCycle'         => 'PricingCycle',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -171,9 +174,6 @@ class TransformInstanceChargeTypeRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -222,9 +222,6 @@ class TransformInstanceChargeTypeRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

@@ -38,11 +38,6 @@ class CheckCloudResourceAuthorizedRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the region ID of the instance.
      *
      * @example cn-hangzhou
@@ -56,7 +51,6 @@ class CheckCloudResourceAuthorizedRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'targetRegionId'       => 'TargetRegionId',
     ];
 
@@ -81,9 +75,6 @@ class CheckCloudResourceAuthorizedRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->targetRegionId) {
             $res['TargetRegionId'] = $this->targetRegionId;
@@ -114,9 +105,6 @@ class CheckCloudResourceAuthorizedRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['TargetRegionId'])) {
             $model->targetRegionId = $map['TargetRegionId'];

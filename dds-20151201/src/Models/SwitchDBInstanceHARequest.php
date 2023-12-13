@@ -63,11 +63,6 @@ class SwitchDBInstanceHARequest extends Model
     public $roleIds;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The time when the primary and secondary nodes are switched. Valid values:
      *
      *   0: The primary and secondary nodes are immediately switched.
@@ -86,7 +81,6 @@ class SwitchDBInstanceHARequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'roleIds'              => 'RoleIds',
-        'securityToken'        => 'SecurityToken',
         'switchMode'           => 'SwitchMode',
     ];
 
@@ -117,9 +111,6 @@ class SwitchDBInstanceHARequest extends Model
         }
         if (null !== $this->roleIds) {
             $res['RoleIds'] = $this->roleIds;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->switchMode) {
             $res['SwitchMode'] = $this->switchMode;
@@ -156,9 +147,6 @@ class SwitchDBInstanceHARequest extends Model
         }
         if (isset($map['RoleIds'])) {
             $model->roleIds = $map['RoleIds'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SwitchMode'])) {
             $model->switchMode = $map['SwitchMode'];

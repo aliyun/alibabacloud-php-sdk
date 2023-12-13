@@ -36,7 +36,7 @@ class shardAttribute extends Model
     public $maxIOPS;
 
     /**
-     * @description The type of the shard node.
+     * @description The instance type of the shard node.
      *
      * @example dds.shard.mid
      *
@@ -63,7 +63,7 @@ class shardAttribute extends Model
     public $nodeId;
 
     /**
-     * @description The storage capacity of the shard node.
+     * @description The storage capacity of the shard node. Unit: GB.
      *
      * @example 10
      *
@@ -90,7 +90,7 @@ class shardAttribute extends Model
     public $readonlyReplicas;
 
     /**
-     * @description The state of the shard node. For more information, see [Instance states](~~63870~~).
+     * @description The status of the shard node. For more information, see [Instance states](~~63870~~).
      *
      * @example Running
      *

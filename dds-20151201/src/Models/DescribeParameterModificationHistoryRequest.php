@@ -72,11 +72,6 @@ class DescribeParameterModificationHistoryRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The beginning of the time range to query. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-01-01T12:10:10Z
@@ -93,7 +88,6 @@ class DescribeParameterModificationHistoryRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'startTime'            => 'StartTime',
     ];
 
@@ -127,9 +121,6 @@ class DescribeParameterModificationHistoryRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -169,9 +160,6 @@ class DescribeParameterModificationHistoryRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterBackupsRequest extends Model
 {
     /**
+     * @description The ID of the cluster backup set.
+     *
      * @example 5664****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeClusterBackupsRequest extends Model
     public $backupId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example dds-bp16cb162771****
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeClusterBackupsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC. The end time must be later than the start time.
+     *
      * @example 2019-03-14T13:10Z
      *
      * @var string
@@ -30,6 +36,13 @@ class DescribeClusterBackupsRequest extends Model
     public $endTime;
 
     /**
+     * @description Specifies whether to query information about child nodes in the cluster backup. Valid values:
+     *
+     *   **true**: The system returns only the basic information of the cluster backup.
+     *   **false** (default): The system returns the backup information of all child nodes.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isOnlyGetClusterBackUp;
@@ -45,6 +58,8 @@ class DescribeClusterBackupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: **1**. The page number must be a positive integer.
+     *
      * @example 1
      *
      * @var int
@@ -52,6 +67,12 @@ class DescribeClusterBackupsRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
+     *
      * @example 30
      *
      * @var int
@@ -69,11 +90,8 @@ class DescribeClusterBackupsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
      * @example 2019-03-13T12:11:14Z
      *
      * @var string
@@ -90,7 +108,6 @@ class DescribeClusterBackupsRequest extends Model
         'pageSize'               => 'PageSize',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
-        'securityToken'          => 'SecurityToken',
         'startTime'              => 'StartTime',
     ];
 
@@ -130,9 +147,6 @@ class DescribeClusterBackupsRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -178,9 +192,6 @@ class DescribeClusterBackupsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

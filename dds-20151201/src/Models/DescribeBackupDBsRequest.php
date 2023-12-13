@@ -78,11 +78,6 @@ class DescribeBackupDBsRequest extends Model
     public $restoreTime;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The ID of the source instance.
      *
      * @example dds-bp2286****
@@ -100,7 +95,6 @@ class DescribeBackupDBsRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'restoreTime'          => 'RestoreTime',
-        'securityToken'        => 'SecurityToken',
         'sourceDBInstance'     => 'SourceDBInstance',
     ];
 
@@ -137,9 +131,6 @@ class DescribeBackupDBsRequest extends Model
         }
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = $this->restoreTime;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->sourceDBInstance) {
             $res['SourceDBInstance'] = $this->sourceDBInstance;
@@ -182,9 +173,6 @@ class DescribeBackupDBsRequest extends Model
         }
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SourceDBInstance'])) {
             $model->sourceDBInstance = $map['SourceDBInstance'];

@@ -9,16 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceTDEInfoResponseBody extends Model
 {
     /**
+     * @description The custom key of the instance.
+     *
+     * The Bring Your Own Key (BYOK) feature allows you to manage and obtain your own encryption key. This feature is supported only in the following regions:
+     *
+     *   cn-hangzhou
+     *   cn-shanghai
+     *   cn-beijing
+     *   cn-shenzhen
+     *   cn-hongkong
+     *   ap-southeast-1
+     *   ap-southeast-3
+     *
+     * @example If the BYOK feature is supported, you can manage and obtain your own encryption key, and a custom key in the following format is returned: 2axxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx If the BYOK feature is not supported, you cannot obtain or manage your own encryption key, and the following string is returned: If not, you cannot manage and ontain the encryption key, and the system returns the NoActiveBYOK string.
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @description The encryption algorithm.
+     *
+     * @example aes-256-cbc
+     *
      * @var string
      */
     public $encryptorName;
 
     /**
+     * @description The request ID.
+     *
      * @example F4DD0E29-361B-42F2-9301-B0048CCCE5D6
      *
      * @var string
@@ -26,11 +46,20 @@ class DescribeDBInstanceTDEInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role to which you want to grant permissions.
+     *
+     * @example acs:ram::123456789012****:role/aliyunrdsinstanceencryptiondefaultrole
+     *
      * @var string
      */
     public $roleARN;
 
     /**
+     * @description The TDE status. Valid values:
+     *
+     *   **enabled**
+     *   **disabled**
+     *
      * @example enabled
      *
      * @var string

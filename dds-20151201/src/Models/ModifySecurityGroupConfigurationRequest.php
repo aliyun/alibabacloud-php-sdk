@@ -47,11 +47,6 @@ class ModifySecurityGroupConfigurationRequest extends Model
      * @var string
      */
     public $securityGroupId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
         'ownerAccount'         => 'OwnerAccount',
@@ -59,7 +54,6 @@ class ModifySecurityGroupConfigurationRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityGroupId'      => 'SecurityGroupId',
-        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -86,9 +80,6 @@ class ModifySecurityGroupConfigurationRequest extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -119,9 +110,6 @@ class ModifySecurityGroupConfigurationRequest extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

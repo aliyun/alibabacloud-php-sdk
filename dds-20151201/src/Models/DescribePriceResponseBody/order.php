@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
-     * @description The coupons.
+     * @description The information of coupons.
      *
      * @var coupons
      */
@@ -52,6 +52,8 @@ class order extends Model
     public $ruleIds;
 
     /**
+     * @description Indicates whether the information of the discount is displayed.
+     *
      * @var bool
      */
     public $showDiscountInfo;

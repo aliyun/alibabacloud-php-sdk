@@ -81,11 +81,6 @@ class ModifySecurityIpsRequest extends Model
      * @var string
      */
     public $securityIps;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
         'DBInstanceId'             => 'DBInstanceId',
         'modifyMode'               => 'ModifyMode',
@@ -96,7 +91,6 @@ class ModifySecurityIpsRequest extends Model
         'securityIpGroupAttribute' => 'SecurityIpGroupAttribute',
         'securityIpGroupName'      => 'SecurityIpGroupName',
         'securityIps'              => 'SecurityIps',
-        'securityToken'            => 'SecurityToken',
     ];
 
     public function validate()
@@ -132,9 +126,6 @@ class ModifySecurityIpsRequest extends Model
         }
         if (null !== $this->securityIps) {
             $res['SecurityIps'] = $this->securityIps;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -174,9 +165,6 @@ class ModifySecurityIpsRequest extends Model
         }
         if (isset($map['SecurityIps'])) {
             $model->securityIps = $map['SecurityIps'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

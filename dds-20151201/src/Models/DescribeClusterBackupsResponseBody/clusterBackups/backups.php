@@ -9,51 +9,97 @@ use AlibabaCloud\Tea\Model;
 class backups extends Model
 {
     /**
+     * @description The URL that is used to download the backup set over the Internet. If the backup set cannot be downloaded, an empty string is returned.
+     *
+     * @example http://oss.com/xxx
+     *
      * @var string
      */
     public $backupDownloadURL;
 
     /**
+     * @description The end of the backup time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2023-10-16T19:33:20Z
+     *
      * @var string
      */
     public $backupEndTime;
 
     /**
+     * @description The ID of the backup set.
+     *
+     * @example 738025367
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The URL that is used to download the backup set over an internal network. If the backup set cannot be downloaded, null is returned.
+     *
+     * @example http://oss.com/xxx
+     *
      * @var string
      */
     public $backupIntranetDownloadURL;
 
     /**
+     * @description The backup name.
+     *
+     * @example 12345678.tar.gz
+     *
      * @var string
      */
     public $backupName;
 
     /**
+     * @description The size of the backup file. Unit: bytes.
+     *
+     * @example 77544597650
+     *
      * @var string
      */
     public $backupSize;
 
     /**
+     * @description The beginning of the backup time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2023-10-16T19:33:20Z
+     *
      * @var string
      */
     public $backupStartTime;
 
     /**
+     * @description The status of the backup task. Valid values:
+     *
+     *   **Success**: The backup task is successful.
+     *   **Failed**: The backup task failed.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $backupStatus;
 
     /**
+     * @description The name of the shard.
+     *
+     * @example d-bp16cb162771****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description Indicates whether the backup set is available. Valid values:
+     *
+     *   **0**: unavailable
+     *   **1**: available
+     *
+     * @example 1
+     *
      * @var string
      */
     public $isAvail;

@@ -11,7 +11,7 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     /**
      * @description The retention period of the original classic network address when you change the network type to VPC. Valid values: **14**, **30**, **60**, and **120**. Unit: days.
      *
-     * >  This parameter is required when the **NetworkType** parameter is set to **VPC** and the **RetainClassic** parameter is set to **True**.
+     * > This parameter is required when the **NetworkType** parameter is set to **VPC** and the **RetainClassic** parameter is set to **True**.
      * @example 30
      *
      * @var int
@@ -19,7 +19,7 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public $classicExpiredDays;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example dds-bp11483712c1****
      *
@@ -28,10 +28,9 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The network type to switch to. Valid values:
+     * @description The network type to switch to. Valid value:
      *
      *   **VPC**
-     *   **Classic**
      *
      * @example VPC
      *
@@ -62,11 +61,15 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     /**
      * @description Specifies whether to retain the original classic network address when you change the network type to VPC. Valid values:
      *
-     * - **True**: retains the original classic network address.
-     * - **False**: does not retain the original classic network address.
+     *   **True**: retains the original classic network address.
+     *   **False**: does not retain the original classic network address.
      *
-     * > * This parameter is required when the **NetworkType** parameter is set to **VPC**.
-     * > * If you set this parameter to **True**, you must also specify the **ClassicExpiredDays** parameter.
+     * >
+     *
+     *   This parameter is required when the **NetworkType** parameter is set to **VPC**.
+     *
+     *   If you set this parameter to **True**, you must also specify the **ClassicExpiredDays** parameter.
+     *
      * @example False
      *
      * @var string
@@ -74,14 +77,9 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public $retainClassic;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
-     * @description The ID of the vSwitch.
+     * @description The ID of the vSwitch in the VPC.
      *
-     * >  This parameter is required when the **NetworkType** parameter is set to **VPC**.
+     * > This parameter is required when the **NetworkType** parameter is set to **VPC**.
      * @example vsw-bp1vj604nj5a9zz74****
      *
      * @var string
@@ -89,9 +87,9 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The ID of the VPC.
      *
-     * >  This parameter is required when the **NetworkType** parameter is set to **VPC**.
+     * > This parameter is required when the **NetworkType** parameter is set to **VPC**.
      * @example vpc-bp1n3i15v90el48nx****
      *
      * @var string
@@ -99,7 +97,7 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public $vpcId;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeRegions](~~468365~~) operation to query the most recent zone list.
+     * @description 可用区ID，您可以通过调用[DescribeRegions](~~61933~~)接口查询可用区ID。
      *
      * @example cn-hangzhou-b
      *
@@ -115,7 +113,6 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'retainClassic'        => 'RetainClassic',
-        'securityToken'        => 'SecurityToken',
         'vSwitchId'            => 'VSwitchId',
         'vpcId'                => 'VpcId',
         'zoneId'               => 'ZoneId',
@@ -151,9 +148,6 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
         }
         if (null !== $this->retainClassic) {
             $res['RetainClassic'] = $this->retainClassic;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -199,9 +193,6 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
         }
         if (isset($map['RetainClassic'])) {
             $model->retainClassic = $map['RetainClassic'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

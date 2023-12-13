@@ -10,13 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterRecoverTimeResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 60EEBD77-227C-5B39-86EA-D89163C5****
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The cluster backup sets of the instance. A cluster backup file contains the backup sets of each node.
+     *
      * @var restoreRanges[]
      */
     public $restoreRanges;

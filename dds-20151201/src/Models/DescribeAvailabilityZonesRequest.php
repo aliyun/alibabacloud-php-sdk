@@ -112,11 +112,6 @@ class DescribeAvailabilityZonesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The zones to be displayed. The values include the zones in which you can create an instance that uses cloud disks, the zones in which you can create an instance that uses local disks, and the zones in which you can create an instance that uses cloud disks and local disks.
      *
      * @example lcoal
@@ -168,7 +163,6 @@ class DescribeAvailabilityZonesRequest extends Model
         'resourceGroupId'        => 'ResourceGroupId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
-        'securityToken'          => 'SecurityToken',
         'storageSupport'         => 'StorageSupport',
         'storageType'            => 'StorageType',
         'zoneId'                 => 'ZoneId',
@@ -222,9 +216,6 @@ class DescribeAvailabilityZonesRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->storageSupport) {
             $res['StorageSupport'] = $this->storageSupport;
@@ -288,9 +279,6 @@ class DescribeAvailabilityZonesRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StorageSupport'])) {
             $model->storageSupport = $map['StorageSupport'];

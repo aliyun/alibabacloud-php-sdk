@@ -29,8 +29,8 @@ class replicaSet extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **Classic**
-     *   **VPC**
+     *   **Classic**: classic network
+     *   **VPC**: VPC
      *
      * @example VPC
      *
@@ -53,7 +53,7 @@ class replicaSet extends Model
     /**
      * @description The instance ID.
      *
-     * > This parameter is returned if the network type of the instance is VPC.
+     * >  This parameter is returned if the network type of the instance is VPC.
      * @example dds-bp11483712c1****
      *
      * @var string
@@ -63,7 +63,7 @@ class replicaSet extends Model
     /**
      * @description The VPC ID of the instance.
      *
-     * > This parameter is returned if the network type of the instance is VPC.
+     * >  This parameter is returned if the network type of the instance is VPC.
      * @example vpc-bp1jk5vwkcri27qme****
      *
      * @var string
@@ -73,7 +73,7 @@ class replicaSet extends Model
     /**
      * @description The vSwitch ID of the instance.
      *
-     * > This parameter is returned if the network type of the instance is VPC.
+     * >  This parameter is returned if the network type of the instance is virtual private cloud (VPC).
      * @example vpc-bp1jk5vwkcri27qme****
      *
      * @var string

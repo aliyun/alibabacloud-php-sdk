@@ -25,7 +25,10 @@ class DescribePriceRequest extends Model
      *   **dds_sharding**: a sharded cluster instance that uses the pay-as-you-go billing method
      *   **badds_sharding**: a sharded cluster instance that uses the subscription billing method
      *   **badds_sharding_intl**: a sharded cluster instance that uses the subscription billing method and is available on the International site (alibabacloud.com)
+     *   **dds_sharding_intl**: a sharded cluster instance that uses the pay-as-you-go billing method and is available on the International site (alibabacloud.com)
      *   **badds_sharding_jp**: a sharded cluster instance that uses the subscription billing method and is available on the Japan site (jp.alibabacloud.com)
+     *   **badds_intl**: a replica set instance that uses the subscription billing method and is available on the International site (alibabacloud.com)
+     *   **dds_intl**: a replica set instance that uses the pay-as-you-go billing method and is available on the International site (alibabacloud.com)
      *
      * @example badds
      *
@@ -122,11 +125,6 @@ class DescribePriceRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
         'businessInfo'         => 'BusinessInfo',
         'commodityCode'        => 'CommodityCode',
@@ -141,7 +139,6 @@ class DescribePriceRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -189,9 +186,6 @@ class DescribePriceRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -243,9 +237,6 @@ class DescribePriceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

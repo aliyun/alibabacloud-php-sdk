@@ -47,11 +47,6 @@ class ModifyInstanceVpcAuthModeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The ID of the mongos node in the specified sharded cluster instance.
      *
      * >  This parameter can be used only when the instance type is sharded cluster.
@@ -67,7 +62,6 @@ class ModifyInstanceVpcAuthModeRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'vpcAuthMode'          => 'VpcAuthMode',
     ];
 
@@ -95,9 +89,6 @@ class ModifyInstanceVpcAuthModeRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->vpcAuthMode) {
             $res['VpcAuthMode'] = $this->vpcAuthMode;
@@ -131,9 +122,6 @@ class ModifyInstanceVpcAuthModeRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['VpcAuthMode'])) {
             $model->vpcAuthMode = $map['VpcAuthMode'];

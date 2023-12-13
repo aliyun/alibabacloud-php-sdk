@@ -25,7 +25,7 @@ class zoneInfo extends Model
      *   **shard**
      *   **mongos**
      *
-     * >  Valid value for replica set instances: **normal**. Valid values for replica set instances: **configServer**, **shard**, and **mongos**.
+     * > Valid value for replica set instances: **normal**. Valid values for sharded cluster instances: **configServer**, **shard**, and **mongos**.
      * @example normal
      *
      * @var string
@@ -33,7 +33,7 @@ class zoneInfo extends Model
     public $nodeType;
 
     /**
-     * @description The ID of the role.
+     * @description The role ID.
      *
      * @example 83xxxxx
      *
@@ -55,7 +55,7 @@ class zoneInfo extends Model
     public $roleType;
 
     /**
-     * @description The zone ID.
+     * @description The zone ID of the node.
      *
      * @example cn-hangzhou-e
      *

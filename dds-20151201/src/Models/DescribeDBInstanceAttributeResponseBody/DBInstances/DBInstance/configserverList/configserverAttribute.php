@@ -36,7 +36,7 @@ class configserverAttribute extends Model
     public $maxIOPS;
 
     /**
-     * @description The type of the Configserver node.
+     * @description The instance type of the Configserver node.
      *
      * @example dds.cs.mid
      *
@@ -63,7 +63,7 @@ class configserverAttribute extends Model
     public $nodeId;
 
     /**
-     * @description The storage capacity of the Configserver node.
+     * @description The storage capacity of the Configserver node. Unit: GB.
      *
      * @example 20
      *
@@ -81,7 +81,7 @@ class configserverAttribute extends Model
     public $port;
 
     /**
-     * @description The state of the Configserver node. For more information, see [Instance states](~~63870~~).
+     * @description The status of the Configserver node. For more information, see [Instance states](~~63870~~).
      *
      * @example Running
      *

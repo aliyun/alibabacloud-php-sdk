@@ -10,12 +10,20 @@ use AlibabaCloud\Tea\Model;
 class ddsRegion extends Model
 {
     /**
+     * @description The public endpoint of the region.
+     *
+     * For example, if the value of the RegionId parameter in the response is cn-hangzhou, the following value is returned for the EndPoint parameter:
+     *
+     *   mongodb.aliyuncs.com
+     *
+     * @example mongodb.aliyuncs.com
+     *
      * @var string
      */
     public $endPoint;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -26,7 +34,11 @@ class ddsRegion extends Model
     /**
      * @description The name of the region.
      *
-     * The return value of the LocalName parameter is in the language that is specified by the **AcceptLanguage** parameter.
+     * The value of the LocalName parameter is in the language that is specified by the **AcceptLanguage** parameter. For example, if the value of the RegionId parameter in the response is **cn-hangzhou**, the following values are returned for the LocalName parameter:
+     *
+     *   If the value of the **AcceptLanguage** parameter is **zh**, the value **1** is returned for the LocalName parameter.
+     *   If the value of the **AcceptLanguage** parameter is **en**, the value **China (Hangzhou)** is returned for the LocalName parameter.
+     *
      * @example China (Hangzhou)
      *
      * @var string
@@ -34,7 +46,7 @@ class ddsRegion extends Model
     public $regionName;
 
     /**
-     * @description Details about the zones.
+     * @description The zones.
      *
      * @var zones
      */

@@ -72,11 +72,6 @@ class ModifyDBInstanceTDERequest extends Model
     public $roleARN;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The TDE status. When the value of this parameter is set to **Enabled**, TDE is enabled.
      *
      * > You cannot disable TDE after it is enabled. Proceed with caution.
@@ -94,7 +89,6 @@ class ModifyDBInstanceTDERequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'roleARN'              => 'RoleARN',
-        'securityToken'        => 'SecurityToken',
         'TDEStatus'            => 'TDEStatus',
     ];
 
@@ -128,9 +122,6 @@ class ModifyDBInstanceTDERequest extends Model
         }
         if (null !== $this->roleARN) {
             $res['RoleARN'] = $this->roleARN;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->TDEStatus) {
             $res['TDEStatus'] = $this->TDEStatus;
@@ -170,9 +161,6 @@ class ModifyDBInstanceTDERequest extends Model
         }
         if (isset($map['RoleARN'])) {
             $model->roleARN = $map['RoleARN'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['TDEStatus'])) {
             $model->TDEStatus = $map['TDEStatus'];

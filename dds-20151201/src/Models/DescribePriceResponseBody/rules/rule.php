@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
-     * @description The name of the rule.
+     * @description The rule name.
      *
      * @example demoname
      *
@@ -18,7 +18,7 @@ class rule extends Model
     public $name;
 
     /**
-     * @description The ID of the policy.
+     * @description The rule ID.
      *
      * @example 2075****
      *
@@ -27,7 +27,7 @@ class rule extends Model
     public $ruleDescId;
 
     /**
-     * @description The title of the rule.
+     * @description The rule title.
      *
      * @example demo
      *

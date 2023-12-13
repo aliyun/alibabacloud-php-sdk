@@ -127,11 +127,6 @@ class DescribeDBInstancesOverviewRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The ID of the vSwitch.
      *
      * @example vsw-bp1e7clcw529l773d****
@@ -171,7 +166,6 @@ class DescribeDBInstancesOverviewRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'vSwitchId'            => 'VSwitchId',
         'vpcId'                => 'VpcId',
         'zoneId'               => 'ZoneId',
@@ -222,9 +216,6 @@ class DescribeDBInstancesOverviewRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -285,9 +276,6 @@ class DescribeDBInstancesOverviewRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

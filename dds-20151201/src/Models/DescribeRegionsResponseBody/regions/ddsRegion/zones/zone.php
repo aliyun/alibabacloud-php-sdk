@@ -21,7 +21,7 @@ class zone extends Model
     public $vpcEnabled;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-h
      *
@@ -32,7 +32,11 @@ class zone extends Model
     /**
      * @description The name of the zone.
      *
-     * The return value of the LocalName parameter is in the language that is specified by the **AcceptLanguage** parameter.
+     * The value of the ZoneName parameter is in the language that is specified by the **AcceptLanguage** parameter. For example, if the value of the ZoneId parameter in the response is **cn-hangzhou-h**, the following values are returned for the ZoneName parameter:
+     *
+     *   If the value of the **AcceptLanguage** parameter is **zh**, the value ** H** is returned for the ZoneName parameter.
+     *   If the value of the **AcceptLanguage** parameter is **en**, the value **Hangzhou Zone H** is returned for the ZoneName parameter.
+     *
      * @example Hangzhou Zone H
      *
      * @var string

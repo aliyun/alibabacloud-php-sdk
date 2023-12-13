@@ -119,11 +119,6 @@ class DescribeAuditRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * @example 2019-03-13T12:11:14Z
@@ -154,7 +149,6 @@ class DescribeAuditRecordsRequest extends Model
         'queryKeywords'        => 'QueryKeywords',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'startTime'            => 'StartTime',
         'user'                 => 'User',
     ];
@@ -204,9 +198,6 @@ class DescribeAuditRecordsRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -264,9 +255,6 @@ class DescribeAuditRecordsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

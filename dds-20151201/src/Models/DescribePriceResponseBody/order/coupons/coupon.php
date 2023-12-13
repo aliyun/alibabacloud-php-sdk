@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class coupon extends Model
 {
     /**
-     * @description The billing method to which the coupon was applied. Valid values: **payondemand**: subscription. **payasyougo**: pay-as-you-go.
+     * @description The activity type of the coupon. Valid values:
+     *
+     *   **payondemand**: subscription
+     *   **payasyougo**: pay-as-you-go
      *
      * @example payondemand
      *
@@ -76,7 +79,7 @@ class coupon extends Model
     public $promotionOptionCode;
 
     /**
-     * @description The rules that match the coupon.
+     * @description Details about the rules that match the coupon.
      *
      * @var promotionRuleIdList
      */

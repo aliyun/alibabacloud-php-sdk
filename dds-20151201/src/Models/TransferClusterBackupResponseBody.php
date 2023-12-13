@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class TransferClusterBackupResponseBody extends Model
 {
     /**
+     * @description Indicates whether the instance is switched to the cluster backup mode. If the value of this parameter is **1**, the instance is switched to the cluster backup mode.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $alreadyDone;
 
     /**
+     * @description The request ID.
+     *
+     * @example 3C4A2494-85C4-45C5-93CF-548DB3375193
+     *
      * @var string
      */
     public $requestId;

@@ -155,11 +155,6 @@ class ModifyNodeSpecRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The execution time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * @example 2022-01-05T03:18:53Z
@@ -184,7 +179,6 @@ class ModifyNodeSpecRequest extends Model
         'readonlyReplicas'     => 'ReadonlyReplicas',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
         'switchTime'           => 'SwitchTime',
     ];
 
@@ -242,9 +236,6 @@ class ModifyNodeSpecRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->switchTime) {
             $res['SwitchTime'] = $this->switchTime;
@@ -308,9 +299,6 @@ class ModifyNodeSpecRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SwitchTime'])) {
             $model->switchTime = $map['SwitchTime'];

@@ -65,11 +65,6 @@ class ModifyAuditLogFilterRequest extends Model
      * @var string
      */
     public $roleType;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
         'filter'               => 'Filter',
@@ -78,7 +73,6 @@ class ModifyAuditLogFilterRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'roleType'             => 'RoleType',
-        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -108,9 +102,6 @@ class ModifyAuditLogFilterRequest extends Model
         }
         if (null !== $this->roleType) {
             $res['RoleType'] = $this->roleType;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -144,9 +135,6 @@ class ModifyAuditLogFilterRequest extends Model
         }
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

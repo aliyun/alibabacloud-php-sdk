@@ -11,46 +11,79 @@ use AlibabaCloud\Tea\Model;
 class clusterBackups extends Model
 {
     /**
+     * @description The collection of the backup sets of each child node in a cluster backup set.
+     *
      * @var backups[]
      */
     public $backups;
 
     /**
+     * @description The end of the time range within which the cluster backup is performed.
+     *
+     * @example 2023-10-16T19:33:20Z
+     *
      * @var string
      */
     public $clusterBackupEndTime;
 
     /**
+     * @description The ID of the cluster backup set.
+     *
+     * @example cb-o8c2ugnxo26kx***
+     *
      * @var string
      */
     public $clusterBackupId;
 
     /**
+     * @description The cluster backup mode.
+     *
+     * @example Automated
+     *
      * @var string
      */
     public $clusterBackupMode;
 
     /**
+     * @description The size of the cluster backup set. Unit: bytes.
+     *
+     * @example 107374182400
+     *
      * @var string
      */
     public $clusterBackupSize;
 
     /**
+     * @description The beginning of the time range within which the cluster backup is performed.
+     *
+     * @example 2023-10-16T19:33:20Z
+     *
      * @var string
      */
     public $clusterBackupStartTime;
 
     /**
+     * @description The status of the cluster backup set.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $clusterBackupStatus;
 
     /**
+     * @description The additional information in JSON format.
+     *
      * @var extraInfo
      */
     public $extraInfo;
 
     /**
+     * @description Indicates whether the cluster backup sets take effect. Valid values:
+     *
+     *   **1**: The cluster backup sets take effect.
+     *   **0**: The backup sets of child nodes are incomplete or fail.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +91,10 @@ class clusterBackups extends Model
     public $isAvail;
 
     /**
+     * @description The progress of the backup task. Unit: %. The progress is returned only for running backup tasks.
+     *
+     * @example 50
+     *
      * @var string
      */
     public $progress;

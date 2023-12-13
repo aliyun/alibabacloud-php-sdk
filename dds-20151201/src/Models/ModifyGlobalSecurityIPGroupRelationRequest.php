@@ -48,11 +48,6 @@ class ModifyGlobalSecurityIPGroupRelationRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
         'DBClusterId'           => 'DBClusterId',
         'globalSecurityGroupId' => 'GlobalSecurityGroupId',
@@ -61,7 +56,6 @@ class ModifyGlobalSecurityIPGroupRelationRequest extends Model
         'regionId'              => 'RegionId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
-        'securityToken'         => 'SecurityToken',
     ];
 
     public function validate()
@@ -91,9 +85,6 @@ class ModifyGlobalSecurityIPGroupRelationRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -127,9 +118,6 @@ class ModifyGlobalSecurityIPGroupRelationRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

@@ -92,11 +92,6 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $roleId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2022-06-13T10:58Z
@@ -115,7 +110,6 @@ class DescribeDBInstancePerformanceRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'roleId'               => 'RoleId',
-        'securityToken'        => 'SecurityToken',
         'startTime'            => 'StartTime',
     ];
 
@@ -155,9 +149,6 @@ class DescribeDBInstancePerformanceRequest extends Model
         }
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -203,9 +194,6 @@ class DescribeDBInstancePerformanceRequest extends Model
         }
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
