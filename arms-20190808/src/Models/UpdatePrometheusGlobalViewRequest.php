@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePrometheusGlobalViewRequest extends Model
 {
     /**
-     * @description 创建GlobalView时，是否要求所有子实例都校验成功时，才创建GlobalView实例。默认是false，即可以部分成功。
-     *
+     * @description To edit a GlobalView aggregated instance, do you require all passed child instances to be verified successfully before creating a GlobalView instance (optional, default to false):
+     * - false
      * @example true
      *
      * @var bool
@@ -27,11 +27,19 @@ class UpdatePrometheusGlobalViewRequest extends Model
     public $clusterId;
 
     /**
+     * @description The name of the global aggregation instance.
+     *
+     * @example zyGlobalView
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The region ID of the global aggregation instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $mostRegionId;
@@ -57,7 +65,7 @@ class UpdatePrometheusGlobalViewRequest extends Model
     /**
      * @description The data sources of the Prometheus instance for GlobalView.
      *
-     * @example \[ { "headers":{ }, "regionId":"cn-hangzhou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c39a1048921e04f\*\*\*\*\*\*\*\*\*\*\*", "sourceName":"arms-luyao-test", "dataSource":"", "userId":"1672753\*\*\*\*\*\*\*\*\*\*\*" }, { "headers":{ }, "regionId":"cn-beijing", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c6b6485496d5b40\*\*\*\*\*\*\*\*\*\*\*", "sourceName":"agent-321-test", "dataSource":"", "userId":"1672753\*\*\*\*\*\*\*\*\*\*\*" }, { "headers":{ }, "regionId":"cn-zhangjiakou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c261a4f3200c446\*\*\*\*\*\*\*\*\*\*\*", "sourceName":"zaifeng-cardinality-01", "dataSource":"", "userId":"1672753\*\*\*\*\*\*\*\*\*\*\*" } ]
+     * @example [ { "headers":{ }, "regionId":"cn-hangzhou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c39a1048921e04f***********", "sourceName":"arms-luyao-test", "dataSource":"", "userId":"1672753***********" }, { "headers":{ }, "regionId":"cn-beijing", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c6b6485496d5b40***********", "sourceName":"agent-321-test", "dataSource":"", "userId":"1672753***********" }, { "headers":{ }, "regionId":"cn-zhangjiakou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c261a4f3200c446***********", "sourceName":"zaifeng-cardinality-01", "dataSource":"", "userId":"1672753***********" } ]
      *
      * @var string
      */

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class markTags extends Model
 {
     /**
+     * @description The Tag Key.
+     *
+     * @example service
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The Tag Value.
+     *
+     * @example proudct
+     *
      * @var string
      */
     public $value;

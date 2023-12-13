@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateEnvironmentRequest extends Model
 {
     /**
-     * @description Locale, the default is Chinese zh | en.
+     * @description The language. Valid values: zh and en. Default value: zh.
      *
      * @example zh
      *
@@ -19,7 +19,7 @@ class CreateEnvironmentRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description Resource instance ID bound to the environment, including container instance ID or VpcId.
+     * @description The ID of the resource associated with the environment, such as the ACK cluster ID or VPC ID.
      *
      * @example c6e9dec475dca4a50a188411d8cbxxx
      *
@@ -28,7 +28,7 @@ class CreateEnvironmentRequest extends Model
     public $bindResourceId;
 
     /**
-     * @description Environment name.
+     * @description The name of the environment.
      *
      * @example env1
      *
@@ -37,8 +37,12 @@ class CreateEnvironmentRequest extends Model
     public $environmentName;
 
     /**
-     * @description Environment subtypes:
-     * - Cloud: Currently supports Cloud.
+     * @description The subtype of the environment. Valid values:
+     *
+     *   CS: Container Service for Kubernetes (ACK)
+     *   ECS: ECS
+     *   Cloud: cloud service
+     *
      * @example ECS, ACK, etc.
      *
      * @var string
@@ -46,8 +50,12 @@ class CreateEnvironmentRequest extends Model
     public $environmentSubType;
 
     /**
-     * @description Environment type:
-     * - Cloud: cloud service.
+     * @description The type of the environment. Valid values:
+     *
+     *   CS: Container Service
+     *   ECS: Elastic Compute Service
+     *   Cloud: cloud service
+     *
      * @example CS
      *
      * @var string
@@ -73,7 +81,7 @@ class CreateEnvironmentRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The list of tags.
+     * @description The tags to add to the instance.
      *
      * @var tags[]
      */

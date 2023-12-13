@@ -10,8 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePrometheusInstanceRequest extends Model
 {
     /**
-     * @description 创建GlobalView时，是否要求所有子实例都校验成功时，才创建GlobalView实例。默认是false，即可以部分成功。
-     *
+     * @description To edit a GlobalView aggregated instance, do you require all passed child instances to be verified successfully before creating a GlobalView instance (optional, default to false):
+     * - false
      * @example true
      *
      * @var bool
@@ -19,7 +19,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $allSubClustersSuccess;
 
     /**
-     * @description The ID of the cluster. This parameter is required if you set ClusterType to aliyun-cs��.
+     * @description The ID of the cluster. This parameter is required if you set ClusterType to aliyun-cs.
      *
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
@@ -37,8 +37,8 @@ class CreatePrometheusInstanceRequest extends Model
     public $clusterName;
 
     /**
-     * @description The type of the Prometheus instance. Valid values: remote-write: Prometheus instance for remote write. ecs: Prometheus instance for ECS. cloud-monitor�: Prometheus instance for cloud services in China. cloud-product: Prometheus instance for Alibaba Cloud services outside China. global-view: Prometheus instance for GlobalView. aliyun-cs��: Prometheus instance for Container Service.
-     *
+     * @description Types include:
+     * - aliyun-cs: Prometheus Instance for Container Service
      * @example remote-write
      *
      * @var string
@@ -84,7 +84,7 @@ class CreatePrometheusInstanceRequest extends Model
     /**
      * @description The child instances of the Prometheus instance for GlobalView. The value is a JSON string.
      *
-     * @example The information about the instances to be aggregated. This parameter is required if you set ClusterType to global-view. Example: \[ { "headers":{ }, "regionId":"cn-hangzhou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c39a1048921e04f\*\*\*\*\*\*\*\*\*\*\*", "sourceName":"arms-luyao-test", "dataSource":"", "userId":"1672753\*\*\*\*\*\*\*\*\*\*\*" }, { "headers":{ }, "regionId":"cn-beijing", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c6b6485496d5b40\*\*\*\*\*\*\*\*\*\*\*", "sourceName":"agent-321-test", "dataSource":"", "userId":"1672753\*\*\*\*\*\*\*\*\*\*\*" }, { "headers":{ }, "regionId":"cn-zhangjiakou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c261a4f3200c446\*\*\*\*\*\*\*\*\*\*\*", "sourceName":"zaifeng-cardinality-01", "dataSource":"", "userId":"1672753\*\*\*\*\*\*\*\*\*\*\*" } ]
+     * @example [ { "headers":{ }, "regionId":"cn-hangzhou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c39a1048921e04f***********", "sourceName":"arms-luyao-test", "dataSource":"", "userId":"1672753***********" }, { "headers":{ }, "regionId":"cn-beijing", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c6b6485496d5b40***********", "sourceName":"agent-321-test", "dataSource":"", "userId":"1672753***********" }, { "headers":{ }, "regionId":"cn-zhangjiakou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c261a4f3200c446***********", "sourceName":"zaifeng-cardinality-01", "dataSource":"", "userId":"1672753***********" } ]
      *
      * @var string
      */

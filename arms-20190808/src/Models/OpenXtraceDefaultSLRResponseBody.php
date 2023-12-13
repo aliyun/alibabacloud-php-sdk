@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class OpenXtraceDefaultSLRResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -18,7 +21,7 @@ class OpenXtraceDefaultSLRResponseBody extends Model
     public $data;
 
     /**
-     * @description Activates the service-linked role AliyunServiceRoleForXtrace for Tracing Analysis.
+     * @description The request ID.
      *
      * @example 53CACA70-2CF7-490C-BD06-1A2AE4EB****
      *

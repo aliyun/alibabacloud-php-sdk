@@ -201,6 +201,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAppApiByPageRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAppApiByPageResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAppJVMConfigRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAppJVMConfigResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAuthTokenRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAuthTokenResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetCloudClusterAllUrlRequest;
@@ -437,6 +439,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvServiceMonitorRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvServiceMonitorResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateIntegrationResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateMetricDropRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateMetricDropResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusAlertRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusAlertRuleResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusGlobalViewRequest;
@@ -5656,6 +5660,46 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppApiByPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAppJVMConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAppJVMConfigResponse
+     */
+    public function getAppJVMConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAppJVMConfig',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAppJVMConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAppJVMConfigRequest $request
+     *
+     * @return GetAppJVMConfigResponse
+     */
+    public function getAppJVMConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppJVMConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -11795,6 +11839,55 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateIntegrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMetricDropRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateMetricDropResponse
+     */
+    public function updateMetricDropWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->metricDrop)) {
+            $query['MetricDrop'] = $request->metricDrop;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMetricDrop',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMetricDropResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMetricDropRequest $request
+     *
+     * @return UpdateMetricDropResponse
+     */
+    public function updateMetricDrop($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMetricDropWithOptions($request, $runtime);
     }
 
     /**

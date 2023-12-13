@@ -10,6 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description auth token string.
+     *
+     * @example ad32dxxxx
+     *
+     * @var string
+     */
+    public $authToken;
+
+    /**
      * @description The ID of the Prometheus instance.
      *
      * @example c589a1b8db05c4561aefbb898ca8fb1cf
@@ -51,6 +60,24 @@ class data extends Model
     public $grafanaInstanceId;
 
     /**
+     * @description http api internet url.
+     *
+     * @example http://cn-beijing.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/cn-beijing
+     *
+     * @var string
+     */
+    public $httpApiInterUrl;
+
+    /**
+     * @description http api intranet url.
+     *
+     * @example http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/cn-beijing
+     *
+     * @var string
+     */
+    public $httpApiIntraUrl;
+
+    /**
      * @description The billing method. Valid values:
      *
      *   PREPAY: subscription
@@ -63,6 +90,24 @@ class data extends Model
     public $paymentType;
 
     /**
+     * @description push gateway internet url.
+     *
+     * @example http://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v2
+     *
+     * @var string
+     */
+    public $pushGatewayInterUrl;
+
+    /**
+     * @description push gateway intranet url.
+     *
+     * @example http://cn-beijing-intranet.arms.aliyuncs.com/prometheus/xxx/api/v2
+     *
+     * @var string
+     */
+    public $pushGatewayIntraUrl;
+
+    /**
      * @description The region ID.
      *
      * @example cn-beijing
@@ -70,6 +115,42 @@ class data extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description remote read internet url.
+     *
+     * @example http://cn-beijing.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/api/v1/read
+     *
+     * @var string
+     */
+    public $remoteReadInterUrl;
+
+    /**
+     * @description remote read intranet url.
+     *
+     * @example http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/api/v1/read
+     *
+     * @var string
+     */
+    public $remoteReadIntraUrl;
+
+    /**
+     * @description remote write internet url.
+     *
+     * @example http://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v3/write
+     *
+     * @var string
+     */
+    public $remoteWriteInterUrl;
+
+    /**
+     * @description remote write intranet url.
+     *
+     * @example http://cn-beijing-intranet.arms.aliyuncs.com/prometheus/xxx/api/v3/write
+     *
+     * @var string
+     */
+    public $remoteWriteIntraUrl;
 
     /**
      * @description The ID of the resource group to which the instance belongs.
@@ -141,20 +222,29 @@ class data extends Model
      */
     public $vpcId;
     protected $_name = [
-        'clusterId'         => 'ClusterId',
-        'clusterName'       => 'ClusterName',
-        'clusterType'       => 'ClusterType',
-        'grafanaInstanceId' => 'GrafanaInstanceId',
-        'paymentType'       => 'PaymentType',
-        'regionId'          => 'RegionId',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'resourceType'      => 'ResourceType',
-        'securityGroupId'   => 'SecurityGroupId',
-        'subClustersJson'   => 'SubClustersJson',
-        'tags'              => 'Tags',
-        'userId'            => 'UserId',
-        'vSwitchId'         => 'VSwitchId',
-        'vpcId'             => 'VpcId',
+        'authToken'           => 'AuthToken',
+        'clusterId'           => 'ClusterId',
+        'clusterName'         => 'ClusterName',
+        'clusterType'         => 'ClusterType',
+        'grafanaInstanceId'   => 'GrafanaInstanceId',
+        'httpApiInterUrl'     => 'HttpApiInterUrl',
+        'httpApiIntraUrl'     => 'HttpApiIntraUrl',
+        'paymentType'         => 'PaymentType',
+        'pushGatewayInterUrl' => 'PushGatewayInterUrl',
+        'pushGatewayIntraUrl' => 'PushGatewayIntraUrl',
+        'regionId'            => 'RegionId',
+        'remoteReadInterUrl'  => 'RemoteReadInterUrl',
+        'remoteReadIntraUrl'  => 'RemoteReadIntraUrl',
+        'remoteWriteInterUrl' => 'RemoteWriteInterUrl',
+        'remoteWriteIntraUrl' => 'RemoteWriteIntraUrl',
+        'resourceGroupId'     => 'ResourceGroupId',
+        'resourceType'        => 'ResourceType',
+        'securityGroupId'     => 'SecurityGroupId',
+        'subClustersJson'     => 'SubClustersJson',
+        'tags'                => 'Tags',
+        'userId'              => 'UserId',
+        'vSwitchId'           => 'VSwitchId',
+        'vpcId'               => 'VpcId',
     ];
 
     public function validate()
@@ -164,6 +254,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authToken) {
+            $res['AuthToken'] = $this->authToken;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -176,11 +269,35 @@ class data extends Model
         if (null !== $this->grafanaInstanceId) {
             $res['GrafanaInstanceId'] = $this->grafanaInstanceId;
         }
+        if (null !== $this->httpApiInterUrl) {
+            $res['HttpApiInterUrl'] = $this->httpApiInterUrl;
+        }
+        if (null !== $this->httpApiIntraUrl) {
+            $res['HttpApiIntraUrl'] = $this->httpApiIntraUrl;
+        }
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
         }
+        if (null !== $this->pushGatewayInterUrl) {
+            $res['PushGatewayInterUrl'] = $this->pushGatewayInterUrl;
+        }
+        if (null !== $this->pushGatewayIntraUrl) {
+            $res['PushGatewayIntraUrl'] = $this->pushGatewayIntraUrl;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->remoteReadInterUrl) {
+            $res['RemoteReadInterUrl'] = $this->remoteReadInterUrl;
+        }
+        if (null !== $this->remoteReadIntraUrl) {
+            $res['RemoteReadIntraUrl'] = $this->remoteReadIntraUrl;
+        }
+        if (null !== $this->remoteWriteInterUrl) {
+            $res['RemoteWriteInterUrl'] = $this->remoteWriteInterUrl;
+        }
+        if (null !== $this->remoteWriteIntraUrl) {
+            $res['RemoteWriteIntraUrl'] = $this->remoteWriteIntraUrl;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -224,6 +341,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthToken'])) {
+            $model->authToken = $map['AuthToken'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -236,11 +356,35 @@ class data extends Model
         if (isset($map['GrafanaInstanceId'])) {
             $model->grafanaInstanceId = $map['GrafanaInstanceId'];
         }
+        if (isset($map['HttpApiInterUrl'])) {
+            $model->httpApiInterUrl = $map['HttpApiInterUrl'];
+        }
+        if (isset($map['HttpApiIntraUrl'])) {
+            $model->httpApiIntraUrl = $map['HttpApiIntraUrl'];
+        }
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
         }
+        if (isset($map['PushGatewayInterUrl'])) {
+            $model->pushGatewayInterUrl = $map['PushGatewayInterUrl'];
+        }
+        if (isset($map['PushGatewayIntraUrl'])) {
+            $model->pushGatewayIntraUrl = $map['PushGatewayIntraUrl'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RemoteReadInterUrl'])) {
+            $model->remoteReadInterUrl = $map['RemoteReadInterUrl'];
+        }
+        if (isset($map['RemoteReadIntraUrl'])) {
+            $model->remoteReadIntraUrl = $map['RemoteReadIntraUrl'];
+        }
+        if (isset($map['RemoteWriteInterUrl'])) {
+            $model->remoteWriteInterUrl = $map['RemoteWriteInterUrl'];
+        }
+        if (isset($map['RemoteWriteIntraUrl'])) {
+            $model->remoteWriteIntraUrl = $map['RemoteWriteIntraUrl'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

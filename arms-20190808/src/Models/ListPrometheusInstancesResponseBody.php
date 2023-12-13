@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPrometheusInstancesResponseBody extends Model
 {
     /**
+     * @description The status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,7 +18,7 @@ class ListPrometheusInstancesResponseBody extends Model
     public $code;
 
     /**
-     * @description The queried Prometheus instances. The value is a JSON string.
+     * @description The Prometheus instances in the region in the JSON format.
      *
      * @example [{"agentStatus":"0","clusterId":"global-v2-cn-1672753017899-dmjnwtzz","clusterName":"test-GlobalView","clusterType":"GlobalViewV2","commercialConfig":{},"createTime":1656579981000,"id":13785300,"isAdvancedClusterInstalled":false,"isClusterRunning":true,"isControllerInstalled":true,"isIntegrationCenter":false,"regionId":"cn-hongkong","updateTime":1657616273000,"userId":"1672753017899"},{"agentStatus":"0","clusterId":"51a123a61a8f31f0","clusterName":"cloud-product-prometheus_cn-qingdao","clusterType":"cloud-product-prometheus","commercialConfig":{},"controllerId":"51a123a61a8f31f0","createTime":1653532488000,"id":13746658,"isAdvancedClusterInstalled":false,"isClusterRunning":true,"isControllerInstalled":true,"isIntegrationCenter":false,"regionId":"cn-qingdao","updateTime":1653532518000,"userId":"1672753017899"}]
      *
@@ -25,6 +27,8 @@ class ListPrometheusInstancesResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string

@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class listAlerts extends Model
 {
     /**
+     * @var int
+     */
+    public $acknowledgeTime;
+
+    /**
      * @description The list of activities.
      *
      * @var activities[]
@@ -52,6 +57,11 @@ class listAlerts extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $describe;
+
+    /**
      * @description The ID of the notification policy.
      *
      * @example 12345
@@ -68,6 +78,26 @@ class listAlerts extends Model
      * @var string
      */
     public $dispatchRuleName;
+
+    /**
+     * @var string
+     */
+    public $handler;
+
+    /**
+     * @var string
+     */
+    public $notifyRobots;
+
+    /**
+     * @var string
+     */
+    public $owner;
+
+    /**
+     * @var int
+     */
+    public $recoverTime;
 
     /**
      * @description The severity level of the alert. Valid values: P6, P5, P4, P3, P2, and P1. The preceding values are listed in ascending order of severity.
@@ -100,13 +130,19 @@ class listAlerts extends Model
      */
     public $state;
     protected $_name = [
+        'acknowledgeTime'  => 'AcknowledgeTime',
         'activities'       => 'Activities',
         'alertEvents'      => 'AlertEvents',
         'alertId'          => 'AlertId',
         'alertName'        => 'AlertName',
         'createTime'       => 'CreateTime',
+        'describe'         => 'Describe',
         'dispatchRuleId'   => 'DispatchRuleId',
         'dispatchRuleName' => 'DispatchRuleName',
+        'handler'          => 'Handler',
+        'notifyRobots'     => 'NotifyRobots',
+        'owner'            => 'Owner',
+        'recoverTime'      => 'RecoverTime',
         'severity'         => 'Severity',
         'solution'         => 'Solution',
         'state'            => 'State',
@@ -119,6 +155,9 @@ class listAlerts extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acknowledgeTime) {
+            $res['AcknowledgeTime'] = $this->acknowledgeTime;
+        }
         if (null !== $this->activities) {
             $res['Activities'] = [];
             if (null !== $this->activities && \is_array($this->activities)) {
@@ -146,11 +185,26 @@ class listAlerts extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->describe) {
+            $res['Describe'] = $this->describe;
+        }
         if (null !== $this->dispatchRuleId) {
             $res['DispatchRuleId'] = $this->dispatchRuleId;
         }
         if (null !== $this->dispatchRuleName) {
             $res['DispatchRuleName'] = $this->dispatchRuleName;
+        }
+        if (null !== $this->handler) {
+            $res['Handler'] = $this->handler;
+        }
+        if (null !== $this->notifyRobots) {
+            $res['NotifyRobots'] = $this->notifyRobots;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->recoverTime) {
+            $res['RecoverTime'] = $this->recoverTime;
         }
         if (null !== $this->severity) {
             $res['Severity'] = $this->severity;
@@ -173,6 +227,9 @@ class listAlerts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcknowledgeTime'])) {
+            $model->acknowledgeTime = $map['AcknowledgeTime'];
+        }
         if (isset($map['Activities'])) {
             if (!empty($map['Activities'])) {
                 $model->activities = [];
@@ -200,11 +257,26 @@ class listAlerts extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['Describe'])) {
+            $model->describe = $map['Describe'];
+        }
         if (isset($map['DispatchRuleId'])) {
             $model->dispatchRuleId = $map['DispatchRuleId'];
         }
         if (isset($map['DispatchRuleName'])) {
             $model->dispatchRuleName = $map['DispatchRuleName'];
+        }
+        if (isset($map['Handler'])) {
+            $model->handler = $map['Handler'];
+        }
+        if (isset($map['NotifyRobots'])) {
+            $model->notifyRobots = $map['NotifyRobots'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
+        }
+        if (isset($map['RecoverTime'])) {
+            $model->recoverTime = $map['RecoverTime'];
         }
         if (isset($map['Severity'])) {
             $model->severity = $map['Severity'];

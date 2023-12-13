@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopTimingSyntheticTaskResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class StopTimingSyntheticTaskResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class StopTimingSyntheticTaskResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -30,6 +36,8 @@ class StopTimingSyntheticTaskResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****
      *
      * @var string

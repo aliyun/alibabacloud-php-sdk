@@ -17,6 +17,10 @@ class ListDashboardsResponseBody extends Model
     public $dashboardVos;
 
     /**
+     * @description The indicators of whether the Prometheus service has been activated.
+     *
+     * @example true
+     *
      * @var string
      */
     public $prometheusServiceOpened;

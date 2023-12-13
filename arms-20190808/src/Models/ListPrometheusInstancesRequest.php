@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPrometheusInstancesRequest extends Model
 {
     /**
-     * @description 实例类型
-     *
+     * @description Optional instance types (if left blank, all types of instances will be queried):
+     * - Edge Kubernetes
      * @example cloud-product-prometheus
      *
      * @var string
@@ -18,7 +18,7 @@ class ListPrometheusInstancesRequest extends Model
     public $clusterType;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

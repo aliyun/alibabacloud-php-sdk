@@ -6,37 +6,31 @@ namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UninstallPromClusterRequest extends Model
+class UpdateMetricDropRequest extends Model
 {
     /**
-     * @description Language environment(If left blank, defaults to zh):
-     * - en
-     * @example en
-     *
-     * @var string
-     */
-    public $aliyunLang;
-
-    /**
-     * @description The cluster ID.
-     *
-     * @example c0bad479465464e1d8c1e641b0afb****
+     * @example c3ca36c8e2693403d85c0d9f8bb1d7b6c
      *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The region ID. Default value: cn-hangzhou.
-     *
+     * @example apiserver_request_duration_seconds_bucket
+     * container_tasks_state
+     * @var string
+     */
+    public $metricDrop;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'aliyunLang' => 'AliyunLang',
         'clusterId'  => 'ClusterId',
+        'metricDrop' => 'MetricDrop',
         'regionId'   => 'RegionId',
     ];
 
@@ -47,11 +41,11 @@ class UninstallPromClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aliyunLang) {
-            $res['AliyunLang'] = $this->aliyunLang;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->metricDrop) {
+            $res['MetricDrop'] = $this->metricDrop;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -63,16 +57,16 @@ class UninstallPromClusterRequest extends Model
     /**
      * @param array $map
      *
-     * @return UninstallPromClusterRequest
+     * @return UpdateMetricDropRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AliyunLang'])) {
-            $model->aliyunLang = $map['AliyunLang'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['MetricDrop'])) {
+            $model->metricDrop = $map['MetricDrop'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

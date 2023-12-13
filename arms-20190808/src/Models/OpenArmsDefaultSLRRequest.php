@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OpenArmsDefaultSLRRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

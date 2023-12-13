@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopTimingSyntheticTaskRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class StopTimingSyntheticTaskRequest extends Model
     public $regionId;
 
     /**
+     * @description The task IDs.
+     *
      * @var string[]
      */
     public $taskIds;

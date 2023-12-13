@@ -193,6 +193,10 @@ class alertRule extends Model
     public $metricsType;
 
     /**
+     * @description Notification Mode.
+     *
+     * @example NORMAL_MODE
+     *
      * @var string
      */
     public $notifyMode;
@@ -232,6 +236,8 @@ class alertRule extends Model
     public $regionId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;

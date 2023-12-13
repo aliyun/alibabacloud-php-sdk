@@ -57,6 +57,8 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $alertName;
 
     /**
+     * @description Alarm Notification Channel Configuration. Used for compatibility with legacy rules.
+     *
      * @var string
      */
     public $alertPiplines;
@@ -138,6 +140,11 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $clusterId;
 
     /**
+     * @description Data Configuration. The dataRevision field specifies the data repair method when there is no data for the metric.
+     *
+     * - Fill with null: 2 (default, does not trigger an alarm)
+     * @example {
+     * }
      * @var string
      */
     public $dataConfig;
@@ -193,6 +200,8 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $level;
 
     /**
+     * @description Application Tags. Used for application monitoring alert rules, to filter applications associated with alert rules.
+     *
      * @var markTags[]
      */
     public $markTags;
@@ -226,11 +235,15 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $metricsType;
 
     /**
+     * @description Effective Time and Notification Time. Used for compatibility with legacy rules.
+     *
      * @var string
      */
     public $notice;
 
     /**
+     * @description Notification Mode. Normal mode or Simplified mode.
+     *
      * @example NORMAL_MODE
      *
      * @var string
@@ -277,6 +290,8 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;

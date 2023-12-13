@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnvironmentRequest extends Model
 {
     /**
+     * @description cascade delete Prometheus instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $deletePromInstance;
 
     /**
-     * @description Environment instance ID.
+     * @description The ID of the environment instance.
      *
      * @example env-xxxxxx
      *
@@ -23,7 +27,7 @@ class DeleteEnvironmentRequest extends Model
     public $environmentId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

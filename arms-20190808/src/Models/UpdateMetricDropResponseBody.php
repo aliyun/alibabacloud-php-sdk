@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteEnvironmentResponseBody extends Model
+class UpdateMetricDropResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the request was successful.
-     *
      * @example 200
      *
      * @var int
@@ -18,36 +16,40 @@ class DeleteEnvironmentResponseBody extends Model
     public $code;
 
     /**
-     * @description The result of the operation.
-     *
-     * @example success
+     * @example true
      *
      * @var string
      */
     public $data;
 
     /**
-     * @description The returned message.
-     *
-     * @example message
+     * @example success
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
+     * @description Id of the request
      *
-     * @example 34ED024E-9E31-434A-9E4E-D9D15C3****
+     * @example CCCA4B88-BD7B-5A38-89AF-C09293BD4187
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'code'      => 'Code',
         'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -69,6 +71,9 @@ class DeleteEnvironmentResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
 
         return $res;
     }
@@ -76,7 +81,7 @@ class DeleteEnvironmentResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteEnvironmentResponseBody
+     * @return UpdateMetricDropResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -92,6 +97,9 @@ class DeleteEnvironmentResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;
