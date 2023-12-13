@@ -107,6 +107,11 @@ class compliancePack extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $templateContent;
     protected $_name = [
         'accountId'                => 'AccountId',
         'aggregatorId'             => 'AggregatorId',
@@ -119,6 +124,7 @@ class compliancePack extends Model
         'riskLevel'                => 'RiskLevel',
         'scope'                    => 'Scope',
         'status'                   => 'Status',
+        'templateContent'          => 'TemplateContent',
     ];
 
     public function validate()
@@ -166,6 +172,9 @@ class compliancePack extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->templateContent) {
+            $res['TemplateContent'] = $this->templateContent;
         }
 
         return $res;
@@ -217,6 +226,9 @@ class compliancePack extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TemplateContent'])) {
+            $model->templateContent = $map['TemplateContent'];
         }
 
         return $model;

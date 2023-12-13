@@ -780,6 +780,9 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->tagValueScope)) {
             $body['TagValueScope'] = $request->tagValueScope;
         }
+        if (!Utils::isUnset($request->templateContent)) {
+            $body['TemplateContent'] = $request->templateContent;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1208,6 +1211,9 @@ class Config extends OpenApiClient
         }
         if (!Utils::isUnset($request->tagValueScope)) {
             $body['TagValueScope'] = $request->tagValueScope;
+        }
+        if (!Utils::isUnset($request->templateContent)) {
+            $body['TemplateContent'] = $request->templateContent;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),

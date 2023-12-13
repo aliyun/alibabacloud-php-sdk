@@ -133,6 +133,11 @@ class CreateAggregateCompliancePackRequest extends Model
      * @var string
      */
     public $tagValueScope;
+
+    /**
+     * @var string
+     */
+    public $templateContent;
     protected $_name = [
         'aggregatorId'             => 'AggregatorId',
         'clientToken'              => 'ClientToken',
@@ -147,6 +152,7 @@ class CreateAggregateCompliancePackRequest extends Model
         'riskLevel'                => 'RiskLevel',
         'tagKeyScope'              => 'TagKeyScope',
         'tagValueScope'            => 'TagValueScope',
+        'templateContent'          => 'TemplateContent',
     ];
 
     public function validate()
@@ -200,6 +206,9 @@ class CreateAggregateCompliancePackRequest extends Model
         }
         if (null !== $this->tagValueScope) {
             $res['TagValueScope'] = $this->tagValueScope;
+        }
+        if (null !== $this->templateContent) {
+            $res['TemplateContent'] = $this->templateContent;
         }
 
         return $res;
@@ -257,6 +266,9 @@ class CreateAggregateCompliancePackRequest extends Model
         }
         if (isset($map['TagValueScope'])) {
             $model->tagValueScope = $map['TagValueScope'];
+        }
+        if (isset($map['TemplateContent'])) {
+            $model->templateContent = $map['TemplateContent'];
         }
 
         return $model;
