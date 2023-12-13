@@ -10,23 +10,29 @@ use AlibabaCloud\Tea\Model;
 class dnsConfig extends Model
 {
     /**
+     * @description The IP addresses of DNS servers.
+     *
      * @var string[]
      */
-    public $searches;
+    public $nameServers;
 
     /**
+     * @description The objects. Each object is a name-value pair. The value is optional.
+     *
      * @var options[]
      */
     public $options;
 
     /**
+     * @description The lookup domains of DNS server N.
+     *
      * @var string[]
      */
-    public $nameServers;
+    public $searches;
     protected $_name = [
-        'searches'    => 'Searches',
-        'options'     => 'Options',
         'nameServers' => 'NameServers',
+        'options'     => 'Options',
+        'searches'    => 'Searches',
     ];
 
     public function validate()
@@ -36,8 +42,8 @@ class dnsConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->searches) {
-            $res['Searches'] = $this->searches;
+        if (null !== $this->nameServers) {
+            $res['NameServers'] = $this->nameServers;
         }
         if (null !== $this->options) {
             $res['Options'] = [];
@@ -48,8 +54,8 @@ class dnsConfig extends Model
                 }
             }
         }
-        if (null !== $this->nameServers) {
-            $res['NameServers'] = $this->nameServers;
+        if (null !== $this->searches) {
+            $res['Searches'] = $this->searches;
         }
 
         return $res;
@@ -63,9 +69,9 @@ class dnsConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Searches'])) {
-            if (!empty($map['Searches'])) {
-                $model->searches = $map['Searches'];
+        if (isset($map['NameServers'])) {
+            if (!empty($map['NameServers'])) {
+                $model->nameServers = $map['NameServers'];
             }
         }
         if (isset($map['Options'])) {
@@ -77,9 +83,9 @@ class dnsConfig extends Model
                 }
             }
         }
-        if (isset($map['NameServers'])) {
-            if (!empty($map['NameServers'])) {
-                $model->nameServers = $map['NameServers'];
+        if (isset($map['Searches'])) {
+            if (!empty($map['Searches'])) {
+                $model->searches = $map['Searches'];
             }
         }
 

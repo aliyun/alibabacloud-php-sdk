@@ -15,11 +15,19 @@ class environmentVar extends Model
     public $fieldRef;
 
     /**
+     * @description The name of the environment variable. The name must be 1 to 128 characters in length, and can contain letters, digits, and underscores (\_). It cannot start with a digit.``
+     *
+     * @example Path
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the environment variable. The value can be up to 256 characters in length.
+     *
+     * @example /usr/bin/
+     *
      * @var string
      */
     public $value;
@@ -31,7 +39,6 @@ class environmentVar extends Model
 
     public function validate()
     {
-        Model::validateRequired('fieldRef', $this->fieldRef, true);
     }
 
     public function toMap()

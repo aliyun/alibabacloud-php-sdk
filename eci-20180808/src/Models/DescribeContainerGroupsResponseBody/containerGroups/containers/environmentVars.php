@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class environmentVars extends Model
 {
     /**
+     * @description The environment variable.
+     *
+     * @example PATH
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the environment variable.
+     *
+     * @example /usr/bin/
+     *
      * @var string
      */
     public $value;
 
     /**
+     * @description The source of the variable value. This parameter has a value only when the Value parameter is not empty.
+     *
      * @var valueFrom
      */
     public $valueFrom;

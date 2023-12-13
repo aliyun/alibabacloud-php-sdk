@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class configFileVolume extends Model
 {
     /**
-     * @var int
-     */
-    public $defaultMode;
-
-    /**
      * @var configFileToPath[]
      */
     public $configFileToPath;
+
+    /**
+     * @var int
+     */
+    public $defaultMode;
     protected $_name = [
-        'defaultMode'      => 'DefaultMode',
         'configFileToPath' => 'ConfigFileToPath',
+        'defaultMode'      => 'DefaultMode',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class configFileVolume extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->defaultMode) {
-            $res['DefaultMode'] = $this->defaultMode;
-        }
         if (null !== $this->configFileToPath) {
             $res['ConfigFileToPath'] = [];
             if (null !== $this->configFileToPath && \is_array($this->configFileToPath)) {
@@ -41,6 +38,9 @@ class configFileVolume extends Model
                     $res['ConfigFileToPath'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->defaultMode) {
+            $res['DefaultMode'] = $this->defaultMode;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class configFileVolume extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DefaultMode'])) {
-            $model->defaultMode = $map['DefaultMode'];
-        }
         if (isset($map['ConfigFileToPath'])) {
             if (!empty($map['ConfigFileToPath'])) {
                 $model->configFileToPath = [];
@@ -65,6 +62,9 @@ class configFileVolume extends Model
                     $model->configFileToPath[$n++] = null !== $item ? configFileToPath::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DefaultMode'])) {
+            $model->defaultMode = $map['DefaultMode'];
         }
 
         return $model;

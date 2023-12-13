@@ -9,29 +9,45 @@ use AlibabaCloud\Tea\Model;
 class CPU extends Model
 {
     /**
-     * @var int
-     */
-    public $usageNanoCores;
-
-    /**
+     * @description The upper limit of vCPU usage. The calculation formula for this parameter: The number of vCPUs × 1000.
+     *
+     * @example 1024
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @description The average load in the last 10 seconds.
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $load;
+
+    /**
+     * @description The cumulative usage of vCPUs.
+     *
+     * @example 40876694
+     *
      * @var int
      */
     public $usageCoreNanoSeconds;
 
     /**
+     * @description The vCPU usage in the sampling window. Unit for the sampling window: nanoseconds.
+     *
+     * @example 0
+     *
      * @var int
      */
-    public $load;
+    public $usageNanoCores;
     protected $_name = [
-        'usageNanoCores'       => 'UsageNanoCores',
         'limit'                => 'Limit',
-        'usageCoreNanoSeconds' => 'UsageCoreNanoSeconds',
         'load'                 => 'Load',
+        'usageCoreNanoSeconds' => 'UsageCoreNanoSeconds',
+        'usageNanoCores'       => 'UsageNanoCores',
     ];
 
     public function validate()
@@ -41,17 +57,17 @@ class CPU extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->usageNanoCores) {
-            $res['UsageNanoCores'] = $this->usageNanoCores;
-        }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->load) {
+            $res['Load'] = $this->load;
         }
         if (null !== $this->usageCoreNanoSeconds) {
             $res['UsageCoreNanoSeconds'] = $this->usageCoreNanoSeconds;
         }
-        if (null !== $this->load) {
-            $res['Load'] = $this->load;
+        if (null !== $this->usageNanoCores) {
+            $res['UsageNanoCores'] = $this->usageNanoCores;
         }
 
         return $res;
@@ -65,17 +81,17 @@ class CPU extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UsageNanoCores'])) {
-            $model->usageNanoCores = $map['UsageNanoCores'];
-        }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
+        }
+        if (isset($map['Load'])) {
+            $model->load = $map['Load'];
         }
         if (isset($map['UsageCoreNanoSeconds'])) {
             $model->usageCoreNanoSeconds = $map['UsageCoreNanoSeconds'];
         }
-        if (isset($map['Load'])) {
-            $model->load = $map['Load'];
+        if (isset($map['UsageNanoCores'])) {
+            $model->usageNanoCores = $map['UsageNanoCores'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class configFileToPath extends Model
     /**
      * @var string
      */
-    public $path;
+    public $content;
 
     /**
      * @var int
@@ -21,11 +21,11 @@ class configFileToPath extends Model
     /**
      * @var string
      */
-    public $content;
+    public $path;
     protected $_name = [
-        'path'    => 'Path',
-        'mode'    => 'Mode',
         'content' => 'Content',
+        'mode'    => 'Mode',
+        'path'    => 'Path',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class configFileToPath extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class configFileToPath extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
 
         return $model;

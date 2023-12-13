@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class hostAliase extends Model
 {
     /**
-     * @var string
-     */
-    public $ip;
-
-    /**
+     * @description The hostname of the elastic container instance.
+     *
+     * @example hehe.com
+     *
      * @var string[]
      */
     public $hostname;
+
+    /**
+     * @description The IP address of the host.
+     *
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $ip;
     protected $_name = [
-        'ip'       => 'Ip',
         'hostname' => 'Hostname',
+        'ip'       => 'Ip',
     ];
 
     public function validate()
@@ -29,11 +37,11 @@ class hostAliase extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
+        }
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
 
         return $res;
@@ -47,13 +55,13 @@ class hostAliase extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
         if (isset($map['Hostname'])) {
             if (!empty($map['Hostname'])) {
                 $model->hostname = $map['Hostname'];
             }
+        }
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
 
         return $model;

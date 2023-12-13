@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateContainerGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CB8D2B22-D636-4182-****-1FC9DBDAD66F
+     *
      * @var string
      */
     public $requestId;

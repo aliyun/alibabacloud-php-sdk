@@ -11,15 +11,15 @@ class hostPathVolume extends Model
     /**
      * @var string
      */
-    public $type;
+    public $path;
 
     /**
      * @var string
      */
-    public $path;
+    public $type;
     protected $_name = [
-        'type' => 'Type',
         'path' => 'Path',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class hostPathVolume extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class hostPathVolume extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

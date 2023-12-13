@@ -10,17 +10,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeMultiContainerGroupMetricResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The monitoring data of the elastic container instances.
+     *
      * @var monitorDatas[]
      */
     public $monitorDatas;
+
+    /**
+     * @description The request ID.
+     *
+     * @example B8756BA0-6452-419C-9727-37A6209C85E0
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'monitorDatas' => 'MonitorDatas',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +36,6 @@ class DescribeMultiContainerGroupMetricResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->monitorDatas) {
             $res['MonitorDatas'] = [];
             if (null !== $this->monitorDatas && \is_array($this->monitorDatas)) {
@@ -41,6 +44,9 @@ class DescribeMultiContainerGroupMetricResponseBody extends Model
                     $res['MonitorDatas'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +60,6 @@ class DescribeMultiContainerGroupMetricResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MonitorDatas'])) {
             if (!empty($map['MonitorDatas'])) {
                 $model->monitorDatas = [];
@@ -65,6 +68,9 @@ class DescribeMultiContainerGroupMetricResponseBody extends Model
                     $model->monitorDatas[$n++] = null !== $item ? monitorDatas::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

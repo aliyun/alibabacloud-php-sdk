@@ -11,21 +11,21 @@ class flexVolume extends Model
     /**
      * @var string
      */
+    public $driver;
+
+    /**
+     * @var string
+     */
     public $fsType;
 
     /**
      * @var string
      */
     public $options;
-
-    /**
-     * @var string
-     */
-    public $driver;
     protected $_name = [
+        'driver'  => 'Driver',
         'fsType'  => 'FsType',
         'options' => 'Options',
-        'driver'  => 'Driver',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class flexVolume extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->driver) {
+            $res['Driver'] = $this->driver;
+        }
         if (null !== $this->fsType) {
             $res['FsType'] = $this->fsType;
         }
         if (null !== $this->options) {
             $res['Options'] = $this->options;
-        }
-        if (null !== $this->driver) {
-            $res['Driver'] = $this->driver;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class flexVolume extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Driver'])) {
+            $model->driver = $map['Driver'];
+        }
         if (isset($map['FsType'])) {
             $model->fsType = $map['FsType'];
         }
         if (isset($map['Options'])) {
             $model->options = $map['Options'];
-        }
-        if (isset($map['Driver'])) {
-            $model->driver = $map['Driver'];
         }
 
         return $model;

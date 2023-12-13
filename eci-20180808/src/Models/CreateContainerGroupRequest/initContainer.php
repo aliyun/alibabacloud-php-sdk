@@ -18,95 +18,148 @@ class initContainer extends Model
     public $securityContext;
 
     /**
-     * @var string
-     */
-    public $image;
-
-    /**
-     * @var volumeMount[]
-     */
-    public $volumeMount;
-
-    /**
-     * @var port[]
-     */
-    public $port;
-
-    /**
-     * @var string
-     */
-    public $terminationMessagePath;
-
-    /**
-     * @var environmentVar[]
-     */
-    public $environmentVar;
-
-    /**
-     * @var string
-     */
-    public $imagePullPolicy;
-
-    /**
-     * @var string
-     */
-    public $workingDir;
-
-    /**
-     * @var float
-     */
-    public $cpu;
-
-    /**
+     * @description The arguments that are passed to the startup command of the init container.
+     *
+     * @example 10
+     *
      * @var string[]
      */
     public $arg;
 
     /**
+     * @description The startup commands of the init container.
+     *
+     * @example sleep
+     *
      * @var string[]
      */
     public $command;
 
     /**
+     * @description The number of vCPUs that you want to allocate to the init container. Unit: cores.
+     *
+     * @example 0.5
+     *
+     * @var float
+     */
+    public $cpu;
+
+    /**
+     * @description The environment variable of the init container.
+     *
+     * @var environmentVar[]
+     */
+    public $environmentVar;
+
+    /**
+     * @description The number of GPUs that you want to allocate to the init container.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $gpu;
 
     /**
+     * @description The image of the init container.
+     *
+     * @example nginx
+     *
+     * @var string
+     */
+    public $image;
+
+    /**
+     * @description The policy for image pulling. Valid values:
+     *
+     *   Always: Each time instances are created, image pulling is performed.
+     *   IfNotPresent: On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
+     *   Never: On-premises images are always used. Image pulling is not performed.
+     *
+     * @example Always
+     *
+     * @var string
+     */
+    public $imagePullPolicy;
+
+    /**
+     * @description The memory size of the init container. Unit: GiB.
+     *
+     * @example 1.0
+     *
      * @var float
      */
     public $memory;
 
     /**
+     * @description The container name.
+     *
+     * @example test-init
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @description The port number of the init container.
+     *
+     * @var port[]
+     */
+    public $port;
+
+    /**
+     * @description The path of the file from which the system retrieves termination messages of the init container when the init container exits.
+     *
+     * @example /tmp/termination-log
+     *
+     * @var string
+     */
+    public $terminationMessagePath;
+
+    /**
+     * @description The message notification policy. This parameter is empty by default.
+     *
+     * @example *****
+     *
      * @var string
      */
     public $terminationMessagePolicy;
 
     /**
+     * @description The information about the volume that you want to mount on the init container.
+     *
+     * @var volumeMount[]
+     */
+    public $volumeMount;
+
+    /**
+     * @description The working directory of the init container.
+     *
+     * @example /usr/local
+     *
      * @var string
      */
-    public $name;
+    public $workingDir;
     protected $_name = [
         'securityContext'          => 'SecurityContext',
-        'image'                    => 'Image',
-        'volumeMount'              => 'VolumeMount',
-        'port'                     => 'Port',
-        'terminationMessagePath'   => 'TerminationMessagePath',
-        'environmentVar'           => 'EnvironmentVar',
-        'imagePullPolicy'          => 'ImagePullPolicy',
-        'workingDir'               => 'WorkingDir',
-        'cpu'                      => 'Cpu',
         'arg'                      => 'Arg',
         'command'                  => 'Command',
+        'cpu'                      => 'Cpu',
+        'environmentVar'           => 'EnvironmentVar',
         'gpu'                      => 'Gpu',
+        'image'                    => 'Image',
+        'imagePullPolicy'          => 'ImagePullPolicy',
         'memory'                   => 'Memory',
-        'terminationMessagePolicy' => 'TerminationMessagePolicy',
         'name'                     => 'Name',
+        'port'                     => 'Port',
+        'terminationMessagePath'   => 'TerminationMessagePath',
+        'terminationMessagePolicy' => 'TerminationMessagePolicy',
+        'volumeMount'              => 'VolumeMount',
+        'workingDir'               => 'WorkingDir',
     ];
 
     public function validate()
     {
-        Model::validateRequired('securityContext', $this->securityContext, true);
     }
 
     public function toMap()
@@ -115,17 +168,38 @@ class initContainer extends Model
         if (null !== $this->securityContext) {
             $res['SecurityContext'] = null !== $this->securityContext ? $this->securityContext->toMap() : null;
         }
+        if (null !== $this->arg) {
+            $res['Arg'] = $this->arg;
+        }
+        if (null !== $this->command) {
+            $res['Command'] = $this->command;
+        }
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
+        }
+        if (null !== $this->environmentVar) {
+            $res['EnvironmentVar'] = [];
+            if (null !== $this->environmentVar && \is_array($this->environmentVar)) {
+                $n = 0;
+                foreach ($this->environmentVar as $item) {
+                    $res['EnvironmentVar'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->gpu) {
+            $res['Gpu'] = $this->gpu;
+        }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
-        if (null !== $this->volumeMount) {
-            $res['VolumeMount'] = [];
-            if (null !== $this->volumeMount && \is_array($this->volumeMount)) {
-                $n = 0;
-                foreach ($this->volumeMount as $item) {
-                    $res['VolumeMount'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->imagePullPolicy) {
+            $res['ImagePullPolicy'] = $this->imagePullPolicy;
+        }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->port) {
             $res['Port'] = [];
@@ -139,41 +213,20 @@ class initContainer extends Model
         if (null !== $this->terminationMessagePath) {
             $res['TerminationMessagePath'] = $this->terminationMessagePath;
         }
-        if (null !== $this->environmentVar) {
-            $res['EnvironmentVar'] = [];
-            if (null !== $this->environmentVar && \is_array($this->environmentVar)) {
-                $n = 0;
-                foreach ($this->environmentVar as $item) {
-                    $res['EnvironmentVar'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->imagePullPolicy) {
-            $res['ImagePullPolicy'] = $this->imagePullPolicy;
-        }
-        if (null !== $this->workingDir) {
-            $res['WorkingDir'] = $this->workingDir;
-        }
-        if (null !== $this->cpu) {
-            $res['Cpu'] = $this->cpu;
-        }
-        if (null !== $this->arg) {
-            $res['Arg'] = $this->arg;
-        }
-        if (null !== $this->command) {
-            $res['Command'] = $this->command;
-        }
-        if (null !== $this->gpu) {
-            $res['Gpu'] = $this->gpu;
-        }
-        if (null !== $this->memory) {
-            $res['Memory'] = $this->memory;
-        }
         if (null !== $this->terminationMessagePolicy) {
             $res['TerminationMessagePolicy'] = $this->terminationMessagePolicy;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->volumeMount) {
+            $res['VolumeMount'] = [];
+            if (null !== $this->volumeMount && \is_array($this->volumeMount)) {
+                $n = 0;
+                foreach ($this->volumeMount as $item) {
+                    $res['VolumeMount'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->workingDir) {
+            $res['WorkingDir'] = $this->workingDir;
         }
 
         return $res;
@@ -190,17 +243,42 @@ class initContainer extends Model
         if (isset($map['SecurityContext'])) {
             $model->securityContext = securityContext::fromMap($map['SecurityContext']);
         }
+        if (isset($map['Arg'])) {
+            if (!empty($map['Arg'])) {
+                $model->arg = $map['Arg'];
+            }
+        }
+        if (isset($map['Command'])) {
+            if (!empty($map['Command'])) {
+                $model->command = $map['Command'];
+            }
+        }
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
+        }
+        if (isset($map['EnvironmentVar'])) {
+            if (!empty($map['EnvironmentVar'])) {
+                $model->environmentVar = [];
+                $n                     = 0;
+                foreach ($map['EnvironmentVar'] as $item) {
+                    $model->environmentVar[$n++] = null !== $item ? environmentVar::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Gpu'])) {
+            $model->gpu = $map['Gpu'];
+        }
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
-        if (isset($map['VolumeMount'])) {
-            if (!empty($map['VolumeMount'])) {
-                $model->volumeMount = [];
-                $n                  = 0;
-                foreach ($map['VolumeMount'] as $item) {
-                    $model->volumeMount[$n++] = null !== $item ? volumeMount::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['ImagePullPolicy'])) {
+            $model->imagePullPolicy = $map['ImagePullPolicy'];
+        }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Port'])) {
             if (!empty($map['Port'])) {
@@ -214,45 +292,20 @@ class initContainer extends Model
         if (isset($map['TerminationMessagePath'])) {
             $model->terminationMessagePath = $map['TerminationMessagePath'];
         }
-        if (isset($map['EnvironmentVar'])) {
-            if (!empty($map['EnvironmentVar'])) {
-                $model->environmentVar = [];
-                $n                     = 0;
-                foreach ($map['EnvironmentVar'] as $item) {
-                    $model->environmentVar[$n++] = null !== $item ? environmentVar::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['ImagePullPolicy'])) {
-            $model->imagePullPolicy = $map['ImagePullPolicy'];
-        }
-        if (isset($map['WorkingDir'])) {
-            $model->workingDir = $map['WorkingDir'];
-        }
-        if (isset($map['Cpu'])) {
-            $model->cpu = $map['Cpu'];
-        }
-        if (isset($map['Arg'])) {
-            if (!empty($map['Arg'])) {
-                $model->arg = $map['Arg'];
-            }
-        }
-        if (isset($map['Command'])) {
-            if (!empty($map['Command'])) {
-                $model->command = $map['Command'];
-            }
-        }
-        if (isset($map['Gpu'])) {
-            $model->gpu = $map['Gpu'];
-        }
-        if (isset($map['Memory'])) {
-            $model->memory = $map['Memory'];
-        }
         if (isset($map['TerminationMessagePolicy'])) {
             $model->terminationMessagePolicy = $map['TerminationMessagePolicy'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['VolumeMount'])) {
+            if (!empty($map['VolumeMount'])) {
+                $model->volumeMount = [];
+                $n                  = 0;
+                foreach ($map['VolumeMount'] as $item) {
+                    $model->volumeMount[$n++] = null !== $item ? volumeMount::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['WorkingDir'])) {
+            $model->workingDir = $map['WorkingDir'];
         }
 
         return $model;

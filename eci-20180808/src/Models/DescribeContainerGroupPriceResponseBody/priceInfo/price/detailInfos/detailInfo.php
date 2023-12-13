@@ -10,35 +10,53 @@ use AlibabaCloud\Tea\Model;
 class detailInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $resource;
-
-    /**
+     * @description The discount.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $discountPrice;
 
     /**
-     * @var float
-     */
-    public $tradePrice;
-
-    /**
+     * @description The original price.
+     *
+     * @example 0.000098
+     *
      * @var float
      */
     public $originalPrice;
 
     /**
+     * @description The name of the resource.
+     *
+     * @example cpu
+     *
+     * @var string
+     */
+    public $resource;
+
+    /**
+     * @description Details about the pricing rules.
+     *
      * @var rules
      */
     public $rules;
+
+    /**
+     * @description The transaction price.
+     *
+     * @example 0.000098
+     *
+     * @var float
+     */
+    public $tradePrice;
     protected $_name = [
-        'resource'      => 'Resource',
         'discountPrice' => 'DiscountPrice',
-        'tradePrice'    => 'TradePrice',
         'originalPrice' => 'OriginalPrice',
+        'resource'      => 'Resource',
         'rules'         => 'Rules',
+        'tradePrice'    => 'TradePrice',
     ];
 
     public function validate()
@@ -48,20 +66,20 @@ class detailInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resource) {
-            $res['Resource'] = $this->resource;
-        }
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
-        }
-        if (null !== $this->tradePrice) {
-            $res['TradePrice'] = $this->tradePrice;
         }
         if (null !== $this->originalPrice) {
             $res['OriginalPrice'] = $this->originalPrice;
         }
+        if (null !== $this->resource) {
+            $res['Resource'] = $this->resource;
+        }
         if (null !== $this->rules) {
             $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
+        }
+        if (null !== $this->tradePrice) {
+            $res['TradePrice'] = $this->tradePrice;
         }
 
         return $res;
@@ -75,20 +93,20 @@ class detailInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Resource'])) {
-            $model->resource = $map['Resource'];
-        }
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
-        }
-        if (isset($map['TradePrice'])) {
-            $model->tradePrice = $map['TradePrice'];
         }
         if (isset($map['OriginalPrice'])) {
             $model->originalPrice = $map['OriginalPrice'];
         }
+        if (isset($map['Resource'])) {
+            $model->resource = $map['Resource'];
+        }
         if (isset($map['Rules'])) {
             $model->rules = rules::fromMap($map['Rules']);
+        }
+        if (isset($map['TradePrice'])) {
+            $model->tradePrice = $map['TradePrice'];
         }
 
         return $model;

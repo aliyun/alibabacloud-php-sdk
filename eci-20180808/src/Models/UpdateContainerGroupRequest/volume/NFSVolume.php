@@ -14,18 +14,18 @@ class NFSVolume extends Model
     public $path;
 
     /**
-     * @var string
-     */
-    public $server;
-
-    /**
      * @var bool
      */
     public $readOnly;
+
+    /**
+     * @var string
+     */
+    public $server;
     protected $_name = [
         'path'     => 'Path',
-        'server'   => 'Server',
         'readOnly' => 'ReadOnly',
+        'server'   => 'Server',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class NFSVolume extends Model
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-        if (null !== $this->server) {
-            $res['Server'] = $this->server;
-        }
         if (null !== $this->readOnly) {
             $res['ReadOnly'] = $this->readOnly;
+        }
+        if (null !== $this->server) {
+            $res['Server'] = $this->server;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class NFSVolume extends Model
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-        if (isset($map['Server'])) {
-            $model->server = $map['Server'];
-        }
         if (isset($map['ReadOnly'])) {
             $model->readOnly = $map['ReadOnly'];
+        }
+        if (isset($map['Server'])) {
+            $model->server = $map['Server'];
         }
 
         return $model;

@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class CreateContainerGroupResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The ID of the elastic container instance.
+     *
+     * @example eci-uf6fonnghi50u374****
+     *
      * @var string
      */
     public $containerGroupId;
+
+    /**
+     * @description The ID of the request.
+     *
+     * @example 89945DD3-9072-47D0-A318-353284CFC7B3
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'containerGroupId' => 'ContainerGroupId',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +37,11 @@ class CreateContainerGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->containerGroupId) {
             $res['ContainerGroupId'] = $this->containerGroupId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +55,11 @@ class CreateContainerGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ContainerGroupId'])) {
             $model->containerGroupId = $map['ContainerGroupId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class diskVolume extends Model
 {
     /**
+     * @var string
+     */
+    public $diskId;
+
+    /**
      * @var int
      */
     public $diskSize;
@@ -17,15 +22,10 @@ class diskVolume extends Model
      * @var string
      */
     public $fsType;
-
-    /**
-     * @var string
-     */
-    public $diskId;
     protected $_name = [
+        'diskId'   => 'DiskId',
         'diskSize' => 'DiskSize',
         'fsType'   => 'FsType',
-        'diskId'   => 'DiskId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class diskVolume extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->diskId) {
+            $res['DiskId'] = $this->diskId;
+        }
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
         }
         if (null !== $this->fsType) {
             $res['FsType'] = $this->fsType;
-        }
-        if (null !== $this->diskId) {
-            $res['DiskId'] = $this->diskId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class diskVolume extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DiskId'])) {
+            $model->diskId = $map['DiskId'];
+        }
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
         }
         if (isset($map['FsType'])) {
             $model->fsType = $map['FsType'];
-        }
-        if (isset($map['DiskId'])) {
-            $model->diskId = $map['DiskId'];
         }
 
         return $model;

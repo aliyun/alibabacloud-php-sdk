@@ -10,23 +10,33 @@ use AlibabaCloud\Tea\Model;
 class securityContext extends Model
 {
     /**
+     * @description The permissions specific to the processes in the container.
+     *
+     * @var capability
+     */
+    public $capability;
+
+    /**
+     * @description Indicates whether the root file system is set to the read-only mode. The only valid value is true.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $readOnlyRootFilesystem;
 
     /**
+     * @description The ID of the user that runs the container.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $runAsUser;
-
-    /**
-     * @var capability
-     */
-    public $capability;
     protected $_name = [
+        'capability'             => 'Capability',
         'readOnlyRootFilesystem' => 'ReadOnlyRootFilesystem',
         'runAsUser'              => 'RunAsUser',
-        'capability'             => 'Capability',
     ];
 
     public function validate()
@@ -36,14 +46,14 @@ class securityContext extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->capability) {
+            $res['Capability'] = null !== $this->capability ? $this->capability->toMap() : null;
+        }
         if (null !== $this->readOnlyRootFilesystem) {
             $res['ReadOnlyRootFilesystem'] = $this->readOnlyRootFilesystem;
         }
         if (null !== $this->runAsUser) {
             $res['RunAsUser'] = $this->runAsUser;
-        }
-        if (null !== $this->capability) {
-            $res['Capability'] = null !== $this->capability ? $this->capability->toMap() : null;
         }
 
         return $res;
@@ -57,14 +67,14 @@ class securityContext extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Capability'])) {
+            $model->capability = capability::fromMap($map['Capability']);
+        }
         if (isset($map['ReadOnlyRootFilesystem'])) {
             $model->readOnlyRootFilesystem = $map['ReadOnlyRootFilesystem'];
         }
         if (isset($map['RunAsUser'])) {
             $model->runAsUser = $map['RunAsUser'];
-        }
-        if (isset($map['Capability'])) {
-            $model->capability = capability::fromMap($map['Capability']);
         }
 
         return $model;

@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class configFileVolumeConfigFileToPaths extends Model
 {
     /**
-     * @var string
-     */
-    public $path;
-
-    /**
+     * @description The content of the configuration file. Maximum size: 32 KB.
+     *
+     * @example hello world
+     *
      * @var string
      */
     public $content;
+
+    /**
+     * @description The relative path of the configuration file.
+     *
+     * @example /usr/bin/
+     *
+     * @var string
+     */
+    public $path;
     protected $_name = [
-        'path'    => 'Path',
         'content' => 'Content',
+        'path'    => 'Path',
     ];
 
     public function validate()
@@ -29,11 +37,11 @@ class configFileVolumeConfigFileToPaths extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
 
         return $res;
@@ -47,11 +55,11 @@ class configFileVolumeConfigFileToPaths extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
 
         return $model;

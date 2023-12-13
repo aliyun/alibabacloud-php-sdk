@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class lifecyclePreStopHandlerHttpGetHttpHeader extends Model
 {
     /**
-     * @var string
-     */
-    public $value;
-
-    /**
+     * @description The key of the custom field in the HTTP GET request header when you use HTTP requests to specify the preStop callback function.
+     *
+     * @example Xiao-Custom-Header
+     *
      * @var string
      */
     public $name;
+
+    /**
+     * @description The value of the custom field in the HTTP GET request header when you use HTTP requests to specify the preStop callback function.
+     *
+     * @example test-preStop
+     *
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'value' => 'Value',
         'name'  => 'Name',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -29,11 +37,11 @@ class lifecyclePreStopHandlerHttpGetHttpHeader extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -47,11 +55,11 @@ class lifecyclePreStopHandlerHttpGetHttpHeader extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

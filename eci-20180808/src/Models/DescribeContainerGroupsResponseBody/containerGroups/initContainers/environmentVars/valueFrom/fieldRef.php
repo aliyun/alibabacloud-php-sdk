@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class fieldRef extends Model
 {
     /**
+     * @description The path from which the fields come in the specified version. Only `status.podIP` is supported.
+     *
+     * @example status.podIP
+     *
      * @var string
      */
     public $fieldPath;

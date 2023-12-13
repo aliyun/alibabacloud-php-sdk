@@ -10,17 +10,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerGroupPriceResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The information about the prices and discount rules.
+     *
      * @var priceInfo
      */
     public $priceInfo;
+
+    /**
+     * @description The request ID.
+     *
+     * @example 7A872585-33C7-4D69-AB8E-412E81EBA387
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'priceInfo' => 'PriceInfo',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +36,11 @@ class DescribeContainerGroupPriceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->priceInfo) {
             $res['PriceInfo'] = null !== $this->priceInfo ? $this->priceInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +54,11 @@ class DescribeContainerGroupPriceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PriceInfo'])) {
             $model->priceInfo = priceInfo::fromMap($map['PriceInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

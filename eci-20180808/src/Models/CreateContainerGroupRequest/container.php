@@ -17,6 +17,11 @@ use AlibabaCloud\Tea\Model;
 class container extends Model
 {
     /**
+     * @var livenessProbe
+     */
+    public $livenessProbe;
+
+    /**
      * @var readinessProbe
      */
     public $readinessProbe;
@@ -27,231 +32,390 @@ class container extends Model
     public $securityContext;
 
     /**
-     * @var livenessProbe
-     */
-    public $livenessProbe;
-
-    /**
-     * @var environmentVar[]
-     */
-    public $environmentVar;
-
-    /**
-     * @var bool
-     */
-    public $tty;
-
-    /**
-     * @var string
-     */
-    public $workingDir;
-
-    /**
+     * @description The arguments that are passed to the startup command of the container. You can specify a maximum of 10 arguments.
+     *
+     * @example 100
+     *
      * @var string[]
      */
     public $arg;
 
     /**
-     * @var bool
-     */
-    public $stdin;
-
-    /**
-     * @var volumeMount[]
-     */
-    public $volumeMount;
-
-    /**
-     * @var string
-     */
-    public $imagePullPolicy;
-
-    /**
-     * @var bool
-     */
-    public $stdinOnce;
-
-    /**
-     * @var int
-     */
-    public $lifecyclePreStopHandlerTcpSocketPort;
-
-    /**
-     * @var string
-     */
-    public $lifecyclePostStartHandlerHttpGetScheme;
-
-    /**
+     * @description The commands that you want to run to perform checks in containers.
+     *
+     * @example sleep
+     *
      * @var string[]
      */
     public $command;
 
     /**
-     * @var string
-     */
-    public $lifecyclePostStartHandlerHttpGetHost;
-
-    /**
-     * @var string
-     */
-    public $terminationMessagePolicy;
-
-    /**
-     * @var int
-     */
-    public $lifecyclePostStartHandlerTcpSocketPort;
-
-    /**
-     * @var string
-     */
-    public $lifecyclePostStartHandlerHttpGetPath;
-
-    /**
-     * @var string[]
-     */
-    public $lifecyclePostStartHandlerExec;
-
-    /**
-     * @var string
-     */
-    public $lifecyclePreStopHandlerHttpGetPath;
-
-    /**
-     * @var port[]
-     */
-    public $port;
-
-    /**
-     * @var string
-     */
-    public $terminationMessagePath;
-
-    /**
-     * @var string
-     */
-    public $lifecyclePreStopHandlerHttpGetScheme;
-
-    /**
-     * @var string
-     */
-    public $lifecyclePostStartHandlerTcpSocketHost;
-
-    /**
-     * @var int
-     */
-    public $gpu;
-
-    /**
-     * @var string[]
-     */
-    public $lifecyclePreStopHandlerExec;
-
-    /**
-     * @var float
-     */
-    public $memory;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $lifecyclePreStopHandlerHttpGetHost;
-
-    /**
-     * @var string
-     */
-    public $lifecyclePreStopHandlerTcpSocketHost;
-
-    /**
-     * @var string
-     */
-    public $image;
-
-    /**
-     * @var int
-     */
-    public $lifecyclePreStopHandlerHttpGetPort;
-
-    /**
-     * @var lifecyclePreStopHandlerHttpGetHttpHeader[]
-     */
-    public $lifecyclePreStopHandlerHttpGetHttpHeader;
-
-    /**
+     * @description The number of vCPUs that you want to allocate to the container. Unit: cores.
+     *
+     * @example 0.25
+     *
      * @var float
      */
     public $cpu;
 
     /**
+     * @description The environment variable of the container.
+     *
+     * @var environmentVar[]
+     */
+    public $environmentVar;
+
+    /**
+     * @description Specifies whether to hide the information about the environment variable when you query the details of an elastic container instance (ECI). Valid values:
+     *
+     *   false (default): does not hide the information about the environment variable.
+     *   true: does not return the information about the environment variable. If the environment variable contains sensitive information, you can set this parameter to true to improve the security of the information.
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $environmentVarHide;
+
+    /**
+     * @description The number of GPUs that you want to allocate to the container.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $gpu;
+
+    /**
+     * @description The image of the container.
+     *
+     * @example registry-vpc.cn-hangzhou.aliyuncs.com/eci_open/nginx:latest
+     *
+     * @var string
+     */
+    public $image;
+
+    /**
+     * @description The policy that you want to use to pull an image. Valid values:
+     *
+     *   Always: Image pulling is always performed.
+     *   IfNotPresent: On-premises images are used first. If no on-premises images are available, image pulling is performed.
+     *   Never: Image pulling is not performed. On-premises images are always used.
+     *
+     * @example Always
+     *
+     * @var string
+     */
+    public $imagePullPolicy;
+
+    /**
+     * @description The commands to be executed in containers when you use the CLI to specify the postStart callback function.
+     *
+     * @example ["/bin/sh", "-c", "echo Hello from the postStart handler > /usr/share/message"]
+     *
+     * @var string[]
+     */
+    public $lifecyclePostStartHandlerExec;
+
+    /**
+     * @description The IP address of the host that receives HTTP GET requests when you use HTTP requests to specify the postStart callback function.
+     *
+     * @example 10.0.XX.XX
+     *
+     * @var string
+     */
+    public $lifecyclePostStartHandlerHttpGetHost;
+
+    /**
+     * @description The HTTP GET request header.
+     *
+     * @var lifecyclePostStartHandlerHttpGetHttpHeader[]
+     */
+    public $lifecyclePostStartHandlerHttpGetHttpHeader;
+
+    /**
+     * @description The path to which HTTP GET requests are sent when you use HTTP requests to specify the postStart callback function.
+     *
+     * @example /healthyz
+     *
+     * @var string
+     */
+    public $lifecyclePostStartHandlerHttpGetPath;
+
+    /**
+     * @description The port to which HTTP GET requests are sent when you use HTTP requests to specify the postStart callback function.
+     *
+     * @example 5050
+     *
      * @var int
      */
     public $lifecyclePostStartHandlerHttpGetPort;
 
     /**
-     * @var lifecyclePostStartHandlerHttpGetHttpHeader[]
+     * @description The protocol type of HTTP GET requests when you use HTTP requests to specify the postStart callback function. Valid values:
+     *
+     *   HTTP
+     *   HTTPS
+     *
+     * @example HTTPS
+     *
+     * @var string
      */
-    public $lifecyclePostStartHandlerHttpGetHttpHeader;
+    public $lifecyclePostStartHandlerHttpGetScheme;
+
+    /**
+     * @description The port that is detected by TCP sockets when you use TCP sockets to specify the postStart callback function.
+     *
+     * @example 10.0.XX.XX
+     *
+     * @var string
+     */
+    public $lifecyclePostStartHandlerTcpSocketHost;
+
+    /**
+     * @description The port that is detected by TCP sockets when you use TCP sockets to specify the postStart callback function.
+     *
+     * @example 80
+     *
+     * @var int
+     */
+    public $lifecyclePostStartHandlerTcpSocketPort;
+
+    /**
+     * @description The commands to be executed in containers when you use the CLI to specify the preStop callback function.
+     *
+     * @example ["/bin/sh", "-c","echo Hello from the preStop handler > /usr/share/message"]
+     *
+     * @var string[]
+     */
+    public $lifecyclePreStopHandlerExec;
+
+    /**
+     * @description The IP address of the host that receives HTTP GET requests when you use HTTP requests to specify the preStop callback function.
+     *
+     * @example 10.0.XX.XX
+     *
+     * @var string
+     */
+    public $lifecyclePreStopHandlerHttpGetHost;
+
+    /**
+     * @description The HTTP GET request header.
+     *
+     * @var lifecyclePreStopHandlerHttpGetHttpHeader[]
+     */
+    public $lifecyclePreStopHandlerHttpGetHttpHeader;
+
+    /**
+     * @description The path to which HTTP GET requests are sent when you use HTTP requests to specify the preStop callback function.
+     *
+     * @example /healthyz
+     *
+     * @var string
+     */
+    public $lifecyclePreStopHandlerHttpGetPath;
+
+    /**
+     * @description The port to which HTTP GET requests are sent when you use HTTP requests to specify the preStop callback function.
+     *
+     * @example 88
+     *
+     * @var int
+     */
+    public $lifecyclePreStopHandlerHttpGetPort;
+
+    /**
+     * @description The protocol type of HTTP GET requests when you use HTTP requests to specify the preStop callback function. Valid values:
+     *
+     *   HTTP
+     *   HTTPS
+     *
+     * @example HTTP
+     *
+     * @var string
+     */
+    public $lifecyclePreStopHandlerHttpGetScheme;
+
+    /**
+     * @description The host IP address that is detected by TCP sockets when you use TCP sockets to specify the preStop callback function.
+     *
+     * @example 10.0.XX.XX
+     *
+     * @var string
+     */
+    public $lifecyclePreStopHandlerTcpSocketHost;
+
+    /**
+     * @description The port that is detected by TCP sockets when you use TCP sockets to specify the preStop callback function.
+     *
+     * @example 90
+     *
+     * @var int
+     */
+    public $lifecyclePreStopHandlerTcpSocketPort;
+
+    /**
+     * @description The memory size of the container. Unit: GiB
+     *
+     * @example 0.5
+     *
+     * @var float
+     */
+    public $memory;
+
+    /**
+     * @description The container name.
+     *
+     * @example nginx
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @description The port to which HTTP GET requests are sent when you use HTTP requests to perform health checks.
+     *
+     * @var port[]
+     */
+    public $port;
+
+    /**
+     * @var int
+     */
+    public $securityContextRunAsGroup;
+
+    /**
+     * @var bool
+     */
+    public $securityContextRunAsNonRoot;
+
+    /**
+     * @description Specifies whether the container allocates a buffer for standard input in the container runtime. If you do not specify this parameter, an end-of-file (EOF) error occurs when standard input in the container is read. Default value: false.
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $stdin;
+
+    /**
+     * @description Specifies whether to keep the standard input stream open in the container runtime across multiple attach sessions if Stdin is set to true.\
+     * If StdinOnce is set to true, the standard input stream is opened when the container is started, remains empty until the first client is attached to standard input, and then remains open and receives data until the client is disconnected. When the client is disconnected, the standard input stream is closed and remains closed until the container is restarted.
+     * @example false
+     *
+     * @var bool
+     */
+    public $stdinOnce;
+
+    /**
+     * @description The path of the file from which the system retrieves termination messages of the container when the container exits.
+     *
+     * @example /tmp/termination-log
+     *
+     * @var string
+     */
+    public $terminationMessagePath;
+
+    /**
+     * @description The message notification policy. This parameter is empty by default. You can use only Message Service (MNS) queues to configure notifications.
+     *
+     * @example FallbackToLogsOnError
+     *
+     * @var string
+     */
+    public $terminationMessagePolicy;
+
+    /**
+     * @description Specifies whether to enable interaction. Default value: false.
+     *
+     * If you set Command to /bin/bash, you must set this parameter to true.
+     * @example false
+     *
+     * @var bool
+     */
+    public $tty;
+
+    /**
+     * @description The information about the volume that you want to mount on the container.
+     *
+     * @var volumeMount[]
+     */
+    public $volumeMount;
+
+    /**
+     * @description The working directory of the container.
+     *
+     * @example /usr/local/
+     *
+     * @var string
+     */
+    public $workingDir;
     protected $_name = [
+        'livenessProbe'                              => 'LivenessProbe',
         'readinessProbe'                             => 'ReadinessProbe',
         'securityContext'                            => 'SecurityContext',
-        'livenessProbe'                              => 'LivenessProbe',
-        'environmentVar'                             => 'EnvironmentVar',
-        'tty'                                        => 'Tty',
-        'workingDir'                                 => 'WorkingDir',
         'arg'                                        => 'Arg',
-        'stdin'                                      => 'Stdin',
-        'volumeMount'                                => 'VolumeMount',
-        'imagePullPolicy'                            => 'ImagePullPolicy',
-        'stdinOnce'                                  => 'StdinOnce',
-        'lifecyclePreStopHandlerTcpSocketPort'       => 'LifecyclePreStopHandlerTcpSocketPort',
-        'lifecyclePostStartHandlerHttpGetScheme'     => 'LifecyclePostStartHandlerHttpGetScheme',
         'command'                                    => 'Command',
-        'lifecyclePostStartHandlerHttpGetHost'       => 'LifecyclePostStartHandlerHttpGetHost',
-        'terminationMessagePolicy'                   => 'TerminationMessagePolicy',
-        'lifecyclePostStartHandlerTcpSocketPort'     => 'LifecyclePostStartHandlerTcpSocketPort',
-        'lifecyclePostStartHandlerHttpGetPath'       => 'LifecyclePostStartHandlerHttpGetPath',
-        'lifecyclePostStartHandlerExec'              => 'LifecyclePostStartHandlerExec',
-        'lifecyclePreStopHandlerHttpGetPath'         => 'LifecyclePreStopHandlerHttpGetPath',
-        'port'                                       => 'Port',
-        'terminationMessagePath'                     => 'TerminationMessagePath',
-        'lifecyclePreStopHandlerHttpGetScheme'       => 'LifecyclePreStopHandlerHttpGetScheme',
-        'lifecyclePostStartHandlerTcpSocketHost'     => 'LifecyclePostStartHandlerTcpSocketHost',
+        'cpu'                                        => 'Cpu',
+        'environmentVar'                             => 'EnvironmentVar',
+        'environmentVarHide'                         => 'EnvironmentVarHide',
         'gpu'                                        => 'Gpu',
+        'image'                                      => 'Image',
+        'imagePullPolicy'                            => 'ImagePullPolicy',
+        'lifecyclePostStartHandlerExec'              => 'LifecyclePostStartHandlerExec',
+        'lifecyclePostStartHandlerHttpGetHost'       => 'LifecyclePostStartHandlerHttpGetHost',
+        'lifecyclePostStartHandlerHttpGetHttpHeader' => 'LifecyclePostStartHandlerHttpGetHttpHeader',
+        'lifecyclePostStartHandlerHttpGetPath'       => 'LifecyclePostStartHandlerHttpGetPath',
+        'lifecyclePostStartHandlerHttpGetPort'       => 'LifecyclePostStartHandlerHttpGetPort',
+        'lifecyclePostStartHandlerHttpGetScheme'     => 'LifecyclePostStartHandlerHttpGetScheme',
+        'lifecyclePostStartHandlerTcpSocketHost'     => 'LifecyclePostStartHandlerTcpSocketHost',
+        'lifecyclePostStartHandlerTcpSocketPort'     => 'LifecyclePostStartHandlerTcpSocketPort',
         'lifecyclePreStopHandlerExec'                => 'LifecyclePreStopHandlerExec',
+        'lifecyclePreStopHandlerHttpGetHost'         => 'LifecyclePreStopHandlerHttpGetHost',
+        'lifecyclePreStopHandlerHttpGetHttpHeader'   => 'LifecyclePreStopHandlerHttpGetHttpHeader',
+        'lifecyclePreStopHandlerHttpGetPath'         => 'LifecyclePreStopHandlerHttpGetPath',
+        'lifecyclePreStopHandlerHttpGetPort'         => 'LifecyclePreStopHandlerHttpGetPort',
+        'lifecyclePreStopHandlerHttpGetScheme'       => 'LifecyclePreStopHandlerHttpGetScheme',
+        'lifecyclePreStopHandlerTcpSocketHost'       => 'LifecyclePreStopHandlerTcpSocketHost',
+        'lifecyclePreStopHandlerTcpSocketPort'       => 'LifecyclePreStopHandlerTcpSocketPort',
         'memory'                                     => 'Memory',
         'name'                                       => 'Name',
-        'lifecyclePreStopHandlerHttpGetHost'         => 'LifecyclePreStopHandlerHttpGetHost',
-        'lifecyclePreStopHandlerTcpSocketHost'       => 'LifecyclePreStopHandlerTcpSocketHost',
-        'image'                                      => 'Image',
-        'lifecyclePreStopHandlerHttpGetPort'         => 'LifecyclePreStopHandlerHttpGetPort',
-        'lifecyclePreStopHandlerHttpGetHttpHeader'   => 'LifecyclePreStopHandlerHttpGetHttpHeader',
-        'cpu'                                        => 'Cpu',
-        'lifecyclePostStartHandlerHttpGetPort'       => 'LifecyclePostStartHandlerHttpGetPort',
-        'lifecyclePostStartHandlerHttpGetHttpHeader' => 'LifecyclePostStartHandlerHttpGetHttpHeader',
+        'port'                                       => 'Port',
+        'securityContextRunAsGroup'                  => 'SecurityContextRunAsGroup',
+        'securityContextRunAsNonRoot'                => 'SecurityContextRunAsNonRoot',
+        'stdin'                                      => 'Stdin',
+        'stdinOnce'                                  => 'StdinOnce',
+        'terminationMessagePath'                     => 'TerminationMessagePath',
+        'terminationMessagePolicy'                   => 'TerminationMessagePolicy',
+        'tty'                                        => 'Tty',
+        'volumeMount'                                => 'VolumeMount',
+        'workingDir'                                 => 'WorkingDir',
     ];
 
     public function validate()
     {
-        Model::validateRequired('readinessProbe', $this->readinessProbe, true);
-        Model::validateRequired('securityContext', $this->securityContext, true);
-        Model::validateRequired('livenessProbe', $this->livenessProbe, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->livenessProbe) {
+            $res['LivenessProbe'] = null !== $this->livenessProbe ? $this->livenessProbe->toMap() : null;
+        }
         if (null !== $this->readinessProbe) {
             $res['ReadinessProbe'] = null !== $this->readinessProbe ? $this->readinessProbe->toMap() : null;
         }
         if (null !== $this->securityContext) {
             $res['SecurityContext'] = null !== $this->securityContext ? $this->securityContext->toMap() : null;
         }
-        if (null !== $this->livenessProbe) {
-            $res['LivenessProbe'] = null !== $this->livenessProbe ? $this->livenessProbe->toMap() : null;
+        if (null !== $this->arg) {
+            $res['Arg'] = $this->arg;
+        }
+        if (null !== $this->command) {
+            $res['Command'] = $this->command;
+        }
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
         }
         if (null !== $this->environmentVar) {
             $res['EnvironmentVar'] = [];
@@ -262,101 +426,53 @@ class container extends Model
                 }
             }
         }
-        if (null !== $this->tty) {
-            $res['Tty'] = $this->tty;
-        }
-        if (null !== $this->workingDir) {
-            $res['WorkingDir'] = $this->workingDir;
-        }
-        if (null !== $this->arg) {
-            $res['Arg'] = $this->arg;
-        }
-        if (null !== $this->stdin) {
-            $res['Stdin'] = $this->stdin;
-        }
-        if (null !== $this->volumeMount) {
-            $res['VolumeMount'] = [];
-            if (null !== $this->volumeMount && \is_array($this->volumeMount)) {
-                $n = 0;
-                foreach ($this->volumeMount as $item) {
-                    $res['VolumeMount'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->imagePullPolicy) {
-            $res['ImagePullPolicy'] = $this->imagePullPolicy;
-        }
-        if (null !== $this->stdinOnce) {
-            $res['StdinOnce'] = $this->stdinOnce;
-        }
-        if (null !== $this->lifecyclePreStopHandlerTcpSocketPort) {
-            $res['LifecyclePreStopHandlerTcpSocketPort'] = $this->lifecyclePreStopHandlerTcpSocketPort;
-        }
-        if (null !== $this->lifecyclePostStartHandlerHttpGetScheme) {
-            $res['LifecyclePostStartHandlerHttpGetScheme'] = $this->lifecyclePostStartHandlerHttpGetScheme;
-        }
-        if (null !== $this->command) {
-            $res['Command'] = $this->command;
-        }
-        if (null !== $this->lifecyclePostStartHandlerHttpGetHost) {
-            $res['LifecyclePostStartHandlerHttpGetHost'] = $this->lifecyclePostStartHandlerHttpGetHost;
-        }
-        if (null !== $this->terminationMessagePolicy) {
-            $res['TerminationMessagePolicy'] = $this->terminationMessagePolicy;
-        }
-        if (null !== $this->lifecyclePostStartHandlerTcpSocketPort) {
-            $res['LifecyclePostStartHandlerTcpSocketPort'] = $this->lifecyclePostStartHandlerTcpSocketPort;
-        }
-        if (null !== $this->lifecyclePostStartHandlerHttpGetPath) {
-            $res['LifecyclePostStartHandlerHttpGetPath'] = $this->lifecyclePostStartHandlerHttpGetPath;
-        }
-        if (null !== $this->lifecyclePostStartHandlerExec) {
-            $res['LifecyclePostStartHandlerExec'] = $this->lifecyclePostStartHandlerExec;
-        }
-        if (null !== $this->lifecyclePreStopHandlerHttpGetPath) {
-            $res['LifecyclePreStopHandlerHttpGetPath'] = $this->lifecyclePreStopHandlerHttpGetPath;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = [];
-            if (null !== $this->port && \is_array($this->port)) {
-                $n = 0;
-                foreach ($this->port as $item) {
-                    $res['Port'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->terminationMessagePath) {
-            $res['TerminationMessagePath'] = $this->terminationMessagePath;
-        }
-        if (null !== $this->lifecyclePreStopHandlerHttpGetScheme) {
-            $res['LifecyclePreStopHandlerHttpGetScheme'] = $this->lifecyclePreStopHandlerHttpGetScheme;
-        }
-        if (null !== $this->lifecyclePostStartHandlerTcpSocketHost) {
-            $res['LifecyclePostStartHandlerTcpSocketHost'] = $this->lifecyclePostStartHandlerTcpSocketHost;
+        if (null !== $this->environmentVarHide) {
+            $res['EnvironmentVarHide'] = $this->environmentVarHide;
         }
         if (null !== $this->gpu) {
             $res['Gpu'] = $this->gpu;
         }
-        if (null !== $this->lifecyclePreStopHandlerExec) {
-            $res['LifecyclePreStopHandlerExec'] = $this->lifecyclePreStopHandlerExec;
-        }
-        if (null !== $this->memory) {
-            $res['Memory'] = $this->memory;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->lifecyclePreStopHandlerHttpGetHost) {
-            $res['LifecyclePreStopHandlerHttpGetHost'] = $this->lifecyclePreStopHandlerHttpGetHost;
-        }
-        if (null !== $this->lifecyclePreStopHandlerTcpSocketHost) {
-            $res['LifecyclePreStopHandlerTcpSocketHost'] = $this->lifecyclePreStopHandlerTcpSocketHost;
-        }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
-        if (null !== $this->lifecyclePreStopHandlerHttpGetPort) {
-            $res['LifecyclePreStopHandlerHttpGetPort'] = $this->lifecyclePreStopHandlerHttpGetPort;
+        if (null !== $this->imagePullPolicy) {
+            $res['ImagePullPolicy'] = $this->imagePullPolicy;
+        }
+        if (null !== $this->lifecyclePostStartHandlerExec) {
+            $res['LifecyclePostStartHandlerExec'] = $this->lifecyclePostStartHandlerExec;
+        }
+        if (null !== $this->lifecyclePostStartHandlerHttpGetHost) {
+            $res['LifecyclePostStartHandlerHttpGetHost'] = $this->lifecyclePostStartHandlerHttpGetHost;
+        }
+        if (null !== $this->lifecyclePostStartHandlerHttpGetHttpHeader) {
+            $res['LifecyclePostStartHandlerHttpGetHttpHeader'] = [];
+            if (null !== $this->lifecyclePostStartHandlerHttpGetHttpHeader && \is_array($this->lifecyclePostStartHandlerHttpGetHttpHeader)) {
+                $n = 0;
+                foreach ($this->lifecyclePostStartHandlerHttpGetHttpHeader as $item) {
+                    $res['LifecyclePostStartHandlerHttpGetHttpHeader'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->lifecyclePostStartHandlerHttpGetPath) {
+            $res['LifecyclePostStartHandlerHttpGetPath'] = $this->lifecyclePostStartHandlerHttpGetPath;
+        }
+        if (null !== $this->lifecyclePostStartHandlerHttpGetPort) {
+            $res['LifecyclePostStartHandlerHttpGetPort'] = $this->lifecyclePostStartHandlerHttpGetPort;
+        }
+        if (null !== $this->lifecyclePostStartHandlerHttpGetScheme) {
+            $res['LifecyclePostStartHandlerHttpGetScheme'] = $this->lifecyclePostStartHandlerHttpGetScheme;
+        }
+        if (null !== $this->lifecyclePostStartHandlerTcpSocketHost) {
+            $res['LifecyclePostStartHandlerTcpSocketHost'] = $this->lifecyclePostStartHandlerTcpSocketHost;
+        }
+        if (null !== $this->lifecyclePostStartHandlerTcpSocketPort) {
+            $res['LifecyclePostStartHandlerTcpSocketPort'] = $this->lifecyclePostStartHandlerTcpSocketPort;
+        }
+        if (null !== $this->lifecyclePreStopHandlerExec) {
+            $res['LifecyclePreStopHandlerExec'] = $this->lifecyclePreStopHandlerExec;
+        }
+        if (null !== $this->lifecyclePreStopHandlerHttpGetHost) {
+            $res['LifecyclePreStopHandlerHttpGetHost'] = $this->lifecyclePreStopHandlerHttpGetHost;
         }
         if (null !== $this->lifecyclePreStopHandlerHttpGetHttpHeader) {
             $res['LifecyclePreStopHandlerHttpGetHttpHeader'] = [];
@@ -367,20 +483,68 @@ class container extends Model
                 }
             }
         }
-        if (null !== $this->cpu) {
-            $res['Cpu'] = $this->cpu;
+        if (null !== $this->lifecyclePreStopHandlerHttpGetPath) {
+            $res['LifecyclePreStopHandlerHttpGetPath'] = $this->lifecyclePreStopHandlerHttpGetPath;
         }
-        if (null !== $this->lifecyclePostStartHandlerHttpGetPort) {
-            $res['LifecyclePostStartHandlerHttpGetPort'] = $this->lifecyclePostStartHandlerHttpGetPort;
+        if (null !== $this->lifecyclePreStopHandlerHttpGetPort) {
+            $res['LifecyclePreStopHandlerHttpGetPort'] = $this->lifecyclePreStopHandlerHttpGetPort;
         }
-        if (null !== $this->lifecyclePostStartHandlerHttpGetHttpHeader) {
-            $res['LifecyclePostStartHandlerHttpGetHttpHeader'] = [];
-            if (null !== $this->lifecyclePostStartHandlerHttpGetHttpHeader && \is_array($this->lifecyclePostStartHandlerHttpGetHttpHeader)) {
+        if (null !== $this->lifecyclePreStopHandlerHttpGetScheme) {
+            $res['LifecyclePreStopHandlerHttpGetScheme'] = $this->lifecyclePreStopHandlerHttpGetScheme;
+        }
+        if (null !== $this->lifecyclePreStopHandlerTcpSocketHost) {
+            $res['LifecyclePreStopHandlerTcpSocketHost'] = $this->lifecyclePreStopHandlerTcpSocketHost;
+        }
+        if (null !== $this->lifecyclePreStopHandlerTcpSocketPort) {
+            $res['LifecyclePreStopHandlerTcpSocketPort'] = $this->lifecyclePreStopHandlerTcpSocketPort;
+        }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = [];
+            if (null !== $this->port && \is_array($this->port)) {
                 $n = 0;
-                foreach ($this->lifecyclePostStartHandlerHttpGetHttpHeader as $item) {
-                    $res['LifecyclePostStartHandlerHttpGetHttpHeader'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->port as $item) {
+                    $res['Port'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->securityContextRunAsGroup) {
+            $res['SecurityContextRunAsGroup'] = $this->securityContextRunAsGroup;
+        }
+        if (null !== $this->securityContextRunAsNonRoot) {
+            $res['SecurityContextRunAsNonRoot'] = $this->securityContextRunAsNonRoot;
+        }
+        if (null !== $this->stdin) {
+            $res['Stdin'] = $this->stdin;
+        }
+        if (null !== $this->stdinOnce) {
+            $res['StdinOnce'] = $this->stdinOnce;
+        }
+        if (null !== $this->terminationMessagePath) {
+            $res['TerminationMessagePath'] = $this->terminationMessagePath;
+        }
+        if (null !== $this->terminationMessagePolicy) {
+            $res['TerminationMessagePolicy'] = $this->terminationMessagePolicy;
+        }
+        if (null !== $this->tty) {
+            $res['Tty'] = $this->tty;
+        }
+        if (null !== $this->volumeMount) {
+            $res['VolumeMount'] = [];
+            if (null !== $this->volumeMount && \is_array($this->volumeMount)) {
+                $n = 0;
+                foreach ($this->volumeMount as $item) {
+                    $res['VolumeMount'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->workingDir) {
+            $res['WorkingDir'] = $this->workingDir;
         }
 
         return $res;
@@ -394,14 +558,27 @@ class container extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LivenessProbe'])) {
+            $model->livenessProbe = livenessProbe::fromMap($map['LivenessProbe']);
+        }
         if (isset($map['ReadinessProbe'])) {
             $model->readinessProbe = readinessProbe::fromMap($map['ReadinessProbe']);
         }
         if (isset($map['SecurityContext'])) {
             $model->securityContext = securityContext::fromMap($map['SecurityContext']);
         }
-        if (isset($map['LivenessProbe'])) {
-            $model->livenessProbe = livenessProbe::fromMap($map['LivenessProbe']);
+        if (isset($map['Arg'])) {
+            if (!empty($map['Arg'])) {
+                $model->arg = $map['Arg'];
+            }
+        }
+        if (isset($map['Command'])) {
+            if (!empty($map['Command'])) {
+                $model->command = $map['Command'];
+            }
+        }
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
         }
         if (isset($map['EnvironmentVar'])) {
             if (!empty($map['EnvironmentVar'])) {
@@ -412,109 +589,57 @@ class container extends Model
                 }
             }
         }
-        if (isset($map['Tty'])) {
-            $model->tty = $map['Tty'];
+        if (isset($map['EnvironmentVarHide'])) {
+            $model->environmentVarHide = $map['EnvironmentVarHide'];
         }
-        if (isset($map['WorkingDir'])) {
-            $model->workingDir = $map['WorkingDir'];
+        if (isset($map['Gpu'])) {
+            $model->gpu = $map['Gpu'];
         }
-        if (isset($map['Arg'])) {
-            if (!empty($map['Arg'])) {
-                $model->arg = $map['Arg'];
-            }
-        }
-        if (isset($map['Stdin'])) {
-            $model->stdin = $map['Stdin'];
-        }
-        if (isset($map['VolumeMount'])) {
-            if (!empty($map['VolumeMount'])) {
-                $model->volumeMount = [];
-                $n                  = 0;
-                foreach ($map['VolumeMount'] as $item) {
-                    $model->volumeMount[$n++] = null !== $item ? volumeMount::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['Image'])) {
+            $model->image = $map['Image'];
         }
         if (isset($map['ImagePullPolicy'])) {
             $model->imagePullPolicy = $map['ImagePullPolicy'];
-        }
-        if (isset($map['StdinOnce'])) {
-            $model->stdinOnce = $map['StdinOnce'];
-        }
-        if (isset($map['LifecyclePreStopHandlerTcpSocketPort'])) {
-            $model->lifecyclePreStopHandlerTcpSocketPort = $map['LifecyclePreStopHandlerTcpSocketPort'];
-        }
-        if (isset($map['LifecyclePostStartHandlerHttpGetScheme'])) {
-            $model->lifecyclePostStartHandlerHttpGetScheme = $map['LifecyclePostStartHandlerHttpGetScheme'];
-        }
-        if (isset($map['Command'])) {
-            if (!empty($map['Command'])) {
-                $model->command = $map['Command'];
-            }
-        }
-        if (isset($map['LifecyclePostStartHandlerHttpGetHost'])) {
-            $model->lifecyclePostStartHandlerHttpGetHost = $map['LifecyclePostStartHandlerHttpGetHost'];
-        }
-        if (isset($map['TerminationMessagePolicy'])) {
-            $model->terminationMessagePolicy = $map['TerminationMessagePolicy'];
-        }
-        if (isset($map['LifecyclePostStartHandlerTcpSocketPort'])) {
-            $model->lifecyclePostStartHandlerTcpSocketPort = $map['LifecyclePostStartHandlerTcpSocketPort'];
-        }
-        if (isset($map['LifecyclePostStartHandlerHttpGetPath'])) {
-            $model->lifecyclePostStartHandlerHttpGetPath = $map['LifecyclePostStartHandlerHttpGetPath'];
         }
         if (isset($map['LifecyclePostStartHandlerExec'])) {
             if (!empty($map['LifecyclePostStartHandlerExec'])) {
                 $model->lifecyclePostStartHandlerExec = $map['LifecyclePostStartHandlerExec'];
             }
         }
-        if (isset($map['LifecyclePreStopHandlerHttpGetPath'])) {
-            $model->lifecyclePreStopHandlerHttpGetPath = $map['LifecyclePreStopHandlerHttpGetPath'];
+        if (isset($map['LifecyclePostStartHandlerHttpGetHost'])) {
+            $model->lifecyclePostStartHandlerHttpGetHost = $map['LifecyclePostStartHandlerHttpGetHost'];
         }
-        if (isset($map['Port'])) {
-            if (!empty($map['Port'])) {
-                $model->port = [];
-                $n           = 0;
-                foreach ($map['Port'] as $item) {
-                    $model->port[$n++] = null !== $item ? port::fromMap($item) : $item;
+        if (isset($map['LifecyclePostStartHandlerHttpGetHttpHeader'])) {
+            if (!empty($map['LifecyclePostStartHandlerHttpGetHttpHeader'])) {
+                $model->lifecyclePostStartHandlerHttpGetHttpHeader = [];
+                $n                                                 = 0;
+                foreach ($map['LifecyclePostStartHandlerHttpGetHttpHeader'] as $item) {
+                    $model->lifecyclePostStartHandlerHttpGetHttpHeader[$n++] = null !== $item ? lifecyclePostStartHandlerHttpGetHttpHeader::fromMap($item) : $item;
                 }
             }
         }
-        if (isset($map['TerminationMessagePath'])) {
-            $model->terminationMessagePath = $map['TerminationMessagePath'];
+        if (isset($map['LifecyclePostStartHandlerHttpGetPath'])) {
+            $model->lifecyclePostStartHandlerHttpGetPath = $map['LifecyclePostStartHandlerHttpGetPath'];
         }
-        if (isset($map['LifecyclePreStopHandlerHttpGetScheme'])) {
-            $model->lifecyclePreStopHandlerHttpGetScheme = $map['LifecyclePreStopHandlerHttpGetScheme'];
+        if (isset($map['LifecyclePostStartHandlerHttpGetPort'])) {
+            $model->lifecyclePostStartHandlerHttpGetPort = $map['LifecyclePostStartHandlerHttpGetPort'];
+        }
+        if (isset($map['LifecyclePostStartHandlerHttpGetScheme'])) {
+            $model->lifecyclePostStartHandlerHttpGetScheme = $map['LifecyclePostStartHandlerHttpGetScheme'];
         }
         if (isset($map['LifecyclePostStartHandlerTcpSocketHost'])) {
             $model->lifecyclePostStartHandlerTcpSocketHost = $map['LifecyclePostStartHandlerTcpSocketHost'];
         }
-        if (isset($map['Gpu'])) {
-            $model->gpu = $map['Gpu'];
+        if (isset($map['LifecyclePostStartHandlerTcpSocketPort'])) {
+            $model->lifecyclePostStartHandlerTcpSocketPort = $map['LifecyclePostStartHandlerTcpSocketPort'];
         }
         if (isset($map['LifecyclePreStopHandlerExec'])) {
             if (!empty($map['LifecyclePreStopHandlerExec'])) {
                 $model->lifecyclePreStopHandlerExec = $map['LifecyclePreStopHandlerExec'];
             }
         }
-        if (isset($map['Memory'])) {
-            $model->memory = $map['Memory'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['LifecyclePreStopHandlerHttpGetHost'])) {
             $model->lifecyclePreStopHandlerHttpGetHost = $map['LifecyclePreStopHandlerHttpGetHost'];
-        }
-        if (isset($map['LifecyclePreStopHandlerTcpSocketHost'])) {
-            $model->lifecyclePreStopHandlerTcpSocketHost = $map['LifecyclePreStopHandlerTcpSocketHost'];
-        }
-        if (isset($map['Image'])) {
-            $model->image = $map['Image'];
-        }
-        if (isset($map['LifecyclePreStopHandlerHttpGetPort'])) {
-            $model->lifecyclePreStopHandlerHttpGetPort = $map['LifecyclePreStopHandlerHttpGetPort'];
         }
         if (isset($map['LifecyclePreStopHandlerHttpGetHttpHeader'])) {
             if (!empty($map['LifecyclePreStopHandlerHttpGetHttpHeader'])) {
@@ -525,20 +650,68 @@ class container extends Model
                 }
             }
         }
-        if (isset($map['Cpu'])) {
-            $model->cpu = $map['Cpu'];
+        if (isset($map['LifecyclePreStopHandlerHttpGetPath'])) {
+            $model->lifecyclePreStopHandlerHttpGetPath = $map['LifecyclePreStopHandlerHttpGetPath'];
         }
-        if (isset($map['LifecyclePostStartHandlerHttpGetPort'])) {
-            $model->lifecyclePostStartHandlerHttpGetPort = $map['LifecyclePostStartHandlerHttpGetPort'];
+        if (isset($map['LifecyclePreStopHandlerHttpGetPort'])) {
+            $model->lifecyclePreStopHandlerHttpGetPort = $map['LifecyclePreStopHandlerHttpGetPort'];
         }
-        if (isset($map['LifecyclePostStartHandlerHttpGetHttpHeader'])) {
-            if (!empty($map['LifecyclePostStartHandlerHttpGetHttpHeader'])) {
-                $model->lifecyclePostStartHandlerHttpGetHttpHeader = [];
-                $n                                                 = 0;
-                foreach ($map['LifecyclePostStartHandlerHttpGetHttpHeader'] as $item) {
-                    $model->lifecyclePostStartHandlerHttpGetHttpHeader[$n++] = null !== $item ? lifecyclePostStartHandlerHttpGetHttpHeader::fromMap($item) : $item;
+        if (isset($map['LifecyclePreStopHandlerHttpGetScheme'])) {
+            $model->lifecyclePreStopHandlerHttpGetScheme = $map['LifecyclePreStopHandlerHttpGetScheme'];
+        }
+        if (isset($map['LifecyclePreStopHandlerTcpSocketHost'])) {
+            $model->lifecyclePreStopHandlerTcpSocketHost = $map['LifecyclePreStopHandlerTcpSocketHost'];
+        }
+        if (isset($map['LifecyclePreStopHandlerTcpSocketPort'])) {
+            $model->lifecyclePreStopHandlerTcpSocketPort = $map['LifecyclePreStopHandlerTcpSocketPort'];
+        }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Port'])) {
+            if (!empty($map['Port'])) {
+                $model->port = [];
+                $n           = 0;
+                foreach ($map['Port'] as $item) {
+                    $model->port[$n++] = null !== $item ? port::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SecurityContextRunAsGroup'])) {
+            $model->securityContextRunAsGroup = $map['SecurityContextRunAsGroup'];
+        }
+        if (isset($map['SecurityContextRunAsNonRoot'])) {
+            $model->securityContextRunAsNonRoot = $map['SecurityContextRunAsNonRoot'];
+        }
+        if (isset($map['Stdin'])) {
+            $model->stdin = $map['Stdin'];
+        }
+        if (isset($map['StdinOnce'])) {
+            $model->stdinOnce = $map['StdinOnce'];
+        }
+        if (isset($map['TerminationMessagePath'])) {
+            $model->terminationMessagePath = $map['TerminationMessagePath'];
+        }
+        if (isset($map['TerminationMessagePolicy'])) {
+            $model->terminationMessagePolicy = $map['TerminationMessagePolicy'];
+        }
+        if (isset($map['Tty'])) {
+            $model->tty = $map['Tty'];
+        }
+        if (isset($map['VolumeMount'])) {
+            if (!empty($map['VolumeMount'])) {
+                $model->volumeMount = [];
+                $n                  = 0;
+                foreach ($map['VolumeMount'] as $item) {
+                    $model->volumeMount[$n++] = null !== $item ? volumeMount::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['WorkingDir'])) {
+            $model->workingDir = $map['WorkingDir'];
         }
 
         return $model;

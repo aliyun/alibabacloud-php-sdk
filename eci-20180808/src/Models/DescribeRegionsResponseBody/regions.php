@@ -9,29 +9,41 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
-     * @var string[]
-     */
-    public $zones;
-
-    /**
+     * @description The recommended zones. Recommended zones are zones that have relatively sufficient resources in the current region.
+     *
      * @var string[]
      */
     public $recommendZones;
 
     /**
+     * @description The endpoint for the region.
+     *
+     * @example eci.aliyuncs.com
+     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The queried zones.
+     *
+     * @var string[]
+     */
+    public $zones;
     protected $_name = [
-        'zones'          => 'Zones',
         'recommendZones' => 'RecommendZones',
         'regionEndpoint' => 'RegionEndpoint',
         'regionId'       => 'RegionId',
+        'zones'          => 'Zones',
     ];
 
     public function validate()
@@ -41,9 +53,6 @@ class regions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zones) {
-            $res['Zones'] = $this->zones;
-        }
         if (null !== $this->recommendZones) {
             $res['RecommendZones'] = $this->recommendZones;
         }
@@ -52,6 +61,9 @@ class regions extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->zones) {
+            $res['Zones'] = $this->zones;
         }
 
         return $res;
@@ -65,11 +77,6 @@ class regions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Zones'])) {
-            if (!empty($map['Zones'])) {
-                $model->zones = $map['Zones'];
-            }
-        }
         if (isset($map['RecommendZones'])) {
             if (!empty($map['RecommendZones'])) {
                 $model->recommendZones = $map['RecommendZones'];
@@ -80,6 +87,11 @@ class regions extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Zones'])) {
+            if (!empty($map['Zones'])) {
+                $model->zones = $map['Zones'];
+            }
         }
 
         return $model;

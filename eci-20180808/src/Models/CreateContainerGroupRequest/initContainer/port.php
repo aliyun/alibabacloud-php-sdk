@@ -9,17 +9,28 @@ use AlibabaCloud\Tea\Model;
 class port extends Model
 {
     /**
-     * @var string
-     */
-    public $protocol;
-
-    /**
+     * @description The port number. Valid values: 1 to 65535.
+     *
+     * @example 8888
+     *
      * @var int
      */
     public $port;
+
+    /**
+     * @description The protocol type. Valid values:
+     *
+     *   TCP
+     *   UDP
+     *
+     * @example TCP
+     *
+     * @var string
+     */
+    public $protocol;
     protected $_name = [
-        'protocol' => 'Protocol',
         'port'     => 'Port',
+        'protocol' => 'Protocol',
     ];
 
     public function validate()
@@ -29,11 +40,11 @@ class port extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
-        }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
 
         return $res;
@@ -47,11 +58,11 @@ class port extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
-        }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
 
         return $model;

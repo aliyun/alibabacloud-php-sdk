@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class securityContext extends Model
 {
     /**
+     * @description Configure a security context to modify sysctls. For more information, see [Configure a security context](~~462313~~)
+     *
      * @var sysctl[]
      */
     public $sysctl;

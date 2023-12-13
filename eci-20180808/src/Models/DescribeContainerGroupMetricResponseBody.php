@@ -10,23 +10,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerGroupMetricResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The instance ID.
+     *
+     * @example eci-bp1dqpye03ke5s6p****
+     *
      * @var string
      */
     public $containerGroupId;
 
     /**
+     * @description The monitoring data of the elastic container instance.
+     *
      * @var records[]
      */
     public $records;
+
+    /**
+     * @description The request ID.
+     *
+     * @example D81A4A13-6DCC-4579-AC62-90A6C3EC7BBC
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'containerGroupId' => 'ContainerGroupId',
         'records'          => 'Records',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -36,9 +46,6 @@ class DescribeContainerGroupMetricResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->containerGroupId) {
             $res['ContainerGroupId'] = $this->containerGroupId;
         }
@@ -50,6 +57,9 @@ class DescribeContainerGroupMetricResponseBody extends Model
                     $res['Records'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,9 +73,6 @@ class DescribeContainerGroupMetricResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ContainerGroupId'])) {
             $model->containerGroupId = $map['ContainerGroupId'];
         }
@@ -77,6 +84,9 @@ class DescribeContainerGroupMetricResponseBody extends Model
                     $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

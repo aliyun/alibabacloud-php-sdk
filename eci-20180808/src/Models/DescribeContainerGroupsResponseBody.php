@@ -10,29 +10,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerGroupsResponseBody extends Model
 {
     /**
-     * @var int
+     * @description Details about the elastic container instances.
+     *
+     * @var containerGroups[]
      */
-    public $totalCount;
+    public $containerGroups;
 
     /**
+     * @description The token that determines the start point of the query.
+     *
+     * @example d78f2dd8-5979-42fe-****-b16db43be5bc
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request. The value is unique.
+     *
+     * @example 89945DD3-9072-47D0-A318-353284CFC7B3
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var containerGroups[]
+     * @description The number of queried instances.
+     *
+     * @example 1
+     *
+     * @var int
      */
-    public $containerGroups;
+    public $totalCount;
     protected $_name = [
-        'totalCount'      => 'TotalCount',
+        'containerGroups' => 'ContainerGroups',
         'nextToken'       => 'NextToken',
         'requestId'       => 'RequestId',
-        'containerGroups' => 'ContainerGroups',
+        'totalCount'      => 'TotalCount',
     ];
 
     public function validate()
@@ -42,15 +56,6 @@ class DescribeContainerGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->containerGroups) {
             $res['ContainerGroups'] = [];
             if (null !== $this->containerGroups && \is_array($this->containerGroups)) {
@@ -59,6 +64,15 @@ class DescribeContainerGroupsResponseBody extends Model
                     $res['ContainerGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -72,15 +86,6 @@ class DescribeContainerGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ContainerGroups'])) {
             if (!empty($map['ContainerGroups'])) {
                 $model->containerGroups = [];
@@ -89,6 +94,15 @@ class DescribeContainerGroupsResponseBody extends Model
                     $model->containerGroups[$n++] = null !== $item ? containerGroups::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

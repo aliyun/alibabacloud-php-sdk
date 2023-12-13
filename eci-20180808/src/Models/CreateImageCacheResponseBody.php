@@ -9,23 +9,35 @@ use AlibabaCloud\Tea\Model;
 class CreateImageCacheResponseBody extends Model
 {
     /**
+     * @description The ID of the intermediate elastic container instance that is used to create the image cache.
+     *
+     * @example eci-2zebxkiifuyzzlhl****
+     *
      * @var string
      */
-    public $requestId;
+    public $containerGroupId;
 
     /**
+     * @description The ID of the image cache.
+     *
+     * @example imc-2zebxkiifuyzzlhl****
+     *
      * @var string
      */
     public $imageCacheId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0E234675-3465-4CC3-9D0F-9A864BC391DD
+     *
      * @var string
      */
-    public $containerGroupId;
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'imageCacheId'     => 'ImageCacheId',
         'containerGroupId' => 'ContainerGroupId',
+        'imageCacheId'     => 'ImageCacheId',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +47,14 @@ class CreateImageCacheResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->containerGroupId) {
+            $res['ContainerGroupId'] = $this->containerGroupId;
         }
         if (null !== $this->imageCacheId) {
             $res['ImageCacheId'] = $this->imageCacheId;
         }
-        if (null !== $this->containerGroupId) {
-            $res['ContainerGroupId'] = $this->containerGroupId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +68,14 @@ class CreateImageCacheResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ContainerGroupId'])) {
+            $model->containerGroupId = $map['ContainerGroupId'];
         }
         if (isset($map['ImageCacheId'])) {
             $model->imageCacheId = $map['ImageCacheId'];
         }
-        if (isset($map['ContainerGroupId'])) {
-            $model->containerGroupId = $map['ContainerGroupId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

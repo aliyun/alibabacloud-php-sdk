@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of tag N of the image cache. Valid values of N: 1 to 20.
+     *
+     * @example imc
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of tag N of the image cache. Valid values of N: 1 to 20.
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;

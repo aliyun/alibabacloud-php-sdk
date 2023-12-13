@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class imageRegistryCredential extends Model
 {
     /**
+     * @description The password that is used to log on to image repository N.
+     *
+     * @example password
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description The address of the image repository without the `http://` or `https://` prefix.
+     *
+     * @example registry-vpc.cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $server;
 
     /**
+     * @description The username that is used to log on to image repository N.
+     *
+     * @example username
+     *
      * @var string
      */
     public $userName;

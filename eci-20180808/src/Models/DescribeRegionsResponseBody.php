@@ -10,17 +10,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The queried regions.
+     *
      * @var regions[]
      */
     public $regions;
+
+    /**
+     * @description The request ID.
+     *
+     * @example 89945DD3-9072-47D0-A318-353284CFC7B3
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'regions'   => 'Regions',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +36,6 @@ class DescribeRegionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->regions) {
             $res['Regions'] = [];
             if (null !== $this->regions && \is_array($this->regions)) {
@@ -41,6 +44,9 @@ class DescribeRegionsResponseBody extends Model
                     $res['Regions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +60,6 @@ class DescribeRegionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
                 $model->regions = [];
@@ -65,6 +68,9 @@ class DescribeRegionsResponseBody extends Model
                     $model->regions[$n++] = null !== $item ? regions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

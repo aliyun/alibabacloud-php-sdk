@@ -31,7 +31,6 @@ class securityContext extends Model
 
     public function validate()
     {
-        Model::validateRequired('capability', $this->capability, true);
     }
 
     public function toMap()

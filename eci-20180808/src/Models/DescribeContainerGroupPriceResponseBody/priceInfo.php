@@ -12,23 +12,29 @@ use AlibabaCloud\Tea\Model;
 class priceInfo extends Model
 {
     /**
-     * @var spotPrices
-     */
-    public $spotPrices;
-
-    /**
+     * @description The price.
+     *
      * @var price
      */
     public $price;
 
     /**
+     * @description Details about the promotion rules.
+     *
      * @var rules
      */
     public $rules;
+
+    /**
+     * @description The information about the prices of preemptible elastic container instances.
+     *
+     * @var spotPrices
+     */
+    public $spotPrices;
     protected $_name = [
-        'spotPrices' => 'SpotPrices',
         'price'      => 'Price',
         'rules'      => 'Rules',
+        'spotPrices' => 'SpotPrices',
     ];
 
     public function validate()
@@ -38,14 +44,14 @@ class priceInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->spotPrices) {
-            $res['SpotPrices'] = null !== $this->spotPrices ? $this->spotPrices->toMap() : null;
-        }
         if (null !== $this->price) {
             $res['Price'] = null !== $this->price ? $this->price->toMap() : null;
         }
         if (null !== $this->rules) {
             $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
+        }
+        if (null !== $this->spotPrices) {
+            $res['SpotPrices'] = null !== $this->spotPrices ? $this->spotPrices->toMap() : null;
         }
 
         return $res;
@@ -59,14 +65,14 @@ class priceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SpotPrices'])) {
-            $model->spotPrices = spotPrices::fromMap($map['SpotPrices']);
-        }
         if (isset($map['Price'])) {
             $model->price = price::fromMap($map['Price']);
         }
         if (isset($map['Rules'])) {
             $model->rules = rules::fromMap($map['Rules']);
+        }
+        if (isset($map['SpotPrices'])) {
+            $model->spotPrices = spotPrices::fromMap($map['SpotPrices']);
         }
 
         return $model;

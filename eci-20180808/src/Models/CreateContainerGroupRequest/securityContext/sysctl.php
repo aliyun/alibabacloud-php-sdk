@@ -9,17 +9,28 @@ use AlibabaCloud\Tea\Model;
 class sysctl extends Model
 {
     /**
-     * @var string
-     */
-    public $value;
-
-    /**
+     * @description The name of the safe sysctl when you configure a security context to modify sysctls. Valid values:
+     *
+     *   net.ipv4.ping_group_range
+     *   net.ipv4.ip_unprivileged_port_start
+     *
+     * @example kernel.msgmax
+     *
      * @var string
      */
     public $name;
+
+    /**
+     * @description The value of the safe sysctl when you configure a security context to modify sysctls.
+     *
+     * @example 65536
+     *
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'value' => 'Value',
         'name'  => 'Name',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -29,11 +40,11 @@ class sysctl extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -47,11 +58,11 @@ class sysctl extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

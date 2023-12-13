@@ -9,29 +9,45 @@ use AlibabaCloud\Tea\Model;
 class spotPrice extends Model
 {
     /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @var float
-     */
-    public $spotPrice;
-
-    /**
+     * @description The ECS instance type.
+     *
+     * @example ecs.c5.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The original price.
+     *
+     * @example 0.622
+     *
      * @var float
      */
     public $originPrice;
+
+    /**
+     * @description The prices of preemptible elastic container instances.
+     *
+     * @example 0.056
+     *
+     * @var float
+     */
+    public $spotPrice;
+
+    /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-i
+     *
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'zoneId'       => 'ZoneId',
-        'spotPrice'    => 'SpotPrice',
         'instanceType' => 'InstanceType',
         'originPrice'  => 'OriginPrice',
+        'spotPrice'    => 'SpotPrice',
+        'zoneId'       => 'ZoneId',
     ];
 
     public function validate()
@@ -41,17 +57,17 @@ class spotPrice extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->spotPrice) {
-            $res['SpotPrice'] = $this->spotPrice;
-        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->originPrice) {
             $res['OriginPrice'] = $this->originPrice;
+        }
+        if (null !== $this->spotPrice) {
+            $res['SpotPrice'] = $this->spotPrice;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -65,17 +81,17 @@ class spotPrice extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['SpotPrice'])) {
-            $model->spotPrice = $map['SpotPrice'];
-        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['OriginPrice'])) {
             $model->originPrice = $map['OriginPrice'];
+        }
+        if (isset($map['SpotPrice'])) {
+            $model->spotPrice = $map['SpotPrice'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

@@ -15,11 +15,19 @@ class environmentVar extends Model
     public $fieldRef;
 
     /**
+     * @description The name of the environment variable for the init container.
+     *
+     * @example PATH
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the environment variable for the init container.
+     *
+     * @example /usr/local/bin
+     *
      * @var string
      */
     public $value;
@@ -31,7 +39,6 @@ class environmentVar extends Model
 
     public function validate()
     {
-        Model::validateRequired('fieldRef', $this->fieldRef, true);
     }
 
     public function toMap()

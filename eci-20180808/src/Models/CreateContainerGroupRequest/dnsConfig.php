@@ -10,23 +10,33 @@ use AlibabaCloud\Tea\Model;
 class dnsConfig extends Model
 {
     /**
+     * @description The IP addresses of the DNS servers.
+     *
+     * @example 172.10.*.**
+     *
      * @var string[]
      */
     public $nameServer;
 
     /**
-     * @var string[]
-     */
-    public $search;
-
-    /**
+     * @description Configuration options of the DNS server.
+     *
      * @var option[]
      */
     public $option;
+
+    /**
+     * @description The search domains of the DNS server.
+     *
+     * @example svc.local.kubenetes
+     *
+     * @var string[]
+     */
+    public $search;
     protected $_name = [
         'nameServer' => 'NameServer',
-        'search'     => 'Search',
         'option'     => 'Option',
+        'search'     => 'Search',
     ];
 
     public function validate()
@@ -39,9 +49,6 @@ class dnsConfig extends Model
         if (null !== $this->nameServer) {
             $res['NameServer'] = $this->nameServer;
         }
-        if (null !== $this->search) {
-            $res['Search'] = $this->search;
-        }
         if (null !== $this->option) {
             $res['Option'] = [];
             if (null !== $this->option && \is_array($this->option)) {
@@ -50,6 +57,9 @@ class dnsConfig extends Model
                     $res['Option'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->search) {
+            $res['Search'] = $this->search;
         }
 
         return $res;
@@ -68,11 +78,6 @@ class dnsConfig extends Model
                 $model->nameServer = $map['NameServer'];
             }
         }
-        if (isset($map['Search'])) {
-            if (!empty($map['Search'])) {
-                $model->search = $map['Search'];
-            }
-        }
         if (isset($map['Option'])) {
             if (!empty($map['Option'])) {
                 $model->option = [];
@@ -80,6 +85,11 @@ class dnsConfig extends Model
                 foreach ($map['Option'] as $item) {
                     $model->option[$n++] = null !== $item ? option::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['Search'])) {
+            if (!empty($map['Search'])) {
+                $model->search = $map['Search'];
             }
         }
 

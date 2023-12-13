@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class containers extends Model
 {
     /**
+     * @description The vCPU monitoring data of the container.
+     *
      * @var CPU
      */
     public $CPU;
 
     /**
+     * @description The memory monitoring data of the container.
+     *
      * @var memory
      */
     public $memory;
 
     /**
+     * @description The name of the container.
+     *
+     * @example u1
+     *
      * @var string
      */
     public $name;

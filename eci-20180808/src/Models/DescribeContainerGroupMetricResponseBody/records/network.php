@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
+     * @description The monitoring data of network interface controllers (NICs).
+     *
      * @var interfaces[]
      */
     public $interfaces;

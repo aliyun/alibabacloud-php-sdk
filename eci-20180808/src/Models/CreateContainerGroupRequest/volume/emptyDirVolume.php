@@ -12,8 +12,14 @@ class emptyDirVolume extends Model
      * @var string
      */
     public $medium;
+
+    /**
+     * @var string
+     */
+    public $sizeLimit;
     protected $_name = [
-        'medium' => 'Medium',
+        'medium'    => 'Medium',
+        'sizeLimit' => 'SizeLimit',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class emptyDirVolume extends Model
         $res = [];
         if (null !== $this->medium) {
             $res['Medium'] = $this->medium;
+        }
+        if (null !== $this->sizeLimit) {
+            $res['SizeLimit'] = $this->sizeLimit;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class emptyDirVolume extends Model
         $model = new self();
         if (isset($map['Medium'])) {
             $model->medium = $map['Medium'];
+        }
+        if (isset($map['SizeLimit'])) {
+            $model->sizeLimit = $map['SizeLimit'];
         }
 
         return $model;

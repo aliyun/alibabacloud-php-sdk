@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tcpSocket extends Model
 {
     /**
+     * @description The IP address of the host.
+     *
+     * @example 1.2.3.4
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description The port number.
+     *
+     * @example 8888
+     *
      * @var int
      */
     public $port;

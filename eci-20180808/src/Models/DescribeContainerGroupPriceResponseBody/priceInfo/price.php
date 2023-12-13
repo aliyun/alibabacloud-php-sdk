@@ -10,35 +10,56 @@ use AlibabaCloud\Tea\Model;
 class price extends Model
 {
     /**
-     * @var float
+     * @description The currency unit. Valid values:
+     *
+     *   CNY: This value only applies to the China site (aliyun.com).
+     *   USD: This value only applies to the International site (alibabacloud.com).
+     *
+     * @example CNY
+     *
+     * @var string
      */
-    public $discountPrice;
+    public $currency;
 
     /**
-     * @var float
-     */
-    public $tradePrice;
-
-    /**
-     * @var float
-     */
-    public $originalPrice;
-
-    /**
+     * @description The information about the price.
+     *
      * @var detailInfos
      */
     public $detailInfos;
 
     /**
-     * @var string
+     * @description The discount.
+     *
+     * @example 0
+     *
+     * @var float
      */
-    public $currency;
+    public $discountPrice;
+
+    /**
+     * @description The original price.
+     *
+     * @example 0.00012252
+     *
+     * @var float
+     */
+    public $originalPrice;
+
+    /**
+     * @description The transaction price, which is equal to the original price minus the discount.
+     *
+     * @example 0.00012252
+     *
+     * @var float
+     */
+    public $tradePrice;
     protected $_name = [
-        'discountPrice' => 'DiscountPrice',
-        'tradePrice'    => 'TradePrice',
-        'originalPrice' => 'OriginalPrice',
-        'detailInfos'   => 'DetailInfos',
         'currency'      => 'Currency',
+        'detailInfos'   => 'DetailInfos',
+        'discountPrice' => 'DiscountPrice',
+        'originalPrice' => 'OriginalPrice',
+        'tradePrice'    => 'TradePrice',
     ];
 
     public function validate()
@@ -48,20 +69,20 @@ class price extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->discountPrice) {
-            $res['DiscountPrice'] = $this->discountPrice;
-        }
-        if (null !== $this->tradePrice) {
-            $res['TradePrice'] = $this->tradePrice;
-        }
-        if (null !== $this->originalPrice) {
-            $res['OriginalPrice'] = $this->originalPrice;
+        if (null !== $this->currency) {
+            $res['Currency'] = $this->currency;
         }
         if (null !== $this->detailInfos) {
             $res['DetailInfos'] = null !== $this->detailInfos ? $this->detailInfos->toMap() : null;
         }
-        if (null !== $this->currency) {
-            $res['Currency'] = $this->currency;
+        if (null !== $this->discountPrice) {
+            $res['DiscountPrice'] = $this->discountPrice;
+        }
+        if (null !== $this->originalPrice) {
+            $res['OriginalPrice'] = $this->originalPrice;
+        }
+        if (null !== $this->tradePrice) {
+            $res['TradePrice'] = $this->tradePrice;
         }
 
         return $res;
@@ -75,20 +96,20 @@ class price extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DiscountPrice'])) {
-            $model->discountPrice = $map['DiscountPrice'];
-        }
-        if (isset($map['TradePrice'])) {
-            $model->tradePrice = $map['TradePrice'];
-        }
-        if (isset($map['OriginalPrice'])) {
-            $model->originalPrice = $map['OriginalPrice'];
+        if (isset($map['Currency'])) {
+            $model->currency = $map['Currency'];
         }
         if (isset($map['DetailInfos'])) {
             $model->detailInfos = detailInfos::fromMap($map['DetailInfos']);
         }
-        if (isset($map['Currency'])) {
-            $model->currency = $map['Currency'];
+        if (isset($map['DiscountPrice'])) {
+            $model->discountPrice = $map['DiscountPrice'];
+        }
+        if (isset($map['OriginalPrice'])) {
+            $model->originalPrice = $map['OriginalPrice'];
+        }
+        if (isset($map['TradePrice'])) {
+            $model->tradePrice = $map['TradePrice'];
         }
 
         return $model;
