@@ -1029,6 +1029,9 @@ class Paidlc extends OpenApiClient
         if (!Utils::isUnset($request->tagsShrink)) {
             $query['Tags'] = $request->tagsShrink;
         }
+        if (!Utils::isUnset($request->userIdForFilter)) {
+            $query['UserIdForFilter'] = $request->userIdForFilter;
+        }
         if (!Utils::isUnset($request->workspaceId)) {
             $query['WorkspaceId'] = $request->workspaceId;
         }

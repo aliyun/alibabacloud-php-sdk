@@ -21,9 +21,17 @@ class dataSources extends Model
      * @var string
      */
     public $mountPath;
+
+    /**
+     * @example oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
+     *
+     * @var string
+     */
+    public $uri;
     protected $_name = [
         'dataSourceId' => 'DataSourceId',
         'mountPath'    => 'MountPath',
+        'uri'          => 'Uri',
     ];
 
     public function validate()
@@ -38,6 +46,9 @@ class dataSources extends Model
         }
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
+        }
+        if (null !== $this->uri) {
+            $res['Uri'] = $this->uri;
         }
 
         return $res;
@@ -56,6 +67,9 @@ class dataSources extends Model
         }
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
+        }
+        if (isset($map['Uri'])) {
+            $model->uri = $map['Uri'];
         }
 
         return $model;

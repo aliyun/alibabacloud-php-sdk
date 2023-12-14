@@ -126,6 +126,11 @@ class ListJobsShrinkRequest extends Model
     public $tagsShrink;
 
     /**
+     * @var string
+     */
+    public $userIdForFilter;
+
+    /**
      * @example 1****
      *
      * @var string
@@ -149,6 +154,7 @@ class ListJobsShrinkRequest extends Model
         'startTime'         => 'StartTime',
         'status'            => 'Status',
         'tagsShrink'        => 'Tags',
+        'userIdForFilter'   => 'UserIdForFilter',
         'workspaceId'       => 'WorkspaceId',
     ];
 
@@ -209,6 +215,9 @@ class ListJobsShrinkRequest extends Model
         }
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
+        }
+        if (null !== $this->userIdForFilter) {
+            $res['UserIdForFilter'] = $this->userIdForFilter;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -275,6 +284,9 @@ class ListJobsShrinkRequest extends Model
         }
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
+        }
+        if (isset($map['UserIdForFilter'])) {
+            $model->userIdForFilter = $map['UserIdForFilter'];
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
