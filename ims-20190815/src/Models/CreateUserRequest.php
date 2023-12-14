@@ -52,7 +52,7 @@ class CreateUserRequest extends Model
     /**
      * @description The tag value.
      *
-     * Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be a up to128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:`.
+     * Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:`.
      * @var tag[]
      */
     public $tag;
