@@ -4,49 +4,48 @@
 
 namespace AlibabaCloud\SDK\Videosearch\V20200225\Models;
 
-use AlibabaCloud\SDK\Videosearch\V20200225\Models\GetTaskStatusResponse\taskInfo;
 use AlibabaCloud\Tea\Model;
 
 class GetTaskStatusResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
      * @var int
      */
-    public $data;
+    public $statusCode;
 
     /**
-     * @var taskInfo
+     * @var GetTaskStatusResponseBody
      */
-    public $taskInfo;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'data'      => 'Data',
-        'taskInfo'  => 'TaskInfo',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('data', $this->data, true);
-        Model::validateRequired('taskInfo', $this->taskInfo, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->taskInfo) {
-            $res['TaskInfo'] = null !== $this->taskInfo ? $this->taskInfo->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,14 +59,14 @@ class GetTaskStatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['TaskInfo'])) {
-            $model->taskInfo = taskInfo::fromMap($map['TaskInfo']);
+        if (isset($map['body'])) {
+            $model->body = GetTaskStatusResponseBody::fromMap($map['body']);
         }
 
         return $model;

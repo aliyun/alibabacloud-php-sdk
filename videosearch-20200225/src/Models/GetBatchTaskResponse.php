@@ -9,73 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetBatchTaskResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
      * @var int
      */
-    public $batchTaskId;
+    public $statusCode;
 
     /**
-     * @var int
+     * @var GetBatchTaskResponseBody
      */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $modifiedTime;
-
-    /**
-     * @var string
-     */
-    public $processMessage;
-
-    /**
-     * @var string
-     */
-    public $subTaskDetail;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'batchTaskId'    => 'BatchTaskId',
-        'status'         => 'Status',
-        'modifiedTime'   => 'ModifiedTime',
-        'processMessage' => 'ProcessMessage',
-        'subTaskDetail'  => 'SubTaskDetail',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('batchTaskId', $this->batchTaskId, true);
-        Model::validateRequired('status', $this->status, true);
-        Model::validateRequired('modifiedTime', $this->modifiedTime, true);
-        Model::validateRequired('processMessage', $this->processMessage, true);
-        Model::validateRequired('subTaskDetail', $this->subTaskDetail, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->batchTaskId) {
-            $res['BatchTaskId'] = $this->batchTaskId;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->modifiedTime) {
-            $res['ModifiedTime'] = $this->modifiedTime;
-        }
-        if (null !== $this->processMessage) {
-            $res['ProcessMessage'] = $this->processMessage;
-        }
-        if (null !== $this->subTaskDetail) {
-            $res['SubTaskDetail'] = $this->subTaskDetail;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -89,23 +59,14 @@ class GetBatchTaskResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['BatchTaskId'])) {
-            $model->batchTaskId = $map['BatchTaskId'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ModifiedTime'])) {
-            $model->modifiedTime = $map['ModifiedTime'];
-        }
-        if (isset($map['ProcessMessage'])) {
-            $model->processMessage = $map['ProcessMessage'];
-        }
-        if (isset($map['SubTaskDetail'])) {
-            $model->subTaskDetail = $map['SubTaskDetail'];
+        if (isset($map['body'])) {
+            $model->body = GetBatchTaskResponseBody::fromMap($map['body']);
         }
 
         return $model;

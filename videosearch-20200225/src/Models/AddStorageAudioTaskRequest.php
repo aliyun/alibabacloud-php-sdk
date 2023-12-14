@@ -9,41 +9,50 @@ use AlibabaCloud\Tea\Model;
 class AddStorageAudioTaskRequest extends Model
 {
     /**
+     * @example http://xxx
+     *
      * @var string
      */
-    public $instanceId;
+    public $audioFile;
 
     /**
-     * @var string
-     */
-    public $audioUrl;
-
-    /**
+     * @example 1
+     *
      * @var string
      */
     public $audioId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $audioTags;
 
     /**
+     * @example http://xxx
+     *
+     * @var string
+     */
+    public $audioUrl;
+
+    /**
+     * @example http://xxx
+     *
      * @var string
      */
     public $callbackUrl;
 
     /**
-     * @var string
-     */
-    public $description;
-
-    /**
+     * @example 1
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $contentSource;
@@ -51,39 +60,43 @@ class AddStorageAudioTaskRequest extends Model
     /**
      * @var string
      */
-    public $audioFile;
+    public $description;
 
     /**
+     * @example 1
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example 1
+     *
      * @var int
      */
     public $sort;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'audioUrl'      => 'AudioUrl',
+        'audioFile'     => 'AudioFile',
         'audioId'       => 'AudioId',
         'audioTags'     => 'AudioTags',
+        'audioUrl'      => 'AudioUrl',
         'callbackUrl'   => 'CallbackUrl',
-        'description'   => 'Description',
         'clientToken'   => 'ClientToken',
         'contentSource' => 'ContentSource',
-        'audioFile'     => 'AudioFile',
+        'description'   => 'Description',
+        'instanceId'    => 'InstanceId',
         'sort'          => 'Sort',
     ];
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('audioId', $this->audioId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->audioUrl) {
-            $res['AudioUrl'] = $this->audioUrl;
+        if (null !== $this->audioFile) {
+            $res['AudioFile'] = $this->audioFile;
         }
         if (null !== $this->audioId) {
             $res['AudioId'] = $this->audioId;
@@ -91,11 +104,11 @@ class AddStorageAudioTaskRequest extends Model
         if (null !== $this->audioTags) {
             $res['AudioTags'] = $this->audioTags;
         }
+        if (null !== $this->audioUrl) {
+            $res['AudioUrl'] = $this->audioUrl;
+        }
         if (null !== $this->callbackUrl) {
             $res['CallbackUrl'] = $this->callbackUrl;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -103,8 +116,11 @@ class AddStorageAudioTaskRequest extends Model
         if (null !== $this->contentSource) {
             $res['ContentSource'] = $this->contentSource;
         }
-        if (null !== $this->audioFile) {
-            $res['AudioFile'] = $this->audioFile;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
@@ -121,11 +137,8 @@ class AddStorageAudioTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['AudioUrl'])) {
-            $model->audioUrl = $map['AudioUrl'];
+        if (isset($map['AudioFile'])) {
+            $model->audioFile = $map['AudioFile'];
         }
         if (isset($map['AudioId'])) {
             $model->audioId = $map['AudioId'];
@@ -133,11 +146,11 @@ class AddStorageAudioTaskRequest extends Model
         if (isset($map['AudioTags'])) {
             $model->audioTags = $map['AudioTags'];
         }
+        if (isset($map['AudioUrl'])) {
+            $model->audioUrl = $map['AudioUrl'];
+        }
         if (isset($map['CallbackUrl'])) {
             $model->callbackUrl = $map['CallbackUrl'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
@@ -145,8 +158,11 @@ class AddStorageAudioTaskRequest extends Model
         if (isset($map['ContentSource'])) {
             $model->contentSource = $map['ContentSource'];
         }
-        if (isset($map['AudioFile'])) {
-            $model->audioFile = $map['AudioFile'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];

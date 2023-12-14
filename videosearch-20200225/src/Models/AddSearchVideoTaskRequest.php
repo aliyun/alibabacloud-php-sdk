@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddSearchVideoTaskRequest extends Model
 {
     /**
+     * @example http://testcallback.aliyun.com
+     *
+     * @var string
+     */
+    public $callbackUrl;
+
+    /**
+     * @example clientToken
+     *
      * @var string
      */
     public $clientToken;
@@ -16,103 +25,151 @@ class AddSearchVideoTaskRequest extends Model
     /**
      * @var string
      */
-    public $videoUrl;
+    public $description;
 
     /**
-     * @var string
-     */
-    public $videoId;
-
-    /**
-     * @var string
-     */
-    public $videoTags;
-
-    /**
-     * @var int
-     */
-    public $returnVideoNumber;
-
-    /**
-     * @var string
-     */
-    public $queryTags;
-
-    /**
-     * @var int
-     */
-    public $storageType;
-
-    /**
-     * @var string
-     */
-    public $callbackUrl;
-
-    /**
-     * @var float
-     */
-    public $replaceStorageThreshold;
-
-    /**
+     * @example vs-ix****t8
+     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @var string
+     * @example 0
+     *
+     * @var int
      */
-    public $description;
+    public $needFeatureFile;
 
     /**
+     * @example testVideoTag|testVideoTag1
+     *
+     * @var string
+     */
+    public $queryTags;
+
+    /**
+     * @example 0.75
+     *
+     * @var float
+     */
+    public $replaceStorageThreshold;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $returnVideoNumber;
+
+    /**
+     * @example 1
+     *
      * @var int
      */
     public $searchType;
 
     /**
-     * @var string
-     */
-    public $videoFile;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $sort;
 
     /**
+     * @example 2
+     *
      * @var int
      */
-    public $needFeatureFile;
+    public $storageType;
+
+    /**
+     * @example file
+     *
+     * @var string
+     */
+    public $videoFile;
+
+    /**
+     * @example testVideoId
+     *
+     * @var string
+     */
+    public $videoId;
+
+    /**
+     * @example testVideoTag
+     *
+     * @var string
+     */
+    public $videoTags;
+
+    /**
+     * @example https://mediaai-test-huadong2.oss-cn-shanghai.aliyuncs.com/perf/1_480p_25M.mp4
+     *
+     * @var string
+     */
+    public $videoUrl;
     protected $_name = [
+        'callbackUrl'             => 'CallbackUrl',
         'clientToken'             => 'ClientToken',
-        'videoUrl'                => 'VideoUrl',
+        'description'             => 'Description',
+        'instanceId'              => 'InstanceId',
+        'needFeatureFile'         => 'NeedFeatureFile',
+        'queryTags'               => 'QueryTags',
+        'replaceStorageThreshold' => 'ReplaceStorageThreshold',
+        'returnVideoNumber'       => 'ReturnVideoNumber',
+        'searchType'              => 'SearchType',
+        'sort'                    => 'Sort',
+        'storageType'             => 'StorageType',
+        'videoFile'               => 'VideoFile',
         'videoId'                 => 'VideoId',
         'videoTags'               => 'VideoTags',
-        'returnVideoNumber'       => 'ReturnVideoNumber',
-        'queryTags'               => 'QueryTags',
-        'storageType'             => 'StorageType',
-        'callbackUrl'             => 'CallbackUrl',
-        'replaceStorageThreshold' => 'ReplaceStorageThreshold',
-        'instanceId'              => 'InstanceId',
-        'description'             => 'Description',
-        'searchType'              => 'SearchType',
-        'videoFile'               => 'VideoFile',
-        'sort'                    => 'Sort',
-        'needFeatureFile'         => 'NeedFeatureFile',
+        'videoUrl'                => 'VideoUrl',
     ];
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callbackUrl) {
+            $res['CallbackUrl'] = $this->callbackUrl;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->needFeatureFile) {
+            $res['NeedFeatureFile'] = $this->needFeatureFile;
+        }
+        if (null !== $this->queryTags) {
+            $res['QueryTags'] = $this->queryTags;
+        }
+        if (null !== $this->replaceStorageThreshold) {
+            $res['ReplaceStorageThreshold'] = $this->replaceStorageThreshold;
+        }
+        if (null !== $this->returnVideoNumber) {
+            $res['ReturnVideoNumber'] = $this->returnVideoNumber;
+        }
+        if (null !== $this->searchType) {
+            $res['SearchType'] = $this->searchType;
+        }
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
+        }
+        if (null !== $this->videoFile) {
+            $res['VideoFile'] = $this->videoFile;
         }
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
@@ -120,38 +177,8 @@ class AddSearchVideoTaskRequest extends Model
         if (null !== $this->videoTags) {
             $res['VideoTags'] = $this->videoTags;
         }
-        if (null !== $this->returnVideoNumber) {
-            $res['ReturnVideoNumber'] = $this->returnVideoNumber;
-        }
-        if (null !== $this->queryTags) {
-            $res['QueryTags'] = $this->queryTags;
-        }
-        if (null !== $this->storageType) {
-            $res['StorageType'] = $this->storageType;
-        }
-        if (null !== $this->callbackUrl) {
-            $res['CallbackUrl'] = $this->callbackUrl;
-        }
-        if (null !== $this->replaceStorageThreshold) {
-            $res['ReplaceStorageThreshold'] = $this->replaceStorageThreshold;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->searchType) {
-            $res['SearchType'] = $this->searchType;
-        }
-        if (null !== $this->videoFile) {
-            $res['VideoFile'] = $this->videoFile;
-        }
-        if (null !== $this->sort) {
-            $res['Sort'] = $this->sort;
-        }
-        if (null !== $this->needFeatureFile) {
-            $res['NeedFeatureFile'] = $this->needFeatureFile;
+        if (null !== $this->videoUrl) {
+            $res['VideoUrl'] = $this->videoUrl;
         }
 
         return $res;
@@ -165,11 +192,41 @@ class AddSearchVideoTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallbackUrl'])) {
+            $model->callbackUrl = $map['CallbackUrl'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NeedFeatureFile'])) {
+            $model->needFeatureFile = $map['NeedFeatureFile'];
+        }
+        if (isset($map['QueryTags'])) {
+            $model->queryTags = $map['QueryTags'];
+        }
+        if (isset($map['ReplaceStorageThreshold'])) {
+            $model->replaceStorageThreshold = $map['ReplaceStorageThreshold'];
+        }
+        if (isset($map['ReturnVideoNumber'])) {
+            $model->returnVideoNumber = $map['ReturnVideoNumber'];
+        }
+        if (isset($map['SearchType'])) {
+            $model->searchType = $map['SearchType'];
+        }
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
+        }
+        if (isset($map['VideoFile'])) {
+            $model->videoFile = $map['VideoFile'];
         }
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];
@@ -177,38 +234,8 @@ class AddSearchVideoTaskRequest extends Model
         if (isset($map['VideoTags'])) {
             $model->videoTags = $map['VideoTags'];
         }
-        if (isset($map['ReturnVideoNumber'])) {
-            $model->returnVideoNumber = $map['ReturnVideoNumber'];
-        }
-        if (isset($map['QueryTags'])) {
-            $model->queryTags = $map['QueryTags'];
-        }
-        if (isset($map['StorageType'])) {
-            $model->storageType = $map['StorageType'];
-        }
-        if (isset($map['CallbackUrl'])) {
-            $model->callbackUrl = $map['CallbackUrl'];
-        }
-        if (isset($map['ReplaceStorageThreshold'])) {
-            $model->replaceStorageThreshold = $map['ReplaceStorageThreshold'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['SearchType'])) {
-            $model->searchType = $map['SearchType'];
-        }
-        if (isset($map['VideoFile'])) {
-            $model->videoFile = $map['VideoFile'];
-        }
-        if (isset($map['Sort'])) {
-            $model->sort = $map['Sort'];
-        }
-        if (isset($map['NeedFeatureFile'])) {
-            $model->needFeatureFile = $map['NeedFeatureFile'];
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrl = $map['VideoUrl'];
         }
 
         return $model;

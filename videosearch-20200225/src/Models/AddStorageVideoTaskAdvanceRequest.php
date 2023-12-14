@@ -10,34 +10,18 @@ use GuzzleHttp\Psr7\Stream;
 class AddStorageVideoTaskAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $videoFileObject;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $videoUrl;
-
-    /**
-     * @var string
-     */
-    public $videoId;
-
-    /**
-     * @var string
-     */
-    public $videoTags;
-
-    /**
+     * @example http://callbacktest.aliyun.com
+     *
      * @var string
      */
     public $callbackUrl;
+
+    /**
+     * @example c86d03d1-253e-4622-a4b1-195f945bceeb
+     *
+     * @var string
+     */
+    public $clientToken;
 
     /**
      * @var string
@@ -45,50 +29,93 @@ class AddStorageVideoTaskAdvanceRequest extends Model
     public $description;
 
     /**
+     * @example vs-ix****t8
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $sort;
+
+    /**
+     * @example 1
+     *
      * @var int
      */
     public $storageInfo;
 
     /**
-     * @var string
+     * @example file
+     *
+     * @var Stream
      */
-    public $clientToken;
+    public $videoFileObject;
 
     /**
-     * @var int
+     * @example testVideoId
+     *
+     * @var string
      */
-    public $sort;
+    public $videoId;
+
+    /**
+     * @example testVideoTag
+     *
+     * @var string
+     */
+    public $videoTags;
+
+    /**
+     * @example https://mediaai-test-huadong2.oss-cn-shanghai.aliyuncs.com/perf/1****5M.mp4
+     *
+     * @var string
+     */
+    public $videoUrl;
     protected $_name = [
-        'videoFileObject' => 'VideoFileObject',
+        'callbackUrl'     => 'CallbackUrl',
+        'clientToken'     => 'ClientToken',
+        'description'     => 'Description',
         'instanceId'      => 'InstanceId',
-        'videoUrl'        => 'VideoUrl',
+        'sort'            => 'Sort',
+        'storageInfo'     => 'StorageInfo',
+        'videoFileObject' => 'VideoFile',
         'videoId'         => 'VideoId',
         'videoTags'       => 'VideoTags',
-        'callbackUrl'     => 'CallbackUrl',
-        'description'     => 'Description',
-        'storageInfo'     => 'StorageInfo',
-        'clientToken'     => 'ClientToken',
-        'sort'            => 'Sort',
+        'videoUrl'        => 'VideoUrl',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoFileObject', $this->videoFileObject, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('videoId', $this->videoId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoFileObject) {
-            $res['VideoFileObject'] = $this->videoFileObject;
+        if (null !== $this->callbackUrl) {
+            $res['CallbackUrl'] = $this->callbackUrl;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
+        }
+        if (null !== $this->storageInfo) {
+            $res['StorageInfo'] = $this->storageInfo;
+        }
+        if (null !== $this->videoFileObject) {
+            $res['VideoFile'] = $this->videoFileObject;
         }
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
@@ -96,20 +123,8 @@ class AddStorageVideoTaskAdvanceRequest extends Model
         if (null !== $this->videoTags) {
             $res['VideoTags'] = $this->videoTags;
         }
-        if (null !== $this->callbackUrl) {
-            $res['CallbackUrl'] = $this->callbackUrl;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->storageInfo) {
-            $res['StorageInfo'] = $this->storageInfo;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->sort) {
-            $res['Sort'] = $this->sort;
+        if (null !== $this->videoUrl) {
+            $res['VideoUrl'] = $this->videoUrl;
         }
 
         return $res;
@@ -123,14 +138,26 @@ class AddStorageVideoTaskAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoFileObject'])) {
-            $model->videoFileObject = $map['VideoFileObject'];
+        if (isset($map['CallbackUrl'])) {
+            $model->callbackUrl = $map['CallbackUrl'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
+        }
+        if (isset($map['StorageInfo'])) {
+            $model->storageInfo = $map['StorageInfo'];
+        }
+        if (isset($map['VideoFile'])) {
+            $model->videoFileObject = $map['VideoFile'];
         }
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];
@@ -138,20 +165,8 @@ class AddStorageVideoTaskAdvanceRequest extends Model
         if (isset($map['VideoTags'])) {
             $model->videoTags = $map['VideoTags'];
         }
-        if (isset($map['CallbackUrl'])) {
-            $model->callbackUrl = $map['CallbackUrl'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['StorageInfo'])) {
-            $model->storageInfo = $map['StorageInfo'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['Sort'])) {
-            $model->sort = $map['Sort'];
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrl = $map['VideoUrl'];
         }
 
         return $model;

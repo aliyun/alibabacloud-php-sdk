@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddDeletionVideoTaskRequest extends Model
 {
     /**
+     * @example clientToken
+     *
      * @var string
      */
     public $clientToken;
@@ -16,16 +18,18 @@ class AddDeletionVideoTaskRequest extends Model
     /**
      * @var string
      */
-    public $videoId;
+    public $instanceId;
 
     /**
+     * @example testVideoId
+     *
      * @var string
      */
-    public $instanceId;
+    public $videoId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'videoId'     => 'VideoId',
         'instanceId'  => 'InstanceId',
+        'videoId'     => 'VideoId',
     ];
 
     public function validate()
@@ -38,11 +42,11 @@ class AddDeletionVideoTaskRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->videoId) {
+            $res['VideoId'] = $this->videoId;
         }
 
         return $res;
@@ -59,11 +63,11 @@ class AddDeletionVideoTaskRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['VideoId'])) {
+            $model->videoId = $map['VideoId'];
         }
 
         return $model;

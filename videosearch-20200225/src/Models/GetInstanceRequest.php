@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example vs123
+     *
      * @var string
      */
     public $instanceId;
@@ -24,7 +28,6 @@ class GetInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

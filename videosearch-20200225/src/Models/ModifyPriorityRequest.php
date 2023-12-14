@@ -9,29 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyPriorityRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @var string
-     */
-    public $taskId;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $sort;
+
+    /**
+     * @example 123
+     *
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'taskId'      => 'TaskId',
         'sort'        => 'Sort',
+        'taskId'      => 'TaskId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('taskId', $this->taskId, true);
-        Model::validateRequired('sort', $this->sort, true);
     }
 
     public function toMap()
@@ -40,11 +44,11 @@ class ModifyPriorityRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -61,11 +65,11 @@ class ModifyPriorityRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

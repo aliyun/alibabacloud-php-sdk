@@ -11,20 +11,20 @@ class AddDeletionAudioTaskRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $audioId;
 
     /**
      * @var string
      */
-    public $audioId;
+    public $clientToken;
 
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'clientToken' => 'ClientToken',
         'audioId'     => 'AudioId',
+        'clientToken' => 'ClientToken',
         'instanceId'  => 'InstanceId',
     ];
 
@@ -35,11 +35,11 @@ class AddDeletionAudioTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->audioId) {
             $res['AudioId'] = $this->audioId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -56,11 +56,11 @@ class AddDeletionAudioTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['AudioId'])) {
             $model->audioId = $map['AudioId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

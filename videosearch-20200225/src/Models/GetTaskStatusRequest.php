@@ -9,29 +9,33 @@ use AlibabaCloud\Tea\Model;
 class GetTaskStatusRequest extends Model
 {
     /**
+     * @example clientToken
+     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @var string
-     */
-    public $taskId;
-
-    /**
+     * @example vs-ihc****wj
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @example 100001
+     *
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'taskId'      => 'TaskId',
         'instanceId'  => 'InstanceId',
+        'taskId'      => 'TaskId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('taskId', $this->taskId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
@@ -40,11 +44,11 @@ class GetTaskStatusRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -61,11 +65,11 @@ class GetTaskStatusRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

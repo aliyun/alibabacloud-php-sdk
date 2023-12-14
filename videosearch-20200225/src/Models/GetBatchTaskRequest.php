@@ -9,39 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetBatchTaskRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $batchTaskId;
 
     /**
+     * @example 123
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @example 123
+     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'clientToken' => 'ClientToken',
         'batchTaskId' => 'BatchTaskId',
+        'clientToken' => 'ClientToken',
         'instanceId'  => 'InstanceId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('batchTaskId', $this->batchTaskId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->batchTaskId) {
             $res['BatchTaskId'] = $this->batchTaskId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -58,11 +62,11 @@ class GetBatchTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['BatchTaskId'])) {
             $model->batchTaskId = $map['BatchTaskId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

@@ -9,21 +9,57 @@ use AlibabaCloud\Tea\Model;
 class CreateBatchTaskRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $batchTaskType;
 
     /**
+     * @example http://xxx
+     *
+     * @var string
+     */
+    public $callbackUrl;
+
+    /**
+     * @example C86D03D1-253E-6832-A4B1-195F945BCEEB
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @example http://xxx.ab***dx.com/testMeta.json
+     *
+     * @var string
+     */
+    public $fileUrl;
+
+    /**
+     * @example vs-tyjjhgyu***xdfd
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example testBucket
+     *
      * @var string
      */
     public $ossBucketName;
 
     /**
+     * @example testPath/testName
+     *
      * @var string
      */
     public $ossDataPath;
 
     /**
+     * @example testMeta.json
+     *
      * @var string
      */
     public $ossMetaFile;
@@ -31,37 +67,17 @@ class CreateBatchTaskRequest extends Model
     /**
      * @var string
      */
-    public $fileUrl;
-
-    /**
-     * @var string
-     */
     public $roleArn;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $callbackUrl;
     protected $_name = [
         'batchTaskType' => 'BatchTaskType',
+        'callbackUrl'   => 'CallbackUrl',
+        'clientToken'   => 'ClientToken',
+        'fileUrl'       => 'FileUrl',
+        'instanceId'    => 'InstanceId',
         'ossBucketName' => 'OssBucketName',
         'ossDataPath'   => 'OssDataPath',
         'ossMetaFile'   => 'OssMetaFile',
-        'fileUrl'       => 'FileUrl',
         'roleArn'       => 'RoleArn',
-        'instanceId'    => 'InstanceId',
-        'clientToken'   => 'ClientToken',
-        'callbackUrl'   => 'CallbackUrl',
     ];
 
     public function validate()
@@ -74,6 +90,18 @@ class CreateBatchTaskRequest extends Model
         if (null !== $this->batchTaskType) {
             $res['BatchTaskType'] = $this->batchTaskType;
         }
+        if (null !== $this->callbackUrl) {
+            $res['CallbackUrl'] = $this->callbackUrl;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->fileUrl) {
+            $res['FileUrl'] = $this->fileUrl;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->ossBucketName) {
             $res['OssBucketName'] = $this->ossBucketName;
         }
@@ -83,20 +111,8 @@ class CreateBatchTaskRequest extends Model
         if (null !== $this->ossMetaFile) {
             $res['OssMetaFile'] = $this->ossMetaFile;
         }
-        if (null !== $this->fileUrl) {
-            $res['FileUrl'] = $this->fileUrl;
-        }
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->callbackUrl) {
-            $res['CallbackUrl'] = $this->callbackUrl;
         }
 
         return $res;
@@ -113,6 +129,18 @@ class CreateBatchTaskRequest extends Model
         if (isset($map['BatchTaskType'])) {
             $model->batchTaskType = $map['BatchTaskType'];
         }
+        if (isset($map['CallbackUrl'])) {
+            $model->callbackUrl = $map['CallbackUrl'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['FileUrl'])) {
+            $model->fileUrl = $map['FileUrl'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['OssBucketName'])) {
             $model->ossBucketName = $map['OssBucketName'];
         }
@@ -122,20 +150,8 @@ class CreateBatchTaskRequest extends Model
         if (isset($map['OssMetaFile'])) {
             $model->ossMetaFile = $map['OssMetaFile'];
         }
-        if (isset($map['FileUrl'])) {
-            $model->fileUrl = $map['FileUrl'];
-        }
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['CallbackUrl'])) {
-            $model->callbackUrl = $map['CallbackUrl'];
         }
 
         return $model;

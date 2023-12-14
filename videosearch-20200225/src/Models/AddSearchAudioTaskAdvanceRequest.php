@@ -10,39 +10,39 @@ use GuzzleHttp\Psr7\Stream;
 class AddSearchAudioTaskAdvanceRequest extends Model
 {
     /**
+     * @example http://xxx
+     *
      * @var Stream
      */
     public $audioFileObject;
 
     /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
+     * @example Http://xxx
+     *
      * @var string
      */
     public $audioUrl;
 
     /**
-     * @var int
-     */
-    public $returnAudioNumber;
-
-    /**
-     * @var string
-     */
-    public $queryTags;
-
-    /**
+     * @example http://xxx
+     *
      * @var string
      */
     public $callbackUrl;
 
     /**
+     * @example 1
+     *
      * @var string
      */
-    public $instanceId;
+    public $clientToken;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $contentSource;
 
     /**
      * @var string
@@ -50,83 +50,103 @@ class AddSearchAudioTaskAdvanceRequest extends Model
     public $description;
 
     /**
-     * @var int
+     * @example 1
+     *
+     * @var string
      */
-    public $contentSource;
+    public $instanceId;
 
     /**
-     * @var int
-     */
-    public $sort;
-
-    /**
+     * @example 0
+     *
      * @var int
      */
     public $needFeatureFile;
 
     /**
+     * @example test
+     *
+     * @var string
+     */
+    public $queryTags;
+
+    /**
+     * @example 1
+     *
      * @var int
      */
     public $resourceType;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $returnAudioNumber;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $sort;
     protected $_name = [
-        'audioFileObject'   => 'AudioFileObject',
-        'clientToken'       => 'ClientToken',
+        'audioFileObject'   => 'AudioFile',
         'audioUrl'          => 'AudioUrl',
-        'returnAudioNumber' => 'ReturnAudioNumber',
-        'queryTags'         => 'QueryTags',
         'callbackUrl'       => 'CallbackUrl',
-        'instanceId'        => 'InstanceId',
-        'description'       => 'Description',
+        'clientToken'       => 'ClientToken',
         'contentSource'     => 'ContentSource',
-        'sort'              => 'Sort',
+        'description'       => 'Description',
+        'instanceId'        => 'InstanceId',
         'needFeatureFile'   => 'NeedFeatureFile',
+        'queryTags'         => 'QueryTags',
         'resourceType'      => 'ResourceType',
+        'returnAudioNumber' => 'ReturnAudioNumber',
+        'sort'              => 'Sort',
     ];
 
     public function validate()
     {
-        Model::validateRequired('audioFileObject', $this->audioFileObject, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->audioFileObject) {
-            $res['AudioFileObject'] = $this->audioFileObject;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+            $res['AudioFile'] = $this->audioFileObject;
         }
         if (null !== $this->audioUrl) {
             $res['AudioUrl'] = $this->audioUrl;
         }
-        if (null !== $this->returnAudioNumber) {
-            $res['ReturnAudioNumber'] = $this->returnAudioNumber;
-        }
-        if (null !== $this->queryTags) {
-            $res['QueryTags'] = $this->queryTags;
-        }
         if (null !== $this->callbackUrl) {
             $res['CallbackUrl'] = $this->callbackUrl;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->contentSource) {
             $res['ContentSource'] = $this->contentSource;
         }
-        if (null !== $this->sort) {
-            $res['Sort'] = $this->sort;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->needFeatureFile) {
             $res['NeedFeatureFile'] = $this->needFeatureFile;
         }
+        if (null !== $this->queryTags) {
+            $res['QueryTags'] = $this->queryTags;
+        }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->returnAudioNumber) {
+            $res['ReturnAudioNumber'] = $this->returnAudioNumber;
+        }
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
         }
 
         return $res;
@@ -140,41 +160,41 @@ class AddSearchAudioTaskAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AudioFileObject'])) {
-            $model->audioFileObject = $map['AudioFileObject'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['AudioFile'])) {
+            $model->audioFileObject = $map['AudioFile'];
         }
         if (isset($map['AudioUrl'])) {
             $model->audioUrl = $map['AudioUrl'];
         }
-        if (isset($map['ReturnAudioNumber'])) {
-            $model->returnAudioNumber = $map['ReturnAudioNumber'];
-        }
-        if (isset($map['QueryTags'])) {
-            $model->queryTags = $map['QueryTags'];
-        }
         if (isset($map['CallbackUrl'])) {
             $model->callbackUrl = $map['CallbackUrl'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['ContentSource'])) {
             $model->contentSource = $map['ContentSource'];
         }
-        if (isset($map['Sort'])) {
-            $model->sort = $map['Sort'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['NeedFeatureFile'])) {
             $model->needFeatureFile = $map['NeedFeatureFile'];
         }
+        if (isset($map['QueryTags'])) {
+            $model->queryTags = $map['QueryTags'];
+        }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['ReturnAudioNumber'])) {
+            $model->returnAudioNumber = $map['ReturnAudioNumber'];
+        }
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
         }
 
         return $model;

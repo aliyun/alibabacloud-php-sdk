@@ -10,26 +10,57 @@ use GuzzleHttp\Psr7\Stream;
 class CreateBatchTaskAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $fileUrlObject;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $batchTaskType;
 
     /**
+     * @example http://xxx
+     *
+     * @var string
+     */
+    public $callbackUrl;
+
+    /**
+     * @example C86D03D1-253E-6832-A4B1-195F945BCEEB
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @example http://xxx.ab***dx.com/testMeta.json
+     *
+     * @var Stream
+     */
+    public $fileUrlObject;
+
+    /**
+     * @example vs-tyjjhgyu***xdfd
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example testBucket
+     *
      * @var string
      */
     public $ossBucketName;
 
     /**
+     * @example testPath/testName
+     *
      * @var string
      */
     public $ossDataPath;
 
     /**
+     * @example testMeta.json
+     *
      * @var string
      */
     public $ossMetaFile;
@@ -38,46 +69,39 @@ class CreateBatchTaskAdvanceRequest extends Model
      * @var string
      */
     public $roleArn;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $callbackUrl;
     protected $_name = [
-        'fileUrlObject' => 'FileUrlObject',
         'batchTaskType' => 'BatchTaskType',
+        'callbackUrl'   => 'CallbackUrl',
+        'clientToken'   => 'ClientToken',
+        'fileUrlObject' => 'FileUrl',
+        'instanceId'    => 'InstanceId',
         'ossBucketName' => 'OssBucketName',
         'ossDataPath'   => 'OssDataPath',
         'ossMetaFile'   => 'OssMetaFile',
         'roleArn'       => 'RoleArn',
-        'instanceId'    => 'InstanceId',
-        'clientToken'   => 'ClientToken',
-        'callbackUrl'   => 'CallbackUrl',
     ];
 
     public function validate()
     {
-        Model::validateRequired('fileUrlObject', $this->fileUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileUrlObject) {
-            $res['FileUrlObject'] = $this->fileUrlObject;
-        }
         if (null !== $this->batchTaskType) {
             $res['BatchTaskType'] = $this->batchTaskType;
+        }
+        if (null !== $this->callbackUrl) {
+            $res['CallbackUrl'] = $this->callbackUrl;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->fileUrlObject) {
+            $res['FileUrl'] = $this->fileUrlObject;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->ossBucketName) {
             $res['OssBucketName'] = $this->ossBucketName;
@@ -91,15 +115,6 @@ class CreateBatchTaskAdvanceRequest extends Model
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->callbackUrl) {
-            $res['CallbackUrl'] = $this->callbackUrl;
-        }
 
         return $res;
     }
@@ -112,11 +127,20 @@ class CreateBatchTaskAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileUrlObject'])) {
-            $model->fileUrlObject = $map['FileUrlObject'];
-        }
         if (isset($map['BatchTaskType'])) {
             $model->batchTaskType = $map['BatchTaskType'];
+        }
+        if (isset($map['CallbackUrl'])) {
+            $model->callbackUrl = $map['CallbackUrl'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['FileUrl'])) {
+            $model->fileUrlObject = $map['FileUrl'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['OssBucketName'])) {
             $model->ossBucketName = $map['OssBucketName'];
@@ -129,15 +153,6 @@ class CreateBatchTaskAdvanceRequest extends Model
         }
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['CallbackUrl'])) {
-            $model->callbackUrl = $map['CallbackUrl'];
         }
 
         return $model;
