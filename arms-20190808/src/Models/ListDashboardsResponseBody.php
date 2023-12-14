@@ -17,6 +17,11 @@ class ListDashboardsResponseBody extends Model
     public $dashboardVos;
 
     /**
+     * @var string
+     */
+    public $environmentId;
+
+    /**
      * @description The indicators of whether the Prometheus service has been activated.
      *
      * @example true
@@ -35,6 +40,7 @@ class ListDashboardsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'dashboardVos'            => 'DashboardVos',
+        'environmentId'           => 'EnvironmentId',
         'prometheusServiceOpened' => 'PrometheusServiceOpened',
         'requestId'               => 'RequestId',
     ];
@@ -54,6 +60,9 @@ class ListDashboardsResponseBody extends Model
                     $res['DashboardVos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->environmentId) {
+            $res['EnvironmentId'] = $this->environmentId;
         }
         if (null !== $this->prometheusServiceOpened) {
             $res['PrometheusServiceOpened'] = $this->prometheusServiceOpened;
@@ -81,6 +90,9 @@ class ListDashboardsResponseBody extends Model
                     $model->dashboardVos[$n++] = null !== $item ? dashboardVos::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['EnvironmentId'])) {
+            $model->environmentId = $map['EnvironmentId'];
         }
         if (isset($map['PrometheusServiceOpened'])) {
             $model->prometheusServiceOpened = $map['PrometheusServiceOpened'];
