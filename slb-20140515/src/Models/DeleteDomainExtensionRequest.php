@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDomainExtensionRequest extends Model
 {
     /**
-     * @description The ID of the domain name extension to be deleted.
+     * @description The ID of the additional domain name that you want to delete.
      *
      * @example de-bp1rp7ta191dv
      *
@@ -28,7 +28,7 @@ class DeleteDomainExtensionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region to which the SLB instance belongs.
+     * @description The region ID of the Server Load Balancer (SLB) instance.
      *
      * @example cn-hangzhou
      *

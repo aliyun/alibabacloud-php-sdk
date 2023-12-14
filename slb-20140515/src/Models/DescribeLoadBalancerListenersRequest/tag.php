@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description 资源的标签键。N的取值范围：**1~20**。一旦输入该值，则不允许为空字符串。
+     * @description The key of the tag. You can specify up to 20 tag keys. The tag key cannot be an empty string.
      *
-     * 最多支持64个字符，不能以`aliyun`和`acs:`开头，不能包含`http://`或者`https://`。
+     * The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
      * @example TestKey
      *
      * @var string
@@ -19,8 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description 资源的标签值。N的取值范围：**1~20**。一旦输入该值，可以为空字符串。
-     * 最多支持128个字符，不能以`aliyun`和`acs:`开头，不能包含`http://`或者`https://`。
+     * @description The tag value. Valid values of N: **1 to 20**. The tag value can be an empty string.
+     *
+     * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag value cannot contain `http://` or `https://`.
      * @example TestValue
      *
      * @var string

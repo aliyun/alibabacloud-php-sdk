@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class listener extends Model
 {
     /**
-     * @description The listening port.
+     * @description The listener port.
      *
      * @example 80
      *
@@ -18,7 +18,7 @@ class listener extends Model
     public $port;
 
     /**
-     * @description The listening protocol.
+     * @description The listener protocol.
      *
      * @example tcp
      *

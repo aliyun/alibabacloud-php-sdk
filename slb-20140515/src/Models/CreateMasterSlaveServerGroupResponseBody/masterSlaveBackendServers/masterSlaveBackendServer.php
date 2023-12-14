@@ -18,7 +18,7 @@ class masterSlaveBackendServer extends Model
     public $description;
 
     /**
-     * @description The port number used by the backend server.
+     * @description The port that is used by the backend server.
      *
      * @example 82
      *
@@ -46,10 +46,10 @@ class masterSlaveBackendServer extends Model
     public $serverType;
 
     /**
-     * @description The type of the backend server. Valid values:
+     * @description The service type of the backend server. Valid values:
      *
-     *   **ecs**: an ECS instance
-     *   **eni**: an ENI
+     *   **ecs**
+     *   **eni**
      *
      * @example ecs
      *

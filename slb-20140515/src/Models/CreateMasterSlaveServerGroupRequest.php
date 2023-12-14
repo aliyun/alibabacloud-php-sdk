@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateMasterSlaveServerGroupRequest extends Model
 {
     /**
-     * @description The ID of the Classic Load Balancer (CLB) instance.
+     * @description The ID of the SLB instance.
      *
      * @example lb-bp1hv944r69al4j******
      *
@@ -19,42 +19,44 @@ class CreateMasterSlaveServerGroupRequest extends Model
     public $loadBalancerId;
 
     /**
-     * @description The list of backend servers in the primary/secondary server group.
+     * @description The backend servers in the primary/secondary server group.
      *
      * The value of this parameter must be a STRING list in the JSON format. You can specify up to 20 elements in each request.
      *
-     *   **ServerId**: This parameter is required. Specify the ID of the backend server. This parameter must be of the STRING type.
+     *   **ServerId**: Required. Specify the ID of the backend server. The value must be of the STRING type.
      *
-     *   **Port**: This parameter is required. Specify the port that is used by the backend server. This parameter must be of the INTEGER type. Valid values: **1** to **65535**.
+     *   **Port**: Required. Specify the port that is used by the backend server. The value must be of the INTEGER type. Valid values: **1** to **65535**.
      *
-     *   **Weight**: This parameter is required. Specify the weight of the backend server. This parameter must be of the INTEGER type. Valid values: **0** to **100**.
+     *   **Weight**: Required. Specify the weight of the backend server. The value must be of the INTEGER type. Valid values: **0** to **100**.
      *
-     *   **Description**: This parameter is optional. Specify the description of the backend server. This parameter must be of the STRING type. The description must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.),and underscores (\_).
+     *   \*\*Description \*\*: Optional. The description of the backend server. The value must be of the STRING type. The description must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_).
      *
-     *   **ServerType**: Specify the type of the backend server. This parameter must be of the STRING type. Valid values:
+     *   **ServerType**: the type of the backend server. The value must be of the STRING type. Valid values:
      *
-     *   **Master**: primary server
+     *   **Master**
      *
-     * <!---->
+     *   **Slave**
      *
-     *   **Slave**: secondary server
+     *   **Type**: the service type of backend server. The value must be of the STRING type. Valid values:
      *
-     *   **Type**: Specify the type of backend server. This parameter must be of the STRING type. Valid values:
+     *   **ecs**
+     *   **eni**
      *
-     *   **ecs**: an ECS instance
-     *   **eni**: an elastic network interface (ENI)
-     *
-     *   **ServerIp**: the IP address of the ECS instance or ENI
+     *   **ServerIp**
      *
      * Examples:
      *
-     *   ECS: `[{ "ServerId": "i-xxxxxxxxx", "Weight": "100", "Type": "ecs", "Port":"82","ServerType":"Master","Description":"test-112" }, { "ServerId": "i-xxxxxxxxx", "Weight": "100", "Type": "ecs", "Port":"84","ServerType":"Slave","Description":"test-112" }]`
+     *   ECS instances:
      *
-     * <!---->
+     * `[{ "ServerId": "i-xxxxxxxxx", "Weight": "100", "Type": "ecs", "Port":"82","ServerType":"Master","Description":"test-112" }, { "ServerId": "i-xxxxxxxxx", "Weight": "100", "Type": "ecs", "Port":"84","ServerType":"Slave","Description":"test-112" }]`
      *
-     *   ENI: `[{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "Port":"80","ServerType":"Master","Description":"test-112" }, { "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.**.**", "Port":"80","ServerType":"Slave","Description":"test-112" }]`
-     *   ENI with multiple IP addresses: `[{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni","ServerIp": "192.168.**.**", "Port":"80","ServerType":"Master","Description":"test-112" }, { "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni","ServerIp": "192.168.**.**", "Port":"80","ServerType":"Slave","Description":"test-112" }]`
+     *   ENIs:
      *
+     * `[{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "Port":"80","ServerType":"Master","Description":"test-112" }, { "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.**.**", "Port":"80","ServerType":"Slave","Description":"test-112" }]`
+     *
+     *   IP addresses of ENIs:
+     *
+     * `[{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni","ServerIp": "192.168.**.**", "Port":"80","ServerType":"Master","Description":"test-112" }, { "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni","ServerIp": "192.168.**.**", "Port":"80","ServerType":"Slave","Description":"test-112" }]`
      * @example [{ "ServerId": "i-xxxxxxxxx", "Weight": "100", "Type": "ecs",  "Port":"82","ServerType":"Master","Description":"test-112" },  { "ServerId": "i-xxxxxxxxx", "Weight": "100", "Type": "ecs",  "Port":"84","ServerType":"Slave","Description":"test-112" }]
      *
      * @var string
@@ -81,7 +83,7 @@ class CreateMasterSlaveServerGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the CLB instance is deployed.
+     * @description The ID of the region where the Server Load Balancer (SLB) instance is deployed.
      *
      * @example cn-hangzhou
      *
@@ -100,6 +102,8 @@ class CreateMasterSlaveServerGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description 标签列表。
+     *
      * @var tag[]
      */
     public $tag;

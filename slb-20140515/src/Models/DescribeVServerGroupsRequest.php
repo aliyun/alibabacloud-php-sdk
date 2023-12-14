@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVServerGroupsRequest extends Model
 {
     /**
+     * @example Group3
+     *
      * @var string
      */
     public $description;

@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeMasterSlaveServerGroupsRequest extends Model
 {
     /**
+     * @description The description of the primary/secondary server group.
+     *
+     * @example test-112
+     *
      * @var string
      */
     public $description;
@@ -17,8 +21,8 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
     /**
      * @description Specifies whether to return information about the associated listeners. Valid values:
      *
-     *   **true**: returns information about the associated listeners.
-     *   **false**: does not return information about the associated listeners.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -27,7 +31,7 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
     public $includeListener;
 
     /**
-     * @description The ID of the CLB instance.
+     * @description The CLB instance ID.
      *
      * @example lb-bp14zi0n66zpg6o******
      *
@@ -46,7 +50,7 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the Classic Load Balancer (CLB) instance.
+     * @description The region ID of the CLB instance.
      *
      * @example cn-hangzhou
      *

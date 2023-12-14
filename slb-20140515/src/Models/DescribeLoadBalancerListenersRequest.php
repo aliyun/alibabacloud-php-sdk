@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerListenersRequest extends Model
 {
     /**
+     * @description The description of the listener.
+     *
+     * @example HTTPS_443
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The frontend port that is used by the CLB instance.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $listenerPort;
@@ -43,9 +51,9 @@ class DescribeLoadBalancerListenersRequest extends Model
     public $loadBalancerId;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
-     * Valid values: **1** to **100**. If you do not specify a value, the default value **20** is used.
+     * Valid values: **1** to **100**. If you do not specify this parameter, the default value **20** is used.
      * @example 50
      *
      * @var int
@@ -95,7 +103,7 @@ class DescribeLoadBalancerListenersRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description 标签列表。
+     * @description The tags.
      *
      * @var tag[]
      */

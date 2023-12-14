@@ -18,7 +18,7 @@ class masterSlaveServerGroup extends Model
     public $associatedObjects;
 
     /**
-     * @description The time when the CLB instance was created. The time follows the `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description The time when the CLB instance was created. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2022-12-02T02:49:05Z
      *
@@ -45,7 +45,7 @@ class masterSlaveServerGroup extends Model
     public $masterSlaveServerGroupName;
 
     /**
-     * @description The tag key.
+     * @description The tags to add to the resource.
      *
      * @var tags
      */

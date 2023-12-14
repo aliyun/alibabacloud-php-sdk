@@ -154,7 +154,7 @@ class listeners extends Model
     public $TCPListenerConfig;
 
     /**
-     * @description 标签列表。
+     * @description The tags.
      *
      * @var tags[]
      */

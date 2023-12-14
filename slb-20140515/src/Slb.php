@@ -1008,11 +1008,17 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->XForwardedFor)) {
             $query['XForwardedFor'] = $request->XForwardedFor;
         }
+        if (!Utils::isUnset($request->XForwardedFor_ClientSrcPort)) {
+            $query['XForwardedFor_ClientSrcPort'] = $request->XForwardedFor_ClientSrcPort;
+        }
         if (!Utils::isUnset($request->XForwardedFor_SLBID)) {
             $query['XForwardedFor_SLBID'] = $request->XForwardedFor_SLBID;
         }
         if (!Utils::isUnset($request->XForwardedFor_SLBIP)) {
             $query['XForwardedFor_SLBIP'] = $request->XForwardedFor_SLBIP;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_SLBPORT)) {
+            $query['XForwardedFor_SLBPORT'] = $request->XForwardedFor_SLBPORT;
         }
         if (!Utils::isUnset($request->XForwardedFor_proto)) {
             $query['XForwardedFor_proto'] = $request->XForwardedFor_proto;
@@ -1179,11 +1185,17 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->XForwardedFor)) {
             $query['XForwardedFor'] = $request->XForwardedFor;
         }
+        if (!Utils::isUnset($request->XForwardedFor_ClientSrcPort)) {
+            $query['XForwardedFor_ClientSrcPort'] = $request->XForwardedFor_ClientSrcPort;
+        }
         if (!Utils::isUnset($request->XForwardedFor_SLBID)) {
             $query['XForwardedFor_SLBID'] = $request->XForwardedFor_SLBID;
         }
         if (!Utils::isUnset($request->XForwardedFor_SLBIP)) {
             $query['XForwardedFor_SLBIP'] = $request->XForwardedFor_SLBIP;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_SLBPORT)) {
+            $query['XForwardedFor_SLBPORT'] = $request->XForwardedFor_SLBPORT;
         }
         if (!Utils::isUnset($request->XForwardedFor_proto)) {
             $query['XForwardedFor_proto'] = $request->XForwardedFor_proto;
@@ -2312,10 +2324,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteTLSCipherPolicyRequest $request
-     * @param RuntimeOptions               $runtime
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Slb\\&api=DeleteTLSCipherPolicy\\&type=RPC\\&version=2014-05-15).
+     *   *
+     * @param DeleteTLSCipherPolicyRequest $request DeleteTLSCipherPolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTLSCipherPolicyResponse
+     * @return DeleteTLSCipherPolicyResponse DeleteTLSCipherPolicyResponse
      */
     public function deleteTLSCipherPolicyWithOptions($request, $runtime)
     {
@@ -2358,9 +2373,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteTLSCipherPolicyRequest $request
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Slb\\&api=DeleteTLSCipherPolicy\\&type=RPC\\&version=2014-05-15).
+     *   *
+     * @param DeleteTLSCipherPolicyRequest $request DeleteTLSCipherPolicyRequest
      *
-     * @return DeleteTLSCipherPolicyResponse
+     * @return DeleteTLSCipherPolicyResponse DeleteTLSCipherPolicyResponse
      */
     public function deleteTLSCipherPolicy($request)
     {
@@ -5808,11 +5826,17 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->XForwardedFor)) {
             $query['XForwardedFor'] = $request->XForwardedFor;
         }
+        if (!Utils::isUnset($request->XForwardedFor_ClientSrcPort)) {
+            $query['XForwardedFor_ClientSrcPort'] = $request->XForwardedFor_ClientSrcPort;
+        }
         if (!Utils::isUnset($request->XForwardedFor_SLBID)) {
             $query['XForwardedFor_SLBID'] = $request->XForwardedFor_SLBID;
         }
         if (!Utils::isUnset($request->XForwardedFor_SLBIP)) {
             $query['XForwardedFor_SLBIP'] = $request->XForwardedFor_SLBIP;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_SLBPORT)) {
+            $query['XForwardedFor_SLBPORT'] = $request->XForwardedFor_SLBPORT;
         }
         if (!Utils::isUnset($request->XForwardedFor_proto)) {
             $query['XForwardedFor_proto'] = $request->XForwardedFor_proto;
@@ -5975,11 +5999,17 @@ class Slb extends OpenApiClient
         if (!Utils::isUnset($request->XForwardedFor)) {
             $query['XForwardedFor'] = $request->XForwardedFor;
         }
+        if (!Utils::isUnset($request->XForwardedFor_ClientSrcPort)) {
+            $query['XForwardedFor_ClientSrcPort'] = $request->XForwardedFor_ClientSrcPort;
+        }
         if (!Utils::isUnset($request->XForwardedFor_SLBID)) {
             $query['XForwardedFor_SLBID'] = $request->XForwardedFor_SLBID;
         }
         if (!Utils::isUnset($request->XForwardedFor_SLBIP)) {
             $query['XForwardedFor_SLBIP'] = $request->XForwardedFor_SLBIP;
+        }
+        if (!Utils::isUnset($request->XForwardedFor_SLBPORT)) {
+            $query['XForwardedFor_SLBPORT'] = $request->XForwardedFor_SLBPORT;
         }
         if (!Utils::isUnset($request->XForwardedFor_proto)) {
             $query['XForwardedFor_proto'] = $request->XForwardedFor_proto;

@@ -383,6 +383,11 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public $XForwardedFor;
 
     /**
+     * @var string
+     */
+    public $XForwardedFor_ClientSrcPort;
+
+    /**
      * @description Indicates whether the `SLB-ID` header is used to retrieve the ID of the CLB instance. Valid values:
      *
      *   **on**
@@ -407,6 +412,11 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public $XForwardedFor_SLBIP;
 
     /**
+     * @var string
+     */
+    public $XForwardedFor_SLBPORT;
+
+    /**
      * @description Indicates whether the `X-Forwarded-Proto` header is used to retrieve the listener protocol. Valid values:
      *
      *   **on**
@@ -418,44 +428,46 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
      */
     public $XForwardedFor_proto;
     protected $_name = [
-        'aclId'                  => 'AclId',
-        'aclStatus'              => 'AclStatus',
-        'aclType'                => 'AclType',
-        'backendServerPort'      => 'BackendServerPort',
-        'bandwidth'              => 'Bandwidth',
-        'cookie'                 => 'Cookie',
-        'cookieTimeout'          => 'CookieTimeout',
-        'description'            => 'Description',
-        'forwardPort'            => 'ForwardPort',
-        'gzip'                   => 'Gzip',
-        'healthCheck'            => 'HealthCheck',
-        'healthCheckConnectPort' => 'HealthCheckConnectPort',
-        'healthCheckDomain'      => 'HealthCheckDomain',
-        'healthCheckHttpCode'    => 'HealthCheckHttpCode',
-        'healthCheckInterval'    => 'HealthCheckInterval',
-        'healthCheckMethod'      => 'HealthCheckMethod',
-        'healthCheckTimeout'     => 'HealthCheckTimeout',
-        'healthCheckURI'         => 'HealthCheckURI',
-        'healthyThreshold'       => 'HealthyThreshold',
-        'idleTimeout'            => 'IdleTimeout',
-        'listenerForward'        => 'ListenerForward',
-        'listenerPort'           => 'ListenerPort',
-        'loadBalancerId'         => 'LoadBalancerId',
-        'requestId'              => 'RequestId',
-        'requestTimeout'         => 'RequestTimeout',
-        'rules'                  => 'Rules',
-        'scheduler'              => 'Scheduler',
-        'securityStatus'         => 'SecurityStatus',
-        'status'                 => 'Status',
-        'stickySession'          => 'StickySession',
-        'stickySessionType'      => 'StickySessionType',
-        'tags'                   => 'Tags',
-        'unhealthyThreshold'     => 'UnhealthyThreshold',
-        'VServerGroupId'         => 'VServerGroupId',
-        'XForwardedFor'          => 'XForwardedFor',
-        'XForwardedFor_SLBID'    => 'XForwardedFor_SLBID',
-        'XForwardedFor_SLBIP'    => 'XForwardedFor_SLBIP',
-        'XForwardedFor_proto'    => 'XForwardedFor_proto',
+        'aclId'                       => 'AclId',
+        'aclStatus'                   => 'AclStatus',
+        'aclType'                     => 'AclType',
+        'backendServerPort'           => 'BackendServerPort',
+        'bandwidth'                   => 'Bandwidth',
+        'cookie'                      => 'Cookie',
+        'cookieTimeout'               => 'CookieTimeout',
+        'description'                 => 'Description',
+        'forwardPort'                 => 'ForwardPort',
+        'gzip'                        => 'Gzip',
+        'healthCheck'                 => 'HealthCheck',
+        'healthCheckConnectPort'      => 'HealthCheckConnectPort',
+        'healthCheckDomain'           => 'HealthCheckDomain',
+        'healthCheckHttpCode'         => 'HealthCheckHttpCode',
+        'healthCheckInterval'         => 'HealthCheckInterval',
+        'healthCheckMethod'           => 'HealthCheckMethod',
+        'healthCheckTimeout'          => 'HealthCheckTimeout',
+        'healthCheckURI'              => 'HealthCheckURI',
+        'healthyThreshold'            => 'HealthyThreshold',
+        'idleTimeout'                 => 'IdleTimeout',
+        'listenerForward'             => 'ListenerForward',
+        'listenerPort'                => 'ListenerPort',
+        'loadBalancerId'              => 'LoadBalancerId',
+        'requestId'                   => 'RequestId',
+        'requestTimeout'              => 'RequestTimeout',
+        'rules'                       => 'Rules',
+        'scheduler'                   => 'Scheduler',
+        'securityStatus'              => 'SecurityStatus',
+        'status'                      => 'Status',
+        'stickySession'               => 'StickySession',
+        'stickySessionType'           => 'StickySessionType',
+        'tags'                        => 'Tags',
+        'unhealthyThreshold'          => 'UnhealthyThreshold',
+        'VServerGroupId'              => 'VServerGroupId',
+        'XForwardedFor'               => 'XForwardedFor',
+        'XForwardedFor_ClientSrcPort' => 'XForwardedFor_ClientSrcPort',
+        'XForwardedFor_SLBID'         => 'XForwardedFor_SLBID',
+        'XForwardedFor_SLBIP'         => 'XForwardedFor_SLBIP',
+        'XForwardedFor_SLBPORT'       => 'XForwardedFor_SLBPORT',
+        'XForwardedFor_proto'         => 'XForwardedFor_proto',
     ];
 
     public function validate()
@@ -570,11 +582,17 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
         if (null !== $this->XForwardedFor) {
             $res['XForwardedFor'] = $this->XForwardedFor;
         }
+        if (null !== $this->XForwardedFor_ClientSrcPort) {
+            $res['XForwardedFor_ClientSrcPort'] = $this->XForwardedFor_ClientSrcPort;
+        }
         if (null !== $this->XForwardedFor_SLBID) {
             $res['XForwardedFor_SLBID'] = $this->XForwardedFor_SLBID;
         }
         if (null !== $this->XForwardedFor_SLBIP) {
             $res['XForwardedFor_SLBIP'] = $this->XForwardedFor_SLBIP;
+        }
+        if (null !== $this->XForwardedFor_SLBPORT) {
+            $res['XForwardedFor_SLBPORT'] = $this->XForwardedFor_SLBPORT;
         }
         if (null !== $this->XForwardedFor_proto) {
             $res['XForwardedFor_proto'] = $this->XForwardedFor_proto;
@@ -696,11 +714,17 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
         if (isset($map['XForwardedFor'])) {
             $model->XForwardedFor = $map['XForwardedFor'];
         }
+        if (isset($map['XForwardedFor_ClientSrcPort'])) {
+            $model->XForwardedFor_ClientSrcPort = $map['XForwardedFor_ClientSrcPort'];
+        }
         if (isset($map['XForwardedFor_SLBID'])) {
             $model->XForwardedFor_SLBID = $map['XForwardedFor_SLBID'];
         }
         if (isset($map['XForwardedFor_SLBIP'])) {
             $model->XForwardedFor_SLBIP = $map['XForwardedFor_SLBIP'];
+        }
+        if (isset($map['XForwardedFor_SLBPORT'])) {
+            $model->XForwardedFor_SLBPORT = $map['XForwardedFor_SLBPORT'];
         }
         if (isset($map['XForwardedFor_proto'])) {
             $model->XForwardedFor_proto = $map['XForwardedFor_proto'];

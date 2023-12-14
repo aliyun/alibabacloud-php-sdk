@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetLoadBalancerNameRequest extends Model
 {
     /**
+     * @description The ID of the CLB instance.
+     *
      * @example lb-bp1b6c719dfa08e******
      *
      * @var string
@@ -16,6 +18,9 @@ class SetLoadBalancerNameRequest extends Model
     public $loadBalancerId;
 
     /**
+     * @description The new name of the CLB instance.
+     *
+     * The name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
      * @example test1
      *
      * @var string
