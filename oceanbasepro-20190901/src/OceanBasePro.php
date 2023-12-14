@@ -189,6 +189,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceSpecRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceSpecResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceTagsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceTagsResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceTemporaryCapacityRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceTemporaryCapacityResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyParametersRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyParametersResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifySecurityIpsRequest;
@@ -5315,6 +5317,55 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyInstanceTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyInstanceTemporaryCapacityRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyInstanceTemporaryCapacityResponse
+     */
+    public function modifyInstanceTemporaryCapacityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->diskSize)) {
+            $body['DiskSize'] = $request->diskSize;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $body['Spec'] = $request->spec;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceTemporaryCapacity',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceTemporaryCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstanceTemporaryCapacityRequest $request
+     *
+     * @return ModifyInstanceTemporaryCapacityResponse
+     */
+    public function modifyInstanceTemporaryCapacity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceTemporaryCapacityWithOptions($request, $runtime);
     }
 
     /**

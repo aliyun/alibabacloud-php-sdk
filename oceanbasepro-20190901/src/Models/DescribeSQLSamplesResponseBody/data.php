@@ -148,7 +148,7 @@ class data extends Model
      *
      * @example 0.0
      *
-     * @var float
+     * @var bool
      */
     public $executorRpc;
 
@@ -180,7 +180,7 @@ class data extends Model
      *
      * @example true
      *
-     * @var float
+     * @var bool
      */
     public $hitPlan;
 
@@ -396,7 +396,7 @@ class data extends Model
      *
      * @example false
      *
-     * @var float
+     * @var bool
      */
     public $tableScan;
 
