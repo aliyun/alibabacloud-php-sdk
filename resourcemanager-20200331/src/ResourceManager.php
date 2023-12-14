@@ -111,6 +111,7 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAccountsRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAccountsResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAncestorsRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAncestorsResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAssociatedTransferSettingResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListControlPoliciesRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListControlPoliciesResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListControlPolicyAttachmentsForTargetRequest;
@@ -177,6 +178,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAccountResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAssociatedTransferSettingRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAssociatedTransferSettingResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateControlPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateFolderRequest;
@@ -1067,6 +1070,9 @@ class ResourceManager extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2928,6 +2934,39 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAssociatedTransferSettingResponse
+     */
+    public function listAssociatedTransferSettingWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListAssociatedTransferSetting',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAssociatedTransferSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListAssociatedTransferSettingResponse
+     */
+    public function listAssociatedTransferSetting()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAssociatedTransferSettingWithOptions($runtime);
+    }
+
+    /**
      * This topic provides an example on how to call the API operation to query the system access control policies within a resource directory. The response shows that the resource directory has only one system access control policy. The policy is named `FullAliyunAccess`.
      *   *
      * @param ListControlPoliciesRequest $request ListControlPoliciesRequest
@@ -4669,6 +4708,49 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAssociatedTransferSettingRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateAssociatedTransferSettingResponse
+     */
+    public function updateAssociatedTransferSettingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ruleSettings)) {
+            $query['RuleSettings'] = $request->ruleSettings;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAssociatedTransferSetting',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAssociatedTransferSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAssociatedTransferSettingRequest $request
+     *
+     * @return UpdateAssociatedTransferSettingResponse
+     */
+    public function updateAssociatedTransferSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAssociatedTransferSettingWithOptions($request, $runtime);
     }
 
     /**
