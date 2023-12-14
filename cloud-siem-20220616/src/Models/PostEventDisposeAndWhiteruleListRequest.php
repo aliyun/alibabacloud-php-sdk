@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PostEventDisposeAndWhiteruleListRequest extends Model
 {
     /**
+     * @description The configuration of event handling. The value is a JSON object.
+     *
      * @example [
      * "scope": [
      * "176618589410****"
@@ -22,6 +24,8 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
     public $eventDispose;
 
     /**
+     * @description The UUID of the event.
+     *
      * @example 85ea4241-798f-4684-a876-65d4f0c3****
      *
      * @var string
@@ -29,6 +33,8 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
     public $incidentUuid;
 
     /**
+     * @description The configuration of the alert recipient. The value is a JSON object.
+     *
      * @example {
      * }
      * @var string
@@ -36,6 +42,11 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
     public $receiverInfo;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +54,8 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
     public $regionId;
 
     /**
+     * @description The remarks of the event.
+     *
      * @example dealed
      *
      * @var string
@@ -50,6 +63,13 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
     public $remark;
 
     /**
+     * @description The status of the event. Valid values:
+     *
+     *   0: unhandled
+     *   1: handing
+     *   5: handling failed
+     *   10: handled
+     *
      * @example 0
      *
      * @var int

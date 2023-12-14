@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class responseData extends Model
 {
     /**
+     * @description The configuration of the action that is performed after the rule is hit. The value is in JSON format.
+     *
      * @example [
      * ]
      * @var string
@@ -16,6 +18,12 @@ class responseData extends Model
     public $actionConfig;
 
     /**
+     * @description The type of the handling action. Multiple types are separated by commas (,). Valid values:
+     *
+     *   doPlaybook: runs a playbook.
+     *   changeEventStatus: changes the status of an event.
+     *   changeThreatLevel: changes the risk level of an event.
+     *
      * @example doPlaybook,changeEventStatus
      *
      * @var string
@@ -23,6 +31,8 @@ class responseData extends Model
     public $actionType;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is associated with the rule in SIEM.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -30,6 +40,11 @@ class responseData extends Model
     public $aliuid;
 
     /**
+     * @description The type of the automated response rule. Valid values:
+     *
+     *   event
+     *   alert
+     *
      * @example event
      *
      * @var string
@@ -37,6 +52,8 @@ class responseData extends Model
     public $autoResponseType;
 
     /**
+     * @description The trigger condition of the rule. The value is in the JSON format.
+     *
      * @example [{"left":{"value":"alert_name"},"operator":"containsString","right":{"value":"webshell_online"}}]
      *
      * @var string
@@ -44,6 +61,8 @@ class responseData extends Model
     public $executionCondition;
 
     /**
+     * @description The creation time.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -51,6 +70,8 @@ class responseData extends Model
     public $gmtCreate;
 
     /**
+     * @description The update time.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -58,6 +79,8 @@ class responseData extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the automated response rule.
+     *
      * @example 123
      *
      * @var int
@@ -65,6 +88,8 @@ class responseData extends Model
     public $id;
 
     /**
+     * @description The name of the automated response rule.
+     *
      * @example cfw kill quara book
      *
      * @var string
@@ -72,6 +97,11 @@ class responseData extends Model
     public $ruleName;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     *   0: disabled
+     *   100: enabled
+     *
      * @example 0
      *
      * @var int
@@ -79,6 +109,8 @@ class responseData extends Model
     public $status;
 
     /**
+     * @description The ID of the user who created the rule.
+     *
      * @example 17108579417****
      *
      * @var int

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The data type of the condition field in the automated response rule.
+     *
      * @example varchar
      *
      * @var string
@@ -18,6 +20,8 @@ class data extends Model
     public $dataType;
 
     /**
+     * @description The name of the condition field in the automated response rule.
+     *
      * @example alert_desc
      *
      * @var string
@@ -25,11 +29,15 @@ class data extends Model
     public $feature;
 
     /**
+     * @description The enumerated values of the right operand for the field.
+     *
      * @var rightValueEnums[]
      */
     public $rightValueEnums;
 
     /**
+     * @description The operators that are supported for the condition field.
+     *
      * @var supportOperators[]
      */
     public $supportOperators;

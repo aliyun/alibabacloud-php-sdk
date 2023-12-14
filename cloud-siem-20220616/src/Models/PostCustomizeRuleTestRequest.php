@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PostCustomizeRuleTestRequest extends Model
 {
     /**
+     * @description The ID of the rule.
+     *
      * @example 123456789
      *
      * @var int
@@ -16,6 +18,11 @@ class PostCustomizeRuleTestRequest extends Model
     public $id;
 
     /**
+     * @description The data management center of the threat analysis feature. Specify this parameter based on the region in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions inside China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +30,8 @@ class PostCustomizeRuleTestRequest extends Model
     public $regionId;
 
     /**
+     * @description The simulation data for the testing. This parameter is available only when TestType is set to simulate.
+     *
      * @example [{"key1":"value1","key2":"value2","key3":"value3","key4":"value4","key5":"value5"}]
      *
      * @var string
@@ -30,6 +39,11 @@ class PostCustomizeRuleTestRequest extends Model
     public $simulatedData;
 
     /**
+     * @description The testing type. Valid values:
+     *
+     *   simulate: simulation data test
+     *   business: business data test
+     *
      * @example simulate
      *
      * @var string

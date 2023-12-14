@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class assetInfo extends Model
 {
     /**
+     * @description The attribute key.
+     *
      * @example suspicious.wbd.wb.trojanpath
      *
      * @var string
@@ -16,6 +18,8 @@ class assetInfo extends Model
     public $key;
 
     /**
+     * @description The name of the key.
+     *
      * @example Trojan Path
      *
      * @var string
@@ -23,6 +27,8 @@ class assetInfo extends Model
     public $keyName;
 
     /**
+     * @description The value of the key.
+     *
      * @example /root/test33.php
      *
      * @var string

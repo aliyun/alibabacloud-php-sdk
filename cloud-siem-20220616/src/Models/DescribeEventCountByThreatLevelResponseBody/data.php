@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The total number of events.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $eventNum;
 
     /**
+     * @description The number of high-risk events.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $highLevelEventNum;
 
     /**
+     * @description The number of low-risk events.
+     *
      * @example 52
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $lowLevelEventNum;
 
     /**
+     * @description The number of medium-risk events.
+     *
      * @example 3
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $mediumLevelEventNum;
 
     /**
+     * @description The number of unhandled events.
+     *
      * @example 75
      *
      * @var int

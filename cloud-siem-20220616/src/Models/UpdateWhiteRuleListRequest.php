@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateWhiteRuleListRequest extends Model
 {
     /**
+     * @description The alert whitelist rule. The value is a JSON object.
+     *
      * @example [
      * ]
      * @var string
@@ -16,6 +18,8 @@ class UpdateWhiteRuleListRequest extends Model
     public $expression;
 
     /**
+     * @description The UUID of the event.
+     *
      * @example 85ea4241-798f-4684-a876-65d4f0c3****
      *
      * @var string
@@ -23,6 +27,11 @@ class UpdateWhiteRuleListRequest extends Model
     public $incidentUuid;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +39,8 @@ class UpdateWhiteRuleListRequest extends Model
     public $regionId;
 
     /**
+     * @description The unique ID of the whitelist rule.
+     *
      * @example 123456789
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCloudSiemCustomizeRulesRequest extends Model
 {
     /**
+     * @description The alert type.
+     *
      * @example scan
      *
      * @var string
@@ -16,6 +18,8 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $alertType;
 
     /**
+     * @description The page number. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $currentPage;
 
     /**
+     * @description The end of the time range to query. Unit: milliseconds.
+     *
      * @example 1577808000000
      *
      * @var int
@@ -30,6 +36,8 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the custom rule.
+     *
      * @example 10223
      *
      * @var string
@@ -37,6 +45,8 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $id;
 
     /**
+     * @description The number of entries per page. The value can be up to 100.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +54,11 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +66,8 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the rule. The name can contain letters, digits, underscores (\_), and periods (.).
+     *
      * @example waf_scan
      *
      * @var string
@@ -58,6 +75,11 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $ruleName;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   predefine
+     *   customize
+     *
      * @example customize
      *
      * @var string
@@ -65,6 +87,8 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $ruleType;
 
     /**
+     * @description The beginning of the time range to query. Unit: milliseconds.
+     *
      * @example 1577808000000
      *
      * @var int
@@ -72,6 +96,14 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $startTime;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     *   0: The rule is in the initial state.
+     *   10: The simulation data is tested.
+     *   15: The business data is being tested.
+     *   20: The business data test ends.
+     *   100: The rule takes effect.
+     *
      * @example 0
      *
      * @var int
@@ -79,6 +111,12 @@ class ListCloudSiemCustomizeRulesRequest extends Model
     public $status;
 
     /**
+     * @description The risk level. The value is a JSON array. Valid values:
+     *
+     *   serious: high
+     *   suspicious: medium
+     *   remind: low
+     *
      * @example ["serious","suspicious","remind"]
      *
      * @var string[]

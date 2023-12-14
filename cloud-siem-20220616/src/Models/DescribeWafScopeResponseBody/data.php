@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account in SIEM.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $aliuid;
 
     /**
+     * @description The domain names that are protected by the WAF instance.
+     *
      * @example [123.com, 456.com]
      *
      * @var string[]
@@ -23,6 +27,8 @@ class data extends Model
     public $domains;
 
     /**
+     * @description The ID of the WAF instance.
+     *
      * @example waf-cn-tl123ast****
      *
      * @var string

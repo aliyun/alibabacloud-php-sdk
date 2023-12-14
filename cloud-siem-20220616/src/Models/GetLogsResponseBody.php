@@ -21,6 +21,8 @@ class GetLogsResponseBody extends Model
     /**
      * @description The results of the log query.
      *
+     * @example 123456
+     *
      * @var data
      */
     public $data;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDisposeStrategyPlaybookRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Unit: milliseconds.
+     *
      * @example 1577808000000
      *
      * @var int
@@ -16,6 +18,11 @@ class DescribeDisposeStrategyPlaybookRequest extends Model
     public $endTime;
 
     /**
+     * @description The data management center of the threat analysis feature. Specify this parameter based on the region in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions inside China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeDisposeStrategyPlaybookRequest extends Model
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query. Unit: milliseconds.
+     *
      * @example 1577808000000
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAttackTimeLineRequest extends Model
 {
     /**
+     * @description The name of the asset.
+     *
      * @example zsw-agentless-centos****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAttackTimeLineRequest extends Model
     public $assetName;
 
     /**
+     * @description The end of the time range to query. Unit: milliseconds.
+     *
      * @example 1577808000000
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeAttackTimeLineRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the event.
+     *
      * @example 85ea4241-798f-4684-a876-65d4f0c3****
      *
      * @var string
@@ -30,6 +36,11 @@ class DescribeAttackTimeLineRequest extends Model
     public $incidentUuid;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +48,8 @@ class DescribeAttackTimeLineRequest extends Model
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query. Unit: milliseconds.
+     *
      * @example 1577803000000
      *
      * @var int

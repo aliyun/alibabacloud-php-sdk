@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The aggregate function.
+     *
      * @example count
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $function;
 
     /**
+     * @description The display name of the aggregate function.
+     *
      * @example Count
      *
      * @var string

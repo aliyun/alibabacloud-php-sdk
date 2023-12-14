@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudSiemEventsRequest extends Model
 {
     /**
+     * @description The ID of the asset that is associated with the event.
+     *
      * @example 6c740667-80b2-476d-8924-2e706feb****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeCloudSiemEventsRequest extends Model
     public $assetId;
 
     /**
+     * @description The page number. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeCloudSiemEventsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The end of the time range to query. Unit: milliseconds.
+     *
      * @example 1577808000000
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeCloudSiemEventsRequest extends Model
     public $endTime;
 
     /**
+     * @description The name of the event.
+     *
      * @example ECS unusual log in
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeCloudSiemEventsRequest extends Model
     public $eventName;
 
     /**
+     * @description The ID of the event.
+     *
      * @example 85ea4241-798f-4684-a876-65d4f0c3****
      *
      * @var string
@@ -44,6 +54,11 @@ class DescribeCloudSiemEventsRequest extends Model
     public $incidentUuid;
 
     /**
+     * @description The sort order. Valid values:
+     *
+     *   desc: descending order
+     *   asc: ascending order
+     *
      * @example desc
      *
      * @var string
@@ -51,6 +66,11 @@ class DescribeCloudSiemEventsRequest extends Model
     public $order;
 
     /**
+     * @description The sort field. Valid values:
+     *
+     *   GmtModified: sorts the events by creation time. This is the default value.
+     *   ThreatScore: sorts the events by risk score.
+     *
      * @example ThreatScore
      *
      * @var string
@@ -58,6 +78,8 @@ class DescribeCloudSiemEventsRequest extends Model
     public $orderField;
 
     /**
+     * @description The number of entries per page. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -65,6 +87,11 @@ class DescribeCloudSiemEventsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -72,6 +99,8 @@ class DescribeCloudSiemEventsRequest extends Model
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query. Unit: milliseconds.
+     *
      * @example 1577808000000
      *
      * @var int
@@ -79,6 +108,13 @@ class DescribeCloudSiemEventsRequest extends Model
     public $startTime;
 
     /**
+     * @description The status of the event. Valid values:
+     *
+     *   0: unhandled
+     *   1: handling
+     *   5: handling failed
+     *   10: handled
+     *
      * @example 0
      *
      * @var int
@@ -86,6 +122,12 @@ class DescribeCloudSiemEventsRequest extends Model
     public $status;
 
     /**
+     * @description The risk levels of the events. The value is a JSON array. Valid values:
+     *
+     *   serious: high
+     *   suspicious: medium
+     *   remind: low
+     *
      * @example ["serious","suspicious","remind"]
      *
      * @var string[]

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of assets.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,15 @@ class data extends Model
     public $assetNum;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   ip
+     *   domain
+     *   url
+     *   process
+     *   file
+     *   host
+     *
      * @example domain
      *
      * @var string

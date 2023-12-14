@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of alerts that are generated in the query time range.
+     *
      * @example 125
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $count;
 
     /**
+     * @description The start of the time range for querying alerts. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1599897188
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $from;
 
     /**
+     * @description The end of the time range for querying alerts. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1599997188
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAutomateResponseConfigRequest extends Model
 {
     /**
+     * @description The ID of the rule.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,11 @@ class DeleteAutomateResponseConfigRequest extends Model
     public $id;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

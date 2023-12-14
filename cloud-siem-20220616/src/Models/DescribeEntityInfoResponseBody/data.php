@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The logical ID of the entity.
+     *
      * @example 12345
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $entityId;
 
     /**
+     * @description The information about the entry.
+     *
      * @example { location: "xian", net_connect_dir: "in", malware_type: "${aliyun.siem.sas.alert_tag.login_unusual_account}" }
      *
      * @var mixed[]
@@ -23,6 +27,15 @@ class data extends Model
     public $entityInfo;
 
     /**
+     * @description The type of the entity. Valid values:
+     *
+     *   ip
+     *   domain
+     *   url
+     *   process
+     *   file
+     *   host
+     *
      * @example ip
      *
      * @var string
@@ -30,6 +43,8 @@ class data extends Model
     public $entityType;
 
     /**
+     * @description The information about the risk Intelligence.
+     *
      * @example {
      * }
      * @var mixed[]

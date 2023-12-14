@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDisposeAndPlaybookRequest extends Model
 {
     /**
+     * @description The page number. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,12 @@ class DescribeDisposeAndPlaybookRequest extends Model
     public $currentPage;
 
     /**
+     * @description The entity type. Valid values:
+     *
+     *   ip: IP address
+     *   process: process
+     *   file: file
+     *
      * @example ip
      *
      * @var string
@@ -23,6 +31,8 @@ class DescribeDisposeAndPlaybookRequest extends Model
     public $entityType;
 
     /**
+     * @description The UUID of the event.
+     *
      * @example 85ea4241-798f-4684-a876-65d4f0c3****
      *
      * @var string
@@ -30,6 +40,8 @@ class DescribeDisposeAndPlaybookRequest extends Model
     public $incidentUuid;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +49,11 @@ class DescribeDisposeAndPlaybookRequest extends Model
     public $pageSize;
 
     /**
+     * @description The data management center of the threat analysis feature. Specify this parameter based on the region in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions inside China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

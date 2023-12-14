@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The playbook name, which is the unique identifier of the playbook.
+     *
      * @example WafBlockIP
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $playbookName;
 
     /**
+     * @description The UUID of the playbook.
+     *
      * @example system_aliyun_clb_process_book
      *
      * @var string

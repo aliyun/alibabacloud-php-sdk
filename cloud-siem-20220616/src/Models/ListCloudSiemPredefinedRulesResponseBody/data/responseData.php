@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class responseData extends Model
 {
     /**
+     * @description The type of the risk.
+     *
      * @example WEBSHELL
      *
      * @var string
@@ -16,6 +18,8 @@ class responseData extends Model
     public $alertType;
 
     /**
+     * @description The time when the rule was created.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -23,6 +27,8 @@ class responseData extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the rule was modified.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -30,6 +36,8 @@ class responseData extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the predefined rule.
+     *
      * @example 123456789
      *
      * @var int
@@ -37,6 +45,8 @@ class responseData extends Model
     public $id;
 
     /**
+     * @description The internal code of the rule description.
+     *
      * @example ${siem_rule_description_siem_cfw-attack-count-level-up_cfw-attack}
      *
      * @var string
@@ -44,6 +54,8 @@ class responseData extends Model
     public $ruleDescMds;
 
     /**
+     * @description The name of the rule.
+     *
      * @example siem_base64-command-exec_aegis-proc
      *
      * @var string
@@ -51,6 +63,8 @@ class responseData extends Model
     public $ruleName;
 
     /**
+     * @description The internal code of the rule name.
+     *
      * @example ${siem_rule_name_siem_cfw-attack-count-level-up_cfw-attack}
      *
      * @var string
@@ -58,6 +72,8 @@ class responseData extends Model
     public $ruleNameMds;
 
     /**
+     * @description The log source of the rule.
+     *
      * @example cloud_siem_aegis_proc
      *
      * @var string
@@ -65,6 +81,11 @@ class responseData extends Model
     public $source;
 
     /**
+     * @description The status of the predefined rule. Valid values:
+     *
+     *   0: The rule is in the initial state.
+     *   100: The rule takes effect.
+     *
      * @example 0
      *
      * @var int
@@ -72,6 +93,12 @@ class responseData extends Model
     public $status;
 
     /**
+     * @description The threat level. Valid values:
+     *
+     *   serious: high
+     *   suspicious: medium
+     *   remind: low
+     *
      * @example remind
      *
      * @var string

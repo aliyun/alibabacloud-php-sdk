@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomizeRuleRequest extends Model
 {
     /**
+     * @description The region in which the service is deployed.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteCustomizeRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 123456789
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of rules that are used to identify high-risk threats.
+     *
      * @example 12
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $highRuleNum;
 
     /**
+     * @description The total number of rules.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $inUseRuleNum;
 
     /**
+     * @description The number of rules that are used to identify low-risk threats.
+     *
      * @example 3
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $lowRuleNum;
 
     /**
+     * @description The number of rules that are used to identify medium-risk threats.
+     *
      * @example 5
      *
      * @var int

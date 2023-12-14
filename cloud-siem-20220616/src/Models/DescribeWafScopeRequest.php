@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeWafScopeRequest extends Model
 {
     /**
+     * @description The ID of the entity.
+     *
      * @example 20617784
      *
      * @var int
@@ -16,6 +18,11 @@ class DescribeWafScopeRequest extends Model
     public $entityId;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

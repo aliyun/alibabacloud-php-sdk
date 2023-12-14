@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The total number of rules.
+     *
      * @example 20
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $all;
 
     /**
+     * @description The number of enabled rules.
+     *
      * @example 10
      *
      * @var int

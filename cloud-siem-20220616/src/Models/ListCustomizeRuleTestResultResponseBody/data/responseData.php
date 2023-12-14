@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class responseData extends Model
 {
     /**
+     * @description The description of the alert.
+     *
      * @example The account you logged in this time is not in the legal account category defined by you. Please confirm the legality of the login behavior。
      *
      * @var string
@@ -16,6 +18,8 @@ class responseData extends Model
     public $alertDesc;
 
     /**
+     * @description The alert details in the JSON format.
+     *
      * @example {"main_user_id": "1652956297921019";"log_uuid_count": "99";"attack_ip": "218.92.0.97"}
      *
      * @var string
@@ -23,6 +27,8 @@ class responseData extends Model
     public $alertDetail;
 
     /**
+     * @description The source of the alert.
+     *
      * @example sas
      *
      * @var string
@@ -30,6 +36,8 @@ class responseData extends Model
     public $alertSrcProd;
 
     /**
+     * @description The sub-module of the source.
+     *
      * @example waf
      *
      * @var string
@@ -37,6 +45,8 @@ class responseData extends Model
     public $alertSrcProdModule;
 
     /**
+     * @description The tag of the ATT\&CK attack.
+     *
      * @example T1595.002 Vulnerability Scanning
      *
      * @var string
@@ -44,6 +54,8 @@ class responseData extends Model
     public $attCk;
 
     /**
+     * @description The name of the alert, which corresponds to the name of the custom rule.
+     *
      * @example waf_scan
      *
      * @var string
@@ -51,6 +63,8 @@ class responseData extends Model
     public $eventName;
 
     /**
+     * @description The risk type, which indicates the alert type.
+     *
      * @example WEBSHELL
      *
      * @var string
@@ -58,6 +72,12 @@ class responseData extends Model
     public $eventType;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   serious: high
+     *   suspicious: medium
+     *   remind: low
+     *
      * @example remind
      *
      * @var string
@@ -65,6 +85,8 @@ class responseData extends Model
     public $level;
 
     /**
+     * @description The log source of the rule.
+     *
      * @example cloud_siem_aegis_sas_alert
      *
      * @var string
@@ -72,6 +94,8 @@ class responseData extends Model
     public $logSource;
 
     /**
+     * @description The time when the alert was recorded.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -79,6 +103,8 @@ class responseData extends Model
     public $logTime;
 
     /**
+     * @description The log type of the rule.
+     *
      * @example ALERT_ACTIVITY
      *
      * @var string
@@ -86,6 +112,8 @@ class responseData extends Model
     public $logType;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is associated with the alert in SIEM.
+     *
      * @example 127608589417****
      *
      * @var string
@@ -93,6 +121,11 @@ class responseData extends Model
     public $mainUserId;
 
     /**
+     * @description The status of the alert data. Valid values:
+     *
+     *   test: business test data
+     *   online: online data
+     *
      * @example test
      *
      * @var string
@@ -100,6 +133,8 @@ class responseData extends Model
     public $onlineStatus;
 
     /**
+     * @description The ID of the Alibaba Cloud account within which the alert is generated.
+     *
      * @example 176555323***
      *
      * @var string
@@ -107,6 +142,8 @@ class responseData extends Model
     public $subUserId;
 
     /**
+     * @description The UUID of the alert.
+     *
      * @example sas_71e24437d2797ce8fc59692905a4****
      *
      * @var string

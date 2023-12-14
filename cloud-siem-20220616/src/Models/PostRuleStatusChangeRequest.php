@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PostRuleStatusChangeRequest extends Model
 {
     /**
+     * @description The rule IDs. The value is a JSON array.
+     *
      * @example [123,345]
      *
      * @var string
@@ -16,6 +18,11 @@ class PostRuleStatusChangeRequest extends Model
     public $ids;
 
     /**
+     * @description Specifies whether to enable the rule. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,11 @@ class PostRuleStatusChangeRequest extends Model
     public $inUse;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +42,11 @@ class PostRuleStatusChangeRequest extends Model
     public $regionId;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   predefine
+     *   customize
+     *
      * @example customize
      *
      * @var string

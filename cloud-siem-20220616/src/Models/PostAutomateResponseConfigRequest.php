@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PostAutomateResponseConfigRequest extends Model
 {
     /**
+     * @description The configuration of the action that is performed after the rule is hit. The value is in JSON format.
+     *
      * @example [
      * ]
      * @var string
@@ -16,6 +18,12 @@ class PostAutomateResponseConfigRequest extends Model
     public $actionConfig;
 
     /**
+     * @description The action that is performed after the rule is hit. Separate multiple values with commas (,). Valid values:
+     *
+     *   doPlaybook: Execute a playbook.
+     *   changeEventStatus: Change the event status.
+     *   changeThreatLevel: Change the threat level of the event.
+     *
      * @example doPlaybook,changeEventStatus
      *
      * @var string
@@ -23,6 +31,11 @@ class PostAutomateResponseConfigRequest extends Model
     public $actionType;
 
     /**
+     * @description The rule type. Valid values:
+     *
+     *   event
+     *   alert
+     *
      * @example event
      *
      * @var string
@@ -30,6 +43,8 @@ class PostAutomateResponseConfigRequest extends Model
     public $autoResponseType;
 
     /**
+     * @description The trigger condition of the rule. The value is in JSON format.
+     *
      * @example [{"left":{"value":"alert_name"},"operator":"containsString","right":{"value":"webshell_online"}}]
      *
      * @var string
@@ -37,6 +52,8 @@ class PostAutomateResponseConfigRequest extends Model
     public $executionCondition;
 
     /**
+     * @description The rule ID.
+     *
      * @example 123
      *
      * @var int
@@ -44,6 +61,11 @@ class PostAutomateResponseConfigRequest extends Model
     public $id;
 
     /**
+     * @description The data management center of the threat analysis feature. Specify this parameter based on the region in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions inside China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +73,8 @@ class PostAutomateResponseConfigRequest extends Model
     public $regionId;
 
     /**
+     * @description The rule name.
+     *
      * @example cfw kill quara book
      *
      * @var string
@@ -58,6 +82,8 @@ class PostAutomateResponseConfigRequest extends Model
     public $ruleName;
 
     /**
+     * @description The ID of the user who created the rule.
+     *
      * @example 17108579417****
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of alerts that are associated with the event.
+     *
      * @example 4
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $alertNum;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the event belongs.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $aliuid;
 
     /**
+     * @description The number of assets that are associated with the event.
+     *
      * @example 4
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $assetNum;
 
     /**
+     * @description The tags of the ATT\&CK attacks.
+     *
      * @example ["T1595.002 Vulnerability Scanning"]
      *
      * @var string[]
@@ -37,6 +45,8 @@ class data extends Model
     public $attCkLabels;
 
     /**
+     * @description The source of the alert.
+     *
      * @example [sas,waf]
      *
      * @var string[]
@@ -44,6 +54,8 @@ class data extends Model
     public $dataSources;
 
     /**
+     * @description The description of the event.
+     *
      * @example The threat event contains 13 Miner Network,1 Execute suspicious encoded commands on Linux, etc
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $description;
 
     /**
+     * @description The description of the event in English.
+     *
      * @example The threat event contains 13 Miner Network,1 Execute suspicious encoded commands on Linux, etc
      *
      * @var string
@@ -58,6 +72,8 @@ class data extends Model
     public $descriptionEn;
 
     /**
+     * @description The extended information of the event in the JSON format.
+     *
      * @example {"event_transfer_type":"customize_rule"}
      *
      * @var string
@@ -65,6 +81,8 @@ class data extends Model
     public $extContent;
 
     /**
+     * @description The time when the event occurred.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -72,6 +90,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the event was last updated.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -79,6 +99,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The name of the event.
+     *
      * @example Multiple type of alerts, including Miner Network, Command line download and run malicious files, Backdoor Process, etc
      *
      * @var string
@@ -86,6 +108,8 @@ class data extends Model
     public $incidentName;
 
     /**
+     * @description The name of the event in English.
+     *
      * @example Multiple type of alerts, including Miner Network, Command line download and run malicious files, Backdoor Process, etc
      *
      * @var string
@@ -93,6 +117,8 @@ class data extends Model
     public $incidentNameEn;
 
     /**
+     * @description The UUID of the event.
+     *
      * @example 85ea4241-798f-4684-a876-65d4f0c3****
      *
      * @var string
@@ -100,6 +126,8 @@ class data extends Model
     public $incidentUuid;
 
     /**
+     * @description The remarks of the event.
+     *
      * @example dealed
      *
      * @var string
@@ -107,6 +135,13 @@ class data extends Model
     public $remark;
 
     /**
+     * @description The status of the event. Valid values:
+     *
+     *   0: not handled
+     *   1: handing
+     *   5: handling failed
+     *   10: handled
+     *
      * @example 0
      *
      * @var int
@@ -114,6 +149,12 @@ class data extends Model
     public $status;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   serious: high
+     *   suspicious: medium
+     *   remind: low
+     *
      * @example remind
      *
      * @var string
@@ -121,6 +162,8 @@ class data extends Model
     public $threatLevel;
 
     /**
+     * @description The risk score of the event. The score ranges from 0 to 100. A higher score indicates a higher risk level.
+     *
      * @example 90.2
      *
      * @var float

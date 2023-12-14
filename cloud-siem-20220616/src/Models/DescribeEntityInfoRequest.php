@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEntityInfoRequest extends Model
 {
     /**
+     * @description The logical ID of the entity.
+     *
      * @example 12345
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeEntityInfoRequest extends Model
     public $entityId;
 
     /**
+     * @description The feature value of the entity. Fuzzy match is supported.
+     *
      * @example test22.php
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeEntityInfoRequest extends Model
     public $entityIdentity;
 
     /**
+     * @description The UUID of the event.
+     *
      * @example 85ea4241-798f-4684-a876-65d4f0c3****
      *
      * @var string
@@ -30,6 +36,11 @@ class DescribeEntityInfoRequest extends Model
     public $incidentUuid;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +48,8 @@ class DescribeEntityInfoRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the SOAR handling policy.
+     *
      * @example 577bbf90-a770-44a7-8154-586aa2d318fa
      *
      * @var string

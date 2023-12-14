@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class playbookList extends Model
 {
     /**
+     * @description The playbook description.
+     *
      * @example WafBlockIP
      *
      * @var string
@@ -16,6 +18,8 @@ class playbookList extends Model
     public $description;
 
     /**
+     * @description The display name of the playbook.
+     *
      * @example WafBlockIP
      *
      * @var string
@@ -23,6 +27,8 @@ class playbookList extends Model
     public $displayName;
 
     /**
+     * @description The playbook name, which is the unique identifier of the playbook.
+     *
      * @example kill_process_isolate_file
      *
      * @var string
@@ -30,6 +36,8 @@ class playbookList extends Model
     public $name;
 
     /**
+     * @description The opcode of the playbook, which corresponds to the opcode of the playbook recommended for entity handling.
+     *
      * @example 7
      *
      * @var string
@@ -37,6 +45,11 @@ class playbookList extends Model
     public $opCode;
 
     /**
+     * @description Indicates whether quick event handling is selected by default. Valid values:
+     *
+     *   2: Quick event handling is selected.
+     *   1: Quick event handling is displayed but not selected.
+     *
      * @example 2
      *
      * @var string
@@ -44,6 +57,8 @@ class playbookList extends Model
     public $opLevel;
 
     /**
+     * @description The opcode configuration.
+     *
      * @example {"opCode":"3"}
      *
      * @var string
@@ -51,6 +66,11 @@ class playbookList extends Model
     public $taskConfig;
 
     /**
+     * @description Indicates whether the playbook is intended for Web Application Firewall (WAF). Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool

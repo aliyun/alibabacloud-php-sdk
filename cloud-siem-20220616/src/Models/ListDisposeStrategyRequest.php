@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDisposeStrategyRequest extends Model
 {
     /**
+     * @description The page number. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,11 @@ class ListDisposeStrategyRequest extends Model
     public $currentPage;
 
     /**
+     * @description The status of the policy. Valid values:
+     *
+     *   0: invalid
+     *   1: valid
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +30,8 @@ class ListDisposeStrategyRequest extends Model
     public $effectiveStatus;
 
     /**
+     * @description The end of the time range to query. Unit: milliseconds.
+     *
      * @example 1577808000000
      *
      * @var int
@@ -30,6 +39,8 @@ class ListDisposeStrategyRequest extends Model
     public $endTime;
 
     /**
+     * @description The feature value of the entity. Fuzzy match is supported.
+     *
      * @example test22.php
      *
      * @var string
@@ -37,6 +48,12 @@ class ListDisposeStrategyRequest extends Model
     public $entityIdentity;
 
     /**
+     * @description The entity type of the playbook. Valid values:
+     *
+     *   ip
+     *   process
+     *   file
+     *
      * @example ip
      *
      * @var string
@@ -44,6 +61,11 @@ class ListDisposeStrategyRequest extends Model
     public $entityType;
 
     /**
+     * @description The sort order. Valid values:
+     *
+     *   desc: descending order.
+     *   asc: ascending order.
+     *
      * @example desc
      *
      * @var string
@@ -51,6 +73,12 @@ class ListDisposeStrategyRequest extends Model
     public $order;
 
     /**
+     * @description The sort field. Valid values:
+     *
+     *   GmtModified: sorts the policies by update time.
+     *   GmtCreate: sorts the policies by creation time.
+     *   FinishTime: sorts the policies by end time.
+     *
      * @example GmtModified
      *
      * @var string
@@ -58,6 +86,8 @@ class ListDisposeStrategyRequest extends Model
     public $orderField;
 
     /**
+     * @description The number of entries per page. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -65,6 +95,8 @@ class ListDisposeStrategyRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the playbook, which is the unique identifier of the playbook.
+     *
      * @example WafBlockIP
      *
      * @var string
@@ -72,6 +104,14 @@ class ListDisposeStrategyRequest extends Model
     public $playbookName;
 
     /**
+     * @description The type of the playbook. Valid values:
+     *
+     *   system: user-triggered playbook
+     *   custom: event-triggered playbook
+     *   custom_alert: alert-triggered playbook
+     *   soar-manual: user-run playbook
+     *   soar-mdr: MDR-run playbook
+     *
      * @example system
      *
      * @var string
@@ -79,6 +119,8 @@ class ListDisposeStrategyRequest extends Model
     public $playbookTypes;
 
     /**
+     * @description The UUID of the playbook.
+     *
      * @example system_aliyun_clb_process_book
      *
      * @var string
@@ -86,6 +128,11 @@ class ListDisposeStrategyRequest extends Model
     public $playbookUuid;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -93,6 +140,8 @@ class ListDisposeStrategyRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the SOAR handling policy.
+     *
      * @example a50a49b7-6044-4593-ab15-2b46567caadd
      *
      * @var string
@@ -100,6 +149,8 @@ class ListDisposeStrategyRequest extends Model
     public $sophonTaskId;
 
     /**
+     * @description The beginning of the time range to query. Unit: milliseconds.
+     *
      * @example 1577808000000
      *
      * @var int

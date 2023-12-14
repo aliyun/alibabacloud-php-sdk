@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The internal code of the alert data source.
+     *
      * @example aliyun.siem.alert_datasource.sas
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $source;
 
     /**
+     * @description The name of the alert data source.
+     *
      * @example sas
      *
      * @var string

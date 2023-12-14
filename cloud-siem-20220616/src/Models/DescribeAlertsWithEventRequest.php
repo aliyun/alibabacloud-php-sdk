@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertsWithEventRequest extends Model
 {
     /**
+     * @description The title of the alert.
+     *
      * @example Scan-Try SNMP weak password
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAlertsWithEventRequest extends Model
     public $alertTitle;
 
     /**
+     * @description The page number. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeAlertsWithEventRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the event.
+     *
      * @example 85ea4241-798f-4684-a876-65d4f0c3****
      *
      * @var string
@@ -30,11 +36,24 @@ class DescribeAlertsWithEventRequest extends Model
     public $incidentUuid;
 
     /**
+     * @description Specifies whether an attack is defended. Valid values:
+     *
+     *   0: detected
+     *   1: blocked
+     *
+     * @example 1
+     *
      * @var string
      */
     public $isDefend;
 
     /**
+     * @description The risk levels. The value is a JSON array. Valid values:
+     *
+     *   serious: high
+     *   suspicious: medium
+     *   remind: low
+     *
      * @example ["serious","suspicious","remind"]
      *
      * @var string[]
@@ -42,6 +61,8 @@ class DescribeAlertsWithEventRequest extends Model
     public $level;
 
     /**
+     * @description The number of entries per page. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -49,6 +70,11 @@ class DescribeAlertsWithEventRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -56,6 +82,8 @@ class DescribeAlertsWithEventRequest extends Model
     public $regionId;
 
     /**
+     * @description The data source of the alert.
+     *
      * @example sas
      *
      * @var string
@@ -63,6 +91,8 @@ class DescribeAlertsWithEventRequest extends Model
     public $source;
 
     /**
+     * @description The ID of the account within which the alert is generated.
+     *
      * @example 176555323***
      *
      * @var int

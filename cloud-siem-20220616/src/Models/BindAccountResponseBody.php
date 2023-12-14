@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models;
 
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListDeliveryResponseBody\data;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BindAccountResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ListDeliveryResponseBody extends Model
+class BindAccountResponseBody extends Model
 {
     /**
-     * @description The response parameters.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6276D891-58D4-55B2-87B9-74D413F7****
+     * @example 6276D891-*****-55B2-87B9-74D413F7****
      *
      * @var string
      */
@@ -49,7 +45,7 @@ class ListDeliveryResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListDeliveryResponseBody
+     * @return BindAccountResponseBody
      */
     public static function fromMap($map = [])
     {

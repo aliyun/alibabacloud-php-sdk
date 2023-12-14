@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class responseData extends Model
 {
     /**
+     * @description The number of alerts that are associated with the entity.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class responseData extends Model
     public $alertNum;
 
     /**
+     * @description The object for handling.
+     *
      * @example 192.168.1.1
      *
      * @var string
@@ -24,6 +28,8 @@ class responseData extends Model
     public $dispose;
 
     /**
+     * @description The entity ID
+     *
      * @example 12345
      *
      * @var int
@@ -31,6 +37,8 @@ class responseData extends Model
     public $entityId;
 
     /**
+     * @description The entity information.
+     *
      * @example {"file_path": "c:/www/leixi.jsp","file_hash": "aa0ca926ad948cd820e0a3d9a18c09d0","host_uuid": "efed2cf7-0b77-45d9-a97b-d2cf246bcbb3","malware_type": "${aliyun.siem.sas.alert_tag.webshell}","host_name": "launch-advisor-20230531"}
      *
      * @var mixed[]
@@ -38,6 +46,8 @@ class responseData extends Model
     public $entityInfo;
 
     /**
+     * @description The key-value pairs each of which consists of opcode and oplevel.
+     *
      * @example 12345
      *
      * @var string[]
@@ -45,6 +55,8 @@ class responseData extends Model
     public $opcodeMap;
 
     /**
+     * @description An array consisting of the codes of playbooks that are recommended for entity handling.
+     *
      * @example [1,3]
      *
      * @var string[]
@@ -52,6 +64,8 @@ class responseData extends Model
     public $opcodeSet;
 
     /**
+     * @description The playbooks that can handle the entity.
+     *
      * @example [{"name":"云安全中心-云服务器安全","code":"1"}]
      *
      * @var playbookList[]
@@ -59,6 +73,8 @@ class responseData extends Model
     public $playbookList;
 
     /**
+     * @description An array consisting of the IDs of the users who can handle objects.
+     *
      * @example 176618589410****
      *
      * @var mixed[]

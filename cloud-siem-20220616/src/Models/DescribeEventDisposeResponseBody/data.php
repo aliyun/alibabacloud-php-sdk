@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description An array consisting of JSON objects that are configured for event handling.
+     *
      * @example { playbookName: "使用安全组封禁入方向IP", sophonTaskId: "400442a5-4f98-45ed-97db-5ab117eb0b8f", … }
      *
      * @var mixed[]
@@ -17,11 +19,15 @@ class data extends Model
     public $eventDispose;
 
     /**
+     * @description The JSON object that is configured for an alert recipient.
+     *
      * @var receiverInfo
      */
     public $receiverInfo;
 
     /**
+     * @description The description of the event.
+     *
      * @example dealed
      *
      * @var string
@@ -29,6 +35,13 @@ class data extends Model
     public $remark;
 
     /**
+     * @description The status of the event. Valid values:
+     *
+     *   0: not handled
+     *   1: handing
+     *   5: handling failed
+     *   10: handled
+     *
      * @example 0
      *
      * @var int

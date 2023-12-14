@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeScopeUsersRequest extends Model
 {
     /**
+     * @description The data management center of the threat analysis feature. Specify this parameter based on the region in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions inside China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

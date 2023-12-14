@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertSourceWithEventRequest extends Model
 {
     /**
+     * @description The UUID of the event.
+     *
      * @example 85ea4241-798f-4684-a876-65d4f0c3****
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeAlertSourceWithEventRequest extends Model
     public $incidentUuid;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

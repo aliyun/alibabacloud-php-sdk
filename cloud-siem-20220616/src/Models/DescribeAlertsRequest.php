@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertsRequest extends Model
 {
     /**
+     * @description The title of the alert.
+     *
      * @example Unusual Logon-login_common_account
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAlertsRequest extends Model
     public $alertTitle;
 
     /**
+     * @description The UUID of the alert.
+     *
      * @example sas_71e24437d2797ce8fc59692905a4****
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeAlertsRequest extends Model
     public $alertUuid;
 
     /**
+     * @description The page number. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeAlertsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The end of the time range to query. Unit: milliseconds.
+     *
      * @example 1577808000000
      *
      * @var int
@@ -37,11 +45,24 @@ class DescribeAlertsRequest extends Model
     public $endTime;
 
     /**
+     * @description Specifies whether an attack is defended. Valid values:
+     *
+     *   0: detected.
+     *   1: blocked.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $isDefend;
 
     /**
+     * @description The risk level. The value is a JSON array. Valid values:
+     *
+     *   serious: high
+     *   suspicious: medium
+     *   remind: low
+     *
      * @example ["serious","suspicious","remind"]
      *
      * @var string[]
@@ -49,6 +70,8 @@ class DescribeAlertsRequest extends Model
     public $level;
 
     /**
+     * @description The number of entries per page. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -56,6 +79,11 @@ class DescribeAlertsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -63,6 +91,8 @@ class DescribeAlertsRequest extends Model
     public $regionId;
 
     /**
+     * @description The source of the alert.
+     *
      * @example sas
      *
      * @var string
@@ -70,6 +100,8 @@ class DescribeAlertsRequest extends Model
     public $source;
 
     /**
+     * @description The beginning of the time range to query. Unit: milliseconds.
+     *
      * @example 1577808000000
      *
      * @var int
@@ -77,6 +109,8 @@ class DescribeAlertsRequest extends Model
     public $startTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account within which the alert is generated.
+     *
      * @example 176555323***
      *
      * @var string

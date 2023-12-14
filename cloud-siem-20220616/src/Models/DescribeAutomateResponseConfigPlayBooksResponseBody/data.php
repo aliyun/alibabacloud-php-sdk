@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The description of the playbook.
+     *
      * @example Waf Block IP
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $description;
 
     /**
+     * @description The display name of the playbook.
+     *
      * @example WafBlockIP
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $displayName;
 
     /**
+     * @description The unique identifier name of the playbook.
+     *
      * @example WafBlockIP
      *
      * @var string
@@ -30,6 +36,12 @@ class data extends Model
     public $name;
 
     /**
+     * @description The input parameter template of the playbook. Valid values:
+     *
+     *   template-ip: IP address
+     *   template-process: process
+     *   template-filee: file
+     *
      * @example template-ip
      *
      * @var string
@@ -37,6 +49,8 @@ class data extends Model
     public $paramType;
 
     /**
+     * @description The UUID of the playbook.
+     *
      * @example system_aliyun_clb_process_book
      *
      * @var string

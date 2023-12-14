@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListAutomateResponseConfigsRequest extends Model
 {
     /**
+     * @description The type of the handling action. Valid values:
+     *
+     *   doPlaybook: runs a playbook.
+     *   changeEventStatus: changes the status of an event.
+     *   changeThreatLevel: changes the risk level of an event.
+     *
      * @example doPlaybook
      *
      * @var string
@@ -16,6 +22,11 @@ class ListAutomateResponseConfigsRequest extends Model
     public $actionType;
 
     /**
+     * @description The type of the automated response rule. Valid values:
+     *
+     *   event
+     *   alert
+     *
      * @example event
      *
      * @var string
@@ -23,6 +34,8 @@ class ListAutomateResponseConfigsRequest extends Model
     public $autoResponseType;
 
     /**
+     * @description The page number. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +43,8 @@ class ListAutomateResponseConfigsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the automated response rule.
+     *
      * @example 123
      *
      * @var int
@@ -37,6 +52,8 @@ class ListAutomateResponseConfigsRequest extends Model
     public $id;
 
     /**
+     * @description The number of entries per page. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +61,8 @@ class ListAutomateResponseConfigsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The UUID of the playbook.
+     *
      * @example system_aliyun_aegis_kill_quara_book
      *
      * @var string
@@ -51,6 +70,11 @@ class ListAutomateResponseConfigsRequest extends Model
     public $playbookUuid;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +82,8 @@ class ListAutomateResponseConfigsRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the automated response rule.
+     *
      * @example cfw kill quara book
      *
      * @var string
@@ -65,6 +91,11 @@ class ListAutomateResponseConfigsRequest extends Model
     public $ruleName;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     *   0: disabled
+     *   100: enabled
+     *
      * @example 0
      *
      * @var int
@@ -72,6 +103,8 @@ class ListAutomateResponseConfigsRequest extends Model
     public $status;
 
     /**
+     * @description The ID of the user who created the rule.
+     *
      * @example 17108579417****
      *
      * @var int

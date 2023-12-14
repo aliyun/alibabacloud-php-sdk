@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDisposeAndPlaybookResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
      * @example 200
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeDisposeAndPlaybookResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @example 123456
      *
      * @var data
@@ -24,6 +28,8 @@ class DescribeDisposeAndPlaybookResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeDisposeAndPlaybookResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 9AAA9ED9-78F4-5021-86DC-D51C7511****
      *
      * @var string
@@ -38,6 +46,11 @@ class DescribeDisposeAndPlaybookResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

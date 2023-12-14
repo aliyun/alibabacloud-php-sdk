@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCustomizeRuleTestResultRequest extends Model
 {
     /**
+     * @description The page number. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListCustomizeRuleTestResultRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 123456789
      *
      * @var int
@@ -23,6 +27,8 @@ class ListCustomizeRuleTestResultRequest extends Model
     public $id;
 
     /**
+     * @description The number of entries per page. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,11 @@ class ListCustomizeRuleTestResultRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

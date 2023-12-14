@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The position of the operator in the operator list.
+     *
      * @example 3
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $index;
 
     /**
+     * @description The operator.
+     *
      * @example <=
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $operator;
 
     /**
+     * @description The description of the operator in Chinese.
+     *
      * @example arger than or equal to
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $operatorDescCn;
 
     /**
+     * @description The description of the operator in English.
+     *
      * @example larger than or equal to
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $operatorDescEn;
 
     /**
+     * @description The display name of the operator.
+     *
      * @example <=
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $operatorName;
 
     /**
+     * @description The data types that are supported by the current operator. The data types are separated by commas (,).
+     *
      * @example varchar
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $supportDataType;
 
     /**
+     * @description The scenarios that are supported by the operator. Multiple scenarios are separated by commas (,), such as AGGREGATE scenarios. This parameter is empty by default.
+     *
      * @example [AGGREGATE]
      *
      * @var string[]

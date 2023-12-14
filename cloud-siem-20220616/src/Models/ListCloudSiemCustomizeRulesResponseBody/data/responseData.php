@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class responseData extends Model
 {
     /**
+     * @description The type of the risk.
+     *
      * @example WEBSHELL
      *
      * @var string
@@ -16,6 +18,8 @@ class responseData extends Model
     public $alertType;
 
     /**
+     * @description The internal code of the risk type.
+     *
      * @example ${siem_rule_type_process_abnormal_command}
      *
      * @var string
@@ -23,6 +27,8 @@ class responseData extends Model
     public $alertTypeMds;
 
     /**
+     * @description The ID of the Alibaba Cloud account in SIEM.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -30,6 +36,8 @@ class responseData extends Model
     public $aliuid;
 
     /**
+     * @description The extended information about event generation. If the value of eventTransferType is allToSingle, the value of this parameter indicates the length and unit of the alert aggregation window. The HTML escape characters are reversed.
+     *
      * @example {&quot;time&quot;:&quot;1&quot;,&quot;unit&quot;:&quot;MINUTE&quot;}
      *
      * @var string
@@ -37,6 +45,11 @@ class responseData extends Model
     public $eventTransferExt;
 
     /**
+     * @description Indicates whether the system generates an event for the alert. Valid values:
+     *
+     *   0: no.
+     *   1: yes.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +57,12 @@ class responseData extends Model
     public $eventTransferSwitch;
 
     /**
+     * @description The event generation method. Valid values:
+     *
+     *   default: The default method is used.
+     *   singleToSingle: The system generates an event for each alert.
+     *   allToSingle: The system generates an event for alerts within a period of time.
+     *
      * @example allToSingle
      *
      * @var string
@@ -51,6 +70,8 @@ class responseData extends Model
     public $eventTransferType;
 
     /**
+     * @description The time when the custom rule was created.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -58,6 +79,8 @@ class responseData extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the custom rule was last updated.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -65,6 +88,8 @@ class responseData extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the custom rule.
+     *
      * @example 123456789
      *
      * @var int
@@ -72,6 +97,8 @@ class responseData extends Model
     public $id;
 
     /**
+     * @description The log source of the rule.
+     *
      * @example cloud_siem_aegis_sas_alert
      *
      * @var string
@@ -79,6 +106,8 @@ class responseData extends Model
     public $logSource;
 
     /**
+     * @description The internal code of the log source.
+     *
      * @example ${sas.cloudsiem.prod.cloud_siem_aegis_sas_alert}
      *
      * @var string
@@ -86,6 +115,8 @@ class responseData extends Model
     public $logSourceMds;
 
     /**
+     * @description The log type of the rule.
+     *
      * @example ALERT_ACTIVITY
      *
      * @var string
@@ -93,6 +124,8 @@ class responseData extends Model
     public $logType;
 
     /**
+     * @description The internal code of the log type.
+     *
      * @example ${sas.cloudsiem.prod.alert_activity}
      *
      * @var string
@@ -100,6 +133,8 @@ class responseData extends Model
     public $logTypeMds;
 
     /**
+     * @description The window length of the rule. The HTML escape characters are reversed.
+     *
      * @example {&quot;time&quot;:&quot;1&quot;,&quot;unit&quot;:&quot;HOUR&quot;}
      *
      * @var string
@@ -107,6 +142,8 @@ class responseData extends Model
     public $queryCycle;
 
     /**
+     * @description The query condition of the rule in the JSON format. The HTML escape characters are reversed.
+     *
      * @example [[{&quot;not&quot;:false,&quot;left&quot;:&quot;alert_name&quot;,&quot;operator&quot;:&quot;=&quot;,&quot;right&quot;:&quot;WEBSHELL&quot;}]]
      *
      * @var string
@@ -114,6 +151,8 @@ class responseData extends Model
     public $ruleCondition;
 
     /**
+     * @description The description of the rule.
+     *
      * @example this rule is for waf scan
      *
      * @var string
@@ -121,6 +160,8 @@ class responseData extends Model
     public $ruleDesc;
 
     /**
+     * @description The log aggregation field of the rule. The value is a JSON string. The HTML escape characters are reversed.
+     *
      * @example [&quot;asset_id&quot;]
      *
      * @var string
@@ -128,6 +169,8 @@ class responseData extends Model
     public $ruleGroup;
 
     /**
+     * @description The name of the rule.
+     *
      * @example waf_scan
      *
      * @var string
@@ -135,6 +178,8 @@ class responseData extends Model
     public $ruleName;
 
     /**
+     * @description The threshold configurations of the rule in the JSON format. The HTML escape characters are reversed.
+     *
      * @example {&quot;aggregateFunction&quot;:&quot;count&quot;,&quot;aggregateFunctionName&quot;:&quot;count&quot;,&quot;field&quot;:&quot;activity_name&quot;,&quot;operator&quot;:&quot;&lt;=&quot;,&quot;value&quot;:1}
      *
      * @var string
@@ -142,6 +187,11 @@ class responseData extends Model
     public $ruleThreshold;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   predefine
+     *   customize
+     *
      * @example customize
      *
      * @var string
@@ -149,6 +199,14 @@ class responseData extends Model
     public $ruleType;
 
     /**
+     * @description The rule status. Valid values:
+     *
+     *   0: The rule is in the initial state.
+     *   10: The simulation data is tested.
+     *   15: The business data is being tested.
+     *   20: The business data test ends.
+     *   100: The rule takes effect.
+     *
      * @example 0
      *
      * @var int
@@ -156,6 +214,12 @@ class responseData extends Model
     public $status;
 
     /**
+     * @description The threat level. Valid values:
+     *
+     *   serious: high
+     *   suspicious: medium
+     *   remind: low
+     *
      * @example remind
      *
      * @var string

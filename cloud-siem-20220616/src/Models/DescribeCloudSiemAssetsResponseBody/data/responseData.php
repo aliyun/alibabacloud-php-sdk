@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class responseData extends Model
 {
     /**
+     * @description The UUID of the alert associated with the event.
+     *
      * @example sas_71e24437d2797ce8fc59692905a4****
      *
      * @var string
@@ -17,6 +19,8 @@ class responseData extends Model
     public $alertUuid;
 
     /**
+     * @description The ID of the Alibaba Cloud account in SIEM.
+     *
      * @example 1276085894174392
      *
      * @var int
@@ -24,6 +28,8 @@ class responseData extends Model
     public $aliuid;
 
     /**
+     * @description The logical ID of the asset.
+     *
      * @example 0616caeb-acb8-45e0-8520-4ee5fbe251f0
      *
      * @var string
@@ -31,6 +37,8 @@ class responseData extends Model
     public $assetId;
 
     /**
+     * @description The display information of the asset is in the JSON format.
+     *
      * @example [{"KeyName": "${aliyun.siem.asset.asset_name}","Values": "zsw-agentless-ubuntu20","Key": "asset_name"}]
      *
      * @var assetInfo[]
@@ -38,6 +46,8 @@ class responseData extends Model
     public $assetInfo;
 
     /**
+     * @description The name of the asset.
+     *
      * @example zsw-agentless-centos****
      *
      * @var string
@@ -45,6 +55,15 @@ class responseData extends Model
     public $assetName;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   ip
+     *   domain
+     *   url
+     *   process
+     *   file
+     *   host
+     *
      * @example domain
      *
      * @var string
@@ -52,6 +71,12 @@ class responseData extends Model
     public $assetType;
 
     /**
+     * @description The cloud code of the entity. Valid values:
+     *
+     *   aliyun: Alibaba Cloud
+     *   qcloud: Tencent Cloud
+     *   hcloud: Huawei Cloud
+     *
      * @example aliyun
      *
      * @var string
@@ -59,6 +84,8 @@ class responseData extends Model
     public $cloudCode;
 
     /**
+     * @description The time when the asset was synchronized.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -66,6 +93,8 @@ class responseData extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the asset was last updated.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -73,6 +102,8 @@ class responseData extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the asset.
+     *
      * @example 123
      *
      * @var int
@@ -80,6 +111,8 @@ class responseData extends Model
     public $id;
 
     /**
+     * @description The UUID of the event.
+     *
      * @example 85ea4241-798f-4684-a876-65d4f0c3****
      *
      * @var string
@@ -87,6 +120,8 @@ class responseData extends Model
     public $incidentUuid;
 
     /**
+     * @description The ID of the associated account to which the asset belongs.
+     *
      * @example 176555323***
      *
      * @var int

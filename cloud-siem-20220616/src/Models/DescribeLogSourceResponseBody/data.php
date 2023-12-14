@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The log source of the rule.
+     *
      * @example cloud_siem_aegis_sas_alert
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $logSource;
 
     /**
+     * @description The internal code of the log source.
+     *
      * @example sas.cloudsiem.prod.cloud_siem_aegis_sas_alert
      *
      * @var string

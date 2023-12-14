@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class responseData extends Model
 {
     /**
+     * @description The UUID of the alert.
+     *
      * @example sas_71e24437d2797ce8fc59692905a4****
      *
      * @var string
@@ -16,6 +18,8 @@ class responseData extends Model
     public $alertUuid;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is associated with the policy in SIEM.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -23,6 +27,11 @@ class responseData extends Model
     public $aliuid;
 
     /**
+     * @description The status of the policy. Valid values:
+     *
+     *   0: invalid
+     *   1: valid
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +39,8 @@ class responseData extends Model
     public $effectiveStatus;
 
     /**
+     * @description The details of the entity. The value is a JSON array.
+     *
      * @example [{"ip":"1.1.1.1"}]
      *
      * @var mixed[]
@@ -37,6 +48,8 @@ class responseData extends Model
     public $entity;
 
     /**
+     * @description The ID of the entity.
+     *
      * @example 123456789
      *
      * @var int
@@ -44,6 +57,12 @@ class responseData extends Model
     public $entityId;
 
     /**
+     * @description The type of the entity. Valid values:
+     *
+     *   ip
+     *   process
+     *   file
+     *
      * @example ip
      *
      * @var string
@@ -51,6 +70,8 @@ class responseData extends Model
     public $entityType;
 
     /**
+     * @description The summary information about the failed task.
+     *
      * @example DisposalEntity failed which description is Aegis Quarantine File , return_info failed which description is Check Aegis Process Result , [ERROR DETAIL] *******.php:file not found
      *
      * @var string
@@ -58,6 +79,8 @@ class responseData extends Model
     public $errorMessage;
 
     /**
+     * @description The end time of the task.
+     *
      * @example 2021-08-10 21:34:07
      *
      * @var string
@@ -65,6 +88,8 @@ class responseData extends Model
     public $finishTime;
 
     /**
+     * @description The creation time.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -72,6 +97,8 @@ class responseData extends Model
     public $gmtCreate;
 
     /**
+     * @description The update time.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -79,6 +106,8 @@ class responseData extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the policy.
+     *
      * @example 123
      *
      * @var int
@@ -86,6 +115,8 @@ class responseData extends Model
     public $id;
 
     /**
+     * @description The name of the event.
+     *
      * @example Multiple type of alerts, including Miner Network, Command line download and run malicious files, Backdoor Process, etc
      *
      * @var string
@@ -93,6 +124,8 @@ class responseData extends Model
     public $incidentName;
 
     /**
+     * @description The UUID of the event.
+     *
      * @example 85ea4241-798f-4684-a876-65d4f0c3****
      *
      * @var string
@@ -100,6 +133,8 @@ class responseData extends Model
     public $incidentUuid;
 
     /**
+     * @description The name of the playbook, which is the unique identifier of the playbook.
+     *
      * @example WafBlockIP
      *
      * @var string
@@ -107,6 +142,14 @@ class responseData extends Model
     public $playbookName;
 
     /**
+     * @description The type of the playbook. Valid values:
+     *
+     *   system: user-triggered playbook
+     *   custom: event-triggered playbook
+     *   custom_alert: alert-triggered playbook
+     *   soar-manual: user-run playbook
+     *   soar-mdr: MDR-run playbook
+     *
      * @example system
      *
      * @var string
@@ -114,6 +157,8 @@ class responseData extends Model
     public $playbookType;
 
     /**
+     * @description The UUID of the playbook.
+     *
      * @example system_aliyun_clb_process_book
      *
      * @var string
@@ -121,6 +166,8 @@ class responseData extends Model
     public $playbookUuid;
 
     /**
+     * @description The scope of the policy.
+     *
      * @example [{ aliUid: 1766185894104675 }]
      *
      * @var mixed[]
@@ -128,6 +175,8 @@ class responseData extends Model
     public $scope;
 
     /**
+     * @description The ID of the SOAR handling policy.
+     *
      * @example 577bbf90-a770-44a7-8154-586aa2d318fa
      *
      * @var string
@@ -135,6 +184,13 @@ class responseData extends Model
     public $sophonTaskId;
 
     /**
+     * @description The running status of the playbook. Valid values:
+     *
+     *   200: successful
+     *   10: deleted
+     *   5: failed
+     *   0: initial
+     *
      * @example 10
      *
      * @var int
@@ -142,6 +198,8 @@ class responseData extends Model
     public $status;
 
     /**
+     * @description The ID of the Alibaba account that is used to configure the policy.
+     *
      * @example 176555323***
      *
      * @var int
@@ -149,6 +207,8 @@ class responseData extends Model
     public $subAliuid;
 
     /**
+     * @description The parameters that are used to trigger the playbook. The value is in the JSON format.
+     *
      * @example {
      * "os_type": "linux",
      * "entity_id": "5f58ef67-8803-4314-8d67-c87dc92b****",

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The type of the log to which the field belongs.
+     *
      * @example HTTP_ACTIVITY
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $activityName;
 
     /**
+     * @description The internal code of the field description.
+     *
      * @example sas.cloudsiem.prod.activity_name
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $fieldDesc;
 
     /**
+     * @description The name of the field.
+     *
      * @example activity_name
      *
      * @var string
@@ -30,6 +36,11 @@ class data extends Model
     public $fieldName;
 
     /**
+     * @description The data type of the field. Valid values:
+     *
+     *   varchar
+     *   bigint
+     *
      * @example varchar
      *
      * @var string
@@ -37,6 +48,8 @@ class data extends Model
     public $fieldType;
 
     /**
+     * @description The log source to which the field belongs.
+     *
      * @example cloud_siem_aegis_sas_alert
      *
      * @var string

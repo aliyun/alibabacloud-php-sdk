@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class targets extends Model
 {
     /**
+     * @description The display name of the entity attribute field that can be added to the whitelist.
+     *
      * @example host uuid
      *
      * @var string
@@ -16,6 +18,8 @@ class targets extends Model
     public $name;
 
     /**
+     * @description The entity attribute field that can be added to the whitelist.
+     *
      * @example host_uuid
      *
      * @var string
@@ -23,6 +27,8 @@ class targets extends Model
     public $type;
 
     /**
+     * @description The right operand that is displayed by default in the whitelist rule.
+     *
      * @example 441862da-a539-4cc0-a00d-47395582****
      *
      * @var string
@@ -30,6 +36,8 @@ class targets extends Model
     public $value;
 
     /**
+     * @description The supported right operands of the whitelist rule.
+     *
      * @example ["441862da-a539-4cc0-a00d-473955826881"]
      *
      * @var string[]

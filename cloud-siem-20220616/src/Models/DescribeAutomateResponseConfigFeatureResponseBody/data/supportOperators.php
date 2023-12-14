@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class supportOperators extends Model
 {
     /**
+     * @description Indicates whether the right operand is required. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,8 @@ class supportOperators extends Model
     public $hasRightValue;
 
     /**
+     * @description The position of the operator in the operator list.
+     *
      * @example 3
      *
      * @var int
@@ -23,6 +30,8 @@ class supportOperators extends Model
     public $index;
 
     /**
+     * @description The operator.
+     *
      * @example <=
      *
      * @var string
@@ -30,6 +39,8 @@ class supportOperators extends Model
     public $operator;
 
     /**
+     * @description The description of the operator in Chinese.
+     *
      * @example larger than or equal to
      *
      * @var string
@@ -37,6 +48,8 @@ class supportOperators extends Model
     public $operatorDescCn;
 
     /**
+     * @description The description of the operator in English.
+     *
      * @example larger than or equal to
      *
      * @var string
@@ -44,6 +57,8 @@ class supportOperators extends Model
     public $operatorDescEn;
 
     /**
+     * @description The display name of the operator.
+     *
      * @example <=
      *
      * @var string
@@ -51,6 +66,8 @@ class supportOperators extends Model
     public $operatorName;
 
     /**
+     * @description The data types that are supported by the current operator. The data types are separated by commas (,).
+     *
      * @example varchar
      *
      * @var string
@@ -58,6 +75,8 @@ class supportOperators extends Model
     public $supportDataType;
 
     /**
+     * @description The scenarios that are supported by the operator. Multiple scenarios are separated by commas (,), such as aggregation scenarios. This parameter is empty by default.
+     *
      * @example [AGGREGATE]
      *
      * @var string[]

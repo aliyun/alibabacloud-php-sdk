@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAutomateResponseConfigStatusRequest extends Model
 {
     /**
+     * @description The IDs of the automatic response rules. The value is a JSON array.
+     *
      * @example [123,345]
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateAutomateResponseConfigStatusRequest extends Model
     public $ids;
 
     /**
+     * @description Specifies whether the rule is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,11 @@ class UpdateAutomateResponseConfigStatusRequest extends Model
     public $inUse;
 
     /**
+     * @description The data management center of the threat analysis feature. Specify this parameter based on the region in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions inside China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

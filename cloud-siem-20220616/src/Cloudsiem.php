@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BatchJobCheckRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BatchJobCheckResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BatchJobSubmitRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BatchJobSubmitResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BindAccountRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\BindAccountResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\CloseDeliveryRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\CloseDeliveryResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DeleteAutomateResponseConfigRequest;
@@ -577,6 +579,61 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchJobSubmitWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BindAccountRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return BindAccountResponse
+     */
+    public function bindAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessId)) {
+            $body['AccessId'] = $request->accessId;
+        }
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->accountName)) {
+            $body['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->cloudCode)) {
+            $body['CloudCode'] = $request->cloudCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BindAccount',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BindAccountRequest $request
+     *
+     * @return BindAccountResponse
+     */
+    public function bindAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindAccountWithOptions($request, $runtime);
     }
 
     /**

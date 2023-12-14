@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The risk level. Valid values:
+     *
+     *   serious: high
+     *   suspicious: medium
+     *   remind: low
+     *
      * @example remind
      *
      * @var string
@@ -16,6 +22,8 @@ class data extends Model
     public $alertLevel;
 
     /**
+     * @description The alert name in English.
+     *
      * @example Try SNMP weak password
      *
      * @var string
@@ -23,6 +31,8 @@ class data extends Model
     public $alertName;
 
     /**
+     * @description The internal code of the alert name.
+     *
      * @example security_event_config.event_name.webshell
      *
      * @var string
@@ -30,6 +40,8 @@ class data extends Model
     public $alertNameCode;
 
     /**
+     * @description The alert name in English.
+     *
      * @example Try SNMP weak password
      *
      * @var string
@@ -37,6 +49,8 @@ class data extends Model
     public $alertNameEn;
 
     /**
+     * @description The source of the alert.
+     *
      * @example sas
      *
      * @var string
@@ -44,6 +58,8 @@ class data extends Model
     public $alertSrcProd;
 
     /**
+     * @description The sub-module of the alert source.
+     *
      * @example waf
      *
      * @var string
@@ -51,6 +67,8 @@ class data extends Model
     public $alertSrcProdModule;
 
     /**
+     * @description The time when the alert was triggered.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var int
@@ -58,6 +76,8 @@ class data extends Model
     public $alertTime;
 
     /**
+     * @description The title of the alert.
+     *
      * @example Scan-Try SNMP weak password
      *
      * @var string
@@ -65,6 +85,8 @@ class data extends Model
     public $alertTitle;
 
     /**
+     * @description The alert title in English.
+     *
      * @example Scan-Try SNMP weak password
      *
      * @var string
@@ -72,6 +94,8 @@ class data extends Model
     public $alertTitleEn;
 
     /**
+     * @description The type of the alert.
+     *
      * @example Scan
      *
      * @var string
@@ -79,6 +103,8 @@ class data extends Model
     public $alertType;
 
     /**
+     * @description The internal code of the alert type.
+     *
      * @example security_event_config.event_name.webshellName
      *
      * @var string
@@ -86,6 +112,8 @@ class data extends Model
     public $alertTypeCode;
 
     /**
+     * @description The alert type in English.
+     *
      * @example Scan
      *
      * @var string
@@ -93,6 +121,8 @@ class data extends Model
     public $alertTypeEn;
 
     /**
+     * @description The UUID of the alert
+     *
      * @example sas_71e24437d2797ce8fc59692905a4****
      *
      * @var string
@@ -100,6 +130,8 @@ class data extends Model
     public $alertUuid;
 
     /**
+     * @description The logical ID of the asset.
+     *
      * @example 0616caeb-acb8-45e0-8520-4ee5fbe251f0
      *
      * @var string
@@ -107,6 +139,8 @@ class data extends Model
     public $assetId;
 
     /**
+     * @description The details of the asset.
+     *
      * @example [
      * "is_main_asset": "1",
      * "asset_name": "47.245.*",
@@ -120,6 +154,8 @@ class data extends Model
     public $assetList;
 
     /**
+     * @description The name of the asset.
+     *
      * @example zsw-agentless-centos****
      *
      * @var string
@@ -127,6 +163,8 @@ class data extends Model
     public $assetName;
 
     /**
+     * @description The tag of the ATT\&CK attack.
+     *
      * @example T1595.002 Vulnerability Scanning
      *
      * @var string
@@ -134,6 +172,12 @@ class data extends Model
     public $attCk;
 
     /**
+     * @description The cloud code. Valid values:
+     *
+     *   aliyun: Alibaba Cloud
+     *   qcloud: Tencent Cloud
+     *   hcloud: Huawei Cloud
+     *
      * @example aliyun
      *
      * @var string
@@ -141,6 +185,8 @@ class data extends Model
     public $cloudCode;
 
     /**
+     * @description The UUID of the event.
+     *
      * @example 85ea4241-798f-4684-a876-65d4f0c3****
      *
      * @var string
@@ -148,6 +194,8 @@ class data extends Model
     public $incidentUuid;
 
     /**
+     * @description The time when the alert was recorded.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string

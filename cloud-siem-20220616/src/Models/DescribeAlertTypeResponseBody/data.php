@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The type of the risk.
+     *
      * @example WEBSHELL
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $alertType;
 
     /**
+     * @description The internal code of the risk type.
+     *
      * @example siem_rule_type_process_abnormal_command
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rightValueEnums extends Model
 {
     /**
+     * @description The enumerated value of the right operand.
+     *
      * @example serious
      *
      * @var string
@@ -16,6 +18,8 @@ class rightValueEnums extends Model
     public $value;
 
     /**
+     * @description The internal code of the enumerated value.
+     *
      * @example aliyun.siem.automate.feature.alert_level.serious
      *
      * @var string
