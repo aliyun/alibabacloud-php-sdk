@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetAegisContainerPluginRuleCriteriaRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class GetAegisContainerPluginRuleCriteriaRequest extends Model
     public $lang;
 
     /**
+     * @description The value of the search condition.
+     *
      * @example ss
      *
      * @var string

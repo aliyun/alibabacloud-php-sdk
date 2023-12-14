@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class honeypotEventFlows extends Model
 {
     /**
+     * @description The ID of the probe.
+     *
      * @example d3c0dafa-5059-4eb0-8c28-7d40f58*****
      *
      * @var string
@@ -16,6 +18,8 @@ class honeypotEventFlows extends Model
     public $agentId;
 
     /**
+     * @description The name of the probe.
+     *
      * @example hw-d***
      *
      * @var string
@@ -23,6 +27,8 @@ class honeypotEventFlows extends Model
     public $agentName;
 
     /**
+     * @description The ID of the container.
+     *
      * @example eca09895****
      *
      * @var string
@@ -30,6 +36,8 @@ class honeypotEventFlows extends Model
     public $dockerId;
 
     /**
+     * @description The destination IP address.
+     *
      * @example 112.126.205.***
      *
      * @var string
@@ -37,6 +45,8 @@ class honeypotEventFlows extends Model
     public $dstIp;
 
     /**
+     * @description The destination port.
+     *
      * @example 80
      *
      * @var int
@@ -44,6 +54,8 @@ class honeypotEventFlows extends Model
     public $dstPort;
 
     /**
+     * @description The UUID of the connection in the attack.
+     *
      * @example fd7f1ff4-0c4b-41cb-99ad-0724349d****
      *
      * @var string
@@ -51,11 +63,17 @@ class honeypotEventFlows extends Model
     public $eventConnection;
 
     /**
+     * @description The extended information about the attack payload.
+     *
+     * @example {\"payload\":{\"format\":\"line\",\"name\":{\"cn\":\"payload\",\"en\":\"payload\"},\"value\":\"\"},\"uid\":{\"format\":\"line\",\"name\":{\"cn\":\"\",\"en\":\"\"},\"uid\":\"5fa2ece9-aa08-4bbd-a272-5d27*********\",\"value\":\"\"}}
+     *
      * @var string
      */
     public $extra;
 
     /**
+     * @description The extension information about the virtual private cloud (VPC).
+     *
      * @example {\"vpc_id\":\"\",\"vpc_dest_port\":\"\",\"vpc_dest_ip\":\"\"}
      *
      * @var string
@@ -63,6 +81,8 @@ class honeypotEventFlows extends Model
     public $extra1;
 
     /**
+     * @description The Object Storage Service (OSS) URL of the file.
+     *
      * @example https://pop-test-file-upload.oss-cn-beijing.aliyuncs.com/5626_26331*****
      *
      * @var string
@@ -70,6 +90,8 @@ class honeypotEventFlows extends Model
     public $fileOssUrl;
 
     /**
+     * @description The timestamp when the intrusion event was first occurred.
+     *
      * @example 1686621122000
      *
      * @var int
@@ -77,6 +99,8 @@ class honeypotEventFlows extends Model
     public $firstTime;
 
     /**
+     * @description The ID of the intrusion event. The value is a string.
+     *
      * @example 19bec028-d98b-45c4-a4d9-cc3d593f****
      *
      * @var string
@@ -84,6 +108,8 @@ class honeypotEventFlows extends Model
     public $honeypotEventId;
 
     /**
+     * @description The ID of the honeypot.
+     *
      * @example 911df9d6fe20451c059edbcffa1d1c33452f6a71e59d4826da067af224*****
      *
      * @var string
@@ -91,6 +117,8 @@ class honeypotEventFlows extends Model
     public $honeypotId;
 
     /**
+     * @description The name of the honeypot.
+     *
      * @example hw-zhi*****
      *
      * @var string
@@ -98,6 +126,8 @@ class honeypotEventFlows extends Model
     public $honeypotName;
 
     /**
+     * @description The timestamp when the intrusion event was last occurred.
+     *
      * @example 1686622222000
      *
      * @var int
@@ -105,6 +135,12 @@ class honeypotEventFlows extends Model
     public $lastTime;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **2**: low
+     *   **3**: medium
+     *   **4**: high
+     *
      * @example 4
      *
      * @var string
@@ -112,6 +148,8 @@ class honeypotEventFlows extends Model
     public $riskLevel;
 
     /**
+     * @description The ID of the intrusion event.
+     *
      * @example 306527555
      *
      * @var int
@@ -119,6 +157,8 @@ class honeypotEventFlows extends Model
     public $securityEventId;
 
     /**
+     * @description The source IP address.
+     *
      * @example 121.41.48.***
      *
      * @var string
@@ -126,6 +166,8 @@ class honeypotEventFlows extends Model
     public $srcIp;
 
     /**
+     * @description The source media access control (MAC) address.
+     *
      * @example 00:0C:29:CA:**:**
      *
      * @var string
@@ -133,6 +175,8 @@ class honeypotEventFlows extends Model
     public $srcMac;
 
     /**
+     * @description The source port number.
+     *
      * @example 80
      *
      * @var int
@@ -140,6 +184,12 @@ class honeypotEventFlows extends Model
     public $srcPort;
 
     /**
+     * @description The handling status of the intrusion event. Valid values:
+     *
+     *   **1**: pending handling
+     *   **2**: ignored
+     *   **4**: confirmed
+     *
      * @example 1
      *
      * @var int
@@ -147,6 +197,8 @@ class honeypotEventFlows extends Model
     public $status;
 
     /**
+     * @description The ID of the attack type.
+     *
      * @example web_access
      *
      * @var string
@@ -154,6 +206,8 @@ class honeypotEventFlows extends Model
     public $typeId;
 
     /**
+     * @description The UUID of an attack in the intrusion event.
+     *
      * @example 5fa2ece9-aa08-4bbd-a272-5d27d1c6*****
      *
      * @var string

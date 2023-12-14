@@ -11,8 +11,8 @@ class machines extends Model
     /**
      * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -21,7 +21,7 @@ class machines extends Model
     public $bind;
 
     /**
-     * @description The ID of the server.
+     * @description The instance ID of the server.
      *
      * @example i-bp1dp42hgn1xcq8l****
      *
@@ -30,7 +30,7 @@ class machines extends Model
     public $instanceId;
 
     /**
-     * @description The name of the server.
+     * @description The instance name of the server.
      *
      * @example win-oracl****
      *

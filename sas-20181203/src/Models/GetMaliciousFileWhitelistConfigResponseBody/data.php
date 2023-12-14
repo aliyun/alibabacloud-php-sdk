@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of assets on which the whitelist rule takes effect.
+     *
+     * >  The value of this parameter is returned only if the value of TargetType is SELECTION_KEY.
      * @example 0
      *
      * @var string
@@ -16,6 +19,10 @@ class data extends Model
     public $count;
 
     /**
+     * @description The name of the alert.
+     *
+     *   The value is fixed as ALL, which indicates all alert types.
+     *
      * @example ALL
      *
      * @var string
@@ -23,6 +30,8 @@ class data extends Model
     public $eventName;
 
     /**
+     * @description The field that is used in the whitelist rule.
+     *
      * @example fileMd5
      *
      * @var string
@@ -30,6 +39,8 @@ class data extends Model
     public $field;
 
     /**
+     * @description The value of the field that is used in the whitelist rule.
+     *
      * @example b2cf9747ee49d8d9b105cf16e078cc16
      *
      * @var string
@@ -37,6 +48,8 @@ class data extends Model
     public $fieldValue;
 
     /**
+     * @description The creation time.
+     *
      * @example 1671607025000
      *
      * @var string
@@ -44,6 +57,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The modification time.
+     *
      * @example 1674095396000
      *
      * @var string
@@ -51,6 +66,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the whitelist rule.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +75,10 @@ class data extends Model
     public $id;
 
     /**
+     * @description The logical operator that is used in the whitelist rule.
+     *
+     *   The value is fixed as strEqual, which indicates the equality operator (=).
+     *
      * @example strEqual
      *
      * @var string
@@ -65,6 +86,10 @@ class data extends Model
     public $operator;
 
     /**
+     * @description The feature to which this operation belongs.
+     *
+     *   The value is fixed as agentless, which indicates the agentless detection feature.
+     *
      * @example agentless
      *
      * @var string
@@ -72,6 +97,11 @@ class data extends Model
     public $source;
 
     /**
+     * @description The type of the assets on which the whitelist rule takes effect. Valid values:
+     *
+     *   ALL: all assets
+     *   SELECTION_KEY: selected assets
+     *
      * @example ALL
      *
      * @var string
@@ -79,6 +109,11 @@ class data extends Model
     public $targetType;
 
     /**
+     * @description The assets on which the whitelist rule takes effect. Valid values:
+     *
+     *   ALL: all assets
+     *   Others: selected assets
+     *
      * @example ALL
      *
      * @var string

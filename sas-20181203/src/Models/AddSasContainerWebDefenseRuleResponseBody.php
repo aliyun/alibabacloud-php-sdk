@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddSasContainerWebDefenseRuleResponseBody extends Model
 {
     /**
+     * @description The unique value of the created rule.
+     *
      * @example 200634
      *
      * @var int
@@ -16,6 +18,8 @@ class AddSasContainerWebDefenseRuleResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 8B4B6E6D-B0B0-5F05-A14E-82917D9648EE
      *
      * @var string

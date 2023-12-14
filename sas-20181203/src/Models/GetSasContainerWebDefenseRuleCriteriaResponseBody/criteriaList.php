@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class criteriaList extends Model
 {
     /**
+     * @description The name of the search condition.
+     *
      * @example name
      *
      * @var string
@@ -16,6 +18,11 @@ class criteriaList extends Model
     public $name;
 
     /**
+     * @description The type of the search condition. Valid values:
+     *
+     *   **input**: You must manually enter the search condition.
+     *   **select**: You must select a search condition from the **Values** drop-down list.
+     *
      * @example select
      *
      * @var string
@@ -23,6 +30,9 @@ class criteriaList extends Model
     public $type;
 
     /**
+     * @description The values of the search condition. This parameter is returned only if the value of **Type** is **select**.
+     *
+     * >  If the value of **Type** is **input**, the value of this parameter is empty.
      * @example athor_bid
      *
      * @var string

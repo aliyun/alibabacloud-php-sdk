@@ -130,6 +130,8 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $source;
 
     /**
+     * @description The UUID array of the servers.
+     *
      * @var string[]
      */
     public $uuidList;

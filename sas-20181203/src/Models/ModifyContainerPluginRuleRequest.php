@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyContainerPluginRuleRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,11 @@ class ModifyContainerPluginRuleRequest extends Model
     public $lang;
 
     /**
+     * @description The action mode of the rule. Valid values:
+     *
+     *   **1**: alerts
+     *   **2**: block
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +33,8 @@ class ModifyContainerPluginRuleRequest extends Model
     public $mode;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 100012
      *
      * @var int
@@ -30,6 +42,8 @@ class ModifyContainerPluginRuleRequest extends Model
     public $ruleId;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +51,11 @@ class ModifyContainerPluginRuleRequest extends Model
     public $ruleName;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   **0**: user-defined rule
+     *   **1**: built-in rule
+     *
      * @example 0
      *
      * @var int
@@ -44,11 +63,15 @@ class ModifyContainerPluginRuleRequest extends Model
     public $ruleType;
 
     /**
+     * @description The rule items.
+     *
      * @var string[]
      */
     public $selectedPolicy;
 
     /**
+     * @description The images that are added to the whitelist.
+     *
      * @var string[]
      */
     public $whiteImages;

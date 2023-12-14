@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BindHybridProxyRequest extends Model
 {
     /**
+     * @description The name of the proxy cluster.
+     *
      * @example sas-proxy
      *
      * @var string
@@ -16,6 +18,8 @@ class BindHybridProxyRequest extends Model
     public $clusterName;
 
     /**
+     * @description The UUIDs of servers that you want to add to Security Center over the proxy server.
+     *
      * @var string[]
      */
     public $yundunUuids;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BindHybridProxyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 11C96623-E106-59C9-866D-A6C82911459F
      *
      * @var string

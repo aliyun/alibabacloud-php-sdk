@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateMaliciousFileWhitelistConfigRequest extends Model
 {
     /**
+     * @description The name of the alert.
+     *
+     *   Set the value to ALL, which indicates all alert types.
+     *
      * @example ALL
      *
      * @var string
@@ -16,6 +20,8 @@ class CreateMaliciousFileWhitelistConfigRequest extends Model
     public $eventName;
 
     /**
+     * @description The field that you want to use in the whitelist rule.
+     *
      * @example fileMd5
      *
      * @var string
@@ -23,6 +29,8 @@ class CreateMaliciousFileWhitelistConfigRequest extends Model
     public $field;
 
     /**
+     * @description The value of the field that you want to use in the whitelist rule.
+     *
      * @example b2cf9747ee49d8d9b105cf16e078cc16
      *
      * @var string
@@ -30,6 +38,10 @@ class CreateMaliciousFileWhitelistConfigRequest extends Model
     public $fieldValue;
 
     /**
+     * @description The logical operator that you want to use in the whitelist rule.
+     *
+     *   Set the value to strEqual, which indicates the equality operator (=).
+     *
      * @example strEqual
      *
      * @var string
@@ -37,6 +49,10 @@ class CreateMaliciousFileWhitelistConfigRequest extends Model
     public $operator;
 
     /**
+     * @description The feature to which this operation belongs.
+     *
+     *   Set the value to agentless, which indicates the agentless detection feature.
+     *
      * @example agentless
      *
      * @var string
@@ -44,6 +60,11 @@ class CreateMaliciousFileWhitelistConfigRequest extends Model
     public $source;
 
     /**
+     * @description The type of the assets on which you want the whitelist rule to take effect. Valid values:
+     *
+     *   ALL: all assets
+     *   SELECTION_KEY: selected assets
+     *
      * @example ALL
      *
      * @var string
@@ -51,6 +72,11 @@ class CreateMaliciousFileWhitelistConfigRequest extends Model
     public $targetType;
 
     /**
+     * @description The assets on which you want the whitelist rule to take effect. Valid values:
+     *
+     *   ALL: all assets
+     *   Others: selected assets
+     *
      * @example ALL
      *
      * @var string

@@ -37,6 +37,11 @@ class clusterList extends Model
     public $namespaces;
 
     /**
+     * @description The ID of the rule.
+     *
+     * >  You can call the [ListInterceptionRulePage](~~2590599~~) operation to query the IDs of rules.
+     * @example 403178
+     *
      * @var int
      */
     public $ruleId;

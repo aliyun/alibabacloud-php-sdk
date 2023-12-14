@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningDetailRequest extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
+     * > You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of check items.
+     * @example 1
+     *
      * @var string
      */
     public $checkId;
@@ -55,6 +60,11 @@ class DescribeCheckWarningDetailRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The server UUID.
+     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the server UUID.
+     * @example 01aec2da-5b57-4f38-b221-da5a0b2f****
+     *
      * @var string
      */
     public $uuid;

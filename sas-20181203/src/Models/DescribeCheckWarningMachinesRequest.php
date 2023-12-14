@@ -51,9 +51,10 @@ class DescribeCheckWarningMachinesRequest extends Model
     public $riskId;
 
     /**
-     * @description Specifies whether the check item passed the baseline check. Valid values:
-     *   **1**: no
-     *   **3**: yes
+     * @description The risk status of the check item. Valid values:
+     *
+     *   **1**: failed
+     *   **3**: passed
      *
      * @example 1
      *

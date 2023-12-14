@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMaliciousFileWhitelistConfigsRequest extends Model
 {
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,10 @@ class ListMaliciousFileWhitelistConfigsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the alert.
+     *
+     *   Set the value to ALL, which indicates all alert types.
+     *
      * @example ALL
      *
      * @var string
@@ -23,6 +29,11 @@ class ListMaliciousFileWhitelistConfigsRequest extends Model
     public $eventName;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +41,8 @@ class ListMaliciousFileWhitelistConfigsRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -37,6 +50,8 @@ class ListMaliciousFileWhitelistConfigsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The feature to which this operation belongs. If you leave this parameter empty, the default value agentless is used.
+     *
      * @example agentless
      *
      * @var string

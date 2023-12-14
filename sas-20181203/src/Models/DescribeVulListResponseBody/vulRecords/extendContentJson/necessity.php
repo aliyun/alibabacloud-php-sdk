@@ -40,10 +40,10 @@ class necessity extends Model
     public $enviromentFactor;
 
     /**
-     * @description Indicates whether the score of urgency to fix a vulnerability is calculated. Valid values:
+     * @description Indicates whether the vulnerability priority score is calculated. Valid values:
      *
-     *   **0**: The score is not calculated.
-     *   **1**: The score is calculated.
+     *   **0**: no
+     *   **1**: yes
      *
      * @example 1
      *
@@ -52,10 +52,10 @@ class necessity extends Model
     public $isCalc;
 
     /**
-     * @description The status of the score of urgency to fix a vulnerability. Valid values:
+     * @description The status of the vulnerability priority score. Valid values:
      *
      *   **none**: No score is generated.
-     *   **pending**: The score is to be calculated.
+     *   **pending**: The score is pending calculation.
      *   **normal**: The calculation is normal.
      *
      * @example normal
@@ -74,13 +74,13 @@ class necessity extends Model
     public $timeFactor;
 
     /**
-     * @description The score of urgency to fix a vulnerability.
+     * @description The vulnerability priority score.
      *
-     * The fixing suggestions vary based on the score of urgency of a vulnerability.
+     * The following list describes scores and related fixing suggestions:
      *
-     *   **\[13.5,15]**: The vulnerability is a high-risk vulnerability. You must fix the vulnerability at the earliest opportunity.
-     *   **\[7,13.5)**: The vulnerability is a medium-risk vulnerability. You can fix the vulnerability at your convenience.
-     *   **\[0,7)**: The vulnerability is a low-risk vulnerability. You can ignore the vulnerability.
+     *   If the score is from **13.5 to 15**, the vulnerability is a high-risk vulnerability. You must fix the vulnerability at the earliest opportunity.
+     *   If the score is **greater than or equal to 7 but less than 13.5**, the vulnerability is a medium-risk vulnerability. You can fix the vulnerability at your convenience.
+     *   If the score is **less than 7**, the vulnerability is a low-risk vulnerability. You can ignore the vulnerability.
      *
      * @example 7.8
      *

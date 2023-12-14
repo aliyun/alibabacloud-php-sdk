@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySasContainerWebDefenseRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A447E4E3-42A3-58B7-A7D4-2287745BEFDC
      *
      * @var string

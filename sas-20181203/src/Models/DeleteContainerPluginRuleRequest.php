@@ -21,7 +21,7 @@ class DeleteContainerPluginRuleRequest extends Model
     public $lang;
 
     /**
-     * @description The ID of the rule.
+     * @description The ID of the rule. You can call the addContainerWebDefenseRule operation to query the ID.
      *
      * @example 200022
      *

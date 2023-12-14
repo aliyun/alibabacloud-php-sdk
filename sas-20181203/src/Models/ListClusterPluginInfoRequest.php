@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ListClusterPluginInfoRequest extends Model
 {
     /**
+     * @description The IDs of the clusters.
+     *
      * @var string[]
      */
     public $clusterIds;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -21,6 +28,8 @@ class ListClusterPluginInfoRequest extends Model
     public $lang;
 
     /**
+     * @description The name of the plug-in.
+     *
      * @example alihips
      *
      * @var string

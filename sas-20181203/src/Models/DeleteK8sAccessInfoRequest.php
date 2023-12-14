@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteK8sAccessInfoRequest extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
      * @example None
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteK8sAccessInfoRequest extends Model
     public $aliyunYundunGatewayApiName;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example None
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteK8sAccessInfoRequest extends Model
     public $aliyunYundunGatewayPopName;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example None
      *
      * @var string
@@ -30,6 +36,8 @@ class DeleteK8sAccessInfoRequest extends Model
     public $aliyunYundunGatewayProjectName;
 
     /**
+     * @description The ID generated when Kubernetes is connected. You can call the GenerateK8sAccessInfo operation to query the ID.
+     *
      * @example 200
      *
      * @var int

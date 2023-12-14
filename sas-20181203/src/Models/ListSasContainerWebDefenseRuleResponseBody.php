@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListSasContainerWebDefenseRuleResponseBody extends Model
 {
     /**
+     * @description The rules for container tamper-proofing.
+     *
      * @var containerWebDefenseRuleList[]
      */
     public $containerWebDefenseRuleList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID, which is used to query logs and troubleshoot issues.
+     *
      * @example 8C376***AE74FB4
      *
      * @var string

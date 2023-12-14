@@ -9,16 +9,23 @@ use AlibabaCloud\Tea\Model;
 class whitelist extends Model
 {
     /**
+     * @description The hash values of the files that need to be added to the whitelist.
+     *
+     * >  This parameter is not supported.
      * @var string[]
      */
     public $hash;
 
     /**
+     * @description The images that need to be added to the whitelist.
+     *
      * @var string[]
      */
     public $image;
 
     /**
+     * @description The paths to the files that need to be added to the whitelist.
+     *
      * @var string[]
      */
     public $path;

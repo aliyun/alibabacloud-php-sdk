@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteContainerPluginRuleResponseBody extends Model
 {
     /**
-     * @description Indicates whether the container plug-in is manually deleted. Valid values: **true** and **false**.
+     * @description Indicates whether the container plug-in is manually deleted. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *

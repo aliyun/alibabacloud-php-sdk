@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetFileDetectReportResponseBody extends Model
 {
     /**
+     * @description The status code that is returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetFileDetectReportResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -29,6 +35,8 @@ class GetFileDetectReportResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB393XXXX
      *
      * @var string
@@ -36,6 +44,11 @@ class GetFileDetectReportResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

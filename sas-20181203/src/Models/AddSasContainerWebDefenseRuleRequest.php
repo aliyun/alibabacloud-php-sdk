@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class AddSasContainerWebDefenseRuleRequest extends Model
 {
     /**
+     * @description The paths that you want to protect.
+     *
      * @var pathConfDTOList[]
      */
     public $pathConfDTOList;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test-2020
      *
      * @var string

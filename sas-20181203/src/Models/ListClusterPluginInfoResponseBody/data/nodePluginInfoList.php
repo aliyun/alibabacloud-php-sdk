@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodePluginInfoList extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example kenerl not support
      *
      * @var string
@@ -16,6 +18,8 @@ class nodePluginInfoList extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example kenerl not support
      *
      * @var string
@@ -23,6 +27,11 @@ class nodePluginInfoList extends Model
     public $errorMsg;
 
     /**
+     * @description Indicates whether the plug-in is installed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +39,8 @@ class nodePluginInfoList extends Model
     public $installed;
 
     /**
+     * @description The public IP address of the server.
+     *
      * @example 100.100.XXX.XX
      *
      * @var string
@@ -37,6 +48,8 @@ class nodePluginInfoList extends Model
     public $machineInternetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
      * @example 10.XXX.XXX.XX
      *
      * @var string
@@ -44,6 +57,8 @@ class nodePluginInfoList extends Model
     public $machineIntranetIp;
 
     /**
+     * @description The name of the server.
+     *
      * @example npznas05
      *
      * @var string
@@ -51,6 +66,11 @@ class nodePluginInfoList extends Model
     public $machineName;
 
     /**
+     * @description The type of the instance. Valid values include:
+     *
+     *   **ecs**: Elastic Compute Service (ECS) instance
+     *   **slb**: Server Load Balancer (SLB) instance
+     *
      * @example ECS
      *
      * @var int
@@ -58,6 +78,12 @@ class nodePluginInfoList extends Model
     public $machineType;
 
     /**
+     * @description Indicates whether the Security Center agent is online. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * >  If the Security Center agent of the server is offline, Security Center does not protect the server.
      * @example true
      *
      * @var bool
@@ -65,6 +91,8 @@ class nodePluginInfoList extends Model
     public $online;
 
     /**
+     * @description The name of the plug-in.
+     *
      * @example alihips
      *
      * @var string
@@ -72,6 +100,8 @@ class nodePluginInfoList extends Model
     public $pluginName;
 
     /**
+     * @description The version of the plug-in.
+     *
      * @example 1.3.1
      *
      * @var string
@@ -79,6 +109,8 @@ class nodePluginInfoList extends Model
     public $pluginVersion;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example bc563d2b-2a3d-411b-8bbe-d75b8d3c****
      *
      * @var string
@@ -86,6 +118,8 @@ class nodePluginInfoList extends Model
     public $uuid;
 
     /**
+     * @description The instance ID of the server.
+     *
      * @example tpp-cn-2r42njq4y001
      *
      * @var string

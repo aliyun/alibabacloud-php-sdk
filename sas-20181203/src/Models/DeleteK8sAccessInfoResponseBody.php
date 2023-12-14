@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteK8sAccessInfoResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request was successful. Valid value:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DeleteK8sAccessInfoResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example C5338DE5-5D80-51A1-B330-98300AFB80E9
      *
      * @var string

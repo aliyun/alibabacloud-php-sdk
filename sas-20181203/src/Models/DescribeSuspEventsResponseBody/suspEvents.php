@@ -265,7 +265,7 @@ class suspEvents extends Model
     public $instanceName;
 
     /**
-     * @description The public IP address of the associated instance.
+     * @description The public IP address that is associated with instance.
      *
      * @example 1.2.XX.XX
      *
@@ -337,6 +337,13 @@ class suspEvents extends Model
     public $k8sPodName;
 
     /**
+     * @description Indicates whether the large model analysis tag is supported. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $largeModel;
@@ -375,8 +382,8 @@ class suspEvents extends Model
     /**
      * @description The status of the malicious behavior defense rule. Valid values:
      *
-     *   **open**: enabled.
-     *   **close**: disabled.
+     *   **open**
+     *   **close**
      *
      * @example open
      *
@@ -460,7 +467,7 @@ class suspEvents extends Model
     public $saleVersion;
 
     /**
-     * @description The IDs of the associated alert events.
+     * @description The ID of the associated alert event.
      *
      * @example 270789
      *

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMaliciousFileWhitelistConfigResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class CreateMaliciousFileWhitelistConfigResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class CreateMaliciousFileWhitelistConfigResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -36,6 +44,8 @@ class CreateMaliciousFileWhitelistConfigResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example A4EB8B1C-1DEC-5E18-BCD0-XXXXXXXXX
      *
      * @var string
@@ -43,6 +53,11 @@ class CreateMaliciousFileWhitelistConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

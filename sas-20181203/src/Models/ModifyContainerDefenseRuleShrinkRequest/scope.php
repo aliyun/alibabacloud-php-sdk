@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class scope extends Model
 {
     /**
+     * @description Specifies whether to include all namespaces. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,9 @@ class scope extends Model
     public $allNamespace;
 
     /**
+     * @description The ID of the cluster on which the rule takes effect.
+     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
      * @example c54b***1501
      *
      * @var string
@@ -23,6 +31,8 @@ class scope extends Model
     public $clusterId;
 
     /**
+     * @description The namespaces.
+     *
      * @var string[]
      */
     public $namespaces;

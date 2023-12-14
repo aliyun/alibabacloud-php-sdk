@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class containerWebDefenseAppList extends Model
 {
     /**
+     * @description The user ID.
+     *
      * @example 5944922169365****
      *
      * @var int
@@ -16,6 +18,9 @@ class containerWebDefenseAppList extends Model
     public $aliUid;
 
     /**
+     * @description The ID of the container cluster.
+     *
+     * >  The IDs of clusters can be obtained by using the [DescribeGroupedContainerInstances](~~182997~~) operation.
      * @example cfb41a869c71e4678a97021582dd8****
      *
      * @var string
@@ -23,6 +28,8 @@ class containerWebDefenseAppList extends Model
     public $clusterId;
 
     /**
+     * @description The time when the application was created. Unit: milliseconds.
+     *
      * @example 1677839038000
      *
      * @var int
@@ -30,6 +37,8 @@ class containerWebDefenseAppList extends Model
     public $gmtCreate;
 
     /**
+     * @description The last modification time. Unit: milliseconds.
+     *
      * @example 1667891185000
      *
      * @var int
@@ -37,6 +46,8 @@ class containerWebDefenseAppList extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the node.
+     *
      * @example 143761
      *
      * @var int
@@ -44,6 +55,8 @@ class containerWebDefenseAppList extends Model
     public $id;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 403327
      *
      * @var int
@@ -51,6 +64,8 @@ class containerWebDefenseAppList extends Model
     public $ruleId;
 
     /**
+     * @description The value of the application label.
+     *
      * @example app:test
      *
      * @var string

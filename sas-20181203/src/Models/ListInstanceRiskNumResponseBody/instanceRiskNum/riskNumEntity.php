@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class riskNumEntity extends Model
 {
     /**
+     * @description The number of high-risk alerts.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class riskNumEntity extends Model
     public $suspiciousHighCount;
 
     /**
+     * @description The number of low-risk alerts.
+     *
      * @example 7
      *
      * @var int
@@ -23,6 +27,8 @@ class riskNumEntity extends Model
     public $suspiciousLowCount;
 
     /**
+     * @description The number of medium-risk alerts.
+     *
      * @example 6
      *
      * @var int
@@ -30,6 +36,8 @@ class riskNumEntity extends Model
     public $suspiciousMediumCount;
 
     /**
+     * @description The number of high-risk vulnerabilities.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class riskNumEntity extends Model
     public $vulHighCount;
 
     /**
+     * @description The number of low-risk vulnerabilities.
+     *
      * @example 3
      *
      * @var int
@@ -44,6 +54,8 @@ class riskNumEntity extends Model
     public $vulLowCount;
 
     /**
+     * @description The number of medium-risk vulnerabilities.
+     *
      * @example 2
      *
      * @var int
@@ -51,6 +63,8 @@ class riskNumEntity extends Model
     public $vulMediumCount;
 
     /**
+     * @description The number of weak passwords exposed on the Internet.
+     *
      * @example 4
      *
      * @var int

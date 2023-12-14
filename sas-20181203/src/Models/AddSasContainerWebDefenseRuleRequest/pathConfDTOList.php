@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pathConfDTOList extends Model
 {
     /**
+     * @description The backup path.
+     *
      * @example /tmp/test
      *
      * @var string
@@ -16,6 +18,11 @@ class pathConfDTOList extends Model
     public $backupPath;
 
     /**
+     * @description The prevention mode. Valid values:
+     *
+     *   **block**
+     *   **audit**
+     *
      * @example audit
      *
      * @var string
@@ -23,6 +30,8 @@ class pathConfDTOList extends Model
     public $defenseMode;
 
     /**
+     * @description The path that you want to protect.
+     *
      * @example /usr/test/
      *
      * @var string
@@ -30,6 +39,8 @@ class pathConfDTOList extends Model
     public $defensePath;
 
     /**
+     * @description The file that you want to exclude.
+     *
      * @example /usr/test/aa
      *
      * @var string
@@ -37,6 +48,8 @@ class pathConfDTOList extends Model
     public $excludeFile;
 
     /**
+     * @description The path to the file that you want to exclude.
+     *
      * @example /usr/test/tt
      *
      * @var string
@@ -44,6 +57,8 @@ class pathConfDTOList extends Model
     public $excludeFilePath;
 
     /**
+     * @description The type of the file that you want to exclude.
+     *
      * @example jsp
      *
      * @var string
@@ -51,6 +66,11 @@ class pathConfDTOList extends Model
     public $excludeFileType;
 
     /**
+     * @description The protecion mode. Valid values:
+     *
+     *   **0**: basic mode (whitelist)
+     *   **1**: complex mode (blacklist)
+     *
      * @example 0
      *
      * @var int
@@ -58,6 +78,8 @@ class pathConfDTOList extends Model
     public $guardType;
 
     /**
+     * @description The file that you want to include.
+     *
      * @example /usr/test/t1
      *
      * @var string
@@ -65,6 +87,8 @@ class pathConfDTOList extends Model
     public $includeFile;
 
     /**
+     * @description The type of the file that you want to include.
+     *
      * @example *.jsp
      *
      * @var string
@@ -72,6 +96,8 @@ class pathConfDTOList extends Model
     public $includeFileType;
 
     /**
+     * @description The processes that you want to add to the whitelist.
+     *
      * @var string[]
      */
     public $processPathList;

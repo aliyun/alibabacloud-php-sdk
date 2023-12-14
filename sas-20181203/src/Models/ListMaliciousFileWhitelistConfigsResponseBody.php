@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ListMaliciousFileWhitelistConfigsResponseBody extends Model
 {
     /**
+     * @description The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -18,6 +20,8 @@ class ListMaliciousFileWhitelistConfigsResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -25,11 +29,15 @@ class ListMaliciousFileWhitelistConfigsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The alert whitelist rules of sensitive files that are detected by using the agentless detection feature.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -37,11 +45,15 @@ class ListMaliciousFileWhitelistConfigsResponseBody extends Model
     public $message;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example F5CF78A7-30AA-59DB-847F-13EE3AE7****
      *
      * @var string
@@ -49,6 +61,11 @@ class ListMaliciousFileWhitelistConfigsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

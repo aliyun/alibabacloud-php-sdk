@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateHoneypotProbeBindRequest extends Model
 {
     /**
+     * @description The unique ID of the honeypot to which the probe is bound.
+     *
      * @example f52e8624-e43c-473c-8312-e0fed384****
      *
      * @var string
@@ -17,11 +19,18 @@ class UpdateHoneypotProbeBindRequest extends Model
     public $bindId;
 
     /**
+     * @description The ports that are bound to the probe.
+     *
      * @var bindPortList[]
      */
     public $bindPortList;
 
     /**
+     * @description The operation that the probe performs. Valid values:
+     *
+     *   **forward_honey**: forward traffic to a honeypot
+     *   **scan_port**: monitor and scan
+     *
      * @example forward_honey
      *
      * @var string
@@ -29,6 +38,8 @@ class UpdateHoneypotProbeBindRequest extends Model
     public $bindType;
 
     /**
+     * @description The page number. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -36,6 +47,9 @@ class UpdateHoneypotProbeBindRequest extends Model
     public $currentPage;
 
     /**
+     * @description The honeypot ID.
+     *
+     * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to obtain the IDs of honeypots.
      * @example dba7d44775be8e0e5888ee3b1a62554a93d2512247cabc38ddeac17a3b3f****
      *
      * @var string
@@ -43,6 +57,8 @@ class UpdateHoneypotProbeBindRequest extends Model
     public $honeypotId;
 
     /**
+     * @description The port ID of the probe service.
+     *
      * @example 1906
      *
      * @var int
@@ -50,6 +66,11 @@ class UpdateHoneypotProbeBindRequest extends Model
     public $id;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -57,6 +78,9 @@ class UpdateHoneypotProbeBindRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+     *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -64,6 +88,8 @@ class UpdateHoneypotProbeBindRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ports that are monitored.
+     *
      * @example {\"tcp\":\"1-65535\",\"udp\":\"1-65535\"}
      *
      * @var string
@@ -71,6 +97,9 @@ class UpdateHoneypotProbeBindRequest extends Model
     public $ports;
 
     /**
+     * @description The probe ID.
+     *
+     * >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
      * @example 36bad711-d1ac-4419-ac68-c1aa280f****
      *
      * @var string
@@ -78,11 +107,15 @@ class UpdateHoneypotProbeBindRequest extends Model
     public $probeId;
 
     /**
+     * @description The IP addresses that are monitored.
+     *
      * @var string[]
      */
     public $serviceIpList;
 
     /**
+     * @description The status of the port.
+     *
      * @example 0
      *
      * @var int

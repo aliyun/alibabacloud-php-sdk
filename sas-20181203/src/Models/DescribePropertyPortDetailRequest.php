@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyPortDetailRequest extends Model
 {
     /**
-     * @description The IP address that is bound to the listening port.
+     * @description The IP address bound to the port.
      *
      * @example 0.0.XX.XX
      *

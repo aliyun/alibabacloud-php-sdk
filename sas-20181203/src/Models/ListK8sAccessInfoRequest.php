@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListK8sAccessInfoRequest extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
      * @example None
      *
      * @var string
@@ -16,6 +18,8 @@ class ListK8sAccessInfoRequest extends Model
     public $aliyunYundunGatewayApiName;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example None
      *
      * @var string
@@ -23,6 +27,8 @@ class ListK8sAccessInfoRequest extends Model
     public $aliyunYundunGatewayPopName;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example None
      *
      * @var string
@@ -30,6 +36,11 @@ class ListK8sAccessInfoRequest extends Model
     public $aliyunYundunGatewayProjectName;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example en
      *
      * @var string

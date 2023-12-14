@@ -1220,6 +1220,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\RemoveCheckInstanceResultWhiteListRequ
 use AlibabaCloud\SDK\Sas\V20181203\Models\RemoveCheckInstanceResultWhiteListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RemoveCheckResultWhiteListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RemoveCheckResultWhiteListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ResetHoneypotRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ResetHoneypotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RetryAgentlessTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RetryAgentlessTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RetryInstallProbeRequest;
@@ -1243,6 +1245,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\SetSensitiveDefineRuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartDiscoverDatabaseTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\StartHoneypotRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\StartHoneypotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartPreCheckDatabaseRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartPreCheckDatabaseResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartVirusScanTaskRequest;
@@ -26903,10 +26907,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListK8sAccessInfoRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can use this operation to query the access information about Kubernetes clusters.
+     *   *
+     * @param ListK8sAccessInfoRequest $request ListK8sAccessInfoRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListK8sAccessInfoResponse
+     * @return ListK8sAccessInfoResponse ListK8sAccessInfoResponse
      */
     public function listK8sAccessInfoWithOptions($request, $runtime)
     {
@@ -26943,9 +26949,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ListK8sAccessInfoRequest $request
+     * You can use this operation to query the access information about Kubernetes clusters.
+     *   *
+     * @param ListK8sAccessInfoRequest $request ListK8sAccessInfoRequest
      *
-     * @return ListK8sAccessInfoResponse
+     * @return ListK8sAccessInfoResponse ListK8sAccessInfoResponse
      */
     public function listK8sAccessInfo($request)
     {
@@ -33761,6 +33769,52 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ResetHoneypotRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ResetHoneypotResponse
+     */
+    public function resetHoneypotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->honeypotId)) {
+            $query['HoneypotId'] = $request->honeypotId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetHoneypot',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetHoneypotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResetHoneypotRequest $request
+     *
+     * @return ResetHoneypotResponse
+     */
+    public function resetHoneypot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetHoneypotWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RetryAgentlessTaskRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -34317,6 +34371,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startDiscoverDatabaseTaskWithOptions($runtime);
+    }
+
+    /**
+     * @param StartHoneypotRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartHoneypotResponse
+     */
+    public function startHoneypotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->honeypotId)) {
+            $query['HoneypotId'] = $request->honeypotId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartHoneypot',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartHoneypotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartHoneypotRequest $request
+     *
+     * @return StartHoneypotResponse
+     */
+    public function startHoneypot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startHoneypotWithOptions($request, $runtime);
     }
 
     /**

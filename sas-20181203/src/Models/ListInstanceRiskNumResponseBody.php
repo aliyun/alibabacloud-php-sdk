@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceRiskNumResponseBody extends Model
 {
     /**
+     * @description The information about the risks in the instance.
+     *
      * @var instanceRiskNum[]
      */
     public $instanceRiskNum;
 
     /**
+     * @description The request ID.
+     *
      * @example 291B49F9-1685-4005-9D34-606B6F78****
      *
      * @var string

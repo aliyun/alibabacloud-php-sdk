@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotEventFlowsResponseBody extends Model
 {
     /**
+     * @description The status code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -18,11 +20,15 @@ class ListHoneypotEventFlowsResponseBody extends Model
     public $code;
 
     /**
+     * @description The attack timelines.
+     *
      * @var honeypotEventFlows[]
      */
     public $honeypotEventFlows;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -30,6 +36,8 @@ class ListHoneypotEventFlowsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -37,11 +45,15 @@ class ListHoneypotEventFlowsResponseBody extends Model
     public $message;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 9F4E6157-9600-5588-86B9-38F09067****
      *
      * @var string
@@ -49,6 +61,11 @@ class ListHoneypotEventFlowsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

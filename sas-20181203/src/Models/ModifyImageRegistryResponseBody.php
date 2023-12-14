@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageRegistryResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -16,11 +18,17 @@ class ModifyImageRegistryResponseBody extends Model
     public $code;
 
     /**
+     * @description N/A
+     *
+     * @example N/A
+     *
      * @var mixed
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -28,6 +36,8 @@ class ModifyImageRegistryResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -35,6 +45,8 @@ class ModifyImageRegistryResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 379a9b8f-107b-4630-9e95-2299a1ea****
      *
      * @var string
@@ -42,6 +54,11 @@ class ModifyImageRegistryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -49,6 +66,8 @@ class ModifyImageRegistryResponseBody extends Model
     public $success;
 
     /**
+     * @description The execution duration.
+     *
      * @example 1
      *
      * @var int

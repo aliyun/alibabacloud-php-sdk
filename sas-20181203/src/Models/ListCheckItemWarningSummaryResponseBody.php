@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class ListCheckItemWarningSummaryResponseBody extends Model
 {
     /**
-     * @description An array that consists of the risk statistics of check items.
+     * @description The risk statistics of check items.
      *
      * @var list_[]
      */

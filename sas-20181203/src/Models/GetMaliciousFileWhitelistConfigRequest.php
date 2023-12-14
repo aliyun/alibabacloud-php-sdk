@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMaliciousFileWhitelistConfigRequest extends Model
 {
     /**
+     * @description The ID of the whitelist rule.
+     *
      * @example 1
      *
      * @var int

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UploadedHoneyPotFileRequest extends Model
 {
     /**
+     * @description The file key that you use to upload the file.
+     *
+     * >  The key is in the format of HONEYPOT_FILE/{Timestamp}\_{Custom file name}.
      * @example HONEYPOT_FILE/1601097845544644_********
      *
      * @var string
@@ -16,6 +19,8 @@ class UploadedHoneyPotFileRequest extends Model
     public $fileKey;
 
     /**
+     * @description The name of the file that you want to upload.
+     *
      * @example trojan.zip
      *
      * @var string
@@ -23,6 +28,8 @@ class UploadedHoneyPotFileRequest extends Model
     public $fileName;
 
     /**
+     * @description The file type.
+     *
      * @example application/zip
      *
      * @var string
@@ -30,6 +37,8 @@ class UploadedHoneyPotFileRequest extends Model
     public $fileType;
 
     /**
+     * @description The name of the honeypot image.
+     *
      * @example ruoyi
      *
      * @var string
@@ -37,6 +46,11 @@ class UploadedHoneyPotFileRequest extends Model
     public $honeypotImageName;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -44,6 +58,9 @@ class UploadedHoneyPotFileRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the management node to which the honeypot belongs.
+     *
+     * >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the IDs of management nodes. operation to query the management node ID.
      * @example cc427e14-f257-4670-9d2b-d83bbbe*****
      *
      * @var string
@@ -51,6 +68,8 @@ class UploadedHoneyPotFileRequest extends Model
     public $nodeId;
 
     /**
+     * @description The prompt template that corresponds to the file.
+     *
      * @example {\"help\":\".zip\",\"label\":\"file\",\"type\":\"file\",\"key\":\"ftpfiles.zip\"}
      *
      * @var string

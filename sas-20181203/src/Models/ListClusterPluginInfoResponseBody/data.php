@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
      * @example c8ca91e0907d94efaba7fb0827eb9****
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example lmftest
      *
      * @var string
@@ -24,6 +28,12 @@ class data extends Model
     public $clusterName;
 
     /**
+     * @description The status of the cluster. Valid values:
+     *
+     *   1: normal
+     *   2: abnormal
+     *   3: offline
+     *
      * @example ABNORMAL
      *
      * @var string
@@ -31,6 +41,8 @@ class data extends Model
     public $clusterStatus;
 
     /**
+     * @description The plug-ins.
+     *
      * @var nodePluginInfoList[]
      */
     public $nodePluginInfoList;

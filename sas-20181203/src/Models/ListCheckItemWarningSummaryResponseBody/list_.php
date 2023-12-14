@@ -18,11 +18,15 @@ class list_ extends Model
     public $advice;
 
     /**
+     * @description The list of the baseline categories of attribution.
+     *
      * @var string[]
      */
     public $affiliatedRiskTypes;
 
     /**
+     * @description The list of baselines attribution.
+     *
      * @var string[]
      */
     public $affiliatedRisks;
@@ -55,9 +59,10 @@ class list_ extends Model
     public $checkItem;
 
     /**
-     * @description The risk level of the check item.Valid values:
+     * @description The risk level of the check item. Valid values:
+     *
      *   **high**
-     *  **medium**
+     *   **medium**
      *   **low**
      *
      * @example high
@@ -76,9 +81,10 @@ class list_ extends Model
     public $checkType;
 
     /**
-     * @description Checks if the item belongs to the container runtime category.Valid values:
+     * @description Indicates whether the check item belongs to the container runtime type. Valid values:
+     *
      *   **true**
-     *  **false**
+     *   **false**
      *
      * @example true
      *
@@ -105,10 +111,10 @@ class list_ extends Model
     public $riskType;
 
     /**
-     * @description The risk status of the check item.Valid values:
-     *  **1**: failed
+     * @description The risk status of the check item. Valid values:
      *
-     *  **3**: passed
+     *   **1**: failed
+     *   **3**: passed
      *
      * @example 1
      *

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The ID of the malicious sample.
+     *
+     * >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the IDs of malicious samples.
      * @example 65201
      *
      * @var string
@@ -16,6 +19,9 @@ class item extends Model
     public $id;
 
     /**
+     * @description The name of the malicious sample.
+     *
+     * >  You can call the [DescribeMatchedMaliciousNames](~~DescribeMatchedMaliciousNames~~) operation to query the names of malicious samples.
      * @example abnormal binary file
      *
      * @var string

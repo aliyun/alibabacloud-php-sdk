@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerInstancesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about containers.
+     * @description The details of the container asset.
      *
      * @var containerInstanceList[]
      */

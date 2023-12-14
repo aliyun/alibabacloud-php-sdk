@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class containerWebDefenseApplicationDTOS extends Model
 {
     /**
+     * @description The ID of the cluster to which the container belongs.
+     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the cluster ID.
      * @example ceb68cc58234141828677e383bd21ff0c
      *
      * @var string
@@ -16,6 +19,11 @@ class containerWebDefenseApplicationDTOS extends Model
     public $clusterId;
 
     /**
+     * @description Specifies whether to apply the configuration to the asset. Valid values:
+     *
+     *   **add**: applied
+     *   **del**: not applied
+     *
      * @example add
      *
      * @var string
@@ -23,6 +31,8 @@ class containerWebDefenseApplicationDTOS extends Model
     public $flag;
 
     /**
+     * @description The application ID. If the application is newly added, you do not need to specify this parameter.
+     *
      * @example 196
      *
      * @var int
@@ -30,6 +40,8 @@ class containerWebDefenseApplicationDTOS extends Model
     public $id;
 
     /**
+     * @description The value of the application tag.
+     *
      * @example app:app-003
      *
      * @var string

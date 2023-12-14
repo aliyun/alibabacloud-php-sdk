@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class scopes extends Model
 {
     /**
+     * @description The instance ID of the rule in the cluster.
+     *
+     * >  You can call the [GetOpaStrategyDetailNew](~~GetOpaStrategyDetailNew~~) operation to query the instance IDs of rules.
      * @example ack-1
      *
      * @var string
@@ -16,6 +19,11 @@ class scopes extends Model
     public $ackPolicyInstanceId;
 
     /**
+     * @description Specifies whether to include all namespaces.
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +31,9 @@ class scopes extends Model
     public $allNamespace;
 
     /**
+     * @description The ID of the container cluster.
+     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
      * @example cdcb56a931c**
      *
      * @var string
@@ -30,6 +41,9 @@ class scopes extends Model
     public $clusterId;
 
     /**
+     * @description The namespaces.
+     *
+     * > This parameter is valid only when AllNamespace is set to 0.
      * @var string[]
      */
     public $namespaceList;

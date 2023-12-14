@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetSasContainerWebDefenseRuleCriteriaResponseBody extends Model
 {
     /**
+     * @description The search conditions.
+     *
      * @var criteriaList[]
      */
     public $criteriaList;
 
     /**
+     * @description The request ID.
+     *
      * @example F8B6F758-BCD4-597A-8A2C-DA5A552C****
      *
      * @var string

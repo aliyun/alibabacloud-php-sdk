@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class k8sAccessInfos extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 1960721413485****
      *
      * @var int
@@ -16,6 +18,8 @@ class k8sAccessInfos extends Model
     public $aliUid;
 
     /**
+     * @description The Simple Log Service Logstore that is used to store the audit logs.
+     *
      * @example audit-cf6baf6afa106eca665296fdf68b****
      *
      * @var string
@@ -23,6 +27,8 @@ class k8sAccessInfos extends Model
     public $auditLogStore;
 
     /**
+     * @description The Simple Log Service project that is used to store the audit logs.
+     *
      * @example k8s-log-custom-your-project-sd89eh****
      *
      * @var string
@@ -30,6 +36,8 @@ class k8sAccessInfos extends Model
     public $auditProject;
 
     /**
+     * @description The ID of the region in which the server is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +45,8 @@ class k8sAccessInfos extends Model
     public $auditRegionId;
 
     /**
+     * @description The ID of the cluster.
+     *
      * @example c0da5e4cb82a848c4a57c4dc9f49a****
      *
      * @var string
@@ -44,6 +54,8 @@ class k8sAccessInfos extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example test
      *
      * @var string
@@ -51,6 +63,8 @@ class k8sAccessInfos extends Model
     public $clusterName;
 
     /**
+     * @description The expiration time.
+     *
      * @example 1690596321613
      *
      * @var int
@@ -58,6 +72,8 @@ class k8sAccessInfos extends Model
     public $expireDate;
 
     /**
+     * @description The ID of the server group.
+     *
      * @example 11088522
      *
      * @var string
@@ -65,6 +81,8 @@ class k8sAccessInfos extends Model
     public $groupId;
 
     /**
+     * @description The name of the server group.
+     *
      * @example test
      *
      * @var string
@@ -72,6 +90,8 @@ class k8sAccessInfos extends Model
     public $groupName;
 
     /**
+     * @description The UUID of the access information.
+     *
      * @example 67070
      *
      * @var int
@@ -79,6 +99,8 @@ class k8sAccessInfos extends Model
     public $id;
 
     /**
+     * @description The installation key of the Kubernetes cluster.
+     *
      * @example xxx
      *
      * @var string
@@ -86,6 +108,8 @@ class k8sAccessInfos extends Model
     public $installKey;
 
     /**
+     * @description The service provider.
+     *
      * @example ALIYUN
      *
      * @var string

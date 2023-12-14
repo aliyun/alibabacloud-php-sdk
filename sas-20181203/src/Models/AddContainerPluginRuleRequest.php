@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddContainerPluginRuleRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,11 @@ class AddContainerPluginRuleRequest extends Model
     public $lang;
 
     /**
+     * @description The action that you want to specify for the rule. Valid values:
+     *
+     *   **1**: triggers alerts.
+     *   **2**: blocks escapes.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +33,8 @@ class AddContainerPluginRuleRequest extends Model
     public $mode;
 
     /**
+     * @description The name of the rule. The name must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_). The names of rules that are created for the same user must be unique.
+     *
      * @example tyest111
      *
      * @var string
@@ -30,6 +42,8 @@ class AddContainerPluginRuleRequest extends Model
     public $ruleName;
 
     /**
+     * @description The ID of the rule template. You can call the ListSystemClientRules operation to query the ID of the rule template.
+     *
      * @example 86863
      *
      * @var int
@@ -37,6 +51,11 @@ class AddContainerPluginRuleRequest extends Model
     public $ruleTemplateId;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   **0**: custom rule
+     *   **1**: system rule
+     *
      * @example 0
      *
      * @var int
@@ -44,11 +63,15 @@ class AddContainerPluginRuleRequest extends Model
     public $ruleType;
 
     /**
+     * @description The check items that are enabled for the rule.
+     *
      * @var string[]
      */
     public $selectedPolicy;
 
     /**
+     * @description The images that are added to the whitelist.
+     *
      * @var string[]
      */
     public $whiteImages;

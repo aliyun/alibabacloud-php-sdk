@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateOpaStrategyNewShrinkRequest extends Model
 {
     /**
+     * @description The risks that you want to detect by using the rule on images.
+     *
      * @var string
      */
     public $alarmDetailShrink;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * > This parameter is deprecated. We recommend that you use the Scopes parameter to specify the clusters in which the rule takes effect.
      * @example c870ec78ecbcb41d2a35c679823ef****
      *
      * @var string
@@ -22,6 +27,9 @@ class UpdateOpaStrategyNewShrinkRequest extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
+     * > This parameter is deprecated.
      * @example docker-law
      *
      * @var string
@@ -29,6 +37,8 @@ class UpdateOpaStrategyNewShrinkRequest extends Model
     public $clusterName;
 
     /**
+     * @description The description of the rule.
+     *
      * @example 4566
      *
      * @var string
@@ -36,16 +46,25 @@ class UpdateOpaStrategyNewShrinkRequest extends Model
     public $description;
 
     /**
+     * @description The names of the images in the rule.
+     *
      * @var string[]
      */
     public $imageName;
 
     /**
+     * @description The tags that are added to the images in the rule.
+     *
      * @var string[]
      */
     public $label;
 
     /**
+     * @description Specifies whether the rule supports malicious Internet images. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -53,6 +72,12 @@ class UpdateOpaStrategyNewShrinkRequest extends Model
     public $maliciousImage;
 
     /**
+     * @description The action that is performed when the rule is hit. Valid values:
+     *
+     *   **1**: trigger alerts
+     *   **2**: block
+     *   **3**: allow
+     *
      * @example 1
      *
      * @var int
@@ -60,11 +85,16 @@ class UpdateOpaStrategyNewShrinkRequest extends Model
     public $ruleAction;
 
     /**
+     * @description The effective scope of the rule.
+     *
      * @var scopes[]
      */
     public $scopes;
 
     /**
+     * @description The ID of the rule.
+     *
+     * >  You can call the \[ListOpaClusterStrategyNew]\(~~2623574~~) operation to query the IDs of rules.
      * @example 1003
      *
      * @var int
@@ -72,6 +102,8 @@ class UpdateOpaStrategyNewShrinkRequest extends Model
     public $strategyId;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test
      *
      * @var string
@@ -79,6 +111,9 @@ class UpdateOpaStrategyNewShrinkRequest extends Model
     public $strategyName;
 
     /**
+     * @description The ID of the rule template.
+     *
+     * >  You can call the [GetOpaStrategyTemplateSummary](~~2539952~~) operation to query the IDs of rule templates.
      * @example 109
      *
      * @var int
@@ -86,6 +121,11 @@ class UpdateOpaStrategyNewShrinkRequest extends Model
     public $strategyTemplateId;
 
     /**
+     * @description Specifies whether the rule supports unscanned images. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -93,6 +133,8 @@ class UpdateOpaStrategyNewShrinkRequest extends Model
     public $unScanedImage;
 
     /**
+     * @description The whitelist.
+     *
      * @var string[]
      */
     public $whiteList;

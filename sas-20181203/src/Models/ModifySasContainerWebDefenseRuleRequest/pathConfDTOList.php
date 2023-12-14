@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pathConfDTOList extends Model
 {
     /**
+     * @description The backup paths.
+     *
      * @example /tmp/test
      *
      * @var string
@@ -16,6 +18,11 @@ class pathConfDTOList extends Model
     public $backupPath;
 
     /**
+     * @description The prevention mode. Valid values:
+     *
+     *   **block**
+     *   **audit**
+     *
      * @example audit
      *
      * @var string
@@ -23,6 +30,8 @@ class pathConfDTOList extends Model
     public $defenseMode;
 
     /**
+     * @description The path that is protected.
+     *
      * @example /test/home/
      *
      * @var string
@@ -30,6 +39,8 @@ class pathConfDTOList extends Model
     public $defensePath;
 
     /**
+     * @description The files that are excluded.
+     *
      * @example /usr/test
      *
      * @var string
@@ -37,6 +48,8 @@ class pathConfDTOList extends Model
     public $excludeFile;
 
     /**
+     * @description The paths to the files that are excluded.
+     *
      * @example /test/home/qq
      *
      * @var string
@@ -44,6 +57,8 @@ class pathConfDTOList extends Model
     public $excludeFilePath;
 
     /**
+     * @description The types of the files that are excluded.
+     *
      * @example php
      *
      * @var string
@@ -51,6 +66,11 @@ class pathConfDTOList extends Model
     public $excludeFileType;
 
     /**
+     * @description The protection mode. Valid values:
+     *
+     *   **0**: basic mode (whitelist)
+     *   **1**: complex mode (blacklist)
+     *
      * @example 0
      *
      * @var int
@@ -58,6 +78,8 @@ class pathConfDTOList extends Model
     public $guardType;
 
     /**
+     * @description The files that are included.
+     *
      * @example /home/admin/test
      *
      * @var string
@@ -65,6 +87,8 @@ class pathConfDTOList extends Model
     public $includeFile;
 
     /**
+     * @description The type of the files that are included.
+     *
      * @example jsp
      *
      * @var string
@@ -72,6 +96,8 @@ class pathConfDTOList extends Model
     public $includeFileType;
 
     /**
+     * @description The path ID.
+     *
      * @example 12345678
      *
      * @var int
@@ -79,6 +105,8 @@ class pathConfDTOList extends Model
     public $pathConfId;
 
     /**
+     * @description The processes that are added to the whitelist.
+     *
      * @var string[]
      */
     public $processPathList;

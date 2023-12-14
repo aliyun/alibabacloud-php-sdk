@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteOpaStrategyNewRequest extends Model
 {
     /**
+     * @description The IDs of rules.
+     *
      * @var int[]
      */
     public $strategyIds;

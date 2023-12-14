@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateK8sAccessInfoRequest extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
      * @example None
      *
      * @var string
@@ -16,6 +18,8 @@ class GenerateK8sAccessInfoRequest extends Model
     public $aliyunYundunGatewayApiName;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example None
      *
      * @var string
@@ -23,6 +27,8 @@ class GenerateK8sAccessInfoRequest extends Model
     public $aliyunYundunGatewayPopName;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example None
      *
      * @var string
@@ -30,6 +36,8 @@ class GenerateK8sAccessInfoRequest extends Model
     public $aliyunYundunGatewayProjectName;
 
     /**
+     * @description The Simple Log Service Logstore that is used to store the audit logs.
+     *
      * @example audit-cf6baf6afa106eca665296fdf68b65bf
      *
      * @var string
@@ -37,6 +45,8 @@ class GenerateK8sAccessInfoRequest extends Model
     public $auditLogStore;
 
     /**
+     * @description The Simple Log Service project that is used to store the audit logs.
+     *
      * @example k8s-log-custom-huxintest1018-2
      *
      * @var string
@@ -44,6 +54,8 @@ class GenerateK8sAccessInfoRequest extends Model
     public $auditProject;
 
     /**
+     * @description The ID of the region in which the audit logs are stored.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +63,8 @@ class GenerateK8sAccessInfoRequest extends Model
     public $auditRegionId;
 
     /**
+     * @description The name of the Kubernetes cluster.
+     *
      * @example test
      *
      * @var string
@@ -58,6 +72,8 @@ class GenerateK8sAccessInfoRequest extends Model
     public $clusterName;
 
     /**
+     * @description The time at which the container ends to be added.
+     *
      * @example 1711951508388
      *
      * @var int
@@ -65,6 +81,8 @@ class GenerateK8sAccessInfoRequest extends Model
     public $expireDate;
 
     /**
+     * @description The group ID.
+     *
      * @example 11341690
      *
      * @var int
@@ -72,6 +90,14 @@ class GenerateK8sAccessInfoRequest extends Model
     public $groupId;
 
     /**
+     * @description The service provider of the cloud asset. Valid values:
+     *
+     *   **Tencent**
+     *   **HUAWEICLOUD**
+     *   **Azure**
+     *   **AWS**
+     *   **Others**
+     *
      * @example Tencent
      *
      * @var string

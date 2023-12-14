@@ -39,7 +39,7 @@ class containerInstanceList extends Model
     public $appName;
 
     /**
-     * @description The ID of cluster.
+     * @description The ID of the cluster.
      *
      * @example cfb41a869c71e4678a97021582dd8a****
      *
@@ -48,7 +48,7 @@ class containerInstanceList extends Model
     public $clusterId;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
      * @example test
      *
@@ -75,7 +75,10 @@ class containerInstanceList extends Model
     public $createTimestamp;
 
     /**
-     * @description The container is exposed.
+     * @description Indicates whether the asset is exposed to the Internet.
+     *
+     *   **1**: exposed
+     *   **0**: not exposed
      *
      * @example 1
      *
@@ -84,7 +87,7 @@ class containerInstanceList extends Model
     public $exposed;
 
     /**
-     * @description The container exposed details .
+     * @description The exposure details. The value is a JSON string.
      *
      * @example [{}]
      *
@@ -114,7 +117,7 @@ class containerInstanceList extends Model
     public $hcStatus;
 
     /**
-     * @description The IP address of the server.
+     * @description The IP address of the host.
      *
      * @example 172.24.XX.XX
      *
@@ -141,7 +144,7 @@ class containerInstanceList extends Model
     public $imageDigest;
 
     /**
-     * @description The ID of the image.
+     * @description The image ID.
      *
      * @example registry-vpc.cn-beijing.aliyuncs.com/acs/log-controller@sha256:5b046e2de8c490819125193ee2eb71a66f2cc16c032dcd8b69ead4be1024****
      *
@@ -159,7 +162,7 @@ class containerInstanceList extends Model
     public $imageRepoName;
 
     /**
-     * @description The namespace to which the image repository belongs.
+     * @description The namespace of the image repository.
      *
      * @example acs
      *

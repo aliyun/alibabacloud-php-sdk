@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteMaliciousFileWhitelistConfigRequest extends Model
 {
     /**
+     * @description The IDs of the whitelist rules. You can call the [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) operation to query the IDs of whitelist rules.
+     *
      * @var int[]
      */
     public $configIdList;

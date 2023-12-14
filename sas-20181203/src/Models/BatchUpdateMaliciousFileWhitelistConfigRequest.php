@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchUpdateMaliciousFileWhitelistConfigRequest extends Model
 {
     /**
+     * @description The whitelist rules.
+     *
      * @var configList[]
      */
     public $configList;

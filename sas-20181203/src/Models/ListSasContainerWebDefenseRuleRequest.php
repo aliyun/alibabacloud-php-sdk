@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListSasContainerWebDefenseRuleRequest extends Model
 {
     /**
+     * @description The search conditions for assets. The value of this parameter is in the JSON format and contains the following fields:
+     *
+     *   **name**: the name of the search condition.
+     *
+     *   **value**: the value of the search condition.
+     *
+     *   **logicalExp**: the logical relation for multiple search conditions. Valid values:
+     *
+     *   **OR**: The search conditions use a logical **OR**.
+     *   **AND**: The search conditions use a logical **AND**.
+     *
      * @example [{\"name\":\"ruleName\",\"value\":\"test-1818\",\"logicalExp\":\"AND\"}]
      *
      * @var string
@@ -16,6 +27,8 @@ class ListSasContainerWebDefenseRuleRequest extends Model
     public $criteria;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +36,11 @@ class ListSasContainerWebDefenseRuleRequest extends Model
     public $currentPage;
 
     /**
+     * @description The logical relation for multiple search conditions. Valid values:
+     *
+     *   **OR**: The search conditions use a logical **OR**.
+     *   **AND**: The search conditions use a logical **AND**.
+     *
      * @example OR
      *
      * @var string
@@ -30,6 +48,8 @@ class ListSasContainerWebDefenseRuleRequest extends Model
     public $logicalExp;
 
     /**
+     * @description The number of entries per page. Default value: **20**.
+     *
      * @example 50
      *
      * @var int

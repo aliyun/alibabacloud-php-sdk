@@ -18,7 +18,7 @@ class rpmEntityList extends Model
     public $containerName;
 
     /**
-     * @description The full version number.
+     * @description The complete version number.
      *
      * @example 3.10.0-693.2.2.el7
      *
@@ -45,7 +45,7 @@ class rpmEntityList extends Model
     public $matchDetail;
 
     /**
-     * @description The rule that is used to detect the vulnerability.
+     * @description The rules that are used to detect the vulnerability.
      *
      * @var string[]
      */
@@ -61,7 +61,7 @@ class rpmEntityList extends Model
     public $name;
 
     /**
-     * @description The path of the software that has the vulnerability.
+     * @description The path to the software that has the vulnerability.
      *
      * @example /usr/lib64/python2.7/site-packages
      *
@@ -88,7 +88,7 @@ class rpmEntityList extends Model
     public $updateCmd;
 
     /**
-     * @description The package version number of the software that has the vulnerability.
+     * @description The version number of the package of the software that has the vulnerability.
      *
      * @example 3.10.0
      *

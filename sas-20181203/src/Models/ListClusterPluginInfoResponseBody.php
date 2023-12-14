@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListClusterPluginInfoResponseBody extends Model
 {
     /**
+     * @description The information about the plug-in.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 0B48AB3C-84FC-424D-A01D-B9270EF46038
      *
      * @var string

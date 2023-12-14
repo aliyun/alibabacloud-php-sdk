@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class propertys extends Model
 {
     /**
-     * @description The IP address that is bound to the listening port.
+     * @description The IP address bound to the port.
      *
      * @example 0.0.X.X
      *
@@ -27,7 +27,7 @@ class propertys extends Model
     public $createTimestamp;
 
     /**
-     * @description The ID of the server.
+     * @description The instance ID of the server.
      *
      * @example i-hp35tftuh52wbp1g****
      *
@@ -36,7 +36,7 @@ class propertys extends Model
     public $instanceId;
 
     /**
-     * @description The name of the server.
+     * @description The instance name of the server.
      *
      * @example hc-host-****
      *
@@ -81,7 +81,7 @@ class propertys extends Model
     public $pid;
 
     /**
-     * @description The listening port.
+     * @description The listener port.
      *
      * @example 22
      *

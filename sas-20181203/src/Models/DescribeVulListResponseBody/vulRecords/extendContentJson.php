@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class extendContentJson extends Model
 {
     /**
-     * @description The package path of the software that has the vulnerability.
+     * @description The path to the package of the software that has the vulnerability.
      *
      * @example /roo/www/web
      *
@@ -38,6 +38,8 @@ class extendContentJson extends Model
     public $description;
 
     /**
+     * @description The returned message that indicates the urgent vulnerability.
+     *
      * @example com.xxl.rpc.util.XxlRpcException: xxl-rpc request data is empty.\n\tat com.xxl.rpc.remoting.net.impl.servlet.serve"
      *
      * @var string
@@ -54,7 +56,7 @@ class extendContentJson extends Model
     public $ip;
 
     /**
-     * @description The timestamp that was generated when the vulnerability was last detected. Unit: milliseconds.
+     * @description The timestamp when the vulnerability was last detected. Unit: milliseconds.
      *
      * @example 1620404763000
      *
@@ -88,7 +90,7 @@ class extendContentJson extends Model
     public $osRelease;
 
     /**
-     * @description The vulnerability ID.
+     * @description The ID of the vulnerability.
      *
      * @example 111
      *
@@ -106,19 +108,19 @@ class extendContentJson extends Model
     /**
      * @description The status of the vulnerability. Valid values:
      *
-     *   **1**: The vulnerability is unfixed.
-     *   **2**: The vulnerability failed to be fixed.
-     *   3: The system failed to be rolled back.
-     *   **4**: The vulnerability is being fixed.
-     *   **5**: The system is being rolled back.
-     *   **6**: The vulnerability is being verified.
-     *   **7**: The vulnerability is fixed.
-     *   **8**: The vulnerability is fixed and the system is to be restarted.
-     *   **9**: The system is rolled back.
-     *   **10**: The vulnerability is ignored.
-     *   **11**: The system is rolled back and is to be restarted.
-     *   **12**: The vulnerability is not found.
-     *   **20**: The vulnerability expires.
+     *   **1**: unfixed
+     *   **2**: fix failed
+     *   3: rollback failed
+     *   **4**: being fixed
+     *   **5**: being rolled back
+     *   **6**: being verified
+     *   **7**: fixed
+     *   **8**: fixed and to be restarted
+     *   **9**: rolled back
+     *   **10**: ignored
+     *   **11**: rolled back and to be restarted
+     *   **12**: not found
+     *   **20**: expired
      *
      * @example 1
      *
@@ -127,7 +129,7 @@ class extendContentJson extends Model
     public $status;
 
     /**
-     * @description The tag of the vulnerability.
+     * @description The tag that is added to the vulnerability.
      *
      * @example oval
      *
@@ -136,6 +138,8 @@ class extendContentJson extends Model
     public $tag;
 
     /**
+     * @description The URL of the vulnerability.
+     *
      * @example http://39.99.XX.XX:30005/toLogin
      *
      * @var string
@@ -143,7 +147,7 @@ class extendContentJson extends Model
     public $target;
 
     /**
-     * @description The CVE.
+     * @description The CVE list.
      *
      * @var string[]
      */

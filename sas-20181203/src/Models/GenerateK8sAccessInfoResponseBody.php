@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GenerateK8sAccessInfoResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 061955B2-BC40-589F-AF63-C40A901EE279
      *
      * @var string

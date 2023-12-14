@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceList extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example i-wz9fdluqx20mp2x7****
      *
      * @var string
@@ -16,6 +18,8 @@ class instanceList extends Model
     public $instanceId;
 
     /**
+     * @description The UUID of the instance.
+     *
      * @example f2d6e901-1004-4ca8-9dae-53ec04a9****
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyContainerPluginRuleResponseBody extends Model
 {
     /**
+     * @description The defense rule against container escapes.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example D03DD0FD-6041-5107-AC00-383E28F1****
      *
      * @var string

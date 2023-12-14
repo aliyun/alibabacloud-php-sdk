@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class OperateApplicationRequest extends Model
 {
     /**
+     * @description The container application that is protected from being tampered with.
+     *
      * @var containerWebDefenseApplicationDTOS[]
      */
     public $containerWebDefenseApplicationDTOS;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 300566
      *
      * @var int

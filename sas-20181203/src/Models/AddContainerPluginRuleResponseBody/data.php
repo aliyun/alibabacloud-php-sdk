@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the rule.
+     *
      * @example 219
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $ruleId;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test2
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $ruleName;
 
     /**
+     * @description The ID of the switch.
+     *
      * @example USER-CONTAINER-RULE-SWITCH-TYPE_xxxx
      *
      * @var string

@@ -11,11 +11,20 @@ use AlibabaCloud\Tea\Model;
 class ModifyContainerDefenseRuleRequest extends Model
 {
     /**
+     * @description The description of the rule.
+     *
+     * @example Prevent non-mirror programs from starting in containers
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The action specified in the rule. Valid values:
+     *
+     *   **1**: alert
+     *   **2**: block
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +32,9 @@ class ModifyContainerDefenseRuleRequest extends Model
     public $ruleAction;
 
     /**
+     * @description The ID of the rule.
+     *
+     * >  You can call the [ListContainerDefenseRule](~~2590599~~) operation to query the IDs of rules.
      * @example 123
      *
      * @var int
@@ -30,6 +42,8 @@ class ModifyContainerDefenseRuleRequest extends Model
     public $ruleId;
 
     /**
+     * @description The name of the rule.
+     *
      * @example text-001
      *
      * @var string
@@ -37,6 +51,11 @@ class ModifyContainerDefenseRuleRequest extends Model
     public $ruleName;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     *   **1**: enabled
+     *   **0**: disabled
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +63,11 @@ class ModifyContainerDefenseRuleRequest extends Model
     public $ruleSwitch;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   1: system rule
+     *   2: custom rule
+     *
      * @example 1
      *
      * @var int
@@ -51,11 +75,15 @@ class ModifyContainerDefenseRuleRequest extends Model
     public $ruleType;
 
     /**
+     * @description The effective scope of the rule.
+     *
      * @var scope[]
      */
     public $scope;
 
     /**
+     * @description The whitelist.
+     *
      * @var whitelist
      */
     public $whitelist;

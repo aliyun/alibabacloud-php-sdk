@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageRegistryRequest extends Model
 {
     /**
+     * @description The ID of the image repository. You can call the listImageRegistry operation to query the ID of the image repository.
+     *
      * @example 390103286
      *
      * @var int
@@ -16,6 +18,8 @@ class ModifyImageRegistryRequest extends Model
     public $id;
 
     /**
+     * @description The password.
+     *
      * @example ********************
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyImageRegistryRequest extends Model
     public $password;
 
     /**
+     * @description The number of images that are scanned per hour.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class ModifyImageRegistryRequest extends Model
     public $transPerHour;
 
     /**
+     * @description The username.
+     *
      * @example xxxx
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSasContainerWebDefenseRuleCriteriaRequest extends Model
 {
     /**
+     * @description The value of the search condition. Fuzzy match is supported.
+     *
      * @example 525
      *
      * @var string

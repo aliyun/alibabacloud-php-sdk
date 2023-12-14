@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ModifyContainerDefenseRuleSwitchRequest extends Model
 {
     /**
+     * @description The IDs of rules.
+     *
      * @var int[]
      */
     public $ruleIds;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     *   **1**: enabled
+     *   **0**: disabled
+     *
      * @example 0
      *
      * @var int

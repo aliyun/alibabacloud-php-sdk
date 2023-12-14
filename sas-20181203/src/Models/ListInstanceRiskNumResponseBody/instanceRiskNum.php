@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class instanceRiskNum extends Model
 {
     /**
+     * @description The information about the instance.
+     *
      * @var instanceItem
      */
     public $instanceItem;
 
     /**
+     * @description The statistics about the risks.
+     *
      * @var riskNumEntity
      */
     public $riskNumEntity;

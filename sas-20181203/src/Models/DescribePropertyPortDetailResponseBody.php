@@ -18,7 +18,7 @@ class DescribePropertyPortDetailResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @description An array that consists of the fingerprints of the ports.
+     * @description The fingerprints of the ports.
      *
      * @var propertys[]
      */

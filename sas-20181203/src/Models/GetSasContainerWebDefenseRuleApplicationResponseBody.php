@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetSasContainerWebDefenseRuleApplicationResponseBody extends Model
 {
     /**
+     * @description The applications.
+     *
      * @var containerWebDefenseAppList[]
      */
     public $containerWebDefenseAppList;
 
     /**
+     * @description The request ID.
+     *
      * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8****
      *
      * @var string

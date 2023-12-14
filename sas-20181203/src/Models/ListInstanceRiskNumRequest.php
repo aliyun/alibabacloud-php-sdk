@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceRiskNumRequest extends Model
 {
     /**
+     * @description The instances.
+     *
      * @var instanceList[]
      */
     public $instanceList;

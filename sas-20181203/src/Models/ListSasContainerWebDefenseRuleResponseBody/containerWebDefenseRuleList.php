@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class containerWebDefenseRuleList extends Model
 {
     /**
+     * @description The user ID.
+     *
      * @example 1766185894104675
      *
      * @var int
@@ -17,6 +19,8 @@ class containerWebDefenseRuleList extends Model
     public $aliUid;
 
     /**
+     * @description The number of the applications.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class containerWebDefenseRuleList extends Model
     public $apptotalCount;
 
     /**
+     * @description The creation time. Unit: milliseconds.
+     *
      * @example 1698978109000
      *
      * @var int
@@ -31,6 +37,8 @@ class containerWebDefenseRuleList extends Model
     public $gmtCreate;
 
     /**
+     * @description The timestamp when the alert event was last modified. Unit: milliseconds.
+     *
      * @example 1678852686000
      *
      * @var int
@@ -38,6 +46,8 @@ class containerWebDefenseRuleList extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 420336648
      *
      * @var int
@@ -45,11 +55,15 @@ class containerWebDefenseRuleList extends Model
     public $id;
 
     /**
+     * @description The paths that are protected.
+     *
      * @var pathConfDTOList[]
      */
     public $pathConfDTOList;
 
     /**
+     * @description The name of the rule.
+     *
      * @example test2
      *
      * @var string
@@ -57,6 +71,11 @@ class containerWebDefenseRuleList extends Model
     public $ruleName;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     *   **1**: enabled
+     *   **0**: disabled
+     *
      * @example 1
      *
      * @var int

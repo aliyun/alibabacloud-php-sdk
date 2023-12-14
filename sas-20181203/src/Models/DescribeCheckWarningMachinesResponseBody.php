@@ -19,7 +19,7 @@ class DescribeCheckWarningMachinesResponseBody extends Model
     public $count;
 
     /**
-     * @description An array consisting of the servers on which the same risk item is detected.
+     * @description The servers on which the same risk item is detected.
      *
      * @var machines[]
      */

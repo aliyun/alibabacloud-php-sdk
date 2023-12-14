@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetAegisContainerPluginRuleCriteriaResponseBody extends Model
 {
     /**
+     * @description The information about the search condition.
+     *
      * @var criteriaList[]
      */
     public $criteriaList;
 
     /**
+     * @description The request ID.
+     *
      * @example DA8133CC-CCA0-5CF2-BF64-FE7D52C44***
      *
      * @var string
