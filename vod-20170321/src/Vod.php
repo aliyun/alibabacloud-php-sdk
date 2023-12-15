@@ -278,6 +278,7 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitPreprocessJobsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitPreprocessJobsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitSnapshotJobRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitSnapshotJobResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitSnapshotJobShrinkRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitTranscodeJobsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitTranscodeJobsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitWorkflowJobRequest;
@@ -8192,14 +8193,19 @@ class Vod extends OpenApiClient
      * > *   Only snapshots in the JPG format are generated.
      *   * > *   After a snapshot job is complete, ApsaraVideo VOD sends a [SnapshotComplete](~~57337~~) event notification that contains EventType=SnapshotComplete and SubType=SpecifiedTime.
      *   *
-     * @param SubmitSnapshotJobRequest $request SubmitSnapshotJobRequest
+     * @param SubmitSnapshotJobRequest $tmpReq  SubmitSnapshotJobRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
      * @return SubmitSnapshotJobResponse SubmitSnapshotJobResponse
      */
-    public function submitSnapshotJobWithOptions($request, $runtime)
+    public function submitSnapshotJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new SubmitSnapshotJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->specifiedOffsetTimes)) {
+            $request->specifiedOffsetTimesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->specifiedOffsetTimes, 'SpecifiedOffsetTimes', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->count)) {
             $query['Count'] = $request->count;
@@ -8215,6 +8221,9 @@ class Vod extends OpenApiClient
         }
         if (!Utils::isUnset($request->specifiedOffsetTime)) {
             $query['SpecifiedOffsetTime'] = $request->specifiedOffsetTime;
+        }
+        if (!Utils::isUnset($request->specifiedOffsetTimesShrink)) {
+            $query['SpecifiedOffsetTimes'] = $request->specifiedOffsetTimesShrink;
         }
         if (!Utils::isUnset($request->spriteSnapshotConfig)) {
             $query['SpriteSnapshotConfig'] = $request->spriteSnapshotConfig;

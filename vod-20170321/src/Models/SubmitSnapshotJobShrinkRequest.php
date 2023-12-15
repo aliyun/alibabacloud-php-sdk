@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SubmitSnapshotJobRequest extends Model
+class SubmitSnapshotJobShrinkRequest extends Model
 {
     /**
      * @description The maximum number of snapshots. Default value: **1**.
@@ -61,9 +61,9 @@ class SubmitSnapshotJobRequest extends Model
     public $specifiedOffsetTime;
 
     /**
-     * @var int[]
+     * @var string
      */
-    public $specifiedOffsetTimes;
+    public $specifiedOffsetTimesShrink;
 
     /**
      * @description The sprite snapshot configuration. If you set this parameter, sprite snapshots are generated. For more information, see [SpriteSnapshotConfig](~~86952~~).
@@ -105,16 +105,16 @@ class SubmitSnapshotJobRequest extends Model
      */
     public $width;
     protected $_name = [
-        'count'                => 'Count',
-        'height'               => 'Height',
-        'interval'             => 'Interval',
-        'snapshotTemplateId'   => 'SnapshotTemplateId',
-        'specifiedOffsetTime'  => 'SpecifiedOffsetTime',
-        'specifiedOffsetTimes' => 'SpecifiedOffsetTimes',
-        'spriteSnapshotConfig' => 'SpriteSnapshotConfig',
-        'userData'             => 'UserData',
-        'videoId'              => 'VideoId',
-        'width'                => 'Width',
+        'count'                      => 'Count',
+        'height'                     => 'Height',
+        'interval'                   => 'Interval',
+        'snapshotTemplateId'         => 'SnapshotTemplateId',
+        'specifiedOffsetTime'        => 'SpecifiedOffsetTime',
+        'specifiedOffsetTimesShrink' => 'SpecifiedOffsetTimes',
+        'spriteSnapshotConfig'       => 'SpriteSnapshotConfig',
+        'userData'                   => 'UserData',
+        'videoId'                    => 'VideoId',
+        'width'                      => 'Width',
     ];
 
     public function validate()
@@ -139,8 +139,8 @@ class SubmitSnapshotJobRequest extends Model
         if (null !== $this->specifiedOffsetTime) {
             $res['SpecifiedOffsetTime'] = $this->specifiedOffsetTime;
         }
-        if (null !== $this->specifiedOffsetTimes) {
-            $res['SpecifiedOffsetTimes'] = $this->specifiedOffsetTimes;
+        if (null !== $this->specifiedOffsetTimesShrink) {
+            $res['SpecifiedOffsetTimes'] = $this->specifiedOffsetTimesShrink;
         }
         if (null !== $this->spriteSnapshotConfig) {
             $res['SpriteSnapshotConfig'] = $this->spriteSnapshotConfig;
@@ -161,7 +161,7 @@ class SubmitSnapshotJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return SubmitSnapshotJobRequest
+     * @return SubmitSnapshotJobShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -182,9 +182,7 @@ class SubmitSnapshotJobRequest extends Model
             $model->specifiedOffsetTime = $map['SpecifiedOffsetTime'];
         }
         if (isset($map['SpecifiedOffsetTimes'])) {
-            if (!empty($map['SpecifiedOffsetTimes'])) {
-                $model->specifiedOffsetTimes = $map['SpecifiedOffsetTimes'];
-            }
+            $model->specifiedOffsetTimesShrink = $map['SpecifiedOffsetTimes'];
         }
         if (isset($map['SpriteSnapshotConfig'])) {
             $model->spriteSnapshotConfig = $map['SpriteSnapshotConfig'];
