@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePerspectiveResponseBody extends Model
 {
     /**
+     * @example A8CA5217-4B7A-40F9-8985-416C2DCD5D4A
+     *
      * @var string
      */
     public $requestId;

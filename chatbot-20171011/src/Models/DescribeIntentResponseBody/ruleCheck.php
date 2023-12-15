@@ -14,6 +14,8 @@ class ruleCheck extends Model
     public $error;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $strict;

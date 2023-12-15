@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class slot extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isArray;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isNecessary;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $lifeSpan;
@@ -35,6 +41,8 @@ class slot extends Model
     public $question;
 
     /**
+     * @example 9ec31b50-32b8-11eb-9478-19d2d885afdb
+     *
      * @var string
      */
     public $slotId;

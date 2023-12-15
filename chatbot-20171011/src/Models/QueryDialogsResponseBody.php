@@ -15,21 +15,29 @@ class QueryDialogsResponseBody extends Model
     public $dialogs;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 7F132693-212A-40A9-8A81-11E7694E478B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;

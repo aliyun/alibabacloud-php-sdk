@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class PaasEntryDTO extends Model
 {
     /**
-     * @description PluginFieldDataEntry
-     *
      * @var PaasEntryPluginFieldDataDTO
      */
     public $pluginFieldDataEntry;

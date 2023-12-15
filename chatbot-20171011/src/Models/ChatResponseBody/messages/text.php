@@ -30,6 +30,8 @@ class text extends Model
     public $content;
 
     /**
+     * @example RICH_TEXT
+     *
      * @var string
      */
     public $contentType;
@@ -60,11 +62,15 @@ class text extends Model
     public $intentName;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $metaData;
 
     /**
+     * @example 1410-c7a72a78.__city
+     *
      * @var string
      */
     public $nodeId;
@@ -75,6 +81,8 @@ class text extends Model
     public $nodeName;
 
     /**
+     * @example 0.988
+     *
      * @var float
      */
     public $score;

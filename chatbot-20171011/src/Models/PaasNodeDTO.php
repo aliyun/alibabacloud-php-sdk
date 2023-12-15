@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class PaasNodeDTO extends Model
 {
     /**
-     * @description Code
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description Id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description Label
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @description PluginData
-     *
      * @var PaasPluginDataDTO
      */
     public $pluginData;
 
     /**
-     * @description Xx
-     *
      * @var float
      */
     public $xx;
 
     /**
-     * @description Yy
-     *
      * @var float
      */
     public $yy;

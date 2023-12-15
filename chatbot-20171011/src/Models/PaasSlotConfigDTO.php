@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class PaasSlotConfigDTO extends Model
 {
     /**
-     * @description IsArray
-     *
      * @var bool
      */
     public $isArray;
 
     /**
-     * @description IsNecessary
-     *
      * @var bool
      */
     public $isNecessary;
 
     /**
-     * @description LifeSpan
-     *
      * @var int
      */
     public $lifeSpan;
 
     /**
-     * @description Name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Question
-     *
      * @var string[]
      */
     public $question;
 
     /**
-     * @description Value
-     *
      * @var string
      */
     public $value;

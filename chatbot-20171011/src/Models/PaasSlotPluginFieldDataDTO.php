@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class PaasSlotPluginFieldDataDTO extends Model
 {
     /**
-     * @description ContentSlot
-     *
      * @var PaasSlotConfigDTO[]
      */
     public $contentSlot;
 
     /**
-     * @description IntentId
-     *
      * @var string
      */
     public $intentId;
 
     /**
-     * @description IntentName
-     *
      * @var string
      */
     public $intentName;
 
     /**
-     * @description IsSysIntent
-     *
      * @var bool
      */
     public $isSysIntent;
 
     /**
-     * @description Name
-     *
      * @var string
      */
     public $name;

@@ -15,21 +15,29 @@ class QueryKnowledgesResponseBody extends Model
     public $knowledges;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example D2605A09-827E-5C50-87A5-547498B93E8F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 84
+     *
      * @var int
      */
     public $totalCount;

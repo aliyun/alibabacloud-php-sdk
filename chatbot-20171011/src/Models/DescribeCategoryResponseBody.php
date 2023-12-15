@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCategoryResponseBody extends Model
 {
     /**
+     * @example 30000049006
+     *
      * @var int
      */
     public $categoryId;
@@ -19,11 +21,15 @@ class DescribeCategoryResponseBody extends Model
     public $name;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $parentCategoryId;
 
     /**
+     * @example 2B0304FD-3804-5C06-9A83-77F5523664AF
+     *
      * @var string
      */
     public $requestId;

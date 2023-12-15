@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class knowledge extends Model
 {
     /**
+     * @example KnowledgeBase
+     *
      * @var string
      */
     public $answerSource;
@@ -25,6 +27,8 @@ class knowledge extends Model
     public $content;
 
     /**
+     * @example PLAIN_TEXT
+     *
      * @var string
      */
     public $contentType;
@@ -35,6 +39,8 @@ class knowledge extends Model
     public $hitStatement;
 
     /**
+     * @example 834322
+     *
      * @var string
      */
     public $id;
@@ -45,6 +51,8 @@ class knowledge extends Model
     public $relatedKnowledges;
 
     /**
+     * @example 0.998
+     *
      * @var float
      */
     public $score;

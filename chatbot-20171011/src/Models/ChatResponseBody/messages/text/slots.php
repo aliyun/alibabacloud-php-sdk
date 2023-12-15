@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class slots extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isHit;

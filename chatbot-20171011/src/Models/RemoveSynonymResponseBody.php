@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveSynonymResponseBody extends Model
 {
     /**
+     * @example C191B48B-9268-4FB1-A3C2-5143B4A91D0C
+     *
      * @var string
      */
     public $requestId;

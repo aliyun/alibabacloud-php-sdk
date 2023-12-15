@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PaasResponsePluginFieldDataDTO extends Model
 {
     /**
-     * @description ContentResponse
-     *
      * @var PaasResponseNodeContentDTO
      */
     public $contentResponse;
 
     /**
-     * @description Name
-     *
      * @var string
      */
     public $name;

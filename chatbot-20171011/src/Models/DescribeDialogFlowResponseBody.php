@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDialogFlowResponseBody extends Model
 {
     /**
+     * @example 133208
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example 1641953931
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1760998
+     *
      * @var string
      */
     public $createUserId;
 
     /**
+     * @example user001
+     *
      * @var string
      */
     public $createUserName;
 
     /**
+     * @example 49966
+     *
      * @var int
      */
     public $dialogId;
@@ -39,26 +49,36 @@ class DescribeDialogFlowResponseBody extends Model
     public $dialogName;
 
     /**
+     * @example {"name": "", "age": ""}
+     *
      * @var mixed[]
      */
     public $globalVars;
 
     /**
+     * @example chatbot-cn-Yvy7uEn7mb
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1641953931
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example 1760998
+     *
      * @var string
      */
     public $modifyUserId;
 
     /**
+     * @example user001
+     *
      * @var string
      */
     public $modifyUserName;
@@ -69,6 +89,8 @@ class DescribeDialogFlowResponseBody extends Model
     public $moduleDefinition;
 
     /**
+     * @example 49162
+     *
      * @var int
      */
     public $moduleId;
@@ -79,16 +101,26 @@ class DescribeDialogFlowResponseBody extends Model
     public $moduleName;
 
     /**
+     * @example 6419BA93-D111-5225-8998-13E63E6D3940
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 0 for deleted, 1 for inSandbox, 2 for draft，3 for online
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description null
+     *
+     * @example default
+     *
      * @var string
      */
     public $tags;

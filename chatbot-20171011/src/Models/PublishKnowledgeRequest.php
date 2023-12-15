@@ -9,18 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PublishKnowledgeRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $async;
 
     /**
+     * @example 30001905617
+     *
      * @var int
      */
     public $knowledgeId;

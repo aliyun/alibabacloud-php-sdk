@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddSynonymResponseBody extends Model
 {
     /**
+     * @example 47D26156-D4C3-4E48-B0D6-25BBF7A3BC1D
+     *
      * @var string
      */
     public $requestId;

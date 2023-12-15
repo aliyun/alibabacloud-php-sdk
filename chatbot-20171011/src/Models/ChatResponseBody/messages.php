@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class messages extends Model
 {
     /**
+     * @example BotFramework
+     *
      * @var string
      */
     public $answerSource;
 
     /**
+     * @example Text
+     *
      * @var string
      */
     public $answerType;
@@ -37,8 +41,6 @@ class messages extends Model
     public $text;
 
     /**
-     * @description 在线场景，反问标题
-     *
      * @var string
      */
     public $title;
@@ -49,8 +51,6 @@ class messages extends Model
     public $type;
 
     /**
-     * @description 语音场景，澄清内容
-     *
      * @var string
      */
     public $voiceTitle;

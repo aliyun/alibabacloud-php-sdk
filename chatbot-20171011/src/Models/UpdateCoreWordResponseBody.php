@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateCoreWordResponseBody extends Model
 {
     /**
+     * @example D0DDFC4C-D66D-4787-9AE4-4D757481EDEE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

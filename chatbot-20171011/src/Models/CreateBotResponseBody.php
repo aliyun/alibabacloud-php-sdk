@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateBotResponseBody extends Model
 {
     /**
+     * @example chatbot-cn-7QuUfaqM
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example CDFB7CDF-CCBF-4388-AC7D-9484DB457FFF
+     *
      * @var string
      */
     public $requestId;

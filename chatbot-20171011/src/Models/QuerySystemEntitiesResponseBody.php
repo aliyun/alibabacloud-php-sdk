@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySystemEntitiesResponseBody extends Model
 {
     /**
+     * @example F6E5D7FE-6165-4478-BC52-9E0D1DAD5C84
+     *
      * @var string
      */
     public $requestId;

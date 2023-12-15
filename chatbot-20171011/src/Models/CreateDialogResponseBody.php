@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDialogResponseBody extends Model
 {
     /**
+     * @example 50120
+     *
      * @var int
      */
     public $dialogId;
 
     /**
+     * @example 16AC1B3C-66E0-438B-BB7C-71B692407B67
+     *
      * @var string
      */
     public $requestId;

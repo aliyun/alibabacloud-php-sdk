@@ -12,36 +12,50 @@ use AlibabaCloud\Tea\Model;
 class intents extends Model
 {
     /**
+     * @example 2020-11-30T03:03:37Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 83225
+     *
      * @var string
      */
     public $createUserId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $createUserName;
 
     /**
+     * @example 126558
+     *
      * @var int
      */
     public $intentId;
 
     /**
+     * @example 2020-11-30T03:03:37Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example 83325
+     *
      * @var string
      */
     public $modifyUserId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $modifyUserName;

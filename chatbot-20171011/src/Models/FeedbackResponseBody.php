@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class FeedbackResponseBody extends Model
 {
     /**
+     * @example good
+     *
      * @var string
      */
     public $feedback;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatus;
 
     /**
+     * @example 8869745c-3b30-44ab-a1ef-20ad4191bfad
+     *
      * @var string
      */
     public $messageId;
 
     /**
+     * @example 16D4BC6D-FF53-5EB0-A6A2-CA0F32B6FF7E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

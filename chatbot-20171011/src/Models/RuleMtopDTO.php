@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class RuleMtopDTO extends Model
 {
     /**
-     * @description Error
-     *
      * @var string[]
      */
     public $error;
 
     /**
-     * @description Strict
-     *
      * @var bool
      */
     public $strict;
 
     /**
-     * @description Text
-     *
      * @var string
      */
     public $text;
 
     /**
-     * @description Warning
-     *
      * @var string[]
      */
     public $warning;

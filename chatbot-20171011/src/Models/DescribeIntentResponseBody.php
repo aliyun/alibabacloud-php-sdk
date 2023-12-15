@@ -12,41 +12,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeIntentResponseBody extends Model
 {
     /**
+     * @example 2020-11-30T03:03:37Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 83225
+     *
      * @var string
      */
     public $createUserId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $createUserName;
 
     /**
+     * @example 50099
+     *
      * @var int
      */
     public $dialogId;
 
     /**
+     * @example 126558
+     *
      * @var int
      */
     public $intentId;
 
     /**
+     * @example 2020-11-30T06:04:37Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example 83225
+     *
      * @var string
      */
     public $modifyUserId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $modifyUserName;
@@ -57,6 +73,8 @@ class DescribeIntentResponseBody extends Model
     public $name;
 
     /**
+     * @example 473F6889-1DE6-44A5-BA62-BD3CC7600DBF
+     *
      * @var string
      */
     public $requestId;

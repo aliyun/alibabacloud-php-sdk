@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListBotReceptionDetailDatasResponseBody extends Model
 {
     /**
+     * @example 77
+     *
      * @var string
      */
     public $costTime;
@@ -19,6 +21,8 @@ class ListBotReceptionDetailDatasResponseBody extends Model
     public $datas;
 
     /**
+     * @example 1CCB889E-9837-42C9-BAEC-641169D8DF2A
+     *
      * @var string
      */
     public $requestId;

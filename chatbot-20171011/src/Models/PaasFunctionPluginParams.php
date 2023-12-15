@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class PaasFunctionPluginParams extends Model
 {
     /**
-     * @description Body
-     *
      * @var string
      */
     public $body;
 
     /**
-     * @description Header
-     *
      * @var string[]
      */
     public $header;
 
     /**
-     * @description Method
-     *
      * @var string
      */
     public $method;
 
     /**
-     * @description Query
-     *
      * @var string[]
      */
     public $query;
 
     /**
-     * @description Url
-     *
      * @var string
      */
     public $url;

@@ -9,28 +9,36 @@ use AlibabaCloud\Tea\Model;
 class FeedbackRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example good
+     *
      * @var string
      */
     public $feedback;
 
     /**
+     * @example chatbot-cn-UfERQYZnra
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 8869745c-3b30-44ab-a1ef-20ad4191bfad
+     *
      * @var string
      */
     public $messageId;
 
     /**
+     * @example 0054b7d5187d40baba845427f8723
+     *
      * @var string
      */
     public $sessionId;

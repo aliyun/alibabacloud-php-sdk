@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class moduleDefinition extends Model
 {
     /**
+     * @example {"name":"", "uid":""}
+     *
      * @var mixed[]
      */
     public $globalVars;

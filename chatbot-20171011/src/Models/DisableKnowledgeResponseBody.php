@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableKnowledgeResponseBody extends Model
 {
     /**
+     * @example 54A18EB2-4633-5848-B309-EE551DF62002
+     *
      * @var string
      */
     public $requestId;

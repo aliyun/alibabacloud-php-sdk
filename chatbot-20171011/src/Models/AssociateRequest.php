@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AssociateRequest extends Model
 {
     /**
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example chatbot-cn-eEf
+     *
      * @var string
      */
     public $instanceId;
@@ -24,11 +28,15 @@ class AssociateRequest extends Model
     public $perspective;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $recommendNum;
 
     /**
+     * @example 25670484f2ab4b42ba90acbfbf86d4cd
+     *
      * @var string
      */
     public $sessionId;

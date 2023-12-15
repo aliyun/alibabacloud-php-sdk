@@ -15,21 +15,29 @@ class QueryEntitiesResponseBody extends Model
     public $entities;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 206FCA00-9802-492E-86B3-5BCABDB6EF71
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

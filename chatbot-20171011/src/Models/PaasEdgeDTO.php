@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class PaasEdgeDTO extends Model
 {
     /**
-     * @description Id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description Label
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @description Source
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description Target
-     *
      * @var string
      */
     public $target;

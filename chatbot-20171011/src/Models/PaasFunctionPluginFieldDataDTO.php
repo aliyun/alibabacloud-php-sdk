@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class PaasFunctionPluginFieldDataDTO extends Model
 {
     /**
-     * @description AliyunFunction
-     *
      * @var string
      */
     public $aliyunFunction;
 
     /**
-     * @description AliyunService
-     *
      * @var string
      */
     public $aliyunService;
 
     /**
-     * @description Code
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description Description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description EndPoint
-     *
      * @var string
      */
     public $endPoint;
 
     /**
-     * @description Function
-     *
      * @var string
      */
     public $function;
 
     /**
-     * @description Name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Params
-     *
      * @var mixed[]
      */
     public $params;
 
     /**
-     * @description Switch
-     *
      * @var PaasSwitchCaseDTO[]
      */
     public $switch;
 
     /**
-     * @description Type
-     *
      * @var string
      */
     public $type;

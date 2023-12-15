@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteCoreWordResponseBody extends Model
 {
     /**
+     * @example E45491D5-7E0A-42C6-9B21-91D1066B1475
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

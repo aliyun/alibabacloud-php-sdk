@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class dialogs extends Model
 {
     /**
+     * @example 2020-11-30T03:00:54Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 83225
+     *
      * @var string
      */
     public $createUserId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $createUserName;
@@ -29,6 +35,8 @@ class dialogs extends Model
     public $description;
 
     /**
+     * @example 50099
+     *
      * @var int
      */
     public $dialogId;
@@ -39,31 +47,43 @@ class dialogs extends Model
     public $dialogName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isOnline;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isSampleDialog;
 
     /**
+     * @example 2020-11-30T06:12:47Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example 83225
+     *
      * @var string
      */
     public $modifyUserId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $modifyUserName;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $status;

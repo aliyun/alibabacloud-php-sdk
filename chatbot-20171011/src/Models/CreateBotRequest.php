@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateBotRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example http://test.oss-cn-beijing.aliyuncs.com/test.jpg
+     *
      * @var string
      */
     public $avatar;
@@ -26,16 +28,22 @@ class CreateBotRequest extends Model
     public $introduction;
 
     /**
+     * @example zh-cn
+     *
      * @var string
      */
     public $languageCode;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example scenario_im
+     *
      * @var string
      */
     public $robotType;

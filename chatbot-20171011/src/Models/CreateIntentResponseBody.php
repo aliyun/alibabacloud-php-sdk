@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateIntentResponseBody extends Model
 {
     /**
+     * @example 58985
+     *
      * @var int
      */
     public $intentId;
 
     /**
+     * @example 8AD9FA10-7780-5E12-B701-13C928524F32
+     *
      * @var string
      */
     public $requestId;

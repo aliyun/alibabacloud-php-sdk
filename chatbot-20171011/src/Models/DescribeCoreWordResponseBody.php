@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCoreWordResponseBody extends Model
 {
     /**
+     * @example 5be359c7-c18b-353a-bfe5-659b229e272e
+     *
      * @var string
      */
     public $coreWordCode;
@@ -19,16 +21,22 @@ class DescribeCoreWordResponseBody extends Model
     public $coreWordName;
 
     /**
+     * @example 2020-11-24T03:49:18Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2020-11-25T10:31:10Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example F55D90C1-31BE-4B2A-AA3F-25EFC36F9419
+     *
      * @var string
      */
     public $requestId;

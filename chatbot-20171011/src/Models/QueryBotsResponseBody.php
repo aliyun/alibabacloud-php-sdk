@@ -15,21 +15,29 @@ class QueryBotsResponseBody extends Model
     public $bots;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 6FAC33F5-F76A-476C-9FEF-5838F869BD4B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

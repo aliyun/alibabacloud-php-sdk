@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDialogFlowResponseBody extends Model
 {
     /**
+     * @example F561E093-43D8-563E-8B96-34CC654BA2CB
+     *
      * @var string
      */
     public $requestId;

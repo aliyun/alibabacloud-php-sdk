@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeletePerspectiveResponseBody extends Model
 {
     /**
+     * @example FC384CE1-8D42-1900-84E1-F33F990F2B5E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

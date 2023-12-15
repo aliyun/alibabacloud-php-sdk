@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class knowledges extends Model
 {
     /**
+     * @example 1000053274
+     *
      * @var int
      */
     public $categoryId;
@@ -19,6 +21,8 @@ class knowledges extends Model
     public $coreWords;
 
     /**
+     * @example 2020-11-25T11:44:09Z
+     *
      * @var string
      */
     public $createTime;
@@ -29,16 +33,24 @@ class knowledges extends Model
     public $createUserName;
 
     /**
+     * @example 2020-11-26T11:56:40Z
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description FAQ ID
+     *
+     * @example 30001979424
+     *
      * @var int
      */
     public $knowledgeId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $knowledgeStatus;
@@ -49,6 +61,8 @@ class knowledges extends Model
     public $knowledgeTitle;
 
     /**
+     * @example 2022-01-24T06:02:37Z
+     *
      * @var string
      */
     public $modifyTime;
@@ -59,11 +73,15 @@ class knowledges extends Model
     public $modifyUserName;
 
     /**
+     * @example 2020-11-25T11:56:23Z
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $version;

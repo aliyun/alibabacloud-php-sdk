@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class PaasSwitchCaseDTO extends Model
 {
     /**
-     * @description Id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description Label
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @description Type
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description Value
-     *
      * @var string
      */
     public $value;
 
     /**
-     * @description VariableName
-     *
      * @var string
      */
     public $variableName;

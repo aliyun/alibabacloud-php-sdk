@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class IntentCreateDTO extends Model
 {
     /**
-     * @description IntentId
-     *
      * @var int
      */
     public $intentId;
 
     /**
-     * @description Name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description RuleCheck
-     *
      * @var RuleMtopDTO[]
      */
     public $ruleCheck;
@@ -35,8 +29,6 @@ class IntentCreateDTO extends Model
     public $slot;
 
     /**
-     * @description UserSay
-     *
      * @var UsersayMtopDTO[]
      */
     public $userSay;

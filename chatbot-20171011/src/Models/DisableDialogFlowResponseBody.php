@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableDialogFlowResponseBody extends Model
 {
     /**
+     * @example F0809B63-5DDF-4BB8-AA86-92CE99543922
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetBotChatDataResponseBody extends Model
 {
     /**
+     * @example 66
+     *
      * @var string
      */
     public $costTime;
@@ -19,6 +21,8 @@ class GetBotChatDataResponseBody extends Model
     public $datas;
 
     /**
+     * @example AD38E52B-B64E-435D-8627-ABB374046CCC
+     *
      * @var string
      */
     public $requestId;

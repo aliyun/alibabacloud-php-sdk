@@ -9,43 +9,57 @@ use AlibabaCloud\Tea\Model;
 class GetConversationListRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example 2020-12-01 11:17:38
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example chatbot-cn-7QuUfaqMQe
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example 83325
+     *
      * @var string
      */
     public $senderId;
 
     /**
+     * @example c1187530338311ebade7cf3eaeb3668a
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example 2020-12-01 11:17:38
+     *
      * @var string
      */
     public $startDate;

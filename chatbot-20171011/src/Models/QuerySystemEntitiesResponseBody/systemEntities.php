@@ -14,6 +14,8 @@ class systemEntities extends Model
     public $defaultQuestion;
 
     /**
+     * @example @sys.geo-city
+     *
      * @var string
      */
     public $entityCode;

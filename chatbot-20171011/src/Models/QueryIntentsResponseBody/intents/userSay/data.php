@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 9ec31b50-32b8-11eb-9478-19d2d885afdb
+     *
      * @var string
      */
     public $slotId;

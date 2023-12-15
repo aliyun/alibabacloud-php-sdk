@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ChatRequest extends Model
 {
     /**
+     * @example d4f70cf7cc5e4a3ba6c82c8ae1e1d99d_p_beebot_public
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example chatbot-cn-7QuUfaqMQe
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example TIMEOUT
+     *
      * @var string
      */
     public $intentName;
 
     /**
+     * @example 1002994742
+     *
      * @var string
      */
     public $knowledgeId;
@@ -34,6 +42,8 @@ class ChatRequest extends Model
     public $perspective;
 
     /**
+     * @example 83325
+     *
      * @var string
      */
     public $senderId;
@@ -44,11 +54,15 @@ class ChatRequest extends Model
     public $senderNick;
 
     /**
+     * @example 2e00330f2a7e47cd8ca56d12ed51c62d
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example {\"bizId\":\"110000100098985\",\"bizType\":\"ITEM\"}
+     *
      * @var string
      */
     public $tag;
@@ -59,6 +73,8 @@ class ChatRequest extends Model
     public $utterance;
 
     /**
+     * @example {\"requestId\":\"7DD7849A-0117-5BD8-A411-994FDE07CFBC\",\"conversationId\":\"1637460236.155930\"}
+     *
      * @var string
      */
     public $vendorParam;

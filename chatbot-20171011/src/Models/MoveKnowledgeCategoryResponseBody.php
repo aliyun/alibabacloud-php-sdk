@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MoveKnowledgeCategoryResponseBody extends Model
 {
     /**
+     * @example ABC61B71-9F9D-52FD-9E0C-71C4E4B5D097
+     *
      * @var string
      */
     public $requestId;

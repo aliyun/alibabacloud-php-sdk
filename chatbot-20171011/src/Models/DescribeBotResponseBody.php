@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBotResponseBody extends Model
 {
     /**
+     * @example http://test.oss-cn-beijing.aliyuncs.com/test.jpg
+     *
      * @var string
      */
     public $avatar;
@@ -20,11 +22,15 @@ class DescribeBotResponseBody extends Model
     public $categories;
 
     /**
+     * @example 2020-11-29T06:50:46Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example chatbot-cn-7QuUfaqM
+     *
      * @var string
      */
     public $instanceId;
@@ -35,6 +41,8 @@ class DescribeBotResponseBody extends Model
     public $introduction;
 
     /**
+     * @example zh-cn
+     *
      * @var string
      */
     public $languageCode;
@@ -45,16 +53,22 @@ class DescribeBotResponseBody extends Model
     public $logo;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example BF736BAB-5AC0-4092-82A9-85475D39D1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Asia/Beijing
+     *
      * @var string
      */
     public $timeZone;

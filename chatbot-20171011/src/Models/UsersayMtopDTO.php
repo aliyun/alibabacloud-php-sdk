@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UsersayMtopDTO extends Model
 {
     /**
-     * @description Data
-     *
      * @var SectionMtopDTO[]
      */
     public $data;
 
     /**
-     * @description Id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description Strict
-     *
      * @var bool
      */
     public $strict;

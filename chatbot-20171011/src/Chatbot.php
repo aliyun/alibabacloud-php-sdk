@@ -157,7 +157,6 @@ use AlibabaCloud\SDK\Chatbot\V20171011\Models\UpdateKnowledgeResponse;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\UpdateKnowledgeShrinkRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\UpdatePerspectiveRequest;
 use AlibabaCloud\SDK\Chatbot\V20171011\Models\UpdatePerspectiveResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -304,7 +303,7 @@ class Chatbot extends OpenApiClient
         $request = new AppendEntityMemberShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->member)) {
-            $request->memberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->member), 'Member', 'json');
+            $request->memberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->member, 'Member', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
@@ -551,12 +550,6 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($request->agentKey)) {
             $query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->bizCode)) {
-            $query['BizCode'] = $request->bizCode;
-        }
-        if (!Utils::isUnset($request->knowledgeType)) {
-            $query['KnowledgeType'] = $request->knowledgeType;
-        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -766,7 +759,7 @@ class Chatbot extends OpenApiClient
         $request = new CreateIntentShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->intentDefinition)) {
-            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->intentDefinition), 'IntentDefinition', 'json');
+            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
@@ -820,7 +813,7 @@ class Chatbot extends OpenApiClient
         $request = new CreateKnowledgeShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->knowledge)) {
-            $request->knowledgeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->knowledge), 'Knowledge', 'json');
+            $request->knowledgeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->knowledge, 'Knowledge', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
@@ -2938,10 +2931,12 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param QueryDialogsRequest $request
-     * @param RuntimeOptions      $runtime
+     * ****
+     *   *
+     * @param QueryDialogsRequest $request QueryDialogsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDialogsResponse
+     * @return QueryDialogsResponse QueryDialogsResponse
      */
     public function queryDialogsWithOptions($request, $runtime)
     {
@@ -2981,9 +2976,11 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * @param QueryDialogsRequest $request
+     * ****
+     *   *
+     * @param QueryDialogsRequest $request QueryDialogsRequest
      *
-     * @return QueryDialogsResponse
+     * @return QueryDialogsResponse QueryDialogsResponse
      */
     public function queryDialogs($request)
     {
@@ -3264,7 +3261,7 @@ class Chatbot extends OpenApiClient
         $request = new RemoveEntityMemberShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->member)) {
-            $request->memberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->member), 'Member', 'json');
+            $request->memberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->member, 'Member', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
@@ -3566,7 +3563,7 @@ class Chatbot extends OpenApiClient
         $request = new UpdateDialogFlowShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->moduleDefinition)) {
-            $request->moduleDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->moduleDefinition), 'ModuleDefinition', 'json');
+            $request->moduleDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->moduleDefinition, 'ModuleDefinition', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
@@ -3687,7 +3684,7 @@ class Chatbot extends OpenApiClient
         $request = new UpdateIntentShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->intentDefinition)) {
-            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->intentDefinition), 'IntentDefinition', 'json');
+            $request->intentDefinitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
@@ -3741,7 +3738,7 @@ class Chatbot extends OpenApiClient
         $request = new UpdateKnowledgeShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->knowledge)) {
-            $request->knowledgeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->knowledge), 'Knowledge', 'json');
+            $request->knowledgeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->knowledge, 'Knowledge', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {

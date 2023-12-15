@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateEntityResponseBody extends Model
 {
     /**
+     * @example 72121
+     *
      * @var int
      */
     public $entityId;
 
     /**
+     * @example 28805A7C-D695-548C-A31B-67E52C2C274F
+     *
      * @var string
      */
     public $requestId;

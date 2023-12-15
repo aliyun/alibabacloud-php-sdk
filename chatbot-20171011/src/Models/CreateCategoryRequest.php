@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateCategoryRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
@@ -18,26 +18,16 @@ class CreateCategoryRequest extends Model
     /**
      * @var string
      */
-    public $bizCode;
-
-    /**
-     * @var int
-     */
-    public $knowledgeType;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $parentCategoryId;
     protected $_name = [
         'agentKey'         => 'AgentKey',
-        'bizCode'          => 'BizCode',
-        'knowledgeType'    => 'KnowledgeType',
         'name'             => 'Name',
         'parentCategoryId' => 'ParentCategoryId',
     ];
@@ -51,12 +41,6 @@ class CreateCategoryRequest extends Model
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
-        }
-        if (null !== $this->bizCode) {
-            $res['BizCode'] = $this->bizCode;
-        }
-        if (null !== $this->knowledgeType) {
-            $res['KnowledgeType'] = $this->knowledgeType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -78,12 +62,6 @@ class CreateCategoryRequest extends Model
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
-        }
-        if (isset($map['BizCode'])) {
-            $model->bizCode = $map['BizCode'];
-        }
-        if (isset($map['KnowledgeType'])) {
-            $model->knowledgeType = $map['KnowledgeType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

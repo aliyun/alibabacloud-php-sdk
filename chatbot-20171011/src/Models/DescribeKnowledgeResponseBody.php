@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeKnowledgeResponseBody extends Model
 {
     /**
+     * @example 1000053274
+     *
      * @var int
      */
     public $categoryId;
@@ -22,6 +24,8 @@ class DescribeKnowledgeResponseBody extends Model
     public $coreWords;
 
     /**
+     * @example 2020-11-25T11:44:09Z
+     *
      * @var string
      */
     public $createTime;
@@ -32,6 +36,8 @@ class DescribeKnowledgeResponseBody extends Model
     public $createUserName;
 
     /**
+     * @example 2020-11-26T11:56:40Z
+     *
      * @var string
      */
     public $endDate;
@@ -42,11 +48,17 @@ class DescribeKnowledgeResponseBody extends Model
     public $keyWords;
 
     /**
+     * @description FAQ ID
+     *
+     * @example 30001979424
+     *
      * @var int
      */
     public $knowledgeId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $knowledgeStatus;
@@ -57,11 +69,15 @@ class DescribeKnowledgeResponseBody extends Model
     public $knowledgeTitle;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $knowledgeType;
 
     /**
+     * @example 2020-11-26T06:36:14Z
+     *
      * @var string
      */
     public $modifyTime;
@@ -77,6 +93,8 @@ class DescribeKnowledgeResponseBody extends Model
     public $outlines;
 
     /**
+     * @example F7F60925-E0ED-50DA-9E0B-ED4B3ECFBA4F
+     *
      * @var string
      */
     public $requestId;
@@ -92,11 +110,15 @@ class DescribeKnowledgeResponseBody extends Model
     public $solutions;
 
     /**
+     * @example 1979-12-31T16:00:00Z
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $version;

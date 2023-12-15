@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateCategoryResponseBody extends Model
 {
     /**
+     * @example 2100073759
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example 17204B98-7734-4F9A-8464-2446A84821CA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateCoreWordResponseBody extends Model
 {
     /**
+     * @example ceb9d68c-dbb5-32c9-a02c-eca56b782ff7
+     *
      * @var string
      */
     public $coreWordCode;
 
     /**
+     * @example E3E5C779-A630-45AC-B0F2-A4506A4212F1
+     *
      * @var string
      */
     public $requestId;

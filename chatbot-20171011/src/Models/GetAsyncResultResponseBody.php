@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAsyncResultResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -19,16 +21,22 @@ class GetAsyncResultResponseBody extends Model
     public $data;
 
     /**
+     * @example task execute success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example F79E7305-5314-5069-A701-9591AD051902
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

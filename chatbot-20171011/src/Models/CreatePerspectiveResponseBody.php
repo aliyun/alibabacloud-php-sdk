@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreatePerspectiveResponseBody extends Model
 {
     /**
+     * @example 7488
+     *
      * @var string
      */
     public $perspectiveId;
 
     /**
+     * @example F2E2C40D-AB09-45A1-B5C5-EB9F5C4E4E4A
+     *
      * @var string
      */
     public $requestId;

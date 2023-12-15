@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class solutions extends Model
 {
     /**
+     * @example ADD
+     *
      * @var string
      */
     public $action;
@@ -29,6 +31,8 @@ class solutions extends Model
     public $plainText;
 
     /**
+     * @example 30001905617
+     *
      * @var int
      */
     public $solutionId;

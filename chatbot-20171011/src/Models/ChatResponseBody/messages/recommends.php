@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class recommends extends Model
 {
     /**
+     * @example KNOWLEDGE
+     *
      * @var string
      */
     public $answerSource;
 
     /**
+     * @example 11111
+     *
      * @var string
      */
     public $knowledgeId;
 
     /**
+     * @example 0.88
+     *
      * @var float
      */
     public $score;

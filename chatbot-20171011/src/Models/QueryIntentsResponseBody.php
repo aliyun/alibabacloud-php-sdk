@@ -15,21 +15,29 @@ class QueryIntentsResponseBody extends Model
     public $intents;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A1C54450-F19B-4883-90E3-FDB686BF0381
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

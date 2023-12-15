@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateKnowledgeResponseBody extends Model
 {
     /**
+     * @example 30001905617
+     *
      * @var int
      */
     public $knowledgeId;
 
     /**
+     * @example 27C1B103-7A35-532B-8886-B5A91C86CFA4
+     *
      * @var string
      */
     public $requestId;

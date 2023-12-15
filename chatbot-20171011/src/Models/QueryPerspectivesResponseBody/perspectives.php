@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class perspectives extends Model
 {
     /**
+     * @example 2020-11-12T04:17:31Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $createUserName;
 
     /**
+     * @example 2020-11-12T04:17:31Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $modifyUserName;
@@ -34,21 +42,29 @@ class perspectives extends Model
     public $name;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $perspectiveCode;
 
     /**
+     * @example 1001
+     *
      * @var string
      */
     public $perspectiveId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $selfDefine;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $status;

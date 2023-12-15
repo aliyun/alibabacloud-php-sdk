@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateEntityRequest extends Model
 {
     /**
-     * @description 业务空间key,不设置则访问默认业务空间，key值在主账号业务管理页面获取
+     * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
      *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example 13866
+     *
      * @var int
      */
     public $entityId;
@@ -27,6 +29,8 @@ class UpdateEntityRequest extends Model
     public $entityName;
 
     /**
+     * @example synonyms
+     *
      * @var string
      */
     public $entityType;
@@ -37,6 +41,8 @@ class UpdateEntityRequest extends Model
     public $members;
 
     /**
+     * @example (\\d+-\\d+-\\d+\\s\\S+)\\s\\[(\\S+)\\s([^:]+):(\\d+)\\s(\\w+)]\\s\\[(\\d+)\\s(\\d+)]\\s\\[([^]]+)]\\s(\\w+)\\s(.*)
+     *
      * @var string
      */
     public $regex;

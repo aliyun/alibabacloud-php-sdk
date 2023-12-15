@@ -15,16 +15,22 @@ class AssociateResponseBody extends Model
     public $associate;
 
     /**
+     * @example 11bab7a2e34c4e02bcf0ebcb76bb812d
+     *
      * @var string
      */
     public $messageId;
 
     /**
+     * @example 402FCD5F-518E-4C8E-8A6B-EFEADA69D757
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 25670484f2ab4b42ba90acbfbf86d4cd
+     *
      * @var string
      */
     public $sessionId;

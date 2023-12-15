@@ -15,6 +15,8 @@ class QueryPerspectivesResponseBody extends Model
     public $perspectives;
 
     /**
+     * @example DBBF6308-C267-45EE-A0DF-14E401E25272
+     *
      * @var string
      */
     public $requestId;

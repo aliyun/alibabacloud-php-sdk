@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class PaasEntryPluginFieldDataDTO extends Model
 {
     /**
-     * @description ContentEntry
-     *
      * @var PaasConditionSetDTO[]
      */
     public $contentEntry;
 
     /**
-     * @description LifeSpan
-     *
      * @var int
      */
     public $lifeSpan;
 
     /**
-     * @description Name
-     *
      * @var string
      */
     public $name;

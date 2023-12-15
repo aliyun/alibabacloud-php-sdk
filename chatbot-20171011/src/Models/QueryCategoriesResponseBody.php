@@ -14,6 +14,8 @@ class QueryCategoriesResponseBody extends Model
     public $categories;
 
     /**
+     * @example 17204B98-7734-4F9A-8464-2446A84821CA
+     *
      * @var string
      */
     public $requestId;

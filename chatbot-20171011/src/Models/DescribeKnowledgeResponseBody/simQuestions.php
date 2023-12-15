@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class simQuestions extends Model
 {
     /**
+     * @example 2020-11-25T11:44:09Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2020-11-26T06:36:14Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example 30001979424
+     *
      * @var int
      */
     public $simQuestionId;

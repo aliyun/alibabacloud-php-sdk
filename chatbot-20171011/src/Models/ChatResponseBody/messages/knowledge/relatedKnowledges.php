@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class relatedKnowledges extends Model
 {
     /**
+     * @example 82318
+     *
      * @var string
      */
     public $knowledgeId;

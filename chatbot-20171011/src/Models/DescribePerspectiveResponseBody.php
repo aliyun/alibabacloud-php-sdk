@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class DescribePerspectiveResponseBody extends Model
 {
     /**
+     * @example 2020-11-25T08:26:06Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $createUserName;
 
     /**
+     * @example 2020-11-25T08:56:55Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $modifyUserName;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 6IReUnbyzb
+     *
      * @var string
      */
     public $perspectiveCode;
 
     /**
+     * @example 7487
+     *
      * @var string
      */
     public $perspectiveId;
 
     /**
+     * @example DFB71B34-4188-4EA2-9988-EF3014E75910
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $selfDefine;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $status;

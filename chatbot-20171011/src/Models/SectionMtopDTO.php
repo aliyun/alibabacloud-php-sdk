@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SectionMtopDTO extends Model
 {
     /**
-     * @description SlotId
-     *
      * @var string
      */
     public $slotId;
 
     /**
-     * @description Text
-     *
      * @var string
      */
     public $text;

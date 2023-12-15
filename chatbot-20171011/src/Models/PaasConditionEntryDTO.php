@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class PaasConditionEntryDTO extends Model
 {
     /**
-     * @description Id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description Name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Term
-     *
      * @var string
      */
     public $term;
 
     /**
-     * @description Type
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description Value
-     *
      * @var string
      */
     public $value;

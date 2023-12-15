@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateDialogFlowModuleDefinition extends Model
 {
     /**
-     * @description Edges
-     *
      * @var PaasEdgeDTO[]
      */
     public $edges;
 
     /**
-     * @description Nodes
-     *
      * @var PaasNodeDTO[]
      */
     public $nodes;

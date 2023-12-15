@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class PaasResponseNodeContentDTO extends Model
 {
     /**
-     * @description ButtonList
-     *
      * @var PaasButtonListDTO
      */
     public $buttonList;
 
     /**
-     * @description Image
-     *
      * @var string
      */
     public $image;
 
     /**
-     * @description Text
-     *
      * @var string
      */
     public $text;
 
     /**
-     * @description Type
-     *
      * @var string
      */
     public $type;

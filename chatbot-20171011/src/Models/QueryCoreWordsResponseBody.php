@@ -15,21 +15,29 @@ class QueryCoreWordsResponseBody extends Model
     public $coreWords;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 92B81548-42B9-4B34-924B-4E778AEB412B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;

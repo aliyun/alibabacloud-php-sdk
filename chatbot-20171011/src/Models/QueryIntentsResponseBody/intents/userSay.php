@@ -15,11 +15,15 @@ class userSay extends Model
     public $data;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $strict;
 
     /**
+     * @example 853d7220-32b8-11eb-9478-19d2d885afdb
+     *
      * @var string
      */
     public $userSayId;

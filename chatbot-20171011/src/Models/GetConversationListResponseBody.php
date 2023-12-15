@@ -9,26 +9,34 @@ use AlibabaCloud\Tea\Model;
 class GetConversationListResponseBody extends Model
 {
     /**
-     * @var mixed[][]
+     * @var string[][]
      */
     public $messages;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example C83D94BB-D371-4DE9-AEE2-14FE7B9CEBA9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCounts;

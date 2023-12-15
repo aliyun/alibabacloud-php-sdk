@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteIntentResponseBody extends Model
 {
     /**
+     * @example 126558
+     *
      * @var int
      */
     public $intentId;
 
     /**
+     * @example 6658EB01-A68C-4041-93ED-CD3F9C887A19
+     *
      * @var string
      */
     public $requestId;

@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class knowledge extends Model
 {
     /**
+     * @example 30000049006
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example 2099-12-31T16:00:00Z
+     *
      * @var string
      */
     public $endDate;
@@ -27,6 +31,8 @@ class knowledge extends Model
     public $knowledgeTitle;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $knowledgeType;
@@ -47,6 +53,8 @@ class knowledge extends Model
     public $solutions;
 
     /**
+     * @example 1979-12-31T16:00:00Z
+     *
      * @var string
      */
     public $startDate;

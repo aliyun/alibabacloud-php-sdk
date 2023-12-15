@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class outlines extends Model
 {
     /**
+     * @description FAQ ID
+     *
+     * @example 30001979425
+     *
      * @var int
      */
     public $knowledgeId;
 
     /**
+     * @example 30001979424
+     *
      * @var int
      */
     public $outlineId;

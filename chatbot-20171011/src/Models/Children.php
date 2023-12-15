@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class Children extends Model
 {
     /**
-     * @description 地区代号
-     *
      * @var string
      */
     public $areaCode;
 
     /**
-     * @description 分类Id
-     *
      * @var int
      */
     public $categoryId;
 
     /**
-     * @description 子元素
-     *
      * @var \AlibabaCloud\SDK\Chatbot\V20171011\Models\Children[]
      */
     public $childrens;
 
     /**
-     * @description 名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 父分类Id
-     *
      * @var int
      */
     public $parentCategoryId;

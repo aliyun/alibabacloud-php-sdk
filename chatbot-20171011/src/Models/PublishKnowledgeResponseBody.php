@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PublishKnowledgeResponseBody extends Model
 {
     /**
+     * @example 74D1B5C6-BACE-5F5A-9A24-898F74696627
+     *
      * @var string
      */
     public $requestId;

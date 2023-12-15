@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDialogResponseBody extends Model
 {
     /**
+     * @example 2020-11-30T03:00:54Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 83225
+     *
      * @var string
      */
     public $createUserId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $createUserName;
@@ -29,6 +35,8 @@ class DescribeDialogResponseBody extends Model
     public $description;
 
     /**
+     * @example 50099
+     *
      * @var int
      */
     public $dialogId;
@@ -39,36 +47,50 @@ class DescribeDialogResponseBody extends Model
     public $dialogName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isOnline;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isSampleDialog;
 
     /**
+     * @example 2020-11-30T06:05:11Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example 83225
+     *
      * @var string
      */
     public $modifyUserId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $modifyUserName;
 
     /**
+     * @example F178F903-AFCF-4F1F-81A1-69A8D99B1D7E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $status;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PaasButtonListDTO extends Model
 {
     /**
-     * @description Button
-     *
      * @var PaasButtonDTO[]
      */
     public $button;
 
     /**
-     * @description Intro
-     *
      * @var string
      */
     public $intro;

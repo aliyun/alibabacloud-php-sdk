@@ -14,11 +14,15 @@ class ListConversationLogsResponseBody extends Model
     public $chatLogs;
 
     /**
+     * @example B6082275-D0E3-4030-9478-FFC35BA90312
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $rounds;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class TagMtopDTO extends Model
 {
     /**
-     * @description UserSayId
-     *
      * @var string
      */
     public $userSayId;
 
     /**
-     * @description Value
-     *
      * @var string
      */
     public $value;

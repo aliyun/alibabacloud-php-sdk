@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class PaasConditionSetDTO extends Model
 {
     /**
-     * @description ConditionEntries
-     *
      * @var PaasConditionEntryDTO[]
      */
     public $conditionEntries;

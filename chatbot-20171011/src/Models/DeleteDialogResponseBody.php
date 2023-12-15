@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDialogResponseBody extends Model
 {
     /**
+     * @example C6C17866-D5BF-4B90-8224-FC38F069F4C0
+     *
      * @var string
      */
     public $requestId;

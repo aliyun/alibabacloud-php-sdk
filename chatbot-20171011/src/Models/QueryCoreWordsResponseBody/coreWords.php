@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class coreWords extends Model
 {
     /**
+     * @example 405d73a6-ac3c-37fd-96a6-94ae2a882c1e
+     *
      * @var string
      */
     public $coreWordCode;
@@ -19,11 +21,15 @@ class coreWords extends Model
     public $coreWordName;
 
     /**
+     * @example 2020-11-24T03:49:18Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2020-11-25T10:31:10Z
+     *
      * @var string
      */
     public $modifyTime;

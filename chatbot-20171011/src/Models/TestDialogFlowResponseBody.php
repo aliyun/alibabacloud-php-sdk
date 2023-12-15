@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TestDialogFlowResponseBody extends Model
 {
     /**
+     * @example 1891FFA2-8F35-4F9A-BF16-D4A6E1F58EC0
+     *
      * @var string
      */
     public $requestId;

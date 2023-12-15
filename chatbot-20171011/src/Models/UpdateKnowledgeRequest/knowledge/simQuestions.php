@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class simQuestions extends Model
 {
     /**
+     * @example ADD
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example 30003759180
+     *
      * @var int
      */
     public $simQuestionId;

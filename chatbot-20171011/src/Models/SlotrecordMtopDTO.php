@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class SlotrecordMtopDTO extends Model
 {
     /**
-     * @description Id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description IsArray
-     *
      * @var bool
      */
     public $isArray;
 
     /**
-     * @description IsNecessary
-     *
      * @var bool
      */
     public $isNecessary;
 
     /**
-     * @description LifeSpan
-     *
      * @var int
      */
     public $lifeSpan;
 
     /**
-     * @description Name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Question
-     *
      * @var string[]
      */
     public $question;
 
     /**
-     * @description Tags
-     *
      * @var TagMtopDTO[]
      */
     public $tags;
 
     /**
-     * @description Value
-     *
      * @var string
      */
     public $value;

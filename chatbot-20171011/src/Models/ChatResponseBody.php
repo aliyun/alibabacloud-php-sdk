@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ChatResponseBody extends Model
 {
     /**
+     * @example 396E74B3-D84B-46CE-9E51-91C06AD22E31
+     *
      * @var string
      */
     public $messageId;
@@ -20,16 +22,22 @@ class ChatResponseBody extends Model
     public $messages;
 
     /**
+     * @example A2315C4B-A872-5DEE-9DAD-D73B194A4AEC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2e00330f2a7e47cd8ca56d12ed51c62d
+     *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example {\"bizId\":\"110000100098985\",\"bizType\":\"ITEM\"}
+     *
      * @var string
      */
     public $tag;

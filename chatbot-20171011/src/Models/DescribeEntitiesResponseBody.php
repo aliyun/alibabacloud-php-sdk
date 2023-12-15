@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeEntitiesResponseBody extends Model
 {
     /**
+     * @example 2020-12-02T06:35:50Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 83225
+     *
      * @var string
      */
     public $createUserId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $createUserName;
 
     /**
+     * @example 42212
+     *
      * @var int
      */
     public $entityId;
@@ -35,6 +43,8 @@ class DescribeEntitiesResponseBody extends Model
     public $entityName;
 
     /**
+     * @example regex
+     *
      * @var string
      */
     public $entityType;
@@ -45,16 +55,22 @@ class DescribeEntitiesResponseBody extends Model
     public $members;
 
     /**
+     * @example 2020-12-02T06:35:50Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example 83225
+     *
      * @var string
      */
     public $modifyUserId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $modifyUserName;
@@ -65,6 +81,8 @@ class DescribeEntitiesResponseBody extends Model
     public $regex;
 
     /**
+     * @example 3F95508F-8635-4786-A959-E21F6FED4CD1
+     *
      * @var string
      */
     public $requestId;
