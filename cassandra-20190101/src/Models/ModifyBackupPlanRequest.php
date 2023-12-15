@@ -9,41 +9,53 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPlanRequest extends Model
 {
     /**
-     * @var string
+     * @example true
+     *
+     * @var bool
      */
-    public $clusterId;
+    public $active;
 
     /**
-     * @var string
-     */
-    public $dataCenterId;
-
-    /**
-     * @var string
-     */
-    public $backupTime;
-
-    /**
+     * @example Monday,Tuesday
+     *
      * @var string
      */
     public $backupPeriod;
 
     /**
+     * @example 00:30Z
+     *
+     * @var string
+     */
+    public $backupTime;
+
+    /**
+     * @example cds-uf6m0bod****6158
+     *
+     * @var string
+     */
+    public $clusterId;
+
+    /**
+     * @example cn-shanghai-e
+     *
+     * @var string
+     */
+    public $dataCenterId;
+
+    /**
+     * @example 7
+     *
      * @var int
      */
     public $retentionPeriod;
-
-    /**
-     * @var bool
-     */
-    public $active;
     protected $_name = [
+        'active'          => 'Active',
+        'backupPeriod'    => 'BackupPeriod',
+        'backupTime'      => 'BackupTime',
         'clusterId'       => 'ClusterId',
         'dataCenterId'    => 'DataCenterId',
-        'backupTime'      => 'BackupTime',
-        'backupPeriod'    => 'BackupPeriod',
         'retentionPeriod' => 'RetentionPeriod',
-        'active'          => 'Active',
     ];
 
     public function validate()
@@ -53,23 +65,23 @@ class ModifyBackupPlanRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->active) {
+            $res['Active'] = $this->active;
+        }
+        if (null !== $this->backupPeriod) {
+            $res['BackupPeriod'] = $this->backupPeriod;
+        }
+        if (null !== $this->backupTime) {
+            $res['BackupTime'] = $this->backupTime;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->dataCenterId) {
             $res['DataCenterId'] = $this->dataCenterId;
         }
-        if (null !== $this->backupTime) {
-            $res['BackupTime'] = $this->backupTime;
-        }
-        if (null !== $this->backupPeriod) {
-            $res['BackupPeriod'] = $this->backupPeriod;
-        }
         if (null !== $this->retentionPeriod) {
             $res['RetentionPeriod'] = $this->retentionPeriod;
-        }
-        if (null !== $this->active) {
-            $res['Active'] = $this->active;
         }
 
         return $res;
@@ -83,23 +95,23 @@ class ModifyBackupPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Active'])) {
+            $model->active = $map['Active'];
+        }
+        if (isset($map['BackupPeriod'])) {
+            $model->backupPeriod = $map['BackupPeriod'];
+        }
+        if (isset($map['BackupTime'])) {
+            $model->backupTime = $map['BackupTime'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['DataCenterId'])) {
             $model->dataCenterId = $map['DataCenterId'];
         }
-        if (isset($map['BackupTime'])) {
-            $model->backupTime = $map['BackupTime'];
-        }
-        if (isset($map['BackupPeriod'])) {
-            $model->backupPeriod = $map['BackupPeriod'];
-        }
         if (isset($map['RetentionPeriod'])) {
             $model->retentionPeriod = $map['RetentionPeriod'];
-        }
-        if (isset($map['Active'])) {
-            $model->active = $map['Active'];
         }
 
         return $model;

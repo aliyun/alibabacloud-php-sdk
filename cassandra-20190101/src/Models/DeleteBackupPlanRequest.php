@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackupPlanRequest extends Model
 {
     /**
+     * @example cds-bp11tjzh50****7c
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $dataCenterId;

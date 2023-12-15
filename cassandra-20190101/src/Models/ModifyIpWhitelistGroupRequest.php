@@ -9,28 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyIpWhitelistGroupRequest extends Model
 {
     /**
+     * @example cds-uf6ig2gf****7pw9
+     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @var string
-     */
-    public $ipList;
-
-    /**
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example 218.30.***.40,192.***.0.23
+     *
+     * @var string
+     */
+    public $ipList;
+
+    /**
+     * @example 6
+     *
      * @var int
      */
     public $ipVersion;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'ipList'    => 'IpList',
         'groupName' => 'GroupName',
+        'ipList'    => 'IpList',
         'ipVersion' => 'IpVersion',
     ];
 
@@ -44,11 +52,11 @@ class ModifyIpWhitelistGroupRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->ipList) {
-            $res['IpList'] = $this->ipList;
-        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->ipList) {
+            $res['IpList'] = $this->ipList;
         }
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
@@ -68,11 +76,11 @@ class ModifyIpWhitelistGroupRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['IpList'])) {
-            $model->ipList = $map['IpList'];
-        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['IpList'])) {
+            $model->ipList = $map['IpList'];
         }
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];

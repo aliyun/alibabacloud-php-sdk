@@ -10,35 +10,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterModificationHistoriesResponseBody extends Model
 {
     /**
-     * @var int
+     * @var histories
      */
-    public $totalCount;
+    public $histories;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @var histories
+     * @example 10
+     *
+     * @var int
      */
-    public $histories;
+    public $pageSize;
+
+    /**
+     * @example 0CD8CFEE-879B-42FF-BCE5-A339C36E77DF
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example 18
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'requestId'  => 'RequestId',
-        'pageSize'   => 'PageSize',
-        'pageNumber' => 'PageNumber',
         'histories'  => 'Histories',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -48,20 +56,20 @@ class DescribeParameterModificationHistoriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->histories) {
+            $res['Histories'] = null !== $this->histories ? $this->histories->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->histories) {
-            $res['Histories'] = null !== $this->histories ? $this->histories->toMap() : null;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -75,20 +83,20 @@ class DescribeParameterModificationHistoriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['Histories'])) {
+            $model->histories = histories::fromMap($map['Histories']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['Histories'])) {
-            $model->histories = histories::fromMap($map['Histories']);
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

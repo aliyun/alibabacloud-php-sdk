@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ResizeNodeCountRequest extends Model
 {
     /**
+     * @example cds-bp1b136j****5d59
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $dataCenterId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $nodeCount;

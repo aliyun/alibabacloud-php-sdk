@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterModificationHistoriesRequest extends Model
 {
     /**
+     * @example cds-bp18si70****10s2
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

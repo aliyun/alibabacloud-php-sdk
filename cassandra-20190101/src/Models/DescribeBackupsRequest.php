@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsRequest extends Model
 {
     /**
+     * @example Incremental
+     *
+     * @var string
+     */
+    public $backupType;
+
+    /**
+     * @example cds-uf6m0bod****6158
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-shanghai-e
+     *
      * @var string
      */
     public $dataCenterId;
-
-    /**
-     * @var string
-     */
-    public $backupType;
     protected $_name = [
+        'backupType'   => 'BackupType',
         'clusterId'    => 'ClusterId',
         'dataCenterId' => 'DataCenterId',
-        'backupType'   => 'BackupType',
     ];
 
     public function validate()
@@ -35,14 +41,14 @@ class DescribeBackupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupType) {
+            $res['BackupType'] = $this->backupType;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->dataCenterId) {
             $res['DataCenterId'] = $this->dataCenterId;
-        }
-        if (null !== $this->backupType) {
-            $res['BackupType'] = $this->backupType;
         }
 
         return $res;
@@ -56,14 +62,14 @@ class DescribeBackupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupType'])) {
+            $model->backupType = $map['BackupType'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['DataCenterId'])) {
             $model->dataCenterId = $map['DataCenterId'];
-        }
-        if (isset($map['BackupType'])) {
-            $model->backupType = $map['BackupType'];
         }
 
         return $model;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceTypeRequest extends Model
 {
     /**
+     * @example cds-uf6ig2gf****7pw7
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-shanghai-e
+     *
      * @var string
      */
     public $dataCenterId;
 
     /**
+     * @example cassandra.g.xlarge
+     *
      * @var string
      */
     public $instanceType;

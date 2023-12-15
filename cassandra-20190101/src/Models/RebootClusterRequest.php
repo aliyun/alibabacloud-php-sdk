@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RebootClusterRequest extends Model
 {
     /**
+     * @example cds-bp1b136j****5d51
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $dataCenterId;

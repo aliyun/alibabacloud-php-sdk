@@ -9,17 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @example cds-bp1hy2ip****z46g
+     *
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @example 3E19E345-101D-4014-946C-A2055AEE1F26
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'clusterId' => 'ClusterId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class CreateClusterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +51,11 @@ class CreateClusterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

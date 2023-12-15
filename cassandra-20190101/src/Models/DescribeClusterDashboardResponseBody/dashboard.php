@@ -10,17 +10,19 @@ use AlibabaCloud\Tea\Model;
 class dashboard extends Model
 {
     /**
-     * @var dataCenters
-     */
-    public $dataCenters;
-
-    /**
+     * @example cds-bp1syjlt****q976
+     *
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @var dataCenters
+     */
+    public $dataCenters;
     protected $_name = [
-        'dataCenters' => 'DataCenters',
         'clusterId'   => 'ClusterId',
+        'dataCenters' => 'DataCenters',
     ];
 
     public function validate()
@@ -30,11 +32,11 @@ class dashboard extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dataCenters) {
-            $res['DataCenters'] = null !== $this->dataCenters ? $this->dataCenters->toMap() : null;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->dataCenters) {
+            $res['DataCenters'] = null !== $this->dataCenters ? $this->dataCenters->toMap() : null;
         }
 
         return $res;
@@ -48,11 +50,11 @@ class dashboard extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DataCenters'])) {
-            $model->dataCenters = dataCenters::fromMap($map['DataCenters']);
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['DataCenters'])) {
+            $model->dataCenters = dataCenters::fromMap($map['DataCenters']);
         }
 
         return $model;

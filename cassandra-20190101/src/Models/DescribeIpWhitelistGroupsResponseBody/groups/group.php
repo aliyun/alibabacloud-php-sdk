@@ -10,11 +10,8 @@ use AlibabaCloud\Tea\Model;
 class group extends Model
 {
     /**
-     * @var int
-     */
-    public $ipVersion;
-
-    /**
+     * @example group_one
+     *
      * @var string
      */
     public $groupName;
@@ -23,10 +20,17 @@ class group extends Model
      * @var ipList
      */
     public $ipList;
+
+    /**
+     * @example 4
+     *
+     * @var int
+     */
+    public $ipVersion;
     protected $_name = [
-        'ipVersion' => 'IpVersion',
         'groupName' => 'GroupName',
         'ipList'    => 'IpList',
+        'ipVersion' => 'IpVersion',
     ];
 
     public function validate()
@@ -36,14 +40,14 @@ class group extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ipVersion) {
-            $res['IpVersion'] = $this->ipVersion;
-        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->ipList) {
             $res['IpList'] = null !== $this->ipList ? $this->ipList->toMap() : null;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
 
         return $res;
@@ -57,14 +61,14 @@ class group extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IpVersion'])) {
-            $model->ipVersion = $map['IpVersion'];
-        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
         if (isset($map['IpList'])) {
             $model->ipList = ipList::fromMap($map['IpList']);
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
 
         return $model;

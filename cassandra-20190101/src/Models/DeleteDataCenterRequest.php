@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataCenterRequest extends Model
 {
     /**
+     * @example cds-bp11tjzh50****7d
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $dataCenterId;

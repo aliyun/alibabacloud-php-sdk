@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCmsUrlRequest extends Model
 {
     /**
+     * @example cds-bp1b136j****5d57
+     *
      * @var string
      */
     public $clusterId;

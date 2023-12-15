@@ -10,17 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpWhitelistGroupsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var groups
      */
     public $groups;
+
+    /**
+     * @example 391A6933-0D4A-42EB-BCE7-03DA59D69ED4
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'groups'    => 'Groups',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +32,11 @@ class DescribeIpWhitelistGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->groups) {
             $res['Groups'] = null !== $this->groups ? $this->groups->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +50,11 @@ class DescribeIpWhitelistGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Groups'])) {
             $model->groups = groups::fromMap($map['Groups']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

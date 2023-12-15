@@ -9,17 +9,27 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterRequest extends Model
 {
     /**
+     * @example cds-bp1b136j****5d58
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example Cassandra_test
+     *
      * @var string
      */
     public $clusterName;
+
+    /**
+     * @var string
+     */
+    public $confirmProductOffline;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
-        'clusterName' => 'ClusterName',
+        'clusterId'             => 'ClusterId',
+        'clusterName'           => 'ClusterName',
+        'confirmProductOffline' => 'ConfirmProductOffline',
     ];
 
     public function validate()
@@ -34,6 +44,9 @@ class ModifyClusterRequest extends Model
         }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->confirmProductOffline) {
+            $res['ConfirmProductOffline'] = $this->confirmProductOffline;
         }
 
         return $res;
@@ -52,6 +65,9 @@ class ModifyClusterRequest extends Model
         }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['ConfirmProductOffline'])) {
+            $model->confirmProductOffline = $map['ConfirmProductOffline'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNodeToolExecutionHistoryResponseBody extends Model
 {
     /**
+     * @example D72B6BAC-BB95-48DA-99A9-A9903CD02498
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PurgeClusterRequest extends Model
 {
     /**
+     * @example cds-bp1hy2ip****z465
+     *
      * @var string
      */
     public $clusterId;

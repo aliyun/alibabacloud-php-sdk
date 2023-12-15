@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersRequest extends Model
 {
     /**
+     * @example cds-j6c1zij8****994s
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyIpWhitelistRequest extends Model
 {
     /**
+     * @example cds-bp1b136j****5d51
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 192.***.0.23,30.15.***.133
+     *
      * @var string
      */
     public $ipList;

@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceMaintainTimeRequest extends Model
 {
     /**
+     * @example cds-bp1b**6jco895****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @var string
-     */
-    public $maintainStartTime;
-
-    /**
+     * @example 4:00
+     *
      * @var string
      */
     public $maintainEndTime;
+
+    /**
+     * @example 2:00
+     *
+     * @var string
+     */
+    public $maintainStartTime;
     protected $_name = [
         'clusterId'         => 'ClusterId',
-        'maintainStartTime' => 'MaintainStartTime',
         'maintainEndTime'   => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
     ];
 
     public function validate()
@@ -38,11 +44,11 @@ class ModifyInstanceMaintainTimeRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->maintainStartTime) {
-            $res['MaintainStartTime'] = $this->maintainStartTime;
-        }
         if (null !== $this->maintainEndTime) {
             $res['MaintainEndTime'] = $this->maintainEndTime;
+        }
+        if (null !== $this->maintainStartTime) {
+            $res['MaintainStartTime'] = $this->maintainStartTime;
         }
 
         return $res;
@@ -59,11 +65,11 @@ class ModifyInstanceMaintainTimeRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['MaintainStartTime'])) {
-            $model->maintainStartTime = $map['MaintainStartTime'];
-        }
         if (isset($map['MaintainEndTime'])) {
             $model->maintainEndTime = $map['MaintainEndTime'];
+        }
+        if (isset($map['MaintainStartTime'])) {
+            $model->maintainStartTime = $map['MaintainStartTime'];
         }
 
         return $model;

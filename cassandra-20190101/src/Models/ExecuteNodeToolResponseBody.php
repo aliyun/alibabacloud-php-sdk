@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExecuteNodeToolResponseBody extends Model
 {
     /**
+     * @example DCF0CD20-0F85-4FD2-8F75-73636D1331F7
+     *
      * @var string
      */
     public $requestId;

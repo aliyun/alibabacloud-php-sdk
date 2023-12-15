@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountPasswordResponseBody extends Model
 {
     /**
+     * @example 50373857-C47B-4B64-9332-D0B5280B59EA
+     *
      * @var string
      */
     public $requestId;

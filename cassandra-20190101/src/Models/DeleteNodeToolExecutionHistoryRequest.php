@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteNodeToolExecutionHistoryRequest extends Model
 {
     /**
+     * @example cds-3872l6py****n4ug
+     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @var string
-     */
-    public $jobId;
-
-    /**
+     * @example cn-shanghai-f
+     *
      * @var string
      */
     public $dataCenterId;
+
+    /**
+     * @example job-QdKa51s****U0gHf
+     *
+     * @var string
+     */
+    public $jobId;
     protected $_name = [
         'clusterId'    => 'ClusterId',
-        'jobId'        => 'JobId',
         'dataCenterId' => 'DataCenterId',
+        'jobId'        => 'JobId',
     ];
 
     public function validate()
@@ -38,11 +44,11 @@ class DeleteNodeToolExecutionHistoryRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->dataCenterId) {
             $res['DataCenterId'] = $this->dataCenterId;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -59,11 +65,11 @@ class DeleteNodeToolExecutionHistoryRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['DataCenterId'])) {
             $model->dataCenterId = $map['DataCenterId'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
         return $model;

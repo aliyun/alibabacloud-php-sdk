@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDataCenterResponseBody extends Model
 {
     /**
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $dataCenterId;
 
     /**
+     * @example 3E19E345-101D-4014-946C-A2055AEE1F26
+     *
      * @var string
      */
     public $requestId;

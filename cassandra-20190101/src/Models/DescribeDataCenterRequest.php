@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataCenterRequest extends Model
 {
     /**
+     * @example cds-t4n98w89z77*****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example ap-southeast-1a
+     *
      * @var string
      */
     public $dataCenterId;

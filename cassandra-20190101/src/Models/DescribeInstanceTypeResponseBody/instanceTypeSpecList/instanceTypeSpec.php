@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class instanceTypeSpec extends Model
 {
     /**
+     * @example 4
+     *
      * @var int
      */
     public $cpuSize;
 
     /**
-     * @var int
-     */
-    public $memSize;
-
-    /**
+     * @example cassandra.c.large
+     *
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @example 8
+     *
+     * @var int
+     */
+    public $memSize;
     protected $_name = [
         'cpuSize'      => 'CpuSize',
-        'memSize'      => 'MemSize',
         'instanceType' => 'InstanceType',
+        'memSize'      => 'MemSize',
     ];
 
     public function validate()
@@ -38,11 +44,11 @@ class instanceTypeSpec extends Model
         if (null !== $this->cpuSize) {
             $res['CpuSize'] = $this->cpuSize;
         }
-        if (null !== $this->memSize) {
-            $res['MemSize'] = $this->memSize;
-        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->memSize) {
+            $res['MemSize'] = $this->memSize;
         }
 
         return $res;
@@ -59,11 +65,11 @@ class instanceTypeSpec extends Model
         if (isset($map['CpuSize'])) {
             $model->cpuSize = $map['CpuSize'];
         }
-        if (isset($map['MemSize'])) {
-            $model->memSize = $map['MemSize'];
-        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['MemSize'])) {
+            $model->memSize = $map['MemSize'];
         }
 
         return $model;

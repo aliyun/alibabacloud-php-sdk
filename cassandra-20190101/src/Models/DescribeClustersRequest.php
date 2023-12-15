@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeClustersRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
+     * @example test
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @example 20
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @example rg-xxxxxxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -39,10 +49,10 @@ class DescribeClustersRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'regionId'        => 'RegionId',
+        'clusterName'     => 'ClusterName',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'clusterName'     => 'ClusterName',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'tag'             => 'Tag',
     ];
@@ -54,8 +64,8 @@ class DescribeClustersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -63,8 +73,8 @@ class DescribeClustersRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->clusterName) {
-            $res['ClusterName'] = $this->clusterName;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -90,8 +100,8 @@ class DescribeClustersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -99,8 +109,8 @@ class DescribeClustersRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ClusterName'])) {
-            $model->clusterName = $map['ClusterName'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

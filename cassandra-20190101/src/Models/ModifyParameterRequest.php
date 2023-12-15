@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyParameterRequest extends Model
 {
     /**
+     * @example cds-bp1l5ys6****wzr5
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cas_contention_timeout_in_ms
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 2000
+     *
      * @var string
      */
     public $value;

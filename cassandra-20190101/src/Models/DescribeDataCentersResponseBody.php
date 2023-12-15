@@ -15,6 +15,8 @@ class DescribeDataCentersResponseBody extends Model
     public $dataCenters;
 
     /**
+     * @example C8CA4D25-47FE-47D9-A34F-69B554A3A069
+     *
      * @var string
      */
     public $requestId;

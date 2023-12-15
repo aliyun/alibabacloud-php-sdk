@@ -10,17 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var backup
      */
     public $backup;
+
+    /**
+     * @example 200FB963-9359-4CAD-90B7-96395C88FD9D
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'backup'    => 'Backup',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +32,11 @@ class DescribeBackupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->backup) {
             $res['Backup'] = null !== $this->backup ? $this->backup->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +50,11 @@ class DescribeBackupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Backup'])) {
             $model->backup = backup::fromMap($map['Backup']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

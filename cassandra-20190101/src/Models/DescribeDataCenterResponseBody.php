@@ -9,125 +9,165 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataCenterResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
-     * @var string
-     */
-    public $dataCenterId;
-
-    /**
-     * @var string
-     */
-    public $commodityInstance;
-
-    /**
-     * @var string
-     */
-    public $createdTime;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $nodeCount;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
-
-    /**
-     * @var string
-     */
-    public $payType;
-
-    /**
-     * @var string
-     */
-    public $lockMode;
-
-    /**
-     * @var string
-     */
-    public $vswitchId;
-
-    /**
-     * @var string
-     */
-    public $dataCenterName;
-
-    /**
-     * @var string
-     */
-    public $diskType;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
+     * @example true
+     *
      * @var bool
      */
     public $autoRenewal;
 
     /**
+     * @example cds-t4n98w89z77*****
+     *
+     * @var string
+     */
+    public $clusterId;
+
+    /**
+     * @example cds-t4n98w89z77*****
+     *
+     * @var string
+     */
+    public $commodityInstance;
+
+    /**
+     * @example 2020-10-16T11:27:20Z
+     *
+     * @var string
+     */
+    public $createdTime;
+
+    /**
+     * @example ap-southeast-1a
+     *
+     * @var string
+     */
+    public $dataCenterId;
+
+    /**
+     * @example test_name
+     *
+     * @var string
+     */
+    public $dataCenterName;
+
+    /**
+     * @example 160
+     *
      * @var int
      */
     public $diskSize;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
-    public $regionId;
+    public $diskType;
 
     /**
+     * @example 2020-11-17T00:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example cassandra.c.large
+     *
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @example None
+     *
+     * @var string
+     */
+    public $lockMode;
+
+    /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $nodeCount;
+
+    /**
+     * @example Subscription
+     *
+     * @var string
+     */
+    public $payType;
+
+    /**
+     * @example ap-southeast-1
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @example A4C83BDF-1DE0-41CD-9D6C-8D9FE5EB5504
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example Running
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @example vpc-bp1qitxqe1m5r****4mng
+     *
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @example vsw-bp13e9ynz3jpy****hqlm
+     *
+     * @var string
+     */
+    public $vswitchId;
+
+    /**
+     * @example ap-southeast-1a
+     *
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'status'            => 'Status',
         'autoRenewPeriod'   => 'AutoRenewPeriod',
-        'dataCenterId'      => 'DataCenterId',
+        'autoRenewal'       => 'AutoRenewal',
+        'clusterId'         => 'ClusterId',
         'commodityInstance' => 'CommodityInstance',
         'createdTime'       => 'CreatedTime',
-        'requestId'         => 'RequestId',
-        'nodeCount'         => 'NodeCount',
-        'zoneId'            => 'ZoneId',
-        'clusterId'         => 'ClusterId',
-        'payType'           => 'PayType',
-        'lockMode'          => 'LockMode',
-        'vswitchId'         => 'VswitchId',
+        'dataCenterId'      => 'DataCenterId',
         'dataCenterName'    => 'DataCenterName',
-        'diskType'          => 'DiskType',
-        'vpcId'             => 'VpcId',
-        'autoRenewal'       => 'AutoRenewal',
         'diskSize'          => 'DiskSize',
-        'regionId'          => 'RegionId',
+        'diskType'          => 'DiskType',
         'expireTime'        => 'ExpireTime',
         'instanceType'      => 'InstanceType',
+        'lockMode'          => 'LockMode',
+        'nodeCount'         => 'NodeCount',
+        'payType'           => 'PayType',
+        'regionId'          => 'RegionId',
+        'requestId'         => 'RequestId',
+        'status'            => 'Status',
+        'vpcId'             => 'VpcId',
+        'vswitchId'         => 'VswitchId',
+        'zoneId'            => 'ZoneId',
     ];
 
     public function validate()
@@ -137,14 +177,14 @@ class DescribeDataCenterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->autoRenewPeriod) {
             $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
         }
-        if (null !== $this->dataCenterId) {
-            $res['DataCenterId'] = $this->dataCenterId;
+        if (null !== $this->autoRenewal) {
+            $res['AutoRenewal'] = $this->autoRenewal;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->commodityInstance) {
             $res['CommodityInstance'] = $this->commodityInstance;
@@ -152,50 +192,50 @@ class DescribeDataCenterResponseBody extends Model
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->nodeCount) {
-            $res['NodeCount'] = $this->nodeCount;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->payType) {
-            $res['PayType'] = $this->payType;
-        }
-        if (null !== $this->lockMode) {
-            $res['LockMode'] = $this->lockMode;
-        }
-        if (null !== $this->vswitchId) {
-            $res['VswitchId'] = $this->vswitchId;
+        if (null !== $this->dataCenterId) {
+            $res['DataCenterId'] = $this->dataCenterId;
         }
         if (null !== $this->dataCenterName) {
             $res['DataCenterName'] = $this->dataCenterName;
         }
-        if (null !== $this->diskType) {
-            $res['DiskType'] = $this->diskType;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->autoRenewal) {
-            $res['AutoRenewal'] = $this->autoRenewal;
-        }
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->lockMode) {
+            $res['LockMode'] = $this->lockMode;
+        }
+        if (null !== $this->nodeCount) {
+            $res['NodeCount'] = $this->nodeCount;
+        }
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vswitchId) {
+            $res['VswitchId'] = $this->vswitchId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -209,14 +249,14 @@ class DescribeDataCenterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['AutoRenewPeriod'])) {
             $model->autoRenewPeriod = $map['AutoRenewPeriod'];
         }
-        if (isset($map['DataCenterId'])) {
-            $model->dataCenterId = $map['DataCenterId'];
+        if (isset($map['AutoRenewal'])) {
+            $model->autoRenewal = $map['AutoRenewal'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['CommodityInstance'])) {
             $model->commodityInstance = $map['CommodityInstance'];
@@ -224,50 +264,50 @@ class DescribeDataCenterResponseBody extends Model
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['NodeCount'])) {
-            $model->nodeCount = $map['NodeCount'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['PayType'])) {
-            $model->payType = $map['PayType'];
-        }
-        if (isset($map['LockMode'])) {
-            $model->lockMode = $map['LockMode'];
-        }
-        if (isset($map['VswitchId'])) {
-            $model->vswitchId = $map['VswitchId'];
+        if (isset($map['DataCenterId'])) {
+            $model->dataCenterId = $map['DataCenterId'];
         }
         if (isset($map['DataCenterName'])) {
             $model->dataCenterName = $map['DataCenterName'];
         }
-        if (isset($map['DiskType'])) {
-            $model->diskType = $map['DiskType'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['AutoRenewal'])) {
-            $model->autoRenewal = $map['AutoRenewal'];
-        }
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['LockMode'])) {
+            $model->lockMode = $map['LockMode'];
+        }
+        if (isset($map['NodeCount'])) {
+            $model->nodeCount = $map['NodeCount'];
+        }
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['VswitchId'])) {
+            $model->vswitchId = $map['VswitchId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

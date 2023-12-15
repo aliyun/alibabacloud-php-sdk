@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class zone extends Model
 {
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $id;

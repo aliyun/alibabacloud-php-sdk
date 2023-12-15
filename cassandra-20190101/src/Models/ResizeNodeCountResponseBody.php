@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResizeNodeCountResponseBody extends Model
 {
     /**
+     * @example D7D3088F-AA4F-49C3-BB46-B04F3E35041A
+     *
      * @var string
      */
     public $requestId;

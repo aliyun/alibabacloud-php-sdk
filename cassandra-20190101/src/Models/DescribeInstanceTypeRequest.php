@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTypeRequest extends Model
 {
     /**
+     * @example cassandra.c.2xlarge
+     *
      * @var string
      */
     public $instanceType;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataCenterResponseBody extends Model
 {
     /**
+     * @example 200FB963-9359-4CAD-90B7-96395C88FD9D
+     *
      * @var string
      */
     public $requestId;

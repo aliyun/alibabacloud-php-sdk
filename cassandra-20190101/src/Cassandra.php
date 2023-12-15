@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cassandra\V20190101;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cassandra\V20190101\Models\AllocatePublicContactPointsRequest;
 use AlibabaCloud\SDK\Cassandra\V20190101\Models\AllocatePublicContactPointsResponse;
 use AlibabaCloud\SDK\Cassandra\V20190101\Models\CreateBackupPlanRequest;
@@ -114,6 +115,7 @@ use AlibabaCloud\SDK\Cassandra\V20190101\Models\UpgradeClusterVersionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Cassandra extends OpenApiClient
@@ -158,11 +160,32 @@ class Cassandra extends OpenApiClient
     public function allocatePublicContactPointsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AllocatePublicContactPoints',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AllocatePublicContactPointsResponse::fromMap($this->doRPCRequest('AllocatePublicContactPoints', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AllocatePublicContactPointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -186,11 +209,44 @@ class Cassandra extends OpenApiClient
     public function createBackupPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->active)) {
+            $query['Active'] = $request->active;
+        }
+        if (!Utils::isUnset($request->backupPeriod)) {
+            $query['BackupPeriod'] = $request->backupPeriod;
+        }
+        if (!Utils::isUnset($request->backupTime)) {
+            $query['BackupTime'] = $request->backupTime;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
+        if (!Utils::isUnset($request->retentionPeriod)) {
+            $query['RetentionPeriod'] = $request->retentionPeriod;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBackupPlan',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateBackupPlanResponse::fromMap($this->doRPCRequest('CreateBackupPlan', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -214,11 +270,80 @@ class Cassandra extends OpenApiClient
     public function createClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->dataCenterName)) {
+            $query['DataCenterName'] = $request->dataCenterName;
+        }
+        if (!Utils::isUnset($request->diskSize)) {
+            $query['DiskSize'] = $request->diskSize;
+        }
+        if (!Utils::isUnset($request->diskType)) {
+            $query['DiskType'] = $request->diskType;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->majorVersion)) {
+            $query['MajorVersion'] = $request->majorVersion;
+        }
+        if (!Utils::isUnset($request->nodeCount)) {
+            $query['NodeCount'] = $request->nodeCount;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vswitchId)) {
+            $query['VswitchId'] = $request->vswitchId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCluster',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateClusterResponse::fromMap($this->doRPCRequest('CreateCluster', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -242,11 +367,71 @@ class Cassandra extends OpenApiClient
     public function createDataCenterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterName)) {
+            $query['DataCenterName'] = $request->dataCenterName;
+        }
+        if (!Utils::isUnset($request->diskSize)) {
+            $query['DiskSize'] = $request->diskSize;
+        }
+        if (!Utils::isUnset($request->diskType)) {
+            $query['DiskType'] = $request->diskType;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->nodeCount)) {
+            $query['NodeCount'] = $request->nodeCount;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vswitchId)) {
+            $query['VswitchId'] = $request->vswitchId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataCenter',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDataCenterResponse::fromMap($this->doRPCRequest('CreateDataCenter', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDataCenterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -270,11 +455,29 @@ class Cassandra extends OpenApiClient
     public function deleteBackupPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBackupPlan',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteBackupPlanResponse::fromMap($this->doRPCRequest('DeleteBackupPlan', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -298,11 +501,26 @@ class Cassandra extends OpenApiClient
     public function deleteClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCluster',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteClusterResponse::fromMap($this->doRPCRequest('DeleteCluster', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -326,11 +544,29 @@ class Cassandra extends OpenApiClient
     public function deleteDataCenterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataCenter',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDataCenterResponse::fromMap($this->doRPCRequest('DeleteDataCenter', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDataCenterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -354,11 +590,32 @@ class Cassandra extends OpenApiClient
     public function deleteNodeToolExecutionHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNodeToolExecutionHistory',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteNodeToolExecutionHistoryResponse::fromMap($this->doRPCRequest('DeleteNodeToolExecutionHistory', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteNodeToolExecutionHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -382,11 +639,26 @@ class Cassandra extends OpenApiClient
     public function describeAccountsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccounts',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAccountsResponse::fromMap($this->doRPCRequest('DescribeAccounts', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -410,11 +682,35 @@ class Cassandra extends OpenApiClient
     public function describeBackupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
+        }
+        if (!Utils::isUnset($request->backupType)) {
+            $query['BackupType'] = $request->backupType;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupResponse::fromMap($this->doRPCRequest('DescribeBackup', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -438,11 +734,29 @@ class Cassandra extends OpenApiClient
     public function describeBackupPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupPlan',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupPlanResponse::fromMap($this->doRPCRequest('DescribeBackupPlan', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -466,11 +780,26 @@ class Cassandra extends OpenApiClient
     public function describeBackupPlansWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupPlans',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupPlansResponse::fromMap($this->doRPCRequest('DescribeBackupPlans', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupPlansResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -494,11 +823,32 @@ class Cassandra extends OpenApiClient
     public function describeBackupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupType)) {
+            $query['BackupType'] = $request->backupType;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackups',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupsResponse::fromMap($this->doRPCRequest('DescribeBackups', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -522,11 +872,26 @@ class Cassandra extends OpenApiClient
     public function describeClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCluster',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterResponse::fromMap($this->doRPCRequest('DescribeCluster', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -550,11 +915,26 @@ class Cassandra extends OpenApiClient
     public function describeClusterDashboardWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterDashboard',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterDashboardResponse::fromMap($this->doRPCRequest('DescribeClusterDashboard', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterDashboardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -570,34 +950,6 @@ class Cassandra extends OpenApiClient
     }
 
     /**
-     * @param DescribeClustersRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeClustersResponse
-     */
-    public function describeClustersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeClustersResponse::fromMap($this->doRPCRequest('DescribeClusters', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeClustersRequest $request
-     *
-     * @return DescribeClustersResponse
-     */
-    public function describeClusters($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeClustersWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeClusterStatusRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -606,11 +958,26 @@ class Cassandra extends OpenApiClient
     public function describeClusterStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterStatus',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterStatusResponse::fromMap($this->doRPCRequest('DescribeClusterStatus', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -626,6 +993,64 @@ class Cassandra extends OpenApiClient
     }
 
     /**
+     * @param DescribeClustersRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeClustersResponse
+     */
+    public function describeClustersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusters',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClustersRequest $request
+     *
+     * @return DescribeClustersResponse
+     */
+    public function describeClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClustersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeContactPointsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -634,11 +1059,26 @@ class Cassandra extends OpenApiClient
     public function describeContactPointsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeContactPoints',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeContactPointsResponse::fromMap($this->doRPCRequest('DescribeContactPoints', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeContactPointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -662,11 +1102,29 @@ class Cassandra extends OpenApiClient
     public function describeDataCenterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataCenter',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDataCenterResponse::fromMap($this->doRPCRequest('DescribeDataCenter', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDataCenterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -690,11 +1148,26 @@ class Cassandra extends OpenApiClient
     public function describeDataCentersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataCenters',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDataCentersResponse::fromMap($this->doRPCRequest('DescribeDataCenters', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDataCentersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -718,11 +1191,32 @@ class Cassandra extends OpenApiClient
     public function describeDeletedClustersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDeletedClusters',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDeletedClustersResponse::fromMap($this->doRPCRequest('DescribeDeletedClusters', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDeletedClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -746,11 +1240,26 @@ class Cassandra extends OpenApiClient
     public function describeInstanceTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceType',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceTypeResponse::fromMap($this->doRPCRequest('DescribeInstanceType', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -774,11 +1283,26 @@ class Cassandra extends OpenApiClient
     public function describeIpWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIpWhitelist',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeIpWhitelistResponse::fromMap($this->doRPCRequest('DescribeIpWhitelist', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -802,11 +1326,26 @@ class Cassandra extends OpenApiClient
     public function describeIpWhitelistGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIpWhitelistGroups',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeIpWhitelistGroupsResponse::fromMap($this->doRPCRequest('DescribeIpWhitelistGroups', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeIpWhitelistGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -830,11 +1369,32 @@ class Cassandra extends OpenApiClient
     public function describeNodeToolExecutionHistoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNodeToolExecutionHistories',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeNodeToolExecutionHistoriesResponse::fromMap($this->doRPCRequest('DescribeNodeToolExecutionHistories', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeNodeToolExecutionHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -858,11 +1418,32 @@ class Cassandra extends OpenApiClient
     public function describeNodeToolExecutionHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dcId)) {
+            $query['DcId'] = $request->dcId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNodeToolExecutionHistory',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeNodeToolExecutionHistoryResponse::fromMap($this->doRPCRequest('DescribeNodeToolExecutionHistory', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeNodeToolExecutionHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -886,11 +1467,32 @@ class Cassandra extends OpenApiClient
     public function describeParameterModificationHistoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParameterModificationHistories',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeParameterModificationHistoriesResponse::fromMap($this->doRPCRequest('DescribeParameterModificationHistories', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeParameterModificationHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -914,11 +1516,32 @@ class Cassandra extends OpenApiClient
     public function describeParametersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParameters',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeParametersResponse::fromMap($this->doRPCRequest('DescribeParameters', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -942,11 +1565,26 @@ class Cassandra extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -970,11 +1608,26 @@ class Cassandra extends OpenApiClient
     public function describeSecurityGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecurityGroups',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSecurityGroupsResponse::fromMap($this->doRPCRequest('DescribeSecurityGroups', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -998,11 +1651,38 @@ class Cassandra extends OpenApiClient
     public function executeNodeToolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->arguments)) {
+            $query['Arguments'] = $request->arguments;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->command)) {
+            $query['Command'] = $request->command;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
+        if (!Utils::isUnset($request->executeNodes)) {
+            $query['ExecuteNodes'] = $request->executeNodes;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteNodeTool',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ExecuteNodeToolResponse::fromMap($this->doRPCRequest('ExecuteNodeTool', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExecuteNodeToolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1026,11 +1706,26 @@ class Cassandra extends OpenApiClient
     public function getCmsUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCmsUrl',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCmsUrlResponse::fromMap($this->doRPCRequest('GetCmsUrl', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCmsUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1054,11 +1749,35 @@ class Cassandra extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1082,11 +1801,26 @@ class Cassandra extends OpenApiClient
     public function listTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTags',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagsResponse::fromMap($this->doRPCRequest('ListTags', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1110,11 +1844,32 @@ class Cassandra extends OpenApiClient
     public function modifyAccountPasswordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->account)) {
+            $query['Account'] = $request->account;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAccountPassword',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyAccountPasswordResponse::fromMap($this->doRPCRequest('ModifyAccountPassword', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1138,11 +1893,41 @@ class Cassandra extends OpenApiClient
     public function modifyBackupPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->active)) {
+            $query['Active'] = $request->active;
+        }
+        if (!Utils::isUnset($request->backupPeriod)) {
+            $query['BackupPeriod'] = $request->backupPeriod;
+        }
+        if (!Utils::isUnset($request->backupTime)) {
+            $query['BackupTime'] = $request->backupTime;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
+        if (!Utils::isUnset($request->retentionPeriod)) {
+            $query['RetentionPeriod'] = $request->retentionPeriod;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBackupPlan',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyBackupPlanResponse::fromMap($this->doRPCRequest('ModifyBackupPlan', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1166,11 +1951,32 @@ class Cassandra extends OpenApiClient
     public function modifyClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->confirmProductOffline)) {
+            $query['ConfirmProductOffline'] = $request->confirmProductOffline;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCluster',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyClusterResponse::fromMap($this->doRPCRequest('ModifyCluster', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1194,11 +2000,32 @@ class Cassandra extends OpenApiClient
     public function modifyDataCenterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
+        if (!Utils::isUnset($request->dataCenterName)) {
+            $query['DataCenterName'] = $request->dataCenterName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDataCenter',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDataCenterResponse::fromMap($this->doRPCRequest('ModifyDataCenter', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDataCenterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1222,11 +2049,32 @@ class Cassandra extends OpenApiClient
     public function modifyInstanceMaintainTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->maintainEndTime)) {
+            $query['MaintainEndTime'] = $request->maintainEndTime;
+        }
+        if (!Utils::isUnset($request->maintainStartTime)) {
+            $query['MaintainStartTime'] = $request->maintainStartTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceMaintainTime',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceMaintainTimeResponse::fromMap($this->doRPCRequest('ModifyInstanceMaintainTime', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1250,11 +2098,32 @@ class Cassandra extends OpenApiClient
     public function modifyInstanceTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceType',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceTypeResponse::fromMap($this->doRPCRequest('ModifyInstanceType', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1278,11 +2147,29 @@ class Cassandra extends OpenApiClient
     public function modifyIpWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->ipList)) {
+            $query['IpList'] = $request->ipList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyIpWhitelist',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyIpWhitelistResponse::fromMap($this->doRPCRequest('ModifyIpWhitelist', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1306,11 +2193,35 @@ class Cassandra extends OpenApiClient
     public function modifyIpWhitelistGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->ipList)) {
+            $query['IpList'] = $request->ipList;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyIpWhitelistGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyIpWhitelistGroupResponse::fromMap($this->doRPCRequest('ModifyIpWhitelistGroup', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyIpWhitelistGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1334,11 +2245,32 @@ class Cassandra extends OpenApiClient
     public function modifyParameterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyParameter',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyParameterResponse::fromMap($this->doRPCRequest('ModifyParameter', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyParameterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1362,11 +2294,29 @@ class Cassandra extends OpenApiClient
     public function modifySecurityGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->securityGroupIds)) {
+            $query['SecurityGroupIds'] = $request->securityGroupIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySecurityGroups',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifySecurityGroupsResponse::fromMap($this->doRPCRequest('ModifySecurityGroups', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifySecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1390,11 +2340,29 @@ class Cassandra extends OpenApiClient
     public function moveResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveResourceGroup',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return MoveResourceGroupResponse::fromMap($this->doRPCRequest('MoveResourceGroup', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1418,11 +2386,26 @@ class Cassandra extends OpenApiClient
     public function purgeClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PurgeCluster',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PurgeClusterResponse::fromMap($this->doRPCRequest('PurgeCluster', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PurgeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1446,11 +2429,29 @@ class Cassandra extends OpenApiClient
     public function rebootClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RebootCluster',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RebootClusterResponse::fromMap($this->doRPCRequest('RebootCluster', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RebootClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1474,11 +2475,29 @@ class Cassandra extends OpenApiClient
     public function releasePublicContactPointsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleasePublicContactPoints',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReleasePublicContactPointsResponse::fromMap($this->doRPCRequest('ReleasePublicContactPoints', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReleasePublicContactPointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1502,11 +2521,32 @@ class Cassandra extends OpenApiClient
     public function resizeDiskSizeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
+        if (!Utils::isUnset($request->diskSize)) {
+            $query['DiskSize'] = $request->diskSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResizeDiskSize',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ResizeDiskSizeResponse::fromMap($this->doRPCRequest('ResizeDiskSize', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResizeDiskSizeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1530,11 +2570,32 @@ class Cassandra extends OpenApiClient
     public function resizeNodeCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataCenterId)) {
+            $query['DataCenterId'] = $request->dataCenterId;
+        }
+        if (!Utils::isUnset($request->nodeCount)) {
+            $query['NodeCount'] = $request->nodeCount;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResizeNodeCount',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ResizeNodeCountResponse::fromMap($this->doRPCRequest('ResizeNodeCount', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResizeNodeCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1550,25 +2611,50 @@ class Cassandra extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * ****
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * ****
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -1586,11 +2672,35 @@ class Cassandra extends OpenApiClient
     public function unTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnTagResources',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnTagResourcesResponse::fromMap($this->doRPCRequest('UnTagResources', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1614,11 +2724,26 @@ class Cassandra extends OpenApiClient
     public function upgradeClusterVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeClusterVersion',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpgradeClusterVersionResponse::fromMap($this->doRPCRequest('UpgradeClusterVersion', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpgradeClusterVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

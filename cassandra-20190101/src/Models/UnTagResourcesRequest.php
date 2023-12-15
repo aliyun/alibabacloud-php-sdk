@@ -9,27 +9,35 @@ use AlibabaCloud\Tea\Model;
 class UnTagResourcesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
+     * @example true
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @example cn-shenzhen
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @example cds-wz92o754****7779
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @example key
+     *
      * @var string[]
      */
     public $tagKey;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'all'        => 'All',
+        'regionId'   => 'RegionId',
         'resourceId' => 'ResourceId',
         'tagKey'     => 'TagKey',
     ];
@@ -41,11 +49,11 @@ class UnTagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->all) {
             $res['All'] = $this->all;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -65,11 +73,11 @@ class UnTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['All'])) {
             $model->all = $map['All'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {

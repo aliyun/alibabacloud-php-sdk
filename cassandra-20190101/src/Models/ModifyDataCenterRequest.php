@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyDataCenterRequest extends Model
 {
     /**
+     * @example cds-bp1b136j****5d57
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $dataCenterId;
 
     /**
+     * @example Cassandra_test
+     *
      * @var string
      */
     public $dataCenterName;

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class contactPoint extends Model
 {
     /**
-     * @var publicAddresses
+     * @example cn-hangzhou-g
+     *
+     * @var string
      */
-    public $publicAddresses;
+    public $dataCenterId;
 
     /**
+     * @example 9042
+     *
      * @var int
      */
     public $port;
@@ -26,14 +30,14 @@ class contactPoint extends Model
     public $privateAddresses;
 
     /**
-     * @var string
+     * @var publicAddresses
      */
-    public $dataCenterId;
+    public $publicAddresses;
     protected $_name = [
-        'publicAddresses'  => 'PublicAddresses',
+        'dataCenterId'     => 'DataCenterId',
         'port'             => 'Port',
         'privateAddresses' => 'PrivateAddresses',
-        'dataCenterId'     => 'DataCenterId',
+        'publicAddresses'  => 'PublicAddresses',
     ];
 
     public function validate()
@@ -43,8 +47,8 @@ class contactPoint extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->publicAddresses) {
-            $res['PublicAddresses'] = null !== $this->publicAddresses ? $this->publicAddresses->toMap() : null;
+        if (null !== $this->dataCenterId) {
+            $res['DataCenterId'] = $this->dataCenterId;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -52,8 +56,8 @@ class contactPoint extends Model
         if (null !== $this->privateAddresses) {
             $res['PrivateAddresses'] = null !== $this->privateAddresses ? $this->privateAddresses->toMap() : null;
         }
-        if (null !== $this->dataCenterId) {
-            $res['DataCenterId'] = $this->dataCenterId;
+        if (null !== $this->publicAddresses) {
+            $res['PublicAddresses'] = null !== $this->publicAddresses ? $this->publicAddresses->toMap() : null;
         }
 
         return $res;
@@ -67,8 +71,8 @@ class contactPoint extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PublicAddresses'])) {
-            $model->publicAddresses = publicAddresses::fromMap($map['PublicAddresses']);
+        if (isset($map['DataCenterId'])) {
+            $model->dataCenterId = $map['DataCenterId'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
@@ -76,8 +80,8 @@ class contactPoint extends Model
         if (isset($map['PrivateAddresses'])) {
             $model->privateAddresses = privateAddresses::fromMap($map['PrivateAddresses']);
         }
-        if (isset($map['DataCenterId'])) {
-            $model->dataCenterId = $map['DataCenterId'];
+        if (isset($map['PublicAddresses'])) {
+            $model->publicAddresses = publicAddresses::fromMap($map['PublicAddresses']);
         }
 
         return $model;

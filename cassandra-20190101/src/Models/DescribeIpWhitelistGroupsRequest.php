@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpWhitelistGroupsRequest extends Model
 {
     /**
+     * @example cds-j6c1zij80****9939
+     *
      * @var string
      */
     public $clusterId;

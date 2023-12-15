@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeNodeToolExecutionHistoryRequest extends Model
 {
     /**
+     * @example cds-t4n98w89z77*****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example ap-southeast-1a
+     *
      * @var string
      */
     public $dcId;
 
     /**
+     * @example job-y0edwqo993m*****
+     *
      * @var string
      */
     public $jobId;

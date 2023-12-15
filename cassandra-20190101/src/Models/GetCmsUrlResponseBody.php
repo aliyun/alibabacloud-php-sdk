@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetCmsUrlResponseBody extends Model
 {
     /**
+     * @example 6453F432-0141-4D35-B2BF-ADF199B39B07
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example https://cloudmonitor.console.aliyun.com?instanceId=cds-bp1l5ys68z98wzrc#/group/groupId=14680829&groupName=17926974****3449-cassandra/groupdashboard/cds//
+     *
      * @var string
      */
     public $url;

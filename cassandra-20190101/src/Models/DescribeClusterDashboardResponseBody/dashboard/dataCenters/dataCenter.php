@@ -10,17 +10,19 @@ use AlibabaCloud\Tea\Model;
 class dataCenter extends Model
 {
     /**
-     * @var nodes
-     */
-    public $nodes;
-
-    /**
+     * @example cn-shanghai-e
+     *
      * @var string
      */
     public $dataCenterId;
+
+    /**
+     * @var nodes
+     */
+    public $nodes;
     protected $_name = [
-        'nodes'        => 'Nodes',
         'dataCenterId' => 'DataCenterId',
+        'nodes'        => 'Nodes',
     ];
 
     public function validate()
@@ -30,11 +32,11 @@ class dataCenter extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nodes) {
-            $res['Nodes'] = null !== $this->nodes ? $this->nodes->toMap() : null;
-        }
         if (null !== $this->dataCenterId) {
             $res['DataCenterId'] = $this->dataCenterId;
+        }
+        if (null !== $this->nodes) {
+            $res['Nodes'] = null !== $this->nodes ? $this->nodes->toMap() : null;
         }
 
         return $res;
@@ -48,11 +50,11 @@ class dataCenter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Nodes'])) {
-            $model->nodes = nodes::fromMap($map['Nodes']);
-        }
         if (isset($map['DataCenterId'])) {
             $model->dataCenterId = $map['DataCenterId'];
+        }
+        if (isset($map['Nodes'])) {
+            $model->nodes = nodes::fromMap($map['Nodes']);
         }
 
         return $model;

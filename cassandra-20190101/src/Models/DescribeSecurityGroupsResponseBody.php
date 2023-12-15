@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupsResponseBody extends Model
 {
     /**
+     * @example C300D7C1-C45C-45F3-965C-9C4C0B7CB266
+     *
      * @var string
      */
     public $requestId;

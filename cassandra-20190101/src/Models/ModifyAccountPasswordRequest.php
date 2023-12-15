@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountPasswordRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $clusterId;
-
-    /**
+     * @example cassandra_test
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @example cds-bp1l5ys6****wzrx
+     *
+     * @var string
+     */
+    public $clusterId;
+
+    /**
+     * @example Alibaba@#￥**
+     *
      * @var string
      */
     public $password;
     protected $_name = [
-        'clusterId' => 'ClusterId',
         'account'   => 'Account',
+        'clusterId' => 'ClusterId',
         'password'  => 'Password',
     ];
 
@@ -35,11 +41,11 @@ class ModifyAccountPasswordRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->account) {
             $res['Account'] = $this->account;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
@@ -56,11 +62,11 @@ class ModifyAccountPasswordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
