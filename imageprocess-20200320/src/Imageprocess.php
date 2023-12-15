@@ -70,6 +70,7 @@ use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenCRCAdvanceRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenCRCRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenCRCResponse;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenECAdvanceRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenECRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenECResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenGCAdvanceRequest;
@@ -3048,6 +3049,91 @@ class Imageprocess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->screenECWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ScreenECAdvanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ScreenECResponse
+     */
+    public function screenECAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageprocess',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $screenECReq = new ScreenECRequest([]);
+        OpenApiUtilClient::convert($request, $screenECReq);
+        if (!Utils::isUnset($request->URLList)) {
+            $i0 = 0;
+            foreach ($request->URLList as $item0) {
+                if (!Utils::isUnset($item0->URLObject)) {
+                    $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+                    $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+                    $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+                    $ossClient              = new OSS($ossConfig);
+                    $fileObj                = new FileField([
+                        'filename'    => $authResponse->body->objectKey,
+                        'content'     => $item0->URLObject,
+                        'contentType' => '',
+                    ]);
+                    $ossHeader = new header([
+                        'accessKeyId'         => $authResponse->body->accessKeyId,
+                        'policy'              => $authResponse->body->encodedPolicy,
+                        'signature'           => $authResponse->body->signature,
+                        'key'                 => $authResponse->body->objectKey,
+                        'file'                => $fileObj,
+                        'successActionStatus' => '201',
+                    ]);
+                    $uploadRequest = new PostObjectRequest([
+                        'bucketName' => $authResponse->body->bucket,
+                        'header'     => $ossHeader,
+                    ]);
+                    $ossClient->postObject($uploadRequest, $ossRuntime);
+                    $tmp      = @$screenECReq->URLList[$i0];
+                    $tmp->URL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                    $i0       = $i0 + 1;
+                }
+            }
+        }
+
+        return $this->screenECWithOptions($screenECReq, $runtime);
     }
 
     /**
