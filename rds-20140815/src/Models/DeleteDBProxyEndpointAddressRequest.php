@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBProxyEndpointAddressRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-t4n3a****
      *
@@ -34,7 +34,7 @@ class DeleteDBProxyEndpointAddressRequest extends Model
     public $DBProxyConnectStringNetType;
 
     /**
-     * @description The ID of the proxy endpoint. You can call the [DescribeDBProxyEndpoint](~~610507~~) operation to query the ID of the proxy endpoint.
+     * @description The proxy endpoint ID. You can call the DescribeDBProxyEndpoint operation to query the proxy endpoint ID.
      *
      * @example ta9um4****
      *
@@ -52,7 +52,7 @@ class DeleteDBProxyEndpointAddressRequest extends Model
     public $DBProxyEngineType;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

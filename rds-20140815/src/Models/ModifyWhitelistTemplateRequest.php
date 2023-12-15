@@ -22,7 +22,7 @@ class ModifyWhitelistTemplateRequest extends Model
     public $ipWhitelist;
 
     /**
-     * @description 资源组ID。 关于资源组的更多信息，请参见什么是资源组。
+     * @description The resource group ID. For more information about resource groups, see related documentation.
      *
      * @example rg-acfmy****
      *

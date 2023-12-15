@@ -12,10 +12,10 @@ class items extends Model
      * @description The RDS edition of the instance. Valid values:
      *
      *   **Basic**: RDS Basic Edition
-     *   **HighAvailability**: High-availability Edition
+     *   **HighAvailability**: RDS High-availability Edition
+     *   **AlwaysOn**: RDS Cluster Edition
      *   **Finance**: RDS Enterprise Edition
      *
-     * > This parameter is returned only when **InstanceLevel** is set to **1**.
      * @example Basic
      *
      * @var string
@@ -23,12 +23,11 @@ class items extends Model
     public $category;
 
     /**
-     * @description The billing method of the instance. Valid values:
+     * @description The payment type. Valid values:
      *
-     *   **PostPaid** (default): pay-as-you-go
-     *   **PrePaid**: subscription
+     *   POSTPAY: pay-as-you-go
+     *   PREPAY: subscription
      *
-     * > **Period** is required if you set the value of this parameter to **PrePaid**.
      * @example POSTPAY
      *
      * @var string
@@ -36,7 +35,7 @@ class items extends Model
     public $chargeType;
 
     /**
-     * @description The code of the instance type. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~) and [Read-only ApsaraDB RDS instance types](~~145759~~).
+     * @description The instance type. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~) and [Read-only ApsaraDB RDS instance types](~~145759~~).
      *
      * @example rds.mysql.s3.large
      *
@@ -54,7 +53,7 @@ class items extends Model
     public $classGroup;
 
     /**
-     * @description The number of vCPU cores. Unit: cores.
+     * @description The number of CPU cores that are supported by the instance type. Unit: cores.
      *
      * @example 2
      *
@@ -63,10 +62,7 @@ class items extends Model
     public $cpu;
 
     /**
-     * @description The disk size. Unit: GB.
-     *
-     *   The disk size that you specify must be greater than or equal to the current disk size of the instance.
-     *   For more information about the valid values, see [Billing](~~84737~~).
+     * @description The disk capacity per node. Unit: GB.
      *
      * @example 900
      *
@@ -77,10 +73,11 @@ class items extends Model
     /**
      * @description The database engine of the instance. Valid values:
      *
-     *   **MySQL**
-     *   **PostgreSQL**
-     *   **SQLServer**
-     *   **MariaDB**
+     *   MySQL
+     *   SQLServer
+     *   PostgreSQL
+     *   PPAS
+     *   MariaDB
      *
      * @example MySQL
      *
@@ -89,7 +86,7 @@ class items extends Model
     public $engine;
 
     /**
-     * @description The database engine version.
+     * @description The version of the database engine.
      *
      * @example 8.0
      *
@@ -125,7 +122,7 @@ class items extends Model
     public $maxConnections;
 
     /**
-     * @description MaxIombps
+     * @description The maximum I/O throughput. Unit: Mbit/s.
      *
      * @example 100
      *
@@ -134,7 +131,7 @@ class items extends Model
     public $maxIombps;
 
     /**
-     * @description MaxIops
+     * @description The maximum IOPS.
      *
      * @example 30
      *
@@ -143,7 +140,7 @@ class items extends Model
     public $maxIops;
 
     /**
-     * @description The memory size that you applied for each instance. Unit: MB.
+     * @description The memory size.
      *
      * @example 1024
      *
@@ -156,9 +153,9 @@ class items extends Model
      *
      *   **local_ssd**: local SSD
      *   **cloud_ssd**: standard SSD
-     *   **cloud_essd**: enhanced SSD (ESSD) of performance level 1 (PL1)
-     *   **cloud_essd2**: ESSD of PL2
-     *   **cloud_essd3**: ESSD of PL3
+     *   **cloud_essd**: performance level 1 (PL1) enhanced SSD (ESSD)
+     *   **cloud_essd2**: PL2 ESSD
+     *   **cloud_essd3**: PL3 ESSD
      *
      * @example cloud_essd
      *
@@ -167,7 +164,7 @@ class items extends Model
     public $storageType;
 
     /**
-     * @description UpgradeCategory
+     * @description The RDS edition after the upgrade.
      *
      * @example HighAvailability
      *
@@ -176,7 +173,7 @@ class items extends Model
     public $upgradeCategory;
 
     /**
-     * @description UpgradeClassCode
+     * @description The instance type after the upgrade.
      *
      * @example rds.mysql.s3.large
      *
@@ -185,7 +182,7 @@ class items extends Model
     public $upgradeClassCode;
 
     /**
-     * @description UpgradeClassGroup
+     * @description The instance family after the upgrade.
      *
      * @example d
      *
@@ -194,7 +191,7 @@ class items extends Model
     public $upgradeClassGroup;
 
     /**
-     * @description UpgradeCpu
+     * @description The number of CPU cores after the upgrade.
      *
      * @example 8
      *
@@ -203,7 +200,7 @@ class items extends Model
     public $upgradeCpu;
 
     /**
-     * @description UpgradeDescContent
+     * @description The description of the upgrade.
      *
      * @example test
      *
@@ -212,7 +209,7 @@ class items extends Model
     public $upgradeDescContent;
 
     /**
-     * @description UpgradeDiskSize
+     * @description The disk capacity after the upgrade.
      *
      * @example 1024
      *
@@ -221,7 +218,7 @@ class items extends Model
     public $upgradeDiskSize;
 
     /**
-     * @description UpgradeMaxConnections
+     * @description The maximum number of concurrent connections after the upgrade.
      *
      * @example 70
      *
@@ -230,7 +227,7 @@ class items extends Model
     public $upgradeMaxConnections;
 
     /**
-     * @description UpgradeMaxIombps
+     * @description The maximum I/O throughput after the upgrade. Unit: Mbit/s.
      *
      * @example 200
      *
@@ -239,7 +236,7 @@ class items extends Model
     public $upgradeMaxIombps;
 
     /**
-     * @description UpgradeMaxIops
+     * @description The maximum IOPS after the upgrade.
      *
      * @example 70
      *
@@ -248,7 +245,7 @@ class items extends Model
     public $upgradeMaxIops;
 
     /**
-     * @description UpgradeMemory
+     * @description The memory size after the upgrade.
      *
      * @example 1024
      *
@@ -257,7 +254,7 @@ class items extends Model
     public $upgradeMemory;
 
     /**
-     * @description UpgradeReferencePrice
+     * @description The reference price of the upgrade.
      *
      * @example 23333.1
      *
@@ -266,7 +263,7 @@ class items extends Model
     public $upgradeReferencePrice;
 
     /**
-     * @description UpgradeStorageType
+     * @description The storage type after the upgrade.
      *
      * @example cloud_essd
      *

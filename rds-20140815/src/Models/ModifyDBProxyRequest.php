@@ -21,7 +21,7 @@ class ModifyDBProxyRequest extends Model
     public $configDBProxyService;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -49,6 +49,8 @@ class ModifyDBProxyRequest extends Model
     public $DBProxyInstanceNum;
 
     /**
+     * @description A reserved parameter. You do not need to specify this parameter.
+     *
      * @example common
      *
      * @var string
@@ -71,7 +73,14 @@ class ModifyDBProxyRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @example Enabled
+     *
+     * @var string
+     */
+    public $persistentConnectionStatus;
+
+    /**
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -99,7 +108,7 @@ class ModifyDBProxyRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the instance belongs. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the VPC ID of the instance.
+     * @description The ID of the virtual private cloud (VPC) to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the VPC ID.
      *
      * >  This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
      * @example vpc-xxxxxxxxxxxx
@@ -109,7 +118,7 @@ class ModifyDBProxyRequest extends Model
     public $VPCId;
 
     /**
-     * @description The vSwitch ID of the instance. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the vSwitch ID of the instance.
+     * @description The vSwitch ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the vSwitch ID.
      *
      * >  This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
      * @example vsw-xxxxxxxxxxxx
@@ -118,19 +127,20 @@ class ModifyDBProxyRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'configDBProxyService' => 'ConfigDBProxyService',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBProxyEngineType'    => 'DBProxyEngineType',
-        'DBProxyInstanceNum'   => 'DBProxyInstanceNum',
-        'DBProxyInstanceType'  => 'DBProxyInstanceType',
-        'instanceNetworkType'  => 'InstanceNetworkType',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'VPCId'                => 'VPCId',
-        'vSwitchId'            => 'VSwitchId',
+        'configDBProxyService'       => 'ConfigDBProxyService',
+        'DBInstanceId'               => 'DBInstanceId',
+        'DBProxyEngineType'          => 'DBProxyEngineType',
+        'DBProxyInstanceNum'         => 'DBProxyInstanceNum',
+        'DBProxyInstanceType'        => 'DBProxyInstanceType',
+        'instanceNetworkType'        => 'InstanceNetworkType',
+        'ownerId'                    => 'OwnerId',
+        'persistentConnectionStatus' => 'PersistentConnectionStatus',
+        'regionId'                   => 'RegionId',
+        'resourceGroupId'            => 'ResourceGroupId',
+        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
+        'resourceOwnerId'            => 'ResourceOwnerId',
+        'VPCId'                      => 'VPCId',
+        'vSwitchId'                  => 'VSwitchId',
     ];
 
     public function validate()
@@ -160,6 +170,9 @@ class ModifyDBProxyRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->persistentConnectionStatus) {
+            $res['PersistentConnectionStatus'] = $this->persistentConnectionStatus;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -211,6 +224,9 @@ class ModifyDBProxyRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PersistentConnectionStatus'])) {
+            $model->persistentConnectionStatus = $map['PersistentConnectionStatus'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

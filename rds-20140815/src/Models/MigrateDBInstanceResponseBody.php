@@ -18,7 +18,7 @@ class MigrateDBInstanceResponseBody extends Model
     public $migrationId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 498AE8CA-8C81-4A01-AF37-2B902014ED30
      *
@@ -27,7 +27,7 @@ class MigrateDBInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 10824****
      *

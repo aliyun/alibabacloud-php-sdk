@@ -19,7 +19,7 @@ class AllocateReadWriteSplittingConnectionRequest extends Model
     public $connectionStringPrefix;
 
     /**
-     * @description The ID of the primary instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The primary instance ID. You can call the DescribeDBInstances operation to query the primary instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -30,7 +30,7 @@ class AllocateReadWriteSplittingConnectionRequest extends Model
     /**
      * @description The method that is used to assign read weights. Valid values:
      *
-     *   **Standard**: ApsaraDB RDS automatically assigns read weights to the primary and read-only instances based on the specifications of these instances.
+     *   **Standard**: The system automatically assigns read weights to the primary and read-only instances based on the specifications of these instances.
      *   **Custom**: You must manually assign a read weight to each instance.
      *
      * @example Standard
@@ -52,8 +52,8 @@ class AllocateReadWriteSplittingConnectionRequest extends Model
     /**
      * @description The network type of the read-only routing endpoint. Valid values:
      *
-     *   **Internet**: Internet
-     *   **Intranet**: internal network
+     *   **Internet**
+     *   **Intranet**
      *
      * >  The default value is Intranet. Make sure that the network type of the read-only routing endpoint is the same as that of the primary instance.
      * @example Intranet
@@ -94,11 +94,15 @@ class AllocateReadWriteSplittingConnectionRequest extends Model
     /**
      * @description The read weights of the primary instance and its read-only instances. The read weight is increased in increments of 100. The maximum value is 10000.
      *
-     * For ApsaraDB RDS instances, the value of this parameter is in the following format: `{"<ID of the read-only instance >":<Weight>,"master":<Weight>,"slave":<Weight>}`.
-     * For ApsaraDB MyBase instances, the value of this parameter is in the following format: `[{"instanceName":"<ID of the primary instance>","weight":<Weight>,"role":"master"},{"instanceName":"<ID of the primary instance>","weight":<Weight>,"role":"slave"},{"instanceName":"<ID of the read-only instance>","weight":<Weight>,"role":"master"}]`
+     *   For ApsaraDB RDS instances, the value of this parameter is in the following format: `{"<ID of the read-only instance >":<Weight>,"master":<Weight>,"slave":<Weight>}`.
+     *   For ApsaraDB MyBase instances, the value of this parameter is in the following format: `[{"instanceName":"<Primary instance ID>","weight":<Weight>,"role":"master"},{"instanceName":"<Primary instance ID>","weight":<Weight>,"role":"slave"},{"instanceName":"<Read-only instance ID>","weight":<Weight>,"role":"master"}]`
      *
-     * > * If you set the **DistributionType** parameter to **Custom**, you must also specify this parameter.
-     * > * If you set the **DistributionType** parameter to **Standard**, this parameter is invalid.
+     * >
+     *
+     *   This parameter must be specified when **DistributionType** is set to **Custom**.
+     *
+     *   If **DistributionType** is set to **Standard**, this parameter is invalid.
+     *
      * @example {"rm-bp1**********":800,"master":400,"slave":400}
      *
      * @var string

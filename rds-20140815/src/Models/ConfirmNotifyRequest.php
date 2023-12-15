@@ -18,7 +18,7 @@ class ConfirmNotifyRequest extends Model
     public $confirmor;
 
     /**
-     * @description The IDs of the notifications that needs to be confirmed. You can call the [QueryNotify](~~427959~~) operation to query notifications for an instance.
+     * @description The notification IDs.
      *
      * @var int[]
      */

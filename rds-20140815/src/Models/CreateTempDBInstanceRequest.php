@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTempDBInstanceRequest extends Model
 {
     /**
-     * @description The ID of the backup set. You can call the DescribeBackups operation to query backup set IDs.
+     * @description The backup set ID. You can call the DescribeBackups operation to query the backup set ID.
      *
      * >  You must specify at least one of the **BackupId** or **RestoreTime** parameters.
      * @example 603******
@@ -38,7 +38,7 @@ class CreateTempDBInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *

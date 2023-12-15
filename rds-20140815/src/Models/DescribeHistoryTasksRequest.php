@@ -68,7 +68,7 @@ class DescribeHistoryTasksRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the pending event. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID of the pending event. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-beijing
      *

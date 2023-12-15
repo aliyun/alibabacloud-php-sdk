@@ -18,7 +18,7 @@ class CreateTempDBInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the temporary instance.
+     * @description The temporary instance ID.
      *
      * @example sub138****_rm-******
      *

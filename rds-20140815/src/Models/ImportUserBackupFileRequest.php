@@ -24,7 +24,7 @@ class ImportUserBackupFileRequest extends Model
     public $backupFile;
 
     /**
-     * @description The region ID of the OSS bucket where the full backup file of the self-managed MySQL database is located. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID of the OSS bucket where the full backup file of the self-managed MySQL database is located. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -56,14 +56,10 @@ class ImportUserBackupFileRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the DescribeRegions operation to query the most recent region list.
      *
-     * >
-     *
-     *   The value of this parameter is the ID of the region in which you want to create the instance.
-     *
-     *   The value of this parameter must be consistent with the value of **BucketRegion**.
-     *
+     * > *   The value of this parameter is the ID of the region in which you want to create the instance.
+     * > *   The value of this parameter must be consistent with the value of **BucketRegion**.
      * @example cn-hangzhou
      *
      * @var string
@@ -71,7 +67,7 @@ class ImportUserBackupFileRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
      *
      * @example rg-acfmy****
      *
@@ -92,12 +88,8 @@ class ImportUserBackupFileRequest extends Model
     /**
      * @description The amount of storage that is required to restore the data of the full backup file. Unit: GB.
      *
-     * >
-     *
-     *   The default value of this parameter is 5 times the size of the full backup file.
-     *
-     *   The minimum value of this parameter is 20.
-     *
+     * > *   The default value of this parameter is 5 times the size of the full backup file.
+     * > *   The minimum value of this parameter is 20.
      * @example 20
      *
      * @var int
@@ -114,14 +106,10 @@ class ImportUserBackupFileRequest extends Model
     public $retention;
 
     /**
-     * @description The ID of the zone. You can call the [DescribeRegions](~~26243~~) operation to query the ID of the zone.
+     * @description The zone ID. You can call the DescribeRegions operation to query the zone ID.
      *
-     * >
-     *
-     *   If you specify this parameter, the system creates a snapshot in single-digit seconds, which greatly reduces the time that is required to import the full backup file.
-     *
-     *   When you call the [CreateDBInstance](~~26228~~) operation to create an instance by using the full backup file, the instance is created in the zone that you specify for this parameter.
-     *
+     * > *   If you specify this parameter, the system creates a snapshot in single-digit seconds, which greatly reduces the time that is required to import the full backup file.
+     * > *   When you call the CreateDBInstance operation to create an instance by using the full backup file, the instance is created in the zone that you specify for this parameter.
      * @example cn-hangzhou-b
      *
      * @var string

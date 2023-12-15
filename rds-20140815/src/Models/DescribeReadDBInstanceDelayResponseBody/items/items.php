@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The ID of the primary instance.
+     * @description The primary instance ID.
      *
      * @example rm-bp*****
      *
@@ -23,23 +23,21 @@ class items extends Model
     /**
      * @description An array that consists of information about the read-only instance.
      *
-     * >  This parameter is returned only when the primary instance runs the MySQL database engine.
      * @var readDBInstanceNames
      */
     public $readDBInstanceNames;
 
     /**
-     * @description An array that consists of latencies.
+     * @description The latency of data replication.
      *
-     * >  This parameter is returned only when the primary instance runs the MySQL database engine.
      * @var readDelayTimes
      */
     public $readDelayTimes;
 
     /**
-     * @description An array that consists of information about the write-ahead log (WAL) latency.
+     * @description The information about the write-ahead log (WAL) latency.
      *
-     * >  This parameter is returned only when the primary instance runs the PostgreSQL database engine.
+     * >  This parameter is returned only when the primary instance runs PostgreSQL.
      * @var readonlyInstanceDelay
      */
     public $readonlyInstanceDelay;

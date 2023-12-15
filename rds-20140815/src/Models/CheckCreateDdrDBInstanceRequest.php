@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CheckCreateDdrDBInstanceRequest extends Model
 {
     /**
-     * @description The ID of the backup set that is used for the restoration. You can call the [DescribeCrossRegionBackups](~~121733~~) operation to query the ID of the backup set.
+     * @description The ID of the backup set that is used for the restoration. You can call the DescribeCrossRegionBackups operation to query the backup set ID.
      *
-     * > If you set **RestoreType** to **0**, you must also specify this parameter.
+     * >  This parameter must be specified when the **RestoreType** parameter is set to **0**.
      * @example 14358
      *
      * @var string
@@ -68,7 +68,7 @@ class CheckCreateDdrDBInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the destination instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID of the destination instance. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -77,7 +77,7 @@ class CheckCreateDdrDBInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute to query the resource group ID.
      *
      * @example rg-acfmy****
      *
@@ -121,7 +121,7 @@ class CheckCreateDdrDBInstanceRequest extends Model
     /**
      * @description The ID of the source instance if you want to restore data to a point in time.
      *
-     * > If you set **RestoreType** to **1**, you must also specify this parameter.
+     * >  This parameter must be specified when the **RestoreType** parameter is set to **1**.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string

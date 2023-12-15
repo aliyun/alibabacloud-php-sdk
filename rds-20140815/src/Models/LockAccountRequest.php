@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class LockAccountRequest extends Model
 {
     /**
-     * @description The account that you want to lock. You can lock only one account at a time.
+     * @description The account that you want to lock. You can lock only a single account at a time.
      *
      * @example testaccount
      *
@@ -18,7 +18,7 @@ class LockAccountRequest extends Model
     public $accountName;
 
     /**
-     * @description The ID of the ApsaraDB RDS for PostgreSQL instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example pgm-bpxxxxx
      *

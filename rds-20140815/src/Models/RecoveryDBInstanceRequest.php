@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RecoveryDBInstanceRequest extends Model
 {
     /**
-     * @description The ID of the backup set. You can call the [DescribeBackups](~~26273~~) operation to query the ID of the backup set.
+     * @description The backup set ID. You can call the DescribeBackups operation to query the backup set ID.
      *
      * If you specify this parameter, you do not need to specify **DBInstanceId**.
      *
-     * > You must specify at least one of **BackupId** and **RestoreTime**.
+     * >  You must specify at least one of the **BackupId** or **RestoreTime** parameters.
      * @example 29304****
      *
      * @var string
@@ -32,8 +32,12 @@ class RecoveryDBInstanceRequest extends Model
     /**
      * @description The ID of the original instance.
      *
-     * > *   If you specify BackupId, you do not need to specify this parameter.
-     * > *   If you specify RestoreTime, you must also specify this parameter.
+     * >
+     *
+     *   If you specify BackupId, you do not need to specify this parameter.
+     *
+     *   If you specify RestoreTime, you must also specify this parameter.
+     *
      * @example rm-xxxxxxxx1
      *
      * @var string
@@ -43,6 +47,7 @@ class RecoveryDBInstanceRequest extends Model
     /**
      * @description The storage capacity of the new instance. Unit: GB. For more information, see [Instance types](~~26312~~).
      *
+     * >  You must set this parameter to a value that is greater than or equal to the storage capacity of the original instance.
      * @example 5
      *
      * @var int
@@ -53,7 +58,7 @@ class RecoveryDBInstanceRequest extends Model
      * @description The storage type of the new instance. Valid values:
      *
      *   **local_ssd/ephemeral_ssd**: local SSD
-     *   **cloud_ssd**: standard SSD
+     *   **cloud_ssd**: standard SSD.
      *   **cloud_essd**: enhanced SSD (ESSD)
      *
      * @example local_ssd
@@ -90,8 +95,8 @@ class RecoveryDBInstanceRequest extends Model
     /**
      * @description The billing method of the new instance. Valid values:
      *
-     *   **Postpaid**: pay-as-you-go
-     *   **Prepaid**: subscription
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
      *
      * @example Postpaid
      *
@@ -113,7 +118,7 @@ class RecoveryDBInstanceRequest extends Model
     public $period;
 
     /**
-     * @description The internal IP address of the new instance. The internal IP address must be within the CIDR block that is supported by the specified vSwitch. The system automatically assigns a private IP address to an instance based on the values of **VPCId** and **VSwitchId**.
+     * @description The internal IP address of the new instance. The internal IP address must be within the CIDR block that is supported by the specified vSwitch. The system automatically assigns an internal IP address based on the values of the **VPCId** and **VSwitchId** parameters.
      *
      * @example 172.XXX.XXX.69
      *

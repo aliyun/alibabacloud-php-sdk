@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMarketingActivityRequest extends Model
 {
     /**
-     * @description The unique ID (UID) of the Alibaba Cloud account.
+     * @description The ID of the Alibaba Cloud account.
      *
      * @example 20725049
      *
@@ -18,7 +18,8 @@ class DescribeMarketingActivityRequest extends Model
     public $aliUid;
 
     /**
-     * @description The BID of the account to which the Anycast EIP belongs.
+     * @description *   China site: 26842
+     *   International site: 26888
      *
      * @example 26842
      *
@@ -41,7 +42,7 @@ class DescribeMarketingActivityRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query region ID of the instance.
+     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -50,7 +51,7 @@ class DescribeMarketingActivityRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *
@@ -69,7 +70,7 @@ class DescribeMarketingActivityRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Upgrade Code
+     * @description The service name.
      *
      * @example series
      *

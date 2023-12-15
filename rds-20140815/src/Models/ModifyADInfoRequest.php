@@ -54,7 +54,7 @@ class ModifyADInfoRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -68,7 +68,7 @@ class ModifyADInfoRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

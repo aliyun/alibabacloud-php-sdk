@@ -83,6 +83,11 @@ class CreatePostgresExtensionsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var bool
+     */
+    public $riskConfirmed;
+
+    /**
      * @description The source database from which you want to synchronize the extension to the destination database. If you do not specify the **Extensions** parameter, you must specify this parameter.
      *
      * @example source_db
@@ -101,6 +106,7 @@ class CreatePostgresExtensionsRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'riskConfirmed'        => 'RiskConfirmed',
         'sourceDatabase'       => 'SourceDatabase',
     ];
 
@@ -140,6 +146,9 @@ class CreatePostgresExtensionsRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->riskConfirmed) {
+            $res['RiskConfirmed'] = $this->riskConfirmed;
         }
         if (null !== $this->sourceDatabase) {
             $res['SourceDatabase'] = $this->sourceDatabase;
@@ -185,6 +194,9 @@ class CreatePostgresExtensionsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RiskConfirmed'])) {
+            $model->riskConfirmed = $map['RiskConfirmed'];
         }
         if (isset($map['SourceDatabase'])) {
             $model->sourceDatabase = $map['SourceDatabase'];

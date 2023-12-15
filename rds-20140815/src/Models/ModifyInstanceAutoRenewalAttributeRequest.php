@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAutoRenewalAttributeRequest extends Model
 {
     /**
-     * @description Specifies whether to enable or disable auto-renewal. Valid values: **True and False**.
+     * @description Specifies whether to enable auto-renewal. Valid values:
+     *
+     *   **True**
+     *   **False**
      *
      * @example True
      *
@@ -18,7 +21,7 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCzxxxxxx
      *
@@ -27,7 +30,7 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-bpxxxxx
      *
@@ -38,7 +41,7 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     /**
      * @description The number of months for auto-renewal. Valid values: **1 to 12**.
      *
-     * >  You must specify this parameter if you set the** AutoRenew **parameter to** True**.
+     * >  This parameter must be specified when **AutoRenew** is set to **True**.
      * @example 2
      *
      * @var string
@@ -46,8 +49,6 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     public $duration;
 
     /**
-     * @example testuser@aliyun.com
-     *
      * @var string
      */
     public $ownerAccount;
@@ -58,7 +59,7 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

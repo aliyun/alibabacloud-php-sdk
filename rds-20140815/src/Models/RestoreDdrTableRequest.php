@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RestoreDdrTableRequest extends Model
 {
     /**
-     * @description The ID of the backup set.
+     * @description The cross-region backup set ID. You can call the DescribeCrossRegionBackups operation to query the IDs of the backup sets that are available to an instance.
      *
+     * >  If you set the **RestoreType** parameter to **0**, you must also specify the BackupId parameter.
      * @example 279563
      *
      * @var string
@@ -18,7 +19,7 @@ class RestoreDdrTableRequest extends Model
     public $backupId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
      *
@@ -27,7 +28,7 @@ class RestoreDdrTableRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The source instance ID.
      *
      * @example rm-bpxxxxx
      *
@@ -41,7 +42,7 @@ class RestoreDdrTableRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID of the destination instance. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -50,7 +51,7 @@ class RestoreDdrTableRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *
@@ -92,9 +93,9 @@ class RestoreDdrTableRequest extends Model
     public $restoreType;
 
     /**
-     * @description The ID of the source instance if you want to restore data to a point in time.
+     * @description The ID of the source instance whose data you want to restore to a point in time.
      *
-     * > : If you set **RestoreType** to **1**, you must also specify this parameter.
+     * >  If you set the **RestoreType** parameter to **1**, you must also specify the SourceDBInstanceName parameter.
      * @example rm-bpxxxxx
      *
      * @var string

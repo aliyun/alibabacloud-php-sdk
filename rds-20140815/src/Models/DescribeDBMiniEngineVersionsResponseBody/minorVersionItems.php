@@ -37,6 +37,11 @@ class minorVersionItems extends Model
     public $engineVersion;
 
     /**
+     * @var string
+     */
+    public $expireDate;
+
+    /**
      * @description The expiration status of the minor engine version. Valid values:
      *
      *   **vaild**
@@ -130,6 +135,7 @@ class minorVersionItems extends Model
         'communityMinorVersion' => 'CommunityMinorVersion',
         'engine'                => 'Engine',
         'engineVersion'         => 'EngineVersion',
+        'expireDate'            => 'ExpireDate',
         'expireStatus'          => 'ExpireStatus',
         'isHotfixVersion'       => 'IsHotfixVersion',
         'minorVersion'          => 'MinorVersion',
@@ -155,6 +161,9 @@ class minorVersionItems extends Model
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+        if (null !== $this->expireDate) {
+            $res['ExpireDate'] = $this->expireDate;
         }
         if (null !== $this->expireStatus) {
             $res['ExpireStatus'] = $this->expireStatus;
@@ -200,6 +209,9 @@ class minorVersionItems extends Model
         }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+        if (isset($map['ExpireDate'])) {
+            $model->expireDate = $map['ExpireDate'];
         }
         if (isset($map['ExpireStatus'])) {
             $model->expireStatus = $map['ExpireStatus'];

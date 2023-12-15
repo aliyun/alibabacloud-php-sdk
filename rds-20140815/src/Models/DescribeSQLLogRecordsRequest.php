@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogRecordsRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCzxxxxxxx
      *
@@ -18,7 +18,7 @@ class DescribeSQLLogRecordsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -36,7 +36,7 @@ class DescribeSQLLogRecordsRequest extends Model
     public $database;
 
     /**
-     * @description The end of the time range to query. The end time must be later than the start time. The time span between the start time and the end time must be less than 30 days. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The end of the time range to query. The end time must be later than the start time. The time span between the start time and the end time must be less than 15 days. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * @example 2011-06-11T15:00:00Z
      *
@@ -91,9 +91,9 @@ class DescribeSQLLogRecordsRequest extends Model
      *
      *   When you call this operation and set the **Form** parameter to **File** to generate an audit file, you cannot filter log entries by keyword.
      *   You can specify up to 10 keywords. The keywords are evaluated by using the **AND** operator. Separate multiple keywords with spaces.
-     *   If a field name in the specified SQL statement is enclosed in backquotes (\`) and you want to use the field name as a keyword, you must enter the backquotes (\`) as part of the field name. For example, if the field name is \*\*\`id\`**, enter **\`id\`** rather than **id\*\*.
+     *   If a field name in the specified SQL statement is enclosed in backquotes (\`) and you want to use the field name as a keyword, you must enter the backquotes (\`) as part of the field name. For example, if the field name is \`id\`, enter \`id\` instead of id.
      *
-     * > After you enter a keyword, the system matches the keyword based on the **Database**, **User**, and **QueryKeywords** parameters. The parameters are evaluated by using the **OR** operator.
+     * >  After you enter a keyword, the system matches the keyword based on the **Database**, **User**, and **QueryKeywords** parameters. The parameters are evaluated by using the **OR** operator.
      * @example table_name
      *
      * @var string

@@ -18,7 +18,7 @@ class SQLRecord extends Model
     public $accountName;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
      * @example testDB
      *
@@ -27,7 +27,7 @@ class SQLRecord extends Model
     public $DBName;
 
     /**
-     * @description The time at which the SQL statement was executed. The time follows the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time at which the SQL statement was executed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2011-06-11T15:00:23Z
      *
@@ -54,7 +54,7 @@ class SQLRecord extends Model
     public $returnRowCounts;
 
     /**
-     * @description The SQL statement that is executed in the query.
+     * @description The SQL statement.
      *
      * @example update test.zxb set id=0 limit 1
      *
@@ -63,7 +63,7 @@ class SQLRecord extends Model
     public $SQLText;
 
     /**
-     * @description The ID of the thread.
+     * @description The thread ID.
      *
      * @example 1025865428
      *

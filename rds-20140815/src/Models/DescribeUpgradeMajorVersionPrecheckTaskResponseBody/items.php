@@ -45,7 +45,7 @@ class items extends Model
      *   Success
      *   Fail
      *
-     * >  If the check result is **Fail**, you must check the value of the **Detail** parameter to obtain the information about the errors that occurred. After you handle the errors, you can try again. For more information about how to handle common errors, see [Introduction to the check report for a major engine version upgrade to an ApsaraDB RDS for PostgreSQL instance](~~218391~~).
+     * >  If the check result is **Fail**, you must check the value of the **Detail** parameter to obtain the information about the errors that occurred, resolve the errors, and then try again. For more information about how to resolve common errors, see [Introduction to the check report for a major engine version upgrade to an ApsaraDB RDS for PostgreSQL instance](~~218391~~).
      * @example Success
      *
      * @var string

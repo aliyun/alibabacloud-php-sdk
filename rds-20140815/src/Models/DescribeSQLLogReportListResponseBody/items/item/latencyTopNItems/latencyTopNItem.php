@@ -27,7 +27,7 @@ class latencyTopNItem extends Model
     public $SQLExecuteTimes;
 
     /**
-     * @description The SQL statement returned.
+     * @description The SQL statement.
      *
      * >  Only the first 128 characters of the SQL statement are returned. In addition, only the SQL statements that take more than 100 ms to execute are returned.
      * @example SELECT * FROM table_name;

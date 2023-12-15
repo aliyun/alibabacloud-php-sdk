@@ -18,7 +18,7 @@ class MigrateDBInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the dedicated cluster. You can call the [DescribeDedicatedHostGroups](~~141946~~) operation to query the ID of the dedicated cluster.
+     * @description The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to query the dedicated cluster ID.
      *
      * @example dhg-4n******
      *
@@ -45,7 +45,7 @@ class MigrateDBInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -74,7 +74,7 @@ class MigrateDBInstanceRequest extends Model
     public $specifiedTime;
 
     /**
-     * @description The ID of the host to which you want to migrate the primary instance. You can call the [DescribeDedicatedHosts](~~200944~~) operation to obtain the ID of the host.
+     * @description The ID of the host to which you want to migrate the primary instance. You can call the DescribeDedicatedHosts operation to query the host ID.
      *
      * @example i-bp******
      *
@@ -83,7 +83,7 @@ class MigrateDBInstanceRequest extends Model
     public $targetDedicatedHostIdForMaster;
 
     /**
-     * @description The ID of the host to which you want to migrate the secondary instance. You can call the [DescribeDedicatedHosts](~~200944~~) operation to obtain the ID of the host.
+     * @description The ID of the host to which you want to migrate the secondary instance. You can call the DescribeDedicatedHosts operation to query the host ID.
      *
      * @example i-bp******
      *

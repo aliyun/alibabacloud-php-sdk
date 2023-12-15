@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class logFile extends Model
 {
     /**
-     * @description The name of the file.
+     * @description The file name.
      *
      * @example custinsxxxxx.csv
      *

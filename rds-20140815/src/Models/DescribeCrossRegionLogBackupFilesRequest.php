@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossRegionLogBackupFilesRequest extends Model
 {
     /**
-     * @description The ID of the region in which the cross-region data backup file is stored. You can call the [DescribeCrossRegionBackupDBInstance](~~121737~~) operation to query the most recent region list.
+     * @description The ID of the destination region within which the cross-region backup file is stored. You can call the DescribeCrossRegionBackupDBInstance operation to query the region ID.
      *
      * @example cn-shanghai
      *
@@ -65,7 +65,7 @@ class DescribeCrossRegionLogBackupFilesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

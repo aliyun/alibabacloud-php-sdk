@@ -25,7 +25,7 @@ class ListClassesRequest extends Model
      *   **rords_intl**: The instances are pay-as-you-go read-only instances.
      *   **rds_rordspre_public_intl**: The instances are subscription read-only instances.
      *
-     * @example bards
+     * @example bards_intl
      *
      * @var string
      */

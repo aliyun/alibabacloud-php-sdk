@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class migrateTask extends Model
 {
     /**
-     * @description The type of the migration task. Valid values:
+     * @description The migration task type. Valid values:
      *
      *   **FULL**: The migration task migrates full backup files that can be used to restore the full data of the instance.
      *   **UPDF**: The migration task migrates incremental or log backup files that can be used to restore the incremental data of the instance.
@@ -30,7 +30,7 @@ class migrateTask extends Model
     public $createTime;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
      * @example testDB
      *
@@ -66,7 +66,7 @@ class migrateTask extends Model
     public $isDBReplaced;
 
     /**
-     * @description The ID of the migration task.
+     * @description The migration task ID.
      *
      * @example 564522545
      *

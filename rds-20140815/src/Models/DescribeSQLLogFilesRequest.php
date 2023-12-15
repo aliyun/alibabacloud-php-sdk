@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogFilesRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxx
      *

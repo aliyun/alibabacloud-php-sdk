@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMigrateTaskByIdRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-bp11e1tzgxxxx4ox
      *
@@ -18,7 +18,7 @@ class DescribeMigrateTaskByIdRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the migration task. You can call the [DescribeMigrateTasks](~~64563~~) operation to query the ID of the migration task.
+     * @description The migration task ID. You can call the DescribeMigrateTasks operation to query the migration task ID.
      *
      * @example 235943
      *

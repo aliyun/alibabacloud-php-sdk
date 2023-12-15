@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class PreCheckCreateOrderForDeleteDBNodesResponseBody extends Model
 {
     /**
-     * @description The returned data.
+     * @description The information about the failed order.
      *
      * @var failures
      */
     public $failures;
 
     /**
-     * @description Indicates the result of the precheck task.
+     * @description The precheck result.
      *
      * @example True
      *
@@ -26,7 +26,7 @@ class PreCheckCreateOrderForDeleteDBNodesResponseBody extends Model
     public $preCheckResult;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 9B415BC6-FE84-5323-A255-42CF330DB99C
      *

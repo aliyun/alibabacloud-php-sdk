@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsRequest extends Model
 {
     /**
-     * @description Specifies whether to query the hosts on which you can create instances or those on which you cannot create instances. Valid values:
+     * @description Specifies whether instances can be deployed on the host. Valid values:
      *
-     *   **0**: queries the hosts on which you cannot create instances
-     *   **1**: queries the hosts on which you can create instances
+     *   **0**: Instances cannot be deployed on the host.
+     *   **1**: Instances can be deployed on the host.
      *
      * @example 1
      *
@@ -21,7 +21,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $allocationStatus;
 
     /**
-     * @description The ID of the dedicated cluster. You can call the [DescribeDedicatedHostGroups](~~141946~~) operation to query the IDs of dedicated clusters.
+     * @description The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to query the dedicated cluster ID.
      *
      * @example dhg-7a9xxxxxxxx
      *
@@ -30,7 +30,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $dedicatedHostGroupId;
 
     /**
-     * @description The ID of the host.
+     * @description The ID of the host in the dedicated cluster.
      *
      * @example ch-t4nn100ddxxxxxxxx
      *
@@ -39,15 +39,15 @@ class DescribeDedicatedHostsRequest extends Model
     public $dedicatedHostId;
 
     /**
-     * @description The status of the hosts. Valid values:
+     * @description The status of the host. Valid values:
      *
-     *   **0**: queries the hosts that are being created
-     *   **1**: queries the hosts that are running
-     *   **2**: queries the hosts that are faulty
-     *   **3**: queries the hosts that are being replaced
-     *   **4**: queries the hosts that are deprecated
-     *   **5**: queries the hosts that are being deleted
-     *   **6**: queries the hosts that are restarting
+     *   **0**: creating
+     *   **1**: running
+     *   **2**: faulty
+     *   **3**: being replaced
+     *   **4**: deprecated
+     *   **5**: deleting
+     *   **6**: restarting
      *
      * @example 1
      *
@@ -56,9 +56,9 @@ class DescribeDedicatedHostsRequest extends Model
     public $hostStatus;
 
     /**
-     * @description The type of storage media that is used for the hosts. Valid values:
+     * @description The storage type of the host. Valid values:
      *
-     *   **dhg_cloud_ssd**: enhanced solid-state drive (SSD)
+     *   **dhg_cloud_ssd**: enhanced SSD (ESSD)
      *   **dhg_local_ssd**: local SSD
      *
      * @example dhg_cloud_ssd
@@ -68,7 +68,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $hostType;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 102565235
      *
@@ -82,7 +82,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the hosts. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -101,7 +101,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The zone ID of the hosts.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-i
      *

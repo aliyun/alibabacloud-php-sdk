@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RecoveryDBInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-xxxxxxx
      *
@@ -18,7 +18,7 @@ class RecoveryDBInstanceResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 54325****
      *
@@ -27,7 +27,7 @@ class RecoveryDBInstanceResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example EFB6083A-7699-489B-8278-C0CB4793A96E
      *

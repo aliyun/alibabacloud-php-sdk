@@ -30,7 +30,7 @@ class ModifyDBProxyEndpointRequest extends Model
     public $configDBProxyFeatures;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-bp145737x5bi6****
      *
@@ -39,10 +39,14 @@ class ModifyDBProxyEndpointRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the proxy endpoint. You can call the [DescribeDBProxyEndpoint](~~610507~~) operation to query the ID of the proxy endpoint.
+     * @description The proxy endpoint ID. You can call the DescribeDBProxyEndpoint operation to query the proxy endpoint ID.
      *
-     * > *   If the instance runs MySQL and you set **DbEndpointOperator** to **Delete** or **Modify**, you must specify DBProxyEndpointId.
-     * > *   If the instance runs PostgreSQL and you set **DbEndpointOperator** to **Delete**, **Modify**, or **Create**, you must specify DBProxyEndpointId.
+     * >
+     *
+     *   If the instance runs MySQL and you set **DbEndpointOperator** to **Delete** or **Modify**, you must specify DBProxyEndpointId.
+     *
+     *   If the instance runs PostgreSQL and you set **DbEndpointOperator** to **Delete**, **Modify**, or **Create**, you must specify DBProxyEndpointId.
+     *
      * @example gos787jog2wk0y****
      *
      * @var string
@@ -153,7 +157,7 @@ class ModifyDBProxyEndpointRequest extends Model
     public $readOnlyInstanceWeight;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

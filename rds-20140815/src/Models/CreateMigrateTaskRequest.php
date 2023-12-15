@@ -36,7 +36,7 @@ class CreateMigrateTaskRequest extends Model
     public $checkDBMode;
 
     /**
-     * @description The instance ID.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk******
      *

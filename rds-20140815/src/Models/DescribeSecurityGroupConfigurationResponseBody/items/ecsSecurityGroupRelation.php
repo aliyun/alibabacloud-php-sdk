@@ -21,7 +21,7 @@ class ecsSecurityGroupRelation extends Model
     public $networkType;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -39,7 +39,7 @@ class ecsSecurityGroupRelation extends Model
     public $securityGroupId;
 
     /**
-     * @description The name of the security group.
+     * @description The security group name.
      *
      * @example security-group-emraccess
      *

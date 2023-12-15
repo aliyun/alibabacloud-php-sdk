@@ -46,10 +46,7 @@ class ModifyDBInstanceSpecRequest extends Model
      *   **serverless_standard**: RDS High-availability Edition for ApsaraDB RDS for MySQL.
      *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server.
      *
-     **
-     *
-     **Note** If you set the **EngineVersion** parameter to an SQL Server version number, you must also specify this parameter.
-     *
+     * > If you set the **EngineVersion** parameter to an SQL Server version number, you must also specify this parameter.
      * @example HighAvailability
      *
      * @var string
@@ -156,10 +153,7 @@ class ModifyDBInstanceSpecRequest extends Model
      *   Valid values if you set Engine to SQLServer: **2016\_std_sl**, **2017\_std_sl**, and **2019\_std_sl**
      *   Valid value if you set Engine to PostgreSQL: **14.0**
      *
-     **
-     *
-     **Note**ApsaraDB RDS for MariaDB does not support serverless instances.
-     *
+     * > ApsaraDB RDS for MariaDB does not support serverless instances.
      * @example 5.6
      *
      * @var string

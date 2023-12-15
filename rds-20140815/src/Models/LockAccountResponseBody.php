@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class LockAccountResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1B291C4B-DDCD-4D0A-8F6D-7F3241DE9228
      *

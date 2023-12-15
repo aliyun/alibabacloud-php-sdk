@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBMiniEngineVersionsRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5*******
      *
@@ -18,7 +18,7 @@ class DescribeDBMiniEngineVersionsRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The dedicated cluster ID. You can call the [DescribeDedicatedHostGroups](~~141946~~) operation to query the ID of the dedicated cluster.
+     * @description The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to query the dedicated cluster ID.
      *
      * @example dhg-4n*****
      *
@@ -57,7 +57,7 @@ class DescribeDBMiniEngineVersionsRequest extends Model
     public $minorVersionTag;
 
     /**
-     * @description The RDS edition of the instance. Valid values:
+     * @description The instance edition. Valid values:
      *
      *   **Basic**: RDS Basic Edition
      *   **HighAvailability**: RDS High-availability Edition
@@ -70,7 +70,7 @@ class DescribeDBMiniEngineVersionsRequest extends Model
     public $nodeType;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

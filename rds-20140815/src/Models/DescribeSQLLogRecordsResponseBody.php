@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogRecordsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details about each SQL audit log entry.
+     * @description The details about each SQL audit log entry.
      *
      * @var items
      */

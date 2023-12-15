@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogReportListRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the IDs of instances.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -18,7 +18,7 @@ class DescribeSQLLogReportListRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.**
      *
      * >  The end time must be later than the start time.
      * @example 2021-03-18T16:00:00Z
@@ -38,7 +38,7 @@ class DescribeSQLLogReportListRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Valid values: any **non-zero** positive integer.
+     * @description The page number. Valid values: any **non-zero** positive integer.
      *
      * Default value: **1**.
      * @example 1
@@ -48,7 +48,7 @@ class DescribeSQLLogReportListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values:
+     * @description The number of entries per page. Valid values:
      *
      *   **30**
      *   **50**

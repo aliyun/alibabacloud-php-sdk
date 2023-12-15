@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeReadDBInstanceDelayRequest extends Model
 {
     /**
-     * @description The ID of the primary instance.
+     * @description The primary instance ID. You can call the DescribeDBInstances operation to query the primary instance ID.
      *
      * @example rm-bp*****
      *
@@ -28,7 +28,7 @@ class DescribeReadDBInstanceDelayRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the read-only instance.
+     * @description The read-only instance ID. You can call the DescribeDBInstances operation to query the read-only instance ID.
      *
      * @example rr-bp*****
      *
@@ -37,7 +37,7 @@ class DescribeReadDBInstanceDelayRequest extends Model
     public $readInstanceId;
 
     /**
-     * @description The ID of the region where the global active database clusters that you want to query reside. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

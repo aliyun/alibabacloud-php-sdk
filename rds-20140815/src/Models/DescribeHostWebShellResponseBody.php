@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostWebShellResponseBody extends Model
 {
     /**
-     * @description The URL of the webshell.
+     * @description The webshell URL.
      *
      * @example ***
      *

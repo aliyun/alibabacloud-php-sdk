@@ -18,9 +18,9 @@ class DeleteSecretRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance. You can call the **DescribeDBInstances** operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
-     * > If you specify this parameter, you must also specify **SecretName**.
+     * >  If you specify this parameter, you must also specify the **SecretName** parameter. parameter.
      * @example rm-sfjdlsjxxxxx
      *
      * @var string
@@ -43,7 +43,7 @@ class DeleteSecretRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the **DescribeRegions** operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeSecrets operation to query the region ID.
      *
      * @example cn-hangzhou
      *
@@ -52,7 +52,7 @@ class DeleteSecretRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. You can call the **DescribeDBInstanceAttribute** operation to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
      *
      * @example rg-acfmy****
      *
@@ -71,9 +71,9 @@ class DeleteSecretRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the credential for the created Data API account. You can call the **CreateSecret** operation to obtain the value of this parameter.
+     * @description The Alibaba Cloud Resource Name (ARN) of the credential for the created Data API account. You can call the CreateSecret operation to obtain the value of this parameter.
      *
-     * > You must specify one of **SecretName** and SecretArn.
+     * >  You must specify one of the SecretArn and **SecretName** parameters.
      * @example acs:rds:cn-hangzhou:1335786***:dbInstance/rm-bp1m7l3j63****
      *
      * @var string

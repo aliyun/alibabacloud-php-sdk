@@ -23,11 +23,11 @@ class CloneDBInstanceRequest extends Model
     public $autoPay;
 
     /**
-     * @description The ID of the backup set.
+     * @description The backup set ID.
      *
-     * You can call the [DescribeBackups](~~26273~~) operation to query the backup sets.
+     * You can call the DescribeBackups operation to query the backup set ID.
      *
-     * > You must specify at least one of the **BackupId** and **RestoreTime** parameters.
+     * >  You must specify at least one of the **BackupId** or **RestoreTime** parameters.
      * @example 902****
      *
      * @var string
@@ -69,15 +69,15 @@ class CloneDBInstanceRequest extends Model
      *
      *   **Basic**: RDS Basic Edition.
      *   **HighAvailability**: RDS High-availability Edition.
-     *   **AlwaysOn**: RDS Cluster Edition for SQL Server.
-     *   **cluster**: RDS Cluster Edition for MySQL.
+     *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server.
+     *   **cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL.
      *   **Finance**: RDS Enterprise Edition. This edition is available only on the China site (aliyun.com).
      *
-     **Serverless instance**
+     **Serverless instances**
      *
-     *   **serverless_basic**: RDS Serverless Basic Edition. This edition is available only for instances that run MySQL and PostgreSQL.
-     *   **serverless_standard**: RDS Serverless High-availability Edition for MySQL.
-     *   **serverless_ha**: RDS Serverless High-availability Edition for SQL Server.
+     *   **serverless_basic**: RDS Basic Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
+     *   **serverless_standard**: RDS High-availability Edition for ApsaraDB RDS for MySQL
+     *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server
      *
      * >  You do not need to configure this parameter. The value of this parameter is the same as that of the original instance.
      * @example HighAvailability
@@ -210,7 +210,7 @@ class CloneDBInstanceRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The region ID of the new instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -294,9 +294,9 @@ class CloneDBInstanceRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The zone ID of the primary instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent zone list.
+     * @description The zone ID of the primary instance. You can call the DescribeRegions operation to query the zone ID.
      *
-     * > By default, the new instance resides in the same region as the original instance.
+     * >  Set this value to the zone ID of the original instance.
      * @example cn-hangzhou-b
      *
      * @var string

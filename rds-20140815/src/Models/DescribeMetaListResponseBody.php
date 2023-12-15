@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetaListResponseBody extends Model
 {
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -19,7 +19,7 @@ class DescribeMetaListResponseBody extends Model
     public $DBInstanceName;
 
     /**
-     * @description An array consisting of the information about the databases and tables whose data is included in the backup set.
+     * @description The information about the databases and tables whose data is included in the backup set.
      *
      * @var items
      */

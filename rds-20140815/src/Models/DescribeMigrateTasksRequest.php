@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMigrateTasksRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -51,7 +51,7 @@ class DescribeMigrateTasksRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *

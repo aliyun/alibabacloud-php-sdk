@@ -17,7 +17,7 @@ class DescribeSQLLogReportListResponseBody extends Model
     public $items;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeSQLLogReportListResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of reports on the current page.
+     * @description The number of SQL log reports on the current page.
      *
      * @example 30
      *
@@ -35,7 +35,7 @@ class DescribeSQLLogReportListResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 08A3B71B-FE08-4B03-974F-CC7EA6DB1828
      *
@@ -44,7 +44,7 @@ class DescribeSQLLogReportListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of records returned.
+     * @description The total number of entries.
      *
      * @example 60
      *

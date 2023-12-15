@@ -18,7 +18,7 @@ class DescribeClassDetailsRequest extends Model
     public $classCode;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCz*****
      *
@@ -64,7 +64,7 @@ class DescribeClassDetailsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -73,7 +73,7 @@ class DescribeClassDetailsRequest extends Model
     public $regionId;
 
     /**
-     * @description The resource group ID. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the resource group ID.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
      *
      * @example rg-acfmy*****
      *

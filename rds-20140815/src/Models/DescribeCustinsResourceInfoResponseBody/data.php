@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Cpu adjustment deadline.
+     * @description The deadline for the CPU adjustment.
      *
      * @example 2023-10-25
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $cpuAdjustDeadline;
 
     /**
-     * @description Cpu adjustable maximum ratio.
+     * @description The maximum percentage of the system CPU resources that the instance can use.
      *
      * @example 30
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $cpuAdjustableMaxRatio;
 
     /**
-     * @description Maximum CPU usage.
+     * @description The maximum CPU utilization.
      *
      * @example 60
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $cpuAdjustableMaxValue;
 
     /**
-     * @description CPU usage rate.
+     * @description The CPU utilization.
      *
      * @example 10
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $cpuIncreaseRatio;
 
     /**
-     * @description CPU usage rate.
+     * @description The CPU utilization. Unit: percentage.
      *
      * @example 20
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $cpuIncreaseRatioValue;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-wz92gn1ll9fe5d3a4
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $DBInstanceId;
 
     /**
-     * @description The maximum number of IO requests per second.
+     * @description The maximum IOPS.
      *
      * @example 20
      *
@@ -72,7 +72,7 @@ class data extends Model
     public $iopsAdjustableMaxValue;
 
     /**
-     * @description Maximum Connection Adjustment Deadline
+     * @description The deadline for the adjustment of the maximum number of connections.
      *
      * @example 2023-10-25
      *
@@ -81,7 +81,7 @@ class data extends Model
     public $maxConnAdjustDeadline;
 
     /**
-     * @description Maximum number of concurrent connections.
+     * @description The maximum number of concurrent connections.
      *
      * @example 100
      *
@@ -90,7 +90,7 @@ class data extends Model
     public $maxConnAdjustableMaxValue;
 
     /**
-     * @description Maximum number of concurrent connections.
+     * @description The maximum number of concurrent connections.
      *
      * @example 100
      *
@@ -99,7 +99,7 @@ class data extends Model
     public $maxConnIncreaseRatio;
 
     /**
-     * @description Maximum number of concurrent connections.
+     * @description The maximum number of concurrent connections.
      *
      * @example 20
      *
@@ -108,7 +108,7 @@ class data extends Model
     public $maxConnIncreaseRatioValue;
 
     /**
-     * @description Maximum iops adjustment deadline.
+     * @description The deadline for the adjustment of the maximum IOPS.
      *
      * @example 2023-10-25
      *
@@ -117,7 +117,7 @@ class data extends Model
     public $maxIopsAdjustDeadline;
 
     /**
-     * @description The maximum number of IO requests per second.
+     * @description The maximum IOPS.
      *
      * @example 100
      *
@@ -126,7 +126,7 @@ class data extends Model
     public $maxIopsIncreaseRatio;
 
     /**
-     * @description The maximum number of IO requests per second.
+     * @description The maximum IOPS that can be supported by the instance.
      *
      * @example 20
      *
@@ -135,7 +135,7 @@ class data extends Model
     public $maxIopsIncreaseRatioValue;
 
     /**
-     * @description Memory adjustable maximum ratio.
+     * @description The maximum percentage of the system memory that the instance can use.
      *
      * @example 60
      *
@@ -144,7 +144,7 @@ class data extends Model
     public $memAdjustableMaxRatio;
 
     /**
-     * @description The maximum value of the resource to be evaluated.
+     * @description The maximum value of the resources to be evaluated.
      *
      * @example 200
      *
@@ -153,7 +153,7 @@ class data extends Model
     public $memAdjustableMaxValue;
 
     /**
-     * @description Memory adjustment deadline.
+     * @description The deadline for the memory adjustment.
      *
      * @example 2023-10-25
      *
@@ -162,7 +162,7 @@ class data extends Model
     public $memoryAdjustDeadline;
 
     /**
-     * @description Memory creation time.
+     * @description The memory increase percentage.
      *
      * @example 2023-10-25
      *
@@ -171,7 +171,7 @@ class data extends Model
     public $memoryIncreaseRatio;
 
     /**
-     * @description Memory usage.
+     * @description The memory usage. Unit: MB.
      *
      * @example 200
      *
@@ -180,7 +180,7 @@ class data extends Model
     public $memoryIncreaseRatioValue;
 
     /**
-     * @description Number of instance CPUs.
+     * @description The number of CPUs of the instance.
      *
      * @example 2
      *
@@ -189,7 +189,7 @@ class data extends Model
     public $originCpu;
 
     /**
-     * @description Maximum number of concurrent connections.
+     * @description The maximum number of concurrent connections.
      *
      * @example 30
      *
@@ -198,7 +198,7 @@ class data extends Model
     public $originMaxConn;
 
     /**
-     * @description The maximum number of IO requests per second.
+     * @description The maximum IOPS.
      *
      * @example 20
      *
@@ -207,7 +207,7 @@ class data extends Model
     public $originMaxIops;
 
     /**
-     * @description Actual memory used.
+     * @description The actual memory used. Unit: MB.
      *
      * @example 20
      *

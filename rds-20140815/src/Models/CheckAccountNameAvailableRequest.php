@@ -44,9 +44,8 @@ class CheckAccountNameAvailableRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
-     * >  This operation is not supported for instances that run SQL Server 2017 (cluster edition).
      * @example rm-uf6wjk5xxxxx
      *
      * @var string

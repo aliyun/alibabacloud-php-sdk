@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RestoreTableRequest extends Model
 {
     /**
-     * @description The ID of the backup set. You can call the [DescribeBackups](~~26273~~) operation to obtain the ID of the backup set.
+     * @description The backup set ID. You can call the DescribeBackups operation to obtain the backup set ID.
      *
-     * > You must specify at least one of BackupId or **RestoreTime** parameters.
+     * >  You must specify at least one of **BackupId** or **RestoreTime** parameters.
      * @example 9026262
      *
      * @var string
@@ -19,7 +19,7 @@ class RestoreTableRequest extends Model
     public $backupId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
      *
@@ -28,7 +28,7 @@ class RestoreTableRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDTCSecurityIpHostsForSQLServerRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -28,7 +28,7 @@ class ModifyDTCSecurityIpHostsForSQLServerRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -47,7 +47,7 @@ class ModifyDTCSecurityIpHostsForSQLServerRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The IP address of the ECS instance and the hostname of the Windows computer. Format: IP address,Hostname. Multiple values are separated with semicolons (;).
+     * @description The IP address of the ECS instance and the hostname of the Windows computer. Format: `IP address,Hostname`. Separate multiple entries with semicolon (;).
      *
      * >  For more information about how to query the computer hostname, see [Configure a distributed transaction whitelist](~~124321~~).
      * @example 192.168.1.100,k3ecstest
@@ -62,7 +62,7 @@ class ModifyDTCSecurityIpHostsForSQLServerRequest extends Model
     public $securityToken;
 
     /**
-     * @description The name of the whitelist.
+     * @description The name of the IP address whitelist.
      *
      * @example test1
      *

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustinsResourceInfoResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description The returned data.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D4D4BE8A-DD46-440A-BFCD-EE31DA81C9DD
      *

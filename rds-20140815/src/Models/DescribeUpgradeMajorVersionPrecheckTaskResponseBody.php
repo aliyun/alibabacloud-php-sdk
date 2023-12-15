@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpgradeMajorVersionPrecheckTaskResponseBody extends Model
 {
     /**
-     * @description An array that consists of the attributes in the upgrade check report.
+     * @description The information about the upgrade check report.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeUpgradeMajorVersionPrecheckTaskResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 30
      *
@@ -35,7 +35,7 @@ class DescribeUpgradeMajorVersionPrecheckTaskResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D1586777-41B5-5F9E-81E8-93DFDD379024
      *

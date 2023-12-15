@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserBackupFileRequest extends Model
 {
     /**
-     * @description The ID of the full backup file. You can call the [ListUserBackupFiles](~~257821~~) operation to query the ID of the file.
+     * @description The ID of the full backup file. You can call the ListUserBackupFiles operation to query the information about all full backup files in a region.
      *
      * @example b-w1haya7e4i25********
      *
@@ -23,7 +23,7 @@ class DeleteUserBackupFileRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -32,7 +32,7 @@ class DeleteUserBackupFileRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
      *
      * @example rg-acfmy*****
      *

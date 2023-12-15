@@ -24,7 +24,7 @@ class unitNode extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The storage capacity of the unit node that you want to create. Unit: GB. You can adjust the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can call the [DescribeAvailableResource](~~134039~~) operation to query the storage capacity range that is supported for a specified instance type in a region.
+     * @description The storage capacity of the unit node that you want to create. Unit: GB. You can adjust the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can also call the DescribeAvailableResource operation to query the storage capacity range that is available for a specific instance type in a region.
      *
      **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
@@ -39,9 +39,9 @@ class unitNode extends Model
      *
      *   **local_ssd**: local SSDs
      *   **cloud_ssd**: standard SSDs
-     *   **cloud_essd**: enhanced SSDs (ESSDs) of performance level 1 (PL1)
-     *   **cloud_essd2**: ESSDs of PL2.
-     *   **cloud_essd3**: ESSD of PL3.
+     *   **cloud_essd**: PL1 ESSDs
+     *   **cloud_essd2**: PL2 ESSDs
+     *   **cloud_essd3**: PL3 ESSD
      *
      * @example cloud_essd
      *
@@ -50,7 +50,7 @@ class unitNode extends Model
     public $DBInstanceStorageType;
 
     /**
-     * @description The instance type of the unit node that you want to create. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can call the [DescribeAvailableResource](~~134039~~) operation to query the available instance types in a region.
+     * @description The instance type of the unit node that you want to create. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can call the DescribeAvailableResource operation to query the available instance types in a region.
      *
      **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
@@ -121,7 +121,7 @@ class unitNode extends Model
     public $engineVersion;
 
     /**
-     * @description The region ID of the unit node that you want to create. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID of the unit node that you want to create. You can call the DescribeRegions operation to query the most recent region list.
      *
      **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
@@ -168,7 +168,7 @@ class unitNode extends Model
     public $vpcID;
 
     /**
-     * @description The zone ID of the unit node that you want to create. You can call the [DescribeRegions](~~26243~~) operation to query the ID of the zone.
+     * @description The zone ID of the unit node that you want to create. You can call the DescribeRegions operation to query zone ID.
      *
      **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
@@ -179,7 +179,7 @@ class unitNode extends Model
     public $zoneID;
 
     /**
-     * @description The zone ID of the secondary node of the unit node that you want to create. You can call the [DescribeRegions](~~26243~~) operation to query the ID of the zone.
+     * @description The zone ID of the secondary node of the unit node that you want to create. You can call the DescribeRegions operation to query the zone ID.
      *
      *   If the value of this parameter is the same as the **zone ID** of the unit node that you want to create, the single-zone deployment method is used.
      *   If the value of this parameter is different from the **zone ID** of the unit node that you want to create, the multiple-zone deployment method is used.
@@ -193,7 +193,7 @@ class unitNode extends Model
     public $zoneIDSlave1;
 
     /**
-     * @description The zone ID of the logger node of the unit node that you want to create. You can call the [DescribeRegions](~~26243~~) operation to query the ID of the zone.
+     * @description The zone ID of the logger node of the unit node that you want to create. You can call the DescribeRegions operation to query the zone ID.
      *
      *   If the value of this parameter is the same as the **zone ID** of the unit node that you want to create, the single-zone deployment method is used.
      *   If the value of this parameter is different from the **zone ID** of the unit node that you want to create, the multiple-zone deployment method is used.

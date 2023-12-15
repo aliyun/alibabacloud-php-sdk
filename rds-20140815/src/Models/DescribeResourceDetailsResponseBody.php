@@ -19,7 +19,7 @@ class DescribeResourceDetailsResponseBody extends Model
     public $backupDataSize;
 
     /**
-     * @description The storage that is occupied by log backup files, excluding archived backup files, on the instance. Unit: bytes.
+     * @description The size of the backup log. Unit: bytes.
      *
      * @example 21183797
      *
@@ -28,7 +28,7 @@ class DescribeResourceDetailsResponseBody extends Model
     public $backupLogSize;
 
     /**
-     * @description The storage that is used to store backup files. Unit: bytes. The value -1 indicates that no backup files are stored.
+     * @description The size of the backup data. Unit: MB.
      *
      * @example 53002759
      *
@@ -37,7 +37,7 @@ class DescribeResourceDetailsResponseBody extends Model
     public $backupSize;
 
     /**
-     * @description Database Storage.
+     * @description The disk capacity of the instance.
      *
      * @example 200
      *
@@ -46,7 +46,7 @@ class DescribeResourceDetailsResponseBody extends Model
     public $dbInstanceStorage;
 
     /**
-     * @description ProxyInstance name.
+     * @description The name of the proxy instance.
      *
      * @example mr-n1m1wjrylfolvrt67s
      *
@@ -55,7 +55,7 @@ class DescribeResourceDetailsResponseBody extends Model
     public $dbProxyInstanceName;
 
     /**
-     * @description The total storage that is occupied by data files and log files on the instance. Unit: bytes. The value -1 indicates that no data files or log files are stored on the instance.
+     * @description The total storage used. The value is the sum of the DataSize and LogSize values. Unit: bytes. The value -1 indicates that no data files or log files are stored.
      *
      * @example 4871684096
      *
@@ -64,7 +64,7 @@ class DescribeResourceDetailsResponseBody extends Model
     public $diskUsed;
 
     /**
-     * @description Instance StorageType
+     * @description The storage type of the instance.
      *
      * @example cloud_essd
      *
@@ -73,14 +73,14 @@ class DescribeResourceDetailsResponseBody extends Model
     public $instanceStorageType;
 
     /**
-     * @description Whitelist Rules.
+     * @description The rule for the IP address whitelist of the instance.
      *
      * @var rdsEcsSecurityGroupRel[]
      */
     public $rdsEcsSecurityGroupRel;
 
     /**
-     * @description The region ID of the instance.
+     * @description The region ID.
      *
      * @example cn-beijing
      *
@@ -89,7 +89,7 @@ class DescribeResourceDetailsResponseBody extends Model
     public $region;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example EA815761-F7AC-5CFE-A1AC-709D6A00B58A
      *
@@ -98,7 +98,7 @@ class DescribeResourceDetailsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmv3h25bj7yhq
      *
@@ -107,7 +107,7 @@ class DescribeResourceDetailsResponseBody extends Model
     public $resourceGroupId;
 
     /**
-     * @description The IP address whitelist of the serverless instance. For more information, see [Use a database client or the CLI to connect to an ApsaraDB RDS for PostgreSQL instance](~~43185~~). If the IP address whitelist contains more than one entry, separate the entries with commas (,). Each entry must be unique. You can specify up to 1,000 entries. The entries in the IP address whitelist must be in one of the following formats:
+     * @description The IP address whitelist of the instance. For more information, see [Configure IP address whitelists](~~43185~~). If the returned IP address whitelist contains more than one entry, these entries are separated with commas (,). Each entry is unique and up to 1,000 entries are returned. The entries in the IP address whitelist must be in one of the following formats:
      *
      *   IP addresses, such as 10.10.XX.XX.
      *   CIDR blocks, such as 10.10.XX.XX/24. In this example, 24 indicates that the prefix of each IP address in the IP address whitelist is 24 bits in length. You can replace 24 with a value within the range of 1 to 32.
@@ -122,6 +122,7 @@ class DescribeResourceDetailsResponseBody extends Model
     /**
      * @description The vSwitch ID.
      *
+     * >  The vSwitch must belong to the same zone as the instance.
      * @example vsw-2zelwi1jd271p670lzl8h
      *
      * @var string
@@ -129,7 +130,7 @@ class DescribeResourceDetailsResponseBody extends Model
     public $vSwitchId;
 
     /**
-     * @description VPC ID.
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-wz9rbibex7v0lxbeyo6at
      *

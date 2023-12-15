@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class PreCheckCreateOrderForCreateDBNodesResponseBody extends Model
 {
     /**
-     * @description The returned data.
+     * @description The information about nodes that fail to be created.
      *
      * @var failures
      */
     public $failures;
 
     /**
-     * @description Indicates the result of the precheck task.
+     * @description The precheck result.
      *
      * @example True
      *
@@ -26,7 +26,7 @@ class PreCheckCreateOrderForCreateDBNodesResponseBody extends Model
     public $preCheckResult;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 3E36DB6E-AE3B-53B6-A703-85F883FD1B2C
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteGadInstanceRequest extends Model
 {
     /**
-     * @description The ID of the global active database cluster. You can call the [DescribeGadInstances](~~330105~~) operation to query the ID of the global active database cluster.
+     * @description The ID of the global active database cluster. You can call the GadInstanceName operation to query the cluster ID.
      *
      * @example gad-rm-bp1npi2j8********
      *
@@ -18,7 +18,7 @@ class DeleteGadInstanceRequest extends Model
     public $gadInstanceName;
 
     /**
-     * @description The region ID of the central node of the global active database cluster. You can call the [DescribeRegions](~~330105~~) operation to query the most recent region list.
+     * @description The region ID of the central node of the global active database cluster. The central node refers to the primary node. You can call the DescribeGadInstances operation to query the region ID.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class DeleteGadInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
      *
      * @example rg-acfmy*****
      *

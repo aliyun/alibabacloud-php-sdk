@@ -44,7 +44,7 @@ class DescribeDBInstanceProxyConfigurationResponseBody extends Model
     public $persistentConnectionsConfiguration;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E9DD55F4-1A5F-48CA-BA57-DFB3CA8C4C34
      *
@@ -58,7 +58,7 @@ class DescribeDBInstanceProxyConfigurationResponseBody extends Model
      *   **Enable**
      *   **Disable**
      *
-     * {"status":"Enable"}.
+     * {"status":"Enable"}
      * @example {\"status\":\"Enable\"}
      *
      * @var string

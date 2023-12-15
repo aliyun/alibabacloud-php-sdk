@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateYouhuiForOrderRequest extends Model
 {
     /**
-     * @description The ticket ID.
+     * @description The activity ID.
      *
      * @example 1711510887******
      *

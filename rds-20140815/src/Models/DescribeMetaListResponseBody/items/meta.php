@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class meta extends Model
 {
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
      * @example testdb1
      *
@@ -18,7 +18,7 @@ class meta extends Model
     public $database;
 
     /**
-     * @description The size of the table. Unit: KB.
+     * @description The table size. Unit: KB.
      *
      * @example 64
      *
@@ -27,7 +27,7 @@ class meta extends Model
     public $size;
 
     /**
-     * @description The name of the table.
+     * @description The table name.
      *
      * @example test1
      *

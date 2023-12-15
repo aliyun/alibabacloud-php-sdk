@@ -18,7 +18,7 @@ class DescribeCurrentModifyOrderRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the DescribeDBInstances operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-bp1u775467ggm7j9j
      *

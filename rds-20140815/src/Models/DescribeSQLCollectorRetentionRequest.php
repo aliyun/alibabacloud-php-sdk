@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLCollectorRetentionRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -28,7 +28,7 @@ class DescribeSQLCollectorRetentionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
      *
      * @example rg-acfmyxxxx
      *

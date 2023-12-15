@@ -18,7 +18,7 @@ class DescribeResourceDetailsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance You can call the [DescribeDBInstances](~~26232~~) operation to query the IDs of instances.
+     * @description The instance ID.
      *
      * @example rm-bp1ul2y10grt91m68
      *
@@ -32,7 +32,7 @@ class DescribeResourceDetailsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -41,7 +41,7 @@ class DescribeResourceDetailsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfm3kyoa2wqhyy
      *

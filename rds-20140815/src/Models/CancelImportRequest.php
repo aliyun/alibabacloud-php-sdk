@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CancelImportRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -18,9 +18,9 @@ class CancelImportRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the migration task.
+     * @description The migration task ID.
      *
-     * > This parameter is returned when the migration task is started. For more information, see [ImportDatabaseBetweenInstances](~~26301~~).
+     * >  This parameter is returned when the migration task is started. For more information, see ImportDatabaseBetweenInstances.
      * @example 8562584
      *
      * @var int
@@ -38,7 +38,7 @@ class CancelImportRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy****
      *

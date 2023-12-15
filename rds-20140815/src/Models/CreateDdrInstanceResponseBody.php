@@ -11,7 +11,7 @@ class CreateDdrInstanceResponseBody extends Model
     /**
      * @description The endpoint that is used to connect to the destination instance.
      *
-     * > **DBInstanceNetType** indicates whether the endpoint is internal or public.
+     * >  The **DBInstanceNetType** parameter indicates whether the endpoint is internal or public.
      * @example rm-xxxxx.mysql.rds.aliyuncs.com
      *
      * @var string
@@ -19,7 +19,7 @@ class CreateDdrInstanceResponseBody extends Model
     public $connectionString;
 
     /**
-     * @description The ID of the destination instance.
+     * @description The destination instance ID.
      *
      * @example rm-xxxxx
      *
@@ -28,7 +28,7 @@ class CreateDdrInstanceResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 2038691xxxxx
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMarketingActivityResponseBody extends Model
 {
     /**
-     * @description The unique ID (UID) of the Alibaba Cloud account.
+     * @description The ID of the Alibaba Cloud account.
      *
      * @example 1979008652307170
      *
@@ -19,7 +19,8 @@ class DescribeMarketingActivityResponseBody extends Model
     public $aliUid;
 
     /**
-     * @description The BID of the account to which the Anycast EIP belongs.
+     * @description *   China site: 26842
+     *   International site: 26888
      *
      * @example 26842
      *
@@ -28,14 +29,14 @@ class DescribeMarketingActivityResponseBody extends Model
     public $bid;
 
     /**
-     * @description The details of the instance.
+     * @description The activity parameters
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID.
      *
      * @example cn-shenzhen
      *
@@ -44,7 +45,7 @@ class DescribeMarketingActivityResponseBody extends Model
     public $regionId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 7D8F09DB-1124-5D78-A520-FF88FAF4351B
      *

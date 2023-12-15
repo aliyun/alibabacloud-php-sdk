@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -18,7 +18,7 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @description The result of the whitelist configuration. Valid values:
+     * @description The result of the IP address whitelist configuration. Valid values:
      *
      *   **Success**
      *   **Fail**
@@ -30,7 +30,7 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
     public $DTCSetResult;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 671B6D32-B907-4EFF-A3B7-94D2EAD5E3A3
      *
@@ -39,7 +39,7 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 178968983
      *

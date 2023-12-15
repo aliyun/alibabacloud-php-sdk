@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ecsSecurityGroupRelation extends Model
 {
     /**
-     * @description The network type of an ECS security group. Valid values:
+     * @description The network type of the ECS security group. Valid values:
      *
      *   **Classic**
      *   **VPC**
@@ -21,7 +21,7 @@ class ecsSecurityGroupRelation extends Model
     public $networkType;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

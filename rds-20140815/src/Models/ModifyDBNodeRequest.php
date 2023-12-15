@@ -83,6 +83,10 @@ class ModifyDBNodeRequest extends Model
     public $dryRun;
 
     /**
+     * @description Effective time, value:
+     * - MaintainTime: Effective within the operational time period, please refer to ModifyDBInstanceMaintainTime.
+     * @example Immediate
+     *
      * @var string
      */
     public $effectiveTime;

@@ -14,7 +14,7 @@ class DeleteParameterGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the parameter template. You can call the [DescribeParameterGroups](~~144491~~) operation to query the ID of the parameter template.
+     * @description The parameter template ID. You can call the DescribeParameterGroups operation to query the parameter template ID.
      *
      * @example rpg-gfs****
      *
@@ -23,7 +23,7 @@ class DeleteParameterGroupRequest extends Model
     public $parameterGroupId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -32,7 +32,7 @@ class DeleteParameterGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The resource group ID. You can call the [DescribeDBInstanceAttribute](~~610394~~) to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute to obtain the resource group ID.
      *
      * @example rg-acfmy*****
      *

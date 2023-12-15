@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupConfigurationRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxx
      *
@@ -33,7 +33,7 @@ class ModifySecurityGroupConfigurationRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the ECS security group. Each RDS instance can be added to up to three security groups. Separate the security group IDs with commas (,). To delete an ECS security group for the RDS instance, leave this parameter empty. You can call the [DescribeSecurityGroups](~~25556~~) operation to query the ECS security group list.
+     * @description The ID of the ECS security group. Each instance can be added to up to three security groups. Separate the security group IDs with commas (,). To delete an ECS security group for the instance, leave this parameter empty. You can call the DescribeSecurityGroups operation to query the ID of the ECS security group.
      *
      * @example sg-xxxxxxx
      *

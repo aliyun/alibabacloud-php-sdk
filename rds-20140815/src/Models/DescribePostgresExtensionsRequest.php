@@ -18,7 +18,7 @@ class DescribePostgresExtensionsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example pgm-bp156o9ti493****
      *
@@ -27,7 +27,7 @@ class DescribePostgresExtensionsRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The name of the database. You can call the [DescribeDatabases](~~610471~~) operation to obtain the name of the database.
+     * @description The database name. You can call the DescribeDatabases operation to query the database name.
      *
      * @example test_db
      *

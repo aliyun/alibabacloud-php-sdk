@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDdrInstanceRequest extends Model
 {
     /**
-     * @description The ID of the backup set that is used for the restoration. You can call the [DescribeCrossRegionBackups](~~121733~~) operation to query the ID of the backup set.
+     * @description The backup set ID that you want to use for the restoration. You can call the DescribeCrossRegionBackups operation to query backup set ID.
      *
-     * > If you set **RestoreType** to **BackupSet**, you must specify this parameter.
+     * >  This parameter is required when you set the **RestoreType** parameter to **BackupSet**.
      * @example 14***
      *
      * @var string
@@ -50,9 +50,9 @@ class CreateDdrInstanceRequest extends Model
     public $DBInstanceClass;
 
     /**
-     * @description The name of the instance. The name must be 2 to 256 characters in length. The name can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * @description The instance name. The name must be 2 to 256 characters in length. The value can contain letters, digits, underscores (\_), and hyphens (-), and must start with a letter.
      *
-     * > The name cannot start with http:// or https://.
+     * >  The value cannot start with http:// or https://.
      * @example Test database
      *
      * @var string
@@ -166,7 +166,7 @@ class CreateDdrInstanceRequest extends Model
     public $period;
 
     /**
-     * @description The private IP address of the destination instance. The private IP address must be within the CIDR block that is supported by the specified vSwitch. The system automatically assigns a private IP address to an instance based on the values of **VPCId** and **VSwitchId**.
+     * @description The private IP address of the destination instance. The private IP address must be within the CIDR block that is supported by the specified vSwitch. The system automatically assigns an internal IP address based on the values of the **VPCId** and **VSwitchId** parameters.
      *
      * @example 172.XXX.XXX.69
      *
@@ -175,7 +175,7 @@ class CreateDdrInstanceRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The region ID of the destination instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID of the destination instance. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -184,7 +184,7 @@ class CreateDdrInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmyxxxxxxxxxx
      *
@@ -213,9 +213,9 @@ class CreateDdrInstanceRequest extends Model
     public $restoreTime;
 
     /**
-     * @description The method that is used to restore data. Valid values:
+     * @description The restoration method that you want to use. Valid values:
      *
-     *   **BackupSet**: restores data from a backup set. If you use this value, you must also specify **BackupSetID**.
+     *   **BackupSet**: restores data from a backup set. If you use this value, you must also specify **BackupSetId**.
      *   **BackupTime**: restores data to a point in time. If you use this value, you must also specify **RestoreTime**, **SourceRegion**, and **SourceDBInstanceName**.
      *
      * @example BackupSet
@@ -237,9 +237,9 @@ class CreateDdrInstanceRequest extends Model
     public $securityIPList;
 
     /**
-     * @description The ID of the source instance if you want to restore data to a point in time.
+     * @description The source instance ID, which is used if you want to restore data to a point in time.
      *
-     * > If you set **RestoreType** to **BackupTime**, you must specify this parameter.
+     * >  This parameter is required when you set the **RestoreType** parameter to **BackupTime**.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -284,9 +284,9 @@ class CreateDdrInstanceRequest extends Model
     public $usedTime;
 
     /**
-     * @description The VPC ID of the instance. This parameter is available only when you set **InstanceNetworkType** to **VPC**.
+     * @description The VPC ID of the destination instance. This parameter is available only when you set the **InstanceNetworkType** parameter to **VPC**.
      *
-     * > If you specify this parameter, you must also specify **ZoneId**.
+     * >  If you specify this parameter, you must also specify the **ZoneId** parameter.
      * @example vpc-xxxxxxxxxxxx
      *
      * @var string
@@ -294,9 +294,9 @@ class CreateDdrInstanceRequest extends Model
     public $VPCId;
 
     /**
-     * @description The vSwitch ID of the destination instance. If you specify more than one vSwitch, separate the IDs of the vSwitches with commas (,). This parameter is available only when you set **InstanceNetworkType** to **VPC**.
+     * @description The vSwitch ID of the destination instance. If you specify more than one vSwitch, separate the IDs of the vSwitches with commas (,). This parameter is available only when you set the **InstanceNetworkType** parameter to **VPC**.
      *
-     * > If you specify this parameter, you must also specify **ZoneId**.
+     * >  If you specify this parameter, you must also specify the **ZoneId** parameter.
      * @example vsw-xxxxxxxxxxx
      *
      * @var string

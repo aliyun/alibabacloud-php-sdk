@@ -18,7 +18,7 @@ class DetachGadInstanceMemberRequest extends Model
     public $gadInstanceName;
 
     /**
-     * @description The ID of the instance that serves as the unit node you want to remove. You can call the [DescribeGadInstances](~~330105~~) query the ID of the instance.
+     * @description The ID of the instance that serves as the unit node you want to remove. You can call the DescribeGadInstances query the instance ID.
      *
      * @example rm-bp1npi2j8********
      *
@@ -27,7 +27,7 @@ class DetachGadInstanceMemberRequest extends Model
     public $memberInstanceName;
 
     /**
-     * @description The region ID of the central node. You can call the [DescribeGadInstances](~~330105~~) operation to query the information.
+     * @description The region ID of the central node. You can call the DescribeGadInstances operation to query the region ID.
      *
      * @example cn-hangzhou
      *
@@ -36,7 +36,7 @@ class DetachGadInstanceMemberRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
      *
      * @example rg-acfmy*****
      *

@@ -112,12 +112,10 @@ class DescribeClassDetailsResponseBody extends Model
     /**
      * @description The price.
      *
-     * >
+     * Unit: cents (US dollars).
      *
-     *   If you set the CommodityCode parameter to a value that indicates the pay-as-you-go billing method, the ReferencePrice parameter specifies the hourly fee that you must pay.
-     *
-     *   If you set the CommodityCode parameter to a value that indicates the subscription billing method, the ReferencePrice parameter specifies the monthly fee that you must pay.
-     *
+     * > *   If you set the CommodityCode parameter to a value that indicates the pay-as-you-go billing method, the ReferencePrice parameter specifies the hourly fee that you must pay.
+     * > *   If you set the CommodityCode parameter to a value that indicates the subscription billing method, the ReferencePrice parameter specifies the monthly fee that you must pay.
      * @example 13400
      *
      * @var string

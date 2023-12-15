@@ -19,7 +19,7 @@ class DeleteSlotRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance. You can call the DescribeDBInstances operation to query the IDs of instances.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example pgm-bp102g323jd4****
      *

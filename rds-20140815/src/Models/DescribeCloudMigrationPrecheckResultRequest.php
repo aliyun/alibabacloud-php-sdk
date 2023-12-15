@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudMigrationPrecheckResultRequest extends Model
 {
     /**
-     * @description The ID of the destination instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the IDs of instances.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example pgm-bp102g323jd4****
      *
@@ -62,7 +62,7 @@ class DescribeCloudMigrationPrecheckResultRequest extends Model
     public $sourcePort;
 
     /**
-     * @description The ID of the task. You can obtain the ID of the task from the response that is returned after you call the [CreateCloudMigrationPrecheckTask](~~409831~~) operation to create the task.
+     * @description The task ID. You can obtain the task ID from the response that is returned after you call the CreateCloudMigrationPrecheckTask operation to create the task.
      *
      * @example 439946016
      *
@@ -71,7 +71,7 @@ class DescribeCloudMigrationPrecheckResultRequest extends Model
     public $taskId;
 
     /**
-     * @description The name of the task. You can obtain the name of the task from the response that is returned after you call the [CreateCloudMigrationPrecheckTask](~~409831~~) operation to create the task.
+     * @description The task name. You can obtain the task name from the response that is returned after you call the CreateCloudMigrationPrecheckTask operation to create the task.
      *
      * @example slf7w7wj3g
      *

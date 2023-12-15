@@ -27,7 +27,7 @@ class readonlyInstanceDelay extends Model
     public $flushLatency;
 
     /**
-     * @description The ID of the read-only instance.
+     * @description The read-only instance ID.
      *
      * @example rr-bp*****
      *

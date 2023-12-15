@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustinsResourceInfoRequest extends Model
 {
     /**
-     * @description The instance ID. Separate multiple values with commas (,).
+     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
      *
      * @example rm-wz9s06u4drmqj4aqv
      *
@@ -23,7 +23,7 @@ class DescribeCustinsResourceInfoRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *

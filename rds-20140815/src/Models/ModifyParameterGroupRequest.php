@@ -40,7 +40,7 @@ class ModifyParameterGroupRequest extends Model
     public $parameterGroupDesc;
 
     /**
-     * @description The parameter template ID. You can call the [DescribeParameterGroups](~~144491~~) operation to query the parameter template ID.
+     * @description The parameter template ID. You can call the DescribeParameterGroups operation to query the parameter template ID.
      *
      * @example rpg-13ppdh****
      *
@@ -78,9 +78,9 @@ class ModifyParameterGroupRequest extends Model
     public $parameters;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
-     * > The region of a parameter template cannot be changed. You can call the [CloneParameterGroup](~~144581~~) operation to replicate a parameter template to a specific region.
+     * >  The region of a parameter template cannot be changed. You can call the CloneParameterGroup operation to replicate a parameter template to a specific region.
      * @example cn-hangzhou
      *
      * @var string
@@ -88,7 +88,7 @@ class ModifyParameterGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
      *
      * @example rg-acfmy****
      *

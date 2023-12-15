@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsResponseBody extends Model
 {
     /**
-     * @description The ID of the dedicated cluster.
+     * @description The host group ID.
      *
      * @example dhg-7a9xxxxxxxx
      *
@@ -19,14 +19,14 @@ class DescribeDedicatedHostsResponseBody extends Model
     public $dedicatedHostGroupId;
 
     /**
-     * @description An array that consists of hosts returned.
+     * @description The host information.
      *
      * @var dedicatedHosts
      */
     public $dedicatedHosts;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C860658E-68A6-46C1-AF6E-3AE7C4D3CACF
      *

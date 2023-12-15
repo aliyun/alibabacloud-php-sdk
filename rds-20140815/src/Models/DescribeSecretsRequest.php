@@ -31,7 +31,7 @@ class DescribeSecretsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-xjkljjxxxxx
      *
@@ -79,7 +79,7 @@ class DescribeSecretsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query region ID of the instance.
+     * @description The region ID. You can call the DescribeDBInstanceAttribute operation to query the region ID.
      *
      * @example cn-hangzhou
      *

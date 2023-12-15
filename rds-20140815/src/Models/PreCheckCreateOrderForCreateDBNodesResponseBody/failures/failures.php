@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class failures extends Model
 {
     /**
-     * @description The response code returned. Valid values:
+     * @description The response code. Valid values:
      *
      *   **200**: success
      *   **400**: client error
      *   **401**: identity authentication failed
-     *   **404**: request page not found
+     *   **404**: requested page not found
      *   **500**: server error
      *
      * @example 200

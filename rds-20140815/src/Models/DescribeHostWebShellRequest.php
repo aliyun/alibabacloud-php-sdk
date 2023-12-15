@@ -18,7 +18,7 @@ class DescribeHostWebShellRequest extends Model
     public $accountName;
 
     /**
-     * @description The password of the account.
+     * @description The password of the host account.
      *
      * @example ***
      *
@@ -27,7 +27,7 @@ class DescribeHostWebShellRequest extends Model
     public $accountPassword;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -36,7 +36,7 @@ class DescribeHostWebShellRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The hostname of the instance. You can call the [DescribeDBInstanceIpHostname](~~610525~~) operation to query the hostname.
+     * @description The instance hostname. You can call the DescribeDBInstanceIpHostname operation to query the hostname.
      *
      * @example testHost1
      *
@@ -50,7 +50,7 @@ class DescribeHostWebShellRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the region ID.
      *
      * @example cn-hangzhou
      *

@@ -110,7 +110,7 @@ class DescribeDBProxyResponseBody extends Model
     /**
      * @var string
      */
-    public $DBProxyPersistentConnectionSupport;
+    public $DBProxyPersistentConnectionStatus;
 
     /**
      * @description The status of the database proxy.
@@ -159,7 +159,7 @@ class DescribeDBProxyResponseBody extends Model
         'DBProxyInstanceSize'                => 'DBProxyInstanceSize',
         'DBProxyInstanceStatus'              => 'DBProxyInstanceStatus',
         'DBProxyInstanceType'                => 'DBProxyInstanceType',
-        'DBProxyPersistentConnectionSupport' => 'DBProxyPersistentConnectionSupport',
+        'DBProxyPersistentConnectionStatus'  => 'DBProxyPersistentConnectionStatus',
         'DBProxyServiceStatus'               => 'DBProxyServiceStatus',
         'dbProxyEndpointItems'               => 'DbProxyEndpointItems',
         'requestId'                          => 'RequestId',
@@ -203,8 +203,8 @@ class DescribeDBProxyResponseBody extends Model
         if (null !== $this->DBProxyInstanceType) {
             $res['DBProxyInstanceType'] = $this->DBProxyInstanceType;
         }
-        if (null !== $this->DBProxyPersistentConnectionSupport) {
-            $res['DBProxyPersistentConnectionSupport'] = $this->DBProxyPersistentConnectionSupport;
+        if (null !== $this->DBProxyPersistentConnectionStatus) {
+            $res['DBProxyPersistentConnectionStatus'] = $this->DBProxyPersistentConnectionStatus;
         }
         if (null !== $this->DBProxyServiceStatus) {
             $res['DBProxyServiceStatus'] = $this->DBProxyServiceStatus;
@@ -260,8 +260,8 @@ class DescribeDBProxyResponseBody extends Model
         if (isset($map['DBProxyInstanceType'])) {
             $model->DBProxyInstanceType = $map['DBProxyInstanceType'];
         }
-        if (isset($map['DBProxyPersistentConnectionSupport'])) {
-            $model->DBProxyPersistentConnectionSupport = $map['DBProxyPersistentConnectionSupport'];
+        if (isset($map['DBProxyPersistentConnectionStatus'])) {
+            $model->DBProxyPersistentConnectionStatus = $map['DBProxyPersistentConnectionStatus'];
         }
         if (isset($map['DBProxyServiceStatus'])) {
             $model->DBProxyServiceStatus = $map['DBProxyServiceStatus'];

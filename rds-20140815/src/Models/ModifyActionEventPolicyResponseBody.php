@@ -18,7 +18,7 @@ class ModifyActionEventPolicyResponseBody extends Model
     public $enableEventLog;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the region for which the event history feature is enabled or disabled.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class ModifyActionEventPolicyResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example BAC0952C-0EB3-4DE7-A567-B83269BFE43F
      *

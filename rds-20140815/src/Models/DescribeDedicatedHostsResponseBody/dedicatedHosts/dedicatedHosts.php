@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHosts extends Model
 {
     /**
-     * @description The account of the host. You can call the [CreateDedicatedHostAccount](~~196877~~) operation to create a host account.
+     * @description The host account. You can call the [CreateDedicatedHostAccount](~~196877~~) operation to create a host account.
      *
      * @example test123
      *
@@ -18,10 +18,10 @@ class dedicatedHosts extends Model
     public $accountName;
 
     /**
-     * @description Indicates whether the system allows you to create instances on the host. Valid values:
+     * @description Specifies whether instances can be deployed on the host. Valid values:
      *
-     *   **0**: The system does not allow you to create instances on the host.
-     *   **1**: The system allows you to create instances on the host.
+     *   **0**: Instances cannot be deployed on the host.
+     *   **1**: Instances can be deployed on the host.
      *
      * @example 1
      *
@@ -30,7 +30,7 @@ class dedicatedHosts extends Model
     public $allocationStatus;
 
     /**
-     * @description The ID of the bastion host.
+     * @description The bastion host ID.
      *
      * @example bastionhost-cn-m7xxxxxxxx
      *
@@ -39,7 +39,7 @@ class dedicatedHosts extends Model
     public $bastionInstanceId;
 
     /**
-     * @description The core overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     * @description The core overcommitment ratio of the dedicated cluster. Unit: percentage. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
      *
      * @example 200
      *
@@ -48,7 +48,7 @@ class dedicatedHosts extends Model
     public $CPUAllocationRatio;
 
     /**
-     * @description The number of used cores on the host.
+     * @description The number of used CPU cores on the host. Unit: cores.
      *
      * @example 4
      *
@@ -66,7 +66,7 @@ class dedicatedHosts extends Model
     public $createdTime;
 
     /**
-     * @description The ID of the dedicated cluster.
+     * @description The dedicated cluster ID.
      *
      * @example dhg-7a9xxxxxxxx
      *
@@ -75,7 +75,7 @@ class dedicatedHosts extends Model
     public $dedicatedHostGroupId;
 
     /**
-     * @description The ID of the host.
+     * @description The host ID.
      *
      * @example i-bpxxxxxxx
      *
@@ -84,7 +84,7 @@ class dedicatedHosts extends Model
     public $dedicatedHostId;
 
     /**
-     * @description The disk overcommitment ratio of the dedicated cluster. Unit: %. For more information about the disk overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     * @description The disk overcommitment ratio of the dedicated cluster. Unit: percentage. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
      *
      * @example 200
      *
@@ -111,7 +111,7 @@ class dedicatedHosts extends Model
     public $engine;
 
     /**
-     * @description The total number of cores that are configured for the host.
+     * @description The total number of CPU cores that are configured for the host. Unit: cores.
      *
      * @example 8
      *
@@ -120,7 +120,7 @@ class dedicatedHosts extends Model
     public $hostCPU;
 
     /**
-     * @description The specifications of the host.
+     * @description The instance type of the host.
      *
      * @example ecs.i2.16xlarge
      *
@@ -138,7 +138,7 @@ class dedicatedHosts extends Model
     public $hostMem;
 
     /**
-     * @description The name of the host.
+     * @description The host name.
      *
      * @example testHost1
      *
@@ -149,13 +149,13 @@ class dedicatedHosts extends Model
     /**
      * @description The status of the host. Valid values:
      *
-     *   **0**: The host is being created.
-     *   **1**: The host is running.
-     *   **2**: The host is faulty.
-     *   **3**: The host is being replaced.
-     *   **4**: The host is deprecated.
-     *   **5**: The host is being deleted.
-     *   **6**: The host is restarting.
+     *   **0**: creating
+     *   **1**: running
+     *   **2**: faulty
+     *   **3**: being replaced
+     *   **4**: deprecated
+     *   **5**: deleting
+     *   **6**: restarting
      *
      * @example 1
      *
@@ -173,9 +173,9 @@ class dedicatedHosts extends Model
     public $hostStorage;
 
     /**
-     * @description The type of storage media that is used for the host. Valid values:
+     * @description The storage type of the host. Valid values:
      *
-     *   **dhg_cloud_ssd**: enhanced SSD
+     *   **dhg_cloud_ssd**: ESSD
      *   **dhg_local_ssd**: local SSD
      *
      * @example dhg_cloud_ssd
@@ -194,11 +194,11 @@ class dedicatedHosts extends Model
     public $IPAddress;
 
     /**
-     * @description The image of the host. This parameter is returned only when the **Engine** parameter is set to **mssql**. Valid values:
+     * @description The host image. This parameter is returned only when the **Engine** parameter is set to **mssql**. Valid values:
      *
-     *   **WindowsWithMssqlStdLicense**: a Windows image, which contains the licenses of the SQL Server Standard Edition
-     *   **WindowsWithMssqlEntLisence**: a Windows image, which contains the licenses of the SQL Server Enterprise Edition
-     *   **WindowsWithMssqlWebLisence**: a Windows image, which contains the licenses of the SQL Server Web Edition
+     *   **WindowsWithMssqlStdLicense**: a Windows image that contains the licenses of SQL Server Standard Edition
+     *   **WindowsWithMssqlEntLisence**: a Windows image that contains the licenses of SQL Server Enterprise Edition
+     *   **WindowsWithMssqlWebLisence**: a Windows image that contains the licenses of SQL Server Web Edition
      *
      * @example WindowsWithMssqlStdLicense
      *
@@ -225,7 +225,7 @@ class dedicatedHosts extends Model
     public $memAllocationRatio;
 
     /**
-     * @description The amount of used memory space on the host. Unit: MB.
+     * @description The size of the used memory. Unit: MB.
      *
      * @example 16384
      *
@@ -234,7 +234,7 @@ class dedicatedHosts extends Model
     public $memoryUsed;
 
     /**
-     * @description Indicates whether the operating system permissions of the host can be granted. Valid values:
+     * @description Indicates whether the feature that allows you to have the OS permissions on the host is enabled. Valid values:
      *
      *   **0** or **null**: The permissions cannot be granted.
      *   **1**: The permissions can be granted.

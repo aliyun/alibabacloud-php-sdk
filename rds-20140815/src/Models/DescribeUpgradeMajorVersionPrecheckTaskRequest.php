@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpgradeMajorVersionPrecheckTaskRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example pgm-bp1c808s731l****
      *
@@ -28,9 +28,9 @@ class DescribeUpgradeMajorVersionPrecheckTaskRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return in the upgrade check report.
+     * @description The page number.
      *
-     * Valid values: any non-zero positive integer. Default value: 1.
+     * Valid values: any non-zero positive integer. Default value: 1
      * @example 1
      *
      * @var int
@@ -38,11 +38,11 @@ class DescribeUpgradeMajorVersionPrecheckTaskRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page of the upgrade check report.
+     * @description The number of entries per page.
      *
      * Valid values:
      *
-     *   30 (This is the default value.)
+     *   30 (default)
      *   50
      *   100
      *
@@ -65,7 +65,6 @@ class DescribeUpgradeMajorVersionPrecheckTaskRequest extends Model
     /**
      * @description The new major engine version of the instance. The new major engine version must be later than the original major engine version.
      *
-     * For example, if the original major engine version is PostgreSQL 9.4, the new major engine version can be PostgreSQL 10, PostgreSQL 11, PostgreSQL 12, or PostgreSQL 13.
      * @example 12.0
      *
      * @var string
@@ -73,7 +72,7 @@ class DescribeUpgradeMajorVersionPrecheckTaskRequest extends Model
     public $targetMajorVersion;
 
     /**
-     * @description The ID of the upgrade check task. You can obtain the ID of the upgrade check task from the **TaskId** parameter that is returned from the call of the [UpgradeDBInstanceMajorVersionPrecheck](~~330050~~) operation.
+     * @description The ID of the upgrade check task. You can obtain the ID of the upgrade check task from the **TaskId** parameter in the response to the UpgradeDBInstanceMajorVersionPrecheck operation.
      *
      * @example 416980000
      *
