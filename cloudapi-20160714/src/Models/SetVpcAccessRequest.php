@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\SetVpcAccessRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class SetVpcAccessRequest extends Model
@@ -40,6 +41,11 @@ class SetVpcAccessRequest extends Model
     public $securityToken;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @example vpc-uf657qec7lx42paw3qxxx
      *
      * @var string
@@ -58,6 +64,7 @@ class SetVpcAccessRequest extends Model
         'name'              => 'Name',
         'port'              => 'Port',
         'securityToken'     => 'SecurityToken',
+        'tag'               => 'Tag',
         'vpcId'             => 'VpcId',
         'vpcTargetHostName' => 'VpcTargetHostName',
     ];
@@ -83,6 +90,15 @@ class SetVpcAccessRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -116,6 +132,15 @@ class SetVpcAccessRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

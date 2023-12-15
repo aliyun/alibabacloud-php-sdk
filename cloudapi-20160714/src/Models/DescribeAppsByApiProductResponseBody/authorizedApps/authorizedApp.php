@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class authorizedApp extends Model
 {
     /**
+     * @description The application ID.
+     *
      * @example 110982419
      *
      * @var int
@@ -16,6 +18,8 @@ class authorizedApp extends Model
     public $appId;
 
     /**
+     * @description The application name.
+     *
      * @example APP_02580_DEV
      *
      * @var string
@@ -23,6 +27,8 @@ class authorizedApp extends Model
     public $appName;
 
     /**
+     * @description The expiration time of the authorization. The time is in GMT. An empty value indicates that the authorization does not expire.
+     *
      * @example 2023-06-17T03:41:53Z
      *
      * @var string
@@ -30,6 +36,8 @@ class authorizedApp extends Model
     public $authValidTime;
 
     /**
+     * @description The time when the authorization was created. The time is in GMT.
+     *
      * @example 2016-07-21T06:17:20Z
      *
      * @var string
@@ -37,11 +45,15 @@ class authorizedApp extends Model
     public $authorizedTime;
 
     /**
+     * @description The authorization description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The extended information.
+     *
      * @example extra info
      *
      * @var string

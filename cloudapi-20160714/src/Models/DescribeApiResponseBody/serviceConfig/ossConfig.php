@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ossConfig extends Model
 {
     /**
+     * @description The operation options on OSS. Valid values:
+     *
+     *   GetObject
+     *   PostObject
+     *   DeleteObject
+     *   PutObject
+     *   HeadObject
+     *   GetObjectMeta
+     *   AppendObject
+     *
      * @example GetObject
      *
      * @var string
@@ -25,6 +35,8 @@ class ossConfig extends Model
     public $bucketName;
 
     /**
+     * @description The stored object or folder path.
+     *
      * @example /folder/test.json
      *
      * @var string

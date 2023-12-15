@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupLatencyResponseBody extends Model
 {
     /**
+     * @description The latency information.
+     *
      * @var latencyPacket
      */
     public $latencyPacket;
 
     /**
+     * @description The request ID.
+     *
      * @example 75DC3AB0-421C-5371-8170-86AEABF77AD0
      *
      * @var string

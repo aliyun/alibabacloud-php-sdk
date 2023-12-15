@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RemoveApiProductsAuthoritiesRequest extends Model
 {
     /**
+     * @description The API products.
+     *
      * @var string[]
      */
     public $apiProductIds;
 
     /**
+     * @description The application ID.
+     *
      * @example 110982490
      *
      * @var int

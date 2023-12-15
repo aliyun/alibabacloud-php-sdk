@@ -19,7 +19,7 @@ class backendInfo extends Model
     public $backendId;
 
     /**
-     * @description The time when the backend service was created.
+     * @description The configurations of the backend service in the environment.
      *
      * @var backendModels[]
      */

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateModelRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateModelRequest extends Model
@@ -43,11 +44,17 @@ class CreateModelRequest extends Model
      * @var string
      */
     public $schema;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'description' => 'Description',
         'groupId'     => 'GroupId',
         'modelName'   => 'ModelName',
         'schema'      => 'Schema',
+        'tag'         => 'Tag',
     ];
 
     public function validate()
@@ -68,6 +75,15 @@ class CreateModelRequest extends Model
         }
         if (null !== $this->schema) {
             $res['Schema'] = $this->schema;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -92,6 +108,15 @@ class CreateModelRequest extends Model
         }
         if (isset($map['Schema'])) {
             $model->schema = $map['Schema'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

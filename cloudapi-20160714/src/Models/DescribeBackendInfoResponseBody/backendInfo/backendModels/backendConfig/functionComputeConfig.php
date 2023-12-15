@@ -27,7 +27,7 @@ class functionComputeConfig extends Model
     public $fcRegionId;
 
     /**
-     * @description The type of the Function Compute service.
+     * @description The type of the service in Function Compute.
      *
      * @example HttpTrigger
      *
@@ -36,7 +36,7 @@ class functionComputeConfig extends Model
     public $fcType;
 
     /**
-     * @description The function name defined in Function Compute.
+     * @description The function name that is defined in Function Compute.
      *
      * @example edge_function
      *
@@ -45,7 +45,7 @@ class functionComputeConfig extends Model
     public $functionName;
 
     /**
-     * @description The backend service path.
+     * @description Indicates whether the backend service receives only the service path.
      *
      * @example false
      *
@@ -63,7 +63,7 @@ class functionComputeConfig extends Model
     public $qualifier;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role to be assumed by API Gateway to access Function Compute.
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role that is assumed by API Gateway to access Function Compute.
      *
      * @example acs:ram::31985*:role/aliyunserviceroleforbastionhostpam
      *
@@ -72,7 +72,7 @@ class functionComputeConfig extends Model
     public $roleArn;
 
     /**
-     * @description The service name defined in Function Compute.
+     * @description The service name that is defined in Function Compute.
      *
      * @example myservice
      *

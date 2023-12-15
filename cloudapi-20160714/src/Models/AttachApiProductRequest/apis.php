@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apis extends Model
 {
     /**
+     * @description The API ID.
+     *
      * @example 551877242a4b4f3a84a56b7c3570e4a7
      *
      * @var string
@@ -16,6 +18,12 @@ class apis extends Model
     public $apiId;
 
     /**
+     * @description The environment. Valid values:
+     *
+     *   **RELEASE**: the production environment
+     *   **PRE**: the staging environment
+     *   **TEST**: the test environment
+     *
      * @example RELEASE
      *
      * @var string

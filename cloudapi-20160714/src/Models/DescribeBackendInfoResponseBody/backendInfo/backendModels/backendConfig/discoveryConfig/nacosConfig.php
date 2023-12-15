@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nacosConfig extends Model
 {
     /**
+     * @description The AccessKey of the RAM user that has the resource management permissions on Microservices Engine (MSE).
+     *
      * @example A5FIDxxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class nacosConfig extends Model
     public $accessKey;
 
     /**
+     * @description The authentication method.
+     *
      * @example PASSWORD
      *
      * @var string
@@ -23,6 +27,8 @@ class nacosConfig extends Model
     public $authType;
 
     /**
+     * @description The name of the cluster to which the microservice belongs.
+     *
      * @example cluster1
      *
      * @var string
@@ -30,6 +36,8 @@ class nacosConfig extends Model
     public $clusters;
 
     /**
+     * @description The name of the group to which the microservice that is registered with Nacos belongs.
+     *
      * @example DEFAULT_GROUP
      *
      * @var string
@@ -37,6 +45,8 @@ class nacosConfig extends Model
     public $groupName;
 
     /**
+     * @description The ID of the namespace where the microservice that is registered with Nacos resides.
+     *
      * @example public
      *
      * @var string
@@ -44,6 +54,8 @@ class nacosConfig extends Model
     public $namespace;
 
     /**
+     * @description The password.
+     *
      * @example password
      *
      * @var string
@@ -51,6 +63,8 @@ class nacosConfig extends Model
     public $password;
 
     /**
+     * @description The SecretKey of the RAM user that has the resource management permissions on MSE.
+     *
      * @example dl5loxxxxxx
      *
      * @var string
@@ -58,6 +72,8 @@ class nacosConfig extends Model
     public $secretKey;
 
     /**
+     * @description The Nacos service address.
+     *
      * @example http://1xx.2xx.3xx.4xx:8848
      *
      * @var string
@@ -65,6 +81,8 @@ class nacosConfig extends Model
     public $serverAddress;
 
     /**
+     * @description The microservice name.
+     *
      * @example service-provider
      *
      * @var string
@@ -72,6 +90,8 @@ class nacosConfig extends Model
     public $serviceName;
 
     /**
+     * @description The username.
+     *
      * @example username
      *
      * @var string

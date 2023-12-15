@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessControlListAttributeResponseBody extends Model
 {
     /**
+     * @description The information about the access control policy.
+     *
      * @var aclEntrys
      */
     public $aclEntrys;
 
     /**
+     * @description The ID of the access control policy.
+     *
      * @example acl-uf6fpfdg3b5muska7uqem
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeAccessControlListAttributeResponseBody extends Model
     public $aclId;
 
     /**
+     * @description The name of the access control policy.
+     *
      * @example testAcl
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeAccessControlListAttributeResponseBody extends Model
     public $aclName;
 
     /**
+     * @description Indicates whether the policy was used.
+     *
      * @example true
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeAccessControlListAttributeResponseBody extends Model
     public $isUsed;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
      *
      * @var string

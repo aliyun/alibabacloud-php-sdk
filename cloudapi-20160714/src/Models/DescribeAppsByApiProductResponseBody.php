@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppsByApiProductResponseBody extends Model
 {
     /**
+     * @description The information about authorized applications.
+     *
      * @var authorizedApps
      */
     public $authorizedApps;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeAppsByApiProductResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeAppsByApiProductResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example AC866798-62D3-52F4-8AB5-CA149A53984F
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeAppsByApiProductResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 4
      *
      * @var int

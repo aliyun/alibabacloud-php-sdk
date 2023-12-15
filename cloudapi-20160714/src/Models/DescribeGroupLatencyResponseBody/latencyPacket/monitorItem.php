@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class monitorItem extends Model
 {
     /**
+     * @description The metric. Valid values:
+     *
+     *   latency: the backend processing latency
+     *   gatewayLatency: the API Gateway processing latency
+     *
      * @example latency
      *
      * @var string
@@ -16,6 +21,8 @@ class monitorItem extends Model
     public $item;
 
     /**
+     * @description The point in time when the latency data was collected. The format is YYYY-MM-DDThh:mm:ssZ.
+     *
      * @example 2023-03-30T16:10:00Z
      *
      * @var string
@@ -23,6 +30,8 @@ class monitorItem extends Model
     public $itemTime;
 
     /**
+     * @description The latency. Unit: ms.
+     *
      * @example 100.0
      *
      * @var string

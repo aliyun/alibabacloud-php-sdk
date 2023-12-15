@@ -18,7 +18,7 @@ class ossConfig extends Model
     public $bucketName;
 
     /**
-     * @description The region ID of the Object Storage Service (OSS) bucket.
+     * @description The region ID of the OSS bucket.
      *
      * @example cn-hangzhou
      *

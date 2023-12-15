@@ -18,7 +18,7 @@ class SetDomainCertificateRequest extends Model
     public $caCertificateBody;
 
     /**
-     * @description The content of the certificate.
+     * @description The certificate content.
      *
      * @example For more information, see the following request examples
      *

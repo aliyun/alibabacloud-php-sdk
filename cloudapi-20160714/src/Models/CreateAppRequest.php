@@ -55,6 +55,10 @@ class CreateAppRequest extends Model
     public $description;
 
     /**
+     * @description The extended information.
+     *
+     * @example 110210264071
+     *
      * @var string
      */
     public $extend;

@@ -11,16 +11,34 @@ use AlibabaCloud\Tea\Model;
 class DescribeImportOASTaskResponseBody extends Model
 {
     /**
+     * @description The execution status of the subtask. Valid values:
+     *
+     *   RUNNING
+     *   WAIT
+     *   OVER
+     *   FAIL
+     *   CANCEL
+     *
      * @var apiResults
      */
     public $apiResults;
 
     /**
+     * @description The execution status of the subtask. Valid values:
+     *
+     *   RUNNING
+     *   WAIT
+     *   OVER
+     *   FAIL
+     *   CANCEL
+     *
      * @var modelResults
      */
     public $modelResults;
 
     /**
+     * @description The request ID.
+     *
      * @example CE5722A6-AE78-4741-A9B0-6C817D360510
      *
      * @var string
@@ -28,6 +46,11 @@ class DescribeImportOASTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the import task. Valid values:
+     *
+     *   Running
+     *   Finished
+     *
      * @example Finished
      *
      * @var string

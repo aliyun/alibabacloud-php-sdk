@@ -292,7 +292,7 @@ class DescribeApiResponseBody extends Model
     public $resultType;
 
     /**
-     * @description The configuration items of API requests sent by API Gateway to the backend service.
+     * @description The configuration items of API requests that API Gateway sends to the backend service.
      *
      * @var serviceConfig
      */
@@ -332,12 +332,12 @@ class DescribeApiResponseBody extends Model
     public $visibility;
 
     /**
-     * @description The type of the two-way communication API. Valid values:
+     * @description The type of the two-way communication API.
      *
-     *   **COMMON**: general APIs
-     *   **REGISTER**: registered APIs
-     *   **UNREGISTER**: unregistered APIs
-     *   **NOTIFY**: downstream notification
+     *   **COMMON**: common API
+     *   **REGISTER**: registered API
+     *   **UNREGISTER**: unregistered API
+     *   **NOTIFY**: downstream notification API
      *
      * @example COMMON
      *

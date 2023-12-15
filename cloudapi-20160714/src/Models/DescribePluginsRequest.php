@@ -19,7 +19,7 @@ class DescribePluginsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     * @description The number of entries per page. Maximum value: 100. Default value: 10.
      *
      * @example 10
      *

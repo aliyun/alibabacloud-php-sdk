@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupTrafficRequest extends Model
 {
     /**
+     * @description The end time for the query. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ.
+     *
      * @example 2023-06-16T02:16:53Z
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeGroupTrafficRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the API group.
+     *
      * @example 16df9d11caa04900bcafe23b38a81600
      *
      * @var string
@@ -28,6 +32,12 @@ class DescribeGroupTrafficRequest extends Model
     public $securityToken;
 
     /**
+     * @description The environment to which the APIs in the API group are published. Valid values:
+     *
+     *   **RELEASE**: the production environment
+     *   **PRE**: the staging environment
+     *   **TEST**: the test environment
+     *
      * @example RELEASE
      *
      * @var string
@@ -35,6 +45,8 @@ class DescribeGroupTrafficRequest extends Model
     public $stageName;
 
     /**
+     * @description The start time for the query. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ.
+     *
      * @example 2023-01-29T01:27:43Z
      *
      * @var string

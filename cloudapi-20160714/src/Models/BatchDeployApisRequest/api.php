@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class api extends Model
 {
     /**
-     * @description The ID of the API.
+     * @description The API ID.
      *
      * @example 2b35dd68345b472f8051647306a16415
      *
@@ -18,7 +18,7 @@ class api extends Model
     public $apiUid;
 
     /**
-     * @description The ID of the API group.
+     * @description The API group ID.
      *
      * @example b4f5c342b8bc4ef88ccda0332402e0fa
      *

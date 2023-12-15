@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class backendModels extends Model
 {
     /**
-     * @description The backend configurations.
+     * @description The backend service configurations.
      *
      * @var backendConfig
      */
@@ -62,7 +62,7 @@ class backendModels extends Model
     public $stageModeId;
 
     /**
-     * @description The name of the environment.
+     * @description The environment name.
      *
      * @example RELEASE
      *

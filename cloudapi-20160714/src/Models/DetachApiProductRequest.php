@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DetachApiProductRequest extends Model
 {
     /**
+     * @description The ID of the API product.
+     *
      * @example 117b7a64a8b3f064eaa4a47ac62aac5e
      *
      * @var string
@@ -17,6 +19,8 @@ class DetachApiProductRequest extends Model
     public $apiProductId;
 
     /**
+     * @description The APIs that you want to detach from the API product.
+     *
      * @var apis[]
      */
     public $apis;

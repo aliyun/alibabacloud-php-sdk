@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisWithStageNameIntegratedByAppResponseBody extends Model
 {
     /**
+     * @description The authorization information of the API.
+     *
      * @var appApiRelationInfos
      */
     public $appApiRelationInfos;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class errorCodeSample extends Model
 {
     /**
-     * @description Error codes
+     * @description The returned error code.
      *
      * @example 400
      *
@@ -18,7 +18,7 @@ class errorCodeSample extends Model
     public $code;
 
     /**
-     * @description Description
+     * @description The error description.
      *
      * @example The UserId parameter is missing from the request.
      *
@@ -27,7 +27,7 @@ class errorCodeSample extends Model
     public $description;
 
     /**
-     * @description Error message
+     * @description The returned error message.
      *
      * @example Missing the parameter UserId
      *
@@ -36,7 +36,7 @@ class errorCodeSample extends Model
     public $message;
 
     /**
-     * @description Model
+     * @description The model.
      *
      * @example [\"*\"]
      *

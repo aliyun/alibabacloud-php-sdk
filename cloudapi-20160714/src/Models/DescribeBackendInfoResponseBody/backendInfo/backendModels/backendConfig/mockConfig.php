@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class mockConfig extends Model
 {
     /**
+     * @description The header returned for service mocking.
+     *
      * @var mockHeaders[]
      */
     public $mockHeaders;
 
     /**
+     * @description The result returned for service mocking.
+     *
      * @var string
      */
     public $mockResult;
 
     /**
+     * @description The status code that is returned for service mocking.
+     *
      * @var string
      */
     public $mockStatusCode;

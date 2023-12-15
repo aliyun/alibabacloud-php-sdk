@@ -96,7 +96,7 @@ class serviceConfig extends Model
     public $mockStatusCode;
 
     /**
-     * @description Information when the backend service is OSS
+     * @description The information returned when the backend service is Object Storage Service (OSS).
      *
      * @var ossConfig
      */

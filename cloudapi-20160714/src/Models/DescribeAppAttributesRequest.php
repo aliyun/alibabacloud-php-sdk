@@ -55,7 +55,7 @@ class DescribeAppAttributesRequest extends Model
     public $enableTagAuth;
 
     /**
-     * @description Extended Fields.
+     * @description The extended information.
      *
      * @example 110243810311
      *

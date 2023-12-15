@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupTrafficResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example EF924FE4-2EDD-4CD3-89EC-34E4708574E7
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeGroupTrafficResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The traffic information per second.
+     *
      * @var trafficPerSecond
      */
     public $trafficPerSecond;

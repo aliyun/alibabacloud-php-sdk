@@ -59,6 +59,8 @@ class ModifyApiRequest extends Model
     public $authType;
 
     /**
+     * @description Configuration Mode
+     *
      * @example true
      *
      * @var bool

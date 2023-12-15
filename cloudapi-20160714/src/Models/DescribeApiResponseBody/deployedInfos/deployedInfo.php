@@ -27,7 +27,7 @@ class deployedInfo extends Model
     public $effectiveVersion;
 
     /**
-     * @description The name of the runtime environment. Valid values: RELEASE and TEST.
+     * @description The environment to which the API is published. Valid values: RELEASE and TEST.
      *
      * @example RELEASE
      *

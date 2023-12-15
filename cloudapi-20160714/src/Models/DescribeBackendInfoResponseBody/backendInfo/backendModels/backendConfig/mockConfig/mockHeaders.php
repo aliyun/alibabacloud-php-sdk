@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class mockHeaders extends Model
 {
     /**
+     * @description The name of the header parameter.
+     *
      * @var string
      */
     public $headerName;
 
     /**
+     * @description The value of the header parameter.
+     *
      * @var string
      */
     public $headerValue;

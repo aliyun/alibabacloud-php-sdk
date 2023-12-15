@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ValidateVpcConnectivityResponseBody extends Model
 {
     /**
+     * @description Indicates whether the API Gateway instance is connected to the port. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example True
      *
      * @var bool
@@ -16,6 +21,12 @@ class ValidateVpcConnectivityResponseBody extends Model
     public $connected;
 
     /**
+     * @description Indicates whether the instance in the authorization is an ECS instance or an SLB instance when the instance ID in the authorization is an IP address. Valid values:
+     *
+     *   **ECS**
+     *   **SLB**
+     *   **INVALID**: The instance type corresponding to the IP address is invalid.
+     *
      * @example ECS
      *
      * @var string
@@ -23,6 +34,8 @@ class ValidateVpcConnectivityResponseBody extends Model
     public $ipType;
 
     /**
+     * @description The request ID.
+     *
      * @example 9A591B5B-0EC2-5463-B8B8-1984AE3AEBF1
      *
      * @var string

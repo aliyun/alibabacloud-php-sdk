@@ -19,7 +19,7 @@ class CreatePluginRequest extends Model
     public $description;
 
     /**
-     * @description The plug-in definition statement, which can be in JSON or YAML format.
+     * @description The plug-in definition. Supported formats: JSON and YAML.
      *
      * @example Plugin definition
      *

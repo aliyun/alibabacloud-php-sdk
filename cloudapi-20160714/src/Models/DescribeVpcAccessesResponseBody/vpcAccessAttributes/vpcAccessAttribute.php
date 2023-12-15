@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeVpcAccessesResponseBody\vpcAccessAttributes;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeVpcAccessesResponseBody\vpcAccessAttributes\vpcAccessAttribute\tags;
 use AlibabaCloud\Tea\Model;
 
 class vpcAccessAttribute extends Model
@@ -49,6 +50,11 @@ class vpcAccessAttribute extends Model
     public $regionId;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @example vpc-*****ssds24
      *
      * @var string
@@ -75,6 +81,7 @@ class vpcAccessAttribute extends Model
         'name'              => 'Name',
         'port'              => 'Port',
         'regionId'          => 'RegionId',
+        'tags'              => 'Tags',
         'vpcAccessId'       => 'VpcAccessId',
         'vpcId'             => 'VpcId',
         'vpcTargetHostName' => 'VpcTargetHostName',
@@ -104,6 +111,9 @@ class vpcAccessAttribute extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->vpcAccessId) {
             $res['VpcAccessId'] = $this->vpcAccessId;
@@ -143,6 +153,9 @@ class vpcAccessAttribute extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['VpcAccessId'])) {
             $model->vpcAccessId = $map['VpcAccessId'];

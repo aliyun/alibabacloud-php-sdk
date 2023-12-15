@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateBackendRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateBackendRequest extends Model
@@ -30,6 +31,11 @@ class CreateBackendRequest extends Model
     public $createEventBridgeServiceLinkedRole;
 
     /**
+     * @var bool
+     */
+    public $createSlr;
+
+    /**
      * @var string
      */
     public $description;
@@ -38,12 +44,19 @@ class CreateBackendRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'backendName'                        => 'BackendName',
         'backendType'                        => 'BackendType',
         'createEventBridgeServiceLinkedRole' => 'CreateEventBridgeServiceLinkedRole',
+        'createSlr'                          => 'CreateSlr',
         'description'                        => 'Description',
         'securityToken'                      => 'SecurityToken',
+        'tag'                                => 'Tag',
     ];
 
     public function validate()
@@ -62,11 +75,23 @@ class CreateBackendRequest extends Model
         if (null !== $this->createEventBridgeServiceLinkedRole) {
             $res['CreateEventBridgeServiceLinkedRole'] = $this->createEventBridgeServiceLinkedRole;
         }
+        if (null !== $this->createSlr) {
+            $res['CreateSlr'] = $this->createSlr;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -89,11 +114,23 @@ class CreateBackendRequest extends Model
         if (isset($map['CreateEventBridgeServiceLinkedRole'])) {
             $model->createEventBridgeServiceLinkedRole = $map['CreateEventBridgeServiceLinkedRole'];
         }
+        if (isset($map['CreateSlr'])) {
+            $model->createSlr = $map['CreateSlr'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

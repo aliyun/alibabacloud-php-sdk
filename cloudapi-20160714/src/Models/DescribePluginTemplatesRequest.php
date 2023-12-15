@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribePluginTemplatesRequest extends Model
 {
     /**
+     * @description The language that is used to return the description of the system policy. Valid values:
+     *
+     *   en: English
+     *   zh-CN: Chinese.
+     *   ja: Japanese
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +22,8 @@ class DescribePluginTemplatesRequest extends Model
     public $language;
 
     /**
+     * @description The name of the plug-in.
+     *
      * @example jwtAuth
      *
      * @var string

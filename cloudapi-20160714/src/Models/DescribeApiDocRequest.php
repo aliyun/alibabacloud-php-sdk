@@ -32,10 +32,10 @@ class DescribeApiDocRequest extends Model
     public $securityToken;
 
     /**
-     * @description The name of the runtime environment. Valid values:
+     * @description The environment to which the API is published. Valid values:
      *
      *   **RELEASE**
-     *   **TEST.**
+     *   **TEST**
      *
      * If this parameter is not specified, the default value is used, which is RELEASE.
      * @example RELEASE

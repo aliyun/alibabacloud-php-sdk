@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apiInfo extends Model
 {
     /**
+     * @description The API ID.
+     *
      * @example dd46297680014a7e8e318308f3345951
      *
      * @var string
@@ -16,6 +18,8 @@ class apiInfo extends Model
     public $apiId;
 
     /**
+     * @description The API name.
+     *
      * @example testApi
      *
      * @var string
@@ -23,6 +27,8 @@ class apiInfo extends Model
     public $apiName;
 
     /**
+     * @description The API description.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +36,8 @@ class apiInfo extends Model
     public $description;
 
     /**
+     * @description The ID of the API group.
+     *
      * @example 1e377f18142345dfb700cd8911c2463a
      *
      * @var string
@@ -37,6 +45,8 @@ class apiInfo extends Model
     public $groupId;
 
     /**
+     * @description The name of the API group to which the API belongs.
+     *
      * @example testApiGroup
      *
      * @var string
@@ -44,6 +54,8 @@ class apiInfo extends Model
     public $groupName;
 
     /**
+     * @description The request method of the API.
+     *
      * @example POST
      *
      * @var string
@@ -51,6 +63,8 @@ class apiInfo extends Model
     public $method;
 
     /**
+     * @description The request path of the API.
+     *
      * @example /test
      *
      * @var string
@@ -58,6 +72,8 @@ class apiInfo extends Model
     public $path;
 
     /**
+     * @description The ID of the region where the API is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +81,12 @@ class apiInfo extends Model
     public $regionId;
 
     /**
+     * @description The environment to which the API is published. Valid values:
+     *
+     *   **RELEASE**: the production environment
+     *   **PRE**: the staging environment
+     *   **TEST**: the test environment
+     *
      * @example RELEASE
      *
      * @var string

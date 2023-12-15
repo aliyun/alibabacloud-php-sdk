@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeModelsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeModelsRequest extends Model
@@ -52,12 +53,18 @@ class DescribeModelsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'groupId'    => 'GroupId',
         'modelId'    => 'ModelId',
         'modelName'  => 'ModelName',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'tag'        => 'Tag',
     ];
 
     public function validate()
@@ -81,6 +88,15 @@ class DescribeModelsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -108,6 +124,15 @@ class DescribeModelsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

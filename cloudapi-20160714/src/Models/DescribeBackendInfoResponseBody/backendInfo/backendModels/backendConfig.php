@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels;
 
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\discoveryConfig;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\edasConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\eventBridgeConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\functionComputeConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\mockConfig;
@@ -15,19 +16,26 @@ use AlibabaCloud\Tea\Model;
 class backendConfig extends Model
 {
     /**
+     * @description The information about the backend service whose type is Service Discovery.
+     *
      * @var discoveryConfig
      */
     public $discoveryConfig;
 
     /**
-     * @description The information about the backend service that is EventBridge.
+     * @var edasConfig
+     */
+    public $edasConfig;
+
+    /**
+     * @description The information about the backend service whose type is EventBridge.
      *
      * @var eventBridgeConfig
      */
     public $eventBridgeConfig;
 
     /**
-     * @description The information about the backend service whose type is FC_EVENT or FC_HTTP.
+     * @description The information about the backend service whose type is Function Compute.
      *
      * @var functionComputeConfig
      */
@@ -43,12 +51,14 @@ class backendConfig extends Model
     public $httpTargetHostName;
 
     /**
+     * @description The information about the backend service whose type is Mock.
+     *
      * @var mockConfig
      */
     public $mockConfig;
 
     /**
-     * @description The information about the backend service whose type is OSS.
+     * @description The information about the backend service whose type is Object Storage Service (OSS).
      *
      * @var ossConfig
      */
@@ -85,6 +95,7 @@ class backendConfig extends Model
     public $vpcConfig;
     protected $_name = [
         'discoveryConfig'       => 'DiscoveryConfig',
+        'edasConfig'            => 'EdasConfig',
         'eventBridgeConfig'     => 'EventBridgeConfig',
         'functionComputeConfig' => 'FunctionComputeConfig',
         'httpTargetHostName'    => 'HttpTargetHostName',
@@ -105,6 +116,9 @@ class backendConfig extends Model
         $res = [];
         if (null !== $this->discoveryConfig) {
             $res['DiscoveryConfig'] = null !== $this->discoveryConfig ? $this->discoveryConfig->toMap() : null;
+        }
+        if (null !== $this->edasConfig) {
+            $res['EdasConfig'] = null !== $this->edasConfig ? $this->edasConfig->toMap() : null;
         }
         if (null !== $this->eventBridgeConfig) {
             $res['EventBridgeConfig'] = null !== $this->eventBridgeConfig ? $this->eventBridgeConfig->toMap() : null;
@@ -147,6 +161,9 @@ class backendConfig extends Model
         $model = new self();
         if (isset($map['DiscoveryConfig'])) {
             $model->discoveryConfig = discoveryConfig::fromMap($map['DiscoveryConfig']);
+        }
+        if (isset($map['EdasConfig'])) {
+            $model->edasConfig = edasConfig::fromMap($map['EdasConfig']);
         }
         if (isset($map['EventBridgeConfig'])) {
             $model->eventBridgeConfig = eventBridgeConfig::fromMap($map['EventBridgeConfig']);

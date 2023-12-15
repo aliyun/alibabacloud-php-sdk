@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AttachApiProductRequest extends Model
 {
     /**
+     * @description The ID of the API product.
+     *
      * @example 117b7a64a8b3f064eaa4a47ac62aac5e
      *
      * @var string
@@ -17,6 +19,8 @@ class AttachApiProductRequest extends Model
     public $apiProductId;
 
     /**
+     * @description The APIs to be attached.
+     *
      * @var apis[]
      */
     public $apis;

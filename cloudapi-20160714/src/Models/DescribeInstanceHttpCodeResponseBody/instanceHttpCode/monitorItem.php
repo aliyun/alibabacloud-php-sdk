@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class monitorItem extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 404
      *
@@ -18,7 +18,7 @@ class monitorItem extends Model
     public $itemTime;
 
     /**
-     * @description The number of HTTP status codes returned.
+     * @description The corresponding value.
      *
      * @example 1
      *

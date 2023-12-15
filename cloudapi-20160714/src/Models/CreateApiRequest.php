@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateApiRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateApiRequest extends Model
@@ -212,6 +213,11 @@ class CreateApiRequest extends Model
     public $systemParameters;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description Specifies whether to make the API public. Valid values:
      *
      *   **PUBLIC**: Make the API public. If you set this parameter to PUBLIC, this API is displayed on the APIs page for all users after the API is published to the production environment.
@@ -257,6 +263,7 @@ class CreateApiRequest extends Model
         'serviceParameters'    => 'ServiceParameters',
         'serviceParametersMap' => 'ServiceParametersMap',
         'systemParameters'     => 'SystemParameters',
+        'tag'                  => 'Tag',
         'visibility'           => 'Visibility',
         'webSocketApiType'     => 'WebSocketApiType',
     ];
@@ -342,6 +349,15 @@ class CreateApiRequest extends Model
         }
         if (null !== $this->systemParameters) {
             $res['SystemParameters'] = $this->systemParameters;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->visibility) {
             $res['Visibility'] = $this->visibility;
@@ -435,6 +451,15 @@ class CreateApiRequest extends Model
         }
         if (isset($map['SystemParameters'])) {
             $model->systemParameters = $map['SystemParameters'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Visibility'])) {
             $model->visibility = $map['Visibility'];

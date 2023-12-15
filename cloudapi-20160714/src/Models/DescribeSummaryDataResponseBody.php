@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSummaryDataResponseBody extends Model
 {
     /**
+     * @description The number of subscription dedicated instances that expire in 14 days or less.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeSummaryDataResponseBody extends Model
     public $expireInstanceNum;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeSummaryDataResponseBody extends Model
     public $region;
 
     /**
+     * @description The request ID.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeSummaryDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of APIs.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeSummaryDataResponseBody extends Model
     public $usageApiNum;
 
     /**
+     * @description The number of API groups.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class DescribeSummaryDataResponseBody extends Model
     public $usageGroupNum;
 
     /**
+     * @description The number of running dedicated instances.
+     *
      * @example 1
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class stageInfo extends Model
 {
     /**
-     * @description The description of the runtime environment.
+     * @description The environment description.
      *
      * @example MYTEST
      *
@@ -18,7 +18,7 @@ class stageInfo extends Model
     public $description;
 
     /**
-     * @description The ID of the runtime environment.
+     * @description The environment ID.
      *
      * @example 123e8dc7bbe01613b5b1d726c2a7888e
      *
@@ -27,7 +27,7 @@ class stageInfo extends Model
     public $stageId;
 
     /**
-     * @description The name of the runtime environment.
+     * @description The environment name.
      *
      * @example TEST
      *

@@ -18,7 +18,7 @@ class vpcConfig extends Model
     public $instanceId;
 
     /**
-     * @description The name of the VPC Configuration.
+     * @description The name of the VPC configuration.
      *
      * @example dypls-cn-beijing-slb-pre
      *
@@ -54,7 +54,7 @@ class vpcConfig extends Model
     public $vpcId;
 
     /**
-     * @description http/https
+     * @description Indicates whether HTTP or HTTPS is used.
      *
      * @example http
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupLatencyRequest extends Model
 {
     /**
+     * @description The end time of the time range to query. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ.
+     *
      * @example 2023-04-14T06:26:14Z
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeGroupLatencyRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the API group.
+     *
      * @example d825094fdd114a869f5adb443d9b7ead
      *
      * @var string
@@ -28,6 +32,12 @@ class DescribeGroupLatencyRequest extends Model
     public $securityToken;
 
     /**
+     * @description The environment in which you want to perform the query. Valid values:
+     *
+     *   **RELEASE**: the production environment
+     *   **PRE**: the staging environment
+     *   **TEST**: the test environment
+     *
      * @example RELEASE
      *
      * @var string
@@ -35,6 +45,8 @@ class DescribeGroupLatencyRequest extends Model
     public $stageName;
 
     /**
+     * @description The start time of the time range to query. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ.
+     *
      * @example 2023-03-30T16:00:00Z
      *
      * @var string

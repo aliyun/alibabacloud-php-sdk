@@ -93,6 +93,8 @@ class DescribeApiGroupResponseBody extends Model
     public $customerConfigs;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $dedicatedInstanceType;
@@ -116,6 +118,13 @@ class DescribeApiGroupResponseBody extends Model
     public $description;
 
     /**
+     * @description Indicates whether access over the public second-level domain name is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $disableInnerDomain;
@@ -191,11 +200,15 @@ class DescribeApiGroupResponseBody extends Model
     public $ipv6Status;
 
     /**
+     * @example The current instance conflicts with the target instance.
+     *
      * @var string
      */
     public $migrationError;
 
     /**
+     * @example Fail
+     *
      * @var string
      */
     public $migrationStatus;
@@ -293,6 +306,8 @@ class DescribeApiGroupResponseBody extends Model
 
     /**
      * @description The VPC SLB domain name.
+     *
+     * @example 257e9d450e924d00b976b0ecfb7184c2-cn-beijing-intranet.alicloudapi.com
      *
      * @var string
      */

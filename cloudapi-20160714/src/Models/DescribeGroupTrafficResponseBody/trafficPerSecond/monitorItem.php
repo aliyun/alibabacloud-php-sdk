@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class monitorItem extends Model
 {
     /**
+     * @description The metric. Valid values:
+     *
+     *   inbound: traffic consumed by requests
+     *   outbound: traffic consumed by responses
+     *
      * @example inbound
      *
      * @var string
@@ -16,6 +21,8 @@ class monitorItem extends Model
     public $item;
 
     /**
+     * @description The corresponding time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ.
+     *
      * @example 2023-01-29T01:30:00Z
      *
      * @var string
@@ -23,6 +30,8 @@ class monitorItem extends Model
     public $itemTime;
 
     /**
+     * @description The traffic volume per second.
+     *
      * @example 100.0
      *
      * @var string

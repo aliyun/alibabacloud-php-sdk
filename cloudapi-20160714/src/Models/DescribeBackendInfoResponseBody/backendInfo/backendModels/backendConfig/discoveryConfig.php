@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class discoveryConfig extends Model
 {
     /**
+     * @description The Nacos configurations.
+     *
      * @var nacosConfig
      */
     public $nacosConfig;
 
     /**
+     * @description The registry type.
+     *
      * @example NACOS
      *
      * @var string

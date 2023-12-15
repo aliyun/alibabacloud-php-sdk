@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class BatchDeployApisRequest extends Model
 {
     /**
-     * @description The APIs that you want to operate.
+     * @description The APIs that you want to publish.
      *
      * @var api[]
      */

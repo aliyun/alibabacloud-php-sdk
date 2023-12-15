@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class domainItem extends Model
 {
     /**
-     * @description The name of the bound runtime environment.
+     * @description The environment in which the associated API group runs.
      *
      * @example TEST
      *
@@ -27,7 +27,7 @@ class domainItem extends Model
     public $certificateId;
 
     /**
-     * @description The name of the SSL certificate.
+     * @description The SSL certificate name.
      *
      * @example myCertificate
      *
@@ -36,11 +36,19 @@ class domainItem extends Model
     public $certificateName;
 
     /**
+     * @description The time when the certificate expires.
+     *
+     * @example 2635123476000
+     *
      * @var int
      */
     public $certificateValidEnd;
 
     /**
+     * @description The time when the certificate takes effect.
+     *
+     * @example 1689043476000
+     *
      * @var int
      */
     public $certificateValidStart;
@@ -69,8 +77,8 @@ class domainItem extends Model
     /**
      * @description The domain name resolution status. Valid values:
      *
-     *   **RESOLVED**: The domain name has been resolved.
-     *   **UNRESOLVED**: The domain name has not been resolved.
+     *   **RESOLVED**
+     *   **UNRESOLVED**
      *
      * @example RESOLVED
      *
@@ -100,7 +108,7 @@ class domainItem extends Model
     public $domainName;
 
     /**
-     * @description The domain name-related remarks, such as the cause for a domain name exception.
+     * @description Remarks about the domain name, such as the cause of an exception.
      *
      * @example Indicates that the domain name does not have an ICP filing.
      *
@@ -118,7 +126,7 @@ class domainItem extends Model
     public $domainWebSocketStatus;
 
     /**
-     * @description Indicates whether to redirect HTTP requests to HTTPS.
+     * @description Indicates whether to redirect HTTP requests as HTTPS requests.
      *
      * @example false
      *

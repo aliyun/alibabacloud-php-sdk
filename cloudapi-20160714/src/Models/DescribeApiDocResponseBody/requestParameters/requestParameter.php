@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestParameter extends Model
 {
     /**
-     * @description The name of the API parameter.
+     * @description The name of the parameter in the API request.
      *
      * @example Length
      *
@@ -27,7 +27,7 @@ class requestParameter extends Model
     public $arrayItemsType;
 
     /**
-     * @description Default value
+     * @description The default value.
      *
      * @example 20
      *
@@ -36,7 +36,7 @@ class requestParameter extends Model
     public $defaultValue;
 
     /**
-     * @description Example
+     * @description The example value.
      *
      * @example 20
      *
@@ -45,7 +45,7 @@ class requestParameter extends Model
     public $demoValue;
 
     /**
-     * @description Description
+     * @description The description.
      *
      * @example Parameters
      *
@@ -54,7 +54,7 @@ class requestParameter extends Model
     public $description;
 
     /**
-     * @description The order in the document.
+     * @description The order in which the parameter is sorted in the document.
      *
      * @example 0
      *
@@ -63,7 +63,7 @@ class requestParameter extends Model
     public $docOrder;
 
     /**
-     * @description Specifies whether the document is public. Valid values: PUBLIC and PRIVATE.
+     * @description Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
      *
      * @example PUBLIC
      *
@@ -72,7 +72,7 @@ class requestParameter extends Model
     public $docShow;
 
     /**
-     * @description The hash values that can be entered when ParameterType is set to Int, Long, Float, Double, or String. Separate different values with commas (,), such as 1,2,3,4,9 or A,B,C,E,F.
+     * @description The hash values that can be specified if the **ParameterType** parameter is set to Int, Long, Float, Double, or String. Separate multiple hash values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
      *
      * @example boy,girl
      *
@@ -135,7 +135,7 @@ class requestParameter extends Model
     public $minValue;
 
     /**
-     * @description The type of the parameter.
+     * @description The data type of the parameter.
      *
      * @example String
      *
@@ -144,7 +144,7 @@ class requestParameter extends Model
     public $parameterType;
 
     /**
-     * @description The regular expression used for parameter validation when ParameterType is set to String.
+     * @description The regular expression that is used to validate the parameter if the **ParameterType** parameter is set to String.
      *
      * @example xxx
      *
@@ -153,7 +153,7 @@ class requestParameter extends Model
     public $regularExpression;
 
     /**
-     * @description Required
+     * @description Indicates whether the parameter is required.
      *
      * @example OPTIONAL
      *

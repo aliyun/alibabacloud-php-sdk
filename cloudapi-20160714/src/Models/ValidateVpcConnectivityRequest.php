@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ValidateVpcConnectivityRequest extends Model
 {
     /**
+     * @description The ID of the API Gateway instance.
+     *
      * @example apigateway-hz-72bc18******
      *
      * @var string
@@ -21,6 +23,8 @@ class ValidateVpcConnectivityRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the VPC access authorization.
+     *
      * @example 5f1b3216f9********e2c1297b6741dc
      *
      * @var string

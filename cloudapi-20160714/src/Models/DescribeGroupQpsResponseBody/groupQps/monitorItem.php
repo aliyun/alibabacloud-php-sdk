@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class monitorItem extends Model
 {
     /**
-     * @description The time.
+     * @description The point in time.
      *
      * @example 2023-08-02T09:15:00Z
      *
@@ -18,7 +18,7 @@ class monitorItem extends Model
     public $itemTime;
 
     /**
-     * @description The number of requests that fall into the time range.
+     * @description The number of requests at the specified point in time.
      *
      * @example 17
      *

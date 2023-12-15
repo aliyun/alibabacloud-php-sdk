@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDatasetListResponseBody;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDatasetListResponseBody\datasetInfoList\tags;
 use AlibabaCloud\Tea\Model;
 
 class datasetInfoList extends Model
@@ -42,12 +43,18 @@ class datasetInfoList extends Model
      * @var string
      */
     public $modifiedTime;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'createdTime'  => 'CreatedTime',
         'datasetId'    => 'DatasetId',
         'datasetName'  => 'DatasetName',
         'datasetType'  => 'DatasetType',
         'modifiedTime' => 'ModifiedTime',
+        'tags'         => 'Tags',
     ];
 
     public function validate()
@@ -71,6 +78,15 @@ class datasetInfoList extends Model
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -98,6 +114,15 @@ class datasetInfoList extends Model
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

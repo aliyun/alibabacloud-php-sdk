@@ -288,6 +288,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiConfigurationRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiConfigurationResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupInstanceRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupInstanceResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupNetworkPolicyRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupNetworkPolicyResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupRequest;
@@ -1002,8 +1004,8 @@ class CloudAPI extends OpenApiClient
 
     /**
      * *   This operation is intended for API providers.
-     *   * *   The name of each API within the same group must be unique.
-     *   * *   Each request path within the same group must be unique.
+     *   * *   The name of an API must be unique within an API group.
+     *   * *   A request path must be unique within an API group.
      *   * *   The QPS limit on this operation is 50 per user.
      *   *
      * @param CreateApiRequest $request CreateApiRequest
@@ -1063,6 +1065,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->serviceConfig)) {
             $query['ServiceConfig'] = $request->serviceConfig;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->visibility)) {
             $query['Visibility'] = $request->visibility;
         }
@@ -1118,8 +1123,8 @@ class CloudAPI extends OpenApiClient
 
     /**
      * *   This operation is intended for API providers.
-     *   * *   The name of each API within the same group must be unique.
-     *   * *   Each request path within the same group must be unique.
+     *   * *   The name of an API must be unique within an API group.
+     *   * *   A request path must be unique within an API group.
      *   * *   The QPS limit on this operation is 50 per user.
      *   *
      * @param CreateApiRequest $request CreateApiRequest
@@ -1353,11 +1358,17 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->createEventBridgeServiceLinkedRole)) {
             $query['CreateEventBridgeServiceLinkedRole'] = $request->createEventBridgeServiceLinkedRole;
         }
+        if (!Utils::isUnset($request->createSlr)) {
+            $query['CreateSlr'] = $request->createSlr;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1465,6 +1476,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1820,6 +1834,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->schema)) {
             $query['Schema'] = $request->schema;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5357,6 +5374,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5562,6 +5582,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5691,7 +5714,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
+     * *   This operation is intended for API callers.
      *   *
      * @param DescribeDeployedApisRequest $request DescribeDeployedApisRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -5754,7 +5777,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
+     * *   This operation is intended for API callers.
      *   *
      * @param DescribeDeployedApisRequest $request DescribeDeployedApisRequest
      *
@@ -6886,6 +6909,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7886,6 +7912,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->vpcAccessId)) {
             $query['VpcAccessId'] = $request->vpcAccessId;
         }
@@ -8832,6 +8861,61 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyApiGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyApiGroupInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyApiGroupInstanceResponse
+     */
+    public function modifyApiGroupInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $query['TargetInstanceId'] = $request->targetInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApiGroupInstance',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApiGroupInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyApiGroupInstanceRequest $request
+     *
+     * @return ModifyApiGroupInstanceResponse
+     */
+    public function modifyApiGroupInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApiGroupInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -11555,6 +11639,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;

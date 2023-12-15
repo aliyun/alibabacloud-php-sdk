@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiProductApisResponseBody extends Model
 {
     /**
+     * @description The information about the returned APIs.
+     *
      * @var apiInfoList
      */
     public $apiInfoList;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeApiProductApisResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeApiProductApisResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 03442A3D-3B7D-434C-8A95-A5FEB989B519
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeApiProductApisResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 4
      *
      * @var int

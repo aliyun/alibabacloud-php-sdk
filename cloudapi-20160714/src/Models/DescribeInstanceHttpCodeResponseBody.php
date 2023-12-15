@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceHttpCodeResponseBody extends Model
 {
     /**
-     * @description The list of HTTP status codes returned.
+     * @description The HTTP status codes.
      *
      * @var instanceHttpCode
      */

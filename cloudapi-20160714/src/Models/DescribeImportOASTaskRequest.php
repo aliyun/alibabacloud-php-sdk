@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImportOASTaskRequest extends Model
 {
     /**
+     * @description The ID of the asynchronous API import task that was generated during the import operation. This ID is used to query the execution status of the API import task.
+     *
      * @example 4c53ccf1d40c489686d1adf5c2644a7f
      *
      * @var string

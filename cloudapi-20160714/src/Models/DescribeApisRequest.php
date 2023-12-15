@@ -96,10 +96,10 @@ class DescribeApisRequest extends Model
     public $securityToken;
 
     /**
-     * @description The environment in which the API is requested. Valid values:
+     * @description The environment in which you want to perform this operation. Valid values:
      *
      *   **RELEASE**: the production environment
-     *   **PRE**: the pre-release environment
+     *   **PRE**: the staging environment
      *   **TEST**: the test environment
      *
      * @example RELEASE

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestParameter extends Model
 {
     /**
-     * @description The name of the parameter.
+     * @description The parameter name.
      *
      * @example age
      *
@@ -36,7 +36,7 @@ class requestParameter extends Model
     public $defaultValue;
 
     /**
-     * @description Examples
+     * @description The example value.
      *
      * @example 20
      *
@@ -45,7 +45,7 @@ class requestParameter extends Model
     public $demoValue;
 
     /**
-     * @description Description
+     * @description The parameter description.
      *
      * @example Age
      *
@@ -54,7 +54,7 @@ class requestParameter extends Model
     public $description;
 
     /**
-     * @description The order in the document.
+     * @description The order in which the parameter is sorted in the document.
      *
      * @example 0
      *
@@ -72,7 +72,7 @@ class requestParameter extends Model
     public $docShow;
 
     /**
-     * @description The hash values that can be entered when **ParameterType** is set to Int, Long, Float, Double, or String. Separate different values with commas (,), such as 1,2,3,4,9 or A,B,C,E,F.
+     * @description The hash values that can be specified if the **ParameterType** parameter is set to Int, Long, Float, Double, or String. Separate multiple hash values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
      *
      * @example boy,girl
      *
@@ -99,7 +99,7 @@ class requestParameter extends Model
     public $location;
 
     /**
-     * @description The maximum parameter length when **ParameterType** is set to String.
+     * @description The maximum length of the parameter value if the **ParameterType** parameter is set to String.
      *
      * @example 123456
      *
@@ -108,7 +108,7 @@ class requestParameter extends Model
     public $maxLength;
 
     /**
-     * @description The maximum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
+     * @description The maximum value of the parameter if the **ParameterType** parameter is set to Int, Long, Float, or Double.
      *
      * @example 123456
      *
@@ -117,7 +117,7 @@ class requestParameter extends Model
     public $maxValue;
 
     /**
-     * @description The minimum parameter length when **ParameterType** is set to String.
+     * @description The minimum length of the parameter value if the **ParameterType** parameter is set to String.
      *
      * @example 123456
      *
@@ -126,7 +126,7 @@ class requestParameter extends Model
     public $minLength;
 
     /**
-     * @description The minimum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
+     * @description The minimum value of the parameter if the **ParameterType** parameter is set to Int, Long, Float, or Double.
      *
      * @example 123456
      *
@@ -135,7 +135,7 @@ class requestParameter extends Model
     public $minValue;
 
     /**
-     * @description The type of a request parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
+     * @description The data type of the parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
      *
      * @example String
      *
@@ -144,7 +144,7 @@ class requestParameter extends Model
     public $parameterType;
 
     /**
-     * @description The regular expression used for parameter validation when **ParameterType** is set to String.
+     * @description The regular expression that is used to validate the parameter if the **ParameterType** parameter is set to String.
      *
      * @example xxx
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatasetItemRequest extends Model
 {
     /**
+     * @description The ID of the dataset.
+     *
      * @example a25a6589b2584ff490e891cc********
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyDatasetItemRequest extends Model
     public $datasetId;
 
     /**
+     * @description The ID of the data entry.
+     *
      * @example 5045****
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyDatasetItemRequest extends Model
     public $datasetItemId;
 
     /**
+     * @description The description of the data entry. The description cannot exceed 180 characters in length.
+     *
      * @example description
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyDatasetItemRequest extends Model
     public $description;
 
     /**
+     * @description The time in UTC when the data entry expires. The time is in the **yyyy-MM-ddTHH:mm:ssZ** format.
+     *
      * @example 2022-09-22T12:00:00Z
      *
      * @var string

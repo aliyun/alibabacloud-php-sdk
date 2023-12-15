@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestLog extends Model
 {
     /**
-     * @description The ID of the API.
+     * @description The API ID.
      *
      * @example 4b83229ebcab4ecd88956fb3********
      *
@@ -18,7 +18,7 @@ class requestLog extends Model
     public $apiId;
 
     /**
-     * @description The name of the API
+     * @description The API name.
      *
      * @example ApiName
      *
@@ -27,26 +27,38 @@ class requestLog extends Model
     public $apiName;
 
     /**
+     * @description The application name.
+     *
+     * @example VIPROOM_VIPROOM
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The time when API Gateway finished forwarding the request to the backend service.
+     *
      * @var int
      */
     public $backendRequestEnd;
 
     /**
+     * @description The time when API Gateway started to forward the request to the backend service.
+     *
      * @var int
      */
     public $backendRequestStart;
 
     /**
+     * @description The time when API Gateway finished receiving the response from the backend service.
+     *
      * @var int
      */
     public $backendResponseEnd;
 
     /**
+     * @description The time when API Gateway started to receive the response from the backend service.
+     *
      * @var int
      */
     public $backendResponseStart;
@@ -70,7 +82,7 @@ class requestLog extends Model
     public $clientNonce;
 
     /**
-     * @description The ID of the application from which an API request is sent.
+     * @description The application ID that is used by the caller.
      *
      * @example 11096****
      *
@@ -79,7 +91,7 @@ class requestLog extends Model
     public $consumerAppId;
 
     /**
-     * @description The application key used by the caller.
+     * @description The App Key that is used by the caller.
      *
      * @example 20412****
      *
@@ -88,7 +100,7 @@ class requestLog extends Model
     public $consumerAppKey;
 
     /**
-     * @description The ID of the custom trace.
+     * @description The custom trace ID.
      *
      * @example 95657ED9-2F6F-426F-BD99-79C8********
      *
@@ -97,7 +109,7 @@ class requestLog extends Model
     public $customTraceId;
 
     /**
-     * @description The domain name of the request.
+     * @description The requested domain name in the request.
      *
      * @example 360bdd88695c48ae8085c7f2********-ap-southeast-1.alicloudapi.com
      *
@@ -106,7 +118,7 @@ class requestLog extends Model
     public $domain;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code that is returned.
      *
      * @example X500ER
      *
@@ -115,7 +127,7 @@ class requestLog extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The error message returned if the call fails.
      *
      * @example Backend service connect failed `Timeout connecting to [/1XX.20.0.XX:8080]`
      *
@@ -133,21 +145,29 @@ class requestLog extends Model
     public $exception;
 
     /**
+     * @description The time when API Gateway finished receiving the request.
+     *
      * @var int
      */
     public $frontRequestEnd;
 
     /**
+     * @description The time when API Gateway started to receive the request.
+     *
      * @var int
      */
     public $frontRequestStart;
 
     /**
+     * @description The time when API Gateway finished forwarding the response to the client.
+     *
      * @var int
      */
     public $frontResponseEnd;
 
     /**
+     * @description The time when API Gateway started to forward the response to the client.
+     *
      * @var int
      */
     public $frontResponseStart;
@@ -171,7 +191,7 @@ class requestLog extends Model
     public $groupName;
 
     /**
-     * @description The HTTP method used to send the request.
+     * @description The HTTP method that is used to send the request.
      *
      * @example POST
      *
@@ -216,7 +236,7 @@ class requestLog extends Model
     public $jwtClaims;
 
     /**
-     * @description The ID of the region.
+     * @description The region in which the instance resides.
      *
      * @example cn-hangzhou
      *
@@ -243,7 +263,7 @@ class requestLog extends Model
     public $requestHeaders;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 95657ED9-2F6F-426F-BD99-79C8********
      *
@@ -315,7 +335,7 @@ class requestLog extends Model
     public $responseSize;
 
     /**
-     * @description The total time consumed to access backend resources. The total time includes the time consumed to request a connection to the resources, the time consumed to establish the connection, and the time consumed to call the backend service. Unit: milliseconds.
+     * @description The total time consumed to access the backend resources. The total time includes the time consumed to request a connection to the resources, the time consumed to establish the connection, and the time consumed to call the backend service. Unit: milliseconds.
      *
      * @example 324
      *
@@ -342,7 +362,7 @@ class requestLog extends Model
     public $stageName;
 
     /**
-     * @description The HTTP status code.
+     * @description The status code returned.
      *
      * @example 200
      *
@@ -360,7 +380,7 @@ class requestLog extends Model
     public $totalLatency;
 
     /**
-     * @description The list of plug-ins hit by the request and the relevant context.
+     * @description The plug-in hit by the request and the relevant context.
      *
      * @example []
      *

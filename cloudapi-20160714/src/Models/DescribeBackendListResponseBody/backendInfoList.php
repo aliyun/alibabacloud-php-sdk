@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendListResponseBody;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendListResponseBody\backendInfoList\tags;
 use AlibabaCloud\Tea\Model;
 
 class backendInfoList extends Model
 {
     /**
+     * @description The ID of the backend service.
+     *
      * @example 35bd31d32c9c425ebbe9330db9f8c375
      *
      * @var string
@@ -16,6 +19,8 @@ class backendInfoList extends Model
     public $backendId;
 
     /**
+     * @description The name of the backend service.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +28,8 @@ class backendInfoList extends Model
     public $backendName;
 
     /**
+     * @description The type of the backend service.
+     *
      * @example HTTP
      *
      * @var string
@@ -30,6 +37,8 @@ class backendInfoList extends Model
     public $backendType;
 
     /**
+     * @description The time when the backend service was created.
+     *
      * @example 2022-01-25T11:22:29Z
      *
      * @var string
@@ -37,6 +46,8 @@ class backendInfoList extends Model
     public $createdTime;
 
     /**
+     * @description The description of the backend service.
+     *
      * @example test
      *
      * @var string
@@ -44,11 +55,18 @@ class backendInfoList extends Model
     public $description;
 
     /**
+     * @description The time when the backend service was modified.
+     *
      * @example 2022-01-25T11:22:29Z
      *
      * @var string
      */
     public $modifiedTime;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'backendId'    => 'BackendId',
         'backendName'  => 'BackendName',
@@ -56,6 +74,7 @@ class backendInfoList extends Model
         'createdTime'  => 'CreatedTime',
         'description'  => 'Description',
         'modifiedTime' => 'ModifiedTime',
+        'tags'         => 'Tags',
     ];
 
     public function validate()
@@ -82,6 +101,15 @@ class backendInfoList extends Model
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -112,6 +140,15 @@ class backendInfoList extends Model
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

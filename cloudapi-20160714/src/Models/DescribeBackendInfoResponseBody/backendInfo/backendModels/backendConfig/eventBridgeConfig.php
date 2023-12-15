@@ -18,7 +18,7 @@ class eventBridgeConfig extends Model
     public $eventBridgeRegionId;
 
     /**
-     * @description The name of the event bus.
+     * @description The event bus.
      *
      * @example testBus
      *

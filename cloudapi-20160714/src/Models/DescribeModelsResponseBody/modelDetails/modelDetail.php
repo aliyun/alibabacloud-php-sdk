@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeModelsResponseBody\modelDetails;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeModelsResponseBody\modelDetails\modelDetail\tags;
 use AlibabaCloud\Tea\Model;
 
 class modelDetail extends Model
@@ -79,6 +80,11 @@ class modelDetail extends Model
      * @var string
      */
     public $schema;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'createdTime'  => 'CreatedTime',
         'description'  => 'Description',
@@ -88,6 +94,7 @@ class modelDetail extends Model
         'modelRef'     => 'ModelRef',
         'modifiedTime' => 'ModifiedTime',
         'schema'       => 'Schema',
+        'tags'         => 'Tags',
     ];
 
     public function validate()
@@ -120,6 +127,9 @@ class modelDetail extends Model
         }
         if (null !== $this->schema) {
             $res['Schema'] = $this->schema;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -156,6 +166,9 @@ class modelDetail extends Model
         }
         if (isset($map['Schema'])) {
             $model->schema = $map['Schema'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

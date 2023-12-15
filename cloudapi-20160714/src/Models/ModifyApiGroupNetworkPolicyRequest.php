@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyApiGroupNetworkPolicyRequest extends Model
 {
     /**
+     * @description The ID of the API group.
+     *
      * @example b0162c75d7d34ff48506f1aff878b05e
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyApiGroupNetworkPolicyRequest extends Model
     public $groupId;
 
     /**
+     * @description The HTTPS security policy.
+     *
      * @example HTTPS1_1_TLS1_0
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyApiGroupNetworkPolicyRequest extends Model
     public $httpsPolicy;
 
     /**
+     * @description Specifies whether to disable the public second-level domain name.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class ModifyApiGroupNetworkPolicyRequest extends Model
     public $innerDomainEnable;
 
     /**
+     * @description Specifies whether to enable the virtual private cloud (VPC) second-level domain name.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +45,8 @@ class ModifyApiGroupNetworkPolicyRequest extends Model
     public $internetEnable;
 
     /**
+     * @description Specifies whether to enable IPv6. Valid values: **true** and **false**.
+     *
      * @example true
      *
      * @var bool
@@ -49,6 +59,11 @@ class ModifyApiGroupNetworkPolicyRequest extends Model
     public $securityToken;
 
     /**
+     * @description Specifies whether to enable the VPC domain name. Valid values:
+     *
+     *   TRUE
+     *   FALSE
+     *
      * @example false
      *
      * @var bool
@@ -56,6 +71,8 @@ class ModifyApiGroupNetworkPolicyRequest extends Model
     public $vpcIntranetEnable;
 
     /**
+     * @description Specifies whether to enable the self-calling domain name.
+     *
      * @example false
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiProductsByAppRequest extends Model
 {
     /**
+     * @description The application ID.
+     *
      * @example 110962435
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeApiProductsByAppRequest extends Model
     public $appId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeApiProductsByAppRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 10
      *
      * @var int
