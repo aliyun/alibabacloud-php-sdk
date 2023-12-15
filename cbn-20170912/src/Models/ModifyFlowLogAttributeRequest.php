@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyFlowLogAttributeRequest extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -16,6 +18,9 @@ class ModifyFlowLogAttributeRequest extends Model
     public $cenId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -23,6 +28,9 @@ class ModifyFlowLogAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @description The new description of the flow log.
+     *
+     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @example myFlowlog
      *
      * @var string
@@ -30,6 +38,8 @@ class ModifyFlowLogAttributeRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the flow log.
+     *
      * @example flowlog-m5evbtbpt****
      *
      * @var string
@@ -37,6 +47,9 @@ class ModifyFlowLogAttributeRequest extends Model
     public $flowLogId;
 
     /**
+     * @description The new name of the flow log.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example myFlowlog
      *
      * @var string
@@ -54,6 +67,9 @@ class ModifyFlowLogAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the flow log is deployed.
+     *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

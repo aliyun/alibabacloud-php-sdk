@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cidrLists extends Model
 {
     /**
+     * @description The CIDR block of the transit router.
+     *
      * @example 192.168.10.0/24
      *
      * @var string
@@ -16,6 +18,8 @@ class cidrLists extends Model
     public $cidr;
 
     /**
+     * @description The description of the CIDR block.
+     *
      * @example desctest
      *
      * @var string
@@ -23,6 +27,9 @@ class cidrLists extends Model
     public $description;
 
     /**
+     * @description The type of the CIDR block.
+     *
+     * The value is set to **IPv4**, which indicates that the CIDR block is of the IPv4 type.
      * @example IPv4
      *
      * @var string
@@ -30,6 +37,8 @@ class cidrLists extends Model
     public $family;
 
     /**
+     * @description The name of the CIDR block.
+     *
      * @example nametest
      *
      * @var string
@@ -37,6 +46,13 @@ class cidrLists extends Model
     public $name;
 
     /**
+     * @description Indicates whether the system is allowed to automatically add a route to the route table of the transit router.
+     *
+     * - **true**: yes.
+     *
+     * The blackhole route is advertised only to the route tables of VBRs that are connected to the transit router.
+     *
+     * - **false**: no.
      * @example true
      *
      * @var bool
@@ -44,6 +60,8 @@ class cidrLists extends Model
     public $publishCidrRoute;
 
     /**
+     * @description The ID of the CIDR block.
+     *
      * @example cidr-0zv0q9crqpntzz****
      *
      * @var string
@@ -51,6 +69,8 @@ class cidrLists extends Model
     public $transitRouterCidrId;
 
     /**
+     * @description The ID of the transit router.
+     *
      * @example tr-p0w3x8c9em72a40nw****
      *
      * @var string

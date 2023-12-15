@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTransitRouterCidrRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **CreateTransitRouterCidr**.
+     * @description The CIDR block of the transit router.
      *
      * @example 192.168.10.0/24
      *
@@ -18,14 +18,9 @@ class CreateTransitRouterCidrRequest extends Model
     public $cidr;
 
     /**
-     * @description Specifies whether to allow the system to automatically add a route that points to the CIDR block to the route table of the transit router.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     *   **true** (default): yes
-     *
-     * A value of true specifies that after you create a private VPN connection and enable route learning for the connection, the system automatically adds a blackhole route to the route table of the transit router to which the VPN connection is attached. The destination CIDR block of the blackhole route is the CIDR block of the transit router. The CIDR block of the transit router refers to the CIDR block from which gateway IP addresses are allocated to IPsec-VPN connections. The blackhole route is advertised only to the route table of the virtual border router (VBR) that is connected to the transit router.
-     *
-     *   **false**: no
-     *
+     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426****
      *
      * @var string
@@ -33,9 +28,9 @@ class CreateTransitRouterCidrRequest extends Model
     public $clientToken;
 
     /**
-     * @description The name of the CIDR block.
+     * @description The description of the CIDR block.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
      * @example desctest
      *
      * @var string
@@ -43,7 +38,10 @@ class CreateTransitRouterCidrRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request.
      *
      * @example false
      *
@@ -52,8 +50,9 @@ class CreateTransitRouterCidrRequest extends Model
     public $dryRun;
 
     /**
-     * @description The CIDR block that you want to create for the transit router.
+     * @description The name of the CIDR block.
      *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example nametest
      *
      * @var string
@@ -71,9 +70,11 @@ class CreateTransitRouterCidrRequest extends Model
     public $ownerId;
 
     /**
-     * @description The description of the CIDR block.
+     * @description Specifies whether to allow the system to automatically add a route that points to the CIDR block to the route table of the transit router.
+     * - **true** (default): yes
      *
-     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+     * The blackhole route is advertised only to the route tables of virtual border routers (VBRs) that are connected to the transit router.
+     * - **false**: no
      * @example true
      *
      * @var bool
@@ -81,7 +82,7 @@ class CreateTransitRouterCidrRequest extends Model
     public $publishCidrRoute;
 
     /**
-     * @description The ID of the region where the transit router is deployed.
+     * @description The region ID of the transit router.
      *
      * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example ap-southeast-2

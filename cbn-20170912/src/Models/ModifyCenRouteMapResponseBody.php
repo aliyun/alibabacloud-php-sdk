@@ -9,12 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCenRouteMapResponseBody extends Model
 {
     /**
-     * @description The action that is performed on the community. Valid values:
+     * @description The ID of the request.
      *
-     *   **Additive**: adds the community to the route.
-     *   **Replace**: replaces the original community of the route.
-     *
-     * This parameter specifies the action to be performed when a route meets the match condition.
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B457
      *
      * @var string

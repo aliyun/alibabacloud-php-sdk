@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouteServicesInCenResponseBody extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The number of the returned page.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeRouteServicesInCenResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the region where the cloud service is deployed.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class DescribeRouteServicesInCenResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the cloud service is accessed.
+     * @description The ID of the request.
      *
      * @example 196C99CA-6997-5951-9721-AE89720DF856
      *
@@ -37,14 +37,14 @@ class DescribeRouteServicesInCenResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the region where the cloud service is accessed.
+     * @description The information about the cloud services.
      *
      * @var routeServiceEntries
      */
     public $routeServiceEntries;
 
     /**
-     * @description The ID of the VPC that is associated with the cloud service.
+     * @description The total number of entries returned.
      *
      * @example 2
      *

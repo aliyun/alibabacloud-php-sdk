@@ -11,9 +11,9 @@ class UpdateTransitRouterRouteEntryRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** is different for each request.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -55,7 +55,7 @@ class UpdateTransitRouterRouteEntryRequest extends Model
     /**
      * @description The new description of the route.
      *
-     * The description must be 1 to 256 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ \_ -. You can also leave the description empty.
+     * The description must be 0 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (\_), and hyphens (-).
      * @example testdesc
      *
      * @var string

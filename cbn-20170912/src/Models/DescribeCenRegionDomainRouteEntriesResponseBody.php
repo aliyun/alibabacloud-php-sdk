@@ -10,18 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenRegionDomainRouteEntriesResponseBody extends Model
 {
     /**
-     * @description The status of the route. Valid values:
+     * @description The array of routes.
      *
-     * - **Active**: The route is active.
-     * - **Candidate**: The route is a standby route.
-     * - **Rejected**: The route is rejected.
-     * - **Prohibited**: The route is prohibited.
      * @var cenRouteEntries
      */
     public $cenRouteEntries;
 
     /**
-     * @description The route maps that the routes match in the outbound direction.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -30,7 +26,7 @@ class DescribeCenRegionDomainRouteEntriesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the route map.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -39,7 +35,7 @@ class DescribeCenRegionDomainRouteEntriesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The ID of the request.
      *
      * @example 004E99FB-E996-5777-888E-BA1D8F215407
      *
@@ -48,7 +44,7 @@ class DescribeCenRegionDomainRouteEntriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the instance specified as the next hop in the route.
+     * @description The total number of entries returned.
      *
      * @example 4
      *

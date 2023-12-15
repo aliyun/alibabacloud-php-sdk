@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowlogsResponseBody extends Model
 {
     /**
-     * @description The status of the flow log. Valid values:
-     *
-     *   **Active**: The flow log is enabled.
-     *   **Inactive**: The flow log is disabled.
+     * @description A list of flow logs.
      *
      * @var flowLogs
      */
     public $flowLogs;
 
     /**
-     * @description The total number of entries returned.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -29,7 +26,7 @@ class DescribeFlowlogsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries returned per page.
      *
      * @example 20
      *
@@ -38,10 +35,7 @@ class DescribeFlowlogsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
+     * @description The ID of the request.
      *
      * @example F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
      *
@@ -50,7 +44,10 @@ class DescribeFlowlogsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the flow log.
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example true
      *
@@ -59,7 +56,7 @@ class DescribeFlowlogsResponseBody extends Model
     public $success;
 
     /**
-     * @description A list of flow logs.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

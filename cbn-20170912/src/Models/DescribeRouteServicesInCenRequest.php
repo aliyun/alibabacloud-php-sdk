@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouteServicesInCenRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeRouteServicesInCen**.
+     * @description The ID of the region where the cloud service is accessed.
      *
      * @example cn-hangzhou
      *
@@ -18,7 +18,7 @@ class DescribeRouteServicesInCenRequest extends Model
     public $accessRegionId;
 
     /**
-     * @description The information about the cloud services.
+     * @description The ID of the CEN instance.
      *
      * @example cen-pfa6ugf3xl0qsd****
      *
@@ -27,8 +27,9 @@ class DescribeRouteServicesInCenRequest extends Model
     public $cenId;
 
     /**
-     * @description The description of the cloud service.
+     * @description The service address of the cloud service.
      *
+     * You can enter a domain name, an IP address, or a CIDR block.
      * @example 100.118.28.0/24
      *
      * @var string
@@ -36,12 +37,9 @@ class DescribeRouteServicesInCenRequest extends Model
     public $host;
 
     /**
-     * @description The status of the cloud service. Valid values:
+     * @description The ID of the region where the cloud service is deployed.
      *
-     *   **Creating**: The cloud service is being created.
-     *   **Active**: The cloud service is available.
-     *   **Deleting**: The cloud service is being deleted.
-     *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -49,9 +47,8 @@ class DescribeRouteServicesInCenRequest extends Model
     public $hostRegionId;
 
     /**
-     * @description The ID of the region where the cloud service is deployed.
+     * @description The ID of the virtual private cloud (VPC) that is associated with the cloud service.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example vpc-bp1h8vbrbcgohcju5****
      *
      * @var string
@@ -69,7 +66,7 @@ class DescribeRouteServicesInCenRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) that is associated with the cloud service.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -78,7 +75,7 @@ class DescribeRouteServicesInCenRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the CEN instance.
+     * @description The number of entries to return per page. Default value: **10**. Valid values: **1** to **50**.
      *
      * @example 10
      *

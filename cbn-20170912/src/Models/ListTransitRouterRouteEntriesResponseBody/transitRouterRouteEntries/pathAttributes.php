@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class pathAttributes extends Model
 {
     /**
+     * @description The route AS path.
+     *
      * @var string[]
      */
     public $asPaths;
 
     /**
+     * @description The route community.
+     *
      * @var string[]
      */
     public $communities;
 
     /**
+     * @description The source instance ID.
+     *
      * @example vbr-m5ent6du8deaq5*****
      *
      * @var string
@@ -26,6 +32,14 @@ class pathAttributes extends Model
     public $originInstanceId;
 
     /**
+     * @description The source instance type. Valid values:
+     *
+     *   **VPC**
+     *   **VBR**
+     *   **TR**
+     *   **VPN**
+     *   **CCN**
+     *
      * @example VBR
      *
      * @var string
@@ -33,6 +47,14 @@ class pathAttributes extends Model
     public $originInstanceType;
 
     /**
+     * @description The route type. Valid values:
+     *
+     *   **System**
+     *   **Custom**
+     *   **static**
+     *   **BGP**
+     *   **BlackHole**
+     *
      * @example BGP
      *
      * @var string
@@ -40,6 +62,9 @@ class pathAttributes extends Model
     public $originRouteType;
 
     /**
+     * @description The route priority.
+     *
+     * A smaller value indicates a higher priority.
      * @example 50
      *
      * @var int

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTransitRouterRouteEntriesResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 20
      *
@@ -19,10 +19,10 @@ class ListTransitRouterRouteEntriesResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If the **NextToken** parameter is empty, no next page exists.
-     *   If a value of **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
      *
      * @example fce19****
      *
@@ -49,7 +49,7 @@ class ListTransitRouterRouteEntriesResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The queried routes.
+     * @description A list of route entries.
      *
      * @var transitRouterRouteEntries[]
      */

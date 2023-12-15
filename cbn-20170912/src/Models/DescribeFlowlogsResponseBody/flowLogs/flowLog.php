@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class flowLog extends Model
 {
     /**
-     * @description The ID of the region where the flow log is deployed.
+     * @description The ID of the CEN instance.
      *
      * @example cen-7qthudw0ll6jmc****
      *
@@ -19,8 +19,9 @@ class flowLog extends Model
     public $cenId;
 
     /**
-     * @description The description of the flow log.
+     * @description The time when the flow log was created.
      *
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      * @example 2021-07-24T13:00:52Z
      *
      * @var string
@@ -28,7 +29,7 @@ class flowLog extends Model
     public $creationTime;
 
     /**
-     * @description The ID of the CEN instance.
+     * @description The description of the flow log.
      *
      * @example myFlowlog
      *
@@ -37,7 +38,7 @@ class flowLog extends Model
     public $description;
 
     /**
-     * @description The time window for collecting log data. Unit: seconds. Valid values: **60** and **600**. Default value: **600**.
+     * @description The ID of the flow log.
      *
      * @example flowlog-m5evbtbpt****
      *
@@ -46,7 +47,7 @@ class flowLog extends Model
     public $flowLogId;
 
     /**
-     * @description The name of the project where the flow log is stored.
+     * @description The name of the flow log.
      *
      * @example myFlowlog
      *
@@ -55,7 +56,7 @@ class flowLog extends Model
     public $flowLogName;
 
     /**
-     * @description The tag value.
+     * @description The time window for collecting log data. Unit: seconds. Valid values: **60** and **600**. Default value: **600**.
      *
      * @example 60
      *
@@ -64,7 +65,7 @@ class flowLog extends Model
     public $interval;
 
     /**
-     * @description The ID of the flow log.
+     * @description The name of the Logstore where the flow log is stored.
      *
      * @example FlowLogStore
      *
@@ -73,7 +74,7 @@ class flowLog extends Model
     public $logStoreName;
 
     /**
-     * @description The name of the Logstore where the flow log is stored.
+     * @description The name of the project where the flow log is stored.
      *
      * @example FlowLogProject
      *
@@ -82,7 +83,7 @@ class flowLog extends Model
     public $projectName;
 
     /**
-     * @description The ID of the network instance connection.
+     * @description The ID of the region where the flow log is deployed.
      *
      * @example cn-hangzhou
      *
@@ -91,7 +92,10 @@ class flowLog extends Model
     public $regionId;
 
     /**
-     * @description The name of the flow log.
+     * @description The status of the flow log. Valid values:
+     *
+     *   **Active**: The flow log is enabled.
+     *   **Inactive**: The flow log is disabled.
      *
      * @example Active
      *
@@ -100,14 +104,16 @@ class flowLog extends Model
     public $status;
 
     /**
+     * @description A list of tags.
+     *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description A list of tags.
+     * @description The ID of the network instance connection.
      *
-     * @example The tag key.
+     * @example tr-attach-5x4o4ynzuqbv6g****
      *
      * @var string
      */

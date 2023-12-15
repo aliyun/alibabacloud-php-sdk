@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTransitRoutersResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListTransitRoutersResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class ListTransitRoutersResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 68521297-5FA6-46CB-B4EB-658F1C68C8CC
      *
      * @var string
@@ -31,6 +37,8 @@ class ListTransitRoutersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +46,8 @@ class ListTransitRoutersResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description A list of transit routers.
+     *
      * @var transitRouters[]
      */
     public $transitRouters;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class featureFilter extends Model
 {
     /**
+     * @description The value of the field that is used to enable or disable a feature of the transit router. Supported fields:
+     *
+     *   **Multicast**: the multicast feature.
+     *
      * @example Multicast
      *
      * @var string
@@ -16,6 +20,11 @@ class featureFilter extends Model
     public $key;
 
     /**
+     * @description The fields that are used to enable or disable the features of the transit router. The **Multicast** field supports only one value. Valid values:
+     *
+     *   **Enabled**: enables multicast.
+     *   **Disabled**: disables multicast.
+     *
      * @var string[]
      */
     public $value;

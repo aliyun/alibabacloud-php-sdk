@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class routeFilter extends Model
 {
     /**
+     * @description The match pattern for filtering CIDR blocks. Valid values:
+     *
+     *   **PrefixExactMatchCidrs**: exact matching.
+     *   **LongestPrefixMatchCidrs**: longest prefix matching. The specified IP address and CIDR block are considered a match.
+     *   **SubnetOfMatchCidrs**: subnet matching. The specified CIDR block is considered a match.
+     *   **SupernetOfMatchCidrs**: supernet matching. The specified CIDR block is considered a match.
+     *
+     * By default, the logical operator among filter conditions is **AND**. Information about a route entry is returned only if the route entry matches all filter conditions. Filter conditions must be unique.
      * @example PrefixExactMatchCidrs
      *
      * @var string
@@ -16,6 +24,8 @@ class routeFilter extends Model
     public $key;
 
     /**
+     * @description The filter value.
+     *
      * @var string[]
      */
     public $value;

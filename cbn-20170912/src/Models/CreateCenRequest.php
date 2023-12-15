@@ -10,9 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateCenRequest extends Model
 {
     /**
-     * @description The tag keys of the resources.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can specify at most 20 tag keys.
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -20,8 +22,9 @@ class CreateCenRequest extends Model
     public $clientToken;
 
     /**
-     * @description The operation that you want to perform. Set the value to **CreateCen**.
+     * @description The description of the CEN instance.
      *
+     * The description must be 2 to 256 characters in length. It must start with a letter and cannot start with `http://` or `https://`.
      * @example testdesc
      *
      * @var string
@@ -29,8 +32,9 @@ class CreateCenRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the CEN instance.
      *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter and cannot start with `http://` or `https://`.
      * @example testname
      *
      * @var string
@@ -48,8 +52,9 @@ class CreateCenRequest extends Model
     public $ownerId;
 
     /**
-     * @description The tags.
+     * @description The level of CIDR block overlapping.
      *
+     * Set the value to **REDUCED** (default). This value specifies that CIDR blocks can overlap but cannot be the same.
      * @example REDUCED
      *
      * @var string
@@ -67,7 +72,7 @@ class CreateCenRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Creates a Cloud Enterprise Network (CEN) instance.
+     * @description The tags.
      *
      * @var tag[]
      */

@@ -9,13 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenRegionDomainRouteEntriesRequest extends Model
 {
     /**
-     * @description The status of the routes that you want to query. Valid values:
-     *
-     *   **Active** (default value): active routes
-     *   **Candidate**: standby routes
-     *   **Rejected**: rejected routes
-     *   **Prohibited**: prohibited routes
-     *   **All**: all routes
+     * @description The ID of the CEN instance.
      *
      * @example cen-7qthudw0ll6j****
      *
@@ -24,8 +18,9 @@ class DescribeCenRegionDomainRouteEntriesRequest extends Model
     public $cenId;
 
     /**
-     * @description The ID of the CEN instance.
+     * @description The ID of the region that you want to query.
      *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,7 +38,7 @@ class DescribeCenRegionDomainRouteEntriesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the route map is applied.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -52,10 +47,8 @@ class DescribeCenRegionDomainRouteEntriesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description Whether the route can be advertised to other regions. Valid values:
+     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
      *
-     * - **Active**: The route can be advertised to other regions.
-     * - **Prohibited**: The route cannot be advertised to other regions.
      * @example 10
      *
      * @var int
@@ -73,9 +66,14 @@ class DescribeCenRegionDomainRouteEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the region that you want to query.
+     * @description The status of the routes that you want to query. Valid values:
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     *   **Active** (default value): active routes
+     *   **Candidate**: standby routes
+     *   **Rejected**: rejected routes
+     *   **Prohibited**: prohibited routes
+     *   **All**: all routes
+     *
      * @example Active
      *
      * @var string

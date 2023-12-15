@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCenRouteMapResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 62172DD5-6BAC-45DF-8D44-56SDF467BAC
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateCenRouteMapResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the routing policy.
+     *
      * @example cenrmap-w4yf7toozfol3q****
      *
      * @var string

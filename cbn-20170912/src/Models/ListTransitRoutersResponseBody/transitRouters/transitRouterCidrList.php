@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class transitRouterCidrList extends Model
 {
     /**
+     * @description The CIDR block of the transit router.
+     *
      * @example 192.168.1.0/24
      *
      * @var string
@@ -16,6 +18,8 @@ class transitRouterCidrList extends Model
     public $cidr;
 
     /**
+     * @description The description of the CIDR block.
+     *
      * @example CIDRdesc
      *
      * @var string
@@ -23,6 +27,8 @@ class transitRouterCidrList extends Model
     public $description;
 
     /**
+     * @description The name of the CIDR block.
+     *
      * @example CIDRname
      *
      * @var string
@@ -30,6 +36,15 @@ class transitRouterCidrList extends Model
     public $name;
 
     /**
+     * @description Indicates whether the system is allowed to automatically add a route to the route table of the transit router. Valid values:
+     *
+     * - **true**: yes
+     *
+     * A value of **true** indicates that after you create a private VPN connection and create a route learning correlation for the private VPC connection, the system automatically adds the following route to the route table of the transit router that is in route learning correlation with the private VPN connection: A blackhole route whose destination CIDR block is the CIDR block of the transit router. The CIDR block of the transit router refers to the CIDR block from which gateway IP addresses are allocated to IPsec-VPN connections.
+     *
+     * The blackhole route is advertised only to the route tables of virtual border routers (VBRs) that are connected to the transit router.
+     *
+     * - **false**: no
      * @example true
      *
      * @var bool
@@ -37,6 +52,8 @@ class transitRouterCidrList extends Model
     public $publishCidrRoute;
 
     /**
+     * @description The ID of the CIDR block.
+     *
      * @example cidr-46p5ceg21e8152****
      *
      * @var string

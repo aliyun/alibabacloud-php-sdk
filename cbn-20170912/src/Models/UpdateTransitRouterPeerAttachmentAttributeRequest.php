@@ -67,6 +67,11 @@ class UpdateTransitRouterPeerAttachmentAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $defaultLinkType;
+
+    /**
      * @description Specifies whether to perform a dry run to check information such as the permissions and the instance status. Default values:
      *
      *   **false** (default): performs a dry run and sends the request.
@@ -132,6 +137,7 @@ class UpdateTransitRouterPeerAttachmentAttributeRequest extends Model
         'bandwidthType'                      => 'BandwidthType',
         'cenBandwidthPackageId'              => 'CenBandwidthPackageId',
         'clientToken'                        => 'ClientToken',
+        'defaultLinkType'                    => 'DefaultLinkType',
         'dryRun'                             => 'DryRun',
         'ownerAccount'                       => 'OwnerAccount',
         'ownerId'                            => 'OwnerId',
@@ -163,6 +169,9 @@ class UpdateTransitRouterPeerAttachmentAttributeRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->defaultLinkType) {
+            $res['DefaultLinkType'] = $this->defaultLinkType;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
@@ -214,6 +223,9 @@ class UpdateTransitRouterPeerAttachmentAttributeRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DefaultLinkType'])) {
+            $model->defaultLinkType = $map['DefaultLinkType'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];

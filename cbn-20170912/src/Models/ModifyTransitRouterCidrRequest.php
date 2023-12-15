@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyTransitRouterCidrRequest extends Model
 {
     /**
-     * @description The ID of the region where the transit router is deployed.
+     * @description The new CIDR block of the transit router.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example 192.168.10.0/24
      *
      * @var string
@@ -19,14 +18,9 @@ class ModifyTransitRouterCidrRequest extends Model
     public $cidr;
 
     /**
-     * @description Specifies whether to allow the system to automatically add routes that point to the CIDR block to the route table of the transit router.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     *   **true**: yes
-     *
-     * The blackhole route is advertised only to the route table of the virtual border router (VBR) that is connected to the transit router.
-     *
-     *   **false**: no
-     *
+     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426****
      *
      * @var string
@@ -34,8 +28,9 @@ class ModifyTransitRouterCidrRequest extends Model
     public $clientToken;
 
     /**
-     * @description The new CIDR block of the transit router.
+     * @description The new description of the transit router CIDR block.
      *
+     * The description must be 1 to 256 characters in length.
      * @example desctest
      *
      * @var string
@@ -43,7 +38,10 @@ class ModifyTransitRouterCidrRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false**: performs a dry run and sends the request.
      *
      * @example false
      *
@@ -52,9 +50,9 @@ class ModifyTransitRouterCidrRequest extends Model
     public $dryRun;
 
     /**
-     * @description The ID of the transit router CIDR block.
+     * @description The new name of the transit router CIDR block.
      *
-     * You can call [ListTransitRouterCidr](~~462772~~) to query the ID of a transit route CIDR block.
+     * The name must be 1 to 128 characters in length.
      * @example nametest
      *
      * @var string
@@ -72,8 +70,13 @@ class ModifyTransitRouterCidrRequest extends Model
     public $ownerId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ModifyTransitRouterCidr**.
+     * @description Specifies whether to allow the system to automatically add a route that points to the CIDR block to the route table of the transit router.
+     * - **true**: yes
      *
+     * A value of **true** specifies that after you create a private VPN connection and enable route learning for the connection, the system automatically adds the following blackhole route to the route table of the transit router to which the VPN connection is attached:
+     *
+     * The blackhole route is advertised only to the route tables of virtual border routers (VBRs) that are connected to the transit router.
+     * -  **false**: no
      * @example true
      *
      * @var bool
@@ -81,8 +84,9 @@ class ModifyTransitRouterCidrRequest extends Model
     public $publishCidrRoute;
 
     /**
-     * @description The ID of the transit router.
+     * @description The ID of the region where the transit router is deployed.
      *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example ap-southeast-2
      *
      * @var string
@@ -100,11 +104,9 @@ class ModifyTransitRouterCidrRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether only to precheck the request. Valid values:
+     * @description The ID of the CIDR block.
      *
-     *   **true**: checks the request but does not modify the CIDR block. The system checks the required parameters, the request format, and the service limits. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false**: sends the request. If the request passes the precheck, the CIDR block of the transit router is modified.
-     *
+     * You can call the [ListTransitRouterCidr](~~462772~~) operation to query the ID of a CIDR block.
      * @example cidr-0zv0q9crqpntzz****
      *
      * @var string
@@ -112,9 +114,8 @@ class ModifyTransitRouterCidrRequest extends Model
     public $transitRouterCidrId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The ID of the transit router.
      *
-     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
      * @example tr-gw8ergozrv77rtbjd****
      *
      * @var string

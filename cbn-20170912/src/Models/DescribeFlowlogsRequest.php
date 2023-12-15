@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowlogsRequest extends Model
 {
     /**
-     * @description The name of the Logstore where the flow log is stored.
+     * @description The ID of the Cloud Enterprise Network (CEN) instance.
      *
-     * The name must be 3 to 63 characters in length, and can contain lowercase letters, digits, underscores (\_), and hyphens (-). It must start or end with a lowercase letter or a digit.
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -20,33 +19,14 @@ class DescribeFlowlogsRequest extends Model
     public $cenId;
 
     /**
-     * @description The name of the flow log.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
      */
     public $clientToken;
-
-    /**
-     * @description The name of the project where the flow log is stored.
-     *
-     * The name must be 3 to 63 characters in length, and can contain lowercase letters, digits, and hyphens (-). It must start or end with a lowercase letter or a digit.
-     * @example myFlowlog
-     *
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @description The ID of the Cloud Enterprise Network (CEN) instance.
-     *
-     * @example flowlog-m5evbtbpt****
-     *
-     * @var string
-     */
-    public $flowLogId;
 
     /**
      * @description The description of the flow log.
@@ -56,11 +36,31 @@ class DescribeFlowlogsRequest extends Model
      *
      * @var string
      */
+    public $description;
+
+    /**
+     * @description The ID of the flow log.
+     *
+     * @example flowlog-m5evbtbpt****
+     *
+     * @var string
+     */
+    public $flowLogId;
+
+    /**
+     * @description The name of the flow log.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * @example myFlowlog
+     *
+     * @var string
+     */
     public $flowLogName;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The name of the Logstore where the flow log is stored.
      *
+     * The name must be 3 to 63 characters in length, and can contain lowercase letters, digits, underscores (\_), and hyphens (-). It must start or end with a lowercase letter or a digit.
      * @example FlowLogStore
      *
      * @var string
@@ -78,9 +78,8 @@ class DescribeFlowlogsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The information about the tags.
+     * @description The number of the page to return. Default value: **1**.
      *
-     * You can specify at most 20 tags in each call.
      * @example 1
      *
      * @var int
@@ -88,9 +87,8 @@ class DescribeFlowlogsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The tag key.
+     * @description The number of entries to return on each page. Minimum value: **1**. Default value: **20**.
      *
-     * You can specify at most 20 tag keys.
      * @example 20
      *
      * @var int
@@ -98,11 +96,9 @@ class DescribeFlowlogsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The status of the flow log. Valid values:
+     * @description The name of the project where the flow log is stored.
      *
-     *   **Active**: The flow log is enabled.
-     *   **Inactive**: The flow log is disabled.
-     *
+     * The name must be 3 to 63 characters in length, and can contain lowercase letters, digits, and hyphens (-). It must start or end with a lowercase letter or a digit.
      * @example FlowLogProject
      *
      * @var string
@@ -110,8 +106,9 @@ class DescribeFlowlogsRequest extends Model
     public $projectName;
 
     /**
-     * @description The ID of the flow log.
+     * @description The ID of the region where the flow log is deployed.
      *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -129,7 +126,10 @@ class DescribeFlowlogsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The number of entries to return on each page. Minimum value: **1**. Default value: **20**.
+     * @description The status of the flow log. Valid values:
+     *
+     *   **Active**: The flow log is enabled.
+     *   **Inactive**: The flow log is disabled.
      *
      * @example Active
      *
@@ -138,17 +138,17 @@ class DescribeFlowlogsRequest extends Model
     public $status;
 
     /**
-     * @description The tag value.
+     * @description The information about the tags.
      *
-     * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+     * You can specify at most 20 tags in each call.
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the network instance connection.
      *
-     * @example tr-attach-qieks13jnt1cchy***
+     * @example tr-attach-qieks13jnt1cchy****
      *
      * @var string
      */

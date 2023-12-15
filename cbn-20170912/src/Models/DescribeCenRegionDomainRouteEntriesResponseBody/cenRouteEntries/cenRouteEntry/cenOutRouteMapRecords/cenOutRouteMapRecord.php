@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class cenOutRouteMapRecord extends Model
 {
     /**
-     * @description 312501
+     * @description The ID of the region where the route map is applied.
      *
      * @example ccn-cn-shanghai
      *
@@ -18,7 +18,7 @@ class cenOutRouteMapRecord extends Model
     public $regionId;
 
     /**
-     * @description DescribeCenRegionDomainRouteEntries
+     * @description The ID of the route map.
      *
      * @example cenrmap-dbarzidzp7ek4k****
      *

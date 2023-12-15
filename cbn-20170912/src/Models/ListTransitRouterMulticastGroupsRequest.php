@@ -34,12 +34,7 @@ class ListTransitRouterMulticastGroupsRequest extends Model
      *   **false**: no
      *   **true**: yes
      *
-     * > This parameter can be set together with the IsGroupMember parameter.
-     *
-     *   If you do not set IsGroupMember or IsGroupSource, both the multicast sources and members are queried.
-     *
-     *   If you set only one of them or both of them, the specified values prevail.
-     *
+     * >- If you set only one of them or both of them, the specified values prevail.
      * @example false
      *
      * @var bool
@@ -52,12 +47,7 @@ class ListTransitRouterMulticastGroupsRequest extends Model
      *   **false**: no
      *   **true**: yes
      *
-     * > This parameter can be set together with the IsGroupMember parameter.
-     *
-     *   If you do not set IsGroupSource or IsGroupMember, both the multicast sources and members are queried.
-     *
-     *   If you set only one of them or both of them, the specified values prevail.
-     *
+     * >- If you set only one of them or both of them, the specified values prevail.
      * @example true
      *
      * @var bool

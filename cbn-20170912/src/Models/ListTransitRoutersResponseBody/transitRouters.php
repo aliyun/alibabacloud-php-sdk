@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class transitRouters extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
+     *
      * @example 1210123456123456
      *
      * @var int
@@ -18,6 +20,8 @@ class transitRouters extends Model
     public $aliUid;
 
     /**
+     * @description The ID of the CEN instance.
+     *
      * @example cen-j3jzhw1zpau2km****
      *
      * @var string
@@ -25,6 +29,9 @@ class transitRouters extends Model
     public $cenId;
 
     /**
+     * @description The time when the transit router was created.
+     *
+     * The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
      * @example 2021-03-15T09:39Z
      *
      * @var string
@@ -32,6 +39,8 @@ class transitRouters extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the region where the transit router is deployed.
+     *
      * @example ap-southeast-2
      *
      * @var string
@@ -39,6 +48,14 @@ class transitRouters extends Model
     public $regionId;
 
     /**
+     * @description The status of the transit router. Valid values:
+     *
+     *   **Creating**: The transit router is being created.
+     *   **Active**: The transit router is available.
+     *   **Modifying**: The transit router is being modified
+     *   **Deleting**: The transit router is being deleted.
+     *   **Upgrading**: The transit router is being upgraded.
+     *
      * @example Active
      *
      * @var string
@@ -46,6 +63,11 @@ class transitRouters extends Model
     public $status;
 
     /**
+     * @description Indicates whether multicast is enabled for the transit router. Valid values:
+     *
+     *   **true**: enabled
+     *   **false**: disabled
+     *
      * @example false
      *
      * @var bool
@@ -53,16 +75,22 @@ class transitRouters extends Model
     public $supportMulticast;
 
     /**
+     * @description A list of tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The CIDR blocks of the transit router.
+     *
      * @var transitRouterCidrList[]
      */
     public $transitRouterCidrList;
 
     /**
+     * @description The description of the transit router.
+     *
      * @example testdesc
      *
      * @var string
@@ -70,6 +98,8 @@ class transitRouters extends Model
     public $transitRouterDescription;
 
     /**
+     * @description The ID of the transit router.
+     *
      * @example tr-bp1su1ytdxtataupl****
      *
      * @var string
@@ -77,6 +107,8 @@ class transitRouters extends Model
     public $transitRouterId;
 
     /**
+     * @description The name of the transit router.
+     *
      * @example testname
      *
      * @var string
@@ -84,6 +116,11 @@ class transitRouters extends Model
     public $transitRouterName;
 
     /**
+     * @description The edition of the transit router. Valid values:
+     *
+     *   **Enterprise**: Enhance Edition
+     *   **Basic**: Basic Edition
+     *
      * @example Enterprise
      *
      * @var string

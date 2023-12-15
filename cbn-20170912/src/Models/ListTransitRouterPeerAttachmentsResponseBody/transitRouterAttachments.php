@@ -75,6 +75,11 @@ class transitRouterAttachments extends Model
     public $creationTime;
 
     /**
+     * @var string
+     */
+    public $defaultLinkType;
+
+    /**
      * @description The areas that are connected by the bandwidth plan.
      *
      * @example china_china
@@ -196,6 +201,7 @@ class transitRouterAttachments extends Model
         'cenBandwidthPackageId'              => 'CenBandwidthPackageId',
         'cenId'                              => 'CenId',
         'creationTime'                       => 'CreationTime',
+        'defaultLinkType'                    => 'DefaultLinkType',
         'geographicSpanId'                   => 'GeographicSpanId',
         'peerTransitRouterId'                => 'PeerTransitRouterId',
         'peerTransitRouterOwnerId'           => 'PeerTransitRouterOwnerId',
@@ -234,6 +240,9 @@ class transitRouterAttachments extends Model
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->defaultLinkType) {
+            $res['DefaultLinkType'] = $this->defaultLinkType;
         }
         if (null !== $this->geographicSpanId) {
             $res['GeographicSpanId'] = $this->geographicSpanId;
@@ -306,6 +315,9 @@ class transitRouterAttachments extends Model
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['DefaultLinkType'])) {
+            $model->defaultLinkType = $map['DefaultLinkType'];
         }
         if (isset($map['GeographicSpanId'])) {
             $model->geographicSpanId = $map['GeographicSpanId'];

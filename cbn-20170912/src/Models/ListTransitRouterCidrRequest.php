@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListTransitRouterCidrRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426****
      *
      * @var string
@@ -16,6 +19,11 @@ class ListTransitRouterCidrRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether only to precheck the API request. Valid values:
+     *
+     *   **true**: prechecks the request but does not query the CIDR block. The system checks the required parameters, the request format, and the service limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. After the request passes the check, the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -33,6 +41,9 @@ class ListTransitRouterCidrRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the transit router is deployed.
+     *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example ap-southeast-2
      *
      * @var string
@@ -50,6 +61,8 @@ class ListTransitRouterCidrRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the CIDR block.
+     *
      * @example cidr-0zv0q9crqpntzz****
      *
      * @var string
@@ -57,6 +70,8 @@ class ListTransitRouterCidrRequest extends Model
     public $transitRouterCidrId;
 
     /**
+     * @description The ID of the transit router.
+     *
      * @example tr-p0w3x8c9em72a40nw****
      *
      * @var string

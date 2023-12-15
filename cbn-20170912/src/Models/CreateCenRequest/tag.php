@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description CreateCen
+     * @description The tag keys of the resources.
      *
+     * You can specify at most 20 tag keys.
      * @example tagtest
      *
      * @var string
@@ -18,8 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description WB656982
+     * @description The tag values of the resources.
      *
+     * Each tag key has a unique tag value. You can specify at most 20 tag values in each call.
      * @example tagtest
      *
      * @var string

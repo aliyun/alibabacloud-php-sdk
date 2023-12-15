@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The ID of the network instance connection.
+     * @description The tag key.
      *
+     * You can specify at most 20 tag keys.
      * @example TagKey
      *
      * @var string
@@ -18,8 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The response.
+     * @description The tag value.
      *
+     * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
      * @example TagValue
      *
      * @var string

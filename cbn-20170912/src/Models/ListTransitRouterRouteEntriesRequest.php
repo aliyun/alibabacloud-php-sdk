@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTransitRouterRouteEntriesRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
      *
      * @example 20
      *
@@ -41,6 +41,8 @@ class ListTransitRouterRouteEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The prefix list ID.
+     *
      * @example pl-6ehtn5kqxgeyy08fi****
      *
      * @var string
@@ -58,12 +60,14 @@ class ListTransitRouterRouteEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The filter conditions for route CIDR blocks.
+     *
      * @var routeFilter[]
      */
     public $routeFilter;
 
     /**
-     * @description The destination CIDR block of the route.
+     * @description The destination CIDR block of the route. **This parameter is to be deprecated. We recommend that you use the RouteFilter parameter**.
      *
      * @example 192.168.0.0/24
      *
@@ -74,9 +78,9 @@ class ListTransitRouterRouteEntriesRequest extends Model
     public $transitRouterRouteEntryDestinationCidrBlock;
 
     /**
-     * @description The route entry ID.
+     * @description The route ID.
      *
-     * >  You can use only this parameter to query static routes.
+     * >  You can use this parameter to query only static routes in the specified route table. This parameter is incompatible with query conditions other than TransitRouterRouteEntryNames.
      * @example rte-oklkgwmj97z6dn****
      *
      * @var string[]
@@ -86,7 +90,7 @@ class ListTransitRouterRouteEntriesRequest extends Model
     /**
      * @description The route name.
      *
-     * >  You can use only this parameter to query static routes.
+     * >  You can use this parameter to query only static routes in the specified route table. This parameter is incompatible with query conditions other than TransitRouterRouteEntryIds.
      * @example testname
      *
      * @var string[]
@@ -94,6 +98,8 @@ class ListTransitRouterRouteEntriesRequest extends Model
     public $transitRouterRouteEntryNames;
 
     /**
+     * @description The ID of the network instance connection that you want to specify as the next hop.
+     *
      * @example tr-attach-nls9fzkfat8934****
      *
      * @var string
@@ -101,6 +107,8 @@ class ListTransitRouterRouteEntriesRequest extends Model
     public $transitRouterRouteEntryNextHopId;
 
     /**
+     * @description The next hop ID.
+     *
      * @example vpc-m5ent6du8deaq5*****
      *
      * @var string
@@ -108,6 +116,13 @@ class ListTransitRouterRouteEntriesRequest extends Model
     public $transitRouterRouteEntryNextHopResourceId;
 
     /**
+     * @description The next hop type. Valid values:
+     *
+     *   **VPC**
+     *   **VBR**
+     *   **TR**
+     *   **VPN**
+     *
      * @example VPC
      *
      * @var string
@@ -115,6 +130,11 @@ class ListTransitRouterRouteEntriesRequest extends Model
     public $transitRouterRouteEntryNextHopResourceType;
 
     /**
+     * @description The next hop type. Valid values:
+     *
+     *   **BlackHole**: routes network traffic to a black hole.
+     *   **Attachment**: routes network traffic to a network instance connection.
+     *
      * @example Attachment
      *
      * @var string
@@ -122,6 +142,8 @@ class ListTransitRouterRouteEntriesRequest extends Model
     public $transitRouterRouteEntryNextHopType;
 
     /**
+     * @description The source instance ID.
+     *
      * @example vpc-m5ent6du8deaq5*****
      *
      * @var string
@@ -129,6 +151,13 @@ class ListTransitRouterRouteEntriesRequest extends Model
     public $transitRouterRouteEntryOriginResourceId;
 
     /**
+     * @description The source instance type. Valid values:
+     *
+     *   **VPC**
+     *   **VBR**
+     *   **TR**
+     *   **VPN**
+     *
      * @example VPC
      *
      * @var string
@@ -138,10 +167,14 @@ class ListTransitRouterRouteEntriesRequest extends Model
     /**
      * @description The status of the route. Valid values:
      *
-     *   **Creating**: The route is being created.
-     *   **Active**: The route is available.
-     *   **Deleting**: The route is being deleted.
+     *   **All**
+     *   **Active** (default)
+     *   **Rejected**
+     *   **Prohibited**
+     *   **Standby**
+     *   **Candidate**
      *
+     * If you do not specify a value, routes in the active state are queried.
      * @example Active
      *
      * @var string
@@ -149,6 +182,11 @@ class ListTransitRouterRouteEntriesRequest extends Model
     public $transitRouterRouteEntryStatus;
 
     /**
+     * @description The route type. Valid values:
+     *
+     *   **Propagated**: automatically learned by the route table.
+     *   **Static**: static routes.
+     *
      * @example Propagated
      *
      * @var string

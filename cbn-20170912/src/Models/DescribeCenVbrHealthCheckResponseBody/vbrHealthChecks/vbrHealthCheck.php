@@ -18,6 +18,11 @@ class vbrHealthCheck extends Model
     public $cenId;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description The time interval at which probe packets are sent during the health check. Unit: seconds.
      *
      * @example 2
@@ -88,6 +93,7 @@ class vbrHealthCheck extends Model
     public $vbrInstanceRegionId;
     protected $_name = [
         'cenId'               => 'CenId',
+        'description'         => 'Description',
         'healthCheckInterval' => 'HealthCheckInterval',
         'healthCheckOnly'     => 'HealthCheckOnly',
         'healthCheckSourceIp' => 'HealthCheckSourceIp',
@@ -106,6 +112,9 @@ class vbrHealthCheck extends Model
         $res = [];
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->healthCheckInterval) {
             $res['HealthCheckInterval'] = $this->healthCheckInterval;
@@ -142,6 +151,9 @@ class vbrHealthCheck extends Model
         $model = new self();
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['HealthCheckInterval'])) {
             $model->healthCheckInterval = $map['HealthCheckInterval'];

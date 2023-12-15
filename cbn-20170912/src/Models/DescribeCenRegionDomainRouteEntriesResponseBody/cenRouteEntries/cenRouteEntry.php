@@ -13,31 +13,35 @@ use AlibabaCloud\Tea\Model;
 class cenRouteEntry extends Model
 {
     /**
+     * @description The AS paths of the routes.
+     *
      * @var asPaths
      */
     public $asPaths;
 
     /**
-     * @description Queries the routes of a Cloud Enterprise Network (CEN) instance in a specified region.
+     * @description The route maps that the routes match in the outbound direction.
      *
      * @var cenOutRouteMapRecords
      */
     public $cenOutRouteMapRecords;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The route maps that the routes match in the inbound direction.
      *
      * @var cenRouteMapRecords
      */
     public $cenRouteMapRecords;
 
     /**
+     * @description The community attributes of the routes.
+     *
      * @var communities
      */
     public $communities;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+     * @description The destination CIDR block of the route.
      *
      * @example 192.168.1.0/24
      *
@@ -46,14 +50,22 @@ class cenRouteEntry extends Model
     public $destinationCidrBlock;
 
     /**
-     * @description The priority of the route.
+     * @description The ID of the instance specified as the next hop in the route.
      *
-     * > A smaller value indicates a higher priority.
      * @example vpc-bp1j8728mm6pweeod****
      *
      * @var string
      */
     public $nextHopInstanceId;
+
+    /**
+     * @description The ID of the region where the network instance specified as the next hop in the route belongs.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $nextHopRegionId;
 
     /**
      * @description The type of the network instance specified as the next hop in the route.
@@ -62,18 +74,6 @@ class cenRouteEntry extends Model
      * - **VBR**
      * - **CCN**
      * - **local_service**: system route. No next hop is specified.
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $nextHopRegionId;
-
-    /**
-     * @description The type of the route. Valid values:
-     *
-     * - **CEN**: route that is advertised through CEN
-     * - **Custom**: custom route
-     * - **System**: system route
      * @example VPC
      *
      * @var string
@@ -81,8 +81,9 @@ class cenRouteEntry extends Model
     public $nextHopType;
 
     /**
-     * @description The page number of the returned page.
+     * @description The priority of the route.
      *
+     * > A smaller value indicates a higher priority.
      * @example 50
      *
      * @var int
@@ -90,8 +91,12 @@ class cenRouteEntry extends Model
     public $preference;
 
     /**
-     * @description The AS paths of the routes.
+     * @description The status of the route. Valid values:
      *
+     * - **Active**: The route is active.
+     * - **Candidate**: The route is a standby route.
+     * - **Rejected**: The route is rejected.
+     * - **Prohibited**: The route is prohibited.
      * @example Active
      *
      * @var string
@@ -99,8 +104,10 @@ class cenRouteEntry extends Model
     public $status;
 
     /**
-     * @description The ID of the route map.
+     * @description Whether the route can be advertised to other regions. Valid values:
      *
+     * - **Active**: The route can be advertised to other regions.
+     * - **Prohibited**: The route cannot be advertised to other regions.
      * @example Active
      *
      * @var string
@@ -108,8 +115,11 @@ class cenRouteEntry extends Model
     public $toOtherRegionStatus;
 
     /**
-     * @description The destination CIDR block of the route.
+     * @description The type of the route. Valid values:
      *
+     * - **CEN**: route that is advertised through CEN
+     * - **Custom**: custom route
+     * - **System**: system route
      * @example CEN
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class routeServiceEntry extends Model
 {
     /**
-     * @description Queries the cloud services that are configured on a Cloud Enterprise Network (CEN) instance.
+     * @description The ID of the region where the cloud service is accessed.
      *
      * @example cn-hangzhou
      *
@@ -19,7 +19,7 @@ class routeServiceEntry extends Model
     public $accessRegionId;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the CEN instance.
      *
      * @example cen-pfa6ugf3xl0qsd****
      *
@@ -28,12 +28,14 @@ class routeServiceEntry extends Model
     public $cenId;
 
     /**
+     * @description The service addresses of the cloud service.
+     *
      * @var cidrs
      */
     public $cidrs;
 
     /**
-     * @description The service address of the cloud service.
+     * @description The description of the cloud service.
      *
      * @example descname
      *
@@ -42,7 +44,7 @@ class routeServiceEntry extends Model
     public $description;
 
     /**
-     * @description The number of the returned page.
+     * @description The service address of the cloud service.
      *
      * @example 100.118.28.0/24
      *
@@ -51,6 +53,8 @@ class routeServiceEntry extends Model
     public $host;
 
     /**
+     * @description The ID of the region where the cloud service is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,7 +62,7 @@ class routeServiceEntry extends Model
     public $hostRegionId;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the VPC that is associated with the cloud service.
      *
      * @example vpc-bp1h8vbrbcgohcju5****
      *
@@ -67,9 +71,12 @@ class routeServiceEntry extends Model
     public $hostVpcId;
 
     /**
-     * @description The service address of the cloud service.
+     * @description The status of the cloud service. Valid values:
      *
-     * You can enter a domain name, an IP address, or a CIDR block.
+     *   **Creating**: The cloud service is being created.
+     *   **Active**: The cloud service is available.
+     *   **Deleting**: The cloud service is being deleted.
+     *
      * @example Active
      *
      * @var string

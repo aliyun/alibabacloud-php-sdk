@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ListTransitRoutersRequest extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
      * @example cen-j3jzhw1zpau2km****
      *
      * @var string
@@ -18,6 +20,8 @@ class ListTransitRoutersRequest extends Model
     public $cenId;
 
     /**
+     * @description The field that is used to enable or disable a feature of the transit router.
+     *
      * @var featureFilter[]
      */
     public $featureFilter;
@@ -33,6 +37,8 @@ class ListTransitRoutersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -40,6 +46,8 @@ class ListTransitRoutersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -47,6 +55,9 @@ class ListTransitRoutersRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region where the transit router is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ap-southeast-2
      *
      * @var string
@@ -64,6 +75,14 @@ class ListTransitRoutersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The status of the transit router. Valid values:
+     *
+     *   **Creating**: The transit router is being created.
+     *   **Active**: The transit router is available.
+     *   **Modifying**: The transit router is being modified
+     *   **Deleting**: The transit router is being deleted.
+     *   **Upgrading**: The transit router is being upgraded.
+     *
      * @example Active
      *
      * @var string
@@ -71,11 +90,16 @@ class ListTransitRoutersRequest extends Model
     public $status;
 
     /**
+     * @description The information about the tags.
+     *
+     * You can specify at most 20 tags in each call.
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the transit router.
+     *
      * @example tr-uf654ttymmljlvh2x****
      *
      * @var string
@@ -83,6 +107,9 @@ class ListTransitRoutersRequest extends Model
     public $transitRouterId;
 
     /**
+     * @description The name of the Enterprise Edition transit router.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example testname
      *
      * @var string
@@ -90,6 +117,11 @@ class ListTransitRoutersRequest extends Model
     public $transitRouterName;
 
     /**
+     * @description The edition of the transit router. Valid values:
+     *
+     *   **Enterprise**: Enhance Edition
+     *   **Basic**: Basic Edition
+     *
      * @example Enterprise
      *
      * @var string
