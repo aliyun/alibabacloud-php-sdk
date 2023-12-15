@@ -131,6 +131,11 @@ class changeTicketInfoList extends Model
     public $ticketNo;
 
     /**
+     * @var int
+     */
+    public $ticketStatus;
+
+    /**
      * @var string
      */
     public $toCityName;
@@ -174,6 +179,7 @@ class changeTicketInfoList extends Model
         'segmentIndex'        => 'segment_index',
         'startTime'           => 'start_time',
         'ticketNo'            => 'ticket_no',
+        'ticketStatus'        => 'ticket_status',
         'toCityName'          => 'to_city_name',
         'toStationName'       => 'to_station_name',
         'useTicket'           => 'use_ticket',
@@ -246,6 +252,9 @@ class changeTicketInfoList extends Model
         }
         if (null !== $this->ticketNo) {
             $res['ticket_no'] = $this->ticketNo;
+        }
+        if (null !== $this->ticketStatus) {
+            $res['ticket_status'] = $this->ticketStatus;
         }
         if (null !== $this->toCityName) {
             $res['to_city_name'] = $this->toCityName;
@@ -330,6 +339,9 @@ class changeTicketInfoList extends Model
         }
         if (isset($map['ticket_no'])) {
             $model->ticketNo = $map['ticket_no'];
+        }
+        if (isset($map['ticket_status'])) {
+            $model->ticketStatus = $map['ticket_status'];
         }
         if (isset($map['to_city_name'])) {
             $model->toCityName = $map['to_city_name'];
