@@ -11,6 +11,11 @@ class ListCityMapPersonFlowShrinkRequest extends Model
     /**
      * @var string
      */
+    public $endTime;
+
+    /**
+     * @var string
+     */
     public $originDataSourceIdListShrink;
 
     /**
@@ -26,12 +31,7 @@ class ListCityMapPersonFlowShrinkRequest extends Model
     /**
      * @var string
      */
-    public $targetDataSourceIdListShrink;
-
-    /**
-     * @var string
-     */
-    public $endTime;
+    public $range;
 
     /**
      * @var string
@@ -41,15 +41,15 @@ class ListCityMapPersonFlowShrinkRequest extends Model
     /**
      * @var string
      */
-    public $range;
+    public $targetDataSourceIdListShrink;
     protected $_name = [
+        'endTime'                      => 'EndTime',
         'originDataSourceIdListShrink' => 'OriginDataSourceIdList',
         'pageNumber'                   => 'PageNumber',
         'pageSize'                     => 'PageSize',
-        'targetDataSourceIdListShrink' => 'TargetDataSourceIdList',
-        'endTime'                      => 'EndTime',
-        'startTime'                    => 'StartTime',
         'range'                        => 'Range',
+        'startTime'                    => 'StartTime',
+        'targetDataSourceIdListShrink' => 'TargetDataSourceIdList',
     ];
 
     public function validate()
@@ -59,6 +59,9 @@ class ListCityMapPersonFlowShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->originDataSourceIdListShrink) {
             $res['OriginDataSourceIdList'] = $this->originDataSourceIdListShrink;
         }
@@ -68,17 +71,14 @@ class ListCityMapPersonFlowShrinkRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->targetDataSourceIdListShrink) {
-            $res['TargetDataSourceIdList'] = $this->targetDataSourceIdListShrink;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->range) {
+            $res['Range'] = $this->range;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->range) {
-            $res['Range'] = $this->range;
+        if (null !== $this->targetDataSourceIdListShrink) {
+            $res['TargetDataSourceIdList'] = $this->targetDataSourceIdListShrink;
         }
 
         return $res;
@@ -92,6 +92,9 @@ class ListCityMapPersonFlowShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['OriginDataSourceIdList'])) {
             $model->originDataSourceIdListShrink = $map['OriginDataSourceIdList'];
         }
@@ -101,17 +104,14 @@ class ListCityMapPersonFlowShrinkRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TargetDataSourceIdList'])) {
-            $model->targetDataSourceIdListShrink = $map['TargetDataSourceIdList'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['Range'])) {
+            $model->range = $map['Range'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['Range'])) {
-            $model->range = $map['Range'];
+        if (isset($map['TargetDataSourceIdList'])) {
+            $model->targetDataSourceIdListShrink = $map['TargetDataSourceIdList'];
         }
 
         return $model;

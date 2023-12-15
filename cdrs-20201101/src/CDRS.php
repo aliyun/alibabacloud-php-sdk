@@ -120,6 +120,7 @@ use AlibabaCloud\SDK\CDRS\V20201101\Models\UpdateProjectResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class CDRS extends OpenApiClient
@@ -156,339 +157,73 @@ class CDRS extends OpenApiClient
     }
 
     /**
-     * @param SearchObjectRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param AddCdrsMonitorRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return SearchObjectResponse
+     * @return AddCdrsMonitorResponse
      */
-    public function searchObjectWithOptions($request, $runtime)
+    public function addCdrsMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->algorithmVendor)) {
+            $body['AlgorithmVendor'] = $request->algorithmVendor;
+        }
+        if (!Utils::isUnset($request->batchIndicator)) {
+            $body['BatchIndicator'] = $request->batchIndicator;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->monitorType)) {
+            $body['MonitorType'] = $request->monitorType;
+        }
+        if (!Utils::isUnset($request->notifierAppSecret)) {
+            $body['NotifierAppSecret'] = $request->notifierAppSecret;
+        }
+        if (!Utils::isUnset($request->notifierExtendValues)) {
+            $body['NotifierExtendValues'] = $request->notifierExtendValues;
+        }
+        if (!Utils::isUnset($request->notifierTimeOut)) {
+            $body['NotifierTimeOut'] = $request->notifierTimeOut;
+        }
+        if (!Utils::isUnset($request->notifierType)) {
+            $body['NotifierType'] = $request->notifierType;
+        }
+        if (!Utils::isUnset($request->notifierUrl)) {
+            $body['NotifierUrl'] = $request->notifierUrl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCdrsMonitor',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchObjectResponse::fromMap($this->doRPCRequest('SearchObject', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddCdrsMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SearchObjectRequest $request
+     * @param AddCdrsMonitorRequest $request
      *
-     * @return SearchObjectResponse
+     * @return AddCdrsMonitorResponse
      */
-    public function searchObject($request)
+    public function addCdrsMonitor($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->searchObjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAreaHotSpotMetricsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListAreaHotSpotMetricsResponse
-     */
-    public function listAreaHotSpotMetricsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListAreaHotSpotMetricsResponse::fromMap($this->doRPCRequest('ListAreaHotSpotMetrics', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAreaHotSpotMetricsRequest $request
-     *
-     * @return ListAreaHotSpotMetricsResponse
-     */
-    public function listAreaHotSpotMetrics($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAreaHotSpotMetricsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BindDeviceRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return BindDeviceResponse
-     */
-    public function bindDeviceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return BindDeviceResponse::fromMap($this->doRPCRequest('BindDevice', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param BindDeviceRequest $request
-     *
-     * @return BindDeviceResponse
-     */
-    public function bindDevice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->bindDeviceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetCdrsMonitorResultRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetCdrsMonitorResultResponse
-     */
-    public function getCdrsMonitorResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetCdrsMonitorResultResponse::fromMap($this->doRPCRequest('GetCdrsMonitorResult', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetCdrsMonitorResultRequest $request
-     *
-     * @return GetCdrsMonitorResultResponse
-     */
-    public function getCdrsMonitorResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getCdrsMonitorResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListVehicleDetailsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListVehicleDetailsResponse
-     */
-    public function listVehicleDetailsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListVehicleDetailsResponse::fromMap($this->doRPCRequest('ListVehicleDetails', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListVehicleDetailsRequest $request
-     *
-     * @return ListVehicleDetailsResponse
-     */
-    public function listVehicleDetails($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listVehicleDetailsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetCdrsMonitorListRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetCdrsMonitorListResponse
-     */
-    public function getCdrsMonitorListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetCdrsMonitorListResponse::fromMap($this->doRPCRequest('GetCdrsMonitorList', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetCdrsMonitorListRequest $request
-     *
-     * @return GetCdrsMonitorListResponse
-     */
-    public function getCdrsMonitorList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getCdrsMonitorListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateMonitorRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return UpdateMonitorResponse
-     */
-    public function updateMonitorWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateMonitorResponse::fromMap($this->doRPCRequest('UpdateMonitor', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateMonitorRequest $request
-     *
-     * @return UpdateMonitorResponse
-     */
-    public function updateMonitor($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateMonitorWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDataStatisticsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListDataStatisticsResponse
-     */
-    public function listDataStatisticsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListDataStatisticsResponse::fromMap($this->doRPCRequest('ListDataStatistics', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDataStatisticsRequest $request
-     *
-     * @return ListDataStatisticsResponse
-     */
-    public function listDataStatistics($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDataStatisticsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnbindDeviceRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return UnbindDeviceResponse
-     */
-    public function unbindDeviceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UnbindDeviceResponse::fromMap($this->doRPCRequest('UnbindDevice', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UnbindDeviceRequest $request
-     *
-     * @return UnbindDeviceResponse
-     */
-    public function unbindDevice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unbindDeviceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListPersonDetailsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListPersonDetailsResponse
-     */
-    public function listPersonDetailsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListPersonDetailsResponse::fromMap($this->doRPCRequest('ListPersonDetails', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListPersonDetailsRequest $request
-     *
-     * @return ListPersonDetailsResponse
-     */
-    public function listPersonDetails($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listPersonDetailsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListVehicleTagDistributeRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListVehicleTagDistributeResponse
-     */
-    public function listVehicleTagDistributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListVehicleTagDistributeResponse::fromMap($this->doRPCRequest('ListVehicleTagDistribute', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListVehicleTagDistributeRequest $request
-     *
-     * @return ListVehicleTagDistributeResponse
-     */
-    public function listVehicleTagDistribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listVehicleTagDistributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDevicePersonStatisticsRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ListDevicePersonStatisticsResponse
-     */
-    public function listDevicePersonStatisticsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListDevicePersonStatisticsResponse::fromMap($this->doRPCRequest('ListDevicePersonStatistics', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDevicePersonStatisticsRequest $request
-     *
-     * @return ListDevicePersonStatisticsResponse
-     */
-    public function listDevicePersonStatistics($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDevicePersonStatisticsWithOptions($request, $runtime);
+        return $this->addCdrsMonitorWithOptions($request, $runtime);
     }
 
     /**
@@ -500,11 +235,53 @@ class CDRS extends OpenApiClient
     public function addMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->algorithmVendor)) {
+            $body['AlgorithmVendor'] = $request->algorithmVendor;
+        }
+        if (!Utils::isUnset($request->batchIndicator)) {
+            $body['BatchIndicator'] = $request->batchIndicator;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->monitorType)) {
+            $body['MonitorType'] = $request->monitorType;
+        }
+        if (!Utils::isUnset($request->notifierAppSecret)) {
+            $body['NotifierAppSecret'] = $request->notifierAppSecret;
+        }
+        if (!Utils::isUnset($request->notifierExtendValues)) {
+            $body['NotifierExtendValues'] = $request->notifierExtendValues;
+        }
+        if (!Utils::isUnset($request->notifierTimeOut)) {
+            $body['NotifierTimeOut'] = $request->notifierTimeOut;
+        }
+        if (!Utils::isUnset($request->notifierType)) {
+            $body['NotifierType'] = $request->notifierType;
+        }
+        if (!Utils::isUnset($request->notifierUrl)) {
+            $body['NotifierUrl'] = $request->notifierUrl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMonitor',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddMonitorResponse::fromMap($this->doRPCRequest('AddMonitor', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -520,87 +297,635 @@ class CDRS extends OpenApiClient
     }
 
     /**
-     * @param PaginateDeviceRequest $request
+     * @param BindDeviceRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return BindDeviceResponse
+     */
+    public function bindDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->devices)) {
+            $body['Devices'] = $request->devices;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BindDevice',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BindDeviceRequest $request
+     *
+     * @return BindDeviceResponse
+     */
+    public function bindDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->aggregateSceneCode)) {
+            $body['AggregateSceneCode'] = $request->aggregateSceneCode;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->icon)) {
+            $body['Icon'] = $request->icon;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProject',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetectTrajectoryRegularPatternRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DetectTrajectoryRegularPatternResponse
+     */
+    public function detectTrajectoryRegularPatternWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->idType)) {
+            $body['IdType'] = $request->idType;
+        }
+        if (!Utils::isUnset($request->idValue)) {
+            $body['IdValue'] = $request->idValue;
+        }
+        if (!Utils::isUnset($request->predictDate)) {
+            $body['PredictDate'] = $request->predictDate;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectTrajectoryRegularPattern',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectTrajectoryRegularPatternResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectTrajectoryRegularPatternRequest $request
+     *
+     * @return DetectTrajectoryRegularPatternResponse
+     */
+    public function detectTrajectoryRegularPattern($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectTrajectoryRegularPatternWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCdrsMonitorListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetCdrsMonitorListResponse
+     */
+    public function getCdrsMonitorListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $body['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCdrsMonitorList',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCdrsMonitorListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCdrsMonitorListRequest $request
+     *
+     * @return GetCdrsMonitorListResponse
+     */
+    public function getCdrsMonitorList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCdrsMonitorListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCdrsMonitorResultRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetCdrsMonitorResultResponse
+     */
+    public function getCdrsMonitorResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->algorithmVendor)) {
+            $body['AlgorithmVendor'] = $request->algorithmVendor;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->minRecordId)) {
+            $body['MinRecordId'] = $request->minRecordId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCdrsMonitorResult',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCdrsMonitorResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCdrsMonitorResultRequest $request
+     *
+     * @return GetCdrsMonitorResultResponse
+     */
+    public function getCdrsMonitorResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCdrsMonitorResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMonitorListRequest $request
      * @param RuntimeOptions        $runtime
      *
-     * @return PaginateDeviceResponse
+     * @return GetMonitorListResponse
      */
-    public function paginateDeviceWithOptions($request, $runtime)
+    public function getMonitorListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMonitorList',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PaginateDeviceResponse::fromMap($this->doRPCRequest('PaginateDevice', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMonitorListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PaginateDeviceRequest $request
+     * @param GetMonitorListRequest $request
      *
-     * @return PaginateDeviceResponse
+     * @return GetMonitorListResponse
      */
-    public function paginateDevice($request)
+    public function getMonitorList($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->paginateDeviceWithOptions($request, $runtime);
+        return $this->getMonitorListWithOptions($request, $runtime);
     }
 
     /**
-     * @param StopCdrsMonitorRequest $request
+     * @param GetMonitorResultRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetMonitorResultResponse
+     */
+    public function getMonitorResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->algorithmVendor)) {
+            $body['AlgorithmVendor'] = $request->algorithmVendor;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->minRecordId)) {
+            $body['MinRecordId'] = $request->minRecordId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMonitorResult',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMonitorResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMonitorResultRequest $request
+     *
+     * @return GetMonitorResultResponse
+     */
+    public function getMonitorResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMonitorResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAreaHotSpotMetricsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAreaHotSpotMetricsResponse
+     */
+    public function listAreaHotSpotMetricsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $body['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->personId)) {
+            $body['PersonId'] = $request->personId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAreaHotSpotMetrics',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAreaHotSpotMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAreaHotSpotMetricsRequest $request
+     *
+     * @return ListAreaHotSpotMetricsResponse
+     */
+    public function listAreaHotSpotMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAreaHotSpotMetricsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCityMapAoisRequest $request
      * @param RuntimeOptions         $runtime
      *
-     * @return StopCdrsMonitorResponse
+     * @return ListCityMapAoisResponse
      */
-    public function stopCdrsMonitorWithOptions($request, $runtime)
+    public function listCityMapAoisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->latitude)) {
+            $body['Latitude'] = $request->latitude;
+        }
+        if (!Utils::isUnset($request->longitude)) {
+            $body['Longitude'] = $request->longitude;
+        }
+        if (!Utils::isUnset($request->radius)) {
+            $body['Radius'] = $request->radius;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCityMapAois',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopCdrsMonitorResponse::fromMap($this->doRPCRequest('StopCdrsMonitor', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCityMapAoisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param StopCdrsMonitorRequest $request
+     * @param ListCityMapAoisRequest $request
      *
-     * @return StopCdrsMonitorResponse
+     * @return ListCityMapAoisResponse
      */
-    public function stopCdrsMonitor($request)
+    public function listCityMapAois($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->stopCdrsMonitorWithOptions($request, $runtime);
+        return $this->listCityMapAoisWithOptions($request, $runtime);
     }
 
     /**
-     * @param RecallTrajectoryByCoordinateTimeRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @param ListCityMapCameraResultsRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
      *
-     * @return RecallTrajectoryByCoordinateTimeResponse
+     * @return ListCityMapCameraResultsResponse
      */
-    public function recallTrajectoryByCoordinateTimeWithOptions($request, $runtime)
+    public function listCityMapCameraResultsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListCityMapCameraResultsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dataSourceIdList)) {
+            $request->dataSourceIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataSourceIdList, 'DataSourceIdList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dataSourceIdListShrink)) {
+            $body['DataSourceIdList'] = $request->dataSourceIdListShrink;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCityMapCameraResults',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecallTrajectoryByCoordinateTimeResponse::fromMap($this->doRPCRequest('RecallTrajectoryByCoordinateTime', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCityMapCameraResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RecallTrajectoryByCoordinateTimeRequest $request
+     * @param ListCityMapCameraResultsRequest $request
      *
-     * @return RecallTrajectoryByCoordinateTimeResponse
+     * @return ListCityMapCameraResultsResponse
      */
-    public function recallTrajectoryByCoordinateTime($request)
+    public function listCityMapCameraResults($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->recallTrajectoryByCoordinateTimeWithOptions($request, $runtime);
+        return $this->listCityMapCameraResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCityMapCameraStatisticsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListCityMapCameraStatisticsResponse
+     */
+    public function listCityMapCameraStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataSourceIdList)) {
+            $body['DataSourceIdList'] = $request->dataSourceIdList;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCityMapCameraStatistics',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCityMapCameraStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCityMapCameraStatisticsRequest $request
+     *
+     * @return ListCityMapCameraStatisticsResponse
+     */
+    public function listCityMapCameraStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCityMapCameraStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCityMapImageDetailsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListCityMapImageDetailsResponse
+     */
+    public function listCityMapImageDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $body['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->recordNumber)) {
+            $body['RecordNumber'] = $request->recordNumber;
+        }
+        if (!Utils::isUnset($request->timeInterval)) {
+            $body['TimeInterval'] = $request->timeInterval;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCityMapImageDetails',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCityMapImageDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCityMapImageDetailsRequest $request
+     *
+     * @return ListCityMapImageDetailsResponse
+     */
+    public function listCityMapImageDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCityMapImageDetailsWithOptions($request, $runtime);
     }
 
     /**
@@ -620,11 +945,44 @@ class CDRS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->targetDataSourceIdList)) {
             $request->targetDataSourceIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targetDataSourceIdList, 'TargetDataSourceIdList', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->originDataSourceIdListShrink)) {
+            $body['OriginDataSourceIdList'] = $request->originDataSourceIdListShrink;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->range)) {
+            $body['Range'] = $request->range;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->targetDataSourceIdListShrink)) {
+            $body['TargetDataSourceIdList'] = $request->targetDataSourceIdListShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCityMapPersonFlow',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCityMapPersonFlowResponse::fromMap($this->doRPCRequest('ListCityMapPersonFlow', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCityMapPersonFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -640,699 +998,6 @@ class CDRS extends OpenApiClient
     }
 
     /**
-     * @param AddCdrsMonitorRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return AddCdrsMonitorResponse
-     */
-    public function addCdrsMonitorWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddCdrsMonitorResponse::fromMap($this->doRPCRequest('AddCdrsMonitor', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddCdrsMonitorRequest $request
-     *
-     * @return AddCdrsMonitorResponse
-     */
-    public function addCdrsMonitor($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addCdrsMonitorWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListMapRouteDetailsRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListMapRouteDetailsResponse
-     */
-    public function listMapRouteDetailsWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ListMapRouteDetailsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->routeList)) {
-            $request->routeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->routeList, 'RouteList', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListMapRouteDetailsResponse::fromMap($this->doRPCRequest('ListMapRouteDetails', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListMapRouteDetailsRequest $request
-     *
-     * @return ListMapRouteDetailsResponse
-     */
-    public function listMapRouteDetails($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listMapRouteDetailsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListPersonTopRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListPersonTopResponse
-     */
-    public function listPersonTopWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListPersonTopResponse::fromMap($this->doRPCRequest('ListPersonTop', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListPersonTopRequest $request
-     *
-     * @return ListPersonTopResponse
-     */
-    public function listPersonTop($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listPersonTopWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetMonitorResultRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetMonitorResultResponse
-     */
-    public function getMonitorResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetMonitorResultResponse::fromMap($this->doRPCRequest('GetMonitorResult', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetMonitorResultRequest $request
-     *
-     * @return GetMonitorResultResponse
-     */
-    public function getMonitorResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMonitorResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListCityMapAoisRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListCityMapAoisResponse
-     */
-    public function listCityMapAoisWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListCityMapAoisResponse::fromMap($this->doRPCRequest('ListCityMapAois', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListCityMapAoisRequest $request
-     *
-     * @return ListCityMapAoisResponse
-     */
-    public function listCityMapAois($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listCityMapAoisWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeImageRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return RecognizeImageResponse
-     */
-    public function recognizeImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RecognizeImageResponse::fromMap($this->doRPCRequest('RecognizeImage', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeImageRequest $request
-     *
-     * @return RecognizeImageResponse
-     */
-    public function recognizeImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeImageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetMonitorListRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetMonitorListResponse
-     */
-    public function getMonitorListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetMonitorListResponse::fromMap($this->doRPCRequest('GetMonitorList', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetMonitorListRequest $request
-     *
-     * @return GetMonitorListResponse
-     */
-    public function getMonitorList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMonitorListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDeviceRelationRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListDeviceRelationResponse
-     */
-    public function listDeviceRelationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListDeviceRelationResponse::fromMap($this->doRPCRequest('ListDeviceRelation', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDeviceRelationRequest $request
-     *
-     * @return ListDeviceRelationResponse
-     */
-    public function listDeviceRelation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDeviceRelationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListPersonTrackRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListPersonTrackResponse
-     */
-    public function listPersonTrackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListPersonTrackResponse::fromMap($this->doRPCRequest('ListPersonTrack', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListPersonTrackRequest $request
-     *
-     * @return ListPersonTrackResponse
-     */
-    public function listPersonTrack($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listPersonTrackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListCityMapCameraResultsRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListCityMapCameraResultsResponse
-     */
-    public function listCityMapCameraResultsWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ListCityMapCameraResultsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dataSourceIdList)) {
-            $request->dataSourceIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataSourceIdList, 'DataSourceIdList', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListCityMapCameraResultsResponse::fromMap($this->doRPCRequest('ListCityMapCameraResults', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListCityMapCameraResultsRequest $request
-     *
-     * @return ListCityMapCameraResultsResponse
-     */
-    public function listCityMapCameraResults($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listCityMapCameraResultsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryTrajectoryByIdRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return QueryTrajectoryByIdResponse
-     */
-    public function queryTrajectoryByIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryTrajectoryByIdResponse::fromMap($this->doRPCRequest('QueryTrajectoryById', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryTrajectoryByIdRequest $request
-     *
-     * @return QueryTrajectoryByIdResponse
-     */
-    public function queryTrajectoryById($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryTrajectoryByIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListCityMapImageDetailsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ListCityMapImageDetailsResponse
-     */
-    public function listCityMapImageDetailsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListCityMapImageDetailsResponse::fromMap($this->doRPCRequest('ListCityMapImageDetails', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListCityMapImageDetailsRequest $request
-     *
-     * @return ListCityMapImageDetailsResponse
-     */
-    public function listCityMapImageDetails($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listCityMapImageDetailsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateProjectRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateProjectResponse
-     */
-    public function createProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateProjectResponse::fromMap($this->doRPCRequest('CreateProject', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateProjectRequest $request
-     *
-     * @return CreateProjectResponse
-     */
-    public function createProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListVehicleTopRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListVehicleTopResponse
-     */
-    public function listVehicleTopWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListVehicleTopResponse::fromMap($this->doRPCRequest('ListVehicleTop', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListVehicleTopRequest $request
-     *
-     * @return ListVehicleTopResponse
-     */
-    public function listVehicleTop($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listVehicleTopWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDataStatisticsByDayRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ListDataStatisticsByDayResponse
-     */
-    public function listDataStatisticsByDayWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListDataStatisticsByDayResponse::fromMap($this->doRPCRequest('ListDataStatisticsByDay', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDataStatisticsByDayRequest $request
-     *
-     * @return ListDataStatisticsByDayResponse
-     */
-    public function listDataStatisticsByDay($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDataStatisticsByDayWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListVehicleResultsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListVehicleResultsResponse
-     */
-    public function listVehicleResultsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListVehicleResultsResponse::fromMap($this->doRPCRequest('ListVehicleResults', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListVehicleResultsRequest $request
-     *
-     * @return ListVehicleResultsResponse
-     */
-    public function listVehicleResults($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listVehicleResultsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SearchAggregateObjectRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return SearchAggregateObjectResponse
-     */
-    public function searchAggregateObjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SearchAggregateObjectResponse::fromMap($this->doRPCRequest('SearchAggregateObject', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SearchAggregateObjectRequest $request
-     *
-     * @return SearchAggregateObjectResponse
-     */
-    public function searchAggregateObject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->searchAggregateObjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListCorpMetricsStatisticRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListCorpMetricsStatisticResponse
-     */
-    public function listCorpMetricsStatisticWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ListCorpMetricsStatisticShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userGroupList)) {
-            $request->userGroupListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userGroupList, 'UserGroupList', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->deviceGroupList)) {
-            $request->deviceGroupListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceGroupList, 'DeviceGroupList', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->deviceIdList)) {
-            $request->deviceIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceIdList, 'DeviceIdList', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListCorpMetricsStatisticResponse::fromMap($this->doRPCRequest('ListCorpMetricsStatistic', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListCorpMetricsStatisticRequest $request
-     *
-     * @return ListCorpMetricsStatisticResponse
-     */
-    public function listCorpMetricsStatistic($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listCorpMetricsStatisticWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DetectTrajectoryRegularPatternRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DetectTrajectoryRegularPatternResponse
-     */
-    public function detectTrajectoryRegularPatternWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DetectTrajectoryRegularPatternResponse::fromMap($this->doRPCRequest('DetectTrajectoryRegularPattern', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DetectTrajectoryRegularPatternRequest $request
-     *
-     * @return DetectTrajectoryRegularPatternResponse
-     */
-    public function detectTrajectoryRegularPattern($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectTrajectoryRegularPatternWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListVehicleTrackRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListVehicleTrackResponse
-     */
-    public function listVehicleTrackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListVehicleTrackResponse::fromMap($this->doRPCRequest('ListVehicleTrack', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListVehicleTrackRequest $request
-     *
-     * @return ListVehicleTrackResponse
-     */
-    public function listVehicleTrack($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listVehicleTrackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListStructureStatisticsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ListStructureStatisticsResponse
-     */
-    public function listStructureStatisticsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListStructureStatisticsResponse::fromMap($this->doRPCRequest('ListStructureStatistics', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListStructureStatisticsRequest $request
-     *
-     * @return ListStructureStatisticsResponse
-     */
-    public function listStructureStatistics($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listStructureStatisticsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StopMonitorRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return StopMonitorResponse
-     */
-    public function stopMonitorWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StopMonitorResponse::fromMap($this->doRPCRequest('StopMonitor', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StopMonitorRequest $request
-     *
-     * @return StopMonitorResponse
-     */
-    public function stopMonitor($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->stopMonitorWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param PredictTrajectoryDestinationRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return PredictTrajectoryDestinationResponse
-     */
-    public function predictTrajectoryDestinationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PredictTrajectoryDestinationResponse::fromMap($this->doRPCRequest('PredictTrajectoryDestination', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PredictTrajectoryDestinationRequest $request
-     *
-     * @return PredictTrajectoryDestinationResponse
-     */
-    public function predictTrajectoryDestination($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->predictTrajectoryDestinationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListRangeDeviceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListRangeDeviceResponse
-     */
-    public function listRangeDeviceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListRangeDeviceResponse::fromMap($this->doRPCRequest('ListRangeDevice', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListRangeDeviceRequest $request
-     *
-     * @return ListRangeDeviceResponse
-     */
-    public function listRangeDevice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listRangeDeviceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListCityMapRangeStatisticRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1341,11 +1006,41 @@ class CDRS extends OpenApiClient
     public function listCityMapRangeStatisticWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->latitude)) {
+            $body['Latitude'] = $request->latitude;
+        }
+        if (!Utils::isUnset($request->longitude)) {
+            $body['Longitude'] = $request->longitude;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->radius)) {
+            $body['Radius'] = $request->radius;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCityMapRangeStatistic',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCityMapRangeStatisticResponse::fromMap($this->doRPCRequest('ListCityMapRangeStatistic', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCityMapRangeStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1361,260 +1056,179 @@ class CDRS extends OpenApiClient
     }
 
     /**
-     * @param ListStorageStatisticsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ListCorpMetricsStatisticRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
      *
-     * @return ListStorageStatisticsResponse
+     * @return ListCorpMetricsStatisticResponse
      */
-    public function listStorageStatisticsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListStorageStatisticsResponse::fromMap($this->doRPCRequest('ListStorageStatistics', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListStorageStatisticsRequest $request
-     *
-     * @return ListStorageStatisticsResponse
-     */
-    public function listStorageStatistics($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listStorageStatisticsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param PaginateProjectRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return PaginateProjectResponse
-     */
-    public function paginateProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PaginateProjectResponse::fromMap($this->doRPCRequest('PaginateProject', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PaginateProjectRequest $request
-     *
-     * @return PaginateProjectResponse
-     */
-    public function paginateProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->paginateProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListCityMapCameraStatisticsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ListCityMapCameraStatisticsResponse
-     */
-    public function listCityMapCameraStatisticsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListCityMapCameraStatisticsResponse::fromMap($this->doRPCRequest('ListCityMapCameraStatistics', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListCityMapCameraStatisticsRequest $request
-     *
-     * @return ListCityMapCameraStatisticsResponse
-     */
-    public function listCityMapCameraStatistics($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listCityMapCameraStatisticsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateCdrsMonitorRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateCdrsMonitorResponse
-     */
-    public function updateCdrsMonitorWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateCdrsMonitorResponse::fromMap($this->doRPCRequest('UpdateCdrsMonitor', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateCdrsMonitorRequest $request
-     *
-     * @return UpdateCdrsMonitorResponse
-     */
-    public function updateCdrsMonitor($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateCdrsMonitorWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListPersonResultRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListPersonResultResponse
-     */
-    public function listPersonResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListPersonResultResponse::fromMap($this->doRPCRequest('ListPersonResult', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListPersonResultRequest $request
-     *
-     * @return ListPersonResultResponse
-     */
-    public function listPersonResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listPersonResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListTagMetricsRequest $tmpReq
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListTagMetricsResponse
-     */
-    public function listTagMetricsWithOptions($tmpReq, $runtime)
+    public function listCorpMetricsStatisticWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new ListTagMetricsShrinkRequest([]);
+        $request = new ListCorpMetricsStatisticShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tagCode)) {
-            $request->tagCodeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagCode, 'TagCode', 'json');
+        if (!Utils::isUnset($tmpReq->deviceGroupList)) {
+            $request->deviceGroupListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceGroupList, 'DeviceGroupList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->deviceIdList)) {
+            $request->deviceIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceIdList, 'DeviceIdList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->userGroupList)) {
+            $request->userGroupListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userGroupList, 'UserGroupList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->deviceGroupListShrink)) {
+            $body['DeviceGroupList'] = $request->deviceGroupListShrink;
+        }
+        if (!Utils::isUnset($request->deviceIdListShrink)) {
+            $body['DeviceIdList'] = $request->deviceIdListShrink;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->qualitScore)) {
+            $body['QualitScore'] = $request->qualitScore;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tagCode)) {
+            $body['TagCode'] = $request->tagCode;
+        }
+        if (!Utils::isUnset($request->userGroupListShrink)) {
+            $body['UserGroupList'] = $request->userGroupListShrink;
         }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCorpMetricsStatistic',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagMetricsResponse::fromMap($this->doRPCRequest('ListTagMetrics', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCorpMetricsStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListTagMetricsRequest $request
+     * @param ListCorpMetricsStatisticRequest $request
      *
-     * @return ListTagMetricsResponse
+     * @return ListCorpMetricsStatisticResponse
      */
-    public function listTagMetrics($request)
+    public function listCorpMetricsStatistic($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listTagMetricsWithOptions($request, $runtime);
+        return $this->listCorpMetricsStatisticWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListPersonTagRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param ListDataStatisticsRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return ListPersonTagResponse
+     * @return ListDataStatisticsResponse
      */
-    public function listPersonTagWithOptions($request, $runtime)
+    public function listDataStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->backCategory)) {
+            $body['BackCategory'] = $request->backCategory;
+        }
+        if (!Utils::isUnset($request->schema)) {
+            $body['Schema'] = $request->schema;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataStatistics',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListPersonTagResponse::fromMap($this->doRPCRequest('ListPersonTag', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDataStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListPersonTagRequest $request
+     * @param ListDataStatisticsRequest $request
      *
-     * @return ListPersonTagResponse
+     * @return ListDataStatisticsResponse
      */
-    public function listPersonTag($request)
+    public function listDataStatistics($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listPersonTagWithOptions($request, $runtime);
+        return $this->listDataStatisticsWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateProjectRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param ListDataStatisticsByDayRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return UpdateProjectResponse
+     * @return ListDataStatisticsByDayResponse
      */
-    public function updateProjectWithOptions($request, $runtime)
+    public function listDataStatisticsByDayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataStatisticsByDay',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateProjectResponse::fromMap($this->doRPCRequest('UpdateProject', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDataStatisticsByDayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateProjectRequest $request
+     * @param ListDataStatisticsByDayRequest $request
      *
-     * @return UpdateProjectResponse
+     * @return ListDataStatisticsByDayResponse
      */
-    public function updateProject($request)
+    public function listDataStatisticsByDay($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDevicePersonRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListDevicePersonResponse
-     */
-    public function listDevicePersonWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListDevicePersonResponse::fromMap($this->doRPCRequest('ListDevicePerson', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDevicePersonRequest $request
-     *
-     * @return ListDevicePersonResponse
-     */
-    public function listDevicePerson($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDevicePersonWithOptions($request, $runtime);
+        return $this->listDataStatisticsByDayWithOptions($request, $runtime);
     }
 
     /**
@@ -1626,11 +1240,35 @@ class CDRS extends OpenApiClient
     public function listDeviceDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $body['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDeviceDetail',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDeviceDetailResponse::fromMap($this->doRPCRequest('ListDeviceDetail', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDeviceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1654,11 +1292,35 @@ class CDRS extends OpenApiClient
     public function listDeviceGenderStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $body['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDeviceGenderStatistics',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDeviceGenderStatisticsResponse::fromMap($this->doRPCRequest('ListDeviceGenderStatistics', '2020-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDeviceGenderStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1671,5 +1333,1886 @@ class CDRS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDeviceGenderStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDevicePersonRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListDevicePersonResponse
+     */
+    public function listDevicePersonWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $body['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->statisticsType)) {
+            $body['StatisticsType'] = $request->statisticsType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDevicePerson',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDevicePersonResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDevicePersonRequest $request
+     *
+     * @return ListDevicePersonResponse
+     */
+    public function listDevicePerson($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDevicePersonWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDevicePersonStatisticsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListDevicePersonStatisticsResponse
+     */
+    public function listDevicePersonStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $body['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->statisticsType)) {
+            $body['StatisticsType'] = $request->statisticsType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDevicePersonStatistics',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDevicePersonStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDevicePersonStatisticsRequest $request
+     *
+     * @return ListDevicePersonStatisticsResponse
+     */
+    public function listDevicePersonStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDevicePersonStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDeviceRelationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListDeviceRelationResponse
+     */
+    public function listDeviceRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $body['DeviceId'] = $request->deviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDeviceRelation',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDeviceRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDeviceRelationRequest $request
+     *
+     * @return ListDeviceRelationResponse
+     */
+    public function listDeviceRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDeviceRelationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMapRouteDetailsRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListMapRouteDetailsResponse
+     */
+    public function listMapRouteDetailsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListMapRouteDetailsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->routeList)) {
+            $request->routeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->routeList, 'RouteList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->routeListShrink)) {
+            $body['RouteList'] = $request->routeListShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMapRouteDetails',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMapRouteDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMapRouteDetailsRequest $request
+     *
+     * @return ListMapRouteDetailsResponse
+     */
+    public function listMapRouteDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMapRouteDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPersonDetailsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListPersonDetailsResponse
+     */
+    public function listPersonDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->personId)) {
+            $body['PersonId'] = $request->personId;
+        }
+        if (!Utils::isUnset($request->schema)) {
+            $body['Schema'] = $request->schema;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPersonDetails',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPersonDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPersonDetailsRequest $request
+     *
+     * @return ListPersonDetailsResponse
+     */
+    public function listPersonDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPersonDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPersonResultRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListPersonResultResponse
+     */
+    public function listPersonResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->age)) {
+            $body['Age'] = $request->age;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->gender)) {
+            $body['Gender'] = $request->gender;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->profession)) {
+            $body['Profession'] = $request->profession;
+        }
+        if (!Utils::isUnset($request->qualityScore)) {
+            $body['QualityScore'] = $request->qualityScore;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPersonResult',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPersonResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPersonResultRequest $request
+     *
+     * @return ListPersonResultResponse
+     */
+    public function listPersonResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPersonResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPersonTagRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListPersonTagResponse
+     */
+    public function listPersonTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tagCode)) {
+            $body['TagCode'] = $request->tagCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPersonTag',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPersonTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPersonTagRequest $request
+     *
+     * @return ListPersonTagResponse
+     */
+    public function listPersonTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPersonTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPersonTopRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListPersonTopResponse
+     */
+    public function listPersonTopWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->personId)) {
+            $body['PersonId'] = $request->personId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPersonTop',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPersonTopResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPersonTopRequest $request
+     *
+     * @return ListPersonTopResponse
+     */
+    public function listPersonTop($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPersonTopWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPersonTrackRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListPersonTrackResponse
+     */
+    public function listPersonTrackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->aggregateDimension)) {
+            $body['AggregateDimension'] = $request->aggregateDimension;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->imageSourceType)) {
+            $body['ImageSourceType'] = $request->imageSourceType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->personId)) {
+            $body['PersonId'] = $request->personId;
+        }
+        if (!Utils::isUnset($request->qualityScore)) {
+            $body['QualityScore'] = $request->qualityScore;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPersonTrack',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPersonTrackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPersonTrackRequest $request
+     *
+     * @return ListPersonTrackResponse
+     */
+    public function listPersonTrack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPersonTrackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRangeDeviceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListRangeDeviceResponse
+     */
+    public function listRangeDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $body['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->radius)) {
+            $body['Radius'] = $request->radius;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRangeDevice',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRangeDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRangeDeviceRequest $request
+     *
+     * @return ListRangeDeviceResponse
+     */
+    public function listRangeDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRangeDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListStorageStatisticsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListStorageStatisticsResponse
+     */
+    public function listStorageStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStorageStatistics',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListStorageStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListStorageStatisticsRequest $request
+     *
+     * @return ListStorageStatisticsResponse
+     */
+    public function listStorageStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStorageStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListStructureStatisticsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListStructureStatisticsResponse
+     */
+    public function listStructureStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->backCategory)) {
+            $body['BackCategory'] = $request->backCategory;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStructureStatistics',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListStructureStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListStructureStatisticsRequest $request
+     *
+     * @return ListStructureStatisticsResponse
+     */
+    public function listStructureStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStructureStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagMetricsRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListTagMetricsResponse
+     */
+    public function listTagMetricsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListTagMetricsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tagCode)) {
+            $request->tagCodeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagCode, 'TagCode', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->aggregateType)) {
+            $body['AggregateType'] = $request->aggregateType;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tagCodeShrink)) {
+            $body['TagCode'] = $request->tagCodeShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagMetrics',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagMetricsRequest $request
+     *
+     * @return ListTagMetricsResponse
+     */
+    public function listTagMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagMetricsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListVehicleDetailsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListVehicleDetailsResponse
+     */
+    public function listVehicleDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->plateId)) {
+            $body['PlateId'] = $request->plateId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVehicleDetails',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListVehicleDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListVehicleDetailsRequest $request
+     *
+     * @return ListVehicleDetailsResponse
+     */
+    public function listVehicleDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVehicleDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListVehicleResultsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListVehicleResultsResponse
+     */
+    public function listVehicleResultsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->vehicleApplication)) {
+            $body['VehicleApplication'] = $request->vehicleApplication;
+        }
+        if (!Utils::isUnset($request->vehicleClass)) {
+            $body['VehicleClass'] = $request->vehicleClass;
+        }
+        if (!Utils::isUnset($request->vehicleColor)) {
+            $body['VehicleColor'] = $request->vehicleColor;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVehicleResults',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListVehicleResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListVehicleResultsRequest $request
+     *
+     * @return ListVehicleResultsResponse
+     */
+    public function listVehicleResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVehicleResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListVehicleTagDistributeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListVehicleTagDistributeResponse
+     */
+    public function listVehicleTagDistributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tagCode)) {
+            $body['TagCode'] = $request->tagCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVehicleTagDistribute',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListVehicleTagDistributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListVehicleTagDistributeRequest $request
+     *
+     * @return ListVehicleTagDistributeResponse
+     */
+    public function listVehicleTagDistribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVehicleTagDistributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListVehicleTopRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListVehicleTopResponse
+     */
+    public function listVehicleTopWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->plateId)) {
+            $body['PlateId'] = $request->plateId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVehicleTop',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListVehicleTopResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListVehicleTopRequest $request
+     *
+     * @return ListVehicleTopResponse
+     */
+    public function listVehicleTop($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVehicleTopWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListVehicleTrackRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListVehicleTrackResponse
+     */
+    public function listVehicleTrackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->plateId)) {
+            $body['PlateId'] = $request->plateId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVehicleTrack',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListVehicleTrackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListVehicleTrackRequest $request
+     *
+     * @return ListVehicleTrackResponse
+     */
+    public function listVehicleTrack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVehicleTrackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PaginateDeviceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PaginateDeviceResponse
+     */
+    public function paginateDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->countTotalNum)) {
+            $body['CountTotalNum'] = $request->countTotalNum;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PaginateDevice',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PaginateDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PaginateDeviceRequest $request
+     *
+     * @return PaginateDeviceResponse
+     */
+    public function paginateDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->paginateDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PaginateProjectRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PaginateProjectResponse
+     */
+    public function paginateProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->countTotalNum)) {
+            $body['CountTotalNum'] = $request->countTotalNum;
+        }
+        if (!Utils::isUnset($request->nameLike)) {
+            $body['NameLike'] = $request->nameLike;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PaginateProject',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PaginateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PaginateProjectRequest $request
+     *
+     * @return PaginateProjectResponse
+     */
+    public function paginateProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->paginateProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PredictTrajectoryDestinationRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return PredictTrajectoryDestinationResponse
+     */
+    public function predictTrajectoryDestinationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->idType)) {
+            $body['IdType'] = $request->idType;
+        }
+        if (!Utils::isUnset($request->idValue)) {
+            $body['IdValue'] = $request->idValue;
+        }
+        if (!Utils::isUnset($request->predictTimeSpan)) {
+            $body['PredictTimeSpan'] = $request->predictTimeSpan;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PredictTrajectoryDestination',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PredictTrajectoryDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PredictTrajectoryDestinationRequest $request
+     *
+     * @return PredictTrajectoryDestinationResponse
+     */
+    public function predictTrajectoryDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->predictTrajectoryDestinationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryTrajectoryByIdRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryTrajectoryByIdResponse
+     */
+    public function queryTrajectoryByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->deviceList)) {
+            $body['DeviceList'] = $request->deviceList;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->idList)) {
+            $body['IdList'] = $request->idList;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTrajectoryById',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryTrajectoryByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryTrajectoryByIdRequest $request
+     *
+     * @return QueryTrajectoryByIdResponse
+     */
+    public function queryTrajectoryById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryTrajectoryByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecallTrajectoryByCoordinateTimeRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RecallTrajectoryByCoordinateTimeResponse
+     */
+    public function recallTrajectoryByCoordinateTimeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->outputIdCount)) {
+            $body['OutputIdCount'] = $request->outputIdCount;
+        }
+        if (!Utils::isUnset($request->outputIdTypeList)) {
+            $body['OutputIdTypeList'] = $request->outputIdTypeList;
+        }
+        if (!Utils::isUnset($request->pointList)) {
+            $body['PointList'] = $request->pointList;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecallTrajectoryByCoordinateTime',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecallTrajectoryByCoordinateTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecallTrajectoryByCoordinateTimeRequest $request
+     *
+     * @return RecallTrajectoryByCoordinateTimeResponse
+     */
+    public function recallTrajectoryByCoordinateTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recallTrajectoryByCoordinateTimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeImageRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RecognizeImageResponse
+     */
+    public function recognizeImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->imageContent)) {
+            $body['ImageContent'] = $request->imageContent;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->recognizeType)) {
+            $body['RecognizeType'] = $request->recognizeType;
+        }
+        if (!Utils::isUnset($request->requireCropImage)) {
+            $body['RequireCropImage'] = $request->requireCropImage;
+        }
+        if (!Utils::isUnset($request->vendor)) {
+            $body['Vendor'] = $request->vendor;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeImage',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeImageRequest $request
+     *
+     * @return RecognizeImageResponse
+     */
+    public function recognizeImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchAggregateObjectRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SearchAggregateObjectResponse
+     */
+    public function searchAggregateObjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->attributes)) {
+            $body['Attributes'] = $request->attributes;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->deviceList)) {
+            $body['DeviceList'] = $request->deviceList;
+        }
+        if (!Utils::isUnset($request->feature)) {
+            $body['Feature'] = $request->feature;
+        }
+        if (!Utils::isUnset($request->imageContent)) {
+            $body['ImageContent'] = $request->imageContent;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $body['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->requireTotalCount)) {
+            $body['RequireTotalCount'] = $request->requireTotalCount;
+        }
+        if (!Utils::isUnset($request->shotTimeEnd)) {
+            $body['ShotTimeEnd'] = $request->shotTimeEnd;
+        }
+        if (!Utils::isUnset($request->shotTimeStart)) {
+            $body['ShotTimeStart'] = $request->shotTimeStart;
+        }
+        if (!Utils::isUnset($request->vendor)) {
+            $body['Vendor'] = $request->vendor;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchAggregateObject',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchAggregateObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchAggregateObjectRequest $request
+     *
+     * @return SearchAggregateObjectResponse
+     */
+    public function searchAggregateObject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchAggregateObjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchObjectRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SearchObjectResponse
+     */
+    public function searchObjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->attributes)) {
+            $body['Attributes'] = $request->attributes;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->deviceList)) {
+            $body['DeviceList'] = $request->deviceList;
+        }
+        if (!Utils::isUnset($request->feature)) {
+            $body['Feature'] = $request->feature;
+        }
+        if (!Utils::isUnset($request->imageContent)) {
+            $body['ImageContent'] = $request->imageContent;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $body['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->shotTimeEnd)) {
+            $body['ShotTimeEnd'] = $request->shotTimeEnd;
+        }
+        if (!Utils::isUnset($request->shotTimeStart)) {
+            $body['ShotTimeStart'] = $request->shotTimeStart;
+        }
+        if (!Utils::isUnset($request->vendor)) {
+            $body['Vendor'] = $request->vendor;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchObject',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchObjectRequest $request
+     *
+     * @return SearchObjectResponse
+     */
+    public function searchObject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchObjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopCdrsMonitorRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return StopCdrsMonitorResponse
+     */
+    public function stopCdrsMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->algorithmVendor)) {
+            $body['AlgorithmVendor'] = $request->algorithmVendor;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopCdrsMonitor',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopCdrsMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopCdrsMonitorRequest $request
+     *
+     * @return StopCdrsMonitorResponse
+     */
+    public function stopCdrsMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopCdrsMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopMonitorRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return StopMonitorResponse
+     */
+    public function stopMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->algorithmVendor)) {
+            $body['AlgorithmVendor'] = $request->algorithmVendor;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopMonitor',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopMonitorRequest $request
+     *
+     * @return StopMonitorResponse
+     */
+    public function stopMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnbindDeviceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UnbindDeviceResponse
+     */
+    public function unbindDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->deviceIds)) {
+            $body['DeviceIds'] = $request->deviceIds;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindDevice',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnbindDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnbindDeviceRequest $request
+     *
+     * @return UnbindDeviceResponse
+     */
+    public function unbindDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCdrsMonitorRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateCdrsMonitorResponse
+     */
+    public function updateCdrsMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->algorithmVendor)) {
+            $body['AlgorithmVendor'] = $request->algorithmVendor;
+        }
+        if (!Utils::isUnset($request->attributeName)) {
+            $body['AttributeName'] = $request->attributeName;
+        }
+        if (!Utils::isUnset($request->attributeOperateType)) {
+            $body['AttributeOperateType'] = $request->attributeOperateType;
+        }
+        if (!Utils::isUnset($request->attributeValueList)) {
+            $body['AttributeValueList'] = $request->attributeValueList;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->deviceList)) {
+            $body['DeviceList'] = $request->deviceList;
+        }
+        if (!Utils::isUnset($request->deviceOperateType)) {
+            $body['DeviceOperateType'] = $request->deviceOperateType;
+        }
+        if (!Utils::isUnset($request->notifierAppSecret)) {
+            $body['NotifierAppSecret'] = $request->notifierAppSecret;
+        }
+        if (!Utils::isUnset($request->notifierExtendValues)) {
+            $body['NotifierExtendValues'] = $request->notifierExtendValues;
+        }
+        if (!Utils::isUnset($request->notifierTimeOut)) {
+            $body['NotifierTimeOut'] = $request->notifierTimeOut;
+        }
+        if (!Utils::isUnset($request->notifierType)) {
+            $body['NotifierType'] = $request->notifierType;
+        }
+        if (!Utils::isUnset($request->notifierUrl)) {
+            $body['NotifierUrl'] = $request->notifierUrl;
+        }
+        if (!Utils::isUnset($request->picList)) {
+            $body['PicList'] = $request->picList;
+        }
+        if (!Utils::isUnset($request->picOperateType)) {
+            $body['PicOperateType'] = $request->picOperateType;
+        }
+        if (!Utils::isUnset($request->ruleExpression)) {
+            $body['RuleExpression'] = $request->ruleExpression;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $body['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCdrsMonitor',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCdrsMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCdrsMonitorRequest $request
+     *
+     * @return UpdateCdrsMonitorResponse
+     */
+    public function updateCdrsMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCdrsMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMonitorRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateMonitorResponse
+     */
+    public function updateMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->algorithmVendor)) {
+            $body['AlgorithmVendor'] = $request->algorithmVendor;
+        }
+        if (!Utils::isUnset($request->attributeName)) {
+            $body['AttributeName'] = $request->attributeName;
+        }
+        if (!Utils::isUnset($request->attributeOperateType)) {
+            $body['AttributeOperateType'] = $request->attributeOperateType;
+        }
+        if (!Utils::isUnset($request->attributeValueList)) {
+            $body['AttributeValueList'] = $request->attributeValueList;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->deviceList)) {
+            $body['DeviceList'] = $request->deviceList;
+        }
+        if (!Utils::isUnset($request->deviceOperateType)) {
+            $body['DeviceOperateType'] = $request->deviceOperateType;
+        }
+        if (!Utils::isUnset($request->notifierAppSecret)) {
+            $body['NotifierAppSecret'] = $request->notifierAppSecret;
+        }
+        if (!Utils::isUnset($request->notifierExtendValues)) {
+            $body['NotifierExtendValues'] = $request->notifierExtendValues;
+        }
+        if (!Utils::isUnset($request->notifierTimeOut)) {
+            $body['NotifierTimeOut'] = $request->notifierTimeOut;
+        }
+        if (!Utils::isUnset($request->notifierType)) {
+            $body['NotifierType'] = $request->notifierType;
+        }
+        if (!Utils::isUnset($request->notifierUrl)) {
+            $body['NotifierUrl'] = $request->notifierUrl;
+        }
+        if (!Utils::isUnset($request->picExtendList)) {
+            $body['PicExtendList'] = $request->picExtendList;
+        }
+        if (!Utils::isUnset($request->picList)) {
+            $body['PicList'] = $request->picList;
+        }
+        if (!Utils::isUnset($request->picOperateType)) {
+            $body['PicOperateType'] = $request->picOperateType;
+        }
+        if (!Utils::isUnset($request->ruleExpression)) {
+            $body['RuleExpression'] = $request->ruleExpression;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $body['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMonitor',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMonitorRequest $request
+     *
+     * @return UpdateMonitorResponse
+     */
+    public function updateMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateProjectResponse
+     */
+    public function updateProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->aggregateSceneCode)) {
+            $body['AggregateSceneCode'] = $request->aggregateSceneCode;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->icon)) {
+            $body['Icon'] = $request->icon;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProject',
+            'version'     => '2020-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateProjectRequest $request
+     *
+     * @return UpdateProjectResponse
+     */
+    public function updateProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProjectWithOptions($request, $runtime);
     }
 }

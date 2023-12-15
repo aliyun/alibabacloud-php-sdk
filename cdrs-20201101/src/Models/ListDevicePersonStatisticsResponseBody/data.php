@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 33011000991317100041
+     *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $number;
 
     /**
+     * @example 2021-01-25
+     *
      * @var string
      */
     public $shotTime;

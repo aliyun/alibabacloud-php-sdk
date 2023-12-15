@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListVehicleTagDistributeRequest extends Model
 {
     /**
+     * @example 2286049969284580096
+     *
      * @var string
      */
     public $corpId;
 
     /**
+     * @example 2021-01-21 00:00:00
+     *
      * @var string
      */
-    public $tagCode;
+    public $endTime;
 
     /**
+     * @example 2021-01-20 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example vehicleUsefulDistribute
+     *
      * @var string
      */
-    public $endTime;
+    public $tagCode;
     protected $_name = [
         'corpId'    => 'CorpId',
-        'tagCode'   => 'TagCode',
-        'startTime' => 'StartTime',
         'endTime'   => 'EndTime',
+        'startTime' => 'StartTime',
+        'tagCode'   => 'TagCode',
     ];
 
     public function validate()
@@ -44,14 +52,14 @@ class ListVehicleTagDistributeRequest extends Model
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
-        if (null !== $this->tagCode) {
-            $res['TagCode'] = $this->tagCode;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->tagCode) {
+            $res['TagCode'] = $this->tagCode;
         }
 
         return $res;
@@ -68,14 +76,14 @@ class ListVehicleTagDistributeRequest extends Model
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
-        if (isset($map['TagCode'])) {
-            $model->tagCode = $map['TagCode'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['TagCode'])) {
+            $model->tagCode = $map['TagCode'];
         }
 
         return $model;

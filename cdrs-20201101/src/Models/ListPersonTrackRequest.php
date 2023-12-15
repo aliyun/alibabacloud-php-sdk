@@ -9,11 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListPersonTrackRequest extends Model
 {
     /**
+     * @example corp_time
+     *
+     * @var string
+     */
+    public $aggregateDimension;
+
+    /**
+     * @example 2286049969284580096
+     *
      * @var string
      */
     public $corpId;
 
     /**
+     * @example 2021-01-21 00:00:00
+     *
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @example face
+     *
+     * @var string
+     */
+    public $imageSourceType;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @example rvsvisual_10596_33010000991332551639_e4b6377762bb31b10c2538b3a57cc6e7_0001610333257656000000000
+     *
      * @var string
      */
     public $personId;
@@ -21,47 +60,24 @@ class ListPersonTrackRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $imageSourceType;
-
-    /**
-     * @var string
-     */
-    public $aggregateDimension;
-
-    /**
-     * @var string
-     */
     public $qualityScore;
+
+    /**
+     * @example 2021-01-20 00:00:00
+     *
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
+        'aggregateDimension' => 'AggregateDimension',
         'corpId'             => 'CorpId',
-        'personId'           => 'PersonId',
-        'startTime'          => 'StartTime',
         'endTime'            => 'EndTime',
+        'imageSourceType'    => 'ImageSourceType',
         'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
-        'imageSourceType'    => 'ImageSourceType',
-        'aggregateDimension' => 'AggregateDimension',
+        'personId'           => 'PersonId',
         'qualityScore'       => 'QualityScore',
+        'startTime'          => 'StartTime',
     ];
 
     public function validate()
@@ -71,17 +87,17 @@ class ListPersonTrackRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggregateDimension) {
+            $res['AggregateDimension'] = $this->aggregateDimension;
+        }
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
-        if (null !== $this->personId) {
-            $res['PersonId'] = $this->personId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->imageSourceType) {
+            $res['ImageSourceType'] = $this->imageSourceType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -89,14 +105,14 @@ class ListPersonTrackRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->imageSourceType) {
-            $res['ImageSourceType'] = $this->imageSourceType;
-        }
-        if (null !== $this->aggregateDimension) {
-            $res['AggregateDimension'] = $this->aggregateDimension;
+        if (null !== $this->personId) {
+            $res['PersonId'] = $this->personId;
         }
         if (null !== $this->qualityScore) {
             $res['QualityScore'] = $this->qualityScore;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -110,17 +126,17 @@ class ListPersonTrackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggregateDimension'])) {
+            $model->aggregateDimension = $map['AggregateDimension'];
+        }
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
-        if (isset($map['PersonId'])) {
-            $model->personId = $map['PersonId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ImageSourceType'])) {
+            $model->imageSourceType = $map['ImageSourceType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -128,14 +144,14 @@ class ListPersonTrackRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ImageSourceType'])) {
-            $model->imageSourceType = $map['ImageSourceType'];
-        }
-        if (isset($map['AggregateDimension'])) {
-            $model->aggregateDimension = $map['AggregateDimension'];
+        if (isset($map['PersonId'])) {
+            $model->personId = $map['PersonId'];
         }
         if (isset($map['QualityScore'])) {
             $model->qualityScore = $map['QualityScore'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

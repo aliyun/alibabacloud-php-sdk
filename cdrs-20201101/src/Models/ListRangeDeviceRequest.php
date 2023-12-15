@@ -9,35 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ListRangeDeviceRequest extends Model
 {
     /**
-     * @var int
+     * @example 2286049969284580096
+     *
+     * @var string
      */
-    public $radius;
+    public $corpId;
 
     /**
+     * @example 33011000991317100041
+     *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @var string
+     * @example 10
+     *
+     * @var int
      */
-    public $corpId;
+    public $radius;
     protected $_name = [
-        'radius'       => 'Radius',
+        'corpId'       => 'CorpId',
         'dataSourceId' => 'DataSourceId',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
-        'corpId'       => 'CorpId',
+        'radius'       => 'Radius',
     ];
 
     public function validate()
@@ -47,8 +57,8 @@ class ListRangeDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->radius) {
-            $res['Radius'] = $this->radius;
+        if (null !== $this->corpId) {
+            $res['CorpId'] = $this->corpId;
         }
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
@@ -59,8 +69,8 @@ class ListRangeDeviceRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->corpId) {
-            $res['CorpId'] = $this->corpId;
+        if (null !== $this->radius) {
+            $res['Radius'] = $this->radius;
         }
 
         return $res;
@@ -74,8 +84,8 @@ class ListRangeDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Radius'])) {
-            $model->radius = $map['Radius'];
+        if (isset($map['CorpId'])) {
+            $model->corpId = $map['CorpId'];
         }
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
@@ -86,8 +96,8 @@ class ListRangeDeviceRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CorpId'])) {
-            $model->corpId = $map['CorpId'];
+        if (isset($map['Radius'])) {
+            $model->radius = $map['Radius'];
         }
 
         return $model;

@@ -11,11 +11,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $destination;
 
     /**
@@ -27,11 +22,16 @@ class data extends Model
      * @var string
      */
     public $route;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'        => 'Type',
         'destination' => 'Destination',
         'origin'      => 'Origin',
         'route'       => 'Route',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
         }
@@ -52,6 +49,9 @@ class data extends Model
         }
         if (null !== $this->route) {
             $res['Route'] = $this->route;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
         }
@@ -76,6 +73,9 @@ class data extends Model
         }
         if (isset($map['Route'])) {
             $model->route = $map['Route'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

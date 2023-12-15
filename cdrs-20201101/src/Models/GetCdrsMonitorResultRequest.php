@@ -9,41 +9,53 @@ use AlibabaCloud\Tea\Model;
 class GetCdrsMonitorResultRequest extends Model
 {
     /**
+     * @example damo
+     *
+     * @var string
+     */
+    public $algorithmVendor;
+
+    /**
+     * @example 10001
+     *
      * @var string
      */
     public $corpId;
 
     /**
-     * @var string
-     */
-    public $taskId;
-
-    /**
-     * @var string
-     */
-    public $minRecordId;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
+     * @example 1590409851000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var string
      */
-    public $algorithmVendor;
+    public $minRecordId;
+
+    /**
+     * @example 1590409851000
+     *
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @example d5b65bb43c5242d89b199a360211930c
+     *
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
+        'algorithmVendor' => 'AlgorithmVendor',
         'corpId'          => 'CorpId',
-        'taskId'          => 'TaskId',
+        'endTime'         => 'EndTime',
         'minRecordId'     => 'MinRecordId',
         'startTime'       => 'StartTime',
-        'endTime'         => 'EndTime',
-        'algorithmVendor' => 'AlgorithmVendor',
+        'taskId'          => 'TaskId',
     ];
 
     public function validate()
@@ -53,11 +65,14 @@ class GetCdrsMonitorResultRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->algorithmVendor) {
+            $res['AlgorithmVendor'] = $this->algorithmVendor;
+        }
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->minRecordId) {
             $res['MinRecordId'] = $this->minRecordId;
@@ -65,11 +80,8 @@ class GetCdrsMonitorResultRequest extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->algorithmVendor) {
-            $res['AlgorithmVendor'] = $this->algorithmVendor;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -83,11 +95,14 @@ class GetCdrsMonitorResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlgorithmVendor'])) {
+            $model->algorithmVendor = $map['AlgorithmVendor'];
+        }
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['MinRecordId'])) {
             $model->minRecordId = $map['MinRecordId'];
@@ -95,11 +110,8 @@ class GetCdrsMonitorResultRequest extends Model
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['AlgorithmVendor'])) {
-            $model->algorithmVendor = $map['AlgorithmVendor'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

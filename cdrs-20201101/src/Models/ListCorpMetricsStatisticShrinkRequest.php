@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListCorpMetricsStatisticShrinkRequest extends Model
 {
     /**
+     * @example 2286049969284580096
+     *
      * @var string
      */
     public $corpId;
 
     /**
+     * @example ["111"]
+     *
      * @var string
      */
-    public $tagCode;
+    public $deviceGroupListShrink;
 
     /**
+     * @example ["111"]
+     *
      * @var string
      */
-    public $startTime;
+    public $deviceIdListShrink;
 
     /**
+     * @example 2021-01-21 00:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -41,33 +53,39 @@ class ListCorpMetricsStatisticShrinkRequest extends Model
     /**
      * @var string
      */
-    public $userGroupListShrink;
-
-    /**
-     * @var string
-     */
-    public $deviceGroupListShrink;
-
-    /**
-     * @var string
-     */
-    public $deviceIdListShrink;
-
-    /**
-     * @var string
-     */
     public $qualitScore;
+
+    /**
+     * @example 2021-01-20 00:00:00
+     *
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @example tag_corp_person_visits_numbers
+     *
+     * @var string
+     */
+    public $tagCode;
+
+    /**
+     * @example ["1111"]
+     *
+     * @var string
+     */
+    public $userGroupListShrink;
     protected $_name = [
         'corpId'                => 'CorpId',
-        'tagCode'               => 'TagCode',
-        'startTime'             => 'StartTime',
+        'deviceGroupListShrink' => 'DeviceGroupList',
+        'deviceIdListShrink'    => 'DeviceIdList',
         'endTime'               => 'EndTime',
         'pageNumber'            => 'PageNumber',
         'pageSize'              => 'PageSize',
-        'userGroupListShrink'   => 'UserGroupList',
-        'deviceGroupListShrink' => 'DeviceGroupList',
-        'deviceIdListShrink'    => 'DeviceIdList',
         'qualitScore'           => 'QualitScore',
+        'startTime'             => 'StartTime',
+        'tagCode'               => 'TagCode',
+        'userGroupListShrink'   => 'UserGroupList',
     ];
 
     public function validate()
@@ -80,11 +98,11 @@ class ListCorpMetricsStatisticShrinkRequest extends Model
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
-        if (null !== $this->tagCode) {
-            $res['TagCode'] = $this->tagCode;
+        if (null !== $this->deviceGroupListShrink) {
+            $res['DeviceGroupList'] = $this->deviceGroupListShrink;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->deviceIdListShrink) {
+            $res['DeviceIdList'] = $this->deviceIdListShrink;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -95,17 +113,17 @@ class ListCorpMetricsStatisticShrinkRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->userGroupListShrink) {
-            $res['UserGroupList'] = $this->userGroupListShrink;
-        }
-        if (null !== $this->deviceGroupListShrink) {
-            $res['DeviceGroupList'] = $this->deviceGroupListShrink;
-        }
-        if (null !== $this->deviceIdListShrink) {
-            $res['DeviceIdList'] = $this->deviceIdListShrink;
-        }
         if (null !== $this->qualitScore) {
             $res['QualitScore'] = $this->qualitScore;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->tagCode) {
+            $res['TagCode'] = $this->tagCode;
+        }
+        if (null !== $this->userGroupListShrink) {
+            $res['UserGroupList'] = $this->userGroupListShrink;
         }
 
         return $res;
@@ -122,11 +140,11 @@ class ListCorpMetricsStatisticShrinkRequest extends Model
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
-        if (isset($map['TagCode'])) {
-            $model->tagCode = $map['TagCode'];
+        if (isset($map['DeviceGroupList'])) {
+            $model->deviceGroupListShrink = $map['DeviceGroupList'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['DeviceIdList'])) {
+            $model->deviceIdListShrink = $map['DeviceIdList'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -137,17 +155,17 @@ class ListCorpMetricsStatisticShrinkRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['UserGroupList'])) {
-            $model->userGroupListShrink = $map['UserGroupList'];
-        }
-        if (isset($map['DeviceGroupList'])) {
-            $model->deviceGroupListShrink = $map['DeviceGroupList'];
-        }
-        if (isset($map['DeviceIdList'])) {
-            $model->deviceIdListShrink = $map['DeviceIdList'];
-        }
         if (isset($map['QualitScore'])) {
             $model->qualitScore = $map['QualitScore'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TagCode'])) {
+            $model->tagCode = $map['TagCode'];
+        }
+        if (isset($map['UserGroupList'])) {
+            $model->userGroupListShrink = $map['UserGroupList'];
         }
 
         return $model;

@@ -11,9 +11,23 @@ class UpdateProjectRequest extends Model
     /**
      * @var string
      */
+    public $aggregateSceneCode;
+
+    /**
+     * @example cdrs7446408279386067
+     *
+     * @var string
+     */
     public $corpId;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @example https://img.alicdn.com/tfs/TB1ccKi.png
+     *
      * @var string
      */
     public $icon;
@@ -22,22 +36,12 @@ class UpdateProjectRequest extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $aggregateSceneCode;
     protected $_name = [
+        'aggregateSceneCode' => 'AggregateSceneCode',
         'corpId'             => 'CorpId',
+        'description'        => 'Description',
         'icon'               => 'Icon',
         'name'               => 'Name',
-        'description'        => 'Description',
-        'aggregateSceneCode' => 'AggregateSceneCode',
     ];
 
     public function validate()
@@ -47,20 +51,20 @@ class UpdateProjectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggregateSceneCode) {
+            $res['AggregateSceneCode'] = $this->aggregateSceneCode;
+        }
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->icon) {
             $res['Icon'] = $this->icon;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->aggregateSceneCode) {
-            $res['AggregateSceneCode'] = $this->aggregateSceneCode;
         }
 
         return $res;
@@ -74,20 +78,20 @@ class UpdateProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggregateSceneCode'])) {
+            $model->aggregateSceneCode = $map['AggregateSceneCode'];
+        }
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Icon'])) {
             $model->icon = $map['Icon'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['AggregateSceneCode'])) {
-            $model->aggregateSceneCode = $map['AggregateSceneCode'];
         }
 
         return $model;

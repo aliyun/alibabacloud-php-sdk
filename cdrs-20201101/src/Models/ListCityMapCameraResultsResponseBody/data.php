@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $dataSourceName;
+    public $corpId;
 
     /**
      * @var string
@@ -21,17 +21,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $corpId;
-
-    /**
-     * @var string
-     */
-    public $longitude;
-
-    /**
-     * @var string
-     */
-    public $latitude;
+    public $dataSourceName;
 
     /**
      * @var string
@@ -41,14 +31,24 @@ class data extends Model
     /**
      * @var string
      */
+    public $latitude;
+
+    /**
+     * @var string
+     */
+    public $longitude;
+
+    /**
+     * @var string
+     */
     public $nearPoi;
     protected $_name = [
-        'dataSourceName' => 'DataSourceName',
-        'dataSourceId'   => 'DataSourceId',
         'corpId'         => 'CorpId',
-        'longitude'      => 'Longitude',
-        'latitude'       => 'Latitude',
+        'dataSourceId'   => 'DataSourceId',
+        'dataSourceName' => 'DataSourceName',
         'dataSourcePoi'  => 'DataSourcePoi',
+        'latitude'       => 'Latitude',
+        'longitude'      => 'Longitude',
         'nearPoi'        => 'NearPoi',
     ];
 
@@ -59,23 +59,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dataSourceName) {
-            $res['DataSourceName'] = $this->dataSourceName;
+        if (null !== $this->corpId) {
+            $res['CorpId'] = $this->corpId;
         }
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
-        if (null !== $this->corpId) {
-            $res['CorpId'] = $this->corpId;
+        if (null !== $this->dataSourceName) {
+            $res['DataSourceName'] = $this->dataSourceName;
         }
-        if (null !== $this->longitude) {
-            $res['Longitude'] = $this->longitude;
+        if (null !== $this->dataSourcePoi) {
+            $res['DataSourcePoi'] = $this->dataSourcePoi;
         }
         if (null !== $this->latitude) {
             $res['Latitude'] = $this->latitude;
         }
-        if (null !== $this->dataSourcePoi) {
-            $res['DataSourcePoi'] = $this->dataSourcePoi;
+        if (null !== $this->longitude) {
+            $res['Longitude'] = $this->longitude;
         }
         if (null !== $this->nearPoi) {
             $res['NearPoi'] = $this->nearPoi;
@@ -92,23 +92,23 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DataSourceName'])) {
-            $model->dataSourceName = $map['DataSourceName'];
+        if (isset($map['CorpId'])) {
+            $model->corpId = $map['CorpId'];
         }
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
-        if (isset($map['CorpId'])) {
-            $model->corpId = $map['CorpId'];
+        if (isset($map['DataSourceName'])) {
+            $model->dataSourceName = $map['DataSourceName'];
         }
-        if (isset($map['Longitude'])) {
-            $model->longitude = $map['Longitude'];
+        if (isset($map['DataSourcePoi'])) {
+            $model->dataSourcePoi = $map['DataSourcePoi'];
         }
         if (isset($map['Latitude'])) {
             $model->latitude = $map['Latitude'];
         }
-        if (isset($map['DataSourcePoi'])) {
-            $model->dataSourcePoi = $map['DataSourcePoi'];
+        if (isset($map['Longitude'])) {
+            $model->longitude = $map['Longitude'];
         }
         if (isset($map['NearPoi'])) {
             $model->nearPoi = $map['NearPoi'];

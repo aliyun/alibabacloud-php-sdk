@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class pointList extends Model
 {
     /**
+     * @var float
+     */
+    public $deltaDistance;
+
+    /**
      * @var string
      */
     public $endTime;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var float
-     */
-    public $longitude;
 
     /**
      * @var float
@@ -31,13 +26,18 @@ class pointList extends Model
     /**
      * @var float
      */
-    public $deltaDistance;
+    public $longitude;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'startTime'     => 'StartTime',
-        'longitude'     => 'Longitude',
-        'latitude'      => 'Latitude',
         'deltaDistance' => 'DeltaDistance',
+        'endTime'       => 'EndTime',
+        'latitude'      => 'Latitude',
+        'longitude'     => 'Longitude',
+        'startTime'     => 'StartTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class pointList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deltaDistance) {
+            $res['DeltaDistance'] = $this->deltaDistance;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->longitude) {
-            $res['Longitude'] = $this->longitude;
         }
         if (null !== $this->latitude) {
             $res['Latitude'] = $this->latitude;
         }
-        if (null !== $this->deltaDistance) {
-            $res['DeltaDistance'] = $this->deltaDistance;
+        if (null !== $this->longitude) {
+            $res['Longitude'] = $this->longitude;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class pointList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeltaDistance'])) {
+            $model->deltaDistance = $map['DeltaDistance'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Longitude'])) {
-            $model->longitude = $map['Longitude'];
         }
         if (isset($map['Latitude'])) {
             $model->latitude = $map['Latitude'];
         }
-        if (isset($map['DeltaDistance'])) {
-            $model->deltaDistance = $map['DeltaDistance'];
+        if (isset($map['Longitude'])) {
+            $model->longitude = $map['Longitude'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

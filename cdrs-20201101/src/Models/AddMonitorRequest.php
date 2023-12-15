@@ -9,6 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AddMonitorRequest extends Model
 {
     /**
+     * @example damo
+     *
+     * @var string
+     */
+    public $algorithmVendor;
+
+    /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $batchIndicator;
+
+    /**
+     * @example 10001
+     *
      * @var string
      */
     public $corpId;
@@ -16,58 +32,60 @@ class AddMonitorRequest extends Model
     /**
      * @var string
      */
-    public $monitorType;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
-     * @var int
-     */
-    public $batchIndicator;
-
-    /**
+     * @example face
+     *
      * @var string
      */
-    public $algorithmVendor;
+    public $monitorType;
 
     /**
-     * @var string
-     */
-    public $notifierType;
-
-    /**
-     * @var string
-     */
-    public $notifierUrl;
-
-    /**
+     * @example mySecret
+     *
      * @var string
      */
     public $notifierAppSecret;
 
     /**
+     * @example {\"userId\": \"1\" }
+     *
+     * @var string
+     */
+    public $notifierExtendValues;
+
+    /**
+     * @example 2000
+     *
      * @var int
      */
     public $notifierTimeOut;
 
     /**
+     * @example webhook
+     *
      * @var string
      */
-    public $notifierExtendValues;
+    public $notifierType;
+
+    /**
+     * @example http://oapi.dingtalk.com/robot/send
+     *
+     * @var string
+     */
+    public $notifierUrl;
     protected $_name = [
-        'corpId'               => 'CorpId',
-        'monitorType'          => 'MonitorType',
-        'description'          => 'Description',
-        'batchIndicator'       => 'BatchIndicator',
         'algorithmVendor'      => 'AlgorithmVendor',
+        'batchIndicator'       => 'BatchIndicator',
+        'corpId'               => 'CorpId',
+        'description'          => 'Description',
+        'monitorType'          => 'MonitorType',
+        'notifierAppSecret'    => 'NotifierAppSecret',
+        'notifierExtendValues' => 'NotifierExtendValues',
+        'notifierTimeOut'      => 'NotifierTimeOut',
         'notifierType'         => 'NotifierType',
         'notifierUrl'          => 'NotifierUrl',
-        'notifierAppSecret'    => 'NotifierAppSecret',
-        'notifierTimeOut'      => 'NotifierTimeOut',
-        'notifierExtendValues' => 'NotifierExtendValues',
     ];
 
     public function validate()
@@ -77,35 +95,35 @@ class AddMonitorRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->corpId) {
-            $res['CorpId'] = $this->corpId;
-        }
-        if (null !== $this->monitorType) {
-            $res['MonitorType'] = $this->monitorType;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->algorithmVendor) {
+            $res['AlgorithmVendor'] = $this->algorithmVendor;
         }
         if (null !== $this->batchIndicator) {
             $res['BatchIndicator'] = $this->batchIndicator;
         }
-        if (null !== $this->algorithmVendor) {
-            $res['AlgorithmVendor'] = $this->algorithmVendor;
+        if (null !== $this->corpId) {
+            $res['CorpId'] = $this->corpId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->monitorType) {
+            $res['MonitorType'] = $this->monitorType;
+        }
+        if (null !== $this->notifierAppSecret) {
+            $res['NotifierAppSecret'] = $this->notifierAppSecret;
+        }
+        if (null !== $this->notifierExtendValues) {
+            $res['NotifierExtendValues'] = $this->notifierExtendValues;
+        }
+        if (null !== $this->notifierTimeOut) {
+            $res['NotifierTimeOut'] = $this->notifierTimeOut;
         }
         if (null !== $this->notifierType) {
             $res['NotifierType'] = $this->notifierType;
         }
         if (null !== $this->notifierUrl) {
             $res['NotifierUrl'] = $this->notifierUrl;
-        }
-        if (null !== $this->notifierAppSecret) {
-            $res['NotifierAppSecret'] = $this->notifierAppSecret;
-        }
-        if (null !== $this->notifierTimeOut) {
-            $res['NotifierTimeOut'] = $this->notifierTimeOut;
-        }
-        if (null !== $this->notifierExtendValues) {
-            $res['NotifierExtendValues'] = $this->notifierExtendValues;
         }
 
         return $res;
@@ -119,35 +137,35 @@ class AddMonitorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CorpId'])) {
-            $model->corpId = $map['CorpId'];
-        }
-        if (isset($map['MonitorType'])) {
-            $model->monitorType = $map['MonitorType'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['AlgorithmVendor'])) {
+            $model->algorithmVendor = $map['AlgorithmVendor'];
         }
         if (isset($map['BatchIndicator'])) {
             $model->batchIndicator = $map['BatchIndicator'];
         }
-        if (isset($map['AlgorithmVendor'])) {
-            $model->algorithmVendor = $map['AlgorithmVendor'];
+        if (isset($map['CorpId'])) {
+            $model->corpId = $map['CorpId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['MonitorType'])) {
+            $model->monitorType = $map['MonitorType'];
+        }
+        if (isset($map['NotifierAppSecret'])) {
+            $model->notifierAppSecret = $map['NotifierAppSecret'];
+        }
+        if (isset($map['NotifierExtendValues'])) {
+            $model->notifierExtendValues = $map['NotifierExtendValues'];
+        }
+        if (isset($map['NotifierTimeOut'])) {
+            $model->notifierTimeOut = $map['NotifierTimeOut'];
         }
         if (isset($map['NotifierType'])) {
             $model->notifierType = $map['NotifierType'];
         }
         if (isset($map['NotifierUrl'])) {
             $model->notifierUrl = $map['NotifierUrl'];
-        }
-        if (isset($map['NotifierAppSecret'])) {
-            $model->notifierAppSecret = $map['NotifierAppSecret'];
-        }
-        if (isset($map['NotifierTimeOut'])) {
-            $model->notifierTimeOut = $map['NotifierTimeOut'];
-        }
-        if (isset($map['NotifierExtendValues'])) {
-            $model->notifierExtendValues = $map['NotifierExtendValues'];
         }
 
         return $model;

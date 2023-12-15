@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListPersonTagRequest extends Model
 {
     /**
+     * @example 2286049969284580096
+     *
      * @var string
      */
     public $corpId;
 
     /**
-     * @var string
-     */
-    public $tagCode;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @example personAgeDistribute
+     *
+     * @var string
+     */
+    public $tagCode;
     protected $_name = [
         'corpId'     => 'CorpId',
-        'tagCode'    => 'TagCode',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'tagCode'    => 'TagCode',
     ];
 
     public function validate()
@@ -44,14 +52,14 @@ class ListPersonTagRequest extends Model
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
-        if (null !== $this->tagCode) {
-            $res['TagCode'] = $this->tagCode;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->tagCode) {
+            $res['TagCode'] = $this->tagCode;
         }
 
         return $res;
@@ -68,14 +76,14 @@ class ListPersonTagRequest extends Model
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
-        if (isset($map['TagCode'])) {
-            $model->tagCode = $map['TagCode'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TagCode'])) {
+            $model->tagCode = $map['TagCode'];
         }
 
         return $model;

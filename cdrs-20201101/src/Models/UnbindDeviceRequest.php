@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UnbindDeviceRequest extends Model
 {
     /**
+     * @example cdrs7446408279386067
+     *
      * @var string
      */
     public $corpId;
 
     /**
+     * @example 11234567891320000038,11234567891320000041
+     *
      * @var string
      */
     public $deviceIds;

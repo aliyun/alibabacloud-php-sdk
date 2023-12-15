@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListCityMapRangeStatisticRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $radius;
+    public $endTime;
 
     /**
      * @var string
@@ -24,11 +24,6 @@ class ListCityMapRangeStatisticRequest extends Model
     public $longitude;
 
     /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -37,13 +32,18 @@ class ListCityMapRangeStatisticRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $radius;
     protected $_name = [
-        'radius'     => 'Radius',
+        'endTime'    => 'EndTime',
         'latitude'   => 'Latitude',
         'longitude'  => 'Longitude',
-        'endTime'    => 'EndTime',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'radius'     => 'Radius',
     ];
 
     public function validate()
@@ -53,8 +53,8 @@ class ListCityMapRangeStatisticRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->radius) {
-            $res['Radius'] = $this->radius;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->latitude) {
             $res['Latitude'] = $this->latitude;
@@ -62,14 +62,14 @@ class ListCityMapRangeStatisticRequest extends Model
         if (null !== $this->longitude) {
             $res['Longitude'] = $this->longitude;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->radius) {
+            $res['Radius'] = $this->radius;
         }
 
         return $res;
@@ -83,8 +83,8 @@ class ListCityMapRangeStatisticRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Radius'])) {
-            $model->radius = $map['Radius'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Latitude'])) {
             $model->latitude = $map['Latitude'];
@@ -92,14 +92,14 @@ class ListCityMapRangeStatisticRequest extends Model
         if (isset($map['Longitude'])) {
             $model->longitude = $map['Longitude'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Radius'])) {
+            $model->radius = $map['Radius'];
         }
 
         return $model;

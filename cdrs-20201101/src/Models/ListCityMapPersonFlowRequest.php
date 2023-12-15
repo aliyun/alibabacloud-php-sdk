@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListCityMapPersonFlowRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @var mixed[]
      */
     public $originDataSourceIdList;
@@ -24,14 +29,9 @@ class ListCityMapPersonFlowRequest extends Model
     public $pageSize;
 
     /**
-     * @var mixed[]
-     */
-    public $targetDataSourceIdList;
-
-    /**
      * @var string
      */
-    public $endTime;
+    public $range;
 
     /**
      * @var string
@@ -39,17 +39,17 @@ class ListCityMapPersonFlowRequest extends Model
     public $startTime;
 
     /**
-     * @var string
+     * @var mixed[]
      */
-    public $range;
+    public $targetDataSourceIdList;
     protected $_name = [
+        'endTime'                => 'EndTime',
         'originDataSourceIdList' => 'OriginDataSourceIdList',
         'pageNumber'             => 'PageNumber',
         'pageSize'               => 'PageSize',
-        'targetDataSourceIdList' => 'TargetDataSourceIdList',
-        'endTime'                => 'EndTime',
-        'startTime'              => 'StartTime',
         'range'                  => 'Range',
+        'startTime'              => 'StartTime',
+        'targetDataSourceIdList' => 'TargetDataSourceIdList',
     ];
 
     public function validate()
@@ -59,6 +59,9 @@ class ListCityMapPersonFlowRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->originDataSourceIdList) {
             $res['OriginDataSourceIdList'] = $this->originDataSourceIdList;
         }
@@ -68,17 +71,14 @@ class ListCityMapPersonFlowRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->targetDataSourceIdList) {
-            $res['TargetDataSourceIdList'] = $this->targetDataSourceIdList;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->range) {
+            $res['Range'] = $this->range;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->range) {
-            $res['Range'] = $this->range;
+        if (null !== $this->targetDataSourceIdList) {
+            $res['TargetDataSourceIdList'] = $this->targetDataSourceIdList;
         }
 
         return $res;
@@ -92,6 +92,9 @@ class ListCityMapPersonFlowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['OriginDataSourceIdList'])) {
             $model->originDataSourceIdList = $map['OriginDataSourceIdList'];
         }
@@ -101,17 +104,14 @@ class ListCityMapPersonFlowRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TargetDataSourceIdList'])) {
-            $model->targetDataSourceIdList = $map['TargetDataSourceIdList'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['Range'])) {
+            $model->range = $map['Range'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['Range'])) {
-            $model->range = $map['Range'];
+        if (isset($map['TargetDataSourceIdList'])) {
+            $model->targetDataSourceIdList = $map['TargetDataSourceIdList'];
         }
 
         return $model;

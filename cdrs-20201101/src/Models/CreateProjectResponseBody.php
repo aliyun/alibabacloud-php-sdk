@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @example cdrs1533809230517468
+     *
      * @var string
      */
     public $corpId;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 28FD7998-506D-4E43-9531-09E577E5C3A3
+     *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
+        'code'      => 'Code',
         'corpId'    => 'CorpId',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'code'      => 'Code',
     ];
 
     public function validate()
@@ -41,6 +49,9 @@ class CreateProjectResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
@@ -49,9 +60,6 @@ class CreateProjectResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -65,6 +73,9 @@ class CreateProjectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
@@ -73,9 +84,6 @@ class CreateProjectResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

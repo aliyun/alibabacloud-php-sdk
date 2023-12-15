@@ -11,15 +11,15 @@ class idList extends Model
     /**
      * @var string
      */
-    public $idValue;
+    public $idType;
 
     /**
      * @var string
      */
-    public $idType;
+    public $idValue;
     protected $_name = [
-        'idValue' => 'IdValue',
         'idType'  => 'IdType',
+        'idValue' => 'IdValue',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class idList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->idValue) {
-            $res['IdValue'] = $this->idValue;
-        }
         if (null !== $this->idType) {
             $res['IdType'] = $this->idType;
+        }
+        if (null !== $this->idValue) {
+            $res['IdValue'] = $this->idValue;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class idList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IdValue'])) {
-            $model->idValue = $map['IdValue'];
-        }
         if (isset($map['IdType'])) {
             $model->idType = $map['IdType'];
+        }
+        if (isset($map['IdValue'])) {
+            $model->idValue = $map['IdValue'];
         }
 
         return $model;

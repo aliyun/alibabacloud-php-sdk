@@ -10,24 +10,11 @@ use AlibabaCloud\Tea\Model;
 class SearchObjectResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $total;
+    public $code;
 
     /**
      * @var data
@@ -35,22 +22,47 @@ class SearchObjectResponseBody extends Model
     public $data;
 
     /**
+     * @example OK
+     *
      * @var string
      */
-    public $code;
+    public $message;
 
     /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @example ID
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
+
+    /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $total;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'code'      => 'Code',
+        'data'      => 'Data',
         'message'   => 'Message',
         'pageSize'  => 'PageSize',
-        'total'     => 'Total',
-        'data'      => 'Data',
-        'code'      => 'Code',
+        'requestId' => 'RequestId',
         'success'   => 'Success',
+        'total'     => 'Total',
     ];
 
     public function validate()
@@ -60,8 +72,11 @@ class SearchObjectResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -69,17 +84,14 @@ class SearchObjectResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -93,8 +105,11 @@ class SearchObjectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -102,17 +117,14 @@ class SearchObjectResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

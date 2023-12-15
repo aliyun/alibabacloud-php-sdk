@@ -11,17 +11,17 @@ class SearchAggregateObjectRequest extends Model
     /**
      * @var string
      */
+    public $attributes;
+
+    /**
+     * @var string
+     */
     public $corpId;
 
     /**
      * @var string
      */
-    public $objectType;
-
-    /**
-     * @var string
-     */
-    public $vendor;
+    public $deviceList;
 
     /**
      * @var string
@@ -41,22 +41,7 @@ class SearchAggregateObjectRequest extends Model
     /**
      * @var string
      */
-    public $deviceList;
-
-    /**
-     * @var string
-     */
-    public $attributes;
-
-    /**
-     * @var string
-     */
-    public $shotTimeStart;
-
-    /**
-     * @var string
-     */
-    public $shotTimeEnd;
+    public $objectType;
 
     /**
      * @var int
@@ -72,20 +57,35 @@ class SearchAggregateObjectRequest extends Model
      * @var bool
      */
     public $requireTotalCount;
+
+    /**
+     * @var string
+     */
+    public $shotTimeEnd;
+
+    /**
+     * @var string
+     */
+    public $shotTimeStart;
+
+    /**
+     * @var string
+     */
+    public $vendor;
     protected $_name = [
+        'attributes'        => 'Attributes',
         'corpId'            => 'CorpId',
-        'objectType'        => 'ObjectType',
-        'vendor'            => 'Vendor',
+        'deviceList'        => 'DeviceList',
         'feature'           => 'Feature',
         'imageContent'      => 'ImageContent',
         'imageUrl'          => 'ImageUrl',
-        'deviceList'        => 'DeviceList',
-        'attributes'        => 'Attributes',
-        'shotTimeStart'     => 'ShotTimeStart',
-        'shotTimeEnd'       => 'ShotTimeEnd',
+        'objectType'        => 'ObjectType',
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
         'requireTotalCount' => 'RequireTotalCount',
+        'shotTimeEnd'       => 'ShotTimeEnd',
+        'shotTimeStart'     => 'ShotTimeStart',
+        'vendor'            => 'Vendor',
     ];
 
     public function validate()
@@ -95,14 +95,14 @@ class SearchAggregateObjectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attributes) {
+            $res['Attributes'] = $this->attributes;
+        }
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
-        if (null !== $this->objectType) {
-            $res['ObjectType'] = $this->objectType;
-        }
-        if (null !== $this->vendor) {
-            $res['Vendor'] = $this->vendor;
+        if (null !== $this->deviceList) {
+            $res['DeviceList'] = $this->deviceList;
         }
         if (null !== $this->feature) {
             $res['Feature'] = $this->feature;
@@ -113,17 +113,8 @@ class SearchAggregateObjectRequest extends Model
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
-        if (null !== $this->deviceList) {
-            $res['DeviceList'] = $this->deviceList;
-        }
-        if (null !== $this->attributes) {
-            $res['Attributes'] = $this->attributes;
-        }
-        if (null !== $this->shotTimeStart) {
-            $res['ShotTimeStart'] = $this->shotTimeStart;
-        }
-        if (null !== $this->shotTimeEnd) {
-            $res['ShotTimeEnd'] = $this->shotTimeEnd;
+        if (null !== $this->objectType) {
+            $res['ObjectType'] = $this->objectType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -133,6 +124,15 @@ class SearchAggregateObjectRequest extends Model
         }
         if (null !== $this->requireTotalCount) {
             $res['RequireTotalCount'] = $this->requireTotalCount;
+        }
+        if (null !== $this->shotTimeEnd) {
+            $res['ShotTimeEnd'] = $this->shotTimeEnd;
+        }
+        if (null !== $this->shotTimeStart) {
+            $res['ShotTimeStart'] = $this->shotTimeStart;
+        }
+        if (null !== $this->vendor) {
+            $res['Vendor'] = $this->vendor;
         }
 
         return $res;
@@ -146,14 +146,14 @@ class SearchAggregateObjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Attributes'])) {
+            $model->attributes = $map['Attributes'];
+        }
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
-        if (isset($map['ObjectType'])) {
-            $model->objectType = $map['ObjectType'];
-        }
-        if (isset($map['Vendor'])) {
-            $model->vendor = $map['Vendor'];
+        if (isset($map['DeviceList'])) {
+            $model->deviceList = $map['DeviceList'];
         }
         if (isset($map['Feature'])) {
             $model->feature = $map['Feature'];
@@ -164,17 +164,8 @@ class SearchAggregateObjectRequest extends Model
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }
-        if (isset($map['DeviceList'])) {
-            $model->deviceList = $map['DeviceList'];
-        }
-        if (isset($map['Attributes'])) {
-            $model->attributes = $map['Attributes'];
-        }
-        if (isset($map['ShotTimeStart'])) {
-            $model->shotTimeStart = $map['ShotTimeStart'];
-        }
-        if (isset($map['ShotTimeEnd'])) {
-            $model->shotTimeEnd = $map['ShotTimeEnd'];
+        if (isset($map['ObjectType'])) {
+            $model->objectType = $map['ObjectType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -184,6 +175,15 @@ class SearchAggregateObjectRequest extends Model
         }
         if (isset($map['RequireTotalCount'])) {
             $model->requireTotalCount = $map['RequireTotalCount'];
+        }
+        if (isset($map['ShotTimeEnd'])) {
+            $model->shotTimeEnd = $map['ShotTimeEnd'];
+        }
+        if (isset($map['ShotTimeStart'])) {
+            $model->shotTimeStart = $map['ShotTimeStart'];
+        }
+        if (isset($map['Vendor'])) {
+            $model->vendor = $map['Vendor'];
         }
 
         return $model;

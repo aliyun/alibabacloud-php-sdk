@@ -12,7 +12,7 @@ class RecallTrajectoryByCoordinateTimeRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $corpId;
 
     /**
      * @var string
@@ -20,14 +20,14 @@ class RecallTrajectoryByCoordinateTimeRequest extends Model
     public $endTime;
 
     /**
-     * @var string
-     */
-    public $corpId;
-
-    /**
      * @var int
      */
     public $outputIdCount;
+
+    /**
+     * @var string[]
+     */
+    public $outputIdTypeList;
 
     /**
      * @var pointList[]
@@ -35,16 +35,16 @@ class RecallTrajectoryByCoordinateTimeRequest extends Model
     public $pointList;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $outputIdTypeList;
+    public $startTime;
     protected $_name = [
-        'startTime'        => 'StartTime',
-        'endTime'          => 'EndTime',
         'corpId'           => 'CorpId',
+        'endTime'          => 'EndTime',
         'outputIdCount'    => 'OutputIdCount',
-        'pointList'        => 'PointList',
         'outputIdTypeList' => 'OutputIdTypeList',
+        'pointList'        => 'PointList',
+        'startTime'        => 'StartTime',
     ];
 
     public function validate()
@@ -54,17 +54,17 @@ class RecallTrajectoryByCoordinateTimeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->corpId) {
+            $res['CorpId'] = $this->corpId;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->corpId) {
-            $res['CorpId'] = $this->corpId;
-        }
         if (null !== $this->outputIdCount) {
             $res['OutputIdCount'] = $this->outputIdCount;
+        }
+        if (null !== $this->outputIdTypeList) {
+            $res['OutputIdTypeList'] = $this->outputIdTypeList;
         }
         if (null !== $this->pointList) {
             $res['PointList'] = [];
@@ -75,8 +75,8 @@ class RecallTrajectoryByCoordinateTimeRequest extends Model
                 }
             }
         }
-        if (null !== $this->outputIdTypeList) {
-            $res['OutputIdTypeList'] = $this->outputIdTypeList;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -90,17 +90,19 @@ class RecallTrajectoryByCoordinateTimeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['CorpId'])) {
+            $model->corpId = $map['CorpId'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['CorpId'])) {
-            $model->corpId = $map['CorpId'];
-        }
         if (isset($map['OutputIdCount'])) {
             $model->outputIdCount = $map['OutputIdCount'];
+        }
+        if (isset($map['OutputIdTypeList'])) {
+            if (!empty($map['OutputIdTypeList'])) {
+                $model->outputIdTypeList = $map['OutputIdTypeList'];
+            }
         }
         if (isset($map['PointList'])) {
             if (!empty($map['PointList'])) {
@@ -111,10 +113,8 @@ class RecallTrajectoryByCoordinateTimeRequest extends Model
                 }
             }
         }
-        if (isset($map['OutputIdTypeList'])) {
-            if (!empty($map['OutputIdTypeList'])) {
-                $model->outputIdTypeList = $map['OutputIdTypeList'];
-            }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

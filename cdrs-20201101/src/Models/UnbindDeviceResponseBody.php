@@ -10,14 +10,11 @@ use AlibabaCloud\Tea\Model;
 class UnbindDeviceResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $code;
 
     /**
      * @var data[]
@@ -25,14 +22,23 @@ class UnbindDeviceResponseBody extends Model
     public $data;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
-    public $code;
+    public $message;
+
+    /**
+     * @example B33CE66A-B3D4-458B-B2DE-64E32DC54C07
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
+        'code'      => 'Code',
+        'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'data'      => 'Data',
-        'code'      => 'Code',
     ];
 
     public function validate()
@@ -42,11 +48,8 @@ class UnbindDeviceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
             $res['Data'] = [];
@@ -57,8 +60,11 @@ class UnbindDeviceResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,11 +78,8 @@ class UnbindDeviceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
@@ -87,8 +90,11 @@ class UnbindDeviceResponseBody extends Model
                 }
             }
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

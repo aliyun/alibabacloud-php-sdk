@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListCityMapAoisResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $code;
+
+    /**
+     * @var data[]
+     */
+    public $data;
 
     /**
      * @var string
@@ -25,20 +30,15 @@ class ListCityMapAoisResponseBody extends Model
     public $requestId;
 
     /**
-     * @var data[]
+     * @var int
      */
-    public $data;
-
-    /**
-     * @var string
-     */
-    public $code;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
+        'code'       => 'Code',
+        'data'       => 'Data',
         'message'    => 'Message',
         'requestId'  => 'RequestId',
-        'data'       => 'Data',
-        'code'       => 'Code',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -48,14 +48,8 @@ class ListCityMapAoisResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
             $res['Data'] = [];
@@ -66,8 +60,14 @@ class ListCityMapAoisResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,14 +81,8 @@ class ListCityMapAoisResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
@@ -99,8 +93,14 @@ class ListCityMapAoisResponseBody extends Model
                 }
             }
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

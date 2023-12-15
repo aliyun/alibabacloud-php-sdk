@@ -11,17 +11,17 @@ class ListCityMapCameraStatisticsRequest extends Model
     /**
      * @var string
      */
+    public $dataSourceIdList;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $dataSourceIdList;
+    public $pageNumber;
 
     /**
      * @var int
@@ -29,15 +29,15 @@ class ListCityMapCameraStatisticsRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $startTime;
     protected $_name = [
-        'endTime'          => 'EndTime',
-        'startTime'        => 'StartTime',
         'dataSourceIdList' => 'DataSourceIdList',
-        'pageSize'         => 'PageSize',
+        'endTime'          => 'EndTime',
         'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'startTime'        => 'StartTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ListCityMapCameraStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataSourceIdList) {
+            $res['DataSourceIdList'] = $this->dataSourceIdList;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->dataSourceIdList) {
-            $res['DataSourceIdList'] = $this->dataSourceIdList;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ListCityMapCameraStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataSourceIdList'])) {
+            $model->dataSourceIdList = $map['DataSourceIdList'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['DataSourceIdList'])) {
-            $model->dataSourceIdList = $map['DataSourceIdList'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

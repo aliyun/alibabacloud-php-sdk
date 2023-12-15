@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class StopMonitorRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $taskId;
-
-    /**
+     * @example damo
+     *
      * @var string
      */
     public $algorithmVendor;
 
     /**
+     * @example 10001
+     *
      * @var string
      */
     public $corpId;
+
+    /**
+     * @example d5b65bb43c5242d89b199a360211930c
+     *
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
-        'taskId'          => 'TaskId',
         'algorithmVendor' => 'AlgorithmVendor',
         'corpId'          => 'CorpId',
+        'taskId'          => 'TaskId',
     ];
 
     public function validate()
@@ -35,14 +41,14 @@ class StopMonitorRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->algorithmVendor) {
             $res['AlgorithmVendor'] = $this->algorithmVendor;
         }
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -56,14 +62,14 @@ class StopMonitorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['AlgorithmVendor'])) {
             $model->algorithmVendor = $map['AlgorithmVendor'];
         }
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

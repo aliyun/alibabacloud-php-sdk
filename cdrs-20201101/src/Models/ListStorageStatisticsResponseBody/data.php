@@ -11,16 +11,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $usedStore;
-
-    /**
-     * @var string
-     */
-    public $unusedStore;
-
-    /**
-     * @var string
-     */
     public $corpId;
 
     /**
@@ -32,12 +22,22 @@ class data extends Model
      * @var string
      */
     public $totalStore;
+
+    /**
+     * @var string
+     */
+    public $unusedStore;
+
+    /**
+     * @var string
+     */
+    public $usedStore;
     protected $_name = [
-        'usedStore'   => 'UsedStore',
-        'unusedStore' => 'UnusedStore',
         'corpId'      => 'CorpId',
         'number'      => 'Number',
         'totalStore'  => 'TotalStore',
+        'unusedStore' => 'UnusedStore',
+        'usedStore'   => 'UsedStore',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->usedStore) {
-            $res['UsedStore'] = $this->usedStore;
-        }
-        if (null !== $this->unusedStore) {
-            $res['UnusedStore'] = $this->unusedStore;
-        }
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
@@ -61,6 +55,12 @@ class data extends Model
         }
         if (null !== $this->totalStore) {
             $res['TotalStore'] = $this->totalStore;
+        }
+        if (null !== $this->unusedStore) {
+            $res['UnusedStore'] = $this->unusedStore;
+        }
+        if (null !== $this->usedStore) {
+            $res['UsedStore'] = $this->usedStore;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UsedStore'])) {
-            $model->usedStore = $map['UsedStore'];
-        }
-        if (isset($map['UnusedStore'])) {
-            $model->unusedStore = $map['UnusedStore'];
-        }
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
@@ -88,6 +82,12 @@ class data extends Model
         }
         if (isset($map['TotalStore'])) {
             $model->totalStore = $map['TotalStore'];
+        }
+        if (isset($map['UnusedStore'])) {
+            $model->unusedStore = $map['UnusedStore'];
+        }
+        if (isset($map['UsedStore'])) {
+            $model->usedStore = $map['UsedStore'];
         }
 
         return $model;

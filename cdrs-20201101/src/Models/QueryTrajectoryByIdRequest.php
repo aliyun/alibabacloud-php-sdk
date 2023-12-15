@@ -13,7 +13,12 @@ class QueryTrajectoryByIdRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $corpId;
+
+    /**
+     * @var deviceList[]
+     */
+    public $deviceList;
 
     /**
      * @var string
@@ -21,25 +26,20 @@ class QueryTrajectoryByIdRequest extends Model
     public $endTime;
 
     /**
-     * @var string
-     */
-    public $corpId;
-
-    /**
      * @var idList[]
      */
     public $idList;
 
     /**
-     * @var deviceList[]
+     * @var string
      */
-    public $deviceList;
+    public $startTime;
     protected $_name = [
-        'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
         'corpId'     => 'CorpId',
-        'idList'     => 'IdList',
         'deviceList' => 'DeviceList',
+        'endTime'    => 'EndTime',
+        'idList'     => 'IdList',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -49,14 +49,20 @@ class QueryTrajectoryByIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->corpId) {
+            $res['CorpId'] = $this->corpId;
+        }
+        if (null !== $this->deviceList) {
+            $res['DeviceList'] = [];
+            if (null !== $this->deviceList && \is_array($this->deviceList)) {
+                $n = 0;
+                foreach ($this->deviceList as $item) {
+                    $res['DeviceList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->corpId) {
-            $res['CorpId'] = $this->corpId;
         }
         if (null !== $this->idList) {
             $res['IdList'] = [];
@@ -67,14 +73,8 @@ class QueryTrajectoryByIdRequest extends Model
                 }
             }
         }
-        if (null !== $this->deviceList) {
-            $res['DeviceList'] = [];
-            if (null !== $this->deviceList && \is_array($this->deviceList)) {
-                $n = 0;
-                foreach ($this->deviceList as $item) {
-                    $res['DeviceList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -88,14 +88,20 @@ class QueryTrajectoryByIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['CorpId'])) {
+            $model->corpId = $map['CorpId'];
+        }
+        if (isset($map['DeviceList'])) {
+            if (!empty($map['DeviceList'])) {
+                $model->deviceList = [];
+                $n                 = 0;
+                foreach ($map['DeviceList'] as $item) {
+                    $model->deviceList[$n++] = null !== $item ? deviceList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['CorpId'])) {
-            $model->corpId = $map['CorpId'];
         }
         if (isset($map['IdList'])) {
             if (!empty($map['IdList'])) {
@@ -106,14 +112,8 @@ class QueryTrajectoryByIdRequest extends Model
                 }
             }
         }
-        if (isset($map['DeviceList'])) {
-            if (!empty($map['DeviceList'])) {
-                $model->deviceList = [];
-                $n                 = 0;
-                foreach ($map['DeviceList'] as $item) {
-                    $model->deviceList[$n++] = null !== $item ? deviceList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

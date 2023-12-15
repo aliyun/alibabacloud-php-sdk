@@ -9,9 +9,32 @@ use AlibabaCloud\Tea\Model;
 class ListVehicleDetailsRequest extends Model
 {
     /**
+     * @example 2286049969284580096
+     *
      * @var string
      */
     public $corpId;
+
+    /**
+     * @example 2021-01-21 00:00:00
+     *
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @example 1
+     *
+     * @var string
+     */
+    public $pageNumber;
+
+    /**
+     * @example 10
+     *
+     * @var string
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -19,31 +42,18 @@ class ListVehicleDetailsRequest extends Model
     public $plateId;
 
     /**
+     * @example 2021-01-20 00:00:00
+     *
      * @var string
      */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $pageNumber;
-
-    /**
-     * @var string
-     */
-    public $pageSize;
     protected $_name = [
         'corpId'     => 'CorpId',
-        'plateId'    => 'PlateId',
-        'startTime'  => 'StartTime',
         'endTime'    => 'EndTime',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'plateId'    => 'PlateId',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -56,12 +66,6 @@ class ListVehicleDetailsRequest extends Model
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
-        if (null !== $this->plateId) {
-            $res['PlateId'] = $this->plateId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -70,6 +74,12 @@ class ListVehicleDetailsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->plateId) {
+            $res['PlateId'] = $this->plateId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -86,12 +96,6 @@ class ListVehicleDetailsRequest extends Model
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
-        if (isset($map['PlateId'])) {
-            $model->plateId = $map['PlateId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -100,6 +104,12 @@ class ListVehicleDetailsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PlateId'])) {
+            $model->plateId = $map['PlateId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

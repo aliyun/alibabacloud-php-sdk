@@ -21,17 +21,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $oldValue;
-
-    /**
-     * @var string
-     */
-    public $manValue;
-
-    /**
-     * @var string
-     */
-    public $dataSourceName;
+    public $corpId;
 
     /**
      * @var string
@@ -41,17 +31,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $corpId;
-
-    /**
-     * @var string
-     */
-    public $motorValue;
-
-    /**
-     * @var string
-     */
-    public $longitude;
+    public $dataSourceName;
 
     /**
      * @var string
@@ -61,18 +41,38 @@ class data extends Model
     /**
      * @var string
      */
+    public $longitude;
+
+    /**
+     * @var string
+     */
+    public $manValue;
+
+    /**
+     * @var string
+     */
+    public $motorValue;
+
+    /**
+     * @var string
+     */
+    public $oldValue;
+
+    /**
+     * @var string
+     */
     public $womanValue;
     protected $_name = [
         'adultValue'     => 'AdultValue',
         'childValue'     => 'ChildValue',
-        'oldValue'       => 'OldValue',
-        'manValue'       => 'ManValue',
-        'dataSourceName' => 'DataSourceName',
-        'dataSourceId'   => 'DataSourceId',
         'corpId'         => 'CorpId',
-        'motorValue'     => 'MotorValue',
-        'longitude'      => 'Longitude',
+        'dataSourceId'   => 'DataSourceId',
+        'dataSourceName' => 'DataSourceName',
         'latitude'       => 'Latitude',
+        'longitude'      => 'Longitude',
+        'manValue'       => 'ManValue',
+        'motorValue'     => 'MotorValue',
+        'oldValue'       => 'OldValue',
         'womanValue'     => 'WomanValue',
     ];
 
@@ -89,29 +89,29 @@ class data extends Model
         if (null !== $this->childValue) {
             $res['ChildValue'] = $this->childValue;
         }
-        if (null !== $this->oldValue) {
-            $res['OldValue'] = $this->oldValue;
-        }
-        if (null !== $this->manValue) {
-            $res['ManValue'] = $this->manValue;
-        }
-        if (null !== $this->dataSourceName) {
-            $res['DataSourceName'] = $this->dataSourceName;
+        if (null !== $this->corpId) {
+            $res['CorpId'] = $this->corpId;
         }
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
-        if (null !== $this->corpId) {
-            $res['CorpId'] = $this->corpId;
+        if (null !== $this->dataSourceName) {
+            $res['DataSourceName'] = $this->dataSourceName;
         }
-        if (null !== $this->motorValue) {
-            $res['MotorValue'] = $this->motorValue;
+        if (null !== $this->latitude) {
+            $res['Latitude'] = $this->latitude;
         }
         if (null !== $this->longitude) {
             $res['Longitude'] = $this->longitude;
         }
-        if (null !== $this->latitude) {
-            $res['Latitude'] = $this->latitude;
+        if (null !== $this->manValue) {
+            $res['ManValue'] = $this->manValue;
+        }
+        if (null !== $this->motorValue) {
+            $res['MotorValue'] = $this->motorValue;
+        }
+        if (null !== $this->oldValue) {
+            $res['OldValue'] = $this->oldValue;
         }
         if (null !== $this->womanValue) {
             $res['WomanValue'] = $this->womanValue;
@@ -134,29 +134,29 @@ class data extends Model
         if (isset($map['ChildValue'])) {
             $model->childValue = $map['ChildValue'];
         }
-        if (isset($map['OldValue'])) {
-            $model->oldValue = $map['OldValue'];
-        }
-        if (isset($map['ManValue'])) {
-            $model->manValue = $map['ManValue'];
-        }
-        if (isset($map['DataSourceName'])) {
-            $model->dataSourceName = $map['DataSourceName'];
+        if (isset($map['CorpId'])) {
+            $model->corpId = $map['CorpId'];
         }
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
-        if (isset($map['CorpId'])) {
-            $model->corpId = $map['CorpId'];
+        if (isset($map['DataSourceName'])) {
+            $model->dataSourceName = $map['DataSourceName'];
         }
-        if (isset($map['MotorValue'])) {
-            $model->motorValue = $map['MotorValue'];
+        if (isset($map['Latitude'])) {
+            $model->latitude = $map['Latitude'];
         }
         if (isset($map['Longitude'])) {
             $model->longitude = $map['Longitude'];
         }
-        if (isset($map['Latitude'])) {
-            $model->latitude = $map['Latitude'];
+        if (isset($map['ManValue'])) {
+            $model->manValue = $map['ManValue'];
+        }
+        if (isset($map['MotorValue'])) {
+            $model->motorValue = $map['MotorValue'];
+        }
+        if (isset($map['OldValue'])) {
+            $model->oldValue = $map['OldValue'];
         }
         if (isset($map['WomanValue'])) {
             $model->womanValue = $map['WomanValue'];

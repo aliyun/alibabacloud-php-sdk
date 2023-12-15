@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BindDeviceRequest extends Model
 {
     /**
+     * @example cdrs7446408279386067
+     *
      * @var string
      */
     public $corpId;

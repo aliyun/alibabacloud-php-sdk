@@ -9,47 +9,61 @@ use AlibabaCloud\Tea\Model;
 class ListTagMetricsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $corpId;
-
-    /**
-     * @var mixed[]
-     */
-    public $tagCode;
-
-    /**
+     * @example day
+     *
      * @var string
      */
     public $aggregateType;
 
     /**
+     * @example 2286049969284580096
+     *
      * @var string
      */
-    public $startTime;
+    public $corpId;
 
     /**
+     * @example 2021-01-21 00:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
+
+    /**
+     * @example 2021-01-21 00:00:00
+     *
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @example ["tag_corp_total_personnum"]
+     *
+     * @var mixed[]
+     */
+    public $tagCode;
     protected $_name = [
-        'corpId'        => 'CorpId',
-        'tagCode'       => 'TagCode',
         'aggregateType' => 'AggregateType',
-        'startTime'     => 'StartTime',
+        'corpId'        => 'CorpId',
         'endTime'       => 'EndTime',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'startTime'     => 'StartTime',
+        'tagCode'       => 'TagCode',
     ];
 
     public function validate()
@@ -59,17 +73,11 @@ class ListTagMetricsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->corpId) {
-            $res['CorpId'] = $this->corpId;
-        }
-        if (null !== $this->tagCode) {
-            $res['TagCode'] = $this->tagCode;
-        }
         if (null !== $this->aggregateType) {
             $res['AggregateType'] = $this->aggregateType;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->corpId) {
+            $res['CorpId'] = $this->corpId;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -79,6 +87,12 @@ class ListTagMetricsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->tagCode) {
+            $res['TagCode'] = $this->tagCode;
         }
 
         return $res;
@@ -92,17 +106,11 @@ class ListTagMetricsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CorpId'])) {
-            $model->corpId = $map['CorpId'];
-        }
-        if (isset($map['TagCode'])) {
-            $model->tagCode = $map['TagCode'];
-        }
         if (isset($map['AggregateType'])) {
             $model->aggregateType = $map['AggregateType'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['CorpId'])) {
+            $model->corpId = $map['CorpId'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -112,6 +120,12 @@ class ListTagMetricsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TagCode'])) {
+            $model->tagCode = $map['TagCode'];
         }
 
         return $model;

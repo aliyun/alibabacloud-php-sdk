@@ -11,17 +11,7 @@ class data extends Model
     /**
      * @var int
      */
-    public $nonMotorNumber;
-
-    /**
-     * @var int
-     */
-    public $faceNumber;
-
-    /**
-     * @var int
-     */
-    public $motorNumber;
+    public $bodyNumber;
 
     /**
      * @var string
@@ -36,19 +26,29 @@ class data extends Model
     /**
      * @var int
      */
-    public $bodyNumber;
+    public $faceNumber;
+
+    /**
+     * @var int
+     */
+    public $motorNumber;
+
+    /**
+     * @var int
+     */
+    public $nonMotorNumber;
 
     /**
      * @var int
      */
     public $totalNumber;
     protected $_name = [
-        'nonMotorNumber' => 'NonMotorNumber',
-        'faceNumber'     => 'FaceNumber',
-        'motorNumber'    => 'MotorNumber',
+        'bodyNumber'     => 'BodyNumber',
         'corpId'         => 'CorpId',
         'date'           => 'Date',
-        'bodyNumber'     => 'BodyNumber',
+        'faceNumber'     => 'FaceNumber',
+        'motorNumber'    => 'MotorNumber',
+        'nonMotorNumber' => 'NonMotorNumber',
         'totalNumber'    => 'TotalNumber',
     ];
 
@@ -59,14 +59,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nonMotorNumber) {
-            $res['NonMotorNumber'] = $this->nonMotorNumber;
-        }
-        if (null !== $this->faceNumber) {
-            $res['FaceNumber'] = $this->faceNumber;
-        }
-        if (null !== $this->motorNumber) {
-            $res['MotorNumber'] = $this->motorNumber;
+        if (null !== $this->bodyNumber) {
+            $res['BodyNumber'] = $this->bodyNumber;
         }
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
@@ -74,8 +68,14 @@ class data extends Model
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
-        if (null !== $this->bodyNumber) {
-            $res['BodyNumber'] = $this->bodyNumber;
+        if (null !== $this->faceNumber) {
+            $res['FaceNumber'] = $this->faceNumber;
+        }
+        if (null !== $this->motorNumber) {
+            $res['MotorNumber'] = $this->motorNumber;
+        }
+        if (null !== $this->nonMotorNumber) {
+            $res['NonMotorNumber'] = $this->nonMotorNumber;
         }
         if (null !== $this->totalNumber) {
             $res['TotalNumber'] = $this->totalNumber;
@@ -92,14 +92,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NonMotorNumber'])) {
-            $model->nonMotorNumber = $map['NonMotorNumber'];
-        }
-        if (isset($map['FaceNumber'])) {
-            $model->faceNumber = $map['FaceNumber'];
-        }
-        if (isset($map['MotorNumber'])) {
-            $model->motorNumber = $map['MotorNumber'];
+        if (isset($map['BodyNumber'])) {
+            $model->bodyNumber = $map['BodyNumber'];
         }
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
@@ -107,8 +101,14 @@ class data extends Model
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
-        if (isset($map['BodyNumber'])) {
-            $model->bodyNumber = $map['BodyNumber'];
+        if (isset($map['FaceNumber'])) {
+            $model->faceNumber = $map['FaceNumber'];
+        }
+        if (isset($map['MotorNumber'])) {
+            $model->motorNumber = $map['MotorNumber'];
+        }
+        if (isset($map['NonMotorNumber'])) {
+            $model->nonMotorNumber = $map['NonMotorNumber'];
         }
         if (isset($map['TotalNumber'])) {
             $model->totalNumber = $map['TotalNumber'];

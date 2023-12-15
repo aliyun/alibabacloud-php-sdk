@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListCityMapAoisRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $radius;
-
-    /**
      * @var string
      */
     public $latitude;
@@ -22,10 +17,15 @@ class ListCityMapAoisRequest extends Model
      * @var string
      */
     public $longitude;
+
+    /**
+     * @var int
+     */
+    public $radius;
     protected $_name = [
-        'radius'    => 'Radius',
         'latitude'  => 'Latitude',
         'longitude' => 'Longitude',
+        'radius'    => 'Radius',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListCityMapAoisRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->radius) {
-            $res['Radius'] = $this->radius;
-        }
         if (null !== $this->latitude) {
             $res['Latitude'] = $this->latitude;
         }
         if (null !== $this->longitude) {
             $res['Longitude'] = $this->longitude;
+        }
+        if (null !== $this->radius) {
+            $res['Radius'] = $this->radius;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListCityMapAoisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Radius'])) {
-            $model->radius = $map['Radius'];
-        }
         if (isset($map['Latitude'])) {
             $model->latitude = $map['Latitude'];
         }
         if (isset($map['Longitude'])) {
             $model->longitude = $map['Longitude'];
+        }
+        if (isset($map['Radius'])) {
+            $model->radius = $map['Radius'];
         }
 
         return $model;

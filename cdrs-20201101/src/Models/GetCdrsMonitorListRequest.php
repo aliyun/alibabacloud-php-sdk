@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetCdrsMonitorListRequest extends Model
 {
     /**
+     * @example 10001
+     *
      * @var string
      */
     public $corpId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class PaginateDeviceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $corpId;
+
+    /**
+     * @var bool
+     */
+    public $countTotalNum;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -17,21 +27,11 @@ class PaginateDeviceRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var bool
-     */
-    public $countTotalNum;
-
-    /**
-     * @var string
-     */
-    public $corpId;
     protected $_name = [
+        'corpId'        => 'CorpId',
+        'countTotalNum' => 'CountTotalNum',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'countTotalNum' => 'CountTotalNum',
-        'corpId'        => 'CorpId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class PaginateDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->corpId) {
+            $res['CorpId'] = $this->corpId;
+        }
+        if (null !== $this->countTotalNum) {
+            $res['CountTotalNum'] = $this->countTotalNum;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->countTotalNum) {
-            $res['CountTotalNum'] = $this->countTotalNum;
-        }
-        if (null !== $this->corpId) {
-            $res['CorpId'] = $this->corpId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class PaginateDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CorpId'])) {
+            $model->corpId = $map['CorpId'];
+        }
+        if (isset($map['CountTotalNum'])) {
+            $model->countTotalNum = $map['CountTotalNum'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CountTotalNum'])) {
-            $model->countTotalNum = $map['CountTotalNum'];
-        }
-        if (isset($map['CorpId'])) {
-            $model->corpId = $map['CorpId'];
         }
 
         return $model;

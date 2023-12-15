@@ -11,15 +11,15 @@ class ListStructureStatisticsRequest extends Model
     /**
      * @var string
      */
-    public $corpId;
+    public $backCategory;
 
     /**
      * @var string
      */
-    public $backCategory;
+    public $corpId;
     protected $_name = [
-        'corpId'       => 'CorpId',
         'backCategory' => 'BackCategory',
+        'corpId'       => 'CorpId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListStructureStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->corpId) {
-            $res['CorpId'] = $this->corpId;
-        }
         if (null !== $this->backCategory) {
             $res['BackCategory'] = $this->backCategory;
+        }
+        if (null !== $this->corpId) {
+            $res['CorpId'] = $this->corpId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListStructureStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CorpId'])) {
-            $model->corpId = $map['CorpId'];
-        }
         if (isset($map['BackCategory'])) {
             $model->backCategory = $map['BackCategory'];
+        }
+        if (isset($map['CorpId'])) {
+            $model->corpId = $map['CorpId'];
         }
 
         return $model;

@@ -9,14 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectRequest extends Model
 {
     /**
+     * @example vds
+     *
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $icon;
+    public $aggregateSceneCode;
 
     /**
      * @var string
@@ -24,14 +21,21 @@ class CreateProjectRequest extends Model
     public $description;
 
     /**
+     * @example https://img.alicdn.com/tfs/TB1yccKi.png
+     *
      * @var string
      */
-    public $aggregateSceneCode;
+    public $icon;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
-        'name'               => 'Name',
-        'icon'               => 'Icon',
-        'description'        => 'Description',
         'aggregateSceneCode' => 'AggregateSceneCode',
+        'description'        => 'Description',
+        'icon'               => 'Icon',
+        'name'               => 'Name',
     ];
 
     public function validate()
@@ -41,17 +45,17 @@ class CreateProjectRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->icon) {
-            $res['Icon'] = $this->icon;
+        if (null !== $this->aggregateSceneCode) {
+            $res['AggregateSceneCode'] = $this->aggregateSceneCode;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->aggregateSceneCode) {
-            $res['AggregateSceneCode'] = $this->aggregateSceneCode;
+        if (null !== $this->icon) {
+            $res['Icon'] = $this->icon;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -65,17 +69,17 @@ class CreateProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Icon'])) {
-            $model->icon = $map['Icon'];
+        if (isset($map['AggregateSceneCode'])) {
+            $model->aggregateSceneCode = $map['AggregateSceneCode'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['AggregateSceneCode'])) {
-            $model->aggregateSceneCode = $map['AggregateSceneCode'];
+        if (isset($map['Icon'])) {
+            $model->icon = $map['Icon'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

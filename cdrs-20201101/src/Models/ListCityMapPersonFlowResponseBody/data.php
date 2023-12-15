@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $flowDirection;
+
+    /**
+     * @var string
+     */
     public $flowNumber;
 
     /**
@@ -22,16 +27,11 @@ class data extends Model
      * @var string
      */
     public $targetDataSourceId;
-
-    /**
-     * @var string
-     */
-    public $flowDirection;
     protected $_name = [
+        'flowDirection'      => 'FlowDirection',
         'flowNumber'         => 'FlowNumber',
         'originDataSourceId' => 'OriginDataSourceId',
         'targetDataSourceId' => 'TargetDataSourceId',
-        'flowDirection'      => 'FlowDirection',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->flowDirection) {
+            $res['FlowDirection'] = $this->flowDirection;
+        }
         if (null !== $this->flowNumber) {
             $res['FlowNumber'] = $this->flowNumber;
         }
@@ -49,9 +52,6 @@ class data extends Model
         }
         if (null !== $this->targetDataSourceId) {
             $res['TargetDataSourceId'] = $this->targetDataSourceId;
-        }
-        if (null !== $this->flowDirection) {
-            $res['FlowDirection'] = $this->flowDirection;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FlowDirection'])) {
+            $model->flowDirection = $map['FlowDirection'];
+        }
         if (isset($map['FlowNumber'])) {
             $model->flowNumber = $map['FlowNumber'];
         }
@@ -73,9 +76,6 @@ class data extends Model
         }
         if (isset($map['TargetDataSourceId'])) {
             $model->targetDataSourceId = $map['TargetDataSourceId'];
-        }
-        if (isset($map['FlowDirection'])) {
-            $model->flowDirection = $map['FlowDirection'];
         }
 
         return $model;

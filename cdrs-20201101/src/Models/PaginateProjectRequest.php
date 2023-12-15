@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class PaginateProjectRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $countTotalNum;
+
+    /**
+     * @var string
+     */
+    public $nameLike;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -19,25 +29,15 @@ class PaginateProjectRequest extends Model
     public $pageSize;
 
     /**
-     * @var bool
-     */
-    public $countTotalNum;
-
-    /**
      * @var string
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $nameLike;
     protected $_name = [
+        'countTotalNum' => 'CountTotalNum',
+        'nameLike'      => 'NameLike',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'countTotalNum' => 'CountTotalNum',
         'type'          => 'Type',
-        'nameLike'      => 'NameLike',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class PaginateProjectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->countTotalNum) {
+            $res['CountTotalNum'] = $this->countTotalNum;
+        }
+        if (null !== $this->nameLike) {
+            $res['NameLike'] = $this->nameLike;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->countTotalNum) {
-            $res['CountTotalNum'] = $this->countTotalNum;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->nameLike) {
-            $res['NameLike'] = $this->nameLike;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class PaginateProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CountTotalNum'])) {
+            $model->countTotalNum = $map['CountTotalNum'];
+        }
+        if (isset($map['NameLike'])) {
+            $model->nameLike = $map['NameLike'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CountTotalNum'])) {
-            $model->countTotalNum = $map['CountTotalNum'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['NameLike'])) {
-            $model->nameLike = $map['NameLike'];
         }
 
         return $model;

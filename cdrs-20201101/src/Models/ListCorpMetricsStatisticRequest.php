@@ -9,65 +9,83 @@ use AlibabaCloud\Tea\Model;
 class ListCorpMetricsStatisticRequest extends Model
 {
     /**
+     * @example 2286049969284580096
+     *
      * @var string
      */
     public $corpId;
 
     /**
-     * @var string
-     */
-    public $tagCode;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var mixed[]
-     */
-    public $userGroupList;
-
-    /**
+     * @example ["111"]
+     *
      * @var mixed[]
      */
     public $deviceGroupList;
 
     /**
+     * @example ["111"]
+     *
      * @var mixed[]
      */
     public $deviceIdList;
 
     /**
+     * @example 2021-01-21 00:00:00
+     *
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $qualitScore;
+
+    /**
+     * @example 2021-01-20 00:00:00
+     *
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @example tag_corp_person_visits_numbers
+     *
+     * @var string
+     */
+    public $tagCode;
+
+    /**
+     * @example ["1111"]
+     *
+     * @var mixed[]
+     */
+    public $userGroupList;
     protected $_name = [
         'corpId'          => 'CorpId',
-        'tagCode'         => 'TagCode',
-        'startTime'       => 'StartTime',
+        'deviceGroupList' => 'DeviceGroupList',
+        'deviceIdList'    => 'DeviceIdList',
         'endTime'         => 'EndTime',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'userGroupList'   => 'UserGroupList',
-        'deviceGroupList' => 'DeviceGroupList',
-        'deviceIdList'    => 'DeviceIdList',
         'qualitScore'     => 'QualitScore',
+        'startTime'       => 'StartTime',
+        'tagCode'         => 'TagCode',
+        'userGroupList'   => 'UserGroupList',
     ];
 
     public function validate()
@@ -80,11 +98,11 @@ class ListCorpMetricsStatisticRequest extends Model
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
-        if (null !== $this->tagCode) {
-            $res['TagCode'] = $this->tagCode;
+        if (null !== $this->deviceGroupList) {
+            $res['DeviceGroupList'] = $this->deviceGroupList;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->deviceIdList) {
+            $res['DeviceIdList'] = $this->deviceIdList;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -95,17 +113,17 @@ class ListCorpMetricsStatisticRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->userGroupList) {
-            $res['UserGroupList'] = $this->userGroupList;
-        }
-        if (null !== $this->deviceGroupList) {
-            $res['DeviceGroupList'] = $this->deviceGroupList;
-        }
-        if (null !== $this->deviceIdList) {
-            $res['DeviceIdList'] = $this->deviceIdList;
-        }
         if (null !== $this->qualitScore) {
             $res['QualitScore'] = $this->qualitScore;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->tagCode) {
+            $res['TagCode'] = $this->tagCode;
+        }
+        if (null !== $this->userGroupList) {
+            $res['UserGroupList'] = $this->userGroupList;
         }
 
         return $res;
@@ -122,11 +140,11 @@ class ListCorpMetricsStatisticRequest extends Model
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
-        if (isset($map['TagCode'])) {
-            $model->tagCode = $map['TagCode'];
+        if (isset($map['DeviceGroupList'])) {
+            $model->deviceGroupList = $map['DeviceGroupList'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['DeviceIdList'])) {
+            $model->deviceIdList = $map['DeviceIdList'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -137,17 +155,17 @@ class ListCorpMetricsStatisticRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['UserGroupList'])) {
-            $model->userGroupList = $map['UserGroupList'];
-        }
-        if (isset($map['DeviceGroupList'])) {
-            $model->deviceGroupList = $map['DeviceGroupList'];
-        }
-        if (isset($map['DeviceIdList'])) {
-            $model->deviceIdList = $map['DeviceIdList'];
-        }
         if (isset($map['QualitScore'])) {
             $model->qualitScore = $map['QualitScore'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TagCode'])) {
+            $model->tagCode = $map['TagCode'];
+        }
+        if (isset($map['UserGroupList'])) {
+            $model->userGroupList = $map['UserGroupList'];
         }
 
         return $model;

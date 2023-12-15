@@ -9,35 +9,45 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $tagMetric;
-
-    /**
-     * @var string
-     */
-    public $tagCode;
-
-    /**
+     * @example 2286049969284580096
+     *
      * @var string
      */
     public $corpId;
 
     /**
-     * @var string
-     */
-    public $tagValue;
-
-    /**
+     * @example 2021-01-25
+     *
      * @var string
      */
     public $dateTime;
+
+    /**
+     * @example tag_corp_total_personnum
+     *
+     * @var string
+     */
+    public $tagCode;
+
+    /**
+     * @example 52
+     *
+     * @var string
+     */
+    public $tagMetric;
+
+    /**
+     * @example 1
+     *
+     * @var string
+     */
+    public $tagValue;
     protected $_name = [
-        'tagMetric' => 'TagMetric',
-        'tagCode'   => 'TagCode',
         'corpId'    => 'CorpId',
-        'tagValue'  => 'TagValue',
         'dateTime'  => 'DateTime',
+        'tagCode'   => 'TagCode',
+        'tagMetric' => 'TagMetric',
+        'tagValue'  => 'TagValue',
     ];
 
     public function validate()
@@ -47,20 +57,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagMetric) {
-            $res['TagMetric'] = $this->tagMetric;
+        if (null !== $this->corpId) {
+            $res['CorpId'] = $this->corpId;
+        }
+        if (null !== $this->dateTime) {
+            $res['DateTime'] = $this->dateTime;
         }
         if (null !== $this->tagCode) {
             $res['TagCode'] = $this->tagCode;
         }
-        if (null !== $this->corpId) {
-            $res['CorpId'] = $this->corpId;
+        if (null !== $this->tagMetric) {
+            $res['TagMetric'] = $this->tagMetric;
         }
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
-        }
-        if (null !== $this->dateTime) {
-            $res['DateTime'] = $this->dateTime;
         }
 
         return $res;
@@ -74,20 +84,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagMetric'])) {
-            $model->tagMetric = $map['TagMetric'];
+        if (isset($map['CorpId'])) {
+            $model->corpId = $map['CorpId'];
+        }
+        if (isset($map['DateTime'])) {
+            $model->dateTime = $map['DateTime'];
         }
         if (isset($map['TagCode'])) {
             $model->tagCode = $map['TagCode'];
         }
-        if (isset($map['CorpId'])) {
-            $model->corpId = $map['CorpId'];
+        if (isset($map['TagMetric'])) {
+            $model->tagMetric = $map['TagMetric'];
         }
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
-        }
-        if (isset($map['DateTime'])) {
-            $model->dateTime = $map['DateTime'];
         }
 
         return $model;

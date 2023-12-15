@@ -9,26 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListVehicleTopRequest extends Model
 {
     /**
+     * @example 2286049969284580091
+     *
      * @var string
      */
     public $corpId;
 
     /**
-     * @var string
-     */
-    public $plateId;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
+     * @example 2021-01-21 00:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 10
+     *
+     * @var string
+     */
+    public $pageNum;
+
+    /**
+     * @example 1
+     *
      * @var string
      */
     public $pageSize;
@@ -36,14 +39,21 @@ class ListVehicleTopRequest extends Model
     /**
      * @var string
      */
-    public $pageNum;
+    public $plateId;
+
+    /**
+     * @example 2021-01-20 00:00:00
+     *
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'corpId'    => 'CorpId',
+        'endTime'   => 'EndTime',
+        'pageNum'   => 'PageNum',
+        'pageSize'  => 'PageSize',
         'plateId'   => 'PlateId',
         'startTime' => 'StartTime',
-        'endTime'   => 'EndTime',
-        'pageSize'  => 'PageSize',
-        'pageNum'   => 'PageNum',
     ];
 
     public function validate()
@@ -56,20 +66,20 @@ class ListVehicleTopRequest extends Model
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->plateId) {
             $res['PlateId'] = $this->plateId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
         }
 
         return $res;
@@ -86,20 +96,20 @@ class ListVehicleTopRequest extends Model
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['PlateId'])) {
             $model->plateId = $map['PlateId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
         }
 
         return $model;
