@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CheckDeviceResponseBody extends Model
 {
     /**
+     * @example ture
+     *
      * @var bool
      */
     public $available;
 
     /**
+     * @example 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
+     *
      * @var string
      */
     public $requestId;

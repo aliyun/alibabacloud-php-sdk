@@ -840,6 +840,9 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->androidVivoPushMode)) {
             $query['AndroidVivoPushMode'] = $request->androidVivoPushMode;
         }
+        if (!Utils::isUnset($request->androidVivoReceiptId)) {
+            $query['AndroidVivoReceiptId'] = $request->androidVivoReceiptId;
+        }
         if (!Utils::isUnset($request->androidXiaoMiActivity)) {
             $query['AndroidXiaoMiActivity'] = $request->androidXiaoMiActivity;
         }

@@ -228,6 +228,11 @@ class PushRequest extends Model
     public $androidVivoPushMode;
 
     /**
+     * @var string
+     */
+    public $androidVivoReceiptId;
+
+    /**
      * @deprecated
      *
      * @var string
@@ -529,6 +534,7 @@ class PushRequest extends Model
         'androidRenderStyle'               => 'AndroidRenderStyle',
         'androidTargetUserType'            => 'AndroidTargetUserType',
         'androidVivoPushMode'              => 'AndroidVivoPushMode',
+        'androidVivoReceiptId'             => 'AndroidVivoReceiptId',
         'androidXiaoMiActivity'            => 'AndroidXiaoMiActivity',
         'androidXiaoMiNotifyBody'          => 'AndroidXiaoMiNotifyBody',
         'androidXiaoMiNotifyTitle'         => 'AndroidXiaoMiNotifyTitle',
@@ -675,6 +681,9 @@ class PushRequest extends Model
         }
         if (null !== $this->androidVivoPushMode) {
             $res['AndroidVivoPushMode'] = $this->androidVivoPushMode;
+        }
+        if (null !== $this->androidVivoReceiptId) {
+            $res['AndroidVivoReceiptId'] = $this->androidVivoReceiptId;
         }
         if (null !== $this->androidXiaoMiActivity) {
             $res['AndroidXiaoMiActivity'] = $this->androidXiaoMiActivity;
@@ -903,6 +912,9 @@ class PushRequest extends Model
         }
         if (isset($map['AndroidVivoPushMode'])) {
             $model->androidVivoPushMode = $map['AndroidVivoPushMode'];
+        }
+        if (isset($map['AndroidVivoReceiptId'])) {
+            $model->androidVivoReceiptId = $map['AndroidVivoReceiptId'];
         }
         if (isset($map['AndroidXiaoMiActivity'])) {
             $model->androidXiaoMiActivity = $map['AndroidXiaoMiActivity'];
