@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationCancelRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationCancelResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultRequest;
@@ -390,6 +392,52 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->videoModerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VideoModerationCancelRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return VideoModerationCancelResponse
+     */
+    public function videoModerationCancelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->service)) {
+            $body['Service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'VideoModerationCancel',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VideoModerationCancelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VideoModerationCancelRequest $request
+     *
+     * @return VideoModerationCancelResponse
+     */
+    public function videoModerationCancel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->videoModerationCancelWithOptions($request, $runtime);
     }
 
     /**

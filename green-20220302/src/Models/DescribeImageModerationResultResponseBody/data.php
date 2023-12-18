@@ -31,6 +31,11 @@ class data extends Model
     public $frameNum;
 
     /**
+     * @var string
+     */
+    public $reqId;
+
+    /**
      * @var result[]
      */
     public $result;
@@ -38,6 +43,7 @@ class data extends Model
         'dataId'   => 'DataId',
         'frame'    => 'Frame',
         'frameNum' => 'FrameNum',
+        'reqId'    => 'ReqId',
         'result'   => 'Result',
     ];
 
@@ -56,6 +62,9 @@ class data extends Model
         }
         if (null !== $this->frameNum) {
             $res['FrameNum'] = $this->frameNum;
+        }
+        if (null !== $this->reqId) {
+            $res['ReqId'] = $this->reqId;
         }
         if (null !== $this->result) {
             $res['Result'] = [];
@@ -86,6 +95,9 @@ class data extends Model
         }
         if (isset($map['FrameNum'])) {
             $model->frameNum = $map['FrameNum'];
+        }
+        if (isset($map['ReqId'])) {
+            $model->reqId = $map['ReqId'];
         }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
