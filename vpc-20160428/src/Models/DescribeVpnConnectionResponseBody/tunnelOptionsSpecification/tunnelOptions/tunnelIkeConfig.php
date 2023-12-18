@@ -48,7 +48,7 @@ class tunnelIkeConfig extends Model
     public $ikeMode;
 
     /**
-     * @description The DH group in the IKE phase.
+     * @description The Diffie-Hellman (DH) group in the IKE phase.
      *
      * @example group2
      *

@@ -11,8 +11,8 @@ class tunnelBgpConfig extends Model
     /**
      * @description The negotiation state of BGP. Valid values:
      *
-     *   **success**: normal
-     *   **false**: abnormal
+     *   **success**
+     *   **false**
      *
      * @example success
      *
@@ -21,7 +21,7 @@ class tunnelBgpConfig extends Model
     public $bgpStatus;
 
     /**
-     * @description The ASN of the tunnel on the Alibaba Cloud side.
+     * @description The ASN on the Alibaba Cloud side.
      *
      * @example 65530
      *
@@ -30,7 +30,7 @@ class tunnelBgpConfig extends Model
     public $localAsn;
 
     /**
-     * @description The BGP IP address of the tunnel on the Alibaba Cloud side.
+     * @description The BGP address on the Alibaba Cloud side.
      *
      * @example 169.254.10.1
      *

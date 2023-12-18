@@ -200,6 +200,11 @@ class DescribeVpnConnectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the IPsec-VPN connection belongs.
+     *
+     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group information.
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;

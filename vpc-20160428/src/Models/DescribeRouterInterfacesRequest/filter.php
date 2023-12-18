@@ -22,7 +22,7 @@ class filter extends Model
      *   **Status**: the status of the router interface.
      *   **Name**: the name of the router interface.
      *
-     * >  The logical operator between multiple values in the filter condition is OR. In this case, the filter condition is met if one of the values is matched. The logical operator between filter conditions is AND, which means that a result is returned only when all conditions are met.
+     * >  The logical operator among multiple values in a filter condition is OR. In this case, the filter condition is met if one of the values is matched. The logical operator among filter conditions is AND. Only routers that meet all the filter conditions are queried.
      * @example Filter.1.Status
      *
      * @var string
@@ -30,6 +30,8 @@ class filter extends Model
     public $key;
 
     /**
+     * @description Specifies the value in the filter condition based on the key. You can specify multiple filter values for one key. The logical operator among filter values is OR. If one filter value is matched, the filter condition is matched.
+     *
      * @example Filter.1.Active 1
      *
      * @var string[]

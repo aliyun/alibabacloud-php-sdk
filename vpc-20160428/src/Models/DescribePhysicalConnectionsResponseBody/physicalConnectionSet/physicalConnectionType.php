@@ -30,12 +30,16 @@ class physicalConnectionType extends Model
     /**
      * @description The information about the data center and rack.
      *
+     * @example 浙江省杭州市XX区XX镇XX路10号, XX机房, ET135ET135-XX-2包间, JXX机柜,  position30
+     *
      * @var string
      */
     public $adDetailLocation;
 
     /**
      * @description The location of the access point.
+     *
+     * @example Number 10, XX Road, XX Town, XX District, Hangzhou City, Zhejiang Province.
      *
      * @var string
      */
@@ -216,6 +220,8 @@ class physicalConnectionType extends Model
 
     /**
      * @description The geographical location of the data center.
+     *
+     * @example XX Number, XX Road, XX Town, XX District, Hangzhou City, Zhejiang Province.
      *
      * @var string
      */

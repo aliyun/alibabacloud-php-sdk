@@ -56,7 +56,7 @@ class tunnelOptions extends Model
     /**
      * @description The CA certificate of the tunnel peer.
      *
-     * This parameter is returned only if the VPN gateway is of the ShangMi (SM) type.
+     * This parameter is returned only if the VPN gateway is of the SM type.
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
      *
      * @var string
@@ -80,7 +80,7 @@ class tunnelOptions extends Model
      *
      *   **active**
      *   **updating**
-     *   **deleted**
+     *   **deleting**
      *
      * @example active
      *
@@ -103,7 +103,7 @@ class tunnelOptions extends Model
     public $status;
 
     /**
-     * @description The BGP configuration.
+     * @description The BGP configurations.
      *
      * @var tunnelBgpConfig
      */
@@ -126,7 +126,7 @@ class tunnelOptions extends Model
     public $tunnelIkeConfig;
 
     /**
-     * @description The configuration of Phase 2 negotiations.
+     * @description The configurations of Phase 2 negotiations.
      *
      * @var tunnelIpsecConfig
      */

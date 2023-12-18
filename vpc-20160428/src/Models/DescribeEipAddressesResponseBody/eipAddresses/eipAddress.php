@@ -242,6 +242,11 @@ class eipAddress extends Model
     public $ipAddress;
 
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @description The name of the EIP.
      *
      * @example EIP-01
@@ -265,6 +270,11 @@ class eipAddress extends Model
      * @var operationLocks
      */
     public $operationLocks;
+
+    /**
+     * @var string
+     */
+    public $privateIpAddress;
 
     /**
      * @description The ID of the IP address pool to which the EIP belongs.
@@ -445,9 +455,11 @@ class eipAddress extends Model
         'instanceType'                  => 'InstanceType',
         'internetChargeType'            => 'InternetChargeType',
         'ipAddress'                     => 'IpAddress',
+        'mode'                          => 'Mode',
         'name'                          => 'Name',
         'netmode'                       => 'Netmode',
         'operationLocks'                => 'OperationLocks',
+        'privateIpAddress'              => 'PrivateIpAddress',
         'publicIpAddressPoolId'         => 'PublicIpAddressPoolId',
         'regionId'                      => 'RegionId',
         'reservationActiveTime'         => 'ReservationActiveTime',
@@ -535,6 +547,9 @@ class eipAddress extends Model
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -543,6 +558,9 @@ class eipAddress extends Model
         }
         if (null !== $this->operationLocks) {
             $res['OperationLocks'] = null !== $this->operationLocks ? $this->operationLocks->toMap() : null;
+        }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
         if (null !== $this->publicIpAddressPoolId) {
             $res['PublicIpAddressPoolId'] = $this->publicIpAddressPoolId;
@@ -664,6 +682,9 @@ class eipAddress extends Model
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -672,6 +693,9 @@ class eipAddress extends Model
         }
         if (isset($map['OperationLocks'])) {
             $model->operationLocks = operationLocks::fromMap($map['OperationLocks']);
+        }
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
         }
         if (isset($map['PublicIpAddressPoolId'])) {
             $model->publicIpAddressPoolId = $map['PublicIpAddressPoolId'];

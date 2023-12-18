@@ -95,6 +95,8 @@ class CreatePhysicalConnectionRequest extends Model
     /**
      * @description The geographical location of the data center.
      *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $peerLocation;

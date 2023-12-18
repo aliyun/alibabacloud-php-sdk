@@ -30,9 +30,9 @@ class routerInterfaceType extends Model
     /**
      * @description The service status of the router interface. Valid values:
      *
-     *   **Normal**: normal
-     *   **FinancialLocked**: locked due to overdue payments
-     *   **SecurityLocked**: locked due to security reasons
+     *   **Normal**
+     *   **FinancialLocked**
+     *   **SecurityLocked**
      *
      * @example Normal
      *
@@ -41,7 +41,7 @@ class routerInterfaceType extends Model
     public $businessStatus;
 
     /**
-     * @description The metering method.
+     * @description The billing method.
      *
      * @example PayByTraffic
      *
@@ -81,12 +81,14 @@ class routerInterfaceType extends Model
     /**
      * @description The description of the router interface.
      *
+     * @example The description of the router interface.
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The end of the time range queried.
+     * @description The end of the time range during which data was queried.
      *
      * The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
      * @example 2021-06-08T12:20:55
@@ -96,10 +98,10 @@ class routerInterfaceType extends Model
     public $endTime;
 
     /**
-     * @description Indicates whether the VBR that is created in the Fast Link mode is uplinked to the router interface. The Fast Link mode helps automatically connect router interfaces that are created for the VBR and its peer VPC. Default value: false. Valid values:
+     * @description Indicates whether the VBR that is created in the Fast Link mode is uplinked to the router interface. The Fast Link mode helps automatically connect router interfaces that are created for the VBR and its peer VPC. Valid values:
      *
      *   **true**
-     *   **false**
+     *   **false** (default)
      *
      * @example false
      *
@@ -117,7 +119,7 @@ class routerInterfaceType extends Model
     public $hasReservationData;
 
     /**
-     * @description The rate of the heath check.
+     * @description The rate of heath checks.
      *
      * @example 1
      *
@@ -284,7 +286,7 @@ class routerInterfaceType extends Model
     public $reservationActiveTime;
 
     /**
-     * @description The bandwidth after the renewal takes effect. Unit: Mbit/s.
+     * @description The maximum bandwidth after the renewal takes effect. Unit: Mbit/s.
      *
      * @example 10
      *
@@ -293,7 +295,7 @@ class routerInterfaceType extends Model
     public $reservationBandwidth;
 
     /**
-     * @description The metering method that is used after the renewal takes effect.
+     * @description The metering method that is used after the renewal takes effect. Valid values:
      *
      * @example PayByBandwidth
      *
@@ -302,7 +304,7 @@ class routerInterfaceType extends Model
     public $reservationInternetChargeType;
 
     /**
-     * @description The type of the renewal order.
+     * @description The type of the renewal order. Valid values:
      *
      * @example RENEWCHANGE
      *
@@ -311,6 +313,11 @@ class routerInterfaceType extends Model
     public $reservationOrderType;
 
     /**
+     * @description Resource Group ID.
+     *
+     * For more information about resource groups, please refer to [What is a Resource Group?](~~94475~~)
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -373,6 +380,8 @@ class routerInterfaceType extends Model
     public $status;
 
     /**
+     * @description The tags of the resource.
+     *
      * @var tags
      */
     public $tags;

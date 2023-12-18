@@ -57,6 +57,11 @@ class DescribeVpnConnectionsRequest extends Model
     public $regionId;
 
     /**
+     * @description IPsec连接所属的资源组ID。
+     *
+     * 您可以调用[ListResourceGroups](~~158855~~)接口查询资源组ID。
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;

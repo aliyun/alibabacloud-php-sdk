@@ -177,6 +177,8 @@ class CreateNatGatewayRequest extends Model
      *
      * @example false
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $securityProtectionEnabled;

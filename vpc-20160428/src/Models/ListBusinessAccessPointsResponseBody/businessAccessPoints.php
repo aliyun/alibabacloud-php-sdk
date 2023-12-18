@@ -20,6 +20,8 @@ class businessAccessPoints extends Model
     /**
      * @description The name of the access point.
      *
+     * @example 美国-弗吉尼亚-C
+     *
      * @var string
      */
     public $accessPointName;
@@ -27,7 +29,7 @@ class businessAccessPoints extends Model
     /**
      * @description The ID of the cloud box.
      *
-     * >  This parameter is available if the Express Connect circuit supports cloud boxes and the access point supports cloud boxes.
+     * >  You can query this parameter if the Express Connect circuits and access points are of the cloud box type.
      * @example cb-****
      *
      * @var string
@@ -55,12 +57,12 @@ class businessAccessPoints extends Model
     /**
      * @description The connectivity provider of the Express Connect circuit. Valid values:
      *
-     *   **CT**: China Telecom
-     *   **CU**: China Unicom
-     *   **CM**: China Mobile
-     *   **CO**: other connectivity providers in the Chinese mainland
-     *   **Equinix**: Equinix
-     *   **Other**: other connectivity providers outside the Chinese mainland
+     *   **CT**: China Telecom.
+     *   **CU**: China Unicom.
+     *   **CM**: China Mobile.
+     *   **CO**: other connectivity providers in the Chinese mainland.
+     *   **Equinix**: Equinix.
+     *   **Other**: other connectivity providers outside the Chinese mainland.
      *
      * @example CT
      *
@@ -75,11 +77,11 @@ class businessAccessPoints extends Model
      *   **1000Base-T**: 1,000 Mbit/s copper Ethernet port
      *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km)
      *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
-     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 kilometers)
+     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 km)
      *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
      *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
      *
-     * >  If you want to use the 40GBase-LR or 100GBase-LR port for an Express Connect circuit, you must first contact your account manager to obtain information about resource supplies.
+     * >  To use ports 40GBase-LR and 100GBase-LR, you must first contact your account manager.
      * @example 1000Base-T
      *
      * @var string

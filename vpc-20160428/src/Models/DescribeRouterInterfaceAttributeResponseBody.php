@@ -94,6 +94,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     /**
      * @description The description of the router interface.
      *
+     * @example Peer interface.
+     *
      * @var string
      */
     public $description;
@@ -207,6 +209,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
 
     /**
      * @description The name of the router interface.
+     *
+     * @example RouterInterface1
      *
      * @var string
      */

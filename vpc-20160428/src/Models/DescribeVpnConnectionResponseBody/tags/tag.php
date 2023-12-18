@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag key of the IPsec-VPN connection.
+     * @description The tag key.
      *
      * @example TagKey
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The tag value of the IPsec-VPN connection.
+     * @description The tag value.
      *
      * @example TagValue
      *

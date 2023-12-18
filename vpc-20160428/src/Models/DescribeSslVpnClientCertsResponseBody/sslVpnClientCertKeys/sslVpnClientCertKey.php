@@ -47,6 +47,9 @@ class sslVpnClientCertKey extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the SSL client certificate belongs.
+     *
+     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group information.
      * @example rg-acfmzs372yg****
      *
      * @var string

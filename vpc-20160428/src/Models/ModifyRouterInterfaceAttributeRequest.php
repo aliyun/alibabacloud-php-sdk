@@ -24,6 +24,8 @@ class ModifyRouterInterfaceAttributeRequest extends Model
      * @description The description of the router interface.
      *
      * The value must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+     * @example The description of the router interface.
+     *
      * @var string
      */
     public $description;

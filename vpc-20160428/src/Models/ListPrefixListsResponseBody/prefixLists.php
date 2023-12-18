@@ -97,6 +97,11 @@ class prefixLists extends Model
     public $prefixListStatus;
 
     /**
+     * @var string
+     */
+    public $prefixListType;
+
+    /**
      * @description The region ID of the prefix list.
      *
      * @example cn-hangzhou
@@ -155,6 +160,7 @@ class prefixLists extends Model
         'prefixListId'          => 'PrefixListId',
         'prefixListName'        => 'PrefixListName',
         'prefixListStatus'      => 'PrefixListStatus',
+        'prefixListType'        => 'PrefixListType',
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
         'shareType'             => 'ShareType',
@@ -195,6 +201,9 @@ class prefixLists extends Model
         }
         if (null !== $this->prefixListStatus) {
             $res['PrefixListStatus'] = $this->prefixListStatus;
+        }
+        if (null !== $this->prefixListType) {
+            $res['PrefixListType'] = $this->prefixListType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -257,6 +266,9 @@ class prefixLists extends Model
         }
         if (isset($map['PrefixListStatus'])) {
             $model->prefixListStatus = $map['PrefixListStatus'];
+        }
+        if (isset($map['PrefixListType'])) {
+            $model->prefixListType = $map['PrefixListType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -24,7 +24,7 @@ class vpnConnection extends Model
     public $attachInstanceId;
 
     /**
-     * @description The type of the resource that is associated with the IPsec-VPN connection. Valid values:
+     * @description The type of resource that is associated with the IPsec-VPN connection. Valid values:
      *
      *   **CEN**: indicates that the IPsec-VPN connection is associated with a transit router of a Cloud Enterprise Network (CEN) instance.
      *   **NO_ASSOCIATED**: indicates that the IPsec-VPN connection is not associated with any resource.
@@ -68,7 +68,7 @@ class vpnConnection extends Model
     public $customerGatewayId;
 
     /**
-     * @description Indicates whether IPsec negotiations immediately start after the configuration takes effect. Valid values:
+     * @description Indicates whether IPsec negotiations immediately start.
      *
      *   **true**: Negotiations are reinitiated after the configuration is changed.
      *   **false**: Negotiations are reinitiated after traffic is detected.
@@ -80,13 +80,13 @@ class vpnConnection extends Model
     public $effectImmediately;
 
     /**
-     * @description Indicates whether the dead peer detection (DPD) feature is enabled for the IPsec-VPN connection. Valid values:
+     * @description Indicates whether dead peer detection (DPD) is enabled for the IPsec-VPN connection. Valid values:
      *
-     *   **true**: The DPD feature is enabled.
+     *   **true**
      *
      * The initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no feedback is received from the peer within a specific period of time, the connection fails. Then, the ISAKMP security association (SA), IPsec SA, and IPsec tunnel are deleted.
      *
-     *   **false**: The DPD feature is disabled. The initiator of the IPsec-VPN connection does not send DPD packets.
+     *   **false**
      *
      * @example true
      *
@@ -95,7 +95,7 @@ class vpnConnection extends Model
     public $enableDpd;
 
     /**
-     * @description Indicates whether NAT traversal is enabled for the IPsec-VPN connection. Valid values:
+     * @description Indicates whether NAT traversal is enabled for the IPsec-VPN connection.
      *
      *   **true**
      *
@@ -122,7 +122,7 @@ class vpnConnection extends Model
     public $enableTunnelsBgp;
 
     /**
-     * @description The configuration of Phase 1 negotiations.
+     * @description The configurations of Phase 1 negotiations.
      *
      * @var ikeConfig
      */
@@ -139,7 +139,7 @@ class vpnConnection extends Model
     public $internetIp;
 
     /**
-     * @description The configuration of Phase 2 negotiations.
+     * @description The configurations of Phase 2 negotiations.
      *
      * @var ipsecConfig
      */
@@ -167,8 +167,8 @@ class vpnConnection extends Model
     /**
      * @description The network type of the IPsec-VPN connection. Valid values:
      *
-     *   **public**: an encrypted connection over the Internet
-     *   **private**: an encrypted connection over private networks
+     *   **public**
+     *   **private**
      *
      * @example public
      *
@@ -186,7 +186,7 @@ class vpnConnection extends Model
     public $remoteCaCertificate;
 
     /**
-     * @description The CIDR block on the data center side.
+     * @description The CIDR block of the data center.
      *
      * Multiple CIDR blocks are separated by commas (,).
      * @example 10.0.0.0/8,172.16.0.0/16
@@ -196,6 +196,11 @@ class vpnConnection extends Model
     public $remoteSubnet;
 
     /**
+     * @description The ID of the resource group to which the IPsec-VPN connection belongs.
+     *
+     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group information.
+     * @example rg-acfmzs372yg****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -230,7 +235,7 @@ class vpnConnection extends Model
     public $state;
 
     /**
-     * @description The state of the IPsec-VPN connection. Valid values:
+     * @description The status of the IPsec-VPN connection. Valid values:
      *
      *   **ike_sa_not_established**: Phase 1 negotiations failed.
      *   **ike_sa_established**: Phase 1 negotiations succeeded.
@@ -244,7 +249,7 @@ class vpnConnection extends Model
     public $status;
 
     /**
-     * @description The list of tags added to the IPsec-VPN connection.
+     * @description The list of tags to be added to the IPsec-VPN connection.
      *
      * @var tag
      */

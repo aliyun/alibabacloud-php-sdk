@@ -90,6 +90,8 @@ class SecondApplyPhysicalConnectionLOARequest extends Model
     /**
      * @description The geographic location where the Express Connect circuit is deployed.
      *
+     * @example XX Number, XX Road, XX Town, XX District, Hangzhou City, Zhejiang Province.
+     *
      * @var string
      */
     public $peerLocation;
@@ -115,6 +117,8 @@ class SecondApplyPhysicalConnectionLOARequest extends Model
 
     /**
      * @description The construction company.
+     *
+     * @example company
      *
      * @var string
      */

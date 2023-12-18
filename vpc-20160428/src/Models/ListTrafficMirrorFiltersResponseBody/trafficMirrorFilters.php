@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class trafficMirrorFilters extends Model
 {
     /**
+     * @var string
+     */
+    public $creationTime;
+
+    /**
      * @description The details about the outbound rules.
      *
      * @var egressRules[]
@@ -82,6 +87,7 @@ class trafficMirrorFilters extends Model
      */
     public $trafficMirrorFilterStatus;
     protected $_name = [
+        'creationTime'                   => 'CreationTime',
         'egressRules'                    => 'EgressRules',
         'ingressRules'                   => 'IngressRules',
         'resourceGroupId'                => 'ResourceGroupId',
@@ -99,6 +105,9 @@ class trafficMirrorFilters extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
         if (null !== $this->egressRules) {
             $res['EgressRules'] = [];
             if (null !== $this->egressRules && \is_array($this->egressRules)) {
@@ -153,6 +162,9 @@ class trafficMirrorFilters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
         if (isset($map['EgressRules'])) {
             if (!empty($map['EgressRules'])) {
                 $model->egressRules = [];

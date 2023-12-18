@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class trafficMirrorSessions extends Model
 {
     /**
+     * @var string
+     */
+    public $creationTime;
+
+    /**
      * @description Indicates whether the traffic mirror session was enabled.
      *
      *   **false**: the traffic mirror session was disabled. This is the default value.
@@ -155,6 +160,7 @@ class trafficMirrorSessions extends Model
      */
     public $virtualNetworkId;
     protected $_name = [
+        'creationTime'                       => 'CreationTime',
         'enabled'                            => 'Enabled',
         'packetLength'                       => 'PacketLength',
         'priority'                           => 'Priority',
@@ -179,6 +185,9 @@ class trafficMirrorSessions extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
@@ -242,6 +251,9 @@ class trafficMirrorSessions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }

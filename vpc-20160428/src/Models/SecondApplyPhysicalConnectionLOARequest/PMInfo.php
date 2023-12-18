@@ -51,6 +51,8 @@ class PMInfo extends Model
     /**
      * @description The name of the construction engineer.
      *
+     * @example Zhangsan
+     *
      * @var string
      */
     public $PMName;

@@ -39,7 +39,7 @@ class vcoHealthCheck extends Model
     public $interval;
 
     /**
-     * @description Indicates whether advertised routes are withdrawn when the health check fails. Valid values:
+     * @description Indicates whether advertised routes are withdrawn when the health check fails.
      *
      *   **revoke_route**: Advertised routes are withdrawn.
      *   **reserve_route**: Advertised routes are not withdrawn.
@@ -71,8 +71,8 @@ class vcoHealthCheck extends Model
     /**
      * @description The state of the health check. Valid values:
      *
-     *   **success**: normal
-     *   **failed**: abnormal
+     *   **success**
+     *   **failed**
      *
      * @example success
      *

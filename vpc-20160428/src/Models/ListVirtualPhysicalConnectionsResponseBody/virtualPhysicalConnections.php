@@ -21,6 +21,8 @@ class virtualPhysicalConnections extends Model
     /**
      * @description The geographical location of the access device.
      *
+     * @example Yuhang Economic Development Zone XXX Intersection, Yuhang XX Machine Room, E*** Suite.
+     *
      * @var string
      */
     public $adLocation;
@@ -197,6 +199,8 @@ class virtualPhysicalConnections extends Model
 
     /**
      * @description The geographical location of the data center.
+     *
+     * @example XX Number, XX Road, XX Town, XX District, Hangzhou City, Zhejiang Province.
      *
      * @var string
      */

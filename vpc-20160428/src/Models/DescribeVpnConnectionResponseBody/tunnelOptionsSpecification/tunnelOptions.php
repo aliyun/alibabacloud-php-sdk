@@ -80,7 +80,7 @@ class tunnelOptions extends Model
      *
      *   **active**
      *   **updating**
-     *   **deleted**
+     *   **deleting**
      *
      * @example active
      *
@@ -103,7 +103,7 @@ class tunnelOptions extends Model
     public $status;
 
     /**
-     * @description The BGP configuration.
+     * @description The BGP configurations.
      *
      * @var tunnelBgpConfig
      */
@@ -126,16 +126,16 @@ class tunnelOptions extends Model
     public $tunnelIkeConfig;
 
     /**
-     * @description The configuration of Phase 2 negotiations.
+     * @description The configurations of Phase 2 negotiations.
      *
      * @var tunnelIpsecConfig
      */
     public $tunnelIpsecConfig;
 
     /**
-     * @description The zone of the tunnel.
+     * @description The zone where the tunnel is deployed.
      *
-     * You can call [DescribeZones](~~36064~~) to query zone IDs and mapping between zone IDs and zone names.
+     * You can call [DescribeZones](~~36064~~) to query zone IDs.
      * @example ap-southeast-5a
      *
      * @var string

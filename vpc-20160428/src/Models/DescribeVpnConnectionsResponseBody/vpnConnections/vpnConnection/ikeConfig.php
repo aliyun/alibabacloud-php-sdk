@@ -48,7 +48,7 @@ class ikeConfig extends Model
     public $ikeMode;
 
     /**
-     * @description The Diffie-Hellman (DH) group in the IKE phase.
+     * @description The DH group in the IKE phase.
      *
      * @example group2
      *

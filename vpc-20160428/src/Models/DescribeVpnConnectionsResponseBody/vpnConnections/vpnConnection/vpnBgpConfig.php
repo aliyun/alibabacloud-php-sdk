@@ -36,7 +36,7 @@ class vpnBgpConfig extends Model
     public $localBgpIp;
 
     /**
-     * @description The autonomous system number (ASN) of the peer.
+     * @description The ASN of the peer.
      *
      * @example 65530
      *
@@ -56,8 +56,8 @@ class vpnBgpConfig extends Model
     /**
      * @description The negotiation state of the BGP routing protocol. Valid values:
      *
-     *   **success**: normal
-     *   **false**: abnormal
+     *   **success**
+     *   **false**
      *
      * @example success
      *

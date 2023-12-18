@@ -37,12 +37,16 @@ class accessPointType extends Model
     /**
      * @description The description of the access point.
      *
+     * @example The description of the access point.
+     *
      * @var string
      */
     public $description;
 
     /**
      * @description The Internet service provider (ISP) of the access point. Valid values:
+     *
+     * @example Telehouse
      *
      * @var string
      */
@@ -51,12 +55,16 @@ class accessPointType extends Model
     /**
      * @description The location of the access point.
      *
+     * @example Hangzhou
+     *
      * @var string
      */
     public $location;
 
     /**
      * @description The name of the access point.
+     *
+     * @example Name
      *
      * @var string
      */

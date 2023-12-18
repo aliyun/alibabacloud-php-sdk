@@ -11,15 +11,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouterInterfacesRequest extends Model
 {
     /**
+     * @description The filter information.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
-     * @description Specifies whether renewal data is included. Default value: false. Valid values:
+     * @description Specifies whether renewal data is included. Valid values:
      *
      *   **true**
-     *   **false**
+     *   **false** (default)
      *
      * @example false
      *
@@ -33,7 +35,7 @@ class DescribeRouterInterfacesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -42,7 +44,7 @@ class DescribeRouterInterfacesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -61,6 +63,11 @@ class DescribeRouterInterfacesRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource Group ID.
+     *
+     * For more information about resource groups, please refer to [What is a Resource Group?](~~94475~~)
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -76,6 +83,8 @@ class DescribeRouterInterfacesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags of the resource.
+     *
      * @var tags[]
      */
     public $tags;

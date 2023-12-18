@@ -29,6 +29,8 @@ class bgpGroup extends Model
     /**
      * @description The description of the BGP group.
      *
+     * @example The description of the BGP group.
+     *
      * @var string
      */
     public $description;
