@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class PrecheckForConsolidatedBillingAccountResponseBody extends Model
 {
     /**
+     * @description The cause of the check failure.
+     *
      * @var reasons[]
      */
     public $reasons;
 
     /**
+     * @description The request ID.
+     *
      * @example 9E6B6CA8-9E7A-521F-A743-AA582714727E
      *
      * @var string
@@ -22,6 +26,11 @@ class PrecheckForConsolidatedBillingAccountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the check was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PrecheckForConsolidatedBillingAccountRequest extends Model
 {
     /**
+     * @description The ID of the management account or member to be used as a main financial account.
+     *
      * @example 111***089
      *
      * @var string

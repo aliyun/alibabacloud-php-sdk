@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class reasons extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example PaymentAccountEnterpriseInvoiceError
      *
      * @var string
@@ -16,6 +18,8 @@ class reasons extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example No enterprise invoice header information is set for the payment account.
      *
      * @var string
