@@ -98,6 +98,11 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceMode;
 
     /**
+     * @var bool
+     */
+    public $enableSSL;
+
+    /**
      * @description The ID of the encryption key.
      *
      * > If EncryptionType is set to CloudDisk, you must specify an encryption key that resides in the same region as the cloud disk that is specified by EncryptionType. Otherwise, leave this parameter empty.
@@ -462,6 +467,7 @@ class CreateDBInstanceRequest extends Model
         'DBInstanceDescription'     => 'DBInstanceDescription',
         'DBInstanceGroupCount'      => 'DBInstanceGroupCount',
         'DBInstanceMode'            => 'DBInstanceMode',
+        'enableSSL'                 => 'EnableSSL',
         'encryptionKey'             => 'EncryptionKey',
         'encryptionType'            => 'EncryptionType',
         'engine'                    => 'Engine',
@@ -524,6 +530,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->DBInstanceMode) {
             $res['DBInstanceMode'] = $this->DBInstanceMode;
+        }
+        if (null !== $this->enableSSL) {
+            $res['EnableSSL'] = $this->enableSSL;
         }
         if (null !== $this->encryptionKey) {
             $res['EncryptionKey'] = $this->encryptionKey;
@@ -656,6 +665,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['DBInstanceMode'])) {
             $model->DBInstanceMode = $map['DBInstanceMode'];
+        }
+        if (isset($map['EnableSSL'])) {
+            $model->enableSSL = $map['EnableSSL'];
         }
         if (isset($map['EncryptionKey'])) {
             $model->encryptionKey = $map['EncryptionKey'];

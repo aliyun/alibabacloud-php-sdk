@@ -594,6 +594,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceMode)) {
             $query['DBInstanceMode'] = $request->DBInstanceMode;
         }
+        if (!Utils::isUnset($request->enableSSL)) {
+            $query['EnableSSL'] = $request->enableSSL;
+        }
         if (!Utils::isUnset($request->encryptionKey)) {
             $query['EncryptionKey'] = $request->encryptionKey;
         }
