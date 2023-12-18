@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class proxyProtocolV2Config extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
     public $ppv2PrivateLinkEpIdEnabled;
 
     /**
-     * @var string
+     * @var bool
      */
     public $ppv2PrivateLinkEpsIdEnabled;
 
     /**
-     * @var string
+     * @var bool
      */
     public $ppv2VpcIdEnabled;
     protected $_name = [
