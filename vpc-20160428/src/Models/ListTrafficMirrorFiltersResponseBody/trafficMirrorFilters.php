@@ -12,6 +12,10 @@ use AlibabaCloud\Tea\Model;
 class trafficMirrorFilters extends Model
 {
     /**
+     * @description The time when the filter is created.
+     *
+     * @example 2023-09-05T15:26Z
+     *
      * @var string
      */
     public $creationTime;

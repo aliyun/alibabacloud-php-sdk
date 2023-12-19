@@ -1,3 +1,6 @@
+2023-12-19 Version: 6.2.0
+- Generated php 2016-04-28 for Vpc.
+
 2023-12-18 Version: 6.1.3
 - Generated php 2016-04-28 for Vpc.
 

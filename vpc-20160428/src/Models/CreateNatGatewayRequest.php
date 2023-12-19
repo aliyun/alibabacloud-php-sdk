@@ -172,8 +172,7 @@ class CreateNatGatewayRequest extends Model
     /**
      * @description Specifies whether to enable the firewall feature. Valid values:
      *
-     *   **false** (default)
-     *   **true**
+     *   **false** (default)><notice>This parameter is deprecated.></notice>
      *
      * @example false
      *

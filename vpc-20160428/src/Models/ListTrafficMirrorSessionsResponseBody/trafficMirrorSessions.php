@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class trafficMirrorSessions extends Model
 {
     /**
+     * @description The time when the session is created.
+     *
+     * @example 2023-09-05T15:26Z
+     *
      * @var string
      */
     public $creationTime;
