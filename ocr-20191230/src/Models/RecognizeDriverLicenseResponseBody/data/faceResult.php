@@ -14,6 +14,11 @@ class faceResult extends Model
     public $address;
 
     /**
+     * @var string
+     */
+    public $birthDate;
+
+    /**
      * @example 20190201
      *
      * @var string
@@ -50,6 +55,11 @@ class faceResult extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $nationality;
+
+    /**
      * @example 20130208
      *
      * @var string
@@ -64,12 +74,14 @@ class faceResult extends Model
     public $vehicleType;
     protected $_name = [
         'address'       => 'Address',
+        'birthDate'     => 'BirthDate',
         'endDate'       => 'EndDate',
         'gender'        => 'Gender',
         'issueDate'     => 'IssueDate',
         'issueUnit'     => 'IssueUnit',
         'licenseNumber' => 'LicenseNumber',
         'name'          => 'Name',
+        'nationality'   => 'Nationality',
         'startDate'     => 'StartDate',
         'vehicleType'   => 'VehicleType',
     ];
@@ -83,6 +95,9 @@ class faceResult extends Model
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
+        }
+        if (null !== $this->birthDate) {
+            $res['BirthDate'] = $this->birthDate;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
@@ -101,6 +116,9 @@ class faceResult extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->nationality) {
+            $res['Nationality'] = $this->nationality;
         }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
@@ -123,6 +141,9 @@ class faceResult extends Model
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
+        if (isset($map['BirthDate'])) {
+            $model->birthDate = $map['BirthDate'];
+        }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
@@ -140,6 +161,9 @@ class faceResult extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Nationality'])) {
+            $model->nationality = $map['Nationality'];
         }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];

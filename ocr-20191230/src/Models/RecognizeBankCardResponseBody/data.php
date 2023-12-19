@@ -21,6 +21,11 @@ class data extends Model
     public $cardNumber;
 
     /**
+     * @var string
+     */
+    public $cardType;
+
+    /**
      * @example 07/26
      *
      * @var string
@@ -29,6 +34,7 @@ class data extends Model
     protected $_name = [
         'bankName'   => 'BankName',
         'cardNumber' => 'CardNumber',
+        'cardType'   => 'CardType',
         'validDate'  => 'ValidDate',
     ];
 
@@ -44,6 +50,9 @@ class data extends Model
         }
         if (null !== $this->cardNumber) {
             $res['CardNumber'] = $this->cardNumber;
+        }
+        if (null !== $this->cardType) {
+            $res['CardType'] = $this->cardType;
         }
         if (null !== $this->validDate) {
             $res['ValidDate'] = $this->validDate;
@@ -65,6 +74,9 @@ class data extends Model
         }
         if (isset($map['CardNumber'])) {
             $model->cardNumber = $map['CardNumber'];
+        }
+        if (isset($map['CardType'])) {
+            $model->cardType = $map['CardType'];
         }
         if (isset($map['ValidDate'])) {
             $model->validDate = $map['ValidDate'];

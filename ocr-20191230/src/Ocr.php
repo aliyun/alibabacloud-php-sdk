@@ -11,9 +11,6 @@ use AlibabaCloud\SDK\Ocr\V20191230\Models\GetAsyncJobResultResponse;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeBankCardAdvanceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeBankCardRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeBankCardResponse;
-use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeBusinessCardAdvanceRequest;
-use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeBusinessCardRequest;
-use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeBusinessCardResponse;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeBusinessLicenseAdvanceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeBusinessLicenseRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeBusinessLicenseResponse;
@@ -41,9 +38,6 @@ use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeQrCodeResponse;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeQuotaInvoiceAdvanceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeQuotaInvoiceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeQuotaInvoiceResponse;
-use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeStampAdvanceRequest;
-use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeStampRequest;
-use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeStampResponse;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTableAdvanceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTableRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeTableResponse;
@@ -274,127 +268,6 @@ class Ocr extends OpenApiClient
         }
 
         return $this->recognizeBankCardWithOptions($recognizeBankCardReq, $runtime);
-    }
-
-    /**
-     * @param RecognizeBusinessCardRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RecognizeBusinessCardResponse
-     */
-    public function recognizeBusinessCardWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->imageURL)) {
-            $body['ImageURL'] = $request->imageURL;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'RecognizeBusinessCard',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RecognizeBusinessCardResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeBusinessCardRequest $request
-     *
-     * @return RecognizeBusinessCardResponse
-     */
-    public function recognizeBusinessCard($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeBusinessCardWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeBusinessCardAdvanceRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return RecognizeBusinessCardResponse
-     */
-    public function recognizeBusinessCardAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
-            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
-        }
-        if (Utils::isUnset($credentialType)) {
-            $credentialType = 'access_key';
-        }
-        $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $recognizeBusinessCardReq = new RecognizeBusinessCardRequest([]);
-        OpenApiUtilClient::convert($request, $recognizeBusinessCardReq);
-        if (!Utils::isUnset($request->imageURLObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->imageURLObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeBusinessCardReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
-        }
-
-        return $this->recognizeBusinessCardWithOptions($recognizeBusinessCardReq, $runtime);
     }
 
     /**
@@ -1506,127 +1379,6 @@ class Ocr extends OpenApiClient
         }
 
         return $this->recognizeQuotaInvoiceWithOptions($recognizeQuotaInvoiceReq, $runtime);
-    }
-
-    /**
-     * @param RecognizeStampRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return RecognizeStampResponse
-     */
-    public function recognizeStampWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->imageURL)) {
-            $body['ImageURL'] = $request->imageURL;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'RecognizeStamp',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RecognizeStampResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeStampRequest $request
-     *
-     * @return RecognizeStampResponse
-     */
-    public function recognizeStamp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeStampWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeStampAdvanceRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RecognizeStampResponse
-     */
-    public function recognizeStampAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
-            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
-        }
-        if (Utils::isUnset($credentialType)) {
-            $credentialType = 'access_key';
-        }
-        $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $recognizeStampReq = new RecognizeStampRequest([]);
-        OpenApiUtilClient::convert($request, $recognizeStampReq);
-        if (!Utils::isUnset($request->imageURLObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->imageURLObject,
-                'contentType' => '',
-            ]);
-            $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeStampReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
-        }
-
-        return $this->recognizeStampWithOptions($recognizeStampReq, $runtime);
     }
 
     /**
