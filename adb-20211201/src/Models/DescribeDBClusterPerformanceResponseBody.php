@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterPerformanceResponseBody extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~454250~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
      * @example amv-bp1hx5n1o8f61****
      *
      * @var string
@@ -17,6 +20,8 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public $DBClusterId;
 
     /**
+     * @description The end time of the query. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time is displayed in UTC.
+     *
      * @example 2022-03-11T15:01Z
      *
      * @var string
@@ -24,11 +29,15 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The queried performance metrics.
+     *
      * @var performances[]
      */
     public $performances;
 
     /**
+     * @description The request ID.
+     *
      * @example BD8C3096-8BC6-51DF-A4AB-BACD9DC10435
      *
      * @var string
@@ -36,6 +45,8 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start time of the query. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time is displayed in UTC.
+     *
      * @example 2022-03-10T23:56Z
      *
      * @var string

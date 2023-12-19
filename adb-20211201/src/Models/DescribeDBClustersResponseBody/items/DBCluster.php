@@ -236,6 +236,8 @@ class DBCluster extends Model
     public $storageResource;
 
     /**
+     * @description 标签列表。
+     *
      * @var tags
      */
     public $tags;

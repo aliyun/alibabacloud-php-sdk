@@ -83,6 +83,11 @@ class ModifyDBResourceGroupRequest extends Model
      * @var string
      */
     public $minComputeResource;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'clusterMode'         => 'ClusterMode',
         'clusterSizeResource' => 'ClusterSizeResource',
@@ -93,6 +98,7 @@ class ModifyDBResourceGroupRequest extends Model
         'maxComputeResource'  => 'MaxComputeResource',
         'minClusterCount'     => 'MinClusterCount',
         'minComputeResource'  => 'MinComputeResource',
+        'regionId'            => 'RegionId',
     ];
 
     public function validate()
@@ -128,6 +134,9 @@ class ModifyDBResourceGroupRequest extends Model
         }
         if (null !== $this->minComputeResource) {
             $res['MinComputeResource'] = $this->minComputeResource;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -167,6 +176,9 @@ class ModifyDBResourceGroupRequest extends Model
         }
         if (isset($map['MinComputeResource'])) {
             $model->minComputeResource = $map['MinComputeResource'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceGroups extends Model
 {
     /**
+     * @example True
+     *
      * @var bool
      */
     public $available;
@@ -19,26 +21,36 @@ class resourceGroups extends Model
     public $cuOptions;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example Job
+     *
      * @var string
      */
     public $groupType;
 
     /**
+     * @example 512
+     *
      * @var int
      */
     public $leftComputeResource;
 
     /**
+     * @example 512
+     *
      * @var int
      */
     public $maxComputeResource;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $minComputeResource;

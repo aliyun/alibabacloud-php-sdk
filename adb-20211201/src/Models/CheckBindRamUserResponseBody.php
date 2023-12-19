@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckBindRamUserResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 2FB9DCA3-DA56-5B43-A9A0-68E3D0E6AA84
      *
      * @var string
@@ -16,6 +18,11 @@ class CheckBindRamUserResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned result of the request. Valid values:
+     *
+     *   **true**: the database account is associated with a RAM user.
+     *   **false**: the database account is not associated with a RAM user.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class series extends Model
 {
     /**
+     * @description The name of the performance metric value.
+     *
      * @example AnalyticDB_Storage_CPU_Avg_Usage_Percentage
      *
      * @var string
@@ -16,6 +18,8 @@ class series extends Model
     public $name;
 
     /**
+     * @description The tag value.
+     *
      * @example {instance_name: "am-***"}
      *
      * @var string
@@ -23,6 +27,8 @@ class series extends Model
     public $tags;
 
     /**
+     * @description The values of the performance metric at different points in time.
+     *
      * @var string[]
      */
     public $values;

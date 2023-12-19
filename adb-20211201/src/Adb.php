@@ -799,6 +799,9 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->minComputeResource)) {
             $query['MinComputeResource'] = $request->minComputeResource;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6092,6 +6095,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->minComputeResource)) {
             $query['MinComputeResource'] = $request->minComputeResource;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

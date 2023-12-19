@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateOssSubDirectoryRequest extends Model
 {
     /**
+     * @example amv-bp149vz49b36t****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example oss://testBucketName/das_lakehouse
+     *
      * @var string
      */
     public $path;

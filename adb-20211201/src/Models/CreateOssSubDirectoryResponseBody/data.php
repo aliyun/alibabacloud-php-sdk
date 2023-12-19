@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $clientCRC;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $ETag;
 
     /**
+     * @example 3A0DE2E0-A37B-5EE4-9136-C4C473714802
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $serverCRC;

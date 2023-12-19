@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApsResourceGroupsRequest extends Model
 {
     /**
+     * @example amv-bp1t6rym21****
+     *
      * @var string
      */
     public $DBClusterId;

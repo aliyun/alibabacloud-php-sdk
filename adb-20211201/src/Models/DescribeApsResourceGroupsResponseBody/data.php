@@ -15,6 +15,8 @@ class data extends Model
     public $resourceGroups;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $step;

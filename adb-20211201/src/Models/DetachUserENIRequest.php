@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetachUserENIRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example am-bp11q28kvl688****
      *
      * @var string

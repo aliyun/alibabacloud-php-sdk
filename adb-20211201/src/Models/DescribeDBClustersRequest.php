@@ -93,6 +93,8 @@ class DescribeDBClustersRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description 实例的标签信息。
+     *
      * @var tag[]
      */
     public $tag;
