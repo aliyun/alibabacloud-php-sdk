@@ -1798,6 +1798,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
         }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
         if (!Utils::isUnset($request->retryTimeoutMs)) {
             $query['RetryTimeoutMs'] = $request->retryTimeoutMs;
         }
@@ -2047,6 +2050,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->resource)) {
             $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
         if (!Utils::isUnset($request->threshold)) {
             $query['Threshold'] = $request->threshold;

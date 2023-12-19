@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyGovernanceKubernetesClusterResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The response code returned.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class ModifyGovernanceKubernetesClusterResponseBody extends Model
     public $code;
 
     /**
-     * @description The details of the data.
+     * @description The deletion result.
      *
      * @example True
      *
@@ -38,7 +38,7 @@ class ModifyGovernanceKubernetesClusterResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is successfully processed.
+     * @example success
      *
      * @var string
      */
@@ -59,7 +59,7 @@ class ModifyGovernanceKubernetesClusterResponseBody extends Model
      *   `true`: The request was successful.
      *   `false`: The request failed.
      *
-     * @example True
+     * @example true
      *
      * @var bool
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class namespaceInfos extends Model
 {
     /**
+     * @description The microservice namespace.If you do not specify this parameter, Microservice Governance is not enabled for the namespace.
+     *
      * @example default
      *
      * @var string
@@ -16,6 +18,8 @@ class namespaceInfos extends Model
     public $mseNamespace;
 
     /**
+     * @description The name of the Kubernetes namespace.
+     *
      * @example default
      *
      * @var string

@@ -30,12 +30,14 @@ class ModifyGovernanceKubernetesClusterShrinkRequest extends Model
     public $clusterId;
 
     /**
+     * @description The information about the namespace for which Microservices Engine(MSE) Microservices Governance is enabled.
+     *
      * @var string
      */
     public $namespaceInfosShrink;
 
     /**
-     * @description The region in which the cluster resides.
+     * @description The ID of the region in which the instance resides. The region is supported by MSE.
      *
      * @example cn-hangzhou
      *

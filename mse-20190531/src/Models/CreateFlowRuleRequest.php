@@ -111,6 +111,11 @@ class CreateFlowRuleRequest extends Model
     public $resource;
 
     /**
+     * @var int
+     */
+    public $resourceType;
+
+    /**
      * @description The throttling threshold.
      *
      * @example 20
@@ -128,6 +133,7 @@ class CreateFlowRuleRequest extends Model
         'namespace'         => 'Namespace',
         'regionId'          => 'RegionId',
         'resource'          => 'Resource',
+        'resourceType'      => 'ResourceType',
         'threshold'         => 'Threshold',
     ];
 
@@ -164,6 +170,9 @@ class CreateFlowRuleRequest extends Model
         }
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
@@ -206,6 +215,9 @@ class CreateFlowRuleRequest extends Model
         }
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];

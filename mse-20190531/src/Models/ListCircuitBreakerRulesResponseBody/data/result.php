@@ -108,6 +108,11 @@ class result extends Model
     public $resource;
 
     /**
+     * @var int
+     */
+    public $resourceType;
+
+    /**
      * @description The period in which circuit breaking is implemented. Unit: milliseconds. If circuit breaking is implemented on the requests for the route, the calls to all the requests for the route fail in the configured circuit breaking period.
      *
      * @example 10000
@@ -172,6 +177,7 @@ class result extends Model
         'namespace'                 => 'Namespace',
         'regionId'                  => 'RegionId',
         'resource'                  => 'Resource',
+        'resourceType'              => 'ResourceType',
         'retryTimeoutMs'            => 'RetryTimeoutMs',
         'ruleId'                    => 'RuleId',
         'statIntervalMs'            => 'StatIntervalMs',
@@ -218,6 +224,9 @@ class result extends Model
         }
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->retryTimeoutMs) {
             $res['RetryTimeoutMs'] = $this->retryTimeoutMs;
@@ -278,6 +287,9 @@ class result extends Model
         }
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['RetryTimeoutMs'])) {
             $model->retryTimeoutMs = $map['RetryTimeoutMs'];

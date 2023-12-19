@@ -117,6 +117,11 @@ class result extends Model
     public $resource;
 
     /**
+     * @var int
+     */
+    public $resourceType;
+
+    /**
      * @description The ID of the rule.
      *
      * @example 2
@@ -153,6 +158,7 @@ class result extends Model
         'namespace'         => 'Namespace',
         'regionId'          => 'RegionId',
         'resource'          => 'Resource',
+        'resourceType'      => 'ResourceType',
         'ruleId'            => 'RuleId',
         'threshold'         => 'Threshold',
         'trafficTags'       => 'TrafficTags',
@@ -194,6 +200,9 @@ class result extends Model
         }
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
@@ -245,6 +254,9 @@ class result extends Model
         }
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
