@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest;
 
+use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\meetingAssistance;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\summarization;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\transcoding;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\transcription;
@@ -18,6 +19,11 @@ class parameters extends Model
      * @var bool
      */
     public $autoChaptersEnabled;
+
+    /**
+     * @var meetingAssistance
+     */
+    public $meetingAssistance;
 
     /**
      * @example false
@@ -66,6 +72,7 @@ class parameters extends Model
     public $translationEnabled;
     protected $_name = [
         'autoChaptersEnabled'      => 'AutoChaptersEnabled',
+        'meetingAssistance'        => 'MeetingAssistance',
         'meetingAssistanceEnabled' => 'MeetingAssistanceEnabled',
         'pptExtractionEnabled'     => 'PptExtractionEnabled',
         'summarization'            => 'Summarization',
@@ -85,6 +92,9 @@ class parameters extends Model
         $res = [];
         if (null !== $this->autoChaptersEnabled) {
             $res['AutoChaptersEnabled'] = $this->autoChaptersEnabled;
+        }
+        if (null !== $this->meetingAssistance) {
+            $res['MeetingAssistance'] = null !== $this->meetingAssistance ? $this->meetingAssistance->toMap() : null;
         }
         if (null !== $this->meetingAssistanceEnabled) {
             $res['MeetingAssistanceEnabled'] = $this->meetingAssistanceEnabled;
@@ -124,6 +134,9 @@ class parameters extends Model
         $model = new self();
         if (isset($map['AutoChaptersEnabled'])) {
             $model->autoChaptersEnabled = $map['AutoChaptersEnabled'];
+        }
+        if (isset($map['MeetingAssistance'])) {
+            $model->meetingAssistance = meetingAssistance::fromMap($map['MeetingAssistance']);
         }
         if (isset($map['MeetingAssistanceEnabled'])) {
             $model->meetingAssistanceEnabled = $map['MeetingAssistanceEnabled'];
