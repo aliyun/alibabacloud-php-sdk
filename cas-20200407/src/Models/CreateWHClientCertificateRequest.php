@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class CreateWHClientCertificateRequest extends Model
 {
     /**
+     * @example 1665819958
+     *
      * @var int
      */
     public $afterTime;
 
     /**
+     * @example RSA_2048
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @example 1634283958
+     *
      * @var int
      */
     public $beforeTime;
 
     /**
+     * @example aliyun
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example -----BEGIN CERTIFICATE REQUEST----- ...... -----END CERTIFICATE REQUEST-----
+     *
      * @var string
      */
     public $csr;
 
     /**
+     * @example 365
+     *
      * @var int
      */
     public $days;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $immediately;
 
     /**
+     * @example Hangzhou
+     *
      * @var string
      */
     public $locality;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $months;
@@ -64,31 +84,43 @@ class CreateWHClientCertificateRequest extends Model
     public $organization;
 
     /**
+     * @example IT
+     *
      * @var string
      */
     public $organizationUnit;
 
     /**
+     * @example 273ae6bb538d538c70c01f81jh2****
+     *
      * @var string
      */
     public $parentIdentifier;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $sanType;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $sanValue;
 
     /**
+     * @example Zhejiang
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $years;

@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class RenewCertificateOrderForPackageRequestResponseBody extends Model
 {
     /**
+     * @description The ID of the certificate application order that is renewed.
+     *
+     * > You can use the ID to query the status of the certificate application. For more information, see [DescribeCertificateState](~~455800~~).
+     * @example 323451222
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 082FAB35-6AB9-4FD5-8750-D36673548E76
+     *
      * @var string
      */
     public $requestId;

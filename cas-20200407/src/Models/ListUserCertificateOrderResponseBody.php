@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListUserCertificateOrderResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about the certificates and orders.
+     *
      * @var certificateOrderList[]
      */
     public $certificateOrderList;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247A74
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $showSize;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

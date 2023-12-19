@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UploadUserCertificateResponseBody extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $certId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BDB81BA2-E1F5-4D08-A2DD-4BE2BF44C90E
+     *
      * @var string
      */
     public $requestId;

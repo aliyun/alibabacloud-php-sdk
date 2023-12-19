@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class VerifyResponseBody extends Model
 {
     /**
+     * @example 1ed33293-2e48-6b14-861e-538e28e408eb
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $signatureValid;

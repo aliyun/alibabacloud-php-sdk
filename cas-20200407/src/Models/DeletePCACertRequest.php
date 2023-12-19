@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePCACertRequest extends Model
 {
     /**
+     * @example ccaf0c629c2be1e2ab
+     *
      * @var string
      */
     public $identifier;

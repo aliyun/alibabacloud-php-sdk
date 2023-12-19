@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class VerifyRequest extends Model
 {
     /**
+     * @example 5870821-cn-hangzhou
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @example message
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example RAW
+     *
      * @var string
      */
     public $messageType;
 
     /**
+     * @example eyaC0w3ROK5b3QcHmUtAhMY/sQjKu2t3uBfnf6J/gn7JfZtyxwcCUjzXbw5jmqJQRbj1te670Bshg9kUdanKhtHFhJjU5jX+ZMMBr6pH0gqQDJxR0K0yHXRc0Q5OQoUZ6BfpbI4Wt4jJvJSdCstz1vSg12CfEHS8Kd5qfhItK7Y=
+     *
      * @var string
      */
     public $signatureValue;
 
     /**
+     * @example SHA256withRSA
+     *
      * @var string
      */
     public $signingAlgorithm;

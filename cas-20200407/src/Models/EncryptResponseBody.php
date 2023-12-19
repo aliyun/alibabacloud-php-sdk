@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class EncryptResponseBody extends Model
 {
     /**
+     * @example 12345678-1234-1234-1234-12345678****
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @example ZOyIygCyaOW6Gj****MlNKiuyjfzw=
+     *
      * @var string
      */
     public $ciphertextBlob;
 
     /**
+     * @example 5979d897-d69f-4fc9-87dd-f3bb73c40b80
+     *
      * @var string
      */
     public $requestId;

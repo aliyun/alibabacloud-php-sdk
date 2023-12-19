@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListCertWarehouseRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 14dcc8afc7578e1f
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $showSize;
 
     /**
+     * @example aliyunPCA
+     *
      * @var string
      */
     public $type;

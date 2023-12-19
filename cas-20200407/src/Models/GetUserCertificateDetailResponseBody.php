@@ -9,120 +9,232 @@ use AlibabaCloud\Tea\Model;
 class GetUserCertificateDetailResponseBody extends Model
 {
     /**
+     * @description The algorithm.
+     *
+     * @example RSA
+     *
+     * @var string
+     */
+    public $algorithm;
+
+    /**
+     * @description Indicates whether the certificate was purchased from Alibaba Cloud. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $buyInAliyun;
 
     /**
+     * @description The content of the certificate.
+     *
+     * @example ----BEGIN CERTIFICATE----- MIIF*** -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $cert;
 
     /**
+     * @description The city of the company or organization to which the certificate purchaser belongs.
+     *
+     * @example hangzhou
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @description The parent domain name that is bound to the certificate.
+     *
+     * @example *.com
+     *
      * @var string
      */
     public $common;
 
     /**
+     * @description The country or region of the company or organization to which the certificate purchaser belongs.
+     *
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @description The content of the encryption certificate in PEM format.
+     *
+     * @example -----BEGIN CERTIFICATE-----
+     * MIICDzCCA***
+     * -----END CERTIFICATE-----
      * @var string
      */
     public $encryptCert;
 
     /**
+     * @description The private key of the encryption certificate in the PEM format.
+     *
+     * @example -----BEGIN EC PRIVATE KEY-----
+     * MHcCAQEEI****
+     * -----END EC PRIVATE KEY-----
      * @var string
      */
     public $encryptPrivateKey;
 
     /**
+     * @description The expiration date of the certificate.
+     *
+     * @example 2023-10-25
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description Indicates whether the certificate has expired. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @description The fingerprint of the certificate.
+     *
+     * @example 1D7801BBE772D5DE55CBF1F88AEB41A42402DA07
+     *
      * @var string
      */
     public $fingerprint;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 121345
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The certificate authority (CA) that issued the certificate.
+     *
+     * @example Digicert
+     *
      * @var string
      */
     public $issuer;
 
     /**
+     * @description The private key.
+     *
+     * @example -----BEGIN RSA PRIVATE KEY----- MII***-----END RSA PRIVATE KEY-----
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The name of the certificate.
+     *
+     * @example cert_name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the certificate application order.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The name of the company or organization to which the certificate purchaser belongs.
+     *
+     * @example Alibaba
+     *
      * @var string
      */
     public $orgName;
 
     /**
+     * @description The province of the company or organization to which the certificate purchaser belongs.
+     *
+     * @example zhejiang
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247A74
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the certificate belongs.
+     *
+     * @example rg-aek****wia
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description All domain names that are bound to the certificate.
+     *
+     * @example *.com
+     *
      * @var string
      */
     public $sans;
 
     /**
+     * @description The content of the signing certificate in the PEM format.
+     *
+     * @example -----BEGIN CERTIFICATE-----
+     * MIICDzCCAbagAw****
+     * -----END CERTIFICATE-----
      * @var string
      */
     public $signCert;
 
     /**
+     * @description The private key of the signing certificate in the PEM format.
+     *
+     * @example -----BEGIN EC PRIVATE KEY-----
+     * MHcCAQEEILR****
+     * -----END EC PRIVATE KEY-----
      * @var string
      */
     public $signPrivateKey;
 
     /**
+     * @description The issuance date of the certificate.
+     *
+     * @example 2018-07-13
+     *
      * @var string
      */
     public $startDate;
     protected $_name = [
+        'algorithm'         => 'Algorithm',
         'buyInAliyun'       => 'BuyInAliyun',
         'cert'              => 'Cert',
         'city'              => 'City',
@@ -155,6 +267,9 @@ class GetUserCertificateDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->algorithm) {
+            $res['Algorithm'] = $this->algorithm;
+        }
         if (null !== $this->buyInAliyun) {
             $res['BuyInAliyun'] = $this->buyInAliyun;
         }
@@ -236,6 +351,9 @@ class GetUserCertificateDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Algorithm'])) {
+            $model->algorithm = $map['Algorithm'];
+        }
         if (isset($map['BuyInAliyun'])) {
             $model->buyInAliyun = $map['BuyInAliyun'];
         }

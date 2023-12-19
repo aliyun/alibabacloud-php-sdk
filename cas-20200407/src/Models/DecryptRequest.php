@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DecryptRequest extends Model
 {
     /**
+     * @example RSAESOAEPSHA_1
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @example 12345678-1234-1234-1234-12345678****
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @example ZOyIygCyaOW6Gj****MlNKiuyjfzw=
+     *
      * @var string
      */
     public $ciphertextBlob;
 
     /**
+     * @example Base64
+     *
      * @var string
      */
     public $messageType;

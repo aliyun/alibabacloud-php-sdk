@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateWHClientCertificateResponseBody extends Model
 {
     /**
+     * @example -----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----\n
+     *
      * @var string
      */
     public $certificateChain;
 
     /**
+     * @example 190ae6bb538d538c70c01f81dcf2****
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @example -----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----
+     *
      * @var string
      */
     public $parentX509Certificate;
 
     /**
+     * @example 8C467B38-3910-447D-87BC-AC049166F216
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example -----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----
+     *
      * @var string
      */
     public $rootX509Certificate;
 
     /**
+     * @example -----BEGIN CERTIFICATE-----\n......\n-----END CERTIFICATE-----
+     *
      * @var string
      */
     public $x509Certificate;

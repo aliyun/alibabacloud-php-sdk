@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SignRequest extends Model
 {
     /**
+     * @example ccaf0c629c2be1e2abb63bb76b
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @example message
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example RAW
+     *
      * @var string
      */
     public $messageType;
 
     /**
+     * @example SHA256withRSA
+     *
      * @var string
      */
     public $signingAlgorithm;

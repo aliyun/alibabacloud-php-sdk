@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserCertificateRequest extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 7562353
+     *
      * @var int
      */
     public $certId;

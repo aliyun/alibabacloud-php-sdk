@@ -15,21 +15,29 @@ class ListCertWarehouseResponseBody extends Model
     public $certWarehouseList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 15C66C7B-671A-4297-9187-2C4477247A74
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $showSize;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

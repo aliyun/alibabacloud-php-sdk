@@ -9,181 +9,351 @@ use AlibabaCloud\Tea\Model;
 class certificateOrderList extends Model
 {
     /**
+     * @description The algorithm. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     * @example RSA
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description The ID of the Alibaba Cloud order. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     * @example 234567
+     *
      * @var int
      */
     public $aliyunOrderId;
 
     /**
+     * @description The time at which the order was placed. Unit: milliseconds. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     * @example 1634283958000
+     *
      * @var int
      */
     public $buyDate;
 
     /**
+     * @description The time at which the certificate expires. Unit: milliseconds. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     * @example 1665819958000
+     *
      * @var int
      */
     public $certEndTime;
 
     /**
+     * @description The time at which the certificate starts to take effect. Unit: milliseconds. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     * @example 1665819958000
+     *
      * @var int
      */
     public $certStartTime;
 
     /**
+     * @description The type of the certificate. This parameter is returned only if OrderType is set to CPACK or BUY. Valid values:
+     *
+     *   **DV**: domain validated (DV) certificate
+     *   **EV**: extended validation (EV) certificate
+     *   **OV**: organization validated (OV) certificate
+     *   **FREE**: free certificate
+     *
+     * @example FREE
+     *
      * @var string
      */
     public $certType;
 
     /**
+     * @description The ID of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example 896521
+     *
      * @var int
      */
     public $certificateId;
 
     /**
+     * @description The city in which the organization is located. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example Hangzhou
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @description The parent domain name of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example aliyun.com
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description The code of the country in which the organization is located. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example CN
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @description The domain name. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     * @example aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The total number of domain names that can be bound to the certificate. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $domainCount;
 
     /**
+     * @description The type of the domain name. This parameter is returned only if OrderType is set to CPACK or BUY. Valid values:
+     *
+     *   **ONE**: single domain name
+     *   **MULTIPLE**: multiple domain names
+     *   **WILDCARD**: single wildcard domain name
+     *   **M_WILDCARD**: multiple wildcard domain names
+     *   **MIX**: hybrid domain name
+     *
+     * @example ONE
+     *
      * @var string
      */
     public $domainType;
 
     /**
+     * @description The time at which the certificate expires. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example 2022-11-17
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description Indicates whether the certificate expires. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @description The fingerprint of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example CC6B3696E7C7CA715BD26E28E45FF3E3DF435C03
+     *
      * @var string
      */
     public $fingerprint;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example cas-instanceId
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The issuer of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example MyIssuer
+     *
      * @var string
      */
     public $issuer;
 
     /**
+     * @description The name of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example cert-name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The order ID. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     * @example 2345687
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The name of the organization that is associated with the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example Alibaba Cloud
+     *
      * @var string
      */
     public $orgName;
 
     /**
+     * @description The ID of the certificate authority (CA) order. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     * @example ca-123456
+     *
      * @var string
      */
     public $partnerOrderId;
 
     /**
+     * @description The specification ID of the order. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     * @example bykj123456
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The specification name of the order. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     * @example CFCA
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @description The name of the province or autonomous region in which the organization is located. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example Zhejiang
+     *
      * @var string
      */
     public $province;
 
     /**
+     * @description The ID of the resource group. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example rg-ae******4wia
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The brand of the certificate. Valid values: WoSign, CFCA, DigiCert, and vTrus. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     * @example CFCA
+     *
      * @var string
      */
     public $rootBrand;
 
     /**
+     * @description All domain names that are bound to the certificate. Multiple domain names are separated by commas (,). This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example aliyun.com
+     *
      * @var string
      */
     public $sans;
 
     /**
+     * @description The serial number of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example 040a6e493cffdda6d744acf99b6576cf
+     *
      * @var string
      */
     public $serialNo;
 
     /**
+     * @description The SHA-2 value of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example 56B4DED2243A81DD909D7C39824FFE4DDBD87F91BFA46CD333FF212FE0E7CB11
+     *
      * @var string
      */
     public $sha2;
 
     /**
+     * @description The type of the order. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     *   **cpack**: virtual resource order
+     *   **buy**: purchase order
+     *
+     * @example buy
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @description The time at which the certificate starts to take effect. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example 2021-11-16
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @description The certificate status of the order. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     *   **PAYED**: pending application
+     *   **CHECKING**: reviewing
+     *   **CHECKED_FAIL**: review failed
+     *   **ISSUED**: issued
+     *   **WILLEXPIRED**: about to expire
+     *   **EXPIRED**: expired
+     *   **NOTACTIVATED**: not activated
+     *   **REVOKED**: revoked
+     *
+     * @example PAYED
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The hosting status of the certificate. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     *   **unTrustee**: not hosted
+     *   **trustee**: hosted
+     *
+     * @example unTrustee
+     *
      * @var string
      */
     public $trusteeStatus;
 
     /**
+     * @description Indicates whether the certificate is an uploaded certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $upload;
 
     /**
+     * @description The number of wildcard domain names that can be bound to the certificate. This parameter is returned only if OrderType is set to CPACK or BUY.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $wildDomainCount;

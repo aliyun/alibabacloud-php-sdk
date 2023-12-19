@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RevokeWHClientCertificateRequest extends Model
 {
     /**
+     * @example 160ae6bb538d538c70c01f81dcf2****
+     *
      * @var string
      */
     public $identifier;

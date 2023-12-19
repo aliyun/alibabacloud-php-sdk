@@ -9,35 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ListCertRequest extends Model
 {
     /**
+     * @description The type of the certificate.
+     *
+     *   **CA**: the CA certificate.
+     *   **CERT**: a issued certificate.
+     *
+     * @example CERT
+     *
+     * @var string
+     */
+    public $certType;
+
+    /**
+     * @description The number of the page to return. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The keyword for the query. You can enter a name, domain name, or Subject Alternative Name (SAN) extension. Fuzzy match is supported.
+     *
+     * @example test_name
+     *
      * @var string
      */
     public $keyWord;
 
     /**
+     * @description The number of entries to return on each page. Default value: 50.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $showSize;
 
     /**
+     * @description The source of the certificate. Valid values:
+     *
+     *   **upload**: uploaded certificate
+     *   **aliyun**: Alibaba Cloud certificate
+     *
+     * @example aliyun
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @description The status of the certificate. Valid values:
+     *
+     *   **ISSUE**: issued
+     *   **REVOKE**: revoked
+     *
+     * @example ISSUE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the certificate repository. You can call the [ListCertWarehouse](~~453246~~) operation to query the IDs of certificate repositories.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $warehouseId;
     protected $_name = [
+        'certType'    => 'CertType',
         'currentPage' => 'CurrentPage',
         'keyWord'     => 'KeyWord',
         'showSize'    => 'ShowSize',
@@ -53,6 +96,9 @@ class ListCertRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certType) {
+            $res['CertType'] = $this->certType;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -83,6 +129,9 @@ class ListCertRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertType'])) {
+            $model->certType = $map['CertType'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }

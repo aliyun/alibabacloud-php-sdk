@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserCertificateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 3E50D480-9765-5CFD-9650-9BACCECA5135
+     *
      * @var string
      */
     public $requestId;

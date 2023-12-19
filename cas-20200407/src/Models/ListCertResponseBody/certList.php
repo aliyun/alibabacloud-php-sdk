@@ -9,62 +9,128 @@ use AlibabaCloud\Tea\Model;
 class certList extends Model
 {
     /**
+     * @description The expiration time of the certificate. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1634283958000
+     *
      * @var int
      */
     public $afterDate;
 
     /**
+     * @description The issuance time of the certificate. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1665819958000
+     *
      * @var int
      */
     public $beforeDate;
 
     /**
+     * @description The type of the certificate.
+     *
+     *   **CA**: the CA certificate.
+     *   **CERT**: a issued certificate.
+     *
+     * @example CERT
+     *
+     * @var string
+     */
+    public $certType;
+
+    /**
+     * @description The domain name.
+     *
+     * @example aliyun.alibaba.com
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @description Indicates whether the certificate contains a private key. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $existPrivateKey;
 
     /**
+     * @description The unique identifier of the certificate.
+     *
+     * @example 14dcc8afc7578e
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @description The issuer of the certificate.
+     *
+     * @example mySSL
+     *
      * @var string
      */
     public $issuer;
 
     /**
+     * @description The domain names that are bound to the certificate. Multiple domain names are separated by commas.
+     *
+     * @example *.alibaba.com,aliyun.alibaba.com
+     *
      * @var string
      */
     public $sans;
 
     /**
+     * @description The source of the certificate. Valid values:
+     *
+     *   **upload**: uploaded certificate
+     *   **aliyun**: Alibaba Cloud certificate
+     *
+     * @example aliyun
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @description The status of the certificate. Valid values:
+     *
+     *   **ISSUE**: issued
+     *   **REVOKE**: revoked
+     *
+     * @example ISSUE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the certificate repository.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $whId;
 
     /**
+     * @description The instance ID of the certificate repository.
+     *
+     * @example test_whInstanceId
+     *
      * @var string
      */
     public $whInstanceId;
     protected $_name = [
         'afterDate'       => 'AfterDate',
         'beforeDate'      => 'BeforeDate',
+        'certType'        => 'CertType',
         'commonName'      => 'CommonName',
         'existPrivateKey' => 'ExistPrivateKey',
         'identifier'      => 'Identifier',
@@ -88,6 +154,9 @@ class certList extends Model
         }
         if (null !== $this->beforeDate) {
             $res['BeforeDate'] = $this->beforeDate;
+        }
+        if (null !== $this->certType) {
+            $res['CertType'] = $this->certType;
         }
         if (null !== $this->commonName) {
             $res['CommonName'] = $this->commonName;
@@ -133,6 +202,9 @@ class certList extends Model
         }
         if (isset($map['BeforeDate'])) {
             $model->beforeDate = $map['BeforeDate'];
+        }
+        if (isset($map['CertType'])) {
+            $model->certType = $map['CertType'];
         }
         if (isset($map['CommonName'])) {
             $model->commonName = $map['CommonName'];

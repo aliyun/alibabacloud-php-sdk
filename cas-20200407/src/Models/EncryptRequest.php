@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class EncryptRequest extends Model
 {
     /**
+     * @example RSAESOAEPSHA_1
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @example 12345678-1234-1234-1234-12345678****
+     *
      * @var string
      */
     public $certIdentifier;
 
     /**
+     * @example RAW
+     *
      * @var string
      */
     public $messageType;
 
     /**
+     * @example 1234***
+     *
      * @var string
      */
     public $plaintext;

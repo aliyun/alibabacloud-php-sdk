@@ -68,7 +68,6 @@ class Cas extends OpenApiClient
         $this->_endpointMap  = [
             'cn-hangzhou'                 => 'cas.aliyuncs.com',
             'ap-northeast-2-pop'          => 'cas.aliyuncs.com',
-            'ap-southeast-1'              => 'cas.aliyuncs.com',
             'ap-southeast-3'              => 'cas.aliyuncs.com',
             'ap-southeast-5'              => 'cas.aliyuncs.com',
             'cn-beijing'                  => 'cas.aliyuncs.com',
@@ -90,6 +89,7 @@ class Cas extends OpenApiClient
             'cn-hongkong'                 => 'cas.aliyuncs.com',
             'cn-hongkong-finance-pop'     => 'cas.aliyuncs.com',
             'cn-huhehaote'                => 'cas.aliyuncs.com',
+            'cn-huhehaote-nebula-1'       => 'cas.aliyuncs.com',
             'cn-north-2-gov-1'            => 'cas.aliyuncs.com',
             'cn-qingdao'                  => 'cas.aliyuncs.com',
             'cn-qingdao-nebula'           => 'cas.aliyuncs.com',
@@ -105,7 +105,9 @@ class Cas extends OpenApiClient
             'cn-shenzhen-st4-d01'         => 'cas.aliyuncs.com',
             'cn-shenzhen-su18-b01'        => 'cas.aliyuncs.com',
             'cn-wuhan'                    => 'cas.aliyuncs.com',
+            'cn-wulanchabu'               => 'cas.aliyuncs.com',
             'cn-yushanfang'               => 'cas.aliyuncs.com',
+            'cn-zhangbei'                 => 'cas.aliyuncs.com',
             'cn-zhangbei-na61-b01'        => 'cas.aliyuncs.com',
             'cn-zhangjiakou'              => 'cas.aliyuncs.com',
             'cn-zhangjiakou-na62-a01'     => 'cas.aliyuncs.com',
@@ -144,10 +146,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param CancelCertificateForPackageRequestRequest $request
-     * @param RuntimeOptions                            $runtime
+     * Revokes an issued certificate and cancels the application order of the certificate.
+     *   *
+     * @param CancelCertificateForPackageRequestRequest $request CancelCertificateForPackageRequestRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelCertificateForPackageRequestResponse
+     * @return CancelCertificateForPackageRequestResponse CancelCertificateForPackageRequestResponse
      */
     public function cancelCertificateForPackageRequestWithOptions($request, $runtime)
     {
@@ -175,9 +179,11 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param CancelCertificateForPackageRequestRequest $request
+     * Revokes an issued certificate and cancels the application order of the certificate.
+     *   *
+     * @param CancelCertificateForPackageRequestRequest $request CancelCertificateForPackageRequestRequest
      *
-     * @return CancelCertificateForPackageRequestResponse
+     * @return CancelCertificateForPackageRequestResponse CancelCertificateForPackageRequestResponse
      */
     public function cancelCertificateForPackageRequest($request)
     {
@@ -187,10 +193,15 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param CancelOrderRequestRequest $request
-     * @param RuntimeOptions            $runtime
+     * You can call the CancelOrderRequest operation to cancel a certificate application order only in the following scenarios:
+     *   * *   The order is in the **pending validation** state. You have submitted a certificate application but the verification of the domain name ownership is not complete.
+     *   * *   The order is in the **being reviewed** state. You have submitted a certificate application and the verification of the domain name ownership is complete, but the certificate authority (CA) does not complete the review of the certificate application.
+     *   * After a certificate application order is canceled, the status of the order changes to the **pending application** state. In this case, you can call the [DeleteCertificateRequest](~~164109~~) operation to delete the certificate application order. Then, the consumed certificate quota is returned to you.
+     *   *
+     * @param CancelOrderRequestRequest $request CancelOrderRequestRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelOrderRequestResponse
+     * @return CancelOrderRequestResponse CancelOrderRequestResponse
      */
     public function cancelOrderRequestWithOptions($request, $runtime)
     {
@@ -218,9 +229,14 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param CancelOrderRequestRequest $request
+     * You can call the CancelOrderRequest operation to cancel a certificate application order only in the following scenarios:
+     *   * *   The order is in the **pending validation** state. You have submitted a certificate application but the verification of the domain name ownership is not complete.
+     *   * *   The order is in the **being reviewed** state. You have submitted a certificate application and the verification of the domain name ownership is complete, but the certificate authority (CA) does not complete the review of the certificate application.
+     *   * After a certificate application order is canceled, the status of the order changes to the **pending application** state. In this case, you can call the [DeleteCertificateRequest](~~164109~~) operation to delete the certificate application order. Then, the consumed certificate quota is returned to you.
+     *   *
+     * @param CancelOrderRequestRequest $request CancelOrderRequestRequest
      *
-     * @return CancelOrderRequestResponse
+     * @return CancelOrderRequestResponse CancelOrderRequestResponse
      */
     public function cancelOrderRequest($request)
     {
@@ -230,10 +246,14 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param CreateCertificateForPackageRequestRequest $request
-     * @param RuntimeOptions                            $runtime
+     * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](~~28542~~). You can call the [DescribePackageState](~~455800~~) operation to query the usage of certificate resource plans of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that are submitted, and the number of certificates that are issued.
+     *   * *   After you call this operation to submit a certificate application and the certificate is issued, the certificate quota provided by the resource plan that you purchased is consumed. When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
+     *   * *   After you call this operation to submit a certificate application, you also need to call the [DescribeCertificateState](~~455800~~) operation to obtain the information that is required to complete the verification of the domain name ownership, and complete the verification. If you use the DNS verification method, you must complete the verification in the management platform of the domain name. If you use the file verification method, you must complete the verification in the DNS server. Then, the certificate application order will be reviewed by the certificate authority (CA).
+     *   *
+     * @param CreateCertificateForPackageRequestRequest $request CreateCertificateForPackageRequestRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCertificateForPackageRequestResponse
+     * @return CreateCertificateForPackageRequestResponse CreateCertificateForPackageRequestResponse
      */
     public function createCertificateForPackageRequestWithOptions($request, $runtime)
     {
@@ -282,9 +302,13 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param CreateCertificateForPackageRequestRequest $request
+     * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](~~28542~~). You can call the [DescribePackageState](~~455800~~) operation to query the usage of certificate resource plans of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that are submitted, and the number of certificates that are issued.
+     *   * *   After you call this operation to submit a certificate application and the certificate is issued, the certificate quota provided by the resource plan that you purchased is consumed. When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
+     *   * *   After you call this operation to submit a certificate application, you also need to call the [DescribeCertificateState](~~455800~~) operation to obtain the information that is required to complete the verification of the domain name ownership, and complete the verification. If you use the DNS verification method, you must complete the verification in the management platform of the domain name. If you use the file verification method, you must complete the verification in the DNS server. Then, the certificate application order will be reviewed by the certificate authority (CA).
+     *   *
+     * @param CreateCertificateForPackageRequestRequest $request CreateCertificateForPackageRequestRequest
      *
-     * @return CreateCertificateForPackageRequestResponse
+     * @return CreateCertificateForPackageRequestResponse CreateCertificateForPackageRequestResponse
      */
     public function createCertificateForPackageRequest($request)
     {
@@ -294,10 +318,15 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param CreateCertificateRequestRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   You can call this operation to apply for only DV certificates. If you want to apply for an organization validated (OV) or extended validation (EV) certificate, we recommend that you call the [CreateCertificateForPackageRequest](~~455296~~) operation. This operation allows you to apply for certificates of all specifications and specify the method to generate a certificate signing request (CSR) file.
+     *   * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](~~28542~~). You can call the [DescribePackageState](~~455803~~) operation to query the usage of certificate resource plans of specified specifications, including the total number of purchased certificate resource plans of the specified specifications, the number of times that certificate applications have been submitted, and the number of times that certificates have been issued.
+     *   * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
+     *   * *   After you call this operation to submit a certificate application, Certificate Management Service automatically creates a CSR file for your application and consumes the certificate quota in the certificate resource plans of the specified specifications that you purchased. After you call this operation, you also need to call the [DescribeCertificateState](~~455800~~) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. Then, the certificate authority (CA) will review your certificate application.
+     *   *
+     * @param CreateCertificateRequestRequest $request CreateCertificateRequestRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCertificateRequestResponse
+     * @return CreateCertificateRequestResponse CreateCertificateRequestResponse
      */
     public function createCertificateRequestWithOptions($request, $runtime)
     {
@@ -340,9 +369,14 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param CreateCertificateRequestRequest $request
+     * *   You can call this operation to apply for only DV certificates. If you want to apply for an organization validated (OV) or extended validation (EV) certificate, we recommend that you call the [CreateCertificateForPackageRequest](~~455296~~) operation. This operation allows you to apply for certificates of all specifications and specify the method to generate a certificate signing request (CSR) file.
+     *   * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](~~28542~~). You can call the [DescribePackageState](~~455803~~) operation to query the usage of certificate resource plans of specified specifications, including the total number of purchased certificate resource plans of the specified specifications, the number of times that certificate applications have been submitted, and the number of times that certificates have been issued.
+     *   * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
+     *   * *   After you call this operation to submit a certificate application, Certificate Management Service automatically creates a CSR file for your application and consumes the certificate quota in the certificate resource plans of the specified specifications that you purchased. After you call this operation, you also need to call the [DescribeCertificateState](~~455800~~) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. Then, the certificate authority (CA) will review your certificate application.
+     *   *
+     * @param CreateCertificateRequestRequest $request CreateCertificateRequestRequest
      *
-     * @return CreateCertificateRequestResponse
+     * @return CreateCertificateRequestResponse CreateCertificateRequestResponse
      */
     public function createCertificateRequest($request)
     {
@@ -352,10 +386,15 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param CreateCertificateWithCsrRequestRequest $request
-     * @param RuntimeOptions                         $runtime
+     * *   You can call the CreateCertificateWithCsrRequest operation to apply only for DV certificates. We recommend that you call the [CreateCertificateForPackageRequest](~~455296~~) operation to submit a certificate application. This operation allows you to apply for certificates of all specifications and specify the method to generate a CSR file.
+     *   * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](~~28542~~). You can call the [DescribePackageState](~~164110~~) operation to query the usage of certificate resource plans of specified specifications. The usage information includes the total number of purchased certificate resource plans of the specified specifications, the number of times that certificate applications are submitted, and the number of times that certificates are issued.
+     *   * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
+     *   * *   After you call this operation to submit a certificate application, the certificate quota of the required specifications that you purchased is consumed. After you call this operation, you also need to call the [DescribeCertificateState](~~164111~~) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. The certificate authority (CA) starts to review your certificate application only after the domain name verification is complete.
+     *   *
+     * @param CreateCertificateWithCsrRequestRequest $request CreateCertificateWithCsrRequestRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCertificateWithCsrRequestResponse
+     * @return CreateCertificateWithCsrRequestResponse CreateCertificateWithCsrRequestResponse
      */
     public function createCertificateWithCsrRequestWithOptions($request, $runtime)
     {
@@ -398,9 +437,14 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param CreateCertificateWithCsrRequestRequest $request
+     * *   You can call the CreateCertificateWithCsrRequest operation to apply only for DV certificates. We recommend that you call the [CreateCertificateForPackageRequest](~~455296~~) operation to submit a certificate application. This operation allows you to apply for certificates of all specifications and specify the method to generate a CSR file.
+     *   * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](~~28542~~). You can call the [DescribePackageState](~~164110~~) operation to query the usage of certificate resource plans of specified specifications. The usage information includes the total number of purchased certificate resource plans of the specified specifications, the number of times that certificate applications are submitted, and the number of times that certificates are issued.
+     *   * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
+     *   * *   After you call this operation to submit a certificate application, the certificate quota of the required specifications that you purchased is consumed. After you call this operation, you also need to call the [DescribeCertificateState](~~164111~~) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. The certificate authority (CA) starts to review your certificate application only after the domain name verification is complete.
+     *   *
+     * @param CreateCertificateWithCsrRequestRequest $request CreateCertificateWithCsrRequestRequest
      *
-     * @return CreateCertificateWithCsrRequestResponse
+     * @return CreateCertificateWithCsrRequestResponse CreateCertificateWithCsrRequestResponse
      */
     public function createCertificateWithCsrRequest($request)
     {
@@ -553,10 +597,14 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param DeleteCertificateRequestRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call this operation to delete a certificate application order only in the following scenarios:
+     *   * *   The status of the order is review failed. You have called the [DescribeCertificateState](~~455800~~)  operation to query the status of the certificate application order and the value of the **Type** parameter is **verify_fail**.
+     *   * *   The status of the order is **pending application**. You have called the [CancelOrderRequest](~~455299~~) operation to cancel a certificate application order whose status is pending review or being reviewed. The status of the certificate application order that is canceled in this case changes to **pending application**.
+     *   *
+     * @param DeleteCertificateRequestRequest $request DeleteCertificateRequestRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCertificateRequestResponse
+     * @return DeleteCertificateRequestResponse DeleteCertificateRequestResponse
      */
     public function deleteCertificateRequestWithOptions($request, $runtime)
     {
@@ -584,9 +632,13 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param DeleteCertificateRequestRequest $request
+     * You can call this operation to delete a certificate application order only in the following scenarios:
+     *   * *   The status of the order is review failed. You have called the [DescribeCertificateState](~~455800~~)  operation to query the status of the certificate application order and the value of the **Type** parameter is **verify_fail**.
+     *   * *   The status of the order is **pending application**. You have called the [CancelOrderRequest](~~455299~~) operation to cancel a certificate application order whose status is pending review or being reviewed. The status of the certificate application order that is canceled in this case changes to **pending application**.
+     *   *
+     * @param DeleteCertificateRequestRequest $request DeleteCertificateRequestRequest
      *
-     * @return DeleteCertificateRequestResponse
+     * @return DeleteCertificateRequestResponse DeleteCertificateRequestResponse
      */
     public function deleteCertificateRequest($request)
     {
@@ -639,10 +691,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserCertificateRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteUserCertificateRequest $request DeleteUserCertificateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserCertificateResponse
+     * @return DeleteUserCertificateResponse DeleteUserCertificateResponse
      */
     public function deleteUserCertificateWithOptions($request, $runtime)
     {
@@ -670,9 +724,11 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserCertificateRequest $request
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteUserCertificateRequest $request DeleteUserCertificateRequest
      *
-     * @return DeleteUserCertificateResponse
+     * @return DeleteUserCertificateResponse DeleteUserCertificateResponse
      */
     public function deleteUserCertificate($request)
     {
@@ -682,10 +738,13 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCertificateStateRequest $request
-     * @param RuntimeOptions                  $runtime
+     * If you do not complete the verification of the domain name ownership after you submit a certificate application, you can call this operation to obtain the information that is required to complete the verification. You can complete the verification of the domain name ownership based on the data returned. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on the DNS server.
+     *   * The certificate authority (CA) reviews your certificate application only after you complete the verification of the domain name ownership. After the CA approves your certificate application, the CA issues the certificate. If a certificate is issued, you can call this operation to obtain the CA certificate and private key of the certificate.
+     *   *
+     * @param DescribeCertificateStateRequest $request DescribeCertificateStateRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCertificateStateResponse
+     * @return DescribeCertificateStateResponse DescribeCertificateStateResponse
      */
     public function describeCertificateStateWithOptions($request, $runtime)
     {
@@ -713,9 +772,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCertificateStateRequest $request
+     * If you do not complete the verification of the domain name ownership after you submit a certificate application, you can call this operation to obtain the information that is required to complete the verification. You can complete the verification of the domain name ownership based on the data returned. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on the DNS server.
+     *   * The certificate authority (CA) reviews your certificate application only after you complete the verification of the domain name ownership. After the CA approves your certificate application, the CA issues the certificate. If a certificate is issued, you can call this operation to obtain the CA certificate and private key of the certificate.
+     *   *
+     * @param DescribeCertificateStateRequest $request DescribeCertificateStateRequest
      *
-     * @return DescribeCertificateStateResponse
+     * @return DescribeCertificateStateResponse DescribeCertificateStateResponse
      */
     public function describeCertificateState($request)
     {
@@ -853,15 +915,20 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param GetUserCertificateDetailRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetUserCertificateDetailRequest $request GetUserCertificateDetailRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserCertificateDetailResponse
+     * @return GetUserCertificateDetailResponse GetUserCertificateDetailResponse
      */
     public function getUserCertificateDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->certFilter)) {
+            $query['CertFilter'] = $request->certFilter;
+        }
         if (!Utils::isUnset($request->certId)) {
             $query['CertId'] = $request->certId;
         }
@@ -884,9 +951,11 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param GetUserCertificateDetailRequest $request
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param GetUserCertificateDetailRequest $request GetUserCertificateDetailRequest
      *
-     * @return GetUserCertificateDetailResponse
+     * @return GetUserCertificateDetailResponse GetUserCertificateDetailResponse
      */
     public function getUserCertificateDetail($request)
     {
@@ -896,15 +965,20 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param ListCertRequest $request
-     * @param RuntimeOptions  $runtime
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ListCertRequest $request ListCertRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCertResponse
+     * @return ListCertResponse ListCertResponse
      */
     public function listCertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->certType)) {
+            $query['CertType'] = $request->certType;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
@@ -942,9 +1016,11 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param ListCertRequest $request
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ListCertRequest $request ListCertRequest
      *
-     * @return ListCertResponse
+     * @return ListCertResponse ListCertResponse
      */
     public function listCert($request)
     {
@@ -1009,10 +1085,14 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param ListUserCertificateOrderRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call the ListUserCertificateOrder operation to query the certificates or certificate orders of users. If you set OrderType to CERT or UPLOAD, certificates are returned. If you set OrderType to CPACK or BUY, certificate orders are returned.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ListUserCertificateOrderRequest $request ListUserCertificateOrderRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserCertificateOrderResponse
+     * @return ListUserCertificateOrderResponse ListUserCertificateOrderResponse
      */
     public function listUserCertificateOrderWithOptions($request, $runtime)
     {
@@ -1055,9 +1135,13 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param ListUserCertificateOrderRequest $request
+     * You can call the ListUserCertificateOrder operation to query the certificates or certificate orders of users. If you set OrderType to CERT or UPLOAD, certificates are returned. If you set OrderType to CPACK or BUY, certificate orders are returned.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ListUserCertificateOrderRequest $request ListUserCertificateOrderRequest
      *
-     * @return ListUserCertificateOrderResponse
+     * @return ListUserCertificateOrderResponse ListUserCertificateOrderResponse
      */
     public function listUserCertificateOrder($request)
     {
@@ -1067,10 +1151,13 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param RenewCertificateOrderForPackageRequestRequest $request
-     * @param RuntimeOptions                                $runtime
+     * You can call this operation to submit a renewal application for a certificate only when the order of the certificate is in the expiring state. After the renewal is complete, a new certificate order whose status is pending application is generated. You must submit a certificate application for the new certificate order and install the new certificate after the new certificate is issued.
+     *   * > You can call the [DescribeCertificateState](~~455800~~) operation to query the status of a certificate application order. If the value of the **Type** response parameter is **certificate**, the certificate is issued.
+     *   *
+     * @param RenewCertificateOrderForPackageRequestRequest $request RenewCertificateOrderForPackageRequestRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewCertificateOrderForPackageRequestResponse
+     * @return RenewCertificateOrderForPackageRequestResponse RenewCertificateOrderForPackageRequestResponse
      */
     public function renewCertificateOrderForPackageRequestWithOptions($request, $runtime)
     {
@@ -1101,9 +1188,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param RenewCertificateOrderForPackageRequestRequest $request
+     * You can call this operation to submit a renewal application for a certificate only when the order of the certificate is in the expiring state. After the renewal is complete, a new certificate order whose status is pending application is generated. You must submit a certificate application for the new certificate order and install the new certificate after the new certificate is issued.
+     *   * > You can call the [DescribeCertificateState](~~455800~~) operation to query the status of a certificate application order. If the value of the **Type** response parameter is **certificate**, the certificate is issued.
+     *   *
+     * @param RenewCertificateOrderForPackageRequestRequest $request RenewCertificateOrderForPackageRequestRequest
      *
-     * @return RenewCertificateOrderForPackageRequestResponse
+     * @return RenewCertificateOrderForPackageRequestResponse RenewCertificateOrderForPackageRequestResponse
      */
     public function renewCertificateOrderForPackageRequest($request)
     {
@@ -1208,10 +1298,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param UploadPCACertRequest $request
-     * @param RuntimeOptions       $runtime
+     * The unique identifier of the certificate.
+     *   *
+     * @param UploadPCACertRequest $request UploadPCACertRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadPCACertResponse
+     * @return UploadPCACertResponse UploadPCACertResponse
      */
     public function uploadPCACertWithOptions($request, $runtime)
     {
@@ -1248,9 +1340,11 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param UploadPCACertRequest $request
+     * The unique identifier of the certificate.
+     *   *
+     * @param UploadPCACertRequest $request UploadPCACertRequest
      *
-     * @return UploadPCACertResponse
+     * @return UploadPCACertResponse UploadPCACertResponse
      */
     public function uploadPCACert($request)
     {
@@ -1260,10 +1354,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param UploadUserCertificateRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UploadUserCertificateRequest $request UploadUserCertificateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadUserCertificateResponse
+     * @return UploadUserCertificateResponse UploadUserCertificateResponse
      */
     public function uploadUserCertificateWithOptions($request, $runtime)
     {
@@ -1312,9 +1408,11 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param UploadUserCertificateRequest $request
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UploadUserCertificateRequest $request UploadUserCertificateRequest
      *
-     * @return UploadUserCertificateResponse
+     * @return UploadUserCertificateResponse UploadUserCertificateResponse
      */
     public function uploadUserCertificate($request)
     {

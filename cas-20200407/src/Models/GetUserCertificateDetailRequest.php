@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class GetUserCertificateDetailRequest extends Model
 {
     /**
+     * @description 值为true时Cert、Key、EncryptCert、EncryptPrivateKey、SignCert、SignPrivateKey信息不返回，false时则返回，默认是false。
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $certFilter;
+
+    /**
+     * @description The ID of the certificate.
+     *
+     * @example 6055048
+     *
      * @var int
      */
     public $certId;
     protected $_name = [
-        'certId' => 'CertId',
+        'certFilter' => 'CertFilter',
+        'certId'     => 'CertId',
     ];
 
     public function validate()
@@ -23,6 +37,9 @@ class GetUserCertificateDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certFilter) {
+            $res['CertFilter'] = $this->certFilter;
+        }
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
         }
@@ -38,6 +55,9 @@ class GetUserCertificateDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertFilter'])) {
+            $model->certFilter = $map['CertFilter'];
+        }
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
         }

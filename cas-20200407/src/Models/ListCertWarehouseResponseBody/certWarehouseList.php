@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class certWarehouseList extends Model
 {
     /**
+     * @example 1665819958000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 14dcc8afc7578e1f
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isExpired;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 14dcc8afc7578e1f
+     *
      * @var string
      */
     public $pcaInstanceId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $qps;
 
     /**
+     * @example aliyunPCA
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $whId;

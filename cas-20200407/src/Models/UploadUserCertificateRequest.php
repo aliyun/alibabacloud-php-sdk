@@ -9,41 +9,79 @@ use AlibabaCloud\Tea\Model;
 class UploadUserCertificateRequest extends Model
 {
     /**
+     * @description The content of the certificate in the PEM format.
+     *
+     * @example -----BEGIN CERTIFICATE----- MIIF...... -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $cert;
 
     /**
+     * @description The content of the encryption certificate in PEM format.
+     *
+     * @example -----BEGIN CERTIFICATE-----
+     * MIICDzCCA***
+     * -----END CERTIFICATE-----
      * @var string
      */
     public $encryptCert;
 
     /**
+     * @description The private key of the encryption certificate in the PEM format.
+     *
+     * @example -----BEGIN EC PRIVATE KEY-----
+     * MHcCAQEEI****
+     * -----END EC PRIVATE KEY-----
      * @var string
      */
     public $encryptPrivateKey;
 
     /**
+     * @description The private key of the certificate in the PEM format.
+     *
+     * @example -----BEGIN CERTIFICATE-----
+     * MIICDzCCAbagAw****
+     * -----END CERTIFICATE-----
      * @var string
      */
     public $key;
 
     /**
+     * @description The name of the certificate. The name can contain up to 128 characters in length. The name can contain all types of characters, such as letters, digits, and underscores (\_).
+     *
+     * >  The name must be unique within an Alibaba Cloud account.
+     * @example cert-1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description the resource group id.
+     *
+     * @example rg-ae****vty
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The content of the signing certificate in the PEM format.
+     *
+     * @example -----BEGIN CERTIFICATE-----
+     * MIICDzCCAbagAw****
+     * -----END CERTIFICATE-----
      * @var string
      */
     public $signCert;
 
     /**
+     * @description The private key of the signing certificate in the PEM format.
+     *
+     * @example -----BEGIN EC PRIVATE KEY-----
+     * MHcCAQEEILR****
+     * -----END EC PRIVATE KEY-----
      * @var string
      */
     public $signPrivateKey;

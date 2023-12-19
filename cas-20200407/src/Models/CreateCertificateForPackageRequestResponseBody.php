@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class CreateCertificateForPackageRequestResponseBody extends Model
 {
     /**
+     * @description The ID of the certificate application order.
+     *
+     * > You can use the ID to query the status of the certificate application order. For more information, see [DescribeCertificateState](~~455800~~).
+     * @example 2021010
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 5890029B-938A-589E-98B9-3DEC7BA7C400
+     *
      * @var string
      */
     public $requestId;

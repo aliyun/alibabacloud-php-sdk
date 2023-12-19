@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListCertResponseBody extends Model
 {
     /**
+     * @description An array that consists of the certificates.
+     *
      * @var certList[]
      */
     public $certList;
 
     /**
+     * @description The page number of the returned page. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247A74
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of entries returned per page. Default value: 50.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $showSize;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;
