@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteContactGroupRequest extends Model
 {
     /**
+     * @description The ID of the alert contact group.
+     *
      * @example 123
      *
      * @var int

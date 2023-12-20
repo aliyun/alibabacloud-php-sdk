@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class InstallEnvironmentFeatureResponseBody extends Model
+class QueryAppTopologyResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     * @description The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
      *
      * @example 200
      *
@@ -18,18 +18,18 @@ class InstallEnvironmentFeatureResponseBody extends Model
     public $code;
 
     /**
-     * @description The release ID.
+     * @description The returned struct.
      *
-     * @example 83FCC44C-A056-18AF-A902-7043E723F0D9
-     *
-     * @var string
+     * @example "Data": {
+     * }
+     * @var mixed
      */
     public $data;
 
     /**
      * @description The returned message.
      *
-     * @example message
+     * @example Internal error. Please try again. Contact the DingTalk service account if the issue                              persists after multiple retries.
      *
      * @var string
      */
@@ -38,17 +38,17 @@ class InstallEnvironmentFeatureResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example 4C518054-852F-4023-ABC1-4AF95FF7****
+     * @example 78901766-3806-4E96-8E47-CFEF59E4****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description Indicates whether the call was successful. Valid values:
      *
-     *   true
-     *   false
+     *   true: The call was successful.
+     *   false: The call failed.
      *
      * @example true
      *
@@ -92,7 +92,7 @@ class InstallEnvironmentFeatureResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return InstallEnvironmentFeatureResponseBody
+     * @return QueryAppTopologyResponseBody
      */
     public static function fromMap($map = [])
     {

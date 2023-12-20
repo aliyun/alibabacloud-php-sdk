@@ -359,6 +359,9 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\OpenXtraceDefaultSLRRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\OpenXtraceDefaultSLRResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryAppMetadataRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryAppMetadataResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryAppTopologyRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryAppTopologyResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryAppTopologyShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryCommercialUsageRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryCommercialUsageResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryMetricByPageRequest;
@@ -9576,6 +9579,81 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryAppMetadataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryAppTopologyRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryAppTopologyResponse
+     */
+    public function queryAppTopologyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryAppTopologyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filters)) {
+            $request->filtersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filters, 'Filters', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appType)) {
+            $query['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->db)) {
+            $query['Db'] = $request->db;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->filtersShrink)) {
+            $query['Filters'] = $request->filtersShrink;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->rpc)) {
+            $query['Rpc'] = $request->rpc;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAppTopology',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryAppTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryAppTopologyRequest $request
+     *
+     * @return QueryAppTopologyResponse
+     */
+    public function queryAppTopology($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAppTopologyWithOptions($request, $runtime);
     }
 
     /**

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteContactGroupResponseBody extends Model
 {
     /**
+     * @description Indicates whether the alert contact group was deleted. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DeleteContactGroupResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The request ID.
+     *
      * @example C21AB7CF-B7AF-410F-BD61-82D1567F****
      *
      * @var string

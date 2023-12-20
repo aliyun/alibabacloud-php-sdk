@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class prometheusInstances extends Model
 {
     /**
+     * @description Auth Token string.
+     *
+     * @example ad32dxxxx
+     *
      * @var string
      */
     public $authToken;
@@ -57,11 +61,19 @@ class prometheusInstances extends Model
     public $grafanaInstanceId;
 
     /**
+     * @description HTTP Api internet url.
+     *
+     * @example http://cn-beijing.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/cn-beijing
+     *
      * @var string
      */
     public $httpApiInterUrl;
 
     /**
+     * @description HTTP Api intranet url.
+     *
+     * @example http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/cn-beijing
+     *
      * @var string
      */
     public $httpApiIntraUrl;
@@ -79,11 +91,19 @@ class prometheusInstances extends Model
     public $paymentType;
 
     /**
+     * @description Push Gateway internet url.
+     *
+     * @example http://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v2
+     *
      * @var string
      */
     public $pushGatewayInterUrl;
 
     /**
+     * @description Push Gateway intranet url.
+     *
+     * @example http://cn-beijing-intranet.arms.aliyuncs.com/prometheus/xxx/api/v2
+     *
      * @var string
      */
     public $pushGatewayIntraUrl;
@@ -98,21 +118,37 @@ class prometheusInstances extends Model
     public $regionId;
 
     /**
+     * @description Remote Read internet url.
+     *
+     * @example http://cn-beijing.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/api/v1/read
+     *
      * @var string
      */
     public $remoteReadInterUrl;
 
     /**
+     * @description Remote Read intranet url.
+     *
+     * @example http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/api/v1/read
+     *
      * @var string
      */
     public $remoteReadIntraUrl;
 
     /**
+     * @description Remote Write internet url.
+     *
+     * @example http://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v3/write
+     *
      * @var string
      */
     public $remoteWriteInterUrl;
 
     /**
+     * @description Remote Write intranet url.
+     *
+     * @example http://cn-beijing-intranet.arms.aliyuncs.com/prometheus/xxx/api/v3/write
+     *
      * @var string
      */
     public $remoteWriteIntraUrl;
@@ -127,7 +163,7 @@ class prometheusInstances extends Model
     public $resourceGroupId;
 
     /**
-     * @description 资源类型
+     * @description Resource type.
      *
      * @example PROMETHEUS
      *

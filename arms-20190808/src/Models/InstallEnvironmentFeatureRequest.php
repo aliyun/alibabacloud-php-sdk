@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class InstallEnvironmentFeatureRequest extends Model
 {
     /**
-     * @description Language,the default language is Chinese.
+     * @description The language. Valid values: zh and en. Default value: zh.
      *
      * @example zh
      *
@@ -18,7 +18,7 @@ class InstallEnvironmentFeatureRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description Config information of Feature.
+     * @description The metadata of the feature.
      *
      * @example {\"continuous\":true,\"dataRevision\":2}
      *
@@ -27,7 +27,7 @@ class InstallEnvironmentFeatureRequest extends Model
     public $config;
 
     /**
-     * @description Environment ID.
+     * @description The environment ID.
      *
      * @example env-xxx
      *
@@ -36,8 +36,17 @@ class InstallEnvironmentFeatureRequest extends Model
     public $environmentId;
 
     /**
-     * @description Name of Feature.
+     * @description The name of the feature.
      *
+     * Valid values:
+     *
+     *   app-agent-pilot
+     *
+     * <!-- -->
+     *
+     *   metric-agent
+     *
+     * <!-- -->
      * @example metric-agent
      *
      * @var string
@@ -45,7 +54,7 @@ class InstallEnvironmentFeatureRequest extends Model
     public $featureName;
 
     /**
-     * @description Version of Feature.
+     * @description The version of the feature.
      *
      * @example 1.1.17
      *
@@ -54,7 +63,7 @@ class InstallEnvironmentFeatureRequest extends Model
     public $featureVersion;
 
     /**
-     * @description Region of Feature.
+     * @description The region ID of the feature.
      *
      * @example cn-shenzhen
      *
