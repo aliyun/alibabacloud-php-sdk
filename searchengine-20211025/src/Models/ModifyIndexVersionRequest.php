@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyIndexVersionRequest extends Model
 {
     /**
-     * @description ## Sample requests
+     * @description The keyword used to search for a version. Fuzzy match is supported.
      *
-     * ]
      * @example {}
      *
      * @var body[]

@@ -18,6 +18,8 @@ class result extends Model
     public $buildDeployId;
 
     /**
+     * @description The time to start index building.
+     *
      * @example 1626143673
      *
      * @var int
@@ -25,6 +27,8 @@ class result extends Model
     public $createTime;
 
     /**
+     * @description The directory where the index file created by using the dump table is saved.
+     *
      * @example ""
      *
      * @var string
@@ -32,6 +36,8 @@ class result extends Model
     public $dataDumpRoot;
 
     /**
+     * @description The primary key of the generation.
+     *
      * @example 1626143930
      *
      * @var int
@@ -39,11 +45,15 @@ class result extends Model
     public $generation;
 
     /**
+     * @description Key indicates the name of the index. value indicates the number of shards.
+     *
      * @var int[]
      */
     public $partition;
 
     /**
+     * @description The status.
+     *
      * @example STOPPED
      *
      * @var string
@@ -51,6 +61,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The timestamp when the offline indexing was initiated.
+     *
      * @example 1626143673
      *
      * @var int

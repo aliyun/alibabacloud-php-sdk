@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataSourceResponseBody extends Model
 {
     /**
+     * @description The ID of the request
+     *
      * @example 10D5E615-69F7-5F49-B850-00169ADE513C
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteDataSourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result returned
+     *
      * @example {}
      *
      * @var mixed[]

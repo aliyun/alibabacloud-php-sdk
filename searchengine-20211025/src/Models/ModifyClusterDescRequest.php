@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterDescRequest extends Model
 {
     /**
+     * @description The parameters in the request body
+     *
      * @example {}
      *
      * @var mixed[]

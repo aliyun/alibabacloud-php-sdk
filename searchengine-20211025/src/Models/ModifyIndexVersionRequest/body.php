@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description The ID of the index deployed in offline mode.
+     *
      * @example 277
      *
      * @var string
@@ -16,7 +18,7 @@ class body extends Model
     public $buildDeployId;
 
     /**
-     * @description WB01240825
+     * @description The name of the index.
      *
      * @example main_index
      *
@@ -25,6 +27,8 @@ class body extends Model
     public $indexName;
 
     /**
+     * @description The version of the index.
+     *
      * @example 1
      *
      * @var string

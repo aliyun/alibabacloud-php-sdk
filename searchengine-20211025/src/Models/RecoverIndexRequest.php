@@ -18,6 +18,8 @@ class RecoverIndexRequest extends Model
     public $buildDeployId;
 
     /**
+     * @description The name of the data source
+     *
      * @example ha-cn-pl32rf0js04_odps_first
      *
      * @var string
@@ -34,6 +36,8 @@ class RecoverIndexRequest extends Model
     public $generation;
 
     /**
+     * @description The name of the index
+     *
      * @example main_index
      *
      * @var string

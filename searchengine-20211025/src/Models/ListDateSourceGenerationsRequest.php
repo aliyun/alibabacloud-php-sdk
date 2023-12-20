@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDateSourceGenerationsRequest extends Model
 {
     /**
+     * @description The data center where the data source is deployed.
+     *
      * @example bj_vpc_domain_1
      *
      * @var string
@@ -16,8 +18,9 @@ class ListDateSourceGenerationsRequest extends Model
     public $domainName;
 
     /**
-     * @description Obtains the data restoration version of a data source.
+     * @description The valid state of the data source. Valid values: true and false. The default value of this parameter is true.
      *
+     * 2.  false indicates that all generations are returned.
      * @example true
      *
      * @var bool

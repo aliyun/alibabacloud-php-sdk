@@ -555,7 +555,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * The result returned.
+     * ## Method
+     *   * `DELETE`
+     *   * ## URI
+     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`.
      *   *
      * @param string         $instanceId
      * @param string         $dataSourceName
@@ -585,7 +588,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * The result returned.
+     * ## Method
+     *   * `DELETE`
+     *   * ## URI
+     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`.
      *   *
      * @param string $instanceId
      * @param string $dataSourceName
@@ -1509,13 +1515,12 @@ class Searchengine extends OpenApiClient
      *   * GET /openapi/ha3/instances/ha3_instance_name/cluster-names
      *   * ```.
      *   *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return ListClusterNamesResponse ListClusterNamesResponse
      */
-    public function listClusterNamesWithOptions($instanceId, $headers, $runtime)
+    public function listClusterNamesWithOptions($headers, $runtime)
     {
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1524,7 +1529,7 @@ class Searchengine extends OpenApiClient
             'action'      => 'ListClusterNames',
             'version'     => '2021-10-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/cluster-names',
+            'pathname'    => '/openapi/ha3/cluster-names',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1541,16 +1546,14 @@ class Searchengine extends OpenApiClient
      *   * GET /openapi/ha3/instances/ha3_instance_name/cluster-names
      *   * ```.
      *   *
-     * @param string $instanceId
-     *
      * @return ListClusterNamesResponse ListClusterNamesResponse
      */
-    public function listClusterNames($instanceId)
+    public function listClusterNames()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listClusterNamesWithOptions($instanceId, $headers, $runtime);
+        return $this->listClusterNamesWithOptions($headers, $runtime);
     }
 
     /**
@@ -1764,13 +1767,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * ### Method
+     *   * `GET`
+     *   * ### URI
+     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`.
+     *   *
      * @param string                           $instanceId
      * @param string                           $dataSourceName
-     * @param ListDateSourceGenerationsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param ListDateSourceGenerationsRequest $request        ListDateSourceGenerationsRequest
+     * @param string[]                         $headers        map
+     * @param RuntimeOptions                   $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListDateSourceGenerationsResponse
+     * @return ListDateSourceGenerationsResponse ListDateSourceGenerationsResponse
      */
     public function listDateSourceGenerationsWithOptions($instanceId, $dataSourceName, $request, $headers, $runtime)
     {
@@ -1802,11 +1810,16 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * ### Method
+     *   * `GET`
+     *   * ### URI
+     *   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`.
+     *   *
      * @param string                           $instanceId
      * @param string                           $dataSourceName
-     * @param ListDateSourceGenerationsRequest $request
+     * @param ListDateSourceGenerationsRequest $request        ListDateSourceGenerationsRequest
      *
-     * @return ListDateSourceGenerationsResponse
+     * @return ListDateSourceGenerationsResponse ListDateSourceGenerationsResponse
      */
     public function listDateSourceGenerations($instanceId, $dataSourceName, $request)
     {
@@ -2179,7 +2192,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * The name of the cluster.
+     * ### Method
+     *   * `PUT`
+     *   * ### URI
+     *   * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`.
      *   *
      * @param string                   $instanceId
      * @param string                   $clusterName
@@ -2216,7 +2232,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * The name of the cluster.
+     * ### Method
+     *   * `PUT`
+     *   * ### URI
+     *   * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`.
      *   *
      * @param string                   $instanceId
      * @param string                   $clusterName
@@ -2973,7 +2992,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * The name of the index.
+     * ### Method
+     *   * `POST`
+     *   * ### URI
+     *   * `/openapi/ha3/instances/{instanceId}/recover-index`.
      *   *
      * @param string              $instanceId
      * @param RecoverIndexRequest $request    RecoverIndexRequest
@@ -3018,7 +3040,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * The name of the index.
+     * ### Method
+     *   * `POST`
+     *   * ### URI
+     *   * `/openapi/ha3/instances/{instanceId}/recover-index`.
      *   *
      * @param string              $instanceId
      * @param RecoverIndexRequest $request    RecoverIndexRequest
