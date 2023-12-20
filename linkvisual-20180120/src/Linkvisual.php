@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\AddFaceUserToUserGroupRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\AddFaceUserToUserGroupResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\AddRecordPlanDeviceRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\AddRecordPlanDeviceResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\BatchQueryVisionDeviceInfoRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\BatchQueryVisionDeviceInfoResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\BindPictureSearchAppWithDevicesRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\BindPictureSearchAppWithDevicesResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CheckFaceUserDoExistOnDeviceRequest;
@@ -44,6 +46,8 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRecordDownloadByTimeJobRe
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRecordDownloadByTimeJobResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRecordPlanRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRecordPlanResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRtmpDeviceRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRtmpDeviceResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateTimeTemplateRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateTimeTemplateResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteEventRecordPlanDeviceRequest;
@@ -70,6 +74,10 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteRecordPlanRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteRecordPlanResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteRecordRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteRecordResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteRtmpDeviceRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteRtmpDeviceResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteRtmpKeyRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteRtmpKeyResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteTimeTemplateRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteTimeTemplateResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DetectUserFaceByUrlRequest;
@@ -170,10 +178,14 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordUrlByTimeRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordUrlByTimeResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordUrlRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordUrlResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRtmpKeyRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRtmpKeyResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryTimeTemplateDetailRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryTimeTemplateDetailResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryTimeTemplateRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryTimeTemplateResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryVisionDeviceInfoRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryVisionDeviceInfoResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryVoiceIntercomRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryVoiceIntercomResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\RemoveFaceDeviceFromDeviceGroupRequest;
@@ -208,6 +220,8 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdatePictureSearchAppRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdatePictureSearchAppResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateRecordPlanRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateRecordPlanResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateRtmpKeyRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateRtmpKeyResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateTimeTemplateRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateTimeTemplateResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -775,6 +789,58 @@ class Linkvisual extends OpenApiClient
     }
 
     /**
+     * @param BatchQueryVisionDeviceInfoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return BatchQueryVisionDeviceInfoResponse
+     */
+    public function batchQueryVisionDeviceInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceNameList)) {
+            $query['DeviceNameList'] = $request->deviceNameList;
+        }
+        if (!Utils::isUnset($request->iotIdList)) {
+            $query['IotIdList'] = $request->iotIdList;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchQueryVisionDeviceInfo',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchQueryVisionDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchQueryVisionDeviceInfoRequest $request
+     *
+     * @return BatchQueryVisionDeviceInfoResponse
+     */
+    public function batchQueryVisionDeviceInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchQueryVisionDeviceInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param BindPictureSearchAppWithDevicesRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -1310,6 +1376,73 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRecordPlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRtmpDeviceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateRtmpDeviceResponse
+     */
+    public function createRtmpDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->pullAuthKey)) {
+            $query['PullAuthKey'] = $request->pullAuthKey;
+        }
+        if (!Utils::isUnset($request->pullKeyExpireTime)) {
+            $query['PullKeyExpireTime'] = $request->pullKeyExpireTime;
+        }
+        if (!Utils::isUnset($request->pushAuthKey)) {
+            $query['PushAuthKey'] = $request->pushAuthKey;
+        }
+        if (!Utils::isUnset($request->pushKeyExpireTime)) {
+            $query['PushKeyExpireTime'] = $request->pushKeyExpireTime;
+        }
+        if (!Utils::isUnset($request->subStreamName)) {
+            $query['SubStreamName'] = $request->subStreamName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRtmpDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRtmpDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateRtmpDeviceRequest $request
+     *
+     * @return CreateRtmpDeviceResponse
+     */
+    public function createRtmpDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRtmpDeviceWithOptions($request, $runtime);
     }
 
     /**
@@ -1944,6 +2077,113 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRecordPlanDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRtmpDeviceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteRtmpDeviceResponse
+     */
+    public function deleteRtmpDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRtmpDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRtmpDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRtmpDeviceRequest $request
+     *
+     * @return DeleteRtmpDeviceResponse
+     */
+    public function deleteRtmpDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRtmpDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRtmpKeyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteRtmpKeyResponse
+     */
+    public function deleteRtmpKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRtmpKey',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRtmpKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRtmpKeyRequest $request
+     *
+     * @return DeleteRtmpKeyResponse
+     */
+    public function deleteRtmpKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRtmpKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -4664,6 +4904,58 @@ class Linkvisual extends OpenApiClient
     }
 
     /**
+     * @param QueryRtmpKeyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryRtmpKeyResponse
+     */
+    public function queryRtmpKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRtmpKey',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryRtmpKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryRtmpKeyRequest $request
+     *
+     * @return QueryRtmpKeyResponse
+     */
+    public function queryRtmpKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRtmpKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryTimeTemplateRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4750,6 +5042,58 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryTimeTemplateDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryVisionDeviceInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryVisionDeviceInfoResponse
+     */
+    public function queryVisionDeviceInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryVisionDeviceInfo',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryVisionDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryVisionDeviceInfoRequest $request
+     *
+     * @return QueryVisionDeviceInfoResponse
+     */
+    public function queryVisionDeviceInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVisionDeviceInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -5652,6 +5996,70 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRecordPlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRtmpKeyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateRtmpKeyResponse
+     */
+    public function updateRtmpKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->pullAuthKey)) {
+            $query['PullAuthKey'] = $request->pullAuthKey;
+        }
+        if (!Utils::isUnset($request->pullKeyExpireTime)) {
+            $query['PullKeyExpireTime'] = $request->pullKeyExpireTime;
+        }
+        if (!Utils::isUnset($request->pushAuthKey)) {
+            $query['PushAuthKey'] = $request->pushAuthKey;
+        }
+        if (!Utils::isUnset($request->pushKeyExpireTime)) {
+            $query['PushKeyExpireTime'] = $request->pushKeyExpireTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRtmpKey',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRtmpKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRtmpKeyRequest $request
+     *
+     * @return UpdateRtmpKeyResponse
+     */
+    public function updateRtmpKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRtmpKeyWithOptions($request, $runtime);
     }
 
     /**

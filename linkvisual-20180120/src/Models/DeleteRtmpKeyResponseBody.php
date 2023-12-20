@@ -4,46 +4,31 @@
 
 namespace AlibabaCloud\SDK\Linkvisual\V20180120\Models;
 
-use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateLocalRecordDownloadByTimeJobResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CreateLocalRecordDownloadByTimeJobResponseBody extends Model
+class DeleteRtmpKeyResponseBody extends Model
 {
     /**
-     * @example 400
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @example Download job error.
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @example E55***B7-4***-4***-8***-D3******F565
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
         'code'         => 'Code',
-        'data'         => 'Data',
         'errorMessage' => 'ErrorMessage',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
@@ -58,9 +43,6 @@ class CreateLocalRecordDownloadByTimeJobResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
@@ -78,16 +60,13 @@ class CreateLocalRecordDownloadByTimeJobResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateLocalRecordDownloadByTimeJobResponseBody
+     * @return DeleteRtmpKeyResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];

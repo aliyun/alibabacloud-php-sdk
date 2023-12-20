@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Linkvisual\V20180120\Models;
 
-use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateLocalRecordDownloadByTimeJobResponseBody\data;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRtmpDeviceResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CreateLocalRecordDownloadByTimeJobResponseBody extends Model
+class CreateRtmpDeviceResponseBody extends Model
 {
     /**
-     * @example 400
-     *
      * @var string
      */
     public $code;
@@ -22,22 +20,16 @@ class CreateLocalRecordDownloadByTimeJobResponseBody extends Model
     public $data;
 
     /**
-     * @example Download job error.
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @example E55***B7-4***-4***-8***-D3******F565
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -78,7 +70,7 @@ class CreateLocalRecordDownloadByTimeJobResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateLocalRecordDownloadByTimeJobResponseBody
+     * @return CreateRtmpDeviceResponseBody
      */
     public static function fromMap($map = [])
     {
