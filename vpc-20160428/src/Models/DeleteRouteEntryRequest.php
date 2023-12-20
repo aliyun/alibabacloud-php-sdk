@@ -31,6 +31,8 @@ class DeleteRouteEntryRequest extends Model
     public $nextHopId;
 
     /**
+     * @description The list of the next hop of the ECMP route.
+     *
      * @var nextHopList[]
      */
     public $nextHopList;

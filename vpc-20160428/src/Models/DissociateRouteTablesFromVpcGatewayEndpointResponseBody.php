@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DissociateRouteTablesFromVpcGatewayEndpointResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 59BDDA2D-FB52-59F9-9DC5-5EA7D6808B8E
      *

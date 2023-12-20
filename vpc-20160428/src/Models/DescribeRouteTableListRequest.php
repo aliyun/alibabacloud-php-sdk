@@ -85,6 +85,11 @@ class DescribeRouteTableListRequest extends Model
     public $routeTableName;
 
     /**
+     * @description The type of the route table. Valid values:
+     * - **System**
+     * - **Custom**
+     * @example System
+     *
      * @var string
      */
     public $routeTableType;

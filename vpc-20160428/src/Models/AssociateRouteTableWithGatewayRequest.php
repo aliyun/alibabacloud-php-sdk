@@ -43,6 +43,10 @@ class AssociateRouteTableWithGatewayRequest extends Model
     public $gatewayId;
 
     /**
+     * @description The type of a gateway to be associated with a route table.
+     *
+     * @example Ipv4Gateway
+     *
      * @var string
      */
     public $gatewayType;

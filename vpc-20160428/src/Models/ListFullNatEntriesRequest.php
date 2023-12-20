@@ -79,6 +79,16 @@ class ListFullNatEntriesRequest extends Model
     public $natGatewayId;
 
     /**
+     * @var string
+     */
+    public $natIp;
+
+    /**
+     * @var string
+     */
+    public $natIpPort;
+
+    /**
      * @description The ID of the elastic network interface (ENI) that you want to query.
      *
      * @var string[]
@@ -134,6 +144,8 @@ class ListFullNatEntriesRequest extends Model
         'ipProtocol'           => 'IpProtocol',
         'maxResults'           => 'MaxResults',
         'natGatewayId'         => 'NatGatewayId',
+        'natIp'                => 'NatIp',
+        'natIpPort'            => 'NatIpPort',
         'networkInterfaceIds'  => 'NetworkInterfaceIds',
         'nextToken'            => 'NextToken',
         'ownerAccount'         => 'OwnerAccount',
@@ -170,6 +182,12 @@ class ListFullNatEntriesRequest extends Model
         }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
+        }
+        if (null !== $this->natIp) {
+            $res['NatIp'] = $this->natIp;
+        }
+        if (null !== $this->natIpPort) {
+            $res['NatIpPort'] = $this->natIpPort;
         }
         if (null !== $this->networkInterfaceIds) {
             $res['NetworkInterfaceIds'] = $this->networkInterfaceIds;
@@ -226,6 +244,12 @@ class ListFullNatEntriesRequest extends Model
         }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
+        }
+        if (isset($map['NatIp'])) {
+            $model->natIp = $map['NatIp'];
+        }
+        if (isset($map['NatIpPort'])) {
+            $model->natIpPort = $map['NatIpPort'];
         }
         if (isset($map['NetworkInterfaceIds'])) {
             if (!empty($map['NetworkInterfaceIds'])) {

@@ -53,6 +53,8 @@ class CreateRouteEntryRequest extends Model
     public $nextHopId;
 
     /**
+     * @description The next hop list.
+     *
      * @var nextHopList[]
      */
     public $nextHopList;

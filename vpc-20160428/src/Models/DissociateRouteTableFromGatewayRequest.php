@@ -42,6 +42,10 @@ class DissociateRouteTableFromGatewayRequest extends Model
     public $gatewayId;
 
     /**
+     * @description The type of a gateway to be disassociated from a route table.
+     *
+     * @example Ipv4Gateway
+     *
      * @var string
      */
     public $gatewayType;
