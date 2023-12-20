@@ -11,7 +11,7 @@ class summarization extends Model
     /**
      * @example Paragraph
      *
-     * @var mixed[]
+     * @var string[]
      */
     public $types;
     protected $_name = [
@@ -41,7 +41,9 @@ class summarization extends Model
     {
         $model = new self();
         if (isset($map['Types'])) {
-            $model->types = $map['Types'];
+            if (!empty($map['Types'])) {
+                $model->types = $map['Types'];
+            }
         }
 
         return $model;

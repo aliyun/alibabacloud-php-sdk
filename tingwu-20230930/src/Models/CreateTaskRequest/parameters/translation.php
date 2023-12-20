@@ -14,7 +14,7 @@ class translation extends Model
     public $outputLevel;
 
     /**
-     * @var mixed[]
+     * @var string[]
      */
     public $targetLanguages;
     protected $_name = [
@@ -51,7 +51,9 @@ class translation extends Model
             $model->outputLevel = $map['OutputLevel'];
         }
         if (isset($map['TargetLanguages'])) {
-            $model->targetLanguages = $map['TargetLanguages'];
+            if (!empty($map['TargetLanguages'])) {
+                $model->targetLanguages = $map['TargetLanguages'];
+            }
         }
 
         return $model;
