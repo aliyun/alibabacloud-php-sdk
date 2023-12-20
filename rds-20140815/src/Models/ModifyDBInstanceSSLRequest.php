@@ -97,6 +97,11 @@ class ModifyDBInstanceSSLRequest extends Model
     /**
      * @var string
      */
+    public $forceEncryption;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -157,6 +162,11 @@ class ModifyDBInstanceSSLRequest extends Model
      * @var string
      */
     public $serverKey;
+
+    /**
+     * @var string
+     */
+    public $tlsVersion;
     protected $_name = [
         'ACL'                      => 'ACL',
         'CAType'                   => 'CAType',
@@ -166,6 +176,7 @@ class ModifyDBInstanceSSLRequest extends Model
         'clientCrlEnabled'         => 'ClientCrlEnabled',
         'connectionString'         => 'ConnectionString',
         'DBInstanceId'             => 'DBInstanceId',
+        'forceEncryption'          => 'ForceEncryption',
         'ownerAccount'             => 'OwnerAccount',
         'ownerId'                  => 'OwnerId',
         'replicationACL'           => 'ReplicationACL',
@@ -174,6 +185,7 @@ class ModifyDBInstanceSSLRequest extends Model
         'SSLEnabled'               => 'SSLEnabled',
         'serverCert'               => 'ServerCert',
         'serverKey'                => 'ServerKey',
+        'tlsVersion'               => 'TlsVersion',
     ];
 
     public function validate()
@@ -207,6 +219,9 @@ class ModifyDBInstanceSSLRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+        if (null !== $this->forceEncryption) {
+            $res['ForceEncryption'] = $this->forceEncryption;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -230,6 +245,9 @@ class ModifyDBInstanceSSLRequest extends Model
         }
         if (null !== $this->serverKey) {
             $res['ServerKey'] = $this->serverKey;
+        }
+        if (null !== $this->tlsVersion) {
+            $res['TlsVersion'] = $this->tlsVersion;
         }
 
         return $res;
@@ -267,6 +285,9 @@ class ModifyDBInstanceSSLRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['ForceEncryption'])) {
+            $model->forceEncryption = $map['ForceEncryption'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -290,6 +311,9 @@ class ModifyDBInstanceSSLRequest extends Model
         }
         if (isset($map['ServerKey'])) {
             $model->serverKey = $map['ServerKey'];
+        }
+        if (isset($map['TlsVersion'])) {
+            $model->tlsVersion = $map['TlsVersion'];
         }
 
         return $model;

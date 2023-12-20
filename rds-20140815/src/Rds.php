@@ -17982,6 +17982,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
+        if (!Utils::isUnset($request->forceEncryption)) {
+            $query['ForceEncryption'] = $request->forceEncryption;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -18005,6 +18008,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->serverKey)) {
             $query['ServerKey'] = $request->serverKey;
+        }
+        if (!Utils::isUnset($request->tlsVersion)) {
+            $query['TlsVersion'] = $request->tlsVersion;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

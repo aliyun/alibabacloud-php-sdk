@@ -71,6 +71,11 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $connectionString;
 
     /**
+     * @var string
+     */
+    public $forceEncryption;
+
+    /**
      * @description The status of the SSL link. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
      *
      *   **success**
@@ -215,6 +220,11 @@ class DescribeDBInstanceSSLResponseBody extends Model
      * @var string
      */
     public $serverKey;
+
+    /**
+     * @var string
+     */
+    public $tlsVersion;
     protected $_name = [
         'ACL'                      => 'ACL',
         'CAType'                   => 'CAType',
@@ -222,6 +232,7 @@ class DescribeDBInstanceSSLResponseBody extends Model
         'clientCACertExpireTime'   => 'ClientCACertExpireTime',
         'clientCertRevocationList' => 'ClientCertRevocationList',
         'connectionString'         => 'ConnectionString',
+        'forceEncryption'          => 'ForceEncryption',
         'lastModifyStatus'         => 'LastModifyStatus',
         'modifyStatusReason'       => 'ModifyStatusReason',
         'replicationACL'           => 'ReplicationACL',
@@ -235,6 +246,7 @@ class DescribeDBInstanceSSLResponseBody extends Model
         'serverCAUrl'              => 'ServerCAUrl',
         'serverCert'               => 'ServerCert',
         'serverKey'                => 'ServerKey',
+        'tlsVersion'               => 'TlsVersion',
     ];
 
     public function validate()
@@ -261,6 +273,9 @@ class DescribeDBInstanceSSLResponseBody extends Model
         }
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
+        }
+        if (null !== $this->forceEncryption) {
+            $res['ForceEncryption'] = $this->forceEncryption;
         }
         if (null !== $this->lastModifyStatus) {
             $res['LastModifyStatus'] = $this->lastModifyStatus;
@@ -301,6 +316,9 @@ class DescribeDBInstanceSSLResponseBody extends Model
         if (null !== $this->serverKey) {
             $res['ServerKey'] = $this->serverKey;
         }
+        if (null !== $this->tlsVersion) {
+            $res['TlsVersion'] = $this->tlsVersion;
+        }
 
         return $res;
     }
@@ -330,6 +348,9 @@ class DescribeDBInstanceSSLResponseBody extends Model
         }
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
+        }
+        if (isset($map['ForceEncryption'])) {
+            $model->forceEncryption = $map['ForceEncryption'];
         }
         if (isset($map['LastModifyStatus'])) {
             $model->lastModifyStatus = $map['LastModifyStatus'];
@@ -369,6 +390,9 @@ class DescribeDBInstanceSSLResponseBody extends Model
         }
         if (isset($map['ServerKey'])) {
             $model->serverKey = $map['ServerKey'];
+        }
+        if (isset($map['TlsVersion'])) {
+            $model->tlsVersion = $map['TlsVersion'];
         }
 
         return $model;
