@@ -9,86 +9,120 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example spdb,sys,test20181221,test-20181228
+     *
      * @var string
      */
     public $backupDBNames;
 
     /**
+     * @example 2019-02-13T12:20:00Z
+     *
      * @var string
      */
     public $backupEndTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $backupExtractionStatus;
 
     /**
+     * @example 321020562
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $backupLocation;
 
     /**
+     * @example Physical
+     *
      * @var string
      */
     public $backupMethod;
 
     /**
+     * @example Automated
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $backupScale;
 
     /**
+     * @example 2167808
+     *
      * @var int
      */
     public $backupSize;
 
     /**
+     * @example 2019-02-03T12:20:00Z
+     *
      * @var string
      */
     public $backupStartTime;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $backupStatus;
 
     /**
+     * @example FullBackup
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @example rm-ul9wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 5882781
+     *
      * @var string
      */
     public $hostInstanceID;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $metaStatus;
 
     /**
+     * @example Disabled
+     *
      * @var string
      */
     public $storeStatus;
 
     /**
+     * @example 00000
+     *
      * @var int
      */
     public $totalBackupSize;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRdsAccountResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -20,6 +22,8 @@ class DeleteRdsAccountResponseBody extends Model
     public $errMsg;
 
     /**
+     * @example 91E855E5-7E80-4955-929B-C74EE1D38C66
+     *
      * @var string
      */
     public $requestId;

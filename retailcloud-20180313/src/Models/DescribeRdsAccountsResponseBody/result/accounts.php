@@ -15,21 +15,29 @@ class accounts extends Model
     public $accountDescription;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $accountStatus;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example rm-ul9wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -40,6 +48,8 @@ class accounts extends Model
     public $databasePrivileges;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $privExceeded;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDatabaseRequest extends Model
 {
     /**
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example testdb01
+     *
      * @var string
      */
     public $DBName;

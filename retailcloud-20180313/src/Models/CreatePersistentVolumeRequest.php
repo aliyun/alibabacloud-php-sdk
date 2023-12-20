@@ -44,6 +44,8 @@ class CreatePersistentVolumeRequest extends Model
     public $name;
 
     /**
+     * @example NFS
+     *
      * @var string
      */
     public $nasType;

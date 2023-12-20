@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteRdsAccountRequest extends Model
 {
     /**
+     * @example test1
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $dbInstanceId;

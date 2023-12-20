@@ -15,6 +15,8 @@ class databases extends Model
     public $accounts;
 
     /**
+     * @example utf8
+     *
      * @var string
      */
     public $characterSetName;
@@ -25,21 +27,29 @@ class databases extends Model
     public $DBDescription;
 
     /**
+     * @example rm-ul9wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example testDBmm
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @example Creating
+     *
      * @var string
      */
     public $DBStatus;
 
     /**
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;

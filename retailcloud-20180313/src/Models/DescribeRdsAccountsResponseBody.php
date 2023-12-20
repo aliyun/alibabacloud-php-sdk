@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdsAccountsResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -20,6 +22,8 @@ class DescribeRdsAccountsResponseBody extends Model
     public $errMsg;
 
     /**
+     * @example 79a8ab31-32ce-4d27-a006-339a5eae3b6e
+     *
      * @var string
      */
     public $requestId;

@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Retailcloud\V20180313\Models\ListDeployConfigResponseBody;
 
 use AlibabaCloud\SDK\Retailcloud\V20180313\Models\ListDeployConfigResponseBody\data\containerCodePath;
+use AlibabaCloud\SDK\Retailcloud\V20180313\Models\ListDeployConfigResponseBody\data\containerResourceLimit;
+use AlibabaCloud\SDK\Retailcloud\V20180313\Models\ListDeployConfigResponseBody\data\containerResourceRequest;
 use AlibabaCloud\SDK\Retailcloud\V20180313\Models\ListDeployConfigResponseBody\data\containerYamlConf;
 use AlibabaCloud\Tea\Model;
 
@@ -19,6 +21,16 @@ class data extends Model
      * @var containerCodePath
      */
     public $containerCodePath;
+
+    /**
+     * @var containerResourceLimit
+     */
+    public $containerResourceLimit;
+
+    /**
+     * @var containerResourceRequest
+     */
+    public $containerResourceRequest;
 
     /**
      * @var containerYamlConf
@@ -40,12 +52,14 @@ class data extends Model
      */
     public $name;
     protected $_name = [
-        'appId'             => 'AppId',
-        'containerCodePath' => 'ContainerCodePath',
-        'containerYamlConf' => 'ContainerYamlConf',
-        'envType'           => 'EnvType',
-        'id'                => 'Id',
-        'name'              => 'Name',
+        'appId'                    => 'AppId',
+        'containerCodePath'        => 'ContainerCodePath',
+        'containerResourceLimit'   => 'ContainerResourceLimit',
+        'containerResourceRequest' => 'ContainerResourceRequest',
+        'containerYamlConf'        => 'ContainerYamlConf',
+        'envType'                  => 'EnvType',
+        'id'                       => 'Id',
+        'name'                     => 'Name',
     ];
 
     public function validate()
@@ -60,6 +74,12 @@ class data extends Model
         }
         if (null !== $this->containerCodePath) {
             $res['ContainerCodePath'] = null !== $this->containerCodePath ? $this->containerCodePath->toMap() : null;
+        }
+        if (null !== $this->containerResourceLimit) {
+            $res['ContainerResourceLimit'] = null !== $this->containerResourceLimit ? $this->containerResourceLimit->toMap() : null;
+        }
+        if (null !== $this->containerResourceRequest) {
+            $res['ContainerResourceRequest'] = null !== $this->containerResourceRequest ? $this->containerResourceRequest->toMap() : null;
         }
         if (null !== $this->containerYamlConf) {
             $res['ContainerYamlConf'] = null !== $this->containerYamlConf ? $this->containerYamlConf->toMap() : null;
@@ -90,6 +110,12 @@ class data extends Model
         }
         if (isset($map['ContainerCodePath'])) {
             $model->containerCodePath = containerCodePath::fromMap($map['ContainerCodePath']);
+        }
+        if (isset($map['ContainerResourceLimit'])) {
+            $model->containerResourceLimit = containerResourceLimit::fromMap($map['ContainerResourceLimit']);
+        }
+        if (isset($map['ContainerResourceRequest'])) {
+            $model->containerResourceRequest = containerResourceRequest::fromMap($map['ContainerResourceRequest']);
         }
         if (isset($map['ContainerYamlConf'])) {
             $model->containerYamlConf = containerYamlConf::fromMap($map['ContainerYamlConf']);

@@ -205,7 +205,6 @@ use AlibabaCloud\SDK\Retailcloud\V20180313\Models\UpdateEnvironmentResponse;
 use AlibabaCloud\SDK\Retailcloud\V20180313\Models\UpdateNormalDeployConfigRequest;
 use AlibabaCloud\SDK\Retailcloud\V20180313\Models\UpdateNormalDeployConfigResponse;
 use AlibabaCloud\SDK\Retailcloud\V20180313\Models\UpdateNormalDeployConfigShrinkRequest;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -5297,10 +5296,10 @@ class Retailcloud extends OpenApiClient
         $request = new UpdateNormalDeployConfigShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->containerResourceLimit)) {
-            $request->containerResourceLimitShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->containerResourceLimit), 'ContainerResourceLimit', 'json');
+            $request->containerResourceLimitShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->containerResourceLimit, 'ContainerResourceLimit', 'json');
         }
         if (!Utils::isUnset($tmpReq->containerResourceRequest)) {
-            $request->containerResourceRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->containerResourceRequest), 'ContainerResourceRequest', 'json');
+            $request->containerResourceRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->containerResourceRequest, 'ContainerResourceRequest', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->appId)) {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDbRequest extends Model
 {
     /**
+     * @example gbk
+     *
      * @var string
      */
     public $characterSetName;
@@ -19,11 +21,15 @@ class CreateDbRequest extends Model
     public $dbDescription;
 
     /**
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @example rds_mysql
+     *
      * @var string
      */
     public $dbName;

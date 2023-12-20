@@ -15,21 +15,29 @@ class result extends Model
     public $items;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $pageRecordCount;
 
     /**
+     * @example 8672256
+     *
      * @var int
      */
     public $totalBackupSize;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $totalRecordCount;

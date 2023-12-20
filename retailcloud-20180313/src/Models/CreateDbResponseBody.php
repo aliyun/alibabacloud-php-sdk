@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDbResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
@@ -19,6 +21,8 @@ class CreateDbResponseBody extends Model
     public $errMsg;
 
     /**
+     * @example 07F6177E-6DE4-408A-BB4F-0723301340F3
+     *
      * @var string
      */
     public $requestId;

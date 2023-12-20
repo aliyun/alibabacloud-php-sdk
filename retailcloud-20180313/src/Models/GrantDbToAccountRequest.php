@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GrantDbToAccountRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example ReadWrite
+     *
      * @var string
      */
     public $accountPrivilege;
 
     /**
+     * @example rm-ul9wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @example testDB
+     *
      * @var string
      */
     public $dbName;

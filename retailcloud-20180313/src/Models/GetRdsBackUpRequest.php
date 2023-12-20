@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetRdsBackUpRequest extends Model
 {
     /**
+     * @example 327329803
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @example FullBackup
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @example rm-ul9wjk5xxxxxxx
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

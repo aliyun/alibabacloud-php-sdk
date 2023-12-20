@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class databasePrivileges extends Model
 {
     /**
+     * @example ReadWrite
+     *
      * @var string
      */
     public $accountPrivilege;
 
     /**
+     * @example SELECT,INSERT
+     *
      * @var string
      */
     public $accountPrivilegeDetail;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $DBName;
