@@ -60,6 +60,13 @@ class JobSettings extends Model
      *
      * @var bool
      */
+    public $enableSanityCheck;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
     public $enableTideResource;
 
     /**
@@ -98,6 +105,13 @@ class JobSettings extends Model
     public $pipelineId;
 
     /**
+     * @example --sanity-check-timing=AfterJobFaultTolerant --sanity-check-timeout-ops=MarkJobFai
+     *
+     * @var string
+     */
+    public $sanityCheckArgs;
+
+    /**
      * @var string[]
      */
     public $tags;
@@ -109,12 +123,14 @@ class JobSettings extends Model
         'enableErrorMonitoringInAIMaster' => 'EnableErrorMonitoringInAIMaster',
         'enableOssAppend'                 => 'EnableOssAppend',
         'enableRDMA'                      => 'EnableRDMA',
+        'enableSanityCheck'               => 'EnableSanityCheck',
         'enableTideResource'              => 'EnableTideResource',
         'errorMonitoringArgs'             => 'ErrorMonitoringArgs',
         'jobReservedMinutes'              => 'JobReservedMinutes',
         'jobReservedPolicy'               => 'JobReservedPolicy',
         'oversoldType'                    => 'OversoldType',
         'pipelineId'                      => 'PipelineId',
+        'sanityCheckArgs'                 => 'SanityCheckArgs',
         'tags'                            => 'Tags',
     ];
 
@@ -146,6 +162,9 @@ class JobSettings extends Model
         if (null !== $this->enableRDMA) {
             $res['EnableRDMA'] = $this->enableRDMA;
         }
+        if (null !== $this->enableSanityCheck) {
+            $res['EnableSanityCheck'] = $this->enableSanityCheck;
+        }
         if (null !== $this->enableTideResource) {
             $res['EnableTideResource'] = $this->enableTideResource;
         }
@@ -163,6 +182,9 @@ class JobSettings extends Model
         }
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
+        }
+        if (null !== $this->sanityCheckArgs) {
+            $res['SanityCheckArgs'] = $this->sanityCheckArgs;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -200,6 +222,9 @@ class JobSettings extends Model
         if (isset($map['EnableRDMA'])) {
             $model->enableRDMA = $map['EnableRDMA'];
         }
+        if (isset($map['EnableSanityCheck'])) {
+            $model->enableSanityCheck = $map['EnableSanityCheck'];
+        }
         if (isset($map['EnableTideResource'])) {
             $model->enableTideResource = $map['EnableTideResource'];
         }
@@ -217,6 +242,9 @@ class JobSettings extends Model
         }
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
+        }
+        if (isset($map['SanityCheckArgs'])) {
+            $model->sanityCheckArgs = $map['SanityCheckArgs'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
