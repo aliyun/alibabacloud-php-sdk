@@ -132,6 +132,9 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainProxyTokensRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainProxyTokensResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListEiamInstancesRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListEiamInstancesResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListEiamRegionsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForUserRequest;
@@ -3294,6 +3297,85 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListEiamInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListEiamInstancesResponse
+     */
+    public function listEiamInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->instanceRegionId)) {
+            $query['InstanceRegionId'] = $request->instanceRegionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEiamInstances',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEiamInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListEiamInstancesRequest $request
+     *
+     * @return ListEiamInstancesResponse
+     */
+    public function listEiamInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEiamInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListEiamRegionsResponse
+     */
+    public function listEiamRegionsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListEiamRegions',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEiamRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListEiamRegionsResponse
+     */
+    public function listEiamRegions()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEiamRegionsWithOptions($runtime);
     }
 
     /**
