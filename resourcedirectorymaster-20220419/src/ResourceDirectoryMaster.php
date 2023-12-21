@@ -1349,6 +1349,9 @@ class ResourceDirectoryMaster extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->enableMode)) {
             $query['EnableMode'] = $request->enableMode;
         }

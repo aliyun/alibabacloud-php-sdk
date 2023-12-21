@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class EnableResourceDirectoryRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description The mode in which you enable a resource directory. Valid values:
      *
      *   CurrentAccount: The current account is used to enable a resource directory.
@@ -50,6 +55,7 @@ class EnableResourceDirectoryRequest extends Model
      */
     public $verificationCode;
     protected $_name = [
+        'dryRun'              => 'DryRun',
         'enableMode'          => 'EnableMode',
         'MAName'              => 'MAName',
         'MASecureMobilePhone' => 'MASecureMobilePhone',
@@ -63,6 +69,9 @@ class EnableResourceDirectoryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->enableMode) {
             $res['EnableMode'] = $this->enableMode;
         }
@@ -87,6 +96,9 @@ class EnableResourceDirectoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['EnableMode'])) {
             $model->enableMode = $map['EnableMode'];
         }
