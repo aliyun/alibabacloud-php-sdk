@@ -84,6 +84,10 @@ use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopListTextToAvatarProjectRequest
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopListTextToAvatarProjectResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopObjectProjectDetailRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopObjectProjectDetailResponse;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopObjectRetrievalRequest;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopObjectRetrievalResponse;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopObjectRetrievalUploadDataRequest;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopObjectRetrievalUploadDataResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopQueryAvatarProjectDetailRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopQueryAvatarProjectDetailResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopQueryLatestAvatarProjectDetailByUserRequest;
@@ -1369,6 +1373,9 @@ class XrEngine extends OpenApiClient
             $query['JwtToken'] = $request->jwtToken;
         }
         $body = [];
+        if (!Utils::isUnset($request->bizUsage)) {
+            $body['BizUsage'] = $request->bizUsage;
+        }
         if (!Utils::isUnset($request->extInfo)) {
             $body['ExtInfo'] = $request->extInfo;
         }
@@ -2274,6 +2281,103 @@ class XrEngine extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->popObjectProjectDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PopObjectRetrievalRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PopObjectRetrievalResponse
+     */
+    public function popObjectRetrievalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jwtToken)) {
+            $query['JwtToken'] = $request->jwtToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $body['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->topK)) {
+            $body['TopK'] = $request->topK;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PopObjectRetrieval',
+            'version'     => '2023-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PopObjectRetrievalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PopObjectRetrievalRequest $request
+     *
+     * @return PopObjectRetrievalResponse
+     */
+    public function popObjectRetrieval($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->popObjectRetrievalWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PopObjectRetrievalUploadDataRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return PopObjectRetrievalUploadDataResponse
+     */
+    public function popObjectRetrievalUploadDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jwtToken)) {
+            $query['JwtToken'] = $request->jwtToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PopObjectRetrievalUploadData',
+            'version'     => '2023-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PopObjectRetrievalUploadDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PopObjectRetrievalUploadDataRequest $request
+     *
+     * @return PopObjectRetrievalUploadDataResponse
+     */
+    public function popObjectRetrievalUploadData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->popObjectRetrievalUploadDataWithOptions($request, $runtime);
     }
 
     /**

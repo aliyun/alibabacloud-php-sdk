@@ -2,18 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\XrEngine\V20230313\Models\ListDigitalHumanMaterialsResponseBody;
+namespace AlibabaCloud\SDK\XrEngine\V20230313\Models\ListDigitalHumanMaterialsResponseBody\data;
 
-use AlibabaCloud\SDK\XrEngine\V20230313\Models\ListDigitalHumanMaterialsResponseBody\data\components;
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class components extends Model
 {
-    /**
-     * @var components[]
-     */
-    public $components;
-
     /**
      * @var string
      */
@@ -44,13 +38,12 @@ class data extends Model
      */
     public $type;
     protected $_name = [
-        'components' => 'Components',
-        'ext'        => 'Ext',
-        'fileUrl'    => 'FileUrl',
-        'files'      => 'Files',
-        'id'         => 'Id',
-        'name'       => 'Name',
-        'type'       => 'Type',
+        'ext'     => 'Ext',
+        'fileUrl' => 'FileUrl',
+        'files'   => 'Files',
+        'id'      => 'Id',
+        'name'    => 'Name',
+        'type'    => 'Type',
     ];
 
     public function validate()
@@ -60,15 +53,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->components) {
-            $res['Components'] = [];
-            if (null !== $this->components && \is_array($this->components)) {
-                $n = 0;
-                foreach ($this->components as $item) {
-                    $res['Components'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->ext) {
             $res['Ext'] = $this->ext;
         }
@@ -94,20 +78,11 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return components
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Components'])) {
-            if (!empty($map['Components'])) {
-                $model->components = [];
-                $n                 = 0;
-                foreach ($map['Components'] as $item) {
-                    $model->components[$n++] = null !== $item ? components::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['Ext'])) {
             $model->ext = $map['Ext'];
         }

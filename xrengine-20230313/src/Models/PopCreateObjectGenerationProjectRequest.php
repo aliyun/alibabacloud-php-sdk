@@ -11,6 +11,11 @@ class PopCreateObjectGenerationProjectRequest extends Model
     /**
      * @var string
      */
+    public $bizUsage;
+
+    /**
+     * @var string
+     */
     public $extInfo;
 
     /**
@@ -28,6 +33,7 @@ class PopCreateObjectGenerationProjectRequest extends Model
      */
     public $title;
     protected $_name = [
+        'bizUsage' => 'BizUsage',
         'extInfo'  => 'ExtInfo',
         'intro'    => 'Intro',
         'jwtToken' => 'JwtToken',
@@ -41,6 +47,9 @@ class PopCreateObjectGenerationProjectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizUsage) {
+            $res['BizUsage'] = $this->bizUsage;
+        }
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
         }
@@ -65,6 +74,9 @@ class PopCreateObjectGenerationProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizUsage'])) {
+            $model->bizUsage = $map['BizUsage'];
+        }
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
         }
