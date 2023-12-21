@@ -13,16 +13,25 @@ use AlibabaCloud\Tea\Model;
 class tracingDetail extends Model
 {
     /**
+     * @description The edges.
+     *
      * @var edgeList[]
      */
     public $edgeList;
 
     /**
+     * @description The entities.
+     *
      * @var entityTypeList[]
      */
     public $entityTypeList;
 
     /**
+     * @description The rendering language of the returned result. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,11 +39,15 @@ class tracingDetail extends Model
     public $lang;
 
     /**
+     * @description The relationships.
+     *
      * @var relationTypeList[]
      */
     public $relationTypeList;
 
     /**
+     * @description The nodes.
+     *
      * @var vertexList[]
      */
     public $vertexList;

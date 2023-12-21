@@ -126,6 +126,8 @@ class ListCheckItemWarningMachineRequest extends Model
     public $status;
 
     /**
+     * @description The UUID array of the servers.
+     *
      * @var string[]
      */
     public $uuidList;

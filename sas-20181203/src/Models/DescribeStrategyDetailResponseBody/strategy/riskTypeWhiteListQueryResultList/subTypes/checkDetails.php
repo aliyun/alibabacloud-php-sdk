@@ -37,7 +37,7 @@ class checkDetails extends Model
     public $checkItem;
 
     /**
-     * @description The details of rules.
+     * @description An array that consists of rules.
      *
      * @var rules[]
      */

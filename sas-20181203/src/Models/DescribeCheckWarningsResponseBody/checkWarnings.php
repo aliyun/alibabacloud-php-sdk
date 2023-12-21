@@ -27,11 +27,19 @@ class checkWarnings extends Model
     public $checkWarningId;
 
     /**
+     * @description The ID of the container.
+     *
+     * @example 8de456b00ff0a2009ee8ef7fc59fd0457fa44f20b8282af3e79c2a0e2492****
+     *
      * @var string
      */
     public $containerId;
 
     /**
+     * @description The name of the container.
+     *
+     * @example /svn-host
+     *
      * @var string
      */
     public $containerName;

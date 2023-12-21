@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The detail of check items.
+     *
      * @var checkDetails[]
      */
     public $checkDetails;
 
     /**
+     * @description The type of the check item.
+     *
      * @example data_integrity
      *
      * @var string
@@ -22,6 +26,8 @@ class data extends Model
     public $checkType;
 
     /**
+     * @description The display name of the check item type.
+     *
      * @example Data Integrity
      *
      * @var string

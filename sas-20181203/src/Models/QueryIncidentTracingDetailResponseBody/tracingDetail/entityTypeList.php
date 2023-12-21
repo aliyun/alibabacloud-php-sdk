@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class entityTypeList extends Model
 {
     /**
+     * @description The version ID of the current entity.
+     *
      * @example 1768
      *
      * @var string
@@ -16,16 +18,26 @@ class entityTypeList extends Model
     public $currentVersionId;
 
     /**
+     * @description The display color of the current entity.
+     *
+     * @example #FFF
+     *
      * @var string
      */
     public $displayColor;
 
     /**
+     * @description The display icon of the current entity.
+     *
+     * @example -
+     *
      * @var string
      */
     public $displayIcon;
 
     /**
+     * @description The display sequence of the current entity.
+     *
      * @example 2
      *
      * @var int
@@ -33,11 +45,17 @@ class entityTypeList extends Model
     public $displayOrder;
 
     /**
+     * @description The display template of the current entity.
+     *
+     * @example []
+     *
      * @var string
      */
     public $displayTemplate;
 
     /**
+     * @description The time when the current entity was created.
+     *
      * @example 2022-10-09T10:53Z
      *
      * @var string
@@ -45,6 +63,8 @@ class entityTypeList extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the current entity was updated.
+     *
      * @example 1585816811000
      *
      * @var string
@@ -52,6 +72,8 @@ class entityTypeList extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the current entity.
+     *
      * @example 1425
      *
      * @var string
@@ -59,11 +81,26 @@ class entityTypeList extends Model
     public $id;
 
     /**
+     * @description Indicates whether the entity is a virtual node. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $isVirtualNode;
 
     /**
+     * @description The type of the current entity. Valid values include the following values:
+     *
+     *   **process**
+     *   **file**
+     *   **alert**
+     *   **ip**
+     *   **domain**
+     *
      * @example auto-test-policy-name
      *
      * @var string
@@ -71,7 +108,7 @@ class entityTypeList extends Model
     public $name;
 
     /**
-     * @description namespace
+     * @description The namespace of the current entity.
      *
      * @example 78
      *
@@ -80,7 +117,7 @@ class entityTypeList extends Model
     public $namespace;
 
     /**
-     * @description SyncId
+     * @description The synchronization ID of the current entity.
      *
      * @example e2fdf402-b4ed-4e1a-9e95-44d6069600b0
      *
@@ -89,6 +126,13 @@ class entityTypeList extends Model
     public $syncId;
 
     /**
+     * @description The tag that indicates whether tracing was successful. Valid values:
+     *
+     *   **1**: successful
+     *   **0**: failed
+     *
+     * @example 1
+     *
      * @var int
      */
     public $traceSuccessFlag;

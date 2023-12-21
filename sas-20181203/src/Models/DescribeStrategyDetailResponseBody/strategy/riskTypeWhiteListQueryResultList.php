@@ -19,10 +19,10 @@ class riskTypeWhiteListQueryResultList extends Model
     public $alias;
 
     /**
-     * @description Indicates whether the check item is selected. Valid values:
+     * @description Indicates whether the risk item is selected. Valid values:
      *
-     *   **true**: The check item is selected.
-     *   **false**: The check item is not selected.
+     *   **true**: yes
+     *   **false**: no
      *
      * @example false
      *
@@ -31,14 +31,14 @@ class riskTypeWhiteListQueryResultList extends Model
     public $on;
 
     /**
-     * @description The sub-check items.
+     * @description An array that consists of sub-risk items.
      *
      * @var subTypes[]
      */
     public $subTypes;
 
     /**
-     * @description The check item.
+     * @description The name of the check item.
      *
      * @example hc_exploit
      *

@@ -21,6 +21,19 @@ class OperateCommonOverallConfigRequest extends Model
     public $config;
 
     /**
+     * @description Specifies whether to configure assets for the feature. Default value: **false**. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  This parameter takes effect only when you set **Config** to **on**.
+     * @example true
+     *
+     * @var bool
+     */
+    public $noTargetAsOn;
+
+    /**
      * @description The source IP address of the request.
      *
      * @example 223.79.XX.XX
@@ -109,9 +122,10 @@ class OperateCommonOverallConfigRequest extends Model
      */
     public $type;
     protected $_name = [
-        'config'   => 'Config',
-        'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
+        'config'       => 'Config',
+        'noTargetAsOn' => 'NoTargetAsOn',
+        'sourceIp'     => 'SourceIp',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -123,6 +137,9 @@ class OperateCommonOverallConfigRequest extends Model
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
+        }
+        if (null !== $this->noTargetAsOn) {
+            $res['NoTargetAsOn'] = $this->noTargetAsOn;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -144,6 +161,9 @@ class OperateCommonOverallConfigRequest extends Model
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
+        }
+        if (isset($map['NoTargetAsOn'])) {
+            $model->noTargetAsOn = $map['NoTargetAsOn'];
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

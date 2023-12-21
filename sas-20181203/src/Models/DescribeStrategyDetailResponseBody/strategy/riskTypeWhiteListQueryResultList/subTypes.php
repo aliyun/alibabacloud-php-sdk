@@ -19,17 +19,17 @@ class subTypes extends Model
     public $alias;
 
     /**
-     * @description The details of custom check items.
+     * @description The details about the custom check item.
      *
      * @var checkDetails[]
      */
     public $checkDetails;
 
     /**
-     * @description Indicates whether the sub-check item is selected. Valid values:
+     * @description Indicates whether the sub-risk item is selected. Valid values:
      *
-     *   **true**: The sub-check item is selected.
-     *   **false**: The sub-check item is not selected.
+     *   **true**: yes
+     *   **false**: no
      *
      * @example false
      *
@@ -38,6 +38,12 @@ class subTypes extends Model
     public $on;
 
     /**
+     * @description The operating system type of the server. Valid values:
+     *   **windows**
+     *   **linux**
+     *
+     * @example windows
+     *
      * @var string
      */
     public $supportedOs;

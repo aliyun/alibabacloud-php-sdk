@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class relationTypeList extends Model
 {
     /**
+     * @description The version ID of the current relationship.
+     *
      * @example 1487
      *
      * @var string
@@ -16,28 +18,47 @@ class relationTypeList extends Model
     public $currentVersionId;
 
     /**
+     * @description The direction of the current relationship. Valid values:
+     *
+     *   **1**: forward
+     *   **0**: reverse
+     *
+     * @example 1
+     *
      * @var int
      */
     public $directed;
 
     /**
+     * @description The display color of the current relationship.
+     *
+     * @example #FFF
+     *
      * @var string
      */
     public $displayColor;
 
     /**
-     * @description ICON
+     * @description The display icon of the current relationship.
+     *
+     * @example https://img.alicdn.com/imgextra/i2/O1CN01jpZwD31G56XYPEJv2_!!600000000****-55-tps-25-28.svg
      *
      * @var string
      */
     public $displayIcon;
 
     /**
+     * @description The display template of the current relationship.
+     *
+     * @example []
+     *
      * @var string
      */
     public $displayTemplate;
 
     /**
+     * @description The time when the current relationship was created.
+     *
      * @example 2022-09-23T10:50Z
      *
      * @var string
@@ -45,6 +66,8 @@ class relationTypeList extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the current relationship was updated.
+     *
      * @example 2022-07-12T07:58:49Z
      *
      * @var string
@@ -52,6 +75,8 @@ class relationTypeList extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the current relationship.
+     *
      * @example 1514
      *
      * @var string
@@ -59,6 +84,12 @@ class relationTypeList extends Model
     public $id;
 
     /**
+     * @description The type of the current relationship. Valid values include the following values:
+     *
+     *   **process_exec_file**: The relationship indicates an executable file that is run by a process.
+     *   **process_connect_ip**: The relationship indicates an IP address that is connected by a process.
+     *   **domain_trgger_alert**: The relationship indicates an alert that is triggered for a domain name.
+     *
      * @example wusa
      *
      * @var string
@@ -66,6 +97,8 @@ class relationTypeList extends Model
     public $name;
 
     /**
+     * @description The namespace of the current relationship.
+     *
      * @example default
      *
      * @var string
@@ -73,12 +106,16 @@ class relationTypeList extends Model
     public $namespace;
 
     /**
+     * @description The display type of the current relationship.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $showType;
 
     /**
-     * @description SyncID
+     * @description The synchronization ID of the current relationship.
      *
      * @example sync-0000aws50gyy2ocisbmx
      *

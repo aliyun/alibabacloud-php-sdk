@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListOpaClusterStrategyNewRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,16 +18,22 @@ class ListOpaClusterStrategyNewRequest extends Model
     public $currentPage;
 
     /**
+     * @description The image names.
+     *
      * @var string[]
      */
     public $imageName;
 
     /**
+     * @description The tags that are added to the container.
+     *
      * @var string[]
      */
     public $label;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -33,6 +41,8 @@ class ListOpaClusterStrategyNewRequest extends Model
     public $pageSize;
 
     /**
+     * @description The rule names.
+     *
      * @var string[]
      */
     public $strategyName;

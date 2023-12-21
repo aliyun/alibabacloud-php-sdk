@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class taskImageInfo extends Model
 {
     /**
+     * @description The name of the application.
+     *
      * @example ack-jenkins-****
      *
      * @var string
@@ -16,6 +18,8 @@ class taskImageInfo extends Model
     public $appName;
 
     /**
+     * @description The ID of the cluster.
+     *
      * @example a765ba1435e7f9446065370e9a41****
      *
      * @var string
@@ -23,6 +27,8 @@ class taskImageInfo extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example ACK-test-****
      *
      * @var string
@@ -30,6 +36,8 @@ class taskImageInfo extends Model
     public $clusterName;
 
     /**
+     * @description The image digest.
+     *
      * @example default_digest
      *
      * @var string
@@ -37,6 +45,8 @@ class taskImageInfo extends Model
     public $digest;
 
     /**
+     * @description The container image.
+     *
      * @example ***s.com/sas_test/baseli***
      *
      * @var string
@@ -44,6 +54,8 @@ class taskImageInfo extends Model
     public $image;
 
     /**
+     * @description The instance ID of the node.
+     *
      * @example i-0xi5mxvtmfw9****
      *
      * @var string
@@ -51,6 +63,8 @@ class taskImageInfo extends Model
     public $nodeInstanceId;
 
     /**
+     * @description The IP address of the node.
+     *
      * @example 172.18.XXX.XXX
      *
      * @var string
@@ -58,6 +72,8 @@ class taskImageInfo extends Model
     public $nodeIp;
 
     /**
+     * @description The name of the node.
+     *
      * @example pztest****
      *
      * @var string
@@ -65,6 +81,8 @@ class taskImageInfo extends Model
     public $nodeName;
 
     /**
+     * @description The pod of the image.
+     *
      * @example expoit-law-****
      *
      * @var string
@@ -72,6 +90,8 @@ class taskImageInfo extends Model
     public $pod;
 
     /**
+     * @description The region ID of the server image.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -79,6 +99,8 @@ class taskImageInfo extends Model
     public $regionId;
 
     /**
+     * @description The ID of the image repository.
+     *
      * @example crr-r88w2vryp8m****
      *
      * @var string
@@ -86,6 +108,8 @@ class taskImageInfo extends Model
     public $repoId;
 
     /**
+     * @description The name of the image repository.
+     *
      * @example testyyy
      *
      * @var string
@@ -93,6 +117,8 @@ class taskImageInfo extends Model
     public $repoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
      * @example bitn***
      *
      * @var string
@@ -100,6 +126,8 @@ class taskImageInfo extends Model
     public $repoNamespace;
 
     /**
+     * @description The region ID of the image repository.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -107,6 +135,8 @@ class taskImageInfo extends Model
     public $repoRegionId;
 
     /**
+     * @description The image tag.
+     *
      * @example v1.20-002-a2*****
      *
      * @var string

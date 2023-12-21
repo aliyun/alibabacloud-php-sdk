@@ -19,10 +19,10 @@ class rules extends Model
     public $defaultValue;
 
     /**
-     * @description Indicates whether the rule can be selected. Valid values:
+     * @description Indicates whether the rule is included in the policy. Valid values:
      *
-     *   **1**: The rule can be selected.
-     *   **0**: The rule cannot be selected.
+     *   **1**: yes
+     *   **0**: no
      *
      * @example 1
      *
@@ -31,7 +31,7 @@ class rules extends Model
     public $optional;
 
     /**
-     * @description The rule parameters.
+     * @description An array that consists of the parameters of the rule.
      *
      * @var paramList[]
      */
@@ -47,7 +47,7 @@ class rules extends Model
     public $ruleDesc;
 
     /**
-     * @description The rule ID.
+     * @description The ID of the rule.
      *
      * @example login_unlock_deny_pam_faillock.must.cus
      *

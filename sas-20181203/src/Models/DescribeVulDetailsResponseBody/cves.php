@@ -35,7 +35,7 @@ class cves extends Model
     public $cnvdId;
 
     /**
-     * @description The difficulty level of exploiting the vulnerability. Valid value:
+     * @description The difficulty level of exploiting the vulnerability. Valid values:
      *
      *   **LOW**
      *   **MEDIUM**
@@ -66,7 +66,7 @@ class cves extends Model
     public $cveId;
 
     /**
-     * @description The link of the CVE content.
+     * @description The link to the CVE details.
      *
      * @example https://avd.aliyun.com/detail/CVE-2022-1184
      *
@@ -93,9 +93,9 @@ class cves extends Model
     public $cvssVector;
 
     /**
-     * @description The instance name of the server.
+     * @description The name of the instance.
      *
-     * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instances that are affected by vulnerabilities.
+     * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
      * @example sql-test-001
      *
      * @var string
@@ -105,7 +105,7 @@ class cves extends Model
     /**
      * @description The public IP address of the server.
      *
-     * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instances that are affected by vulnerabilities.
+     * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
      * @example 47.114.XX.XX
      *
      * @var string
@@ -115,7 +115,7 @@ class cves extends Model
     /**
      * @description The private IP address of the server.
      *
-     * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instances that are affected by vulnerabilities.
+     * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
      * @example 172.19.XX.XX
      *
      * @var string
@@ -141,7 +141,7 @@ class cves extends Model
     public $poc;
 
     /**
-     * @description The timestamp when the proof of concept (POC) was created. Unit: milliseconds.
+     * @description The UNIX timestamp when the proof of concept (POC) was created. Unit: milliseconds.
      *
      * @example 1554189334000
      *
@@ -150,7 +150,7 @@ class cves extends Model
     public $pocCreateTime;
 
     /**
-     * @description The timestamp when the POC was disclosed. Unit: milliseconds.
+     * @description The UNIX timestamp when the POC was disclosed. Unit: milliseconds.
      *
      * @example 1554189334000
      *
@@ -204,8 +204,9 @@ class cves extends Model
     public $summary;
 
     /**
-     * @description The ID of the asset on which the malicious image sample is detected.
+     * @description The ID of the asset that is scanned.
      *
+     * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
      * @example m-bp17m0pc0xprzbwo****
      *
      * @var string
@@ -213,8 +214,9 @@ class cves extends Model
     public $targetId;
 
     /**
-     * @description The name of the asset on which the malicious image sample is detected.
+     * @description The name of the asset that is scanned.
      *
+     * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
      * @example frontend
      *
      * @var string
@@ -240,7 +242,7 @@ class cves extends Model
     public $vendor;
 
     /**
-     * @description The severity of the vulnerability. Valid value:
+     * @description The severity of the vulnerability. Valid values:
      *
      *   **serious**
      *   **high**

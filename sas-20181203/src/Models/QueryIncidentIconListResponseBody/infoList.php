@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class infoList extends Model
 {
     /**
+     * @description The information about the entities.
+     *
      * @var entityTypeList[]
      */
     public $entityTypeList;
 
     /**
+     * @description The information about the edges.
+     *
      * @var relationTypeList[]
      */
     public $relationTypeList;

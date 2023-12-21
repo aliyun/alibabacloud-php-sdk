@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The action of the rule. Valid values:
+     *
+     *   **1**: trigger alerts
+     *   **2**: block
+     *   **3**: allow
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +22,8 @@ class list_ extends Model
     public $action;
 
     /**
+     * @description The number of clusters on which the rule takes effect.
+     *
      * @example 1
      *
      * @var int
@@ -23,11 +31,15 @@ class list_ extends Model
     public $clusterCount;
 
     /**
+     * @description The clusters on which the rule takes effect.
+     *
      * @var string[]
      */
     public $clusterIdList;
 
     /**
+     * @description The description.
+     *
      * @example Config the Event Audit policys
      *
      * @var string
@@ -35,16 +47,25 @@ class list_ extends Model
     public $description;
 
     /**
+     * @description The image names.
+     *
      * @var string[]
      */
     public $imageName;
 
     /**
+     * @description The tags that are added to the container.
+     *
      * @var string[]
      */
     public $label;
 
     /**
+     * @description Indicates whether the rule supports malicious Internet images. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -52,6 +73,8 @@ class list_ extends Model
     public $maliciousImage;
 
     /**
+     * @description The rule ID.
+     *
      * @example 1
      *
      * @var int
@@ -59,6 +82,8 @@ class list_ extends Model
     public $strategyId;
 
     /**
+     * @description The rule name.
+     *
      * @example auto-strategy-vohuiq
      *
      * @var string
@@ -66,6 +91,11 @@ class list_ extends Model
     public $strategyName;
 
     /**
+     * @description Indicates whether the rule supports unscanned images. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

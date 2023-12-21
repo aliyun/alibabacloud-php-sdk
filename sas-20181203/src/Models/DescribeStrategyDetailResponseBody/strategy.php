@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class strategy extends Model
 {
     /**
-     * @description The type of the baseline check policy. Valid values:
+     * @description The type of the baseline check policy that you want to query. Valid values:
      *
      *   **common**: standard baseline check policy
      *   **custom**: custom baseline check policy
@@ -45,7 +45,7 @@ class strategy extends Model
     public $cycleStartTime;
 
     /**
-     * @description The time when the baseline check based on the baseline check policy ends.
+     * @description The end time of the check. Specify the time in the HH:mm:ss format.
      *
      * @example 03:00:00
      *
@@ -72,8 +72,9 @@ class strategy extends Model
     public $name;
 
     /**
-     * @description The subtype of the baseline check item.
+     * @description The subtype of the baselines.
      *
+     * > You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the subtypes of baselines.
      * @example hc_nginx_linux,tomcat7,hc_mysql_ali,hc_docker
      *
      * @var string
@@ -81,14 +82,14 @@ class strategy extends Model
     public $riskSubTypeName;
 
     /**
-     * @description An array that consists of the whitelist of risk items.
+     * @description The whitelist of risk items.
      *
      * @var riskTypeWhiteListQueryResultList[]
      */
     public $riskTypeWhiteListQueryResultList;
 
     /**
-     * @description The time when the baseline check based on the baseline check policy starts.
+     * @description The start time of the check. Specify the time in the HH:mm:ss format.
      *
      * @example 02:00:00
      *
@@ -97,10 +98,10 @@ class strategy extends Model
     public $startTime;
 
     /**
-     * @description The condition by which the baseline check policy is applied to the asset. Valid values:
+     * @description The method that is used to apply the baseline check policy. Valid values:
      *
-     *   **groupId**: the ID of the asset group
-     *   **uuid**: the UUID of the asset
+     *   **groupId**: asset groups
+     *   **uuid**: assets
      *
      * @example groupId
      *
@@ -111,8 +112,8 @@ class strategy extends Model
     /**
      * @description The type of the baseline check policy. Valid values:
      *
-     *   **1**: standard baseline check policy
-     *   **2**: custom baseline check policy
+     *   **1**: standard policies
+     *   **2**: custom policies
      *
      * @example 1
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class displayInfo extends Model
 {
     /**
+     * @description The name of the property that needs to be displayed for the current node.
+     *
      * @example scan:ACSV-2020-111301
      *
      * @var string
@@ -16,6 +18,8 @@ class displayInfo extends Model
     public $name;
 
     /**
+     * @description The value of the property that needs to be displayed for the current node.
+     *
      * @example 10.16.1
      *
      * @var string

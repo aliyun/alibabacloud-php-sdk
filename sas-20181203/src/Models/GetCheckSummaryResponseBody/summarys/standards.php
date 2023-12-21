@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponseBody\summarys;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponseBody\summarys\standards\standardStatistic;
 use AlibabaCloud\Tea\Model;
 
 class standards extends Model
@@ -70,6 +71,11 @@ class standards extends Model
      * @var string
      */
     public $showName;
+
+    /**
+     * @var standardStatistic
+     */
+    public $standardStatistic;
     protected $_name = [
         'failCount'            => 'FailCount',
         'id'                   => 'Id',
@@ -78,6 +84,7 @@ class standards extends Model
         'riskLevelLowCount'    => 'RiskLevelLowCount',
         'riskLevelMediumCount' => 'RiskLevelMediumCount',
         'showName'             => 'ShowName',
+        'standardStatistic'    => 'StandardStatistic',
     ];
 
     public function validate()
@@ -107,6 +114,9 @@ class standards extends Model
         }
         if (null !== $this->showName) {
             $res['ShowName'] = $this->showName;
+        }
+        if (null !== $this->standardStatistic) {
+            $res['StandardStatistic'] = null !== $this->standardStatistic ? $this->standardStatistic->toMap() : null;
         }
 
         return $res;
@@ -140,6 +150,9 @@ class standards extends Model
         }
         if (isset($map['ShowName'])) {
             $model->showName = $map['ShowName'];
+        }
+        if (isset($map['StandardStatistic'])) {
+            $model->standardStatistic = standardStatistic::fromMap($map['StandardStatistic']);
         }
 
         return $model;

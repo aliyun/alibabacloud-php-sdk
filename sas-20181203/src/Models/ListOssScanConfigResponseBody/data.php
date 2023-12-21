@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Whether to match all file prefixes.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class data extends Model
     public $allKeyPrefix;
 
     /**
+     * @description The number of the buckets.
+     *
      * @example 10
      *
      * @var int
@@ -23,11 +27,18 @@ class data extends Model
     public $bucketCount;
 
     /**
+     * @description The name of the bucket.
+     *
      * @var string[]
      */
     public $bucketNameList;
 
     /**
+     * @description Indicates whether the check policy is enabled. Valid values:
+     *
+     *   **1**: enabled.
+     *   **0**: disabled.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +46,8 @@ class data extends Model
     public $enable;
 
     /**
+     * @description The end time of the check. The time is in the HH:mm:ss format.
+     *
      * @example 06:00:00
      *
      * @var string
@@ -42,6 +55,8 @@ class data extends Model
     public $endTime;
 
     /**
+     * @description The ID of the policy.
+     *
      * @example 443496
      *
      * @var int
@@ -49,16 +64,22 @@ class data extends Model
     public $id;
 
     /**
+     * @description The prefix of the object that you want to check.
+     *
      * @var string[]
      */
     public $keyPrefixList;
 
     /**
+     * @description The suffix of the object that is checked.
+     *
      * @var string[]
      */
     public $keySuffixList;
 
     /**
+     * @description The time when the policy last update.
+     *
      * @example 1698388233883
      *
      * @var int
@@ -66,6 +87,8 @@ class data extends Model
     public $lastUpdateTime;
 
     /**
+     * @description The name of the policy.
+     *
      * @example test****
      *
      * @var string
@@ -73,11 +96,15 @@ class data extends Model
     public $name;
 
     /**
+     * @description The day when the check is performed. The value indicates the day of the week.
+     *
      * @var int[]
      */
     public $scanDayList;
 
     /**
+     * @description The start time of the check. The time is in the HH:mm:ss format.
+     *
      * @example 00:00:00
      *
      * @var string

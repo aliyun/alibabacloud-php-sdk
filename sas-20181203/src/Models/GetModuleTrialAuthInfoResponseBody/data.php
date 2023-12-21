@@ -15,6 +15,8 @@ class data extends Model
      *   **true**
      *   **false**
      *
+     * @example false
+     *
      * @var bool
      */
     public $canTry;

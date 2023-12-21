@@ -727,6 +727,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetCloudAssetCriteriaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCloudAssetCriteriaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCloudAssetDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCloudAssetDetailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCloudAssetSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCloudAssetSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterCheckItemWarningStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterCheckItemWarningStatisticsResponse;
@@ -20667,6 +20668,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
             $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
+        if (!Utils::isUnset($request->vendors)) {
+            $query['Vendors'] = $request->vendors;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -20945,13 +20949,21 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param GetCloudAssetSummaryRequest $request
+     * @param RuntimeOptions              $runtime
      *
      * @return GetCloudAssetSummaryResponse
      */
-    public function getCloudAssetSummaryWithOptions($runtime)
+    public function getCloudAssetSummaryWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->vendors)) {
+            $query['Vendors'] = $request->vendors;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'GetCloudAssetSummary',
             'version'     => '2018-12-03',
@@ -20968,13 +20980,15 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param GetCloudAssetSummaryRequest $request
+     *
      * @return GetCloudAssetSummaryResponse
      */
-    public function getCloudAssetSummary()
+    public function getCloudAssetSummary($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getCloudAssetSummaryWithOptions($runtime);
+        return $this->getCloudAssetSummaryWithOptions($request, $runtime);
     }
 
     /**
@@ -31971,6 +31985,9 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->config)) {
             $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->noTargetAsOn)) {
+            $query['NoTargetAsOn'] = $request->noTargetAsOn;
         }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class vertexList extends Model
 {
     /**
-     * @description aliuid
+     * @description The ID of the Alibaba Cloud account to which the current node belongs.
      *
      * @example 1487146717137516
      *
@@ -20,11 +20,15 @@ class vertexList extends Model
     public $aliuid;
 
     /**
+     * @description The display information of the current node.
+     *
      * @var displayInfo[]
      */
     public $displayInfo;
 
     /**
+     * @description The ID of the current node.
+     *
      * @example 383044
      *
      * @var string
@@ -32,6 +36,8 @@ class vertexList extends Model
     public $id;
 
     /**
+     * @description The rendering language of the current node.
+     *
      * @example zh
      *
      * @var string
@@ -39,6 +45,8 @@ class vertexList extends Model
     public $lang;
 
     /**
+     * @description The name of the current node.
+     *
      * @example auto-test-attestor
      *
      * @var string
@@ -46,11 +54,15 @@ class vertexList extends Model
     public $name;
 
     /**
+     * @description The nodes that are adjacent to the current node.
+     *
      * @var neighborList[]
      */
     public $neighborList;
 
     /**
+     * @description The text that contains the properties of the current node.
+     *
      * @example [{\"PropertyValues\": [{\"PropertyValueId\": 239, \"PropertyValue\": \"121\"}, {\"PropertyValueId\": 240, \"PropertyValue\": \"6666\"}], \"PropertyKey\": \"22222222\", \"PropertyId\": 203}]
      *
      * @var string
@@ -58,11 +70,17 @@ class vertexList extends Model
     public $properties;
 
     /**
+     * @description The property of the current node.
+     *
+     * @example {\"coverage\":\"global\"}
+     *
      * @var mixed[]
      */
     public $property;
 
     /**
+     * @description The ID of the rule based on which the current node is generated.
+     *
      * @example 301425
      *
      * @var string
@@ -70,6 +88,8 @@ class vertexList extends Model
     public $ruleId;
 
     /**
+     * @description The time when the current node was created.
+     *
      * @example 2021-11-26
      *
      * @var string
@@ -77,6 +97,8 @@ class vertexList extends Model
     public $time;
 
     /**
+     * @description The UNIX timestamp when the current node was created. Unit: milliseconds.
+     *
      * @example 1663048980
      *
      * @var int
@@ -84,6 +106,14 @@ class vertexList extends Model
     public $timestamp;
 
     /**
+     * @description The type of the current node. Valid values include the following values:
+     *
+     *   **process**
+     *   **file**
+     *   **alert**
+     *   **ip**
+     *   **domain**
+     *
      * @example alidetect
      *
      * @var string
@@ -91,6 +121,8 @@ class vertexList extends Model
     public $type;
 
     /**
+     * @description The time when the current node was updated.
+     *
      * @example 2022-01-13 12:49:33
      *
      * @var string
@@ -98,7 +130,7 @@ class vertexList extends Model
     public $updateTime;
 
     /**
-     * @description UUID
+     * @description The UUID of the current node. The security information and event management (SIEM) system generates UUIDs for nodes and edges in the provenance graph to help you locate the nodes or edges.
      *
      * @example 32e36d8a-2b5d-4f71-98a8-12775685a3b4
      *

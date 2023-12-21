@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class onceTasks extends Model
 {
     /**
+     * @description The time when the task ends.
+     *
      * @example 1670307567000
      *
      * @var int
@@ -17,6 +19,11 @@ class onceTasks extends Model
     public $endTime;
 
     /**
+     * @description Indicates whether the task is complete. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +31,8 @@ class onceTasks extends Model
     public $finish;
 
     /**
+     * @description The number of assets on which the task is complete.
+     *
      * @example 67
      *
      * @var int
@@ -31,6 +40,8 @@ class onceTasks extends Model
     public $finishCount;
 
     /**
+     * @description The progress percentage of the task.
+     *
      * @example 75
      *
      * @var int
@@ -38,6 +49,8 @@ class onceTasks extends Model
     public $progress;
 
     /**
+     * @description The execution duration of the task.
+     *
      * @example 1670307567000
      *
      * @var int
@@ -45,6 +58,8 @@ class onceTasks extends Model
     public $realRunTime;
 
     /**
+     * @description The execution result of the task.
+     *
      * @example TASK_NOT_SUPPORT_REGION
      *
      * @var string
@@ -52,6 +67,8 @@ class onceTasks extends Model
     public $resultInfo;
 
     /**
+     * @description The time when the task is started.
+     *
      * @example 1640102400000
      *
      * @var int
@@ -59,6 +76,8 @@ class onceTasks extends Model
     public $startTime;
 
     /**
+     * @description The status.
+     *
      * @example 1
      *
      * @var int
@@ -66,6 +85,13 @@ class onceTasks extends Model
     public $status;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **INIT**: The task is not started.
+     *   **START**: The task is started.
+     *   **SUCCESS**: The task is complete.
+     *   **TIMEOUT**: The task timed out.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -73,6 +99,8 @@ class onceTasks extends Model
     public $statusText;
 
     /**
+     * @description The objective of the task.
+     *
      * @example 238cf050a7270dd6940602e70f1e5a11eeaf4e02035f445b7f613ff5e064****
      *
      * @var string
@@ -80,6 +108,11 @@ class onceTasks extends Model
     public $target;
 
     /**
+     * @description The type of the assets that are scanned. Valid values:
+     *
+     *   **IMAGE_REPO**: image repository
+     *   **IMAGE**: image
+     *
      * @example IMAGE
      *
      * @var string
@@ -87,6 +120,8 @@ class onceTasks extends Model
     public $targetType;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 9fb50f2af8bb67c9fdb684194c83****
      *
      * @var string
@@ -94,11 +129,15 @@ class onceTasks extends Model
     public $taskId;
 
     /**
+     * @description The information about the image scan task.
+     *
      * @var taskImageInfo
      */
     public $taskImageInfo;
 
     /**
+     * @description The name of the task.
+     *
      * @example IMAGE_SCAN
      *
      * @var string
@@ -106,6 +145,8 @@ class onceTasks extends Model
     public $taskName;
 
     /**
+     * @description The type of the task.
+     *
      * @example IMAGE_SCAN
      *
      * @var string
@@ -113,6 +154,8 @@ class onceTasks extends Model
     public $taskType;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 30
      *
      * @var int

@@ -28,9 +28,15 @@ class GetCheckSummaryRequest extends Model
      * @var string
      */
     public $resourceDirectoryAccountId;
+
+    /**
+     * @var string[]
+     */
+    public $vendors;
     protected $_name = [
         'lang'                       => 'Lang',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'vendors'                    => 'Vendors',
     ];
 
     public function validate()
@@ -45,6 +51,9 @@ class GetCheckSummaryRequest extends Model
         }
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
+        }
+        if (null !== $this->vendors) {
+            $res['Vendors'] = $this->vendors;
         }
 
         return $res;
@@ -63,6 +72,11 @@ class GetCheckSummaryRequest extends Model
         }
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
+        }
+        if (isset($map['Vendors'])) {
+            if (!empty($map['Vendors'])) {
+                $model->vendors = $map['Vendors'];
+            }
         }
 
         return $model;

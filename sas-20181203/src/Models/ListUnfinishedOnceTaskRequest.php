@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListUnfinishedOnceTaskRequest extends Model
 {
     /**
+     * @description The value of the object on which the task runs. If you set TaskType to IMAGE_SCAN, set this parameter to the UUID of the image that you want to scan. If you set TaskType to ASSETS_COLLECTION, set this parameter to the UUID of the server whose information you want to collect.
+     *
      * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
      *
      * @var string
@@ -16,6 +18,11 @@ class ListUnfinishedOnceTaskRequest extends Model
     public $target;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **ASSETS_COLLECTION**: asset information collection task
+     *   **IMAGE_SCAN**: image scan task
+     *
      * @example IMAGE_SCAN
      *
      * @var string

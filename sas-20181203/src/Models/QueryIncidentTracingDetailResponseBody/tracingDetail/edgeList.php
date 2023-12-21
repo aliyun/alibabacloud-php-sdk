@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class edgeList extends Model
 {
     /**
-     * @description AliUid
+     * @description The ID of the Alibaba Cloud account to which the current edge belongs.
      *
      * @example 1277498600854739
      *
@@ -18,16 +18,32 @@ class edgeList extends Model
     public $aliuid;
 
     /**
+     * @description The ID of the end node for the current edge.
+     *
+     * @example 223a185f05e5fc3c637
+     *
      * @var string
      */
     public $endId;
 
     /**
+     * @description The type of the end node for the current edge. Valid values include the following values:
+     *
+     *   **process**
+     *   **file**
+     *   **alert**
+     *   **ip**
+     *   **domain**
+     *
+     * @example process_test_process
+     *
      * @var string
      */
     public $endType;
 
     /**
+     * @description The name of the current edge.
+     *
      * @example mongod
      *
      * @var string
@@ -35,7 +51,7 @@ class edgeList extends Model
     public $name;
 
     /**
-     * @description Origin
+     * @description The origin vertex ID of the current edge.
      *
      * @example distribution
      *
@@ -44,6 +60,8 @@ class edgeList extends Model
     public $origin;
 
     /**
+     * @description The text that contains the properties of the current edge.
+     *
      * @example {\"bandWidth\":\"8192\",\"internetIp\":\"8.211.13.50\",\"changeReason\":\"EIP_BIND\",\"bindInstanceId\":\"i-gw887xhzjvyjfv7vdfs3\",\"bindType\":\"EIP_ECS\"}
      *
      * @var string
@@ -51,11 +69,17 @@ class edgeList extends Model
     public $properties;
 
     /**
+     * @description The property of the current edge.
+     *
+     * @example {\"coverage\":\"global\"}
+     *
      * @var mixed[]
      */
     public $property;
 
     /**
+     * @description The ID of the rule based on which the current edge is generated.
+     *
      * @example 136
      *
      * @var string
@@ -63,11 +87,17 @@ class edgeList extends Model
     public $ruleId;
 
     /**
+     * @description The display type of the current edge.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $showType;
 
     /**
+     * @description The ID of the start node for the current edge.
+     *
      * @example 23003
      *
      * @var string
@@ -75,11 +105,23 @@ class edgeList extends Model
     public $startId;
 
     /**
+     * @description The type of the start node for the current edge. Valid values include the following values:
+     *
+     *   **process**
+     *   **file**
+     *   **alert**:
+     *   **ip**
+     *   **domain**
+     *
+     * @example process
+     *
      * @var string
      */
     public $startType;
 
     /**
+     * @description The time when the current edge was created.
+     *
      * @example 1652941117
      *
      * @var string
@@ -87,6 +129,8 @@ class edgeList extends Model
     public $time;
 
     /**
+     * @description The UNIX timestamp when the current edge was created. Unit: milliseconds.
+     *
      * @example 1636092632
      *
      * @var int
@@ -94,6 +138,12 @@ class edgeList extends Model
     public $timestamp;
 
     /**
+     * @description The type of the current edge. Valid values include the following values:
+     *
+     *   **process_exec_file**: The relationship indicates an executable file that is run by a process.
+     *   **process_connect_ip**: The relationship indicates an IP address that is connected by a process.
+     *   **domain_trgger_alert**: The relationship indicates an alert that is triggered for a domain name.
+     *
      * @example elf
      *
      * @var string
@@ -101,6 +151,8 @@ class edgeList extends Model
     public $type;
 
     /**
+     * @description The type of the current edge.
+     *
      * @example cis
      *
      * @var string
@@ -108,6 +160,8 @@ class edgeList extends Model
     public $typeName;
 
     /**
+     * @description The time when the current edge was updated.
+     *
      * @example 2022-01-13 12:49:33
      *
      * @var string
@@ -115,7 +169,7 @@ class edgeList extends Model
     public $updateTime;
 
     /**
-     * @description UUID
+     * @description The UUID of the current edge. The SIEM system generates UUIDs for nodes and edges in the provenance graph to help you locate the nodes or edges.
      *
      * @example 678e29f4-d78f-4a7c-a2bc-38434a138538
      *

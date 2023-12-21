@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class checkDetails extends Model
 {
     /**
+     * @description The list of the baseline categories of attribution.
+     *
      * @var string[]
      */
     public $affiliatedRiskTypes;
 
     /**
+     * @description The list of baselines attribution.
+     *
      * @var string[]
      */
     public $affiliatedRisks;
 
     /**
+     * @description The ID of the check item.
+     *
+     * @example 31
+     *
      * @var int
      */
     public $checkId;
 
     /**
+     * @description The description of the check item.
+     *
+     * @example Configure the idle session timeout period.
+     *
      * @var string
      */
     public $checkItem;

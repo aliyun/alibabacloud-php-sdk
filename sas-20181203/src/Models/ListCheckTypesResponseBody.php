@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListCheckTypesResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var string
@@ -17,6 +19,8 @@ class ListCheckTypesResponseBody extends Model
     public $code;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 10
      *
      * @var int
@@ -24,11 +28,15 @@ class ListCheckTypesResponseBody extends Model
     public $count;
 
     /**
+     * @description The data returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class ListCheckTypesResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -43,6 +53,8 @@ class ListCheckTypesResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example D65AADFC-1D20-5A6A-8F6A-9FA53C0D****
      *
      * @var string
@@ -50,6 +62,11 @@ class ListCheckTypesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

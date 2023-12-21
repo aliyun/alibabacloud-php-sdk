@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ListOpaClusterStrategyNewResponseBody extends Model
 {
     /**
+     * @description The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -18,6 +20,8 @@ class ListOpaClusterStrategyNewResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -25,11 +29,15 @@ class ListOpaClusterStrategyNewResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The rules.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The message that shows the export task result. The value is fixed as **success**, which indicates that the export task is successful.
+     *
      * @example success
      *
      * @var string
@@ -37,11 +45,15 @@ class ListOpaClusterStrategyNewResponseBody extends Model
     public $message;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 7DFD947C-9172-5129-B783-DD14C55191D2
      *
      * @var string
@@ -49,6 +61,11 @@ class ListOpaClusterStrategyNewResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

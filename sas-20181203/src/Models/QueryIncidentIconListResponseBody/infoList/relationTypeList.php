@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class relationTypeList extends Model
 {
     /**
+     * @description The direction of the edge. Valid values:
+     *
+     *   **1**: forward
+     *   **0**: reverse
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +21,8 @@ class relationTypeList extends Model
     public $directed;
 
     /**
+     * @description The display color of the edge.
+     *
      * @example #FFF
      *
      * @var string
@@ -23,6 +30,8 @@ class relationTypeList extends Model
     public $displayColor;
 
     /**
+     * @description The icon that corresponds to the edge.
+     *
      * @example https://img.alicdn.com/imgextra/i4/O1CN01ft6rvQ22uUX2JsTmv_!!600000******-55-tps-12-12.svg
      *
      * @var string
@@ -30,6 +39,8 @@ class relationTypeList extends Model
     public $displayIcon;
 
     /**
+     * @description The display template of the edge.
+     *
      * @example test_template
      *
      * @var string
@@ -37,6 +48,8 @@ class relationTypeList extends Model
     public $displayTemplate;
 
     /**
+     * @description The time when the edge was created.
+     *
      * @example 167660031*****
      *
      * @var string
@@ -44,6 +57,8 @@ class relationTypeList extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the edge was modified.
+     *
      * @example 2023-01-04T17:35Z
      *
      * @var string
@@ -51,6 +66,8 @@ class relationTypeList extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the edge.
+     *
      * @example 4556****
      *
      * @var string
@@ -58,6 +75,8 @@ class relationTypeList extends Model
     public $id;
 
     /**
+     * @description The name of the edge.
+     *
      * @example policy-auto-effs3b
      *
      * @var string
@@ -65,6 +84,8 @@ class relationTypeList extends Model
     public $name;
 
     /**
+     * @description The namespace of the edge.
+     *
      * @example lkl-zf-bs-lams
      *
      * @var string
@@ -72,6 +93,8 @@ class relationTypeList extends Model
     public $namespace;
 
     /**
+     * @description The display type of the edge.
+     *
      * @example 0
      *
      * @var string

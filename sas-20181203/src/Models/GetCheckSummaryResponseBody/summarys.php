@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponseBody;
 
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponseBody\summarys\standards;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponseBody\summarys\typeStatistic;
 use AlibabaCloud\Tea\Model;
 
 class summarys extends Model
@@ -46,11 +47,17 @@ class summarys extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var typeStatistic
+     */
+    public $typeStatistic;
     protected $_name = [
-        'failCount' => 'FailCount',
-        'passCount' => 'PassCount',
-        'standards' => 'Standards',
-        'type'      => 'Type',
+        'failCount'     => 'FailCount',
+        'passCount'     => 'PassCount',
+        'standards'     => 'Standards',
+        'type'          => 'Type',
+        'typeStatistic' => 'TypeStatistic',
     ];
 
     public function validate()
@@ -77,6 +84,9 @@ class summarys extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->typeStatistic) {
+            $res['TypeStatistic'] = null !== $this->typeStatistic ? $this->typeStatistic->toMap() : null;
         }
 
         return $res;
@@ -107,6 +117,9 @@ class summarys extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['TypeStatistic'])) {
+            $model->typeStatistic = typeStatistic::fromMap($map['TypeStatistic']);
         }
 
         return $model;

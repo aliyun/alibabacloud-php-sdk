@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListOssScanConfigRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListOssScanConfigRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the config.
+     *
      * @example testName
      *
      * @var string
@@ -23,6 +27,8 @@ class ListOssScanConfigRequest extends Model
     public $name;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int

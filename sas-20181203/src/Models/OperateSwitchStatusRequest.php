@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class OperateSwitchStatusRequest extends Model
 {
     /**
+     * @description The rule ID.
+     *
+     * >  You can call the [ListContainerDefenseRule](~~2590599~~) operation to query the rule ID.
      * @example 900001
      *
      * @var int
@@ -16,6 +19,9 @@ class OperateSwitchStatusRequest extends Model
     public $ruleId;
 
     /**
+     * @description The rule status for container tamper-proofing. Valid values:
+     * - **on**
+     * - **off**
      * @example on
      *
      * @var string

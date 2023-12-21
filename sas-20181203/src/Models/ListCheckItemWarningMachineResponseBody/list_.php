@@ -64,6 +64,12 @@ class list_ extends Model
     public $fixList;
 
     /**
+     * @description Whether the repair is supported. Valid values:
+     *   **0**: Supported
+     *   **1**: Not Supported
+     *
+     * @example 1
+     *
      * @var int
      */
     public $fixStatus;
@@ -105,6 +111,10 @@ class list_ extends Model
     public $intranetIp;
 
     /**
+     * @description The timestamp of the latest processing of the check item risk of the machine. Unit: milliseconds.
+     *
+     * @example 1694692471000
+     *
      * @var int
      */
     public $lastHandleTime;

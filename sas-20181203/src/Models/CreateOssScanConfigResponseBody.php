@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateOssScanConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the policy.
+     *
+     * @example 210****
+     *
      * @var int
      */
     public $id;

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListOssScanConfigResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example E10BAF1C-A6C5-51E2-866C-76D5922E****
      *
      * @var string

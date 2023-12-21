@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryIncidentTracingDetailResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example D2956025-4E5C-529D-92B4-B2591DDED067
      *
      * @var string
@@ -17,6 +19,11 @@ class QueryIncidentTracingDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example True
      *
      * @var bool
@@ -24,6 +31,8 @@ class QueryIncidentTracingDetailResponseBody extends Model
     public $success;
 
     /**
+     * @description The information about the provenance graph.
+     *
      * @var tracingDetail
      */
     public $tracingDetail;

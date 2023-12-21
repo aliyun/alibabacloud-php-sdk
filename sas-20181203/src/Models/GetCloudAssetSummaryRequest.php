@@ -6,19 +6,14 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteOssScanConfigRequest extends Model
+class GetCloudAssetSummaryRequest extends Model
 {
     /**
-     * @description The ID of the policy.
-     *
-     * >  You can call the [ListOssScanConfig](~~ListOssScanConfig~~) operation to query the IDs of rules.
-     * @example 1589
-     *
-     * @var int
+     * @var int[]
      */
-    public $id;
+    public $vendors;
     protected $_name = [
-        'id' => 'Id',
+        'vendors' => 'Vendors',
     ];
 
     public function validate()
@@ -28,8 +23,8 @@ class DeleteOssScanConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->vendors) {
+            $res['Vendors'] = $this->vendors;
         }
 
         return $res;
@@ -38,13 +33,15 @@ class DeleteOssScanConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteOssScanConfigRequest
+     * @return GetCloudAssetSummaryRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Vendors'])) {
+            if (!empty($map['Vendors'])) {
+                $model->vendors = $map['Vendors'];
+            }
         }
 
         return $model;

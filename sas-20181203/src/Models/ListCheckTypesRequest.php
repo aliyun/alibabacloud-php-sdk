@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCheckTypesRequest extends Model
 {
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,11 @@ class ListCheckTypesRequest extends Model
     public $currentPage;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example en
      *
      * @var string
@@ -23,6 +30,9 @@ class ListCheckTypesRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+     *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -30,6 +40,9 @@ class ListCheckTypesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the baseline.
+     *
+     * >  You can call the [DescribeCheckWarningSummary](~~116179~~) operation to query the IDs of baselines.
      * @example 34
      *
      * @var int
@@ -37,16 +50,32 @@ class ListCheckTypesRequest extends Model
     public $riskId;
 
     /**
+     * @description Whether to query the check item list. The default value is false. Valid values:
+     *
+     * - **false**: Not Query
+     * - **true**: Query
+     * @example false
+     *
      * @var bool
      */
     public $showChecks;
 
     /**
+     * @description The data source. Default value: **default**. Valid values:
+     *
+     *   **agentless**: The check items of baselines for agentless detection.
+     *   **default**: The check items of baselines for hosts.
+     *
+     * @example agentless
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The UUID of the server.
+     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @example 293b07cb-db2d-4f39-941f-b2e4abb8****
      *
      * @var string

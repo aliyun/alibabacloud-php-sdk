@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponseBody\overallStatistic;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponseBody\summarys;
 use AlibabaCloud\Tea\Model;
 
 class GetCheckSummaryResponseBody extends Model
 {
+    /**
+     * @var overallStatistic
+     */
+    public $overallStatistic;
+
     /**
      * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
@@ -25,8 +31,9 @@ class GetCheckSummaryResponseBody extends Model
      */
     public $summarys;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'summarys'  => 'Summarys',
+        'overallStatistic' => 'OverallStatistic',
+        'requestId'        => 'RequestId',
+        'summarys'         => 'Summarys',
     ];
 
     public function validate()
@@ -36,6 +43,9 @@ class GetCheckSummaryResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->overallStatistic) {
+            $res['OverallStatistic'] = null !== $this->overallStatistic ? $this->overallStatistic->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,6 +70,9 @@ class GetCheckSummaryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OverallStatistic'])) {
+            $model->overallStatistic = overallStatistic::fromMap($map['OverallStatistic']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

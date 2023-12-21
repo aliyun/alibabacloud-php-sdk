@@ -85,9 +85,9 @@ class DescribeCheckWarningsRequest extends Model
     public $resourceDirectoryAccountId;
 
     /**
-     * @description The ID of the risk item.
+     * @description The ID of the risk item. This parameter is required.
      *
-     * >  To query the information about the risk items and check items of a server, you must provide the IDs of risk items. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs.
+     * >  To query the information about the risk items and check items of a server, you must specify the IDs of the risk items. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of risk items.
      * @example 10354
      *
      * @var int

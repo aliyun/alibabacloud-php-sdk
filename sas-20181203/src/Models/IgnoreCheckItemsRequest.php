@@ -17,6 +17,8 @@ class IgnoreCheckItemsRequest extends Model
     public $checkAndRiskTypeList;
 
     /**
+     * @description The IDs of check items.
+     *
      * @var int[]
      */
     public $checkIds;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QueryIncidentIconListResponseBody extends Model
 {
     /**
+     * @description The response code. Valid values:
+     *
+     *   **200**: The request was successful.
+     *   **400**: The request failed.
+     *
      * @example 200
      *
      * @var string
@@ -17,6 +22,8 @@ class QueryIncidentIconListResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -24,11 +31,15 @@ class QueryIncidentIconListResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The information about the entities and edges.
+     *
      * @var infoList
      */
     public $infoList;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -36,6 +47,8 @@ class QueryIncidentIconListResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8****
      *
      * @var string
@@ -43,6 +56,11 @@ class QueryIncidentIconListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -50,6 +68,8 @@ class QueryIncidentIconListResponseBody extends Model
     public $success;
 
     /**
+     * @description The consumed time of the request. Unit: seconds.
+     *
      * @example 1
      *
      * @var int
