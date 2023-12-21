@@ -1,3 +1,6 @@
+2023-12-21 Version: 1.2.1
+- Generated php 2022-03-02 for Green.
+
 2023-12-18 Version: 1.2.0
 - Add VideoModerationCancel API.
 
