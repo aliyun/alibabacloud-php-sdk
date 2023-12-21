@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanRequest\tenantContext;
 use AlibabaCloud\Tea\Model;
 
 class CreateDeliveryPlanRequest extends Model
@@ -35,15 +36,21 @@ class CreateDeliveryPlanRequest extends Model
     public $startTime;
 
     /**
+     * @var tenantContext
+     */
+    public $tenantContext;
+
+    /**
      * @var string[]
      */
     public $userIdList;
     protected $_name = [
-        'content'    => 'Content',
-        'endTime'    => 'EndTime',
-        'resId'      => 'ResId',
-        'startTime'  => 'StartTime',
-        'userIdList' => 'UserIdList',
+        'content'       => 'Content',
+        'endTime'       => 'EndTime',
+        'resId'         => 'ResId',
+        'startTime'     => 'StartTime',
+        'tenantContext' => 'TenantContext',
+        'userIdList'    => 'UserIdList',
     ];
 
     public function validate()
@@ -64,6 +71,9 @@ class CreateDeliveryPlanRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->tenantContext) {
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
         if (null !== $this->userIdList) {
             $res['UserIdList'] = $this->userIdList;
@@ -91,6 +101,9 @@ class CreateDeliveryPlanRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TenantContext'])) {
+            $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
         if (isset($map['UserIdList'])) {
             if (!empty($map['UserIdList'])) {

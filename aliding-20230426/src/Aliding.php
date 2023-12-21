@@ -1878,6 +1878,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($tmpReq->content)) {
             $request->contentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
         }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
         if (!Utils::isUnset($tmpReq->userIdList)) {
             $request->userIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'UserIdList', 'json');
         }
@@ -1893,6 +1896,9 @@ class Aliding extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
         }
         if (!Utils::isUnset($request->userIdListShrink)) {
             $body['UserIdList'] = $request->userIdListShrink;
@@ -9672,6 +9678,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($tmpReq->content)) {
             $request->contentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
         }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->contentShrink)) {
             $body['Content'] = $request->contentShrink;
@@ -9681,6 +9690,9 @@ class Aliding extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -9741,6 +9753,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($tmpReq->content)) {
             $request->contentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
         }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->contentShrink)) {
             $body['Content'] = $request->contentShrink;
@@ -9750,6 +9765,9 @@ class Aliding extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -9810,6 +9828,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($tmpReq->content)) {
             $request->contentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
         }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->contentShrink)) {
             $body['Content'] = $request->contentShrink;
@@ -9819,6 +9840,9 @@ class Aliding extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {

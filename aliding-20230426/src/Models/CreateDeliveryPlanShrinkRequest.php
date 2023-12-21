@@ -37,13 +37,19 @@ class CreateDeliveryPlanShrinkRequest extends Model
     /**
      * @var string
      */
+    public $tenantContextShrink;
+
+    /**
+     * @var string
+     */
     public $userIdListShrink;
     protected $_name = [
-        'contentShrink'    => 'Content',
-        'endTime'          => 'EndTime',
-        'resId'            => 'ResId',
-        'startTime'        => 'StartTime',
-        'userIdListShrink' => 'UserIdList',
+        'contentShrink'       => 'Content',
+        'endTime'             => 'EndTime',
+        'resId'               => 'ResId',
+        'startTime'           => 'StartTime',
+        'tenantContextShrink' => 'TenantContext',
+        'userIdListShrink'    => 'UserIdList',
     ];
 
     public function validate()
@@ -64,6 +70,9 @@ class CreateDeliveryPlanShrinkRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->tenantContextShrink) {
+            $res['TenantContext'] = $this->tenantContextShrink;
         }
         if (null !== $this->userIdListShrink) {
             $res['UserIdList'] = $this->userIdListShrink;
@@ -91,6 +100,9 @@ class CreateDeliveryPlanShrinkRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TenantContext'])) {
+            $model->tenantContextShrink = $map['TenantContext'];
         }
         if (isset($map['UserIdList'])) {
             $model->userIdListShrink = $map['UserIdList'];

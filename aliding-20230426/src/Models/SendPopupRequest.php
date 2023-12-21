@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SendPopupRequest\tenantContext;
 use AlibabaCloud\Tea\Model;
 
 class SendPopupRequest extends Model
@@ -26,10 +27,16 @@ class SendPopupRequest extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var tenantContext
+     */
+    public $tenantContext;
     protected $_name = [
-        'content'   => 'Content',
-        'endTime'   => 'EndTime',
-        'startTime' => 'StartTime',
+        'content'       => 'Content',
+        'endTime'       => 'EndTime',
+        'startTime'     => 'StartTime',
+        'tenantContext' => 'TenantContext',
     ];
 
     public function validate()
@@ -47,6 +54,9 @@ class SendPopupRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->tenantContext) {
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
         }
 
         return $res;
@@ -68,6 +78,9 @@ class SendPopupRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TenantContext'])) {
+            $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
 
         return $model;

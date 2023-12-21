@@ -26,10 +26,16 @@ class SendPopupShrinkRequest extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $tenantContextShrink;
     protected $_name = [
-        'contentShrink' => 'Content',
-        'endTime'       => 'EndTime',
-        'startTime'     => 'StartTime',
+        'contentShrink'       => 'Content',
+        'endTime'             => 'EndTime',
+        'startTime'           => 'StartTime',
+        'tenantContextShrink' => 'TenantContext',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class SendPopupShrinkRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->tenantContextShrink) {
+            $res['TenantContext'] = $this->tenantContextShrink;
         }
 
         return $res;
@@ -68,6 +77,9 @@ class SendPopupShrinkRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TenantContext'])) {
+            $model->tenantContextShrink = $map['TenantContext'];
         }
 
         return $model;
