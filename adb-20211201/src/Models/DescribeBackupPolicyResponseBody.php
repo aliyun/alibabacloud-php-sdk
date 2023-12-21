@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyResponseBody extends Model
 {
     /**
+     * @description The number of days for which data backup files are retained.
+     *
      * @example 7
      *
      * @var int
@@ -16,6 +18,11 @@ class DescribeBackupPolicyResponseBody extends Model
     public $backupRetentionPeriod;
 
     /**
+     * @description Indicates whether log backup is enabled. Valid values:
+     *
+     *   **Enable**
+     *   **Disable**
+     *
      * @example true
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeBackupPolicyResponseBody extends Model
     public $enableBackupLog;
 
     /**
+     * @description The number of days for which the log backup files are retained.
+     *
      * @example 7
      *
      * @var int
@@ -30,6 +39,16 @@ class DescribeBackupPolicyResponseBody extends Model
     public $logBackupRetentionPeriod;
 
     /**
+     * @description The cycle based on which backups are performed. If more than one day of the week are specified, the days of the week are separated by commas (,). Valid value:
+     *
+     *   Monday
+     *   Tuesday
+     *   Wednesday
+     *   Thursday
+     *   Friday
+     *   Saturday
+     *   Sunday
+     *
      * @example Wednesday,Saturday
      *
      * @var string
@@ -37,6 +56,8 @@ class DescribeBackupPolicyResponseBody extends Model
     public $preferredBackupPeriod;
 
     /**
+     * @description The data backup time. The time is in the HH:mmZ-HH:mmZ format. The time is displayed in UTC.
+     *
      * @example 15:00Z-16:00Z
      *
      * @var string
@@ -44,6 +65,8 @@ class DescribeBackupPolicyResponseBody extends Model
     public $preferredBackupTime;
 
     /**
+     * @description The request ID.
+     *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
      * @var string

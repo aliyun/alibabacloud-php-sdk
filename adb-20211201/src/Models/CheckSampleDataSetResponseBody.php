@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckSampleDataSetResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 0CE655C3-C211-513D-A42F-D4AE2D1A867C
      *
      * @var string
@@ -16,6 +18,13 @@ class CheckSampleDataSetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The state of the built-in dataset. Valid values:
+     *
+     *   **SUCCEED**: The dataset is loaded.
+     *   **INIT**: The dataset is being loaded.
+     *   **FAILED**: The dataset failed to be loaded.
+     *   **UNINITIALIZED**: The dataset is not loaded.
+     *
      * @example UNINITIALIZED
      *
      * @var string

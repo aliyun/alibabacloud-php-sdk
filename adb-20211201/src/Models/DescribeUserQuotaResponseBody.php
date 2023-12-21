@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserQuotaResponseBody extends Model
 {
     /**
+     * @description The available elastic AnalyticDB compute units (ACUs).
+     *
      * @example 512ACU
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeUserQuotaResponseBody extends Model
     public $elasticACU;
 
     /**
+     * @description The request ID.
+     *
      * @example 0322C7FB-4584-5D2A-BF7F-F9036E940C35
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeUserQuotaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The available reserved computing resources.
+     *
      * @example 48ACU
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeUserQuotaResponseBody extends Model
     public $reserverdCompteACU;
 
     /**
+     * @description The available reserved storage resources.
+     *
      * @example 24ACU
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeUserQuotaResponseBody extends Model
     public $reserverdStorageACU;
 
     /**
+     * @description The number of available resource groups.
+     *
      * @example 10
      *
      * @var string

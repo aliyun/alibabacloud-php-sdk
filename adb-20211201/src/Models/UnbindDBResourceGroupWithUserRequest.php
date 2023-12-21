@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnbindDBResourceGroupWithUserRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example am-bp1ub9grke1****
      *
      * @var string
@@ -16,6 +18,8 @@ class UnbindDBResourceGroupWithUserRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The name of the resource group.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class UnbindDBResourceGroupWithUserRequest extends Model
     public $groupName;
 
     /**
+     * @description The name of the database account.
+     *
      * @example user1
      *
      * @var string

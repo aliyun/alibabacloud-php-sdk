@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterStatusRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

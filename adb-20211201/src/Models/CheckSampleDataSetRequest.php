@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckSampleDataSetRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example amv-wz9r8f67h4cqz41u
      *
      * @var string

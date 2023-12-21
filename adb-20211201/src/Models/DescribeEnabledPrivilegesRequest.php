@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnabledPrivilegesRequest extends Model
 {
     /**
+     * @description 数据库账号名称。
+     * > 您可以调用[DescribeAccounts](~~612430~~)接口查看指定集群的数据库账号信息，包括账号名称。
+     * @example test_accout
+     *
      * @var string
      */
     public $accountName;

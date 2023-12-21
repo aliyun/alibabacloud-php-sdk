@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description 标签键。
-     * > 您可以调用[TagResources](~~179253~~)接口为目标集群创建标签。
+     * @description The tag key.
+     *
+     * >  You can call the [TagResources](~~179253~~) operation to add tags to a cluster.
      * @example tag1
      *
      * @var string
@@ -18,7 +19,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description 标签值。
+     * @description The tag value.
      *
      * @example test1
      *

@@ -12,8 +12,8 @@ class DBCluster extends Model
     /**
      * @description The billing method of the cluster. Valid values:
      *
-     *   **ads**: pay-as-you-go
-     *   **ads_pre**: subscription
+     *   **ads**: pay-as-you-go.
+     *   **ads_pre**: subscription.
      *
      * @example ads_pre
      *
@@ -22,7 +22,7 @@ class DBCluster extends Model
     public $commodityCode;
 
     /**
-     * @description The specifications of the reserved computing resources. Each ACU is equivalent to 1 core and 4 GB memory. Computing resources serve compute operations. The amount of computing resources is proportional to the query speed of the cluster. You can scale computing resources based on your needs.
+     * @description The specifications of reserved computing resources. Each ACU is equivalent to 1 core and 4 GB memory. Computing resources are used to compute data. The increase in the computing resources can accelerate queries. You can scale computing resources based on your business requirements.
      *
      * @example 16ACU
      *
@@ -31,7 +31,7 @@ class DBCluster extends Model
     public $computeResource;
 
     /**
-     * @description The public endpoint of the cluster.
+     * @description The public endpoint that is used to connect to the cluster.
      *
      * @example amv-bp163885f8q21****.ads.aliyuncs.com
      *
@@ -78,15 +78,24 @@ class DBCluster extends Model
     /**
      * @description The state of the cluster. Valid values:
      *
-     *   **Preparing**: The cluster is being prepared.
-     *   **Creating**: The cluster is being created.
-     *   **Running**: The cluster is running.
-     *   **Deleting**: The cluster is being deleted.
-     *   **Restoring**: The cluster is being restored from a backup.
-     *   **ClassChanging**: The cluster specifications are being changed.
-     *   **NetAddressCreating**: A network connection is being created.
-     *   **NetAddressDeleting**: A network connection is being deleted.
-     *   **NetAddressModifying**: A network connection is being modified.
+     *   **Preparing**
+     *
+     * <!---->
+     *
+     *   **Creating**
+     *   **Running**
+     *   **Deleting**
+     *
+     * <!---->
+     *
+     *   **Restoring**
+     *
+     * <!---->
+     *
+     *   **ClassChanging**
+     *   **NetAddressCreating**
+     *   **NetAddressDeleting**
+     *   **NetAddressModifying**
      *
      * @example Running
      *
@@ -104,7 +113,7 @@ class DBCluster extends Model
     public $DBClusterType;
 
     /**
-     * @description The version of the AnalyticDB for MySQL Data Lakehouse Edition cluster. Only the version **5.0** is supported.
+     * @description The version of AnalyticDB for MySQL Data Lakehouse Edition. **5.0** is returned.
      *
      * @example 5.0
      *
@@ -113,7 +122,7 @@ class DBCluster extends Model
     public $DBVersion;
 
     /**
-     * @description The engine of the cluster. **AnalyticDB** is returned.
+     * @description The database engine of the cluster. **AnalyticDB** is returned.
      *
      * @example AnalyticDB
      *
@@ -124,8 +133,12 @@ class DBCluster extends Model
     /**
      * @description The time when the cluster expired. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
      *
-     * > *   The expiration time is returned for a subscription cluster.
-     * > *   An empty string is returned for a pay-as-you-go cluster.
+     * >
+     *
+     *   The expiration time is returned for a subscription cluster.
+     *
+     *   An empty string is returned for a pay-as-you-go cluster.
+     *
      * @example 2022-07-01T09:50:18Z
      *
      * @var string
@@ -135,11 +148,15 @@ class DBCluster extends Model
     /**
      * @description Indicates whether the subscription cluster has expired. Valid values:
      *
-     *   **true**: The cluster has expired.
-     *   **false**: The cluster has not expired.
+     *   **true**
+     *   **false**
      *
-     * > *   If the cluster has expired, the system locks or releases the cluster within a specific time period. We recommend that you renew expired clusters. For more information, see [Renewal policy](~~135246~~).
-     * > *  This parameter is not returned for pay-as-you-go clusters.
+     * >
+     *
+     *   If the cluster has expired, the system locks or releases the cluster within a period of time. We recommend that you renew expired clusters. For more information, see [Renewal policy](~~135246~~).
+     *
+     *   This parameter is not returned for pay-as-you-go clusters.
+     *
      * @example false
      *
      * @var string
@@ -147,7 +164,7 @@ class DBCluster extends Model
     public $expired;
 
     /**
-     * @description The lock state of the instance. Valid values:
+     * @description The lock state of the cluster. Valid values:
      *
      *   **Unlock**: The cluster is not locked.
      *   **ManualLock**: The cluster is manually locked.
@@ -162,7 +179,7 @@ class DBCluster extends Model
     /**
      * @description The reason why the cluster is locked.
      *
-     * >  This parameter is returned only when the cluster is locked. The value is **instance_expire**.
+     * >  This parameter is returned only when the cluster was locked. **instance_expire** is returned.
      * @example instance_expired
      *
      * @var string
@@ -181,8 +198,8 @@ class DBCluster extends Model
     /**
      * @description The billing method of the cluster. Valid values:
      *
-     *   **Postpaid**: pay-as-you-go
-     *   **Prepaid**: subscription
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
      *
      * @example Prepaid
      *
@@ -209,7 +226,7 @@ class DBCluster extends Model
     public $regionId;
 
     /**
-     * @description The remaining reserved computing resources that are available in the cluster. Each ACU is equivalent to 1 core and 4 GB memory.
+     * @description The amount of remaining reserved computing resources that are available in the cluster. Each ACU is equivalent to 1 core and 4 GB memory.
      *
      * @example 32ACU
      *
@@ -218,7 +235,7 @@ class DBCluster extends Model
     public $reservedACU;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmyiu4ekp****
      *
@@ -227,7 +244,7 @@ class DBCluster extends Model
     public $resourceGroupId;
 
     /**
-     * @description The specifications of the reserved storage resources. Each AnalyticDB compute unit (ACU) is equivalent to 1 core and 4 GB memory. Storage resources serve read and write requests. The amount of storage resources is proportional to the read and write performance of the cluster.
+     * @description The specifications of reserved storage resources. Each AnalyticDB compute unit (ACU) is equivalent to 1 core and 4 GB memory. Storage resources are used to read and write data. The increase in the storage resources can improve the read and write performance of the cluster.
      *
      * @example 24ACU
      *
@@ -236,14 +253,14 @@ class DBCluster extends Model
     public $storageResource;
 
     /**
-     * @description 标签列表。
+     * @description The tags that are added to the cluster.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The virtual private cloud (VPC) ID of the cluster.
      *
      * @example vpc-bp13h7uzhulpuxvnp****
      *

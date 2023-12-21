@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnabledPrivilegesResponseBody extends Model
 {
     /**
-     * @description The permission levels and specific permissions.
+     * @description The queried permission level and permissions.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 246F42E0-A475-15FF-96D2-8DC47FC2F289
      *

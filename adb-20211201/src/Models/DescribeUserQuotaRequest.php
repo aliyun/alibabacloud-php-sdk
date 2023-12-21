@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserQuotaRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example amv-bp1qjt3o18d86987
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeUserQuotaRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * >  You can call the [DescribeRegions](~~454314~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

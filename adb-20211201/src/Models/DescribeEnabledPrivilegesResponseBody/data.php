@@ -17,7 +17,7 @@ class data extends Model
     public $description;
 
     /**
-     * @description Details of the permissions.
+     * @description The queried permissions.
      *
      * @var privileges[]
      */

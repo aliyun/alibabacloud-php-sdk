@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterStatusResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEAU
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDBClusterStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The queried cluster states.
+     *
      * @var string[]
      */
     public $status;

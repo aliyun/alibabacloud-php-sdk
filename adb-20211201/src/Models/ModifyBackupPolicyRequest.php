@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @description The number of days for which to retain full backup files. Valid values: 7 to 730.
+     *
+     * >  If you do not specify this parameter, the default value 7 is used.
      * @example 7
      *
      * @var string
@@ -16,6 +19,8 @@ class ModifyBackupPolicyRequest extends Model
     public $backupRetentionPeriod;
 
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
      * @example am-bp1xxxxxxxx47
      *
      * @var string
@@ -23,6 +28,12 @@ class ModifyBackupPolicyRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to enable log backup. Valid values:
+     *
+     *   **Enable**
+     *   **Disable**
+     *
+     * >  If you do not specify this parameter, the default value Enable is used.
      * @example Enable
      *
      * @var string
@@ -30,6 +41,9 @@ class ModifyBackupPolicyRequest extends Model
     public $enableBackupLog;
 
     /**
+     * @description The number of days for which to retain log backup files. Valid values: 7 to 730.
+     *
+     * >  If you do not specify this parameter, the default value 7 is used.
      * @example 7
      *
      * @var int
@@ -47,6 +61,17 @@ class ModifyBackupPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The days of the week on which to perform a full backup. Separate multiple values with commas (,). Valid values:
+     *
+     *   **Monday**
+     *   **Tuesday**
+     *   **Wednesday**
+     *   **Thursday**
+     *   **Friday**
+     *   **Saturday**
+     *   **Sunday**
+     *
+     * >  To ensure data security, we recommend that you specify at least two values.
      * @example Monday,Wednesday,Friday,Sunday
      *
      * @var string
@@ -54,6 +79,9 @@ class ModifyBackupPolicyRequest extends Model
     public $preferredBackupPeriod;
 
     /**
+     * @description The start time to perform a full backup. Specify the time in the HH:mmZ-HH:mmZ format. The time must be in UTC.
+     *
+     * >  The time range must be 1 hour.
      * @example 18:00Z-19:00Z
      *
      * @var string
