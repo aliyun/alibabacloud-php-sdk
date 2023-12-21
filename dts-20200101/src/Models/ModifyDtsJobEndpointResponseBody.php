@@ -6,24 +6,17 @@ namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDataCheckReportUrlResponseBody extends Model
+class ModifyDtsJobEndpointResponseBody extends Model
 {
     /**
-     * @example https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/dw612cru18e****\/dtsdb/diff/student.diff.zip?Expires=****
-     *
-     * @var string
-     */
-    public $dynamicMessage;
-
-    /**
-     * @example InternalError
+     * @example DTS.Msg.InvalidEndpoint
      *
      * @var string
      */
     public $errCode;
 
     /**
-     * @example The Value of Input Parameter %s is not valid.
+     * @example The endpoint is invalid.
      *
      * @var string
      */
@@ -32,12 +25,12 @@ class DescribeDataCheckReportUrlResponseBody extends Model
     /**
      * @example 200
      *
-     * @var int
+     * @var string
      */
     public $httpStatusCode;
 
     /**
-     * @example AF2DE23-B692-5B85-90B7-44B6F4D8****
+     * @example 3FA98DF2-2F81-51FF-8A38-AA5112DD****
      *
      * @var string
      */
@@ -46,11 +39,10 @@ class DescribeDataCheckReportUrlResponseBody extends Model
     /**
      * @example true
      *
-     * @var string
+     * @var bool
      */
     public $success;
     protected $_name = [
-        'dynamicMessage' => 'DynamicMessage',
         'errCode'        => 'ErrCode',
         'errMessage'     => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
@@ -65,9 +57,6 @@ class DescribeDataCheckReportUrlResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dynamicMessage) {
-            $res['DynamicMessage'] = $this->dynamicMessage;
-        }
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
@@ -90,14 +79,11 @@ class DescribeDataCheckReportUrlResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDataCheckReportUrlResponseBody
+     * @return ModifyDtsJobEndpointResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DynamicMessage'])) {
-            $model->dynamicMessage = $map['DynamicMessage'];
-        }
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }

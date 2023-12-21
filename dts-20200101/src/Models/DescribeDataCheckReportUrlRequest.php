@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataCheckReportUrlRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $checkType;
 
     /**
+     * @example dtsdb
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example f4612nr2182****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @example student
+     *
      * @var string
      */
     public $tbName;

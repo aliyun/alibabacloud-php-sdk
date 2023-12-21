@@ -159,6 +159,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobDedicatedClusterRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobDedicatedClusterResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobDuLimitRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobDuLimitResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobEndpointRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobEndpointResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobNameRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobNameResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobPasswordRequest;
@@ -5512,6 +5514,97 @@ class Dts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDtsJobDuLimitWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDtsJobEndpointRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyDtsJobEndpointResponse
+     */
+    public function modifyDtsJobEndpointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunUid)) {
+            $query['AliyunUid'] = $request->aliyunUid;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
+        }
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->endpoint)) {
+            $query['Endpoint'] = $request->endpoint;
+        }
+        if (!Utils::isUnset($request->endpointInstanceId)) {
+            $query['EndpointInstanceId'] = $request->endpointInstanceId;
+        }
+        if (!Utils::isUnset($request->endpointInstanceType)) {
+            $query['EndpointInstanceType'] = $request->endpointInstanceType;
+        }
+        if (!Utils::isUnset($request->endpointIp)) {
+            $query['EndpointIp'] = $request->endpointIp;
+        }
+        if (!Utils::isUnset($request->endpointPort)) {
+            $query['EndpointPort'] = $request->endpointPort;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->roleName)) {
+            $query['RoleName'] = $request->roleName;
+        }
+        if (!Utils::isUnset($request->shardPassword)) {
+            $query['ShardPassword'] = $request->shardPassword;
+        }
+        if (!Utils::isUnset($request->shardUsername)) {
+            $query['ShardUsername'] = $request->shardUsername;
+        }
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDtsJobEndpoint',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDtsJobEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDtsJobEndpointRequest $request
+     *
+     * @return ModifyDtsJobEndpointResponse
+     */
+    public function modifyDtsJobEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDtsJobEndpointWithOptions($request, $runtime);
     }
 
     /**
