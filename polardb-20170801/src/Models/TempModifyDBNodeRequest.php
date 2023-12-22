@@ -46,7 +46,6 @@ class TempModifyDBNodeRequest extends Model
     /**
      * @description The type of operation performed on the cluster. Valid values:
      *
-     *   **Add**: add one or more nodes to the cluster.
      *   **Modify**: temporarily upgrade the configuration of the cluster.
      *
      * @example Modify

@@ -17,6 +17,11 @@ class rdsEndpointList extends Model
     public $addressItems;
 
     /**
+     * @var string
+     */
+    public $custinsType;
+
+    /**
      * @description The ID of the endpoint.
      *
      * @example rm-************-normal
@@ -38,6 +43,7 @@ class rdsEndpointList extends Model
     public $endpointType;
     protected $_name = [
         'addressItems' => 'AddressItems',
+        'custinsType'  => 'CustinsType',
         'DBEndpointId' => 'DBEndpointId',
         'endpointType' => 'EndpointType',
     ];
@@ -57,6 +63,9 @@ class rdsEndpointList extends Model
                     $res['AddressItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->custinsType) {
+            $res['CustinsType'] = $this->custinsType;
         }
         if (null !== $this->DBEndpointId) {
             $res['DBEndpointId'] = $this->DBEndpointId;
@@ -84,6 +93,9 @@ class rdsEndpointList extends Model
                     $model->addressItems[$n++] = null !== $item ? addressItems::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CustinsType'])) {
+            $model->custinsType = $map['CustinsType'];
         }
         if (isset($map['DBEndpointId'])) {
             $model->DBEndpointId = $map['DBEndpointId'];

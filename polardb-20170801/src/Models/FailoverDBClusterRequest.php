@@ -47,6 +47,11 @@ class FailoverDBClusterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var bool
+     */
+    public $rollBackForDisaster;
+
+    /**
      * @description The ID of the read-only node that you want to promote to the primary node. You can call the [DescribeDBClusters](~~98094~~) operation to query node information, such as node IDs.
      *
      * > *   If you leave this parameter empty, the system selects one or more available read-only nodes that have the highest failover priority as candidate primary nodes. If the failover to the first read-only node fails due to network issues, abnormal replication status, or other reasons, the system attempts to fail over your applications to the next read-only node until the failover is successful.
@@ -63,6 +68,7 @@ class FailoverDBClusterRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'rollBackForDisaster'  => 'RollBackForDisaster',
         'targetDBNodeId'       => 'TargetDBNodeId',
     ];
 
@@ -90,6 +96,9 @@ class FailoverDBClusterRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->rollBackForDisaster) {
+            $res['RollBackForDisaster'] = $this->rollBackForDisaster;
         }
         if (null !== $this->targetDBNodeId) {
             $res['TargetDBNodeId'] = $this->targetDBNodeId;
@@ -123,6 +132,9 @@ class FailoverDBClusterRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RollBackForDisaster'])) {
+            $model->rollBackForDisaster = $map['RollBackForDisaster'];
         }
         if (isset($map['TargetDBNodeId'])) {
             $model->targetDBNodeId = $map['TargetDBNodeId'];

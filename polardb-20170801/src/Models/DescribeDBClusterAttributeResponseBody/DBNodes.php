@@ -181,6 +181,11 @@ class DBNodes extends Model
     public $serverlessType;
 
     /**
+     * @var string
+     */
+    public $subCluster;
+
+    /**
      * @description The ID of the zone.
      *
      * @example cn-hangzhou-i
@@ -206,6 +211,7 @@ class DBNodes extends Model
         'sccMode'          => 'SccMode',
         'serverWeight'     => 'ServerWeight',
         'serverlessType'   => 'ServerlessType',
+        'subCluster'       => 'SubCluster',
         'zoneId'           => 'ZoneId',
     ];
 
@@ -266,6 +272,9 @@ class DBNodes extends Model
         }
         if (null !== $this->serverlessType) {
             $res['ServerlessType'] = $this->serverlessType;
+        }
+        if (null !== $this->subCluster) {
+            $res['SubCluster'] = $this->subCluster;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -332,6 +341,9 @@ class DBNodes extends Model
         }
         if (isset($map['ServerlessType'])) {
             $model->serverlessType = $map['ServerlessType'];
+        }
+        if (isset($map['SubCluster'])) {
+            $model->subCluster = $map['SubCluster'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

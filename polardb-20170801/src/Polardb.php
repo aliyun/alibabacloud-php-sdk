@@ -90,6 +90,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeCharacterSetNameRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeCharacterSetNameResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeClassListRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeClassListResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDasConfigRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDasConfigResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDatabasesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDatabasesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAccessWhitelistRequest;
@@ -4595,6 +4597,61 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @param DescribeDasConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeDasConfigResponse
+     */
+    public function describeDasConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDasConfig',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDasConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDasConfigRequest $request
+     *
+     * @return DescribeDasConfigResponse
+     */
+    public function describeDasConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDasConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDatabasesRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -6371,6 +6428,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->rollBackForDisaster)) {
+            $query['RollBackForDisaster'] = $request->rollBackForDisaster;
         }
         if (!Utils::isUnset($request->targetDBNodeId)) {
             $query['TargetDBNodeId'] = $request->targetDBNodeId;

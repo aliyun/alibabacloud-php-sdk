@@ -37,10 +37,16 @@ class DBClusterEndpointList extends Model
      * @var string
      */
     public $endpointType;
+
+    /**
+     * @var string
+     */
+    public $readWriteMode;
     protected $_name = [
-        'addressItems' => 'AddressItems',
-        'DBEndpointId' => 'DBEndpointId',
-        'endpointType' => 'EndpointType',
+        'addressItems'  => 'AddressItems',
+        'DBEndpointId'  => 'DBEndpointId',
+        'endpointType'  => 'EndpointType',
+        'readWriteMode' => 'ReadWriteMode',
     ];
 
     public function validate()
@@ -64,6 +70,9 @@ class DBClusterEndpointList extends Model
         }
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
+        }
+        if (null !== $this->readWriteMode) {
+            $res['ReadWriteMode'] = $this->readWriteMode;
         }
 
         return $res;
@@ -91,6 +100,9 @@ class DBClusterEndpointList extends Model
         }
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
+        }
+        if (isset($map['ReadWriteMode'])) {
+            $model->readWriteMode = $map['ReadWriteMode'];
         }
 
         return $model;
