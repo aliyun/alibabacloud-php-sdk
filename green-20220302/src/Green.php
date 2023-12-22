@@ -6,11 +6,15 @@ namespace AlibabaCloud\SDK\Green\V20220302;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageModerationResultRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageModerationResultResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageResultExtRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageResultExtResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeUploadTokenResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\FileModerationRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\FileModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageAsyncModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageAsyncModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationRequest;
@@ -86,6 +90,52 @@ class Green extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param DescribeFileModerationResultRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeFileModerationResultResponse
+     */
+    public function describeFileModerationResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->service)) {
+            $body['Service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFileModerationResult',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFileModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeFileModerationResultRequest $request
+     *
+     * @return DescribeFileModerationResultResponse
+     */
+    public function describeFileModerationResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFileModerationResultWithOptions($request, $runtime);
     }
 
     /**
@@ -208,6 +258,52 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUploadTokenWithOptions($runtime);
+    }
+
+    /**
+     * @param FileModerationRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return FileModerationResponse
+     */
+    public function fileModerationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->service)) {
+            $body['Service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FileModeration',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FileModerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FileModerationRequest $request
+     *
+     * @return FileModerationResponse
+     */
+    public function fileModeration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->fileModerationWithOptions($request, $runtime);
     }
 
     /**
