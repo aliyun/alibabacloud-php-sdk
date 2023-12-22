@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaStrategyDetailNewResponseBody\data\alarmDetail;
 
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaStrategyDetailNewResponseBody\data\alarmDetail\vul\item;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaStrategyDetailNewResponseBody\data\alarmDetail\vul\riskClass;
 use AlibabaCloud\Tea\Model;
 
 class vul extends Model
@@ -17,6 +18,11 @@ class vul extends Model
     public $item;
 
     /**
+     * @var riskClass[]
+     */
+    public $riskClass;
+
+    /**
      * @description The risk levels.
      *
      * @var string[]
@@ -24,6 +30,7 @@ class vul extends Model
     public $riskLevel;
     protected $_name = [
         'item'      => 'Item',
+        'riskClass' => 'RiskClass',
         'riskLevel' => 'RiskLevel',
     ];
 
@@ -40,6 +47,15 @@ class vul extends Model
                 $n = 0;
                 foreach ($this->item as $item) {
                     $res['Item'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->riskClass) {
+            $res['RiskClass'] = [];
+            if (null !== $this->riskClass && \is_array($this->riskClass)) {
+                $n = 0;
+                foreach ($this->riskClass as $item) {
+                    $res['RiskClass'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -64,6 +80,15 @@ class vul extends Model
                 $n           = 0;
                 foreach ($map['Item'] as $item) {
                     $model->item[$n++] = null !== $item ? item::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['RiskClass'])) {
+            if (!empty($map['RiskClass'])) {
+                $model->riskClass = [];
+                $n                = 0;
+                foreach ($map['RiskClass'] as $item) {
+                    $model->riskClass[$n++] = null !== $item ? riskClass::fromMap($item) : $item;
                 }
             }
         }

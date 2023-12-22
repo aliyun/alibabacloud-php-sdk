@@ -2,35 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest\alarmDetail;
+namespace AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaStrategyNewRequest\alarmDetail;
 
-use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest\alarmDetail\vul\item;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest\alarmDetail\vul\riskClass;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaStrategyNewRequest\alarmDetail\buildRisk\item;
 use AlibabaCloud\Tea\Model;
 
-class vul extends Model
+class buildRisk extends Model
 {
     /**
-     * @description The vulnerabilities.
-     *
      * @var item[]
      */
     public $item;
 
     /**
-     * @var riskClass[]
-     */
-    public $riskClass;
-
-    /**
-     * @description The risk levels.
-     *
      * @var string[]
      */
     public $riskLevel;
     protected $_name = [
         'item'      => 'Item',
-        'riskClass' => 'RiskClass',
         'riskLevel' => 'RiskLevel',
     ];
 
@@ -50,15 +39,6 @@ class vul extends Model
                 }
             }
         }
-        if (null !== $this->riskClass) {
-            $res['RiskClass'] = [];
-            if (null !== $this->riskClass && \is_array($this->riskClass)) {
-                $n = 0;
-                foreach ($this->riskClass as $item) {
-                    $res['RiskClass'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
@@ -69,7 +49,7 @@ class vul extends Model
     /**
      * @param array $map
      *
-     * @return vul
+     * @return buildRisk
      */
     public static function fromMap($map = [])
     {
@@ -80,15 +60,6 @@ class vul extends Model
                 $n           = 0;
                 foreach ($map['Item'] as $item) {
                     $model->item[$n++] = null !== $item ? item::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['RiskClass'])) {
-            if (!empty($map['RiskClass'])) {
-                $model->riskClass = [];
-                $n                = 0;
-                foreach ($map['RiskClass'] as $item) {
-                    $model->riskClass[$n++] = null !== $item ? riskClass::fromMap($item) : $item;
                 }
             }
         }

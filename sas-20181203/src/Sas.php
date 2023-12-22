@@ -464,6 +464,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogstoreStorageRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogstoreStorageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeMachineCanRebootRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeMachineCanRebootResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeMatchedMaliciousNamesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeMatchedMaliciousNamesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeModuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeMonitorAccountsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNoticeConfigRequest;
@@ -942,6 +944,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListHoneypotProbeUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListHoneypotProbeUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListHoneypotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListHoneypotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListImageBuildRiskItemRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListImageBuildRiskItemResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListImageRegistryRegionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListImageRiskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListImageRiskResponse;
@@ -13587,6 +13591,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeMachineCanRebootWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeMatchedMaliciousNamesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeMatchedMaliciousNamesResponse
+     */
+    public function describeMatchedMaliciousNamesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->levels)) {
+            $query['Levels'] = $request->levels;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMatchedMaliciousNames',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMatchedMaliciousNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMatchedMaliciousNamesRequest $request
+     *
+     * @return DescribeMatchedMaliciousNamesResponse
+     */
+    public function describeMatchedMaliciousNames($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMatchedMaliciousNamesWithOptions($request, $runtime);
     }
 
     /**
@@ -26503,6 +26553,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listHoneypotProbeUuidWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListImageBuildRiskItemRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListImageBuildRiskItemResponse
+     */
+    public function listImageBuildRiskItemWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListImageBuildRiskItem',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListImageBuildRiskItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListImageBuildRiskItemRequest $request
+     *
+     * @return ListImageBuildRiskItemResponse
+     */
+    public function listImageBuildRiskItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listImageBuildRiskItemWithOptions($request, $runtime);
     }
 
     /**
