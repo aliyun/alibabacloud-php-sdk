@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetWarningThresholdRequest extends Model
 {
     /**
+     * @description The UID of the partner‘s customer.
+     *
      * @example 1792155717328010
      *
      * @var int
@@ -16,6 +18,8 @@ class SetWarningThresholdRequest extends Model
     public $uid;
 
     /**
+     * @description Percentage, 1 to 100. When the available credit limit is lower than the credit limit percentage, an email is sent to the main account.
+     *
      * @example 20
      *
      * @var string

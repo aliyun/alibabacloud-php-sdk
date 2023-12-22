@@ -30,6 +30,11 @@ class data extends Model
     public $availableCredit;
 
     /**
+     * @var string
+     */
+    public $consumedUndeductedValue;
+
+    /**
      * @example 1000
      *
      * @var string
@@ -60,6 +65,7 @@ class data extends Model
         'accountStatus'            => 'AccountStatus',
         'alarmThreshold'           => 'AlarmThreshold',
         'availableCredit'          => 'AvailableCredit',
+        'consumedUndeductedValue'  => 'ConsumedUndeductedValue',
         'creditLine'               => 'CreditLine',
         'outstandingBalance'       => 'OutstandingBalance',
         'zeroCreditShutdownPolicy' => 'ZeroCreditShutdownPolicy',
@@ -81,6 +87,9 @@ class data extends Model
         }
         if (null !== $this->availableCredit) {
             $res['AvailableCredit'] = $this->availableCredit;
+        }
+        if (null !== $this->consumedUndeductedValue) {
+            $res['ConsumedUndeductedValue'] = $this->consumedUndeductedValue;
         }
         if (null !== $this->creditLine) {
             $res['CreditLine'] = $this->creditLine;
@@ -114,6 +123,9 @@ class data extends Model
         }
         if (isset($map['AvailableCredit'])) {
             $model->availableCredit = $map['AvailableCredit'];
+        }
+        if (isset($map['ConsumedUndeductedValue'])) {
+            $model->consumedUndeductedValue = $map['ConsumedUndeductedValue'];
         }
         if (isset($map['CreditLine'])) {
             $model->creditLine = $map['CreditLine'];
