@@ -6,12 +6,10 @@ namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ChangeResourceGroupResponseBody extends Model
+class UntagResourcesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 314CB661-35A5-5F01-A623-3EC6F87FF52F
+     * @example 724402D0-75CD-4794-BC20-7D3720823AE0
      *
      * @var string
      */
@@ -37,7 +35,7 @@ class ChangeResourceGroupResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ChangeResourceGroupResponseBody
+     * @return UntagResourcesResponseBody
      */
     public static function fromMap($map = [])
     {

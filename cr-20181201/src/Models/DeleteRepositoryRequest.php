@@ -27,11 +27,19 @@ class DeleteRepositoryRequest extends Model
     public $repoId;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example test-repo
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace to which the repository belongs.
+     *
+     * @example test-namespace
+     *
      * @var string
      */
     public $repoNamespaceName;

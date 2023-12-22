@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceVpcEndpointLinkedVpcResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +18,11 @@ class CreateInstanceVpcEndpointLinkedVpcResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class CreateInstanceVpcEndpointLinkedVpcResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The request ID.
+     *
      * @example D4978DCC-ECBD-40B0-A714-EE6959B22C77
      *
      * @var string

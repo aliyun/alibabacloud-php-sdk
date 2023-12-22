@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
      * @example success
      *
      * @var string
@@ -17,11 +19,15 @@ class ListInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @description The queried instances.
+     *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool
@@ -29,6 +35,8 @@ class ListInstanceResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -36,6 +44,8 @@ class ListInstanceResponseBody extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 30.
+     *
      * @example 30
      *
      * @var int
@@ -43,6 +53,8 @@ class ListInstanceResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example A2A9BA68-B264-4953-9154-CE61B1C03BA6
      *
      * @var string
@@ -50,6 +62,8 @@ class ListInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 12121
      *
      * @var int

@@ -160,8 +160,14 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\ListRepoTagScanResultRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListRepoTagScanResultResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListRepoTriggerRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListRepoTriggerResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ResetLoginPasswordRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ResetLoginPasswordResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateChainRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateChainResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateChartNamespaceRequest;
@@ -367,7 +373,8 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * The ID of the rule.
+     * You can create building rules of accelerated images only for image repositories of Container Registry Advanced Edition instances. You cannot create building rules of accelerated images for image repositories of Container Registry Basic Edition instances. For more information, see [Specifications of different editions](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+     *   * Accelerated images can be built in the following regions: China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Guangzhou), China (Zhangjiakou), China (Hong Kong), US (Virginia), US (Silicon Valley), Singapore, Japan (Tokyo), and Malaysia (Kuala Lumpur).
      *   *
      * @param CreateArtifactBuildRuleRequest $tmpReq  CreateArtifactBuildRuleRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -417,7 +424,8 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * The ID of the rule.
+     * You can create building rules of accelerated images only for image repositories of Container Registry Advanced Edition instances. You cannot create building rules of accelerated images for image repositories of Container Registry Basic Edition instances. For more information, see [Specifications of different editions](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
+     *   * Accelerated images can be built in the following regions: China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Guangzhou), China (Zhangjiakou), China (Hong Kong), US (Virginia), US (Silicon Valley), Singapore, Japan (Tokyo), and Malaysia (Kuala Lumpur).
      *   *
      * @param CreateArtifactBuildRuleRequest $request CreateArtifactBuildRuleRequest
      *
@@ -752,7 +760,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * A maximum of three VPCs can be associated with a Container Registry instance. If you want to associate more VPCs, contact Alibaba Cloud technical support.
      *   *
      * @param CreateInstanceVpcEndpointLinkedVpcRequest $request CreateInstanceVpcEndpointLinkedVpcRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -797,7 +805,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * A maximum of three VPCs can be associated with a Container Registry instance. If you want to associate more VPCs, contact Alibaba Cloud technical support.
      *   *
      * @param CreateInstanceVpcEndpointLinkedVpcRequest $request CreateInstanceVpcEndpointLinkedVpcRequest
      *
@@ -4205,6 +4213,61 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ResetLoginPasswordRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -4248,6 +4311,113 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetLoginPasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 
     /**

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateArtifactBuildRuleRequest extends Model
 {
     /**
+     * @description The type of the artifact.
+     *
+     *   `ACCELERATED_IMAGE`: accelerated images.
+     *
      * @example ACCELERATED_IMAGE
      *
      * @var string
@@ -16,6 +20,8 @@ class CreateArtifactBuildRuleRequest extends Model
     public $artifactType;
 
     /**
+     * @description The instance ID.
+     *
      * @example cri-cxreylqvcyje****
      *
      * @var string
@@ -23,11 +29,19 @@ class CreateArtifactBuildRuleRequest extends Model
     public $instanceId;
 
     /**
+     * @description Additional parameters.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $parameters;
 
     /**
+     * @description The ID of the effective range of the rule.
+     *
+     *   Set the value to the ID of the image repository.
+     *
      * @example crr-pmajihou6cg0****
      *
      * @var string
@@ -35,6 +49,10 @@ class CreateArtifactBuildRuleRequest extends Model
     public $scopeId;
 
     /**
+     * @description The effective range of the rule. Valid values:
+     *
+     *   `REPOSITORY`
+     *
      * @example REPOSITORY
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateArtifactBuildRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the accelerated image building rule.
+     *
      * @example crabr-7dfa5qye5****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateArtifactBuildRuleResponseBody extends Model
     public $buildRuleId;
 
     /**
+     * @description The return value.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateArtifactBuildRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class CreateArtifactBuildRuleResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The request ID.
+     *
      * @example C8E90AB5-0A96-5D12-9E59-11EE46360642
      *
      * @var string

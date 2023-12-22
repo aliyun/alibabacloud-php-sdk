@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteRepositoryResponseBody extends Model
 {
     /**
-     * @description The return value.
+     * @description Return values
      *
      * @example success
      *
@@ -30,7 +30,7 @@ class DeleteRepositoryResponseBody extends Model
     public $isSuccess;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 47DD9D56-09A0-4C52-B520-C3805DBAB96B
      *

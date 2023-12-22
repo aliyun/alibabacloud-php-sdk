@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically create Alibaba Cloud DNS PrivateZone records. Valid values:
+     *
+     * >  If you enable automatic creation of PrivateZone records, a PrivateZone record is automatically created when you associate a VPC with the instance.
+     *
+     *   `true`
+     *   `false`
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +23,8 @@ class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
     public $enableCreateDNSRecordInPvzt;
 
     /**
+     * @description The instance ID.
+     *
      * @example cri-xkx6vujuhay0****
      *
      * @var string
@@ -23,6 +32,11 @@ class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
     public $instanceId;
 
     /**
+     * @description The name of the module that you want to access. Valid values:
+     *
+     *   `Registry`: image repositories.
+     *   `Chart`: Helm charts.
+     *
      * @example Registry
      *
      * @var string
@@ -30,6 +44,8 @@ class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
     public $moduleName;
 
     /**
+     * @description The VPC ID.
+     *
      * @example vpc-uf6pa68zxnnlc48dd****
      *
      * @var string
@@ -37,6 +53,8 @@ class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the vSwitch that is associated with the specified VPC.
+     *
      * @example vsw-uf6u0kn8x2gbzxfn2****
      *
      * @var string

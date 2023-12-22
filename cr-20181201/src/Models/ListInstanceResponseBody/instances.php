@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description The time when the instance was created.
+     *
      * @example 1562849679000
      *
      * @var string
@@ -16,6 +18,8 @@ class instances extends Model
     public $createTime;
 
     /**
+     * @description The instance ID.
+     *
      * @example cri-sgedpenzw80e****
      *
      * @var string
@@ -23,11 +27,17 @@ class instances extends Model
     public $instanceId;
 
     /**
+     * @description The issue occurs on the instance.
+     *
+     * @example oss bucket already exists
+     *
      * @var string
      */
     public $instanceIssue;
 
     /**
+     * @description The name of the instance.
+     *
      * @example test
      *
      * @var string
@@ -35,6 +45,8 @@ class instances extends Model
     public $instanceName;
 
     /**
+     * @description The edition of the Container Registry Enterprise Edition instance.
+     *
      * @example Enterprise_Basic
      *
      * @var string
@@ -42,6 +54,8 @@ class instances extends Model
     public $instanceSpecification;
 
     /**
+     * @description The status of the instance.
+     *
      * @example RUNNING
      *
      * @var string
@@ -49,6 +63,8 @@ class instances extends Model
     public $instanceStatus;
 
     /**
+     * @description The time when the instance was last modified.
+     *
      * @example 1562849760000
      *
      * @var string
@@ -56,6 +72,8 @@ class instances extends Model
     public $modifiedTime;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -63,6 +81,10 @@ class instances extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example rg-aek2h3aexpy****
+     *
      * @var string
      */
     public $resourceGroupId;
