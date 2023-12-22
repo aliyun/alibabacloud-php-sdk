@@ -385,6 +385,16 @@ class dataList extends Model
     public $overApplyId;
 
     /**
+     * @var string
+     */
+    public $paymentDepartmentId;
+
+    /**
+     * @var string
+     */
+    public $paymentDepartmentName;
+
+    /**
      * @example 4564547
      *
      * @var int
@@ -607,6 +617,8 @@ class dataList extends Model
         'orderId'                => 'order_id',
         'orderStatusDesc'        => 'order_status_desc',
         'overApplyId'            => 'over_apply_id',
+        'paymentDepartmentId'    => 'payment_department_id',
+        'paymentDepartmentName'  => 'payment_department_name',
         'primaryId'              => 'primary_id',
         'projectCode'            => 'project_code',
         'projectName'            => 'project_name',
@@ -820,6 +832,12 @@ class dataList extends Model
         }
         if (null !== $this->overApplyId) {
             $res['over_apply_id'] = $this->overApplyId;
+        }
+        if (null !== $this->paymentDepartmentId) {
+            $res['payment_department_id'] = $this->paymentDepartmentId;
+        }
+        if (null !== $this->paymentDepartmentName) {
+            $res['payment_department_name'] = $this->paymentDepartmentName;
         }
         if (null !== $this->primaryId) {
             $res['primary_id'] = $this->primaryId;
@@ -1087,6 +1105,12 @@ class dataList extends Model
         }
         if (isset($map['over_apply_id'])) {
             $model->overApplyId = $map['over_apply_id'];
+        }
+        if (isset($map['payment_department_id'])) {
+            $model->paymentDepartmentId = $map['payment_department_id'];
+        }
+        if (isset($map['payment_department_name'])) {
+            $model->paymentDepartmentName = $map['payment_department_name'];
         }
         if (isset($map['primary_id'])) {
             $model->primaryId = $map['primary_id'];

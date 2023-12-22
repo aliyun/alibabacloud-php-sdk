@@ -124,6 +124,11 @@ class changeTicketInfoList extends Model
     public $startTime;
 
     /**
+     * @var string
+     */
+    public $ticketEntrance;
+
+    /**
      * @example CS987JKDF
      *
      * @var string
@@ -178,6 +183,7 @@ class changeTicketInfoList extends Model
         'outTicketStatus'     => 'out_ticket_status',
         'segmentIndex'        => 'segment_index',
         'startTime'           => 'start_time',
+        'ticketEntrance'      => 'ticket_entrance',
         'ticketNo'            => 'ticket_no',
         'ticketStatus'        => 'ticket_status',
         'toCityName'          => 'to_city_name',
@@ -249,6 +255,9 @@ class changeTicketInfoList extends Model
         }
         if (null !== $this->startTime) {
             $res['start_time'] = $this->startTime;
+        }
+        if (null !== $this->ticketEntrance) {
+            $res['ticket_entrance'] = $this->ticketEntrance;
         }
         if (null !== $this->ticketNo) {
             $res['ticket_no'] = $this->ticketNo;
@@ -336,6 +345,9 @@ class changeTicketInfoList extends Model
         }
         if (isset($map['start_time'])) {
             $model->startTime = $map['start_time'];
+        }
+        if (isset($map['ticket_entrance'])) {
+            $model->ticketEntrance = $map['ticket_entrance'];
         }
         if (isset($map['ticket_no'])) {
             $model->ticketNo = $map['ticket_no'];

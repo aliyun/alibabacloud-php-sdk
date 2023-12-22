@@ -326,6 +326,16 @@ class dataList extends Model
     public $overApplyId;
 
     /**
+     * @var string
+     */
+    public $paymentDepartmentId;
+
+    /**
+     * @var string
+     */
+    public $paymentDepartmentName;
+
+    /**
      * @example 34
      *
      * @var float
@@ -581,6 +591,8 @@ class dataList extends Model
         'orderStatusDesc'        => 'order_status_desc',
         'orderType'              => 'order_type',
         'overApplyId'            => 'over_apply_id',
+        'paymentDepartmentId'    => 'payment_department_id',
+        'paymentDepartmentName'  => 'payment_department_name',
         'personRefundFee'        => 'person_refund_fee',
         'personSettlePrice'      => 'person_settle_price',
         'primaryId'              => 'primary_id',
@@ -773,6 +785,12 @@ class dataList extends Model
         }
         if (null !== $this->overApplyId) {
             $res['over_apply_id'] = $this->overApplyId;
+        }
+        if (null !== $this->paymentDepartmentId) {
+            $res['payment_department_id'] = $this->paymentDepartmentId;
+        }
+        if (null !== $this->paymentDepartmentName) {
+            $res['payment_department_name'] = $this->paymentDepartmentName;
         }
         if (null !== $this->personRefundFee) {
             $res['person_refund_fee'] = $this->personRefundFee;
@@ -1031,6 +1049,12 @@ class dataList extends Model
         }
         if (isset($map['over_apply_id'])) {
             $model->overApplyId = $map['over_apply_id'];
+        }
+        if (isset($map['payment_department_id'])) {
+            $model->paymentDepartmentId = $map['payment_department_id'];
+        }
+        if (isset($map['payment_department_name'])) {
+            $model->paymentDepartmentName = $map['payment_department_name'];
         }
         if (isset($map['person_refund_fee'])) {
             $model->personRefundFee = $map['person_refund_fee'];

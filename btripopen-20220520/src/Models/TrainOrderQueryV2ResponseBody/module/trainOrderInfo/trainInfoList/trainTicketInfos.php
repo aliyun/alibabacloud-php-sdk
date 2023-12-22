@@ -93,6 +93,11 @@ class trainTicketInfos extends Model
     public $startTime;
 
     /**
+     * @var string
+     */
+    public $ticketEntrance;
+
+    /**
      * @example ew123121
      *
      * @var string
@@ -146,6 +151,7 @@ class trainTicketInfos extends Model
         'segmentIndex'    => 'segment_index',
         'serviceFee'      => 'service_fee',
         'startTime'       => 'start_time',
+        'ticketEntrance'  => 'ticket_entrance',
         'ticketNo'        => 'ticket_no',
         'ticketPrice'     => 'ticket_price',
         'ticketStatus'    => 'ticket_status',
@@ -202,6 +208,9 @@ class trainTicketInfos extends Model
         }
         if (null !== $this->startTime) {
             $res['start_time'] = $this->startTime;
+        }
+        if (null !== $this->ticketEntrance) {
+            $res['ticket_entrance'] = $this->ticketEntrance;
         }
         if (null !== $this->ticketNo) {
             $res['ticket_no'] = $this->ticketNo;
@@ -274,6 +283,9 @@ class trainTicketInfos extends Model
         }
         if (isset($map['start_time'])) {
             $model->startTime = $map['start_time'];
+        }
+        if (isset($map['ticket_entrance'])) {
+            $model->ticketEntrance = $map['ticket_entrance'];
         }
         if (isset($map['ticket_no'])) {
             $model->ticketNo = $map['ticket_no'];
