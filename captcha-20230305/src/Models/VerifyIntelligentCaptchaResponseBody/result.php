@@ -9,12 +9,18 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var string
+     */
+    public $verifyCode;
+
+    /**
      * @example true
      *
      * @var bool
      */
     public $verifyResult;
     protected $_name = [
+        'verifyCode'   => 'VerifyCode',
         'verifyResult' => 'VerifyResult',
     ];
 
@@ -25,6 +31,9 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->verifyCode) {
+            $res['VerifyCode'] = $this->verifyCode;
+        }
         if (null !== $this->verifyResult) {
             $res['VerifyResult'] = $this->verifyResult;
         }
@@ -40,6 +49,9 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['VerifyCode'])) {
+            $model->verifyCode = $map['VerifyCode'];
+        }
         if (isset($map['VerifyResult'])) {
             $model->verifyResult = $map['VerifyResult'];
         }
