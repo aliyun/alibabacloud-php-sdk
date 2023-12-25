@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CheckSharingWithResourceDirectoryStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whether resource sharing within a resource directory is enabled. Valid values:
+     *
+     *   false
+     *   true
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class CheckSharingWithResourceDirectoryStatusResponseBody extends Model
     public $enableSharingWithRd;
 
     /**
+     * @description The request ID.
+     *
      * @example 819545D0-C97A-5DB3-BD73-A1B17E9A4BC1
      *
      * @var string

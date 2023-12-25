@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceShareResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 2C3FA051-61DC-4F3E-81E9-E4830524DF4B
      *
@@ -19,7 +19,7 @@ class CreateResourceShareResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the resource share.
+     * @description The information about the resource share.
      *
      * @var resourceShare
      */

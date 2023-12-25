@@ -49,6 +49,8 @@ class ListResourceSharesRequest extends Model
     public $resourceOwner;
 
     /**
+     * @description The ID of a resource share.
+     *
      * @example rs-PqysnzIj****
      *
      * @var string[]

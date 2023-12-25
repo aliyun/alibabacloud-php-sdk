@@ -66,6 +66,8 @@ class ListResourceShareAssociationsRequest extends Model
     public $resourceId;
 
     /**
+     * @description The IDs of the resource shares.
+     *
      * @example rs-6GRmdD3X****
      *
      * @var string[]

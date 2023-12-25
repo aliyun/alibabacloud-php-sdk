@@ -28,6 +28,8 @@ class ListSharedResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of a shared resource.
+     *
      * @example vsw-bp1upw03qyz8n7us9****
      *
      * @var string[]
@@ -47,6 +49,8 @@ class ListSharedResourcesRequest extends Model
     public $resourceOwner;
 
     /**
+     * @description The ID of a resource share.
+     *
      * @example rs-6GRmdD3X****
      *
      * @var string[]

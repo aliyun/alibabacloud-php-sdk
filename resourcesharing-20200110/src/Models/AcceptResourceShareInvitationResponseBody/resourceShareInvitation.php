@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AcceptResourceShareInvitationResponseBody;
 
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AcceptResourceShareInvitationResponseBody\resourceShareInvitation\acceptInvitationFailedDetails;
 use AlibabaCloud\Tea\Model;
 
 class resourceShareInvitation extends Model
 {
+    /**
+     * @var acceptInvitationFailedDetails[]
+     */
+    public $acceptInvitationFailedDetails;
+
     /**
      * @description The time when the invitation was created. The time is displayed in UTC.
      *
@@ -77,13 +83,14 @@ class resourceShareInvitation extends Model
      */
     public $status;
     protected $_name = [
-        'createTime'                => 'CreateTime',
-        'receiverAccountId'         => 'ReceiverAccountId',
-        'resourceShareId'           => 'ResourceShareId',
-        'resourceShareInvitationId' => 'ResourceShareInvitationId',
-        'resourceShareName'         => 'ResourceShareName',
-        'senderAccountId'           => 'SenderAccountId',
-        'status'                    => 'Status',
+        'acceptInvitationFailedDetails' => 'AcceptInvitationFailedDetails',
+        'createTime'                    => 'CreateTime',
+        'receiverAccountId'             => 'ReceiverAccountId',
+        'resourceShareId'               => 'ResourceShareId',
+        'resourceShareInvitationId'     => 'ResourceShareInvitationId',
+        'resourceShareName'             => 'ResourceShareName',
+        'senderAccountId'               => 'SenderAccountId',
+        'status'                        => 'Status',
     ];
 
     public function validate()
@@ -93,6 +100,15 @@ class resourceShareInvitation extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptInvitationFailedDetails) {
+            $res['AcceptInvitationFailedDetails'] = [];
+            if (null !== $this->acceptInvitationFailedDetails && \is_array($this->acceptInvitationFailedDetails)) {
+                $n = 0;
+                foreach ($this->acceptInvitationFailedDetails as $item) {
+                    $res['AcceptInvitationFailedDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -126,6 +142,15 @@ class resourceShareInvitation extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptInvitationFailedDetails'])) {
+            if (!empty($map['AcceptInvitationFailedDetails'])) {
+                $model->acceptInvitationFailedDetails = [];
+                $n                                    = 0;
+                foreach ($map['AcceptInvitationFailedDetails'] as $item) {
+                    $model->acceptInvitationFailedDetails[$n++] = null !== $item ? acceptInvitationFailedDetails::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

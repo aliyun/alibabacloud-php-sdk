@@ -12,7 +12,7 @@ class CreateResourceShareRequest extends Model
     /**
      * @description Specifies whether resources in the resource share can be shared with accounts outside the resource directory. Valid values:
      *
-     *   false: Resources in the resource share can be shared only with accounts in the resource directory. This is the default value.
+     *   false (default): Resources in the resource share can be shared only with accounts in the resource directory.
      *   true: Resources in the resource share can be shared with both accounts in the resource directory and accounts outside the resource directory.
      *
      * @example false
@@ -22,6 +22,8 @@ class CreateResourceShareRequest extends Model
     public $allowExternalTargets;
 
     /**
+     * @description The information about the permissions. If you do not configure this parameter, the system automatically associates the default permission for the specified resource type with the resource share. For more information, see [Permission library](~~465474~~).
+     *
      * @var string[]
      */
     public $permissionNames;
@@ -37,11 +39,15 @@ class CreateResourceShareRequest extends Model
     public $resourceShareName;
 
     /**
+     * @description The information about the shared resources.
+     *
      * @var resources[]
      */
     public $resources;
 
     /**
+     * @description The information about the principals.
+     *
      * @example 172050525300****
      *
      * @var string[]

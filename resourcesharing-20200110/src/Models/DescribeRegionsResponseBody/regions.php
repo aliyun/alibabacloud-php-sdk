@@ -11,6 +11,8 @@ class regions extends Model
     /**
      * @description The name of the region.
      *
+     * @example China (Hangzhou)
+     *
      * @var string
      */
     public $localName;

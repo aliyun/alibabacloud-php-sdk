@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceShareInvitationsResponseBody;
 
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceShareInvitationsResponseBody\resourceShareInvitations\invitationFailedDetails;
 use AlibabaCloud\Tea\Model;
 
 class resourceShareInvitations extends Model
@@ -16,6 +17,11 @@ class resourceShareInvitations extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var invitationFailedDetails[]
+     */
+    public $invitationFailedDetails;
 
     /**
      * @description The Alibaba Cloud account ID of the invitee.
@@ -78,6 +84,7 @@ class resourceShareInvitations extends Model
     public $status;
     protected $_name = [
         'createTime'                => 'CreateTime',
+        'invitationFailedDetails'   => 'InvitationFailedDetails',
         'receiverAccountId'         => 'ReceiverAccountId',
         'resourceShareId'           => 'ResourceShareId',
         'resourceShareInvitationId' => 'ResourceShareInvitationId',
@@ -95,6 +102,15 @@ class resourceShareInvitations extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->invitationFailedDetails) {
+            $res['InvitationFailedDetails'] = [];
+            if (null !== $this->invitationFailedDetails && \is_array($this->invitationFailedDetails)) {
+                $n = 0;
+                foreach ($this->invitationFailedDetails as $item) {
+                    $res['InvitationFailedDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->receiverAccountId) {
             $res['ReceiverAccountId'] = $this->receiverAccountId;
@@ -128,6 +144,15 @@ class resourceShareInvitations extends Model
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['InvitationFailedDetails'])) {
+            if (!empty($map['InvitationFailedDetails'])) {
+                $model->invitationFailedDetails = [];
+                $n                              = 0;
+                foreach ($map['InvitationFailedDetails'] as $item) {
+                    $model->invitationFailedDetails[$n++] = null !== $item ? invitationFailedDetails::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ReceiverAccountId'])) {
             $model->receiverAccountId = $map['ReceiverAccountId'];

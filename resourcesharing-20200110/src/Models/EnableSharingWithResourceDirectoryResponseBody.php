@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class EnableSharingWithResourceDirectoryResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 2F23CFB6-A721-4E90-AC1E-0E30FA8B45DA
      *

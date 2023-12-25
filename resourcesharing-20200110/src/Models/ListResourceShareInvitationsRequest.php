@@ -28,11 +28,15 @@ class ListResourceShareInvitationsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The IDs of the resource shares.
+     *
      * @var string[]
      */
     public $resourceShareIds;
 
     /**
+     * @description The IDs of the resource sharing invitations.
+     *
      * @var string[]
      */
     public $resourceShareInvitationIds;

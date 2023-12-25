@@ -31,11 +31,15 @@ class DisassociateResourceShareRequest extends Model
     public $resourceShareId;
 
     /**
+     * @description The shared resource.
+     *
      * @var resources[]
      */
     public $resources;
 
     /**
+     * @description The ID of a principal.
+     *
      * @example 172050525300****
      *
      * @var string[]

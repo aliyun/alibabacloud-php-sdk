@@ -64,7 +64,7 @@ class resourceShare extends Model
      *   Deleting: The resource share is being deleted.
      *   Deleted: The resource share is deleted.
      *
-     * >  The system deletes the records of resource shares in the Deleted state within 48 hours to 96 hours after you delete the resource shares.
+     * >  The system automatically deletes the records of resource shares in the Deleted state within 48 hours to 96 hours after you delete the resource shares.
      * @example Active
      *
      * @var string

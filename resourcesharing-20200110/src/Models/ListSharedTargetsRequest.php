@@ -49,6 +49,8 @@ class ListSharedTargetsRequest extends Model
     public $resourceOwner;
 
     /**
+     * @description The ID of a resource share.
+     *
      * @example rs-6GRmdD3X****
      *
      * @var string[]
@@ -66,6 +68,8 @@ class ListSharedTargetsRequest extends Model
     public $resourceType;
 
     /**
+     * @description The ID of a principal.
+     *
      * @example 114240524784****
      *
      * @var string[]
