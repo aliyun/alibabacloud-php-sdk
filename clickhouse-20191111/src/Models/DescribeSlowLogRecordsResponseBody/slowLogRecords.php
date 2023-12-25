@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class slowLogRecords extends Model
 {
     /**
+     * @description Details about the slow query logs.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The number of rows in the result set.
+     *
      * @example 1
      *
      * @var string
@@ -24,6 +28,8 @@ class slowLogRecords extends Model
     public $rows;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 1
      *
      * @var string
@@ -31,11 +37,15 @@ class slowLogRecords extends Model
     public $rowsBeforeLimitAtLeast;
 
     /**
+     * @description The statistics of the results.
+     *
      * @var statistics
      */
     public $statistics;
 
     /**
+     * @description The schema of the table in the database.
+     *
      * @var tableSchema
      */
     public $tableSchema;

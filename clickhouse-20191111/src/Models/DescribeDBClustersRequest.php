@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClustersRequest extends Model
 {
     /**
+     * @description The description of the cluster.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -17,6 +19,9 @@ class DescribeDBClustersRequest extends Model
     public $DBClusterDescription;
 
     /**
+     * @description The cluster ID.
+     *
+     * >  If you do not specify this parameter, the information about all clusters is queried.
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -24,6 +29,14 @@ class DescribeDBClustersRequest extends Model
     public $DBClusterIds;
 
     /**
+     * @description The state of the cluster. Valid values:
+     *
+     *   **Preparing**: The cluster is being prepared.
+     *   **Creating**: The cluster is being created.
+     *   **Running**: The cluster is running.
+     *   **Deleting**: The cluster is being deleted.
+     *   **SCALING_OUT**: The storage capacity of the cluster is being expanded.
+     *
      * @example Running
      *
      * @var string
@@ -41,6 +54,8 @@ class DescribeDBClustersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -48,6 +63,12 @@ class DescribeDBClustersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
+     *
      * @example 30
      *
      * @var int
@@ -55,6 +76,8 @@ class DescribeDBClustersRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -62,6 +85,10 @@ class DescribeDBClustersRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the cluster belongs.
+     *
+     * @example rg-4690g37929****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -77,6 +104,8 @@ class DescribeDBClustersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

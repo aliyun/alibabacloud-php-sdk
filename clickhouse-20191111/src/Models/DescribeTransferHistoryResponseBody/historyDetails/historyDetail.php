@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class historyDetail extends Model
 {
     /**
+     * @description The progress of the data migration.
+     *
      * @example 100%
      *
      * @var string
@@ -16,6 +18,8 @@ class historyDetail extends Model
     public $progress;
 
     /**
+     * @description The ID of the source cluster.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -23,6 +27,11 @@ class historyDetail extends Model
     public $sourceDBCluster;
 
     /**
+     * @description The status of the data migration task. Valid values:
+     *
+     *   **Finished**: The data migration task is complete.
+     *   **Processing**: The data migration task is in progress.
+     *
      * @example Finished
      *
      * @var string
@@ -30,6 +39,8 @@ class historyDetail extends Model
     public $status;
 
     /**
+     * @description The ID of the destination cluster.
+     *
      * @example cc-bp13zkh9uw523****
      *
      * @var string

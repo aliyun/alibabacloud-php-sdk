@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterConfigInXMLRequest extends Model
 {
     /**
+     * @description The cluster ID. You can call the [DescribeDBClusters](~~170879~~) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDBClusterConfigInXMLRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

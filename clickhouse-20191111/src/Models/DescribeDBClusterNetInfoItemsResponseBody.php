@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterNetInfoItemsResponseBody extends Model
 {
     /**
+     * @description The network type of the cluster. Only VPC is supported.
+     *
      * @example VPC
      *
      * @var string
@@ -17,16 +19,27 @@ class DescribeDBClusterNetInfoItemsResponseBody extends Model
     public $clusterNetworkType;
 
     /**
+     * @description Indicates whether Server Load Balancer (SLB) is activated in the VPC. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableSLB;
 
     /**
+     * @description The network information about the cluster.
+     *
      * @var netInfoItems
      */
     public $netInfoItems;
 
     /**
+     * @description The request ID.
+     *
      * @example 9A23C87D-87DF-4DA0-A50E-CB13F4F7923D
      *
      * @var string

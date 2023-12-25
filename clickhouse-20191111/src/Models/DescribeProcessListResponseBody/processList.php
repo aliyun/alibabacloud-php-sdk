@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class processList extends Model
 {
     /**
+     * @description The details of the query.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The number of rows returned for the query.
+     *
      * @example 1145700
      *
      * @var string
@@ -24,6 +28,8 @@ class processList extends Model
     public $rows;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 1
      *
      * @var string
@@ -31,11 +37,15 @@ class processList extends Model
     public $rowsBeforeLimitAtLeast;
 
     /**
+     * @description The statistics of the results.
+     *
      * @var statistics
      */
     public $statistics;
 
     /**
+     * @description Details of the columns.
+     *
      * @var tableSchema
      */
     public $tableSchema;

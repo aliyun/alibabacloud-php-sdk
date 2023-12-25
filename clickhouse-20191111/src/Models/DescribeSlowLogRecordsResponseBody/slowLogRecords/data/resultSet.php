@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resultSet extends Model
 {
     /**
+     * @description The IP address of the client that initiated the query.
+     *
      * @example ::ffff:100.104.XX.XX
      *
      * @var string
@@ -16,6 +18,8 @@ class resultSet extends Model
     public $initialAddress;
 
     /**
+     * @description The query ID.
+     *
      * @example \"b51496f2-6b0b-4546-aff9-e17951cb9410\"
      *
      * @var string
@@ -23,6 +27,8 @@ class resultSet extends Model
     public $initialQueryId;
 
     /**
+     * @description The username that is used to initiate the query.
+     *
      * @example test_users
      *
      * @var string
@@ -30,6 +36,8 @@ class resultSet extends Model
     public $initialUser;
 
     /**
+     * @description The peak memory usage for the query. Unit: bytes.
+     *
      * @example 1048576
      *
      * @var string
@@ -37,6 +45,8 @@ class resultSet extends Model
     public $memoryUsage;
 
     /**
+     * @description The statement that was executed in the query.
+     *
      * @example Select * from table
      *
      * @var string
@@ -44,6 +54,8 @@ class resultSet extends Model
     public $query;
 
     /**
+     * @description The duration of the query. Unit: milliseconds.
+     *
      * @example 2000
      *
      * @var string
@@ -51,6 +63,8 @@ class resultSet extends Model
     public $queryDurationMs;
 
     /**
+     * @description The beginning of the time range to query. The time is in the yyyy-MM-dd hh:mm:ss format. The time is displayed in UTC.
+     *
      * @example 2022-05-22 20:00:01
      *
      * @var string
@@ -58,6 +72,8 @@ class resultSet extends Model
     public $queryStartTime;
 
     /**
+     * @description The size of the data read by executing the statement. Unit: bytes.
+     *
      * @example 1048576
      *
      * @var string
@@ -65,6 +81,8 @@ class resultSet extends Model
     public $readBytes;
 
     /**
+     * @description The number of rows read by executing the statement.
+     *
      * @example 10027008
      *
      * @var string
@@ -72,6 +90,8 @@ class resultSet extends Model
     public $readRows;
 
     /**
+     * @description The size of the result data. Unit: bytes.
+     *
      * @example 1024
      *
      * @var string
@@ -79,6 +99,11 @@ class resultSet extends Model
     public $resultBytes;
 
     /**
+     * @description The query status. Valid values:
+     *
+     *   **QueryFinish**: The query is complete.
+     *   **Processing**: The query is running.
+     *
      * @example QueryFinish
      *
      * @var string

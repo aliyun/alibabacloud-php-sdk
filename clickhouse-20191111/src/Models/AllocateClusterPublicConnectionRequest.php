@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AllocateClusterPublicConnectionRequest extends Model
 {
     /**
+     * @description The prefix of the endpoint that is used to connect to the database. Set the value to the cluster ID.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -16,6 +18,8 @@ class AllocateClusterPublicConnectionRequest extends Model
     public $connectionStringPrefix;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string

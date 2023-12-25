@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TransferVersionRequest extends Model
 {
     /**
+     * @description The ID of the source ApsaraDB for ClickHouse cluster.
+     *
      * @example cc-bp1tm8zf130ew****
      *
      * @var string
@@ -26,6 +28,8 @@ class TransferVersionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +37,12 @@ class TransferVersionRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
+     *
      * @example 30
      *
      * @var int
@@ -40,6 +50,8 @@ class TransferVersionRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +69,8 @@ class TransferVersionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The database account that is used to log on to the database in the source ApsaraDB for ClickHouse cluster.
+     *
      * @example test
      *
      * @var string
@@ -64,6 +78,8 @@ class TransferVersionRequest extends Model
     public $sourceAccount;
 
     /**
+     * @description The password that corresponds to the database account for logging on to the database in the source ApsaraDB for ClickHouse cluster.
+     *
      * @example 123456Aa
      *
      * @var string
@@ -71,6 +87,8 @@ class TransferVersionRequest extends Model
     public $sourcePassword;
 
     /**
+     * @description The database account that is used to log on to the database in the destination ApsaraDB for ClickHouse cluster.
+     *
      * @example test01
      *
      * @var string
@@ -78,6 +96,8 @@ class TransferVersionRequest extends Model
     public $targetAccount;
 
     /**
+     * @description The ID of the destination ApsaraDB for ClickHouse cluster.
+     *
      * @example cc-bp14b39djx7zg****
      *
      * @var string
@@ -85,6 +105,8 @@ class TransferVersionRequest extends Model
     public $targetDbClusterId;
 
     /**
+     * @description The password that corresponds to the database account for logging on to the database in the destination ApsaraDB for ClickHouse cluster.
+     *
      * @example 123456Ff
      *
      * @var string

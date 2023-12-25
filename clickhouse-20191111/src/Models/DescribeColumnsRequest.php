@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeColumnsRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cc-2zeux3ua25242****
      *
      * @var string
@@ -36,6 +38,8 @@ class DescribeColumnsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The database name. You can call the [DescribeSchemas](~~350931~~) operation to query database names.
+     *
      * @example database
      *
      * @var string
@@ -43,6 +47,8 @@ class DescribeColumnsRequest extends Model
     public $schemaName;
 
     /**
+     * @description The table name. You can call the [DescribeTables](~~350932~~) operation to query table names.
+     *
      * @example table
      *
      * @var string

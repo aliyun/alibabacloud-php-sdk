@@ -10,6 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynDbsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @description The request ID.
+     *
      * @example 7655F5F9-1313-5ABA-8516-F6EB79605A5F
      *
      * @var string
@@ -17,12 +29,22 @@ class DescribeSynDbsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about data synchronization between the ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+     *
      * @var synDbs[]
      */
     public $synDbs;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'synDbs'    => 'SynDbs',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
+        'synDbs'     => 'SynDbs',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -32,6 +54,12 @@ class DescribeSynDbsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,6 +71,9 @@ class DescribeSynDbsResponseBody extends Model
                     $res['SynDbs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -56,6 +87,12 @@ class DescribeSynDbsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -67,6 +104,9 @@ class DescribeSynDbsResponseBody extends Model
                     $model->synDbs[$n++] = null !== $item ? synDbs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

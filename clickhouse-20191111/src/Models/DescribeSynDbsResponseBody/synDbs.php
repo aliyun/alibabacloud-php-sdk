@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class synDbs extends Model
 {
     /**
+     * @description *   When the value **true** is returned for the **SynStatus** parameter, the system does not return the ErrorMsg parameter.
+     *   When the value **false** is returned for the **SynStatus** parameter, the system returns for the ErrorMsg parameter the cause why the data synchronization failed.
+     *
      * @example ClickHouse exception, code: 49, host: 100.100.118.132, port: 49670; Code: 49, e.displayText() = DB::Exception: Logical error: there is no global context (version 20.8.17.25)n
      *
      * @var string
@@ -16,6 +19,8 @@ class synDbs extends Model
     public $errorMsg;
 
     /**
+     * @description The ID of the ApsaraDB RDS for MySQL instance.
+     *
      * @example rm-wz9d11qg1j0h4****
      *
      * @var string
@@ -23,6 +28,8 @@ class synDbs extends Model
     public $rdsId;
 
     /**
+     * @description The account that is used to log on to the ApsaraDB RDS for MySQL database.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +37,8 @@ class synDbs extends Model
     public $rdsUserName;
 
     /**
+     * @description The internal endpoint of the ApsaraDB RDS for MySQL instance.
+     *
      * @example rm-bp16t9h3999xb0a711****.mysql.rds.aliyuncs.com:3306
      *
      * @var string
@@ -37,6 +46,8 @@ class synDbs extends Model
     public $rdsVpcUrl;
 
     /**
+     * @description The name of the database in the ApsaraDB RDS for MySQL instance.
+     *
      * @example database
      *
      * @var string
@@ -44,6 +55,11 @@ class synDbs extends Model
     public $synDb;
 
     /**
+     * @description Indicates whether the data synchronization succeeded. Valid values:
+     *
+     *   **true**: The data synchronization succeeded.
+     *   **false**: The data synchronization failed.
+     *
      * @example true
      *
      * @var bool

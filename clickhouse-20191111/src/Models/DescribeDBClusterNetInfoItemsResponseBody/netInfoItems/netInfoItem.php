@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class netInfoItem extends Model
 {
     /**
+     * @description The endpoint that is used to connect to the database.
+     *
      * @example cc-bp1554t789i8e****.clickhouse.ads.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class netInfoItem extends Model
     public $connectionString;
 
     /**
+     * @description The HTTP port number.
+     *
      * @example 8123
      *
      * @var string
@@ -23,11 +27,17 @@ class netInfoItem extends Model
     public $httpPort;
 
     /**
+     * @description The HTTPS port number.
+     *
+     * @example 8443
+     *
      * @var string
      */
     public $httpsPort;
 
     /**
+     * @description The IP address.
+     *
      * @example 10.255.234.251
      *
      * @var string
@@ -35,6 +45,8 @@ class netInfoItem extends Model
     public $IPAddress;
 
     /**
+     * @description The port number that is used in Java Database Connectivity (JDBC).
+     *
      * @example 3306
      *
      * @var string
@@ -42,11 +54,20 @@ class netInfoItem extends Model
     public $jdbcPort;
 
     /**
+     * @description The port of the MySQL instance.
+     *
+     * @example 9004
+     *
      * @var string
      */
     public $mySQLPort;
 
     /**
+     * @description The network type of the endpoint. Valid values:
+     *
+     *   Public: public endpoint
+     *   VPC: VPC
+     *
      * @example VPC
      *
      * @var string
@@ -54,6 +75,9 @@ class netInfoItem extends Model
     public $netType;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * >  If the value of the NetType parameter is set to Public, an empty string is returned.
      * @example vsw-bp1gzt31twhlo0sa5****
      *
      * @var string
@@ -61,6 +85,9 @@ class netInfoItem extends Model
     public $vSwitchId;
 
     /**
+     * @description The virtual private cloud (VPC) ID.
+     *
+     * >  If the value of the NetType parameter is set to Public, an empty string is returned.
      * @example vpc-bp175iuvg8nxqraf2****
      *
      * @var string

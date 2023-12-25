@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetAccountPasswordRequest extends Model
 {
     /**
+     * @description The name of the database account.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,15 @@ class ResetAccountPasswordRequest extends Model
     public $accountName;
 
     /**
+     * @description The new password for the database account.
+     *
+     * >
+     *
+     *   The password must contain at least three types of the following characters: uppercase letters, lowercase letters, digits, and special characters.
+     *
+     *   The password can contain the following special characters: ! @ # $ % ^ & \* ( ) \_ + - =
+     *   The password must be 8 to 32 characters in length.
+     *
      * @example 123456Ff
      *
      * @var string
@@ -23,6 +34,8 @@ class ResetAccountPasswordRequest extends Model
     public $accountPassword;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string

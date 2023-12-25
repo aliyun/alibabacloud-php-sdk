@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class series extends Model
 {
     /**
+     * @description The name of the list of performance metric values.
+     *
      * @example cc-bp125e3uu94wo1s0k16****
      *
      * @var string
@@ -17,6 +19,8 @@ class series extends Model
     public $name;
 
     /**
+     * @description The values of the performance parameter. Each value of the performance parameter is collected at a point in time.
+     *
      * @var values[]
      */
     public $values;

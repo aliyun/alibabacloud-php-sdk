@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class IPArray extends Model
 {
     /**
+     * @description The attribute of the IP address whitelist.
+     *
      * @example default
      *
      * @var string
@@ -16,6 +18,8 @@ class IPArray extends Model
     public $DBClusterIPArrayAttribute;
 
     /**
+     * @description The name of the IP address whitelist.
+     *
      * @example default
      *
      * @var string
@@ -23,6 +27,8 @@ class IPArray extends Model
     public $DBClusterIPArrayName;
 
     /**
+     * @description The IP addresses in the IP address whitelist.
+     *
      * @example 192.168.xx.xx,192.168.xx.xx
      *
      * @var string

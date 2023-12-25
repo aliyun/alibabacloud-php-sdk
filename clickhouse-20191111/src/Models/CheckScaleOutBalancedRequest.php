@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckScaleOutBalancedRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -26,6 +28,8 @@ class CheckScaleOutBalancedRequest extends Model
     public $ownerId;
 
     /**
+     * @description The total number of returned pages.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +37,12 @@ class CheckScaleOutBalancedRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
+     *
      * @example 30
      *
      * @var int
@@ -40,6 +50,8 @@ class CheckScaleOutBalancedRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

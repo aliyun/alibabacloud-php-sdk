@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tableDetail extends Model
 {
     /**
+     * @description The cluster. The value is fixed as **default**.
+     *
      * @example default
      *
      * @var string
@@ -16,6 +18,8 @@ class tableDetail extends Model
     public $cluster;
 
     /**
+     * @description The database name.
+     *
      * @example db_name
      *
      * @var string
@@ -23,6 +27,11 @@ class tableDetail extends Model
     public $database;
 
     /**
+     * @description The error details. Valid values:
+     *
+     *   **1**: The unique distributed table is missing.
+     *   **2**: More than one distributed table exists for the local table.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +39,8 @@ class tableDetail extends Model
     public $detail;
 
     /**
+     * @description The name of the local table.
+     *
      * @example test
      *
      * @var string

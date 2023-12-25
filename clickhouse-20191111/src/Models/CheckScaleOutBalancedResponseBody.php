@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CheckScaleOutBalancedResponseBody extends Model
 {
     /**
+     * @description The check result. Valid values:
+     *
+     *   **400**: The cluster failed the check.
+     *   **200**: The cluster passed the check.
+     *
      * @example 400
      *
      * @var string
@@ -17,6 +22,8 @@ class CheckScaleOutBalancedResponseBody extends Model
     public $checkCode;
 
     /**
+     * @description The total number of returned pages.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +31,12 @@ class CheckScaleOutBalancedResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
+     *
      * @example 30
      *
      * @var int
@@ -31,6 +44,8 @@ class CheckScaleOutBalancedResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example F5178C10-1407-4987-9133-DE4DC9119F75
      *
      * @var string
@@ -38,11 +53,15 @@ class CheckScaleOutBalancedResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The error information returned for a check failure.
+     *
      * @var tableDetails
      */
     public $tableDetails;
 
     /**
+     * @description The amount of time that is required for the migration and scale-out. Unit: minutes.
+     *
      * @example 21
      *
      * @var string
@@ -50,6 +69,8 @@ class CheckScaleOutBalancedResponseBody extends Model
     public $timeDuration;
 
     /**
+     * @description The total number of entries that are returned.
+     *
      * @example 1
      *
      * @var int

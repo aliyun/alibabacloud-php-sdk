@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterResponseBody extends Model
 {
     /**
+     * @description The information about the cluster.
+     *
      * @var DBCluster
      */
     public $DBCluster;
 
     /**
+     * @description The request ID.
+     *
      * @example BA30A000-3A4D-5B97-9420-E5D0D49F7016
      *
      * @var string

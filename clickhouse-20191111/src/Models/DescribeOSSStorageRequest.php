@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeOSSStorageRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -26,6 +28,8 @@ class DescribeOSSStorageRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CheckModifyConfigNeedRestartResponseBody extends Model
 {
     /**
+     * @description Indicates whether the cluster was restarted after you modified the configuration parameters. Valid values:
+     *
+     *   **true**: The cluster was restarted.
+     *   **false**: The cluster was not restarted.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class CheckModifyConfigNeedRestartResponseBody extends Model
     public $needRestart;
 
     /**
+     * @description The request ID.
+     *
      * @example 06798FEE-BEF2-5FAF-A30D-728973BBE97C
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @description The retention period for the backup data. Valid values: 7 to 730. Unit: day.
+     *
      * @example 7
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyBackupPolicyRequest extends Model
     public $backupRetentionPeriod;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp1qx68m06981****
      *
      * @var string
@@ -33,6 +37,16 @@ class ModifyBackupPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The day of a week when the system regularly backs up data. If you specify multiple days of a week, separate them with commas (,). Valid values:
+     *
+     *   **Monday**
+     *   **Tuesday**
+     *   **Wednesday**
+     *   **Thursday**
+     *   **Friday**
+     *   **Saturday**
+     *   **Sunday**
+     *
      * @example Monday
      *
      * @var string
@@ -40,6 +54,9 @@ class ModifyBackupPolicyRequest extends Model
     public $preferredBackupPeriod;
 
     /**
+     * @description The backup window. Specify the time in the ISO 8601 standard in the HH:mmZ-HH:mmZ format. The time must be in Coordinated Universal Time (UTC).
+     *
+     * For example, if you set the backup window to 00:00Z-01:00Z, the data of the cluster can be backed up from 08:00 (UTC+8) to 09:00 (UTC+8).
      * @example 15:00Z-16:00Z
      *
      * @var string

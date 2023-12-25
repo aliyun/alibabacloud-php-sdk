@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynDbTablesRequest extends Model
 {
     /**
+     * @description The ID of the ApsaraDB for ClickHouse cluster.
+     *
      * @example cc-bp158i5wvj436****
      *
      * @var string
@@ -36,6 +38,8 @@ class DescribeSynDbTablesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The name of the ApsaraDB RDS for MySQL instance.
+     *
      * @example database
      *
      * @var string

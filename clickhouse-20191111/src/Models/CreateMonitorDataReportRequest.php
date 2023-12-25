@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorDataReportRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp13s14l8498l****
      *
      * @var string
@@ -26,6 +28,8 @@ class CreateMonitorDataReportRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

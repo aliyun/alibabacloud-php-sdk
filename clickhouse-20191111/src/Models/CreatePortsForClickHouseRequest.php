@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePortsForClickHouseRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -26,6 +28,8 @@ class CreatePortsForClickHouseRequest extends Model
     public $ownerId;
 
     /**
+     * @description The port type. Set the value to mysql_port.
+     *
      * @example mysql_port
      *
      * @var string
@@ -33,6 +37,8 @@ class CreatePortsForClickHouseRequest extends Model
     public $portType;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

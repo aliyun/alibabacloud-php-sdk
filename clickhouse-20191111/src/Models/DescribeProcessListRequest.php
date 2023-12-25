@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeProcessListRequest extends Model
 {
     /**
+     * @description The cluster ID. You can call the [DescribeDBClusters](~~170879~~) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+     *
      * @example cc-bp1190tj036am****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeProcessListRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The ID of the query statement.
+     *
      * @example 6c69d508-f05f-4c74-857c-d982b7e7e79f
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeProcessListRequest extends Model
     public $initialQueryId;
 
     /**
+     * @description The account that is used to log on to the database.
+     *
      * @example user
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeProcessListRequest extends Model
     public $initialUser;
 
     /**
+     * @description The keyword that is used to query.
+     *
      * @example join
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeProcessListRequest extends Model
     public $keyword;
 
     /**
+     * @description The column by which the query results are sorted.
+     *
      * @example elapsed
      *
      * @var string
@@ -54,6 +64,8 @@ class DescribeProcessListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -61,6 +73,12 @@ class DescribeProcessListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
+     *
      * @example 30
      *
      * @var int
@@ -68,6 +86,8 @@ class DescribeProcessListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The minimum query duration. The minimum value is **1000**, and the default value is **1000**. Unit: milliseconds. Queries that last longer than this duration are returned in response parameters.
+     *
      * @example 500
      *
      * @var int
@@ -75,6 +95,8 @@ class DescribeProcessListRequest extends Model
     public $queryDurationMs;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

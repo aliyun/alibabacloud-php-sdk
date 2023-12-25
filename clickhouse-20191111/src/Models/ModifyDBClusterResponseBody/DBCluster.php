@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DBCluster extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp19lo45sy98x****
      *
      * @var string
@@ -16,6 +18,8 @@ class DBCluster extends Model
     public $dbClusterId;
 
     /**
+     * @description The order ID.
+     *
      * @example 21417210003****
      *
      * @var string

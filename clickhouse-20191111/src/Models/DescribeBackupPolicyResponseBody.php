@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyResponseBody extends Model
 {
     /**
+     * @description The retention period for the backup data. By default, the backup data is retained for seven days. Valid values: 7 to 730. Unit: day.
+     *
      * @example 7
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeBackupPolicyResponseBody extends Model
     public $backupRetentionPeriod;
 
     /**
+     * @description The size of the backup data. Unit: MB.
+     *
      * @example 123124
      *
      * @var string
@@ -23,6 +27,16 @@ class DescribeBackupPolicyResponseBody extends Model
     public $backupSize;
 
     /**
+     * @description The day of a week when the system regularly backs up data. Valid values:
+     *
+     *   **Monday**
+     *   **Tuesday**
+     *   **Wednesday**
+     *   **Thursday**
+     *   **Friday**
+     *   **Saturday**
+     *   **Sunday**
+     *
      * @example Monday
      *
      * @var string
@@ -30,6 +44,8 @@ class DescribeBackupPolicyResponseBody extends Model
     public $preferredBackupPeriod;
 
     /**
+     * @description The backup window. The time is displayed in Coordinated Universal Time (UTC).
+     *
      * @example 15:00Z-16:00Z
      *
      * @var string
@@ -37,6 +53,8 @@ class DescribeBackupPolicyResponseBody extends Model
     public $preferredBackupTime;
 
     /**
+     * @description The request ID.
+     *
      * @example F5178C10-1407-4987-9133-DE4DC9119F75
      *
      * @var string
@@ -44,6 +62,11 @@ class DescribeBackupPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the backup feature is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var string

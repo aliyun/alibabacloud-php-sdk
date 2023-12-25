@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAllDataSourceResponseBody extends Model
 {
     /**
+     * @description The information about the columns.
+     *
      * @var columns
      */
     public $columns;
 
     /**
+     * @description The request ID.
+     *
      * @example 05321590-BB65-4720-8CB6-8218E041CDD0
      *
      * @var string
@@ -24,11 +28,15 @@ class DescribeAllDataSourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the databases.
+     *
      * @var schemas
      */
     public $schemas;
 
     /**
+     * @description The information about the tables.
+     *
      * @var tables
      */
     public $tables;

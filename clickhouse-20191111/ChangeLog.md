@@ -1,3 +1,6 @@
+2023-12-25 Version: 4.0.2
+- Generated php 2019-11-11 for clickhouse.
+
 2023-12-08 Version: 4.0.1
 - Generated php 2019-11-11 for clickhouse.
 

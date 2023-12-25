@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSyndbResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,9 @@ class DeleteSyndbResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description *   If the value **true** is returned for the **Status** parameter, the system does not return the ErrorMsg parameter.
+     *   If the value **false** is returned for the **Status** parameter, the system returns the deletion failure cause for the ErrorMsg parameter.
+     *
      * @example ClickHouse exception, code: 49, host: 100.100.xx.xx, port: 49670; Code: 49, e.displayText() = DB::Exception: Logical error: there is no global context (version 20.8.17.25)n
      *
      * @var string
@@ -23,6 +28,8 @@ class DeleteSyndbResponseBody extends Model
     public $errorMsg;
 
     /**
+     * @description The request ID.
+     *
      * @example 2C7393F1-5FD1-5CEE-A2EA-270A2CF99693
      *
      * @var string
@@ -30,6 +37,11 @@ class DeleteSyndbResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the database used for data synchronization was deleted. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

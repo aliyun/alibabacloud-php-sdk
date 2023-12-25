@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class statistics extends Model
 {
     /**
+     * @description The total size of data that were read. Unit: bytes.
+     *
      * @example 123456
      *
      * @var int
@@ -16,6 +18,8 @@ class statistics extends Model
     public $bytesRead;
 
     /**
+     * @description The time consumed by the slow query. Unit: milliseconds.
+     *
      * @example 21.35
      *
      * @var float
@@ -23,6 +27,8 @@ class statistics extends Model
     public $elapsedTime;
 
     /**
+     * @description The total number of rows that were read.
+     *
      * @example 2016722
      *
      * @var int

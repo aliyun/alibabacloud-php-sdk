@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBConfigRequest extends Model
 {
     /**
+     * @description The dictionary configuration.
+     *
      * @example {"name":"test"}
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyDBConfigRequest extends Model
     public $config;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp1r59y779o04****
      *
      * @var string
@@ -33,6 +37,8 @@ class ModifyDBConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

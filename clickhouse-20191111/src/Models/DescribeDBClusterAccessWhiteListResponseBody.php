@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAccessWhiteListResponseBody extends Model
 {
     /**
+     * @description The details about the IP address whitelist.
+     *
      * @var DBClusterAccessWhiteList
      */
     public $DBClusterAccessWhiteList;
 
     /**
+     * @description The request ID.
+     *
      * @example 905F13A4-5097-4897-A84D-527EC75FFF4F
      *
      * @var string

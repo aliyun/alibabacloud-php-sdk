@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountAuthorityResponseBody extends Model
 {
     /**
+     * @description The name of the database account.
+     *
      * @example test
      *
      * @var string
@@ -16,16 +18,25 @@ class DescribeAccountAuthorityResponseBody extends Model
     public $accountName;
 
     /**
+     * @description Databases to which permissions have been granted.
+     *
      * @var string[]
      */
     public $allowDatabases;
 
     /**
+     * @description Dictionaries to which permissions have been granted.
+     *
      * @var string[]
      */
     public $allowDictionaries;
 
     /**
+     * @description Indicates whether the database account has DDL permissions. Valid values:
+     *
+     *   **true**: has DDL permissions.
+     *   **false**: does not have DDL permissions.
+     *
      * @example true
      *
      * @var bool
@@ -33,6 +44,11 @@ class DescribeAccountAuthorityResponseBody extends Model
     public $ddlAuthority;
 
     /**
+     * @description Indicates whether the database account has DML permissions. Valid values:
+     *
+     *   **all**
+     *   **readOnly,modify**
+     *
      * @example all
      *
      * @var string
@@ -40,6 +56,8 @@ class DescribeAccountAuthorityResponseBody extends Model
     public $dmlAuthority;
 
     /**
+     * @description The request ID.
+     *
      * @example F5178C10-1407-4987-9133-DE4DC9119F75
      *
      * @var string
@@ -47,11 +65,15 @@ class DescribeAccountAuthorityResponseBody extends Model
     public $requestId;
 
     /**
+     * @description All databases.
+     *
      * @var string[]
      */
     public $totalDatabases;
 
     /**
+     * @description All dictionaries.
+     *
      * @var string[]
      */
     public $totalDictionaries;

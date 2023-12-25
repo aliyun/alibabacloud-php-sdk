@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountAuthorityRequest extends Model
 {
     /**
+     * @description The name of the database account.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyAccountAuthorityRequest extends Model
     public $accountName;
 
     /**
+     * @description The databases to which you want to grant permissions. Separate databases with commas (,).
+     *
      * @example db1
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyAccountAuthorityRequest extends Model
     public $allowDatabases;
 
     /**
+     * @description The dictionaries to which you want to grant permissions. Separate dictionaries with commas (,).
+     *
      * @example dt1
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyAccountAuthorityRequest extends Model
     public $allowDictionaries;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -37,6 +45,11 @@ class ModifyAccountAuthorityRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to grant DDL permissions to the database account. Valid values:
+     *
+     *   **true**: grants DDL permissions to the database account.
+     *   **false**: does not grant DDL permissions to the database account.
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +57,11 @@ class ModifyAccountAuthorityRequest extends Model
     public $ddlAuthority;
 
     /**
+     * @description Specifies whether to grant DML permissions to the database account. Valid values:
+     *
+     *   **all**
+     *   **readonly,modify**
+     *
      * @example all
      *
      * @var string
@@ -61,6 +79,8 @@ class ModifyAccountAuthorityRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -78,6 +98,8 @@ class ModifyAccountAuthorityRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description All databases. Separate databases with commas (,).
+     *
      * @example db1,db2
      *
      * @var string
@@ -85,6 +107,8 @@ class ModifyAccountAuthorityRequest extends Model
     public $totalDatabases;
 
     /**
+     * @description All dictionaries. Separate dictionaries with commas (,).
+     *
      * @example dt1,dt2
      *
      * @var string

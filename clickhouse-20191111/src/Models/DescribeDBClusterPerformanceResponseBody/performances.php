@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class performances extends Model
 {
     /**
+     * @description The name of the performance metric.
+     *
      * @example MEM_USAGE
      *
      * @var string
@@ -17,6 +19,8 @@ class performances extends Model
     public $key;
 
     /**
+     * @description The name of the performance metric value.
+     *
      * @example mem_usage
      *
      * @var string
@@ -24,11 +28,15 @@ class performances extends Model
     public $name;
 
     /**
+     * @description The queried performance pamaters.
+     *
      * @var series[]
      */
     public $series;
 
     /**
+     * @description The unit of the performance metric.
+     *
      * @example %
      *
      * @var string

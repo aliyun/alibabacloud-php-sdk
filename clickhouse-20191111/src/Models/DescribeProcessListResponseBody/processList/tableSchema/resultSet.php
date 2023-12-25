@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resultSet extends Model
 {
     /**
+     * @description The column name.
+     *
      * @example InitialUser
      *
      * @var string
@@ -16,6 +18,8 @@ class resultSet extends Model
     public $name;
 
     /**
+     * @description The column type.
+     *
      * @example String
      *
      * @var string

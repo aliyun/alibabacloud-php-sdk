@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterNetInfoItemsRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp1qx68m06981****
      *
      * @var string

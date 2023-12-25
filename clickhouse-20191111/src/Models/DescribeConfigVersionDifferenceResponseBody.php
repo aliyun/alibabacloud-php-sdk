@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigVersionDifferenceResponseBody extends Model
 {
     /**
+     * @description The values of the configuration parameters after the values of the configuration parameters are changed.
+     *
      * @example "<?xml version="1.0"?>
      * </yandex>"
      * @var string
@@ -16,6 +18,8 @@ class DescribeConfigVersionDifferenceResponseBody extends Model
     public $newConfigXML;
 
     /**
+     * @description The values of the configuration parameters before the values of the configuration parameters are changed.
+     *
      * @example "<?xml version="1.0"?>
      * </yandex>"
      * @var string
@@ -23,6 +27,8 @@ class DescribeConfigVersionDifferenceResponseBody extends Model
     public $oldConfigXML;
 
     /**
+     * @description The request ID.
+     *
      * @example D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountAuthorityRequest extends Model
 {
     /**
+     * @description The name of the database account.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAccountAuthorityRequest extends Model
     public $accountName;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp1p816075e21****
      *
      * @var string
@@ -33,6 +37,8 @@ class DescribeAccountAuthorityRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

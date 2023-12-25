@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeMinorVersionRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -36,6 +38,12 @@ class UpgradeMinorVersionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to update the minor engine version of the ApsaraDB for ClickHouse cluster immediately. Valid values:
+     *
+     *   **true**: updates the minor engine version of the ApsaraDB for ClickHouse cluster immediately.
+     *   **false**: updates the minor engine version of the ApsaraDB for ClickHouse cluster at the specified time or within the specified maintenance window.
+     *
+     * >  If you want to update the minor engine version of the ApsaraDB for ClickHouse cluster at the specified time, **UpgradeTime** is required.
      * @example false
      *
      * @var bool
@@ -43,6 +51,9 @@ class UpgradeMinorVersionRequest extends Model
     public $upgradeImmediately;
 
     /**
+     * @description The update time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in Coordinated Universal Time (UTC).
+     *
+     * >  If you do not set this parameter, the minor engine version of an ApsaraDB for ClickHouse cluster is updated within the specified maintenance window.
      * @example 2022-08-07T16:38Z
      *
      * @var string
@@ -50,6 +61,9 @@ class UpgradeMinorVersionRequest extends Model
     public $upgradeTime;
 
     /**
+     * @description The minor engine version to which you want to update.
+     *
+     * >  By default, UpgradeVersion is not set and the minor engine version of the ApsaraDB for ClickHouse cluster is updated to the latest version.
      * @example 1.37.0
      *
      * @var string

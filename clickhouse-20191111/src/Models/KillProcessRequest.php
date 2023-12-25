@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class KillProcessRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -16,6 +18,9 @@ class KillProcessRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The query statement or query statements that you want to stop executing. If you want to stop executing multiple query statements, separate the statements with commas (,).
+     *
+     * >  If you do not set this parameter, all query statements are stopped by default.
      * @example SELECT * FROM `test01` ;
      *
      * @var string
@@ -33,6 +38,8 @@ class KillProcessRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

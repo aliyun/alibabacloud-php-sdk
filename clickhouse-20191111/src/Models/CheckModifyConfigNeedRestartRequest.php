@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckModifyConfigNeedRestartRequest extends Model
 {
     /**
+     * @description The configuration parameters whose settings are modified.
+     *
      * @example <?xml version="1.0"?>
      * </yandex>
      * @var string
@@ -16,6 +18,8 @@ class CheckModifyConfigNeedRestartRequest extends Model
     public $config;
 
     /**
+     * @description The cluster ID. You can call the [DescribeDBClusters](~~170879~~) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+     *
      * @example cc-bp1tm8zf130ew****
      *
      * @var string

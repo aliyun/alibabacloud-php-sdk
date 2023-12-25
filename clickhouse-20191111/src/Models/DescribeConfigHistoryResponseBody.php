@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigHistoryResponseBody extends Model
 {
     /**
+     * @description The change records of the configuration parameters.
+     *
      * @var configHistoryItems[]
      */
     public $configHistoryItems;
 
     /**
+     * @description The request ID.
+     *
      * @example D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
      *
      * @var string

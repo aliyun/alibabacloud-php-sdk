@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSyndbRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp158i5wvj436****
      *
      * @var string
@@ -36,6 +38,8 @@ class DeleteSyndbRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The name of the database in the ApsaraDB RDS for MySQL instance. The database is used for data synchronization.
+     *
      * @example database
      *
      * @var string

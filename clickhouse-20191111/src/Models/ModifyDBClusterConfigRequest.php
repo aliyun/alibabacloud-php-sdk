@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterConfigRequest extends Model
 {
     /**
+     * @description The cluster ID. You can call the [DescribeDBClusters](~~170879~~) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+     *
      * @example cc-bp1t9lbb7a4z7****
      *
      * @var string
@@ -26,6 +28,8 @@ class ModifyDBClusterConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The reason for the change.
+     *
      * @example test
      *
      * @var string
@@ -33,6 +37,8 @@ class ModifyDBClusterConfigRequest extends Model
     public $reason;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +56,9 @@ class ModifyDBClusterConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The names of the parameters and the new values that you want to specify for the parameters.
+     *
+     * >  You can change the value of a single parameter. The values of parameters that are not specified will not be changed.
      * @example {"keep_alive_timeout":"301"}
      *
      * @var string

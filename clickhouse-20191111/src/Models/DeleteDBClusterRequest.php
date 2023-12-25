@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBClusterRequest extends Model
 {
     /**
+     * @description The ID of the pay-as-you-go ApsaraDB for ClickHouse cluster.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string

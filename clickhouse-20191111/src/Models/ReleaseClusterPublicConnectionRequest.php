@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseClusterPublicConnectionRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string

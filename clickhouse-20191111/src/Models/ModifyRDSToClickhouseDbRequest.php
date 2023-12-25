@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyRDSToClickhouseDbRequest extends Model
 {
     /**
+     * @description The password of the account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+     *
      * @example 123456Aa
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $ckPassword;
 
     /**
+     * @description The account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+     *
      * @example user1
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $ckUserName;
 
     /**
+     * @description The port number of the ApsaraDB for ClickHouse cluster.
+     *
      * @example 8123
      *
      * @var int
@@ -30,6 +36,8 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $clickhousePort;
 
     /**
+     * @description The ID of the ApsaraDB for ClickHouse cluster.
+     *
      * @example cc-bp158i5wvj436****
      *
      * @var string
@@ -37,6 +45,8 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $dbClusterId;
 
     /**
+     * @description The maximum number of rows that can be synchronized per second.
+     *
      * @example 50000
      *
      * @var int
@@ -54,6 +64,8 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the ApsaraDB RDS for MySQL instance.
+     *
      * @example rm-uf6x3qq4t90ok****
      *
      * @var string
@@ -61,6 +73,8 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $rdsId;
 
     /**
+     * @description The password of the account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
+     *
      * @example 123456Rr
      *
      * @var string
@@ -68,6 +82,8 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $rdsPassword;
 
     /**
+     * @description The port number of the ApsaraDB RDS for MySQL instance.
+     *
      * @example 3306
      *
      * @var int
@@ -75,6 +91,8 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $rdsPort;
 
     /**
+     * @description The database in the ApsaraDB RDS for MySQL instance.
+     *
      * @example database
      *
      * @var string
@@ -82,6 +100,8 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $rdsSynDb;
 
     /**
+     * @description The table in the ApsaraDB RDS for MySQL instance.
+     *
      * @example table
      *
      * @var string
@@ -89,6 +109,8 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $rdsSynTables;
 
     /**
+     * @description The account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
+     *
      * @example user2
      *
      * @var string
@@ -96,6 +118,8 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $rdsUserName;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the ApsaraDB RDS for MySQL instance belongs.
+     *
      * @example vpc-bp1v9dtwmqqjhwwg****
      *
      * @var string
@@ -113,6 +137,11 @@ class ModifyRDSToClickhouseDbRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to ignore databases that do not support synchronization. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

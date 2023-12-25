@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckClickhouseToRDSRequest extends Model
 {
     /**
+     * @description The password of the account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+     *
      * @example 123456Aa
      *
      * @var string
@@ -16,6 +18,8 @@ class CheckClickhouseToRDSRequest extends Model
     public $ckPassword;
 
     /**
+     * @description The account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
+     *
      * @example user1
      *
      * @var string
@@ -23,6 +27,8 @@ class CheckClickhouseToRDSRequest extends Model
     public $ckUserName;
 
     /**
+     * @description The port number of the ApsaraDB for ClickHouse cluster.
+     *
      * @example 8123
      *
      * @var int
@@ -30,6 +36,8 @@ class CheckClickhouseToRDSRequest extends Model
     public $clickhousePort;
 
     /**
+     * @description The ID of the ApsaraDB for ClickHouse cluster.
+     *
      * @example cc-2zeyy362b5sbm****
      *
      * @var string
@@ -47,6 +55,8 @@ class CheckClickhouseToRDSRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the ApsaraDB RDS for MySQL instance.
+     *
      * @example rm-bp13v4bnwlu8j****
      *
      * @var string
@@ -54,6 +64,8 @@ class CheckClickhouseToRDSRequest extends Model
     public $rdsId;
 
     /**
+     * @description The password of the account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
+     *
      * @example 123456Rr
      *
      * @var string
@@ -61,6 +73,8 @@ class CheckClickhouseToRDSRequest extends Model
     public $rdsPassword;
 
     /**
+     * @description The port number of the ApsaraDB RDS for MySQL instance.
+     *
      * @example 3306
      *
      * @var int
@@ -68,6 +82,8 @@ class CheckClickhouseToRDSRequest extends Model
     public $rdsPort;
 
     /**
+     * @description The account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
+     *
      * @example user2
      *
      * @var string
@@ -75,6 +91,8 @@ class CheckClickhouseToRDSRequest extends Model
     public $rdsUserName;
 
     /**
+     * @description The ID of the VPC in which the ApsaraDB RDS for MySQL instance is deployed.
+     *
      * @example vpc-wz9mm0qka0winfl47****
      *
      * @var string
@@ -82,6 +100,8 @@ class CheckClickhouseToRDSRequest extends Model
     public $rdsVpcId;
 
     /**
+     * @description The internal endpoint of the ApsaraDB RDS for MySQL instance.
+     *
      * @example rm-bp16t9h3999xb0a7****.mysql.rds.aliyuncs.com
      *
      * @var string

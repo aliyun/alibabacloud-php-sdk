@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynDbsRequest extends Model
 {
     /**
+     * @description The ID of the ApsaraDB for ClickHouse cluster.
+     *
      * @example cc-bp1ab22b80814****
      *
      * @var string
@@ -26,6 +28,20 @@ class DescribeSynDbsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @example 20
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -38,6 +54,8 @@ class DescribeSynDbsRequest extends Model
         'dbClusterId'          => 'DbClusterId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -57,6 +75,12 @@ class DescribeSynDbsRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -84,6 +108,12 @@ class DescribeSynDbsRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterConfigInXMLResponseBody extends Model
 {
     /**
+     * @description The values of the configuration parameters.
+     *
      * @example <?xml version="1.0"?>
      * </yandex>
      * @var string
@@ -16,6 +18,8 @@ class DescribeDBClusterConfigInXMLResponseBody extends Model
     public $config;
 
     /**
+     * @description The request ID.
+     *
      * @example FE042911-2B00-134C-9F42-816871BBAFB8
      *
      * @var string

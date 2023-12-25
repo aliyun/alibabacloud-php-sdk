@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterPerformanceResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp125e3uu94wo****
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public $DBClusterId;
 
     /**
+     * @description The end of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in Coordinated Universal Time (UTC).
+     *
      * @example 2021-11-27T16:38Z
      *
      * @var string
@@ -24,11 +28,15 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The values of the queried performance metrics of the cluster.
+     *
      * @var performances[]
      */
     public $performances;
 
     /**
+     * @description The request ID.
+     *
      * @example FE242962-6DA3-5FC8-9691-37B62A3210F7
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The beginning of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2021-11-27T16:37Z
      *
      * @var string

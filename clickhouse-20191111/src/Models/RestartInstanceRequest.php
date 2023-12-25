@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestartInstanceRequest extends Model
 {
     /**
+     * @description The cluster ID. You can call the [DescribeDBClusters](~~170879~~) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -26,6 +28,8 @@ class RestartInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +37,12 @@ class RestartInstanceRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values:
+     *
+     *   30 (default)
+     *   50
+     *   100
+     *
      * @example 30
      *
      * @var int
@@ -40,6 +50,8 @@ class RestartInstanceRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -57,7 +69,10 @@ class RestartInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @example 2020-02-02T00:00:50Z
+     * @description The scheduled restart time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in Coordinated Universal Time (UTC).
+     *
+     * >  If this parameter is left empty or the time specified by this parameter is earlier than the current time, the cluster is immediately restarted.
+     * @example 2023-03-22T00:00:50Z
      *
      * @var string
      */

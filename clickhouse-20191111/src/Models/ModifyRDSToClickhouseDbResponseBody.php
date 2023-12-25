@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyRDSToClickhouseDbResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,9 @@ class ModifyRDSToClickhouseDbResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description *   If the value **1** is returned for the **Status** parameter, the system does not return the ErrorMsg parameter.
+     *   If the value **0** is returned for the **Status** parameter, the ErrorMsg parameter returns the cause for the modification failure.
+     *
      * @example ClickHouse exception, code: 49, host: 100.100.118.132, port: 49670; Code: 49, e.displayText() = DB::Exception: Logical error: there is no global context (version 20.8.17.25)n
      *
      * @var string
@@ -23,6 +28,8 @@ class ModifyRDSToClickhouseDbResponseBody extends Model
     public $errorMsg;
 
     /**
+     * @description The request ID.
+     *
      * @example 746CD303-0B82-5E8D-886D-93A9FAF3A876
      *
      * @var string
@@ -30,6 +37,11 @@ class ModifyRDSToClickhouseDbResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the modification was successful. Valid values:
+     *
+     *   **1**: The modification was successful.
+     *   **0**: The modification failed.
+     *
      * @example 1
      *
      * @var int

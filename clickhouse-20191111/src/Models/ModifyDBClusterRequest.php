@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterRequest extends Model
 {
     /**
+     * @description The specifications of the cluster.
+     *
+     *   Valid values when the cluster is of Single-replica Edition:
+     *
+     *   **S4-NEW**
+     *   **S8**
+     *   **S16**
+     *   **S32**
+     *   **S64**
+     *   **S104**
+     *
+     *   Valid values when the cluster is of Double-replica Edition:
+     *
+     *   **C4-NEW**
+     *   **C8**
+     *   **C16**
+     *   **C32**
+     *   **C64**
+     *   **C104**
+     *
      * @example S4-NEW
      *
      * @var string
@@ -16,6 +36,8 @@ class ModifyDBClusterRequest extends Model
     public $DBClusterClass;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp19lo45sy98x****
      *
      * @var string
@@ -23,6 +45,11 @@ class ModifyDBClusterRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The number of nodes in the cluster.
+     *
+     *   If the cluster is of Single-replica Edition, the value must be an integer that ranges from 1 to 48.
+     *   If the cluster is of Double-replica Edition, the value must be an integer that ranges from 1 to 24.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +57,9 @@ class ModifyDBClusterRequest extends Model
     public $DBNodeGroupCount;
 
     /**
+     * @description The storage capacity of a single node of the cluster. Unit: GB.
+     *
+     * >  This value is a multiple of 100.
      * @example 100
      *
      * @var string
@@ -47,6 +77,8 @@ class ModifyDBClusterRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

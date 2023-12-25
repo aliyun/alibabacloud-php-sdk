@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resultSet extends Model
 {
     /**
+     * @description The IP address of the client that initiates the query.
+     *
      * @example ::ffff:10.1.XX.XX
      *
      * @var string
@@ -16,6 +18,8 @@ class resultSet extends Model
     public $initialAddress;
 
     /**
+     * @description The query ID.
+     *
      * @example 2dd144fd-4230-4249-b15c-e63f964fbb5a
      *
      * @var string
@@ -23,6 +27,8 @@ class resultSet extends Model
     public $initialQueryId;
 
     /**
+     * @description The database account.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +36,8 @@ class resultSet extends Model
     public $initialUser;
 
     /**
+     * @description The SQL statement that is executed in the query.
+     *
      * @example select * from test order by score limit 1;
      *
      * @var string
@@ -37,6 +45,8 @@ class resultSet extends Model
     public $query;
 
     /**
+     * @description The execution duration of the query. Unit: milliseconds.
+     *
      * @example 2000
      *
      * @var string
@@ -44,6 +54,8 @@ class resultSet extends Model
     public $queryDurationMs;
 
     /**
+     * @description The beginning of the time range to query. The value is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in Coordinated Universal Time (UTC).
+     *
      * @example 2021-02-02T09:14:48Z
      *
      * @var string

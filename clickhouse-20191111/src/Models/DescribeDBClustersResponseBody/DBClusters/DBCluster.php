@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DBCluster extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 140692647406****
      *
      * @var string
@@ -18,6 +20,11 @@ class DBCluster extends Model
     public $aliUid;
 
     /**
+     * @description The site ID. Valid values:
+     *
+     *   **26842**: the China site (aliyun.com)
+     *   **26888**: the international site (alibabacloud.com)
+     *
      * @example 26842
      *
      * @var string
@@ -25,6 +32,11 @@ class DBCluster extends Model
     public $bid;
 
     /**
+     * @description The edition of the cluster. Valid values:
+     *
+     *   **Basic**: Single-replica Edition
+     *   **HighAvailability**: Double-replica Edition
+     *
      * @example Basic
      *
      * @var string
@@ -32,6 +44,8 @@ class DBCluster extends Model
     public $category;
 
     /**
+     * @description The commodity code of the cluster.
+     *
      * @example clickhouse_go_public_cn
      *
      * @var string
@@ -39,6 +53,8 @@ class DBCluster extends Model
     public $commodityCode;
 
     /**
+     * @description The VPC endpoint of the cluster.
+     *
      * @example cc-bp1fs5o051c61****.clickhouse.ads.aliyuncs.com
      *
      * @var string
@@ -46,6 +62,11 @@ class DBCluster extends Model
     public $connectionString;
 
     /**
+     * @description The version number of the backend management system of ApsaraDB for ClickHouse. Valid values:
+     *
+     *   **v1**
+     *   **v2**
+     *
      * @example v1
      *
      * @var string
@@ -53,6 +74,8 @@ class DBCluster extends Model
     public $controlVersion;
 
     /**
+     * @description The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+     *
      * @example 2021-10-28T07:24:45Z
      *
      * @var string
@@ -60,6 +83,8 @@ class DBCluster extends Model
     public $createTime;
 
     /**
+     * @description The description of the cluster.
+     *
      * @example test
      *
      * @var string
@@ -67,6 +92,8 @@ class DBCluster extends Model
     public $DBClusterDescription;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -74,6 +101,8 @@ class DBCluster extends Model
     public $DBClusterId;
 
     /**
+     * @description The network type of the cluster. Only VPC is supported.
+     *
      * @example VPC
      *
      * @var string
@@ -81,6 +110,14 @@ class DBCluster extends Model
     public $DBClusterNetworkType;
 
     /**
+     * @description The state of the cluster. Valid values:
+     *
+     *   **Preparing**: The cluster is being prepared.
+     *   **Creating**: The cluster is being created.
+     *   **Running**: The cluster is running.
+     *   **Deleting**: The cluster is being deleted.
+     *   **SCALING_OUT**: The storage capacity of the cluster is being expanded.
+     *
      * @example Running
      *
      * @var string
@@ -88,6 +125,17 @@ class DBCluster extends Model
     public $DBClusterStatus;
 
     /**
+     * @description The specifications of the cluster.
+     *
+     *   Valid values when the cluster is of Single-replica Edition: -**S4**: 4 CPU cores and 16 GB of memory -**S8**: 8 CPU cores and 32 GB of memory
+     *
+     *   **S16**: 16 CPU cores and 64 GB of memory
+     *   **S32**: 32 CPU cores and 128 GB of memory
+     *   **S64**: 64 CPU cores and 256 GB of memory
+     *   **S104**: 104 CPU cores and 384 GB of memory
+     *
+     *   Valid values when the cluster is of Double-replica Edition: -**C4**: 4 CPU cores and 16 GB of memory -**C8**: 8 CPU cores and 32 GB of memory -**C16**: 16 CPU cores and 64 GB of memory -**C32**: 32 CPU cores and 128 GB of memory -**C64**: 64 CPU cores and 256 GB of memory -**C104**: 104 CPU cores and 384 GB of memory
+     *
      * @example C8
      *
      * @var string
@@ -95,6 +143,11 @@ class DBCluster extends Model
     public $DBNodeClass;
 
     /**
+     * @description The number of nodes.
+     *
+     *   Valid values when the cluster is of Single-replica Edition: 1 to 48.
+     *   Valid values when the cluster is of Double-replica Edition: 1 to 24.
+     *
      * @example 2
      *
      * @var int
@@ -102,6 +155,9 @@ class DBCluster extends Model
     public $DBNodeCount;
 
     /**
+     * @description The storage capacity of each node. Valid values: 100 to 32000. Unit: GB.
+     *
+     * >  This value is a multiple of 100.
      * @example 100
      *
      * @var int
@@ -109,6 +165,9 @@ class DBCluster extends Model
     public $DBNodeStorage;
 
     /**
+     * @description The time when the cluster expired. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
+     *
+     * >  Pay-as-you-go clusters never expire. If the cluster is a pay-as-you-go cluster, an empty string is returned for this parameter.
      * @example 2011-05-30T12:11:4Z
      *
      * @var string
@@ -116,16 +175,35 @@ class DBCluster extends Model
     public $expireTime;
 
     /**
+     * @description The extended storage space.
+     *
+     * @example 100GB
+     *
      * @var int
      */
     public $extStorageSize;
 
     /**
+     * @description The extended storage type. Valid values:
+     *
+     *   **CloudSSD**: standard SSD.
+     *   **CloudESSD**: The cluster uses an enhanced SSD (ESSD) of performance level (PL) 1.
+     *   **CloudESSD_PL2**: The cluster uses an ESSD of PL 2.
+     *   **CloudESSD_PL3**: The cluster uses an ESSD of PL 3.
+     *   **CloudEfficiency**: The cluster uses an ultra disk.
+     *
+     * @example CloudESSD
+     *
      * @var string
      */
     public $extStorageType;
 
     /**
+     * @description Indicates whether the cluster has expired. Valid values:
+     *
+     *   **true**: The cluster has expired.
+     *   **false**: The cluster has not expired.
+     *
      * @example false
      *
      * @var string
@@ -133,6 +211,14 @@ class DBCluster extends Model
     public $isExpired;
 
     /**
+     * @description The lock mode of the cluster. Valid values:
+     *
+     *   **Unlock**: The cluster is not locked.
+     *   **ManualLock**: The cluster is manually locked.
+     *   **LockByExpiration**: The cluster is automatically locked due to cluster expiration.
+     *   **LockByRestoration**: The cluster is automatically locked because the cluster is about to be rolled back.
+     *   **LockByDiskQuota**: The cluster is automatically locked because the disk space is exhausted.
+     *
      * @example Unlock
      *
      * @var string
@@ -140,6 +226,9 @@ class DBCluster extends Model
     public $lockMode;
 
     /**
+     * @description The cause why the cluster was locked.
+     *
+     * >  If the value of the LockMode parameter is Unlock, an empty string is returned for this parameter.
      * @example DISK_FULL
      *
      * @var string
@@ -147,6 +236,11 @@ class DBCluster extends Model
     public $lockReason;
 
     /**
+     * @description The billing method of the cluster. Valid values:
+     *
+     *   **Postpaid**: The cluster uses the pay-as-you-go billing method.
+     *   **Prepaid**: The cluster uses the subscription billing method.
+     *
      * @example Postpaid
      *
      * @var string
@@ -154,6 +248,8 @@ class DBCluster extends Model
     public $payType;
 
     /**
+     * @description The HTTP port number.
+     *
      * @example 8123
      *
      * @var int
@@ -161,6 +257,8 @@ class DBCluster extends Model
     public $port;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -168,16 +266,29 @@ class DBCluster extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the cluster belongs.
+     *
+     * @example rg-4690g37929****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of a data migration task.
+     *
      * @var scaleOutStatus
      */
     public $scaleOutStatus;
 
     /**
+     * @description The storage type of the cluster. Valid values:
+     *
+     *   **CloudESSD**: The cluster uses an enhanced SSD (ESSD) of performance level (PL) 1.
+     *   **CloudESSD_PL2**: The cluster uses an ESSD of PL 2.
+     *   **CloudESSD_PL3**: The cluster uses an ESSD of PL 3.
+     *   **CloudEfficiency**: The cluster uses an ultra disk.
+     *
      * @example CloudESSD
      *
      * @var string
@@ -185,11 +296,15 @@ class DBCluster extends Model
     public $storageType;
 
     /**
+     * @description The tags.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The vSwitch ID.
+     *
      * @example vsw-bp1gzt31twhlo0sa5****
      *
      * @var string
@@ -197,6 +312,8 @@ class DBCluster extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC in which the cluster is deployed.
+     *
      * @example vpc-bp175iuvg8nxqraf2****
      *
      * @var string
@@ -204,7 +321,7 @@ class DBCluster extends Model
     public $vpcCloudInstanceId;
 
     /**
-     * @description VPC ID。
+     * @description The ID of the virtual private cloud (VPC) in which the cluster is deployed.
      *
      * @example vpc-bp175iuvg8nxqraf2****
      *
@@ -213,6 +330,8 @@ class DBCluster extends Model
     public $vpcId;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-h
      *
      * @var string

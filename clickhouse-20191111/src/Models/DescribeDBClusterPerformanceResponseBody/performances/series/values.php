@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class values extends Model
 {
     /**
+     * @description The values of a metric.
+     *
      * @var string[]
      */
     public $point;

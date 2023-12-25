@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeProcessListResponseBody extends Model
 {
     /**
+     * @description The queries.
+     *
      * @var processList
      */
     public $processList;
 
     /**
+     * @description The request ID.
+     *
      * @example FD61BB0D-788A-5185-A8E3-1B90BA8F6F04
      *
      * @var string

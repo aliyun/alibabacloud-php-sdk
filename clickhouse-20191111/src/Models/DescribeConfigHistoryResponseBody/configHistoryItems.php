@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class configHistoryItems extends Model
 {
     /**
+     * @description The ID of the change record.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class configHistoryItems extends Model
     public $changeId;
 
     /**
+     * @description The user ID (UID) of the Alibaba Cloud account.
+     *
      * @example 253460731706911258
      *
      * @var string
@@ -23,6 +27,8 @@ class configHistoryItems extends Model
     public $ownerId;
 
     /**
+     * @description The reason for the setting modification of the configuration parameters.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +36,11 @@ class configHistoryItems extends Model
     public $reason;
 
     /**
+     * @description Indicates whether the setting modification of the configuration parameters took effect. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +48,8 @@ class configHistoryItems extends Model
     public $success;
 
     /**
+     * @description The time when the values of the configuration parameters were changed. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-08-22T10:00:00Z
      *
      * @var string

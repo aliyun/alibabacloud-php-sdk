@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsRequest extends Model
 {
     /**
+     * @description The cluster ID. You can call the [DescribeDBClusters](~~170879~~) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+     *
      * @example cc-bp1z58t881wcx****
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeSlowLogRecordsRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd hh:mm:ss format. The time must be in UTC.
+     *
+     * >  The end time must be later than the start time. The specified time range that can be specified must be less than seven days.
      * @example 2022-05-27 16:00:00
      *
      * @var string
@@ -33,6 +38,8 @@ class DescribeSlowLogRecordsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -40,6 +47,12 @@ class DescribeSlowLogRecordsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
+     *
      * @example 30
      *
      * @var int
@@ -47,6 +60,8 @@ class DescribeSlowLogRecordsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The minimum query duration. The minimum value is **1000**, and the default value is **1000**. Unit: milliseconds. Queries that last longer than this duration are returned in response parameters.
+     *
      * @example 1000
      *
      * @var int
@@ -54,6 +69,8 @@ class DescribeSlowLogRecordsRequest extends Model
     public $queryDurationMs;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -71,6 +88,8 @@ class DescribeSlowLogRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd hh:mm:ss format. The time must be in Coordinated Universal Time (UTC).
+     *
      * @example 2022-05-20 16:00:00
      *
      * @var string

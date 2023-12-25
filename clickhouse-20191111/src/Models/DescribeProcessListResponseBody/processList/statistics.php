@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class statistics extends Model
 {
     /**
+     * @description The size of the data that was scanned. Unit: bytes.
+     *
      * @example 9141300000
      *
      * @var int
@@ -16,6 +18,8 @@ class statistics extends Model
     public $bytesRead;
 
     /**
+     * @description The average response time.
+     *
      * @example 4156
      *
      * @var float
@@ -23,6 +27,8 @@ class statistics extends Model
     public $elapsedTime;
 
     /**
+     * @description The number of scanned rows.
+     *
      * @example 1000000
      *
      * @var int

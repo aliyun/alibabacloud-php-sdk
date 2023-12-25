@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterDescriptionRequest extends Model
 {
     /**
+     * @description The cluster name. When you set the cluster name, take note of the following rules:
+     *
+     *   The cluster name cannot start with http:// or https://.
+     *   The cluster name must be 2 to 256 characters in length.
+     *
      * @example ClusterDescriptionTest
      *
      * @var string
@@ -16,6 +21,8 @@ class ModifyDBClusterDescriptionRequest extends Model
     public $DBClusterDescription;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string
