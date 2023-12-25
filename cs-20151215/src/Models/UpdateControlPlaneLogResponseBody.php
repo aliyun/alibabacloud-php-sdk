@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteClusterResponseBody extends Model
+class UpdateControlPlaneLogResponseBody extends Model
 {
     /**
      * @example cb95aa626a47740afbf6aa099b650****
@@ -23,9 +23,7 @@ class DeleteClusterResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The task ID.
-     *
-     * @example T-5a54309c80282e39ea****
+     * @example T-5a54309c80282e39ea00****
      *
      * @var string
      */
@@ -59,7 +57,7 @@ class DeleteClusterResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteClusterResponseBody
+     * @return UpdateControlPlaneLogResponseBody
      */
     public static function fromMap($map = [])
     {

@@ -6,34 +6,20 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteClusterResponseBody extends Model
+class ListOperationPlansRequest extends Model
 {
     /**
-     * @example cb95aa626a47740afbf6aa099b650****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example 687C5BAA-D103-4993-884B-C35E4314****
-     *
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @description The task ID.
-     *
-     * @example T-5a54309c80282e39ea****
-     *
-     * @var string
-     */
-    public $taskId;
+    public $type;
     protected $_name = [
         'clusterId' => 'cluster_id',
-        'requestId' => 'request_id',
-        'taskId'    => 'task_id',
+        'type'      => 'type',
     ];
 
     public function validate()
@@ -46,11 +32,8 @@ class DeleteClusterResponseBody extends Model
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
-        if (null !== $this->requestId) {
-            $res['request_id'] = $this->requestId;
-        }
-        if (null !== $this->taskId) {
-            $res['task_id'] = $this->taskId;
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -59,7 +42,7 @@ class DeleteClusterResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteClusterResponseBody
+     * @return ListOperationPlansRequest
      */
     public static function fromMap($map = [])
     {
@@ -67,11 +50,8 @@ class DeleteClusterResponseBody extends Model
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
-        if (isset($map['request_id'])) {
-            $model->requestId = $map['request_id'];
-        }
-        if (isset($map['task_id'])) {
-            $model->taskId = $map['task_id'];
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

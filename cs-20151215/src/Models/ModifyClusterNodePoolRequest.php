@@ -22,6 +22,13 @@ class ModifyClusterNodePoolRequest extends Model
     public $autoScaling;
 
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $concurrency;
+
+    /**
      * @description The configurations about the cluster.
      *
      * @var kubernetesConfig
@@ -66,6 +73,7 @@ class ModifyClusterNodePoolRequest extends Model
     public $updateNodes;
     protected $_name = [
         'autoScaling'      => 'auto_scaling',
+        'concurrency'      => 'concurrency',
         'kubernetesConfig' => 'kubernetes_config',
         'management'       => 'management',
         'nodepoolInfo'     => 'nodepool_info',
@@ -83,6 +91,9 @@ class ModifyClusterNodePoolRequest extends Model
         $res = [];
         if (null !== $this->autoScaling) {
             $res['auto_scaling'] = null !== $this->autoScaling ? $this->autoScaling->toMap() : null;
+        }
+        if (null !== $this->concurrency) {
+            $res['concurrency'] = $this->concurrency;
         }
         if (null !== $this->kubernetesConfig) {
             $res['kubernetes_config'] = null !== $this->kubernetesConfig ? $this->kubernetesConfig->toMap() : null;
@@ -116,6 +127,9 @@ class ModifyClusterNodePoolRequest extends Model
         $model = new self();
         if (isset($map['auto_scaling'])) {
             $model->autoScaling = autoScaling::fromMap($map['auto_scaling']);
+        }
+        if (isset($map['concurrency'])) {
+            $model->concurrency = $map['concurrency'];
         }
         if (isset($map['kubernetes_config'])) {
             $model->kubernetesConfig = kubernetesConfig::fromMap($map['kubernetes_config']);

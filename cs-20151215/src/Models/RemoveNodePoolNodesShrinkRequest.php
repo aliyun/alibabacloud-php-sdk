@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class RemoveNodePoolNodesShrinkRequest extends Model
 {
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $concurrency;
+
+    /**
      * @description Specifies whether to drain the nodes that you want to remove. Valid values:
      *
      *   true: drain the nodes that you want to remove.
@@ -46,6 +53,7 @@ class RemoveNodePoolNodesShrinkRequest extends Model
      */
     public $releaseNode;
     protected $_name = [
+        'concurrency'       => 'concurrency',
         'drainNode'         => 'drain_node',
         'instanceIdsShrink' => 'instance_ids',
         'nodesShrink'       => 'nodes',
@@ -59,6 +67,9 @@ class RemoveNodePoolNodesShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->concurrency) {
+            $res['concurrency'] = $this->concurrency;
+        }
         if (null !== $this->drainNode) {
             $res['drain_node'] = $this->drainNode;
         }
@@ -83,6 +94,9 @@ class RemoveNodePoolNodesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['concurrency'])) {
+            $model->concurrency = $map['concurrency'];
+        }
         if (isset($map['drain_node'])) {
             $model->drainNode = $map['drain_node'];
         }

@@ -50,6 +50,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DeleteTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeployPolicyInstanceRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeployPolicyInstanceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescirbeWorkflowResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonInstanceResponse;
@@ -131,6 +133,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ListAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterAddonInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterChecksRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterChecksResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListOperationPlansRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListOperationPlansResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesShrinkRequest;
@@ -1922,6 +1926,72 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->descirbeWorkflowWithOptions($workflowName, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $addonName
+     * @param DescribeAddonRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeAddonResponse
+     */
+    public function describeAddonWithOptions($addonName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['cluster_id'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterSpec)) {
+            $query['cluster_spec'] = $request->clusterSpec;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['cluster_type'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->clusterVersion)) {
+            $query['cluster_version'] = $request->clusterVersion;
+        }
+        if (!Utils::isUnset($request->profile)) {
+            $query['profile'] = $request->profile;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['region_id'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->version)) {
+            $query['version'] = $request->version;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAddon',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/addons/' . OpenApiUtilClient::getEncodeParam($addonName) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string               $addonName
+     * @param DescribeAddonRequest $request
+     *
+     * @return DescribeAddonResponse
+     */
+    public function describeAddon($addonName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeAddonWithOptions($addonName, $request, $headers, $runtime);
     }
 
     /**
@@ -4483,6 +4553,55 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param ListOperationPlansRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListOperationPlansResponse
+     */
+    public function listOperationPlansWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['cluster_id'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOperationPlans',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/operation/plans',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOperationPlansResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOperationPlansRequest $request
+     *
+     * @return ListOperationPlansResponse
+     */
+    public function listOperationPlans($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listOperationPlansWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param ListTagResourcesRequest $tmpReq
      * @param string[]                $headers
      * @param RuntimeOptions          $runtime
@@ -4803,6 +4922,9 @@ class CS extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->autoScaling)) {
             $body['auto_scaling'] = $request->autoScaling;
+        }
+        if (!Utils::isUnset($request->concurrency)) {
+            $body['concurrency'] = $request->concurrency;
         }
         if (!Utils::isUnset($request->kubernetesConfig)) {
             $body['kubernetes_config'] = $request->kubernetesConfig;
@@ -5287,6 +5409,9 @@ class CS extends OpenApiClient
             $request->nodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'nodes', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->concurrency)) {
+            $query['concurrency'] = $request->concurrency;
+        }
         if (!Utils::isUnset($request->drainNode)) {
             $query['drain_node'] = $request->drainNode;
         }
@@ -6379,7 +6504,7 @@ class CS extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return UpdateControlPlaneLogResponse::fromMap($this->callApi($params, $req, $runtime));
