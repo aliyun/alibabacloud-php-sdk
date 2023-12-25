@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\GetTaskInfoResponseBody;
 
+use AlibabaCloud\SDK\Tingwu\V20230930\Models\GetTaskInfoResponseBody\data\result;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
+    /**
+     * @var result
+     */
+    public $result;
+
     /**
      * @example c5394c6ee0fb474899d42215a3925c7e
      *
@@ -29,6 +35,7 @@ class data extends Model
      */
     public $taskStatus;
     protected $_name = [
+        'result'     => 'Result',
         'taskId'     => 'TaskId',
         'taskKey'    => 'TaskKey',
         'taskStatus' => 'TaskStatus',
@@ -41,6 +48,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->result) {
+            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -62,6 +72,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Result'])) {
+            $model->result = result::fromMap($map['Result']);
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
