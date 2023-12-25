@@ -4,12 +4,18 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMeetingRoomRequest\reservationAuthority;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMeetingRoomRequest\roomLocation;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMeetingRoomRequest\tenantContext;
 use AlibabaCloud\Tea\Model;
 
 class UpdateMeetingRoomRequest extends Model
 {
+    /**
+     * @var bool
+     */
+    public $enableCycleReservation;
+
     /**
      * @example 0
      *
@@ -23,6 +29,11 @@ class UpdateMeetingRoomRequest extends Model
      * @var string
      */
     public $isvRoomId;
+
+    /**
+     * @var reservationAuthority
+     */
+    public $reservationAuthority;
 
     /**
      * @example 100
@@ -72,16 +83,18 @@ class UpdateMeetingRoomRequest extends Model
      */
     public $tenantContext;
     protected $_name = [
-        'groupId'       => 'GroupId',
-        'isvRoomId'     => 'IsvRoomId',
-        'roomCapacity'  => 'RoomCapacity',
-        'roomId'        => 'RoomId',
-        'roomLabelIds'  => 'RoomLabelIds',
-        'roomLocation'  => 'RoomLocation',
-        'roomName'      => 'RoomName',
-        'roomPicture'   => 'RoomPicture',
-        'roomStatus'    => 'RoomStatus',
-        'tenantContext' => 'TenantContext',
+        'enableCycleReservation' => 'EnableCycleReservation',
+        'groupId'                => 'GroupId',
+        'isvRoomId'              => 'IsvRoomId',
+        'reservationAuthority'   => 'ReservationAuthority',
+        'roomCapacity'           => 'RoomCapacity',
+        'roomId'                 => 'RoomId',
+        'roomLabelIds'           => 'RoomLabelIds',
+        'roomLocation'           => 'RoomLocation',
+        'roomName'               => 'RoomName',
+        'roomPicture'            => 'RoomPicture',
+        'roomStatus'             => 'RoomStatus',
+        'tenantContext'          => 'TenantContext',
     ];
 
     public function validate()
@@ -91,11 +104,17 @@ class UpdateMeetingRoomRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableCycleReservation) {
+            $res['EnableCycleReservation'] = $this->enableCycleReservation;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->isvRoomId) {
             $res['IsvRoomId'] = $this->isvRoomId;
+        }
+        if (null !== $this->reservationAuthority) {
+            $res['ReservationAuthority'] = null !== $this->reservationAuthority ? $this->reservationAuthority->toMap() : null;
         }
         if (null !== $this->roomCapacity) {
             $res['RoomCapacity'] = $this->roomCapacity;
@@ -133,11 +152,17 @@ class UpdateMeetingRoomRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableCycleReservation'])) {
+            $model->enableCycleReservation = $map['EnableCycleReservation'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
         if (isset($map['IsvRoomId'])) {
             $model->isvRoomId = $map['IsvRoomId'];
+        }
+        if (isset($map['ReservationAuthority'])) {
+            $model->reservationAuthority = reservationAuthority::fromMap($map['ReservationAuthority']);
         }
         if (isset($map['RoomCapacity'])) {
             $model->roomCapacity = $map['RoomCapacity'];

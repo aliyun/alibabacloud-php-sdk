@@ -22,9 +22,25 @@ class QueryMeetingRoomResponseBody extends Model
      * @var result
      */
     public $result;
+
+    /**
+     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+     *
+     * @var string
+     */
+    public $vendorRequestId;
+
+    /**
+     * @example dingtalk
+     *
+     * @var string
+     */
+    public $vendorType;
     protected $_name = [
-        'requestId' => 'requestId',
-        'result'    => 'result',
+        'requestId'       => 'requestId',
+        'result'          => 'result',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType'      => 'vendorType',
     ];
 
     public function validate()
@@ -39,6 +55,12 @@ class QueryMeetingRoomResponseBody extends Model
         }
         if (null !== $this->result) {
             $res['result'] = null !== $this->result ? $this->result->toMap() : null;
+        }
+        if (null !== $this->vendorRequestId) {
+            $res['vendorRequestId'] = $this->vendorRequestId;
+        }
+        if (null !== $this->vendorType) {
+            $res['vendorType'] = $this->vendorType;
         }
 
         return $res;
@@ -57,6 +79,12 @@ class QueryMeetingRoomResponseBody extends Model
         }
         if (isset($map['result'])) {
             $model->result = result::fromMap($map['result']);
+        }
+        if (isset($map['vendorRequestId'])) {
+            $model->vendorRequestId = $map['vendorRequestId'];
+        }
+        if (isset($map['vendorType'])) {
+            $model->vendorType = $map['vendorType'];
         }
 
         return $model;

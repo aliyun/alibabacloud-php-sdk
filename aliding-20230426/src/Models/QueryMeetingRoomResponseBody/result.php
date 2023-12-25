@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomResponseBody;
 
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomResponseBody\result\reservationAuthority;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomResponseBody\result\roomGroup;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomResponseBody\result\roomLabels;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomResponseBody\result\roomLocation;
@@ -19,11 +20,30 @@ class result extends Model
     public $corpId;
 
     /**
+     * @example [ "2iPOLbpxxxxuwggiiqiPwiEiF" ]
+     *
+     * @var string[]
+     */
+    public $deviceUnionIds;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $enableCycleReservation;
+
+    /**
      * @example xxxIsvRoomId
      *
      * @var string
      */
     public $isvRoomId;
+
+    /**
+     * @var reservationAuthority
+     */
+    public $reservationAuthority;
 
     /**
      * @example 10
@@ -82,17 +102,20 @@ class result extends Model
      */
     public $roomStatus;
     protected $_name = [
-        'corpId'       => 'CorpId',
-        'isvRoomId'    => 'IsvRoomId',
-        'roomCapacity' => 'RoomCapacity',
-        'roomGroup'    => 'RoomGroup',
-        'roomId'       => 'RoomId',
-        'roomLabels'   => 'RoomLabels',
-        'roomLocation' => 'RoomLocation',
-        'roomName'     => 'RoomName',
-        'roomPicture'  => 'RoomPicture',
-        'roomStaffId'  => 'RoomStaffId',
-        'roomStatus'   => 'RoomStatus',
+        'corpId'                 => 'CorpId',
+        'deviceUnionIds'         => 'DeviceUnionIds',
+        'enableCycleReservation' => 'EnableCycleReservation',
+        'isvRoomId'              => 'IsvRoomId',
+        'reservationAuthority'   => 'ReservationAuthority',
+        'roomCapacity'           => 'RoomCapacity',
+        'roomGroup'              => 'RoomGroup',
+        'roomId'                 => 'RoomId',
+        'roomLabels'             => 'RoomLabels',
+        'roomLocation'           => 'RoomLocation',
+        'roomName'               => 'RoomName',
+        'roomPicture'            => 'RoomPicture',
+        'roomStaffId'            => 'RoomStaffId',
+        'roomStatus'             => 'RoomStatus',
     ];
 
     public function validate()
@@ -105,8 +128,17 @@ class result extends Model
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
+        if (null !== $this->deviceUnionIds) {
+            $res['DeviceUnionIds'] = $this->deviceUnionIds;
+        }
+        if (null !== $this->enableCycleReservation) {
+            $res['EnableCycleReservation'] = $this->enableCycleReservation;
+        }
         if (null !== $this->isvRoomId) {
             $res['IsvRoomId'] = $this->isvRoomId;
+        }
+        if (null !== $this->reservationAuthority) {
+            $res['ReservationAuthority'] = null !== $this->reservationAuthority ? $this->reservationAuthority->toMap() : null;
         }
         if (null !== $this->roomCapacity) {
             $res['RoomCapacity'] = $this->roomCapacity;
@@ -156,8 +188,19 @@ class result extends Model
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
+        if (isset($map['DeviceUnionIds'])) {
+            if (!empty($map['DeviceUnionIds'])) {
+                $model->deviceUnionIds = $map['DeviceUnionIds'];
+            }
+        }
+        if (isset($map['EnableCycleReservation'])) {
+            $model->enableCycleReservation = $map['EnableCycleReservation'];
+        }
         if (isset($map['IsvRoomId'])) {
             $model->isvRoomId = $map['IsvRoomId'];
+        }
+        if (isset($map['ReservationAuthority'])) {
+            $model->reservationAuthority = reservationAuthority::fromMap($map['ReservationAuthority']);
         }
         if (isset($map['RoomCapacity'])) {
             $model->roomCapacity = $map['RoomCapacity'];

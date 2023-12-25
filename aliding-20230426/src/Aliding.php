@@ -2163,6 +2163,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($tmpHeader->accountContext)) {
             $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
         }
+        if (!Utils::isUnset($tmpReq->reservationAuthority)) {
+            $request->reservationAuthorityShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->reservationAuthority, 'ReservationAuthority', 'json');
+        }
         if (!Utils::isUnset($tmpReq->roomLabelIds)) {
             $request->roomLabelIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roomLabelIds, 'RoomLabelIds', 'json');
         }
@@ -2173,11 +2176,17 @@ class Aliding extends OpenApiClient
             $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->enableCycleReservation)) {
+            $body['EnableCycleReservation'] = $request->enableCycleReservation;
+        }
         if (!Utils::isUnset($request->groupId)) {
             $body['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->isvRoomId)) {
             $body['IsvRoomId'] = $request->isvRoomId;
+        }
+        if (!Utils::isUnset($request->reservationAuthorityShrink)) {
+            $body['ReservationAuthority'] = $request->reservationAuthorityShrink;
         }
         if (!Utils::isUnset($request->roomCapacity)) {
             $body['RoomCapacity'] = $request->roomCapacity;
@@ -10896,6 +10905,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($tmpHeader->accountContext)) {
             $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
         }
+        if (!Utils::isUnset($tmpReq->reservationAuthority)) {
+            $request->reservationAuthorityShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->reservationAuthority, 'ReservationAuthority', 'json');
+        }
         if (!Utils::isUnset($tmpReq->roomLabelIds)) {
             $request->roomLabelIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roomLabelIds, 'RoomLabelIds', 'json');
         }
@@ -10906,11 +10918,17 @@ class Aliding extends OpenApiClient
             $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->enableCycleReservation)) {
+            $body['EnableCycleReservation'] = $request->enableCycleReservation;
+        }
         if (!Utils::isUnset($request->groupId)) {
             $body['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->isvRoomId)) {
             $body['IsvRoomId'] = $request->isvRoomId;
+        }
+        if (!Utils::isUnset($request->reservationAuthorityShrink)) {
+            $body['ReservationAuthority'] = $request->reservationAuthorityShrink;
         }
         if (!Utils::isUnset($request->roomCapacity)) {
             $body['RoomCapacity'] = $request->roomCapacity;

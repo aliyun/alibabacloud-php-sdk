@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateMeetingRoomShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableCycleReservation;
+
+    /**
      * @example 0
      *
      * @var int
@@ -21,6 +26,11 @@ class UpdateMeetingRoomShrinkRequest extends Model
      * @var string
      */
     public $isvRoomId;
+
+    /**
+     * @var string
+     */
+    public $reservationAuthorityShrink;
 
     /**
      * @example 100
@@ -70,16 +80,18 @@ class UpdateMeetingRoomShrinkRequest extends Model
      */
     public $tenantContextShrink;
     protected $_name = [
-        'groupId'             => 'GroupId',
-        'isvRoomId'           => 'IsvRoomId',
-        'roomCapacity'        => 'RoomCapacity',
-        'roomId'              => 'RoomId',
-        'roomLabelIdsShrink'  => 'RoomLabelIds',
-        'roomLocationShrink'  => 'RoomLocation',
-        'roomName'            => 'RoomName',
-        'roomPicture'         => 'RoomPicture',
-        'roomStatus'          => 'RoomStatus',
-        'tenantContextShrink' => 'TenantContext',
+        'enableCycleReservation'     => 'EnableCycleReservation',
+        'groupId'                    => 'GroupId',
+        'isvRoomId'                  => 'IsvRoomId',
+        'reservationAuthorityShrink' => 'ReservationAuthority',
+        'roomCapacity'               => 'RoomCapacity',
+        'roomId'                     => 'RoomId',
+        'roomLabelIdsShrink'         => 'RoomLabelIds',
+        'roomLocationShrink'         => 'RoomLocation',
+        'roomName'                   => 'RoomName',
+        'roomPicture'                => 'RoomPicture',
+        'roomStatus'                 => 'RoomStatus',
+        'tenantContextShrink'        => 'TenantContext',
     ];
 
     public function validate()
@@ -89,11 +101,17 @@ class UpdateMeetingRoomShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableCycleReservation) {
+            $res['EnableCycleReservation'] = $this->enableCycleReservation;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->isvRoomId) {
             $res['IsvRoomId'] = $this->isvRoomId;
+        }
+        if (null !== $this->reservationAuthorityShrink) {
+            $res['ReservationAuthority'] = $this->reservationAuthorityShrink;
         }
         if (null !== $this->roomCapacity) {
             $res['RoomCapacity'] = $this->roomCapacity;
@@ -131,11 +149,17 @@ class UpdateMeetingRoomShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableCycleReservation'])) {
+            $model->enableCycleReservation = $map['EnableCycleReservation'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
         if (isset($map['IsvRoomId'])) {
             $model->isvRoomId = $map['IsvRoomId'];
+        }
+        if (isset($map['ReservationAuthority'])) {
+            $model->reservationAuthorityShrink = $map['ReservationAuthority'];
         }
         if (isset($map['RoomCapacity'])) {
             $model->roomCapacity = $map['RoomCapacity'];
