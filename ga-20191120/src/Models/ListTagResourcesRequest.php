@@ -43,13 +43,13 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description An array of IDs of resources whose tag information you want to query.
+     * @description The IDs of the resources whose tag information you want to query.
      *
-     *   If you set the **ResourceType** parameter to **accelerator**, set the value of ResourceId to the ID of a standard GA instance.
-     *   If you set the **ResourceType** parameter to **basicaccelerator**, set the value of ResourceId to the ID of a basic GA instance.
-     *   If you set the **ResourceType** parameter to **bandwidthpackage**, set the value of ResourceId to the ID of a bandwidth plan.
-     *   If you set the **ResourceType** parameter to **acl**, set the value of ResourceId to the ID of an ACL.
-     *   If **ResourceType** is set to **endpointgroup**, set the value of ResourceId to the ID of an EndpointGroup.
+     *   If you set **ResourceType** to **accelerator**, set the value of ResourceId to the ID of a standard GA instance.
+     *   If you set **ResourceType** to **basicaccelerator**, set the value of ResourceId to the ID of a basic GA instance.
+     *   If you set **ResourceType** to **bandwidthpackage**, set the value of ResourceId to the ID of a bandwidth plan.
+     *   If you set **ResourceType** to **acl**, set the value of ResourceId to the ID of an ACL.
+     *   If you set **ResourceType** to **endpointgroup**, set the value of ResourceId to the ID of an endpoint group.
      *
      * You can specify up to 50 GA resource IDs.
      * @var string[]
@@ -59,11 +59,11 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The type of the resource whose tag information you want to query. Valid values:
      *
-     *   **accelerator:** a standard GA instance.
-     *   **basicaccelerator:** a basic GA instance.
-     *   **bandwidthpackage:** a bandwidth plan.
-     *   **acl:** an access control list (ACL).
-     *   **endpointgroup:** an endpoint group (EndpointGroup).
+     *   **accelerator**: a standard GA instance
+     *   **basicaccelerator**: a basic GA instance
+     *   **bandwidthpackage**: a bandwidth plan
+     *   **acl**: an access control list (ACL).
+     *   **endpointgroup**: an endpoint group
      *
      * @example accelerator
      *

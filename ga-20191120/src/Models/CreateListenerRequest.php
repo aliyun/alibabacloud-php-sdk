@@ -73,16 +73,24 @@ class CreateListenerRequest extends Model
     public $description;
 
     /**
-     * @description The endpoint group that is associated with the intelligent routing listener.
+     * @description The endpoint groups that are associated with the intelligent routing listener.
      *
-     * You can configure at most 10 endpoint groups for an intelligent routing listener.
+     * You can configure up to 10 endpoint groups for an intelligent routing listener.
      *
-     * > You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     * >  You can configure endpoint groups and endpoints only if you set **Type** to **Standard**.
      * @var endpointGroupConfigurations[]
      */
     public $endpointGroupConfigurations;
 
     /**
+     * @description The timeout period of idle connections. Unit: seconds.
+     *
+     *   TCP: 10-900. Default value: 900. Unit: seconds.
+     *   UDP: 10-20. Default value: 20. Unit: seconds.
+     *   HTTP/HTTPS: 1-60. Default value: 15. Unit: seconds.
+     *
+     * @example 900
+     *
      * @var int
      */
     public $idleTimeout;
@@ -141,6 +149,11 @@ class CreateListenerRequest extends Model
     public $regionId;
 
     /**
+     * @description The timeout period for HTTP or HTTPS requests. Unit: seconds.
+     *
+     * >  This parameter takes effect only for HTTP or HTTPS listeners. If the backend server does not respond within the timeout period, GA returns an HTTP 504 error code to the client.
+     * @example 15
+     *
      * @var int
      */
     public $requestTimeout;
@@ -186,12 +199,8 @@ class CreateListenerRequest extends Model
      *   **Standard** (default): intelligent routing
      *   **CustomRouting**: custom routing
      *
-     * >
-     *
-     *   Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager.
-     *
-     *   You can create only listeners of the same routing type for a standard GA instance. You cannot change the routing types of listeners. For more information, see [Listener overview](~~153216~~).
-     *
+     * > *   Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager.
+     * > *   You can create only listeners of the same routing type for a standard GA instance. You cannot change the routing types of listeners. For more information, see [Listener overview](~~153216~~).
      * @example Standard
      *
      * @var string

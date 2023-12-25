@@ -31,7 +31,7 @@ class UpdateForwardingRulesRequest extends Model
     public $clientToken;
 
     /**
-     * @description The configurations of the forwarding rule.
+     * @description The configurations of the forwarding rules.
      *
      * @example test
      *

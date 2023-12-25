@@ -11,12 +11,10 @@ class portOverrides extends Model
     /**
      * @description The endpoint port that is mapped to the listener port.
      *
-     * >
+     * You can specify up to five endpoint ports.
      *
-     *   You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
-     *
-     *   Only HTTP intelligent routing listeners and HTTPS intelligent routing listeners support port mappings.
-     *
+     * >*   You can configure endpoint groups and endpoints for an intelligent routing listener only if you set **Type** to **Standard**.
+     * >*   Only HTTP and HTTPS intelligent routing listeners support port mappings.
      * @example 80
      *
      * @var int
@@ -26,13 +24,11 @@ class portOverrides extends Model
     /**
      * @description The listener port that is mapped to the endpoint port.
      *
-     * >
+     * You can specify up to five listener ports.
      *
-     *   You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
-     *
-     *   Only HTTP intelligent routing listeners and HTTPS intelligent routing listeners support port mappings.
-     *   The listener port in a port mapping must be the port that is used by the current listener.
-     *
+     * > *   You can configure endpoint groups and endpoints for an intelligent routing listener only if you set **Type** to **Standard**.
+     * >*   Only HTTP and HTTPS intelligent routing listeners support port mappings.
+     * >*   The listener port in a port mapping must be the port that is used by the current listener.
      * @example 443
      *
      * @var int

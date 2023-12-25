@@ -20,7 +20,7 @@ class ispCityList extends Model
     /**
      * @description The name of the city where the probe point of the ISP is deployed.
      *
-     * @example 新加坡
+     * @example Singapore
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class ispCityList extends Model
     /**
      * @description The probe point name of the ISP.
      *
-     * @example 阿里巴巴
+     * @example Alibaba
      *
      * @var string
      */

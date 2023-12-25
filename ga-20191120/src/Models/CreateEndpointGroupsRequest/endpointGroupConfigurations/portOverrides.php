@@ -11,7 +11,7 @@ class portOverrides extends Model
     /**
      * @description The endpoint port that is mapped to the listener port.
      *
-     * You can specify endpoint ports in up to five port mappings.
+     * You can specify up to five endpoint ports.
      * @example 80
      *
      * @var int
@@ -21,10 +21,10 @@ class portOverrides extends Model
     /**
      * @description The listener port that is mapped to the endpoint port.
      *
-     * >
-     *   Only HTTP and HTTPS listeners support port mappings.
-     *   The listener port in a port mapping must be the one used by the current listener.
+     * You can specify up to five listener ports.
      *
+     * > *   Only HTTP and HTTPS listeners support port mappings.
+     * > *   The listener port in a port mapping must be the port that is used by the current listener.
      * @example 443
      *
      * @var int

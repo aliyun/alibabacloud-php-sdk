@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class destinations extends Model
 {
     /**
-     * @description The ID of the GA instance.
+     * @description The GA instance ID.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -19,7 +19,7 @@ class destinations extends Model
     public $acceleratorId;
 
     /**
-     * @description The ID of the endpoint group mapping configuration.
+     * @description The ID of the endpoint group mapping.
      *
      * @example dst-123abc****
      *
@@ -28,7 +28,7 @@ class destinations extends Model
     public $destinationId;
 
     /**
-     * @description The ID of the endpoint group.
+     * @description The endpoint group ID.
      *
      * @example epg-bp14sz7ftcwwjgrdm****
      *
@@ -37,7 +37,7 @@ class destinations extends Model
     public $endpointGroupId;
 
     /**
-     * @description The start port of the backend service port range of the endpoint group.
+     * @description The first port of the backend service port range.
      *
      * @example 80
      *
@@ -46,7 +46,7 @@ class destinations extends Model
     public $fromPort;
 
     /**
-     * @description The ID of the listener.
+     * @description The listener ID.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -55,20 +55,20 @@ class destinations extends Model
     public $listenerId;
 
     /**
-     * @description The backend service protocol of the endpoint group.
+     * @description The backend service protocols of the endpoint group. Valid values:
      *
-     *   **TCP**: TCP
-     *   **UDP**: UDP
-     *   **TCP,UDP**: TCP and UDP
+     *   **TCP**
+     *   **UDP**
+     *   **TCP,UDP**
      *
      * @var string[]
      */
     public $protocols;
 
     /**
-     * @description The service ID to which the managed instance belongs.
+     * @description The ID of the service that manages the GA instance.
      *
-     * >  Valid only when the ServiceManaged parameter is True.
+     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
      * @example ALB
      *
      * @var string
@@ -76,11 +76,11 @@ class destinations extends Model
     public $serviceId;
 
     /**
-     * @description Is it a managed instance. Valid values:
+     * @description Indicates whether the GA instance is managed. Valid values:
      *
-     * - **true**
+     *   true
+     *   false
      *
-     * - **false**
      * @example true
      *
      * @var bool
@@ -88,14 +88,18 @@ class destinations extends Model
     public $serviceManaged;
 
     /**
-     * @description A list of action policies that users can execute on this managed instance.
+     * @description The actions that you can perform on the managed instance.
+     *
+     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
+     *
+     *   You can perform only specific actions on a managed instance.
      *
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;
 
     /**
-     * @description The end port of the backend service port range of the endpoint group.
+     * @description The last port of the backend service port range.
      *
      * @example 80
      *

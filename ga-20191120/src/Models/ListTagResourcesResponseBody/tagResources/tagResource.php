@@ -20,11 +20,11 @@ class tagResource extends Model
     /**
      * @description The type of the resource.
      *
-     *   **accelerator:** a standard GA instance.
-     *   **basicaccelerator:** a basic GA instance.
-     *   **bandwidthpackage:** a bandwidth plan.
-     *   **acl:** an ACL.
-     *   **endpointgroup:** an EndpointGroup.
+     *   **accelerator**: a standard GA instance
+     *   **basicaccelerator**: a basic GA instance
+     *   **bandwidthpackage**: a bandwidth plan
+     *   **acl**: an ACL
+     *   **endpointgroup**: an endpoint group
      *
      * @example accelerator
      *
@@ -33,7 +33,7 @@ class tagResource extends Model
     public $resourceType;
 
     /**
-     * @description The key of the tag.
+     * @description The tag key.
      *
      * @example valueTest
      *
@@ -42,7 +42,7 @@ class tagResource extends Model
     public $tagKey;
 
     /**
-     * @description The value of the tag.
+     * @description The tag value.
      *
      * @example KeyTest
      *

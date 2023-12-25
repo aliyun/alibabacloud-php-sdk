@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class forwardGroupConfig extends Model
 {
     /**
-     * @description The configurations of an endpoint group.
+     * @description The configuration of an endpoint group.
      *
      * >  We recommend that you use **RuleActionType** and **RuleActionValue** rather than this parameter to configure forwarding actions.
      * @var serverGroupTuples[]

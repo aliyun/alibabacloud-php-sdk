@@ -20,9 +20,9 @@ class basicBandwidthPackage extends Model
     /**
      * @description The bandwidth type that is provided by the basic bandwidth plan. Valid values:
      *
-     *   **Basic:** standard.
-     *   **Enhanced:** enhanced.
-     *   **Advanced:**: premium.
+     *   **Basic**.
+     *   **Enhanced**
+     *   **Advanced**
      *
      * @example Basic
      *

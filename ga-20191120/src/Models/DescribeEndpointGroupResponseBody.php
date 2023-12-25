@@ -47,8 +47,8 @@ class DescribeEndpointGroupResponseBody extends Model
     /**
      * @description Indicates whether the access log feature is enabled. Valid values:
      *
-     *   **true**: enabled
-     *   **false**: disabled
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -57,7 +57,7 @@ class DescribeEndpointGroupResponseBody extends Model
     public $enableAccessLog;
 
     /**
-     * @description The configurations of endpoints in the endpoint group.
+     * @description The configurations of the endpoints in the endpoint group.
      *
      * @var endpointConfigurations[]
      */
@@ -213,9 +213,9 @@ class DescribeEndpointGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The service ID to which the managed instance belongs.
+     * @description The ID of the service that manages the GA instance.
      *
-     * >  Valid only when the ServiceManaged parameter is True.
+     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
      * @example ALB
      *
      * @var string
@@ -223,9 +223,11 @@ class DescribeEndpointGroupResponseBody extends Model
     public $serviceId;
 
     /**
-     * @description Is it a managed instance. Value:
+     * @description Indicates whether the GA instance is managed. Valid values:
      *
-     * - false
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -233,10 +235,12 @@ class DescribeEndpointGroupResponseBody extends Model
     public $serviceManaged;
 
     /**
-     * @description A list of action policies that users can execute on this managed instance.
+     * @description The actions that users can perform on the managed instance.
      *
-     * > Valid only when the ServiceManaged parameter is True.
-     * >* When an instance is hosted, user operations on the instance are restricted and some operations are prohibited.
+     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
+     *
+     *   Users can perform only specific actions on a managed instance.
+     *
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationMonitorRequest extends Model
 {
     /**
-     * @description The ID of the GA instance on which to execute the origin probing task.
+     * @description The ID of the GA instance on which you want to perform the origin probing task.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -29,9 +29,9 @@ class CreateApplicationMonitorRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -39,10 +39,10 @@ class CreateApplicationMonitorRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to enable the automatic diagnostics feature. Default value: false. Valid values:
+     * @description Specifies whether to enable the automatic diagnostics feature. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -51,7 +51,7 @@ class CreateApplicationMonitorRequest extends Model
     public $detectEnable;
 
     /**
-     * @description The threshold that is used to trigger the automatic diagnostics feature. Unit: %.
+     * @description The threshold that is used to trigger the automatic diagnostics feature. Unit: percentage.
      *
      * Valid values: **0** to **100**.
      *
@@ -63,7 +63,7 @@ class CreateApplicationMonitorRequest extends Model
     public $detectThreshold;
 
     /**
-     * @description The number of times that are required to reach the threshold before the automatic diagnostics feature can be triggered.
+     * @description The number of times that the threshold must be reached before the automatic diagnostics feature is triggered.
      *
      * Valid values: **1** to **20**. Default value: **1**.
      * @example 1
@@ -73,7 +73,7 @@ class CreateApplicationMonitorRequest extends Model
     public $detectTimes;
 
     /**
-     * @description The ID of the listener on which to execute the origin probing task.
+     * @description The ID of the listener on which you want to perform the origin probing task.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -91,7 +91,7 @@ class CreateApplicationMonitorRequest extends Model
     public $optionsJson;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *
@@ -100,9 +100,9 @@ class CreateApplicationMonitorRequest extends Model
     public $regionId;
 
     /**
-     * @description The silence period of the automatic diagnostics feature. This parameter specifies the interval at which the automatic diagnostics feature is triggered. If the availability rate does not return to normal after GA triggers an automatic diagnostic, GA must wait until the silence period ends before GA can trigger another automatic diagnostic.
+     * @description The silence period of the automatic diagnostics feature. This parameter specifies the interval at which the automatic diagnostics feature is triggered. If the availability rate does not return to normal after GA triggers an automatic diagnostic task, GA must wait until the silence period ends before GA can trigger another automatic diagnostic task.
      *
-     * If the number of consecutive times that the availability rate drops below the threshold of automatic diagnostics reaches the value of the **DetectTimes** parameter, the automatic diagnostics feature is triggered. The automatic diagnostics feature is not triggered again within the silence period even if the availability rate stays below the threshold. If the availability rate does not return to normal after the silence period ends, the automatic diagnostics feature is triggered again.
+     * If the number of consecutive times that the availability rate drops below the threshold of automatic diagnostics reaches the value of **DetectTimes**, the automatic diagnostics feature is triggered. The automatic diagnostics feature is not triggered again within the silence period even if the availability rate remains below the threshold. If the availability rate does not return to normal after the silence period ends, the automatic diagnostics feature is triggered again.
      *
      * Unit: seconds. Valid values: **300** to **86400**. Default value: **300**.
      * @example 300

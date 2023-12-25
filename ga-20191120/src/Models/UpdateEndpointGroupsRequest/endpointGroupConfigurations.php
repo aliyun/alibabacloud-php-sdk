@@ -23,7 +23,7 @@ class endpointGroupConfigurations extends Model
     public $enableClientIPPreservationProxyProtocol;
 
     /**
-     * @description Specifies whether to preserve client IP addresses by using the TCP Option Address (TOA) module. Valid values:
+     * @description Specifies whether to use the TCP Option Address (TOA) module to preserve client IP addresses. Valid values:
      *
      *   **true**
      *   **false**
@@ -63,7 +63,7 @@ class endpointGroupConfigurations extends Model
     /**
      * @description The name of the endpoint group.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example group1
      *
      * @var string
@@ -76,12 +76,8 @@ class endpointGroupConfigurations extends Model
      *   **HTTP**
      *   **HTTPS**
      *
-     * >
-     *
-     *   You can set this parameter only when the listener that is associated with the endpoint group uses the HTTP or HTTPS protocol.
-     *
-     *   For an HTTP listener, the backend service protocol must be HTTP.
-     *
+     * > *   You can specify this parameter only if the listener that is associated with the endpoint group uses HTTP or HTTPS.
+     * >*   The backend service protocol of an HTTP listener must be HTTP.
      * @example HTTP
      *
      * @var string
@@ -110,7 +106,7 @@ class endpointGroupConfigurations extends Model
     public $healthCheckIntervalSeconds;
 
     /**
-     * @description The path to which health check requests are sent.
+     * @description The health check path.
      *
      * @example /healthcheck
      *
@@ -131,9 +127,9 @@ class endpointGroupConfigurations extends Model
     /**
      * @description The protocol over which health check requests are sent. Valid values:
      *
-     *   **tcp:** TCP
-     *   **http:** HTTP
-     *   **https:** HTTPS
+     *   **tcp**
+     *   **http**
+     *   **https**
      *
      * @example tcp
      *
@@ -149,7 +145,7 @@ class endpointGroupConfigurations extends Model
     public $portOverrides;
 
     /**
-     * @description The number of consecutive health check failures that must occur before a healthy endpoint group is considered unhealthy, or the number of consecutive health check successes that must occur before an unhealthy endpoint group is considered healthy.
+     * @description The number of failed consecutive health checks that must occur before a healthy endpoint group is considered unhealthy or the number of successful consecutive health checks that must occur before an unhealthy endpoint group is considered healthy.
      *
      * Valid values: **2** to **10**.
      * @example 3
@@ -159,7 +155,7 @@ class endpointGroupConfigurations extends Model
     public $thresholdCount;
 
     /**
-     * @description The traffic ratio for the endpoint group when the specified listener is associated with multiple endpoint groups.
+     * @description The traffic ratio of the endpoint group when the specified listener is associated with multiple endpoint groups.
      *
      * Valid values: **1** to **100**.
      * @example 20

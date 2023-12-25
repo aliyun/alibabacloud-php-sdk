@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class endpointConfigurations extends Model
 {
     /**
-     * @description The IP address, domain name or instance id according to the type of the endpoint.
+     * @description The IP address, domain name, or instance ID based on the value of Type.
      *
      * >  This parameter is required.
      * @example 47.0.XX.XX
@@ -21,7 +21,7 @@ class endpointConfigurations extends Model
     /**
      * @description The private IP address of the ENI.
      *
-     * > - When the Endpoint type is ENI, this parameter can be configured. If not configured, it defaults to the primary private IP address of ENI.
+     * >  If you set Type to ENI, you can specify this parameter. If you do not specify this parameter, the primary private IP address of the ENI is used.
      * @example 172.168.XX.XX
      *
      * @var string
@@ -31,19 +31,23 @@ class endpointConfigurations extends Model
     /**
      * @description The type of the endpoint. Valid values:
      *
-     *   **Domain:** a custom domain name.
-     *   **Ip:** a custom IP address.
-     *   **PublicIp:** a public IP address provided by Alibaba Cloud.
-     *   **ECS:** Elastic Compute Service (ECS) instance.
-     *   **SLB:** Server Load Balancer (SLB) instance.
-     *   **ALB:** Application Load Balancer (ALB) instance.
-     *   **OSS:** Object Storage Service (OSS) bucket.
-     *   **ENI:** Elastic Network interface (ENI).
-     *   **NLB:** Network Load Balancer (NLB) instance.
+     *   **Domain**: a custom domain name
+     *   **Ip**: a custom IP address
+     *   **PublicIp**: a public IP address provided by Alibaba Cloud
+     *   **ECS**: an Elastic Compute Service (ECS) instance
+     *   **SLB**: a Server Load Balancer (SLB) instance
+     *   **ALB**: an Application Load Balancer (ALB) instance
+     *   **OSS**: an Object Storage Service (OSS) bucket
+     *   **ENI**: an elastic network interface (ENI)
+     *   **NLB**: a Network Load Balancer (NLB) instance
      *
-     * > *   If you set this parameter to **ECS** or **SLB** and the service-linked role AliyunServiceRoleForGaVpcEndpoint does not exist, the system automatically creates the service-linked role.
-     * >*   If you set this parameter to **ALB** and the service-linked role AliyunServiceRoleForGaAlb does not exist, the system automatically creates the service-linked role.
-     * >*   If you set this parameter to **OSS** and the service-linked role AliyunServiceRoleForGaOss does not exist, the system automatically creates the service-linked role.
+     * >
+     *
+     *   If you set this parameter to **ECS** or **SLB** and the service-linked role AliyunServiceRoleForGaVpcEndpoint does not exist, the system automatically creates the service-linked role.
+     *
+     *   If you set this parameter to **ALB** and the service-linked role AliyunServiceRoleForGaAlb does not exist, the system automatically creates the service-linked role.
+     *
+     *   If you set this parameter to **OSS** and the service-linked role AliyunServiceRoleForGaOss does not exist, the system automatically creates the service-linked role.
      *
      * For more information, see [Service linked roles](~~178360~~).
      * @example Ip
@@ -57,10 +61,10 @@ class endpointConfigurations extends Model
      *
      * Valid values: **0** to **255**.
      *
-     * >
-     *   This parameter is required.
-     *   If the weight of an endpoint is set to 0, GA stops distributing network traffic to the endpoint. Proceed with caution.
+     * You can set the weights of up to 100 endpoints in an endpoint group.
      *
+     * > *   This parameter is required.
+     * > *   If you set the weight of an endpoint to 0, GA does not route network traffic to the endpoint. Make sure that you are aware of the impact on your business before you set the endpoint weight to 0.
      * @example 20
      *
      * @var int

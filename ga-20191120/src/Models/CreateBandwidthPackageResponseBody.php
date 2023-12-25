@@ -18,9 +18,9 @@ class CreateBandwidthPackageResponseBody extends Model
     public $bandwidthPackageId;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
-     * If bills are not automatically paid, you must go to the Order Center to complete the payments.
+     * This parameter is returned only if ChargeType is set to PREPAY. If AutoPay is set to false, you must go to the [Order Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment.
      * @example 208257****
      *
      * @var string

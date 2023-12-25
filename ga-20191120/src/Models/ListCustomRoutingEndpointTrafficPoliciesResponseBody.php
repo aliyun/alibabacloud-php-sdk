@@ -28,7 +28,7 @@ class ListCustomRoutingEndpointTrafficPoliciesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The list of traffic policies.
+     * @description A list of traffic policies.
      *
      * @var policies[]
      */

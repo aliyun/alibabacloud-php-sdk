@@ -27,7 +27,7 @@ class DescribeAcceleratorServiceStatusResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
      *
@@ -36,25 +36,13 @@ class DescribeAcceleratorServiceStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the GA instance.
+     * @description The status of the GA instance. Valid values:
      *
-     * Valid values:
+     *   Released: The instance was released due to overdue payments.
+     *   Expired: The instance expired due to overdue payments.
+     *   NotOpened: The instance is not activated.
+     *   Normal: The instance is activated.
      *
-     *   Released
-     *
-     * .
-     *
-     *   Expired
-     *
-     * .
-     *
-     *   NotOpened
-     *
-     * .
-     *
-     *   Normal
-     *
-     * .
      * @example Normal
      *
      * @var string

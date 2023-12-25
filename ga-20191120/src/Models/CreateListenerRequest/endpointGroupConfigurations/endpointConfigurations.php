@@ -13,7 +13,7 @@ class endpointConfigurations extends Model
      *
      * You can specify up to 100 endpoint IP addresses or domain names for an endpoint group of an intelligent routing listener.
      *
-     * > If the **Type** parameter is set to **Standard**, you can configure endpoint groups and endpoints for an intelligent routing listener, and this parameter is required.
+     * >  If you set **Type** to **Standard**, you can configure endpoint groups and endpoints, and this parameter is required.
      * @example 47.0.XX.XX
      *
      * @var string
@@ -21,12 +21,17 @@ class endpointConfigurations extends Model
     public $endpoint;
 
     /**
+     * @description The private IP address of the elastic network interface (ENI).
+     *
+     * >  If the endpoint type is **ENI**, you can specify this parameter. If you do not specify this parameter, the primary private IP address of the ENI is used.
+     * @example 172.168.XX.XX
+     *
      * @var string
      */
     public $subAddress;
 
     /**
-     * @description The endpoint type of the intelligent routing listener. Valid values:
+     * @description The type of the endpoint that is associated with the intelligent routing listener. Valid values:
      *
      *   **Domain**: a custom domain name
      *   **Ip**: a custom IP address
@@ -36,15 +41,13 @@ class endpointConfigurations extends Model
      *   **ALB**: an Application Load Balancer (ALB) instance
      *   **OSS**: an Object Storage Service (OSS) bucket
      *
-     * >
+     * You can specify up to 100 endpoint types for an endpoint group of an intelligent routing listener.
      *
-     *   If the **Type** parameter is set to **Standard**, you can configure endpoint groups and endpoints for an intelligent routing listener, and this parameter is required.
-     *
-     *   If you set this parameter to **ECS** or **SLB** and the service-linked role AliyunServiceRoleForGaVpcEndpoint does not exist, the system creates the service-linked role.
-     *   If you set this parameter to **ALB** and the service-linked role AliyunServiceRoleForGaAlb does not exist, the system automatically creates the service-linked role.
-     *   If you set this parameter to **OSS** and the service-linked role AliyunServiceRoleForGaOss does not exist, the system automatically creates the service-linked role.
-     *
-     * For more information, see [Service-linked roles](~~178360~~).
+     * > *   If you set **Type** to **Standard**, you can configure endpoint groups and endpoints for an intelligent routing listener, and this parameter is required.
+     * >*   If you set this parameter to **ECS** or **SLB** and the service-linked role AliyunServiceRoleForGaVpcEndpoint does not exist, the system automatically creates the service-linked role.
+     * >*   If you set this parameter to **ALB** and the service-linked role AliyunServiceRoleForGaAlb does not exist, the system automatically creates the service-linked role.
+     * >*   If you set this parameter to **OSS** and the service-linked role AliyunServiceRoleForGaOss does not exist, the system automatically creates the service-linked role.
+     * > For more information, see [Service linked roles](~~178360~~).
      * @example Ip
      *
      * @var string
@@ -56,12 +59,10 @@ class endpointConfigurations extends Model
      *
      * Valid values: **0** to **255**.
      *
-     * >
+     * You can specify the weights of up to 100 endpoints for an endpoint group of an intelligent routing listener.
      *
-     *   If the **Type** parameter is set to **Standard**, you can configure endpoint groups and endpoints for an intelligent routing listener, and this parameter is required.
-     *
-     *   If the weight of an endpoint is set to 0, GA stops distributing network traffic to the endpoint. Proceed with caution.
-     *
+     * > *   If you set **Type** to **Standard**, you can configure endpoint groups and endpoints for an intelligent routing listener, and this parameter is required.
+     * >*   If you set the weight of an endpoint to 0, GA does not route network traffic to the endpoint. Make sure that you are aware of the impact on your business before you set the endpoint weight to 0.
      * @example 20
      *
      * @var int

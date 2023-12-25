@@ -11,14 +11,14 @@ class regions extends Model
     /**
      * @description The region name.
      *
-     * @example 杭州
+     * @example China (Hangzhou)
      *
      * @var string
      */
     public $localName;
 
     /**
-     * @description The region ID.
+     * @description The region ID. Only **cn-hangzhou** is returned.
      *
      * @example cn-hangzhou
      *

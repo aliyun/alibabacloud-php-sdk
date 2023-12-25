@@ -54,7 +54,7 @@ class DescribeLogStoreOfEndpointGroupResponseBody extends Model
     public $slsLogStoreName;
 
     /**
-     * @description The name of the Log Service project.
+     * @description The name of the Simple Log Service project.
      *
      * @example ga_project_name
      *
@@ -63,7 +63,7 @@ class DescribeLogStoreOfEndpointGroupResponseBody extends Model
     public $slsProjectName;
 
     /**
-     * @description The region ID of the Log Service project.
+     * @description The ID of the region to which the Simple Log Service project belongs.
      *
      * @example cn-hangzhou
      *
@@ -72,7 +72,7 @@ class DescribeLogStoreOfEndpointGroupResponseBody extends Model
     public $slsRegionId;
 
     /**
-     * @description The status of the log.
+     * @description Indicates whether the GA instance is associated with the project.
      *
      * @example on - binding
      * off - unbinding

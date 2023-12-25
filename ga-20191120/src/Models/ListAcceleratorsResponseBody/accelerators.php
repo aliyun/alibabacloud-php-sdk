@@ -34,8 +34,8 @@ class accelerators extends Model
     /**
      * @description The bandwidth metering method. Valid values:
      *
-     *   **BandwidthPackage:** metered based on bandwidth plans.
-     *   **CDT:** metered based on data transfers.
+     *   **BandwidthPackage**: billed based on bandwidth plans.
+     *   **CDT**: billed based on data transfer.
      *
      * @example CDT
      *
@@ -44,7 +44,7 @@ class accelerators extends Model
     public $bandwidthBillingType;
 
     /**
-     * @description Details about the basic bandwidth plan that is associated with the GA instance.
+     * @description The information about the basic bandwidth plan that is associated with the GA instance.
      *
      * @var basicBandwidthPackage
      */
@@ -60,7 +60,7 @@ class accelerators extends Model
     public $cenId;
 
     /**
-     * @description The timestamp that indicates when the GA instance is created.
+     * @description The timestamp that indicates when the GA instance was created.
      *
      * @example 1650643200
      *
@@ -69,9 +69,9 @@ class accelerators extends Model
     public $createTime;
 
     /**
-     * @description The type of cross-border acceleration. This parameter is returned for GA instances whose bandwidth metering method is pay-by-data-transfer (CDT).
+     * @description The type of cross-border acceleration. This parameter is returned for GA instances whose bandwidth metering method is pay-by-data-transfer.
      *
-     * Only **bpgPro** is returned, which indicates BGP (Multi-ISP) Pro lines.
+     * Only **bpgPro** may be returned, which indicates BGP (Multi-ISP) Pro lines.
      * @example bpgPro
      *
      * @var string
@@ -91,9 +91,9 @@ class accelerators extends Model
     public $crossBorderStatus;
 
     /**
-     * @description Details about the cross-border acceleration bandwidth plan that is associated with the GA instance.
+     * @description The information about the cross-border acceleration bandwidth plan that is associated with the GA instance.
      *
-     * This array is returned only for GA instances that are created on the International site (alibabacloud.com).
+     * This array is returned only for GA instances that are created on the international site (alibabacloud.com).
      * @var crossDomainBandwidthPackage
      */
     public $crossDomainBandwidthPackage;
@@ -135,7 +135,7 @@ class accelerators extends Model
     public $expiredTime;
 
     /**
-     * @description The billing method of the GA instance. Only **PREPAY** is returned. This value indicates the subscription billing method.
+     * @description The billing method of the GA instance.
      *
      * @example PREPAY
      *
@@ -160,7 +160,7 @@ class accelerators extends Model
     public $name;
 
     /**
-     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
+     * @description The region ID of the GA instance. Only **cn-hangzhou** may be returned.
      *
      * @example cn-hangzhou
      *
@@ -169,7 +169,7 @@ class accelerators extends Model
     public $regionId;
 
     /**
-     * @description The resource group ID to which the GA instance belongs.
+     * @description The ID of the resource group.
      *
      * @example rg-aekztkx4zwc****
      *
@@ -187,8 +187,9 @@ class accelerators extends Model
     public $secondDnsName;
 
     /**
-     * @description 托管实例所属的服务方ID。
-     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * @description The ID of the service that manages the GA instance.
+     *
+     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
      * @example ALB
      *
      * @var string
@@ -196,9 +197,11 @@ class accelerators extends Model
     public $serviceId;
 
     /**
-     * @description 是否为托管实例。取值：
-     * - **true**：是托管资实例。
-     * - **false**：不是托管实例。
+     * @description Indicates whether the GA instance is managed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -206,9 +209,12 @@ class accelerators extends Model
     public $serviceManaged;
 
     /**
-     * @description 用户在此托管实例下可执行的动作策略列表。
-     * > 仅在**ServiceManaged**参数为**True**时有效。
-     * > - 当实例处于托管状态时，用户对实例的操作会受到限制，某些操作行为会被禁止。
+     * @description The actions that you can perform on the managed instance.
+     *
+     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
+     *
+     *   You can perform only specific actions on a managed instance.
+     *
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;
@@ -216,22 +222,22 @@ class accelerators extends Model
     /**
      * @description The specification of the GA instance. Valid values:
      *
-     *   **1:** Small Ⅰ.
-     *   **2:** Small Ⅱ.
-     *   **3:** Small Ⅲ.
-     *   **5:** Medium Ⅰ.
-     *   **8:** Medium Ⅱ.
-     *   **10:** Medium Ⅲ.
-     *   **20:** Large Ⅰ.
-     *   **30:** Large Ⅱ.
-     *   **40:** Large Ⅲ.
-     *   **50:** Large Ⅳ.
-     *   **60:** Large Ⅴ.
-     *   **70:** Large Ⅵ.
-     *   **80:** Large VⅡ.
-     *   **90:** Large VⅢ.
-     *   **100:** Super Large Ⅰ.
-     *   **200:** Super Large Ⅱ.
+     *   **1**: Small Ⅰ
+     *   **2**: Small Ⅱ
+     *   **3**: Small Ⅲ
+     *   **5**: Medium Ⅰ
+     *   **8**: Medium Ⅱ
+     *   **10**: Medium Ⅲ
+     *   **20**: Large Ⅰ
+     *   **30**: Large Ⅱ
+     *   **40**: Large Ⅲ
+     *   **50**: Large Ⅳ
+     *   **60**: Large Ⅴ
+     *   **70**: Large Ⅵ
+     *   **80**: Large VⅡ
+     *   **90**: Large VⅢ
+     *   **100**: Super Large Ⅰ
+     *   **200**: Super Large Ⅱ
      *
      * Each instance specification provides different capabilities. For more information, see [Instance specifications](~~153127~~).
      * @example 1
@@ -243,13 +249,13 @@ class accelerators extends Model
     /**
      * @description The status of the GA instance. Valid values:
      *
-     *   **init:** The GA instance is being initialized.
-     *   **active:** The GA instance is available.
-     *   **configuring**: The GA instance is being configured.
-     *   **binding:** The GA instance is being associated.
-     *   **unbinding:** The GA instance is being disassociated.
-     *   **deleting:** The GA instance is being deleted.
-     *   **finacialLocked:** The GA instance is locked due to overdue payments.
+     *   **init**
+     *   **active**
+     *   **configuring**
+     *   **binding**
+     *   **unbinding**
+     *   **deleting**
+     *   **finacialLocked**
      *
      * @example active
      *
@@ -276,9 +282,9 @@ class accelerators extends Model
     /**
      * @description Indicates whether the GA instance can be upgraded. Valid values:
      *
-     *   **notUpgradable:** The GA instance does not need to be upgraded.
-     *   **upgradable:** The GA instance can be upgraded to the latest version.
-     *   **upgradeFailed:** The GA instance failed to be upgraded.
+     *   **notUpgradable**: The GA instance does not need to be upgraded.
+     *   **upgradable**: The GA instance can be upgraded to the latest version.
+     *   **upgradeFailed**: The GA instance failed to be upgraded.
      *
      * @example notUpgradable
      *

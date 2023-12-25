@@ -13,12 +13,12 @@ class endpointGroupConfigurations extends Model
     /**
      * @description Specifies whether to use the proxy protocol to preserve client IP addresses. Valid values:
      *
-     *   **true**: uses the proxy protocol to preserve client IP addresses.
-     *   **false** (default): does not use the proxy protocol to preserve client IP addresses.
+     *   **true**
+     *   **false** (default)
      *
-     * You can set this parameter for up to 10 endpoint groups.
+     * You can specify this parameter for up to 10 endpoint groups.
      *
-     * > You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     * >  You can configure endpoint groups and endpoints only if you set **Type** to **Standard**.
      * @example false
      *
      * @var bool
@@ -26,14 +26,14 @@ class endpointGroupConfigurations extends Model
     public $enableClientIPPreservationProxyProtocol;
 
     /**
-     * @description Specifies whether to obtain and preserve the IP addresses of clients that access the endpoint by using the TCP Option Address (TOA) module. Valid values:
+     * @description Specifies whether to preserve client IP addresses by using the TCP Option Address (TOA) module. Valid values:
      *
-     *   **true**: preserves client IP addresses by using the TOA module.
-     *   **false** (default): does not preserve client IP addresses by using the TOA module.
+     *   **true**
+     *   **false** (default)
      *
-     * You can set this parameter for up to 10 endpoint groups.
+     * You can specify this parameter for up to 10 endpoint groups.
      *
-     * > You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     * >  You can configure endpoint groups and endpoints only if you set **Type** to **Standard**.
      * @example false
      *
      * @var bool
@@ -52,7 +52,7 @@ class endpointGroupConfigurations extends Model
      *
      * You can enter the descriptions of up to 10 endpoint groups.
      *
-     * > You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     * >  You can configure endpoint groups and endpoints only if you set **Type** to **Standard**.
      * @example test
      *
      * @var string
@@ -64,7 +64,7 @@ class endpointGroupConfigurations extends Model
      *
      * You can enter the names of up to 10 endpoint groups.
      *
-     * > You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     * >  You can configure endpoint groups and endpoints only if you set **Type** to **Standard**.
      * @example test
      *
      * @var string
@@ -76,7 +76,7 @@ class endpointGroupConfigurations extends Model
      *
      * You can enter the region IDs of up to 10 endpoint groups.
      *
-     * > You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     * >  You can configure endpoint groups and endpoints only if you set **Type** to **Standard**.
      * @example cn-hangzhou
      *
      * @var string
@@ -84,17 +84,15 @@ class endpointGroupConfigurations extends Model
     public $endpointGroupRegion;
 
     /**
-     * @description The endpoint group type of the intelligent routing listener. Valid values:
+     * @description The type of the endpoint group associated with the intelligent routing listener. Valid values:
      *
-     *   **default** (default): a default endpoint group.
-     *   **virtual**: a virtual endpoint group.
+     *   **default** (default)
+     *   **virtual**
      *
-     * >
+     * You can specify up to 10 endpoint group types.
      *
-     *   You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
-     *
-     *   Only HTTP intelligent routing listeners and HTTPS intelligent routing listeners support virtual endpoint groups.
-     *
+     * > *   You can configure endpoint groups and endpoints for an intelligent routing listener only if you set **Type** to **Standard**.
+     * >*   Only HTTP intelligent routing listeners and HTTPS intelligent routing listeners support virtual endpoint groups.
      * @example default
      *
      * @var string
@@ -102,18 +100,16 @@ class endpointGroupConfigurations extends Model
     public $endpointGroupType;
 
     /**
-     * @description The protocol used by the endpoint that is associated with the intelligent routing listener. Valid values:
+     * @description The backend service protocol of the endpoint that is associated with the intelligent routing listener. Valid values:
      *
-     *   **HTTP** (default): HTTP
-     *   **HTTPS**: HTTPS
+     *   **HTTP** (default)
+     *   **HTTPS**
      *
-     * >
+     * You can specify up to 10 backend service protocols.
      *
-     *   You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
-     *
-     *   You can set this parameter only for HTTP intelligent routing listeners and HTTPS intelligent routing listeners.
-     *   For an HTTP listener, the protocol must be **HTTP**.
-     *
+     * > *   You can configure endpoint groups and endpoints for an intelligent routing listener only if you set **Type** to **Standard**.
+     * >*   You can specify this parameter only for HTTP and HTTPS intelligent routing listeners.
+     * >*   For an HTTP listener, the protocol must be **HTTP**.
      * @example HTTP
      *
      * @var string
@@ -121,14 +117,14 @@ class endpointGroupConfigurations extends Model
     public $endpointRequestProtocol;
 
     /**
-     * @description Specifies whether to enable health checks for the endpoint group that is associated with the intelligent routing listener. Valid values:
+     * @description Specifies whether to enable health checks for the endpoint group. Valid values:
      *
-     *   **true**: enables the health check feature.
-     *   **false** (default): disables the health check feature.
+     *   **true**
+     *   **false** (default)
      *
      * You can enable the health check feature for up to 10 endpoint groups.
      *
-     * > You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     * >  You can configure endpoint groups and endpoints only if you set **Type** to **Standard**.
      * @example false
      *
      * @var bool
@@ -136,11 +132,11 @@ class endpointGroupConfigurations extends Model
     public $healthCheckEnabled;
 
     /**
-     * @description The interval at which you want to perform health checks. Unit: seconds.
+     * @description The interval at which health checks are performed. Unit: seconds.
      *
      * You can specify up to 10 health check intervals.
      *
-     * > You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     * >  You can configure endpoint groups and endpoints only if you set **Type** to **Standard**.
      * @example 3
      *
      * @var int
@@ -152,7 +148,7 @@ class endpointGroupConfigurations extends Model
      *
      * You can specify up to 10 health check paths.
      *
-     * > You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     * >  You can configure endpoint groups and endpoints only if you set **Type** to **Standard**.
      * @example /healthcheck
      *
      * @var string
@@ -162,9 +158,9 @@ class endpointGroupConfigurations extends Model
     /**
      * @description The port that is used for health checks. Valid values: **1** to **65535**.
      *
-     * You can specify up to 10 ports for health checks.
+     * You can specify up to 10 health check ports.
      *
-     * > You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     * >  You can configure endpoint groups and endpoints only if you set **Type** to **Standard**.
      * @example 20
      *
      * @var int
@@ -174,13 +170,13 @@ class endpointGroupConfigurations extends Model
     /**
      * @description The protocol over which health check requests are sent. Valid values:
      *
-     *   **tcp**: TCP
-     *   **http**: HTTP
-     *   **https**: HTTPS
+     *   **tcp**
+     *   **http**
+     *   **https**
      *
      * You can specify up to 10 health check protocols.
      *
-     * > You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     * >  You can configure endpoint groups and endpoints only if you set **Type** to **Standard**.
      * @example tcp
      *
      * @var string
@@ -188,7 +184,7 @@ class endpointGroupConfigurations extends Model
     public $healthCheckProtocol;
 
     /**
-     * @description The mappings between ports.
+     * @description The port mapping.
      *
      * @var portOverrides[]
      */
@@ -197,9 +193,9 @@ class endpointGroupConfigurations extends Model
     /**
      * @description The number of consecutive health check failures that must occur before a healthy endpoint group is considered unhealthy, or the number of consecutive health check successes that must occur before an unhealthy endpoint group is considered healthy. Valid values: **2** to **10**. Default value: **3**.
      *
-     * You can specify the number of consecutive health check successes or failures for at most 10 endpoint groups.
+     * You can specify the number of successful consecutive health checks or failed consecutive health checks for up to 10 endpoint groups.
      *
-     * > You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     * >  You can configure endpoint groups and endpoints only if you set **Type** to **Standard**.
      * @example 3
      *
      * @var int
@@ -207,13 +203,13 @@ class endpointGroupConfigurations extends Model
     public $thresholdCount;
 
     /**
-     * @description The traffic distribution ratio. If an intelligent routing listener is associated with multiple endpoint groups, you can use this parameter to specify the ratio of traffic that you want to distribute to each endpoint group.
+     * @description The traffic distribution ratio. If an intelligent routing listener is associated with multiple endpoint groups, you can configure this parameter to specify the ratio of traffic distributed to each endpoint group.
      *
      * Valid values: **1** to **100**. Default value: **100**.
      *
-     * You can specify the traffic distribution ratios for up to 10 endpoint groups.
+     * You can specify traffic distribution ratios for up to 10 endpoint groups.
      *
-     * > You can configure endpoint groups and endpoints for an intelligent routing listener only if the **Type** parameter is set to **Standard**.
+     * >  You can configure endpoint groups and endpoints only if you set **Type** to **Standard**.
      * @example 100
      *
      * @var int

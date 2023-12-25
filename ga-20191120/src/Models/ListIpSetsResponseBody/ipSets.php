@@ -28,7 +28,7 @@ class ipSets extends Model
     public $bandwidth;
 
     /**
-     * @description The list of accelerated IP addresses in the acceleration region.
+     * @description The accelerated IP addresses.
      *
      * @var string[]
      */
@@ -44,7 +44,7 @@ class ipSets extends Model
     public $ipSetId;
 
     /**
-     * @description The version of the IP protocol. Valid values:
+     * @description The IP version. Valid values:
      *
      *   **IPv4**
      *   **IPv6**
@@ -58,19 +58,19 @@ class ipSets extends Model
     /**
      * @description The line type of the elastic IP address (EIP) in the acceleration region. Valid values:
      *
-     *   **BGP**: BGP (Multi-ISP) lines.
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines If the acceleration region is China (Hong Kong) and a basic bandwidth plan whose bandwidth type is Premium is associated with the GA instance, the default value of IspType is BGP_PRO.
+     *   **BGP** (default)
+     *   **BGP_PRO** If the acceleration region is China (Hong Kong) and a basic bandwidth plan whose bandwidth type is Premium is associated with the GA instance, the default value of IspType is BGP_PRO.
      *
-     * If you are allowed to use single-ISP bandwidth, you can also specify one of the following values:
+     * If you are allowed to use single-ISP bandwidth, one of the following values is supported:
      *
-     *   **ChinaTelecom**: China Telecom (single ISP)
-     *   **ChinaUnicom**: China Unicom (single ISP)
-     *   **ChinaMobile**: China Mobile (single ISP)
-     *   **ChinaTelecom_L2**: China Telecom \_L2 (single ISP)
-     *   **ChinaUnicom_L2**: China Unicom \_L2 (single ISP)
-     *   **ChinaMobile_L2**: China Mobile \_L2 (single ISP)
+     *   **ChinaTelecom**
+     *   **ChinaUnicom**
+     *   **ChinaMobile**
+     *   **ChinaTelecom_L2**
+     *   **ChinaUnicom_L2**
+     *   **ChinaMobile_L2**
      *
-     * > Different acceleration regions support different single-ISP BGP lines.
+     * >  The supported line types vary based on the acceleration region.
      * @example BGP
      *
      * @var string
@@ -78,9 +78,9 @@ class ipSets extends Model
     public $ispType;
 
     /**
-     * @description 托管实例所属的服务方ID。
+     * @description The service that manages the instance.
      *
-     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
      * @example ALB
      *
      * @var string
@@ -88,11 +88,11 @@ class ipSets extends Model
     public $serviceId;
 
     /**
-     * @description 是否为托管实例。取值：
+     * @description Indicates whether the GA instance is managed. Valid values:
      *
-     * - **true**：是托管资实例。
+     *   **true**
+     *   **false**
      *
-     * - **false**：不是托管实例。
      * @example true
      *
      * @var bool
@@ -100,10 +100,12 @@ class ipSets extends Model
     public $serviceManaged;
 
     /**
-     * @description 用户在此托管实例下可执行的动作策略列表。
+     * @description The actions that users can perform on the managed instance.
      *
-     * > 仅在**ServiceManaged**参数为**True**时有效。
-     * > - 当实例处于托管状态时，用户对实例的操作会受到限制，某些操作行为会被禁止。
+     * >  This parameter takes effect only if **ServiceManaged** is set to **True**.
+     *
+     *   Users can perform only specific actions on a managed instance.
+     *
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;
@@ -111,10 +113,10 @@ class ipSets extends Model
     /**
      * @description The status of the acceleration region. Valid values:
      *
-     *   **init**: The acceleration region is being initialized.
-     *   **active**: The acceleration region is running.
-     *   **updating**: The acceleration region is being configured.
-     *   **deleting**: The acceleration region is being deleted.
+     *   **init**
+     *   **active**
+     *   **updating**
+     *   **deleting**
      *
      * @example active
      *

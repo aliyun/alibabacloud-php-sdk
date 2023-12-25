@@ -18,7 +18,7 @@ class portOverrides extends Model
     public $endpointPort;
 
     /**
-     * @description The listening port.
+     * @description The listener port.
      *
      * @example 443
      *

@@ -18,6 +18,11 @@ class ListCustomRoutingEndpointGroupsRequest extends Model
     public $acceleratorId;
 
     /**
+     * @var string
+     */
+    public $accessLogSwitch;
+
+    /**
      * @description The ID of the endpoint group.
      *
      * @example epg-bp14sz7ftcwwjgrdm****
@@ -63,6 +68,7 @@ class ListCustomRoutingEndpointGroupsRequest extends Model
     public $regionId;
     protected $_name = [
         'acceleratorId'   => 'AcceleratorId',
+        'accessLogSwitch' => 'AccessLogSwitch',
         'endpointGroupId' => 'EndpointGroupId',
         'listenerId'      => 'ListenerId',
         'pageNumber'      => 'PageNumber',
@@ -79,6 +85,9 @@ class ListCustomRoutingEndpointGroupsRequest extends Model
         $res = [];
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
+        }
+        if (null !== $this->accessLogSwitch) {
+            $res['AccessLogSwitch'] = $this->accessLogSwitch;
         }
         if (null !== $this->endpointGroupId) {
             $res['EndpointGroupId'] = $this->endpointGroupId;
@@ -109,6 +118,9 @@ class ListCustomRoutingEndpointGroupsRequest extends Model
         $model = new self();
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
+        }
+        if (isset($map['AccessLogSwitch'])) {
+            $model->accessLogSwitch = $map['AccessLogSwitch'];
         }
         if (isset($map['EndpointGroupId'])) {
             $model->endpointGroupId = $map['EndpointGroupId'];

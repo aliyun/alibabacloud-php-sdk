@@ -30,7 +30,7 @@ class forwardingRules extends Model
     public $forwardingRuleName;
 
     /**
-     * @description The priority of the forwarding rule. Valid values: **1** to **10000**. A smaller value indicates a higher priority.
+     * @description The priority of the forwarding rule. Valid values: **1** to **10000**. A smaller value specifies a higher priority.
      *
      * @example 1000
      *
@@ -39,14 +39,14 @@ class forwardingRules extends Model
     public $priority;
 
     /**
-     * @description The configurations of the forwarding action.
+     * @description The configurations of the forwarding actions.
      *
      * @var ruleActions[]
      */
     public $ruleActions;
 
     /**
-     * @description The conditions that trigger the forwarding rule.
+     * @description The forwarding conditions.
      *
      * @var ruleConditions[]
      */
@@ -55,7 +55,7 @@ class forwardingRules extends Model
     /**
      * @description The direction in which the rule takes effect. You do not need to configure this parameter.
      *
-     * By default, this parameter is set to **request**, which indicates that the rule takes effect on requests.
+     * By default, this parameter is set to **request**, which specifies that the rule takes effect on requests.
      * @example request
      *
      * @var string

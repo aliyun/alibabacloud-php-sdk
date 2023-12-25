@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListIspTypesRequest extends Model
 {
     /**
+     * @description The ID of the GA instance that you want to query.
+     *
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string

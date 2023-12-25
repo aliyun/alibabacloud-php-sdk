@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
-     * @description The list of GA instances.
+     * @description A list of GA instances.
      *
      * @var accelerators[]
      */
@@ -26,11 +26,11 @@ class domains extends Model
     public $domain;
 
     /**
-     * @description The ICP filing status of the accelerated domain name.
+     * @description The ICP filing status of the accelerated domain name. Valid values:
      *
      *   **illegal:** The domain name is illegal.
      *   **inactive:** The domain name has not completed ICP filing.
-     *   **active:** The domain name has a valid ICP filing.
+     *   **active:** The domain name has a valid ICP number.
      *   **unknown:** The ICP filing status is unknown.
      *
      * @example active

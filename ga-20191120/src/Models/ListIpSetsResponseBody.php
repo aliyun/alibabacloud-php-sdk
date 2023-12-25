@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListIpSetsResponseBody extends Model
 {
     /**
-     * @description Details of the acceleration regions.
+     * @description The acceleration regions.
      *
      * @var ipSets[]
      */

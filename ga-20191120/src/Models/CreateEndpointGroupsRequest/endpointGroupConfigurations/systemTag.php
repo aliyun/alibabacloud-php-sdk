@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class systemTag extends Model
 {
     /**
+     * @description The key of the system tag.
+     *
+     * You can enter up to 20 system tags.
+     * @example system-tag-key
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The visibility of the system tag. Valid values:
+     *
+     *   **public** (default): The system tag is visible and can be used for filtering.
+     *   **private**: The system tag is invisible.
+     *
+     * @example public
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @description The value of the system tag.
+     *
+     * You can enter up to 20 system tags.
+     * @example system-tag-value
+     *
      * @var string
      */
     public $value;
