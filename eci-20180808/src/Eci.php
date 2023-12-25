@@ -1809,6 +1809,9 @@ class Eci extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }

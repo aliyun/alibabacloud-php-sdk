@@ -17,6 +17,11 @@ use AlibabaCloud\Tea\Model;
 class containerGroups extends Model
 {
     /**
+     * @var string
+     */
+    public $computeCategory;
+
+    /**
      * @description The instance ID.
      *
      * @example eci-bp1jrgfqqy54kg5hc****
@@ -362,6 +367,7 @@ class containerGroups extends Model
      */
     public $zoneId;
     protected $_name = [
+        'computeCategory'       => 'ComputeCategory',
         'containerGroupId'      => 'ContainerGroupId',
         'containerGroupName'    => 'ContainerGroupName',
         'containers'            => 'Containers',
@@ -409,6 +415,9 @@ class containerGroups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->computeCategory) {
+            $res['ComputeCategory'] = $this->computeCategory;
+        }
         if (null !== $this->containerGroupId) {
             $res['ContainerGroupId'] = $this->containerGroupId;
         }
@@ -571,6 +580,9 @@ class containerGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComputeCategory'])) {
+            $model->computeCategory = $map['ComputeCategory'];
+        }
         if (isset($map['ContainerGroupId'])) {
             $model->containerGroupId = $map['ContainerGroupId'];
         }

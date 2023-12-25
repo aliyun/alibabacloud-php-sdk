@@ -86,6 +86,11 @@ class DescribeContainerGroupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $securityGroupId;
+
+    /**
      * @description The status of the elastic container instance. Valid values:
      *
      *   Pending: The instance is being started.
@@ -150,6 +155,7 @@ class DescribeContainerGroupsRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'securityGroupId'      => 'SecurityGroupId',
         'status'               => 'Status',
         'tag'                  => 'Tag',
         'vSwitchId'            => 'VSwitchId',
@@ -193,6 +199,9 @@ class DescribeContainerGroupsRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -256,6 +265,9 @@ class DescribeContainerGroupsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
