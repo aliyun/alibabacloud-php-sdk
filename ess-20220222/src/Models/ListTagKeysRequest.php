@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
+     * @description The token that determines the start point of the next query. If this parameter is empty, all results are returned.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -21,6 +23,9 @@ class ListTagKeysRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 50.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -28,6 +33,8 @@ class ListTagKeysRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the Auto Scaling resource.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -40,6 +47,8 @@ class ListTagKeysRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The type of the Auto Scaling resource. Set the value to scalinggroup. This indicates that the tags are added to scaling groups.
+     *
      * @example scalinggroup
      *
      * @var string

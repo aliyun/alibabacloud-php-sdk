@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class initContainerEnvironmentVars extends Model
 {
     /**
-     * @description Details of the init container ports.
+     * @description > This parameter is unavailable.
      *
      * @example path
      *
@@ -18,7 +18,7 @@ class initContainerEnvironmentVars extends Model
     public $fieldRefFieldPath;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description The name of the environment variable.
      *
      * @example PATH
      *
@@ -27,7 +27,7 @@ class initContainerEnvironmentVars extends Model
     public $key;
 
     /**
-     * @description Details of the init container ports.
+     * @description The value of the environment variable.
      *
      * @example /usr/local/bin
      *

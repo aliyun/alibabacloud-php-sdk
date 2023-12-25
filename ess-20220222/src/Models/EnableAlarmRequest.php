@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableAlarmRequest extends Model
 {
     /**
+     * @description The ID of the event-triggered task.
+     *
      * @example asg-bp1hvbnmkl10vll5****_f95ce797-dc2e-4bad-9618-14fee7d1****
      *
      * @var string
@@ -21,6 +23,8 @@ class EnableAlarmRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-qingdao
      *
      * @var string

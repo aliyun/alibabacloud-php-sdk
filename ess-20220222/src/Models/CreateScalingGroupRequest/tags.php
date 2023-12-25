@@ -18,6 +18,11 @@ class tags extends Model
     public $key;
 
     /**
+     * @var bool
+     */
+    public $propagate;
+
+    /**
      * @description The tag value that you want to add to the scaling group.
      *
      * @example Finance
@@ -26,8 +31,9 @@ class tags extends Model
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
-        'value' => 'Value',
+        'key'       => 'Key',
+        'propagate' => 'Propagate',
+        'value'     => 'Value',
     ];
 
     public function validate()
@@ -39,6 +45,9 @@ class tags extends Model
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
+        }
+        if (null !== $this->propagate) {
+            $res['Propagate'] = $this->propagate;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
@@ -57,6 +66,9 @@ class tags extends Model
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
+        }
+        if (isset($map['Propagate'])) {
+            $model->propagate = $map['Propagate'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];

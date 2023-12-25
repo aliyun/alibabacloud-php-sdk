@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class AttachVServerGroupsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests.
+     *
+     * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](~~25965~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -17,6 +20,12 @@ class AttachVServerGroupsRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to add Elastic Compute Service (ECS) instances in the scaling group to the vServer group. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -29,6 +38,8 @@ class AttachVServerGroupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group. Examples: cn-hangzhou and cn-shanghai.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +52,8 @@ class AttachVServerGroupsRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string
@@ -48,6 +61,8 @@ class AttachVServerGroupsRequest extends Model
     public $scalingGroupId;
 
     /**
+     * @description Details of the vServer groups.
+     *
      * @var VServerGroups[]
      */
     public $VServerGroups;

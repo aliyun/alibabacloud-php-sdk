@@ -79,6 +79,11 @@ class scalingInstances extends Model
     public $loadBalancerWeight;
 
     /**
+     * @var string
+     */
+    public $privateIpAddress;
+
+    /**
      * @example asa-bp1c9djwrgxjyk31****
      *
      * @var string
@@ -98,6 +103,11 @@ class scalingInstances extends Model
      * @var string
      */
     public $scalingGroupId;
+
+    /**
+     * @var string
+     */
+    public $scalingInstanceId;
 
     /**
      * @example SpotWithPriceLimit
@@ -137,9 +147,11 @@ class scalingInstances extends Model
         'launchTemplateVersion'  => 'LaunchTemplateVersion',
         'lifecycleState'         => 'LifecycleState',
         'loadBalancerWeight'     => 'LoadBalancerWeight',
+        'privateIpAddress'       => 'PrivateIpAddress',
         'scalingActivityId'      => 'ScalingActivityId',
         'scalingConfigurationId' => 'ScalingConfigurationId',
         'scalingGroupId'         => 'ScalingGroupId',
+        'scalingInstanceId'      => 'ScalingInstanceId',
         'spotStrategy'           => 'SpotStrategy',
         'warmupState'            => 'WarmupState',
         'weightedCapacity'       => 'WeightedCapacity',
@@ -183,6 +195,9 @@ class scalingInstances extends Model
         if (null !== $this->loadBalancerWeight) {
             $res['LoadBalancerWeight'] = $this->loadBalancerWeight;
         }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
         if (null !== $this->scalingActivityId) {
             $res['ScalingActivityId'] = $this->scalingActivityId;
         }
@@ -191,6 +206,9 @@ class scalingInstances extends Model
         }
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
+        }
+        if (null !== $this->scalingInstanceId) {
+            $res['ScalingInstanceId'] = $this->scalingInstanceId;
         }
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
@@ -246,6 +264,9 @@ class scalingInstances extends Model
         if (isset($map['LoadBalancerWeight'])) {
             $model->loadBalancerWeight = $map['LoadBalancerWeight'];
         }
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
         if (isset($map['ScalingActivityId'])) {
             $model->scalingActivityId = $map['ScalingActivityId'];
         }
@@ -254,6 +275,9 @@ class scalingInstances extends Model
         }
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
+        }
+        if (isset($map['ScalingInstanceId'])) {
+            $model->scalingInstanceId = $map['ScalingInstanceId'];
         }
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];

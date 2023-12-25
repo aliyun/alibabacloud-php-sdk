@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DetachDBInstancesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests.
+     *
+     * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25965~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -16,11 +19,19 @@ class DetachDBInstancesRequest extends Model
     public $clientToken;
 
     /**
+     * @description The IDs of the ApsaraDB RDS instances. You can specify up to five ApsaraDB RDS instances.
+     *
      * @var string[]
      */
     public $DBInstances;
 
     /**
+     * @description Specifies whether to remove the private IP addresses of instances in the scaling group from the whitelist that manages access to the ApsaraDB RDS instance with which the scaling group is associated. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -33,6 +44,8 @@ class DetachDBInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -45,6 +58,8 @@ class DetachDBInstancesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp1igpak5ft1flyp****
      *
      * @var string

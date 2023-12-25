@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class VServerGroups extends Model
 {
     /**
+     * @description The ID of the CLB instance to which the vServer group belongs.
+     *
      * @example rsp-bp1jp1rge****
      *
      * @var string
@@ -17,6 +19,8 @@ class VServerGroups extends Model
     public $loadBalancerId;
 
     /**
+     * @description Details of the vServer group attributes.
+     *
      * @var VServerGroupAttributes[]
      */
     public $VServerGroupAttributes;

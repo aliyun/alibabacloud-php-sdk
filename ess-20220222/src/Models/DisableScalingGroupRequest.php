@@ -29,6 +29,8 @@ class DisableScalingGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

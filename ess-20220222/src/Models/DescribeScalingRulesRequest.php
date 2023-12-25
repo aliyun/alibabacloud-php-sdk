@@ -21,7 +21,7 @@ class DescribeScalingRulesRequest extends Model
     /**
      * @description The number of the page to return. Pages start from page 1.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -31,7 +31,7 @@ class DescribeScalingRulesRequest extends Model
     /**
      * @description The number of entries to return on each page. Maximum value: 50.
      *
-     * Default value: 10
+     * Default value: 10.
      * @example 50
      *
      * @var int
@@ -39,9 +39,8 @@ class DescribeScalingRulesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The region ID of the scaling group to which the scaling rules that you want to query belong.
      *
-     * Default value: 1.
      * @example cn-qingdao
      *
      * @var string
@@ -59,12 +58,7 @@ class DescribeScalingRulesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the scaling rule. Valid values:
-     *
-     *   SimpleScalingRule: adjusts the number of ECS instances based on the values of the AdjustmentType and AdjustmentValue parameters.
-     *   TargetTrackingScalingRule: calculates the number of ECS instances that need to be scaled in a dynamic manner and maintains the value of a predefined metric close to the value of the TargetValue parameter.
-     *   StepScalingRule: scales ECS instances in steps based on the specified thresholds and metric values.
-     *   PredictiveScalingRule: uses machine learning to analyze historical monitoring data of the scaling group and predicts the future values of metrics. In addition, Auto Scaling automatically creates scheduled tasks to adjust the boundary values for the scaling group.
+     * @description The ID of the scaling group.
      *
      * @example asg-bp1ffogfdauy0jw0****
      *
@@ -94,12 +88,13 @@ class DescribeScalingRulesRequest extends Model
     public $scalingRuleNames;
 
     /**
-     * @description Specifies whether to return CloudMonitor event-triggered tasks associated with scaling rules. Valid values:
+     * @description The type of the scaling rule. Valid values:
      *
-     *   true
-     *   false
+     *   SimpleScalingRule: adjusts the number of ECS instances based on the values of the AdjustmentType and AdjustmentValue parameters.
+     *   TargetTrackingScalingRule: calculates the number of ECS instances that need to be scaled in a dynamic manner and maintains the value of a predefined metric close to the value of the TargetValue parameter.
+     *   StepScalingRule: scales ECS instances in steps based on the specified thresholds and metric values.
+     *   PredictiveScalingRule: uses machine learning to analyze historical monitoring data of the scaling group and predicts the future values of metrics. In addition, Auto Scaling automatically creates scheduled tasks to adjust the boundary values for the scaling group.
      *
-     * Default value: false.
      * @example SimpleScalingRule
      *
      * @var string
@@ -107,12 +102,12 @@ class DescribeScalingRulesRequest extends Model
     public $scalingRuleType;
 
     /**
-     * @description Specifies whether to return the event-triggered tasks that are associated with the scaling rules. Valid values:
+     * @description Specifies whether to return CloudMonitor event-triggered tasks associated with scaling rules. Valid values:
      *
      *   true
      *   false
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var bool

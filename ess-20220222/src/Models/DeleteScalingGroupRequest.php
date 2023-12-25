@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DeleteScalingGroupRequest extends Model
 {
     /**
+     * @description Specifies whether to forcefully delete the VPC. Valid values:
+     *
+     * - **true**: yes
+     * - **false** (default): no
+     *
+     * - Only an IPv6 gateway and routes that point to the IPv6 gateway exist in the VPC.
      * @example false
      *
      * @var bool
@@ -26,6 +32,8 @@ class DeleteScalingGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -38,6 +46,8 @@ class DeleteScalingGroupRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

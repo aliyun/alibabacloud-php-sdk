@@ -10,16 +10,15 @@ use AlibabaCloud\Tea\Model;
 class volumes extends Model
 {
     /**
-     * @description The relative path to the configuration file.
+     * @description The paths to configuration files.
      *
      * @var configFileVolumeConfigFileToPaths[]
      */
     public $configFileVolumeConfigFileToPaths;
 
     /**
-     * @description The FlexVolume options. Each option is a key-value pair in a JSON string.
+     * @description The default permissions on the ConfigFile volume.
      *
-     * For example, when you use FlexVolume to mount a disk, the format of options is `{"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"}`.
      * @example 0644
      *
      * @var int
@@ -27,7 +26,7 @@ class volumes extends Model
     public $configFileVolumeDefaultMode;
 
     /**
-     * @description The storage medium of EmptyDirVolume. If this parameter is left empty, the file system that backs the node is used as the storage medium. If this parameter is set to memory, the memory is used as the storage medium.
+     * @description The storage size of a disk volume. Unit: GiB.
      *
      * @example 15
      *
@@ -36,7 +35,7 @@ class volumes extends Model
     public $diskVolumeDiskId;
 
     /**
-     * @description The file system type of the volume. The default value is determined by the script of FlexVolume.
+     * @description The storage size of a disk volume. Unit: GiB.
      *
      * @example 15
      *
@@ -45,7 +44,7 @@ class volumes extends Model
     public $diskVolumeDiskSize;
 
     /**
-     * @description The path to the Network File System (NFS) volume.
+     * @description The file system type of a disk volume.
      *
      * @example xfs
      *
@@ -54,7 +53,7 @@ class volumes extends Model
     public $diskVolumeFsType;
 
     /**
-     * @description The storage size of a disk volume. Unit: GiB.
+     * @description The storage medium of EmptyDirVolume. If this parameter is left empty, the file system that backs the node is used as the storage medium. If this parameter is set to memory, the memory is used as the storage medium.
      *
      * @example memory
      *
@@ -63,12 +62,16 @@ class volumes extends Model
     public $emptyDirVolumeMedium;
 
     /**
+     * @description EmptyDir数据卷的大小。
+     *
+     * @example 256Mi
+     *
      * @var string
      */
     public $emptyDirVolumeSizeLimit;
 
     /**
-     * @description The endpoint of the NFS server.
+     * @description The FlexVolume driver name of the volume.
      *
      * @example flexvolume
      *
@@ -77,7 +80,7 @@ class volumes extends Model
     public $flexVolumeDriver;
 
     /**
-     * @description The FlexVolume driver name of the volume.
+     * @description The file system type of the volume. The default value is determined by the script of FlexVolume.
      *
      * @example ext4
      *
@@ -86,8 +89,9 @@ class volumes extends Model
     public $flexVolumeFsType;
 
     /**
-     * @description The name of the volume.
+     * @description The FlexVolume options. Each option is a key-value pair in a JSON string.
      *
+     * For example, when you use FlexVolume to mount a disk, the format of options is `{"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"}`.
      * @example {"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"}
      *
      * @var string
@@ -95,9 +99,26 @@ class volumes extends Model
     public $flexVolumeOptions;
 
     /**
-     * @description Indicates whether the NFS volume is read-only.
+     * @description HostPath Volume在主机上的目录路径。
      *
-     * Default value: false.
+     * @example /pod/data
+     *
+     * @var string
+     */
+    public $hostPathVolumePath;
+
+    /**
+     * @description HostPath Volume的类型。
+     *
+     * @example Directory
+     *
+     * @var string
+     */
+    public $hostPathVolumeType;
+
+    /**
+     * @description The path to the Network File System (NFS) volume.
+     *
      * @example /share
      *
      * @var string
@@ -105,8 +126,9 @@ class volumes extends Model
     public $NFSVolumePath;
 
     /**
-     * @description The default permissions on the ConfigFile volume.
+     * @description Indicates whether the NFS volume is read-only.
      *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -114,7 +136,7 @@ class volumes extends Model
     public $NFSVolumeReadOnly;
 
     /**
-     * @description The paths to configuration files.
+     * @description The endpoint of the NFS server.
      *
      * @example 3f9cd4a596-naw76.cn-shanghai.nas.aliyuncs.com
      *
@@ -123,7 +145,7 @@ class volumes extends Model
     public $NFSVolumeServer;
 
     /**
-     * @description The paths to configuration files.
+     * @description The name of the volume.
      *
      * @example default-volume1
      *
@@ -132,7 +154,12 @@ class volumes extends Model
     public $name;
 
     /**
-     * @description The file system type of a disk volume.
+     * @description The type of the volume. Valid values:
+     *
+     *   EmptyDirVolume
+     *   NFSVolume
+     *   ConfigFileVolume
+     *   FlexVolume
      *
      * @example EmptyDirVolume
      *
@@ -150,6 +177,8 @@ class volumes extends Model
         'flexVolumeDriver'                  => 'FlexVolumeDriver',
         'flexVolumeFsType'                  => 'FlexVolumeFsType',
         'flexVolumeOptions'                 => 'FlexVolumeOptions',
+        'hostPathVolumePath'                => 'HostPathVolumePath',
+        'hostPathVolumeType'                => 'HostPathVolumeType',
         'NFSVolumePath'                     => 'NFSVolumePath',
         'NFSVolumeReadOnly'                 => 'NFSVolumeReadOnly',
         'NFSVolumeServer'                   => 'NFSVolumeServer',
@@ -199,6 +228,12 @@ class volumes extends Model
         }
         if (null !== $this->flexVolumeOptions) {
             $res['FlexVolumeOptions'] = $this->flexVolumeOptions;
+        }
+        if (null !== $this->hostPathVolumePath) {
+            $res['HostPathVolumePath'] = $this->hostPathVolumePath;
+        }
+        if (null !== $this->hostPathVolumeType) {
+            $res['HostPathVolumeType'] = $this->hostPathVolumeType;
         }
         if (null !== $this->NFSVolumePath) {
             $res['NFSVolumePath'] = $this->NFSVolumePath;
@@ -262,6 +297,12 @@ class volumes extends Model
         }
         if (isset($map['FlexVolumeOptions'])) {
             $model->flexVolumeOptions = $map['FlexVolumeOptions'];
+        }
+        if (isset($map['HostPathVolumePath'])) {
+            $model->hostPathVolumePath = $map['HostPathVolumePath'];
+        }
+        if (isset($map['HostPathVolumeType'])) {
+            $model->hostPathVolumeType = $map['HostPathVolumeType'];
         }
         if (isset($map['NFSVolumePath'])) {
             $model->NFSVolumePath = $map['NFSVolumePath'];

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class albServerGroups extends Model
 {
     /**
+     * @description The ID of the ALB server group.
+     *
+     * You can associate only a limited number of ALB server groups with a scaling group. To view the quota or manually request a quota increase, go to [Quota Center](https://quotas.console.aliyun.com/products/ess/quotas).
      * @example sgp-ddwb0y0g6y9bjm****
      *
      * @var string
@@ -16,6 +19,8 @@ class albServerGroups extends Model
     public $albServerGroupId;
 
     /**
+     * @description The port number used by the ECS instance after the ECS instance is added to the ALB server group. Valid values: 1 to 65535.
+     *
      * @example 22
      *
      * @var int
@@ -23,6 +28,9 @@ class albServerGroups extends Model
     public $port;
 
     /**
+     * @description The weight of the ECS instance as a backend server after the instance is added to the ALB server group.
+     *
+     * If you increase the weight of an ECS instance in an ALB server group, the number of access requests that are forwarded to the ECS instance increases. If you set the Weight parameter for an ECS instance to 0, no access requests are forwarded to the ECS instance. Valid values: 0 to 100.
      * @example 100
      *
      * @var int

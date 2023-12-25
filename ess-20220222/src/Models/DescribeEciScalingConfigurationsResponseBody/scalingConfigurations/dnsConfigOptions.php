@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dnsConfigOptions extends Model
 {
     /**
-     * @description The hostname aliases of a container.
+     * @description The variable name of the option.
      *
      * @example name
      *
@@ -18,7 +18,7 @@ class dnsConfigOptions extends Model
     public $name;
 
     /**
-     * @description The hostname aliases of a container.
+     * @description The variable value of the option.
      *
      * @example value
      *

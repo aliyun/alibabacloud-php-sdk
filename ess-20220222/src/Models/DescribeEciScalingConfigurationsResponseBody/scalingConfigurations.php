@@ -18,14 +18,14 @@ use AlibabaCloud\Tea\Model;
 class scalingConfigurations extends Model
 {
     /**
-     * @description The ID of the Container Registry Enterprise Edition instance.
+     * @description Details of the Container Registry Enterprise Edition instances.
      *
      * @var acrRegistryInfos[]
      */
     public $acrRegistryInfos;
 
     /**
-     * @description Indicates whether an elastic IP address (EIP) is automatically created, and then bound to the elastic container instance.
+     * @description The validity period. Unit: seconds.
      *
      * @example 1000
      *
@@ -34,7 +34,7 @@ class scalingConfigurations extends Model
     public $activeDeadlineSeconds;
 
     /**
-     * @description The size of the temporary storage space. Unit: GiB.
+     * @description Indicates whether an elastic IP address (EIP) is automatically created, and then bound to the elastic container instance.
      *
      * @example true
      *
@@ -43,7 +43,7 @@ class scalingConfigurations extends Model
     public $autoCreateEip;
 
     /**
-     * @description The name of the elastic container instance.
+     * @description Indicates whether the image cache is automatically matched. Default value: false.
      *
      * @example false
      *
@@ -52,7 +52,7 @@ class scalingConfigurations extends Model
     public $autoMatchImageCache;
 
     /**
-     * @description The number of physical CPU cores. This parameter can be specified for only some instance types. For more information, see [Specify custom CPU options](~~197781~~).
+     * @description The name of the elastic container instance.
      *
      * @example test
      *
@@ -61,14 +61,17 @@ class scalingConfigurations extends Model
     public $containerGroupName;
 
     /**
-     * @description The path to which the system sends an HTTP GET request for a probe.
+     * @description The containers in the elastic container instance.
      *
      * @var containers[]
      */
     public $containers;
 
     /**
-     * @description auditing
+     * @description Indicates whether the cost optimization feature is enabled. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example false
      *
@@ -77,7 +80,7 @@ class scalingConfigurations extends Model
     public $costOptimization;
 
     /**
-     * @description The ID of the resource group.
+     * @description The number of vCPUs of the elastic container instance.
      *
      * @example 2.0
      *
@@ -86,7 +89,7 @@ class scalingConfigurations extends Model
     public $cpu;
 
     /**
-     * @description The containers in the elastic container instance.
+     * @description The number of physical CPU cores. This parameter can be specified for only some instance types. For more information, see [Specify custom CPU options](~~197781~~).
      *
      * @example 2
      *
@@ -95,7 +98,7 @@ class scalingConfigurations extends Model
     public $cpuOptionsCore;
 
     /**
-     * @description The weight of the elastic container instance as a backend server. Valid values: 1 to 100.
+     * @description The number of threads per core. This parameter can be specified for only some instance types. If you set this parameter to 1, Hyper-Threading is disabled. For more information, see [Specify custom CPU options](~~197781~~).
      *
      * @example 2
      *
@@ -104,7 +107,7 @@ class scalingConfigurations extends Model
     public $cpuOptionsThreadsPerCore;
 
     /**
-     * @description The ID of the security group with which the elastic container instance is associated. Elastic container instances that are associated with the same security group can access each other.
+     * @description The time when the scaling configuration was created.
      *
      * @example 2014-08-14T10:58Z
      *
@@ -113,7 +116,46 @@ class scalingConfigurations extends Model
     public $creationTime;
 
     /**
-     * @description The ID of the image cache snapshot.
+     * @description 数据缓存Bucket。
+     *
+     * @example default
+     *
+     * @var string
+     */
+    public $dataCacheBucket;
+
+    /**
+     * @description 数据缓存使用ESSD AutoPL云盘时，是否开启Burst（性能突发）。可能值：
+     *
+     * >关于ESSD AutoPL云盘的更多信息，请参见[ESSD AutoPL云盘](~~368372~~)。
+     * @example false
+     *
+     * @var bool
+     */
+    public $dataCacheBurstingEnabled;
+
+    /**
+     * @description 数据缓存使用的云盘的性能等级。建议优先使用ESSD云盘，该云盘的性能等级的可能值：
+     *
+     * >关于ESSD云盘的更多信息，请参见[ESSD云盘](~~122389~~)。
+     * @example PL1
+     *
+     * @var string
+     */
+    public $dataCachePL;
+
+    /**
+     * @description 数据缓存使用ESSD AutoPL云盘时，ESSD AutoPL云盘预配置的读写IOPS。可能值：0~min{50000, 1000*容量-基准性能}，其中，基准性能=min{1800+50*容量, 50000}。
+     *
+     * >关于ESSD AutoPL云盘的更多信息，请参见[ESSD AutoPL云盘](~~368372~~)。
+     * @example 40000
+     *
+     * @var int
+     */
+    public $dataCacheProvisionedIops;
+
+    /**
+     * @description > This parameter is unavailable.
      *
      * @example This is an example.
      *
@@ -122,28 +164,28 @@ class scalingConfigurations extends Model
     public $description;
 
     /**
-     * @description The DNS lookup domains.
+     * @description The IP addresses of the DNS servers.
      *
      * @var string[]
      */
     public $dnsConfigNameServers;
 
     /**
-     * @description The variable name of the option.
+     * @description The options. Each option is a name-value pair. The value in the name-value pair is optional.
      *
      * @var dnsConfigOptions[]
      */
     public $dnsConfigOptions;
 
     /**
-     * @description The domain names of the Network Time Protocol (NTP) servers.
+     * @description The DNS lookup domains.
      *
      * @var string[]
      */
     public $dnsConfigSearches;
 
     /**
-     * @description The maximum outbound bandwidth. Unit: bytes.
+     * @description The Domain Name System (DNS) policy.
      *
      * @example Default
      *
@@ -152,7 +194,7 @@ class scalingConfigurations extends Model
     public $dnsPolicy;
 
     /**
-     * @description The name of the instance RAM role. You can use an instance RAM role to access both elastic container instances and Elastic Compute Service (ECS) instances. For more information, see [Use the instance RAM role by calling APIs](~~61178~~).
+     * @description The maximum outbound bandwidth. Unit: bytes.
      *
      * @example 1024000
      *
@@ -161,9 +203,8 @@ class scalingConfigurations extends Model
     public $egressBandwidth;
 
     /**
-     * @description The size of the memory.
+     * @description The bandwidth of the EIP. Default value: 5 Mbit/s.
      *
-     * > You can specify CPU and memory specifications to determine the range of instance types only if the Scaling Policy parameter is set to Cost Optimization Policy and no instance type is specified in the scaling configuration.
      * @example 5
      *
      * @var int
@@ -171,7 +212,7 @@ class scalingConfigurations extends Model
     public $eipBandwidth;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description The size of the temporary storage space. Unit: GiB.
      *
      * @example 20
      *
@@ -180,14 +221,14 @@ class scalingConfigurations extends Model
     public $ephemeralStorage;
 
     /**
-     * @description The IP address that is added.
+     * @description The hostname aliases of a container.
      *
      * @var hostAliases[]
      */
     public $hostAliases;
 
     /**
-     * @description The region ID of the elastic container instance.
+     * @description The hostname.
      *
      * @example [\"hehe.com\", \"haha.com\"]
      *
@@ -196,18 +237,14 @@ class scalingConfigurations extends Model
     public $hostName;
 
     /**
-     * @description The password that is used to access the image repository.
+     * @description The information about the image repository.
      *
      * @var imageRegistryCredentials[]
      */
     public $imageRegistryCredentials;
 
     /**
-     * @description The restart policy of the elastic container instance. Valid values:
-     *
-     *   Never: never restarts the elastic container instance.
-     *   Always: always restarts the elastic container instance.
-     *   OnFailure: restarts the elastic container instance upon failures.
+     * @description The ID of the image cache snapshot.
      *
      * @example imc-2zebxkiifuyzzlhl****
      *
@@ -216,7 +253,7 @@ class scalingConfigurations extends Model
     public $imageSnapshotId;
 
     /**
-     * @description The buffer time in which the program handles operations before the program stops.
+     * @description The maximum inbound bandwidth. Unit: bit/s.
      *
      * @example 1024000
      *
@@ -225,29 +262,11 @@ class scalingConfigurations extends Model
     public $ingressBandwidth;
 
     /**
-     * @description Indicates whether the root file system is read-only. The only valid value is true.
+     * @description The init containers.
      *
      * @var initContainers[]
      */
     public $initContainers;
-
-    /**
-     * @description 5292
-     *
-     * @example EnterpriseLevel
-     *
-     * @var string
-     */
-    public $instanceFamilyLevel;
-
-    /**
-     * @description The bandwidth of the EIP. Default value: 5 Mbit/s.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $ipv6AddressCount;
 
     /**
      * @description The instance family level, which is used to filter the range of instance types that meet the requirements. This parameter takes effect when the `CostOptimization` parameter is set to true. Valid values:
@@ -256,6 +275,34 @@ class scalingConfigurations extends Model
      *   EnterpriseLevel: Instances of this level provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Instance family](~~25378~~).
      *   CreditEntryLevel: This value is valid only for burstable instances. CPU credits are used to ensure computing performance. Instances of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview](~~59977~~) of burstable instances.
      *
+     * @example EnterpriseLevel
+     *
+     * @var string
+     */
+    public $instanceFamilyLevel;
+
+    /**
+     * @description 指定的ECS实例规格，支持多规格（最多支持5个）。
+     *
+     * @var string[]
+     */
+    public $instanceTypes;
+
+    /**
+     * @description The number of IPv6 addresses.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $ipv6AddressCount;
+
+    /**
+     * @description The state of the scaling configuration in the scaling group. Valid values:
+     *
+     *   Active: The scaling configuration is active in the scaling group. Auto Scaling uses active scaling configurations to automatically create ECS instances.
+     *   Inactive: The scaling configuration is inactive in the scaling group. Auto Scaling does not use inactive scaling configurations to automatically create ECS instances. Inactive scaling configurations are retained in the scaling group.
+     *
      * @example Active
      *
      * @var string
@@ -263,7 +310,7 @@ class scalingConfigurations extends Model
     public $lifecycleState;
 
     /**
-     * @description The hostname.
+     * @description The weight of the elastic container instance as a backend server. Valid values: 1 to 100.
      *
      * @example 1
      *
@@ -272,9 +319,9 @@ class scalingConfigurations extends Model
     public $loadBalancerWeight;
 
     /**
-     * @description The maximum hourly price for the preemptible instance.
+     * @description The size of the memory.
      *
-     * This parameter is returned only if you set the SpotStrategy parameter to SpotWithPriceLimit.
+     * > You can specify CPU and memory specifications to determine the range of instance types only if the Scaling Policy parameter is set to Cost Optimization Policy and no instance type is specified in the scaling configuration.
      * @example 16
      *
      * @var float
@@ -282,17 +329,14 @@ class scalingConfigurations extends Model
     public $memory;
 
     /**
-     * @description The state of the scaling configuration in the scaling group. Valid values:
-     *
-     *   Active: The scaling configuration is active in the scaling group. Auto Scaling uses active scaling configurations to automatically create ECS instances.
-     *   Inactive: The scaling configuration is inactive in the scaling group. Auto Scaling does not use inactive scaling configurations to automatically create ECS instances. Inactive scaling configurations are retained in the scaling group.
+     * @description The domain names of the Network Time Protocol (NTP) servers.
      *
      * @var string[]
      */
     public $ntpServers;
 
     /**
-     * @description Indicates whether the image cache is automatically matched. Default value: false.
+     * @description The name of the instance RAM role. You can use an instance RAM role to access both elastic container instances and Elastic Compute Service (ECS) instances. For more information, see [Use the instance RAM role by calling APIs](~~61178~~).
      *
      * @example ram:PassRole
      *
@@ -301,7 +345,7 @@ class scalingConfigurations extends Model
     public $ramRoleName;
 
     /**
-     * @description The number of vCPUs of the elastic container instance.
+     * @description The region ID of the elastic container instance.
      *
      * @example cn-hangzhou
      *
@@ -310,7 +354,7 @@ class scalingConfigurations extends Model
     public $regionId;
 
     /**
-     * @description The ID of the scaling configuration.
+     * @description The ID of the resource group.
      *
      * @example rg-8db03793gfrz****
      *
@@ -319,7 +363,11 @@ class scalingConfigurations extends Model
     public $resourceGroupId;
 
     /**
-     * @description The maximum inbound bandwidth. Unit: bit/s.
+     * @description The restart policy of the elastic container instance. Valid values:
+     *
+     *   Never: never restarts the elastic container instance.
+     *   Always: always restarts the elastic container instance.
+     *   OnFailure: restarts the elastic container instance upon failures.
      *
      * @example Never
      *
@@ -328,7 +376,7 @@ class scalingConfigurations extends Model
     public $restartPolicy;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description The ID of the scaling configuration.
      *
      * @example asc-bp1ezrfgoyn5kijl****
      *
@@ -337,7 +385,7 @@ class scalingConfigurations extends Model
     public $scalingConfigurationId;
 
     /**
-     * @description The validity period. Unit: seconds.
+     * @description The name of the scaling configuration.
      *
      * @example scalingconfi****
      *
@@ -346,7 +394,7 @@ class scalingConfigurations extends Model
     public $scalingConfigurationName;
 
     /**
-     * @description The number of IPv6 addresses.
+     * @description The scaling group ID of the scaling configuration.
      *
      * @example asg-bp17pelvl720x3v7****
      *
@@ -355,18 +403,14 @@ class scalingConfigurations extends Model
     public $scalingGroupId;
 
     /**
-     * @description The name of the security context in which the elastic container instance runs.
+     * @description The system information of the security context in which the elastic container instance runs.
      *
      * @var securityContextSysCtls[]
      */
     public $securityContextSysCtls;
 
     /**
-     * @description The preemption policy of the instance. Valid values:
-     *
-     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
+     * @description The ID of the security group with which the elastic container instance is associated. Elastic container instances that are associated with the same security group can access each other.
      *
      * @example sg-bp18kz60mefs****
      *
@@ -375,7 +419,7 @@ class scalingConfigurations extends Model
     public $securityGroupId;
 
     /**
-     * @description The containers in the elastic container instance.
+     * @description > This parameter is unavailable.
      *
      * @example False
      *
@@ -384,8 +428,9 @@ class scalingConfigurations extends Model
     public $slsEnable;
 
     /**
-     * @description The number of threads per core. This parameter can be specified for only some instance types. If you set this parameter to 1, Hyper-Threading is disabled. For more information, see [Specify custom CPU options](~~197781~~).
+     * @description The maximum hourly price for the preemptible instance.
      *
+     * This parameter is returned only if you set the SpotStrategy parameter to SpotWithPriceLimit.
      * @example 0.025
      *
      * @var float
@@ -393,7 +438,11 @@ class scalingConfigurations extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The scaling group ID of the scaling configuration.
+     * @description The preemption policy of the instance. Valid values:
+     *
+     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
      *
      * @example NoSpot
      *
@@ -402,14 +451,14 @@ class scalingConfigurations extends Model
     public $spotStrategy;
 
     /**
-     * @description The key of the tag.
+     * @description The tags of the elastic container instance. The tags are specified in the key-value pair format.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The Domain Name System (DNS) policy.
+     * @description The buffer time in which the program handles operations before the program stops.
      *
      * @example 60
      *
@@ -418,12 +467,7 @@ class scalingConfigurations extends Model
     public $terminationGracePeriodSeconds;
 
     /**
-     * @description The type of the volume. Valid values:
-     *
-     *   EmptyDirVolume
-     *   NFSVolume
-     *   ConfigFileVolume
-     *   FlexVolume
+     * @description Details of the volumes.
      *
      * @var volumes[]
      */
@@ -440,6 +484,10 @@ class scalingConfigurations extends Model
         'cpuOptionsCore'                => 'CpuOptionsCore',
         'cpuOptionsThreadsPerCore'      => 'CpuOptionsThreadsPerCore',
         'creationTime'                  => 'CreationTime',
+        'dataCacheBucket'               => 'DataCacheBucket',
+        'dataCacheBurstingEnabled'      => 'DataCacheBurstingEnabled',
+        'dataCachePL'                   => 'DataCachePL',
+        'dataCacheProvisionedIops'      => 'DataCacheProvisionedIops',
         'description'                   => 'Description',
         'dnsConfigNameServers'          => 'DnsConfigNameServers',
         'dnsConfigOptions'              => 'DnsConfigOptions',
@@ -455,6 +503,7 @@ class scalingConfigurations extends Model
         'ingressBandwidth'              => 'IngressBandwidth',
         'initContainers'                => 'InitContainers',
         'instanceFamilyLevel'           => 'InstanceFamilyLevel',
+        'instanceTypes'                 => 'InstanceTypes',
         'ipv6AddressCount'              => 'Ipv6AddressCount',
         'lifecycleState'                => 'LifecycleState',
         'loadBalancerWeight'            => 'LoadBalancerWeight',
@@ -529,6 +578,18 @@ class scalingConfigurations extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+        if (null !== $this->dataCacheBucket) {
+            $res['DataCacheBucket'] = $this->dataCacheBucket;
+        }
+        if (null !== $this->dataCacheBurstingEnabled) {
+            $res['DataCacheBurstingEnabled'] = $this->dataCacheBurstingEnabled;
+        }
+        if (null !== $this->dataCachePL) {
+            $res['DataCachePL'] = $this->dataCachePL;
+        }
+        if (null !== $this->dataCacheProvisionedIops) {
+            $res['DataCacheProvisionedIops'] = $this->dataCacheProvisionedIops;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -597,6 +658,9 @@ class scalingConfigurations extends Model
         }
         if (null !== $this->instanceFamilyLevel) {
             $res['InstanceFamilyLevel'] = $this->instanceFamilyLevel;
+        }
+        if (null !== $this->instanceTypes) {
+            $res['InstanceTypes'] = $this->instanceTypes;
         }
         if (null !== $this->ipv6AddressCount) {
             $res['Ipv6AddressCount'] = $this->ipv6AddressCount;
@@ -733,6 +797,18 @@ class scalingConfigurations extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+        if (isset($map['DataCacheBucket'])) {
+            $model->dataCacheBucket = $map['DataCacheBucket'];
+        }
+        if (isset($map['DataCacheBurstingEnabled'])) {
+            $model->dataCacheBurstingEnabled = $map['DataCacheBurstingEnabled'];
+        }
+        if (isset($map['DataCachePL'])) {
+            $model->dataCachePL = $map['DataCachePL'];
+        }
+        if (isset($map['DataCacheProvisionedIops'])) {
+            $model->dataCacheProvisionedIops = $map['DataCacheProvisionedIops'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -805,6 +881,11 @@ class scalingConfigurations extends Model
         }
         if (isset($map['InstanceFamilyLevel'])) {
             $model->instanceFamilyLevel = $map['InstanceFamilyLevel'];
+        }
+        if (isset($map['InstanceTypes'])) {
+            if (!empty($map['InstanceTypes'])) {
+                $model->instanceTypes = $map['InstanceTypes'];
+            }
         }
         if (isset($map['Ipv6AddressCount'])) {
             $model->ipv6AddressCount = $map['Ipv6AddressCount'];

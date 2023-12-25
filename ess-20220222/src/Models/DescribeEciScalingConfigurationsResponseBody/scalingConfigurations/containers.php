@@ -12,23 +12,22 @@ use AlibabaCloud\Tea\Model;
 class containers extends Model
 {
     /**
-     * @description The commands that are run in the container when you use the CLI to perform probes.
+     * @description The arguments that are passed to the container startup commands. You can specify up to 10 arguments.
      *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description The commands that are run in the container when you use the CLI to perform probes.
+     * @description The container startup commands. You can specify up to 20 commands. Each command can contain up to 256 characters.
      *
      * @var string[]
      */
     public $commands;
 
     /**
-     * @description The minimum number of consecutive failures for a probe to be considered failed after having been successful.
+     * @description The number of vCPUs that are allocated to the container.
      *
-     * Default value: 3.
      * @example 2.0
      *
      * @var float
@@ -36,14 +35,14 @@ class containers extends Model
     public $cpu;
 
     /**
-     * @description The name of the environment variable.
+     * @description Details of the environment variables.
      *
      * @var environmentVars[]
      */
     public $environmentVars;
 
     /**
-     * @description Indicates whether the container allocates buffer resources to standard input streams when the container runs. If you do not specify this parameter, an end-of-file (EOF) error may occur. Default value: false.
+     * @description The number of GPUs.
      *
      * @example 1
      *
@@ -52,10 +51,7 @@ class containers extends Model
     public $gpu;
 
     /**
-     * @description The protocol type of HTTP GET requests when you use HTTP requests to perform probes. Valid values:
-     *
-     *   HTTP
-     *   HTTPS
+     * @description The image of the container.
      *
      * @example mysql
      *
@@ -64,7 +60,11 @@ class containers extends Model
     public $image;
 
     /**
-     * @description The number of vCPUs that are allocated to the container.
+     * @description The image pulling policy. Valid values:
+     *
+     *   Always: Image pulling is performed each time.
+     *   IfNotPresent: Image pulling is performed only if on-premises images are unavailable. On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
+     *   Never: On-premises images are always used. Image pulling is not performed.
      *
      * @example Always
      *
@@ -73,15 +73,16 @@ class containers extends Model
     public $imagePullPolicy;
 
     /**
-     * @description The arguments that are passed to the container startup commands. You can specify up to 10 arguments.
+     * @description The commands that are run in the container when you use the CLI to perform probes.
      *
      * @var string[]
      */
     public $livenessProbeExecCommands;
 
     /**
-     * @description The exposed ports and protocols of the container.
+     * @description The minimum number of consecutive failures for a probe to be considered failed after having been successful.
      *
+     * Default value: 3.
      * @example 3
      *
      * @var int
@@ -89,7 +90,7 @@ class containers extends Model
     public $livenessProbeFailureThreshold;
 
     /**
-     * @description The port number of TcpSocket.
+     * @description The path to which the system sends an HTTP GET request for a probe.
      *
      * @example /usr/nginx/
      *
@@ -98,7 +99,7 @@ class containers extends Model
     public $livenessProbeHttpGetPath;
 
     /**
-     * @description The number of seconds between the time when the startup of the container ends and the time when the probe starts.
+     * @description The port to which HTTP GET requests were sent.
      *
      * @example 80
      *
@@ -107,12 +108,11 @@ class containers extends Model
     public $livenessProbeHttpGetPort;
 
     /**
-     * @description Indicates whether interaction is enabled. Valid values:
+     * @description The protocol type of HTTP GET requests when you use HTTP requests to perform probes. Valid values:
      *
-     *   true
-     *   false
+     *   HTTP
+     *   HTTPS
      *
-     * Default value: false.
      * @example HTTP
      *
      * @var string
@@ -120,11 +120,7 @@ class containers extends Model
     public $livenessProbeHttpGetScheme;
 
     /**
-     * @description The image pulling policy. Valid values:
-     *
-     *   Always: Image pulling is performed each time.
-     *   IfNotPresent: Image pulling is performed only if on-premises images are unavailable. On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
-     *   Never: On-premises images are always used. Image pulling is not performed.
+     * @description The number of seconds between the time when the startup of the container ends and the time when the probe starts.
      *
      * @example 10
      *
@@ -133,10 +129,7 @@ class containers extends Model
     public $livenessProbeInitialDelaySeconds;
 
     /**
-     * @description The protocol type of HTTP GET requests when you use HTTP requests to perform probes. Valid values:
-     *
-     *   HTTP
-     *   HTTPS
+     * @description The interval at which probes are performed. Default value: 10. Minimum value: 1. Unit: seconds.
      *
      * @example 5
      *
@@ -145,7 +138,7 @@ class containers extends Model
     public $livenessProbePeriodSeconds;
 
     /**
-     * @description The user ID (UID) that is used to run the entry point of the container process.
+     * @description The minimum number of consecutive successes for a probe to be considered successful after having failed. Default value: 1. Valid value: 1.
      *
      * @example 1
      *
@@ -154,7 +147,7 @@ class containers extends Model
     public $livenessProbeSuccessThreshold;
 
     /**
-     * @description The working directory of the container.
+     * @description The port number of TcpSocket.
      *
      * @example 80
      *
@@ -163,9 +156,8 @@ class containers extends Model
     public $livenessProbeTcpSocketPort;
 
     /**
-     * @description The minimum number of consecutive failures for a probe to be considered failed after having been successful.
+     * @description The timeout period of a probe. Default value: 1. Minimum value: 1. Unit: seconds.
      *
-     * Default value: 3.
      * @example 10
      *
      * @var int
@@ -173,7 +165,7 @@ class containers extends Model
     public $livenessProbeTimeoutSeconds;
 
     /**
-     * @description Indicates whether the root file system is set to the read-only mode. The only valid value is true.
+     * @description The memory size of the container.
      *
      * @example 2.0
      *
@@ -182,7 +174,7 @@ class containers extends Model
     public $memory;
 
     /**
-     * @description The path to which the system sends an HTTP GET request for a probe.
+     * @description The name of the container.
      *
      * @example nginx
      *
@@ -191,23 +183,23 @@ class containers extends Model
     public $name;
 
     /**
-     * @description The port number. Valid values: 1 to 65535.
+     * @description The exposed ports and protocols of the container.
      *
      * @var ports[]
      */
     public $ports;
 
     /**
-     * @description The permissions granted to processes in the container. Valid values: NET_ADMIN and NET_RAW.
+     * @description The commands that are run in the container when you use the CLI to perform probes.
      *
-     * > To use NET_RAW, you need to submit a ticket.
      * @var string[]
      */
     public $readinessProbeExecCommands;
 
     /**
-     * @description The exposed ports and protocols of the container.
+     * @description The minimum number of consecutive failures for a probe to be considered failed after having been successful.
      *
+     * Default value: 3.
      * @example 3
      *
      * @var int
@@ -215,7 +207,7 @@ class containers extends Model
     public $readinessProbeFailureThreshold;
 
     /**
-     * @description The interval at which probes are performed. Default value: 10. Minimum value: 1. Unit: seconds.
+     * @description The path to which the system sends an HTTP GET request for a probe.
      *
      * @example /usr/local
      *
@@ -224,7 +216,7 @@ class containers extends Model
     public $readinessProbeHttpGetPath;
 
     /**
-     * @description The timeout period of a probe. Default value: 1. Minimum value: 1. Unit: seconds.
+     * @description The path to which the system sends an HTTP GET request for a probe.
      *
      * @example /usr/nginx/
      *
@@ -233,7 +225,10 @@ class containers extends Model
     public $readinessProbeHttpGetPort;
 
     /**
-     * @description The minimum number of consecutive successes for a probe to be considered successful after having failed. Default value: 1. Valid value: 1.
+     * @description The protocol type of HTTP GET requests when you use HTTP requests to perform probes. Valid values:
+     *
+     *   HTTP
+     *   HTTPS
      *
      * @example HTTP
      *
@@ -242,7 +237,7 @@ class containers extends Model
     public $readinessProbeHttpGetScheme;
 
     /**
-     * @description The memory size of the container.
+     * @description The number of seconds between the time when the startup of the container ends and the time when the probe starts.
      *
      * @example 5
      *
@@ -251,9 +246,8 @@ class containers extends Model
     public $readinessProbeInitialDelaySeconds;
 
     /**
-     * @description Indicates whether standard input streams are disconnected after a client is disconnected. If Stdin is set to true, standard input streams remain connected during multiple sessions.
+     * @description The interval at which probes are performed. Default value: 10. Minimum value: 1. Unit: seconds.
      *
-     * If StdinOnce is set to true, standard input streams are connected after the container is started and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected and remain in the disconnected state until the container is started again.
      * @example 1
      *
      * @var int
@@ -261,7 +255,7 @@ class containers extends Model
     public $readinessProbePeriodSeconds;
 
     /**
-     * @description The port number of TcpSocket.
+     * @description The minimum number of consecutive successes for a probe to be considered successful after having failed. Default value: 1. Valid value: 1.
      *
      * @example 1
      *
@@ -270,7 +264,7 @@ class containers extends Model
     public $readinessProbeSuccessThreshold;
 
     /**
-     * @description The path to which the system sends an HTTP GET request for a probe.
+     * @description The port number of TcpSocket.
      *
      * @example 8888
      *
@@ -279,7 +273,7 @@ class containers extends Model
     public $readinessProbeTcpSocketPort;
 
     /**
-     * @description The number of seconds between the time when the startup of the container ends and the time when the probe starts.
+     * @description The timeout period of a probe. Default value: 1. Minimum value: 1. Unit: seconds.
      *
      * @example 5
      *
@@ -288,14 +282,15 @@ class containers extends Model
     public $readinessProbeTimeoutSeconds;
 
     /**
-     * @description The init containers.
+     * @description The permissions granted to processes in the container. Valid values: NET_ADMIN and NET_RAW.
      *
+     * > To use NET_RAW, you need to submit a ticket.
      * @var string[]
      */
     public $securityContextCapabilityAdds;
 
     /**
-     * @description The image of the container.
+     * @description Indicates whether the root file system is set to the read-only mode. The only valid value is true.
      *
      * @example true
      *
@@ -304,7 +299,7 @@ class containers extends Model
     public $securityContextReadOnlyRootFilesystem;
 
     /**
-     * @description The interval at which probes are performed. Default value: 10. Minimum value: 1. Unit: seconds.
+     * @description The user ID (UID) that is used to run the entry point of the container process.
      *
      * @example 1000
      *
@@ -313,7 +308,7 @@ class containers extends Model
     public $securityContextRunAsUser;
 
     /**
-     * @description The name of the container.
+     * @description Indicates whether the container allocates buffer resources to standard input streams when the container runs. If you do not specify this parameter, an end-of-file (EOF) error may occur. Default value: false.
      *
      * @example true
      *
@@ -322,8 +317,9 @@ class containers extends Model
     public $stdin;
 
     /**
-     * @description The timeout period of a probe. Default value: 1. Minimum value: 1. Unit: seconds.
+     * @description Indicates whether standard input streams are disconnected after a client is disconnected. If Stdin is set to true, standard input streams remain connected during multiple sessions.
      *
+     * If StdinOnce is set to true, standard input streams are connected after the container is started and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected and remain in the disconnected state until the container is started again.
      * @example true
      *
      * @var bool
@@ -331,8 +327,12 @@ class containers extends Model
     public $stdinOnce;
 
     /**
-     * @description The number of GPUs.
+     * @description Indicates whether interaction is enabled. Valid values:
      *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -340,15 +340,14 @@ class containers extends Model
     public $tty;
 
     /**
-     * @description Indicates whether the volume is read-only.
+     * @description The volumes that are mounted on the container.
      *
-     * Default value: false.
      * @var volumeMounts[]
      */
     public $volumeMounts;
 
     /**
-     * @description The port to which HTTP GET requests were sent.
+     * @description The working directory of the container.
      *
      * @example /usr/local/nginx
      *

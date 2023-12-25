@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetGroupDeletionProtectionRequest extends Model
 {
     /**
+     * @description Specifies whether to enable deletion protection for the scaling group. Valid values:
+     *
+     *   true: enables deletion protection for the scaling group. This way, the scaling group cannot be deleted.
+     *   false: disables deletion protection for the scaling group.
+     *
      * @example true
      *
      * @var bool
@@ -21,6 +26,8 @@ class SetGroupDeletionProtectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -33,6 +40,8 @@ class SetGroupDeletionProtectionRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp1igpak5ft1flyp****
      *
      * @var string

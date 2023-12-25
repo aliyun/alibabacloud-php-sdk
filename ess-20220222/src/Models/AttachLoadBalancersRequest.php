@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class AttachLoadBalancersRequest extends Model
 {
     /**
+     * @description Specifies whether to attach the CLB instance to the scaling group in an asynchronous manner. If you attach the CLB instance from the scaling group in an asynchronous manner, the call is successful only after all operations are successful. If a specific operation fails, the call fails. We recommend that you set this parameter to true. Valid values:
+     *
+     *   true: attaches the CLB instance to the scaling group in an asynchronous manner. In this case, the ID of the scaling activity is returned.
+     *   false: does not attach the CLB instance to the scaling group in an asynchronous manner.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -17,6 +23,8 @@ class AttachLoadBalancersRequest extends Model
     public $async;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25965~~).
+     *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -24,6 +32,12 @@ class AttachLoadBalancersRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to add all instances in the scaling group to the vServer groups of the CLB instance. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -31,11 +45,15 @@ class AttachLoadBalancersRequest extends Model
     public $forceAttach;
 
     /**
+     * @description 负载均衡配置列表。
+     *
      * @var loadBalancerConfigs[]
      */
     public $loadBalancerConfigs;
 
     /**
+     * @description The IDs of the CLB instances.
+     *
      * @var string[]
      */
     public $loadBalancers;
@@ -51,6 +69,8 @@ class AttachLoadBalancersRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp1avr6ensitts3w****
      *
      * @var string

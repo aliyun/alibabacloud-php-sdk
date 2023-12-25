@@ -448,6 +448,16 @@ class CreateScalingConfigurationShrinkRequest extends Model
     public $spotStrategy;
 
     /**
+     * @var string
+     */
+    public $storageSetId;
+
+    /**
+     * @var int
+     */
+    public $storageSetPartitionNumber;
+
+    /**
      * @description The categories of the system disks. If Auto Scaling cannot create instances by using the disk category that has the highest priority, Auto Scaling creates instances by using the disk category that has the next highest priority. Valid values:
      *
      *   cloud: basic disk
@@ -550,6 +560,8 @@ class CreateScalingConfigurationShrinkRequest extends Model
         'spotInterruptionBehavior'    => 'SpotInterruptionBehavior',
         'spotPriceLimits'             => 'SpotPriceLimits',
         'spotStrategy'                => 'SpotStrategy',
+        'storageSetId'                => 'StorageSetId',
+        'storageSetPartitionNumber'   => 'StorageSetPartitionNumber',
         'systemDiskCategories'        => 'SystemDiskCategories',
         'tags'                        => 'Tags',
         'tenancy'                     => 'Tenancy',
@@ -728,6 +740,12 @@ class CreateScalingConfigurationShrinkRequest extends Model
         }
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->storageSetId) {
+            $res['StorageSetId'] = $this->storageSetId;
+        }
+        if (null !== $this->storageSetPartitionNumber) {
+            $res['StorageSetPartitionNumber'] = $this->storageSetPartitionNumber;
         }
         if (null !== $this->systemDiskCategories) {
             $res['SystemDiskCategories'] = $this->systemDiskCategories;
@@ -924,6 +942,12 @@ class CreateScalingConfigurationShrinkRequest extends Model
         }
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
+        }
+        if (isset($map['StorageSetId'])) {
+            $model->storageSetId = $map['StorageSetId'];
+        }
+        if (isset($map['StorageSetPartitionNumber'])) {
+            $model->storageSetPartitionNumber = $map['StorageSetPartitionNumber'];
         }
         if (isset($map['SystemDiskCategories'])) {
             if (!empty($map['SystemDiskCategories'])) {

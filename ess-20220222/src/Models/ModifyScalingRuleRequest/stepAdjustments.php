@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class stepAdjustments extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The lower limit that is specified in a step adjustment. This parameter is available only if you set the ScalingRuleType parameter to StepScalingRule. Valid values: -9.999999E18 to 9.999999E18.
      *
      * @example 1.0
      *
@@ -18,7 +18,7 @@ class stepAdjustments extends Model
     public $metricIntervalLowerBound;
 
     /**
-     * @description The number of ECS instances that you want to scale in a step adjustment. This parameter is available only if you set the ScalingRuleType parameter to StepScalingRule.
+     * @description The upper limit specified in a step adjustment. This parameter is available only if you set the ScalingRuleType parameter to StepScalingRule. Valid values: -9.999999E18 to 9.999999E18.
      *
      * @example 5.0
      *
@@ -27,7 +27,7 @@ class stepAdjustments extends Model
     public $metricIntervalUpperBound;
 
     /**
-     * @description The lower limit that is specified in a step adjustment. This parameter is available only if you set the ScalingRuleType parameter to StepScalingRule. Valid values: -9.999999E18 to 9.999999E18.
+     * @description The number of ECS instances that you want to scale in a step adjustment. This parameter is available only if you set the ScalingRuleType parameter to StepScalingRule.
      *
      * @example 1
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableAlarmResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 688B18B8-FB1E-42EB-A1ED-7F55B090****
      *
      * @var string

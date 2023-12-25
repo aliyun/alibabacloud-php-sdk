@@ -9,42 +9,13 @@ use AlibabaCloud\Tea\Model;
 class initContainerVolumeMounts extends Model
 {
     /**
-     * @description The permissions that are granted to the processes in the container. Valid values: NET_ADMIN and NET_RAW.
+     * @description The directory to which the volume is mounted. Data under this directory is overwritten by the data on the volume.
      *
-     * > To use NET_RAW, you need to submit a ticket.
      * @example /usr/share/
      *
      * @var string
      */
     public $mountPath;
-
-    /**
-     * @description The permissions that are granted to the processes in the container. Valid values: NET_ADMIN and NET_RAW.
-     *
-     * > To use NET_RAW, you need to submit a ticket.
-     * @example None
-     *
-     * @var string
-     */
-    public $mountPropagation;
-
-    /**
-     * @description The directory to which the volume is mounted. Data under this directory is overwritten by the data on the volume.
-     *
-     * @example test-empty
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @description The name of the volume.
-     *
-     * @example false
-     *
-     * @var bool
-     */
-    public $readOnly;
 
     /**
      * @description The mount propagation setting of the volume. Mount propagation allows the sharing of volumes that are mounted on one container with other containers in the same pod, or even with other pods on the same node. Valid values:
@@ -54,6 +25,34 @@ class initContainerVolumeMounts extends Model
      *   Bidirectional: This value is similar to HostToCotainer. The volume mount receives all subsequent mounts that are mounted to this volume or its subdirectories. In addition, all volume mounts that are created by the container are propagated back to the instance and to all containers of all pods that use the same volume.
      *
      * Default value: None.
+     * @example None
+     *
+     * @var string
+     */
+    public $mountPropagation;
+
+    /**
+     * @description The name of the volume.
+     *
+     * @example test-empty
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @description Indicates whether the mount path is read-only.
+     *
+     * Default value: false.
+     * @example false
+     *
+     * @var bool
+     */
+    public $readOnly;
+
+    /**
+     * @description The subdirectory of the volume. The elastic container instance can mount different directories of the same volume to different subdirectories of containers.
+     *
      * @example /usr/sub/
      *
      * @var string

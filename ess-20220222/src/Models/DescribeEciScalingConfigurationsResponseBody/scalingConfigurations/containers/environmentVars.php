@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class environmentVars extends Model
 {
     /**
-     * @description The container startup commands. You can specify up to 20 commands. Each command can contain up to 256 characters.
+     * @description > This parameter is unavailable.
      *
      * @example path
      *
@@ -18,7 +18,7 @@ class environmentVars extends Model
     public $fieldRefFieldPath;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description The name of the environment variable.
      *
      * @example PATH
      *
@@ -27,7 +27,7 @@ class environmentVars extends Model
     public $key;
 
     /**
-     * @description The container startup commands. You can specify up to 20 commands. Each command can contain up to 256 characters.
+     * @description The value of the environment variable.
      *
      * @example /usr/bin/
      *

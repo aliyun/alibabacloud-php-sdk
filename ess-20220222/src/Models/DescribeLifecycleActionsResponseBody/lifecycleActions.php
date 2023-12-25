@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class lifecycleActions extends Model
 {
     /**
+     * @description The IDs of the ECS instances to which the lifecycle hook applies.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The action that is performed after the lifecycle action triggered by the lifecycle hook is complete. Valid values:
+     *
+     *   CONTINUE: Auto Scaling continues to add ECS instances to the scaling group, or continues to remove ECS instances from the scaling group.
+     *   ABANDON: Auto Scaling stops adding ECS instances to the scaling group and releases the ECS instances, or continues to respond to scale-in requests and remove ECS instances from the scaling group.
+     *
      * @example CONTINUE
      *
      * @var string
@@ -21,6 +28,8 @@ class lifecycleActions extends Model
     public $lifecycleActionResult;
 
     /**
+     * @description The status of the lifecycle action.
+     *
      * @example Pending
      *
      * @var string
@@ -28,6 +37,8 @@ class lifecycleActions extends Model
     public $lifecycleActionStatus;
 
     /**
+     * @description The token of the lifecycle action.
+     *
      * @example 9C2E9DA7-F794-449A-ACF6-CEE24444F7BB
      *
      * @var string
@@ -35,6 +46,8 @@ class lifecycleActions extends Model
     public $lifecycleActionToken;
 
     /**
+     * @description The ID of the lifecycle hook.
+     *
      * @example ash-bp18uoft0deax0f7****
      *
      * @var string

@@ -24,6 +24,8 @@ class DeleteScalingConfigurationRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling configuration that you want to delete.
+     *
      * @example asc-bp1bx8mzur534edp****
      *
      * @var string

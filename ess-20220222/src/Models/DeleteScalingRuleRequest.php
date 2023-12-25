@@ -19,6 +19,8 @@ class DeleteScalingRuleRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -31,6 +33,8 @@ class DeleteScalingRuleRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling rule that you want to delete.
+     *
      * @example asr-bp163l21e07uhnyt****
      *
      * @var string

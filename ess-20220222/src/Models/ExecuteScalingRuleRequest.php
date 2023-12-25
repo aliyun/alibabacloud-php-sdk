@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExecuteScalingRuleRequest extends Model
 {
     /**
+     * @description The threshold specified when the step scaling rule is executed. Valid values: -9.999999E18 to 9.999999E18.
+     *
      * @example 1.0
      *
      * @var float
@@ -16,6 +18,8 @@ class ExecuteScalingRuleRequest extends Model
     public $breachThreshold;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25965~~).
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -23,6 +27,8 @@ class ExecuteScalingRuleRequest extends Model
     public $clientToken;
 
     /**
+     * @description The metric value specified when the step scaling rule is executed. Valid values: -9.999999E18 to 9.999999E18.
+     *
      * @example 1.0
      *
      * @var float
@@ -40,6 +46,8 @@ class ExecuteScalingRuleRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -57,6 +65,9 @@ class ExecuteScalingRuleRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The unique identifier of the scaling rule.
+     *
+     * > You can call the ExecuteScalingRule operation to execute only simple scaling rules and step scaling rules. To execute a step scaling rule, you must specify the BreachThreshold and MetricValue parameters.
      * @example ari:acs:ess:cn-hangzhou:140692647406****:scalingrule/asr-bp1dvirgwkoowxk7****
      *
      * @var string

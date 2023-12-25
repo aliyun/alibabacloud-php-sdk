@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ResumeProcessesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests.
+     *
+     * The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25965~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -21,11 +24,15 @@ class ResumeProcessesRequest extends Model
     public $ownerId;
 
     /**
+     * @description Details of the processes that you want to resume.
+     *
      * @var string[]
      */
     public $processes;
 
     /**
+     * @description The region ID of the scaling group.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -38,6 +45,8 @@ class ResumeProcessesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp15oubotmrq11xe****
      *
      * @var string

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class hostAliases extends Model
 {
     /**
-     * @description The system information of the security context in which the elastic container instance runs.
+     * @description The hostnames that are added.
      *
      * @var string[]
      */
     public $hostnames;
 
     /**
-     * @description The hostnames that are added.
+     * @description The IP address that is added.
      *
      * @example 192.0.XX.XX
      *

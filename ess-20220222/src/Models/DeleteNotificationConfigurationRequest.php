@@ -9,6 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteNotificationConfigurationRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the notification method. The following list describes the value formats of this parameter:
+     *
+     *   If you use CloudMonitor as the notification party, the value format of this parameter is acs:ess:{region-id}:{account-id}:cloudmonitor.
+     *   If you use an MNS queue as the notification party, the value format of this parameter is acs:mns:{region-id}:{account-id}:queue/{queuename}.
+     *   If you use an MNS topic as the notification party, the value format of this parameter is acs:mns:{region-id}:{account-id}:topic/{topicname}.
+     *
+     * The variables in the preceding formats have the following meanings:
+     *
+     *   region-id: the region ID of the scaling group.
+     *   account-id: the ID of the Alibaba Cloud account.
+     *   queuename: the name of the MNS queue.
+     *   topicname: the name of the MNS topic.
+     *
      * @example acs:ess:cn-beijing:161456884340****:cloudmonitor
      *
      * @var string
@@ -21,6 +34,8 @@ class DeleteNotificationConfigurationRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -33,6 +48,8 @@ class DeleteNotificationConfigurationRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

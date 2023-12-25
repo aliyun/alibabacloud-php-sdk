@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExecuteScalingRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -16,6 +18,8 @@ class ExecuteScalingRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the scaling activity.
+     *
      * @example asa-bp13o672yeautiil****
      *
      * @var string

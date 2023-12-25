@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DetachAlbServerGroupsRequest extends Model
 {
     /**
+     * @description Details of the ALB server groups.
+     *
      * @var albServerGroups[]
      */
     public $albServerGroups;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests.
+     *
+     * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](~~25965~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -22,6 +27,12 @@ class DetachAlbServerGroupsRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to remove existing Elastic Compute Service (ECS) instances from the ALB server group that you want to disassociate from the scaling group. Valid values:
+     *
+     *   true: removes existing ECS instances and returns the value of the `ScalingActivityId` parameter. You can use the scaling activity ID to check whether the ECS instances are removed.
+     *   false: does not remove existing ECS instances.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -34,6 +45,8 @@ class DetachAlbServerGroupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group. Examples: cn-hangzhou and cn-shanghai.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -46,6 +59,8 @@ class DetachAlbServerGroupsRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

@@ -92,6 +92,11 @@ class ModifyScalingGroupRequest extends Model
     public $desiredCapacity;
 
     /**
+     * @var bool
+     */
+    public $disableDesiredCapacity;
+
+    /**
      * @description The scaling policy for the multi-zone scaling group that contains ECS instances. Valid values:
      *
      *   PRIORITY: ECS instances are scaled based on the vSwitch priority. The first vSwitch specified by using the VSwitchIds parameter has the highest priority. Auto Scaling preferentially scales instances in the zone where the vSwitch that has the highest priority resides. If the scaling fails, Auto Scaling scales instances in the zone where the vSwitch that has the next highest priority resides.
@@ -305,6 +310,7 @@ class ModifyScalingGroupRequest extends Model
         'customPolicyARN'                     => 'CustomPolicyARN',
         'defaultCooldown'                     => 'DefaultCooldown',
         'desiredCapacity'                     => 'DesiredCapacity',
+        'disableDesiredCapacity'              => 'DisableDesiredCapacity',
         'groupDeletionProtection'             => 'GroupDeletionProtection',
         'healthCheckType'                     => 'HealthCheckType',
         'launchTemplateId'                    => 'LaunchTemplateId',
@@ -356,6 +362,9 @@ class ModifyScalingGroupRequest extends Model
         }
         if (null !== $this->desiredCapacity) {
             $res['DesiredCapacity'] = $this->desiredCapacity;
+        }
+        if (null !== $this->disableDesiredCapacity) {
+            $res['DisableDesiredCapacity'] = $this->disableDesiredCapacity;
         }
         if (null !== $this->groupDeletionProtection) {
             $res['GroupDeletionProtection'] = $this->groupDeletionProtection;
@@ -461,6 +470,9 @@ class ModifyScalingGroupRequest extends Model
         }
         if (isset($map['DesiredCapacity'])) {
             $model->desiredCapacity = $map['DesiredCapacity'];
+        }
+        if (isset($map['DisableDesiredCapacity'])) {
+            $model->disableDesiredCapacity = $map['DisableDesiredCapacity'];
         }
         if (isset($map['GroupDeletionProtection'])) {
             $model->groupDeletionProtection = $map['GroupDeletionProtection'];

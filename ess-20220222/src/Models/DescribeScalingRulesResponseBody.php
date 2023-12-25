@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingRulesResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeScalingRulesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of scaling rules.
+     * @description The number of entries returned per page.
      *
      * @example 50
      *
@@ -28,7 +28,7 @@ class DescribeScalingRulesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The page number of the returned page.
+     * @description The ID of the request.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
@@ -37,14 +37,14 @@ class DescribeScalingRulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The scaling rules.
+     * @description Details of the scaling rules.
      *
      * @var scalingRules[]
      */
     public $scalingRules;
 
     /**
-     * @description Details of the scaling rules.
+     * @description The total number of scaling rules.
      *
      * @example 1
      *

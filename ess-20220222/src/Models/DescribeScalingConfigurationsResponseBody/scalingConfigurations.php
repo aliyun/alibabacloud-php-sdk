@@ -438,6 +438,16 @@ class scalingConfigurations extends Model
     public $spotStrategy;
 
     /**
+     * @var string
+     */
+    public $storageSetId;
+
+    /**
+     * @var int
+     */
+    public $storageSetPartitionNumber;
+
+    /**
      * @description The ID of the automatic snapshot policy that is applied to the system disk.
      *
      * @example sp-bp12m37ccmxvbmi5****
@@ -657,6 +667,8 @@ class scalingConfigurations extends Model
         'spotInterruptionBehavior'         => 'SpotInterruptionBehavior',
         'spotPriceLimits'                  => 'SpotPriceLimits',
         'spotStrategy'                     => 'SpotStrategy',
+        'storageSetId'                     => 'StorageSetId',
+        'storageSetPartitionNumber'        => 'StorageSetPartitionNumber',
         'systemDiskAutoSnapshotPolicyId'   => 'SystemDiskAutoSnapshotPolicyId',
         'systemDiskBurstingEnabled'        => 'SystemDiskBurstingEnabled',
         'systemDiskCategories'             => 'SystemDiskCategories',
@@ -838,6 +850,12 @@ class scalingConfigurations extends Model
         }
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->storageSetId) {
+            $res['StorageSetId'] = $this->storageSetId;
+        }
+        if (null !== $this->storageSetPartitionNumber) {
+            $res['StorageSetPartitionNumber'] = $this->storageSetPartitionNumber;
         }
         if (null !== $this->systemDiskAutoSnapshotPolicyId) {
             $res['SystemDiskAutoSnapshotPolicyId'] = $this->systemDiskAutoSnapshotPolicyId;
@@ -1067,6 +1085,12 @@ class scalingConfigurations extends Model
         }
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
+        }
+        if (isset($map['StorageSetId'])) {
+            $model->storageSetId = $map['StorageSetId'];
+        }
+        if (isset($map['StorageSetPartitionNumber'])) {
+            $model->storageSetPartitionNumber = $map['StorageSetPartitionNumber'];
         }
         if (isset($map['SystemDiskAutoSnapshotPolicyId'])) {
             $model->systemDiskAutoSnapshotPolicyId = $map['SystemDiskAutoSnapshotPolicyId'];

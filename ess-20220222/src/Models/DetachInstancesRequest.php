@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DetachInstancesRequest extends Model
 {
     /**
+     * @description 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多信息，请参见[如何保证幂等性](~~25965~~)。
+     *
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @description Specifies whether to adjust the expected number of instances in the scaling group. Valid values:
+     *
+     *   true: After a specific number of instances are removed from the scaling group, the expected number of instances in the scaling group decreases.
+     *   false: After a specific number of instances are removed from the scaling group, the expected number of instances in the scaling group remains unchanged.
+     *
+     * Default value: true.
      * @example true
      *
      * @var bool
@@ -16,6 +31,9 @@ class DetachInstancesRequest extends Model
     public $decreaseDesiredCapacity;
 
     /**
+     * @description Specifies whether to remove the instances from the default server group and vServer groups of the Classic Load Balancer (CLB) instance that is associated with the scaling group, and whether to remove the IP addresses of the instances from the whitelist that manages access to the ApsaraDB RDS instance that is associated with the scaling group.
+     *
+     * If you set this parameter to both, the instances are removed from the default sever group and vServer groups of the associated CLB instance, and the IP addresses of the instances are removed from the whitelist that manages access to the associated ApsaraDB RDS instance.
      * @example both
      *
      * @var string
@@ -23,11 +41,19 @@ class DetachInstancesRequest extends Model
     public $detachOption;
 
     /**
+     * @description The IDs of the ECS instances or elastic container instances that you want to remove from the scaling group.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description Specifies whether to trigger a lifecycle hook for a scale-in activity. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -55,12 +81,15 @@ class DetachInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp1igpak5ft1flyp****
      *
      * @var string
      */
     public $scalingGroupId;
     protected $_name = [
+        'clientToken'             => 'ClientToken',
         'decreaseDesiredCapacity' => 'DecreaseDesiredCapacity',
         'detachOption'            => 'DetachOption',
         'instanceIds'             => 'InstanceIds',
@@ -79,6 +108,9 @@ class DetachInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->decreaseDesiredCapacity) {
             $res['DecreaseDesiredCapacity'] = $this->decreaseDesiredCapacity;
         }
@@ -118,6 +150,9 @@ class DetachInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['DecreaseDesiredCapacity'])) {
             $model->decreaseDesiredCapacity = $map['DecreaseDesiredCapacity'];
         }

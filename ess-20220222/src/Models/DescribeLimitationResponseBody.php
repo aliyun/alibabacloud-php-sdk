@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class DescribeLimitationResponseBody extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $maxNumberOfAlbServerGroup;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $maxNumberOfDBInstances;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxNumberOfLifecycleHooks;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $maxNumberOfLoadBalancers;
 
     /**
+     * @example 2000
+     *
      * @var int
      */
     public $maxNumberOfMaxSize;
 
     /**
+     * @example 2000
+     *
      * @var int
      */
     public $maxNumberOfMinSize;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $maxNumberOfNlbServerGroup;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $maxNumberOfNotificationConfigurations;
 
     /**
+     * @example 70
+     *
      * @var int
      */
     public $maxNumberOfScalingConfigurations;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $maxNumberOfScalingGroups;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $maxNumberOfScalingInstances;
 
     /**
+     * @example 70
+     *
      * @var int
      */
     public $maxNumberOfScalingRules;
 
     /**
+     * @example 70
+     *
      * @var int
      */
     public $maxNumberOfScheduledTasks;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $maxNumberOfVServerGroups;
 
     /**
+     * @example BE9BEB41-E7B8-4C7D-A3CF-2DCB1066****
+     *
      * @var string
      */
     public $requestId;

@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class initContainers extends Model
 {
     /**
-     * @description The number of GPUs that are allocated to the container.
+     * @description The number of vCPUs.
      *
      * @example 0.5
      *
@@ -21,7 +21,7 @@ class initContainers extends Model
     public $cpu;
 
     /**
-     * @description The size of the memory.
+     * @description The number of GPUs that are allocated to the container.
      *
      * @example 1
      *
@@ -30,7 +30,7 @@ class initContainers extends Model
     public $gpu;
 
     /**
-     * @description The ID of the user that runs the container.
+     * @description The container image.
      *
      * @example nginx
      *
@@ -39,7 +39,7 @@ class initContainers extends Model
     public $image;
 
     /**
-     * @description The number of vCPUs.
+     * @description The image pulling policy.
      *
      * @example Always
      *
@@ -48,43 +48,42 @@ class initContainers extends Model
     public $imagePullPolicy;
 
     /**
-     * @description The tags of the elastic container instance. The tags are specified in the key-value pair format.
+     * @description The container startup arguments.
      *
      * @var string[]
      */
     public $initContainerArgs;
 
     /**
-     * @description The container startup arguments.
+     * @description The container startup commands.
      *
      * @var string[]
      */
     public $initContainerCommands;
 
     /**
-     * @description The name of the environment variable.
+     * @description Details of the environment variables.
      *
      * @var initContainerEnvironmentVars[]
      */
     public $initContainerEnvironmentVars;
 
     /**
-     * @description The port number. Valid values: 1 to 65535.
+     * @description Details of the init container ports.
      *
      * @var initContainerPorts[]
      */
     public $initContainerPorts;
 
     /**
-     * @description Indicates whether the mount path is read-only.
+     * @description The volumes that are mounted on the container.
      *
-     * Default value: false.
      * @var initContainerVolumeMounts[]
      */
     public $initContainerVolumeMounts;
 
     /**
-     * @description Details of the environment variables.
+     * @description The size of the memory.
      *
      * @example 1.0
      *
@@ -93,7 +92,7 @@ class initContainers extends Model
     public $memory;
 
     /**
-     * @description Details of the environment variables.
+     * @description The name of the container.
      *
      * @example test-init
      *
@@ -102,14 +101,15 @@ class initContainers extends Model
     public $name;
 
     /**
-     * @description The container startup commands.
+     * @description The permissions that are granted to the processes in the container. Valid values: NET_ADMIN and NET_RAW.
      *
+     * > To use NET_RAW, you need to submit a ticket.
      * @var string[]
      */
     public $securityContextCapabilityAdds;
 
     /**
-     * @description The working directory.
+     * @description Indicates whether the root file system is read-only. The only valid value is true.
      *
      * @example true
      *
@@ -118,7 +118,7 @@ class initContainers extends Model
     public $securityContextReadOnlyRootFilesystem;
 
     /**
-     * @description The name of the container.
+     * @description The ID of the user that runs the container.
      *
      * @example 587
      *
@@ -127,7 +127,7 @@ class initContainers extends Model
     public $securityContextRunAsUser;
 
     /**
-     * @description The container image.
+     * @description The working directory.
      *
      * @example /usr/local
      *

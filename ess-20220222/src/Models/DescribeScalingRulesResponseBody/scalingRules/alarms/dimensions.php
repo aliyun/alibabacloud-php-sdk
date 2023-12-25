@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class dimensions extends Model
 {
     /**
-     * @description The value of the dimension that is associated with the metric.
+     * @description The key of the dimension that is associated with the metric. Valid values:
+     *
+     *   scaling_group: the ID of the scaling group
+     *   userId: the ID of the Alibaba Cloud account
      *
      * @example scaling_group
      *
@@ -18,7 +21,7 @@ class dimensions extends Model
     public $dimensionKey;
 
     /**
-     * @description The step adjustments of the step scaling rule.
+     * @description The value of the dimension that is associated with the metric.
      *
      * @example asg-bp18p2yfxow2dloq****
      *

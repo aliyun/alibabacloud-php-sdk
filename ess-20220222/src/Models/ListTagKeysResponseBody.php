@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysResponseBody extends Model
 {
     /**
+     * @description Details of the tag keys.
+     *
      * @var string[]
      */
     public $keys;
 
     /**
+     * @description The token that determines the start point of the next query. If this parameter is empty, all results are returned.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -21,6 +25,8 @@ class ListTagKeysResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -28,6 +34,8 @@ class ListTagKeysResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DC09A6AA-2713-4E10-A2E9-E6C5C43A****
      *
      * @var string

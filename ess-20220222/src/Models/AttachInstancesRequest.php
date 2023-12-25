@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AttachInstancesRequest extends Model
 {
     /**
+     * @description 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多信息，请参见[如何保证幂等性](~~25965~~)。
+     *
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @description Specifies whether the scaling group manages the lifecycles of instances that are manually added to the scaling group. Valid values:
+     *
+     *   true: The scaling group manages the lifecycles of instances that are manually added in a similar manner in which the scaling group manages the lifecycles of automatically created instances. After Auto Scaling removes instances from the scaling group, Auto Scaling releases the instances. After you call the DetachInstances operation to remove instances from the scaling group, Auto Scaling does not release the instances.
+     *   false: The scaling group does not manage the lifecycles of instances that are manually added. After Auto Scaling removes instances from the scaling group, Auto Scaling does not release the instances.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -16,11 +31,19 @@ class AttachInstancesRequest extends Model
     public $entrusted;
 
     /**
+     * @description The IDs of the ECS instances or elastic container instances that you want to add.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description Specifies whether to trigger a lifecycle hook for a scale-out activity. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -28,6 +51,8 @@ class AttachInstancesRequest extends Model
     public $lifecycleHook;
 
     /**
+     * @description The weights of the ECS instances or elastic container instances as the backend servers of the associated Classic Load Balancer (CLB) instance.
+     *
      * @var int[]
      */
     public $loadBalancerWeights;
@@ -43,6 +68,8 @@ class AttachInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -60,12 +87,15 @@ class AttachInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string
      */
     public $scalingGroupId;
     protected $_name = [
+        'clientToken'          => 'ClientToken',
         'entrusted'            => 'Entrusted',
         'instanceIds'          => 'InstanceIds',
         'lifecycleHook'        => 'LifecycleHook',
@@ -85,6 +115,9 @@ class AttachInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->entrusted) {
             $res['Entrusted'] = $this->entrusted;
         }
@@ -127,6 +160,9 @@ class AttachInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Entrusted'])) {
             $model->entrusted = $map['Entrusted'];
         }

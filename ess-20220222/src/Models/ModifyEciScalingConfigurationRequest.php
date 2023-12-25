@@ -117,6 +117,26 @@ class ModifyEciScalingConfigurationRequest extends Model
     public $cpuOptionsThreadsPerCore;
 
     /**
+     * @var string
+     */
+    public $dataCacheBucket;
+
+    /**
+     * @var bool
+     */
+    public $dataCacheBurstingEnabled;
+
+    /**
+     * @var string
+     */
+    public $dataCachePL;
+
+    /**
+     * @var int
+     */
+    public $dataCacheProvisionedIops;
+
+    /**
      * @description > This parameter is unavailable.
      *
      * @example desc
@@ -255,6 +275,11 @@ class ModifyEciScalingConfigurationRequest extends Model
      * @var string
      */
     public $instanceFamilyLevel;
+
+    /**
+     * @var string[]
+     */
+    public $instanceTypes;
 
     /**
      * @description The number of IPv6 addresses.
@@ -426,6 +451,10 @@ class ModifyEciScalingConfigurationRequest extends Model
         'cpu'                           => 'Cpu',
         'cpuOptionsCore'                => 'CpuOptionsCore',
         'cpuOptionsThreadsPerCore'      => 'CpuOptionsThreadsPerCore',
+        'dataCacheBucket'               => 'DataCacheBucket',
+        'dataCacheBurstingEnabled'      => 'DataCacheBurstingEnabled',
+        'dataCachePL'                   => 'DataCachePL',
+        'dataCacheProvisionedIops'      => 'DataCacheProvisionedIops',
         'description'                   => 'Description',
         'dnsConfigNameServers'          => 'DnsConfigNameServers',
         'dnsConfigOptions'              => 'DnsConfigOptions',
@@ -442,6 +471,7 @@ class ModifyEciScalingConfigurationRequest extends Model
         'ingressBandwidth'              => 'IngressBandwidth',
         'initContainers'                => 'InitContainers',
         'instanceFamilyLevel'           => 'InstanceFamilyLevel',
+        'instanceTypes'                 => 'InstanceTypes',
         'ipv6AddressCount'              => 'Ipv6AddressCount',
         'loadBalancerWeight'            => 'LoadBalancerWeight',
         'memory'                        => 'Memory',
@@ -514,6 +544,18 @@ class ModifyEciScalingConfigurationRequest extends Model
         if (null !== $this->cpuOptionsThreadsPerCore) {
             $res['CpuOptionsThreadsPerCore'] = $this->cpuOptionsThreadsPerCore;
         }
+        if (null !== $this->dataCacheBucket) {
+            $res['DataCacheBucket'] = $this->dataCacheBucket;
+        }
+        if (null !== $this->dataCacheBurstingEnabled) {
+            $res['DataCacheBurstingEnabled'] = $this->dataCacheBurstingEnabled;
+        }
+        if (null !== $this->dataCachePL) {
+            $res['DataCachePL'] = $this->dataCachePL;
+        }
+        if (null !== $this->dataCacheProvisionedIops) {
+            $res['DataCacheProvisionedIops'] = $this->dataCacheProvisionedIops;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -585,6 +627,9 @@ class ModifyEciScalingConfigurationRequest extends Model
         }
         if (null !== $this->instanceFamilyLevel) {
             $res['InstanceFamilyLevel'] = $this->instanceFamilyLevel;
+        }
+        if (null !== $this->instanceTypes) {
+            $res['InstanceTypes'] = $this->instanceTypes;
         }
         if (null !== $this->ipv6AddressCount) {
             $res['Ipv6AddressCount'] = $this->ipv6AddressCount;
@@ -715,6 +760,18 @@ class ModifyEciScalingConfigurationRequest extends Model
         if (isset($map['CpuOptionsThreadsPerCore'])) {
             $model->cpuOptionsThreadsPerCore = $map['CpuOptionsThreadsPerCore'];
         }
+        if (isset($map['DataCacheBucket'])) {
+            $model->dataCacheBucket = $map['DataCacheBucket'];
+        }
+        if (isset($map['DataCacheBurstingEnabled'])) {
+            $model->dataCacheBurstingEnabled = $map['DataCacheBurstingEnabled'];
+        }
+        if (isset($map['DataCachePL'])) {
+            $model->dataCachePL = $map['DataCachePL'];
+        }
+        if (isset($map['DataCacheProvisionedIops'])) {
+            $model->dataCacheProvisionedIops = $map['DataCacheProvisionedIops'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -790,6 +847,11 @@ class ModifyEciScalingConfigurationRequest extends Model
         }
         if (isset($map['InstanceFamilyLevel'])) {
             $model->instanceFamilyLevel = $map['InstanceFamilyLevel'];
+        }
+        if (isset($map['InstanceTypes'])) {
+            if (!empty($map['InstanceTypes'])) {
+                $model->instanceTypes = $map['InstanceTypes'];
+            }
         }
         if (isset($map['Ipv6AddressCount'])) {
             $model->ipv6AddressCount = $map['Ipv6AddressCount'];

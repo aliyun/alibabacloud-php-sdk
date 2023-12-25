@@ -19,9 +19,9 @@ class DescribeEciScalingConfigurationsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 50.
+     * @description The number of the page to return. Pages start from page 1.
      *
-     * Default value: 10.
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -29,8 +29,9 @@ class DescribeEciScalingConfigurationsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the scaling group. You can use the ID to query all scaling configurations in the scaling group.
+     * @description The number of entries to return on each page. Maximum value: 50.
      *
+     * Default value: 10.
      * @example 50
      *
      * @var int
@@ -38,9 +39,8 @@ class DescribeEciScalingConfigurationsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The region ID of the scaling group to which the scaling configuration belongs.
      *
-     * Default value: 1.
      * @example cn-qingdao
      *
      * @var string
@@ -60,7 +60,7 @@ class DescribeEciScalingConfigurationsRequest extends Model
     /**
      * @description The IDs of the scaling configurations that you want to query.
      *
-     * The IDs of active and inactive scaling configurations are displayed in the query results. You can differentiate between active and inactive scaling configurations based on the value of the LifecycleState parameter.
+     * The IDs of active and inactive scaling configurations are displayed in the query results. You can differentiate between active and inactive scaling configurations based on the value of the `LifecycleState` parameter.
      * @var string[]
      */
     public $scalingConfigurationIds;
@@ -74,9 +74,8 @@ class DescribeEciScalingConfigurationsRequest extends Model
     public $scalingConfigurationNames;
 
     /**
-     * @description The IDs of the scaling configurations that you want to query.
+     * @description The ID of the scaling group. You can use the ID to query all scaling configurations in the scaling group.
      *
-     * The IDs of active and inactive scaling configurations are displayed in the query results. You can differentiate between active and inactive scaling configurations based on the value of the `LifecycleState` parameter.
      * @example asg-bp17pelvl720x3v7****
      *
      * @var string

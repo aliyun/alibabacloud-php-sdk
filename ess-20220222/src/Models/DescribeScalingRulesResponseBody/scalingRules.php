@@ -12,7 +12,11 @@ use AlibabaCloud\Tea\Model;
 class scalingRules extends Model
 {
     /**
-     * @description The maximum number of ECS instances in the scaling group. You must specify the InitialMaxSize and PredictiveValueBehavior parameters.
+     * @description The scaling mode of the scaling rule. Valid values:
+     *
+     *   QuantityChangeInCapacity: adds the specified number of ECS instances to or removes the specified number of ECS instances from the scaling group.
+     *   PercentChangeInCapacity: adds the specified percentage of ECS instances to or removes the specified percentage of ECS instances from the scaling group.
+     *   TotalCapacity: adjusts the number of ECS instances in the scaling group to the specified number.
      *
      * @example QuantityChangeInCapacity
      *
@@ -21,7 +25,7 @@ class scalingRules extends Model
     public $adjustmentType;
 
     /**
-     * @description The number of consecutive times that the event-triggered task created for scale-out activities must meet the threshold conditions before an alert is triggered. After a target tracking scaling rule is created, an event-triggered task is automatically created and then associated with the target tracking scaling rule.
+     * @description The adjustment value that is specified in the scaling rule.
      *
      * @example 1
      *
@@ -44,7 +48,7 @@ class scalingRules extends Model
     public $alarms;
 
     /**
-     * @description The maximum number of ECS instances in the scaling group.
+     * @description The cooldown time of the scaling rule. This parameter is available only if you set the ScalingRuleType parameter to SimpleScalingRule. Valid values: 0 to 86400. Unit: seconds.
      *
      * @example 20
      *
@@ -53,7 +57,10 @@ class scalingRules extends Model
     public $cooldown;
 
     /**
-     * @description The name of the scaling rule.
+     * @description Specifies whether to disable scale-in. This parameter is available only if you set the ScalingRuleType parameter to TargetTrackingScalingRule. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -62,7 +69,7 @@ class scalingRules extends Model
     public $disableScaleIn;
 
     /**
-     * @description The number of consecutive times that the event-triggered task created for scale-in activities must meet the threshold conditions before an alert is triggered. After a target tracking scaling rule is created, an event-triggered task is automatically created and then associated with the target tracking scaling rule.
+     * @description The warmup period of the ECS instance.
      *
      * @example 300
      *
@@ -71,7 +78,7 @@ class scalingRules extends Model
     public $estimatedInstanceWarmup;
 
     /**
-     * @description The warmup period of the ECS instance.
+     * @description The maximum number of ECS instances in the scaling group. You must specify the InitialMaxSize and PredictiveValueBehavior parameters.
      *
      * @example 100
      *
@@ -80,7 +87,7 @@ class scalingRules extends Model
     public $initialMaxSize;
 
     /**
-     * @description The percentage of the increment to the predicted value when the PredictiveValueBehavior parameter is set to PredictiveValueOverrideMaxWithBuffer. If the predicted value increased by this percentage is greater than the initial maximum capacity, the increased value is used as the maximum value for prediction tasks. Valid values: 0 to 100.
+     * @description The maximum number of ECS instances in the scaling group.
      *
      * @example 2
      *
@@ -89,11 +96,7 @@ class scalingRules extends Model
     public $maxSize;
 
     /**
-     * @description The scaling mode of the scaling rule. Valid values:
-     *
-     *   QuantityChangeInCapacity: adds the specified number of ECS instances to or removes the specified number of ECS instances from the scaling group.
-     *   PercentChangeInCapacity: adds the specified percentage of ECS instances to or removes the specified percentage of ECS instances from the scaling group.
-     *   TotalCapacity: adjusts the number of ECS instances in the scaling group to the specified number.
+     * @description The name of the metric of the event-triggered task that is associated with the scaling rule.
      *
      * @example CpuUtilization
      *
@@ -102,7 +105,7 @@ class scalingRules extends Model
     public $metricName;
 
     /**
-     * @description The unique identifier of the scaling rule.
+     * @description The minimum number of instances that must be scaled when the AdjustmentType parameter is set to PercentChangeInCapacity. This parameter takes effect only if you set the ScalingRuleType parameter to SimpleScalingRule or StepScalingRule.
      *
      * @example 1
      *
@@ -111,7 +114,7 @@ class scalingRules extends Model
     public $minAdjustmentMagnitude;
 
     /**
-     * @description The ID of the scaling group.
+     * @description The minimum number of ECS instances in the scaling group.
      *
      * @example 1
      *
@@ -120,7 +123,10 @@ class scalingRules extends Model
     public $minSize;
 
     /**
-     * @description The minimum number of instances that must be scaled when the AdjustmentType parameter is set to PercentChangeInCapacity. This parameter takes effect only if you set the ScalingRuleType parameter to SimpleScalingRule or StepScalingRule.
+     * @description The mode of the predictive scaling rule. Valid values:
+     *
+     *   PredictAndScale: produces predictions and creates prediction tasks.
+     *   PredictOnly: produces predictions but does not create prediction tasks.
      *
      * @example PredictAndScale
      *
@@ -129,7 +135,7 @@ class scalingRules extends Model
     public $predictiveScalingMode;
 
     /**
-     * @description The minimum number of ECS instances in the scaling group.
+     * @description The amount of buffer time before the prediction task is executed. By default, all scheduled tasks that are automatically created for a predictive scaling rule are executed on the hour. You can specify a buffer time for resource preparation before prediction tasks are executed. Valid values: 0 to 60. Unit: minutes.
      *
      * @example 30
      *
@@ -138,7 +144,11 @@ class scalingRules extends Model
     public $predictiveTaskBufferTime;
 
     /**
-     * @description The target value of the metric.
+     * @description Specifies which one of the initial maximum capacity and the predicted value can be used as the maximum value for prediction tasks. Valid values:
+     *
+     *   MaxOverridePredictiveValue: uses the initial maximum capacity as the maximum value for prediction tasks if the predicted value is greater than the initial maximum capacity.
+     *   PredictiveValueOverrideMax: uses the predicted value as the maximum value for prediction tasks when the predicted value is greater than the initial maximum capacity.
+     *   PredictiveValueOverrideMaxWithBuffer: increases the predicted value by a percentage that is specified by the PredictiveValueBuffer parameter. If the predicted value that is increased by the percentage is greater than the initial maximum capacity, the increased value is used as the maximum value for prediction tasks.
      *
      * @example MaxOverridePredictiveValue
      *
@@ -147,12 +157,7 @@ class scalingRules extends Model
     public $predictiveValueBehavior;
 
     /**
-     * @description The type of the scaling rule. Valid values:
-     *
-     *   SimpleScalingRule: adjusts the number of ECS instances based on the values of the AdjustmentType and AdjustmentValue parameters.
-     *   TargetTrackingScalingRule: calculates the number of ECS instances that need to be scaled in a dynamic manner and maintains the value of a predefined metric close to the value of the TargetValue parameter.
-     *   StepScalingRule: scales ECS instances in steps based on specified thresholds and metric values.
-     *   PredictiveScalingRule: uses machine learning to analyze historical monitoring data of the scaling group and predicts the future values of metrics. In addition, Auto Scaling automatically creates scheduled tasks to adjust the boundary values for the scaling group.
+     * @description The percentage of the increment to the predicted value when the PredictiveValueBehavior parameter is set to PredictiveValueOverrideMaxWithBuffer. If the predicted value increased by this percentage is greater than the initial maximum capacity, the increased value is used as the maximum value for prediction tasks. Valid values: 0 to 100.
      *
      * @example 50
      *
@@ -161,10 +166,7 @@ class scalingRules extends Model
     public $predictiveValueBuffer;
 
     /**
-     * @description Specifies whether to disable scale-in. This parameter is available only if you set the ScalingRuleType parameter to TargetTrackingScalingRule. Valid values:
-     *
-     *   true
-     *   false
+     * @description The number of consecutive times that the event-triggered task created for scale-out activities must meet the threshold conditions before an alert is triggered. After a target tracking scaling rule is created, an event-triggered task is automatically created and then associated with the target tracking scaling rule.
      *
      * @example 15
      *
@@ -173,10 +175,7 @@ class scalingRules extends Model
     public $scaleInEvaluationCount;
 
     /**
-     * @description The mode of the predictive scaling rule. Valid values:
-     *
-     *   PredictAndScale: produces predictions and creates prediction tasks.
-     *   PredictOnly: produces predictions but does not create prediction tasks.
+     * @description The number of consecutive times that the event-triggered task created for scale-in activities must meet the threshold conditions before an alert is triggered. After a target tracking scaling rule is created, an event-triggered task is automatically created and then associated with the target tracking scaling rule.
      *
      * @example 3
      *
@@ -185,11 +184,7 @@ class scalingRules extends Model
     public $scaleOutEvaluationCount;
 
     /**
-     * @description Specifies which one of the initial maximum capacity and the predicted value can be used as the maximum value for prediction tasks. Valid values:
-     *
-     *   MaxOverridePredictiveValue: uses the initial maximum capacity as the maximum value for prediction tasks if the predicted value is greater than the initial maximum capacity.
-     *   PredictiveValueOverrideMax: uses the predicted value as the maximum value for prediction tasks when the predicted value is greater than the initial maximum capacity.
-     *   PredictiveValueOverrideMaxWithBuffer: increases the predicted value by a percentage that is specified by the PredictiveValueBuffer parameter. If the predicted value that is increased by the percentage is greater than the initial maximum capacity, the increased value is used as the maximum value for prediction tasks.
+     * @description The ID of the scaling group.
      *
      * @example asg-bp1ffogfdauy0jw0****
      *
@@ -198,7 +193,7 @@ class scalingRules extends Model
     public $scalingGroupId;
 
     /**
-     * @description The amount of buffer time before the prediction task is executed. By default, all scheduled tasks that are automatically created for a predictive scaling rule are executed on the hour. You can specify a buffer time for resource preparation before prediction tasks are executed. Valid values: 0 to 60. Unit: minutes.
+     * @description The unique identifier of the scaling rule.
      *
      * @example ari:acs:ess:cn-hangzhou:140692647406****:scalingrule/asr-bp1dvirgwkoowxk7****
      *
@@ -207,7 +202,7 @@ class scalingRules extends Model
     public $scalingRuleAri;
 
     /**
-     * @description The event-triggered tasks that are associated with the scaling rule. Event-triggered tasks that are associated with the scaling rule are returned only if you set the ShowAlarmRules parameter to true. Otherwise, an empty list is returned.
+     * @description The ID of the scaling rule.
      *
      * @example asr-bp1dvirgwkoowxk7****
      *
@@ -216,7 +211,7 @@ class scalingRules extends Model
     public $scalingRuleId;
 
     /**
-     * @description The ID of the scaling rule.
+     * @description The name of the scaling rule.
      *
      * @example scalingrule****
      *
@@ -225,7 +220,12 @@ class scalingRules extends Model
     public $scalingRuleName;
 
     /**
-     * @description The adjustment value that is specified in the scaling rule.
+     * @description The type of the scaling rule. Valid values:
+     *
+     *   SimpleScalingRule: adjusts the number of ECS instances based on the values of the AdjustmentType and AdjustmentValue parameters.
+     *   TargetTrackingScalingRule: calculates the number of ECS instances that need to be scaled in a dynamic manner and maintains the value of a predefined metric close to the value of the TargetValue parameter.
+     *   StepScalingRule: scales ECS instances in steps based on specified thresholds and metric values.
+     *   PredictiveScalingRule: uses machine learning to analyze historical monitoring data of the scaling group and predicts the future values of metrics. In addition, Auto Scaling automatically creates scheduled tasks to adjust the boundary values for the scaling group.
      *
      * @example SimpleScalingRule
      *
@@ -241,7 +241,7 @@ class scalingRules extends Model
     public $stepAdjustments;
 
     /**
-     * @description The cooldown time of the scaling rule. This parameter is available only if you set the ScalingRuleType parameter to SimpleScalingRule. Valid values: 0 to 86400. Unit: seconds.
+     * @description The target value of the metric.
      *
      * @example 0.125
      *

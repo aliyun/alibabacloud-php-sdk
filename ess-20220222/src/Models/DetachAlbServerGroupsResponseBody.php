@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetachAlbServerGroupsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -16,6 +18,8 @@ class DetachAlbServerGroupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the scaling activity in which the ALB server group is disassociated from the scaling group and the ECS instances in the ALB server group are removed from the ALB server group. This parameter is returned only after you set the `ForceDetach` parameter to `true`.
+     *
      * @example asa-2ze6wxj8vsohn6j9****
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class securityContextSysCtls extends Model
 {
     /**
-     * @description Details of the Container Registry Enterprise Edition instances.
+     * @description The name of the security context in which the elastic container instance runs.
      *
      * @example kernel.msgmax
      *
@@ -18,7 +18,7 @@ class securityContextSysCtls extends Model
     public $name;
 
     /**
-     * @description Details of the Container Registry Enterprise Edition instances.
+     * @description The variable value of the security context in which the elastic container instance runs.
      *
      * @example 65536
      *

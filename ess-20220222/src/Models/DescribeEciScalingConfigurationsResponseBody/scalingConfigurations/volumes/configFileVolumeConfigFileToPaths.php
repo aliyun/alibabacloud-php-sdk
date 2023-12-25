@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class configFileVolumeConfigFileToPaths extends Model
 {
     /**
-     * @description The information about the image repository.
+     * @description The content of the configuration file (32 KB).
      *
      * @example bGl1bWk=
      *
@@ -18,7 +18,7 @@ class configFileVolumeConfigFileToPaths extends Model
     public $content;
 
     /**
-     * @description The information about the image repository.
+     * @description The permissions on the ConfigFile volume.
      *
      * @example 0644
      *
@@ -27,7 +27,7 @@ class configFileVolumeConfigFileToPaths extends Model
     public $mode;
 
     /**
-     * @description The content of the configuration file (32 KB).
+     * @description The relative path to the configuration file.
      *
      * @example /usr/bin/
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AttachInstancesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -16,6 +18,8 @@ class AttachInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the scaling activity.
+     *
      * @example asa-bp1crxor24s28xf1****
      *
      * @var string

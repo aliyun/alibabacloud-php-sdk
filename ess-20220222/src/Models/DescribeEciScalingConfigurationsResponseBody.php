@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEciScalingConfigurationsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeEciScalingConfigurationsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of scaling configurations.
+     * @description The number of entries returned per page.
      *
      * @example 50
      *
@@ -28,7 +28,7 @@ class DescribeEciScalingConfigurationsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Details of the scaling configurations.
+     * @description The ID of the request.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -37,14 +37,14 @@ class DescribeEciScalingConfigurationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the scaling configuration was created.
+     * @description Details of the scaling configurations.
      *
      * @var scalingConfigurations[]
      */
     public $scalingConfigurations;
 
     /**
-     * @description Details of the scaling configurations.
+     * @description The total number of scaling configurations.
      *
      * @example 1
      *

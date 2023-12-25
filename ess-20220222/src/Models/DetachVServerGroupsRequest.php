@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DetachVServerGroupsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests.
+     *
+     * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25965~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -17,6 +20,12 @@ class DetachVServerGroupsRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to remove ECS instances in your scaling group from the vServer group.
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -29,6 +38,8 @@ class DetachVServerGroupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group. Examples: cn-hangzhou and cn-shanghai.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +52,8 @@ class DetachVServerGroupsRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp1fo0dbtsbmqa9h****
      *
      * @var string
@@ -48,6 +61,8 @@ class DetachVServerGroupsRequest extends Model
     public $scalingGroupId;
 
     /**
+     * @description Details of the vServer groups.
+     *
      * @var VServerGroups[]
      */
     public $VServerGroups;

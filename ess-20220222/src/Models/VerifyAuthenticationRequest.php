@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VerifyAuthenticationRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $onlyCheck;
@@ -29,6 +31,8 @@ class VerifyAuthenticationRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 12345678123*****
+     *
      * @var int
      */
     public $uid;

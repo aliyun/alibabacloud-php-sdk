@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ScaleWithAdjustmentResponseBody extends Model
 {
     /**
+     * @description 伸缩活动的类型。
+     *
+     * 当ActivityType为CapacityChange时，表示返回值ScalingActivityId对应伸缩活动仅修改伸缩组期望实例数，没有立刻执行扩缩。适用范围：期望实例数类型伸缩组。
      * @example CapacityChange
      *
      * @var string
@@ -16,6 +19,8 @@ class ScaleWithAdjustmentResponseBody extends Model
     public $activityType;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string
@@ -23,6 +28,8 @@ class ScaleWithAdjustmentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the scaling activity.
+     *
      * @example asa-bp175o6f6ego3r2j****
      *
      * @var string

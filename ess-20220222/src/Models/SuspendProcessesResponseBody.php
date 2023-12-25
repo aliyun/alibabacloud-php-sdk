@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SuspendProcessesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 3E2033F0-03B4-419D-BCE2-C2339DB51****
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeLifecycleActionsResponseBody extends Model
 {
     /**
+     * @description The lifecycle actions.
+     *
      * @var lifecycleActions[]
      */
     public $lifecycleActions;
 
     /**
+     * @description The maximum number of entries returned per page.
+     *
      * @example 3
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeLifecycleActionsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The query token returned in this call.
+     *
      * @example AAAAAcSz4VTb1Nq****
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeLifecycleActionsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 42A742EB-FCF3-459E-9C62-E107048C17E3
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeLifecycleActionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of the queried lifecycle actions.
+     *
      * @example 3
      *
      * @var int

@@ -40,6 +40,11 @@ class DescribeScalingInstancesRequest extends Model
     public $lifecycleState;
 
     /**
+     * @var string[]
+     */
+    public $lifecycleStates;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -106,6 +111,7 @@ class DescribeScalingInstancesRequest extends Model
         'healthStatus'           => 'HealthStatus',
         'instanceIds'            => 'InstanceIds',
         'lifecycleState'         => 'LifecycleState',
+        'lifecycleStates'        => 'LifecycleStates',
         'ownerAccount'           => 'OwnerAccount',
         'ownerId'                => 'OwnerId',
         'pageNumber'             => 'PageNumber',
@@ -139,6 +145,9 @@ class DescribeScalingInstancesRequest extends Model
         }
         if (null !== $this->lifecycleState) {
             $res['LifecycleState'] = $this->lifecycleState;
+        }
+        if (null !== $this->lifecycleStates) {
+            $res['LifecycleStates'] = $this->lifecycleStates;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -200,6 +209,11 @@ class DescribeScalingInstancesRequest extends Model
         }
         if (isset($map['LifecycleState'])) {
             $model->lifecycleState = $map['LifecycleState'];
+        }
+        if (isset($map['LifecycleStates'])) {
+            if (!empty($map['LifecycleStates'])) {
+                $model->lifecycleStates = $map['LifecycleStates'];
+            }
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

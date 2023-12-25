@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scal
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\launchTemplateOverrides;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\loadBalancerConfigs;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\serverGroups;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\tags;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\VServerGroups;
 use AlibabaCloud\Tea\Model;
 
@@ -353,6 +354,11 @@ class scalingGroups extends Model
     public $systemSuspended;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @example 1
      *
      * @var int
@@ -441,6 +447,7 @@ class scalingGroups extends Model
         'stoppedCapacity'                     => 'StoppedCapacity',
         'suspendedProcesses'                  => 'SuspendedProcesses',
         'systemSuspended'                     => 'SystemSuspended',
+        'tags'                                => 'Tags',
         'totalCapacity'                       => 'TotalCapacity',
         'totalInstanceCount'                  => 'TotalInstanceCount',
         'VServerGroups'                       => 'VServerGroups',
@@ -632,6 +639,15 @@ class scalingGroups extends Model
         }
         if (null !== $this->systemSuspended) {
             $res['SystemSuspended'] = $this->systemSuspended;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->totalCapacity) {
             $res['TotalCapacity'] = $this->totalCapacity;
@@ -853,6 +869,15 @@ class scalingGroups extends Model
         }
         if (isset($map['SystemSuspended'])) {
             $model->systemSuspended = $map['SystemSuspended'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TotalCapacity'])) {
             $model->totalCapacity = $map['TotalCapacity'];

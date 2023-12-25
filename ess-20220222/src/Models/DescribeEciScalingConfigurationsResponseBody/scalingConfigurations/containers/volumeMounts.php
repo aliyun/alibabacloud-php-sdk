@@ -9,41 +9,14 @@ use AlibabaCloud\Tea\Model;
 class volumeMounts extends Model
 {
     /**
-     * @description Details of the environment variables.
+     * @description The directory in which the container mounts the volume.
      *
+     * > Data in this directory is overwritten by the data on the volume.
      * @example /pod/data
      *
      * @var string
      */
     public $mountPath;
-
-    /**
-     * @description Details of the environment variables.
-     *
-     * @example None
-     *
-     * @var string
-     */
-    public $mountPropagation;
-
-    /**
-     * @description The directory in which the container mounts the volume.
-     *
-     * > Data in this directory is overwritten by the data on the volume.
-     * @example default-volume1
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @description The name of the volume. The value of this parameter is the same as the value of the Volumes.Name parameter.
-     *
-     * @example false
-     *
-     * @var bool
-     */
-    public $readOnly;
 
     /**
      * @description The mount propagation setting of the volume. Mount propagation allows the sharing of volumes that are mounted on one container with other containers in the same pod, or even with other pods on the same node. Valid values:
@@ -53,6 +26,34 @@ class volumeMounts extends Model
      *   Bidirectional: This value is similar to HostToCotainer. The volume mount receives all subsequent mounts that are mounted to this volume or its subdirectories. In addition, all volume mounts that are created by the container are propagated back to the instance and to all containers of all pods that use the same volume.
      *
      * Default value: None.
+     * @example None
+     *
+     * @var string
+     */
+    public $mountPropagation;
+
+    /**
+     * @description The name of the volume. The value of this parameter is the same as the value of the Volumes.Name parameter.
+     *
+     * @example default-volume1
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @description Indicates whether the volume is read-only.
+     *
+     * Default value: false.
+     * @example false
+     *
+     * @var bool
+     */
+    public $readOnly;
+
+    /**
+     * @description The subdirectory of the volume.
+     *
      * @example data2/
      *
      * @var string

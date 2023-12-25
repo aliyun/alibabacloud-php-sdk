@@ -401,6 +401,16 @@ class ModifyScalingConfigurationShrinkRequest extends Model
     public $spotStrategy;
 
     /**
+     * @var string
+     */
+    public $storageSetId;
+
+    /**
+     * @var int
+     */
+    public $storageSetPartitionNumber;
+
+    /**
      * @description The categories of the system disks. If Auto Scaling cannot create instances by using the disk category that has the highest priority, Auto Scaling creates instances by using the disk category that has the next highest priority. Valid values:
      *
      *   cloud: basic disk
@@ -455,54 +465,56 @@ class ModifyScalingConfigurationShrinkRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'imageOptions'             => 'ImageOptions',
-        'privatePoolOptions'       => 'PrivatePoolOptions',
-        'systemDisk'               => 'SystemDisk',
-        'affinity'                 => 'Affinity',
-        'cpu'                      => 'Cpu',
-        'creditSpecification'      => 'CreditSpecification',
-        'dataDisks'                => 'DataDisks',
-        'dedicatedHostId'          => 'DedicatedHostId',
-        'deletionProtection'       => 'DeletionProtection',
-        'deploymentSetId'          => 'DeploymentSetId',
-        'hostName'                 => 'HostName',
-        'hpcClusterId'             => 'HpcClusterId',
-        'imageFamily'              => 'ImageFamily',
-        'imageId'                  => 'ImageId',
-        'imageName'                => 'ImageName',
-        'instanceDescription'      => 'InstanceDescription',
-        'instanceName'             => 'InstanceName',
-        'instancePatternInfos'     => 'InstancePatternInfos',
-        'instanceTypeOverrides'    => 'InstanceTypeOverrides',
-        'instanceTypes'            => 'InstanceTypes',
-        'internetChargeType'       => 'InternetChargeType',
-        'internetMaxBandwidthOut'  => 'InternetMaxBandwidthOut',
-        'ioOptimized'              => 'IoOptimized',
-        'ipv6AddressCount'         => 'Ipv6AddressCount',
-        'keyPairName'              => 'KeyPairName',
-        'loadBalancerWeight'       => 'LoadBalancerWeight',
-        'memory'                   => 'Memory',
-        'override'                 => 'Override',
-        'ownerAccount'             => 'OwnerAccount',
-        'ownerId'                  => 'OwnerId',
-        'passwordInherit'          => 'PasswordInherit',
-        'ramRoleName'              => 'RamRoleName',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'scalingConfigurationId'   => 'ScalingConfigurationId',
-        'scalingConfigurationName' => 'ScalingConfigurationName',
-        'schedulerOptionsShrink'   => 'SchedulerOptions',
-        'securityGroupId'          => 'SecurityGroupId',
-        'securityGroupIds'         => 'SecurityGroupIds',
-        'spotDuration'             => 'SpotDuration',
-        'spotInterruptionBehavior' => 'SpotInterruptionBehavior',
-        'spotPriceLimits'          => 'SpotPriceLimits',
-        'spotStrategy'             => 'SpotStrategy',
-        'systemDiskCategories'     => 'SystemDiskCategories',
-        'tags'                     => 'Tags',
-        'tenancy'                  => 'Tenancy',
-        'userData'                 => 'UserData',
-        'zoneId'                   => 'ZoneId',
+        'imageOptions'              => 'ImageOptions',
+        'privatePoolOptions'        => 'PrivatePoolOptions',
+        'systemDisk'                => 'SystemDisk',
+        'affinity'                  => 'Affinity',
+        'cpu'                       => 'Cpu',
+        'creditSpecification'       => 'CreditSpecification',
+        'dataDisks'                 => 'DataDisks',
+        'dedicatedHostId'           => 'DedicatedHostId',
+        'deletionProtection'        => 'DeletionProtection',
+        'deploymentSetId'           => 'DeploymentSetId',
+        'hostName'                  => 'HostName',
+        'hpcClusterId'              => 'HpcClusterId',
+        'imageFamily'               => 'ImageFamily',
+        'imageId'                   => 'ImageId',
+        'imageName'                 => 'ImageName',
+        'instanceDescription'       => 'InstanceDescription',
+        'instanceName'              => 'InstanceName',
+        'instancePatternInfos'      => 'InstancePatternInfos',
+        'instanceTypeOverrides'     => 'InstanceTypeOverrides',
+        'instanceTypes'             => 'InstanceTypes',
+        'internetChargeType'        => 'InternetChargeType',
+        'internetMaxBandwidthOut'   => 'InternetMaxBandwidthOut',
+        'ioOptimized'               => 'IoOptimized',
+        'ipv6AddressCount'          => 'Ipv6AddressCount',
+        'keyPairName'               => 'KeyPairName',
+        'loadBalancerWeight'        => 'LoadBalancerWeight',
+        'memory'                    => 'Memory',
+        'override'                  => 'Override',
+        'ownerAccount'              => 'OwnerAccount',
+        'ownerId'                   => 'OwnerId',
+        'passwordInherit'           => 'PasswordInherit',
+        'ramRoleName'               => 'RamRoleName',
+        'resourceGroupId'           => 'ResourceGroupId',
+        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
+        'scalingConfigurationId'    => 'ScalingConfigurationId',
+        'scalingConfigurationName'  => 'ScalingConfigurationName',
+        'schedulerOptionsShrink'    => 'SchedulerOptions',
+        'securityGroupId'           => 'SecurityGroupId',
+        'securityGroupIds'          => 'SecurityGroupIds',
+        'spotDuration'              => 'SpotDuration',
+        'spotInterruptionBehavior'  => 'SpotInterruptionBehavior',
+        'spotPriceLimits'           => 'SpotPriceLimits',
+        'spotStrategy'              => 'SpotStrategy',
+        'storageSetId'              => 'StorageSetId',
+        'storageSetPartitionNumber' => 'StorageSetPartitionNumber',
+        'systemDiskCategories'      => 'SystemDiskCategories',
+        'tags'                      => 'Tags',
+        'tenancy'                   => 'Tenancy',
+        'userData'                  => 'UserData',
+        'zoneId'                    => 'ZoneId',
     ];
 
     public function validate()
@@ -664,6 +676,12 @@ class ModifyScalingConfigurationShrinkRequest extends Model
         }
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->storageSetId) {
+            $res['StorageSetId'] = $this->storageSetId;
+        }
+        if (null !== $this->storageSetPartitionNumber) {
+            $res['StorageSetPartitionNumber'] = $this->storageSetPartitionNumber;
         }
         if (null !== $this->systemDiskCategories) {
             $res['SystemDiskCategories'] = $this->systemDiskCategories;
@@ -848,6 +866,12 @@ class ModifyScalingConfigurationShrinkRequest extends Model
         }
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
+        }
+        if (isset($map['StorageSetId'])) {
+            $model->storageSetId = $map['StorageSetId'];
+        }
+        if (isset($map['StorageSetPartitionNumber'])) {
+            $model->storageSetPartitionNumber = $map['StorageSetPartitionNumber'];
         }
         if (isset($map['SystemDiskCategories'])) {
             if (!empty($map['SystemDiskCategories'])) {

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class AttachAlbServerGroupsRequest extends Model
 {
     /**
+     * @description Details of the ALB server group.
+     *
      * @var albServerGroups[]
      */
     public $albServerGroups;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](~~25965~~).
+     *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -22,6 +26,12 @@ class AttachAlbServerGroupsRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to add the ECS instances in the scaling group to the ALB server group. Valid values:
+     *
+     *   true: adds the ECS instances to the ALB server group and returns the value of the `ScalingActivityId` parameter. You can check whether the ECS instances are added to the ALB server group by using the ID of the scaling activity.
+     *   false: does not add the ECS instances to the ALB server group.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -34,6 +44,8 @@ class AttachAlbServerGroupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group, such as cn-hangzhou and cn-shanghai. For more information, see [Regions and zones](~~40654~~).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -46,6 +58,8 @@ class AttachAlbServerGroupsRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

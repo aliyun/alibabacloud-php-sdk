@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RemoveInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @example true
      *
      * @var bool
@@ -61,6 +66,7 @@ class RemoveInstancesRequest extends Model
      */
     public $scalingGroupId;
     protected $_name = [
+        'clientToken'             => 'ClientToken',
         'decreaseDesiredCapacity' => 'DecreaseDesiredCapacity',
         'instanceIds'             => 'InstanceIds',
         'ownerAccount'            => 'OwnerAccount',
@@ -79,6 +85,9 @@ class RemoveInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->decreaseDesiredCapacity) {
             $res['DecreaseDesiredCapacity'] = $this->decreaseDesiredCapacity;
         }
@@ -118,6 +127,9 @@ class RemoveInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['DecreaseDesiredCapacity'])) {
             $model->decreaseDesiredCapacity = $map['DecreaseDesiredCapacity'];
         }

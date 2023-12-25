@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEciScalingConfigurationResponseBody extends Model
 {
     /**
+     * @description The ID of the request. This request ID is returned regardless of whether the request is successful.
+     *
      * @example 45D5B0AD-3B00-4A9B-9911-6D5303B06712
      *
      * @var string
