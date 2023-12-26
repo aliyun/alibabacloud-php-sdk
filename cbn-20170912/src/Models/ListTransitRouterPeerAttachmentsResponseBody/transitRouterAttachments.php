@@ -75,6 +75,11 @@ class transitRouterAttachments extends Model
     public $creationTime;
 
     /**
+     * @description The default link type. Valid values:
+     * - **Gold**
+     * - **Platinum**
+     * @example Gold
+     *
      * @var string
      */
     public $defaultLinkType;

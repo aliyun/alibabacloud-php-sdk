@@ -73,6 +73,11 @@ class CreateTransitRouterPeerAttachmentRequest extends Model
     public $clientToken;
 
     /**
+     * @description The default link type. Valid values:
+     * - **Platinum**: only available for the **Pay-By-Data-Transfer** bandwidth.
+     * - **Gold** (default)
+     * @example Gold
+     *
      * @var string
      */
     public $defaultLinkType;

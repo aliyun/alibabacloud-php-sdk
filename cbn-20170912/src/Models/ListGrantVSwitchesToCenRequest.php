@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListGrantVSwitchesToCenRequest extends Model
 {
     /**
-     * @description The ID of the CEN instance.
+     * @description The CEN instance ID.
      *
      * @example cen-44m0p68spvlrqq****
      *
@@ -66,7 +66,7 @@ class ListGrantVSwitchesToCenRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
      * @example vpc-bp12ge2tq5gzdc915****
      *

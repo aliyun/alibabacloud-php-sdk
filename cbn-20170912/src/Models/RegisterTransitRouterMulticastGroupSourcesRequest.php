@@ -11,7 +11,7 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID is different for each request.
      * @example 123e4567-e89b-12d3-a456-4266****
      *
      * @var string
@@ -19,10 +19,10 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether only to check the request. Valid values:
+     * @description Specifies whether to perform a dry run, without sending the actual request. Default values:
      *
-     *   **true**: prechecks the request but does not create the multicast source. The system checks the required parameters, the request format, and the service limits. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. After the request passes the precheck, the multicast source is created.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -41,7 +41,7 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
     public $groupIpAddress;
 
     /**
-     * @description The IDs of the ENIs.
+     * @description The IDs of ENIs.
      *
      * >  This parameter is required.
      * @var string[]

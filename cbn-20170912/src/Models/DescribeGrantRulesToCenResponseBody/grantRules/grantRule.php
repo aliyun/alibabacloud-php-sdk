@@ -68,6 +68,11 @@ class grantRule extends Model
     public $childInstanceType;
 
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @description The entity that pays the fees of the network instance. Valid values:
      *
      *   **PayByCenOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the CEN instance belongs.
@@ -85,6 +90,7 @@ class grantRule extends Model
         'childInstanceOwnerId'  => 'ChildInstanceOwnerId',
         'childInstanceRegionId' => 'ChildInstanceRegionId',
         'childInstanceType'     => 'ChildInstanceType',
+        'createTime'            => 'CreateTime',
         'orderType'             => 'OrderType',
     ];
 
@@ -112,6 +118,9 @@ class grantRule extends Model
         }
         if (null !== $this->childInstanceType) {
             $res['ChildInstanceType'] = $this->childInstanceType;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
@@ -145,6 +154,9 @@ class grantRule extends Model
         }
         if (isset($map['ChildInstanceType'])) {
             $model->childInstanceType = $map['ChildInstanceType'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];

@@ -20,7 +20,7 @@ class DeactiveFlowLogRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request is different.
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string

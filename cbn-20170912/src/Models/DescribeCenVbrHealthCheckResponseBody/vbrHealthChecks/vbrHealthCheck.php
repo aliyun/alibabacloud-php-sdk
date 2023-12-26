@@ -18,6 +18,10 @@ class vbrHealthCheck extends Model
     public $cenId;
 
     /**
+     * @description The description of the health check.
+     *
+     * @example healthcheck_description
+     *
      * @var string
      */
     public $description;

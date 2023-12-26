@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTransitRouterResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 404DA7EC-F495-44B5-B543-6EDCDF90F3D1
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateTransitRouterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the Enterprise Edition transit router.
+     *
      * @example tr-uf6llz2286805i44g****
      *
      * @var string

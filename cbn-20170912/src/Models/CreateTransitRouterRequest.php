@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTransitRouterRequest extends Model
 {
     /**
+     * @description The ID of the Cloud Enterprise Network (CEN) instance.
+     *
      * @example cen-j3jzhw1zpau2km****
      *
      * @var string
@@ -18,6 +20,10 @@ class CreateTransitRouterRequest extends Model
     public $cenId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. The value of **RequestId** of each API request is different.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -25,6 +31,11 @@ class CreateTransitRouterRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to check the request without performing the operation. Check items include permissions and the status of the specified cloud resources. Valid values:
+     *
+     *   **false** (default): sends the request. If the request passes the check, an Enterprise Edition transit router is created.
+     *   **true**: checks the request but does not create the Enterprise Edition transit router. If you use this value, the system checks whether the required parameters are set, and whether the request syntax is valid. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *
      * @example false
      *
      * @var bool
@@ -42,6 +53,9 @@ class CreateTransitRouterRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the Enterprise Edition transit router is deployed.
+     *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-zhangjiakou
      *
      * @var string
@@ -59,6 +73,12 @@ class CreateTransitRouterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to enable the multicast feature for the Enterprise Edition transit router. Valid values:
+     *
+     *   **false** (default): no
+     *   **true**: yes
+     *
+     * The multicast feature is supported only in specific regions. You can call [ListTransitRouterAvailableResource](~~261356~~) to query the regions that support multicast.
      * @example false
      *
      * @var bool
@@ -66,16 +86,25 @@ class CreateTransitRouterRequest extends Model
     public $supportMulticast;
 
     /**
+     * @description The information about the tags.
+     *
+     * You can specify at most 20 tags in each call.
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The CIDR blocks of the transit router.
+     *
+     * >  Only Enterprise Edition transit routers support CIDR blocks.
      * @var transitRouterCidrList[]
      */
     public $transitRouterCidrList;
 
     /**
+     * @description The description of the Enterprise Edition transit router.
+     *
+     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
      * @example testdesc
      *
      * @var string
@@ -83,6 +112,9 @@ class CreateTransitRouterRequest extends Model
     public $transitRouterDescription;
 
     /**
+     * @description The name of the Enterprise Edition transit router.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example testname
      *
      * @var string
