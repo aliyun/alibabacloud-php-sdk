@@ -23,7 +23,7 @@ class taskDetail extends Model
     public $createTime;
 
     /**
-     * @description The logs of the product instance.
+     * @description The logs of the instance.
      *
      * @var log
      */
@@ -37,7 +37,7 @@ class taskDetail extends Model
     public $outputs;
 
     /**
-     * @description The input parameters of the template.
+     * @description The parameters that are specified in the template.
      *
      * @var parameters[]
      */
@@ -139,6 +139,8 @@ class taskDetail extends Model
     public $taskId;
 
     /**
+     * @description The custom tags.
+     *
      * @var taskTags[]
      */
     public $taskTags;

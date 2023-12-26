@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class taskTags extends Model
 {
     /**
+     * @description The custom tag key.
+     *
+     * The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
      * @example k1
      *
      * @var string
@@ -16,6 +19,9 @@ class taskTags extends Model
     public $key;
 
     /**
+     * @description The custom tag value.
+     *
+     * The value must be 1 to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
      * @example v1
      *
      * @var string

@@ -15,7 +15,7 @@ class operationRecords extends Model
      *   Submit: submits the plan.
      *   Cancel: cancels the plan.
      *   Approve: approves the plan.
-     *   reject: rejectes the plan.
+     *   reject: rejects the plan.
      *
      * @example Approve
      *

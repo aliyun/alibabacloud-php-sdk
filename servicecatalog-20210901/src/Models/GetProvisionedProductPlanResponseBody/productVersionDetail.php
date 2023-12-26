@@ -11,7 +11,7 @@ class productVersionDetail extends Model
     /**
      * @description Indicates whether the product version is visible to end users. Valid values:
      *
-     *   true (defaut)
+     *   true (default)
      *   false
      *
      * @example true
