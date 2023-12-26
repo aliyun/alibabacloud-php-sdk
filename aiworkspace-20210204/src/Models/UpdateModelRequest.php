@@ -23,6 +23,11 @@ class UpdateModelRequest extends Model
     public $domain;
 
     /**
+     * @var mixed[]
+     */
+    public $extraInfo;
+
+    /**
      * @var string
      */
     public $modelDescription;
@@ -40,6 +45,13 @@ class UpdateModelRequest extends Model
     public $modelName;
 
     /**
+     * @example Checkpoint
+     *
+     * @var string
+     */
+    public $modelType;
+
+    /**
      * @example 101
      *
      * @var int
@@ -54,16 +66,6 @@ class UpdateModelRequest extends Model
     public $origin;
 
     /**
-     * @var string
-     */
-    public $sourceId;
-
-    /**
-     * @var string
-     */
-    public $sourceType;
-
-    /**
      * @example text-classification
      *
      * @var string
@@ -72,13 +74,13 @@ class UpdateModelRequest extends Model
     protected $_name = [
         'accessibility'    => 'Accessibility',
         'domain'           => 'Domain',
+        'extraInfo'        => 'ExtraInfo',
         'modelDescription' => 'ModelDescription',
         'modelDoc'         => 'ModelDoc',
         'modelName'        => 'ModelName',
+        'modelType'        => 'ModelType',
         'orderNumber'      => 'OrderNumber',
         'origin'           => 'Origin',
-        'sourceId'         => 'SourceId',
-        'sourceType'       => 'SourceType',
         'task'             => 'Task',
     ];
 
@@ -95,6 +97,9 @@ class UpdateModelRequest extends Model
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
+        }
         if (null !== $this->modelDescription) {
             $res['ModelDescription'] = $this->modelDescription;
         }
@@ -104,17 +109,14 @@ class UpdateModelRequest extends Model
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
+        if (null !== $this->modelType) {
+            $res['ModelType'] = $this->modelType;
+        }
         if (null !== $this->orderNumber) {
             $res['OrderNumber'] = $this->orderNumber;
         }
         if (null !== $this->origin) {
             $res['Origin'] = $this->origin;
-        }
-        if (null !== $this->sourceId) {
-            $res['SourceId'] = $this->sourceId;
-        }
-        if (null !== $this->sourceType) {
-            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->task) {
             $res['Task'] = $this->task;
@@ -137,6 +139,9 @@ class UpdateModelRequest extends Model
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
+        }
         if (isset($map['ModelDescription'])) {
             $model->modelDescription = $map['ModelDescription'];
         }
@@ -146,17 +151,14 @@ class UpdateModelRequest extends Model
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }
+        if (isset($map['ModelType'])) {
+            $model->modelType = $map['ModelType'];
+        }
         if (isset($map['OrderNumber'])) {
             $model->orderNumber = $map['OrderNumber'];
         }
         if (isset($map['Origin'])) {
             $model->origin = $map['Origin'];
-        }
-        if (isset($map['SourceId'])) {
-            $model->sourceId = $map['SourceId'];
-        }
-        if (isset($map['SourceType'])) {
-            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['Task'])) {
             $model->task = $map['Task'];

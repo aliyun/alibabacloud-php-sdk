@@ -16,6 +16,20 @@ class CreateModelVersionRequest extends Model
     public $approvalStatus;
 
     /**
+     * @example {}
+     *
+     * @var mixed[]
+     */
+    public $evaluationSpec;
+
+    /**
+     * @example {}
+     *
+     * @var mixed[]
+     */
+    public $extraInfo;
+
+    /**
      * @example SavedModel
      *
      * @var string
@@ -42,6 +56,8 @@ class CreateModelVersionRequest extends Model
     public $labels;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $metrics;
@@ -68,6 +84,8 @@ class CreateModelVersionRequest extends Model
     public $sourceType;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $trainingSpec;
@@ -92,6 +110,8 @@ class CreateModelVersionRequest extends Model
     public $versionName;
     protected $_name = [
         'approvalStatus'     => 'ApprovalStatus',
+        'evaluationSpec'     => 'EvaluationSpec',
+        'extraInfo'          => 'ExtraInfo',
         'formatType'         => 'FormatType',
         'frameworkType'      => 'FrameworkType',
         'inferenceSpec'      => 'InferenceSpec',
@@ -115,6 +135,12 @@ class CreateModelVersionRequest extends Model
         $res = [];
         if (null !== $this->approvalStatus) {
             $res['ApprovalStatus'] = $this->approvalStatus;
+        }
+        if (null !== $this->evaluationSpec) {
+            $res['EvaluationSpec'] = $this->evaluationSpec;
+        }
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
         }
         if (null !== $this->formatType) {
             $res['FormatType'] = $this->formatType;
@@ -172,6 +198,12 @@ class CreateModelVersionRequest extends Model
         $model = new self();
         if (isset($map['ApprovalStatus'])) {
             $model->approvalStatus = $map['ApprovalStatus'];
+        }
+        if (isset($map['EvaluationSpec'])) {
+            $model->evaluationSpec = $map['EvaluationSpec'];
+        }
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
         }
         if (isset($map['FormatType'])) {
             $model->formatType = $map['FormatType'];

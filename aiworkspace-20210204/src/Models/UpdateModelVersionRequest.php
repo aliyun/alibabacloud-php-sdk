@@ -16,6 +16,20 @@ class UpdateModelVersionRequest extends Model
     public $approvalStatus;
 
     /**
+     * @example {}
+     *
+     * @var mixed[]
+     */
+    public $evaluationSpec;
+
+    /**
+     * @example {}
+     *
+     * @var mixed[]
+     */
+    public $extraInfo;
+
+    /**
      * @example {     "processor": "tensorflow_gpu_1.12" }
      *
      * @var mixed[]
@@ -63,6 +77,8 @@ class UpdateModelVersionRequest extends Model
     public $versionDescription;
     protected $_name = [
         'approvalStatus'     => 'ApprovalStatus',
+        'evaluationSpec'     => 'EvaluationSpec',
+        'extraInfo'          => 'ExtraInfo',
         'inferenceSpec'      => 'InferenceSpec',
         'metrics'            => 'Metrics',
         'options'            => 'Options',
@@ -81,6 +97,12 @@ class UpdateModelVersionRequest extends Model
         $res = [];
         if (null !== $this->approvalStatus) {
             $res['ApprovalStatus'] = $this->approvalStatus;
+        }
+        if (null !== $this->evaluationSpec) {
+            $res['EvaluationSpec'] = $this->evaluationSpec;
+        }
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
         }
         if (null !== $this->inferenceSpec) {
             $res['InferenceSpec'] = $this->inferenceSpec;
@@ -117,6 +139,12 @@ class UpdateModelVersionRequest extends Model
         $model = new self();
         if (isset($map['ApprovalStatus'])) {
             $model->approvalStatus = $map['ApprovalStatus'];
+        }
+        if (isset($map['EvaluationSpec'])) {
+            $model->evaluationSpec = $map['EvaluationSpec'];
+        }
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
         }
         if (isset($map['InferenceSpec'])) {
             $model->inferenceSpec = $map['InferenceSpec'];

@@ -16,6 +16,20 @@ class GetModelVersionResponseBody extends Model
     public $approvalStatus;
 
     /**
+     * @example {}
+     *
+     * @var mixed[]
+     */
+    public $evaluationSpec;
+
+    /**
+     * @example {}
+     *
+     * @var mixed[]
+     */
+    public $extraInfo;
+
+    /**
      * @example SavedModel
      *
      * @var string
@@ -54,6 +68,13 @@ class GetModelVersionResponseBody extends Model
      * @var Label[]
      */
     public $labels;
+
+    /**
+     * @example {}
+     *
+     * @var mixed[]
+     */
+    public $metrics;
 
     /**
      * @example {}
@@ -124,12 +145,15 @@ class GetModelVersionResponseBody extends Model
     public $versionName;
     protected $_name = [
         'approvalStatus'     => 'ApprovalStatus',
+        'evaluationSpec'     => 'EvaluationSpec',
+        'extraInfo'          => 'ExtraInfo',
         'formatType'         => 'FormatType',
         'frameworkType'      => 'FrameworkType',
         'gmtCreateTime'      => 'GmtCreateTime',
         'gmtModifiedTime'    => 'GmtModifiedTime',
         'inferenceSpec'      => 'InferenceSpec',
         'labels'             => 'Labels',
+        'metrics'            => 'Metrics',
         'options'            => 'Options',
         'ownerId'            => 'OwnerId',
         'requestId'          => 'RequestId',
@@ -151,6 +175,12 @@ class GetModelVersionResponseBody extends Model
         $res = [];
         if (null !== $this->approvalStatus) {
             $res['ApprovalStatus'] = $this->approvalStatus;
+        }
+        if (null !== $this->evaluationSpec) {
+            $res['EvaluationSpec'] = $this->evaluationSpec;
+        }
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
         }
         if (null !== $this->formatType) {
             $res['FormatType'] = $this->formatType;
@@ -175,6 +205,9 @@ class GetModelVersionResponseBody extends Model
                     $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->metrics) {
+            $res['Metrics'] = $this->metrics;
         }
         if (null !== $this->options) {
             $res['Options'] = $this->options;
@@ -221,6 +254,12 @@ class GetModelVersionResponseBody extends Model
         if (isset($map['ApprovalStatus'])) {
             $model->approvalStatus = $map['ApprovalStatus'];
         }
+        if (isset($map['EvaluationSpec'])) {
+            $model->evaluationSpec = $map['EvaluationSpec'];
+        }
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
+        }
         if (isset($map['FormatType'])) {
             $model->formatType = $map['FormatType'];
         }
@@ -244,6 +283,9 @@ class GetModelVersionResponseBody extends Model
                     $model->labels[$n++] = null !== $item ? Label::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Metrics'])) {
+            $model->metrics = $map['Metrics'];
         }
         if (isset($map['Options'])) {
             $model->options = $map['Options'];

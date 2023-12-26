@@ -14,6 +14,16 @@ class ModelVersion extends Model
     public $approvalStatus;
 
     /**
+     * @var mixed[]
+     */
+    public $evaluationSpec;
+
+    /**
+     * @var mixed[]
+     */
+    public $extraInfo;
+
+    /**
      * @example SavedModel
      *
      * @var string
@@ -110,6 +120,8 @@ class ModelVersion extends Model
     public $versionName;
     protected $_name = [
         'approvalStatus'     => 'ApprovalStatus',
+        'evaluationSpec'     => 'EvaluationSpec',
+        'extraInfo'          => 'ExtraInfo',
         'formatType'         => 'FormatType',
         'frameworkType'      => 'FrameworkType',
         'gmtCreateTime'      => 'GmtCreateTime',
@@ -137,6 +149,12 @@ class ModelVersion extends Model
         $res = [];
         if (null !== $this->approvalStatus) {
             $res['ApprovalStatus'] = $this->approvalStatus;
+        }
+        if (null !== $this->evaluationSpec) {
+            $res['EvaluationSpec'] = $this->evaluationSpec;
+        }
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
         }
         if (null !== $this->formatType) {
             $res['FormatType'] = $this->formatType;
@@ -206,6 +224,12 @@ class ModelVersion extends Model
         $model = new self();
         if (isset($map['ApprovalStatus'])) {
             $model->approvalStatus = $map['ApprovalStatus'];
+        }
+        if (isset($map['EvaluationSpec'])) {
+            $model->evaluationSpec = $map['EvaluationSpec'];
+        }
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
         }
         if (isset($map['FormatType'])) {
             $model->formatType = $map['FormatType'];

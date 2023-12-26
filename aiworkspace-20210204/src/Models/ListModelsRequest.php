@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListModelsRequest extends Model
 {
     /**
+     * @example AI4D,QuickStart
+     *
+     * @var string
+     */
+    public $collections;
+
+    /**
      * @example nlp
      *
      * @var string
@@ -26,6 +33,13 @@ class ListModelsRequest extends Model
      * @var string
      */
     public $modelName;
+
+    /**
+     * @example Endpoint
+     *
+     * @var string
+     */
+    public $modelType;
 
     /**
      * @example DESC
@@ -77,16 +91,6 @@ class ListModelsRequest extends Model
     public $sortBy;
 
     /**
-     * @var string
-     */
-    public $souceType;
-
-    /**
-     * @var string
-     */
-    public $sourceId;
-
-    /**
      * @example text-classification
      *
      * @var string
@@ -100,9 +104,11 @@ class ListModelsRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'collections' => 'Collections',
         'domain'      => 'Domain',
         'label'       => 'Label',
         'modelName'   => 'ModelName',
+        'modelType'   => 'ModelType',
         'order'       => 'Order',
         'origin'      => 'Origin',
         'pageNumber'  => 'PageNumber',
@@ -110,8 +116,6 @@ class ListModelsRequest extends Model
         'provider'    => 'Provider',
         'query'       => 'Query',
         'sortBy'      => 'SortBy',
-        'souceType'   => 'SouceType',
-        'sourceId'    => 'SourceId',
         'task'        => 'Task',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -123,6 +127,9 @@ class ListModelsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->collections) {
+            $res['Collections'] = $this->collections;
+        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -131,6 +138,9 @@ class ListModelsRequest extends Model
         }
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
+        }
+        if (null !== $this->modelType) {
+            $res['ModelType'] = $this->modelType;
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
@@ -153,12 +163,6 @@ class ListModelsRequest extends Model
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
-        if (null !== $this->souceType) {
-            $res['SouceType'] = $this->souceType;
-        }
-        if (null !== $this->sourceId) {
-            $res['SourceId'] = $this->sourceId;
-        }
         if (null !== $this->task) {
             $res['Task'] = $this->task;
         }
@@ -177,6 +181,9 @@ class ListModelsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Collections'])) {
+            $model->collections = $map['Collections'];
+        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
@@ -185,6 +192,9 @@ class ListModelsRequest extends Model
         }
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
+        }
+        if (isset($map['ModelType'])) {
+            $model->modelType = $map['ModelType'];
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
@@ -206,12 +216,6 @@ class ListModelsRequest extends Model
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
-        }
-        if (isset($map['SouceType'])) {
-            $model->souceType = $map['SouceType'];
-        }
-        if (isset($map['SourceId'])) {
-            $model->sourceId = $map['SourceId'];
         }
         if (isset($map['Task'])) {
             $model->task = $map['Task'];

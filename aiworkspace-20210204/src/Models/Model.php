@@ -23,6 +23,11 @@ class Model extends Model
     public $domain;
 
     /**
+     * @var mixed[]
+     */
+    public $extraInfo;
+
+    /**
      * @example 2021-01-21T17:12:35Z
      *
      * @var string
@@ -71,6 +76,13 @@ class Model extends Model
     public $modelName;
 
     /**
+     * @example Checkpoint
+     *
+     * @var string
+     */
+    public $modelType;
+
+    /**
      * @example 101
      *
      * @var int
@@ -99,20 +111,6 @@ class Model extends Model
     public $provider;
 
     /**
-     * @example 1557702098******
-     *
-     * @var string
-     */
-    public $sourceId;
-
-    /**
-     * @example AI4D
-     *
-     * @var string
-     */
-    public $sourceType;
-
-    /**
      * @example text-classifiaction
      *
      * @var string
@@ -135,6 +133,7 @@ class Model extends Model
     protected $_name = [
         'accessibility'    => 'Accessibility',
         'domain'           => 'Domain',
+        'extraInfo'        => 'ExtraInfo',
         'gmtCreateTime'    => 'GmtCreateTime',
         'gmtModifiedTime'  => 'GmtModifiedTime',
         'labels'           => 'Labels',
@@ -143,12 +142,11 @@ class Model extends Model
         'modelDoc'         => 'ModelDoc',
         'modelId'          => 'ModelId',
         'modelName'        => 'ModelName',
+        'modelType'        => 'ModelType',
         'orderNumber'      => 'OrderNumber',
         'origin'           => 'Origin',
         'ownerId'          => 'OwnerId',
         'provider'         => 'Provider',
-        'sourceId'         => 'SourceId',
-        'sourceType'       => 'SourceType',
         'task'             => 'Task',
         'userId'           => 'UserId',
         'workspaceId'      => 'WorkspaceId',
@@ -166,6 +164,9 @@ class Model extends Model
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
         }
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
@@ -197,6 +198,9 @@ class Model extends Model
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
+        if (null !== $this->modelType) {
+            $res['ModelType'] = $this->modelType;
+        }
         if (null !== $this->orderNumber) {
             $res['OrderNumber'] = $this->orderNumber;
         }
@@ -208,12 +212,6 @@ class Model extends Model
         }
         if (null !== $this->provider) {
             $res['Provider'] = $this->provider;
-        }
-        if (null !== $this->sourceId) {
-            $res['SourceId'] = $this->sourceId;
-        }
-        if (null !== $this->sourceType) {
-            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->task) {
             $res['Task'] = $this->task;
@@ -241,6 +239,9 @@ class Model extends Model
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
         }
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
@@ -272,6 +273,9 @@ class Model extends Model
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }
+        if (isset($map['ModelType'])) {
+            $model->modelType = $map['ModelType'];
+        }
         if (isset($map['OrderNumber'])) {
             $model->orderNumber = $map['OrderNumber'];
         }
@@ -283,12 +287,6 @@ class Model extends Model
         }
         if (isset($map['Provider'])) {
             $model->provider = $map['Provider'];
-        }
-        if (isset($map['SourceId'])) {
-            $model->sourceId = $map['SourceId'];
-        }
-        if (isset($map['SourceType'])) {
-            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['Task'])) {
             $model->task = $map['Task'];

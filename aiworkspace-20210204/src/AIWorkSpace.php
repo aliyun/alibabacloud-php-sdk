@@ -571,6 +571,9 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->domain)) {
             $body['Domain'] = $request->domain;
         }
+        if (!Utils::isUnset($request->extraInfo)) {
+            $body['ExtraInfo'] = $request->extraInfo;
+        }
         if (!Utils::isUnset($request->labels)) {
             $body['Labels'] = $request->labels;
         }
@@ -583,17 +586,14 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->modelName)) {
             $body['ModelName'] = $request->modelName;
         }
+        if (!Utils::isUnset($request->modelType)) {
+            $body['ModelType'] = $request->modelType;
+        }
         if (!Utils::isUnset($request->orderNumber)) {
             $body['OrderNumber'] = $request->orderNumber;
         }
         if (!Utils::isUnset($request->origin)) {
             $body['Origin'] = $request->origin;
-        }
-        if (!Utils::isUnset($request->sourceId)) {
-            $body['SourceId'] = $request->sourceId;
-        }
-        if (!Utils::isUnset($request->sourceType)) {
-            $body['SourceType'] = $request->sourceType;
         }
         if (!Utils::isUnset($request->task)) {
             $body['Task'] = $request->task;
@@ -695,6 +695,12 @@ class AIWorkSpace extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->approvalStatus)) {
             $body['ApprovalStatus'] = $request->approvalStatus;
+        }
+        if (!Utils::isUnset($request->evaluationSpec)) {
+            $body['EvaluationSpec'] = $request->evaluationSpec;
+        }
+        if (!Utils::isUnset($request->extraInfo)) {
+            $body['ExtraInfo'] = $request->extraInfo;
         }
         if (!Utils::isUnset($request->formatType)) {
             $body['FormatType'] = $request->formatType;
@@ -2297,6 +2303,9 @@ class AIWorkSpace extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->collections)) {
+            $query['Collections'] = $request->collections;
+        }
         if (!Utils::isUnset($request->domain)) {
             $query['Domain'] = $request->domain;
         }
@@ -2305,6 +2314,9 @@ class AIWorkSpace extends OpenApiClient
         }
         if (!Utils::isUnset($request->modelName)) {
             $query['ModelName'] = $request->modelName;
+        }
+        if (!Utils::isUnset($request->modelType)) {
+            $query['ModelType'] = $request->modelType;
         }
         if (!Utils::isUnset($request->order)) {
             $query['Order'] = $request->order;
@@ -2326,12 +2338,6 @@ class AIWorkSpace extends OpenApiClient
         }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
-        }
-        if (!Utils::isUnset($request->souceType)) {
-            $query['SouceType'] = $request->souceType;
-        }
-        if (!Utils::isUnset($request->sourceId)) {
-            $query['SourceId'] = $request->sourceId;
         }
         if (!Utils::isUnset($request->task)) {
             $query['Task'] = $request->task;
@@ -2941,13 +2947,13 @@ class AIWorkSpace extends OpenApiClient
 
     /**
      * @param string         $ImageId
-     * @param string         $LabelKeys
+     * @param string         $LabelKey
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
      * @return RemoveImageLabelsResponse
      */
-    public function removeImageLabelsWithOptions($ImageId, $LabelKeys, $headers, $runtime)
+    public function removeImageLabelsWithOptions($ImageId, $LabelKey, $headers, $runtime)
     {
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2956,7 +2962,7 @@ class AIWorkSpace extends OpenApiClient
             'action'      => 'RemoveImageLabels',
             'version'     => '2021-02-04',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/images/' . OpenApiUtilClient::getEncodeParam($ImageId) . '/labels/' . OpenApiUtilClient::getEncodeParam($LabelKeys) . '',
+            'pathname'    => '/api/v1/images/' . OpenApiUtilClient::getEncodeParam($ImageId) . '/labels/' . OpenApiUtilClient::getEncodeParam($LabelKey) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2969,16 +2975,16 @@ class AIWorkSpace extends OpenApiClient
 
     /**
      * @param string $ImageId
-     * @param string $LabelKeys
+     * @param string $LabelKey
      *
      * @return RemoveImageLabelsResponse
      */
-    public function removeImageLabels($ImageId, $LabelKeys)
+    public function removeImageLabels($ImageId, $LabelKey)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeImageLabelsWithOptions($ImageId, $LabelKeys, $headers, $runtime);
+        return $this->removeImageLabelsWithOptions($ImageId, $LabelKey, $headers, $runtime);
     }
 
     /**
@@ -3143,6 +3149,9 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->domain)) {
             $body['Domain'] = $request->domain;
         }
+        if (!Utils::isUnset($request->extraInfo)) {
+            $body['ExtraInfo'] = $request->extraInfo;
+        }
         if (!Utils::isUnset($request->modelDescription)) {
             $body['ModelDescription'] = $request->modelDescription;
         }
@@ -3152,17 +3161,14 @@ class AIWorkSpace extends OpenApiClient
         if (!Utils::isUnset($request->modelName)) {
             $body['ModelName'] = $request->modelName;
         }
+        if (!Utils::isUnset($request->modelType)) {
+            $body['ModelType'] = $request->modelType;
+        }
         if (!Utils::isUnset($request->orderNumber)) {
             $body['OrderNumber'] = $request->orderNumber;
         }
         if (!Utils::isUnset($request->origin)) {
             $body['Origin'] = $request->origin;
-        }
-        if (!Utils::isUnset($request->sourceId)) {
-            $body['SourceId'] = $request->sourceId;
-        }
-        if (!Utils::isUnset($request->sourceType)) {
-            $body['SourceType'] = $request->sourceType;
         }
         if (!Utils::isUnset($request->task)) {
             $body['Task'] = $request->task;
@@ -3215,6 +3221,12 @@ class AIWorkSpace extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->approvalStatus)) {
             $body['ApprovalStatus'] = $request->approvalStatus;
+        }
+        if (!Utils::isUnset($request->evaluationSpec)) {
+            $body['EvaluationSpec'] = $request->evaluationSpec;
+        }
+        if (!Utils::isUnset($request->extraInfo)) {
+            $body['ExtraInfo'] = $request->extraInfo;
         }
         if (!Utils::isUnset($request->inferenceSpec)) {
             $body['InferenceSpec'] = $request->inferenceSpec;

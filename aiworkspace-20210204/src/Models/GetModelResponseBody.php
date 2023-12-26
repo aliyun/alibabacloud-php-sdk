@@ -23,6 +23,11 @@ class GetModelResponseBody extends Model
     public $domain;
 
     /**
+     * @var mixed[]
+     */
+    public $extraInfo;
+
+    /**
      * @example 2021-01-30T12:51:33.028Z
      *
      * @var string
@@ -69,6 +74,20 @@ class GetModelResponseBody extends Model
      * @var string
      */
     public $modelName;
+
+    /**
+     * @example Checkpoint
+     *
+     * @var string
+     */
+    public $modelType;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $orderNumber;
 
     /**
      * @example ModelScope
@@ -121,6 +140,7 @@ class GetModelResponseBody extends Model
     protected $_name = [
         'accessibility'    => 'Accessibility',
         'domain'           => 'Domain',
+        'extraInfo'        => 'ExtraInfo',
         'gmtCreateTime'    => 'GmtCreateTime',
         'gmtModifiedTime'  => 'GmtModifiedTime',
         'labels'           => 'Labels',
@@ -129,6 +149,8 @@ class GetModelResponseBody extends Model
         'modelDoc'         => 'ModelDoc',
         'modelId'          => 'ModelId',
         'modelName'        => 'ModelName',
+        'modelType'        => 'ModelType',
+        'orderNumber'      => 'OrderNumber',
         'origin'           => 'Origin',
         'ownerId'          => 'OwnerId',
         'provider'         => 'Provider',
@@ -150,6 +172,9 @@ class GetModelResponseBody extends Model
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
         }
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
@@ -180,6 +205,12 @@ class GetModelResponseBody extends Model
         }
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
+        }
+        if (null !== $this->modelType) {
+            $res['ModelType'] = $this->modelType;
+        }
+        if (null !== $this->orderNumber) {
+            $res['OrderNumber'] = $this->orderNumber;
         }
         if (null !== $this->origin) {
             $res['Origin'] = $this->origin;
@@ -220,6 +251,9 @@ class GetModelResponseBody extends Model
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
+        }
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
@@ -249,6 +283,12 @@ class GetModelResponseBody extends Model
         }
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
+        }
+        if (isset($map['ModelType'])) {
+            $model->modelType = $map['ModelType'];
+        }
+        if (isset($map['OrderNumber'])) {
+            $model->orderNumber = $map['OrderNumber'];
         }
         if (isset($map['Origin'])) {
             $model->origin = $map['Origin'];
