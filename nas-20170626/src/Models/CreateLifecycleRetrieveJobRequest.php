@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateLifecycleRetrieveJobRequest extends Model
 {
     /**
+     * @description The ID of the file system.
+     *
+     * @example 31a8e4****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @description The directories or files that you want to retrieve. You can specify a maximum of 10 paths.
+     *
+     * @example Paths.1=/pathway/doc1,Paths.2=/pathway/doc2
+     *
      * @var string[]
      */
     public $paths;

@@ -9,35 +9,65 @@ use AlibabaCloud\Tea\Model;
 class accessGroup extends Model
 {
     /**
+     * @description The name of the permission group.
+     *
+     * @example DEFAULT_VPC_GROUP_NAME
+     *
      * @var string
      */
     public $accessGroupName;
 
     /**
-     * @var string
-     */
-    public $description;
-
-    /**
+     * @description The network type of the permission group. Valid value: **Vpc**.
+     *
+     * @example Vpc
+     *
      * @var string
      */
     public $accessGroupType;
 
     /**
-     * @var int
+     * @description The time when the permission group was created.
+     *
+     * @example 2020-01-05T16:00:00Z
+     *
+     * @var string
      */
-    public $ruleCount;
+    public $createTime;
 
     /**
+     * @description The description of the permission group.
+     *
+     * @example This is a test access group.
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description The number of mount targets to which the permission group is attached.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $mountTargetCount;
+
+    /**
+     * @description The total number of rules in the permission group.
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $ruleCount;
     protected $_name = [
         'accessGroupName'  => 'AccessGroupName',
-        'description'      => 'Description',
         'accessGroupType'  => 'AccessGroupType',
-        'ruleCount'        => 'RuleCount',
+        'createTime'       => 'CreateTime',
+        'description'      => 'Description',
         'mountTargetCount' => 'MountTargetCount',
+        'ruleCount'        => 'RuleCount',
     ];
 
     public function validate()
@@ -50,17 +80,20 @@ class accessGroup extends Model
         if (null !== $this->accessGroupName) {
             $res['AccessGroupName'] = $this->accessGroupName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->accessGroupType) {
             $res['AccessGroupType'] = $this->accessGroupType;
         }
-        if (null !== $this->ruleCount) {
-            $res['RuleCount'] = $this->ruleCount;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->mountTargetCount) {
             $res['MountTargetCount'] = $this->mountTargetCount;
+        }
+        if (null !== $this->ruleCount) {
+            $res['RuleCount'] = $this->ruleCount;
         }
 
         return $res;
@@ -77,17 +110,20 @@ class accessGroup extends Model
         if (isset($map['AccessGroupName'])) {
             $model->accessGroupName = $map['AccessGroupName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['AccessGroupType'])) {
             $model->accessGroupType = $map['AccessGroupType'];
         }
-        if (isset($map['RuleCount'])) {
-            $model->ruleCount = $map['RuleCount'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['MountTargetCount'])) {
             $model->mountTargetCount = $map['MountTargetCount'];
+        }
+        if (isset($map['RuleCount'])) {
+            $model->ruleCount = $map['RuleCount'];
         }
 
         return $model;

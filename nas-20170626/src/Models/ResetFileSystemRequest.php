@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ResetFileSystemRequest extends Model
 {
     /**
+     * @description The ID of the advanced Extreme NAS file system.
+     *
+     * @example extreme-012dd****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @description The snapshot ID.
+     *
+     * @example s-extreme-snapsho****
+     *
      * @var string
      */
     public $snapshotId;

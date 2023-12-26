@@ -9,29 +9,52 @@ use AlibabaCloud\Tea\Model;
 class DescribeStoragePackagesRequest extends Model
 {
     /**
-     * @var string
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example 1
+     *
+     * @var int
      */
-    public $regionId;
+    public $pageNumber;
 
     /**
+     * @description The number of storage plans to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description Specifies whether the time to return is in UTC.
+     *
+     * Valid values:
+     *
+     *   true (default): returns UTC time.
+     *   false: returns UNIX timestamp.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $useUTCDateTime;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'pageSize'       => 'PageSize',
-        'useUTCDateTime' => 'UseUTCDateTime',
         'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
+        'regionId'       => 'RegionId',
+        'useUTCDateTime' => 'UseUTCDateTime',
     ];
 
     public function validate()
@@ -41,17 +64,17 @@ class DescribeStoragePackagesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->useUTCDateTime) {
             $res['UseUTCDateTime'] = $this->useUTCDateTime;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
         }
 
         return $res;
@@ -65,17 +88,17 @@ class DescribeStoragePackagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['UseUTCDateTime'])) {
             $model->useUTCDateTime = $map['UseUTCDateTime'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
         }
 
         return $model;

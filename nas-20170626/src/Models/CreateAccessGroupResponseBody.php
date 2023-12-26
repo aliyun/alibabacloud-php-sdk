@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessGroupResponseBody extends Model
 {
     /**
+     * @description The name of the permission group.
+     *
+     * @example vpc-test
+     *
      * @var string
      */
     public $accessGroupName;
 
     /**
+     * @description The request ID.
+     *
+     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189F4F8
+     *
      * @var string
      */
     public $requestId;

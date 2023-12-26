@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileSystemResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 9E15E394-38A6-457A-A62A-D9797C9A****
+     *
      * @var string
      */
     public $requestId;

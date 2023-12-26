@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class analysis extends Model
 {
     /**
+     * @description The ID of the file system.
+     *
+     * @example 0c7154xxxx
+     *
      * @var string
      */
     public $metaKey;
 
     /**
+     * @description The log dump information of the file system.
+     *
      * @var metaValue
      */
     public $metaValue;

@@ -9,35 +9,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessRulesRequest extends Model
 {
     /**
+     * @description The name of the permission group.
+     *
+     * @example vpc-test
+     *
      * @var string
      */
     public $accessGroupName;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $accessRuleId;
 
     /**
-     * @var int
+     * @description The type of the file system.
+     *
+     * Valid values:
+     *
+     *   standard (default): General-purpose NAS file system
+     *   extreme: Extreme NAS file system
+     *
+     * @example standard
+     *
+     * @var string
      */
-    public $pageSize;
+    public $fileSystemType;
 
     /**
+     * @description The page number.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @var string
+     * @description The number of entries per page.
+     *
+     * Default value: 10.
+     * @example 1
+     *
+     * @var int
      */
-    public $fileSystemType;
+    public $pageSize;
     protected $_name = [
         'accessGroupName' => 'AccessGroupName',
         'accessRuleId'    => 'AccessRuleId',
-        'pageSize'        => 'PageSize',
-        'pageNumber'      => 'PageNumber',
         'fileSystemType'  => 'FileSystemType',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
     ];
 
     public function validate()
@@ -53,14 +80,14 @@ class DescribeAccessRulesRequest extends Model
         if (null !== $this->accessRuleId) {
             $res['AccessRuleId'] = $this->accessRuleId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->fileSystemType) {
+            $res['FileSystemType'] = $this->fileSystemType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->fileSystemType) {
-            $res['FileSystemType'] = $this->fileSystemType;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -80,14 +107,14 @@ class DescribeAccessRulesRequest extends Model
         if (isset($map['AccessRuleId'])) {
             $model->accessRuleId = $map['AccessRuleId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['FileSystemType'])) {
+            $model->fileSystemType = $map['FileSystemType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['FileSystemType'])) {
-            $model->fileSystemType = $map['FileSystemType'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

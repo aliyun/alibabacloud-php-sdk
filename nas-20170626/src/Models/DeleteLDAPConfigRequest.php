@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteLDAPConfigRequest extends Model
 {
     /**
+     * @description The ID of the file system.
+     *
+     * @example 1ca404a348
+     *
      * @var string
      */
     public $fileSystemId;

@@ -10,23 +10,33 @@ use AlibabaCloud\Tea\Model;
 class ListDirectoriesAndFilesResponseBody extends Model
 {
     /**
+     * @description The details about the files or directories.
+     *
+     * @var entries[]
+     */
+    public $entries;
+
+    /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
+     * @example TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 2D69A58F-345C-4FDE-88E4-BF518948****
+     *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var entries[]
-     */
-    public $entries;
     protected $_name = [
+        'entries'   => 'Entries',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'entries'   => 'Entries',
     ];
 
     public function validate()
@@ -36,12 +46,6 @@ class ListDirectoriesAndFilesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->entries) {
             $res['Entries'] = [];
             if (null !== $this->entries && \is_array($this->entries)) {
@@ -50,6 +54,12 @@ class ListDirectoriesAndFilesResponseBody extends Model
                     $res['Entries'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,12 +73,6 @@ class ListDirectoriesAndFilesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Entries'])) {
             if (!empty($map['Entries'])) {
                 $model->entries = [];
@@ -77,6 +81,12 @@ class ListDirectoriesAndFilesResponseBody extends Model
                     $model->entries[$n++] = null !== $item ? entries::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

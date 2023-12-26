@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessRuleResponseBody extends Model
 {
     /**
+     * @description The rule ID.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $accessRuleId;
 
     /**
+     * @description The request ID.
+     *
+     * @example A323836B-5BC6-45A6-8048-60675C23****
+     *
      * @var string
      */
     public $requestId;

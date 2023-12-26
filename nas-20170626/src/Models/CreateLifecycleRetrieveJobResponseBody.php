@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class CreateLifecycleRetrieveJobResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The ID of the data retrieval task.
+     *
+     * @example lrj-nfstest-ia-160****853-hshvw
+     *
      * @var string
      */
     public $jobId;
+
+    /**
+     * @description The request ID.
+     *
+     * @example BC7C825C-5F65-4B56-BEF6-98C56C7C****
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'jobId'     => 'JobId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +37,11 @@ class CreateLifecycleRetrieveJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +55,11 @@ class CreateLifecycleRetrieveJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetDirectoryOrFilePropertiesResponseBody extends Model
 {
     /**
+     * @description The details about the file or directory.
+     *
      * @var entry
      */
     public $entry;
 
     /**
+     * @description The request ID.
+     *
+     * @example 2D69A58F-345C-4FDE-88E4-BF518948****
+     *
      * @var string
      */
     public $requestId;

@@ -9,22 +9,34 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
-     * @var string
-     */
-    public $regionEndpoint;
-
-    /**
+     * @description The region name.
+     *
+     * @example East China 1
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The endpoint for the region.
+     *
+     * @example nas.cn-hangzhou.aliyuncs.com
+     *
+     * @var string
+     */
+    public $regionEndpoint;
+
+    /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'regionEndpoint' => 'RegionEndpoint',
         'localName'      => 'LocalName',
+        'regionEndpoint' => 'RegionEndpoint',
         'regionId'       => 'RegionId',
     ];
 
@@ -35,11 +47,11 @@ class region extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionEndpoint) {
-            $res['RegionEndpoint'] = $this->regionEndpoint;
-        }
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
+        }
+        if (null !== $this->regionEndpoint) {
+            $res['RegionEndpoint'] = $this->regionEndpoint;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -56,11 +68,11 @@ class region extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionEndpoint'])) {
-            $model->regionEndpoint = $map['RegionEndpoint'];
-        }
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
+        }
+        if (isset($map['RegionEndpoint'])) {
+            $model->regionEndpoint = $map['RegionEndpoint'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

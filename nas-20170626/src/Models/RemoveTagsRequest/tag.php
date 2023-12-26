@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key (TagKey) of Tag N. Each tag that you want to remove includes a TagKey and TagValue. You can specify 1 to 10 tags at a time. A TagKey cannot be an empty string, but a TagValue can be an empty string.
+     *
+     * @example keyN
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value (TagValue) of Tag N. Each tag that you want to remove includes a TagKey and TagValue. You can specify a maximum of 5 tags at a time. A TagKey cannot be an empty string, but a TagValue can be an empty string.
+     *
+     * @example valueN
+     *
      * @var string
      */
     public $value;

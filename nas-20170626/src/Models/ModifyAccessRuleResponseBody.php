@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccessRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 6299428C-3861-435D-AE54-9B330A00****
+     *
      * @var string
      */
     public $requestId;

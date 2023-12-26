@@ -9,65 +9,125 @@ use AlibabaCloud\Tea\Model;
 class entry extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var bool
-     */
-    public $hasInfrequentAccessFile;
-
-    /**
-     * @var string
-     */
-    public $MTime;
-
-    /**
+     * @description The time when the file was queried.
+     *
+     * This parameter is returned only if the value of the Type parameter is File.
+     * @example 2021-02-01T10:08:08Z
+     *
      * @var string
      */
     public $ATime;
 
     /**
-     * @var int
-     */
-    public $size;
-
-    /**
+     * @description The time when the raw data was modified.
+     *
+     * This parameter is returned only if the value of the Type parameter is File.
+     * @example 2021-02-11T10:08:10Z
+     *
      * @var string
      */
     public $CTime;
 
     /**
-     * @var string
+     * @description Indicates whether the directory contains files stored in the IA storage medium.
+     *
+     * Valid values:
+     *
+     *   true: The directory contains files stored in the IA storage medium.
+     *   false: The directory does not contain files stored in the IA storage medium.
+     *
+     * @example true
+     *
+     * @var bool
      */
-    public $storageType;
+    public $hasInfrequentAccessFile;
 
     /**
+     * @description The file or directory inode.
+     *
+     * @example 40
+     *
+     * @var string
+     */
+    public $inode;
+
+    /**
+     * @description The time when the file was modified.
+     *
+     * This parameter is returned only if the value of the Type parameter is File.
+     * @example 2021-02-11T10:08:08Z
+     *
+     * @var string
+     */
+    public $MTime;
+
+    /**
+     * @description The name of the file or directory.
+     *
+     * @example file.txt
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The time when the last data retrieval task was run.
+     *
+     * This parameter is returned only if the value of the Type parameter is File.
+     * @example 2021-02-11T10:08:08Z
+     *
      * @var string
      */
     public $retrieveTime;
 
     /**
+     * @description The size of the file.
+     *
+     * This parameter is returned only if the value of the Type parameter is File.
+     * @example 1024
+     *
+     * @var int
+     */
+    public $size;
+
+    /**
+     * @description The storage type of the file.
+     *
+     * Valid values:
+     *
+     *   standard: General-purpose NAS file system
+     *   InfrequentAccess: IA storage medium
+     *
+     * @example InfrequentAccess
+     *
      * @var string
      */
-    public $inode;
+    public $storageType;
+
+    /**
+     * @description The type of the query result.
+     *
+     * Valid values:
+     *
+     *   File
+     *   Directory
+     *
+     * @example File
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'                    => 'Type',
-        'hasInfrequentAccessFile' => 'HasInfrequentAccessFile',
-        'MTime'                   => 'MTime',
         'ATime'                   => 'ATime',
-        'size'                    => 'Size',
         'CTime'                   => 'CTime',
-        'storageType'             => 'StorageType',
+        'hasInfrequentAccessFile' => 'HasInfrequentAccessFile',
+        'inode'                   => 'Inode',
+        'MTime'                   => 'MTime',
         'name'                    => 'Name',
         'retrieveTime'            => 'RetrieveTime',
-        'inode'                   => 'Inode',
+        'size'                    => 'Size',
+        'storageType'             => 'StorageType',
+        'type'                    => 'Type',
     ];
 
     public function validate()
@@ -77,26 +137,20 @@ class entry extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->hasInfrequentAccessFile) {
-            $res['HasInfrequentAccessFile'] = $this->hasInfrequentAccessFile;
-        }
-        if (null !== $this->MTime) {
-            $res['MTime'] = $this->MTime;
-        }
         if (null !== $this->ATime) {
             $res['ATime'] = $this->ATime;
-        }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
         }
         if (null !== $this->CTime) {
             $res['CTime'] = $this->CTime;
         }
-        if (null !== $this->storageType) {
-            $res['StorageType'] = $this->storageType;
+        if (null !== $this->hasInfrequentAccessFile) {
+            $res['HasInfrequentAccessFile'] = $this->hasInfrequentAccessFile;
+        }
+        if (null !== $this->inode) {
+            $res['Inode'] = $this->inode;
+        }
+        if (null !== $this->MTime) {
+            $res['MTime'] = $this->MTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -104,8 +158,14 @@ class entry extends Model
         if (null !== $this->retrieveTime) {
             $res['RetrieveTime'] = $this->retrieveTime;
         }
-        if (null !== $this->inode) {
-            $res['Inode'] = $this->inode;
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -119,26 +179,20 @@ class entry extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['HasInfrequentAccessFile'])) {
-            $model->hasInfrequentAccessFile = $map['HasInfrequentAccessFile'];
-        }
-        if (isset($map['MTime'])) {
-            $model->MTime = $map['MTime'];
-        }
         if (isset($map['ATime'])) {
             $model->ATime = $map['ATime'];
-        }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
         }
         if (isset($map['CTime'])) {
             $model->CTime = $map['CTime'];
         }
-        if (isset($map['StorageType'])) {
-            $model->storageType = $map['StorageType'];
+        if (isset($map['HasInfrequentAccessFile'])) {
+            $model->hasInfrequentAccessFile = $map['HasInfrequentAccessFile'];
+        }
+        if (isset($map['Inode'])) {
+            $model->inode = $map['Inode'];
+        }
+        if (isset($map['MTime'])) {
+            $model->MTime = $map['MTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -146,8 +200,14 @@ class entry extends Model
         if (isset($map['RetrieveTime'])) {
             $model->retrieveTime = $map['RetrieveTime'];
         }
-        if (isset($map['Inode'])) {
-            $model->inode = $map['Inode'];
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CancelRecycleBinJobRequest extends Model
 {
     /**
+     * @description The job ID.
+     *
+     * @example rb-15****ed-r-1625****2441
+     *
      * @var string
      */
     public $jobId;

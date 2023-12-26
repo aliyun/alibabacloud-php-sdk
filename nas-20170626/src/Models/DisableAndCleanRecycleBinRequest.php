@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DisableAndCleanRecycleBinRequest extends Model
 {
     /**
+     * @description The ID of the file system.
+     *
+     * @example 1ca404****
+     *
      * @var string
      */
     public $fileSystemId;

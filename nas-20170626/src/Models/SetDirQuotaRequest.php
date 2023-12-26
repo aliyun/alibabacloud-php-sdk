@@ -9,47 +9,93 @@ use AlibabaCloud\Tea\Model;
 class SetDirQuotaRequest extends Model
 {
     /**
+     * @description The number of files that a user can create in the directory.
+     *
+     * If you set the QuotaType parameter to Enforcement, you must specify at least one of the SizeLimit and FileCountLimit parameters.
+     * @example 10000
+     *
+     * @var int
+     */
+    public $fileCountLimit;
+
+    /**
+     * @description The ID of the file system.
+     *
+     * @example 1ca404****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @description The absolute path of a directory.
+     *
+     * @example /data/sub1
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The type of the quota.
+     *
+     * Valid values:
+     *
+     *   Accounting: a statistical quota. If you set this parameter to Accounting, NAS calculates only the storage usage of the directory.
+     *   Enforcement: a restricted quota. If you set this parameter to Enforcement and the storage usage exceeds the quota, you can no longer create files or subdirectories for the directory, or write data to the directory.
+     *
+     * @example Accounting
+     *
      * @var string
      */
     public $quotaType;
 
     /**
-     * @var string
-     */
-    public $userType;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
+     * @description The size of files that a user can create in the directory.
+     *
+     * If you set the QuotaType parameter to Enforcement, you must specify at least one of the SizeLimit and FileCountLimit parameters.
+     * @example 1024
+     *
      * @var int
      */
     public $sizeLimit;
 
     /**
-     * @var int
+     * @description The UID or GID of the user for whom you want to set a directory quota.
+     *
+     * Examples:
+     *
+     *   If you want to set a directory quota for a user whose UID is 500, set the UserType parameter to Uid and set the UserId parameter to 500.
+     *   If you want to set a directory quota for a user group whose GID is 100, set the UserType parameter to Gid and set the UserId parameter to 100.
+     *
+     * @example 500
+     *
+     * @var string
      */
-    public $fileCountLimit;
+    public $userId;
+
+    /**
+     * @description The type of the user.
+     *
+     * Valid values:
+     *
+     *   Uid: user ID
+     *   Gid: user group ID
+     *   AllUsers: all users
+     *
+     * @example Uid
+     *
+     * @var string
+     */
+    public $userType;
     protected $_name = [
+        'fileCountLimit' => 'FileCountLimit',
         'fileSystemId'   => 'FileSystemId',
         'path'           => 'Path',
         'quotaType'      => 'QuotaType',
-        'userType'       => 'UserType',
-        'userId'         => 'UserId',
         'sizeLimit'      => 'SizeLimit',
-        'fileCountLimit' => 'FileCountLimit',
+        'userId'         => 'UserId',
+        'userType'       => 'UserType',
     ];
 
     public function validate()
@@ -59,6 +105,9 @@ class SetDirQuotaRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fileCountLimit) {
+            $res['FileCountLimit'] = $this->fileCountLimit;
+        }
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
@@ -68,17 +117,14 @@ class SetDirQuotaRequest extends Model
         if (null !== $this->quotaType) {
             $res['QuotaType'] = $this->quotaType;
         }
-        if (null !== $this->userType) {
-            $res['UserType'] = $this->userType;
+        if (null !== $this->sizeLimit) {
+            $res['SizeLimit'] = $this->sizeLimit;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
-        if (null !== $this->sizeLimit) {
-            $res['SizeLimit'] = $this->sizeLimit;
-        }
-        if (null !== $this->fileCountLimit) {
-            $res['FileCountLimit'] = $this->fileCountLimit;
+        if (null !== $this->userType) {
+            $res['UserType'] = $this->userType;
         }
 
         return $res;
@@ -92,6 +138,9 @@ class SetDirQuotaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileCountLimit'])) {
+            $model->fileCountLimit = $map['FileCountLimit'];
+        }
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
@@ -101,17 +150,14 @@ class SetDirQuotaRequest extends Model
         if (isset($map['QuotaType'])) {
             $model->quotaType = $map['QuotaType'];
         }
-        if (isset($map['UserType'])) {
-            $model->userType = $map['UserType'];
+        if (isset($map['SizeLimit'])) {
+            $model->sizeLimit = $map['SizeLimit'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
-        if (isset($map['SizeLimit'])) {
-            $model->sizeLimit = $map['SizeLimit'];
-        }
-        if (isset($map['FileCountLimit'])) {
-            $model->fileCountLimit = $map['FileCountLimit'];
+        if (isset($map['UserType'])) {
+            $model->userType = $map['UserType'];
         }
 
         return $model;

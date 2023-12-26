@@ -10,19 +10,23 @@ use AlibabaCloud\Tea\Model;
 class GetRecycleBinAttributeResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The description of the recycle bin.
+     *
+     * @var recycleBinAttribute
+     */
+    public $recycleBinAttribute;
+
+    /**
+     * @description The request ID.
+     *
+     * @example 9E15E394-38A6-457A-A62A-D9797C9A****
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var recycleBinAttribute
-     */
-    public $recycleBinAttribute;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'recycleBinAttribute' => 'RecycleBinAttribute',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -32,11 +36,11 @@ class GetRecycleBinAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->recycleBinAttribute) {
             $res['RecycleBinAttribute'] = null !== $this->recycleBinAttribute ? $this->recycleBinAttribute->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -50,11 +54,11 @@ class GetRecycleBinAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['RecycleBinAttribute'])) {
             $model->recycleBinAttribute = recycleBinAttribute::fromMap($map['RecycleBinAttribute']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

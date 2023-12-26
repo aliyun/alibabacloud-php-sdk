@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class OpenNASServiceResponseBody extends Model
 {
     /**
+     * @description The order ID.
+     *
+     * @example 20671870151****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 427DB0B3-9436-4A3C-B2BC-B961F95E****
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveClientFromBlackListResponseBody extends Model
 {
     /**
+     * @example A70BEE5D-76D3-49FB-B58F-1F398211****
+     *
      * @var string
      */
     public $requestId;

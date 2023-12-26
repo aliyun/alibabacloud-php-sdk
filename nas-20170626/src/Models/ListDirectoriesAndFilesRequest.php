@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class ListDirectoriesAndFilesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $fileSystemId;
-
-    /**
-     * @var string
-     */
-    public $path;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $storageType;
-
-    /**
+     * @description Specifies whether to query only directories.
+     *
+     * Valid values:
+     *
+     *   false (default): queries both directories and files
+     *   true: queries only directories
+     *
+     * @example false
+     *
      * @var bool
      */
     public $directoryOnly;
 
     /**
+     * @description The ID of the file system.
+     *
+     * @example 31a8e4****
+     *
+     * @var string
+     */
+    public $fileSystemId;
+
+    /**
+     * @description The maximum number of directories or files to include in the results of each query.
+     *
+     * Default value: 100.
+     * @example 100
+     *
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @description The absolute path of the directory.
+     *
+     * The path must start with a forward slash (/) and must be a path that exists in the mount target.
+     * @example /pathway/to/folder
+     *
+     * @var string
+     */
+    public $path;
+
+    /**
+     * @description The storage type of the files.
+     *
+     * Default value: InfrequentAccess (IA).
+     * @example InfrequentAccess
+     *
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
-        'fileSystemId'  => 'FileSystemId',
-        'path'          => 'Path',
-        'nextToken'     => 'NextToken',
-        'storageType'   => 'StorageType',
         'directoryOnly' => 'DirectoryOnly',
+        'fileSystemId'  => 'FileSystemId',
         'maxResults'    => 'MaxResults',
+        'nextToken'     => 'NextToken',
+        'path'          => 'Path',
+        'storageType'   => 'StorageType',
     ];
 
     public function validate()
@@ -53,23 +85,23 @@ class ListDirectoriesAndFilesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->directoryOnly) {
+            $res['DirectoryOnly'] = $this->directoryOnly;
+        }
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
+        }
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
-        }
-        if (null !== $this->directoryOnly) {
-            $res['DirectoryOnly'] = $this->directoryOnly;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
 
         return $res;
@@ -83,23 +115,23 @@ class ListDirectoriesAndFilesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DirectoryOnly'])) {
+            $model->directoryOnly = $map['DirectoryOnly'];
+        }
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
+        }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
-        }
-        if (isset($map['DirectoryOnly'])) {
-            $model->directoryOnly = $map['DirectoryOnly'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
 
         return $model;

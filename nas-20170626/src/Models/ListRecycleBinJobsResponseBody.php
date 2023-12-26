@@ -10,37 +10,53 @@ use AlibabaCloud\Tea\Model;
 class ListRecycleBinJobsResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The information about the jobs of the recycle bin.
+     *
+     * @var jobs[]
+     */
+    public $jobs;
+
+    /**
+     * @description The page number.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @description The number of jobs returned per page.
+     *
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @description The request ID.
+     *
+     * @example 9E15E394-38A6-457A-A62A-D9797C9A****
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of jobs.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var jobs[]
-     */
-    public $jobs;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
+        'jobs'       => 'Jobs',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'jobs'       => 'Jobs',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -50,18 +66,6 @@ class ListRecycleBinJobsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->jobs) {
             $res['Jobs'] = [];
             if (null !== $this->jobs && \is_array($this->jobs)) {
@@ -70,6 +74,18 @@ class ListRecycleBinJobsResponseBody extends Model
                     $res['Jobs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -83,18 +99,6 @@ class ListRecycleBinJobsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['Jobs'])) {
             if (!empty($map['Jobs'])) {
                 $model->jobs = [];
@@ -103,6 +107,18 @@ class ListRecycleBinJobsResponseBody extends Model
                     $model->jobs[$n++] = null !== $item ? jobs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

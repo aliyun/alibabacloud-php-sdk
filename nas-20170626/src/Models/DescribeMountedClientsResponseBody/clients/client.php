@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class client extends Model
 {
     /**
+     * @description The IP address of the client.
+     *
+     * @example 10.10.10.1
+     *
      * @var string
      */
     public $clientIP;

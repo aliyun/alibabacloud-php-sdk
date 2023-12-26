@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateRecycleBinAttributeResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example BC7C825C-5F65-4B56-BEF6-98C5****546E
      *
      * @var string
      */

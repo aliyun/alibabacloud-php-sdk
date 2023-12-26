@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class EnableRecycleBinResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 9E15E394-38A6-457A-A62A-D9797C9A****
      *
      * @var string
      */

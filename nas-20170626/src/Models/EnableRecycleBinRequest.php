@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class EnableRecycleBinRequest extends Model
 {
     /**
+     * @description The ID of the file system for which you want to enable the recycle bin feature.
+     *
+     * @example 1ca404****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @description The retention period of the files in the recycle bin. Unit: days.
+     *
+     * Default value: 3.
+     * @example 3
+     *
      * @var int
      */
     public $reservedDays;

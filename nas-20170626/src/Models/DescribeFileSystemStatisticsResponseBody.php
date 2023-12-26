@@ -11,41 +11,61 @@ use AlibabaCloud\Tea\Model;
 class DescribeFileSystemStatisticsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
+     * @description The statistics of file systems.
+     *
      * @var fileSystemStatistics
      */
     public $fileSystemStatistics;
 
     /**
+     * @description The queried file systems.
+     *
      * @var fileSystems
      */
     public $fileSystems;
+
+    /**
+     * @description The page number.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @description The number of entries per page.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @description The request ID.
+     *
+     * @example 9F088138-FD73-4B68-95CC-DFAD4D85****
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description The total number of file system entries.
+     *
+     * @example 100
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'requestId'            => 'RequestId',
-        'pageSize'             => 'PageSize',
-        'pageNumber'           => 'PageNumber',
-        'totalCount'           => 'TotalCount',
         'fileSystemStatistics' => 'FileSystemStatistics',
         'fileSystems'          => 'FileSystems',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
+        'requestId'            => 'RequestId',
+        'totalCount'           => 'TotalCount',
     ];
 
     public function validate()
@@ -55,23 +75,23 @@ class DescribeFileSystemStatisticsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->fileSystemStatistics) {
             $res['FileSystemStatistics'] = null !== $this->fileSystemStatistics ? $this->fileSystemStatistics->toMap() : null;
         }
         if (null !== $this->fileSystems) {
             $res['FileSystems'] = null !== $this->fileSystems ? $this->fileSystems->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -85,23 +105,23 @@ class DescribeFileSystemStatisticsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['FileSystemStatistics'])) {
             $model->fileSystemStatistics = fileSystemStatistics::fromMap($map['FileSystemStatistics']);
         }
         if (isset($map['FileSystems'])) {
             $model->fileSystems = fileSystems::fromMap($map['FileSystems']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

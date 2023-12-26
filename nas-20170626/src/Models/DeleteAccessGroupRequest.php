@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccessGroupRequest extends Model
 {
     /**
+     * @description The name of the permission group to be deleted.
+     *
+     * @example vpc-test
+     *
      * @var string
      */
     public $accessGroupName;
 
     /**
+     * @description The type of the file system.
+     *
+     * Valid values:
+     *
+     *   standard (default): General-purpose NAS file system
+     *   extreme: Extreme NAS file system
+     *
+     * @example standard
+     *
      * @var string
      */
     public $fileSystemType;

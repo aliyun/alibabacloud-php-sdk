@@ -10,41 +10,63 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogAnalysisResponseBody extends Model
 {
     /**
+     * @description The collection of log dump information.
+     *
+     * @var analyses
+     */
+    public $analyses;
+
+    /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of log dump entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example C84F77AF-3DE5-48F1-B19B-37FCBE24****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of log dump entries in the region.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var analyses
-     */
-    public $analyses;
     protected $_name = [
+        'analyses'   => 'Analyses',
         'code'       => 'Code',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'analyses'   => 'Analyses',
     ];
 
     public function validate()
@@ -54,6 +76,9 @@ class DescribeLogAnalysisResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->analyses) {
+            $res['Analyses'] = null !== $this->analyses ? $this->analyses->toMap() : null;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -69,9 +94,6 @@ class DescribeLogAnalysisResponseBody extends Model
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
-        if (null !== $this->analyses) {
-            $res['Analyses'] = null !== $this->analyses ? $this->analyses->toMap() : null;
-        }
 
         return $res;
     }
@@ -84,6 +106,9 @@ class DescribeLogAnalysisResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Analyses'])) {
+            $model->analyses = analyses::fromMap($map['Analyses']);
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -98,9 +123,6 @@ class DescribeLogAnalysisResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Analyses'])) {
-            $model->analyses = analyses::fromMap($map['Analyses']);
         }
 
         return $model;

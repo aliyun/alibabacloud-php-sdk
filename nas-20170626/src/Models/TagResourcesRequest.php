@@ -10,22 +10,32 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
+     * @description The resource IDs. Valid values of N: 1 to 50.
+     *
+     * @example 03e08484f0
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The resource type. Set the value to filesystem.
+     *
+     * @example filesystem
+     *
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @description The details about the tags.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'resourceType' => 'ResourceType',
         'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
         'tag'          => 'Tag',
     ];
 
@@ -36,11 +46,11 @@ class TagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -63,13 +73,13 @@ class TagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
             }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

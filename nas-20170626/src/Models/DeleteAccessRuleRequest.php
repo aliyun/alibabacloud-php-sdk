@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccessRuleRequest extends Model
 {
     /**
+     * @description The name of the permission group.
+     *
+     * @example vpc-test
+     *
      * @var string
      */
     public $accessGroupName;
 
     /**
+     * @description The rule ID.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $accessRuleId;
 
     /**
+     * @description The type of the file system.
+     *
+     * Valid values:
+     *
+     *   standard (default): General-purpose NAS file system
+     *   extreme: Extreme NAS file system
+     *
+     * @example standard
+     *
      * @var string
      */
     public $fileSystemType;

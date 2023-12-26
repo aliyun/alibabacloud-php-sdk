@@ -9,29 +9,45 @@ use AlibabaCloud\Tea\Model;
 class entries extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example 04***08
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @description The time when the directory was last deleted.
+     *
+     * @example 2021-05-30T10:08:08Z
+     *
      * @var string
      */
-    public $path;
+    public $lastDeleteTime;
 
     /**
+     * @description The name of the directory.
+     *
+     * @example b
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The absolute path to the directory.
+     *
+     * @example /a/b
+     *
      * @var string
      */
-    public $lastDeleteTime;
+    public $path;
     protected $_name = [
         'fileId'         => 'FileId',
-        'path'           => 'Path',
-        'name'           => 'Name',
         'lastDeleteTime' => 'LastDeleteTime',
+        'name'           => 'Name',
+        'path'           => 'Path',
     ];
 
     public function validate()
@@ -44,14 +60,14 @@ class entries extends Model
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
+        if (null !== $this->lastDeleteTime) {
+            $res['LastDeleteTime'] = $this->lastDeleteTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->lastDeleteTime) {
-            $res['LastDeleteTime'] = $this->lastDeleteTime;
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
 
         return $res;
@@ -68,14 +84,14 @@ class entries extends Model
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
+        if (isset($map['LastDeleteTime'])) {
+            $model->lastDeleteTime = $map['LastDeleteTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['LastDeleteTime'])) {
-            $model->lastDeleteTime = $map['LastDeleteTime'];
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
 
         return $model;

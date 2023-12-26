@@ -9,29 +9,48 @@ use AlibabaCloud\Tea\Model;
 class ListRecycledDirectoriesAndFilesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $fileSystemId;
-
-    /**
+     * @description The ID of the directory that you want to query.
+     *
+     * You can call the [ListRecycleBinJobs](~~264192~~) operation to query the value of the FileId parameter.
+     * @example 04***08
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @description The ID of the file system.
+     *
+     * @example 1ca404****
+     *
      * @var string
      */
-    public $nextToken;
+    public $fileSystemId;
 
     /**
+     * @description The number of files or directories to return for each query.
+     *
+     * Default value: 100.
+     * @example 100
+     *
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+     *
+     * If all the files and directories are incompletely returned in a query, the return value of the NextToken parameter is not empty. In this case, you can specify a valid value for the NextToken parameter to continue the query.
+     * @example 1256****25
+     *
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
-        'fileSystemId' => 'FileSystemId',
         'fileId'       => 'FileId',
-        'nextToken'    => 'NextToken',
+        'fileSystemId' => 'FileSystemId',
         'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
     ];
 
     public function validate()
@@ -41,17 +60,17 @@ class ListRecycledDirectoriesAndFilesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileSystemId) {
-            $res['FileSystemId'] = $this->fileSystemId;
-        }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->fileSystemId) {
+            $res['FileSystemId'] = $this->fileSystemId;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -65,17 +84,17 @@ class ListRecycledDirectoriesAndFilesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileSystemId'])) {
-            $model->fileSystemId = $map['FileSystemId'];
-        }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['FileSystemId'])) {
+            $model->fileSystemId = $map['FileSystemId'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

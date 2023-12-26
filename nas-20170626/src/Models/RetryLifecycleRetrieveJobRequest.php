@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RetryLifecycleRetrieveJobRequest extends Model
 {
     /**
+     * @description The ID of the data retrieval task.
+     *
+     * @example lrj-nfstest-ia-160****853-hshvw
+     *
      * @var string
      */
     public $jobId;

@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class GetDirectoryOrFilePropertiesRequest extends Model
 {
     /**
+     * @description The ID of the file system.
+     *
+     * @example 31a8e4****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @description The absolute path of the directory.
+     *
+     * The path must start with a forward slash (/) and must be a path that exists in the mount target.
+     * @example /pathway/to/folder
+     *
      * @var string
      */
     public $path;

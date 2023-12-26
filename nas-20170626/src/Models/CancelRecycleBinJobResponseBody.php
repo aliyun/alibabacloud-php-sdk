@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CancelRecycleBinJobResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 98696EF0-1607-4E9D-B01D-F20930B6****
      *
      * @var string
      */

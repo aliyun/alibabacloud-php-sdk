@@ -10,27 +10,34 @@ use AlibabaCloud\Tea\Model;
 class ListRecentlyRecycledDirectoriesResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The information about the directories that are recently deleted.
      *
-     * @var string
+     * @var entries[]
      */
-    public $requestId;
+    public $entries;
 
     /**
-     * @description Id of the request
+     * @description A pagination token.
+     *
+     * If not all directories are returned in a query, the return value of the NextToken parameter is not empty. In this case, you can specify a valid value for the NextToken parameter to continue the query.
+     * @example 1256****25
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @var entries[]
+     * @description The request ID.
+     *
+     * @example 9E15E394-38A6-457A-A62A-D9797C9A****
+     *
+     * @var string
      */
-    public $entries;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'nextToken' => 'NextToken',
         'entries'   => 'Entries',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -40,12 +47,6 @@ class ListRecentlyRecycledDirectoriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->entries) {
             $res['Entries'] = [];
             if (null !== $this->entries && \is_array($this->entries)) {
@@ -54,6 +55,12 @@ class ListRecentlyRecycledDirectoriesResponseBody extends Model
                     $res['Entries'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -67,12 +74,6 @@ class ListRecentlyRecycledDirectoriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['Entries'])) {
             if (!empty($map['Entries'])) {
                 $model->entries = [];
@@ -81,6 +82,12 @@ class ListRecentlyRecycledDirectoriesResponseBody extends Model
                     $model->entries[$n++] = null !== $item ? entries::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

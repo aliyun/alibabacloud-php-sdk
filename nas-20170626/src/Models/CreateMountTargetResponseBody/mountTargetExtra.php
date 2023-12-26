@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class mountTargetExtra extends Model
 {
     /**
+     * @description The dual-stack (IPv4 and IPv6) domain name of the mount target.
+     *
+     * @example 174494b666-x****.dualstack.cn-hangzhou.nas.aliyuncs.com
+     *
      * @var string
      */
     public $dualStackMountTargetDomain;

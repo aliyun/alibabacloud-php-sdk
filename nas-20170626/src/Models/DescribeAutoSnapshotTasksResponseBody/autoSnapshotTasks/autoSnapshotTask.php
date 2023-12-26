@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class autoSnapshotTask extends Model
 {
     /**
+     * @description The ID of the automatic snapshot policy.
+     *
+     * @example sp-extreme-233e6****
+     *
      * @var string
      */
     public $autoSnapshotPolicyId;
 
     /**
+     * @description The ID of the file system.
+     *
+     * @example extreme-233e6****
+     *
      * @var string
      */
     public $sourceFileSystemId;

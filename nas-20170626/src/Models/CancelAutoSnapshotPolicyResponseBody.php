@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CancelAutoSnapshotPolicyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * Every response returns a unique request ID regardless of whether the request is successful.
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DED****
+     *
      * @var string
      */
     public $requestId;

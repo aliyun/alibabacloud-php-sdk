@@ -10,35 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeStoragePackagesResponseBody extends Model
 {
     /**
+     * @description The list of storage plans.
+     *
+     * @var packages
+     */
+    public $packages;
+
+    /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The number of storage plans returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 035B3A3A-E514-4B41-B906-5D906CFB****
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description The number of storage plans.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var packages
-     */
-    public $packages;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'requestId'  => 'RequestId',
-        'pageSize'   => 'PageSize',
-        'totalCount' => 'TotalCount',
         'packages'   => 'Packages',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -48,20 +66,20 @@ class DescribeStoragePackagesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->packages) {
+            $res['Packages'] = null !== $this->packages ? $this->packages->toMap() : null;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->packages) {
-            $res['Packages'] = null !== $this->packages ? $this->packages->toMap() : null;
         }
 
         return $res;
@@ -75,20 +93,20 @@ class DescribeStoragePackagesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Packages'])) {
+            $model->packages = packages::fromMap($map['Packages']);
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Packages'])) {
-            $model->packages = packages::fromMap($map['Packages']);
         }
 
         return $model;

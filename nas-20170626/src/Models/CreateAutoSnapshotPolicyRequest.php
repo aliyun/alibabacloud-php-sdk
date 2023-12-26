@@ -9,35 +9,70 @@ use AlibabaCloud\Tea\Model;
 class CreateAutoSnapshotPolicyRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $repeatWeekdays;
-
-    /**
-     * @var string
-     */
-    public $timePoints;
-
-    /**
-     * @var int
-     */
-    public $retentionDays;
-
-    /**
+     * @description The name of the automatic snapshot policy.
+     *
+     * Limits:
+     *
+     *   The name must be 2 to 128 characters in length.
+     *   The name must start with a letter.
+     *   The name can contain digits, colons (:), underscores (\_), and hyphens (-). It cannot start with `http://` or `https://`.
+     *   This parameter is empty by default.
+     *
+     * @example FinanceJoshua
+     *
      * @var string
      */
     public $autoSnapshotPolicyName;
 
     /**
+     * @description The type of the file system.
+     *
+     * Valid value: extreme, which indicates Extreme NAS file systems.
+     * @example extreme
+     *
      * @var string
      */
     public $fileSystemType;
+
+    /**
+     * @description The days of a week on which to create automatic snapshots.
+     *
+     * If you want to create multiple auto snapshots within a week, you can specify multiple days from Monday to Sunday and separate the days with commas (,). You can specify a maximum of seven days.
+     * @example 1,2,3
+     *
+     * @var string
+     */
+    public $repeatWeekdays;
+
+    /**
+     * @description The retention period of auto snapshots.
+     *
+     * Valid values:
+     *
+     *   \-1 (default). Auto snapshots are permanently retained. After the number of auto snapshots exceeds the upper limit, the earliest auto snapshot is automatically deleted.
+     *   1 to 65536: Auto snapshots are retained for the specified days. After the retention period of auto snapshots expires, the auto snapshots are automatically deleted.
+     *
+     * @example 30
+     *
+     * @var int
+     */
+    public $retentionDays;
+
+    /**
+     * @description The points in time at which auto snapshots were created.
+     *
+     * If you want to create multiple auto snapshots within a day, you can specify multiple points in time and separate the points in time with commas (,). You can specify a maximum of 24 points in time.
+     * @example 0,1,…23
+     *
+     * @var string
+     */
+    public $timePoints;
     protected $_name = [
-        'repeatWeekdays'         => 'RepeatWeekdays',
-        'timePoints'             => 'TimePoints',
-        'retentionDays'          => 'RetentionDays',
         'autoSnapshotPolicyName' => 'AutoSnapshotPolicyName',
         'fileSystemType'         => 'FileSystemType',
+        'repeatWeekdays'         => 'RepeatWeekdays',
+        'retentionDays'          => 'RetentionDays',
+        'timePoints'             => 'TimePoints',
     ];
 
     public function validate()
@@ -47,20 +82,20 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->repeatWeekdays) {
-            $res['RepeatWeekdays'] = $this->repeatWeekdays;
-        }
-        if (null !== $this->timePoints) {
-            $res['TimePoints'] = $this->timePoints;
-        }
-        if (null !== $this->retentionDays) {
-            $res['RetentionDays'] = $this->retentionDays;
-        }
         if (null !== $this->autoSnapshotPolicyName) {
             $res['AutoSnapshotPolicyName'] = $this->autoSnapshotPolicyName;
         }
         if (null !== $this->fileSystemType) {
             $res['FileSystemType'] = $this->fileSystemType;
+        }
+        if (null !== $this->repeatWeekdays) {
+            $res['RepeatWeekdays'] = $this->repeatWeekdays;
+        }
+        if (null !== $this->retentionDays) {
+            $res['RetentionDays'] = $this->retentionDays;
+        }
+        if (null !== $this->timePoints) {
+            $res['TimePoints'] = $this->timePoints;
         }
 
         return $res;
@@ -74,20 +109,20 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RepeatWeekdays'])) {
-            $model->repeatWeekdays = $map['RepeatWeekdays'];
-        }
-        if (isset($map['TimePoints'])) {
-            $model->timePoints = $map['TimePoints'];
-        }
-        if (isset($map['RetentionDays'])) {
-            $model->retentionDays = $map['RetentionDays'];
-        }
         if (isset($map['AutoSnapshotPolicyName'])) {
             $model->autoSnapshotPolicyName = $map['AutoSnapshotPolicyName'];
         }
         if (isset($map['FileSystemType'])) {
             $model->fileSystemType = $map['FileSystemType'];
+        }
+        if (isset($map['RepeatWeekdays'])) {
+            $model->repeatWeekdays = $map['RepeatWeekdays'];
+        }
+        if (isset($map['RetentionDays'])) {
+            $model->retentionDays = $map['RetentionDays'];
+        }
+        if (isset($map['TimePoints'])) {
+            $model->timePoints = $map['TimePoints'];
         }
 
         return $model;

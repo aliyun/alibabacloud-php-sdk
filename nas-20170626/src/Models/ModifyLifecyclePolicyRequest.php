@@ -9,34 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ModifyLifecyclePolicyRequest extends Model
 {
     /**
+     * @description The ID of the file system.
+     *
+     * @example 31a8e4****
+     *
      * @var string
      */
     public $fileSystemId;
 
     /**
+     * @description The name of the lifecycle policy.
+     *
+     * The name must be 3 to 64 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example lifecyclepolicy_01
+     *
      * @var string
      */
     public $lifecyclePolicyName;
 
     /**
-     * @var string
-     */
-    public $path;
-
-    /**
+     * @description The management rule that is associated with the lifecycle policy.
+     *
+     * Valid values:
+     *
+     *   DEFAULT_ATIME\_14: Files that are not accessed in the last 14 days are dumped to the IA storage medium.
+     *   DEFAULT_ATIME\_30: Files that are not accessed in the last 30 days are dumped to the IA storage medium.
+     *   DEFAULT_ATIME\_60: Files that are not accessed in the last 60 days are dumped to the IA storage medium.
+     *   DEFAULT_ATIME\_90: Files that are not accessed in the last 90 days are dumped to the IA storage medium.
+     *
+     * @example DEFAULT_ATIME_14
+     *
      * @var string
      */
     public $lifecycleRuleName;
 
     /**
+     * @description The absolute path of a directory with which the lifecycle policy is associated.
+     *
+     * The path must start with a forward slash (/) and must be a path that exists in the mount target.
+     * @example /pathway/to/folder
+     *
+     * @var string
+     */
+    public $path;
+
+    /**
+     * @description The storage type of the data that is dumped to the IA storage medium.
+     *
+     * Default value: InfrequentAccess (IA).
+     * @example InfrequentAccess
+     *
      * @var string
      */
     public $storageType;
     protected $_name = [
         'fileSystemId'        => 'FileSystemId',
         'lifecyclePolicyName' => 'LifecyclePolicyName',
-        'path'                => 'Path',
         'lifecycleRuleName'   => 'LifecycleRuleName',
+        'path'                => 'Path',
         'storageType'         => 'StorageType',
     ];
 
@@ -53,11 +83,11 @@ class ModifyLifecyclePolicyRequest extends Model
         if (null !== $this->lifecyclePolicyName) {
             $res['LifecyclePolicyName'] = $this->lifecyclePolicyName;
         }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
-        }
         if (null !== $this->lifecycleRuleName) {
             $res['LifecycleRuleName'] = $this->lifecycleRuleName;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
@@ -80,11 +110,11 @@ class ModifyLifecyclePolicyRequest extends Model
         if (isset($map['LifecyclePolicyName'])) {
             $model->lifecyclePolicyName = $map['LifecyclePolicyName'];
         }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
-        }
         if (isset($map['LifecycleRuleName'])) {
             $model->lifecycleRuleName = $map['LifecycleRuleName'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];

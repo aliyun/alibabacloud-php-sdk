@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class RemoveTagsRequest extends Model
 {
     /**
+     * @description The ID of the file system.
+     *
+     * @example 0addcw****
+     *
      * @var string
      */
     public $fileSystemId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteLDAPConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5B4511A7-C99E-4071-AA8C-32E2529DA963
+     *
      * @var string
      */
     public $requestId;

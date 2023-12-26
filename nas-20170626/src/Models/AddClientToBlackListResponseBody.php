@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AddClientToBlackListResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example A70BEE5D-76D3-49FB-B58F-1F398211A5C3
+     *
      * @var string
      */
     public $requestId;

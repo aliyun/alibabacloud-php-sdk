@@ -9,17 +9,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeFileSystemStatisticsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
+     * @description The page number.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @description The number of entries per page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
-        'pageSize'   => 'PageSize',
         'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -29,11 +39,11 @@ class DescribeFileSystemStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -47,11 +57,11 @@ class DescribeFileSystemStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

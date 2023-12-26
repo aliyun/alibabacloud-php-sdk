@@ -9,24 +9,41 @@ use AlibabaCloud\Tea\Model;
 class lifecycleRetrieveJobs extends Model
 {
     /**
+     * @description The time when the task was created.
+     *
+     * The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
+     * @example 2021-02-30T10:08:08Z
+     *
      * @var string
      */
-    public $fileSystemId;
+    public $createTime;
 
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
+     * @description The total number of files that are read in the data retrieval task.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $discoveredFileCount;
 
     /**
+     * @description The ID of the file system.
+     *
+     * @example 31a8e4****
+     *
      * @var string
      */
-    public $updateTime;
+    public $fileSystemId;
+
+    /**
+     * @description The ID of the data retrieval task.
+     *
+     * @example lrj-nfstest-ia-160****853-hshvw
+     *
+     * @var string
+     */
+    public $jobId;
 
     /**
      * @var string[]
@@ -34,28 +51,46 @@ class lifecycleRetrieveJobs extends Model
     public $paths;
 
     /**
+     * @description The total number of files that are retrieved.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $retrievedFileCount;
 
     /**
+     * @description The status of the data retrieval task. Valid values:
+     *
+     *   active: The task is running.
+     *   canceled: The task is canceled.
+     *   completed: The task is completed.
+     *   failed: The task has failed.
+     *
+     * @example completed
+     *
      * @var string
      */
-    public $jobId;
+    public $status;
 
     /**
+     * @description The time when the task was updated.
+     *
+     * The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
+     * @example 2021-02-30T11:08:08Z
+     *
      * @var string
      */
-    public $createTime;
+    public $updateTime;
     protected $_name = [
-        'fileSystemId'        => 'FileSystemId',
-        'status'              => 'Status',
+        'createTime'          => 'CreateTime',
         'discoveredFileCount' => 'DiscoveredFileCount',
-        'updateTime'          => 'UpdateTime',
+        'fileSystemId'        => 'FileSystemId',
+        'jobId'               => 'JobId',
         'paths'               => 'Paths',
         'retrievedFileCount'  => 'RetrievedFileCount',
-        'jobId'               => 'JobId',
-        'createTime'          => 'CreateTime',
+        'status'              => 'Status',
+        'updateTime'          => 'UpdateTime',
     ];
 
     public function validate()
@@ -65,17 +100,17 @@ class lifecycleRetrieveJobs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileSystemId) {
-            $res['FileSystemId'] = $this->fileSystemId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->discoveredFileCount) {
             $res['DiscoveredFileCount'] = $this->discoveredFileCount;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->fileSystemId) {
+            $res['FileSystemId'] = $this->fileSystemId;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->paths) {
             $res['Paths'] = $this->paths;
@@ -83,11 +118,11 @@ class lifecycleRetrieveJobs extends Model
         if (null !== $this->retrievedFileCount) {
             $res['RetrievedFileCount'] = $this->retrievedFileCount;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -101,17 +136,17 @@ class lifecycleRetrieveJobs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileSystemId'])) {
-            $model->fileSystemId = $map['FileSystemId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['DiscoveredFileCount'])) {
             $model->discoveredFileCount = $map['DiscoveredFileCount'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['FileSystemId'])) {
+            $model->fileSystemId = $map['FileSystemId'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['Paths'])) {
             if (!empty($map['Paths'])) {
@@ -121,11 +156,11 @@ class lifecycleRetrieveJobs extends Model
         if (isset($map['RetrievedFileCount'])) {
             $model->retrievedFileCount = $map['RetrievedFileCount'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

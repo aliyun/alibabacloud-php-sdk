@@ -10,35 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeLifecyclePoliciesResponseBody extends Model
 {
     /**
-     * @var int
+     * @description The queried lifecycle policies.
+     *
+     * @var lifecyclePolicies[]
      */
-    public $totalCount;
+    public $lifecyclePolicies;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @var lifecyclePolicies[]
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
+     * @var int
      */
-    public $lifecyclePolicies;
+    public $pageSize;
+
+    /**
+     * @description The request ID.
+     *
+     * @example BC7C825C-5F65-4B56-BEF6-98C56C7C****
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description The total number of lifecycle policies.
+     *
+     * @example 10
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount'        => 'TotalCount',
-        'requestId'         => 'RequestId',
-        'pageSize'          => 'PageSize',
-        'pageNumber'        => 'PageNumber',
         'lifecyclePolicies' => 'LifecyclePolicies',
+        'pageNumber'        => 'PageNumber',
+        'pageSize'          => 'PageSize',
+        'requestId'         => 'RequestId',
+        'totalCount'        => 'TotalCount',
     ];
 
     public function validate()
@@ -48,18 +66,6 @@ class DescribeLifecyclePoliciesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->lifecyclePolicies) {
             $res['LifecyclePolicies'] = [];
             if (null !== $this->lifecyclePolicies && \is_array($this->lifecyclePolicies)) {
@@ -68,6 +74,18 @@ class DescribeLifecyclePoliciesResponseBody extends Model
                     $res['LifecyclePolicies'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,18 +99,6 @@ class DescribeLifecyclePoliciesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['LifecyclePolicies'])) {
             if (!empty($map['LifecyclePolicies'])) {
                 $model->lifecyclePolicies = [];
@@ -101,6 +107,18 @@ class DescribeLifecyclePoliciesResponseBody extends Model
                     $model->lifecyclePolicies[$n++] = null !== $item ? lifecyclePolicies::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

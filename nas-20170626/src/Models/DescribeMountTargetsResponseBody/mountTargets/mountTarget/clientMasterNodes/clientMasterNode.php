@@ -9,23 +9,35 @@ use AlibabaCloud\Tea\Model;
 class clientMasterNode extends Model
 {
     /**
+     * @description The default logon password of the ECS instance.
+     *
+     * @example 12****
+     *
      * @var string
      */
-    public $ecsIp;
+    public $defaultPasswd;
 
     /**
+     * @description The ID of the ECS instance on the client management node.
+     *
+     * @example i-hp3i3odi5ory1buo****
+     *
      * @var string
      */
     public $ecsId;
 
     /**
+     * @description The IP address of the ECS instance on the client management node.
+     *
+     * @example 192.168.1.0
+     *
      * @var string
      */
-    public $defaultPasswd;
+    public $ecsIp;
     protected $_name = [
-        'ecsIp'         => 'EcsIp',
-        'ecsId'         => 'EcsId',
         'defaultPasswd' => 'DefaultPasswd',
+        'ecsId'         => 'EcsId',
+        'ecsIp'         => 'EcsIp',
     ];
 
     public function validate()
@@ -35,14 +47,14 @@ class clientMasterNode extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ecsIp) {
-            $res['EcsIp'] = $this->ecsIp;
+        if (null !== $this->defaultPasswd) {
+            $res['DefaultPasswd'] = $this->defaultPasswd;
         }
         if (null !== $this->ecsId) {
             $res['EcsId'] = $this->ecsId;
         }
-        if (null !== $this->defaultPasswd) {
-            $res['DefaultPasswd'] = $this->defaultPasswd;
+        if (null !== $this->ecsIp) {
+            $res['EcsIp'] = $this->ecsIp;
         }
 
         return $res;
@@ -56,14 +68,14 @@ class clientMasterNode extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EcsIp'])) {
-            $model->ecsIp = $map['EcsIp'];
+        if (isset($map['DefaultPasswd'])) {
+            $model->defaultPasswd = $map['DefaultPasswd'];
         }
         if (isset($map['EcsId'])) {
             $model->ecsId = $map['EcsId'];
         }
-        if (isset($map['DefaultPasswd'])) {
-            $model->defaultPasswd = $map['DefaultPasswd'];
+        if (isset($map['EcsIp'])) {
+            $model->ecsIp = $map['EcsIp'];
         }
 
         return $model;

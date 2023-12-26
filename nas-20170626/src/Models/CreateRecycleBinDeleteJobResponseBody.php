@@ -9,19 +9,25 @@ use AlibabaCloud\Tea\Model;
 class CreateRecycleBinDeleteJobResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The job ID.
+     *
+     * @example 8C****C54
+     *
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @description The request ID.
+     *
+     * @example 98696EF0-1607-4E9D-B01D-F20930B6****
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $jobId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'jobId'     => 'JobId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -31,11 +37,11 @@ class CreateRecycleBinDeleteJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,11 +55,11 @@ class CreateRecycleBinDeleteJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

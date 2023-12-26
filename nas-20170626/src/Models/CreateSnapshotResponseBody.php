@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class CreateSnapshotResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $snapshotId;
-
-    /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+     *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description The snapshot ID.
+     *
+     * @example s-extreme-snapsho****
+     *
+     * @var string
+     */
+    public $snapshotId;
     protected $_name = [
-        'snapshotId' => 'SnapshotId',
         'requestId'  => 'RequestId',
+        'snapshotId' => 'SnapshotId',
     ];
 
     public function validate()
@@ -29,11 +37,11 @@ class CreateSnapshotResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->snapshotId) {
-            $res['SnapshotId'] = $this->snapshotId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
 
         return $res;
@@ -47,11 +55,11 @@ class CreateSnapshotResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SnapshotId'])) {
-            $model->snapshotId = $map['SnapshotId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
 
         return $model;
