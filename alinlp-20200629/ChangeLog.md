@@ -1,3 +1,6 @@
+2023-12-26 Version: 2.1.0
+- Generated php 2020-06-29 for alinlp.
+
 2023-02-27 Version: 2.0.3
 - Supported SDK for AliNLP version-2.
 

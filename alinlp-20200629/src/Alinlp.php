@@ -14,6 +14,12 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\ADMiniCogResultRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\ADMiniCogResultResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\ADMMURequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\ADMMUResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\DeleteServiceDataByConditionsRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\DeleteServiceDataByConditionsResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\DeleteServiceDataByConditionsShrinkRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\DeleteServiceDataByIdsRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\DeleteServiceDataByIdsResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\DeleteServiceDataByIdsShrinkRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetBrandChEcomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetBrandChEcomResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetCateChEcomRequest;
@@ -32,6 +38,8 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetEcChGeneralRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetEcChGeneralResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetEcEnGeneralRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetEcEnGeneralResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetEmbeddingRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetEmbeddingResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetItemPubChEcomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetItemPubChEcomResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetKeywordChEcomRequest;
@@ -48,6 +56,10 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetNerCustomizedChEcomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetNerCustomizedChEcomResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetNerCustomizedSeaEcomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetNerCustomizedSeaEcomResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetOpenNLUHighRecallRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetOpenNLUHighRecallResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetOpenNLURequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetOpenNLUResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetOperationChMedicalRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetOperationChMedicalResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetPosChEcomRequest;
@@ -60,8 +72,13 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSaChGeneralRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSaChGeneralResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSaSeaEcomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSaSeaEcomResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetServiceDataImportStatusRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetServiceDataImportStatusResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetServiceDataImportStatusShrinkRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSimilarityChMedicalRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSimilarityChMedicalResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSSETestRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSSETestResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSummaryChEcomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetSummaryChEcomResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetTableQAServiceInfoByIdRequest;
@@ -72,6 +89,8 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetTcChGeneralRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetTcChGeneralResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetTsChEcomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetTsChEcomResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetUserUploadSignRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetUserUploadSignResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWeChCommentRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWeChCommentResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWeChEcomRequest;
@@ -100,11 +119,23 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWsCustomizedSeaEcomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWsCustomizedSeaEcomResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWsCustomizedSeaGeneralRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWsCustomizedSeaGeneralResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\ImportServiceDataRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\ImportServiceDataResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\ImportServiceDataShrinkRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\InsertCustomRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\InsertCustomResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\OpenAlinlpServiceResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSConvSearchTokenGeneratedResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSSearchEnhanceRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSSearchEnhanceResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSSearchEnhanceShrinkRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\RequestTableQAOnlineRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\RequestTableQAOnlineResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\RequestTableQARequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\RequestTableQAResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\UpdateServiceDataRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\UpdateServiceDataResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\UpdateServiceDataShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -326,6 +357,108 @@ class Alinlp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->aDMiniCogResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteServiceDataByConditionsRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteServiceDataByConditionsResponse
+     */
+    public function deleteServiceDataByConditionsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteServiceDataByConditionsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->conditions)) {
+            $request->conditionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->conditions, 'Conditions', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->conditionsShrink)) {
+            $body['Conditions'] = $request->conditionsShrink;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteServiceDataByConditions',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteServiceDataByConditionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteServiceDataByConditionsRequest $request
+     *
+     * @return DeleteServiceDataByConditionsResponse
+     */
+    public function deleteServiceDataByConditions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteServiceDataByConditionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteServiceDataByIdsRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteServiceDataByIdsResponse
+     */
+    public function deleteServiceDataByIdsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteServiceDataByIdsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->idsShrink)) {
+            $body['Ids'] = $request->idsShrink;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteServiceDataByIds',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteServiceDataByIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteServiceDataByIdsRequest $request
+     *
+     * @return DeleteServiceDataByIdsResponse
+     */
+    public function deleteServiceDataByIds($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteServiceDataByIdsWithOptions($request, $runtime);
     }
 
     /**
@@ -752,6 +885,55 @@ class Alinlp extends OpenApiClient
     }
 
     /**
+     * @param GetEmbeddingRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetEmbeddingResponse
+     */
+    public function getEmbeddingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $body['Text'] = $request->text;
+        }
+        if (!Utils::isUnset($request->textType)) {
+            $body['TextType'] = $request->textType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEmbedding',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEmbeddingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetEmbeddingRequest $request
+     *
+     * @return GetEmbeddingResponse
+     */
+    public function getEmbedding($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEmbeddingWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetItemPubChEcomRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1144,6 +1326,116 @@ class Alinlp extends OpenApiClient
     }
 
     /**
+     * @param GetOpenNLURequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetOpenNLUResponse
+     */
+    public function getOpenNLUWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->examples)) {
+            $body['Examples'] = $request->examples;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->sentence)) {
+            $body['Sentence'] = $request->sentence;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->task)) {
+            $body['Task'] = $request->task;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOpenNLU',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOpenNLUResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOpenNLURequest $request
+     *
+     * @return GetOpenNLUResponse
+     */
+    public function getOpenNLU($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOpenNLUWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetOpenNLUHighRecallRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetOpenNLUHighRecallResponse
+     */
+    public function getOpenNLUHighRecallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->examples)) {
+            $body['Examples'] = $request->examples;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->sentence)) {
+            $body['Sentence'] = $request->sentence;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->task)) {
+            $body['Task'] = $request->task;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOpenNLUHighRecall',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOpenNLUHighRecallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOpenNLUHighRecallRequest $request
+     *
+     * @return GetOpenNLUHighRecallResponse
+     */
+    public function getOpenNLUHighRecall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOpenNLUHighRecallWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetOperationChMedicalRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1340,6 +1632,52 @@ class Alinlp extends OpenApiClient
     }
 
     /**
+     * @param GetSSETestRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetSSETestResponse
+     */
+    public function getSSETestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->params)) {
+            $body['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSSETest',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSSETestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSSETestRequest $request
+     *
+     * @return GetSSETestResponse
+     */
+    public function getSSETest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSSETestWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetSaChGeneralRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1432,6 +1770,54 @@ class Alinlp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSaSeaEcomWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetServiceDataImportStatusRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetServiceDataImportStatusResponse
+     */
+    public function getServiceDataImportStatusWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetServiceDataImportStatusShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dataImportIds)) {
+            $request->dataImportIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataImportIds, 'DataImportIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dataImportIdsShrink)) {
+            $body['DataImportIds'] = $request->dataImportIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceDataImportStatus',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetServiceDataImportStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetServiceDataImportStatusRequest $request
+     *
+     * @return GetServiceDataImportStatusResponse
+     */
+    public function getServiceDataImportStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceDataImportStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -1717,6 +2103,49 @@ class Alinlp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTsChEcomWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserUploadSignRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetUserUploadSignResponse
+     */
+    public function getUserUploadSignWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserUploadSign',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserUploadSignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserUploadSignRequest $request
+     *
+     * @return GetUserUploadSignResponse
+     */
+    public function getUserUploadSign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserUploadSignWithOptions($request, $runtime);
     }
 
     /**
@@ -2469,6 +2898,121 @@ class Alinlp extends OpenApiClient
     }
 
     /**
+     * @param ImportServiceDataRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ImportServiceDataResponse
+     */
+    public function importServiceDataWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ImportServiceDataShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->partition)) {
+            $request->partitionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partition, 'Partition', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->partitionShrink)) {
+            $body['Partition'] = $request->partitionShrink;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->subPath)) {
+            $body['SubPath'] = $request->subPath;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportServiceData',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportServiceDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportServiceDataRequest $request
+     *
+     * @return ImportServiceDataResponse
+     */
+    public function importServiceData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importServiceDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InsertCustomRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return InsertCustomResponse
+     */
+    public function insertCustomWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $body['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->customFileName)) {
+            $body['CustomFileName'] = $request->customFileName;
+        }
+        if (!Utils::isUnset($request->customUrl)) {
+            $body['CustomUrl'] = $request->customUrl;
+        }
+        if (!Utils::isUnset($request->regFileName)) {
+            $body['RegFileName'] = $request->regFileName;
+        }
+        if (!Utils::isUnset($request->regUrl)) {
+            $body['RegUrl'] = $request->regUrl;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InsertCustom',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InsertCustomResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InsertCustomRequest $request
+     *
+     * @return InsertCustomResponse
+     */
+    public function insertCustom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->insertCustomWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return OpenAlinlpServiceResponse
@@ -2499,6 +3043,132 @@ class Alinlp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openAlinlpServiceWithOptions($runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return PostMSConvSearchTokenGeneratedResponse
+     */
+    public function postMSConvSearchTokenGeneratedWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'PostMSConvSearchTokenGenerated',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PostMSConvSearchTokenGeneratedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return PostMSConvSearchTokenGeneratedResponse
+     */
+    public function postMSConvSearchTokenGenerated()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->postMSConvSearchTokenGeneratedWithOptions($runtime);
+    }
+
+    /**
+     * @param PostMSSearchEnhanceRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PostMSSearchEnhanceResponse
+     */
+    public function postMSSearchEnhanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PostMSSearchEnhanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->customConfigInfo)) {
+            $request->customConfigInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customConfigInfo, 'CustomConfigInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->fields)) {
+            $request->fieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fields, 'Fields', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->rankModelInfo)) {
+            $request->rankModelInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rankModelInfo, 'RankModelInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->customConfigInfoShrink)) {
+            $body['CustomConfigInfo'] = $request->customConfigInfoShrink;
+        }
+        if (!Utils::isUnset($request->debug)) {
+            $body['Debug'] = $request->debug;
+        }
+        if (!Utils::isUnset($request->fieldsShrink)) {
+            $body['Fields'] = $request->fieldsShrink;
+        }
+        if (!Utils::isUnset($request->filters)) {
+            $body['Filters'] = $request->filters;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $body['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->queries)) {
+            $body['Queries'] = $request->queries;
+        }
+        if (!Utils::isUnset($request->rankModelInfoShrink)) {
+            $body['RankModelInfo'] = $request->rankModelInfoShrink;
+        }
+        if (!Utils::isUnset($request->rows)) {
+            $body['Rows'] = $request->rows;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->sortShrink)) {
+            $body['Sort'] = $request->sortShrink;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->uq)) {
+            $body['Uq'] = $request->uq;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PostMSSearchEnhance',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PostMSSearchEnhanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PostMSSearchEnhanceRequest $request
+     *
+     * @return PostMSSearchEnhanceResponse
+     */
+    public function postMSSearchEnhance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->postMSSearchEnhanceWithOptions($request, $runtime);
     }
 
     /**
@@ -2597,5 +3267,56 @@ class Alinlp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->requestTableQAOnlineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateServiceDataRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateServiceDataResponse
+     */
+    public function updateServiceDataWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateServiceDataShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->conditions)) {
+            $request->conditionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->conditions, 'Conditions', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->conditionsShrink)) {
+            $body['Conditions'] = $request->conditionsShrink;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceData',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateServiceDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateServiceDataRequest $request
+     *
+     * @return UpdateServiceDataResponse
+     */
+    public function updateServiceData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateServiceDataWithOptions($request, $runtime);
     }
 }
