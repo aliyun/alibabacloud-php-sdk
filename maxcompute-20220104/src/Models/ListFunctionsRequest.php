@@ -36,6 +36,8 @@ class ListFunctionsRequest extends Model
     public $prefix;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $schemaName;

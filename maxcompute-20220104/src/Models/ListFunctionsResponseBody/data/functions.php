@@ -27,6 +27,8 @@ class functions extends Model
     public $creationTime;
 
     /**
+     * @example getdate
+     *
      * @var string
      */
     public $displayName;

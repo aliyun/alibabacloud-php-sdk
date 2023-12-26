@@ -42,6 +42,8 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\KillJobsRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\KillJobsResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListFunctionsRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListFunctionsResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListJobInfosRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListJobInfosResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListPackagesResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListProjectsResponse;
@@ -1127,6 +1129,68 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->listFunctionsWithOptions($projectName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListJobInfosRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListJobInfosResponse
+     */
+    public function listJobInfosWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ascOrder)) {
+            $query['ascOrder'] = $request->ascOrder;
+        }
+        if (!Utils::isUnset($request->orderColumn)) {
+            $query['orderColumn'] = $request->orderColumn;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'ListJobInfos',
+            'version'     => '2022-01-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/jobs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListJobInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListJobInfosRequest $request
+     *
+     * @return ListJobInfosResponse
+     */
+    public function listJobInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listJobInfosWithOptions($request, $headers, $runtime);
     }
 
     /**
