@@ -206,6 +206,11 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var bool
+     */
+    public $sitelinkEnable;
+
+    /**
      * @description The VBR ID.
      *
      * @example vbr-bp1lhl0taikrte****
@@ -245,6 +250,7 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
         'regionId'                      => 'RegionId',
         'resourceOwnerAccount'          => 'ResourceOwnerAccount',
         'resourceOwnerId'               => 'ResourceOwnerId',
+        'sitelinkEnable'                => 'SitelinkEnable',
         'vbrId'                         => 'VbrId',
         'vlanId'                        => 'VlanId',
     ];
@@ -318,6 +324,9 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sitelinkEnable) {
+            $res['SitelinkEnable'] = $this->sitelinkEnable;
         }
         if (null !== $this->vbrId) {
             $res['VbrId'] = $this->vbrId;
@@ -399,6 +408,9 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SitelinkEnable'])) {
+            $model->sitelinkEnable = $map['SitelinkEnable'];
         }
         if (isset($map['VbrId'])) {
             $model->vbrId = $map['VbrId'];

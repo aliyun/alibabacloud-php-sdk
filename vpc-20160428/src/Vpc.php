@@ -4748,9 +4748,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
+     * @deprecated
+     *   * ## Usage notes
      *   * You can call this operation to create only pay-as-you-go GA instances.
      *   *
+     * Deprecated
+     *
      * @param CreateGlobalAccelerationInstanceRequest $request CreateGlobalAccelerationInstanceRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -4812,9 +4815,12 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
+     * @deprecated
+     *   * ## Usage notes
      *   * You can call this operation to create only pay-as-you-go GA instances.
      *   *
+     * Deprecated
+     *
      * @param CreateGlobalAccelerationInstanceRequest $request CreateGlobalAccelerationInstanceRequest
      *
      * @return CreateGlobalAccelerationInstanceResponse CreateGlobalAccelerationInstanceResponse
@@ -19513,6 +19519,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -23315,8 +23324,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)References
-     *   * You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
+     * You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
      *   *
      * @param ModifyRouteTableAttributesRequest $request ModifyRouteTableAttributesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -23370,8 +23378,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * ## [](#)References
-     *   * You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
+     * You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
      *   *
      * @param ModifyRouteTableAttributesRequest $request ModifyRouteTableAttributesRequest
      *
@@ -24246,6 +24253,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sitelinkEnable)) {
+            $query['SitelinkEnable'] = $request->sitelinkEnable;
         }
         if (!Utils::isUnset($request->vbrId)) {
             $query['VbrId'] = $request->vbrId;

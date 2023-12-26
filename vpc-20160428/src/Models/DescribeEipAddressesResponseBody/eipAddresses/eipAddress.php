@@ -57,7 +57,7 @@ class eipAddress extends Model
     public $bandwidthPackageId;
 
     /**
-     * @description The type of the bandwidth. Only **CommonBandwidthPackage** may be returned, which indicates Internet Shared Bandwidth.
+     * @description The bandwidth type. Only **CommonBandwidthPackage** may be returned, which indicates Internet Shared Bandwidth.
      *
      * @example CommonBandwidthPackage
      *
@@ -78,7 +78,7 @@ class eipAddress extends Model
     public $bizType;
 
     /**
-     * @description The service state of the EIP. Valid values:
+     * @description The service status of the EIP. Valid values:
      *
      *   **Normal**
      *   **FinancialLocked**
@@ -167,8 +167,8 @@ class eipAddress extends Model
     /**
      * @description The line type. Valid values:
      *
-     *   **BGP**: BGP (Multi-ISP) lines. All regions support BGP (Multi-ISP) EIPs.
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines. Only the following regions support BGP (Multi-ISP) Pro lines: China (Hong Kong), Singapore, Japan (Tokyo), Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok).
+     *   **BGP**: BGP (Multi-ISP). All regions support BGP (Multi-ISP) EIPs.
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro. BGP (Multi-ISP) Pro is supported only in the China (Hong Kong), Singapore, Japan (Tokyo), Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok) regions.
      *
      * If you are allowed to use single-ISP bandwidth, one of the following values may be returned:
      *
@@ -208,7 +208,7 @@ class eipAddress extends Model
      * @description The type of the associated instance. Valid values:
      *
      *   **EcsInstance**: an ECS instance in a VPC.
-     *   **SlbInstance**: an SLB instance in a VPC.
+     *   **SlbInstance**: a CLB instance in a VPC.
      *   **Nat**: a NAT gateway.
      *   **HaVip**: an HAVIP.
      *   **NetworkInterface**: a secondary ENI.
@@ -223,8 +223,8 @@ class eipAddress extends Model
     /**
      * @description The metering method of the EIP. Valid values:
      *
-     *   **PayByBandwidth**: pay-by-bandwidth.
-     *   **PayByTraffic**: pay-by-traffic.
+     *   **PayByBandwidth**
+     *   **PayByTraffic**
      *
      * @example PayByBandwidth
      *
@@ -233,7 +233,7 @@ class eipAddress extends Model
     public $internetChargeType;
 
     /**
-     * @description The EIP.
+     * @description The IP address of the EIP.
      *
      * @example 47.75.XX.XX
      *
@@ -242,6 +242,14 @@ class eipAddress extends Model
     public $ipAddress;
 
     /**
+     * @description The association mode. Valid values:
+     *
+     *   **NAT**: NAT mode
+     *   **MULTI_BINDED**: multi-EIP-to-ENI mode
+     *   **BINDED**: cut-through mode
+     *
+     * @example NAT
+     *
      * @var string
      */
     public $mode;
@@ -272,6 +280,10 @@ class eipAddress extends Model
     public $operationLocks;
 
     /**
+     * @description The private IP address of the secondary ENI with which the EIP is associated.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $privateIpAddress;
@@ -315,8 +327,8 @@ class eipAddress extends Model
     /**
      * @description The metering method that is used after the renewal takes effect. Valid values:
      *
-     *   **PayByBandwidth**: pay-by-bandwidth.
-     *   **PayByTraffic**: pay-by-traffic.
+     *   **PayByBandwidth**
+     *   **PayByTraffic**
      *
      * @example PayByBandwidth
      *
@@ -338,7 +350,7 @@ class eipAddress extends Model
     public $reservationOrderType;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmxazcdxs****
      *
@@ -369,7 +381,7 @@ class eipAddress extends Model
     public $securityProtectionTypes;
 
     /**
-     * @description The ID of the contiguous EIP group.
+     * @description The IDs of contiguous EIPs.
      *
      * This value is returned only when you query contiguous EIPs.
      * @example eipsg-t4nr90yik5oy38xd****
@@ -381,8 +393,8 @@ class eipAddress extends Model
     /**
      * @description Indicates whether the resource is created by the service account. Valid values:
      *
-     *   **0**: The resource is not created by the service account.
-     *   **1**: The resource is created by the service account.
+     *   **0**: no
+     *   **1**: yes
      *
      * @example 0
      *
@@ -391,7 +403,7 @@ class eipAddress extends Model
     public $serviceManaged;
 
     /**
-     * @description The state of the EIP. Valid values:
+     * @description The status of the EIP. Valid values:
      *
      *   **Associating**
      *   **Unassociating**

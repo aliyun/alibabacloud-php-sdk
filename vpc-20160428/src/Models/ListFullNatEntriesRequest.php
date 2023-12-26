@@ -79,11 +79,19 @@ class ListFullNatEntriesRequest extends Model
     public $natGatewayId;
 
     /**
+     * @description The NAT IP address that provides address translation in FULLNAT entries.
+     *
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $natIp;
 
     /**
+     * @description The frontend port to be modified in the mapping of FULLNAT port. Valid values: **1** to **65535**.
+     *
+     * @example 443
+     *
      * @var string
      */
     public $natIpPort;

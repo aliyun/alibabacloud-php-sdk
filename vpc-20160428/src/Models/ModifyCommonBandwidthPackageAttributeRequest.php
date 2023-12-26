@@ -20,6 +20,8 @@ class ModifyCommonBandwidthPackageAttributeRequest extends Model
     /**
      * @description The description of the EIP bandwidth plan. The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      *
+     * @example test
+     *
      * @var string
      */
     public $description;

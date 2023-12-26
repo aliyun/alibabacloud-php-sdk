@@ -12,6 +12,8 @@ class ModifyRouteTableAttributesRequest extends Model
      * @description The description of the route table.
      *
      * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+     * @example test
+     *
      * @var string
      */
     public $description;

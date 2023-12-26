@@ -110,6 +110,16 @@ class virtualBorderRouterType extends Model
     public $eccId;
 
     /**
+     * @var string
+     */
+    public $ecrAttatchStatus;
+
+    /**
+     * @var string
+     */
+    public $ecrId;
+
+    /**
      * @description Indicates whether IPv6 is enabled. Valid values:
      *
      *   **true**
@@ -301,6 +311,11 @@ class virtualBorderRouterType extends Model
     public $routeTableId;
 
     /**
+     * @var bool
+     */
+    public $sitelinkEnable;
+
+    /**
      * @description The status of the VBR. Valid values:
      *
      *   **unconfirmed**
@@ -379,6 +394,8 @@ class virtualBorderRouterType extends Model
         'description'                      => 'Description',
         'detectMultiplier'                 => 'DetectMultiplier',
         'eccId'                            => 'EccId',
+        'ecrAttatchStatus'                 => 'EcrAttatchStatus',
+        'ecrId'                            => 'EcrId',
         'enableIpv6'                       => 'EnableIpv6',
         'localGatewayIp'                   => 'LocalGatewayIp',
         'localIpv6GatewayIp'               => 'LocalIpv6GatewayIp',
@@ -398,6 +415,7 @@ class virtualBorderRouterType extends Model
         'recoveryTime'                     => 'RecoveryTime',
         'resourceGroupId'                  => 'ResourceGroupId',
         'routeTableId'                     => 'RouteTableId',
+        'sitelinkEnable'                   => 'SitelinkEnable',
         'status'                           => 'Status',
         'tags'                             => 'Tags',
         'terminationTime'                  => 'TerminationTime',
@@ -446,6 +464,12 @@ class virtualBorderRouterType extends Model
         }
         if (null !== $this->eccId) {
             $res['EccId'] = $this->eccId;
+        }
+        if (null !== $this->ecrAttatchStatus) {
+            $res['EcrAttatchStatus'] = $this->ecrAttatchStatus;
+        }
+        if (null !== $this->ecrId) {
+            $res['EcrId'] = $this->ecrId;
         }
         if (null !== $this->enableIpv6) {
             $res['EnableIpv6'] = $this->enableIpv6;
@@ -503,6 +527,9 @@ class virtualBorderRouterType extends Model
         }
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
+        }
+        if (null !== $this->sitelinkEnable) {
+            $res['SitelinkEnable'] = $this->sitelinkEnable;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -570,6 +597,12 @@ class virtualBorderRouterType extends Model
         if (isset($map['EccId'])) {
             $model->eccId = $map['EccId'];
         }
+        if (isset($map['EcrAttatchStatus'])) {
+            $model->ecrAttatchStatus = $map['EcrAttatchStatus'];
+        }
+        if (isset($map['EcrId'])) {
+            $model->ecrId = $map['EcrId'];
+        }
         if (isset($map['EnableIpv6'])) {
             $model->enableIpv6 = $map['EnableIpv6'];
         }
@@ -626,6 +659,9 @@ class virtualBorderRouterType extends Model
         }
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
+        }
+        if (isset($map['SitelinkEnable'])) {
+            $model->sitelinkEnable = $map['SitelinkEnable'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

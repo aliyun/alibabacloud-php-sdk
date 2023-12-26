@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListEnhanhcedNatGatewayAvailableZonesRequest\filter;
 use AlibabaCloud\Tea\Model;
 
 class ListEnhanhcedNatGatewayAvailableZonesRequest extends Model
@@ -19,6 +20,11 @@ class ListEnhanhcedNatGatewayAvailableZonesRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
+    /**
+     * @var filter[]
+     */
+    public $filter;
 
     /**
      * @var string
@@ -51,6 +57,7 @@ class ListEnhanhcedNatGatewayAvailableZonesRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'acceptLanguage'       => 'AcceptLanguage',
+        'filter'               => 'Filter',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -67,6 +74,15 @@ class ListEnhanhcedNatGatewayAvailableZonesRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->filter) {
+            $res['Filter'] = [];
+            if (null !== $this->filter && \is_array($this->filter)) {
+                $n = 0;
+                foreach ($this->filter as $item) {
+                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -97,6 +113,15 @@ class ListEnhanhcedNatGatewayAvailableZonesRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['Filter'])) {
+            if (!empty($map['Filter'])) {
+                $model->filter = [];
+                $n             = 0;
+                foreach ($map['Filter'] as $item) {
+                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
