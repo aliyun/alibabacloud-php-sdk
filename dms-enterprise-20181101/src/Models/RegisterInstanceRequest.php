@@ -53,6 +53,10 @@ class RegisterInstanceRequest extends Model
     public $dbaUid;
 
     /**
+     * @description The ID of the user who assumes the DBA role of the database instance. If the user ID is a non-numeric value such as a role or an account, you can use this parameter to replace DbaUid.
+     *
+     * @example 22275482072787****
+     *
      * @var string
      */
     public $dbaUidByString;

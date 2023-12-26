@@ -27,6 +27,11 @@ class standardGroup extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $groupId;
+
+    /**
      * @description The control mode. Valid values:
      *
      *   **NONE_CONTROL**: Flexible Management
@@ -59,6 +64,7 @@ class standardGroup extends Model
     protected $_name = [
         'dbType'       => 'DbType',
         'description'  => 'Description',
+        'groupId'      => 'GroupId',
         'groupMode'    => 'GroupMode',
         'groupName'    => 'GroupName',
         'lastMenderId' => 'LastMenderId',
@@ -76,6 +82,9 @@ class standardGroup extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->groupMode) {
             $res['GroupMode'] = $this->groupMode;
@@ -103,6 +112,9 @@ class standardGroup extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['GroupMode'])) {
             $model->groupMode = $map['GroupMode'];
