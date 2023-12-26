@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayIntranetLinkedVpcResponseBody extends Model
 {
     /**
+     * @description The private gateway ID.
+     *
      * @example gw-1uhcqmsc7x22******
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteGatewayIntranetLinkedVpcResponseBody extends Model
     public $gatewayId;
 
     /**
+     * @description The returned message.
+     *
      * @example Successfully delete intranet linked vpc for gateway
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteGatewayIntranetLinkedVpcResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

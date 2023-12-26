@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAppServiceResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
      * @example Succee
      *
      * @var string

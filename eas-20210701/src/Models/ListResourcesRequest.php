@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourcesRequest extends Model
 {
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListResourcesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 100.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class ListResourcesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the resource group. You can call the [CreateResource](~~412111~~) operation to query the ID of the resource group.
+     *
      * @example eas-r-h7lcw24dyqztwxxxxxx
      *
      * @var string
@@ -30,6 +36,8 @@ class ListResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The name of the resource group. You can call the [CreateResource](~~412111~~) operation to query the name of the resource group.
+     *
      * @example MyResource
      *
      * @var string
@@ -37,6 +45,8 @@ class ListResourcesRequest extends Model
     public $resourceName;
 
     /**
+     * @example Dedicated
+     *
      * @var string
      */
     public $resourceType;

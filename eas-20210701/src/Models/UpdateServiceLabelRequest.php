@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceLabelRequest extends Model
 {
     /**
+     * @description The custom service tags.
+     *
      * @var string[]
      */
     public $labels;

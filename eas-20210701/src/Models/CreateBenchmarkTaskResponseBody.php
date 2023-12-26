@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateBenchmarkTaskResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
      * @example Benchmark  task [foo] is Creating
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateBenchmarkTaskResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the region where the stress testing task is performed.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateBenchmarkTaskResponseBody extends Model
     public $region;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82********
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateBenchmarkTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The name of the stress testing task.
+     *
      * @example benchmark-larec-test-1076
      *
      * @var string

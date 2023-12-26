@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAppServiceRequest extends Model
 {
     /**
+     * @description The quota ID.
+     *
      * @example abcdef
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateAppServiceRequest extends Model
     public $quotaId;
 
     /**
+     * @description The workspace ID.
+     *
      * @example 123456
      *
      * @var string
@@ -23,6 +27,13 @@ class CreateAppServiceRequest extends Model
     public $workspaceId;
 
     /**
+     * @description The application service type.
+     *
+     * Valid values:
+     *
+     *   LLM
+     *
+     * <!-- -->
      * @example LLM
      *
      * @var string
@@ -30,6 +41,8 @@ class CreateAppServiceRequest extends Model
     public $appType;
 
     /**
+     * @description The application version.
+     *
      * @example v1
      *
      * @var string
@@ -37,11 +50,15 @@ class CreateAppServiceRequest extends Model
     public $appVersion;
 
     /**
+     * @description Additional configurations that are required for the service deployment.
+     *
      * @var mixed[]
      */
     public $config;
 
     /**
+     * @description The number of instances.
+     *
      * @example 1
      *
      * @var int
@@ -49,6 +66,8 @@ class CreateAppServiceRequest extends Model
     public $replicas;
 
     /**
+     * @description The service name.
+     *
      * @example foo
      *
      * @var string
@@ -56,6 +75,8 @@ class CreateAppServiceRequest extends Model
     public $serviceName;
 
     /**
+     * @description The service specifications.
+     *
      * @example llama_7b_fp16
      *
      * @var string

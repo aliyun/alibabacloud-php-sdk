@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DevelopServiceRequest extends Model
 {
     /**
+     * @description Specifies whether to exit development mode. Valid values:
+     *
+     *   true
+     *   false (default)
+     *
      * @example true
      *
      * @var string

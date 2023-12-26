@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayResponseBody extends Model
 {
     /**
+     * @description The private gateway ID.
+     *
      * @example gw-1uhcqmsc7x22******
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteGatewayResponseBody extends Model
     public $gatewayId;
 
     /**
+     * @description The returned message.
+     *
      * @example Gateway is deleted.
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteGatewayResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

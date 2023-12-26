@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBenchmarkTaskResponseBody extends Model
 {
     /**
+     * @description The number of instances that you can test.
+     *
      * @example 4
      *
      * @var int
@@ -16,7 +18,7 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $availableAgent;
 
     /**
-     * @description 压测任务的状态。
+     * @description The ID of the operation caller.
      *
      * @example 1640133467****
      *
@@ -25,7 +27,7 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $callerUid;
 
     /**
-     * @description 预期的压测实例个数。
+     * @description The number of instances that you want to test.
      *
      * @example 4
      *
@@ -34,11 +36,17 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $desiredAgent;
 
     /**
+     * @description The endpoint of the service gateway.
+     *
+     * @example 192342311234.pai-eas.cn-chengdu.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The returned message.
+     *
      * @example Benchmar task is Running
      *
      * @var string
@@ -46,6 +54,8 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to call the operation.
+     *
      * @example 1029728669****
      *
      * @var string
@@ -53,6 +63,8 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $parentUid;
 
     /**
+     * @description The event or reason that causes the current state of the stress testing task.
+     *
      * @example RUNNING
      *
      * @var string
@@ -60,7 +72,7 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $reason;
 
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example 40325405-579C-4D82****
      *
@@ -69,7 +81,7 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 访问eas服务的鉴权token。
+     * @description The name of the service that you want to test.
      *
      * @example foo
      *
@@ -78,6 +90,45 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $serviceName;
 
     /**
+     * @description The state of the stress testing task.
+     *
+     * Valid values:
+     *
+     *   Creating
+     *
+     * <!-- -->
+     *
+     *   Starting
+     *
+     * <!-- -->
+     *
+     *   DeleteFailed
+     *
+     * <!-- -->
+     *
+     *   Running
+     *
+     * <!-- -->
+     *
+     *   Stopping
+     *
+     * <!-- -->
+     *
+     *   Error
+     *
+     * <!-- -->
+     *
+     *   Updating
+     *
+     * <!-- -->
+     *
+     *   Deleting
+     *
+     * <!-- -->
+     *
+     *   CreateFailed
+     *
+     * <!-- -->
      * @example Running
      *
      * @var string
@@ -85,7 +136,7 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $status;
 
     /**
-     * @description 压测任务ID。
+     * @description The ID of the stress testing task.
      *
      * @example eas-b-gv4y86u****
      *
@@ -94,7 +145,7 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $taskId;
 
     /**
-     * @description 当前压测任务状态产生的原因。
+     * @description The name of the stress testing task.
      *
      * @example benchmark-larec-test-ae70
      *
@@ -103,7 +154,7 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $taskName;
 
     /**
-     * @description 资源拥有者的UID。
+     * @description The token for authentication when a stress testing task is created.
      *
      * @example 6062787a-9301****
      *

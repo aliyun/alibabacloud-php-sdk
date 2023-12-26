@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceAutoScalerRequest extends Model
 {
     /**
+     * @description The Autoscaler operation.
+     *
      * @var behavior
      */
     public $behavior;
 
     /**
+     * @description The maximum number of instances. The value must be greater than that of the min parameter.
+     *
      * @example 8
      *
      * @var int
@@ -23,6 +27,8 @@ class CreateServiceAutoScalerRequest extends Model
     public $max;
 
     /**
+     * @description The minimum number of instances. The value must be greater than 0.
+     *
      * @example 2
      *
      * @var int
@@ -30,6 +36,8 @@ class CreateServiceAutoScalerRequest extends Model
     public $min;
 
     /**
+     * @description The Autoscaler strategies.
+     *
      * @var scaleStrategies[]
      */
     public $scaleStrategies;

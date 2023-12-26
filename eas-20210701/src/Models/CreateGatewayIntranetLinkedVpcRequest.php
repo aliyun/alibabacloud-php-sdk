@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateGatewayIntranetLinkedVpcRequest extends Model
 {
     /**
+     * @description The vSwitch ID.
+     *
      * @example vsw-8vbqn2at0kljjxxxx****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateGatewayIntranetLinkedVpcRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The virtual private cloud (VPC) ID.
+     *
      * @example vpc-uf66uio7md****
      *
      * @var string

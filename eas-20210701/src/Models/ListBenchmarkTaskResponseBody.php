@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListBenchmarkTaskResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListBenchmarkTaskResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +28,8 @@ class ListBenchmarkTaskResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string
@@ -31,11 +37,15 @@ class ListBenchmarkTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time when the stress testing task was updated.
+     *
      * @var tasks[]
      */
     public $tasks;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

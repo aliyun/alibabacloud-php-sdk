@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRequest extends Model
 {
     /**
+     * @description Specifies whether to enable Internet access. Default value: false.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
+     * @example false
+     *
      * @var bool
      */
     public $enableInternet;
 
     /**
+     * @description Specifies whether to enable internal network access. Default value: true.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableIntranet;
 
     /**
+     * @description The instance type used for the private gateway.
+     *
+     * @example ecs.c6.4xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The private gateway alias.
+     *
+     * @example mygateway1
+     *
      * @var string
      */
     public $name;

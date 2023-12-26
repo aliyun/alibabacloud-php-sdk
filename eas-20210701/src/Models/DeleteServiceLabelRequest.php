@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceLabelRequest extends Model
 {
     /**
+     * @description The service tags that you want to delete.
+     *
      * @var string[]
      */
     public $keys;

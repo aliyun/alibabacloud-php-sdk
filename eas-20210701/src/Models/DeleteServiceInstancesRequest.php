@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceInstancesRequest extends Model
 {
     /**
+     * @description The name of the container whose process needs to be restarted. This parameter takes effect only if the SoftRestart parameter is set to true.
+     *
+     * @example worker0
+     *
      * @var string
      */
     public $container;
@@ -21,6 +25,10 @@ class DeleteServiceInstancesRequest extends Model
     public $instanceList;
 
     /**
+     * @description Specifies whether to restart only the container process without recreating the instance. Default value: false. Valid values: true and false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $softRestart;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class nodeTolerations extends Model
 {
     /**
+     * @description 效果
+     *
+     * @example NoSchedule
+     *
      * @var string
      */
     public $effect;
 
     /**
+     * @description 键名
+     *
+     * @example key1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description 键名和键值的关系
+     *
+     * @example Equal
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description 键值
+     *
+     * @example value1
+     *
      * @var string
      */
     public $value;

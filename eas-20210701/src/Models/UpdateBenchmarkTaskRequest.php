@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateBenchmarkTaskRequest extends Model
 {
     /**
+     * @description The request body. The body includes the parameters that are set to create a stress testing task.
+     *
      * @example {
      * }
      * @var string

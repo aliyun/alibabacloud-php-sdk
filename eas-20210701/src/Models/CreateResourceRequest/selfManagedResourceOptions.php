@@ -10,21 +10,33 @@ use AlibabaCloud\Tea\Model;
 class selfManagedResourceOptions extends Model
 {
     /**
+     * @description 自运维集群Id
+     *
+     * @example cf0386f250f2545689ca7fdd1cd******
+     *
      * @var string
      */
     public $externalClusterId;
 
     /**
+     * @description 节点的标签键值对集合
+     *
      * @var string[]
      */
     public $nodeMatchLabels;
 
     /**
+     * @description 节点污点的容忍度列表
+     *
      * @var nodeTolerations[]
      */
     public $nodeTolerations;
 
     /**
+     * @description 授予云服务PAI-EAS相关权限的RAM角色名称
+     *
+     * @example clusterrole
+     *
      * @var string
      */
     public $roleName;

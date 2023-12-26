@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class nodeTolerations extends Model
 {
     /**
+     * @description The effect.
+     *
+     * - NoExecute
+     * @example NoSchedule
+     *
      * @var string
      */
     public $effect;
 
     /**
+     * @description The name of the key.
+     *
+     * @example key1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description Relationship between key names and key values.
+     * - Exists
+     * @example Equal
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description The name of the value.
+     *
+     * @example value1
+     *
      * @var string
      */
     public $value;

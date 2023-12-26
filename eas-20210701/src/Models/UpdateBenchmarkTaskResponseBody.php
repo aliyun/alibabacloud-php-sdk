@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateBenchmarkTaskResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
      * @example Benchmark task [benchmark-larec-test-1076] is Updating
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateBenchmarkTaskResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82***
      *
      * @var string

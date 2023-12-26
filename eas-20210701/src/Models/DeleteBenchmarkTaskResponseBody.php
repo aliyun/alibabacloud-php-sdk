@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBenchmarkTaskResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
      * @example Benchmark task [benchmark-test-service-234c] is Deleting
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteBenchmarkTaskResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

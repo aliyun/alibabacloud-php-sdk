@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceRequest extends Model
 {
     /**
+     * @description Specifies whether to enter development mode.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var string
@@ -21,11 +32,15 @@ class CreateServiceRequest extends Model
     public $labels;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $workspaceId;
 
     /**
+     * @example {
+     * }
      * @var string
      */
     public $body;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAppServiceResponseBody extends Model
 {
     /**
+     * @description The public endpoint of the service.
+     *
      * @example http://pai-eas.cn-shanghai.****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateAppServiceResponseBody extends Model
     public $internetEndpoint;
 
     /**
+     * @description The internal endpoint of the service.
+     *
      * @example http://pai-eas-vpc.cn-shanghai.****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateAppServiceResponseBody extends Model
     public $intranetEndpoint;
 
     /**
+     * @description The region ID of the service.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateAppServiceResponseBody extends Model
     public $region;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateAppServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The service ID.
+     *
      * @example eas-m-aaxxxddf
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateAppServiceResponseBody extends Model
     public $serviceId;
 
     /**
+     * @description The service name.
+     *
      * @example foo
      *
      * @var string
@@ -51,6 +63,8 @@ class CreateAppServiceResponseBody extends Model
     public $serviceName;
 
     /**
+     * @description The service state.
+     *
      * @example Creating
      *
      * @var string

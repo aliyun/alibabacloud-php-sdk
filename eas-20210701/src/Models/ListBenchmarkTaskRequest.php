@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListBenchmarkTaskRequest extends Model
 {
     /**
+     * @description The keyword used to query required stress testing tasks. If this parameter is specified, the system returns stress testing tasks based on the names of the stress testing tasks in the matched Elastic Algorithm service (EAS).
+     *
      * @example test_bench
      *
      * @var string
@@ -16,6 +18,8 @@ class ListBenchmarkTaskRequest extends Model
     public $filter;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class ListBenchmarkTaskRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 100.
+     *
      * @example 10
      *
      * @var string
@@ -30,6 +36,8 @@ class ListBenchmarkTaskRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the EAS service that corresponds to the stress testing task. For more information about how to query the service name, see [ListServices](~~412109~~).
+     *
      * @example test_bench_srv
      *
      * @var string

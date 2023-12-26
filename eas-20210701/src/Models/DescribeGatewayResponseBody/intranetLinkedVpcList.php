@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class intranetLinkedVpcList extends Model
 {
     /**
+     * @description The IP address.
+     *
      * @example 192.168.10.11
      *
      * @var string
@@ -16,6 +18,8 @@ class intranetLinkedVpcList extends Model
     public $ip;
 
     /**
+     * @description The ID of the security group.
+     *
      * @example sg-2ze4pgstgszvgq******
      *
      * @var string
@@ -23,6 +27,17 @@ class intranetLinkedVpcList extends Model
     public $securityGroupId;
 
     /**
+     * @description The state of the private gateway.
+     *
+     * Valid values:
+     *
+     *   Creating
+     *
+     * <!-- -->
+     *
+     *   Running
+     *
+     * <!-- -->
      * @example Running
      *
      * @var string
@@ -30,6 +45,8 @@ class intranetLinkedVpcList extends Model
     public $status;
 
     /**
+     * @description The vSwitch ID.
+     *
      * @example vsw-bp1txzxsdck43pp******
      *
      * @var string
@@ -37,6 +54,8 @@ class intranetLinkedVpcList extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
      * @example vpc-bp1g11zvka6zr3i******
      *
      * @var string

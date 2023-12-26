@@ -58,6 +58,17 @@ class ListServiceInstancesRequest extends Model
     public $isSpot;
 
     /**
+     * @description The sorting order.
+     *
+     * Valid values:
+     *
+     *   asc: The instances are sorted in ascending order.
+     *
+     * <!-- -->
+     *
+     *   desc
+     *
+     * <!-- -->
      * @example desc
      *
      * @var string

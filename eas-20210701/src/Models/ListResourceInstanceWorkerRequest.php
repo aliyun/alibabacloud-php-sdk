@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourceInstanceWorkerRequest extends Model
 {
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListResourceInstanceWorkerRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 100.
+     *
      * @example 20
      *
      * @var int

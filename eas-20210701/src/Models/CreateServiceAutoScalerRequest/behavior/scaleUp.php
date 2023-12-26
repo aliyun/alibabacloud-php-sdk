@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scaleUp extends Model
 {
     /**
+     * @description The time window that is required before the scale-out operation is performed. The scale-out operation can be performed only if the specified metric exceeds the specified threshold in the specified time window. Default value: 0.
+     *
      * @example 0
      *
      * @var int

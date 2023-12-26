@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateGatewayResponseBody extends Model
 {
     /**
+     * @description The region ID of the private gateway.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateGatewayResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description The private gateway ID.
+     *
      * @example gw-1uhcqmsc7x22******
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateGatewayResponseBody extends Model
     public $gatewayId;
 
     /**
+     * @description The returned message.
+     *
      * @example Successfully create gateway.
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateGatewayResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

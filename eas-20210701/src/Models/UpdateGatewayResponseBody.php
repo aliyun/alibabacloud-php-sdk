@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayResponseBody extends Model
 {
     /**
+     * @description The ID of the gateway.
+     *
      * @example gw-1uhcqmsc7x22******
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateGatewayResponseBody extends Model
     public $gatewayId;
 
     /**
+     * @description The returned message.
+     *
      * @example Gateway is updated
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateGatewayResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 40325405-579C-4D82***
      *
      * @var string

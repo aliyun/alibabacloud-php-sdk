@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class internetAclPolicyList extends Model
 {
     /**
+     * @description The description.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class internetAclPolicyList extends Model
     public $comment;
 
     /**
+     * @description The accessible CIDR block.
+     *
      * @example 192.168.1.1/32
      *
      * @var string
@@ -23,6 +27,17 @@ class internetAclPolicyList extends Model
     public $entry;
 
     /**
+     * @description The state of the private gateway.
+     *
+     * Valid values:
+     *
+     *   Creating
+     *
+     * <!-- -->
+     *
+     *   Running
+     *
+     * <!-- -->
      * @example Running
      *
      * @var string

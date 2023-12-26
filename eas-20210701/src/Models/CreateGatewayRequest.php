@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateGatewayRequest extends Model
 {
     /**
+     * @description The name of the resource group.
+     *
      * @example eas-r-4gt8twzwllfo******
      *
      * @var string
@@ -16,6 +18,17 @@ class CreateGatewayRequest extends Model
     public $resourceName;
 
     /**
+     * @description Specifies whether to enable Internet access. Default value: false.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -23,6 +36,8 @@ class CreateGatewayRequest extends Model
     public $enableInternet;
 
     /**
+     * @description Specifies whether to enable internal network access. Default value: true.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +45,8 @@ class CreateGatewayRequest extends Model
     public $enableIntranet;
 
     /**
+     * @description The instance type used for the private gateway.
+     *
      * @example ecs.c6.4xlarge
      *
      * @var string
@@ -37,6 +54,8 @@ class CreateGatewayRequest extends Model
     public $instanceType;
 
     /**
+     * @description The private gateway alias.
+     *
      * @example mygateway1
      *
      * @var string

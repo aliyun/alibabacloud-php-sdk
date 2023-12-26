@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceSafetyLockRequest extends Model
 {
     /**
+     * @description The lock scope. Valid values:
+     *
+     *   all: locks all operations.
+     *   dangerous: locks high-risk operations such as delete and stop operations.
+     *   none: locks no operations.
+     *
      * @example dangerous
      *
      * @var string

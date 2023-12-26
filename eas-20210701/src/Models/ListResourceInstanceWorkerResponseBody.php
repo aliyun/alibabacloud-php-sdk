@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourceInstanceWorkerResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListResourceInstanceWorkerResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int
@@ -23,11 +27,15 @@ class ListResourceInstanceWorkerResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The workers.
+     *
      * @var ResourceInstanceWorker[]
      */
     public $pods;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string
@@ -35,6 +43,8 @@ class ListResourceInstanceWorkerResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

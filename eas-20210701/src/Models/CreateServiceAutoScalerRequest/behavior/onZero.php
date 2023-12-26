@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class onZero extends Model
 {
     /**
+     * @description The time window that is required before the number of instances is reduced to 0. The number of instances can be reduced to 0 only if no request is available or no traffic exists in the specified time window. Default value: 600.
+     *
      * @example 600
      *
      * @var int
@@ -16,6 +18,8 @@ class onZero extends Model
     public $scaleDownGracePeriodSeconds;
 
     /**
+     * @description The number of instances that you want to create at a time if the number of instances is scaled out from 0. Default value: 1.
+     *
      * @example 1
      *
      * @var int

@@ -14,6 +14,8 @@ class DescribeResourceDLinkResponseBody extends Model
     public $auxVSwitchList;
 
     /**
+     * @description The CIDR blocks of the clients that you want to connect to. The CIDR blocks are added to the back-to-origin route of the server.
+     *
      * @example 72.16.0.0/16
      *
      * @var string

@@ -59,6 +59,8 @@ class DescribeGatewayResponseBody extends Model
     public $instanceType;
 
     /**
+     * @description The Internet access control policies.
+     *
      * @var internetAclPolicyList[]
      */
     public $internetAclPolicyList;

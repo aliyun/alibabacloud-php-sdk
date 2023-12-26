@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether to isolate the service instance.
+     *
      * @example true
      *
      * @var bool

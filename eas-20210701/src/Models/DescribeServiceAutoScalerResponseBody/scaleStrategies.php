@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scaleStrategies extends Model
 {
     /**
+     * @example QPS
+     *
      * @var string
      */
     public $metricName;

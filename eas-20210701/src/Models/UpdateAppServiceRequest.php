@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAppServiceRequest extends Model
 {
     /**
+     * @description The quota ID.
+     *
      * @example abcdef
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateAppServiceRequest extends Model
     public $quotaId;
 
     /**
+     * @description The workspace ID.
+     *
      * @example 123456
      *
      * @var string
@@ -23,6 +27,13 @@ class UpdateAppServiceRequest extends Model
     public $workspaceId;
 
     /**
+     * @description The application type.
+     *
+     * Valid values:
+     *
+     *   LLM
+     *
+     * <!-- -->
      * @example LLM
      *
      * @var string
@@ -30,6 +41,8 @@ class UpdateAppServiceRequest extends Model
     public $appType;
 
     /**
+     * @description The application version.
+     *
      * @example v1
      *
      * @var string
@@ -37,11 +50,15 @@ class UpdateAppServiceRequest extends Model
     public $appVersion;
 
     /**
+     * @description Additional configurations that are required for the service deployment.
+     *
      * @var mixed[]
      */
     public $config;
 
     /**
+     * @description The number of instances.
+     *
      * @example 1
      *
      * @var string
@@ -49,6 +66,8 @@ class UpdateAppServiceRequest extends Model
     public $replicas;
 
     /**
+     * @description The service specifications.
+     *
      * @example llama_7b_fp16
      *
      * @var string

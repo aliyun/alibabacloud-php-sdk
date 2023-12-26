@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceRequest extends Model
 {
     /**
+     * @description The new name of the resource group after the update. The name can be up to 27 characters in length.
+     *
      * @example iot
      *
      * @var string
@@ -17,6 +19,8 @@ class UpdateResourceRequest extends Model
     public $resourceName;
 
     /**
+     * @description The configurable options for self managed resource group.
+     *
      * @var selfManagedResourceOptions
      */
     public $selfManagedResourceOptions;

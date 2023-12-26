@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListServiceContainersResponseBody extends Model
 {
     /**
+     * @description The containers of the service.
+     *
      * @var ContainerInfo[]
      */
     public $containers;

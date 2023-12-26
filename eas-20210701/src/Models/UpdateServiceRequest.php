@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $updateType;
+
+    /**
      * @example {   "name": "foo",   "model_path": "http://path/to/model.tar.gz",   "processor": "tensorflow_cpu",   "metadata": {     "instance": 2,     "memory": 7000,     "cpu": 4   } }
      *
      * @var string
      */
     public $body;
     protected $_name = [
-        'body' => 'body',
+        'updateType' => 'UpdateType',
+        'body'       => 'body',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class UpdateServiceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->updateType) {
+            $res['UpdateType'] = $this->updateType;
+        }
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
@@ -40,6 +49,9 @@ class UpdateServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['UpdateType'])) {
+            $model->updateType = $map['UpdateType'];
+        }
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }

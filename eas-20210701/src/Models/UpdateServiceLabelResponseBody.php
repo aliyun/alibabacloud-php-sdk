@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceLabelResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example Succeed to update service [service_from_XXXX] labels.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

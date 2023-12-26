@@ -3479,8 +3479,13 @@ class Eas extends OpenApiClient
     public function updateServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->updateType)) {
+            $query['UpdateType'] = $request->updateType;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => $request->body,
         ]);
         $params = new Params([

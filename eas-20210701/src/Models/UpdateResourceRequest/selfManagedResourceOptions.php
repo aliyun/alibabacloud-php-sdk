@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class selfManagedResourceOptions extends Model
 {
     /**
+     * @description The key-value pairs for matched nodes.
+     *
      * @var string[]
      */
     public $nodeMatchLabels;
 
     /**
+     * @description Tolerations for nodes.
+     *
      * @var nodeTolerations[]
      */
     public $nodeTolerations;

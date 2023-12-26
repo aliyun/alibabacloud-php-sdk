@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceLogRequest extends Model
 {
     /**
-     * @description 服务实例的容器名称。
-     *
      * @example worker0
      *
      * @var string

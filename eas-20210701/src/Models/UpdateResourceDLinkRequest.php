@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceDLinkRequest extends Model
 {
     /**
+     * @description The CIDR blocks of the clients that you want to connect to. After this parameter is specified, the CIDR blocks are added to the back-to-origin route of the server. Either this parameter or the VSwitchIdList parameter can be used to determine CIDR blocks.
+     *
      * @example 72.16.0.0/16
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateResourceDLinkRequest extends Model
     public $destinationCIDRs;
 
     /**
+     * @description The ID of the security group to which the Elastic Compute Service (ECS) instance belongs.
+     *
      * @example sg-bp149cedsfx2rfspd2d
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateResourceDLinkRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description The ID of the peer primary vSwitch. After this parameter is specified, an elastic network interface (ENI) is created in the VSwitch.
+     *
      * @example vpc-uf66uio7md****
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateResourceDLinkRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The vSwitches of the clients that you want to connect to. After this parameter is specified, the CIDR blocks of these vSwitches are added to the back-to-origin route of the server.
+     *
      * @var string[]
      */
     public $vSwitchIdList;

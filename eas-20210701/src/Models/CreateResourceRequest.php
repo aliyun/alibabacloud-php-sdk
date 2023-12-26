@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceRequest extends Model
 {
     /**
+     * @description Specifies whether to enable auto-renewal. Valid values: false (default)
+     *
+     *   true
+     *
      * @example false
      *
      * @var bool
@@ -17,6 +21,11 @@ class CreateResourceRequest extends Model
     public $autoRenewal;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   PrePaid: the subscription billing method.
+     *   PostPaid: the pay-as-you-go billing method.
+     *
      * @example PostPaid
      *
      * @var string
@@ -24,6 +33,8 @@ class CreateResourceRequest extends Model
     public $chargeType;
 
     /**
+     * @description The number of ECS instances.
+     *
      * @example 5
      *
      * @var int
@@ -31,6 +42,8 @@ class CreateResourceRequest extends Model
     public $ecsInstanceCount;
 
     /**
+     * @description The type of the Elastic Compute Service (ECS) instance.
+     *
      * @example ecs.c6.8xlarge
      *
      * @var string
@@ -38,16 +51,22 @@ class CreateResourceRequest extends Model
     public $ecsInstanceType;
 
     /**
+     * @example Dedicated
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description 自运维资源组配置选项
+     *
      * @var selfManagedResourceOptions
      */
     public $selfManagedResourceOptions;
 
     /**
+     * @description The size of the system disk. Unit: GiB. Valid values: 200 to 2000. Default value: 200.
+     *
      * @example 200
      *
      * @var int
@@ -55,6 +74,8 @@ class CreateResourceRequest extends Model
     public $systemDiskSize;
 
     /**
+     * @description The zone to which the instance belongs.
+     *
      * @example cn-shanghai-f
      *
      * @var string
