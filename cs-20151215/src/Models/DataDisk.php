@@ -37,6 +37,13 @@ class DataDisk extends Model
     public $category;
 
     /**
+     * @example /dev/xvdb
+     *
+     * @var string
+     */
+    public $device;
+
+    /**
      * @example true
      *
      * @var string
@@ -65,6 +72,13 @@ class DataDisk extends Model
     public $mountTarget;
 
     /**
+     * @example DataDiskName
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
      * @example PL1
      *
      * @var string
@@ -84,18 +98,28 @@ class DataDisk extends Model
      * @var int
      */
     public $size;
+
+    /**
+     * @example s-280s7****
+     *
+     * @var string
+     */
+    public $snapshotId;
     protected $_name = [
         'autoFormat'           => 'auto_format',
         'autoSnapshotPolicyId' => 'auto_snapshot_policy_id',
         'burstingEnabled'      => 'bursting_enabled',
         'category'             => 'category',
+        'device'               => 'device',
         'encrypted'            => 'encrypted',
         'fileSystem'           => 'file_system',
         'kmsKeyId'             => 'kms_key_id',
         'mountTarget'          => 'mount_target',
+        'name'                 => 'name',
         'performanceLevel'     => 'performance_level',
         'provisionedIops'      => 'provisioned_iops',
         'size'                 => 'size',
+        'snapshotId'           => 'snapshot_id',
     ];
 
     public function validate()
@@ -117,6 +141,9 @@ class DataDisk extends Model
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
+        if (null !== $this->device) {
+            $res['device'] = $this->device;
+        }
         if (null !== $this->encrypted) {
             $res['encrypted'] = $this->encrypted;
         }
@@ -129,6 +156,9 @@ class DataDisk extends Model
         if (null !== $this->mountTarget) {
             $res['mount_target'] = $this->mountTarget;
         }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
         if (null !== $this->performanceLevel) {
             $res['performance_level'] = $this->performanceLevel;
         }
@@ -137,6 +167,9 @@ class DataDisk extends Model
         }
         if (null !== $this->size) {
             $res['size'] = $this->size;
+        }
+        if (null !== $this->snapshotId) {
+            $res['snapshot_id'] = $this->snapshotId;
         }
 
         return $res;
@@ -162,6 +195,9 @@ class DataDisk extends Model
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
+        if (isset($map['device'])) {
+            $model->device = $map['device'];
+        }
         if (isset($map['encrypted'])) {
             $model->encrypted = $map['encrypted'];
         }
@@ -174,6 +210,9 @@ class DataDisk extends Model
         if (isset($map['mount_target'])) {
             $model->mountTarget = $map['mount_target'];
         }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
         if (isset($map['performance_level'])) {
             $model->performanceLevel = $map['performance_level'];
         }
@@ -182,6 +221,9 @@ class DataDisk extends Model
         }
         if (isset($map['size'])) {
             $model->size = $map['size'];
+        }
+        if (isset($map['snapshot_id'])) {
+            $model->snapshotId = $map['snapshot_id'];
         }
 
         return $model;
