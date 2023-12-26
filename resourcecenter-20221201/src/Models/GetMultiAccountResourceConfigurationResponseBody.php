@@ -36,11 +36,17 @@ class GetMultiAccountResourceConfigurationResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The time when the resource expires.
+     *
+     * @example 2023-09-18T07:04:21Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The attributes of the IP address.
+     *
      * @var ipAddressAttributes[]
      */
     public $ipAddressAttributes;

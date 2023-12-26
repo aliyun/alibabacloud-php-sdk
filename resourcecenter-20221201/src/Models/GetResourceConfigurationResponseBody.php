@@ -36,11 +36,17 @@ class GetResourceConfigurationResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The time when the resource expires.
+     *
+     * @example 2021-07-30T09:20:08Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The attributes of the IP address.
+     *
      * @var ipAddressAttributes[]
      */
     public $ipAddressAttributes;

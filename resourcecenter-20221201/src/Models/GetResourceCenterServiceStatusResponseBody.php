@@ -11,7 +11,7 @@ class GetResourceCenterServiceStatusResponseBody extends Model
     /**
      * @description The initialization status of the service. Valid values:
      *
-     *   Pending: The service being initialized.
+     *   Pending: The service is being initialized.
      *   Finished: The service is initialized.
      *
      * @example Pending

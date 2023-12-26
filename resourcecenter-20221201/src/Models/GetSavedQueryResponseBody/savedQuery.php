@@ -20,6 +20,8 @@ class savedQuery extends Model
     /**
      * @description The description of the template.
      *
+     * @example Queries all resources on which you have permissions and sorts the resources by resource type and resource ID.
+     *
      * @var string
      */
     public $description;
@@ -35,6 +37,8 @@ class savedQuery extends Model
 
     /**
      * @description The name of the template.
+     *
+     * @example Query of All Alibaba Cloud Resources
      *
      * @var string
      */

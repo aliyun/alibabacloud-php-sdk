@@ -12,6 +12,8 @@ class CreateSavedQueryRequest extends Model
      * @description The description of the template.
      *
      * The description must be 1 to 256 characters in length.
+     * @example Queries all resources on which you have permissions and sorts the resources by resource type and resource ID.
+     *
      * @var string
      */
     public $description;
@@ -31,6 +33,8 @@ class CreateSavedQueryRequest extends Model
      *   The name must be 1 to 64 characters in length.
      *   The name can contain letters, digits, underscores (\_), and hyphens (-).
      *   The name must be unique.
+     *
+     * @example Query of All Alibaba Cloud Resources
      *
      * @var string
      */

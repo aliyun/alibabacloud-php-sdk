@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ipAddressAttributes extends Model
 {
     /**
+     * @description The IP address.
+     *
+     * @example 172.27.199.42
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **Public**: the Internet
+     *   **Private**: internal network
+     *
+     * @example Public
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The version.
+     *
+     * @example Ipv4
+     *
      * @var string
      */
     public $version;

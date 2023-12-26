@@ -6,12 +6,19 @@ namespace AlibabaCloud\SDK\ResourceCenter\V20221201;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\AssociateDefaultFilterRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\AssociateDefaultFilterResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateFilterRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateFilterResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateSavedQueryRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateSavedQueryResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteFilterRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteFilterResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteSavedQueryRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DeleteSavedQueryResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DisableMultiAccountResourceCenterResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DisableResourceCenterResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\DisassociateDefaultFilterResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\EnableMultiAccountResourceCenterResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\EnableResourceCenterResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ExecuteMultiAccountSQLQueryRequest;
@@ -32,6 +39,7 @@ use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetSavedQueryRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetSavedQueryResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListExampleQueriesRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListExampleQueriesResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListFiltersResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountResourceGroupsRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountResourceGroupsResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountTagKeysRequest;
@@ -50,6 +58,8 @@ use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResources
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResourcesResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchResourcesRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchResourcesResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateFilterRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateFilterResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateSavedQueryRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateSavedQueryResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -89,6 +99,95 @@ class ResourceCenter extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AssociateDefaultFilterRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AssociateDefaultFilterResponse
+     */
+    public function associateDefaultFilterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filterName)) {
+            $query['FilterName'] = $request->filterName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateDefaultFilter',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AssociateDefaultFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AssociateDefaultFilterRequest $request
+     *
+     * @return AssociateDefaultFilterResponse
+     */
+    public function associateDefaultFilter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateDefaultFilterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFilterRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateFilterResponse
+     */
+    public function createFilterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filterConfiguration)) {
+            $query['FilterConfiguration'] = $request->filterConfiguration;
+        }
+        if (!Utils::isUnset($request->filterName)) {
+            $query['FilterName'] = $request->filterName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFilter',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFilterRequest $request
+     *
+     * @return CreateFilterResponse
+     */
+    public function createFilter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFilterWithOptions($request, $runtime);
     }
 
     /**
@@ -138,6 +237,49 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSavedQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteFilterRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteFilterResponse
+     */
+    public function deleteFilterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filterName)) {
+            $query['FilterName'] = $request->filterName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFilter',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteFilterRequest $request
+     *
+     * @return DeleteFilterResponse
+     */
+    public function deleteFilter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFilterWithOptions($request, $runtime);
     }
 
     /**
@@ -247,6 +389,39 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableResourceCenterWithOptions($runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DisassociateDefaultFilterResponse
+     */
+    public function disassociateDefaultFilterWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DisassociateDefaultFilter',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisassociateDefaultFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DisassociateDefaultFilterResponse
+     */
+    public function disassociateDefaultFilter()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disassociateDefaultFilterWithOptions($runtime);
     }
 
     /**
@@ -757,6 +932,39 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListFiltersResponse
+     */
+    public function listFiltersWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListFilters',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListFiltersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListFiltersResponse
+     */
+    public function listFilters()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFiltersWithOptions($runtime);
+    }
+
+    /**
      * @param ListMultiAccountResourceGroupsRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -1257,6 +1465,52 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateFilterRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateFilterResponse
+     */
+    public function updateFilterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filterConfiguration)) {
+            $query['FilterConfiguration'] = $request->filterConfiguration;
+        }
+        if (!Utils::isUnset($request->filterName)) {
+            $query['FilterName'] = $request->filterName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFilter',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateFilterRequest $request
+     *
+     * @return UpdateFilterResponse
+     */
+    public function updateFilter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFilterWithOptions($request, $runtime);
     }
 
     /**
