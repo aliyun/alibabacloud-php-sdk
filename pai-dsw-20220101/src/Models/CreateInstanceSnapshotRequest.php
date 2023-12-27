@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceSnapshotRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $excludePaths;
+
+    /**
      * @example registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
      *
      * @var string
@@ -22,6 +27,11 @@ class CreateInstanceSnapshotRequest extends Model
      * @var labels[]
      */
     public $labels;
+
+    /**
+     * @var bool
+     */
+    public $overwrite;
 
     /**
      * @example training_data_env
@@ -37,8 +47,10 @@ class CreateInstanceSnapshotRequest extends Model
      */
     public $snapshotName;
     protected $_name = [
+        'excludePaths'        => 'ExcludePaths',
         'imageUrl'            => 'ImageUrl',
         'labels'              => 'Labels',
+        'overwrite'           => 'Overwrite',
         'snapshotDescription' => 'SnapshotDescription',
         'snapshotName'        => 'SnapshotName',
     ];
@@ -50,6 +62,9 @@ class CreateInstanceSnapshotRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->excludePaths) {
+            $res['ExcludePaths'] = $this->excludePaths;
+        }
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
@@ -61,6 +76,9 @@ class CreateInstanceSnapshotRequest extends Model
                     $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->overwrite) {
+            $res['Overwrite'] = $this->overwrite;
         }
         if (null !== $this->snapshotDescription) {
             $res['SnapshotDescription'] = $this->snapshotDescription;
@@ -80,6 +98,11 @@ class CreateInstanceSnapshotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExcludePaths'])) {
+            if (!empty($map['ExcludePaths'])) {
+                $model->excludePaths = $map['ExcludePaths'];
+            }
+        }
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }
@@ -91,6 +114,9 @@ class CreateInstanceSnapshotRequest extends Model
                     $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Overwrite'])) {
+            $model->overwrite = $map['Overwrite'];
         }
         if (isset($map['SnapshotDescription'])) {
             $model->snapshotDescription = $map['SnapshotDescription'];

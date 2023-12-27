@@ -58,6 +58,13 @@ class GetInstanceResponseBody extends Model
     public $datasets;
 
     /**
+     * @example 535.54.03
+     *
+     * @var string
+     */
+    public $driver;
+
+    /**
      * @example ecs.c6.large
      *
      * @var string
@@ -313,6 +320,7 @@ class GetInstanceResponseBody extends Model
         'cloudDisks'                 => 'CloudDisks',
         'code'                       => 'Code',
         'datasets'                   => 'Datasets',
+        'driver'                     => 'Driver',
         'ecsSpec'                    => 'EcsSpec',
         'environmentVariables'       => 'EnvironmentVariables',
         'gmtCreateTime'              => 'GmtCreateTime',
@@ -387,6 +395,9 @@ class GetInstanceResponseBody extends Model
                     $res['Datasets'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->driver) {
+            $res['Driver'] = $this->driver;
         }
         if (null !== $this->ecsSpec) {
             $res['EcsSpec'] = $this->ecsSpec;
@@ -549,6 +560,9 @@ class GetInstanceResponseBody extends Model
                     $model->datasets[$n++] = null !== $item ? datasets::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Driver'])) {
+            $model->driver = $map['Driver'];
         }
         if (isset($map['EcsSpec'])) {
             $model->ecsSpec = $map['EcsSpec'];

@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class snapshots extends Model
 {
     /**
+     * @example ["/path1","/path2"]
+     *
+     * @var string[]
+     */
+    public $excludePaths;
+
+    /**
      * @example 2021-01-12T14:36:01Z
      *
      * @var string
@@ -86,6 +93,7 @@ class snapshots extends Model
      */
     public $status;
     protected $_name = [
+        'excludePaths'    => 'ExcludePaths',
         'gmtCreateTime'   => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'imageId'         => 'ImageId',
@@ -106,6 +114,9 @@ class snapshots extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->excludePaths) {
+            $res['ExcludePaths'] = $this->excludePaths;
+        }
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
@@ -157,6 +168,11 @@ class snapshots extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExcludePaths'])) {
+            if (!empty($map['ExcludePaths'])) {
+                $model->excludePaths = $map['ExcludePaths'];
+            }
+        }
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }

@@ -157,6 +157,9 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->datasets)) {
             $body['Datasets'] = $request->datasets;
         }
+        if (!Utils::isUnset($request->driver)) {
+            $body['Driver'] = $request->driver;
+        }
         if (!Utils::isUnset($request->ecsSpec)) {
             $body['EcsSpec'] = $request->ecsSpec;
         }
@@ -291,11 +294,17 @@ class Paidsw extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->excludePaths)) {
+            $body['ExcludePaths'] = $request->excludePaths;
+        }
         if (!Utils::isUnset($request->imageUrl)) {
             $body['ImageUrl'] = $request->imageUrl;
         }
         if (!Utils::isUnset($request->labels)) {
             $body['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->overwrite)) {
+            $body['Overwrite'] = $request->overwrite;
         }
         if (!Utils::isUnset($request->snapshotDescription)) {
             $body['SnapshotDescription'] = $request->snapshotDescription;
@@ -1267,8 +1276,14 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->disassociateDatasets)) {
             $body['DisassociateDatasets'] = $request->disassociateDatasets;
         }
+        if (!Utils::isUnset($request->disassociateDriver)) {
+            $body['DisassociateDriver'] = $request->disassociateDriver;
+        }
         if (!Utils::isUnset($request->disassociateVpc)) {
             $body['DisassociateVpc'] = $request->disassociateVpc;
+        }
+        if (!Utils::isUnset($request->driver)) {
+            $body['Driver'] = $request->driver;
         }
         if (!Utils::isUnset($request->ecsSpec)) {
             $body['EcsSpec'] = $request->ecsSpec;
@@ -1281,6 +1296,9 @@ class Paidsw extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceName)) {
             $body['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
         }
         if (!Utils::isUnset($request->requestedResource)) {
             $body['RequestedResource'] = $request->requestedResource;

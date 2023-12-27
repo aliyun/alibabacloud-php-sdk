@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceSnapshotResponseBody\labels;
 use AlibabaCloud\Tea\Model;
 
 class GetInstanceSnapshotResponseBody extends Model
@@ -14,6 +15,11 @@ class GetInstanceSnapshotResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var string[]
+     */
+    public $excludePaths;
 
     /**
      * @example 2021-01-12T14:36:01Z
@@ -56,6 +62,13 @@ class GetInstanceSnapshotResponseBody extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @example {\"foo\": \"bar\"}
+     *
+     * @var labels[]
+     */
+    public $labels;
 
     /**
      * @example "XXX"
@@ -114,12 +127,14 @@ class GetInstanceSnapshotResponseBody extends Model
     public $success;
     protected $_name = [
         'code'            => 'Code',
+        'excludePaths'    => 'ExcludePaths',
         'gmtCreateTime'   => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'httpStatusCode'  => 'HttpStatusCode',
         'imageId'         => 'ImageId',
         'imageUrl'        => 'ImageUrl',
         'instanceId'      => 'InstanceId',
+        'labels'          => 'Labels',
         'message'         => 'Message',
         'reasonCode'      => 'ReasonCode',
         'reasonMessage'   => 'ReasonMessage',
@@ -140,6 +155,9 @@ class GetInstanceSnapshotResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->excludePaths) {
+            $res['ExcludePaths'] = $this->excludePaths;
+        }
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
@@ -157,6 +175,15 @@ class GetInstanceSnapshotResponseBody extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -197,6 +224,11 @@ class GetInstanceSnapshotResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['ExcludePaths'])) {
+            if (!empty($map['ExcludePaths'])) {
+                $model->excludePaths = $map['ExcludePaths'];
+            }
+        }
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
@@ -214,6 +246,15 @@ class GetInstanceSnapshotResponseBody extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n             = 0;
+                foreach ($map['Labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

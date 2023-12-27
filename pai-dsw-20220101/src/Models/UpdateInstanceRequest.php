@@ -35,7 +35,21 @@ class UpdateInstanceRequest extends Model
      *
      * @var bool
      */
+    public $disassociateDriver;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
     public $disassociateVpc;
+
+    /**
+     * @example 535.54.03
+     *
+     * @var string
+     */
+    public $driver;
 
     /**
      * @example ecs.c6.large
@@ -66,6 +80,13 @@ class UpdateInstanceRequest extends Model
     public $instanceName;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @example {"CPU":"4","Memory":"8Gi","SharedMemory":"4Gi","GPU":"1","GPUType":"Tesla-V100-16G"}
      *
      * @var requestedResource
@@ -94,11 +115,14 @@ class UpdateInstanceRequest extends Model
         'accessibility'        => 'Accessibility',
         'datasets'             => 'Datasets',
         'disassociateDatasets' => 'DisassociateDatasets',
+        'disassociateDriver'   => 'DisassociateDriver',
         'disassociateVpc'      => 'DisassociateVpc',
+        'driver'               => 'Driver',
         'ecsSpec'              => 'EcsSpec',
         'imageId'              => 'ImageId',
         'imageUrl'             => 'ImageUrl',
         'instanceName'         => 'InstanceName',
+        'priority'             => 'Priority',
         'requestedResource'    => 'RequestedResource',
         'userId'               => 'UserId',
         'userVpc'              => 'UserVpc',
@@ -127,8 +151,14 @@ class UpdateInstanceRequest extends Model
         if (null !== $this->disassociateDatasets) {
             $res['DisassociateDatasets'] = $this->disassociateDatasets;
         }
+        if (null !== $this->disassociateDriver) {
+            $res['DisassociateDriver'] = $this->disassociateDriver;
+        }
         if (null !== $this->disassociateVpc) {
             $res['DisassociateVpc'] = $this->disassociateVpc;
+        }
+        if (null !== $this->driver) {
+            $res['Driver'] = $this->driver;
         }
         if (null !== $this->ecsSpec) {
             $res['EcsSpec'] = $this->ecsSpec;
@@ -141,6 +171,9 @@ class UpdateInstanceRequest extends Model
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->requestedResource) {
             $res['RequestedResource'] = null !== $this->requestedResource ? $this->requestedResource->toMap() : null;
@@ -181,8 +214,14 @@ class UpdateInstanceRequest extends Model
         if (isset($map['DisassociateDatasets'])) {
             $model->disassociateDatasets = $map['DisassociateDatasets'];
         }
+        if (isset($map['DisassociateDriver'])) {
+            $model->disassociateDriver = $map['DisassociateDriver'];
+        }
         if (isset($map['DisassociateVpc'])) {
             $model->disassociateVpc = $map['DisassociateVpc'];
+        }
+        if (isset($map['Driver'])) {
+            $model->driver = $map['Driver'];
         }
         if (isset($map['EcsSpec'])) {
             $model->ecsSpec = $map['EcsSpec'];
@@ -195,6 +234,9 @@ class UpdateInstanceRequest extends Model
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
         if (isset($map['RequestedResource'])) {
             $model->requestedResource = requestedResource::fromMap($map['RequestedResource']);

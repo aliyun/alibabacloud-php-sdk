@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest;
 
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\ForwardInfo;
 use AlibabaCloud\Tea\Model;
 
 class userVpc extends Model
@@ -21,6 +22,11 @@ class userVpc extends Model
      * @var string[]
      */
     public $extendedCIDRs;
+
+    /**
+     * @var ForwardInfo[]
+     */
+    public $forwardInfos;
 
     /**
      * @example sg-xxxxxx
@@ -45,6 +51,7 @@ class userVpc extends Model
     protected $_name = [
         'defaultRoute'    => 'DefaultRoute',
         'extendedCIDRs'   => 'ExtendedCIDRs',
+        'forwardInfos'    => 'ForwardInfos',
         'securityGroupId' => 'SecurityGroupId',
         'vSwitchId'       => 'VSwitchId',
         'vpcId'           => 'VpcId',
@@ -62,6 +69,15 @@ class userVpc extends Model
         }
         if (null !== $this->extendedCIDRs) {
             $res['ExtendedCIDRs'] = $this->extendedCIDRs;
+        }
+        if (null !== $this->forwardInfos) {
+            $res['ForwardInfos'] = [];
+            if (null !== $this->forwardInfos && \is_array($this->forwardInfos)) {
+                $n = 0;
+                foreach ($this->forwardInfos as $item) {
+                    $res['ForwardInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
@@ -90,6 +106,15 @@ class userVpc extends Model
         if (isset($map['ExtendedCIDRs'])) {
             if (!empty($map['ExtendedCIDRs'])) {
                 $model->extendedCIDRs = $map['ExtendedCIDRs'];
+            }
+        }
+        if (isset($map['ForwardInfos'])) {
+            if (!empty($map['ForwardInfos'])) {
+                $model->forwardInfos = [];
+                $n                   = 0;
+                foreach ($map['ForwardInfos'] as $item) {
+                    $model->forwardInfos[$n++] = null !== $item ? ForwardInfo::fromMap($item) : $item;
+                }
             }
         }
         if (isset($map['SecurityGroupId'])) {
