@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to detach all tags. This parameter takes effect only when the TagKey.N parameter is not specified. Valid values:
+     * @description Specifies whether to remove all tags from clusters. Default value: false. Valid values:
      *
-     *   true
-     *   false
+     *   **true**
+     *   **false**
      *
-     * Default value: false.
+     * >  If you specify TagKey and this parameter, this parameter does not take effect.
      * @example false
      *
      * @var bool
@@ -32,8 +32,9 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * @description The region ID.
      *
+     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +42,8 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of cluster N. Valid values of N: 1 to 50.
+     *
      * @example am-bp1xxx.1
      *
      * @var string[]
@@ -58,7 +61,7 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the cluster. Set the value to `ALIYUN::ADB::CLUSTER`.
+     * @description The resource type. Set the value to **ALIYUN::ADB::CLUSTER**.
      *
      * @example ALIYUN::ADB::CLUSTER
      *
@@ -67,6 +70,8 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The key of tag N. Valid values of N: 1 to 20.
+     *
      * @example a
      *
      * @var string[]

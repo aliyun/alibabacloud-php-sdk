@@ -54,7 +54,7 @@ class vSwitch extends Model
     public $gmtModified;
 
     /**
-     * @description Indicates whether the vSwitch is the default vSwitch. Valid values: **true** **false**
+     * @description Indicates whether the vSwitch is the default vSwitch. Valid values: **true**: The vSwitch is the default vSwitch. **false**: The vSwitch is not the default vSwitch.
      *
      * @example false
      *

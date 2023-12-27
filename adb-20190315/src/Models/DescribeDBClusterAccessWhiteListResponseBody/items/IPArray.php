@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class IPArray extends Model
 {
     /**
-     * @description The attribute of the whitelist group. It is empty by default.
+     * @description The attribute of the IP address whitelist. By default, this parameter is empty.
      *
-     * >  The groups with hidden attribute are not displayed in the console. The groups with hidden attribute are used to access DTS and PolarDB-X.
+     * >  The IP address whitelists that have the **hidden** attribute are not displayed in the console. These IP address whitelists are used to access services such as Data Transmission Service (DTS) and PolarDB-X.
      * @example hidden
      *
      * @var string
@@ -21,8 +21,8 @@ class IPArray extends Model
     /**
      * @description The name of the IP address whitelist.
      *
-     *   The name of the IP address whitelist group must be 2 to 32 characters in length and can contain lowercase letters, digits, and underscores (\_). The name must start with a lowercase letter and end with a digit or lowercase letter.
-     *   You can create up to 50 whitelists for a cluster.
+     *   The name of an IP address whitelist must be 2 to 32 characters in length. The name can contain lowercase letters, digits, and underscores (\_). The name must start with a lowercase letter and end with a lowercase letter or digit.
+     *   Each cluster supports up to 50 IP address whitelists.
      *
      * @example test
      *
@@ -31,7 +31,7 @@ class IPArray extends Model
     public $DBClusterIPArrayName;
 
     /**
-     * @description The IP addresses in an IP address whitelist. A maximum of 1,000 IP addresses can be returned. These addresses are separated with commas (,).
+     * @description The IP addresses in the IP address whitelist. Up to 1,000 IP addresses can be returned. Multiple IP addresses are separated by commas (,).
      *
      * @example 127.0.0.1
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableAdvicesResponseBody extends Model
 {
     /**
-     * @description Details of the suggestions.
+     * @description The queried suggestions.
      *
      * @var items[]
      */

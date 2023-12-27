@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class supportedExecutorList extends Model
 {
     /**
+     * @description The information about the supported compute nodes.
+     *
      * @var nodeCount
      */
     public $nodeCount;

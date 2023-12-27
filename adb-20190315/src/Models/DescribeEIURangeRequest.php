@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeEIURangeRequest extends Model
 {
     /**
+     * @description The specifications of computing resources.
+     *
+     * >  You can call the [DescribeComputeResource](~~469002~~) operation to query the specifications of computing resources.
      * @example {
      * }
      * @var string
@@ -16,6 +19,12 @@ class DescribeEIURangeRequest extends Model
     public $computeResource;
 
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     *   This parameter can be left empty when **Operation** is set to **Buy**.
+     *   This parameter must be specified when **Operation** is set to **Upgrade** or **Downgrade**.
+     *
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
      * @example am-bp16t5ci7r74s****
      *
      * @var string
@@ -23,6 +32,8 @@ class DescribeEIURangeRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The version of the AnalyticDB for MySQL Data Warehouse Edition cluster. Set the value to **3.0**.
+     *
      * @example 3.0
      *
      * @var string
@@ -30,6 +41,12 @@ class DescribeEIURangeRequest extends Model
     public $DBClusterVersion;
 
     /**
+     * @description The type of the operation. Valid values:
+     *
+     *   **Buy**: purchases a cluster.
+     *   **Upgrade**: upgrades a cluster.
+     *   **Downgrade**: downgrades a cluster.
+     *
      * @example Buy
      *
      * @var string
@@ -47,6 +64,9 @@ class DescribeEIURangeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -73,6 +93,9 @@ class DescribeEIURangeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The zone ID of the cluster.
+     *
+     * >  You can call the [DescribeRegions](~~612293~~) operation to query the most recent zone list.
      * @example cn-hangzhou-h
      *
      * @var string

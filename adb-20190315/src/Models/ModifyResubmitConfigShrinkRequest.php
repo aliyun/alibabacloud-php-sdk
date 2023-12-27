@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyResubmitConfigShrinkRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
      * @example am-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -26,6 +29,8 @@ class ModifyResubmitConfigShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-4690g37929****
      *
      * @var string
@@ -43,6 +48,8 @@ class ModifyResubmitConfigShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The job resubmission rules.
+     *
      * @var string
      */
     public $rulesShrink;

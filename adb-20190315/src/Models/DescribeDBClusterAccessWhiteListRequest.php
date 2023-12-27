@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAccessWhiteListRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *

@@ -40,6 +40,11 @@ class CreateElasticPlanRequest extends Model
     public $elasticPlanEndDay;
 
     /**
+     * @var string
+     */
+    public $elasticPlanMonthlyRepeat;
+
+    /**
      * @description The name of the scaling plan.
      *
      *   The name must be 2 to 30 characters in length.
@@ -160,22 +165,23 @@ class CreateElasticPlanRequest extends Model
      */
     public $resourcePoolName;
     protected $_name = [
-        'DBClusterId'             => 'DBClusterId',
-        'elasticPlanEnable'       => 'ElasticPlanEnable',
-        'elasticPlanEndDay'       => 'ElasticPlanEndDay',
-        'elasticPlanName'         => 'ElasticPlanName',
-        'elasticPlanNodeNum'      => 'ElasticPlanNodeNum',
-        'elasticPlanStartDay'     => 'ElasticPlanStartDay',
-        'elasticPlanTimeEnd'      => 'ElasticPlanTimeEnd',
-        'elasticPlanTimeStart'    => 'ElasticPlanTimeStart',
-        'elasticPlanType'         => 'ElasticPlanType',
-        'elasticPlanWeeklyRepeat' => 'ElasticPlanWeeklyRepeat',
-        'elasticPlanWorkerSpec'   => 'ElasticPlanWorkerSpec',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
-        'resourcePoolName'        => 'ResourcePoolName',
+        'DBClusterId'              => 'DBClusterId',
+        'elasticPlanEnable'        => 'ElasticPlanEnable',
+        'elasticPlanEndDay'        => 'ElasticPlanEndDay',
+        'elasticPlanMonthlyRepeat' => 'ElasticPlanMonthlyRepeat',
+        'elasticPlanName'          => 'ElasticPlanName',
+        'elasticPlanNodeNum'       => 'ElasticPlanNodeNum',
+        'elasticPlanStartDay'      => 'ElasticPlanStartDay',
+        'elasticPlanTimeEnd'       => 'ElasticPlanTimeEnd',
+        'elasticPlanTimeStart'     => 'ElasticPlanTimeStart',
+        'elasticPlanType'          => 'ElasticPlanType',
+        'elasticPlanWeeklyRepeat'  => 'ElasticPlanWeeklyRepeat',
+        'elasticPlanWorkerSpec'    => 'ElasticPlanWorkerSpec',
+        'ownerAccount'             => 'OwnerAccount',
+        'ownerId'                  => 'OwnerId',
+        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
+        'resourceOwnerId'          => 'ResourceOwnerId',
+        'resourcePoolName'         => 'ResourcePoolName',
     ];
 
     public function validate()
@@ -193,6 +199,9 @@ class CreateElasticPlanRequest extends Model
         }
         if (null !== $this->elasticPlanEndDay) {
             $res['ElasticPlanEndDay'] = $this->elasticPlanEndDay;
+        }
+        if (null !== $this->elasticPlanMonthlyRepeat) {
+            $res['ElasticPlanMonthlyRepeat'] = $this->elasticPlanMonthlyRepeat;
         }
         if (null !== $this->elasticPlanName) {
             $res['ElasticPlanName'] = $this->elasticPlanName;
@@ -253,6 +262,9 @@ class CreateElasticPlanRequest extends Model
         }
         if (isset($map['ElasticPlanEndDay'])) {
             $model->elasticPlanEndDay = $map['ElasticPlanEndDay'];
+        }
+        if (isset($map['ElasticPlanMonthlyRepeat'])) {
+            $model->elasticPlanMonthlyRepeat = $map['ElasticPlanMonthlyRepeat'];
         }
         if (isset($map['ElasticPlanName'])) {
             $model->elasticPlanName = $map['ElasticPlanName'];

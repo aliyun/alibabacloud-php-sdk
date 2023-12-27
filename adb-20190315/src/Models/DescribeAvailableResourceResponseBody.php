@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceResponseBody extends Model
 {
     /**
-     * @description The resources available in elastic mode.
+     * @description The supported zones.
      *
      * @var availableZoneList[]
      */

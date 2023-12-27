@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description Indicates whether out-of-memory (OOM) check is configured.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class rules extends Model
     public $exceedMemoryException;
 
     /**
+     * @description The name of the source resource group.
+     *
      * @example test_group
      *
      * @var string
@@ -23,6 +27,8 @@ class rules extends Model
     public $groupName;
 
     /**
+     * @description The peak memory usage.
+     *
      * @example 32
      *
      * @var string
@@ -30,6 +36,8 @@ class rules extends Model
     public $peakMemory;
 
     /**
+     * @description The duration of the SQL statement. Unit: milliseconds.
+     *
      * @example 300
      *
      * @var string
@@ -37,6 +45,8 @@ class rules extends Model
     public $queryTime;
 
     /**
+     * @description The name of the destination resource group.
+     *
      * @example test_target_group
      *
      * @var string

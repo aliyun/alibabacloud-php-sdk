@@ -12,6 +12,8 @@ class CreateDBClusterRequest extends Model
     /**
      * @description A reserved parameter.
      *
+     * @example N/A
+     *
      * @var string
      */
     public $backupSetID;
@@ -119,6 +121,15 @@ class CreateDBClusterRequest extends Model
     public $DBNodeStorage;
 
     /**
+     * @description Specifies whether to enable disk encryption.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var string
      */
     public $diskEncryption;
@@ -135,11 +146,17 @@ class CreateDBClusterRequest extends Model
     /**
      * @description A reserved parameter.
      *
+     * @example N/A
+     *
      * @var string
      */
     public $executorCount;
 
     /**
+     * @description The Key Management Service (KMS) ID that is used for disk encryption. This parameter is valid only when DiskEncryption is set to true.
+     *
+     * @example xxxxxxxx-xxxx-xxxx-xxxx-xxxx
+     *
      * @var string
      */
     public $kmsId;
@@ -147,10 +164,9 @@ class CreateDBClusterRequest extends Model
     /**
      * @description The mode of the cluster. Valid values:
      *
-     *   **Reserver**: the reserved mode
-     *   **Flexible**: the elastic mode
+     *   **Reserver**: the reserved mode.
+     *   **Flexible**: the elastic mode.
      *
-     * >  If you do not specify this parameter, the cluster is in reserved mode.
      * @example Reserver
      *
      * @var string
@@ -224,12 +240,16 @@ class CreateDBClusterRequest extends Model
     /**
      * @description A reserved parameter.
      *
+     * @example N/A
+     *
      * @var string
      */
     public $restoreTime;
 
     /**
      * @description A reserved parameter.
+     *
+     * @example N/A
      *
      * @var string
      */
@@ -238,6 +258,8 @@ class CreateDBClusterRequest extends Model
     /**
      * @description A reserved parameter.
      *
+     * @example N/A
+     *
      * @var string
      */
     public $sourceDBInstanceName;
@@ -245,12 +267,16 @@ class CreateDBClusterRequest extends Model
     /**
      * @description A reserved parameter.
      *
+     * @example N/A
+     *
      * @var string
      */
     public $storageResource;
 
     /**
      * @description A reserved parameter.
+     *
+     * @example N/A
      *
      * @var string
      */

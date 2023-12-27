@@ -1031,6 +1031,9 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->elasticPlanEndDay)) {
             $query['ElasticPlanEndDay'] = $request->elasticPlanEndDay;
         }
+        if (!Utils::isUnset($request->elasticPlanMonthlyRepeat)) {
+            $query['ElasticPlanMonthlyRepeat'] = $request->elasticPlanMonthlyRepeat;
+        }
         if (!Utils::isUnset($request->elasticPlanName)) {
             $query['ElasticPlanName'] = $request->elasticPlanName;
         }
@@ -6373,6 +6376,9 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->elasticPlanEndDay)) {
             $query['ElasticPlanEndDay'] = $request->elasticPlanEndDay;
+        }
+        if (!Utils::isUnset($request->elasticPlanMonthlyRepeat)) {
+            $query['ElasticPlanMonthlyRepeat'] = $request->elasticPlanMonthlyRepeat;
         }
         if (!Utils::isUnset($request->elasticPlanName)) {
             $query['ElasticPlanName'] = $request->elasticPlanName;

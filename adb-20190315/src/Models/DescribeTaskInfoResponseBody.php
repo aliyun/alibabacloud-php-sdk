@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTaskInfoResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
@@ -19,7 +19,7 @@ class DescribeTaskInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The description of the task.
+     * @description The queried task.
      *
      * @var taskInfo
      */

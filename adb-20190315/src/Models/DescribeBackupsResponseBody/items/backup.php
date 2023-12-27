@@ -18,7 +18,7 @@ class backup extends Model
     public $backupEndTime;
 
     /**
-     * @description The ID of the backup set.
+     * @description The backup set ID.
      *
      * @example 32732****
      *
@@ -36,7 +36,7 @@ class backup extends Model
     public $backupMethod;
 
     /**
-     * @description The backup size. Unit: bytes.
+     * @description The size of the backup set. Unit: bytes.
      *
      * @example 2167808
      *

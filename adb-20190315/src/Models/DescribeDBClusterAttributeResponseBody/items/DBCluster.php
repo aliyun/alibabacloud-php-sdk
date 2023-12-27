@@ -36,7 +36,7 @@ class DBCluster extends Model
     public $commodityCode;
 
     /**
-     * @description The specifications of computing resources that are used in the cluster in elastic mode. The increase of computing resources can speed up queries. You can adjust the value of this parameter to scale the cluster.
+     * @description The specifications of computing resources that are used in the cluster in elastic mode. Computing resources are used to compute data. The increase in the computing resources can accelerate queries. You can scale computing resources based on your business requirements.
      *
      * @example 8Core32GB
      *
@@ -45,7 +45,7 @@ class DBCluster extends Model
     public $computeResource;
 
     /**
-     * @description The Virtual Private Cloud (VPC) endpoint of the cluster.
+     * @description The Virtual Private Cloud (VPC) endpoint that is used to connect to the cluster.
      *
      * @example am-bp111m2cfrdl1****.ads.aliyuncs.com
      *
@@ -99,7 +99,7 @@ class DBCluster extends Model
     public $DBClusterStatus;
 
     /**
-     * @description The type of the cluster. Valid values:
+     * @description The cluster type. Valid values:
      *
      *   **Common**: common cluster.
      *   **RDS_ANALYSIS**: MySQL analytic instance.
@@ -138,7 +138,7 @@ class DBCluster extends Model
     public $DBNodeStorage;
 
     /**
-     * @description The version of the database engine. **3.0** is returned.
+     * @description The engine version of the cluster. **3.0** is returned.
      *
      * @example 3.0
      *
@@ -147,6 +147,13 @@ class DBCluster extends Model
     public $DBVersion;
 
     /**
+     * @description Indicates whether disk encryption is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var string
      */
     public $diskEncryption;
@@ -180,7 +187,7 @@ class DBCluster extends Model
     public $diskType;
 
     /**
-     * @description The ID of the Data Transmission Service (DTS) synchronization task. This parameter is returned only for MySQL analytic instances.
+     * @description The ID of the Data Transmission Service (DTS) synchronization job. This parameter is returned only for MySQL analytic instances.
      *
      * @example dtsb1hp3790****
      *
@@ -200,8 +207,8 @@ class DBCluster extends Model
     /**
      * @description The single-node specifications of an EIU. Valid values:
      *
-     *   8Core64GB: If this value is returned, an EIU of the cluster has 24 cores and 192 GB memory.
-     *   12Core96GB: If this value is returned, an EIU of the cluster has 36 cores and 288 GB memory.
+     *   8Core64GB: If this value is returned, the specifications of an EIU are 24 cores and 192 GB memory.
+     *   12Core96GB: If this value is returned, the specifications of an EIU are 36 cores and 288 GB memory.
      *
      * @example 8Core64GB
      *
@@ -261,7 +268,7 @@ class DBCluster extends Model
     public $executorCount;
 
     /**
-     * @description The time when the cluster expires. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC. Example: *2999-09-08T16:00:00Z*.
+     * @description The expiration time of the cluster. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC. Example: *2999-09-08T16:00:00Z*.
      *
      * >
      *
@@ -288,7 +295,7 @@ class DBCluster extends Model
     public $expired;
 
     /**
-     * @description The public IP address.
+     * @description The public IP address of the cluster.
      *
      * @example 10.1.XX.XX
      *
@@ -322,7 +329,7 @@ class DBCluster extends Model
      *   **ManualLock**: The cluster is manually locked.
      *   **LockByExpiration**: The cluster is automatically locked due to cluster expiration.
      *   **LockByRestoration**: The cluster is automatically locked due to cluster restoration.
-     *   **LockByDiskQuota**: The cluster is automatically locked when it has used 90% of its storage.
+     *   **LockByDiskQuota**: The cluster is automatically locked when 90% of the cluster storage is used.
      *
      * @example Unlock
      *
@@ -341,7 +348,7 @@ class DBCluster extends Model
     public $lockReason;
 
     /**
-     * @description The maintenance window of the cluster. The window follows the ISO 8601 standard in the *HH:mmZ- HH:mmZ* format. The time is displayed in UTC. An example is *04:00Z-05:00Z*, which indicates that routine maintenance can be performed from 04:00 to 05:00.
+     * @description The maintenance window of the cluster. The time is displayed in the *HH:mmZ-HH:mmZ* format in UTC. An example is *04:00Z-05:00Z*, which indicates that routine maintenance is performed from 04:00 to 05:00.
      *
      * >  For more information about maintenance windows, see [Configure a maintenance window](~~122569~~).
      * @example 04:00Z-05:00Z
@@ -412,7 +419,7 @@ class DBCluster extends Model
     public $resourceGroupId;
 
     /**
-     * @description The specifications of storage resources that are used in the cluster in elastic mode. These resources are used to read and write data. You can increase the value of this parameter to improve the read and write performance of the cluster.
+     * @description The specifications of storage resources that are used in the cluster in elastic mode. Storage resources are used to read and write data. The increase in the storage resources can improve the read and write performance of the cluster.
      *
      * @example 8Core32GB
      *

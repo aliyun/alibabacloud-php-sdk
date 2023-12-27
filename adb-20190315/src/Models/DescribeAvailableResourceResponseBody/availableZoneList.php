@@ -10,27 +10,28 @@ use AlibabaCloud\Tea\Model;
 class availableZoneList extends Model
 {
     /**
+     * @description A reserved parameter.
+     *
      * @var string[]
      */
     public $supportedComputeResource;
 
     /**
-     * @description The available computing resources.
+     * @description The supported modes.
      *
      * @var supportedMode[]
      */
     public $supportedMode;
 
     /**
+     * @description A reserved parameter.
+     *
      * @var string[]
      */
     public $supportedStorageResource;
 
     /**
-     * @description The storage type. Valid values:
-     *
-     *   **hdd**
-     *   **ssd**
+     * @description The zone ID.
      *
      * @example cn-hangzhou-h
      *

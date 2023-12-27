@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class supportedNodeCountList extends Model
 {
     /**
+     * @description The number of the supported compute nodes.
+     *
      * @var nodeCount
      */
     public $nodeCount;
 
     /**
+     * @description The support storage capacity. Unit: GB.
+     *
      * @var string[]
      */
     public $storageSize;

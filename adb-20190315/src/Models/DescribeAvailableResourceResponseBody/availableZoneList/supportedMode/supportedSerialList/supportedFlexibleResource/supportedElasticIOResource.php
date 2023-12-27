@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class supportedElasticIOResource extends Model
 {
     /**
+     * @description The maximum amount of elastic I/O resources.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class supportedElasticIOResource extends Model
     public $maxCount;
 
     /**
+     * @description The minimum amount of elastic I/O resources.
+     *
      * @example 0
      *
      * @var string
@@ -23,6 +27,8 @@ class supportedElasticIOResource extends Model
     public $minCount;
 
     /**
+     * @description The step size.
+     *
      * @example 1
      *
      * @var string

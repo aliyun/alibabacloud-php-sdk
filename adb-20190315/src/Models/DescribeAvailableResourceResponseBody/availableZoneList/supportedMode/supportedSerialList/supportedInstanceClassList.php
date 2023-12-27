@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class supportedInstanceClassList extends Model
 {
     /**
+     * @description The supported instance type.
+     *
      * @example C32
      *
      * @var string
@@ -18,16 +20,22 @@ class supportedInstanceClassList extends Model
     public $instanceClass;
 
     /**
+     * @description A reserved parameter.
+     *
      * @var supportedExecutorList[]
      */
     public $supportedExecutorList;
 
     /**
+     * @description The supported compute nodes.
+     *
      * @var supportedNodeCountList[]
      */
     public $supportedNodeCountList;
 
     /**
+     * @description The description of the instance type.
+     *
      * @example C32
      *
      * @var string

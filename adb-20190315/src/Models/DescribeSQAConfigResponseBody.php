@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQAConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
      * @example am-8vbyw9awuj141haf9
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeSQAConfigResponseBody extends Model
     public $DBClusterId;
 
     /**
+     * @description The name of the resource group.
+     *
      * @example test_group
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeSQAConfigResponseBody extends Model
     public $groupName;
 
     /**
+     * @description The request ID.
+     *
      * @example CBE843D8-964D-5EA3-9D31-822125611B6E
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeSQAConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether short query acceleration (SQA) is enabled.
+     *
      * @example off
      *
      * @var string

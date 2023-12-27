@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The date when the suggestion was generated. The date follows the yyyyMMdd format. The date is displayed in UTC.
+     * @description The time when the suggestion was generated. The time follows the ISO 8601 standard in the yyyyMMdd format. The time is displayed in UTC.
      *
      * @example 20221124
      *
@@ -29,8 +29,8 @@ class items extends Model
     /**
      * @description The type of the suggestion. Valid values:
      *
-     *   **Index**: index optimization
-     *   **Tiering**: hot and cold data optimization
+     *   **Index**: index optimization.
+     *   **Tiering**: hot and cold data optimization.
      *
      * @example Index
      *
@@ -41,12 +41,14 @@ class items extends Model
     /**
      * @description The benefit of the suggestion.
      *
+     * @example 0.4 GB of storage saved
+     *
      * @var string
      */
     public $benefit;
 
     /**
-     * @description The page number of the returned page. The value must be an integer that is greater than 0. Default value: 1.
+     * @description The page number. Pages start from 1. Default value: 1.
      *
      * @example 1
      *
@@ -55,9 +57,9 @@ class items extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 30. Valid values:
+     * @description The number of entries per page. Valid values:
      *
-     *   **30**
+     *   **30** (default)
      *   **50**
      *   **100**
      *
@@ -70,12 +72,14 @@ class items extends Model
     /**
      * @description The reason why the suggestion was generated.
      *
+     * @example Unused for 15 days, historical usage less than 1%
+     *
      * @var string
      */
     public $reason;
 
     /**
-     * @description The SQL statement used to apply the suggestion.
+     * @description The SQL statement that is used to apply the suggestion.
      *
      * @example alter table `schema1`.`table1` drop key col1_1_idx
      *
@@ -84,7 +88,7 @@ class items extends Model
     public $SQL;
 
     /**
-     * @description The total number of entries returned. The value must be an integer that is greater than or equal to 0. Default value: 0.
+     * @description The total number of entries returned. Minimum value: 0. Default value: 0.
      *
      * @example 30
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EIUInfo extends Model
 {
     /**
+     * @description The suggested value for the number of EIUs.
+     *
      * @example 2
      *
      * @var string
@@ -16,11 +18,15 @@ class EIUInfo extends Model
     public $defaultValue;
 
     /**
+     * @description The queried range for the number of EIUs.
+     *
      * @var int[]
      */
     public $EIURange;
 
     /**
+     * @description A reserved parameter.
+     *
      * @var string[]
      */
     public $storageResourceRange;

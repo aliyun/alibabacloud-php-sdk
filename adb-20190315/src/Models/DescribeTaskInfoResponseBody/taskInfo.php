@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class taskInfo extends Model
 {
     /**
-     * @description The start time of the task. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format.
+     * @description The start time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
      *
      * @example 2020-01-07T07:39:56Z
      *
@@ -18,7 +18,7 @@ class taskInfo extends Model
     public $beginTime;
 
     /**
-     * @description The end time of the task. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format.
+     * @description The end time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
      *
      * @example 2020-01-07T08:08:50Z
      *
@@ -36,7 +36,7 @@ class taskInfo extends Model
     public $progress;
 
     /**
-     * @description The status of the task.
+     * @description The status. Valid values:
      *
      *   Waiting
      *   Running
@@ -55,7 +55,7 @@ class taskInfo extends Model
     public $status;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 225685759
      *

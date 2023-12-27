@@ -20,12 +20,14 @@ class items extends Model
     /**
      * @description The benefit of the suggestion.
      *
+     * @example 0.4 GB of storage saved
+     *
      * @var string
      */
     public $benefit;
 
     /**
-     * @description The SQL statement used to execute the BUILD task.
+     * @description The SQL statement that is used to execute the BUILD job.
      *
      * @example build table `schema1`.`table1`
      *
@@ -34,7 +36,7 @@ class items extends Model
     public $buildSQL;
 
     /**
-     * @description The state of the suggestion execution task. Valid values:
+     * @description The state of the suggestion execution job. Valid values:
      *
      *   **SUCCEED**
      *   **FAILED**
@@ -46,7 +48,7 @@ class items extends Model
     public $jobStatus;
 
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
+     * @description The page number. Pages start from 1. Default value: 1.
      *
      * @example 1
      *
@@ -68,7 +70,7 @@ class items extends Model
     public $pageSize;
 
     /**
-     * @description The SQL statement used to roll back the suggestion.
+     * @description The SQL statement that is used to roll back the suggestion.
      *
      * @example alter table `schema1`.`table1` add key col1_1_idx(col1)
      *
@@ -107,7 +109,7 @@ class items extends Model
     public $submitTime;
 
     /**
-     * @description The total number of entries returned. The value is an integer that is greater than or equal to 0. Default value: 0.
+     * @description The total number of entries returned. Minimum value: 0. Default value: 0.
      *
      * @example 1
      *

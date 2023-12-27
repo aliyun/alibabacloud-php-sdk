@@ -11,7 +11,11 @@ use AlibabaCloud\Tea\Model;
 class supportedSerialList extends Model
 {
     /**
-     * @description The step size.
+     * @description The supported edition. Valid values:
+     *
+     *   **basic**: Basic Edition.
+     *   **cluster**: Cluster Edition.
+     *   **mixed_storage**: elastic mode for Cluster Edition.
      *
      * @example mixed_storage
      *
@@ -20,13 +24,15 @@ class supportedSerialList extends Model
     public $serial;
 
     /**
-     * @description The minimum number of EIUs.
+     * @description The supported resources in elastic mode.
      *
      * @var supportedFlexibleResource[]
      */
     public $supportedFlexibleResource;
 
     /**
+     * @description The supported resources in reserved mode.
+     *
      * @var supportedInstanceClassList[]
      */
     public $supportedInstanceClassList;

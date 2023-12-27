@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEIURangeResponseBody extends Model
 {
     /**
+     * @description The queried information about the number of EIUs.
+     *
      * @var EIUInfo
      */
     public $EIUInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example D65A809F-34CE-4550-9BC1-0ED21ETG380
      *
      * @var string

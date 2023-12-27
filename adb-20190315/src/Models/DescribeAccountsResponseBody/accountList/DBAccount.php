@@ -11,6 +11,8 @@ class DBAccount extends Model
     /**
      * @description The description of the database account.
      *
+     * @example C@test
+     *
      * @var string
      */
     public $accountDescription;
@@ -27,9 +29,9 @@ class DBAccount extends Model
     /**
      * @description The state of the database account. Valid values:
      *
-     *   Creating
-     *   Available
-     *   Deleting
+     *   **Creating**
+     *   **Available**
+     *   **Deleting**
      *
      * @example Available
      *
@@ -38,8 +40,10 @@ class DBAccount extends Model
     public $accountStatus;
 
     /**
-     * @description *   Normal: standard account.
-     *   Super: privileged account.
+     * @description The type of the database account. Valid values:
+     *
+     *   **Normal**: standard account.
+     *   **Super**: privileged account.
      *
      * @example Normal
      *

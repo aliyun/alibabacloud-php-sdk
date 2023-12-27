@@ -11,6 +11,7 @@ class DescribeAccountsRequest extends Model
     /**
      * @description The name of the database account.
      *
+     * >  If you do not specify this parameter, the information about all database accounts is returned.
      * @example test_accout
      *
      * @var string
@@ -18,8 +19,10 @@ class DescribeAccountsRequest extends Model
     public $accountName;
 
     /**
-     * @description *   Normal: standard account.
-     *   Super: privileged account.
+     * @description The type of the database account. If you do not specify this parameter, the information about all account types is returned. Valid values:
+     *
+     *   **Normal**: standard account.
+     *   **Super**: privileged account.
      *
      * @example Normal
      *
@@ -28,8 +31,9 @@ class DescribeAccountsRequest extends Model
     public $accountType;
 
     /**
-     * @description The cluster ID.
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string

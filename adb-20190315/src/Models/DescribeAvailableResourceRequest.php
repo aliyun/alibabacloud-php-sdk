@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceRequest extends Model
 {
     /**
-     * @description The supported mode. Valid values:
+     * @description The language of query results. Valid values:
      *
-     *   **flexible**: elastic mode
-     *   **reserver**: reserved mode
+     *   **zh-CN** (default): Chinese.
+     *   **en-US**: English.
      *
      * @example zh-CN
      *
@@ -30,6 +30,8 @@ class DescribeAvailableResourceRequest extends Model
     public $chargeType;
 
     /**
+     * @description The version of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
      * @example 3.0
      *
      * @var string
@@ -47,8 +49,9 @@ class DescribeAvailableResourceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The resources available in the zones.
+     * @description The region ID.
      *
+     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -66,8 +69,9 @@ class DescribeAvailableResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID.
      *
+     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent zone list.
      * @example cn-hangzhou-k
      *
      * @var string

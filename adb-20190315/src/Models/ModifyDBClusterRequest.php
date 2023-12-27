@@ -82,7 +82,12 @@ class ModifyDBClusterRequest extends Model
     public $DBNodeStorage;
 
     /**
-     * @description The enhanced SSD (ESSD) performance level of the cluster. Valid values: PL1 PL2 PL3
+     * @description The enhanced SSD (ESSD) performance level of the cluster. Valid values:
+     *
+     *   PL0
+     *   PL1
+     *   PL2
+     *   PL3
      *
      * @example PL1
      *
@@ -108,7 +113,7 @@ class ModifyDBClusterRequest extends Model
      *   **8Core64GB**: If you set the parameter to **8Core64GB**, the specifications of an EIU are 24 cores and 192 GB memory.
      *   **12Core96GB**: If you set the parameter to **12Core96GB**, the specifications of an EIU are 36 cores and 288 GB memory.
      *
-     * > This parameter is available only when the cluster meets the following conditions:
+     * >  This parameter takes effect only when your cluster meets the following requirements:
      *
      *   The cluster is in elastic mode.
      *

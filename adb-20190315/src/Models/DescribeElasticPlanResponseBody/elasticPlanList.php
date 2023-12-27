@@ -81,6 +81,11 @@ class elasticPlanList extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $monthlyRepeat;
+
+    /**
      * @description The name of the scaling plan.
      *
      * @example realtime
@@ -131,6 +136,7 @@ class elasticPlanList extends Model
         'enable'                => 'Enable',
         'endDay'                => 'EndDay',
         'endTime'               => 'EndTime',
+        'monthlyRepeat'         => 'MonthlyRepeat',
         'planName'              => 'PlanName',
         'resourcePoolName'      => 'ResourcePoolName',
         'startDay'              => 'StartDay',
@@ -162,6 +168,9 @@ class elasticPlanList extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->monthlyRepeat) {
+            $res['MonthlyRepeat'] = $this->monthlyRepeat;
         }
         if (null !== $this->planName) {
             $res['PlanName'] = $this->planName;
@@ -207,6 +216,9 @@ class elasticPlanList extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['MonthlyRepeat'])) {
+            $model->monthlyRepeat = $map['MonthlyRepeat'];
         }
         if (isset($map['PlanName'])) {
             $model->planName = $map['PlanName'];

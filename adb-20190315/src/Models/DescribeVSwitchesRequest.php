@@ -54,6 +54,10 @@ class DescribeVSwitchesRequest extends Model
     public $vpcId;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-8vbpu1teend1qcosfojlz
+     *
      * @var string
      */
     public $vswId;

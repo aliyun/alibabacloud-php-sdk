@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterAccessWhiteListResponseBody extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -18,7 +18,7 @@ class ModifyDBClusterAccessWhiteListResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
      *
@@ -27,7 +27,7 @@ class ModifyDBClusterAccessWhiteListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 1564657730
      *
