@@ -57,6 +57,8 @@ class SetDcdnDomainSSLCertificateRequest extends Model
     public $domainName;
 
     /**
+     * @example staging
+     *
      * @var string
      */
     public $env;

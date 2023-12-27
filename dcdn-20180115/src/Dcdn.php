@@ -252,6 +252,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateDetailReques
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateListResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSSLCertificateListRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSSLCertificateListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnStagingIpResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSubListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnTagResourcesRequest;
@@ -386,6 +388,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCachesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCachesResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshErObjectCachesRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshErObjectCachesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RollbackDcdnStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RollbackDcdnStagingConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCertificateRequest;
@@ -7471,6 +7475,64 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnSSLCertificateListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDcdnSSLCertificateListResponse
+     */
+    public function describeDcdnSSLCertificateListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKeyword)) {
+            $query['SearchKeyword'] = $request->searchKeyword;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnSSLCertificateList',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnSSLCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnSSLCertificateListRequest $request
+     *
+     * @return DescribeDcdnSSLCertificateListResponse
+     */
+    public function describeDcdnSSLCertificateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnSSLCertificateListWithOptions($request, $runtime);
+    }
+
+    /**
      * > You can call this operation up to 50 times per second per account.
      *   *
      * @param DescribeDcdnSecFuncInfoRequest $request DescribeDcdnSecFuncInfoRequest
@@ -11294,6 +11356,61 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->refreshDcdnObjectCachesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RefreshErObjectCachesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RefreshErObjectCachesResponse
+     */
+    public function refreshErObjectCachesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->mergeDomainName)) {
+            $query['MergeDomainName'] = $request->mergeDomainName;
+        }
+        if (!Utils::isUnset($request->objectPath)) {
+            $query['ObjectPath'] = $request->objectPath;
+        }
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
+        }
+        if (!Utils::isUnset($request->routineId)) {
+            $query['RoutineId'] = $request->routineId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshErObjectCaches',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshErObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefreshErObjectCachesRequest $request
+     *
+     * @return RefreshErObjectCachesResponse
+     */
+    public function refreshErObjectCaches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshErObjectCachesWithOptions($request, $runtime);
     }
 
     /**
