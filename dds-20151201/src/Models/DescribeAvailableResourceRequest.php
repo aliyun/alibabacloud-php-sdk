@@ -70,6 +70,15 @@ class DescribeAvailableResourceRequest extends Model
     public $regionId;
 
     /**
+     * @description The number of nodes, only applicable to replica sets.
+     *
+     * @example 3
+     *
+     * @var string
+     */
+    public $replicationFactor;
+
+    /**
      * @description The ID of the resource group.
      *
      * @example rg-acfmyiu4ekp****
@@ -120,6 +129,7 @@ class DescribeAvailableResourceRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
+        'replicationFactor'    => 'ReplicationFactor',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -154,6 +164,9 @@ class DescribeAvailableResourceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->replicationFactor) {
+            $res['ReplicationFactor'] = $this->replicationFactor;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -202,6 +215,9 @@ class DescribeAvailableResourceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ReplicationFactor'])) {
+            $model->replicationFactor = $map['ReplicationFactor'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

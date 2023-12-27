@@ -109,6 +109,11 @@ class DescribeAvailabilityZonesRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $replicationFactor;
+
+    /**
      * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
      *
      * @example rg-acfmx2m4rqu7pry
@@ -172,6 +177,7 @@ class DescribeAvailabilityZonesRequest extends Model
         'ownerAccount'           => 'OwnerAccount',
         'ownerId'                => 'OwnerId',
         'regionId'               => 'RegionId',
+        'replicationFactor'      => 'ReplicationFactor',
         'resourceGroupId'        => 'ResourceGroupId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
@@ -219,6 +225,9 @@ class DescribeAvailabilityZonesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->replicationFactor) {
+            $res['ReplicationFactor'] = $this->replicationFactor;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -282,6 +291,9 @@ class DescribeAvailabilityZonesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ReplicationFactor'])) {
+            $model->replicationFactor = $map['ReplicationFactor'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
