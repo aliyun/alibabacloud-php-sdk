@@ -138,6 +138,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\PutAnnotationDataRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutAnnotationDataResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectPolicyRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectPolicyResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectTransferAccelerationRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectTransferAccelerationResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutWebtrackingRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutWebtrackingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\QueryMLServiceResultsRequest;
@@ -4850,6 +4852,57 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->putProjectPolicyWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                                $project
+     * @param PutProjectTransferAccelerationRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return PutProjectTransferAccelerationResponse
+     */
+    public function putProjectTransferAccelerationWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->enabled)) {
+            $body['enabled'] = $request->enabled;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PutProjectTransferAcceleration',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/transferacceleration',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return PutProjectTransferAccelerationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                                $project
+     * @param PutProjectTransferAccelerationRequest $request
+     *
+     * @return PutProjectTransferAccelerationResponse
+     */
+    public function putProjectTransferAcceleration($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->putProjectTransferAccelerationWithOptions($project, $request, $headers, $runtime);
     }
 
     /**

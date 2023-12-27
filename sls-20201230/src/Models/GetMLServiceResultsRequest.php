@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMLServiceResultsRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowBuiltin;
