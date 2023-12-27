@@ -61,6 +61,11 @@ class UpdateLogStoreRequest extends Model
     public $hotTtl;
 
     /**
+     * @var int
+     */
+    public $infrequentAccessTTL;
+
+    /**
      * @description The name of the Logstore.
      *
      * @example test-logstore
@@ -97,6 +102,8 @@ class UpdateLogStoreRequest extends Model
      * > You cannot call the UpdateLogstore operation to change the number of shards. You can call the SplitShard or MergeShards operation to change the number of shards.
      * @example 2
      *
+     * @deprecated
+     *
      * @var int
      */
     public $shardCount;
@@ -108,6 +115,8 @@ class UpdateLogStoreRequest extends Model
      *   Metrics: metrics.
      *
      * @example None
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -122,17 +131,18 @@ class UpdateLogStoreRequest extends Model
      */
     public $ttl;
     protected $_name = [
-        'appendMeta'     => 'appendMeta',
-        'autoSplit'      => 'autoSplit',
-        'enableTracking' => 'enable_tracking',
-        'encryptConf'    => 'encrypt_conf',
-        'hotTtl'         => 'hot_ttl',
-        'logstoreName'   => 'logstoreName',
-        'maxSplitShard'  => 'maxSplitShard',
-        'mode'           => 'mode',
-        'shardCount'     => 'shardCount',
-        'telemetryType'  => 'telemetryType',
-        'ttl'            => 'ttl',
+        'appendMeta'          => 'appendMeta',
+        'autoSplit'           => 'autoSplit',
+        'enableTracking'      => 'enable_tracking',
+        'encryptConf'         => 'encrypt_conf',
+        'hotTtl'              => 'hot_ttl',
+        'infrequentAccessTTL' => 'infrequentAccessTTL',
+        'logstoreName'        => 'logstoreName',
+        'maxSplitShard'       => 'maxSplitShard',
+        'mode'                => 'mode',
+        'shardCount'          => 'shardCount',
+        'telemetryType'       => 'telemetryType',
+        'ttl'                 => 'ttl',
     ];
 
     public function validate()
@@ -156,6 +166,9 @@ class UpdateLogStoreRequest extends Model
         }
         if (null !== $this->hotTtl) {
             $res['hot_ttl'] = $this->hotTtl;
+        }
+        if (null !== $this->infrequentAccessTTL) {
+            $res['infrequentAccessTTL'] = $this->infrequentAccessTTL;
         }
         if (null !== $this->logstoreName) {
             $res['logstoreName'] = $this->logstoreName;
@@ -201,6 +214,9 @@ class UpdateLogStoreRequest extends Model
         }
         if (isset($map['hot_ttl'])) {
             $model->hotTtl = $map['hot_ttl'];
+        }
+        if (isset($map['infrequentAccessTTL'])) {
+            $model->infrequentAccessTTL = $map['infrequentAccessTTL'];
         }
         if (isset($map['logstoreName'])) {
             $model->logstoreName = $map['logstoreName'];

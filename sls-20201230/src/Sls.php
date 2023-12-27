@@ -782,6 +782,9 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->hotTtl)) {
             $body['hot_ttl'] = $request->hotTtl;
         }
+        if (!Utils::isUnset($request->infrequentAccessTTL)) {
+            $body['infrequentAccessTTL'] = $request->infrequentAccessTTL;
+        }
         if (!Utils::isUnset($request->logstoreName)) {
             $body['logstoreName'] = $request->logstoreName;
         }
@@ -5634,6 +5637,9 @@ class Sls extends OpenApiClient
         }
         if (!Utils::isUnset($request->hotTtl)) {
             $body['hot_ttl'] = $request->hotTtl;
+        }
+        if (!Utils::isUnset($request->infrequentAccessTTL)) {
+            $body['infrequentAccessTTL'] = $request->infrequentAccessTTL;
         }
         if (!Utils::isUnset($request->logstoreName)) {
             $body['logstoreName'] = $request->logstoreName;

@@ -62,6 +62,11 @@ class CreateLogStoreRequest extends Model
     public $hotTtl;
 
     /**
+     * @var int
+     */
+    public $infrequentAccessTTL;
+
+    /**
      * @description The name of the Logstore. The name must meet the following requirements:
      *
      *   The name must be unique in a project.
@@ -128,17 +133,18 @@ class CreateLogStoreRequest extends Model
      */
     public $ttl;
     protected $_name = [
-        'appendMeta'     => 'appendMeta',
-        'autoSplit'      => 'autoSplit',
-        'enableTracking' => 'enable_tracking',
-        'encryptConf'    => 'encrypt_conf',
-        'hotTtl'         => 'hot_ttl',
-        'logstoreName'   => 'logstoreName',
-        'maxSplitShard'  => 'maxSplitShard',
-        'mode'           => 'mode',
-        'shardCount'     => 'shardCount',
-        'telemetryType'  => 'telemetryType',
-        'ttl'            => 'ttl',
+        'appendMeta'          => 'appendMeta',
+        'autoSplit'           => 'autoSplit',
+        'enableTracking'      => 'enable_tracking',
+        'encryptConf'         => 'encrypt_conf',
+        'hotTtl'              => 'hot_ttl',
+        'infrequentAccessTTL' => 'infrequentAccessTTL',
+        'logstoreName'        => 'logstoreName',
+        'maxSplitShard'       => 'maxSplitShard',
+        'mode'                => 'mode',
+        'shardCount'          => 'shardCount',
+        'telemetryType'       => 'telemetryType',
+        'ttl'                 => 'ttl',
     ];
 
     public function validate()
@@ -162,6 +168,9 @@ class CreateLogStoreRequest extends Model
         }
         if (null !== $this->hotTtl) {
             $res['hot_ttl'] = $this->hotTtl;
+        }
+        if (null !== $this->infrequentAccessTTL) {
+            $res['infrequentAccessTTL'] = $this->infrequentAccessTTL;
         }
         if (null !== $this->logstoreName) {
             $res['logstoreName'] = $this->logstoreName;
@@ -207,6 +216,9 @@ class CreateLogStoreRequest extends Model
         }
         if (isset($map['hot_ttl'])) {
             $model->hotTtl = $map['hot_ttl'];
+        }
+        if (isset($map['infrequentAccessTTL'])) {
+            $model->infrequentAccessTTL = $map['infrequentAccessTTL'];
         }
         if (isset($map['logstoreName'])) {
             $model->logstoreName = $map['logstoreName'];

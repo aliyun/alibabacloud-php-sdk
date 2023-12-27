@@ -45,6 +45,13 @@ class Logstore extends Model
     public $hotTtl;
 
     /**
+     * @example 30
+     *
+     * @var int
+     */
+    public $infrequentAccessTTL;
+
+    /**
      * @var int
      */
     public $lastModifyTime;
@@ -94,20 +101,21 @@ class Logstore extends Model
      */
     public $ttl;
     protected $_name = [
-        'appendMeta'     => 'appendMeta',
-        'autoSplit'      => 'autoSplit',
-        'createTime'     => 'createTime',
-        'enableTracking' => 'enable_tracking',
-        'encryptConf'    => 'encrypt_conf',
-        'hotTtl'         => 'hot_ttl',
-        'lastModifyTime' => 'lastModifyTime',
-        'logstoreName'   => 'logstoreName',
-        'maxSplitShard'  => 'maxSplitShard',
-        'mode'           => 'mode',
-        'productType'    => 'productType',
-        'shardCount'     => 'shardCount',
-        'telemetryType'  => 'telemetryType',
-        'ttl'            => 'ttl',
+        'appendMeta'          => 'appendMeta',
+        'autoSplit'           => 'autoSplit',
+        'createTime'          => 'createTime',
+        'enableTracking'      => 'enable_tracking',
+        'encryptConf'         => 'encrypt_conf',
+        'hotTtl'              => 'hot_ttl',
+        'infrequentAccessTTL' => 'infrequentAccessTTL',
+        'lastModifyTime'      => 'lastModifyTime',
+        'logstoreName'        => 'logstoreName',
+        'maxSplitShard'       => 'maxSplitShard',
+        'mode'                => 'mode',
+        'productType'         => 'productType',
+        'shardCount'          => 'shardCount',
+        'telemetryType'       => 'telemetryType',
+        'ttl'                 => 'ttl',
     ];
 
     public function validate()
@@ -134,6 +142,9 @@ class Logstore extends Model
         }
         if (null !== $this->hotTtl) {
             $res['hot_ttl'] = $this->hotTtl;
+        }
+        if (null !== $this->infrequentAccessTTL) {
+            $res['infrequentAccessTTL'] = $this->infrequentAccessTTL;
         }
         if (null !== $this->lastModifyTime) {
             $res['lastModifyTime'] = $this->lastModifyTime;
@@ -188,6 +199,9 @@ class Logstore extends Model
         }
         if (isset($map['hot_ttl'])) {
             $model->hotTtl = $map['hot_ttl'];
+        }
+        if (isset($map['infrequentAccessTTL'])) {
+            $model->infrequentAccessTTL = $map['infrequentAccessTTL'];
         }
         if (isset($map['lastModifyTime'])) {
             $model->lastModifyTime = $map['lastModifyTime'];
