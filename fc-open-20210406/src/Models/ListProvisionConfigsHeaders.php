@@ -11,7 +11,7 @@ class ListProvisionConfigsHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The actual number of provisioned instances.
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 188077086902****
      *
@@ -20,7 +20,7 @@ class ListProvisionConfigsHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description Specifies whether to always allocate CPU to a function instance.
+     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
      *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
@@ -29,7 +29,7 @@ class ListProvisionConfigsHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description The configurations of scheduled auto scaling.
+     * @description The trace ID of the invocation request of Function Compute.
      *
      * @example rid281s******
      *

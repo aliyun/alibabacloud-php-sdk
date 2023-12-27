@@ -43,7 +43,7 @@ class PutProvisionConfigResponseBody extends Model
     public $scheduledActions;
 
     /**
-     * @description The expected number of provisioned instances.
+     * @description The number of target provisioned instances.
      *
      * @example 5
      *

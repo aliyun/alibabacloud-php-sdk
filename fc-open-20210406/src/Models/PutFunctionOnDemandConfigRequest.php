@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PutFunctionOnDemandConfigRequest extends Model
 {
     /**
-     * @description The maximum number of instances.
+     * @description The maximum number of on-demand instances. For more information, see [Configure provisioned instances and auto scaling rules](~~185038~~).
      *
      * @example 10
      *
@@ -18,7 +18,7 @@ class PutFunctionOnDemandConfigRequest extends Model
     public $maximumInstanceCount;
 
     /**
-     * @description The trace ID of the request for Function Compute API, which is also the unique ID of the request.
+     * @description The service alias or latest version. Other versions are not supported.
      *
      * @example prod
      *

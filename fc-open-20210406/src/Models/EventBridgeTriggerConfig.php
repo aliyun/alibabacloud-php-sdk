@@ -19,9 +19,19 @@ class EventBridgeTriggerConfig extends Model
     public $eventRuleFilterPattern;
 
     /**
+     * @var EventSinkConfig
+     */
+    public $eventSinkConfig;
+
+    /**
      * @var EventSourceConfig
      */
     public $eventSourceConfig;
+
+    /**
+     * @var RunOptions
+     */
+    public $runOptions;
 
     /**
      * @var bool
@@ -30,7 +40,9 @@ class EventBridgeTriggerConfig extends Model
     protected $_name = [
         'asyncInvocationType'    => 'asyncInvocationType',
         'eventRuleFilterPattern' => 'eventRuleFilterPattern',
+        'eventSinkConfig'        => 'eventSinkConfig',
         'eventSourceConfig'      => 'eventSourceConfig',
+        'runOptions'             => 'runOptions',
         'triggerEnable'          => 'triggerEnable',
     ];
 
@@ -47,8 +59,14 @@ class EventBridgeTriggerConfig extends Model
         if (null !== $this->eventRuleFilterPattern) {
             $res['eventRuleFilterPattern'] = $this->eventRuleFilterPattern;
         }
+        if (null !== $this->eventSinkConfig) {
+            $res['eventSinkConfig'] = null !== $this->eventSinkConfig ? $this->eventSinkConfig->toMap() : null;
+        }
         if (null !== $this->eventSourceConfig) {
             $res['eventSourceConfig'] = null !== $this->eventSourceConfig ? $this->eventSourceConfig->toMap() : null;
+        }
+        if (null !== $this->runOptions) {
+            $res['runOptions'] = null !== $this->runOptions ? $this->runOptions->toMap() : null;
         }
         if (null !== $this->triggerEnable) {
             $res['triggerEnable'] = $this->triggerEnable;
@@ -71,8 +89,14 @@ class EventBridgeTriggerConfig extends Model
         if (isset($map['eventRuleFilterPattern'])) {
             $model->eventRuleFilterPattern = $map['eventRuleFilterPattern'];
         }
+        if (isset($map['eventSinkConfig'])) {
+            $model->eventSinkConfig = EventSinkConfig::fromMap($map['eventSinkConfig']);
+        }
         if (isset($map['eventSourceConfig'])) {
             $model->eventSourceConfig = EventSourceConfig::fromMap($map['eventSourceConfig']);
+        }
+        if (isset($map['runOptions'])) {
+            $model->runOptions = RunOptions::fromMap($map['runOptions']);
         }
         if (isset($map['triggerEnable'])) {
             $model->triggerEnable = $map['triggerEnable'];

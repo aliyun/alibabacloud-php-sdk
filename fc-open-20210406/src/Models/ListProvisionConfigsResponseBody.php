@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListProvisionConfigsResponseBody extends Model
 {
     /**
-     * @description The qualifier of the service to which resources belong. The qualifier must be aliasName and used together with the serviceName parameter.
+     * @description The token used to obtain more results.
      *
      * @example demoNextToken
      *
@@ -19,7 +19,7 @@ class ListProvisionConfigsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     * @description The information about provisioned instances.
      *
      * @var provisionConfigs[]
      */

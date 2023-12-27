@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTaggedResourcesResponseBody extends Model
 {
     /**
+     * @description The token used to obtain more results. You do not need to provide this parameter in the first call. The tokens for subsequent queries are obtained from the returned results.
+     *
      * @example a-service
      *
      * @var string
@@ -16,6 +18,8 @@ class ListTaggedResourcesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The information about tagged services.
+     *
      * @var resource[]
      */
     public $resources;

@@ -11,7 +11,7 @@ class ListTriggersHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The time when the request is initiated on the client. The format of the value is: **EEE,d MMM yyyy HH:mm:ss GMT**.
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 188077086902****
      *
@@ -20,7 +20,7 @@ class ListTriggersHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The custom request ID.
+     * @description The time when the request is initiated on the client. The format of the value is: **EEE,d MMM yyyy HH:mm:ss GMT**.
      *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
@@ -29,7 +29,7 @@ class ListTriggersHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description The returned data.
+     * @description The custom request ID.
      *
      * @example my-test-trace-id
      *

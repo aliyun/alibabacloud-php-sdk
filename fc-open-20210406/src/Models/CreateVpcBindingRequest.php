@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcBindingRequest extends Model
 {
     /**
-     * @description Example 1
+     * @description The ID of the VPC to be bound.
      *
      * @example v-xxxx
      *

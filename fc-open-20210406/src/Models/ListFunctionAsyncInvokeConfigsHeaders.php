@@ -11,6 +11,8 @@ class ListFunctionAsyncInvokeConfigsHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
      * @example 188077086902****
      *
      * @var string
@@ -18,6 +20,8 @@ class ListFunctionAsyncInvokeConfigsHeaders extends Model
     public $xFcAccountId;
 
     /**
+     * @description The CRC-64 value of the function code package. This value is used to check data integrity. The value is automatically calculated by the tool.
+     *
      * @example 1506052139770049xxxx
      *
      * @var string
@@ -25,6 +29,8 @@ class ListFunctionAsyncInvokeConfigsHeaders extends Model
     public $xFcCodeChecksum;
 
     /**
+     * @description The time when the Function Compute is called. The format is **EEE,d MMM yyyy HH:mm:ss GMT**.
+     *
      * @example Sat, 14 Jul 2017 07:02:38 GMT
      *
      * @var string
@@ -32,6 +38,11 @@ class ListFunctionAsyncInvokeConfigsHeaders extends Model
     public $xFcDate;
 
     /**
+     * @description The invocation method.
+     *
+     *   **Sync**: synchronous
+     *   **Async**: asynchronous
+     *
      * @example Async
      *
      * @var string
@@ -39,6 +50,11 @@ class ListFunctionAsyncInvokeConfigsHeaders extends Model
     public $xFcInvocationType;
 
     /**
+     * @description The method used to return logs. Valid values:
+     *
+     *   **Tail**: returns the last 4 KB of logs that are generated for the current request.
+     *   **None**: No logs are returned for the current request. Default value: None.
+     *
      * @example Tail
      *
      * @var string
@@ -46,6 +62,8 @@ class ListFunctionAsyncInvokeConfigsHeaders extends Model
     public $xFcLogType;
 
     /**
+     * @description The trace ID of the invocation request of Function Compute.
+     *
      * @example asdf****
      *
      * @var string

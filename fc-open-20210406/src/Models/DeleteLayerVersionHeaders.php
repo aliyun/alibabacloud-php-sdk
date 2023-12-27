@@ -11,7 +11,7 @@ class DeleteLayerVersionHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description 320124
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 188077086902****
      *
@@ -20,7 +20,7 @@ class DeleteLayerVersionHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description Luoni
+     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
      *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
@@ -29,6 +29,8 @@ class DeleteLayerVersionHeaders extends Model
     public $xFcDate;
 
     /**
+     * @description The trace ID of the request for Function Compute API.
+     *
      * @example asdf****
      *
      * @var string

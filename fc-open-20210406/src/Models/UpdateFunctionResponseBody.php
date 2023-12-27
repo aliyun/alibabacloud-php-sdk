@@ -158,9 +158,19 @@ class UpdateFunctionResponseBody extends Model
     public $lastModifiedTime;
 
     /**
+     * @description An array that consists of the information of layers.
+     *
+     * > Multiple layers are merged based on the order of array subscripts. The content of a layer with a smaller subscript overwrites the file that has the same name as a layer with a larger subscript.
      * @var string[]
      */
     public $layers;
+
+    /**
+     * @description ARN list of layers
+     *
+     * @var string[]
+     */
+    public $layersArnV2;
 
     /**
      * @example 512
@@ -170,6 +180,8 @@ class UpdateFunctionResponseBody extends Model
     public $memorySize;
 
     /**
+     * @description The runtime environment of the function. Valid values: **nodejs16**, **nodejs14**, **nodejs12**, **nodejs10**, **nodejs8**, **nodejs6**, **nodejs4.4**, **python3.10**, **python3.9**, **python3**, **python2.7**, **java11**, **java8**, **go1**, **php7.2**, **dotnetcore3.1**, **dotnetcore2.1**, **custom.debian10**, **custom**, and **custom-container**. For more information, see [Supported function runtime environments](~~73338~~).
+     *
      * @example python3.9
      *
      * @var string
@@ -207,6 +219,7 @@ class UpdateFunctionResponseBody extends Model
         'instanceType'            => 'instanceType',
         'lastModifiedTime'        => 'lastModifiedTime',
         'layers'                  => 'layers',
+        'layersArnV2'             => 'layersArnV2',
         'memorySize'              => 'memorySize',
         'runtime'                 => 'runtime',
         'timeout'                 => 'timeout',
@@ -290,6 +303,9 @@ class UpdateFunctionResponseBody extends Model
         }
         if (null !== $this->layers) {
             $res['layers'] = $this->layers;
+        }
+        if (null !== $this->layersArnV2) {
+            $res['layersArnV2'] = $this->layersArnV2;
         }
         if (null !== $this->memorySize) {
             $res['memorySize'] = $this->memorySize;
@@ -384,6 +400,11 @@ class UpdateFunctionResponseBody extends Model
         if (isset($map['layers'])) {
             if (!empty($map['layers'])) {
                 $model->layers = $map['layers'];
+            }
+        }
+        if (isset($map['layersArnV2'])) {
+            if (!empty($map['layersArnV2'])) {
+                $model->layersArnV2 = $map['layersArnV2'];
             }
         }
         if (isset($map['memorySize'])) {

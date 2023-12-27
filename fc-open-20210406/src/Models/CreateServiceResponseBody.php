@@ -106,24 +106,30 @@ class CreateServiceResponseBody extends Model
     public $tracingConfig;
 
     /**
+     * @var bool
+     */
+    public $useSLRAuthentication;
+
+    /**
      * @description The VPC configurations. The configurations allow functions in the specified service to access the specified VPC.
      *
      * @var VPCConfig
      */
     public $vpcConfig;
     protected $_name = [
-        'createdTime'      => 'createdTime',
-        'description'      => 'description',
-        'internetAccess'   => 'internetAccess',
-        'lastModifiedTime' => 'lastModifiedTime',
-        'logConfig'        => 'logConfig',
-        'nasConfig'        => 'nasConfig',
-        'ossMountConfig'   => 'ossMountConfig',
-        'role'             => 'role',
-        'serviceId'        => 'serviceId',
-        'serviceName'      => 'serviceName',
-        'tracingConfig'    => 'tracingConfig',
-        'vpcConfig'        => 'vpcConfig',
+        'createdTime'          => 'createdTime',
+        'description'          => 'description',
+        'internetAccess'       => 'internetAccess',
+        'lastModifiedTime'     => 'lastModifiedTime',
+        'logConfig'            => 'logConfig',
+        'nasConfig'            => 'nasConfig',
+        'ossMountConfig'       => 'ossMountConfig',
+        'role'                 => 'role',
+        'serviceId'            => 'serviceId',
+        'serviceName'          => 'serviceName',
+        'tracingConfig'        => 'tracingConfig',
+        'useSLRAuthentication' => 'useSLRAuthentication',
+        'vpcConfig'            => 'vpcConfig',
     ];
 
     public function validate()
@@ -165,6 +171,9 @@ class CreateServiceResponseBody extends Model
         }
         if (null !== $this->tracingConfig) {
             $res['tracingConfig'] = null !== $this->tracingConfig ? $this->tracingConfig->toMap() : null;
+        }
+        if (null !== $this->useSLRAuthentication) {
+            $res['useSLRAuthentication'] = $this->useSLRAuthentication;
         }
         if (null !== $this->vpcConfig) {
             $res['vpcConfig'] = null !== $this->vpcConfig ? $this->vpcConfig->toMap() : null;
@@ -213,6 +222,9 @@ class CreateServiceResponseBody extends Model
         }
         if (isset($map['tracingConfig'])) {
             $model->tracingConfig = TracingConfig::fromMap($map['tracingConfig']);
+        }
+        if (isset($map['useSLRAuthentication'])) {
+            $model->useSLRAuthentication = $map['useSLRAuthentication'];
         }
         if (isset($map['vpcConfig'])) {
             $model->vpcConfig = VPCConfig::fromMap($map['vpcConfig']);

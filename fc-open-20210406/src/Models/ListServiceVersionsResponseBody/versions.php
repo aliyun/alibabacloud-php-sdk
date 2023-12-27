@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class versions extends Model
 {
     /**
-     * @description $.parameters[10].schema.enumValueTitles
+     * @description The time when the service version was created.
      *
      * @example 2020-03-16T06:23:50Z
      *
@@ -18,7 +18,7 @@ class versions extends Model
     public $createdTime;
 
     /**
-     * @description Queries all the versions of a service.
+     * @description The description of the service version.
      *
      * @example test_description
      *
@@ -27,7 +27,7 @@ class versions extends Model
     public $description;
 
     /**
-     * @description Xiaoqi
+     * @description The time when the service version was last modified.
      *
      * @example 2020-07-15T06:12:31Z
      *
@@ -36,6 +36,8 @@ class versions extends Model
     public $lastModifiedTime;
 
     /**
+     * @description The version of the service.
+     *
      * @example 1
      *
      * @var string

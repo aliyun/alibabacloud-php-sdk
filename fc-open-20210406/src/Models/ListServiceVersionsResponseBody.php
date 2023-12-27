@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListServiceVersionsResponseBody extends Model
 {
     /**
-     * @description The information about the version.
-     *
+     * @description The order in which the returned versions are sorted. Valid values:
+     * - **FORWARD**: in ascending order.
+     * - **BACKWARD**: in descending order. This is the default value.
      * @example BACKWARD
      *
      * @var string
@@ -19,7 +20,7 @@ class ListServiceVersionsResponseBody extends Model
     public $direction;
 
     /**
-     * @description $.parameters[9].schema.description
+     * @description The token used to obtain more results. If the number of resources exceeds the limit, the nextToken parameter is returned. You can include the parameter in subsequent calls to obtain more results. You do not need to provide this parameter in the first call.
      *
      * @example eJhojW7N****
      *
@@ -28,7 +29,7 @@ class ListServiceVersionsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description $.parameters[9].schema.enumValueTitles
+     * @description The list of versions.
      *
      * @var versions[]
      */

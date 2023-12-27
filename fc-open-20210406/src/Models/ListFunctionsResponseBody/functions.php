@@ -5,7 +5,9 @@
 namespace AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionsResponseBody;
 
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CustomContainerConfig;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\CustomDNS;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CustomHealthCheckConfig;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\CustomRuntimeConfig;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\InstanceLifecycleConfig;
 use AlibabaCloud\Tea\Model;
 
@@ -64,11 +66,21 @@ class functions extends Model
     public $customContainerConfig;
 
     /**
+     * @var CustomDNS
+     */
+    public $customDNS;
+
+    /**
      * @description The custom health check configuration of the function. This parameter is applicable only to custom runtimes and custom containers.
      *
      * @var CustomHealthCheckConfig
      */
     public $customHealthCheckConfig;
+
+    /**
+     * @var CustomRuntimeConfig
+     */
+    public $customRuntimeConfig;
 
     /**
      * @description The description of the function.
@@ -208,6 +220,11 @@ class functions extends Model
     public $layers;
 
     /**
+     * @var string[]
+     */
+    public $layersArnV2;
+
+    /**
      * @description The memory size that is configured for the function. Unit: MB.
      *
      * @example 512
@@ -240,7 +257,9 @@ class functions extends Model
         'cpu'                     => 'cpu',
         'createdTime'             => 'createdTime',
         'customContainerConfig'   => 'customContainerConfig',
+        'customDNS'               => 'customDNS',
         'customHealthCheckConfig' => 'customHealthCheckConfig',
+        'customRuntimeConfig'     => 'customRuntimeConfig',
         'description'             => 'description',
         'diskSize'                => 'diskSize',
         'environmentVariables'    => 'environmentVariables',
@@ -256,6 +275,7 @@ class functions extends Model
         'instanceType'            => 'instanceType',
         'lastModifiedTime'        => 'lastModifiedTime',
         'layers'                  => 'layers',
+        'layersArnV2'             => 'layersArnV2',
         'memorySize'              => 'memorySize',
         'runtime'                 => 'runtime',
         'timeout'                 => 'timeout',
@@ -286,8 +306,14 @@ class functions extends Model
         if (null !== $this->customContainerConfig) {
             $res['customContainerConfig'] = null !== $this->customContainerConfig ? $this->customContainerConfig->toMap() : null;
         }
+        if (null !== $this->customDNS) {
+            $res['customDNS'] = null !== $this->customDNS ? $this->customDNS->toMap() : null;
+        }
         if (null !== $this->customHealthCheckConfig) {
             $res['customHealthCheckConfig'] = null !== $this->customHealthCheckConfig ? $this->customHealthCheckConfig->toMap() : null;
+        }
+        if (null !== $this->customRuntimeConfig) {
+            $res['customRuntimeConfig'] = null !== $this->customRuntimeConfig ? $this->customRuntimeConfig->toMap() : null;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
@@ -334,6 +360,9 @@ class functions extends Model
         if (null !== $this->layers) {
             $res['layers'] = $this->layers;
         }
+        if (null !== $this->layersArnV2) {
+            $res['layersArnV2'] = $this->layersArnV2;
+        }
         if (null !== $this->memorySize) {
             $res['memorySize'] = $this->memorySize;
         }
@@ -373,8 +402,14 @@ class functions extends Model
         if (isset($map['customContainerConfig'])) {
             $model->customContainerConfig = CustomContainerConfig::fromMap($map['customContainerConfig']);
         }
+        if (isset($map['customDNS'])) {
+            $model->customDNS = CustomDNS::fromMap($map['customDNS']);
+        }
         if (isset($map['customHealthCheckConfig'])) {
             $model->customHealthCheckConfig = CustomHealthCheckConfig::fromMap($map['customHealthCheckConfig']);
+        }
+        if (isset($map['customRuntimeConfig'])) {
+            $model->customRuntimeConfig = CustomRuntimeConfig::fromMap($map['customRuntimeConfig']);
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
@@ -421,6 +456,11 @@ class functions extends Model
         if (isset($map['layers'])) {
             if (!empty($map['layers'])) {
                 $model->layers = $map['layers'];
+            }
+        }
+        if (isset($map['layersArnV2'])) {
+            if (!empty($map['layersArnV2'])) {
+                $model->layersArnV2 = $map['layersArnV2'];
             }
         }
         if (isset($map['memorySize'])) {

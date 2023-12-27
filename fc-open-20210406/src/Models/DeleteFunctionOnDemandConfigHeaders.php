@@ -11,7 +11,7 @@ class DeleteFunctionOnDemandConfigHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description Xiaoqi
+     * @description If the ETag specified in the request matches the ETag value of the OndemandConfig, FC returns 200 OK. If the ETag specified in the request does not match the ETag value of the object, FC returns 412 Precondition Failed.
      *
      * @example e19d5cd5af0378da05f63f891c7467af
      *
@@ -20,7 +20,7 @@ class DeleteFunctionOnDemandConfigHeaders extends Model
     public $ifMatch;
 
     /**
-     * @description 65332
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 188077086902****
      *
@@ -29,6 +29,8 @@ class DeleteFunctionOnDemandConfigHeaders extends Model
     public $xFcAccountId;
 
     /**
+     * @description The start time when the function is invoked. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
      * @var string
@@ -36,6 +38,8 @@ class DeleteFunctionOnDemandConfigHeaders extends Model
     public $xFcDate;
 
     /**
+     * @description The trace ID of the request for Function Compute API, which is also the unique ID of the request.
+     *
      * @example r9s89isisi****
      *
      * @var string

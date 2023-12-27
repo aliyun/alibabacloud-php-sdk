@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example 1ef6b6ff-7f7b-485e-ab49-501ac681****
      *
      * @var string
@@ -16,6 +18,8 @@ class instances extends Model
     public $instanceId;
 
     /**
+     * @description The version of the service to which the instance belongs. If the instance belongs to the LATEST alias, 0 is returned as the version.
+     *
      * @example 1
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @description The time when the application was created.
+     *
      * @example 2020-09-10T02:45:02Z
      *
      * @var string
@@ -17,6 +19,8 @@ class configs extends Model
     public $createdTime;
 
     /**
+     * @description The configuration structure of the destination for the asynchronous invocation. If you have not configured this parameter, this parameter is null.
+     *
      * @example {"onSuccess": null,"onFailure": {"destination": "acs:mns:cn-shanghai:123:/queues/xxx/messages"}}
      *
      * @var DestinationConfig
@@ -24,6 +28,8 @@ class configs extends Model
     public $destinationConfig;
 
     /**
+     * @description The function name.
+     *
      * @example helloworld
      *
      * @var string
@@ -31,6 +37,8 @@ class configs extends Model
     public $function;
 
     /**
+     * @description The time when the configuration was last modified.
+     *
      * @example 2020-09-10T02:45:02Z
      *
      * @var string
@@ -38,6 +46,8 @@ class configs extends Model
     public $lastModifiedTime;
 
     /**
+     * @description The maximum validity period of messages. If you have not configured this parameter, this parameter is null.
+     *
      * @example 300
      *
      * @var int
@@ -45,6 +55,8 @@ class configs extends Model
     public $maxAsyncEventAgeInSeconds;
 
     /**
+     * @description The maximum number of retries allowed after an asynchronous invocation fails. If you have not configured this parameter, this parameter is null.
+     *
      * @example 3
      *
      * @var int
@@ -52,6 +64,8 @@ class configs extends Model
     public $maxAsyncRetryAttempts;
 
     /**
+     * @description The version or alias of the service.
+     *
      * @example test
      *
      * @var string
@@ -59,6 +73,8 @@ class configs extends Model
     public $qualifier;
 
     /**
+     * @description The name of the service.
+     *
      * @example demo-service
      *
      * @var string
@@ -66,6 +82,12 @@ class configs extends Model
     public $service;
 
     /**
+     * @description Specifies whether to enable the asynchronous task feature.
+     *
+     *   **true**
+     *   **false**
+     *
+     * If you have not configured this parameter, this parameter is null.
      * @example true
      *
      * @var bool

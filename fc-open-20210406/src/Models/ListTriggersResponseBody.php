@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTriggersResponseBody extends Model
 {
     /**
-     * @description The information about triggers.
+     * @description The token used to obtain more results. If this parameter is left empty, all the results are returned.
      *
      * @example f-trigger
      *
@@ -19,7 +19,7 @@ class ListTriggersResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The details of the trigger.
+     * @description The information about triggers.
      *
      * @var triggers[]
      */

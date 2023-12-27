@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListProvisionConfigsRequest extends Model
 {
     /**
-     * @description Queries provisioned instances.
+     * @description The maximum number of resources to return. Default value: 20. Maximum value: 100. The number of returned resources is less than or equal to the specified number.
      *
      * @example 20
      *
@@ -18,7 +18,7 @@ class ListProvisionConfigsRequest extends Model
     public $limit;
 
     /**
-     * @description Alibaba Cloud provides SDKs for multiple programming languages to help you integrate Alibaba Cloud services by using APIs. We recommend that you use an SDK to call API operations. This frees you from manual signature verification.
+     * @description The token used to obtain more results. You do not need to provide this parameter in the first call. The tokens for subsequent queries are obtained from the returned results.
      *
      * @example demoNextToken
      *
@@ -27,7 +27,7 @@ class ListProvisionConfigsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The token used to obtain more results.
+     * @description The qualifier of the service to which resources belong. The qualifier must be aliasName and used together with the serviceName parameter.
      *
      * @example prod
      *
@@ -36,7 +36,7 @@ class ListProvisionConfigsRequest extends Model
     public $qualifier;
 
     /**
-     * @description It is a tool used to manage and configure Alibaba Cloud resources. After simple installation and configuration, you can use Alibaba Cloud CLI to manage multiple Alibaba Cloud services and migrate your data and business to the cloud with ease.
+     * @description The name of the service to which resources belong.
      *
      * @example serviceName
      *

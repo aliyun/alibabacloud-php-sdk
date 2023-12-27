@@ -11,7 +11,7 @@ class GetFunctionHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The custom request ID.
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 188077086902****
      *
@@ -20,7 +20,7 @@ class GetFunctionHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The value that is used to ensure that the modified function is consistent with the function that is expected to be modified.
+     * @description The time on which the function is invoked. The format of the value is: **EEE,d MMM yyyy HH:mm:ss GMT**.
      *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
@@ -29,7 +29,7 @@ class GetFunctionHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description The definition of the function.
+     * @description The custom request ID.
      *
      * @example asdf****
      *

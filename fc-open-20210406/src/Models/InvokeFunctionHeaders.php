@@ -29,11 +29,12 @@ class InvokeFunctionHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description The method used to invoke the function. Valid values:
+     * @description The invocation method. Valid values:
      *
-     *   **Sync**: synchronous
-     *   **Async**: asynchronous
+     *   **Sync**: synchronous invocations
+     *   **Async**: asynchronous invocations
      *
+     * Default value: Sync
      * @example Sync
      *
      * @var string
@@ -53,6 +54,17 @@ class InvokeFunctionHeaders extends Model
     public $xFcLogType;
 
     /**
+     * @description Specifies whether to enable the asynchronous task mode for requests. Default value: false. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * >
+     *
+     *   This parameter takes effect only for asynchronous invocations. It does not take effect for synchronous invocations.
+     *
+     * @example true
+     *
      * @var string
      */
     public $xFcStatefulAsyncInvocationEnable;

@@ -29,7 +29,7 @@ class ListServiceVersionsHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description The maximum number of resources to return. Default value: 20. Maximum value: 100. The number of returned resources is less than or equal to the specified number.
+     * @description The trace ID of the invocation request of Function Compute.
      *
      * @example rid281s******
      *

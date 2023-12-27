@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListReservedCapacitiesResponseBody extends Model
 {
     /**
+     * @description The token used to obtain more results.
+     *
      * @example 8bj81uI8n****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListReservedCapacitiesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The information about subscription instances.
+     *
      * @var OpenReservedCapacity[]
      */
     public $reservedCapacities;

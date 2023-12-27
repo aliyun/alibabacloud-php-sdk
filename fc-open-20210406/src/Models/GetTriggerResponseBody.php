@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTriggerResponseBody extends Model
 {
     /**
-     * @description The ARN of the RAM role that is used by the event source to invoke the function.
+     * @description The time when the trigger was created.
      *
      * @example 2016-08-15T15:00:00.000+0000
      *
@@ -18,7 +18,7 @@ class GetTriggerResponseBody extends Model
     public $createdTime;
 
     /**
-     * @description The unique ID of the trigger.
+     * @description The description of the trigger.
      *
      * @example trigger for test
      *
@@ -27,7 +27,7 @@ class GetTriggerResponseBody extends Model
     public $description;
 
     /**
-     * @description The public domain address. You can access HTTP triggers over the Internet by using HTTP or HTTPS.
+     * @description The domain name used to invoke the function by using HTTP. You can add this domain name as the prefix to the endpoint of Function Compute. This way, you can invoke the function that corresponds to the trigger by using HTTP. For example, `{domainName}.cn-shanghai.fc.aliyuncs.com`.
      *
      * @example demo-service-demo-function-jkhksh
      *
@@ -36,7 +36,7 @@ class GetTriggerResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The time when the trigger was last modified.
+     * @description The ARN of the RAM role that is used by the event source to invoke the function.
      *
      * @example acs:ram::123456xxxx:role/fc-test
      *
@@ -45,7 +45,7 @@ class GetTriggerResponseBody extends Model
     public $invocationRole;
 
     /**
-     * @description The version or alias of the service.
+     * @description The time when the trigger was last modified.
      *
      * @example 016-08-15T17:00:00.000+0000
      *
@@ -54,7 +54,7 @@ class GetTriggerResponseBody extends Model
     public $lastModifiedTime;
 
     /**
-     * @description The ARN of the event source.
+     * @description The version or alias of the service.
      *
      * @example LATEST
      *
@@ -63,15 +63,7 @@ class GetTriggerResponseBody extends Model
     public $qualifier;
 
     /**
-     * @description The configurations of the trigger. The configurations vary based on the trigger type. For more information about the format, see the following topics:
-     *
-     *   OSS trigger: [OSSTriggerConfig](~~struct:OSSTriggerConfig~~).
-     *   Log Service trigger: [LogTriggerConfig](~~struct:LogTriggerConfig~~).
-     *   Time trigger: [TimeTriggerConfig](~~struct:TimeTriggerConfig~~).
-     *   HTTP trigger: [HTTPTriggerConfig](~~struct:HTTPTriggerConfig~~).
-     *   Tablestore trigger: Specify the **SourceArn** parameter and leave this parameter empty.
-     *   Alibaba Cloud CDN event trigger: [CDNEventsTriggerConfig](~~struct:CDNEventsTriggerConfig~~).
-     *   MNS topic trigger: [MnsTopicTriggerConfig](~~struct:MnsTopicTriggerConfig~~).
+     * @description The ARN of the event source.
      *
      * @example acs:oss:cn-shanghai:123456xxxx:mybucket
      *
@@ -80,7 +72,16 @@ class GetTriggerResponseBody extends Model
     public $sourceArn;
 
     /**
-     * @description The name of the trigger.
+     * @description The configurations of the trigger. The configurations vary based on the trigger type. For more information about the format, see the following topics:
+     *
+     *   Object Storage Service (OSS) trigger: [OSSTriggerConfig](~~415697~~).
+     *   Simple Log Service trigger: [LogTriggerConfig](~~415694~~).
+     *   Time trigger: [TimeTriggerConfig](~~415712~~).
+     *   HTTP trigger: [HTTPTriggerConfig](~~415685~~).
+     *   Tablestore trigger: Specify the **SourceArn** parameter and leave this parameter empty.
+     *   Alibaba Cloud CDN event trigger: [CDNEventsTriggerConfig](~~415674~~).
+     *   Message Service (MNS) topic trigger: [MnsTopicTriggerConfig](~~415695~~).
+     *   EventBridge triggers: [EventBridgeTriggerConfig](~~2508622~~).
      *
      * @example {"events": ["oss:ObjectCreated:*"], "filter": {"key": {"prefix": "/prefix", "suffix": ".zip"}}}
      *
@@ -89,7 +90,7 @@ class GetTriggerResponseBody extends Model
     public $triggerConfig;
 
     /**
-     * @description The domain name used to invoke the function by using HTTP. You can add this domain name as the prefix to the endpoint of Function Compute. This way, you can invoke the function that corresponds to the trigger by using HTTP. For example, `{domainName}.cn-shanghai.fc.aliyuncs.com`.
+     * @description The unique ID of the trigger.
      *
      * @example 3e270f2f-cef2-421a-bc86-ff4e8088476a
      *
@@ -98,7 +99,7 @@ class GetTriggerResponseBody extends Model
     public $triggerId;
 
     /**
-     * @description The trigger type, such as **oss**, **log**, **tablestore**, **timer**, **http**, **cdn_events**, and **mns_topic**.
+     * @description The name of the trigger.
      *
      * @example demoTrigger
      *
@@ -107,7 +108,7 @@ class GetTriggerResponseBody extends Model
     public $triggerName;
 
     /**
-     * @description The description of the trigger.
+     * @description The trigger type. Example values: **oss**, **log**, **tablestore**, **timer**, **http**, **cdn_events**, **mns_topic**, and **eventbridge**.
      *
      * @example oss
      *
@@ -116,7 +117,7 @@ class GetTriggerResponseBody extends Model
     public $triggerType;
 
     /**
-     * @description The private endpoint. In a VPC, you can access HTTP triggers by using HTTP or HTTPS.
+     * @description The public domain address. You can access HTTP triggers over the Internet by using HTTP or HTTPS.
      *
      * @example https://svc-func-xxxxxxxx.cn-hangzhou.fcapp.run
      *
@@ -125,6 +126,8 @@ class GetTriggerResponseBody extends Model
     public $urlInternet;
 
     /**
+     * @description The private endpoint. In a VPC, you can access HTTP triggers by using HTTP or HTTPS.
+     *
      * @example https://svc-func-xxxxxxxx.cn-hangzhou-vpc.fcapp.run
      *
      * @var string

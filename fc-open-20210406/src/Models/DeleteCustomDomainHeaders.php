@@ -11,7 +11,7 @@ class DeleteCustomDomainHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description 150868
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 188077086902****
      *
@@ -20,7 +20,7 @@ class DeleteCustomDomainHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description Xiawan
+     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
      *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
@@ -29,6 +29,8 @@ class DeleteCustomDomainHeaders extends Model
     public $xFcDate;
 
     /**
+     * @description The custom request ID.
+     *
      * @example rid281s******
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTriggersRequest extends Model
 {
     /**
-     * @description The token required to obtain more results. You do not need to provide this parameter in the first call. The tokens for subsequent queries are obtained from the returned results.
+     * @description The maximum number of resources to return. Default value: 20. Maximum value: 100. The number of returned resources is less than or equal to the specified number.
      *
      * @example 20
      *
@@ -18,7 +18,7 @@ class ListTriggersRequest extends Model
     public $limit;
 
     /**
-     * @description The prefix that the names of returned resources must contain.
+     * @description The token required to obtain more results. You do not need to provide this parameter in the first call. The tokens for subsequent queries are obtained from the returned results.
      *
      * @example f-trigger
      *
@@ -27,7 +27,7 @@ class ListTriggersRequest extends Model
     public $nextToken;
 
     /**
-     * @description The returned resources are sorted in alphabetical order, and the resources that include and follow the resource specified by the startKey parameter are returned.
+     * @description The prefix that the names of returned resources must contain.
      *
      * @example a
      *
@@ -36,7 +36,7 @@ class ListTriggersRequest extends Model
     public $prefix;
 
     /**
-     * @description The ID of your Alibaba Cloud account.
+     * @description The returned resources are sorted in alphabetical order, and the resources that include and follow the resource specified by the startKey parameter are returned.
      *
      * @example a-trigger
      *

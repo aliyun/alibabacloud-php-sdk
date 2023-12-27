@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTriggerRequest extends Model
 {
     /**
-     * @description The ID of your Alibaba Cloud account.
+     * @description The description of the trigger.
      *
      * @example trigger for test
      *
@@ -18,7 +18,7 @@ class CreateTriggerRequest extends Model
     public $description;
 
     /**
-     * @description The version or alias of the service.
+     * @description The role that is used by the event source such as Object Storage Service (OSS) to invoke the function. For more information, see [Overview](~~53102~~).
      *
      * @example acs:ram::1234567890:role/fc-test
      *
@@ -27,7 +27,7 @@ class CreateTriggerRequest extends Model
     public $invocationRole;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the event source for the trigger.
+     * @description The version or alias of the service.
      *
      * @example LATEST
      *
@@ -36,15 +36,7 @@ class CreateTriggerRequest extends Model
     public $qualifier;
 
     /**
-     * @description The configurations of the trigger. The configurations vary based on the trigger type. For more information about the format, see the following topics:
-     *
-     * OSS trigger: [OSSTriggerConfig](~~struct:OSSTriggerConfig~~).
-     * Log Service trigger: [LogTriggerConfig](~~struct:LogTriggerConfig~~).
-     * Time trigger: [TimeTriggerConfig](~~struct:LogTriggerConfig~~).
-     * HTTP trigger: [HTTPTriggerConfig](~~struct:HTTPTriggerConfig~~).
-     * Tablestore trigger: Specify the **SourceArn** parameter and leave this parameter empty.
-     * Alibaba Cloud CDN event trigger: [CDNEventsTriggerConfig](~~struct:CDNEventsTriggerConfig~~).
-     * MNS topic trigger: [MnsTopicTriggerConfig](~~struct:MnsTopicTriggerConfig~~).
+     * @description The Alibaba Cloud Resource Name (ARN) of the event source for the trigger.
      *
      * @example acs:oss:cn-shanghai:12345:mybucket
      *
@@ -53,7 +45,16 @@ class CreateTriggerRequest extends Model
     public $sourceArn;
 
     /**
-     * @description The name of the trigger. The name contains only letters, digits, hyphens (-), and underscores (\_). The name must be 1 to 128 characters in length and cannot start with a digit or hyphen (-).
+     * @description The configurations of the trigger. The configurations vary based on the trigger type. For more information about the format, see the following topics:
+     *
+     *   Object Storage Service (OSS) trigger: [OSSTriggerConfig](~~415697~~).
+     *   Simple Log Service trigger: [LogTriggerConfig](~~415694~~).
+     *   Time trigger: [TimeTriggerConfig](~~415712~~).
+     *   HTTP trigger: [HTTPTriggerConfig](~~415685~~).
+     *   Tablestore trigger: Specify the **SourceArn** parameter and leave this parameter empty.
+     *   Alibaba Cloud CDN event trigger: [CDNEventsTriggerConfig](~~415674~~).
+     *   Message Service (MNS) topic trigger: [MnsTopicTriggerConfig](~~415695~~).
+     *   EventBridge triggers: [EventBridgeTriggerConfig](~~2508622~~).
      *
      * @example {"events": ["oss:ObjectCreated:*"], "filter": {"key": {"prefix": "/prefix", "suffix": ".zip"}}}
      *
@@ -62,15 +63,7 @@ class CreateTriggerRequest extends Model
     public $triggerConfig;
 
     /**
-     * @description The type of the trigger. Valid values:
-     *
-     *   **oss**: OSS event trigger. For more information, see [Overview](~~62922~~).
-     *   **log**: Log Service trigger. For more information, see [Overview](~~84386~~).
-     *   **timer**: time trigger. For more information, see [Overview](~~68172~~).
-     *   **http**: HTTP trigger. For more information, see [Overview](~~71229~~).
-     *   **tablestore**: Tablestore trigger. For more information, see [Overview](~~100092~~).
-     *   **cdn_events**: CDN event trigger. For more information, see [Overview](~~73333~~).
-     *   **mns_topic**: MNS topic trigger. For more information, see [Overview](~~97032~~).
+     * @description The name of the trigger. The name contains only letters, digits, hyphens (-), and underscores (\_). The name must be 1 to 128 characters in length and cannot start with a digit or hyphen (-).
      *
      * @example oss_create_object_demo
      *
@@ -79,7 +72,16 @@ class CreateTriggerRequest extends Model
     public $triggerName;
 
     /**
-     * @description The description of the trigger.
+     * @description The type of the trigger. Valid values:
+     *
+     *   **oss**: OSS event trigger. For more information, see [Overview](~~62922~~).
+     *   **log**: Simple Log Service trigger. For more information, see [Overview](~~84386~~).
+     *   **timer**: time trigger. For more information, see [Overview](~~68172~~).
+     *   **http**: HTTP trigger. For more information, see [Overview](~~71229~~).
+     *   **tablestore**: Tablestore trigger. For more information, see [Overview](~~100092~~).
+     *   **cdn_events**: CDN event trigger. For more information, see [Overview](~~73333~~).
+     *   **mns_topic**: MNS topic trigger. For more information, see [Overview](~~97032~~).
+     *   **eventbridge**: EventBridge triggers.
      *
      * @example oss
      *

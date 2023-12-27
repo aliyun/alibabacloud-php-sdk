@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateTriggerRequest extends Model
 {
     /**
-     * @description The ID of your Alibaba Cloud account.
+     * @description The description of the trigger.
      *
      * @example trigger for test
      *
@@ -18,7 +18,7 @@ class UpdateTriggerRequest extends Model
     public $description;
 
     /**
-     * @description The version or alias of the service.
+     * @description The role that is used by the event source such as Object Storage Service (OSS) to invoke the function. For more information, see [Overview](~~53102~~).
      *
      * @example acs:ram::123456xxxx:role/fc-test
      *
@@ -27,15 +27,7 @@ class UpdateTriggerRequest extends Model
     public $invocationRole;
 
     /**
-     * @description The configurations of the trigger. The configurations vary based on the trigger type. For more information about the format, see the following topics:
-     *
-     *   OSS trigger: [OSSTriggerConfig](~~struct:OSSTriggerConfig~~).
-     *   Log Service trigger: [LogTriggerConfig](~~struct:LogTriggerConfig~~).
-     *   Time trigger: [TimeTriggerConfig](~~struct:TimeTriggerConfig~~).
-     *   HTTP trigger: [HTTPTriggerConfig](~~struct:HTTPTriggerConfig~~).
-     *   Tablestore trigger: Specify the **SourceArn** parameter and leave this parameter empty.
-     *   Alibaba Cloud CDN event trigger: [CDNEventsTriggerConfig](~~struct:CDNEventsTriggerConfig~~).
-     *   MNS topic trigger: [MnsTopicTriggerConfig](~~struct:MnsTopicTriggerConfig~~).
+     * @description The version or alias of the service.
      *
      * @example LATEST
      *
@@ -44,7 +36,16 @@ class UpdateTriggerRequest extends Model
     public $qualifier;
 
     /**
-     * @description The description of the trigger.
+     * @description The configurations of the trigger. The configurations vary based on the trigger type. For more information about the format, see the following topics:
+     *
+     *   Object Storage Service (OSS) trigger: [OSSTriggerConfig](~~415697~~).
+     *   Simple Log Service trigger: [LogTriggerConfig](~~415694~~).
+     *   Time trigger: [TimeTriggerConfig](~~415712~~).
+     *   HTTP trigger: [HTTPTriggerConfig](~~415685~~).
+     *   Tablestore trigger: Specify the **SourceArn** parameter and leave this parameter empty.
+     *   Alibaba Cloud CDN event trigger: [CDNEventsTriggerConfig](~~415674~~).
+     *   MNS topic trigger: [MnsTopicTriggerConfig](~~415695~~).
+     *   EventBridge triggers: [EventBridgeTriggerConfig](~~2508622~~).
      *
      * @example {"events": ["oss:ObjectCreated:*"], "filter": {"key": {"prefix": "/prefix", "suffix": ".zip"}}}
      *

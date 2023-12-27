@@ -11,6 +11,8 @@ class ReleaseGPUInstanceHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
      * @example 188077086902****
      *
      * @var string
@@ -18,6 +20,8 @@ class ReleaseGPUInstanceHeaders extends Model
     public $xFcAccountId;
 
     /**
+     * @description The time when the function is invoked. The format of the value is: EEE,d MMM yyyy HH:mm:ss GMT.
+     *
      * @example 2022-11-11 07:31:04.899465017 +0000 UTC m=+37.671563424
      *
      * @var string
@@ -25,6 +29,8 @@ class ReleaseGPUInstanceHeaders extends Model
     public $xFcDate;
 
     /**
+     * @description The custom request ID.
+     *
      * @example test-trace-id
      *
      * @var string

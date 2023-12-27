@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTaggedResourcesRequest extends Model
 {
     /**
-     * @description Example 1
+     * @description The maximum number of resources to return. Default value: 20. Maximum value: 100. The number of returned resources is less than or equal to the specified number.
      *
      * @example 20
      *

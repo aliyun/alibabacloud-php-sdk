@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesResponseBody extends Model
 {
     /**
-     * @description 210234
+     * @description The information about instances.
      *
      * @var instances[]
      */

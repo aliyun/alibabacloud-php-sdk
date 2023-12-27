@@ -25,7 +25,7 @@ class PutProvisionConfigRequest extends Model
     public $scheduledActions;
 
     /**
-     * @description The number of provisioned instances. Value range: [1,100000].
+     * @description The number of target provisioned instances. Valid values: \[0,10000].
      *
      * @example 1
      *
@@ -41,7 +41,7 @@ class PutProvisionConfigRequest extends Model
     public $targetTrackingPolicies;
 
     /**
-     * @description The name of the alias.
+     * @description The service alias or latest version. Other versions are not supported.
      *
      * @example prod
      *

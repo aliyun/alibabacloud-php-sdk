@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeregisterEventSourceRequest extends Model
 {
     /**
+     * @description The version or alias of the service.
+     *
      * @example LATEST
      *
      * @var string

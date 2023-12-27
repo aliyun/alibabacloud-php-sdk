@@ -11,7 +11,7 @@ class CreateLayerVersionHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The description of the layer.
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 188077086902****
      *
@@ -20,7 +20,7 @@ class CreateLayerVersionHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The checksum of the layer code package.
+     * @description The time when the function is invoked. The value is in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
      *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
@@ -29,7 +29,7 @@ class CreateLayerVersionHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description The information about the layer code package.
+     * @description The trace ID of the invocation request of Function Compute.
      *
      * @example r4isu4sls****
      *

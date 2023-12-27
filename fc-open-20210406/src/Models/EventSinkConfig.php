@@ -6,18 +6,14 @@ namespace AlibabaCloud\SDK\FCOpen\V20210406\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetFunctionRequest extends Model
+class EventSinkConfig extends Model
 {
     /**
-     * @description The version or alias of the service.
-     *
-     * @example demoQualifier
-     *
-     * @var string
+     * @var DeliveryOption
      */
-    public $qualifier;
+    public $deliveryOption;
     protected $_name = [
-        'qualifier' => 'qualifier',
+        'deliveryOption' => 'deliveryOption',
     ];
 
     public function validate()
@@ -27,8 +23,8 @@ class GetFunctionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->qualifier) {
-            $res['qualifier'] = $this->qualifier;
+        if (null !== $this->deliveryOption) {
+            $res['deliveryOption'] = null !== $this->deliveryOption ? $this->deliveryOption->toMap() : null;
         }
 
         return $res;
@@ -37,13 +33,13 @@ class GetFunctionRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetFunctionRequest
+     * @return EventSinkConfig
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['qualifier'])) {
-            $model->qualifier = $map['qualifier'];
+        if (isset($map['deliveryOption'])) {
+            $model->deliveryOption = DeliveryOption::fromMap($map['deliveryOption']);
         }
 
         return $model;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListLayersResponseBody extends Model
 {
     /**
+     * @description The information about layers.
+     *
      * @var Layer[]
      */
     public $layers;
 
     /**
+     * @description The name of the start layer for the next query, which is also the token used to obtain more results.
+     *
      * @example next-layer-name
      *
      * @var string

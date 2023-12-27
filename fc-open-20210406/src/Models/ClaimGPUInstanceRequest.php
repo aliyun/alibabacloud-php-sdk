@@ -18,7 +18,7 @@ class ClaimGPUInstanceRequest extends Model
     public $diskPerformanceLevel;
 
     /**
-     * @description The system disk space of the GPU rendering instance.
+     * @description The system disk space of the GPU rendering instance. Unit: GB.
      *
      * @example 100
      *
@@ -27,7 +27,7 @@ class ClaimGPUInstanceRequest extends Model
     public $diskSizeGigabytes;
 
     /**
-     * @description The image ID of the GPU-rendered instance.
+     * @description The image ID of the GPU rendering instance.
      *
      * @example m-foobar
      *
@@ -63,7 +63,7 @@ class ClaimGPUInstanceRequest extends Model
     public $password;
 
     /**
-     * @description The role of the user.
+     * @description The user role.
      *
      * @example acs:ram::1234567890:role/fc-test
      *
@@ -72,7 +72,7 @@ class ClaimGPUInstanceRequest extends Model
     public $role;
 
     /**
-     * @description The ID of the security group.
+     * @description The security group ID.
      *
      * @example sg-xxxx
      *
@@ -113,7 +113,7 @@ class ClaimGPUInstanceRequest extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID of the instance.
      *
      * @example vsw-xxxx
      *

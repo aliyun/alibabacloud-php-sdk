@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateLayerVersionRequest extends Model
 {
     /**
-     * @description The name of the layer.
+     * @description The layer code.
      *
      * @var Code
      */
     public $code;
 
     /**
-     * @description The name of the runtime. Valid values: **nodejs14**, **nodejs12**, **nodejs10**, **nodejs8**, **nodejs6**, **python3.9**, **python3**, **python2.7**, **java11**, **java8**, **php7.2**, **go1**, **dotnetcore2.1** and **custom**.
+     * @description The runtimes that are supported by the layer.
      *
      * @var string[]
      */
     public $compatibleRuntime;
 
     /**
-     * @description The name of the layer.
+     * @description The layer description. The description can be up to 256 characters in length.
      *
      * @example test
      *

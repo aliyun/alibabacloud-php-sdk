@@ -11,7 +11,7 @@ class PutFunctionOnDemandConfigHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The name of the service.
+     * @description If the ETag specified in the request matches the ETag value of the object, the object and 200 OK are returned. Otherwise, 412 Precondition Failed is returned.
      *
      * @example e19d5cd5af0378da05f63f891c7467af
      *
@@ -29,7 +29,7 @@ class PutFunctionOnDemandConfigHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description Example 1
+     * @description The time when the function is invoked. The value is in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
      *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
@@ -38,7 +38,7 @@ class PutFunctionOnDemandConfigHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description Creates function rules.
+     * @description The unique ID of the trace.
      *
      * @example r9s89isisi****
      *

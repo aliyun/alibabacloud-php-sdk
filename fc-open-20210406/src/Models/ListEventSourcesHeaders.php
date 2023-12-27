@@ -11,7 +11,7 @@ class ListEventSourcesHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description $.parameters[7].schema.enumValueTitles
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 188077086902****
      *
@@ -20,7 +20,7 @@ class ListEventSourcesHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description $.parameters[8].schema.description
+     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
      *
      * @example Sat, 14 Jul 2017 07:02:38 GMT
      *
@@ -29,7 +29,7 @@ class ListEventSourcesHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description $.parameters[8].schema.example
+     * @description The trace ID of the invocation request of Function Compute.
      *
      * @example asdf****
      *

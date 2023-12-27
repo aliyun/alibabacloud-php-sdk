@@ -11,7 +11,7 @@ class DeleteServiceHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description Examples
+     * @description The ETag value of the service. This value is used to ensure that the modified service is consistent with the service to be modified. The ETag value is returned in the responses of the [CreateService](~~175256~~), [UpdateService](~~188167~~), and [GetService](~~189225~~) operations.
      *
      * @example service_name
      *
@@ -20,7 +20,7 @@ class DeleteServiceHeaders extends Model
     public $ifMatch;
 
     /**
-     * @description Liuxia
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 188077086902****
      *
@@ -29,6 +29,8 @@ class DeleteServiceHeaders extends Model
     public $xFcAccountId;
 
     /**
+     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
      * @var string
@@ -36,6 +38,8 @@ class DeleteServiceHeaders extends Model
     public $xFcDate;
 
     /**
+     * @description The custom request ID.
+     *
      * @example r9s89isisi****
      *
      * @var string

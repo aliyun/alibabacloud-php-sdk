@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListReservedCapacitiesRequest extends Model
 {
     /**
+     * @description The maximum number of resources to return. Valid values: 1 to 100.
+     *
      * @example 20
      *
      * @var string
@@ -16,6 +18,8 @@ class ListReservedCapacitiesRequest extends Model
     public $limit;
 
     /**
+     * @description The token that determines the start point of the query.
+     *
      * @example 8bj81uI8n****
      *
      * @var string

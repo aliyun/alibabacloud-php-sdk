@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateLayerVersionResponseBody extends Model
 {
     /**
-     * @description Creates a layer version.
+     * @description The access mode of the layer. Digit 0 specifies that the layer is private and digit 1 specifies that the layer is public. By default, public layers are public. Custom layers can be set to private or public.
      *
      * @example 0
      *
@@ -18,6 +18,8 @@ class CreateLayerVersionResponseBody extends Model
     public $acl;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the layer.
+     *
      * @example xxxxxxxx#Layer-name#1
      *
      * @var string
@@ -25,14 +27,14 @@ class CreateLayerVersionResponseBody extends Model
     public $arn;
 
     /**
-     * @description The access mode of the layer.
+     * @description The information about the layer code package.
      *
      * @var OutputCodeLocation
      */
     public $code;
 
     /**
-     * @description Example 1
+     * @description The CRC-64 value of the layer code package. The value is calculated based on the **ECMA-182 **standard.
      *
      * @example 2825179536350****
      *
@@ -41,7 +43,7 @@ class CreateLayerVersionResponseBody extends Model
     public $codeChecksum;
 
     /**
-     * @description The size of the layer code package. Unit: Byte.
+     * @description The size of the layer code package. Unit: bytes.
      *
      * @example 421
      *
@@ -50,14 +52,14 @@ class CreateLayerVersionResponseBody extends Model
     public $codesize;
 
     /**
-     * @description Luoni
+     * @description The runtimes that are supported by the layer.
      *
      * @var string[]
      */
     public $compatibleRuntime;
 
     /**
-     * @description Creates a layer version.
+     * @description The time when the layer version was created. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
      *
      * @example 2022-01-01T11:08:00Z
      *
@@ -66,7 +68,7 @@ class CreateLayerVersionResponseBody extends Model
     public $createTime;
 
     /**
-     * @description The name of the layer.
+     * @description The description of the layer version.
      *
      * @example the first layer
      *
@@ -75,7 +77,7 @@ class CreateLayerVersionResponseBody extends Model
     public $description;
 
     /**
-     * @description The list of runtime environments that are supported by the layer.
+     * @description The layer name.
      *
      * @example MyLayer
      *
@@ -84,7 +86,7 @@ class CreateLayerVersionResponseBody extends Model
     public $layerName;
 
     /**
-     * @description The time when the layer version was created. The time follows the **yyyy-MM-ddTHH:mm:ssZ** format.
+     * @description The layer version.
      *
      * @example 1
      *

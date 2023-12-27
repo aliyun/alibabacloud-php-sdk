@@ -11,8 +11,8 @@ class GetResourceTagsHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the resource.
-     * > **Note:** You can use the value of this parameter to query the information about the resource, such as the account, service, and region information of the resource. You can manage tags only for services for top level resources.
+     * @description The ID of your Alibaba Cloud account.
+     *
      * @example 188077086902****
      *
      * @var string
@@ -20,9 +20,8 @@ class GetResourceTagsHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The tag dictionary. Valid values:
-     * - **key**: the key of the tag.
-     * - **value**: the value of the tag.
+     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
      * @var string
@@ -30,7 +29,7 @@ class GetResourceTagsHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description Example 1
+     * @description The custom request ID.
      *
      * @example my-test-trace-id
      *

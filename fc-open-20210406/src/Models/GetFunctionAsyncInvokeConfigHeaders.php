@@ -11,6 +11,8 @@ class GetFunctionAsyncInvokeConfigHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
      * @example 188077086902****
      *
      * @var string
@@ -18,6 +20,8 @@ class GetFunctionAsyncInvokeConfigHeaders extends Model
     public $xFcAccountId;
 
     /**
+     * @description The time when the Function Compute is called. The format is **EEE,d MMM yyyy HH:mm:ss GMT**.
+     *
      * @example Sat, 14 Jul 2017 07:02:38 GMT
      *
      * @var string
@@ -25,6 +29,8 @@ class GetFunctionAsyncInvokeConfigHeaders extends Model
     public $xFcDate;
 
     /**
+     * @description The trace ID of the invocation request of Function Compute.
+     *
      * @example asdf****
      *
      * @var string

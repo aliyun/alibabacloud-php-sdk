@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class TagResourceRequest extends Model
 {
     /**
+     * @description The ARN of the resource.
+     *
+     * > You can use the value of this parameter to query the information about the resource, such as the account, service, and region information of the resource. You can manage tags only for services for top level resources.
      * @example acs:fc:cn-shanghai:188077086902****:services/demo
      *
      * @var string
@@ -16,6 +19,8 @@ class TagResourceRequest extends Model
     public $resourceArn;
 
     /**
+     * @description The tag dictionary.
+     *
      * @example {"k1":"v1"}
      *
      * @var string[]

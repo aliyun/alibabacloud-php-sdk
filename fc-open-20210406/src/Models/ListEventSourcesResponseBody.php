@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListEventSourcesResponseBody extends Model
 {
     /**
-     * @description Queries all the event sources of a function.
+     * @description The information about event sources.
      *
      * @var eventSources[]
      */

@@ -11,7 +11,7 @@ class RegisterEventSourceHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description Jianyi
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 188077086902****
      *
@@ -20,6 +20,8 @@ class RegisterEventSourceHeaders extends Model
     public $xFcAccountId;
 
     /**
+     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     *
      * @example Sat, 14 Jul 2017 07:02:38 GMT
      *
      * @var string
@@ -27,6 +29,8 @@ class RegisterEventSourceHeaders extends Model
     public $xFcDate;
 
     /**
+     * @description The trace ID of the invocation request of Function Compute.
+     *
      * @example asdf****
      *
      * @var string

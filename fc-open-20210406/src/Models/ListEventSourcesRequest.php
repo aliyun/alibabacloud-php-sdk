@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListEventSourcesRequest extends Model
 {
     /**
-     * @description $.parameters[7].schema.example
+     * @description The version or alias of the service.
      *
      * @example LATEST
      *

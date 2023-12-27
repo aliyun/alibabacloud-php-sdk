@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionAsyncInvokeConfigRequest extends Model
 {
     /**
+     * @description The version or alias of the function.
+     *
      * @example test
      *
      * @var string

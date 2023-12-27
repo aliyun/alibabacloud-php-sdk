@@ -6,18 +6,14 @@ namespace AlibabaCloud\SDK\FCOpen\V20210406\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetFunctionRequest extends Model
+class DeadLetterQueue extends Model
 {
     /**
-     * @description The version or alias of the service.
-     *
-     * @example demoQualifier
-     *
      * @var string
      */
-    public $qualifier;
+    public $arn;
     protected $_name = [
-        'qualifier' => 'qualifier',
+        'arn' => 'Arn',
     ];
 
     public function validate()
@@ -27,8 +23,8 @@ class GetFunctionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->qualifier) {
-            $res['qualifier'] = $this->qualifier;
+        if (null !== $this->arn) {
+            $res['Arn'] = $this->arn;
         }
 
         return $res;
@@ -37,13 +33,13 @@ class GetFunctionRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetFunctionRequest
+     * @return DeadLetterQueue
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['qualifier'])) {
-            $model->qualifier = $map['qualifier'];
+        if (isset($map['Arn'])) {
+            $model->arn = $map['Arn'];
         }
 
         return $model;

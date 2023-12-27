@@ -1784,13 +1784,15 @@ class FCOpen extends OpenApiClient
     }
 
     /**
+     * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If the value of StatefulAsyncInvocation is true, the asynchronous task feature is enabled. All asynchronous invocations change to asynchronous task mode.
+     *   *
      * @param string                              $serviceName
      * @param string                              $functionName
-     * @param GetFunctionAsyncInvokeConfigRequest $request
-     * @param GetFunctionAsyncInvokeConfigHeaders $headers
-     * @param RuntimeOptions                      $runtime
+     * @param GetFunctionAsyncInvokeConfigRequest $request      GetFunctionAsyncInvokeConfigRequest
+     * @param GetFunctionAsyncInvokeConfigHeaders $headers      GetFunctionAsyncInvokeConfigHeaders
+     * @param RuntimeOptions                      $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetFunctionAsyncInvokeConfigResponse
+     * @return GetFunctionAsyncInvokeConfigResponse GetFunctionAsyncInvokeConfigResponse
      */
     public function getFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
@@ -1832,11 +1834,13 @@ class FCOpen extends OpenApiClient
     }
 
     /**
+     * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If the value of StatefulAsyncInvocation is true, the asynchronous task feature is enabled. All asynchronous invocations change to asynchronous task mode.
+     *   *
      * @param string                              $serviceName
      * @param string                              $functionName
-     * @param GetFunctionAsyncInvokeConfigRequest $request
+     * @param GetFunctionAsyncInvokeConfigRequest $request      GetFunctionAsyncInvokeConfigRequest
      *
-     * @return GetFunctionAsyncInvokeConfigResponse
+     * @return GetFunctionAsyncInvokeConfigResponse GetFunctionAsyncInvokeConfigResponse
      */
     public function getFunctionAsyncInvokeConfig($serviceName, $functionName, $request)
     {
@@ -2361,9 +2365,9 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
-        $body = '';
+        $body = null;
         if (!Utils::isUnset($request->body)) {
-            $body = Utils::toString($request->body);
+            $body = $request->body;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -2403,7 +2407,7 @@ class FCOpen extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'byte',
             'bodyType'    => 'byte',
         ]);
 
@@ -2627,13 +2631,15 @@ class FCOpen extends OpenApiClient
     }
 
     /**
+     * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If StatefulAsyncInvocation is set to true, the asynchronous task is enabled. All asynchronous invocations to the function corresponding to this configuration change to asynchronous task mode.
+     *   *
      * @param string                                $serviceName
      * @param string                                $functionName
-     * @param ListFunctionAsyncInvokeConfigsRequest $request
-     * @param ListFunctionAsyncInvokeConfigsHeaders $headers
-     * @param RuntimeOptions                        $runtime
+     * @param ListFunctionAsyncInvokeConfigsRequest $request      ListFunctionAsyncInvokeConfigsRequest
+     * @param ListFunctionAsyncInvokeConfigsHeaders $headers      ListFunctionAsyncInvokeConfigsHeaders
+     * @param RuntimeOptions                        $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListFunctionAsyncInvokeConfigsResponse
+     * @return ListFunctionAsyncInvokeConfigsResponse ListFunctionAsyncInvokeConfigsResponse
      */
     public function listFunctionAsyncInvokeConfigsWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
@@ -2687,11 +2693,13 @@ class FCOpen extends OpenApiClient
     }
 
     /**
+     * StatefulAsyncInvocation indicates whether the asynchronous task feature is enabled. If StatefulAsyncInvocation is set to true, the asynchronous task is enabled. All asynchronous invocations to the function corresponding to this configuration change to asynchronous task mode.
+     *   *
      * @param string                                $serviceName
      * @param string                                $functionName
-     * @param ListFunctionAsyncInvokeConfigsRequest $request
+     * @param ListFunctionAsyncInvokeConfigsRequest $request      ListFunctionAsyncInvokeConfigsRequest
      *
-     * @return ListFunctionAsyncInvokeConfigsResponse
+     * @return ListFunctionAsyncInvokeConfigsResponse ListFunctionAsyncInvokeConfigsResponse
      */
     public function listFunctionAsyncInvokeConfigs($serviceName, $functionName, $request)
     {
@@ -2775,8 +2783,8 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * The maximum number of resources to return. Valid values: \\[0,1000].
-     *   * The number of returned resources is less than or equal to the specified number.
+     * The ListInstances operation allows you to query the available instances of a function.
+     *   * Available instances are instances that are processing requests or can be scheduled to process requests. Available instances queried by the ListInstances operation are the same as those that can be used when you call the InvokeFunction operation with the same values specified for the `serviceName`, `functionName`, and `qualifier` parameters.
      *   *
      * @param string               $serviceName
      * @param string               $functionName
@@ -2826,8 +2834,8 @@ class FCOpen extends OpenApiClient
     }
 
     /**
-     * The maximum number of resources to return. Valid values: \\[0,1000].
-     *   * The number of returned resources is less than or equal to the specified number.
+     * The ListInstances operation allows you to query the available instances of a function.
+     *   * Available instances are instances that are processing requests or can be scheduled to process requests. Available instances queried by the ListInstances operation are the same as those that can be used when you call the InvokeFunction operation with the same values specified for the `serviceName`, `functionName`, and `qualifier` parameters.
      *   *
      * @param string               $serviceName
      * @param string               $functionName
