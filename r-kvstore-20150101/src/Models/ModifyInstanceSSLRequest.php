@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceSSLRequest extends Model
 {
     /**
-     * @description The ID of the task.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -38,11 +38,11 @@ class ModifyInstanceSSLRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to enable TLS (SSL) encryption. Valid values:
+     * @description Modifies SSL encryption configurations. Valid values:
      *
-     *   **Disable**: disables SSL encryption.
-     *   **Enable**: enables SSL encryption.
-     *   **Update**: updates the SSL certificate.
+     *   **Disable**: The SSL encryption is disabled.
+     *   **Enable**: The SSL encryption is enabled.
+     *   **Update**: The SSL certificate is updated.
      *
      * @example Enable
      *

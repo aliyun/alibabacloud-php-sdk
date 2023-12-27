@@ -9,8 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeRunningLogRecordsRequest extends Model
 {
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than **0** and less than or equal to the maximum value supported by the integer data type. Default value: **1**.
+     * @description The shard type of the cluster instance. Valid values:
      *
+     *   **proxy**: proxy node
+     *   **db**: data node
+     *   **cs**: config server node
+     *
+     * >  If you set this parameter, you must also set the **NodeId** parameter.
      * @example proxy
      *
      * @var string
@@ -27,7 +32,7 @@ class DescribeRunningLogRecordsRequest extends Model
     public $DBName;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeRunningLogRecords**.
+     * @description The end of the time range to query. The end time must be later than the start time. The time range cannot exceed one day. We recommend that you specify 1 hour. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2018-12-03T08:01Z
      *
@@ -36,7 +41,7 @@ class DescribeRunningLogRecordsRequest extends Model
     public $endTime;
 
     /**
-     * @description The time when the log was generated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -45,13 +50,10 @@ class DescribeRunningLogRecordsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The shard type of the cluster instance. Valid values:
+     * @description The ID of the node in the instance. You can set this parameter to query the operational logs of a specified node.
      *
-     *   **proxy**: proxy node
-     *   **db**: data node
-     *   **cs**: config server node
-     *
-     * >  If you set this parameter, you must also set the **NodeId** parameter.
+     * > *   This parameter is available only for read/write splitting and cluster instances of ApsaraDB for Redis.
+     * > *   If you set this parameter, you must also set the **CharacterType** parameter.
      * @example r-bp1zxszhcgatnx****-db-0
      *
      * @var string
@@ -59,11 +61,10 @@ class DescribeRunningLogRecordsRequest extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the node in the instance. You can set this parameter to query the operational logs of a specified node.
+     * @description The method that is used to sort the returned log entries. Valid values:
      *
-     * >
-     *   This parameter is available only for read/write splitting and cluster instances of ApsaraDB for Redis.
-     *   If you set this parameter, you must also set the **CharacterType** parameter.
+     *   **asc**: ascending order
+     *   **desc**: descending order
      *
      * @example asc
      *
@@ -82,7 +83,7 @@ class DescribeRunningLogRecordsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the instance.
+     * @description The number of the page to return. The value must be an integer that is greater than **0** and less than or equal to the maximum value supported by the integer data type. Default value: **1**.
      *
      * @example 1
      *
@@ -91,10 +92,7 @@ class DescribeRunningLogRecordsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The role of the data shard. Default value: master. Valid values:
-     *
-     *   **master**: master node
-     *   **slave**: replica node
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
      *
      * @example 30
      *
@@ -103,7 +101,7 @@ class DescribeRunningLogRecordsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The content of the log.
+     * @description The keyword that is used to query operational logs.
      *
      * @example aof
      *
@@ -112,10 +110,7 @@ class DescribeRunningLogRecordsRequest extends Model
     public $queryKeyword;
 
     /**
-     * @description The method that is used to sort the returned log entries. Valid values:
-     *
-     *   **asc**: ascending order
-     *   **desc**: descending order
+     * @description The ID of the resource group.
      *
      * @example rg-acfmyiu4ekp****
      *
@@ -134,7 +129,10 @@ class DescribeRunningLogRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The role of the data shard. Default value: master. Valid values:
+     *
+     *   **master**: master node
+     *   **slave**: replica node
      *
      * @example master
      *
@@ -148,7 +146,7 @@ class DescribeRunningLogRecordsRequest extends Model
     public $securityToken;
 
     /**
-     * @description Details about the log entries.
+     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2018-12-03T07:01Z
      *

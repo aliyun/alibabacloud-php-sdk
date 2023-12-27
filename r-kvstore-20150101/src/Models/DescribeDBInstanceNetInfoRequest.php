@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoRequest extends Model
 {
     /**
-     * @description r-bp1zxszhcgatnx****
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *

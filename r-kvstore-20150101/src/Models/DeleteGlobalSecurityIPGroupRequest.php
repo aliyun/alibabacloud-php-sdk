@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DeleteGlobalSecurityIPGroupRequest extends Model
 {
     /**
+     * @description The name of the global IP whitelist template. The name must meet the following requirements:
+     *
+     *   The name can contain lowercase letters, digits, and underscores (\_).
+     *   The name must start with a letter and end with a letter or a digit.
+     *   The name must be 2 to 120 characters in length.
+     *
      * @example test_123
      *
      * @var string
@@ -16,6 +22,8 @@ class DeleteGlobalSecurityIPGroupRequest extends Model
     public $globalIgName;
 
     /**
+     * @description The ID of the IP whitelist template.
+     *
      * @example g-kd2iop4aur9qwxnvh***
      *
      * @var string
@@ -33,6 +41,8 @@ class DeleteGlobalSecurityIPGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -40,6 +50,8 @@ class DeleteGlobalSecurityIPGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmyiu4e******
      *
      * @var string

@@ -9,8 +9,10 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
-     * @description The number of the returned page.
+     * @description The current bandwidth of the node, which consists of the default bandwidth and the increased bandwidth. Unit: MB/s.
      *
+     * > *   You can call the [EnableAdditionalBandwidth](~~206173~~) operation to specify the increased bandwidth.
+     * > *   You can also use this parameter to calculate the increased bandwidth. For example, if the default bandwidth of the node is 96 MB/s and the returned value of this parameter is 100, the increased bandwidth is 4 MB/s.
      * @example 100
      *
      * @var int
@@ -18,7 +20,7 @@ class nodeInfo extends Model
     public $currentBandWidth;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **10**, **20**, and **50**. Default value: **10**.
+     * @description The minor version of the node.
      *
      * @example redis-5.0_0.3.10
      *
@@ -27,6 +29,8 @@ class nodeInfo extends Model
     public $currentMinorVersion;
 
     /**
+     * @description The ID of the data shard.
+     *
      * @example 30381****
      *
      * @var string
@@ -34,11 +38,7 @@ class nodeInfo extends Model
     public $custinsId;
 
     /**
-     * @description The node type. Valid values:
-     *
-     *   **db**: data node.
-     *   **proxy**: proxy node.
-     *   **normal**: regular node. This value is returned when the instance runs in the standard architecture.
+     * @description The default bandwidth of the node. Unit: MB/s.
      *
      * @example 96
      *
@@ -47,12 +47,8 @@ class nodeInfo extends Model
     public $defaultBandWidth;
 
     /**
-     * @description Indicates whether the minor version is the latest version. Valid values:
+     * @description The ID of the node.
      *
-     *   **0**: The minor version is not the latest version.
-     *   **1**: The minor version is the latest version.
-     *
-     * >  To update the minor version, call the [ModifyInstanceMinorVersion](~~129381~~) operation.
      * @example r-t4nlenc2p04uvb****
      *
      * @var string
@@ -60,8 +56,9 @@ class nodeInfo extends Model
     public $insName;
 
     /**
-     * @description Details about each node in an ApsaraDB for Redis instance.
+     * @description Indicates whether the node is a read replica. If the node is a read replica, **3** is returned.
      *
+     * >  If the node is not a read replica, no value is returned.
      * @example 3
      *
      * @var int
@@ -69,8 +66,12 @@ class nodeInfo extends Model
     public $insType;
 
     /**
-     * @description The number of entries returned per page.
+     * @description Indicates whether the minor version is the latest version. Valid values:
      *
+     *   **0**: The minor version is not the latest version.
+     *   **1**: The minor version is the latest version.
+     *
+     * >  To update the minor version, call the [ModifyInstanceMinorVersion](~~129381~~) operation.
      * @example 1
      *
      * @var int
@@ -78,7 +79,10 @@ class nodeInfo extends Model
     public $isLatestVersion;
 
     /**
-     * @description DescribeRoleZoneInfo
+     * @description Indicates whether the bandwidth of the node is increased. Valid values:
+     *
+     *   **true**: The bandwidth of the node is not increased.
+     *   **false**: The bandwidth of the node is increased.
      *
      * @example true
      *
@@ -87,6 +91,8 @@ class nodeInfo extends Model
     public $isOpenBandWidthService;
 
     /**
+     * @description This parameter is used only for internal maintenance of ApsaraDB for Redis instances.
+     *
      * @example 10065****
      *
      * @var string
@@ -94,7 +100,11 @@ class nodeInfo extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the request.
+     * @description The node type. Valid values:
+     *
+     *   **db**: data node.
+     *   **proxy**: proxy node.
+     *   **normal**: regular node. This value is returned when the instance runs in the standard architecture.
      *
      * @example normal
      *
@@ -103,6 +113,11 @@ class nodeInfo extends Model
     public $nodeType;
 
     /**
+     * @description The role of the node. Valid values:
+     *
+     *   **master**: master node
+     *   **slave**: replica node
+     *
      * @example master
      *
      * @var string
@@ -110,7 +125,7 @@ class nodeInfo extends Model
     public $role;
 
     /**
-     * @description Queries information about the type, minor version, and bandwidth of specific nodes in an ApsaraDB for Redis instance, and zones where the nodes are deployed.
+     * @description The ID of the zone.
      *
      * @example cn-hangzhou-b
      *

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class securityIpGroup extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeSecurityIps**.
+     * @description The attribute of the whitelist. This parameter is empty by default.
      *
+     * >  If the instance is authorized to use a service such as Database Autonomy Service (DAS), Data Management (DMS), or Data Transmission Service (DTS), this service automatically generates a **hidden** whitelist for the instance. This type of whitelists cannot be modified or deleted.
      * @example hidden
      *
      * @var string
@@ -18,7 +19,7 @@ class securityIpGroup extends Model
     public $securityIpGroupAttribute;
 
     /**
-     * @description The name of the security group.
+     * @description The name of the whitelist.
      *
      * @example default
      *
@@ -27,7 +28,7 @@ class securityIpGroup extends Model
     public $securityIpGroupName;
 
     /**
-     * @description The IP addresses in the whitelist.
+     * @description The IP addresses in the whitelist. A maximum of 1,000 IP addresses can be specified in a whitelist.
      *
      * @example 100.100.202.***\/24,10.10.10.***
      *

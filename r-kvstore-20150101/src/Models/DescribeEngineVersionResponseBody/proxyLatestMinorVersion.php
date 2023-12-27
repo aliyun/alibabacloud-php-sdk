@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class proxyLatestMinorVersion extends Model
 {
     /**
+     * @description 版本变更的重要性，取值：
+     * **0**：一般重要
+     * **1**：比较重要
+     * **2**：非常重要
+     *
+     * @example 0
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description 版本号。
+     *
+     * @example 7.0.6
+     *
      * @var string
      */
     public $minorVersion;
 
     /**
+     * @description 从实例当前小版本到最新小版本的版本演进路线，与版本文档一致，可以直接至版本说明文档查看更详细的信息。
+     *
      * @var versionRelease
      */
     public $versionRelease;

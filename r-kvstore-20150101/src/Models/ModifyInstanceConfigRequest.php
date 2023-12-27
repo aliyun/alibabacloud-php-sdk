@@ -9,9 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceConfigRequest extends Model
 {
     /**
-     * @description The configuration parameters of the instance in the JSON format.
+     * @description The instance parameter settings that you want to modify. Specify this parameter in the JSON format. The new value of a parameter overwrites the original value.
      *
-     * > For more information, see [Supported parameters](~~259681~~).
+     **
+     *
+     **Description** For more information, see [Supported parameters](~~259681~~).
+     *
      * @example {"maxmemory-policy":"volatile-lru","zset-max-ziplist-entries":128,"zset-max-ziplist-value":64,"hash-max-ziplist-entries":512,"set-max-intset-entries":512}
      *
      * @var string

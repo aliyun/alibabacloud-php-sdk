@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksRequest extends Model
 {
     /**
-     * @description 2020-11-26T01:00Z
+     * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2020-11-26T01:00Z
      *
@@ -18,7 +18,7 @@ class DescribeTasksRequest extends Model
     public $endTime;
 
     /**
-     * @description The identifier of the task.
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query instance IDs.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -37,7 +37,7 @@ class DescribeTasksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+     * @description The number of the page to return. The value must be an integer that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
      *
      * @example 1
      *
@@ -70,7 +70,7 @@ class DescribeTasksRequest extends Model
     public $securityToken;
 
     /**
-     * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2020-11-20T01:00Z
      *
@@ -79,7 +79,14 @@ class DescribeTasksRequest extends Model
     public $startTime;
 
     /**
-     * @description The total number of entries.
+     * @description The status of the task. Separate multiple values with commas (,). Valid values:
+     *
+     *   **0**: The task is pending.
+     *   **1**: The task is running.
+     *   **2**: The task is complete.
+     *   **4**: The task is closed.
+     *   **7**: The task is paused.
+     *   **8**: The task is interrupted.
      *
      * @example 2
      *

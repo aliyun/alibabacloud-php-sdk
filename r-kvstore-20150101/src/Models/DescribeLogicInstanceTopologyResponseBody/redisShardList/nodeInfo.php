@@ -36,7 +36,7 @@ class nodeInfo extends Model
     public $connection;
 
     /**
-     * @description The node ID.
+     * @description The ID of the node.
      *
      * @example r-bp10noxlhcoim2****-db-0#688****
      *

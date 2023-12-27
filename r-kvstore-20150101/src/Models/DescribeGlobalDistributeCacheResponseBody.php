@@ -26,11 +26,7 @@ class DescribeGlobalDistributeCacheResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The instance type of the child instance. For more information, see the following topics:
-     *
-     *   [Standard DRAM-based instances](~~145228~~)
-     *   [Cluster DRAM-based instances](~~150458~~)
-     *   [Read/write splitting DRAM-based instances](~~150459~~)
+     * @description The number of entries returned per page.
      *
      * @example 20
      *
@@ -39,7 +35,7 @@ class DescribeGlobalDistributeCacheResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the child instance that is attached to the distributed instance.
+     * @description The ID of the request.
      *
      * @example F3F44BE3-5419-4B61-9BAC-E66E295A****
      *
@@ -48,7 +44,7 @@ class DescribeGlobalDistributeCacheResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

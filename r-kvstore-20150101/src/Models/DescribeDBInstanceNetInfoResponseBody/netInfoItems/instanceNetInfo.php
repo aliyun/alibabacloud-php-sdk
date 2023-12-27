@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceNetInfo extends Model
 {
     /**
-     * @description Indicates whether the address is a private endpoint. Valid values:
-     *
-     *   **0**: no.
-     *   **1**: yes.
+     * @description The endpoint of the instance.
      *
      * @example r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
      *
@@ -21,7 +18,11 @@ class instanceNetInfo extends Model
     public $connectionString;
 
     /**
-     * @description The endpoint of the instance.
+     * @description The network type of the endpoint. Valid values:
+     *
+     *   **0**: the Internet.
+     *   **1**: classic network.
+     *   **2**: VPC.
      *
      * @example 1
      *
@@ -30,7 +31,10 @@ class instanceNetInfo extends Model
     public $DBInstanceNetType;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeDBInstanceNetInfo**.
+     * @description Indicates whether the address is a private endpoint. Valid values:
+     *
+     *   **0**: no.
+     *   **1**: yes.
      *
      * @example 0
      *
@@ -48,7 +52,7 @@ class instanceNetInfo extends Model
     public $expiredTime;
 
     /**
-     * @description The IP address of the instance in the classic network.
+     * @description The IP address.
      *
      * @example 172.16.49.***
      *
@@ -70,11 +74,12 @@ class instanceNetInfo extends Model
     public $IPType;
 
     /**
-     * @description The network type of the endpoint. Valid values:
-     *
-     *   **0**: the Internet.
-     *   **1**: classic network.
-     *   **2**: VPC.
+     * @var int
+     */
+    public $isSlaveProxy;
+
+    /**
+     * @description The service port of the ApsaraDB for Redis instance.
      *
      * @example 6379
      *
@@ -83,8 +88,9 @@ class instanceNetInfo extends Model
     public $port;
 
     /**
-     * @description The ID of the instance.
+     * @description The remaining validity period of the endpoint of the classic network. Unit: seconds.
      *
+     * >  A value of **0** indicates that the endpoint never expires.
      * @example 0
      *
      * @var string
@@ -92,7 +98,7 @@ class instanceNetInfo extends Model
     public $upgradeable;
 
     /**
-     * @description Queries the network information about an ApsaraDB for Redis instance.
+     * @description The ID of the VPC where the instance is deployed.
      *
      * @example vpc-bp1nme44gek34slfc****
      *
@@ -101,7 +107,7 @@ class instanceNetInfo extends Model
     public $VPCId;
 
     /**
-     * @description The list of network information about the instance.
+     * @description The ID of the instance.
      *
      * @example r-bp1ky7j6qc7umk****
      *
@@ -110,7 +116,7 @@ class instanceNetInfo extends Model
     public $VPCInstanceId;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the vSwitch.
      *
      * @example vsw-bp1e7clcw529l773d****
      *
@@ -124,6 +130,7 @@ class instanceNetInfo extends Model
         'expiredTime'       => 'ExpiredTime',
         'IPAddress'         => 'IPAddress',
         'IPType'            => 'IPType',
+        'isSlaveProxy'      => 'IsSlaveProxy',
         'port'              => 'Port',
         'upgradeable'       => 'Upgradeable',
         'VPCId'             => 'VPCId',
@@ -155,6 +162,9 @@ class instanceNetInfo extends Model
         }
         if (null !== $this->IPType) {
             $res['IPType'] = $this->IPType;
+        }
+        if (null !== $this->isSlaveProxy) {
+            $res['IsSlaveProxy'] = $this->isSlaveProxy;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -200,6 +210,9 @@ class instanceNetInfo extends Model
         }
         if (isset($map['IPType'])) {
             $model->IPType = $map['IPType'];
+        }
+        if (isset($map['IsSlaveProxy'])) {
+            $model->isSlaveProxy = $map['IsSlaveProxy'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];

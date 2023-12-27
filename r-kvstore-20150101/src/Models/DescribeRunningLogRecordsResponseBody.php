@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRunningLogRecordsResponseBody extends Model
 {
     /**
-     * @description The ID of the node.
+     * @description The type of the database engine.
      *
-     * >  If a standard instance is queried, `(null)` is returned.
      * @example Redis
      *
      * @var string
@@ -20,7 +19,7 @@ class DescribeRunningLogRecordsResponseBody extends Model
     public $engine;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -29,14 +28,14 @@ class DescribeRunningLogRecordsResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The beginning of the time range to query.
+     * @description Details about the log entries.
      *
      * @var items
      */
     public $items;
 
     /**
-     * @description The number of log entries returned on the current page.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -45,7 +44,7 @@ class DescribeRunningLogRecordsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the instance.
+     * @description The number of log entries returned on the current page.
      *
      * @example 5
      *
@@ -54,7 +53,7 @@ class DescribeRunningLogRecordsResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The keyword that is used to query operational logs.
+     * @description The maximum number of entries returned on each page.
      *
      * @example 30
      *
@@ -63,7 +62,7 @@ class DescribeRunningLogRecordsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+     * @description The ID of the request.
      *
      * @example 093B8579-9264-43A0-ABA9-AA86****
      *
@@ -72,7 +71,7 @@ class DescribeRunningLogRecordsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     * @description The beginning of the time range to query.
      *
      * @example 2018-12-03T07:01Z
      *
@@ -81,7 +80,7 @@ class DescribeRunningLogRecordsResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The type of the database engine.
+     * @description The total number of entries returned.
      *
      * @example 5
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupConfigurationRequest extends Model
 {
     /**
-     * @description The list of security groups.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *

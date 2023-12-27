@@ -36,7 +36,7 @@ class nodeInfo extends Model
     public $connection;
 
     /**
-     * @description The node ID.
+     * @description The ID of the node.
      *
      * @example r-bp10noxlhcoim2****-proxy-3#542****
      *
@@ -47,8 +47,8 @@ class nodeInfo extends Model
     /**
      * @description The node type. Valid values:
      *
-     *   **proxy**: proxy node
-     *   **db**: data node
+     *   **db**: a data node.
+     *   **normal**: a management node, which can be a proxy node or a Configserver node. For specific instances, the return value of this parameter is proxy or cs, instead of normal.
      *
      * @example proxy
      *

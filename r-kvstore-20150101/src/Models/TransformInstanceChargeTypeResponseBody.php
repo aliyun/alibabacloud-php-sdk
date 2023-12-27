@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class TransformInstanceChargeTypeResponseBody extends Model
 {
     /**
-     * @description The new billing method. Valid values:
+     * @description The time when the instance expires.
      *
-     *   **PrePaid**: subscription. If you set this parameter to PrePaid, you must also set the **Period** parameter.
-     *   **PostPaid**: pay-as-you-go.
-     *
+     * >  A value is returned for this parameter only if the instance was changed from pay-as-you-go to subscription.
      * @example 2021-05-13T00:00:00Z
      *
      * @var string
@@ -21,7 +19,7 @@ class TransformInstanceChargeTypeResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The operation that you want to perform. Set the value to **TransformInstanceChargeType**.
+     * @description The ID of the order.
      *
      * @example 20881824000****
      *

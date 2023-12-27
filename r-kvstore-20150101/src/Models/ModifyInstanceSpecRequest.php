@@ -60,9 +60,11 @@ class ModifyInstanceSpecRequest extends Model
     public $effectiveTime;
 
     /**
-     * @description 是否开启强制传输，取值：
-     * - **false**（默认）：在变配前，系统会检查实例当前的内核小版本，若内核版本过低则会报错，您需要升级内核小版本后重试。
-     * - **true**：跳过检查项，直接执行变配操作。
+     * @description Specifies whether to enable forced transmission during a configuration change. Valid values:
+     *
+     *   **false** (default): Before the configuration change, the system checks the minor version of the instance. If the minor version of the instance is outdated, an error is reported. You must update the minor version of the instance and try again.
+     *   **true**: The system skips the version check and directly performs the configuration change.
+     *
      * @example false
      *
      * @var bool

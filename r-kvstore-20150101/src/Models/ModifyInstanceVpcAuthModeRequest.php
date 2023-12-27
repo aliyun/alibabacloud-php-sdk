@@ -48,7 +48,10 @@ class ModifyInstanceVpcAuthModeRequest extends Model
      *   **Open**: disables password-free access.
      *   **Close**: enables password-free access.
      *
-     * > The default value is **Open**.
+     **
+     *
+     **Description** Default value: **Open**.
+     *
      * @example Close
      *
      * @var string

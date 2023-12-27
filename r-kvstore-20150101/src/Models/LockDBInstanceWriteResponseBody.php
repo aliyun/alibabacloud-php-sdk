@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LockDBInstanceWriteResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example r-2ev03avw0r0552***
      *
      * @var string
@@ -16,11 +18,17 @@ class LockDBInstanceWriteResponseBody extends Model
     public $DBInstanceName;
 
     /**
+     * @description The reason why write operations on the instance are locked.
+     *
+     * @example lock reason
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @description The request ID.
+     *
      * @example 2BE6E619-A657-42E3-AD2D-18F8428A****
      *
      * @var string
@@ -28,6 +36,8 @@ class LockDBInstanceWriteResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example 21986****
      *
      * @var int

@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ecsSecurityGroupRelation extends Model
 {
     /**
-     * @description The network type of the ECS security group. Valid values:
+     * @description The network type of the security group. Valid values:
      *
-     *   **vpc**
-     *   **classic**
+     *   **classic**: the classic network.
+     *   **vpc**: the virtual private cloud (VPC).
      *
      * @example vpc
      *
@@ -21,7 +21,7 @@ class ecsSecurityGroupRelation extends Model
     public $netType;
 
     /**
-     * @description Queries the security groups that are included in the whitelist of an ApsaraDB for Redis instance.
+     * @description The ID of the region where the instance is deployed.
      *
      * @example cn-hangzhou
      *
@@ -30,7 +30,7 @@ class ecsSecurityGroupRelation extends Model
     public $regionId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeSecurityGroupConfiguration**.
+     * @description The ID of the security group.
      *
      * @example sg-bp14p9y07ns3gwq****
      *

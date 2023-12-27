@@ -20,7 +20,7 @@ class DescribeLogicInstanceTopologyResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The detailed proxy information, including information about proxy nodes.
+     * @description The information about proxy nodes.
      *
      * @var redisProxyList
      */

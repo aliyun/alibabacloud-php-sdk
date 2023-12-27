@@ -250,6 +250,8 @@ class CreateInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description Parameter template ID.
+     *
      * @example rpg-test**
      *
      * @var string

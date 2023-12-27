@@ -6,20 +6,9 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeAccountsRequest extends Model
+class DescribeDBNodeDirectVipInfoRequest extends Model
 {
     /**
-     * @description The name of the account that you want to query.
-     *
-     * @example demoaccount
-     *
-     * @var string
-     */
-    public $accountName;
-
-    /**
-     * @description The ID of the instance.
-     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -45,19 +34,12 @@ class DescribeAccountsRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
-        'accountName'          => 'AccountName',
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -67,9 +49,6 @@ class DescribeAccountsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -85,9 +64,6 @@ class DescribeAccountsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
 
         return $res;
     }
@@ -95,14 +71,11 @@ class DescribeAccountsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeAccountsRequest
+     * @return DescribeDBNodeDirectVipInfoRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -117,9 +90,6 @@ class DescribeAccountsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

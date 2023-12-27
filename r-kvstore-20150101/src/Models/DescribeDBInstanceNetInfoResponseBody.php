@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoResponseBody extends Model
 {
     /**
-     * @description The ID of the vSwitch.
+     * @description The network type. Valid values:
+     *
+     *   **CLASSIC**: The instance runs in a classic network.
+     *   **VPC**: The instance runs in a virtual private cloud (VPC).
      *
      * @example CLASSIC
      *
@@ -19,17 +22,14 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
     public $instanceNetworkType;
 
     /**
-     * @description The network type. Valid values:
-     *
-     *   **CLASSIC**: The instance runs in a classic network.
-     *   **VPC**: The instance runs in a virtual private cloud (VPC).
+     * @description The list of network information about the instance.
      *
      * @var netInfoItems
      */
     public $netInfoItems;
 
     /**
-     * @description The IP address.
+     * @description The ID of the request.
      *
      * @example FC77D4E1-2A7C-4F0B-A4CC-CE0B9C314B9B
      *

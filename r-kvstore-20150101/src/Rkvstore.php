@@ -62,6 +62,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterMemberInfoRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterMemberInfoResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBInstanceNetInfoRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBInstanceNetInfoResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBNodeDirectVipInfoRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBNodeDirectVipInfoResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDedicatedClusterInstanceListRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDedicatedClusterInstanceListResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEncryptionKeyListRequest;
@@ -476,7 +478,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * r-bp1zxszhcgatnx****.
+     * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](~~43850~~).
      *   *
      * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -530,7 +532,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * r-bp1zxszhcgatnx****.
+     * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](~~43850~~).
      *   *
      * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      *
@@ -1473,10 +1475,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
+     *   *
+     * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGlobalSecurityIPGroupResponse
+     * @return DeleteGlobalSecurityIPGroupResponse DeleteGlobalSecurityIPGroupResponse
      */
     public function deleteGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
@@ -1528,9 +1532,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalSecurityIPGroupRequest $request
+     * Before you delete an IP whitelist template, you must unbind (disassociate) the instances that are currently associated with the template.
+     *   *
+     * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
      *
-     * @return DeleteGlobalSecurityIPGroupResponse
+     * @return DeleteGlobalSecurityIPGroupResponse DeleteGlobalSecurityIPGroupResponse
      */
     public function deleteGlobalSecurityIPGroup($request)
     {
@@ -1690,7 +1696,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Details about returned accounts of the instance.
+     * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
      *   *
      * @param DescribeAccountsRequest $request DescribeAccountsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1741,7 +1747,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Details about returned accounts of the instance.
+     * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
      *   *
      * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
@@ -2584,6 +2590,61 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBNodeDirectVipInfoRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDBNodeDirectVipInfoResponse
+     */
+    public function describeDBNodeDirectVipInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBNodeDirectVipInfo',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBNodeDirectVipInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBNodeDirectVipInfoRequest $request
+     *
+     * @return DescribeDBNodeDirectVipInfoResponse
+     */
+    public function describeDBNodeDirectVipInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBNodeDirectVipInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](~~60996~~) operation.
      *   *
      * @param DescribeDedicatedClusterInstanceListRequest $request DescribeDedicatedClusterInstanceListRequest
@@ -2807,10 +2868,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeEngineVersionRequest $request
-     * @param RuntimeOptions               $runtime
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01).
+     *   *
+     * @param DescribeEngineVersionRequest $request DescribeEngineVersionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEngineVersionResponse
+     * @return DescribeEngineVersionResponse DescribeEngineVersionResponse
      */
     public function describeEngineVersionWithOptions($request, $runtime)
     {
@@ -2853,9 +2917,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeEngineVersionRequest $request
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeEngineVersion\\&type=RPC\\&version=2015-01-01).
+     *   *
+     * @param DescribeEngineVersionRequest $request DescribeEngineVersionRequest
      *
-     * @return DescribeEngineVersionResponse
+     * @return DescribeEngineVersionResponse DescribeEngineVersionResponse
      */
     public function describeEngineVersion($request)
     {
@@ -2865,10 +2932,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalDistributeCacheRequest $request
-     * @param RuntimeOptions                       $runtime
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01).
+     *   *
+     * @param DescribeGlobalDistributeCacheRequest $request DescribeGlobalDistributeCacheRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGlobalDistributeCacheResponse
+     * @return DescribeGlobalDistributeCacheResponse DescribeGlobalDistributeCacheResponse
      */
     public function describeGlobalDistributeCacheWithOptions($request, $runtime)
     {
@@ -2920,9 +2990,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalDistributeCacheRequest $request
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeGlobalDistributeCache\\&type=RPC\\&version=2015-01-01).
+     *   *
+     * @param DescribeGlobalDistributeCacheRequest $request DescribeGlobalDistributeCacheRequest
      *
-     * @return DescribeGlobalDistributeCacheResponse
+     * @return DescribeGlobalDistributeCacheResponse DescribeGlobalDistributeCacheResponse
      */
     public function describeGlobalDistributeCache($request)
     {
@@ -3852,7 +3925,7 @@ class Rkvstore extends OpenApiClient
 
     /**
      * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](~~189893~~).
-     *   * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~61107~~) operation to query monitoring history of the instance.
+     *   * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
      *   *
      * @param DescribeMonitorItemsRequest $request DescribeMonitorItemsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3898,7 +3971,7 @@ class Rkvstore extends OpenApiClient
 
     /**
      * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](~~189893~~).
-     *   * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~61107~~) operation to query monitoring history of the instance.
+     *   * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~DescribeHistoryMonitorValues~~) operation to query monitoring history of the instance.
      *   *
      * @param DescribeMonitorItemsRequest $request DescribeMonitorItemsRequest
      *
@@ -4656,7 +4729,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The progress of the task. Unit: %.
+     * You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
      *   *
      * @param DescribeTasksRequest $request DescribeTasksRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -4719,7 +4792,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The progress of the task. Unit: %.
+     * You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
      *   *
      * @param DescribeTasksRequest $request DescribeTasksRequest
      *
@@ -4885,10 +4958,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The time when the minor version is upgraded. Valid values:
-     *   * *   **Immediately**: immediately deletes expired keys.
-     *   * *   **MaintainTime:**deletes expired key in the maintenance window.
-     *   * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+     * For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](~~43881~~).
+     *   * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
      *   *
      * @param FlushExpireKeysRequest $request FlushExpireKeysRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -4939,10 +5010,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The time when the minor version is upgraded. Valid values:
-     *   * *   **Immediately**: immediately deletes expired keys.
-     *   * *   **MaintainTime:**deletes expired key in the maintenance window.
-     *   * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+     * For more information about how to clear the expired keys in the ApsaraDB for Redis console, see [Clear data](~~43881~~).
+     *   * >  Expired keys cannot be recovered after they are deleted. Exercise caution when you call this operation.
      *   *
      * @param FlushExpireKeysRequest $request FlushExpireKeysRequest
      *
@@ -4956,12 +5025,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the instance.
-     *   *
-     * @param FlushInstanceRequest $request FlushInstanceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param FlushInstanceRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return FlushInstanceResponse FlushInstanceResponse
+     * @return FlushInstanceResponse
      */
     public function flushInstanceWithOptions($request, $runtime)
     {
@@ -5004,11 +5071,9 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the instance.
-     *   *
-     * @param FlushInstanceRequest $request FlushInstanceRequest
+     * @param FlushInstanceRequest $request
      *
-     * @return FlushInstanceResponse FlushInstanceResponse
+     * @return FlushInstanceResponse
      */
     public function flushInstance($request)
     {
@@ -5082,7 +5147,9 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The name of the account. You can call the [DescribeAccounts](~~95802~~) operation to obtain the name of the account.
+     * >
+     *   * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+     *   * *   The ApsaraDB for Redis instance must be in the running state.
      *   *
      * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -5136,7 +5203,9 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The name of the account. You can call the [DescribeAccounts](~~95802~~) operation to obtain the name of the account.
+     * >
+     *   * *   Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
+     *   * *   The ApsaraDB for Redis instance must be in the running state.
      *   *
      * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
      *
@@ -5150,7 +5219,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](~~184337~~).
      *   *
      * @param InitializeKvstorePermissionRequest $request InitializeKvstorePermissionRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -5198,7 +5267,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](~~184337~~).
      *   *
      * @param InitializeKvstorePermissionRequest $request InitializeKvstorePermissionRequest
      *
@@ -6585,10 +6654,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies SSL encryption configurations. Valid values:
-     *   * *   **Disable**: The SSL encryption is disabled.
-     *   * *   **Enable**: The SSL encryption is enabled.
-     *   * *   **Update**: The SSL certificate is updated.
+     * You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
+     *   * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
      *   *
      * @param ModifyInstanceSSLRequest $request ModifyInstanceSSLRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -6639,10 +6706,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies SSL encryption configurations. Valid values:
-     *   * *   **Disable**: The SSL encryption is disabled.
-     *   * *   **Enable**: The SSL encryption is enabled.
-     *   * *   **Update**: The SSL certificate is updated.
+     * You can also modify SSL encryption configurations in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
+     *   * >  To specify the earliest supported SSL version, you can call the [ModifyInstanceConfig](~~ModifyInstanceConfig~~) operation to modify the required parameter.
      *   *
      * @param ModifyInstanceSSLRequest $request ModifyInstanceSSLRequest
      *
@@ -7242,7 +7307,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](~~125424~~).
      *   *
      * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -7293,7 +7358,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * For more information about how to perform the API operation in the ApsaraDB for Redis console, see [Release public endpoints](~~125424~~).
      *   *
      * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      *
@@ -7533,7 +7598,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * r-bp1zxszhcgatnx****.
+     * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
      *   *
      * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -7587,7 +7652,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * r-bp1zxszhcgatnx****.
+     * >  Only ApsaraDB for Redis instances of Redis 4.0 or later are supported.
      *   *
      * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
@@ -8111,7 +8176,9 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 1.
+     * Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
+     *   * *   [Change the billing method to subscription](~~54542~~).
+     *   * *   [Change the billing method to pay-as-you-go](~~211549~~).
      *   *
      * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -8174,7 +8241,9 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 1.
+     * Before you call this operation, make sure that you understand relevant precautions and billing rules. For more information, see the following topics:
+     *   * *   [Change the billing method to subscription](~~54542~~).
+     *   * *   [Change the billing method to pay-as-you-go](~~211549~~).
      *   *
      * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
      *
@@ -8188,7 +8257,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     * For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](~~54542~~).
+     *   * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
      *   *
      * @param TransformToPrePaidRequest $request TransformToPrePaidRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -8242,7 +8312,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     * For more information about how to change the billing method in the ApsaraDB for Redis console, see [Switch to subscription](~~54542~~).
+     *   * >  You cannot change the billing method of an ApsaraDB for Redis instance from subscription to pay-as-you-go.
      *   *
      * @param TransformToPrePaidRequest $request TransformToPrePaidRequest
      *

@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class TransformInstanceChargeTypeRequest extends Model
 {
     /**
-     * @description true
+     * @description Specifies whether to enable automatic payment. Default value: true. Valid values:
+     *
+     *   **true**: Automatic payment is enabled.
+     *   **false**: Automatic payment is disabled. If automatic payment is disabled, you must perform the following steps to complete the payment: In the top navigation bar of the ApsaraDB for Redis console, choose **Expenses** > **Renewal Management**. In the left-side navigation pane of the Billing Management console, click **Orders**. On the **Orders** page, find the order and complete the payment.
      *
      * @example true
      *
@@ -18,20 +21,32 @@ class TransformInstanceChargeTypeRequest extends Model
     public $autoPay;
 
     /**
+     * @description Specifies whether to enable auto-renewal for the instance. Default value: false. Valid values:
+     *
+     *   **true**: enables auto-renewal.
+     *   **false**: disables auto-renewal.
+     *
+     * @example false
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @description The subscription duration that is supported by auto-renewal. Unit: months. Valid values: **1**, **2**, **3**, **6**, and **12**.
+     *
+     * > This parameter is required only if the **AutoRenew** parameter is set to **true**.
+     * @example 1
+     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
-     * @description Specifies whether to enable automatic payment. Default value: true. Valid values:
+     * @description The new billing method. Valid values:
      *
-     *   **true**: Automatic payment is enabled.
-     *   **false**: Automatic payment is disabled. If automatic payment is disabled, you must perform the following steps to complete the payment: In the top navigation bar of the ApsaraDB for Redis console, choose **Expenses** > **Renewal Management**. In the left-side navigation pane of the Billing Management console, click **Orders**. On the **Orders** page, find the order and complete the payment.
+     *   **PrePaid**: subscription. If you set this parameter to PrePaid, you must also set the **Period** parameter.
+     *   **PostPaid**: pay-as-you-go.
      *
      * @example PrePaid
      *
@@ -40,7 +55,7 @@ class TransformInstanceChargeTypeRequest extends Model
     public $chargeType;
 
     /**
-     * @description r-bp1zxszhcgatnx****
+     * @description The ID of the instance. You can call the [DescribeInstances](~~DescribeInstances~~) operation to query the ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *

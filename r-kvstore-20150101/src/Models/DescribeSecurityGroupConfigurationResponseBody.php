@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupConfigurationResponseBody extends Model
 {
     /**
-     * @description The network type of the security group. Valid values:
-     *
-     *   **classic**: the classic network.
-     *   **vpc**: the virtual private cloud (VPC).
+     * @description The list of security groups.
      *
      * @var items
      */
     public $items;
 
     /**
-     * @description The ID of the security group.
+     * @description The ID of the request.
      *
      * @example 981C0D6A-D9DD-466C-92DA-F29DF755****
      *

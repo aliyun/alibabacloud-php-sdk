@@ -10,11 +10,7 @@ use AlibabaCloud\Tea\Model;
 class globalDistributeCaches extends Model
 {
     /**
-     * @description The state of the distributed instance. Valid values:
-     *
-     *   **Normal**: The instance is normal.
-     *   **Changing**: The configurations of the instance are being changed.
-     *   **Creating**: The instance is being created.
+     * @description The ID of the distributed instance.
      *
      * @example gr-bp14rkqrhac****
      *
@@ -23,7 +19,11 @@ class globalDistributeCaches extends Model
     public $globalInstanceId;
 
     /**
-     * @description The ID of the distributed instance.
+     * @description The state of the distributed instance. Valid values:
+     *
+     *   **Normal**: The instance is normal.
+     *   **Changing**: The configurations of the instance are being changed.
+     *   **Creating**: The instance is being created.
      *
      * @example Normal
      *
@@ -32,7 +32,7 @@ class globalDistributeCaches extends Model
     public $status;
 
     /**
-     * @description The ID of the request.
+     * @description Details of the child instances.
      *
      * @var subInstances[]
      */

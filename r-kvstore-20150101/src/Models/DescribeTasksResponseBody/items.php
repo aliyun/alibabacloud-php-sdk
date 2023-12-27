@@ -18,7 +18,7 @@ class items extends Model
     public $beginTime;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the subtask.
      *
      * @example init_redis
      *
@@ -27,7 +27,7 @@ class items extends Model
     public $currentStepName;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     * @description The end time of the task. The time follows the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2020-11-13T06:17:18Z
      *
@@ -36,7 +36,7 @@ class items extends Model
     public $finishTime;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The progress of the task. Unit: %.
      *
      * @example 100
      *
@@ -45,8 +45,9 @@ class items extends Model
     public $progress;
 
     /**
-     * @description 2
+     * @description The estimated remaining duration of the task. Unit: seconds.
      *
+     * >  If the task is not running, this parameter is not returned or the returned value is **0**.
      * @example 60
      *
      * @var int
@@ -54,7 +55,14 @@ class items extends Model
     public $remain;
 
     /**
-     * @description 1
+     * @description The status of the task. Valid values:
+     *
+     *   **0**: The task is pending.
+     *   **1**: The task is running.
+     *   **2**: The task is complete.
+     *   **4**: The task is closed.
+     *   **7**: The task is paused.
+     *   **8**: The task is interrupted.
      *
      * @example 2
      *
@@ -63,8 +71,9 @@ class items extends Model
     public $status;
 
     /**
-     * @description The end time of the task. The time follows the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The progress of the subtask.
      *
+     * >  If the subtask does not exist, this parameter is not returned.
      * @example 3/3
      *
      * @var string
@@ -72,8 +81,9 @@ class items extends Model
     public $stepProgressInfo;
 
     /**
-     * @description The page number of the returned page.
+     * @description The information about the subtask in the JSON format. This includes the expected remaining duration (**remain**), the name of the subtask (**name**), and the task progress (**progress**).
      *
+     * >  If the subtask does not exist, this parameter is not returned.
      * @example [{\"remain\":0,\"name\":\"init_instance\",\"progress\":100},{\"remain\":107,\"name\":\"init_redis\",\"progress\":12.3},{\"remain\":1881,\"name\":\"init_config\",\"progress\":0}]
      *
      * @var string
@@ -81,6 +91,8 @@ class items extends Model
     public $stepsInfo;
 
     /**
+     * @description The identifier of the task.
+     *
      * @example ModifyDBInstanceParameter
      *
      * @var string
@@ -88,7 +100,7 @@ class items extends Model
     public $taskAction;
 
     /**
-     * @description The name of the subtask.
+     * @description The ID of the task.
      *
      * @example 32302****
      *

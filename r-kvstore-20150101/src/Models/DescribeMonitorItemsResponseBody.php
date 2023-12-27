@@ -10,14 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorItemsResponseBody extends Model
 {
     /**
-     * @description The unit of the metric.
+     * @description The returned metrics.
      *
+     * > *   **memoryUsage**, **GetQps**, and **PutQps** are supported only by ApsaraDB for Redis instances that use Redis 4.0 or later. **GetQps** and **PutQps** require the latest minor version. You can upgrade the major version or minor version of the instance as needed. For more information, see [Upgrade the major version](~~101764~~) and [Upgrade the minor version](~~56450~~).
+     * > *   When you use instances of Redis 2.8, if the **hit_rate** metric is not displayed, you must upgrade the minor version of the instance. For more information, see [Upgrade the minor version](~~56450~~).
      * @var monitorItems
      */
     public $monitorItems;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeMonitorItems**.
+     * @description The ID of the request.
      *
      * @example 8BEB2618-9517-43F3-A233-E0B34512****
      *

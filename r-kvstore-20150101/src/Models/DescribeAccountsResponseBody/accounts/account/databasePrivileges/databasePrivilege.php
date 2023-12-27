@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class databasePrivilege extends Model
 {
     /**
-     * @description The permissions of the account. Valid values:
+     * @description The permission of the account. Default value: RoleReadWrite. Valid values:
      *
-     *   **RoleReadOnly**: The account has read-only permissions.
-     *   **RoleReadWrite**: The account has read and write permissions.
+     *   **RoleReadOnly**: The account has the read-only permissions.
+     *   **RoleReadWrite**: The account has the read and write permissions.
      *
      * @example RoleReadWrite
      *

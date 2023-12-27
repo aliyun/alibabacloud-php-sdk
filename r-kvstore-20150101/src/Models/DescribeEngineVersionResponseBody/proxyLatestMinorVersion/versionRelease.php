@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class versionRelease extends Model
 {
     /**
+     * @description 小版本信息。
+     *
      * @var releaseInfo
      */
     public $releaseInfo;
 
     /**
+     * @description 版本升级的重要性（推荐升级程度），取值：
+     * 0：一般重要
+     * 1：比较重要
+     * 2：非常重要
+     *
+     * @example 0
+     *
      * @var string
      */
     public $versionChangesLevel;

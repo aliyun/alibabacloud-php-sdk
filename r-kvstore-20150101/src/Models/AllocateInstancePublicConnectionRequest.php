@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AllocateInstancePublicConnectionRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **AllocateInstancePublicConnection**.
+     * @description The prefix of the public endpoint. The prefix must start with a lowercase letter and can contain lowercase letters and digits. The prefix can be 8 to 40 characters in length.
      *
+     * >  The endpoint is in the `<prefix>.redis.rds.aliyuncs.com` format.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -18,7 +19,7 @@ class AllocateInstancePublicConnectionRequest extends Model
     public $connectionStringPrefix;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -37,9 +38,8 @@ class AllocateInstancePublicConnectionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The prefix of the public endpoint. The prefix must start with a lowercase letter and can contain lowercase letters and digits. The prefix can be 8 to 40 characters in length.
+     * @description The service port number of the instance. Valid values: **1024** to **65535**.
      *
-     * >  The endpoint is in the `<prefix>.redis.rds.aliyuncs.com` format.
      * @example 6379
      *
      * @var string

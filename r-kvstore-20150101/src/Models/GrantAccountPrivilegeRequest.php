@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GrantAccountPrivilegeRequest extends Model
 {
     /**
-     * @description GrantAccountPrivilege
+     * @description The name of the account. You can call the [DescribeAccounts](~~DescribeAccounts~~) operation to obtain the name of the account.
      *
      * @example demoaccount
      *
@@ -18,10 +18,10 @@ class GrantAccountPrivilegeRequest extends Model
     public $accountName;
 
     /**
-     * @description The permissions of the account. Valid values:
+     * @description The permissions of the account. Default value: RoleReadWrite. Valid values:
      *
-     *   **RoleReadOnly**: The account has read-only permissions.
-     *   **RoleReadWrite**: The account has read and write permissions.
+     *   RoleReadOnly: The account has the read-only permissions.
+     *   RoleReadWrite: The account has the read and write permissions.
      *
      * @example RoleReadWrite
      *
@@ -30,7 +30,7 @@ class GrantAccountPrivilegeRequest extends Model
     public $accountPrivilege;
 
     /**
-     * @description Modifies the permissions of an account for an ApsaraDB for Redis instance.
+     * @description The ID of the instance to which the account belongs.
      *
      * @example r-bp1zxszhcgatnx****
      *

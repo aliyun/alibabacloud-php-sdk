@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEngineVersionResponseBody extends Model
 {
     /**
+     * @description 该实例当前可升级至最新的小版本信息。
+     *
      * @var DBLatestMinorVersion
      */
     public $DBLatestMinorVersion;
@@ -18,19 +20,19 @@ class DescribeEngineVersionResponseBody extends Model
     /**
      * @description The release notes for the minor version of the instance, including the release date, minor version number, release type such as new feature, and description.
      *
-     * @example {\\"releaseInfo\\":{\\"createTime\\":\\"2021-07-27\\",\\"level\\":1,\\"releaseVersion\\":\\"0.5.4\\",\\"releaseNote\\":\\"\[Optimized feature]: The stability is improved. \\"}],\\"versionChangesLevel\\":2}
+     * @example {\"releaseInfo\":{\"createTime\":\"2021-07-27\",\"level\":1,\"releaseVersion\":\"0.5.4\",\"releaseNote\":\"功能更新：增强稳定性。\"}],\"versionChangesLevel\":2}
      *
      * @var string
      */
     public $DBVersionRelease;
 
     /**
-     * @description Indicates whether the instance major version can be upgraded. Valid values:
+     * @description Indicates whether the major version can be upgraded for the instance. Valid values:
      *
      *   **true**: The major version can be upgraded.
      *   **false**: The major version is the latest version and cannot be upgraded.
      *
-     * > To upgrade the major version, call the [ModifyInstanceMajorVersion](~~95259~~) operation.
+     * >  To upgrade the major version, call the [ModifyInstanceMajorVersion](~~95259~~) operation.
      * @example true
      *
      * @var bool
@@ -38,12 +40,12 @@ class DescribeEngineVersionResponseBody extends Model
     public $enableUpgradeMajorVersion;
 
     /**
-     * @description Indicates whether the instance minor version can be updated. Valid values:
+     * @description Indicates whether the minor version can be updated for the instance. Valid values:
      *
      *   **true**: The minor version can be updated.
      *   **false**: The minor version is the latest version and cannot be updated.
      *
-     * > To update the minor version, call the [ModifyInstanceMinorVersion](~~129381~~) operation.
+     * >  To update the minor version, call the [ModifyInstanceMinorVersion](~~129381~~) operation.
      * @example true
      *
      * @var bool
@@ -60,15 +62,19 @@ class DescribeEngineVersionResponseBody extends Model
     public $engine;
 
     /**
+     * @description 是否打开了小版本升级。
+     *
+     * @example 0
+     *
      * @var string
      */
     public $isAutoUpgradeOpen;
 
     /**
-     * @description Indicates whether the instance uses the latest minor version. Valid values:
+     * @description Indicates whether the instance minor version is the latest version. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   **true**: The instance minor version is the latest version.
+     *   **false**: The instance minor version is not the latest version.
      *
      * @example false
      *
@@ -77,7 +83,7 @@ class DescribeEngineVersionResponseBody extends Model
     public $isLatestVersion;
 
     /**
-     * @description Indicates whether the instance supports the new SSL encryption feature.
+     * @description 是否支持新版 ssl。
      *
      * @example 1
      *
@@ -86,7 +92,7 @@ class DescribeEngineVersionResponseBody extends Model
     public $isNewSSLMode;
 
     /**
-     * @description Indicates whether the instance runs a Redis version.
+     * @description Indicates whether the instance supports the new SSL encryption feature.
      *
      * @example 1
      *
@@ -95,7 +101,7 @@ class DescribeEngineVersionResponseBody extends Model
     public $isRedisCompatibleVersion;
 
     /**
-     * @description Indicate whether the instance has the SSL encryption feature enabled.
+     * @description 是否打开了小版本升级。
      *
      * @example 1
      *
@@ -122,6 +128,8 @@ class DescribeEngineVersionResponseBody extends Model
     public $minorVersion;
 
     /**
+     * @description 该Proxy节点当前可升级至最新的小版本信息。
+     *
      * @var proxyLatestMinorVersion
      */
     public $proxyLatestMinorVersion;
@@ -129,7 +137,7 @@ class DescribeEngineVersionResponseBody extends Model
     /**
      * @description The minor version of proxy nodes.
      *
-     * > This parameter is returned only for cluster and read/write splitting instances.
+     * >  This parameter is returned only for cluster and read/write splitting instances.
      * @example 6.6.0
      *
      * @var string
@@ -139,15 +147,15 @@ class DescribeEngineVersionResponseBody extends Model
     /**
      * @description The release notes for the minor version of proxy nodes. The release notes include the release date, minor version number, release type such as new feature, and description.
      *
-     * > This parameter is returned only for cluster and read/write splitting instances.
-     * @example {\\"releaseInfo\\":\[{\\"createTime\\":\\"2021-06-08\\",\\"level\\":0,\\"releaseVersion\\":\\"6.6.2\\",\\"releaseNote\\":\\"\[New feature]: More commands are available for internal use within ApsaraDB for Redis. \\"}],\\"versionChangesLevel\\":2}
+     * >  This parameter is returned only for cluster and read/write splitting instances.
+     * @example {\"releaseInfo\":[{\"createTime\":\"2021-06-08\",\"level\":0,\"releaseVersion\":\"6.6.2\",\"releaseNote\":\"新特性：增加对部分内部命令的支持。\"}],\"versionChangesLevel\":2}
      *
      * @var string
      */
     public $proxyVersionRelease;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example A52974D1-9D57-4805-86CC-92E6EDE8****
      *

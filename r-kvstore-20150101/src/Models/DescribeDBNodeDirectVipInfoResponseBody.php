@@ -4,13 +4,17 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBNodeDirectVipInfoResponseBody\directVipInfo;
 use AlibabaCloud\Tea\Model;
 
-class ModifyInstanceSSLResponseBody extends Model
+class DescribeDBNodeDirectVipInfoResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
+     * @var directVipInfo
+     */
+    public $directVipInfo;
+
+    /**
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -18,26 +22,15 @@ class ModifyInstanceSSLResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example AD7E16AA-6B23-43BF-979C-07D957FB****
+     * @example ABAF95F6-35C1-4177-AF3A-70969EBD****
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description The ID of the task.
-     *
-     * @example 32184****
-     *
-     * @var string
-     */
-    public $taskId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'requestId'  => 'RequestId',
-        'taskId'     => 'TaskId',
+        'directVipInfo' => 'DirectVipInfo',
+        'instanceId'    => 'InstanceId',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -47,14 +40,14 @@ class ModifyInstanceSSLResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->directVipInfo) {
+            $res['DirectVipInfo'] = null !== $this->directVipInfo ? $this->directVipInfo->toMap() : null;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -63,19 +56,19 @@ class ModifyInstanceSSLResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyInstanceSSLResponseBody
+     * @return DescribeDBNodeDirectVipInfoResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DirectVipInfo'])) {
+            $model->directVipInfo = directVipInfo::fromMap($map['DirectVipInfo']);
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
         }
 
         return $model;

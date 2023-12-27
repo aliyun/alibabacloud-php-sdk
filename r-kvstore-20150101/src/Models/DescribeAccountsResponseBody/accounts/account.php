@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
-     * @description The name of the account that you want to query.
+     * @description The description of the account.
      *
      * @example testdec
      *
@@ -19,7 +19,7 @@ class account extends Model
     public $accountDescription;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeAccounts**.
+     * @description The name of the account.
      *
      * @example demoaccount
      *
@@ -28,7 +28,10 @@ class account extends Model
     public $accountName;
 
     /**
-     * @description The ID of the request.
+     * @description The state of the account. Valid values:
+     *
+     *   **Unavailable**: The account is unavailable.
+     *   **Available**: The account is available.
      *
      * @example Available
      *
@@ -37,7 +40,10 @@ class account extends Model
     public $accountStatus;
 
     /**
-     * @description The description of the account.
+     * @description The type of the account. Valid values:
+     *
+     *   **Normal**: standard account
+     *   **Super**: super account
      *
      * @example Normal
      *
@@ -46,20 +52,14 @@ class account extends Model
     public $accountType;
 
     /**
-     * @description The permission of the account. Default value: RoleReadWrite. Valid values:
-     *
-     *   **RoleReadOnly**: The account has the read-only permissions.
-     *   **RoleReadWrite**: The account has the read and write permissions.
+     * @description Details about account permissions.
      *
      * @var databasePrivileges
      */
     public $databasePrivileges;
 
     /**
-     * @description The type of the account. Valid values:
-     *
-     *   **Normal**: standard account
-     *   **Super**: super account
+     * @description The ID of the instance.
      *
      * @example r-bp10noxlhcoim2****
      *

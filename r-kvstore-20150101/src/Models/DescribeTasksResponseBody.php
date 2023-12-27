@@ -10,15 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksResponseBody extends Model
 {
     /**
-     * @description The estimated remaining duration of the task. Unit: seconds.
+     * @description The details of the task.
      *
-     * >  If the task is not running, this parameter is not returned or the returned value is **0**.
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query instance IDs.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -27,7 +26,7 @@ class DescribeTasksResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description 30
+     * @description The number of entries returned on each page.
      *
      * @example 30
      *
@@ -36,14 +35,7 @@ class DescribeTasksResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The status of the task. Separate multiple values with commas (,). Valid values:
-     *
-     *   **0**: The task is pending.
-     *   **1**: The task is running.
-     *   **2**: The task is complete.
-     *   **4**: The task is closed.
-     *   **7**: The task is paused.
-     *   **8**: The task is interrupted.
+     * @description The ID of the request.
      *
      * @example 608FAEC9-485E-4C65-82DE-2E5B955E****
      *
@@ -52,9 +44,8 @@ class DescribeTasksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the subtask in the JSON format. This includes the expected remaining duration (**remain**), the name of the subtask (**name**), and the task progress (**progress**).
+     * @description The total number of entries.
      *
-     * >  If the subtask does not exist, this parameter is not returned.
      * @example 2
      *
      * @var int

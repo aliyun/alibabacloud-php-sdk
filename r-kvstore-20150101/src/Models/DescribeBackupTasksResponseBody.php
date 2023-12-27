@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupTasksResponseBody extends Model
 {
     /**
+     * @description The following parameters are internal parameters. Ignore the parameters.
+     *
      * @var accessDeniedDetail
      */
     public $accessDeniedDetail;

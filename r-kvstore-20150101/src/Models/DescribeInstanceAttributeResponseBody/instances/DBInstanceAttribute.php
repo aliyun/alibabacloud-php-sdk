@@ -23,7 +23,7 @@ class DBInstanceAttribute extends Model
     public $architectureType;
 
     /**
-     * @description The retention period of audit logs. Unit: days. A value of 0 indicates that the audit log feature is disabled. For more information about how to enable the audit log feature, see [Enable the new audit log feature](~~102015~~).
+     * @description The retention period of audit logs. Unit: day. A value of 0 indicates that the audit log feature is disabled. For more information, see [Enable the audit log feature](~~102015~~).
      *
      * @example 15
      *
@@ -45,7 +45,7 @@ class DBInstanceAttribute extends Model
      *
      * >
      *
-     *   This parameter is returned only when the data flashback feature is enabled for the instance. For more information, see [Use data flashback to restore data by point in time](~~148479~~).
+     *   This parameter is returned only if the [data flashback](~~148479~~) feature is enabled for the instance.
      *
      *   When you call the [RestoreInstance](~~61083~~) operation to implement data flashback, you can obtain the earliest point in time for data flashback from the return value of this parameter and set the **RestoreTime** parameter to this point in time.
      *
@@ -95,7 +95,7 @@ class DBInstanceAttribute extends Model
     public $cloudType;
 
     /**
-     * @description The parameter settings of the instance in the JSON format. For more information, see [Modify the parameters of an ApsaraDB for Redis instance](~~43885~~).
+     * @description The parameter configurations of the instance in the JSON format. For more information, see [Parameter descriptions](~~43885~~). You can use the [DescribeAuditLogConfig](~~473830~~) operation to query audit log configurations.
      *
      * @example {\"EvictionPolicy\":\"volatile-lru\",\"hash-max-ziplist-entries\":512,\"zset-max-ziplist-entries\":128,\"zset-max-ziplist-value\":64,\"set-max-intset-entries\":512,\"hash-max-ziplist-value\":64}
      *
@@ -149,7 +149,7 @@ class DBInstanceAttribute extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, and **6.0**.
+     * @description The database engine version of the instance. Valid values: **2.8**, **4.0**, and **5.0**.
      *
      * @example 4.0
      *
@@ -160,7 +160,7 @@ class DBInstanceAttribute extends Model
     /**
      * @description The ID of the distributed instance to which the instance belongs.
      *
-     * > This parameter is returned only when the instance is a child instance of a distributed instance.
+     * >  This parameter is returned only if the ApsaraDB for Redis instance is a child instance of a distributed instance.
      * @example gr-bp14rkqrhac****
      *
      * @var string
@@ -170,8 +170,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description Indicates whether your Alibaba Cloud account has pending orders for renewal and configuration change. Valid values:
      *
-     *   **true**: Your Alibaba Cloud account has pending orders.
-     *   **false**: Your Alibaba Cloud account does not have pending orders.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -189,7 +189,7 @@ class DBInstanceAttribute extends Model
     public $instanceClass;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example r-bp1d72gwl41z7f****
      *
@@ -198,7 +198,7 @@ class DBInstanceAttribute extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example apitest
      *
@@ -209,8 +209,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description Indicates whether the release protection feature is enabled for the instance. Valid values:
      *
-     *   **true**: Release protection is enabled.
-     *   **false**: Release protection is disabled.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -228,7 +228,7 @@ class DBInstanceAttribute extends Model
      *   **Flushing**: The instance is being released.
      *   **Released**: The instance is released.
      *   **Transforming**: The billing method of the instance is being changed.
-     *   **Unavailable**: The instance is suspended.
+     *   **Unavailable**: The instance is unavailable.
      *   **Error**: The instance failed to be created.
      *   **Migrating**: The instance is being migrated.
      *   **BackupRecovering**: The instance is being restored from a backup.
@@ -237,7 +237,7 @@ class DBInstanceAttribute extends Model
      *   **SSLModifying**: The SSL certificate of the instance is being changed.
      *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
      *
-     * > For more information about instance states, see [Instance states and impacts](~~200740~~).
+     * >  For more information about instance states, see [Instance states and impacts](~~200740~~).
      * @example Normal
      *
      * @var string
@@ -258,11 +258,10 @@ class DBInstanceAttribute extends Model
     public $instanceType;
 
     /**
-     * @description Whether the instance order has been completed is used to determine whether the modify instance specifications order has reached its final state. The return value is:
+     * @description Indicates whether the order for instance configuration change has reached the final state. Valid values:
      *
-     * **true**: The modify instance specifications operation has been completed or has not been made.
-     *
-     * **false**: Changing specifications, the order is not yet completed.
+     *   **true**: The configuration change has been completed or has not been performed.
+     *   **false**: The configurations of the instance are being changed.
      *
      * @example true
      *
@@ -273,8 +272,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description Indicates whether the instance is managed by ApsaraDB RDS. Valid values:
      *
-     *   **true**: The instance is managed by ApsaraDB RDS.
-     *   **false**: The instance is not managed by ApsaraDB RDS.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -283,10 +282,10 @@ class DBInstanceAttribute extends Model
     public $isRds;
 
     /**
-     * @description Does the instance support enabling transparent data encryption (TDE) function? Return value:
+     * @description Indicates whether the transparent data encryption (TDE) feature is supported for the instance. Valid values:
      *
-     * **true**: Supported, only supported for local disk, memory type Tair instance version.
-     * **false**: Not Supported.
+     *   **true**: This feature is supported. This feature is available only for [DRAM-based](~~443827~~) instances that use local disks.
+     *   **false**: This feature is not supported.
      *
      * @example true
      *
@@ -315,8 +314,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **CLASSIC**: classic network
-     *   **VPC**: VPC
+     *   **CLASSIC**
+     *   **VPC**
      *
      * @example CLASSIC
      *
@@ -337,7 +336,7 @@ class DBInstanceAttribute extends Model
     public $nodeType;
 
     /**
-     * @description The plan type of the instance. Valid values:
+     * @description The plan type. Valid values:
      *
      *   **standard**: standard plan.
      *   **customized**: custom plan. This plan type is phased out.
@@ -349,7 +348,7 @@ class DBInstanceAttribute extends Model
     public $packageType;
 
     /**
-     * @description The port number of the instance.
+     * @description The port number that is used to connect to the instance.
      *
      * @example 6379
      *
@@ -360,7 +359,7 @@ class DBInstanceAttribute extends Model
     /**
      * @description The private IP address of the instance.
      *
-     * > This parameter is not returned when the instance is deployed in the classic network.
+     * >  This parameter is not returned when the instance is deployed in the classic network.
      * @example 172.16.49.***
      *
      * @var string
@@ -388,7 +387,7 @@ class DBInstanceAttribute extends Model
     /**
      * @description If the instance is a cluster instance that uses cloud disks, this parameter indicates the instance type of each shard. In this case, the InstanceClass parameter indicates a virtual instance type.
      *
-     * > To query the costs of this instance type, specify the returned instance type for this parameter for the [DescribePrice](~~95612~~) operation and call the operation.
+     * >  You can call the [DescribePrice](~~95612~~) operation to query the price of the instance type that is returned by this parameter.
      * @example tair.rdb.with.proxy.1g
      *
      * @var string
@@ -396,7 +395,7 @@ class DBInstanceAttribute extends Model
     public $realInstanceClass;
 
     /**
-     * @description The region ID of the instance.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -416,8 +415,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description The architecture of the instance. Valid values:
      *
-     *   **master-slave**: standard master-replica architecture.
-     *   **cluster**: cluster architecture, which includes read/write splitting instances and cluster instances.
+     *   **master-slave**: the standard mater-replica architecture.
+     *   **cluster**: the cluster architecture, which includes the read/write splitting instances and cluster instances.
      *
      * @example master-slave
      *
@@ -435,9 +434,9 @@ class DBInstanceAttribute extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the secondary zone.
+     * @description The secondary zone ID of the instance.
      *
-     * > This parameter is returned only when the instance has a secondary zone ID.
+     * >  This parameter is returned only if the instance has a secondary zone ID.
      * @example cn-hongkong-h
      *
      * @var string
@@ -445,7 +444,7 @@ class DBInstanceAttribute extends Model
     public $secondaryZoneId;
 
     /**
-     * @description The IP addresses contained in a whitelist of the instance.
+     * @description The IP address whitelist.
      *
      * @example 127.0.0.1
      *
@@ -454,9 +453,8 @@ class DBInstanceAttribute extends Model
     public $securityIPList;
 
     /**
-     * @description The number of shards. This parameter is available only for instances that are purchased on the China site (aliyun.com).
+     * @description The number of shards. This parameter is available only for ApsaraDB for Redis instances that are purchased on the China site (aliyun.com).
      *
-     * This parameter is returned only when the instance is a [cluster instance](~~52228~~) that uses cloud disks.
      * @example 2
      *
      * @var int
@@ -464,24 +462,38 @@ class DBInstanceAttribute extends Model
     public $shardCount;
 
     /**
+     * @var int
+     */
+    public $slaveReadOnlyCount;
+
+    /**
+     * @description The storage space of cloud disks. Valid values vary based on the instance specifications. For more information, see [ESSD-based instances](~~443846~~).
+     *
+     * > This parameter is available and required only if the **InstanceType** parameter is set to **tair_essd**.
+     * @example 50
+     *
      * @var string
      */
     public $storage;
 
     /**
+     * @description The type of the storage.
+     *
+     * @example essd_pl1
+     *
      * @var string
      */
     public $storageType;
 
     /**
-     * @description Details of the tags.
+     * @description The details of the tags.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-bp1e7clcw529l773d****
      *
@@ -502,7 +514,7 @@ class DBInstanceAttribute extends Model
     public $vpcAuthMode;
 
     /**
-     * @description The ID of the VPC.
+     * @description The ID of the instance that is deployed in the VPC.
      *
      * @example r-bp1d72gwl41z7f****
      *
@@ -520,7 +532,7 @@ class DBInstanceAttribute extends Model
     public $vpcId;
 
     /**
-     * @description The zone ID of the instance.
+     * @description The zone ID.
      *
      * @example cn-hongkong-b
      *
@@ -583,6 +595,7 @@ class DBInstanceAttribute extends Model
         'secondaryZoneId'           => 'SecondaryZoneId',
         'securityIPList'            => 'SecurityIPList',
         'shardCount'                => 'ShardCount',
+        'slaveReadOnlyCount'        => 'SlaveReadOnlyCount',
         'storage'                   => 'Storage',
         'storageType'               => 'StorageType',
         'tags'                      => 'Tags',
@@ -729,6 +742,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->shardCount) {
             $res['ShardCount'] = $this->shardCount;
+        }
+        if (null !== $this->slaveReadOnlyCount) {
+            $res['SlaveReadOnlyCount'] = $this->slaveReadOnlyCount;
         }
         if (null !== $this->storage) {
             $res['Storage'] = $this->storage;
@@ -897,6 +913,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['ShardCount'])) {
             $model->shardCount = $map['ShardCount'];
+        }
+        if (isset($map['SlaveReadOnlyCount'])) {
+            $model->slaveReadOnlyCount = $map['SlaveReadOnlyCount'];
         }
         if (isset($map['Storage'])) {
             $model->storage = $map['Storage'];

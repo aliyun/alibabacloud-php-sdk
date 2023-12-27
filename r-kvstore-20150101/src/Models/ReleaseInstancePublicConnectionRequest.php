@@ -18,7 +18,7 @@ class ReleaseInstancePublicConnectionRequest extends Model
     public $currentConnectionString;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ReleaseInstancePublicConnection**.
+     * @description The ID of the instance for which you want to release a public endpoint.
      *
      * @example r-bp1zxszhcgatnx****
      *

@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoleZoneInfoResponseBody extends Model
 {
     /**
-     * @description The role of the node. Valid values:
-     *
-     *   **master**: master node
-     *   **slave**: replica node
+     * @description Details about each node in an ApsaraDB for Redis instance.
      *
      * @var node
      */
     public $node;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query instance IDs.
+     * @description The number of the returned page.
      *
      * @example 1
      *
@@ -29,10 +26,7 @@ class DescribeRoleZoneInfoResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description Indicates whether the bandwidth of the node is increased. Valid values:
-     *
-     *   **true**: The bandwidth of the node is not increased.
-     *   **false**: The bandwidth of the node is increased.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -41,7 +35,7 @@ class DescribeRoleZoneInfoResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is used only for internal maintenance of ApsaraDB for Redis instances.
+     * @description The ID of the request.
      *
      * @example 224B97FB-A275-4EAC-86E9-8922FEA2****
      *
@@ -50,9 +44,8 @@ class DescribeRoleZoneInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the node is a read replica. If the node is a read replica, **3** is returned.
+     * @description The total number of entries returned.
      *
-     * >  If the node is not a read replica, no value is returned.
      * @example 2
      *
      * @var int

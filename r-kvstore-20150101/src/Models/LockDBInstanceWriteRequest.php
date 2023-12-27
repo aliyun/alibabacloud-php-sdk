@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LockDBInstanceWriteRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -16,6 +18,10 @@ class LockDBInstanceWriteRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The reason why write operations on the instance are locked.
+     *
+     * @example lock reason
+     *
      * @var string
      */
     public $lockReason;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGlobalSecurityIPGroupResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example AD425AD3-CC7B-4EE2-A5CB-2F61BA73****
      *
      * @var string

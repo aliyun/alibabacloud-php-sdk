@@ -18,7 +18,7 @@ class FlushExpireKeysResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **FlushExpireKeys**.
+     * @description The ID of the request.
      *
      * @example 82E30AB7-E3A4-46AC-88A0-3E4DCDC5****
      *

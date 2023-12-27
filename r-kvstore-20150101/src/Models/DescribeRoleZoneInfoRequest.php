@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoleZoneInfoRequest extends Model
 {
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than **0** and less than or equal to the maximum value supported by the integer data type. Default value: **1**.
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query instance IDs.
      *
      * @example r-t4nlenc2p04uvb****
      *
@@ -28,7 +28,7 @@ class DescribeRoleZoneInfoRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+     * @description The number of the page to return. The value must be an integer that is greater than **0** and less than or equal to the maximum value supported by the integer data type. Default value: **1**.
      *
      * @example 1
      *
@@ -46,13 +46,11 @@ class DescribeRoleZoneInfoRequest extends Model
     public $pageSize;
 
     /**
-     * @description The type of the node to query. Default value: 1. Valid values:
+     * @description The type of node to query. Default value: 1. Valid values:
      *
      *   **0**: proxy node
      *
-     **
-     *
-     **Note**This parameter is supported only for cluster and read/write splitting instances.
+     * > This parameter is supported only for cluster and read/write splitting instances.
      *
      *   **1**: data node
      *

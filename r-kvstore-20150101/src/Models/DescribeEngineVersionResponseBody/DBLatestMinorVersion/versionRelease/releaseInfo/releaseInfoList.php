@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class releaseInfoList extends Model
 {
     /**
+     * @description 实例的创建时间。
+     *
+     * @example 2022-11-21T13:28Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description 重要等级。
+     *
+     * @example 0
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description 版本发布说明。
+     *
+     * @example 发布说明
+     *
      * @var string
      */
     public $releaseNote;
 
     /**
+     * @description 可升级的版本英文描述。
+     *
+     * @example 版本升级英文描述
+     *
      * @var string
      */
     public $releaseNoteEn;
 
     /**
+     * @description EMR发行版。
+     *
+     * @example EMR-5.7.0
+     *
      * @var string
      */
     public $releaseVersion;

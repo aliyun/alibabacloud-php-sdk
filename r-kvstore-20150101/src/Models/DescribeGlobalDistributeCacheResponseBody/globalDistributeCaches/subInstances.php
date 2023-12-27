@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class subInstances extends Model
 {
     /**
+     * @description The ID of the distributed instance.
+     *
      * @example gr-bp14rkqrhac****
      *
      * @var string
@@ -16,6 +18,12 @@ class subInstances extends Model
     public $globalInstanceId;
 
     /**
+     * @description The instance type of the child instance. For more information, see the following topics:
+     *
+     *   [Standard DRAM-based instances](~~145228~~)
+     *   [Cluster DRAM-based instances](~~150458~~)
+     *   [Read/write splitting DRAM-based instances](~~150459~~)
+     *
      * @example redis.amber.logic.sharding.2g.2db.0rodb.6proxy.multithread
      *
      * @var string
@@ -23,6 +31,8 @@ class subInstances extends Model
     public $instanceClass;
 
     /**
+     * @description The ID of the child instance.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -30,6 +40,25 @@ class subInstances extends Model
     public $instanceID;
 
     /**
+     * @description The state of the child instance. Valid values:
+     *
+     *   **Normal**: The instance is normal.
+     *   **Creating**: The instance is being created.
+     *   **Changing**: The configurations of the instance are being changed.
+     *   **Inactive**: The instance is disabled.
+     *   **Flushing**: The instance is being released.
+     *   **Released**: The instance is released.
+     *   **Transforming**: The billing method of the instance is changing.
+     *   **Unavailable**: The instance is suspended.
+     *   **Error**: The instance failed to be created.
+     *   **Migrating**: The instance is being migrated.
+     *   **BackupRecovering**: The instance is being restored from a backup.
+     *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
+     *   **NetworkModifying**: The network type of the instance is being changed.
+     *   **SSLModifying**: The SSL certificate of the instance is being changed.
+     *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains available during the upgrade.
+     *
+     * >  For more information about instance states, see [Instance states and impacts](~~200740~~).
      * @example Normal
      *
      * @var string
@@ -37,6 +66,8 @@ class subInstances extends Model
     public $instanceStatus;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

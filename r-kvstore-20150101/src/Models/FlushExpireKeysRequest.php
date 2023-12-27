@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class FlushExpireKeysRequest extends Model
 {
     /**
-     * @description The time when to delete the expired keys. Default value: Immediately. Valid values:
+     * @description The time when the minor version is upgraded. Valid values:
      *
-     *   **Immediately**: deletes the keys immediately.
-     *   **MaintainTime**: deletes the keys during the maintenance window.
+     *   **Immediately**: immediately deletes expired keys.
+     *   **MaintainTime**:deletes expired key in the maintenance window.
      *
-     * > You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+     * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
      * @example Immediately
      *
      * @var string
@@ -22,7 +22,7 @@ class FlushExpireKeysRequest extends Model
     public $effectiveTime;
 
     /**
-     * @description The ID of the task.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *

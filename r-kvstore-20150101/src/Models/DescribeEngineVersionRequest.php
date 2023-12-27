@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEngineVersionRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query instance IDs.
      *
      * @example r-bp1zxszhcgatnx****
      *
