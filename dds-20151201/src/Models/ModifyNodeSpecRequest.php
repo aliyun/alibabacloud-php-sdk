@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyNodeSpecRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment. Default value: true. Valid values:
+     * @description Specifies whether to enable automatic payment. Valid values:
      *
-     *   **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
-     *   **false**: disables automatic payment.
+     *   **true** (default): enables automatic payment. Make sure that you have sufficient balance within your account.
+     *   **false**: disables automatic payment. In this case, you must manually pay for the instance.
      *
      * @example true
      *
@@ -57,9 +57,9 @@ class ModifyNodeSpecRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The time when the changed configurations take effect. Default value: Immediately. Valid values:
+     * @description The time when the changed configurations take effect. Valid values:
      *
-     *   **Immediately**: The new configurations immediately take effect.
+     *   **Immediately** (default): The new configurations immediately take effect
      *   **MaintainTime**: The new configurations take effect during the maintenance window of the instance.
      *
      * @example Immediately

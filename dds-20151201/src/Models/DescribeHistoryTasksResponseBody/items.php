@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description A set of allowed actions that can be taken on the task. The system matches the current step name and status of the task to the available actions specified by ActionInfo. If no matching action is found, the current status of the task does not support any action. Example:
+     *
+     * The system may support the following actions:
+     *
+     *   retry: makes another attempt.
+     *   cancel: makes a cancellation.
+     *   modifySwitchTime: changes the switching or restoration time.
+     *
      * @example `{\"steps\":[{\"action_info\":{\"Waiting\":[\"modifySwitchTime\"]},\"step_name\":\"exec_task\"}]}`
      *
      * @var string
@@ -16,6 +24,8 @@ class items extends Model
     public $actionInfo;
 
     /**
+     * @description The request source. Valid values: System and User.
+     *
      * @example System
      *
      * @var string
@@ -23,6 +33,8 @@ class items extends Model
     public $callerSource;
 
     /**
+     * @description The ID of the user who made the request. If CallerSource is set to User, CallerUid indicates the unique ID (UID) of the user.
+     *
      * @example 141345906006****
      *
      * @var string
@@ -30,6 +42,8 @@ class items extends Model
     public $callerUid;
 
     /**
+     * @description The name of the current step. If this parameter is left empty, the task is not started.
+     *
      * @example exec_task
      *
      * @var string
@@ -37,6 +51,8 @@ class items extends Model
     public $currentStepName;
 
     /**
+     * @description The database type. The value is fixed to mongodb.
+     *
      * @example mongodb
      *
      * @var string
@@ -44,6 +60,8 @@ class items extends Model
     public $dbType;
 
     /**
+     * @description The end time of the performed O\&M task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-03-16T02:59Z
      *
      * @var string
@@ -51,6 +69,8 @@ class items extends Model
     public $endTime;
 
     /**
+     * @description The instance ID
+     *
      * @example dds-t4n18194768fxxxx
      *
      * @var string
@@ -58,6 +78,8 @@ class items extends Model
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
      * @example test-dds
      *
      * @var string
@@ -65,6 +87,8 @@ class items extends Model
     public $instanceName;
 
     /**
+     * @description The instance type of the instance. The value is fixed to Instance.
+     *
      * @example Instance
      *
      * @var string
@@ -72,6 +96,8 @@ class items extends Model
     public $instanceType;
 
     /**
+     * @description The product. The value is fixed to dds.
+     *
      * @example dds
      *
      * @var string
@@ -79,6 +105,8 @@ class items extends Model
     public $product;
 
     /**
+     * @description The current progress of the task. The valid values range from 0 to 100.
+     *
      * @example 100.0
      *
      * @var float
@@ -86,11 +114,17 @@ class items extends Model
     public $progress;
 
     /**
+     * @description The reason why the current task was initiated.
+     *
+     * @example test
+     *
      * @var string
      */
     public $reasonCode;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -98,6 +132,8 @@ class items extends Model
     public $regionId;
 
     /**
+     * @description The estimated remaining execution time. Unit: seconds. The value 0 indicates that the task is completed.
+     *
      * @example 1000
      *
      * @var int
@@ -105,6 +141,8 @@ class items extends Model
     public $remainTime;
 
     /**
+     * @description The start time of the performed O\&M task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-02-11T02:33Z
      *
      * @var string
@@ -112,6 +150,16 @@ class items extends Model
     public $startTime;
 
     /**
+     * @description The task status. Valid values:
+     *
+     *   Scheduled: The task is waiting to be executed.
+     *   Running: The task is running.
+     *   Succeed: The task is successful.
+     *   Failed: The task failed.
+     *   Cancelling: The task is being terminated.
+     *   Canceled: The task has been terminated.
+     *   Waiting: The task is waiting for scheduled time.
+     *
      * @example Succeed
      *
      * @var int
@@ -119,6 +167,8 @@ class items extends Model
     public $status;
 
     /**
+     * @description The details of the task. The task details vary based on the value of the taskType parameter.
+     *
      * @example {\"callerUid\":\"test\"}
      *
      * @var string
@@ -126,6 +176,8 @@ class items extends Model
     public $taskDetail;
 
     /**
+     * @description The task ID.
+     *
      * @example t-0mq1yyhm3ffl2bxxxx
      *
      * @var string
@@ -133,6 +185,32 @@ class items extends Model
     public $taskId;
 
     /**
+     * @description The task type.
+     *
+     *   CreateIns: Create an instance.
+     *   DeleteIns: Delete an instance.
+     *   ChangeVariable: Modify parameter settings for an instance.
+     *   ModifyInsConfig: Change the configurations of an instance.
+     *   RestartIns: Restart an instance.
+     *   HaSwitch: Perform a primary/secondary switchover on an instance.
+     *   CloneIns: Clone an instance.
+     *   KernelVersionUpgrade: Update the minor version of an instance.
+     *   ProxyVersionUpgrade: Upgrade the agent version of an instance.
+     *   ModifyAccount: Change the account of an instance.
+     *   ModifyInsSpec: Change the specifications of an instance or perform a data migration on the instance.
+     *   CreateReadIns: Create a read-only instance.
+     *   StartIns: Start an instance.
+     *   StopIns: Stop an instance.
+     *   ModifyNetwork: Modify the network type for an instance.
+     *   LockIns: Lock an instance.
+     *   UnlockIns: Unlock an instance.
+     *   DiskOnlineExpansion: Scale out the disks of an instance online.
+     *   StorageOnlineExpansion: Expend the storage capacity of an instance online.
+     *   AddInsNode: Add a node to an instance.
+     *   DeleteInsNode: Delete a node from an instance.
+     *   ManualBackupIns: Manually back up an instance.
+     *   ModifyInsStorageType: Modify the storage type for an instance.
+     *
      * @example CreateIns
      *
      * @var string
@@ -140,6 +218,8 @@ class items extends Model
     public $taskType;
 
     /**
+     * @description The ID of the user to which the resource belongs.
+     *
      * @example 141345906006****
      *
      * @var string

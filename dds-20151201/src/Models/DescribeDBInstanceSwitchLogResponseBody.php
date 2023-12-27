@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceSwitchLogResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example dds-uf68f1b5a57exxxx
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeDBInstanceSwitchLogResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The primary/secondary switchover logs.
+     *
      * @var logItems[]
      */
     public $logItems;
 
     /**
+     * @description The page number returned.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeDBInstanceSwitchLogResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 30
      *
      * @var int
@@ -36,6 +44,8 @@ class DescribeDBInstanceSwitchLogResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example ECBCA991-XXXX-XXXX-834C-B3E8007F33AA
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribeDBInstanceSwitchLogResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of primary/secondary switching entries.
+     *
      * @example 1
      *
      * @var int

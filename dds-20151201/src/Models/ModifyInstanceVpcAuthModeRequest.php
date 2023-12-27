@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceVpcAuthModeRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **ModifyInstanceVpcAuthMode**.
+     * @description The ID of the instance.
      *
      * @example dds-bpxxxxxxxx
      *
@@ -18,8 +18,9 @@ class ModifyInstanceVpcAuthModeRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the mongos node in the specified sharded cluster instance.
      *
+     * >  This parameter can be used only when the instance type is sharded cluster.
      * @example s-bpxxxxxxxx
      *
      * @var string
@@ -47,9 +48,11 @@ class ModifyInstanceVpcAuthModeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the mongos node in the specified sharded cluster instance.
+     * @description Specifies whether to enable authentication to allow access within a VPC. Valid values:
      *
-     * >  This parameter can be used only when the instance type is sharded cluster.
+     *   **Open**: enables password-free access.
+     *   **Close**: disables password-free access.
+     *
      * @example Open
      *
      * @var string

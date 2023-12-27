@@ -9,12 +9,11 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
-     * @description The role of the instance. Valid values:
+     * @description 实例的角色类型，取值说明：
      *
-     *   **db**: a shard node.
-     *   **cs**: a Configserver node.
-     *   **mongos**: a mongos node.
-     *
+     * - **db**：shard角色。
+     * - **cs**：config server角色。
+     * - **mongos**：mongos角色。
      * @example db
      *
      * @var string

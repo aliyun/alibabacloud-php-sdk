@@ -31,7 +31,7 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountName;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example dds-bp2356****
      *

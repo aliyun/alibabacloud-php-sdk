@@ -54,6 +54,8 @@ class order extends Model
     /**
      * @description Indicates whether the information of the discount is displayed.
      *
+     * @example true
+     *
      * @var bool
      */
     public $showDiscountInfo;

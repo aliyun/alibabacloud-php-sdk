@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class kmsKeys extends Model
 {
     /**
+     * @description The alias of the key.
+     *
      * @example key-shh656820f4mh9qxxxxx     alias/test1
      *
      * @var string
@@ -16,6 +18,8 @@ class kmsKeys extends Model
     public $keyAlias;
 
     /**
+     * @description The key ID.
+     *
      * @example 37291352-xxxx-xxxx-adbf-fd0630a95583
      *
      * @var string

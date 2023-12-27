@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeHistoryTasksResponseBody extends Model
 {
     /**
+     * @description The task objects.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeHistoryTasksResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The maximum number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeHistoryTasksResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 3C4A2494-XXXX-XXXX-93CF-548DB3375193
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeHistoryTasksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of tasks that meet these conditions without taking pagination into account.
+     *
      * @example 5
      *
      * @var int

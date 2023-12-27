@@ -104,10 +104,8 @@ class DBInstance extends Model
      *   **order_wait_for_produce**: Orders are being delivered for production.
      *
      * >  The order production process includes the following steps: place an order, pay for an order, deliver an order for production, produce an order, and complete the production.
-     *
-     *   If an order is in the **order_wait_for_produce** state for a long time, an error occurs when the order is being delivered for production. The system will automatically retry.
-     *   The instance status changes only when the order is in the producing and complete state, such as changing configurations and running.
-     *
+     * > *   If an order is in the **order_wait_for_produce** state for a long time, an error occurs when the order is being delivered for production. The system will automatically retry.
+     * > *   The instance status changes only when the order is in the producing and complete state, such as changing configurations and running.
      * @example all_completed
      *
      * @var string
@@ -239,12 +237,8 @@ class DBInstance extends Model
      *   **eu-central-1b**: Frankfurt Zone B
      *   **eu-central-1c**: Frankfurt Zone C
      *
-     * >
-     *
-     *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
-     *
-     *   This parameter is returned only if you use the China site (aliyun.com).
-     *
+     * > *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
+     * > *   This parameter is returned only if you use the China site (aliyun.com).
      * @example cn-hangzhou-h
      *
      * @var string
@@ -456,12 +450,8 @@ class DBInstance extends Model
      *   **eu-central-1b**: Frankfurt Zone B
      *   **eu-central-1c**: Frankfurt Zone C
      *
-     * >
-     *
-     *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
-     *
-     *   This parameter is returned only if you use the China site (aliyun.com).
-     *
+     * > *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
+     * > *   This parameter is returned only if you use the China site (aliyun.com).
      * @example cn-hangzhou-i
      *
      * @var string

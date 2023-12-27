@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The task status. Valid values:
+     *
+     *   Scheduled: The task is waiting to be executed.
+     *   Running: The task is running.
+     *   Succeed: The task is successful.
+     *   Failed: The task failed.
+     *   Cancelling: The task is being terminated.
+     *   Canceled: The task has been terminated.
+     *   Waiting: The task is waiting for scheduled time.
+     *
      * @example Succeed
      *
      * @var string
@@ -16,6 +26,8 @@ class items extends Model
     public $status;
 
     /**
+     * @description The number of tasks in a specified state.
+     *
      * @example 2
      *
      * @var int

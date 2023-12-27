@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ResetAccountPasswordRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **ResetAccountPassword**.
+     * @description The account for which you want to reset the password. Set the value to **root**.
      *
      * @example root
      *
@@ -18,7 +18,10 @@ class ResetAccountPasswordRequest extends Model
     public $accountName;
 
     /**
-     * @description The ID of the instance.
+     * @description The new password.
+     *
+     *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `! # $ % ^ & * ( ) _ + - =`
+     *   The password must be 8 to 32 characters in length.
      *
      * @example Ali!123456
      *
@@ -27,10 +30,11 @@ class ResetAccountPasswordRequest extends Model
     public $accountPassword;
 
     /**
-     * @description The type of the database account. Valid values:
+     * @description The role of the instance. Valid values:
      *
-     *   mongos: an account that can be used to log on to mongos
-     *   shard: an account that can be used to log on to shards
+     *   db: a shard node.
+     *   cs: a Configserver node.
+     *   mongos: a mongos node.
      *
      * @example db
      *
@@ -39,7 +43,7 @@ class ResetAccountPasswordRequest extends Model
     public $characterType;
 
     /**
-     * @description com.aliyun.abs.dds.service.v20151201.domain.ResetDdsAccountPasswordRequest
+     * @description The ID of the instance.
      *
      * @example dds-bpxxxxxxxx
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyTaskInfoResponseBody extends Model
 {
     /**
+     * @description The error code for the failed task. It is the same as that of the ModifyTaskInfo operation.
+     *
      * @example ""
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyTaskInfoResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The ID of the failed task. The operation returns results after a task fails.
+     *
      * @example ""
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyTaskInfoResponseBody extends Model
     public $errorTaskId;
 
     /**
+     * @description The request ID.
+     *
      * @example 6163731A-XXXX-XXXX-B934-3388DE70C217
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyTaskInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of successful tasks.
+     *
      * @example 1
      *
      * @var string

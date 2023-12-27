@@ -512,7 +512,8 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to check whether an ApsaraDB for MongoDB instance meets the data recovery conditions.
+     * This operation is applicable to replica set instances or sharded cluster instances.
+     *   * >  After you confirm that the data recovery conditions are met by calling this operation, you can call the [CreateDBInstance](~~61763~~) operation to restore data to a new instance.
      *   *
      * @param CheckRecoveryConditionRequest $request CheckRecoveryConditionRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -572,7 +573,8 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to check whether an ApsaraDB for MongoDB instance meets the data recovery conditions.
+     * This operation is applicable to replica set instances or sharded cluster instances.
+     *   * >  After you confirm that the data recovery conditions are met by calling this operation, you can call the [CreateDBInstance](~~61763~~) operation to restore data to a new instance.
      *   *
      * @param CheckRecoveryConditionRequest $request CheckRecoveryConditionRequest
      *
@@ -586,10 +588,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * Database accounts can be created only for shards in sharded cluster instances that use cloud disks.
+     *   *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
@@ -635,9 +639,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
+     * Database accounts can be created only for shards in sharded cluster instances that use cloud disks.
+     *   *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -2850,10 +2856,14 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceSwitchLogRequest $request
-     * @param RuntimeOptions                     $runtime
+     * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     *   * *   The instance is a replica set or sharded cluster instance.
+     *   * *   The instance uses local physical disks to store data.
+     *   *
+     * @param DescribeDBInstanceSwitchLogRequest $request DescribeDBInstanceSwitchLogRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceSwitchLogResponse
+     * @return DescribeDBInstanceSwitchLogResponse DescribeDBInstanceSwitchLogResponse
      */
     public function describeDBInstanceSwitchLogWithOptions($request, $runtime)
     {
@@ -2896,9 +2906,13 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceSwitchLogRequest $request
+     * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     *   * *   The instance is a replica set or sharded cluster instance.
+     *   * *   The instance uses local physical disks to store data.
+     *   *
+     * @param DescribeDBInstanceSwitchLogRequest $request DescribeDBInstanceSwitchLogRequest
      *
-     * @return DescribeDBInstanceSwitchLogResponse
+     * @return DescribeDBInstanceSwitchLogResponse DescribeDBInstanceSwitchLogResponse
      */
     public function describeDBInstanceSwitchLog($request)
     {
@@ -3637,10 +3651,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeKmsKeysRequest $request
-     * @param RuntimeOptions         $runtime
+     * Queried keys are available only for disk encryption.
+     *   *
+     * @param DescribeKmsKeysRequest $request DescribeKmsKeysRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeKmsKeysResponse
+     * @return DescribeKmsKeysResponse DescribeKmsKeysResponse
      */
     public function describeKmsKeysWithOptions($request, $runtime)
     {
@@ -3677,9 +3693,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeKmsKeysRequest $request
+     * Queried keys are available only for disk encryption.
+     *   *
+     * @param DescribeKmsKeysRequest $request DescribeKmsKeysRequest
      *
-     * @return DescribeKmsKeysResponse
+     * @return DescribeKmsKeysResponse DescribeKmsKeysResponse
      */
     public function describeKmsKeys($request)
     {
@@ -4442,6 +4460,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->showHDMIps)) {
+            $query['ShowHDMIps'] = $request->showHDMIps;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5181,7 +5202,7 @@ class Dds extends OpenApiClient
 
     /**
      * *   The instance must be in the running state when you call this operation.
-     *   * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     *   * *   This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
      *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
      *   *
      * @param ModifyAuditLogFilterRequest $request ModifyAuditLogFilterRequest
@@ -5234,7 +5255,7 @@ class Dds extends OpenApiClient
 
     /**
      * *   The instance must be in the running state when you call this operation.
-     *   * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     *   * *   This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
      *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
      *   *
      * @param ModifyAuditLogFilterRequest $request ModifyAuditLogFilterRequest
@@ -6308,7 +6329,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to enable or disable password-free access from the same VPC as an ApsaraDB for MongoDB instance.
+     * Before you call this operation, make sure that the following requirements are met:
+     *   * *   A replica set or sharded cluster instance is used.
+     *   * *   The database version of the instance is 4.0 (with the minor version of mongodb\\_20190408\\_3.0.11 or later) or 4.2. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to view the database engine version of the instance. If necessary, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine.
+     *   * *   The instance is in a VPC. If the network type is Classic Network, you can call the [ModifyDBInstanceNetworkType](~~62138~~) operation to switch the network type to VPC.
      *   *
      * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -6359,7 +6383,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to enable or disable password-free access from the same VPC as an ApsaraDB for MongoDB instance.
+     * Before you call this operation, make sure that the following requirements are met:
+     *   * *   A replica set or sharded cluster instance is used.
+     *   * *   The database version of the instance is 4.0 (with the minor version of mongodb\\_20190408\\_3.0.11 or later) or 4.2. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to view the database engine version of the instance. If necessary, you can call the [UpgradeDBInstanceEngineVersion](~~67608~~) operation to upgrade the database engine.
+     *   * *   The instance is in a VPC. If the network type is Classic Network, you can call the [ModifyDBInstanceNetworkType](~~62138~~) operation to switch the network type to VPC.
      *   *
      * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
      *
@@ -6555,7 +6582,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * ## Precautions
+     * ### Precautions
      *   * *   The instance must be in the Running state when you call this operation.
      *   * *   If you call this operation to modify specific instance parameters and the modification for part of the parameters can take effect only after an instance restart, the instance is automatically restarted after this operation is called. You can call the [DescribeParameterTemplates](~~67618~~) operation to query the parameters that take effect only after the instance is restarted.
      *   *
@@ -6614,7 +6641,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * ## Precautions
+     * ### Precautions
      *   * *   The instance must be in the Running state when you call this operation.
      *   * *   If you call this operation to modify specific instance parameters and the modification for part of the parameters can take effect only after an instance restart, the instance is automatically restarted after this operation is called. You can call the [DescribeParameterTemplates](~~67618~~) operation to query the parameters that take effect only after the instance is restarted.
      *   *
@@ -6824,10 +6851,12 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyTaskInfoRequest $request
-     * @param RuntimeOptions        $runtime
+     * The actions performed by this operation for a task vary based on the current state of the task. The supported actions for a task can be obtained from the value of the actionInfo parameter in the DescribeHistoryTasks operation.
+     *   *
+     * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTaskInfoResponse
+     * @return ModifyTaskInfoResponse ModifyTaskInfoResponse
      */
     public function modifyTaskInfoWithOptions($request, $runtime)
     {
@@ -6873,9 +6902,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyTaskInfoRequest $request
+     * The actions performed by this operation for a task vary based on the current state of the task. The supported actions for a task can be obtained from the value of the actionInfo parameter in the DescribeHistoryTasks operation.
+     *   *
+     * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
      *
-     * @return ModifyTaskInfoResponse
+     * @return ModifyTaskInfoResponse ModifyTaskInfoResponse
      */
     public function modifyTaskInfo($request)
     {

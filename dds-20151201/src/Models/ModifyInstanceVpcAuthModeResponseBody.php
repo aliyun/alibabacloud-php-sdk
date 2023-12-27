@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceVpcAuthModeResponseBody extends Model
 {
     /**
-     * @description Specifies whether to enable authentication to allow access within a VPC. Valid values:
-     *
-     *   **Open**: enables password-free access.
-     *   **Close**: disables password-free access.
+     * @description The ID of the request.
      *
      * @example BA51E9D9-B14A-4542-B6E6-7DE00BECCB8C
      *

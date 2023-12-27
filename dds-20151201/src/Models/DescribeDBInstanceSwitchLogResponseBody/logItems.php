@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class logItems extends Model
 {
     /**
+     * @description The ID of the replica set instance or the ID of the node on which a primary/secondary switchover is performed.
+     *
+     * @example dds-uf68f1b5a57exxxx
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The code that indicates the reason of a primary/secondary switchover. Valid values:
+     *
+     *   USER_CONSOLE_OPERATION: The switchover is manually performed.
+     *   OPERATION_AND_MAINTENANCE: Potential risks exist.
+     *   MACHINE_DOWNTIME: The host is offline.
+     *   PRIMARY_UNHEALTHY: An exception occurs on the primary node of the instance.
+     *   SECONDARY_UNHEALTHY: An exception occurs on the secondary node of the instance.
+     *   MULTIPLE_NODE_FAILURES: An exception occurs on multiple nodes of the instance.
+     *
      * @example USER_CONSOLE_OPERATION
      *
      * @var string
@@ -21,6 +34,8 @@ class logItems extends Model
     public $switchCode;
 
     /**
+     * @description The switchover status. Valid values: **1** and **0**. The value 1 indicates a successful primary/secondary switchover and the value 0 indicates a failed primary/secondary switchover.
+     *
      * @example 1
      *
      * @var string
@@ -28,6 +43,8 @@ class logItems extends Model
     public $switchStatus;
 
     /**
+     * @description The point in time when a primary/secondary switchover was performed. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2023-02-07T18:00:00Z
      *
      * @var string

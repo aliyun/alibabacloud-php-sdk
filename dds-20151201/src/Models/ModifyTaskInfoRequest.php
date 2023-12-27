@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyTaskInfoRequest extends Model
 {
     /**
+     * @description The action-related parameters. Such parameters can be added based on your business requirements. The ActionParams parameter value varies based on the taskAction parameter value.
+     *
      * @example {\"recoverMode\":\"immediate\"}
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyTaskInfoRequest extends Model
     public $actionParams;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -33,6 +37,8 @@ class ModifyTaskInfoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The name of the step visible to the user.
+     *
      * @example exec_task
      *
      * @var string
@@ -40,6 +46,8 @@ class ModifyTaskInfoRequest extends Model
     public $stepName;
 
     /**
+     * @description The name of the action to perform. Specify the value of this parameter as the action name corresponding to the current state of the task. The action name can be obtained from the actionInfo parameter returned by the [DescribeHistoryTasks](~~2639186~~) operation.
+     *
      * @example modifySwitchTime
      *
      * @var string
@@ -47,6 +55,8 @@ class ModifyTaskInfoRequest extends Model
     public $taskAction;
 
     /**
+     * @description The task ID. Separate multiple IDs with commas (,). You can specify up to 10 task IDs.
+     *
      * @example t-83br18hlpdrw3uxxxx
      *
      * @var string

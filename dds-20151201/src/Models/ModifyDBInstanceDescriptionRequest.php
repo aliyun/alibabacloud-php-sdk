@@ -15,9 +15,9 @@ class ModifyDBInstanceDescriptionRequest extends Model
      *
      *   The name cannot start with `http://` or `https://`.
      *
-     *   The name must start with a letter.
+     *   It must start with a letter.
      *
-     *   The name must be 2 to 256 characters in length, and can contain letters, underscores (\_), hyphens (-), and digits.
+     *   It must be 2 to 256 characters in length, and can contain letters, underscores (\_), hyphens (-), and digits.
      *
      * @example testdata
      *
@@ -26,9 +26,9 @@ class ModifyDBInstanceDescriptionRequest extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance
+     * @description The instance ID.
      *
-     * > To modify the name of a shard or mongos node in a sharded cluster instance, you must also specify the **NodeId** parameter.
+     * >  To modify the name of a shard or mongos node in a sharded cluster instance, you must also specify the **NodeId** parameter.
      * @example dds-bp2234****
      *
      * @var string
@@ -38,7 +38,7 @@ class ModifyDBInstanceDescriptionRequest extends Model
     /**
      * @description The ID of the shard or mongos node in the sharded cluster instance.
      *
-     * > This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
+     * >  This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
      * @example d-bp89067****
      *
      * @var string

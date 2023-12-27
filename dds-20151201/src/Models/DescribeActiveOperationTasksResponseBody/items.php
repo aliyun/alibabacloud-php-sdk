@@ -59,7 +59,7 @@ class items extends Model
     /**
      * @description The time when the task was created.
      *
-     * @example 2021-07-14 10:48:43.0
+     * @example 2021-07-14 10:48:43
      *
      * @var string
      */
@@ -147,9 +147,9 @@ class items extends Model
     public $insName;
 
     /**
-     * @description The time when the task was modified. The time is displayed in the *yyyy-mm-dd*t*hh:mm:ss*z format. The time is displayed in UTC.
+     * @description The time when the task was modified. The time is displayed in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
-     * @example 2021-08-24T09:48:01.000+00:00
+     * @example 2022-12-24T09:48:01Z
      *
      * @var string
      */
@@ -183,9 +183,9 @@ class items extends Model
     public $resultInfo;
 
     /**
-     * @description The start time of the task. The time is displayed in the *yyyy-mm-dd*t*hh:mm:ss*z format. The time is displayed in UTC.
+     * @description The start time of the task. The time is displayed in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
-     * @example 2022-12-24T06:01Z
+     * @example 2022-12-24T06:01:05Z
      *
      * @var string
      */
@@ -208,7 +208,7 @@ class items extends Model
     public $subInsNames;
 
     /**
-     * @description The time when the task was interrupted. The time is displayed in the *yyyy-mm-dd*t*hh:mm:ss*z format. The time is displayed in Coordinated Universal Time (UTC).
+     * @description The time when the task was interrupted. The time is displayed in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in Coordinated Universal Time (UTC).
      *
      * @example 2022-11-24T11:20:00Z
      *

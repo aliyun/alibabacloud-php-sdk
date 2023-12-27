@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersResponseBody extends Model
 {
     /**
-     * @description The settings of parameters that are being configured.
+     * @description The parameter settings in the configuration template.
      *
      * @var configParameters
      */

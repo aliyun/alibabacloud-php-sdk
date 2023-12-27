@@ -36,12 +36,18 @@ class DescribeSecurityIpsRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var bool
+     */
+    public $showHDMIps;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'showHDMIps'           => 'ShowHDMIps',
     ];
 
     public function validate()
@@ -65,6 +71,9 @@ class DescribeSecurityIpsRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->showHDMIps) {
+            $res['ShowHDMIps'] = $this->showHDMIps;
         }
 
         return $res;
@@ -92,6 +101,9 @@ class DescribeSecurityIpsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ShowHDMIps'])) {
+            $model->showHDMIps = $map['ShowHDMIps'];
         }
 
         return $model;

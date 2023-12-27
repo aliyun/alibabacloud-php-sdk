@@ -44,7 +44,7 @@ class CreateShardingDBInstanceRequest extends Model
      *   **PostPaid** (default): pay-as-you-go
      *   **PrePaid**: subscription
      *
-     * > **Period** is required if you set the value of this parameter to **PrePaid**.
+     * >  If you set this parameter to **PrePaid**, you must also specify the **Period** parameter.
      * @example PrePaid
      *
      * @var string
@@ -81,12 +81,8 @@ class CreateShardingDBInstanceRequest extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description Specifies whether to encrypt the disk. Valid values:
+     * @description Specifies whether to enable disk encryption.
      *
-     *   true
-     *   false
-     *
-     * Default value: false.
      * @example true
      *
      * @var bool
@@ -121,12 +117,8 @@ class CreateShardingDBInstanceRequest extends Model
      *   **4.0**
      *   **3.4**
      *
-     * >
-     *
-     *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](~~61906~~).
-     *
-     *   If you call this operation to clone an instance, set the value of this parameter to the engine version of the source instance.
-     *
+     * > *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](~~61906~~).
+     * > *   If you call this operation to clone an instance, set the value of this parameter to the engine version of the source instance.
      * @example 4.4
      *
      * @var string
@@ -134,9 +126,9 @@ class CreateShardingDBInstanceRequest extends Model
     public $engineVersion;
 
     /**
-     * @description 实例的全局IP白名单模板，多个IP白名单模板请用英文逗号（,）分隔，不可重复。
+     * @description The global IP address whitelist template of the instance. Separate multiple templates with commas (,). The template name must be globally unique.
      *
-     * @example g-qxieqf40xjst1ngpr3jz
+     * @example g-qxieqf40xjst1ngp****
      *
      * @var string
      */
@@ -164,14 +156,9 @@ class CreateShardingDBInstanceRequest extends Model
      *   **eu-central-1b**: Frankfurt Zone B
      *   **eu-central-1c**: Frankfurt Zone C
      *
-     * >
-     *
-     *   This parameter is available and required if you set the value of **EngineVersion** to **4.4** or **5.0**.
-     *
-     *   The value of this parameter cannot be the same as the value of **ZoneId** or **SecondaryZoneId**.
-     *
-     *   For more information about the multi-zone deployment policy of a sharded cluster instance, see [Create a multi-zone sharded cluster instance](~~117865~~).
-     *
+     * > *   This parameter is available and required if you set the value of **EngineVersion** to **4.4** or **5.0**.
+     * > *   The value of this parameter cannot be the same as the value of **ZoneId** or **SecondaryZoneId**.
+     * > *   For more information about the multi-zone deployment policy of a sharded cluster instance, see [Create a multi-zone sharded cluster instance](~~117865~~).
      * @example cn-hangzhou-i
      *
      * @var string
@@ -188,7 +175,6 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @description The network type of the instance. Set the value to VPC.
      *
-     ****
      * @example VPC
      *
      * @var string
@@ -206,11 +192,11 @@ class CreateShardingDBInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The subscription period of the instance. Unit: month.
+     * @description The subscription period of the instance. Unit: months.
      *
-     * Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, and 60************************
+     * Valid values: **1** to **9**, **12**, **24**, **36**, and **60**.
      *
-     * > This parameter is available and required if you set the value of **ChargeType** to **PrePaid**.
+     * > When you set the **ChargeType** parameter to **PrePaid**, this parameter is valid and required.
      * @example 1
      *
      * @var int
@@ -230,6 +216,10 @@ class CreateShardingDBInstanceRequest extends Model
     public $protocolType;
 
     /**
+     * @description The provisioned IOPS. Valid values: 0 to 50000.
+     *
+     * @example 1960
+     *
      * @var int
      */
     public $provisionedIops;
@@ -244,7 +234,7 @@ class CreateShardingDBInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The shard nodes of the instance.
+     * @description The information of the shard node.
      *
      * @var replicaSet[]
      */
@@ -301,13 +291,9 @@ class CreateShardingDBInstanceRequest extends Model
      *   **eu-central-1b**: Frankfurt Zone B
      *   **eu-central-1c**: Frankfurt Zone C
      *
-     * >
-     *
-     *   This parameter is available and required if you set the value of **EngineVersion** to **4.4** or **5.0**.
-     *
-     *   The value of this parameter cannot be the same as the value of **ZoneId** or **HiddenZoneId**.
-     *   For more information about the multi-zone deployment policy of a sharded cluster instance, see [Create a multi-zone sharded cluster instance](~~117865~~).
-     *
+     * > *   This parameter is available and required if you set the value of **EngineVersion** to **4.4** or **5.0**.
+     * > *   The value of this parameter cannot be the same as the value of **ZoneId** or **HiddenZoneId**.
+     * > *   For more information about the multi-zone deployment policy of a sharded cluster instance, see [Create a multi-zone sharded cluster instance](~~117865~~).
      * @example cn-hangzhou-h
      *
      * @var string
@@ -321,12 +307,8 @@ class CreateShardingDBInstanceRequest extends Model
      *   IP addresses, such as 10.23.12.24.
      *   CIDR blocks, such as 10.23.12.0/24. In this case, 24 indicates that the prefix of each IP address is 24-bit long. You can replace 24 with a value within the range of 1 to 32.
      *
-     * >
-     *
-     *   A maximum of 1,000 IP addresses and CIDR blocks can be configured for each instance.
-     *
-     *   If you enter 0.0.0.0/0, all IP addresses can access the instance. This may introduce security risks to the instance. Proceed with caution.
-     *
+     * > *   A maximum of 1,000 IP addresses and CIDR blocks can be configured for each instance.
+     * > *   If you enter 0.0.0.0/0, all IP addresses can access the instance. This may introduce security risks to the instance. Proceed with caution.
      * @example 192.168.xx.xx,192.168.xx.xx
      *
      * @var string
@@ -346,12 +328,8 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @description The storage engine of the instance. Set the value to **WiredTiger**.
      *
-     * >
-     *
-     *   If you call this operation to clone an instance, set the value of this parameter to the storage engine of the source instance.
-     *
-     *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](~~61906~~).
-     *
+     * > *   If you call this operation to clone an instance, set the value of this parameter to the storage engine of the source instance.
+     * > *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](~~61906~~).
      * @example WiredTiger
      *
      * @var string
@@ -366,12 +344,8 @@ class CreateShardingDBInstanceRequest extends Model
      *   **cloud_essd3**: ESSD PL3
      *   **local_ssd**: local SSD
      *
-     * >
-     *
-     *   Instances of MongoDB 4.4 and later support only cloud disks. **cloud_essd1** is selected if you leave this parameter empty.
-     *
-     *   Instances of MongoDB 4.2 and earlier support only local disks. **local_ssd** is selected if you leave this parameter empty.
-     *
+     * > *   Instances of MongoDB 4.4 and later support only cloud disks. **cloud_essd1** is selected if you leave this parameter empty.
+     * > *   Instances of MongoDB 4.2 and earlier support only local disks. **local_ssd** is selected if you leave this parameter empty.
      * @example cloud_essd1
      *
      * @var string
@@ -379,12 +353,14 @@ class CreateShardingDBInstanceRequest extends Model
     public $storageType;
 
     /**
+     * @description The custom tags added to the instance.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The vSwitch ID.
+     * @description The vSwitch ID of the instance.
      *
      * @example vsw-bp1vj604nj5a9zz74****
      *
@@ -393,7 +369,7 @@ class CreateShardingDBInstanceRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The ID of the VPC.
      *
      * @example vpc-bp1n3i15v90el48nx****
      *

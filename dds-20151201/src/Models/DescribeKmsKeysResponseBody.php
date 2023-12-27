@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeKmsKeysResponseBody extends Model
 {
     /**
+     * @description The KMS keys.
+     *
      * @var kmsKeys[]
      */
     public $kmsKeys;
 
     /**
+     * @description The request ID.
+     *
      * @example 60EEBD77-227C-5B39-86EA-D89163C5****
      *
      * @var string

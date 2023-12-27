@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyAuditLogFilterRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example dds-bp12c5b040dc****
      *
@@ -18,7 +18,7 @@ class ModifyAuditLogFilterRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The type of the audit log entries to be collected. Valid values:
+     * @description The type of logs collected by the audit log feature of the instance. Separate multiple types with commas (,). Valid values:
      *
      *   **admin**: O\&M and management operations
      *   **slow**: slow query logs

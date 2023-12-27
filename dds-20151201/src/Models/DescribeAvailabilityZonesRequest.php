@@ -9,18 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailabilityZonesRequest extends Model
 {
     /**
-     * @description Specifies the language of the returned values of the **RegionName** and **ZoneName** parameters. Default value: zh. Valid values:
+     * @description The language of the returned values of the **RegionName** and **ZoneName** parameters. Default value: zh. Valid values:
      *
      *   **zh**: Chinese.
      *   **en**: English
      *
-     * @example zh
+     * @example en
      *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The instance type of the instance.
+     *
+     * @example dds.mongo.standard
+     *
      * @var string
      */
     public $DBInstanceClass;
@@ -38,16 +42,28 @@ class DescribeAvailabilityZonesRequest extends Model
     public $dbType;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     * @example 5.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The ID of the secondary zone that you want to exclude from the query results. You can configure both the ExcludeSecondaryZoneId and ExcludeZoneId parameters to filter multiple zones that you want to exclude from the query results.
+     *
+     * @example cn-shanghai-b
+     *
      * @var string
      */
     public $excludeSecondaryZoneId;
 
     /**
+     * @description The ID of the zone that you want to exclude from the query results.
+     *
+     * @example cn-shanghai-g
+     *
      * @var string
      */
     public $excludeZoneId;
@@ -128,12 +144,8 @@ class DescribeAvailabilityZonesRequest extends Model
      *   **cloud_essd3**: PL3 ESSD.
      *   **local_ssd**: local SSD.
      *
-     * >
-     *
-     *   Instances of MongoDB 4.4 and later only support cloud disks. **cloud_essd1** is selected if you leave this parameter empty.
-     *
-     *   Instances of MongoDB 4.2 and earlier support only local disks. **local_ssd** is selected if you leave this parameter empty.
-     *
+     * > *   Instances of MongoDB 4.4 and later only support cloud disks. **cloud_essd1** is selected if you leave this parameter empty.
+     * > *   Instances of MongoDB 4.2 and earlier support only local disks. **local_ssd** is selected if you leave this parameter empty.
      * @example local_ssd
      *
      * @var string
