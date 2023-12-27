@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $compressStorage;
+
+    /**
      * @example pc-*************
      *
      * @var string
@@ -66,6 +71,7 @@ class ModifyDBClusterRequest extends Model
      */
     public $storageUpperBound;
     protected $_name = [
+        'compressStorage'      => 'CompressStorage',
         'DBClusterId'          => 'DBClusterId',
         'dataSyncMode'         => 'DataSyncMode',
         'faultSimulateMode'    => 'FaultSimulateMode',
@@ -85,6 +91,9 @@ class ModifyDBClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->compressStorage) {
+            $res['CompressStorage'] = $this->compressStorage;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -127,6 +136,9 @@ class ModifyDBClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CompressStorage'])) {
+            $model->compressStorage = $map['CompressStorage'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }

@@ -77,6 +77,15 @@ class DescribeDBClustersRequest extends Model
     public $DBVersion;
 
     /**
+     * @description 查询方式，当取值为Simple时，将返回简略版参数
+     *
+     * @example Simple
+     *
+     * @var string
+     */
+    public $describeType;
+
+    /**
      * @description Specifies whether the cluster has expired. Valid values:
      *
      *   **true**
@@ -190,6 +199,7 @@ class DescribeDBClustersRequest extends Model
         'DBNodeIds'                => 'DBNodeIds',
         'DBType'                   => 'DBType',
         'DBVersion'                => 'DBVersion',
+        'describeType'             => 'DescribeType',
         'expired'                  => 'Expired',
         'ownerAccount'             => 'OwnerAccount',
         'ownerId'                  => 'OwnerId',
@@ -232,6 +242,9 @@ class DescribeDBClustersRequest extends Model
         }
         if (null !== $this->DBVersion) {
             $res['DBVersion'] = $this->DBVersion;
+        }
+        if (null !== $this->describeType) {
+            $res['DescribeType'] = $this->describeType;
         }
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
@@ -310,6 +323,9 @@ class DescribeDBClustersRequest extends Model
         }
         if (isset($map['DBVersion'])) {
             $model->DBVersion = $map['DBVersion'];
+        }
+        if (isset($map['DescribeType'])) {
+            $model->describeType = $map['DescribeType'];
         }
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];

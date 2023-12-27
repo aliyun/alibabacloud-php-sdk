@@ -67,6 +67,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $compressStorageMode;
 
     /**
+     * @var int
+     */
+    public $compressStorageUsed;
+
+    /**
      * @description The time when the cluster was created.
      *
      * @example 2020-08-14T05:58:42Z
@@ -531,6 +536,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'blktagUsed'                => 'BlktagUsed',
         'category'                  => 'Category',
         'compressStorageMode'       => 'CompressStorageMode',
+        'compressStorageUsed'       => 'CompressStorageUsed',
         'creationTime'              => 'CreationTime',
         'DBClusterDescription'      => 'DBClusterDescription',
         'DBClusterId'               => 'DBClusterId',
@@ -604,6 +610,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (null !== $this->compressStorageMode) {
             $res['CompressStorageMode'] = $this->compressStorageMode;
+        }
+        if (null !== $this->compressStorageUsed) {
+            $res['CompressStorageUsed'] = $this->compressStorageUsed;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
@@ -787,6 +796,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (isset($map['CompressStorageMode'])) {
             $model->compressStorageMode = $map['CompressStorageMode'];
+        }
+        if (isset($map['CompressStorageUsed'])) {
+            $model->compressStorageUsed = $map['CompressStorageUsed'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];

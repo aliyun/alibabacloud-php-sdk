@@ -4136,6 +4136,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->DBVersion)) {
             $query['DBVersion'] = $request->DBVersion;
         }
+        if (!Utils::isUnset($request->describeType)) {
+            $query['DescribeType'] = $request->describeType;
+        }
         if (!Utils::isUnset($request->expired)) {
             $query['Expired'] = $request->expired;
         }
@@ -6963,6 +6966,9 @@ class Polardb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->compressStorage)) {
+            $query['CompressStorage'] = $request->compressStorage;
+        }
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
