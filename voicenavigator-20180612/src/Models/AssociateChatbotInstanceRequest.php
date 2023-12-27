@@ -35,12 +35,18 @@ class AssociateChatbotInstanceRequest extends Model
     /**
      * @var string
      */
+    public $nluServiceType;
+
+    /**
+     * @var string
+     */
     public $unionSource;
     protected $_name = [
         'chatbotInstanceId'    => 'ChatbotInstanceId',
         'chatbotName'          => 'ChatbotName',
         'instanceId'           => 'InstanceId',
         'nluServiceParamsJson' => 'NluServiceParamsJson',
+        'nluServiceType'       => 'NluServiceType',
         'unionSource'          => 'UnionSource',
     ];
 
@@ -62,6 +68,9 @@ class AssociateChatbotInstanceRequest extends Model
         }
         if (null !== $this->nluServiceParamsJson) {
             $res['NluServiceParamsJson'] = $this->nluServiceParamsJson;
+        }
+        if (null !== $this->nluServiceType) {
+            $res['NluServiceType'] = $this->nluServiceType;
         }
         if (null !== $this->unionSource) {
             $res['UnionSource'] = $this->unionSource;
@@ -89,6 +98,9 @@ class AssociateChatbotInstanceRequest extends Model
         }
         if (isset($map['NluServiceParamsJson'])) {
             $model->nluServiceParamsJson = $map['NluServiceParamsJson'];
+        }
+        if (isset($map['NluServiceType'])) {
+            $model->nluServiceType = $map['NluServiceType'];
         }
         if (isset($map['UnionSource'])) {
             $model->unionSource = $map['UnionSource'];

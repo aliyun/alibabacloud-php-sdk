@@ -149,6 +149,9 @@ class VoiceNavigator extends OpenApiClient
         if (!Utils::isUnset($request->nluServiceParamsJson)) {
             $query['NluServiceParamsJson'] = $request->nluServiceParamsJson;
         }
+        if (!Utils::isUnset($request->nluServiceType)) {
+            $query['NluServiceType'] = $request->nluServiceType;
+        }
         if (!Utils::isUnset($request->unionSource)) {
             $query['UnionSource'] = $request->unionSource;
         }
