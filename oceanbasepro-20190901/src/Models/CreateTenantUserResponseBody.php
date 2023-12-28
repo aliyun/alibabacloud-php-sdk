@@ -21,7 +21,7 @@ class CreateTenantUserResponseBody extends Model
     /**
      * @description The list of database accounts in the tenant.
      *
-     * @var tenantUser[]
+     * @var tenantUser
      */
     public $tenantUser;
     protected $_name = [
@@ -40,13 +40,7 @@ class CreateTenantUserResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->tenantUser) {
-            $res['TenantUser'] = [];
-            if (null !== $this->tenantUser && \is_array($this->tenantUser)) {
-                $n = 0;
-                foreach ($this->tenantUser as $item) {
-                    $res['TenantUser'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['TenantUser'] = null !== $this->tenantUser ? $this->tenantUser->toMap() : null;
         }
 
         return $res;
@@ -64,13 +58,7 @@ class CreateTenantUserResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['TenantUser'])) {
-            if (!empty($map['TenantUser'])) {
-                $model->tenantUser = [];
-                $n                 = 0;
-                foreach ($map['TenantUser'] as $item) {
-                    $model->tenantUser[$n++] = null !== $item ? tenantUser::fromMap($item) : $item;
-                }
-            }
+            $model->tenantUser = tenantUser::fromMap($map['TenantUser']);
         }
 
         return $model;

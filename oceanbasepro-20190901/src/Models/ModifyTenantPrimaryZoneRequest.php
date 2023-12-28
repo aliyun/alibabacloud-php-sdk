@@ -39,6 +39,11 @@ class ModifyTenantPrimaryZoneRequest extends Model
     public $primaryZone;
 
     /**
+     * @var string
+     */
+    public $tenantEndpointDirectId;
+
+    /**
      * @example obe-4tw51gp7****
      *
      * @var string
@@ -55,6 +60,11 @@ class ModifyTenantPrimaryZoneRequest extends Model
     public $tenantId;
 
     /**
+     * @var string
+     */
+    public $userDirectVSwitchId;
+
+    /**
      * @description The request ID.
      *
      * @example vsw-xxx
@@ -66,8 +76,10 @@ class ModifyTenantPrimaryZoneRequest extends Model
         'instanceId'                => 'InstanceId',
         'masterIntranetAddressZone' => 'MasterIntranetAddressZone',
         'primaryZone'               => 'PrimaryZone',
+        'tenantEndpointDirectId'    => 'TenantEndpointDirectId',
         'tenantEndpointId'          => 'TenantEndpointId',
         'tenantId'                  => 'TenantId',
+        'userDirectVSwitchId'       => 'UserDirectVSwitchId',
         'userVSwitchId'             => 'UserVSwitchId',
     ];
 
@@ -87,11 +99,17 @@ class ModifyTenantPrimaryZoneRequest extends Model
         if (null !== $this->primaryZone) {
             $res['PrimaryZone'] = $this->primaryZone;
         }
+        if (null !== $this->tenantEndpointDirectId) {
+            $res['TenantEndpointDirectId'] = $this->tenantEndpointDirectId;
+        }
         if (null !== $this->tenantEndpointId) {
             $res['TenantEndpointId'] = $this->tenantEndpointId;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+        if (null !== $this->userDirectVSwitchId) {
+            $res['UserDirectVSwitchId'] = $this->userDirectVSwitchId;
         }
         if (null !== $this->userVSwitchId) {
             $res['UserVSwitchId'] = $this->userVSwitchId;
@@ -117,11 +135,17 @@ class ModifyTenantPrimaryZoneRequest extends Model
         if (isset($map['PrimaryZone'])) {
             $model->primaryZone = $map['PrimaryZone'];
         }
+        if (isset($map['TenantEndpointDirectId'])) {
+            $model->tenantEndpointDirectId = $map['TenantEndpointDirectId'];
+        }
         if (isset($map['TenantEndpointId'])) {
             $model->tenantEndpointId = $map['TenantEndpointId'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+        if (isset($map['UserDirectVSwitchId'])) {
+            $model->userDirectVSwitchId = $map['UserDirectVSwitchId'];
         }
         if (isset($map['UserVSwitchId'])) {
             $model->userVSwitchId = $map['UserVSwitchId'];

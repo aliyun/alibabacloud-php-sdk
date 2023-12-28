@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceTemporaryCapacityRequest extends Model
 {
     /**
+     * @example zh-CN
+     *
+     * @var string
+     */
+    public $acceptLanguage;
+
+    /**
+     * @description The disk size. Unit: GB.
+     *
      * @example 400
      *
      * @var string
@@ -16,6 +25,8 @@ class ModifyInstanceTemporaryCapacityRequest extends Model
     public $diskSize;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -23,15 +34,18 @@ class ModifyInstanceTemporaryCapacityRequest extends Model
     public $instanceId;
 
     /**
+     * @description Specification.
+     *
      * @example oceanbase.cluster.i2.small
      *
      * @var string
      */
     public $spec;
     protected $_name = [
-        'diskSize'   => 'DiskSize',
-        'instanceId' => 'InstanceId',
-        'spec'       => 'Spec',
+        'acceptLanguage' => 'AcceptLanguage',
+        'diskSize'       => 'DiskSize',
+        'instanceId'     => 'InstanceId',
+        'spec'           => 'Spec',
     ];
 
     public function validate()
@@ -41,6 +55,9 @@ class ModifyInstanceTemporaryCapacityRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
         }
@@ -62,6 +79,9 @@ class ModifyInstanceTemporaryCapacityRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
         }

@@ -51,6 +51,11 @@ class DescribeMetricsDataRequest extends Model
     public $metrics;
 
     /**
+     * @var string
+     */
+    public $replicaType;
+
+    /**
      * @example tps
      *
      * @var string
@@ -77,6 +82,7 @@ class DescribeMetricsDataRequest extends Model
         'labels'        => 'Labels',
         'limit'         => 'Limit',
         'metrics'       => 'Metrics',
+        'replicaType'   => 'ReplicaType',
         'sortMetricKey' => 'SortMetricKey',
         'sortOrder'     => 'SortOrder',
         'startTime'     => 'StartTime',
@@ -106,6 +112,9 @@ class DescribeMetricsDataRequest extends Model
         }
         if (null !== $this->metrics) {
             $res['Metrics'] = $this->metrics;
+        }
+        if (null !== $this->replicaType) {
+            $res['ReplicaType'] = $this->replicaType;
         }
         if (null !== $this->sortMetricKey) {
             $res['SortMetricKey'] = $this->sortMetricKey;
@@ -145,6 +154,9 @@ class DescribeMetricsDataRequest extends Model
         }
         if (isset($map['Metrics'])) {
             $model->metrics = $map['Metrics'];
+        }
+        if (isset($map['ReplicaType'])) {
+            $model->replicaType = $map['ReplicaType'];
         }
         if (isset($map['SortMetricKey'])) {
             $model->sortMetricKey = $map['SortMetricKey'];

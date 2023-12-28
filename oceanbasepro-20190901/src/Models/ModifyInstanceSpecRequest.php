@@ -16,6 +16,13 @@ class ModifyInstanceSpecRequest extends Model
     public $diskSize;
 
     /**
+     * @example cloud_essd_pl1
+     *
+     * @var string
+     */
+    public $diskType;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -35,6 +42,7 @@ class ModifyInstanceSpecRequest extends Model
     public $instanceId;
     protected $_name = [
         'diskSize'      => 'DiskSize',
+        'diskType'      => 'DiskType',
         'dryRun'        => 'DryRun',
         'instanceClass' => 'InstanceClass',
         'instanceId'    => 'InstanceId',
@@ -49,6 +57,9 @@ class ModifyInstanceSpecRequest extends Model
         $res = [];
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
+        }
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
@@ -73,6 +84,9 @@ class ModifyInstanceSpecRequest extends Model
         $model = new self();
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
+        }
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];

@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance\resource;
+namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance\readOnlyResource;
 
 use AlibabaCloud\Tea\Model;
 
@@ -24,13 +24,6 @@ class logDiskSize extends Model
     public $maxLogAssignedPercent;
 
     /**
-     * @var int
-     */
-    public $originalTotalDiskSize;
-
-    /**
-     * @description The ID of the region.
-     *
      * @example 400
      *
      * @var int
@@ -38,8 +31,6 @@ class logDiskSize extends Model
     public $totalDiskSize;
 
     /**
-     * @description The request ID.
-     *
      * @example 200
      *
      * @var int
@@ -49,7 +40,6 @@ class logDiskSize extends Model
         'logAssignedSize'        => 'LogAssignedSize',
         'maxLogAssignedObServer' => 'MaxLogAssignedObServer',
         'maxLogAssignedPercent'  => 'MaxLogAssignedPercent',
-        'originalTotalDiskSize'  => 'OriginalTotalDiskSize',
         'totalDiskSize'          => 'TotalDiskSize',
         'unitDiskSize'           => 'UnitDiskSize',
     ];
@@ -69,9 +59,6 @@ class logDiskSize extends Model
         }
         if (null !== $this->maxLogAssignedPercent) {
             $res['MaxLogAssignedPercent'] = $this->maxLogAssignedPercent;
-        }
-        if (null !== $this->originalTotalDiskSize) {
-            $res['OriginalTotalDiskSize'] = $this->originalTotalDiskSize;
         }
         if (null !== $this->totalDiskSize) {
             $res['TotalDiskSize'] = $this->totalDiskSize;
@@ -101,9 +88,6 @@ class logDiskSize extends Model
         }
         if (isset($map['MaxLogAssignedPercent'])) {
             $model->maxLogAssignedPercent = $map['MaxLogAssignedPercent'];
-        }
-        if (isset($map['OriginalTotalDiskSize'])) {
-            $model->originalTotalDiskSize = $map['OriginalTotalDiskSize'];
         }
         if (isset($map['TotalDiskSize'])) {
             $model->totalDiskSize = $map['TotalDiskSize'];

@@ -16,6 +16,11 @@ class availableSpecifications extends Model
     public $diskSizeRange;
 
     /**
+     * @var string[]
+     */
+    public $diskTypes;
+
+    /**
      * @example 4C16GB
      *
      * @var string
@@ -40,6 +45,7 @@ class availableSpecifications extends Model
     public $spec;
     protected $_name = [
         'diskSizeRange'    => 'DiskSizeRange',
+        'diskTypes'        => 'DiskTypes',
         'instanceClass'    => 'InstanceClass',
         'logDiskSizeRange' => 'LogDiskSizeRange',
         'nodeNum'          => 'NodeNum',
@@ -55,6 +61,9 @@ class availableSpecifications extends Model
         $res = [];
         if (null !== $this->diskSizeRange) {
             $res['DiskSizeRange'] = null !== $this->diskSizeRange ? $this->diskSizeRange->toMap() : null;
+        }
+        if (null !== $this->diskTypes) {
+            $res['DiskTypes'] = $this->diskTypes;
         }
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
@@ -82,6 +91,11 @@ class availableSpecifications extends Model
         $model = new self();
         if (isset($map['DiskSizeRange'])) {
             $model->diskSizeRange = diskSizeRange::fromMap($map['DiskSizeRange']);
+        }
+        if (isset($map['DiskTypes'])) {
+            if (!empty($map['DiskTypes'])) {
+                $model->diskTypes = $map['DiskTypes'];
+            }
         }
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];

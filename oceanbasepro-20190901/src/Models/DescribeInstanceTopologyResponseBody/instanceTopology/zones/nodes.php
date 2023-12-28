@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @var int
+     */
+    public $fullCopyId;
+
+    /**
      * @description The information of zones.
      *
      * @example 1
@@ -42,11 +47,24 @@ class nodes extends Model
      * @var string
      */
     public $nodeStatus;
+
+    /**
+     * @var int
+     */
+    public $readOnlyCopyId;
+
+    /**
+     * @var string
+     */
+    public $replicaType;
     protected $_name = [
-        'nodeCopyId'   => 'NodeCopyId',
-        'nodeId'       => 'NodeId',
-        'nodeResource' => 'NodeResource',
-        'nodeStatus'   => 'NodeStatus',
+        'fullCopyId'     => 'FullCopyId',
+        'nodeCopyId'     => 'NodeCopyId',
+        'nodeId'         => 'NodeId',
+        'nodeResource'   => 'NodeResource',
+        'nodeStatus'     => 'NodeStatus',
+        'readOnlyCopyId' => 'ReadOnlyCopyId',
+        'replicaType'    => 'ReplicaType',
     ];
 
     public function validate()
@@ -56,6 +74,9 @@ class nodes extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fullCopyId) {
+            $res['FullCopyId'] = $this->fullCopyId;
+        }
         if (null !== $this->nodeCopyId) {
             $res['NodeCopyId'] = $this->nodeCopyId;
         }
@@ -74,6 +95,12 @@ class nodes extends Model
         if (null !== $this->nodeStatus) {
             $res['NodeStatus'] = $this->nodeStatus;
         }
+        if (null !== $this->readOnlyCopyId) {
+            $res['ReadOnlyCopyId'] = $this->readOnlyCopyId;
+        }
+        if (null !== $this->replicaType) {
+            $res['ReplicaType'] = $this->replicaType;
+        }
 
         return $res;
     }
@@ -86,6 +113,9 @@ class nodes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FullCopyId'])) {
+            $model->fullCopyId = $map['FullCopyId'];
+        }
         if (isset($map['NodeCopyId'])) {
             $model->nodeCopyId = $map['NodeCopyId'];
         }
@@ -103,6 +133,12 @@ class nodes extends Model
         }
         if (isset($map['NodeStatus'])) {
             $model->nodeStatus = $map['NodeStatus'];
+        }
+        if (isset($map['ReadOnlyCopyId'])) {
+            $model->readOnlyCopyId = $map['ReadOnlyCopyId'];
+        }
+        if (isset($map['ReplicaType'])) {
+            $model->replicaType = $map['ReplicaType'];
         }
 
         return $model;

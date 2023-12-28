@@ -109,6 +109,20 @@ class CreateInstanceRequest extends Model
     public $periodUnit;
 
     /**
+     * @example ob3h8ytroxxxxx
+     *
+     * @var string
+     */
+    public $primaryInstance;
+
+    /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $primaryRegion;
+
+    /**
      * @example 3
      *
      * @var string
@@ -154,6 +168,8 @@ class CreateInstanceRequest extends Model
         'obVersion'             => 'ObVersion',
         'period'                => 'Period',
         'periodUnit'            => 'PeriodUnit',
+        'primaryInstance'       => 'PrimaryInstance',
+        'primaryRegion'         => 'PrimaryRegion',
         'replicaMode'           => 'ReplicaMode',
         'resourceGroupId'       => 'ResourceGroupId',
         'series'                => 'Series',
@@ -202,6 +218,12 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
+        }
+        if (null !== $this->primaryInstance) {
+            $res['PrimaryInstance'] = $this->primaryInstance;
+        }
+        if (null !== $this->primaryRegion) {
+            $res['PrimaryRegion'] = $this->primaryRegion;
         }
         if (null !== $this->replicaMode) {
             $res['ReplicaMode'] = $this->replicaMode;
@@ -262,6 +284,12 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+        if (isset($map['PrimaryInstance'])) {
+            $model->primaryInstance = $map['PrimaryInstance'];
+        }
+        if (isset($map['PrimaryRegion'])) {
+            $model->primaryRegion = $map['PrimaryRegion'];
         }
         if (isset($map['ReplicaMode'])) {
             $model->replicaMode = $map['ReplicaMode'];

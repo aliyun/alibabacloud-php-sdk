@@ -388,6 +388,12 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->periodUnit)) {
             $body['PeriodUnit'] = $request->periodUnit;
         }
+        if (!Utils::isUnset($request->primaryInstance)) {
+            $body['PrimaryInstance'] = $request->primaryInstance;
+        }
+        if (!Utils::isUnset($request->primaryRegion)) {
+            $body['PrimaryRegion'] = $request->primaryRegion;
+        }
         if (!Utils::isUnset($request->replicaMode)) {
             $body['ReplicaMode'] = $request->replicaMode;
         }
@@ -2417,8 +2423,13 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
+        $body = [];
+        if (!Utils::isUnset($request->replicaType)) {
+            $body['ReplicaType'] = $request->replicaType;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeMetricsData',
@@ -5234,6 +5245,9 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->diskSize)) {
             $body['DiskSize'] = $request->diskSize;
         }
+        if (!Utils::isUnset($request->diskType)) {
+            $body['DiskType'] = $request->diskType;
+        }
         if (!Utils::isUnset($request->dryRun)) {
             $body['DryRun'] = $request->dryRun;
         }
@@ -5329,6 +5343,9 @@ class OceanBasePro extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $body['AcceptLanguage'] = $request->acceptLanguage;
+        }
         if (!Utils::isUnset($request->diskSize)) {
             $body['DiskSize'] = $request->diskSize;
         }
@@ -5540,11 +5557,17 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->primaryZone)) {
             $body['PrimaryZone'] = $request->primaryZone;
         }
+        if (!Utils::isUnset($request->tenantEndpointDirectId)) {
+            $body['TenantEndpointDirectId'] = $request->tenantEndpointDirectId;
+        }
         if (!Utils::isUnset($request->tenantEndpointId)) {
             $body['TenantEndpointId'] = $request->tenantEndpointId;
         }
         if (!Utils::isUnset($request->tenantId)) {
             $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->userDirectVSwitchId)) {
+            $body['UserDirectVSwitchId'] = $request->userDirectVSwitchId;
         }
         if (!Utils::isUnset($request->userVSwitchId)) {
             $body['UserVSwitchId'] = $request->userVSwitchId;

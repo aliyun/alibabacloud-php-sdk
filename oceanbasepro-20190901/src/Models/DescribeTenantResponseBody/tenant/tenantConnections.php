@@ -18,6 +18,11 @@ class tenantConnections extends Model
     public $addressType;
 
     /**
+     * @var string
+     */
+    public $connectionReplicaType;
+
+    /**
      * @description The Internet address for accessing the tenant.
      *
      * @example ["cn-hangzhou-i", "cn-hangzhou-j"]
@@ -150,6 +155,7 @@ class tenantConnections extends Model
     public $vpcId;
     protected $_name = [
         'addressType'                 => 'AddressType',
+        'connectionReplicaType'       => 'ConnectionReplicaType',
         'connectionZones'             => 'ConnectionZones',
         'enableTransactionSplit'      => 'EnableTransactionSplit',
         'internetAddress'             => 'InternetAddress',
@@ -177,6 +183,9 @@ class tenantConnections extends Model
         $res = [];
         if (null !== $this->addressType) {
             $res['AddressType'] = $this->addressType;
+        }
+        if (null !== $this->connectionReplicaType) {
+            $res['ConnectionReplicaType'] = $this->connectionReplicaType;
         }
         if (null !== $this->connectionZones) {
             $res['ConnectionZones'] = $this->connectionZones;
@@ -240,6 +249,9 @@ class tenantConnections extends Model
         $model = new self();
         if (isset($map['AddressType'])) {
             $model->addressType = $map['AddressType'];
+        }
+        if (isset($map['ConnectionReplicaType'])) {
+            $model->connectionReplicaType = $map['ConnectionReplicaType'];
         }
         if (isset($map['ConnectionZones'])) {
             if (!empty($map['ConnectionZones'])) {

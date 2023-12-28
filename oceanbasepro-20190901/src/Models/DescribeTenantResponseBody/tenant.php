@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantResponseBody;
 
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantResponseBody\tenant\readOnlyResource;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantResponseBody\tenant\tenantConnections;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantResponseBody\tenant\tenantResource;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantResponseBody\tenant\tenantZones;
@@ -53,6 +54,11 @@ class tenant extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $dataMergeTime;
 
     /**
      * @description The list of zones.
@@ -192,6 +198,11 @@ class tenant extends Model
     public $primaryZoneDeployType;
 
     /**
+     * @var readOnlyResource
+     */
+    public $readOnlyResource;
+
+    /**
      * @description <DescribeTenantResponse>
      * <Tenant>
      * <TenantId>t33h8y08k****</TenantId>
@@ -287,6 +298,7 @@ class tenant extends Model
         'clogServiceStatus'            => 'ClogServiceStatus',
         'collation'                    => 'Collation',
         'createTime'                   => 'CreateTime',
+        'dataMergeTime'                => 'DataMergeTime',
         'deployMode'                   => 'DeployMode',
         'deployType'                   => 'DeployType',
         'description'                  => 'Description',
@@ -302,6 +314,7 @@ class tenant extends Model
         'payType'                      => 'PayType',
         'primaryZone'                  => 'PrimaryZone',
         'primaryZoneDeployType'        => 'PrimaryZoneDeployType',
+        'readOnlyResource'             => 'ReadOnlyResource',
         'series'                       => 'Series',
         'status'                       => 'Status',
         'tenantConnections'            => 'TenantConnections',
@@ -335,6 +348,9 @@ class tenant extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->dataMergeTime) {
+            $res['DataMergeTime'] = $this->dataMergeTime;
         }
         if (null !== $this->deployMode) {
             $res['DeployMode'] = $this->deployMode;
@@ -380,6 +396,9 @@ class tenant extends Model
         }
         if (null !== $this->primaryZoneDeployType) {
             $res['PrimaryZoneDeployType'] = $this->primaryZoneDeployType;
+        }
+        if (null !== $this->readOnlyResource) {
+            $res['ReadOnlyResource'] = null !== $this->readOnlyResource ? $this->readOnlyResource->toMap() : null;
         }
         if (null !== $this->series) {
             $res['Series'] = $this->series;
@@ -452,6 +471,9 @@ class tenant extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['DataMergeTime'])) {
+            $model->dataMergeTime = $map['DataMergeTime'];
+        }
         if (isset($map['DeployMode'])) {
             $model->deployMode = $map['DeployMode'];
         }
@@ -496,6 +518,9 @@ class tenant extends Model
         }
         if (isset($map['PrimaryZoneDeployType'])) {
             $model->primaryZoneDeployType = $map['PrimaryZoneDeployType'];
+        }
+        if (isset($map['ReadOnlyResource'])) {
+            $model->readOnlyResource = readOnlyResource::fromMap($map['ReadOnlyResource']);
         }
         if (isset($map['Series'])) {
             $model->series = $map['Series'];

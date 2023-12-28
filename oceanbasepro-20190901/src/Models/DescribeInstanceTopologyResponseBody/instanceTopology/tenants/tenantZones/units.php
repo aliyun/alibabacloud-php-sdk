@@ -45,6 +45,11 @@ class units extends Model
     public $nodeId;
 
     /**
+     * @var string
+     */
+    public $replicaType;
+
+    /**
      * @description Alibaba Cloud CLI
      *
      * @example 2
@@ -93,6 +98,7 @@ class units extends Model
         'enableMigrateUnit'       => 'EnableMigrateUnit',
         'manualMigrate'           => 'ManualMigrate',
         'nodeId'                  => 'NodeId',
+        'replicaType'             => 'ReplicaType',
         'unitCpu'                 => 'UnitCpu',
         'unitDataSize'            => 'UnitDataSize',
         'unitId'                  => 'UnitId',
@@ -118,6 +124,9 @@ class units extends Model
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->replicaType) {
+            $res['ReplicaType'] = $this->replicaType;
         }
         if (null !== $this->unitCpu) {
             $res['UnitCpu'] = $this->unitCpu;
@@ -157,6 +166,9 @@ class units extends Model
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['ReplicaType'])) {
+            $model->replicaType = $map['ReplicaType'];
         }
         if (isset($map['UnitCpu'])) {
             $model->unitCpu = $map['UnitCpu'];

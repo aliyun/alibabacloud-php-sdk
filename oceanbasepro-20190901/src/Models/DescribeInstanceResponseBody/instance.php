@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody;
 
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance\dataDiskAutoScaleConfig;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance\readOnlyResource;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance\resource;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance\tenantCreatable;
 use AlibabaCloud\Tea\Model;
@@ -225,6 +226,11 @@ class instance extends Model
     public $proxyServiceStatus;
 
     /**
+     * @var readOnlyResource
+     */
+    public $readOnlyResource;
+
+    /**
      * @var string
      */
     public $replicaMode;
@@ -302,6 +308,7 @@ class instance extends Model
         'payType'                     => 'PayType',
         'proxyClusterId'              => 'ProxyClusterId',
         'proxyServiceStatus'          => 'ProxyServiceStatus',
+        'readOnlyResource'            => 'ReadOnlyResource',
         'replicaMode'                 => 'ReplicaMode',
         'resource'                    => 'Resource',
         'series'                      => 'Series',
@@ -404,6 +411,9 @@ class instance extends Model
         }
         if (null !== $this->proxyServiceStatus) {
             $res['ProxyServiceStatus'] = $this->proxyServiceStatus;
+        }
+        if (null !== $this->readOnlyResource) {
+            $res['ReadOnlyResource'] = null !== $this->readOnlyResource ? $this->readOnlyResource->toMap() : null;
         }
         if (null !== $this->replicaMode) {
             $res['ReplicaMode'] = $this->replicaMode;
@@ -526,6 +536,9 @@ class instance extends Model
         }
         if (isset($map['ProxyServiceStatus'])) {
             $model->proxyServiceStatus = $map['ProxyServiceStatus'];
+        }
+        if (isset($map['ReadOnlyResource'])) {
+            $model->readOnlyResource = readOnlyResource::fromMap($map['ReadOnlyResource']);
         }
         if (isset($map['ReplicaMode'])) {
             $model->replicaMode = $map['ReplicaMode'];
