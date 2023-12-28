@@ -11,6 +11,9 @@ use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\CreateResourceRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\CreateResourceResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\DeleteResourceRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\DeleteResourceResponse;
+use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetPriceRequest;
+use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetPriceResponse;
+use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetPriceShrinkRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetResourcesRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetResourcesResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetResourcesShrinkRequest;
@@ -209,6 +212,62 @@ class Cloudcontrol extends OpenApiClient
         $headers = [];
 
         return $this->deleteResourceWithOptions($requestPath, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string          $requestPath
+     * @param GetPriceRequest $tmpReq
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetPriceResponse
+     */
+    public function getPriceWithOptions($requestPath, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetPriceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceAttributes)) {
+            $request->resourceAttributesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceAttributes, 'resourceAttributes', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceAttributesShrink)) {
+            $query['resourceAttributes'] = $request->resourceAttributesShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPrice',
+            'version'     => '2022-08-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '' . $requestPath . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string          $requestPath
+     * @param GetPriceRequest $request
+     *
+     * @return GetPriceResponse
+     */
+    public function getPrice($requestPath, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPriceWithOptions($requestPath, $request, $headers, $runtime);
     }
 
     /**
