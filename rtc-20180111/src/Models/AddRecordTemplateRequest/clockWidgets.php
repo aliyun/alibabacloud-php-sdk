@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class clockWidgets extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $fontColor;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $fontSize;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $fontType;
 
     /**
+     * @example 0.7576
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example 0.7576
+     *
      * @var float
      */
     public $y;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $ZOrder;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteChannelRequest extends Model
 {
     /**
+     * @example eo85****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example testid
+     *
      * @var string
      */
     public $channelId;

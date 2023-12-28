@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordTemplatesResponseBody extends Model
 {
     /**
+     * @example C292B80E-5175-4BA4-8CC292B80E-5175-4BA4-8C1E-2ABEC4D7C2FE1E-2ABEC4D7****
+     *
      * @var string
      */
     public $requestId;
@@ -20,11 +22,15 @@ class DescribeRecordTemplatesResponseBody extends Model
     public $templates;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPage;

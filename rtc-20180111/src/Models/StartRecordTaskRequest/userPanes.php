@@ -16,11 +16,15 @@ class userPanes extends Model
     public $images;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $paneId;
 
     /**
+     * @example camera
+     *
      * @var string
      */
     public $sourceType;
@@ -31,6 +35,8 @@ class userPanes extends Model
     public $texts;
 
     /**
+     * @example TestId
+     *
      * @var string
      */
     public $userId;

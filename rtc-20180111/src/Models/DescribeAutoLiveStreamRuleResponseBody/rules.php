@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @example http://example.com/callBack
+     *
      * @var string
      */
     public $callBack;
@@ -24,31 +26,43 @@ class rules extends Model
     public $channelIds;
 
     /**
+     * @example 2021-08-19T02:53:07Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $mediaEncode;
 
     /**
+     * @example rtmp://${domain}/${app}/${stream}
+     *
      * @var string
      */
     public $playDomain;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @example testRule
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example disable
+     *
      * @var string
      */
     public $status;

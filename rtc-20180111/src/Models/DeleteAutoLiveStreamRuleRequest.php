@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAutoLiveStreamRuleRequest extends Model
 {
     /**
+     * @example eo85****
+     *
      * @var string
      */
     public $appId;
@@ -19,6 +21,8 @@ class DeleteAutoLiveStreamRuleRequest extends Model
     public $ownerId;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $ruleId;

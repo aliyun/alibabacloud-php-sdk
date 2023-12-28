@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteMPULayoutRequest extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $layoutId;

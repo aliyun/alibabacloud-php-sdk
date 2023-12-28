@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class recordFiles extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example yourChannelId
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example 2020-10-02T17:36:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1800
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @example 2020-11-01T17:36:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 2020-11-02T17:36:00Z
+     *
      * @var string
      */
     public $stopTime;
 
     /**
+     * @example yourTaskId
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example http://rtc-demo.oss-cn-****.aliyuncs.com/record/10-15-1/****\/record-002_yourTaskId/example.m3u8
+     *
      * @var string
      */
     public $url;

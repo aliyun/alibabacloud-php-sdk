@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelParticipantsRequest extends Model
 {
     /**
+     * @example aec****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example testId
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $order;
@@ -29,11 +35,15 @@ class DescribeChannelParticipantsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

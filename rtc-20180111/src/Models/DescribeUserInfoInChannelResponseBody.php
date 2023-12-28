@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserInfoInChannelResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isChannelExist;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isInChannel;
@@ -25,11 +29,15 @@ class DescribeUserInfoInChannelResponseBody extends Model
     public $property;
 
     /**
+     * @example 6159ba01-6687-4fb2-a831-f0cd8d188648
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1557909133
+     *
      * @var int
      */
     public $timestamp;

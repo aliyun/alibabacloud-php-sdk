@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class app extends Model
 {
     /**
+     * @example rgf1****"
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example Default AppName
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example universal
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @example paybyduration
+     *
      * @var string
      */
     public $billType;
 
     /**
+     * @example 2020-01-09T02:02:29Z
+     *
      * @var string
      */
     public $createTime;
@@ -45,6 +55,8 @@ class app extends Model
     public $serviceAreas;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

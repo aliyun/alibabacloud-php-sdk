@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class layout extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $audioMixCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $layoutId;
 
     /**
+     * @example LayoutName
+     *
      * @var string
      */
     public $name;

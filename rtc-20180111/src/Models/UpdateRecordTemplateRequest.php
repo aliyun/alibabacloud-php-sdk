@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateRecordTemplateRequest extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $backgroundColor;
@@ -32,41 +36,57 @@ class UpdateRecordTemplateRequest extends Model
     public $clockWidgets;
 
     /**
+     * @example 180
+     *
      * @var int
      */
     public $delayStopTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableM3u8DateTime;
 
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $fileSplitInterval;
 
     /**
+     * @example mp4
+     *
      * @var string[]
      */
     public $formats;
 
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $httpCallbackUrl;
 
     /**
+     * @example 1111
+     *
      * @var int[]
      */
     public $layoutIds;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $mediaEncode;
 
     /**
+     * @example record-callback-queue
+     *
      * @var string
      */
     public $mnsQueue;
@@ -77,11 +97,20 @@ class UpdateRecordTemplateRequest extends Model
     public $name;
 
     /**
+     * @example rtc-record-pre
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @var string
+     */
+    public $ossEndpoint;
+
+    /**
+     * @example record/{AppId}/{ChannelId_TaskId}/{EscapedStartTime}_{EscapedEndTime}
+     *
      * @var string
      */
     public $ossFilePrefix;
@@ -92,11 +121,15 @@ class UpdateRecordTemplateRequest extends Model
     public $ownerId;
 
     /**
+     * @example 4IN_1080P
+     *
      * @var string
      */
     public $taskProfile;
 
     /**
+     * @example 76dasgb****
+     *
      * @var string
      */
     public $templateId;
@@ -120,6 +153,7 @@ class UpdateRecordTemplateRequest extends Model
         'mnsQueue'           => 'MnsQueue',
         'name'               => 'Name',
         'ossBucket'          => 'OssBucket',
+        'ossEndpoint'        => 'OssEndpoint',
         'ossFilePrefix'      => 'OssFilePrefix',
         'ownerId'            => 'OwnerId',
         'taskProfile'        => 'TaskProfile',
@@ -187,6 +221,9 @@ class UpdateRecordTemplateRequest extends Model
         }
         if (null !== $this->ossBucket) {
             $res['OssBucket'] = $this->ossBucket;
+        }
+        if (null !== $this->ossEndpoint) {
+            $res['OssEndpoint'] = $this->ossEndpoint;
         }
         if (null !== $this->ossFilePrefix) {
             $res['OssFilePrefix'] = $this->ossFilePrefix;
@@ -278,6 +315,9 @@ class UpdateRecordTemplateRequest extends Model
         }
         if (isset($map['OssBucket'])) {
             $model->ossBucket = $map['OssBucket'];
+        }
+        if (isset($map['OssEndpoint'])) {
+            $model->ossEndpoint = $map['OssEndpoint'];
         }
         if (isset($map['OssFilePrefix'])) {
             $model->ossFilePrefix = $map['OssFilePrefix'];

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteRecordTemplateRequest extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description 1
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @example 76dasgb****
+     *
      * @var string
      */
     public $templateId;

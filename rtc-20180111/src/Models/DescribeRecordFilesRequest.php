@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordFilesRequest extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example yourChannelId
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example 2020-11-02T17:36:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -29,21 +35,29 @@ class DescribeRecordFilesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2020-11-01T17:36:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example yourTaskId
+     *
      * @var string[]
      */
     public $taskIds;

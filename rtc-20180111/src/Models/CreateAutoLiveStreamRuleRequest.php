@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateAutoLiveStreamRuleRequest extends Model
 {
     /**
+     * @example eo85****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $callBack;
@@ -29,6 +33,8 @@ class CreateAutoLiveStreamRuleRequest extends Model
     public $channelIds;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $mediaEncode;
@@ -39,11 +45,15 @@ class CreateAutoLiveStreamRuleRequest extends Model
     public $ownerId;
 
     /**
+     * @example rtmp://${domain}/${app}/${stream}
+     *
      * @var string
      */
     public $playDomain;
 
     /**
+     * @example testRule
+     *
      * @var string
      */
     public $ruleName;

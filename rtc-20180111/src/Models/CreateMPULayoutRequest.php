@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateMPULayoutRequest extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $audioMixCount;
 
     /**
+     * @example LayoutName
+     *
      * @var string
      */
     public $name;

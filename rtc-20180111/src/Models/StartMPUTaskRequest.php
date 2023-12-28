@@ -14,11 +14,15 @@ use AlibabaCloud\Tea\Model;
 class StartMPUTaskRequest extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $backgroundColor;
@@ -29,6 +33,8 @@ class StartMPUTaskRequest extends Model
     public $backgrounds;
 
     /**
+     * @example yourChannelId
+     *
      * @var string
      */
     public $channelId;
@@ -39,6 +45,8 @@ class StartMPUTaskRequest extends Model
     public $clockWidgets;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cropMode;
@@ -49,16 +57,22 @@ class StartMPUTaskRequest extends Model
     public $enhancedParam;
 
     /**
+     * @example 1
+     *
      * @var int[]
      */
     public $layoutIds;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $mediaEncode;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $mixMode;
@@ -69,36 +83,50 @@ class StartMPUTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $payloadType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $reportVad;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $rtpExtInfo;
 
     /**
+     * @example camera
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $streamType;
 
     /**
+     * @example rtmp://example.com/live/stream
+     *
      * @var string
      */
     public $streamURL;
 
     /**
+     * @example audioUserID
+     *
      * @var string[]
      */
     public $subSpecAudioUsers;
@@ -114,21 +142,29 @@ class StartMPUTaskRequest extends Model
     public $subSpecShareScreenUsers;
 
     /**
+     * @example userID
+     *
      * @var string[]
      */
     public $subSpecUsers;
 
     /**
+     * @example yourTaskId
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $taskType;
 
     /**
+     * @example 15273582735
+     *
      * @var int
      */
     public $timeStampRef;
@@ -154,6 +190,8 @@ class StartMPUTaskRequest extends Model
     public $userPanes;
 
     /**
+     * @example 86400
+     *
      * @var int
      */
     public $vadInterval;

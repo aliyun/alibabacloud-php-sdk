@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class terminal extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example 1811****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $message;

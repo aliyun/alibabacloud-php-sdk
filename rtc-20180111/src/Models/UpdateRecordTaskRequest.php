@@ -10,19 +10,33 @@ use AlibabaCloud\Tea\Model;
 class UpdateRecordTaskRequest extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example yourChannelId
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @var int
+     */
+    public $cropMode;
+
+    /**
      * @var int[]
      */
     public $layoutIds;
+
+    /**
+     * @var int
+     */
+    public $mediaEncode;
 
     /**
      * @var int
@@ -45,16 +59,27 @@ class UpdateRecordTaskRequest extends Model
     public $subSpecShareScreenUsers;
 
     /**
+     * @example userID
+     *
      * @var string[]
      */
     public $subSpecUsers;
 
     /**
+     * @example yourTaskId
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @var string
+     */
+    public $taskProfile;
+
+    /**
+     * @example 76dasgb****
+     *
      * @var string
      */
     public $templateId;
@@ -81,13 +106,16 @@ class UpdateRecordTaskRequest extends Model
     protected $_name = [
         'appId'                     => 'AppId',
         'channelId'                 => 'ChannelId',
+        'cropMode'                  => 'CropMode',
         'layoutIds'                 => 'LayoutIds',
+        'mediaEncode'               => 'MediaEncode',
         'ownerId'                   => 'OwnerId',
         'subSpecAudioUsers'         => 'SubSpecAudioUsers',
         'subSpecCameraUsers'        => 'SubSpecCameraUsers',
         'subSpecShareScreenUsers'   => 'SubSpecShareScreenUsers',
         'subSpecUsers'              => 'SubSpecUsers',
         'taskId'                    => 'TaskId',
+        'taskProfile'               => 'TaskProfile',
         'templateId'                => 'TemplateId',
         'unsubSpecAudioUsers'       => 'UnsubSpecAudioUsers',
         'unsubSpecCameraUsers'      => 'UnsubSpecCameraUsers',
@@ -108,8 +136,14 @@ class UpdateRecordTaskRequest extends Model
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+        if (null !== $this->cropMode) {
+            $res['CropMode'] = $this->cropMode;
+        }
         if (null !== $this->layoutIds) {
             $res['LayoutIds'] = $this->layoutIds;
+        }
+        if (null !== $this->mediaEncode) {
+            $res['MediaEncode'] = $this->mediaEncode;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -128,6 +162,9 @@ class UpdateRecordTaskRequest extends Model
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskProfile) {
+            $res['TaskProfile'] = $this->taskProfile;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -168,10 +205,16 @@ class UpdateRecordTaskRequest extends Model
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+        if (isset($map['CropMode'])) {
+            $model->cropMode = $map['CropMode'];
+        }
         if (isset($map['LayoutIds'])) {
             if (!empty($map['LayoutIds'])) {
                 $model->layoutIds = $map['LayoutIds'];
             }
+        }
+        if (isset($map['MediaEncode'])) {
+            $model->mediaEncode = $map['MediaEncode'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -198,6 +241,9 @@ class UpdateRecordTaskRequest extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskProfile'])) {
+            $model->taskProfile = $map['TaskProfile'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

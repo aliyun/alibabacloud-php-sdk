@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppRequest extends Model
 {
     /**
+     * @example ioeh****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example defaultName
+     *
      * @var string
      */
     public $appName;

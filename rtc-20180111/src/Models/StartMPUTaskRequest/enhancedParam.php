@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class enhancedParam extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enablePortraitSegmentation;

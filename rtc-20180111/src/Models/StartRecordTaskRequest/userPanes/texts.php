@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class texts extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $fontColor;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $fontSize;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $fontType;
 
     /**
+     * @example text
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @example 0.7576
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example 0.7576
+     *
      * @var float
      */
     public $y;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $ZOrder;

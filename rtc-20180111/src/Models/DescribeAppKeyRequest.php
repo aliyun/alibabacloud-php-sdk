@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppKeyRequest extends Model
 {
     /**
+     * @example 0cho****
+     *
      * @var string
      */
     public $appId;

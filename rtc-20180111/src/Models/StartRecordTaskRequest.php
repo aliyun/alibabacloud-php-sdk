@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class StartRecordTaskRequest extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example yourChannelId
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cropMode;
 
     /**
+     * @example 1111
+     *
      * @var int[]
      */
     public $layoutIds;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $mediaEncode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $mixMode;
@@ -45,61 +57,85 @@ class StartRecordTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @example camera
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $streamType;
 
     /**
+     * @example 1
+     *
      * @var string[]
      */
     public $subSpecAudioUsers;
 
     /**
+     * @example 1
+     *
      * @var string[]
      */
     public $subSpecCameraUsers;
 
     /**
+     * @example 1
+     *
      * @var string[]
      */
     public $subSpecShareScreenUsers;
 
     /**
+     * @example userID
+     *
      * @var string[]
      */
     public $subSpecUsers;
 
     /**
+     * @example yourTaskId
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 4IN_1080P
+     *
      * @var string
      */
     public $taskProfile;
 
     /**
+     * @example 76dasgb****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example 1
+     *
      * @var string[]
      */
     public $unsubSpecAudioUsers;
 
     /**
+     * @example 1
+     *
      * @var string[]
      */
     public $unsubSpecCameraUsers;
 
     /**
+     * @example 1
+     *
      * @var string[]
      */
     public $unsubSpecShareScreenUsers;

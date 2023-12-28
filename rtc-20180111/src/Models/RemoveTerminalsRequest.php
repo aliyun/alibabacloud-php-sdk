@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RemoveTerminalsRequest extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example yourChannelId
+     *
      * @var string
      */
     public $channelId;
@@ -24,6 +28,8 @@ class RemoveTerminalsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1811xxxx
+     *
      * @var string[]
      */
     public $terminalIds;

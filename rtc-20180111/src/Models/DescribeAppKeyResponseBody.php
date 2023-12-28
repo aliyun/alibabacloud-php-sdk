@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppKeyResponseBody extends Model
 {
     /**
+     * @description AppKey。
+     *
+     * @example ba133b2cee4ab9be424674892c33****
+     *
      * @var string
      */
     public $appKey;
 
     /**
+     * @example 154EF5DE-3D08-1F2C-A482-281F78D74B7C
+     *
      * @var string
      */
     public $requestId;

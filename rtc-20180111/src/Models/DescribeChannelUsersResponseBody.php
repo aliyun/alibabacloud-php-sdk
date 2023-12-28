@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelUsersResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $channelProfile;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $commTotalNum;
@@ -24,11 +28,15 @@ class DescribeChannelUsersResponseBody extends Model
     public $interactiveUserList;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $interactiveUserNum;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isChannelExist;
@@ -39,16 +47,22 @@ class DescribeChannelUsersResponseBody extends Model
     public $liveUserList;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $liveUserNum;
 
     /**
+     * @example 6159ba01-6687-4fb2-a831-f0cd8d188648
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1557909133
+     *
      * @var int
      */
     public $timestamp;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserInfoInChannelRequest extends Model
 {
     /**
+     * @example 4eah****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $channelId;
@@ -24,6 +28,8 @@ class DescribeUserInfoInChannelRequest extends Model
     public $ownerId;
 
     /**
+     * @example testId
+     *
      * @var string
      */
     public $userId;

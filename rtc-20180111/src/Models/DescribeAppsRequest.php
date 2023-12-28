@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppsRequest extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $order;
@@ -24,16 +28,22 @@ class DescribeAppsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $status;

@@ -13,11 +13,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateMPUTaskRequest extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $backgroundColor;
@@ -33,6 +37,8 @@ class UpdateMPUTaskRequest extends Model
     public $clockWidgets;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cropMode;
@@ -43,11 +49,15 @@ class UpdateMPUTaskRequest extends Model
     public $layoutIds;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $mediaEncode;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $mixMode;
@@ -58,11 +68,15 @@ class UpdateMPUTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @example camera
+     *
      * @var string
      */
     public $sourceType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $streamType;
@@ -88,6 +102,8 @@ class UpdateMPUTaskRequest extends Model
     public $subSpecUsers;
 
     /**
+     * @example testId
+     *
      * @var string
      */
     public $taskId;

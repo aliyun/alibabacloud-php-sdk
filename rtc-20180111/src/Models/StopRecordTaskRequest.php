@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopRecordTaskRequest extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
@@ -19,6 +21,8 @@ class StopRecordTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @example yourTaskId
+     *
      * @var string
      */
     public $taskId;

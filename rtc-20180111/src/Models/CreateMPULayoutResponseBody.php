@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateMPULayoutResponseBody extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $layoutId;
 
     /**
+     * @example 760bad53276431c499e30dc36f6b26be
+     *
      * @var string
      */
     public $requestId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoLiveStreamRuleResponseBody extends Model
 {
     /**
+     * @example 069BCB66-CD80-11E8-A82B-A70F78BBDC00
+     *
      * @var string
      */
     public $requestId;

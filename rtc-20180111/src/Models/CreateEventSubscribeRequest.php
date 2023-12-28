@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateEventSubscribeRequest extends Model
 {
     /**
+     * @example 9qb1****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example http://****.com/callback
+     *
      * @var string
      */
     public $callbackUrl;
 
     /**
+     * @example 123333
+     *
      * @var string
      */
     public $channelId;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ChannelEvent
+     *
      * @var string[]
      */
     public $events;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needCallbackAuth;
@@ -44,6 +56,15 @@ class CreateEventSubscribeRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $role;
+
+    /**
+     * @example user1
+     *
      * @var string[]
      */
     public $users;
@@ -55,6 +76,7 @@ class CreateEventSubscribeRequest extends Model
         'events'           => 'Events',
         'needCallbackAuth' => 'NeedCallbackAuth',
         'ownerId'          => 'OwnerId',
+        'role'             => 'Role',
         'users'            => 'Users',
     ];
 
@@ -85,6 +107,9 @@ class CreateEventSubscribeRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
         if (null !== $this->users) {
             $res['Users'] = $this->users;
@@ -123,6 +148,9 @@ class CreateEventSubscribeRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {

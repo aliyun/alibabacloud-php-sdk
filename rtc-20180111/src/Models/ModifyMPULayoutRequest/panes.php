@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class panes extends Model
 {
     /**
+     * @example 0.2456
+     *
      * @var float
      */
     public $height;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $majorPane;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $paneId;
 
     /**
+     * @example 0.2456
+     *
      * @var float
      */
     public $width;
 
     /**
+     * @example 0.7576
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example 0.7576
+     *
      * @var float
      */
     public $y;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $ZOrder;

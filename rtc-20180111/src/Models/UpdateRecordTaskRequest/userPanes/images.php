@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $display;
 
     /**
+     * @example 0.2456
+     *
      * @var float
      */
     public $height;
 
     /**
+     * @example https://www.example.com/image.jpg
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example 0.2456
+     *
      * @var float
      */
     public $width;
 
     /**
+     * @example 0.7576
+     *
      * @var float
      */
     public $x;
 
     /**
+     * @example 0.7576
+     *
      * @var float
      */
     public $y;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $ZOrder;

@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $backgroundColor;
@@ -27,21 +29,29 @@ class templates extends Model
     public $clockWidgets;
 
     /**
+     * @example 2020-09-04T06:22:15Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 180
+     *
      * @var int
      */
     public $delayStopTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableM3u8DateTime;
 
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $fileSplitInterval;
@@ -52,6 +62,8 @@ class templates extends Model
     public $formats;
 
     /**
+     * @example http://example.com/callback
+     *
      * @var string
      */
     public $httpCallbackUrl;
@@ -62,11 +74,15 @@ class templates extends Model
     public $layoutIds;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $mediaEncode;
 
     /**
+     * @example record-callback-queue
+     *
      * @var string
      */
     public $mnsQueue;
@@ -77,21 +93,29 @@ class templates extends Model
     public $name;
 
     /**
+     * @example rtc-record-oss
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @example record/pre/{AppId}/{ChannelId_TaskId}/{EscapedStartTime}_{EscapedEndTime}
+     *
      * @var string
      */
     public $ossFilePrefix;
 
     /**
+     * @example 4IN_1080P
+     *
      * @var string
      */
     public $taskProfile;
 
     /**
+     * @example 1ca698e2-57fa-4314-8e11-00d950d4****
+     *
      * @var string
      */
     public $templateId;

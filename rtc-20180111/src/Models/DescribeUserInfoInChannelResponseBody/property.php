@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class property extends Model
 {
     /**
+     * @example 1557909133
+     *
      * @var int
      */
     public $join;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $role;
 
     /**
+     * @example xa744sxx8rtobgj****
+     *
      * @var string
      */
     public $session;

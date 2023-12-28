@@ -15,16 +15,22 @@ class DescribeRecordFilesResponseBody extends Model
     public $recordFiles;
 
     /**
+     * @example 760bad53276431c499e30dc36f6b****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPage;

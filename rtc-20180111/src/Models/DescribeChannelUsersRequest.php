@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelUsersRequest extends Model
 {
     /**
+     * @example a2hz****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example testId
+     *
      * @var string
      */
     public $channelId;

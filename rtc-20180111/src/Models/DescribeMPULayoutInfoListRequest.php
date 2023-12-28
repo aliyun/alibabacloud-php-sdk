@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeMPULayoutInfoListRequest extends Model
 {
     /**
+     * @example yourAppId
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $layoutId;
 
     /**
+     * @example LayoutName
+     *
      * @var string
      */
     public $name;
@@ -29,11 +35,15 @@ class DescribeMPULayoutInfoListRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
