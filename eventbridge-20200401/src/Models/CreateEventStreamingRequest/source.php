@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\so
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\source\sourceKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\source\sourceMNSParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\source\sourceMQTTParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\source\sourcePrometheusParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\source\sourceRabbitMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\source\sourceRocketMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\source\sourceSLSParameters;
@@ -44,6 +45,11 @@ class source extends Model
     public $sourceMQTTParameters;
 
     /**
+     * @var sourcePrometheusParameters
+     */
+    public $sourcePrometheusParameters;
+
+    /**
      * @description The parameters that are configured if you specify the event source as Message Queue for RabbitMQ.
      *
      * @var sourceRabbitMQParameters
@@ -64,13 +70,14 @@ class source extends Model
      */
     public $sourceSLSParameters;
     protected $_name = [
-        'sourceDTSParameters'      => 'SourceDTSParameters',
-        'sourceKafkaParameters'    => 'SourceKafkaParameters',
-        'sourceMNSParameters'      => 'SourceMNSParameters',
-        'sourceMQTTParameters'     => 'SourceMQTTParameters',
-        'sourceRabbitMQParameters' => 'SourceRabbitMQParameters',
-        'sourceRocketMQParameters' => 'SourceRocketMQParameters',
-        'sourceSLSParameters'      => 'SourceSLSParameters',
+        'sourceDTSParameters'        => 'SourceDTSParameters',
+        'sourceKafkaParameters'      => 'SourceKafkaParameters',
+        'sourceMNSParameters'        => 'SourceMNSParameters',
+        'sourceMQTTParameters'       => 'SourceMQTTParameters',
+        'sourcePrometheusParameters' => 'SourcePrometheusParameters',
+        'sourceRabbitMQParameters'   => 'SourceRabbitMQParameters',
+        'sourceRocketMQParameters'   => 'SourceRocketMQParameters',
+        'sourceSLSParameters'        => 'SourceSLSParameters',
     ];
 
     public function validate()
@@ -91,6 +98,9 @@ class source extends Model
         }
         if (null !== $this->sourceMQTTParameters) {
             $res['SourceMQTTParameters'] = null !== $this->sourceMQTTParameters ? $this->sourceMQTTParameters->toMap() : null;
+        }
+        if (null !== $this->sourcePrometheusParameters) {
+            $res['SourcePrometheusParameters'] = null !== $this->sourcePrometheusParameters ? $this->sourcePrometheusParameters->toMap() : null;
         }
         if (null !== $this->sourceRabbitMQParameters) {
             $res['SourceRabbitMQParameters'] = null !== $this->sourceRabbitMQParameters ? $this->sourceRabbitMQParameters->toMap() : null;
@@ -124,6 +134,9 @@ class source extends Model
         }
         if (isset($map['SourceMQTTParameters'])) {
             $model->sourceMQTTParameters = sourceMQTTParameters::fromMap($map['SourceMQTTParameters']);
+        }
+        if (isset($map['SourcePrometheusParameters'])) {
+            $model->sourcePrometheusParameters = sourcePrometheusParameters::fromMap($map['SourcePrometheusParameters']);
         }
         if (isset($map['SourceRabbitMQParameters'])) {
             $model->sourceRabbitMQParameters = sourceRabbitMQParameters::fromMap($map['SourceRabbitMQParameters']);

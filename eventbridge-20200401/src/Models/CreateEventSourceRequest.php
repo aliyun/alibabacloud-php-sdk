@@ -83,7 +83,7 @@ class CreateEventSourceRequest extends Model
     public $sourceSLSParameters;
 
     /**
-     * @description The parameters that are configured if the event source is scheduled events.
+     * @description The parameters that are configured if you specify scheduled events as the event source.
      *
      * @var sourceScheduledEventParameters
      */

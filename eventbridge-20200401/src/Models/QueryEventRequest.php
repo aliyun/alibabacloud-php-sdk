@@ -27,6 +27,10 @@ class QueryEventRequest extends Model
     public $eventId;
 
     /**
+     * @description EventSource is required for querying default bus events.
+     *
+     * @example testEventSourceName
+     *
      * @var string
      */
     public $eventSource;
