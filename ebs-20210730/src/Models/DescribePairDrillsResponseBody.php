@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePairDrillsResponseBody extends Model
 {
     /**
+     * @description The information of disaster recovery drills that were performed on the replication pair.
+     *
      * @var drills[]
      */
     public $drills;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
      * @example AAAAAdDWBF2****
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribePairDrillsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribePairDrillsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -36,6 +44,8 @@ class DescribePairDrillsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example C46FF5A8-C5F0-4024-8262-B16B6392****
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribePairDrillsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

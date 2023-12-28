@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class drills extends Model
 {
     /**
+     * @description The ID of the drill.
+     *
      * @example pg-drill-xxx
      *
      * @var string
@@ -17,6 +19,8 @@ class drills extends Model
     public $drillId;
 
     /**
+     * @description The ID of the replication pair-consistent group.
+     *
      * @example pg-xxx
      *
      * @var string
@@ -24,11 +28,15 @@ class drills extends Model
     public $groupId;
 
     /**
+     * @description The information of replication pairs.
+     *
      * @var pairsInfo[]
      */
     public $pairsInfo;
 
     /**
+     * @description The recovery point of the drill. The value of this parameter is a timestamp. Unit: seconds.
+     *
      * @example 1691114995
      *
      * @var int
@@ -36,6 +44,8 @@ class drills extends Model
     public $recoverPoint;
 
     /**
+     * @description The beginning time of the drill. The value of this parameter is a timestamp. Unit: seconds.
+     *
      * @example 1649750977
      *
      * @var int
@@ -43,6 +53,14 @@ class drills extends Model
     public $startAt;
 
     /**
+     * @description The status of the drill. Valid values:
+     *
+     *   execute_failed
+     *   executed
+     *   executing
+     *   clear_failed
+     *   clearing
+     *
      * @example executed
      *
      * @var string
@@ -50,6 +68,8 @@ class drills extends Model
     public $status;
 
     /**
+     * @description The error message that appears if the drill fails to be executed.
+     *
      * @example GROUP_SYNCPOINT_NOT_FOUND
      *
      * @var string

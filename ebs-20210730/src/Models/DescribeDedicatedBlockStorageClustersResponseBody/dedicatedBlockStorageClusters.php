@@ -34,7 +34,7 @@ class dedicatedBlockStorageClusters extends Model
     public $createTime;
 
     /**
-     * @description Details about the storage capacity of the dedicated block storage cluster.
+     * @description The storage capacity of the dedicated block storage cluster.
      *
      * @var dedicatedBlockStorageClusterCapacity
      */
@@ -89,7 +89,7 @@ class dedicatedBlockStorageClusters extends Model
      *   PL2
      *   PL3
      *
-     * >  This parameter is valid only when SupportedCategory is set to cloud_essd.
+     * >  This parameter takes effect only if Category is set to cloud_essd.
      * @example PL0
      *
      * @var string
@@ -106,6 +106,8 @@ class dedicatedBlockStorageClusters extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the dedicated block storage cluster belongs.
+     *
      * @example rg-aekzsoux****
      *
      * @var string
@@ -120,10 +122,10 @@ class dedicatedBlockStorageClusters extends Model
     /**
      * @description The state of the dedicated block storage cluster. Valid values:
      *
-     *   Preparing: The cluster is pending delivery.
-     *   Running: The cluster is running.
-     *   Expired: The cluster has expired.
-     *   Offline: The cluster is offline.
+     *   Preparing
+     *   Running
+     *   Expired
+     *   Offline
      *
      * @example Running
      *
@@ -146,6 +148,8 @@ class dedicatedBlockStorageClusters extends Model
     public $supportedCategory;
 
     /**
+     * @description The tags of the dedicated block storage cluster.
+     *
      * @var tags[]
      */
     public $tags;
@@ -153,8 +157,8 @@ class dedicatedBlockStorageClusters extends Model
     /**
      * @description The type of the dedicated block storage cluster. Valid values:
      *
-     *   Standard: a standard dedicated block storage cluster. ESSDs at performance level 0 (PL0 ESSDs) can be created in standard dedicated block storage clusters.
-     *   Premium: a performance dedicated block storage cluster. ESSDs at performance level 1 (PL1 ESSDs) can be created in performance dedicated block storage clusters.
+     *   Standard: basic dedicated block storage cluster. ESSDs at performance level 0 (PL0 ESSDs) can be created in basic dedicated block storage clusters.
+     *   Premium: performance dedicated block storage cluster. ESSDs at performance level 1 (PL1 ESSDs) can be created in performance dedicated block storage clusters.
      *
      * @example Standard
      *

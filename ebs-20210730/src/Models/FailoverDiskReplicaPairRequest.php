@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FailoverDiskReplicaPairRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -16,6 +18,9 @@ class FailoverDiskReplicaPairRequest extends Model
     public $clientToken;
 
     /**
+     * @description The region ID of the secondary disk in the replication pair. You can call the [DescribeDiskReplicaPairs](~~354206~~) operation to query region IDs of secondary disks in replication pairs.
+     *
+     * >  The failover feature must be enabled for the region where the secondary disk is located.
      * @example cn-shanghai
      *
      * @var string
@@ -23,6 +28,8 @@ class FailoverDiskReplicaPairRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the replication pair.
+     *
      * @example pair-cn-dsa****
      *
      * @var string

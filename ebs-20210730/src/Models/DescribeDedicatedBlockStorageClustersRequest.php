@@ -49,6 +49,8 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
     public $nextToken;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -56,6 +58,8 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -72,6 +76,8 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the dedicated block storage cluster belongs.
+     *
      * @example rg-acfmvs4****
      *
      * @var string
@@ -79,11 +85,21 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The states of dedicated block storage clusters. Valid values:
+     *
+     *   Preparing
+     *   Running
+     *   Expired
+     *   Offline
+     *
+     * Multiple states can be specified. Valid values of N: 1, 2, 3, and 4.
      * @var string[]
      */
     public $status;
 
     /**
+     * @description The tags. Up to 20 tags are supported.
+     *
      * @var tag[]
      */
     public $tag;

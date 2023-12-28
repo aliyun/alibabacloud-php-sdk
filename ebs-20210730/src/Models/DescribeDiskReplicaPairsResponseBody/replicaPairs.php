@@ -19,9 +19,7 @@ class replicaPairs extends Model
     public $bandwidth;
 
     /**
-     * @description The billing method of the replication pair.
-     *
-     * Valid values:
+     * @description The billing method of the replication pair. Valid values:
      *
      *   PREPAY: subscription
      *   POSTPAY: pay-as-you-go
@@ -87,7 +85,7 @@ class replicaPairs extends Model
     public $expiredTime;
 
     /**
-     * @description The time when data was last replicated from the primary disk to the secondary disk in the replication pair. The value of this parameter is a timestamp. Unit: seconds.
+     * @description The time when data was last replicated from the primary disk to the secondary disk in the replication pair. The value of this parameter is a timestamp. Unit: seconds. 86,400 seconds is equivalent to 24 hours.
      *
      * @example 1649751977
      *
@@ -168,7 +166,7 @@ class replicaPairs extends Model
     public $resourceGroupId;
 
     /**
-     * @description The type of the site from which the information of the replication pair and replication pair-consistent group is obtained. Valid values:
+     * @description The type of the site from which the information about the replication pairs and replication pair-consistent group was obtained. Valid values:
      *
      *   production: primary site
      *   backup: secondary site
@@ -225,27 +223,27 @@ class replicaPairs extends Model
     public $standbyZone;
 
     /**
-     * @description The state of the replication pair. Valid values:
+     * @description The status of the replication pair. Valid values:
      *
-     *   invalid: The replication pair is invalid. When a replication pair becomes abnormal, it enters this state.
-     *   creating: The replication pair is being created.
-     *   created: The replication pair is created.
-     *   create_failed: The replication pair cannot be created.
-     *   initial_syncing: Data is synchronized from the primary disk to the secondary disk for the first time. After a replication pair is created and activated, the replication pair is in this state the first time data is synchronized from the primary disk to the secondary disk.
-     *   manual_syncing: Data is being manually synchronized from the primary disk to the secondary disk. After data is manually synchronized from the primary disk to the secondary disk, the replication pair returns to the Stopped state. The first time data is manually synchronized from the primary disk to the secondary disk, the replication pair is in the manual_syncing state during the synchronization.
-     *   syncing: Data is being synchronized from the primary disk to the secondary disk. While data is being asynchronously replicated from the primary disk to the secondary disk not for the first time, the replication pair is in this state.
-     *   normal: The replication pair is working as expected. When the system finishes replicating data from the primary disk to the secondary disk within the current replication cycle, the replication pair enters this state.
-     *   stopping: The replication pair is being stopped.
-     *   stopped: The replication pair is stopped.
-     *   stop_failed: The replication pair cannot be stopped.
-     *   failovering: A failover is being performed.
-     *   failovered: A failover is performed.
-     *   failover_failed: A failover cannot be performed.
-     *   reprotecting: A reverse replication is being performed.
-     *   reprotect_failed: A reverse replication cannot be performed.
-     *   deleting: The replication pair is being deleted.
-     *   delete_failed: The replication pair cannot be deleted.
-     *   deleted: The replication pair is deleted.
+     *   invalid: The replication pair was invalid. When a replication pair becomes abnormal, it enters this state.
+     *   creating: The replication pair was being created.
+     *   created: The replication pair was created.
+     *   create_failed: The replication pair failed to be created.
+     *   initial_syncing: Data was synchronized from the primary disk to the secondary disk for the first time. After a replication pair is created and activated, the replication pair is in this state the first time data is synchronized from the primary disk to the secondary disk.
+     *   manual_syncing: Data was being manually synchronized from the primary disk to the secondary disk. After data is manually synchronized from the primary disk to the secondary disk, the replication pair returns to the stopped state. The first time data is manually synchronized from the primary disk to the secondary disk, the replication pair is in the manual_syncing state during the synchronization.
+     *   syncing: Data was being synchronized from the primary disk to the secondary disk. When data is being asynchronously replicated from the primary disk to the secondary disk again in subsequent operations, the replication pair is in this state.
+     *   normal: The replication pair was working as expected. When the system finishes replicating data from the primary disk to the secondary disk within the current replication cycle, the replication pair enters this state.
+     *   stopping: The replication pair was being stopped.
+     *   stopped: The replication pair was stopped.
+     *   stop_failed: The replication pair failed to be stopped.
+     *   failovering: A failover was being performed.
+     *   failovered: A failover was performed.
+     *   failover_failed: A failover failed to be performed.
+     *   reprotecting: A reverse replication was being performed.
+     *   reprotect_failed: A reverse replication failed to be performed.
+     *   deleting: The replication pair was being deleted.
+     *   delete_failed: The replication pair failed to be deleted.
+     *   deleted: The replication pair was deleted.
      *
      * @example created
      *

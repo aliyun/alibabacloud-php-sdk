@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaPairsRequest extends Model
 {
     /**
-     * @description The maximum number of entries to return on each page.
+     * @description The maximum number of entries per page. You can use this parameter together with NextToken.
      *
      * Default value: 10.
      * @example 1
@@ -20,7 +20,7 @@ class DescribeDiskReplicaPairsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The query token. Set the value to the NextToken value returned in the previous call to the DescribeDiskReplicaPairs operation. Leave this parameter empty the first time you call this operation. When NextToken is specified, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
      *
      * @example AAAAAdDWBF2****
      *
@@ -29,7 +29,7 @@ class DescribeDiskReplicaPairsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 5
      *
@@ -38,9 +38,8 @@ class DescribeDiskReplicaPairsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page. Valid values: 1 to 100.
      *
-     * Valid values: 1 to 100.
      * @example 10
      *
      * @var int
@@ -50,7 +49,7 @@ class DescribeDiskReplicaPairsRequest extends Model
     /**
      * @description The IDs of replication pairs. You can specify the IDs of one or more replication pairs and separate the IDs with commas (,). Example: `pair-cn-dsa****,pair-cn-asd****`.
      *
-     * This parameter is empty by default, which indicates that all replication pairs in the specified region are queried.
+     * This parameter is empty by default, which indicates that all replication pairs in the specified region are queried. You can specify a maximum of 100 replication pair IDs.
      * @example pair-cn-dsa****
      *
      * @var string
@@ -67,9 +66,9 @@ class DescribeDiskReplicaPairsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the replication pair-consistent group. You can specify the ID of a replication pair-consistent group to query the replication pairs that are added to this group. Example: `pg-****`.
+     * @description The ID of the replication pair-consistent group. You can specify the ID of a replication pair-consistent group to query the replication pairs in the group. Example: `pg-****`.
      *
-     * >  If you set this parameter to `-`, replication pairs that are not added to replication pair-consistent groups are queried.
+     * >  If this parameter is set to`-`, replication pairs that are not added to any replication pair-consistent groups are returned.
      * @example pg-****
      *
      * @var string
@@ -86,7 +85,7 @@ class DescribeDiskReplicaPairsRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The type of the site from which the information of replication pairs is retrieved. Valid values:
+     * @description The type of the site from which the information of replication pairs is retrieved. Valid value:
      *
      *   production: primary site
      *   backup: secondary site
@@ -99,7 +98,7 @@ class DescribeDiskReplicaPairsRequest extends Model
     public $site;
 
     /**
-     * @description The resource tags. You can specify up to 20 tags.
+     * @description The tags. Up to 20 tags are supported.
      *
      * @var tag[]
      */

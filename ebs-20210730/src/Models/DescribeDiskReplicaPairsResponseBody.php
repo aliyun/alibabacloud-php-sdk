@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaPairsResponseBody extends Model
 {
     /**
-     * @description The query token returned in this call.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
      *
      * @example AAAAAdDWBF2****
      *
@@ -19,7 +19,7 @@ class DescribeDiskReplicaPairsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class DescribeDiskReplicaPairsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Valid values: 1 to 100.
+     * @description The number of entries per page.
      *
      * @example 10
      *

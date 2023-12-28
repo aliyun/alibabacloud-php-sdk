@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedBlockStorageClustersResponseBody extends Model
 {
     /**
-     * @description Details about the dedicated block storage clusters.
+     * @description The queried dedicated block storage clusters.
      *
      * @var dedicatedBlockStorageClusters[]
      */
     public $dedicatedBlockStorageClusters;
 
     /**
-     * @description The query token returned in this call.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example AAAAAdDWBF2
      *
@@ -26,6 +26,8 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +35,8 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -40,7 +44,7 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 11B55F58-D3A4-4A9B-9596-342420D0****
      *
@@ -49,6 +53,8 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 20
      *
      * @var int

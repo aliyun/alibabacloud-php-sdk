@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartDiskReplicaPairResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A37597A6-BB99-19B3-85EA-4C2B91F0****
      *
      * @var string

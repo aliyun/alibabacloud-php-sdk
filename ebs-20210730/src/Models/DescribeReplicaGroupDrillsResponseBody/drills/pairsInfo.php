@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pairsInfo extends Model
 {
     /**
+     * @description The ID of the drill disk.
+     *
      * @example d-xxx
      *
      * @var string
@@ -16,6 +18,14 @@ class pairsInfo extends Model
     public $drillDiskId;
 
     /**
+     * @description The status of the drill disk. Valid values:
+     *
+     *   created
+     *   deleted
+     *   creating
+     *   deleting
+     *
+     * >  This parameter can also display error code details if your drill disk fails to be created or deleted.
      * @example created
      *
      * @var string
@@ -23,6 +33,8 @@ class pairsInfo extends Model
     public $drillDiskStatus;
 
     /**
+     * @description The ID of the replication pair.
+     *
      * @example pair-xxx
      *
      * @var string

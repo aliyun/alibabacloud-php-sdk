@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskReplicaGroupRequest extends Model
 {
     /**
-     * @description The bandwidth value. Unit: Kbit/s.
+     * @description The bandwidth value. Unit: Mbit/s.
      *
-     * >  This parameter is unavailable.
+     * >  This parameter is not publicly available.
      * @example 10240
      *
      * @var int
@@ -20,7 +20,7 @@ class CreateDiskReplicaGroupRequest extends Model
     public $bandwidth;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
@@ -56,7 +56,7 @@ class CreateDiskReplicaGroupRequest extends Model
     public $destinationZoneId;
 
     /**
-     * @description The name of the replication pair-consistent group. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the replication pair-consistent group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example myreplicagrouptest
      *
@@ -65,7 +65,7 @@ class CreateDiskReplicaGroupRequest extends Model
     public $groupName;
 
     /**
-     * @description The RPO of the replication pair-consistent group. Unit: seconds. Set the value to 900.
+     * @description The RPO of the replication pair-consistent group. Unit: seconds. Valid value: 900.
      *
      * @example 900
      *
@@ -74,7 +74,7 @@ class CreateDiskReplicaGroupRequest extends Model
     public $RPO;
 
     /**
-     * @description The ID of the region in which to create the replication pair-consistent group. The primary site is deployed in this region.
+     * @description The ID of the region in which to create the replication pair-consistent group. The primary site is deployed in the specified region.
      *
      * @example cn-beijing
      *
@@ -83,7 +83,7 @@ class CreateDiskReplicaGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which to assign the replication group.
+     * @description The ID of the resource group to which the replication pair-consistent group belongs.
      *
      * @example rg-acfmvs*******
      *
@@ -101,7 +101,7 @@ class CreateDiskReplicaGroupRequest extends Model
     public $sourceZoneId;
 
     /**
-     * @description The resource tags. You can specify up to 20 tags.
+     * @description The tags. Up to 20 tags are supported.
      *
      * @var tag[]
      */

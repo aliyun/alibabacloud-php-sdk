@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartPairDrillResponseBody extends Model
 {
     /**
+     * @description The drill ID.
+     *
      * @example drill-xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class StartPairDrillResponseBody extends Model
     public $drillId;
 
     /**
+     * @description The request ID.
+     *
      * @example C123F94F-4E38-19AE-942A-A8D6F44F****
      *
      * @var string

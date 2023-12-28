@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeReplicaGroupDrillsRequest extends Model
 {
     /**
+     * @description The ID of the drill.
+     *
      * @example pg-drill-xxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeReplicaGroupDrillsRequest extends Model
     public $drillId;
 
     /**
+     * @description The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](~~426614~~) operation to query a list of async replication pair-consistent groups, including group IDs.
+     *
      * @example pg-xxxx
      *
      * @var string
@@ -23,6 +27,9 @@ class DescribeReplicaGroupDrillsRequest extends Model
     public $groupId;
 
     /**
+     * @description The maximum number of entries to be returned. You can use this parameter together with NextToken.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -30,6 +37,8 @@ class DescribeReplicaGroupDrillsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. When you specify NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     *
      * @example AAAAAdDWBF2****
      *
      * @var string
@@ -37,6 +46,8 @@ class DescribeReplicaGroupDrillsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The page number.
+     *
      * @example 5
      *
      * @var int
@@ -44,6 +55,8 @@ class DescribeReplicaGroupDrillsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +64,8 @@ class DescribeReplicaGroupDrillsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the primary or secondary disk in the async replication pair-consistent group. You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which async replication is supported.
+     *
      * @example cn-hangzhou
      *
      * @var string

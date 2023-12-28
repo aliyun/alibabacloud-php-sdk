@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The tag key of the dedicated block storage cluster.
+     *
      * @example testKey
      *
      * @var string
@@ -16,6 +18,8 @@ class tags extends Model
     public $tagKey;
 
     /**
+     * @description The tag value of the dedicated block storage cluster.
+     *
      * @example testValue
      *
      * @var string

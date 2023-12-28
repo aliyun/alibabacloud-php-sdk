@@ -18,26 +18,36 @@ class dedicatedBlockStorageClusterCapacity extends Model
     public $availableCapacity;
 
     /**
+     * @description The total capacity of the dedicated block storage cluster that was delivered in disk creation orders. Unit: GB.
+     *
      * @var int
      */
     public $availableDeviceCapacity;
 
     /**
+     * @description This parameter is displayed only if Thin Provision is enabled.
+     *
      * @var float
      */
     public $availableSpaceCapacity;
 
     /**
+     * @description The capacity of the dedicated block storage cluster that was delivered in orders. Unit: GB.
+     *
      * @var int
      */
     public $clusterAvailableCapacity;
 
     /**
+     * @description The capacity of the dedicated block storage cluster that is to be delivered in orders. Unit: GB.
+     *
      * @var int
      */
     public $clusterDeliveryCapacity;
 
     /**
+     * @description The to-be-delivered capacity of the dedicated block storage cluster. Unit: GB.
+     *
      * @example 0
      *
      * @var int
@@ -54,16 +64,22 @@ class dedicatedBlockStorageClusterCapacity extends Model
     public $totalCapacity;
 
     /**
+     * @description The total capacity of the dedicated block storage cluster that is to be delivered in disk creation orders. Unit: GB.
+     *
      * @var int
      */
     public $totalDeviceCapacity;
 
     /**
+     * @description This parameter is displayed only if Thin Provision is enabled.
+     *
      * @var int
      */
     public $totalSpaceCapacity;
 
     /**
+     * @description The used capacity of the dedicated block storage cluster. Unit: GB.
+     *
      * @example 1440
      *
      * @var int
@@ -71,11 +87,15 @@ class dedicatedBlockStorageClusterCapacity extends Model
     public $usedCapacity;
 
     /**
+     * @description The capacity of the dedicated block storage cluster that was used to create disks. Unit: GB.
+     *
      * @var int
      */
     public $usedDeviceCapacity;
 
     /**
+     * @description This parameter is displayed only if Thin Provision is enabled.
+     *
      * @var float
      */
     public $usedSpaceCapacity;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class drills extends Model
 {
     /**
+     * @description The ID of the drill disk.
+     *
      * @example d-xxx
      *
      * @var string
@@ -16,6 +18,14 @@ class drills extends Model
     public $drillDiskId;
 
     /**
+     * @description The status of the drill disk. Valid values:
+     *
+     *   created
+     *   deleted
+     *   creating
+     *   deleting
+     *
+     * >  This parameter can also display error code details if your drill disk fails to be created or deleted.
      * @example created
      *
      * @var string
@@ -23,6 +33,8 @@ class drills extends Model
     public $drillDiskStatus;
 
     /**
+     * @description The ID of the drill.
+     *
      * @example drill-xxx
      *
      * @var string
@@ -30,6 +42,8 @@ class drills extends Model
     public $drillId;
 
     /**
+     * @description The recovery point of the drill. The value of this parameter is a timestamp. Unit: seconds.
+     *
      * @example 1690855931
      *
      * @var int
@@ -37,6 +51,8 @@ class drills extends Model
     public $recoverPoint;
 
     /**
+     * @description The beginning time of the drill. The value of this parameter is a timestamp. Unit: seconds.
+     *
      * @example 1690855888
      *
      * @var int
@@ -44,6 +60,14 @@ class drills extends Model
     public $startAt;
 
     /**
+     * @description The status of the drill. Valid values:
+     *
+     *   execute_failed
+     *   executed
+     *   executing
+     *   clear_failed
+     *   clearing
+     *
      * @example executing
      *
      * @var string
@@ -51,6 +75,8 @@ class drills extends Model
     public $status;
 
     /**
+     * @description The error message that was displayed if the drill failed to be executed.
+     *
      * @example PAIR_SYNCPOINT_NOT_FOUND
      *
      * @var string

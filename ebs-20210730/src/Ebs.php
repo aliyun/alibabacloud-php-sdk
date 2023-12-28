@@ -9,6 +9,8 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\AddDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\AddDiskReplicaPairResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ApplyLensServiceResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\BindEnterpriseSnapshotPolicyRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\BindEnterpriseSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CancelLensServiceResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ChangeResourceGroupResponse;
@@ -22,10 +24,15 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateEnterpriseSnapshotPolicyRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateEnterpriseSnapshotPolicyResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateEnterpriseSnapshotPolicyShrinkRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteEnterpriseSnapshotPolicyRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteEnterpriseSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClusterDisksRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClusterDisksResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClustersRequest;
@@ -42,7 +49,11 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairProgressRequest
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairProgressResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEnterpriseSnapshotPolicyRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEnterpriseSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeLensServiceStatusResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeMetricDataRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeMetricDataResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribePairDrillsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribePairDrillsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeRegionsRequest;
@@ -87,8 +98,13 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskReplicaPairResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\UnbindEnterpriseSnapshotPolicyRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\UnbindEnterpriseSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\UpdateEnterpriseSnapshotPolicyRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\UpdateEnterpriseSnapshotPolicyResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\UpdateEnterpriseSnapshotPolicyShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -129,7 +145,12 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The region ID of the replication pair-consistent group.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+     *   * *   A replication pair and a replication pair-consistent group replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). A replication pair can be added only to a replication pair-consistent group that replicates in the same direction as the replication pair.
+     *   * *   Before you can add a replication pair to a replication pair-consistent group, make sure that the pair and the group are in the **Created** (`created`) or **Stopped** (`stopped`) state.
+     *   * *   Up to 17 replication pairs can be added to a single replication pair-consistent group.
+     *   * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs in place of their original RPOs.
      *   *
      * @param AddDiskReplicaPairRequest $request AddDiskReplicaPairRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -171,7 +192,12 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The region ID of the replication pair-consistent group.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+     *   * *   A replication pair and a replication pair-consistent group replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). A replication pair can be added only to a replication pair-consistent group that replicates in the same direction as the replication pair.
+     *   * *   Before you can add a replication pair to a replication pair-consistent group, make sure that the pair and the group are in the **Created** (`created`) or **Stopped** (`stopped`) state.
+     *   * *   Up to 17 replication pairs can be added to a single replication pair-consistent group.
+     *   * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs in place of their original RPOs.
      *   *
      * @param AddDiskReplicaPairRequest $request AddDiskReplicaPairRequest
      *
@@ -221,6 +247,58 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->applyLensServiceWithOptions($runtime);
+    }
+
+    /**
+     * @param BindEnterpriseSnapshotPolicyRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return BindEnterpriseSnapshotPolicyResponse
+     */
+    public function bindEnterpriseSnapshotPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->diskTargets)) {
+            $query['DiskTargets'] = $request->diskTargets;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindEnterpriseSnapshotPolicy',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BindEnterpriseSnapshotPolicyRequest $request
+     *
+     * @return BindEnterpriseSnapshotPolicyResponse
+     */
+    public function bindEnterpriseSnapshotPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindEnterpriseSnapshotPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -496,12 +574,13 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The replication pair-consistent group feature allows you to batch manage multiple disks in disaster recovery scenarios. You can restore the data of all disks in the same replication pair-consistent group to the same point in time to allow for disaster recovery of one or more instances.
-     *   * When you create a replication pair-consistent group, take note of the following items:
-     *   * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
-     *   * *   Replication pair-consistent groups support disaster recovery across zones within the same region and disaster recovery across regions.
-     *   * *   A replication pair and a replication pair-consistent group replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). Replication pairs can be added only to a replication pair-consistent group that replicates in the same direction as them.
-     *   * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs in place of their original RPOs.
+     * ## [](#)Usage notes
+     *   * The replication pair-consistent group feature allows you to batch manage multiple disks in disaster recovery scenarios. You can restore the data of all disks in the same replication pair-consistent group to the same point in time to allow for disaster recovery of instances.
+     *   * Take note of the following items:
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+     *   * *   Replication pair-consistent groups can be used to implement disaster recovery across zones within the same region and disaster recovery across regions.
+     *   * *   A replication pair and a replication pair-consistent group can replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). A replication pair can be added to only a replication pair-consistent group that replicates in the same direction as the replication pair.
+     *   * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs instead of their original RPOs.
      *   *
      * @param CreateDiskReplicaGroupRequest $request CreateDiskReplicaGroupRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -564,12 +643,13 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The replication pair-consistent group feature allows you to batch manage multiple disks in disaster recovery scenarios. You can restore the data of all disks in the same replication pair-consistent group to the same point in time to allow for disaster recovery of one or more instances.
-     *   * When you create a replication pair-consistent group, take note of the following items:
-     *   * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
-     *   * *   Replication pair-consistent groups support disaster recovery across zones within the same region and disaster recovery across regions.
-     *   * *   A replication pair and a replication pair-consistent group replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). Replication pairs can be added only to a replication pair-consistent group that replicates in the same direction as them.
-     *   * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs in place of their original RPOs.
+     * ## [](#)Usage notes
+     *   * The replication pair-consistent group feature allows you to batch manage multiple disks in disaster recovery scenarios. You can restore the data of all disks in the same replication pair-consistent group to the same point in time to allow for disaster recovery of instances.
+     *   * Take note of the following items:
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+     *   * *   Replication pair-consistent groups can be used to implement disaster recovery across zones within the same region and disaster recovery across regions.
+     *   * *   A replication pair and a replication pair-consistent group can replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). A replication pair can be added to only a replication pair-consistent group that replicates in the same direction as the replication pair.
+     *   * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs instead of their original RPOs.
      *   *
      * @param CreateDiskReplicaGroupRequest $request CreateDiskReplicaGroupRequest
      *
@@ -685,9 +765,106 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
-     *   * *   Before you can delete a replication pair-consistent group, make sure that no replication pairs are present in the group.
-     *   * *   The replication pair-consistent group that you want to delete must be in the **Created** (`created`), **Creation Failed** (`create_failed`), **Stopped** (`stopped`), **Failover Failed** (`failovered`), **Deleting** (`deleting`), **Deletion Failed** (`delete_failed`), or **Invalid** (`invalid`) state.
+     * @param CreateEnterpriseSnapshotPolicyRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateEnterpriseSnapshotPolicyResponse
+     */
+    public function createEnterpriseSnapshotPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateEnterpriseSnapshotPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->crossRegionCopyInfo)) {
+            $request->crossRegionCopyInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->crossRegionCopyInfo, 'CrossRegionCopyInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->retainRule)) {
+            $request->retainRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->retainRule, 'RetainRule', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->schedule)) {
+            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->specialRetainRules)) {
+            $request->specialRetainRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->specialRetainRules, 'SpecialRetainRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->storageRule)) {
+            $request->storageRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storageRule, 'StorageRule', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->crossRegionCopyInfoShrink)) {
+            $query['CrossRegionCopyInfo'] = $request->crossRegionCopyInfoShrink;
+        }
+        if (!Utils::isUnset($request->desc)) {
+            $query['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->retainRuleShrink)) {
+            $query['RetainRule'] = $request->retainRuleShrink;
+        }
+        if (!Utils::isUnset($request->scheduleShrink)) {
+            $query['Schedule'] = $request->scheduleShrink;
+        }
+        if (!Utils::isUnset($request->specialRetainRulesShrink)) {
+            $query['SpecialRetainRules'] = $request->specialRetainRulesShrink;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->storageRuleShrink)) {
+            $query['StorageRule'] = $request->storageRuleShrink;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEnterpriseSnapshotPolicy',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateEnterpriseSnapshotPolicyRequest $request
+     *
+     * @return CreateEnterpriseSnapshotPolicyResponse
+     */
+    public function createEnterpriseSnapshotPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEnterpriseSnapshotPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+     *   * *   Before you can delete a replication pair-consistent group, make sure that no replication pairs exist in the group.
+     *   * *   The replication pair-consistent group that you want to delete must be in the **Created** (`created`), **Creation Failed** (`create_failed`), **Stopped** (`stopped`), **Failovered** (`failovered`), **Deleting** (`deleting`), **Deletion Failed** (`delete_failed`), or **Invalid** (`invalid`) state.
      *   *
      * @param DeleteDiskReplicaGroupRequest $request DeleteDiskReplicaGroupRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -726,9 +903,10 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
-     *   * *   Before you can delete a replication pair-consistent group, make sure that no replication pairs are present in the group.
-     *   * *   The replication pair-consistent group that you want to delete must be in the **Created** (`created`), **Creation Failed** (`create_failed`), **Stopped** (`stopped`), **Failover Failed** (`failovered`), **Deleting** (`deleting`), **Deletion Failed** (`delete_failed`), or **Invalid** (`invalid`) state.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+     *   * *   Before you can delete a replication pair-consistent group, make sure that no replication pairs exist in the group.
+     *   * *   The replication pair-consistent group that you want to delete must be in the **Created** (`created`), **Creation Failed** (`create_failed`), **Stopped** (`stopped`), **Failovered** (`failovered`), **Deleting** (`deleting`), **Deletion Failed** (`delete_failed`), or **Invalid** (`invalid`) state.
      *   *
      * @param DeleteDiskReplicaGroupRequest $request DeleteDiskReplicaGroupRequest
      *
@@ -742,8 +920,9 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
-     *   * *   Only replication pairs that are in the **Stopped** (`stopped`), **Invalid** (`invalid`), or **Failed Over** (`failovered`) state can be deleted. This operation deletes only replication pairs. The primary and secondary disks in the deleted replication pairs are retained.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   Only replication pairs that are in the **Stopped** (`stopped`), **Invalid** (`invalid`), or **Failovered** (`failovered`) state can be deleted. This operation deletes only replication pairs. The primary and secondary disks in the deleted replication pairs are retained.
      *   * *   To delete a replication pair, you must call this operation in the region where the primary disk is located. After the replication pair is deleted, the functionality limits are lifted from the primary and secondary disks. For example, you can attach the secondary disk, resize the disk, or read data from or write data to the disk.
      *   *
      * @param DeleteDiskReplicaPairRequest $request DeleteDiskReplicaPairRequest
@@ -783,8 +962,9 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
-     *   * *   Only replication pairs that are in the **Stopped** (`stopped`), **Invalid** (`invalid`), or **Failed Over** (`failovered`) state can be deleted. This operation deletes only replication pairs. The primary and secondary disks in the deleted replication pairs are retained.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   Only replication pairs that are in the **Stopped** (`stopped`), **Invalid** (`invalid`), or **Failovered** (`failovered`) state can be deleted. This operation deletes only replication pairs. The primary and secondary disks in the deleted replication pairs are retained.
      *   * *   To delete a replication pair, you must call this operation in the region where the primary disk is located. After the replication pair is deleted, the functionality limits are lifted from the primary and secondary disks. For example, you can attach the secondary disk, resize the disk, or read data from or write data to the disk.
      *   *
      * @param DeleteDiskReplicaPairRequest $request DeleteDiskReplicaPairRequest
@@ -796,6 +976,55 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDiskReplicaPairWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteEnterpriseSnapshotPolicyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteEnterpriseSnapshotPolicyResponse
+     */
+    public function deleteEnterpriseSnapshotPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEnterpriseSnapshotPolicy',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEnterpriseSnapshotPolicyRequest $request
+     *
+     * @return DeleteEnterpriseSnapshotPolicyResponse
+     */
+    public function deleteEnterpriseSnapshotPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEnterpriseSnapshotPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -865,9 +1094,10 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * >  Dedicated Block Storage Cluster is supported in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
-     *   * *   You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-     *   * *   We recommend that you use the NextToken and MaxResults parameters to perform a paged query. During a paged query, when you call the DescribeDedicatedBlockStorageClusters operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDedicatedBlockStorageClusters operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     * ## [](#)Usage notes
+     *   * >  The Dedicated Block Storage Cluster feature is available only in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
+     *   * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions.
+     *   * *   We recommend that you use NextToken and MaxResults to perform paged queries. We recommend that you use MaxResults to specify the maximum number of entries to return in each request. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeDedicatedBlockStorageClusters operation to retrieve a new page of results, set NextToken to the NextToken value that is returned in the previous call and specify MaxResults to limit the number of entries returned.
      *   *
      * @param DescribeDedicatedBlockStorageClustersRequest $request DescribeDedicatedBlockStorageClustersRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
@@ -935,9 +1165,10 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * >  Dedicated Block Storage Cluster is supported in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
-     *   * *   You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-     *   * *   We recommend that you use the NextToken and MaxResults parameters to perform a paged query. During a paged query, when you call the DescribeDedicatedBlockStorageClusters operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDedicatedBlockStorageClusters operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     * ## [](#)Usage notes
+     *   * >  The Dedicated Block Storage Cluster feature is available only in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
+     *   * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions.
+     *   * *   We recommend that you use NextToken and MaxResults to perform paged queries. We recommend that you use MaxResults to specify the maximum number of entries to return in each request. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeDedicatedBlockStorageClusters operation to retrieve a new page of results, set NextToken to the NextToken value that is returned in the previous call and specify MaxResults to limit the number of entries returned.
      *   *
      * @param DescribeDedicatedBlockStorageClustersRequest $request DescribeDedicatedBlockStorageClustersRequest
      *
@@ -1275,8 +1506,9 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
-     *   * *   When you call this operation for a specific region, if the primary disk (source disk) or secondary disk (destination disk) of a replication pair resides within the region, the information of the replication pair is displayed in the response.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   When you call this operation for a specific region, if the primary disk (source disk) or secondary disk (destination disk) of a replication pair resides in the region, information about the replication pair is displayed in the response.
      *   * *   If you want to perform a paged query, configure the `NextToken` and `MaxResults` parameters. During a paged query, when you call the DescribeDiskReplicaPairs operation to retrieve the first page of results, set `MaxResults` to limit the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaPairs operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
      *   *
      * @param DescribeDiskReplicaPairsRequest $request DescribeDiskReplicaPairsRequest
@@ -1337,8 +1569,9 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
-     *   * *   When you call this operation for a specific region, if the primary disk (source disk) or secondary disk (destination disk) of a replication pair resides within the region, the information of the replication pair is displayed in the response.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   When you call this operation for a specific region, if the primary disk (source disk) or secondary disk (destination disk) of a replication pair resides in the region, information about the replication pair is displayed in the response.
      *   * *   If you want to perform a paged query, configure the `NextToken` and `MaxResults` parameters. During a paged query, when you call the DescribeDiskReplicaPairs operation to retrieve the first page of results, set `MaxResults` to limit the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaPairs operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
      *   *
      * @param DescribeDiskReplicaPairsRequest $request DescribeDiskReplicaPairsRequest
@@ -1350,6 +1583,73 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDiskReplicaPairsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEnterpriseSnapshotPolicyRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeEnterpriseSnapshotPolicyResponse
+     */
+    public function describeEnterpriseSnapshotPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->policyIds)) {
+            $query['PolicyIds'] = $request->policyIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEnterpriseSnapshotPolicy',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEnterpriseSnapshotPolicyRequest $request
+     *
+     * @return DescribeEnterpriseSnapshotPolicyResponse
+     */
+    public function describeEnterpriseSnapshotPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnterpriseSnapshotPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -1389,6 +1689,64 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeLensServiceStatusWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeMetricDataRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeMetricDataResponse
+     */
+    public function describeMetricDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dimensions)) {
+            $query['Dimensions'] = $request->dimensions;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricData',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMetricDataRequest $request
+     *
+     * @return DescribeMetricDataResponse
+     */
+    public function describeMetricData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMetricDataWithOptions($request, $runtime);
     }
 
     /**
@@ -1563,7 +1921,11 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **FailoverDiskReplicaGroup**.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+     *   * *   The replication pair-consistent group must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), **Stopped** (`stopped`), **In Failover** (`failovering`), **Failover Failed** (`failover_failed`), or **Failovered** (`failovered`) state.
+     *   * *   After a failover is performed, the replication pair-consistent group enters the **Failovered** (`failovered`) state.
+     *   * *   Before you perform a failover, make sure that the first full data synchronization is completed between the primary site and secondary site.
      *   *
      * @param FailoverDiskReplicaGroupRequest $request FailoverDiskReplicaGroupRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1602,7 +1964,11 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **FailoverDiskReplicaGroup**.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+     *   * *   The replication pair-consistent group must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), **Stopped** (`stopped`), **In Failover** (`failovering`), **Failover Failed** (`failover_failed`), or **Failovered** (`failovered`) state.
+     *   * *   After a failover is performed, the replication pair-consistent group enters the **Failovered** (`failovered`) state.
+     *   * *   Before you perform a failover, make sure that the first full data synchronization is completed between the primary site and secondary site.
      *   *
      * @param FailoverDiskReplicaGroupRequest $request FailoverDiskReplicaGroupRequest
      *
@@ -1616,7 +1982,10 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   The replication pair for which you want to enable failover cannot be in the **Invalid** (`invalid`) or **Deleted** (`deleted`) state.
+     *   * *   After a failover is performed, the replication pair enters the **Failovered** (`failovered`) state.
      *   *
      * @param FailoverDiskReplicaPairRequest $request FailoverDiskReplicaPairRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1655,7 +2024,10 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   The replication pair for which you want to enable failover cannot be in the **Invalid** (`invalid`) or **Deleted** (`deleted`) state.
+     *   * *   After a failover is performed, the replication pair enters the **Failovered** (`failovered`) state.
      *   *
      * @param FailoverDiskReplicaPairRequest $request FailoverDiskReplicaPairRequest
      *
@@ -1796,7 +2168,8 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
      *   * *   The replication pair-consistent group must be in the **Created** (`created`) or **Stopped** (`stopped`) state.
      *   *
      * @param ModifyDiskReplicaGroupRequest $request ModifyDiskReplicaGroupRequest
@@ -1848,7 +2221,8 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
      *   * *   The replication pair-consistent group must be in the **Created** (`created`) or **Stopped** (`stopped`) state.
      *   *
      * @param ModifyDiskReplicaGroupRequest $request ModifyDiskReplicaGroupRequest
@@ -1863,7 +2237,9 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The name of the replication pair.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   Only replication pairs that are in the **Created** (`created`) or **Stopped** (`stopped`) state can have their names or descriptions modified.
      *   *
      * @param ModifyDiskReplicaPairRequest $request ModifyDiskReplicaPairRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -1914,7 +2290,9 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The name of the replication pair.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   Only replication pairs that are in the **Created** (`created`) or **Stopped** (`stopped`) state can have their names or descriptions modified.
      *   *
      * @param ModifyDiskReplicaPairRequest $request ModifyDiskReplicaPairRequest
      *
@@ -1928,7 +2306,8 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
      *   * *   The replication pair-consistent group from which you want to remove a replication pair must be in the **Created** (`created`), **Stopped** (`stopped`), or **Invalid** (`invalid`) state.
      *   *
      * @param RemoveDiskReplicaPairRequest $request RemoveDiskReplicaPairRequest
@@ -1971,7 +2350,8 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
      *   * *   The replication pair-consistent group from which you want to remove a replication pair must be in the **Created** (`created`), **Stopped** (`stopped`), or **Invalid** (`invalid`) state.
      *   *
      * @param RemoveDiskReplicaPairRequest $request RemoveDiskReplicaPairRequest
@@ -1986,7 +2366,12 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **ReprotectDiskReplicaGroup**.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+     *   * *   The replication pair-consistent group for which you want to enable reverse replication must be in the **Failovered** (`failovered`) state. You can call the `FailoverDiskReplicaPair` operation to enable failover.
+     *   * *   Before a reverse replication is performed, the primary disks must be detached from its associated Elastic Compute Service (ECS) instance and must be in the Unattached state. You can call the [DetachDisk](~~25516~~) operation to detach the disks.
+     *   * *   After you enable reverse replication, you must call the `StartDiskReplicaPair` operation again to enable the async replication feature before data can be replicated from the original secondary disks to the original primary disks.
+     *   * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
      *   *
      * @param ReprotectDiskReplicaGroupRequest $request ReprotectDiskReplicaGroupRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2028,7 +2413,12 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **ReprotectDiskReplicaGroup**.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+     *   * *   The replication pair-consistent group for which you want to enable reverse replication must be in the **Failovered** (`failovered`) state. You can call the `FailoverDiskReplicaPair` operation to enable failover.
+     *   * *   Before a reverse replication is performed, the primary disks must be detached from its associated Elastic Compute Service (ECS) instance and must be in the Unattached state. You can call the [DetachDisk](~~25516~~) operation to detach the disks.
+     *   * *   After you enable reverse replication, you must call the `StartDiskReplicaPair` operation again to enable the async replication feature before data can be replicated from the original secondary disks to the original primary disks.
+     *   * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
      *   *
      * @param ReprotectDiskReplicaGroupRequest $request ReprotectDiskReplicaGroupRequest
      *
@@ -2042,7 +2432,12 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   The replication pair for which you want to enable reverse replication must be in the **Failovered** (`failovered`) state. You can call the [FailoverDiskReplicaPair](~~354358~~) operation to enable failover.
+     *   * *   The primary disk must be detached from its associated Elastic Compute Service (ECS) instance and is in the Unattached state. You can call the [DetachDisk](~~25516~~) operation to detach the disk.
+     *   * *   After you enable reverse replication, you must call the [StartDiskReplicaPair](~~354205~~) operation again to activate the replication pair before data can be replicated from the original secondary disk to the original primary disk.
+     *   * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
      *   *
      * @param ReprotectDiskReplicaPairRequest $request ReprotectDiskReplicaPairRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -2084,7 +2479,12 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   The replication pair for which you want to enable reverse replication must be in the **Failovered** (`failovered`) state. You can call the [FailoverDiskReplicaPair](~~354358~~) operation to enable failover.
+     *   * *   The primary disk must be detached from its associated Elastic Compute Service (ECS) instance and is in the Unattached state. You can call the [DetachDisk](~~25516~~) operation to detach the disk.
+     *   * *   After you enable reverse replication, you must call the [StartDiskReplicaPair](~~354205~~) operation again to activate the replication pair before data can be replicated from the original secondary disk to the original primary disk.
+     *   * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
      *   *
      * @param ReprotectDiskReplicaPairRequest $request ReprotectDiskReplicaPairRequest
      *
@@ -2157,7 +2557,11 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **StartDiskReplicaGroup**.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+     *   * *   If you set the `OneShot` to `false`, the replication pair-consistent group must be in the **Created** (`created` ), **Synchronizing** (`syncing` ), **Normal** (`normal` ), or **Stopped** (`stopped`) state.
+     *   * *   If you set `OneShot` to `true`, the replication pair-consistent group must be in the **Created** (`created` ), **One-time Syncing** (`manual_syncing` ), or **Stopped** (`stopped`) state. The time interval between two consecutive one-time synchronizations must be longer than one half of the recovery point objective (RPO).
+     *   * *   After a replication pair-consistent group is activated, the group enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first async replication to replicate all data from the primary disks to secondary disks.
      *   *
      * @param StartDiskReplicaGroupRequest $request StartDiskReplicaGroupRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2199,7 +2603,11 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **StartDiskReplicaGroup**.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
+     *   * *   If you set the `OneShot` to `false`, the replication pair-consistent group must be in the **Created** (`created` ), **Synchronizing** (`syncing` ), **Normal** (`normal` ), or **Stopped** (`stopped`) state.
+     *   * *   If you set `OneShot` to `true`, the replication pair-consistent group must be in the **Created** (`created` ), **One-time Syncing** (`manual_syncing` ), or **Stopped** (`stopped`) state. The time interval between two consecutive one-time synchronizations must be longer than one half of the recovery point objective (RPO).
+     *   * *   After a replication pair-consistent group is activated, the group enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first async replication to replicate all data from the primary disks to secondary disks.
      *   *
      * @param StartDiskReplicaGroupRequest $request StartDiskReplicaGroupRequest
      *
@@ -2213,7 +2621,10 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   Only replication pairs that are in the **Created** (`created`) or **Stopped** (`stopped`) state can be activated.
+     *   * *   After a replication pair is activated, it enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first asynchronous replication to replicate all data from the primary disk to the secondary disk.
      *   *
      * @param StartDiskReplicaPairRequest $request StartDiskReplicaPairRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -2255,7 +2666,10 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   Only replication pairs that are in the **Created** (`created`) or **Stopped** (`stopped`) state can be activated.
+     *   * *   After a replication pair is activated, it enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first asynchronous replication to replicate all data from the primary disk to the secondary disk.
      *   *
      * @param StartDiskReplicaPairRequest $request StartDiskReplicaPairRequest
      *
@@ -2269,10 +2683,12 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @param StartPairDrillRequest $request
-     * @param RuntimeOptions        $runtime
+     * After the disaster recovery drill is complete on the secondary disk, a pay-as-you-go drill disk that has the same capacity and category as the secondary disk is created in the zone where the secondary disk resides. The drill disk contains last-recovery-point data that can be used to test the completeness and correctness of applications.
+     *   *
+     * @param StartPairDrillRequest $request StartPairDrillRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartPairDrillResponse
+     * @return StartPairDrillResponse StartPairDrillResponse
      */
     public function startPairDrillWithOptions($request, $runtime)
     {
@@ -2306,9 +2722,11 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @param StartPairDrillRequest $request
+     * After the disaster recovery drill is complete on the secondary disk, a pay-as-you-go drill disk that has the same capacity and category as the secondary disk is created in the zone where the secondary disk resides. The drill disk contains last-recovery-point data that can be used to test the completeness and correctness of applications.
+     *   *
+     * @param StartPairDrillRequest $request StartPairDrillRequest
      *
-     * @return StartPairDrillResponse
+     * @return StartPairDrillResponse StartPairDrillResponse
      */
     public function startPairDrill($request)
     {
@@ -2318,10 +2736,12 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @param StartReplicaGroupDrillRequest $request
-     * @param RuntimeOptions                $runtime
+     * After the disaster recovery drill is complete on secondary disks, a pay-as-you-go drill disk is created in the zone where the secondary disk of each replication pair resides. The latest-recovery-point data is restored to the drill disks to test the completeness and correctness of applications.
+     *   *
+     * @param StartReplicaGroupDrillRequest $request StartReplicaGroupDrillRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartReplicaGroupDrillResponse
+     * @return StartReplicaGroupDrillResponse StartReplicaGroupDrillResponse
      */
     public function startReplicaGroupDrillWithOptions($request, $runtime)
     {
@@ -2355,9 +2775,11 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @param StartReplicaGroupDrillRequest $request
+     * After the disaster recovery drill is complete on secondary disks, a pay-as-you-go drill disk is created in the zone where the secondary disk of each replication pair resides. The latest-recovery-point data is restored to the drill disks to test the completeness and correctness of applications.
+     *   *
+     * @param StartReplicaGroupDrillRequest $request StartReplicaGroupDrillRequest
      *
-     * @return StartReplicaGroupDrillResponse
+     * @return StartReplicaGroupDrillResponse StartReplicaGroupDrillResponse
      */
     public function startReplicaGroupDrill($request)
     {
@@ -2424,7 +2846,8 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
      *   * *   The replication pair-consistent group that you want to stop must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), or **Stopped** (`stopped`) state.
      *   * *   When a replication pair-consistent group is stopped, it enters the **Stopped** (`stopped`) state. If a replication pair-consistent group cannot be stopped, the state of the group remains unchanged or changes to **Stop Failed** (`stop_failed`). In this case, try again later.
      *   *
@@ -2465,7 +2888,8 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The replication pair-consistent group feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
      *   * *   The replication pair-consistent group that you want to stop must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), or **Stopped** (`stopped`) state.
      *   * *   When a replication pair-consistent group is stopped, it enters the **Stopped** (`stopped`) state. If a replication pair-consistent group cannot be stopped, the state of the group remains unchanged or changes to **Stop Failed** (`stop_failed`). In this case, try again later.
      *   *
@@ -2481,8 +2905,9 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
-     *   * *   Only replication pairs that are in the **Initial Syncing** (`initial_syncing`), **Syncing** (`syncing`), **One-time Syncing** (`manual_syncing`), or **Normal** (`normal`) state can be stopped. When a replication pair is stopped, it enters the Stopped (`stopped`) state. The secondary disk rolls back to the point in time when the last asynchronous replication was complete and drops all the data that is being replicated from the primary disk.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   Only replication pairs that are in the **Initial Syncing** (`initial_syncing`), **Syncing** (`syncing`), **One-time Syncing** (`manual_syncing`), or **Normal** (`normal`) state can be stopped. When a replication pair is stopped, it enters the Stopped (`stopped`) state. The secondary disk rolls back to the point in time when the last async replication was complete and drops all the data that is being replicated from the primary disk.
      *   *
      * @param StopDiskReplicaPairRequest $request StopDiskReplicaPairRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -2521,8 +2946,9 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * *   The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore (Singapore), US (Silicon Valley), and US (Virginia) regions.
-     *   * *   Only replication pairs that are in the **Initial Syncing** (`initial_syncing`), **Syncing** (`syncing`), **One-time Syncing** (`manual_syncing`), or **Normal** (`normal`) state can be stopped. When a replication pair is stopped, it enters the Stopped (`stopped`) state. The secondary disk rolls back to the point in time when the last asynchronous replication was complete and drops all the data that is being replicated from the primary disk.
+     * ## [](#)Usage notes
+     *   * *   For information about the regions in which async replication is available, see [Overview](~~314563~~).
+     *   * *   Only replication pairs that are in the **Initial Syncing** (`initial_syncing`), **Syncing** (`syncing`), **One-time Syncing** (`manual_syncing`), or **Normal** (`normal`) state can be stopped. When a replication pair is stopped, it enters the Stopped (`stopped`) state. The secondary disk rolls back to the point in time when the last async replication was complete and drops all the data that is being replicated from the primary disk.
      *   *
      * @param StopDiskReplicaPairRequest $request StopDiskReplicaPairRequest
      *
@@ -2595,6 +3021,58 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param UnbindEnterpriseSnapshotPolicyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UnbindEnterpriseSnapshotPolicyResponse
+     */
+    public function unbindEnterpriseSnapshotPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->diskTargets)) {
+            $query['DiskTargets'] = $request->diskTargets;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindEnterpriseSnapshotPolicy',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnbindEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnbindEnterpriseSnapshotPolicyRequest $request
+     *
+     * @return UnbindEnterpriseSnapshotPolicyResponse
+     */
+    public function unbindEnterpriseSnapshotPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindEnterpriseSnapshotPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * *   You can remove up to 20 tags at a time.
      *   * *   After a tag is removed from an EBS resource, the tag is automatically deleted if the tag is not added to any instance.
      *   *
@@ -2656,5 +3134,95 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateEnterpriseSnapshotPolicyRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateEnterpriseSnapshotPolicyResponse
+     */
+    public function updateEnterpriseSnapshotPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateEnterpriseSnapshotPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->crossRegionCopyInfo)) {
+            $request->crossRegionCopyInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->crossRegionCopyInfo, 'CrossRegionCopyInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->retainRule)) {
+            $request->retainRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->retainRule, 'RetainRule', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->schedule)) {
+            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->specialRetainRules)) {
+            $request->specialRetainRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->specialRetainRules, 'SpecialRetainRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->storageRule)) {
+            $request->storageRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storageRule, 'StorageRule', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->crossRegionCopyInfoShrink)) {
+            $query['CrossRegionCopyInfo'] = $request->crossRegionCopyInfoShrink;
+        }
+        if (!Utils::isUnset($request->desc)) {
+            $query['Desc'] = $request->desc;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->retainRuleShrink)) {
+            $query['RetainRule'] = $request->retainRuleShrink;
+        }
+        if (!Utils::isUnset($request->scheduleShrink)) {
+            $query['Schedule'] = $request->scheduleShrink;
+        }
+        if (!Utils::isUnset($request->specialRetainRulesShrink)) {
+            $query['SpecialRetainRules'] = $request->specialRetainRulesShrink;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->storageRuleShrink)) {
+            $query['StorageRule'] = $request->storageRuleShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEnterpriseSnapshotPolicy',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateEnterpriseSnapshotPolicyRequest $request
+     *
+     * @return UpdateEnterpriseSnapshotPolicyResponse
+     */
+    public function updateEnterpriseSnapshotPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEnterpriseSnapshotPolicyWithOptions($request, $runtime);
     }
 }

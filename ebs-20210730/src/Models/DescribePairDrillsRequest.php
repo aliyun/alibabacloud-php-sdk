@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePairDrillsRequest extends Model
 {
     /**
+     * @description The ID of the drill.
+     *
      * @example drill-xxxx
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribePairDrillsRequest extends Model
     public $drillId;
 
     /**
+     * @description The maximum number of entries to be returned. You can use this parameter together with NextToken.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -23,6 +28,8 @@ class DescribePairDrillsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Set the value to the NextToken value returned in the previous call to the DescribeDiskReplicaPairs operation. Leave this parameter empty the first time you call this operation. When you specify NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     *
      * @example AAAAAdDWBF2****
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribePairDrillsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +46,8 @@ class DescribePairDrillsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +55,8 @@ class DescribePairDrillsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](~~354206~~) operation to query a list of asynchronous replication pairs, including replication pair IDs.
+     *
      * @example pair-xxxx
      *
      * @var string
@@ -51,6 +64,8 @@ class DescribePairDrillsRequest extends Model
     public $pairId;
 
     /**
+     * @description The region ID of the primary or secondary disk in the async replication pair. You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which async replication is supported.
+     *
      * @example cn-hangzhou
      *
      * @var string

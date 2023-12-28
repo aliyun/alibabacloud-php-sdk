@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StopDiskReplicaGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C123F94F-4E38-19AE-942A-A8D6F44F****
      *
