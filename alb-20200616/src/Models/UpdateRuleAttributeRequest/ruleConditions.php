@@ -18,7 +18,7 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
-     * @description The configurations of the cookies.
+     * @description The configuration of the cookie.
      *
      * @var cookieConfig
      */
@@ -32,7 +32,7 @@ class ruleConditions extends Model
     public $headerConfig;
 
     /**
-     * @description The configurations of the host.
+     * @description The configurations of the hosts.
      *
      * @var hostConfig
      */
@@ -46,7 +46,7 @@ class ruleConditions extends Model
     public $methodConfig;
 
     /**
-     * @description The configurations of the URLs.
+     * @description The configurations of the paths.
      *
      * @var pathConfig
      */
@@ -60,32 +60,38 @@ class ruleConditions extends Model
     public $queryStringConfig;
 
     /**
+     * @description The configuration of the header.
+     *
      * @var responseHeaderConfig
      */
     public $responseHeaderConfig;
 
     /**
+     * @description The configurations of the response status codes.
+     *
      * @var responseStatusCodeConfig
      */
     public $responseStatusCodeConfig;
 
     /**
-     * @description The configuration of the source IP-based forwarding rule. You can add at most five source IP-based forwarding rules.
+     * @description The configuration of the source IP addresses based on which user traffic is matched. You can add at most five source IP-based forwarding rules.
      *
      * @var sourceIpConfig
      */
     public $sourceIpConfig;
 
     /**
-     * @description The type of the forwarding rule. You can specify at most seven types. Valid values:
+     * @description The type of the forwarding rule. You can specify up to seven types. Valid values:
      *
-     *   **Host**: Requests are distributed based on hosts.
-     *   **Path**: Requests are distributed based on paths.
-     *   **Header**: Requests are distributed based on HTTP headers.
-     *   **QueryString**: Requests are distributed based on query strings.
-     *   **Method**: Requests are distributed based on request methods.
-     *   **Cookie**: Requests are distributed based on cookies.
+     *   **Host**: Requests are forwarded based on hosts.
+     *   **Path**: Requests are forwarded based on paths.
+     *   **Header**: Requests are forwarded based on HTTP headers.
+     *   **QueryString**: Requests are forwarded based on query strings.
+     *   **Method**: Requests are forwarded based on request methods.
+     *   **Cookie**: Requests are forwarded based on cookies.
      *   **SourceIp**: Requests are distributed based on source IP addresses.
+     *   **ResponseHeader**: Requests are forwarded based on HTTP response headers.
+     *   **ResponseStatusCode**: Requests are forwarded based on response status codes.
      *
      * @example Host
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class fixedResponseConfig extends Model
 {
     /**
-     * @description The weight of the server group. A larger value indicates a higher weight. A server group with a higher weight receives more requests. Valid values: **1 to 100**. Default value: **100**.
+     * @description The content of the custom response. The content can be up to 1 KB in size and can contain only ASCII characters.
      *
      * @example dssacav
      *
@@ -18,10 +18,13 @@ class fixedResponseConfig extends Model
     public $content;
 
     /**
-     * @description Specifies whether to enable session persistence. Valid values:
+     * @description The format of the content. Valid values:
      *
-     *   **true**: enables session persistence.
-     *   **false** (default): disables session persistence.
+     *   **text/plain**
+     *   **text/css**
+     *   **text/html**
+     *   **application/javascript**
+     *   **application/json**
      *
      * @example text/plain
      *
@@ -30,7 +33,7 @@ class fixedResponseConfig extends Model
     public $contentType;
 
     /**
-     * @description The timeout period of sessions. Unit: seconds. Valid values: **1 to 86400**.
+     * @description The HTTP status code in the response. Valid values: **HTTP\_2xx**, **HTTP\_4xx**, and **HTTP\_5xx**. **x** must be a digit.
      *
      * @example HTTP_200
      *

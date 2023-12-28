@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class quicConfig extends Model
 {
     /**
-     * @description The QUIC listener ID. This parameter is required when **QuicUpgradeEnabled** is set to **true**. Only HTTPS listeners support this parameter.
+     * @description The ID of the QUIC listener. This parameter is required when **QuicUpgradeEnabled** is set to **true**. Only HTTPS listeners support this parameter.
      *
-     * > You must add the HTTPS listener and the QUIC listener to the same ALB instance. In addition, make sure that the QUIC listener has never been associated with another listener.
+     * >  The HTTPS listener and the associated QUIC listener must belong to the same ALB instance. The QUIC listener cannot be associated with another listener.
      * @example lsr-bp1bpn908w4nbw****
      *
      * @var string
@@ -24,7 +24,7 @@ class quicConfig extends Model
      *   **true**
      *   **false**
      *
-     * > Only HTTPS listeners support this parameter.
+     * >  This parameter takes effect only for HTTPS listeners.
      * @example true
      *
      * @var bool

@@ -194,6 +194,8 @@ class GetListenerAttributeResponseBody extends Model
     public $securityPolicyId;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

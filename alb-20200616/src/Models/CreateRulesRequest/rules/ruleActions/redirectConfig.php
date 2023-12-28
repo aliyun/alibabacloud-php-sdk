@@ -9,12 +9,18 @@ use AlibabaCloud\Tea\Model;
 class redirectConfig extends Model
 {
     /**
-     * @description The redirect protocol. Valid values:
+     * @description The hostname to which requests are redirected. Valid values:
      *
-     *   **${protocol}** (default): If you set the value to ${protocol}, you cannot append other characters.
-     *   You can set the protocol to **HTTP** or **HTTPS**.
+     *   **${host}** (default): If ${host} is returned, no other character is appended.
      *
-     * >  HTTPS listeners do not support HTTPS-to-HTTP redirects.
+     *   Limits on the value:
+     *
+     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and periods (.). Asterisks (\*) and question marks (?) can be used as wildcards.
+     *   The hostname contains at least one period (.) but does not start or end with a period (.).
+     *   The rightmost domain label can contain only letters and wildcard characters. It does not contain digits or hyphens (-).
+     *   The domain labels do not start or end with hyphens (-).
+     *   You can use asterisks (\*) and question marks (?) as wildcards anywhere in a domain label.
+     *
      * @example www.example.com
      *
      * @var string
@@ -22,14 +28,7 @@ class redirectConfig extends Model
     public $host;
 
     /**
-     * @description The query string of the URL to which requests are redirected.
-     *
-     *   Default value: **${query}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable cannot be specified more than once. You can specify one or more of the preceding variables in each request. You can also combine them with the following characters.
-     *
-     *   If you want to specify a custom value, make sure that the following requirements are met:
-     *
-     *   The value is 1 to 128 characters in length.
-     *   It can contain printable characters, except space characters, the special characters `# [ ] { } \ | < > &`, and uppercase letters.
+     * @description The HTTP status code that indicates the redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
      *
      * @example 301
      *
@@ -38,16 +37,15 @@ class redirectConfig extends Model
     public $httpCode;
 
     /**
-     * @description The hostname to which requests are redirected. Valid values:
+     * @description The path to which requests are redirected. Valid values:
      *
-     *   **${host}** (default): If you set the value to ${host}, you cannot append other characters.
+     *   Default value: **${path}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. You can specify one or more of the preceding variables in each request. You can also combine them with a custom value.
      *
-     *   If you want to specify a custom value, make sure that the following requirements are met:
+     *   Limits on the value:
      *
-     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and periods (.). You can use asterisks (\*) and question marks (?) as wildcard characters.
-     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
-     *   The rightmost domain label can contain only letters and wildcard characters. It cannot contain digits or hyphens (-).
-     *   The domain labels cannot start or end with a hyphen (-). You can use an asterisk (\*) and question mark (?) as wildcards anywhere in a domain label.
+     *   The path must be 1 to 128 characters in length.
+     *   It must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\*) and question marks (?) as wildcard characters.
+     *   The path is case-sensitive.
      *
      * @example /test
      *
@@ -56,15 +54,10 @@ class redirectConfig extends Model
     public $path;
 
     /**
-     * @description The path to which requests are redirected. Valid values:
+     * @description The port to which requests are distributed.
      *
-     *   Default value: **${path}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable cannot be specified more than once. You can specify one or more of the preceding variables in each request. You can also combine them with the following characters.
-     *
-     *   If you want to specify a custom value, make sure that the following requirements are met:
-     *
-     *   The value is 1 to 128 characters in length.
-     *   It must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\*) and question marks (?) as wildcards.
-     *   The value is case-sensitive.
+     *   **${port}** (default): If you set the value to ${port}, you cannot add other characters to the value.
+     *   Other valid values: **1 to 63335**.
      *
      * @example 10
      *
@@ -73,15 +66,12 @@ class redirectConfig extends Model
     public $port;
 
     /**
-     * @description The query string of the URL to which requests are redirected.
+     * @description The redirect protocol. Valid values:
      *
-     *   Default value: **${query}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable cannot be specified more than once. You can specify one or more of the preceding variables in each request. You can also combine them with the following characters.
+     *   **${protocol}** (default): If ${protocol} is returned, no other character is appended.
+     *   **HTTP** or **HTTPS**.
      *
-     *   If you want to specify a custom value, make sure that the following requirements are met:
-     *
-     *   The value is 1 to 128 characters in length.
-     *   It can contain printable characters, except space characters, the special characters `# [ ] { } \ | < > &`, and uppercase letters.
-     *
+     * >  HTTPS listeners support only HTTPS to HTTPS redirects.
      * @example HTTP
      *
      * @var string
@@ -89,22 +79,14 @@ class redirectConfig extends Model
     public $protocol;
 
     /**
-     * @description The action type. You can specify at most 11 types of action. Valid values:
+     * @description The query string of the URL to which requests are redirected.
      *
-     *   **ForwardGroup**: forwards a request to multiple vServer groups.
-     *   **Redirect**: redirects a request.
-     *   **FixedResponse**: returns a custom response.
-     *   **Rewrite**: rewrites a request.
-     *   **InsertHeader**: inserts a header.
-     *   **RemoveHeaderConfig**: deletes a header.
-     *   **TrafficLimitConfig**: throttles network traffic.
-     *   **TrafficMirrorConfig**: mirrors network traffic.
-     *   **CORS**: enables cross-origin resource sharing (CORS).
+     *   Default value: **${query}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
      *
-     * You can specify the last action and the actions that you want to perform before the last action:
+     *   Limits on the value:
      *
-     *   **FinalType**: the last action to be performed in a forwarding rule. Each forwarding rule can contain only one FinalType action. You can specify a **ForwardGroup**, **Redirect**, or **FixedResponse** action as the FinalType action.
-     *   **ExtType**: the action to be performed before the FinalType action. A forwarding rule can contain one or more ExtType actions. To specify this parameter, you must also specify FinalType. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+     *   The query string must be 1 to 128 characters in length.
+     *   It can contain printable characters, except space characters, the special characters `# [ ] { } \ | < > &`, and uppercase letters.
      *
      * @example quert
      *

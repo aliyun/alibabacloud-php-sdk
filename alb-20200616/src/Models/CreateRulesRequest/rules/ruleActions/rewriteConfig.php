@@ -9,7 +9,16 @@ use AlibabaCloud\Tea\Model;
 class rewriteConfig extends Model
 {
     /**
-     * @description Queries per second (QPS). Valid values: **1 to 100000**.
+     * @description The hostname to which requests are redirected. Valid values:
+     *
+     *   **${host}** (default): If you set the value to ${host}, you cannot append other characters.
+     *
+     *   A custom value that meets the following requirements:
+     *
+     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and periods (.). You can use asterisks (\*) and question marks (?) as wildcard characters.
+     *   The hostname contains at least one period (.) but does not start or end with a period (.).
+     *   The rightmost domain label can contain only letters and wildcard characters. It does not contain digits or hyphens (-).
+     *   The domain labels do not start or end with hyphens (-). You can use asterisks (\*) and question marks (?) anywhere in a domain label as wildcard characters.
      *
      * @example www.example.com
      *
@@ -18,9 +27,16 @@ class rewriteConfig extends Model
     public $host;
 
     /**
-     * @description The QPS of each IP address. Valid values: **1 to 100000**.
+     * @description The path to which requests are redirected. Valid values:
      *
-     * >  If **QPS** and PerIpQps are configured at the same time, the value of the **PerIpQps** parameter must be smaller than that of the **QPS** parameter.
+     *   Default value: **${path}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. You can specify one or more of the preceding variables in each request. You can also combine them with a custom value.
+     *
+     *   Limits on the value:
+     *
+     *   The path must be 1 to 128 characters in length.
+     *   It must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\*) and question marks (?) as wildcard characters.
+     *   The path is case-sensitive.
+     *
      * @example /tsdf
      *
      * @var string
@@ -28,10 +44,14 @@ class rewriteConfig extends Model
     public $path;
 
     /**
-     * @description The type of destination to which network traffic is mirrored. Valid values:
+     * @description The query string of the URL to which requests are redirected.
      *
-     *   **ForwardGroupMirror**: a server group.
-     *   **SlsMirror**: Log Service.
+     *   Default value: **${query}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
+     *
+     *   Limits on the value:
+     *
+     *   The query string must be 1 to 128 characters in length.
+     *   It can contain printable characters, except space characters, the special characters `# [ ] { } \ | < > &`, and uppercase letters.
      *
      * @example quedsa
      *

@@ -9,12 +9,11 @@ use AlibabaCloud\Tea\Model;
 class values extends Model
 {
     /**
-     * @description The hostname. A forwarding rule can contain only one unique hostname.
+     * @description The key of the cookie.
      *
-     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (\*), and question marks (?).
-     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
-     *   The rightmost domain label can contain only letters and wildcard characters. It cannot contain digits or hyphens (-).
-     *   The domain labels do not start or end with hyphens (-). You can use an asterisk (\*) and question mark (?) as wildcards anywhere in a domain label.
+     *   The key must be 1 to 100 characters in length.
+     *   You can use asterisks (\*) and question marks (?) as wildcard characters.
+     *   It can contain printable characters, except uppercase letters, space characters, and the following special characters: `; # [ ] { } \ | < > &`.
      *
      * @example test
      *
@@ -23,7 +22,11 @@ class values extends Model
     public $key;
 
     /**
-     * @description The request methods. Valid values: **HEAD**, **GET**, **POST**, **OPTIONS**, **PUT**, **PATCH**, and **DELETE**.
+     * @description The value of the cookie.
+     *
+     *   The value must be 1 to 100 characters in length.
+     *   You can use asterisks (\*) and question marks (?) as wildcard characters.
+     *   It can contain printable characters, except uppercase letters, space characters, and the following special characters: `; # [ ] { } \ | < > &`.
      *
      * @example test
      *

@@ -12,7 +12,7 @@ class CreateHealthCheckTemplateRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+     * >  If you do not specify this parameter, the system automatically uses the value of RequestId as the value of ClientToken. The request ID may be different for each request.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -32,11 +32,8 @@ class CreateHealthCheckTemplateRequest extends Model
     public $dryRun;
 
     /**
-     * @description The interval at which health checks are performed.
+     * @description The HTTP status codes that are used to indicate whether the backend server passes the health check.
      *
-     * Valid values: **1 to 50**.
-     *
-     * Default value: **2**.
      * @example 5
      *
      * @var string[]
@@ -174,6 +171,8 @@ class CreateHealthCheckTemplateRequest extends Model
     public $healthyThreshold;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

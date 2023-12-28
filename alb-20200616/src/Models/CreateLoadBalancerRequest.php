@@ -131,6 +131,8 @@ class CreateLoadBalancerRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
@@ -145,7 +147,7 @@ class CreateLoadBalancerRequest extends Model
     public $vpcId;
 
     /**
-     * @description The zones and the vSwitches. You must specify at least two zones.
+     * @description The zones and the vSwitches in the zones. You must specify at least two zones.
      *
      * @var zoneMappings[]
      */

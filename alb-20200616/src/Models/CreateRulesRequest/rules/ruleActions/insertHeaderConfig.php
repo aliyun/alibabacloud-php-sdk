@@ -9,18 +9,9 @@ use AlibabaCloud\Tea\Model;
 class insertHeaderConfig extends Model
 {
     /**
-     * @description The hostname to which requests are distributed. Valid values:
+     * @description The key of the header. The key must be 1 to 40 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The header key specified by **InsertHeaderConfig** must be unique.
      *
-     *   **${host}** (default): If you set the value to ${host}, you cannot append other characters.
-     *
-     *   If you want to specify a custom value, make sure that the following requirements are met:
-     *
-     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and periods (.). You can use asterisks (\*) and question marks (?) as wildcard characters.
-     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
-     *   The rightmost domain label can contain only letters and wildcard characters. It cannot contain digits or hyphens (-).
-     *   The domain labels cannot start or end with a hyphen (-).
-     *   You can use asterisks (\*) and question marks (?) as wildcards anywhere in a domain label.
-     *
+     * >  You cannot specify the following header keys: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, and `authority`. The header keys are case-insensitive.
      * @example key
      *
      * @var string
@@ -28,7 +19,19 @@ class insertHeaderConfig extends Model
     public $key;
 
     /**
-     * @description The HTTP status code that indicates the redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
+     * @description The value of the header.
+     *
+     *   If **ValueType** is set to **SystemDefined**, one of the following values is supported:
+     *
+     *   **ClientSrcPort**: the client port.
+     *   **ClientSrcIp**: the client IP address.
+     *   **Protocol**: the request protocol (HTTP or HTTPS).
+     *   **SLBId**: the ID of the ALB instance.
+     *   **SLBPort**: the listener port.
+     *
+     *   If **ValueType** is set to **UserDefined**, a custom header value is supported. The header value must be 1 to 128 characters in length, and can contain printable characters whose ASCII values are `greater than or equal to 32 and smaller than 127`. You can use asterisks (\*) and question marks (?) as wildcard characters. The header value cannot start or end with a space character.
+     *
+     *   If **ValueType** is set to **ReferenceHeader**, you can reference one of the request headers. The header value must be 1 to 128 characters in length, and can contain lowercase letters, digits, underscores (\_), and hyphens (-).
      *
      * @example UserDefined
      *
@@ -37,15 +40,11 @@ class insertHeaderConfig extends Model
     public $value;
 
     /**
-     * @description The path to which requests are redirected. Valid values:
+     * @description The type of the header. Valid values:
      *
-     *   Default value: **${path}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable cannot be specified more than once. You can specify one or more of the preceding variables in each request. You can also combine them with the following characters.
-     *
-     *   If you want to specify a custom value, make sure that the following requirements are met:
-     *
-     *   The value is 1 to 128 characters in length.
-     *   It must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\*) and question marks (?) as wildcards.
-     *   The value is case-sensitive.
+     *   **UserDefined**: a custom header
+     *   **ReferenceHeader**: a header that references one of the request headers
+     *   **SystemDefined**: a system-defined header
      *
      * @example UserDefined
      *

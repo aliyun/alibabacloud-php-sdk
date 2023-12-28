@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class uchConfig extends Model
 {
     /**
-     * @description Type
+     * @description The type of the parameter.
      *
      * @example QueryString
      *
@@ -18,7 +18,7 @@ class uchConfig extends Model
     public $type;
 
     /**
-     * @description The setting of consistent hashing.
+     * @description The parameter value for consistent hashing.
      *
      * @example abc
      *

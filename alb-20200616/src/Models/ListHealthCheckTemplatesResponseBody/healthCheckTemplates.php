@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class healthCheckTemplates extends Model
 {
     /**
-     * @description The status code.
+     * @description The HTTP status codes.
      *
      * @var string[]
      */
@@ -21,7 +21,7 @@ class healthCheckTemplates extends Model
      *
      * Valid values: \*\* 0 to 65535\*\*.
      *
-     * Default value: **0**. If you set the value to 0, the port of a backend server is used for health checks.
+     * Default value: **0**. This value indicates that the port on a backend server is used for health checks.
      * @example 80
      *
      * @var int
@@ -31,11 +31,11 @@ class healthCheckTemplates extends Model
     /**
      * @description The domain name that is used for health checks. Valid values:
      *
-     **$SERVER_IP** (default): the private IP addresses of backend servers. If you do not set the HealthCheckHost parameter or set the parameter to $SERVER_IP, the Application Load Balancer (ALB) uses the private IP addresses of backend servers for health checks.
+     **$SERVER_IP** (default): the private IP addresses of backend servers. If HealthCheckHost is not specified or set to $SERVER_IP, SLB uses the private IP addresses of backend servers for health checks.
      *
      **domain**: The domain name must be 1 to 80 characters in length and can contain letters, digits, periods (.), and hyphens (-).
      *
-     * > This parameter is valid only if the `HealthCheckProtocol` parameter is set to **HTTP**.
+     * >  This parameter takes effect only if `HealthCheckProtocol` is set to **HTTP**.
      * @example $_ip
      *
      * @var string
@@ -49,7 +49,7 @@ class healthCheckTemplates extends Model
      *
      * Default value: **HTTP 1.1**.
      *
-     * > This parameter is valid only if the `HealthCheckProtocol` parameter is set to **HTTP**.
+     * >  This parameter takes effect only if `HealthCheckProtocol` is set to **HTTP**.
      * @example HTTP 1.0
      *
      * @var string
@@ -66,13 +66,13 @@ class healthCheckTemplates extends Model
     public $healthCheckInterval;
 
     /**
-     * @description The method that you want to use for the health check. Valid values:
+     * @description The HTTP method that is used for health checks. Valid values:
      *
-     *   **HEAD**: By default, the ALB instance sends HEAD requests to a backend server to perform HTTP health checks.
+     *   **HEAD** (default): By default, HTTP health checks use the HEAD method.
      *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
-     *   **POST**: gRPC health checks automatically use the POST method.
+     *   **POST**: By default, gRPC health checks use the POST method.
      *
-     * > This parameter takes effect only when the **HealthCheckProtocol** parameter is set to **HTTP** or **gRPC**.
+     * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **gRPC**.
      * @example HEAD
      *
      * @var string
@@ -90,11 +90,11 @@ class healthCheckTemplates extends Model
     public $healthCheckPath;
 
     /**
-     * @description The protocol that you want to use for health checks. Valid values:
+     * @description The protocol that is used for health checks. Valid values:
      *
-     *   **HTTP** (default): To perform HTTP health checks, ALB sends HEAD or GET requests to a backend server to check whether the backend server is healthy.
-     *   **TCP**: To perform TCP health checks, ALB sends SYN packets to a backend server to check whether the port of the backend server is available to receive requests.
-     *   **gRPC**: To perform gRPC health checks, ALB sends POST or GET requests to a backend server to check whether the backend server is healthy.
+     *   **HTTP** (default): The SLB instance sends HEAD or GET requests to a backend server to simulate access from a browser and check whether the backend server is healthy.
+     *   **TCP**: To perform TCP health checks, SLB sends SYN packets to the backend server to check whether the port of the backend server is available to receive requests.
+     *   **gRPC**: To perform gRPC health checks, SLB sends POST or GET requests to a backend server to check whether the backend server is healthy.
      *
      * @example HTTP
      *
@@ -122,13 +122,13 @@ class healthCheckTemplates extends Model
     public $healthCheckTemplateName;
 
     /**
-     * @description The timeout period of a health check response. If a backend Elastic Compute Service (ECS) instance does not return a health check response within the specified timeout period, the server fails the health check.
+     * @description The timeout period for a health check response. If a backend Elastic Compute Service (ECS) instance does not return a health check response within the specified timeout period, the backend server fails the health check.
      *
      * Valid values: **1 to 300**. Unit: seconds.
      *
      * Default value: **5**.
      *
-     * > If the value of the **HealthCheckTimeout** parameter is smaller than that of the **HealthCheckInterval** parameter, the timeout period specified by the **HealthCheckTimeout** parameter is ignored and the value of the **HealthCheckInterval** parameter is used as the timeout period.
+     * >  If the value of **HealthCHeckTimeout** is smaller than the value of **HealthCheckInterval**, the value of **HealthCHeckTimeout** is ignored and the value of **HealthCheckInterval** is used.
      * @example 3
      *
      * @var int
@@ -136,7 +136,7 @@ class healthCheckTemplates extends Model
     public $healthCheckTimeout;
 
     /**
-     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status changes from **fail** to **success**.
      *
      * Valid values: **2 to 10**.
      *
@@ -148,12 +148,14 @@ class healthCheckTemplates extends Model
     public $healthyThreshold;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status changes from **success** to **fail**.
      *
      * Valid values: **2 to 10**.
      *

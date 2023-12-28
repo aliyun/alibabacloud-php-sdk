@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class healthCheckConfig extends Model
 {
     /**
-     * @description The HTTP status codes that are used to determine whether the backend server passes the health check.
+     * @description The HTTP status codes that are used to indicate whether the backend server passes the health check.
      *
      * @var string[]
      */
     public $healthCheckCodes;
 
     /**
-     * @description The port that you want to use for health checks on backend servers.
+     * @description The backend port that is used for health checks.
      *
      * Valid values: **0** to **65535**.
      *
@@ -28,12 +28,12 @@ class healthCheckConfig extends Model
     public $healthCheckConnectPort;
 
     /**
-     * @description Indicates whether the health check feature is enabled. Valid values:
+     * @description Specifies whether to enable the health check feature. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   **true**: enables the health check feature.
+     *   **false**: disables the health check feature.
      *
-     * > If the **ServerGroupType** parameter is set to **Instance** or **Ip**, the health check feature is enabled by default. If the **ServerGroupType** parameter is set to **Fc**, the health check feature is disabled by default.
+     * >  If the **ServerGroupType** parameter is set to **Instance** or **Ip**, the health check feature is enabled by default. If the **ServerGroupType** parameter is set to **Fc**, the health check feature is disabled by default.
      * @example true
      *
      * @var bool
@@ -41,15 +41,15 @@ class healthCheckConfig extends Model
     public $healthCheckEnabled;
 
     /**
-     * @description The domain name that is used for health checks. The domain name must meet the following requirements:
+     * @description The domain name that is used for health checks. The domain name meets the following requirements:
      *
-     *   The domain name must be 1 to 80 characters in length.
-     *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
-     *   It must contain at least one period (.) but cannot start or end with a period (.).
-     *   The rightmost domain label of the domain name can contain only letters, and cannot contain digits or hyphens (-).
-     *   The domain name cannot start or end with a hyphen (-).
+     *   The domain name is 1 to 80 characters in length.
+     *   The domain name contains lowercase letters, digits, hyphens (-), and periods (.).
+     *   The domain name contains at least one period (.) but does not start or end with a period (.).
+     *   The rightmost domain label of the domain name contains only letters, and does not contain digits or hyphens (-).
+     *   The domain name does not start or end with a hyphen (-).
      *
-     * > This parameter takes effect only when the **HealthCheckProtocol** parameter is set to **HTTP**.
+     * >  This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP** or **HTTPS**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, and then apply for the privilege to use HTTPS on the **ALB** tab.
      * @example www.example.com
      *
      * @var string
@@ -57,9 +57,9 @@ class healthCheckConfig extends Model
     public $healthCheckHost;
 
     /**
-     * @description The HTTP version. Valid values: **HTTP1.0** and **HTTP1.1**. Default value: HTTP1.1.
+     * @description The version of the HTTP protocol. Valid values: **HTTP1.0** and **HTTP1.1**. Default value: HTTP1.1.
      *
-     * > This parameter takes effect only when the **HealthCheckProtocol** parameter is set to **HTTP**.
+     * >  This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP** or **HTTPS**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, and then apply for the privilege to use HTTPS on the **ALB** tab.
      * @example HTTP1.1
      *
      * @var string
@@ -82,10 +82,10 @@ class healthCheckConfig extends Model
      * @description The HTTP method that is used for health checks. Valid values:
      *
      *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
-     *   **POST**: gRPC health checks automatically use the POST method.
-     *   **HEAD**: By default, HTTP health checks use the HEAD method.
+     *   **POST**: By default, gRPC health checks use the POST method.
+     *   **HEAD**: HTTP and HTTPS health checks in listeners use the HEAD method by default.
      *
-     * > This parameter takes effect only when the **HealthCheckProtocol** parameter is set to **HTTP** or **gRPC**.
+     * >  This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, and then apply for the privilege to use HTTPS on the **ALB** tab.
      * @example HEAD
      *
      * @var string
@@ -97,7 +97,7 @@ class healthCheckConfig extends Model
      *
      * The path must be 1 to 80 characters in length and can contain only letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \" , +`. The URL must start with a forward slash (/).
      *
-     * > This parameter takes effect only when the **HealthCheckProtocol** parameter is set to **HTTP**.
+     * >  This parameter takes effect only when **HealthCheckProtocol** is set to **HTTP** or **HTTPS**. HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, and then apply for the privilege to use HTPS on the **ALB** tab.
      * @example /test/index.html
      *
      * @var string
@@ -107,10 +107,12 @@ class healthCheckConfig extends Model
     /**
      * @description The protocol that is used for health checks. Valid values:
      *
-     *   **HTTP**: To perform HTTP health checks, Application Load Balancer (ALB) sends HEAD or GET requests to a backend server to check whether the backend server is healthy.
-     *   **HTTPS**: To perform HTTPS health checks, ALB sends SYN packets to a backend server to check whether the port of the backend server is available to receive requests.
-     *   **gRPC**: To perform gRPC health checks, ALB sends POST or GET requests to a backend server to check whether the backend server is healthy.
+     *   **HTTP**: ALB performs HTTP health checks by sending HEAD or GET requests to a backend server to check whether the backend server is healthy.
+     *   **HTTPS**: ALB performs HTTPS health checks by sending HEAD or GET requests to a backend server to check whether the backend server is healthy. HTTPS supports data encryption and provides higher data security than HTTP.
+     *   **TCP**: To perform TCP health checks, SLB sends SYN packets to the backend server to check whether the port of the backend server is available to receive requests.
+     *   **gRPC**: To perform gRPC health checks, SLB sends POST or GET requests to a backend server to check whether the backend server is healthy.
      *
+     * >  HTTPS is unavailable by default. If you want to use HTTPS, log on to the SLB console, go to the Quota Center page, and then apply for the privilege to use HTTPS on the **ALB** tab.
      * @example HTTP
      *
      * @var string
@@ -118,13 +120,13 @@ class healthCheckConfig extends Model
     public $healthCheckProtocol;
 
     /**
-     * @description Specify the timeout period of a health check response. If a backend server, such as an Elastic Compute Service (ECS) instance, does not return a health check response within the specified timeout period, the server fails the health check. Unit: seconds.
+     * @description The timeout period for a health check response. If a backend server, such as an Elastic Compute Service (ECS) instance, does not return a health check response within the specified timeout period, the server fails the health check. Unit: seconds.
      *
      * Valid values: **1** to **300**.
      *
      * Default value: **5**.
      *
-     * > If the value of the **HealthCheckTimeout** parameter is smaller than that of the **HealthCheckInterval** parameter, the timeout period specified by the **HealthCheckTimeout** parameter is ignored and the value of the **HealthCheckInterval** parameter is used as the timeout period.
+     * >  If the value of **HealthCHeckTimeout** is smaller than the value of **HealthCheckInterval**, the value of **HealthCHeckTimeout** is ignored and the value of **HealthCheckInterval** is used.
      * @example 5
      *
      * @var int
@@ -132,7 +134,7 @@ class healthCheckConfig extends Model
     public $healthCheckTimeout;
 
     /**
-     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status changes from **fail** to **success**.
      *
      * Valid values: **2** to **10**.
      *
@@ -144,7 +146,7 @@ class healthCheckConfig extends Model
     public $healthyThreshold;
 
     /**
-     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status changes from **success** to **fail**.
      *
      * Valid values: **2** to **10**.
      *

@@ -25,12 +25,16 @@ class serverGroups extends Model
     public $configManagedEnabled;
 
     /**
+     * @description The time when the resource was created.
+     *
+     * @example 2022-07-02T02:49:05Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The health check configurations.
+     * @description The health check configuration.
      *
      * @var healthCheckConfig
      */
@@ -51,8 +55,8 @@ class serverGroups extends Model
     /**
      * @description The backend protocol. Valid values:
      *
-     *   **HTTP**: allows you to associate an HTTPS, HTTP, or QUIC listener with the server group.
-     *   **HTTPS**: allows you to associate HTTPS listeners with backend servers.
+     *   **HTTP**: allows you to associate HTTPS, HTTP, or QUIC listeners with backend servers.
+     *   **HTTPS**: allows you to associate an HTTPS listener with the server group.
      *   **GRPC**: allows you to associate an HTTPS or QUIC listener with the server group.
      *
      * @example HTTP
@@ -62,7 +66,12 @@ class serverGroups extends Model
     public $protocol;
 
     /**
-     * @description The ID of the resource group to which the resource belongs.
+     * @var string[]
+     */
+    public $relatedLoadBalancerIds;
+
+    /**
+     * @description The resource group ID to which the GA instance belongs.
      *
      * @example rg-atstuj3rtop****
      *
@@ -74,7 +83,7 @@ class serverGroups extends Model
      * @description The scheduling algorithm. Valid values:
      *
      *   **Wrr**: Backend servers with higher weights receive more requests than backend servers with lower weights.
-     *   **Wlc**: Requests are distributed based on the weight and load of each backend server. The load refers to the number of connections on a backend server. If two backend servers have the same weight, the backend server that has fewer connections is expected to receive more requests.
+     *   **Wlc**: Requests are distributed based on the weight and load of each backend server. The load refers to the number of connections on a backend server. If multiple backend servers have the same weight, requests are forwarded to the backend server with the least number of connections.
      *   **Sch**: The consistent hashing algorithm is used. Requests from the same source IP address are distributed to the same backend server.
      *
      * @example Wrr
@@ -93,7 +102,7 @@ class serverGroups extends Model
     public $serverCount;
 
     /**
-     * @description The server group ID.
+     * @description The ID of the server group.
      *
      * @example sgp-cige6j****
      *
@@ -102,7 +111,7 @@ class serverGroups extends Model
     public $serverGroupId;
 
     /**
-     * @description The server group name.
+     * @description The name of the server group.
      *
      * @example Group3
      *
@@ -160,12 +169,14 @@ class serverGroups extends Model
     public $tags;
 
     /**
+     * @description The configuration of consistent hashing based on URLs.
+     *
      * @var uchConfig
      */
     public $uchConfig;
 
     /**
-     * @description Indicates whether persistent TCP connections are enabled. Valid values:
+     * @description Indicates whether long-lived TCP connections are enabled. Valid values:
      *
      *   **true**
      *   **false**
@@ -177,7 +188,7 @@ class serverGroups extends Model
     public $upstreamKeepaliveEnabled;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The VPC ID.
      *
      * @example vpc-bp15zckdt37pq72zv****
      *
@@ -190,6 +201,7 @@ class serverGroups extends Model
         'healthCheckConfig'        => 'HealthCheckConfig',
         'ipv6Enabled'              => 'Ipv6Enabled',
         'protocol'                 => 'Protocol',
+        'relatedLoadBalancerIds'   => 'RelatedLoadBalancerIds',
         'resourceGroupId'          => 'ResourceGroupId',
         'scheduler'                => 'Scheduler',
         'serverCount'              => 'ServerCount',
@@ -226,6 +238,9 @@ class serverGroups extends Model
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
+        }
+        if (null !== $this->relatedLoadBalancerIds) {
+            $res['RelatedLoadBalancerIds'] = $this->relatedLoadBalancerIds;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -298,6 +313,11 @@ class serverGroups extends Model
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
+        }
+        if (isset($map['RelatedLoadBalancerIds'])) {
+            if (!empty($map['RelatedLoadBalancerIds'])) {
+                $model->relatedLoadBalancerIds = $map['RelatedLoadBalancerIds'];
+            }
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class XForwardedForConfig extends Model
 {
     /**
-     * @description The name of the custom header. This parameter takes effect only when **XForwardedForClientCertClientVerifyEnabled** is set to **true**.
+     * @description The name of the custom header. This parameter takes effect only if **XForwardedForClientCertClientVerifyEnabled** is set to **true**.
      *
-     * > This parameter is available only when you create an HTTPS listener.
+     * >  This parameter is returned only for HTTPS listeners.
      * @example test_client-verify-alias_123456
      *
      * @var string
@@ -24,7 +24,7 @@ class XForwardedForConfig extends Model
      *   **true**
      *   **false**
      *
-     * > This parameter is available only when you create an HTTPS listener.
+     * >  This parameter is returned only for HTTPS listeners.
      * @example true
      *
      * @var bool
@@ -32,9 +32,9 @@ class XForwardedForConfig extends Model
     public $XForwardedForClientCertClientVerifyEnabled;
 
     /**
-     * @description The name of the custom header. This parameter takes effect only when **XForwardedForClientCertFingerprintEnabled** is set to **true**.
+     * @description The name of the custom header. This parameter takes effect only if **XForwardedForClientCertFingerprintEnabled** is set to **true**.
      *
-     * > This parameter is available only when you create an HTTPS listener.
+     * >  This parameter is returned only for HTTPS listeners.
      * @example test_finger-print-alias_123456
      *
      * @var string
@@ -47,7 +47,7 @@ class XForwardedForConfig extends Model
      *   **true**
      *   **false**
      *
-     * > This parameter is available only when you create an HTTPS listener.
+     * >  This parameter is returned only for HTTPS listeners.
      * @example true
      *
      * @var bool
@@ -55,9 +55,9 @@ class XForwardedForConfig extends Model
     public $XForwardedForClientCertFingerprintEnabled;
 
     /**
-     * @description The name of the custom header. This parameter takes effect only when **XForwardedForClientCertIssuerDNEnabled** is set to **true**.
+     * @description The name of the custom header. This parameter takes effect only if **XForwardedForClientCertIssuerDNEnabled** is set to **true**.
      *
-     * > This parameter is available only when you create an HTTPS listener.
+     * >  This parameter is returned only for HTTPS listeners.
      * @example test_issue-dn-alias_123456
      *
      * @var string
@@ -70,7 +70,7 @@ class XForwardedForConfig extends Model
      *   **true**
      *   **false**
      *
-     * > This parameter is available only when you create an HTTPS listener.
+     * >  This parameter is returned only for HTTPS listeners.
      * @example true
      *
      * @var bool
@@ -78,9 +78,9 @@ class XForwardedForConfig extends Model
     public $XForwardedForClientCertIssuerDNEnabled;
 
     /**
-     * @description The name of the custom header. This parameter takes effect only when **XForwardedForClientCertSubjectDNEnabled** is set to **true**.
+     * @description The name of the custom header. This parameter takes effect only if **XForwardedForClientCertSubjectDNEnabled** is set to **true**.
      *
-     * > This parameter is available only when you create an HTTPS listener.
+     * >  This parameter is returned only for HTTPS listeners.
      * @example test_subject-dn-alias_123456
      *
      * @var string
@@ -93,7 +93,7 @@ class XForwardedForConfig extends Model
      *   **true**
      *   **false**
      *
-     * > This parameter is available only when you create an HTTPS listener.
+     * >  This parameter is returned only for HTTPS listeners.
      * @example true
      *
      * @var bool
@@ -101,12 +101,12 @@ class XForwardedForConfig extends Model
     public $XForwardedForClientCertSubjectDNEnabled;
 
     /**
-     * @description Specifies whether to use the `X-Forwarded-Client-Ip` header to retrieve the source port of the ALB instance. Valid values:
+     * @description Indicates whether the `X-Forwarded-Client-Ip` header is used to retrieve the source port of the ALB instance. Valid values:
      *
      *   **true**
      *   **false**
      *
-     * > HTTP, HTTPS, and QUIC listeners support this parameter.
+     * >  HTTP, HTTPS, and QUIC listeners support this parameter.
      * @example false
      *
      * @var bool
@@ -129,7 +129,7 @@ class XForwardedForConfig extends Model
      *   **true**
      *   **false**
      *
-     * > This parameter is available only when you create an HTTP or HTTPS listener.
+     * >  This parameter is returned only for HTTP and HTTPS listeners.
      * @example true
      *
      * @var bool
@@ -142,7 +142,7 @@ class XForwardedForConfig extends Model
      *   **true**
      *   **false**
      *
-     * > This parameter is available only when you create an HTTP or HTTPS listener.
+     * >  This parameter is returned only for HTTP and HTTPS listeners.
      * @example true
      *
      * @var bool
@@ -150,12 +150,12 @@ class XForwardedForConfig extends Model
     public $XForwardedForEnabled;
 
     /**
-     * @description Specifies whether to use the `X-Forwarded-Proto` header to retrieve the listener protocol of the ALB instance. Valid values:
+     * @description Indicates whether the `X-Forwarded-Proto` header is used to retrieve the listener protocol. Valid values:
      *
      *   **true**
      *   **false**
      *
-     * > This parameter is available only when you create an HTTP, HTTPS, or QUIC listener.
+     * >  HTTP, HTTPS, and QUIC listeners support this parameter.
      * @example true
      *
      * @var bool
@@ -168,7 +168,7 @@ class XForwardedForConfig extends Model
      *   **true**
      *   **false**
      *
-     * > This parameter is available only when you create an HTTP, HTTPS, or QUIC listener.
+     * >  HTTP, HTTPS, and QUIC listeners support this parameter.
      * @example true
      *
      * @var bool
@@ -181,7 +181,7 @@ class XForwardedForConfig extends Model
      *   **true**
      *   **false**
      *
-     * > This parameter is available only when you create an HTTP, HTTPS, or QUIC listener.
+     * >  HTTP, HTTPS, and QUIC listeners support this parameter.
      * @example true
      *
      * @var bool

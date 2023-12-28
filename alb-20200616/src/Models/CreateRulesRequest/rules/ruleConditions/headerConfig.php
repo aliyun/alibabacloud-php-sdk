@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class headerConfig extends Model
 {
     /**
-     * @description The path to which requests are forwarded. Limits:
+     * @description The key of the header.
      *
-     *   The path must be 1 to 128 characters in length.
-     *   It must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\*) and question marks (?) as wildcards.
-     *   The value is case-sensitive.
+     *   The key must be 1 to 40 characters in length.
+     *   It can contain lowercase letters, digits, hyphens (-), and underscores (\_).
+     *   You cannot specify Cookie or Host.
      *
      * @example Port
      *
@@ -22,6 +22,8 @@ class headerConfig extends Model
     public $key;
 
     /**
+     * @description The values of the header.
+     *
      * @var string[]
      */
     public $values;

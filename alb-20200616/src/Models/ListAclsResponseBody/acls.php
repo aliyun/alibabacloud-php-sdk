@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class acls extends Model
 {
     /**
-     * @description The ACL ID.
+     * @description The ID of the network ACL.
      *
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
@@ -19,7 +19,7 @@ class acls extends Model
     public $aclId;
 
     /**
-     * @description The ACL name.
+     * @description The name of the network ACL.
      *
      * @example test-acl
      *
@@ -28,11 +28,11 @@ class acls extends Model
     public $aclName;
 
     /**
-     * @description The status of the ACL. Valid values:
+     * @description The status of the network ACL. Valid values:
      *
-     *   **Creating**
-     *   **Available**
-     *   **Configuring**
+     *   **Creating**: The network ACL is being created.
+     *   **Available**: The network ACL is available.
+     *   **Configuring**: The network ACL is being configured.
      *
      * @example Available
      *
@@ -41,7 +41,7 @@ class acls extends Model
     public $aclStatus;
 
     /**
-     * @description The IP version. Only **IPv4** may be returned.
+     * @description The IP version. **IPv4** is returned.
      *
      * @example IPv4
      *
@@ -50,10 +50,10 @@ class acls extends Model
     public $addressIPVersion;
 
     /**
-     * @description Indicates whether configuration management is enabled. Valid values:
+     * @description The status of configuration management. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   **true**: configuration management is enabled.
+     *   **false**: configuration management is disabled.
      *
      * @example false
      *
@@ -62,12 +62,16 @@ class acls extends Model
     public $configManagedEnabled;
 
     /**
+     * @description The time when the resource was created.
+     *
+     * @example 2023-02-15T07:37:33Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The resource group ID.
+     * @description The ID of the resource group.
      *
      * @example rg-atstuj3rtopty****
      *
@@ -76,6 +80,8 @@ class acls extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

@@ -43,12 +43,8 @@ class CreateRulesRequest extends Model
     public $listenerId;
 
     /**
-     * @description The direction to which the forwarding rule is applied. You can specify only one direction. Valid values:
+     * @description The forwarding rules. You can specify at most 10 forwarding rules in each call.
      *
-     *   **Request** (default): The forwarding rule is applied to the client requests received by ALB.
-     *   **Response**: The forwarding rule is applied to the responses returned by backend servers.
-     *
-     * > Basic ALB instances do not support the **Response** value.
      * @var rules[]
      */
     public $rules;

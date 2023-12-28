@@ -9,16 +9,9 @@ use AlibabaCloud\Tea\Model;
 class trafficLimitConfig extends Model
 {
     /**
-     * @description The allowed HTTP methods for CORS requests. Valid values:
+     * @description The QPS of each IP address. Value range: **1 to 1000000**.
      *
-     *   **GET**
-     *   **POST**
-     *   **PUT**
-     *   **DELETE**
-     *   **HEAD**
-     *   **OPTIONS**
-     *   **PATCH**
-     *
+     * >  If **QPS** and PerIpQps are specified, the value of **PerIpQps** must be smaller than the value of **QPS**.
      * @example 80
      *
      * @var int
@@ -26,10 +19,7 @@ class trafficLimitConfig extends Model
     public $perIpQps;
 
     /**
-     * @description The origin site that is allowed to access. You can specify an asterisk (`*`) or one or more values. The value cannot be an asterisk (`*`).
-     *
-     *   The value must start with `http://` or `https://` and include a valid domain name or top-level wildcard domain name, such as `*.test.abc.example.com`.
-     *   You can choose to include a port number from **1** to **65535** in each value based on your business requirement.
+     * @description The queries per second (QPS). Value range: **1 to 1000000**.
      *
      * @example 100
      *

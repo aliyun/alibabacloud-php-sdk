@@ -9,11 +9,10 @@ use AlibabaCloud\Tea\Model;
 class corsConfig extends Model
 {
     /**
-     * @description The key of the header.
+     * @description Specifies whether to allow credentials to be carried in CORS requests. Valid values:
      *
-     *   The key must be 1 to 40 characters in length.
-     *   It can contain letters, digits, hyphens (-), and underscores (\_).
-     *   You cannot set Cookie or Host.
+     *   **on**: allows credentials to be carried in CORS requests.
+     *   **off**: does not allow credentials to be carried in CORS requests.
      *
      * @example on
      *
@@ -22,32 +21,37 @@ class corsConfig extends Model
     public $allowCredentials;
 
     /**
+     * @description The allowed headers for CORS requests.
+     *
      * @var string[]
      */
     public $allowHeaders;
 
     /**
+     * @description The allowed HTTP methods for CORS requests.
+     *
      * @var string[]
      */
     public $allowMethods;
 
     /**
+     * @description The allowed origins of CORS requests.
+     *
      * @var string[]
      */
     public $allowOrigin;
 
     /**
+     * @description The headers that can be exposed.
+     *
      * @var string[]
      */
     public $exposeHeaders;
 
     /**
-     * @description The value of the header. The header values within a forwarding rule must be unique.
+     * @description The maximum cache time of preflight requests in the browser. Unit: seconds.
      *
-     *   The value must be 1 to 128 characters in length.
-     *   It can contain printable characters whose ASCII values are `greater than or equal to 32 and lower than 127`. You can use asterisks (\*) and question marks (?) as wildcard characters.
-     *   The value cannot start or end with a space character.
-     *
+     * Valid values: **-1** to **172800**.
      * @example 1000
      *
      * @var int

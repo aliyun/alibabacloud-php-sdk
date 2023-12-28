@@ -17,7 +17,7 @@ class DescribeRegionsResponseBody extends Model
     public $regions;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
      *

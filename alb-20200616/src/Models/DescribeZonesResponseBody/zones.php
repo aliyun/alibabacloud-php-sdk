@@ -11,7 +11,7 @@ class zones extends Model
     /**
      * @description The name of the zone.
      *
-     * @example 杭州
+     * @example Hangzhou Zone G
      *
      * @var string
      */

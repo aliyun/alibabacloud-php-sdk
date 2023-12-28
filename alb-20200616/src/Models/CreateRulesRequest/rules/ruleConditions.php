@@ -18,52 +18,80 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
+     * @description The configurations of the cookies. You can add at most 20 cookies.
+     *
      * @var cookieConfig
      */
     public $cookieConfig;
 
     /**
+     * @description The configuration of the header. You can add at most 20 headers.
+     *
      * @var headerConfig
      */
     public $headerConfig;
 
     /**
+     * @description The configurations of the hosts. You can specify up to 20 resources.
+     *
      * @var hostConfig
      */
     public $hostConfig;
 
     /**
+     * @description The configurations of the request methods. You can specify at most 20 request methods.
+     *
      * @var methodConfig
      */
     public $methodConfig;
 
     /**
+     * @description The configurations of the paths. You can specify at most 20 paths.
+     *
      * @var pathConfig
      */
     public $pathConfig;
 
     /**
+     * @description The configuration of the query conditions. You can specify at most 20 query conditions.
+     *
      * @var queryStringConfig
      */
     public $queryStringConfig;
 
     /**
+     * @description The configuration of the header. You can add at most 20 headers.
+     *
      * @var responseHeaderConfig
      */
     public $responseHeaderConfig;
 
     /**
+     * @description The configurations of the response status codes.
+     *
      * @var responseStatusCodeConfig
      */
     public $responseStatusCodeConfig;
 
     /**
+     * @description The configuration of the source IP addresses based on which user traffic is matched. This parameter is required and takes effect only when **Type** is set to **SourceIP**. You can specify at most five values for **SourceIp**.
+     *
      * @var sourceIpConfig
      */
     public $sourceIpConfig;
 
     /**
-     * @description The ID of the asynchronous task.
+     * @description The type of forwarding rule. You can specify at most seven types. Valid values:
+     *
+     *   **Host**: Responses are forwarded based on hosts.
+     *   **Path**: Responses are forwarded based on paths.
+     *   **Header**: Responses are forwarded based on HTTP headers.
+     *   **QueryString**: Responses are forwarded based on query strings.
+     *   **Method**: Responses are forwarded based on request methods.
+     *   **Cookie**: Responses are forwarded based on cookies.
+     *   **SourceIp:**: Responses are forwarded based on source IP addresses.
+     *   **ResponseHeader**: Responses are forwarded based on HTTP response headers.
+     *   **ResponseStatusCode**: Responses are forwarded based on response status codes.
      *
      * @example Host
      *

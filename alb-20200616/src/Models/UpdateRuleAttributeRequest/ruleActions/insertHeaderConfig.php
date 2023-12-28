@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class insertHeaderConfig extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $coverEnabled;

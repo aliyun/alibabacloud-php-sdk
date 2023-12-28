@@ -9,10 +9,11 @@ use AlibabaCloud\Tea\Model;
 class responseHeaderConfig extends Model
 {
     /**
-     * @description The name of the forwarding rule. You can name at most 20 forwarding rules.
+     * @description The key of the header.
      *
-     *   The name must be 2 to 128 characters in length.
-     *   It can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     *   The key must be 1 to 40 characters in length.
+     *   It can contain lowercase letters, digits, hyphens (-), and underscores (\_).
+     *   You cannot specify Cookie or Host.
      *
      * @example Port
      *
@@ -21,6 +22,8 @@ class responseHeaderConfig extends Model
     public $key;
 
     /**
+     * @description The values of the header.
+     *
      * @var string[]
      */
     public $values;

@@ -9,15 +9,10 @@ use AlibabaCloud\Tea\Model;
 class values extends Model
 {
     /**
-     * @description The type of forwarding rule. You can specify at most seven types. Valid values:
+     * @description They key of the query string.
      *
-     *   **Host**: Requests are forwarded based on hosts.
-     *   **Path**: Requests are forwarded based on paths.
-     *   **Header**: Requests are forwarded based on HTTP headers.
-     *   **QueryString**: Requests are forwarded based on query strings.
-     *   **Method**: Requests are forwarded based on request methods.
-     *   **Cookie**: Requests are forwarded based on cookies.
-     *   **SourceIp**: Requests are forwarded based on source IP addresses.
+     *   It must be 1 to 100 characters in length.
+     *   You can use asterisks (\*) and question marks (?) as wildcards. The key can contain printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \ | < > &`.
      *
      * @example test
      *
@@ -26,9 +21,11 @@ class values extends Model
     public $key;
 
     /**
-     * @description The IP addresses or CIDR blocks.
+     * @description The value of the query string.
      *
-     * You can specify at most five values for **SourceIp**.
+     *   The value must be 1 to 128 characters in length.
+     *   It can contain printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \ | < > &`. You can use asterisks (\*) and question marks (?) as wildcards.
+     *
      * @example test
      *
      * @var string

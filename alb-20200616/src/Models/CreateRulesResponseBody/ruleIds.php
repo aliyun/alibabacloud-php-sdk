@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ruleIds extends Model
 {
     /**
+     * @description The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value indicates a higher priority.
+     *
+     * > The priorities of the forwarding rules created for the same listener must be unique.
      * @example 10
      *
      * @var int
@@ -16,6 +19,8 @@ class ruleIds extends Model
     public $priority;
 
     /**
+     * @description The forwarding rule ID.
+     *
      * @example rule-a3x3pg1yohq3lq****
      *
      * @var string

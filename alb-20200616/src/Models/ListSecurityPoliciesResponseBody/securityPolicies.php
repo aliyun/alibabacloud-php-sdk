@@ -17,12 +17,16 @@ class securityPolicies extends Model
     public $ciphers;
 
     /**
+     * @description The time when the resource was created.
+     *
+     * @example 2023-02-15T07:37:33Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The resource group ID.
+     * @description The ID of the resource group.
      *
      * @example rg-atstuj3rtop****
      *
@@ -31,7 +35,7 @@ class securityPolicies extends Model
     public $resourceGroupId;
 
     /**
-     * @description The security policy ID.
+     * @description The ID of the security policy.
      *
      * @example rg-atstuj3rtop****
      *
@@ -68,6 +72,8 @@ class securityPolicies extends Model
     public $TLSVersions;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

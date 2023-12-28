@@ -14,7 +14,7 @@ class accessLogTracingConfig extends Model
      *   **true**
      *   **false**
      *
-     * > You can set this parameter to **true** only if the access log feature is enabled by specifying **AccessLogEnabled**.
+     * >  This parameter can be set to **true** only if **AccessLogEnabled** is set to true.
      * @example true
      *
      * @var bool
@@ -24,7 +24,7 @@ class accessLogTracingConfig extends Model
     /**
      * @description The sampling rate of Xtrace. Valid values: **1 to 10000**.
      *
-     * > This parameter takes effect only if **TracingEnabled** is set to **true**.
+     * >  This parameter takes effect only if **TracingEnabled** is set to **true**.
      * @example 100
      *
      * @var int
@@ -32,9 +32,9 @@ class accessLogTracingConfig extends Model
     public $tracingSample;
 
     /**
-     * @description The Xtrace type. This parameter can be set to **Zipkin**.
+     * @description The Xtrace type. Only **Zipkin** may be returned.
      *
-     * > This parameter takes effect only if **TracingEnabled** is set to **true**.
+     * >  This parameter takes effect only if **TracingEnabled** is set to **true**.
      * @example Zipkin
      *
      * @var string

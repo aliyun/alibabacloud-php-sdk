@@ -89,11 +89,15 @@ class UpdateServerGroupAttributeRequest extends Model
     public $stickySessionConfig;
 
     /**
+     * @description The setting of consistent hashing based on URLs.
+     *
      * @var uchConfig
      */
     public $uchConfig;
 
     /**
+     * @description Specifies whether to enable persistent TCP connections.
+     *
      * @var bool
      */
     public $upstreamKeepaliveEnabled;

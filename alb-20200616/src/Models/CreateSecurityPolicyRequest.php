@@ -65,6 +65,8 @@ class CreateSecurityPolicyRequest extends Model
     public $TLSVersions;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

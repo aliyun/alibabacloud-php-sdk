@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceIpConfig extends Model
 {
     /**
-     * @description The IP addresses or CIDR blocks.
+     * @description The IP address or CIDR block based on which user traffic is matched. You can specify multiple IP addresses or CIDR blocks.
      *
      * @var string[]
      */

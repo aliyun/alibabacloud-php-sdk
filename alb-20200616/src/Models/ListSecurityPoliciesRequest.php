@@ -54,6 +54,8 @@ class ListSecurityPoliciesRequest extends Model
     public $securityPolicyNames;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

@@ -154,6 +154,8 @@ class GetHealthCheckTemplateAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

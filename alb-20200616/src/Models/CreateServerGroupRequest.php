@@ -92,7 +92,7 @@ class CreateServerGroupRequest extends Model
     /**
      * @description The type of server group. Valid values:
      *
-     *   **Instance** (default): allows you to add servers by specifying **Ecs**, **Ens**, or **Eci**.
+     *   **Instance** (default): allows you to add servers by specifying **Ecs**, **Eni**, or **Eci**.
      *   **Ip**: allows you to add servers by specifying IP addresses.
      *   **Fc**: allows you to add servers by specifying functions of Function Compute.
      *
@@ -120,18 +120,22 @@ class CreateServerGroupRequest extends Model
     public $stickySessionConfig;
 
     /**
+     * @description The tag.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The setting of consistent hashing based on URLs.
+     * @description The configuration of consistent hashing based on URLs.
      *
      * @var uchConfig
      */
     public $uchConfig;
 
     /**
+     * @description Specifies whether to enable persistent TCP connections.
+     *
      * @var bool
      */
     public $upstreamKeepaliveEnabled;

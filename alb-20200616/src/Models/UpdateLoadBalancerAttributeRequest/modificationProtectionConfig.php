@@ -12,6 +12,8 @@ class modificationProtectionConfig extends Model
      * @description It must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
      *
      * This parameter takes effect only when **ModificationProtectionStatus** is set to **ConsoleProtection**.
+     * @example test
+     *
      * @var string
      */
     public $reason;

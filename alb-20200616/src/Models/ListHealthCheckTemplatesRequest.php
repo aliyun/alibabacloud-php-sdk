@@ -45,6 +45,8 @@ class ListHealthCheckTemplatesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

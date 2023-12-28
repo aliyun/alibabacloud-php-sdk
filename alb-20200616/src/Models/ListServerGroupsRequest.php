@@ -54,6 +54,13 @@ class ListServerGroupsRequest extends Model
     public $serverGroupNames;
 
     /**
+     * @example Instance
+     *
+     * @var string
+     */
+    public $serverGroupType;
+
+    /**
      * @description The tags that are added to the server group. You can specify up to 10 tags in each call.
      *
      * @var tag[]
@@ -74,6 +81,7 @@ class ListServerGroupsRequest extends Model
         'resourceGroupId'  => 'ResourceGroupId',
         'serverGroupIds'   => 'ServerGroupIds',
         'serverGroupNames' => 'ServerGroupNames',
+        'serverGroupType'  => 'ServerGroupType',
         'tag'              => 'Tag',
         'vpcId'            => 'VpcId',
     ];
@@ -99,6 +107,9 @@ class ListServerGroupsRequest extends Model
         }
         if (null !== $this->serverGroupNames) {
             $res['ServerGroupNames'] = $this->serverGroupNames;
+        }
+        if (null !== $this->serverGroupType) {
+            $res['ServerGroupType'] = $this->serverGroupType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -142,6 +153,9 @@ class ListServerGroupsRequest extends Model
             if (!empty($map['ServerGroupNames'])) {
                 $model->serverGroupNames = $map['ServerGroupNames'];
             }
+        }
+        if (isset($map['ServerGroupType'])) {
+            $model->serverGroupType = $map['ServerGroupType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

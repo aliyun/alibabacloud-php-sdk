@@ -18,30 +18,35 @@ use AlibabaCloud\Tea\Model;
 class ruleActions extends Model
 {
     /**
+     * @description The CORS configuration.
+     *
      * @var corsConfig
      */
     public $corsConfig;
 
     /**
+     * @description The configuration of the custom response. You can specify at most 20 responses.
+     *
      * @var fixedResponseConfig
      */
     public $fixedResponseConfig;
 
     /**
+     * @description The configuration of the server group. You can add at most 20 server groups.
+     *
      * @var forwardGroupConfig
      */
     public $forwardGroupConfig;
 
     /**
+     * @description The configuration of the header to be inserted. You can specify at most 20 headers.
+     *
      * @var insertHeaderConfig
      */
     public $insertHeaderConfig;
 
     /**
-     * @description The port to which requests are redirected.
-     *
-     *   **${port}** (default): If you set the value to ${port}, you cannot append other characters.
-     *   You can also enter a port number. Valid values: **1 to 63335**.
+     * @description The priority of the action. Valid values: **1 to 50000**. A lower value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter is required. The priority of each action within a forwarding rule must be unique. You can specify priorities for at most 20 actions.
      *
      * @example 1
      *
@@ -50,32 +55,57 @@ class ruleActions extends Model
     public $order;
 
     /**
+     * @description The redirect configuration. You can specify at most 20 redirects.
+     *
      * @var redirectConfig
      */
     public $redirectConfig;
 
     /**
+     * @description The configuration of the header to be removed.
+     *
      * @var removeHeaderConfig
      */
     public $removeHeaderConfig;
 
     /**
+     * @description The rewrite configuration. You can specify at most 20 rewrites.
+     *
      * @var rewriteConfig
      */
     public $rewriteConfig;
 
     /**
+     * @description The configuration of traffic throttling. You can add at most 20 configuration records.
+     *
      * @var trafficLimitConfig
      */
     public $trafficLimitConfig;
 
     /**
+     * @description The configuration of traffic mirroring. You can add at most 20 traffic mirrors.
+     *
      * @var trafficMirrorConfig
      */
     public $trafficMirrorConfig;
 
     /**
-     * @description The ID of the vServer group.
+     * @description The action type. You can specify at most 11 types of actions. Valid values:
+     *
+     *   **ForwardGroup**: distributes requests to multiple vServer groups.
+     *   **Redirect**: redirects a request.
+     *   **FixedResponse**: returns a custom response.
+     *   **Rewrite**: rewrites a request.
+     *   **InsertHeader**: inserts a header.
+     *   **RemoveHeaderConfig:** deletes the header of a request.
+     *   **TrafficLimit**: throttles traffic.
+     *   **trafficMirror**: mirrors network traffic.
+     *   **Cors**: enables cross-origin resource sharing (CORS).
+     *
+     * The following action types are supported:
+     *
+     *   **FinalType**: the last action to be performed in a forwarding rule. Each forwarding rule can contain only one FinalType action. You can specify a **ForwardGroup**, **Redirect**, or **FixedResponse** action as the FinalType action.
+     *   **ExtType**: one or more actions to be performed before the **FinalType** action. A forwarding rule can contain one or more **ExtType** actions. To specify an ExtType action, you must specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
      *
      * @example ForwardGroup
      *

@@ -9,11 +9,10 @@ use AlibabaCloud\Tea\Model;
 class serverGroupStickySession extends Model
 {
     /**
-     * @description The type of header. Valid values:
+     * @description Specifies whether to enable session persistence. Valid values:
      *
-     *   **UserDefined**: a custom header.
-     *   **ReferenceHeader**: a header that is referenced from one of the request headers.
-     *   **SystemDefined**: a header predefined by the system.
+     *   **true**: enables session persistence.
+     *   **false** (default): disables session persistence.
      *
      * @example false
      *
@@ -22,7 +21,7 @@ class serverGroupStickySession extends Model
     public $enabled;
 
     /**
-     * @description The priority of the action within the forwarding rule. Valid values: **1 to 50000**. A lower value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter is required. The priority of each action within a forwarding rule must be unique. You can specify priorities for at most 20 actions.
+     * @description The timeout period of sessions. Unit: seconds. Valid values: **1 to 86400**.
      *
      * @example 2
      *

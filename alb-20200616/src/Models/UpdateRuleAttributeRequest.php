@@ -52,7 +52,7 @@ class UpdateRuleAttributeRequest extends Model
     public $ruleActions;
 
     /**
-     * @description The match conditions of the forwarding rule.
+     * @description The match condition of the forwarding rule.
      *
      * @var ruleConditions[]
      */

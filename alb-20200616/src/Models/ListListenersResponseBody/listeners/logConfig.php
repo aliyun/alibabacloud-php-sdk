@@ -22,7 +22,7 @@ class logConfig extends Model
     public $accessLogRecordCustomizedHeadersEnabled;
 
     /**
-     * @description The configuration of Xtrace. Xtrace is used to record the requests sent to ALB.
+     * @description The configuration of Xtrace. Xtrace is used to record the requests that are sent to ALB.
      *
      * @var accessLogTracingConfig
      */

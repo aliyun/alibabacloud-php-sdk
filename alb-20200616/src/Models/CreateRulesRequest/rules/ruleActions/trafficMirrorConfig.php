@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class trafficMirrorConfig extends Model
 {
     /**
+     * @description The configuration of the server group to which traffic is mirrored.
+     *
      * @var mirrorGroupConfig
      */
     public $mirrorGroupConfig;
 
     /**
-     * @description The allowed headers for CORS requests. You can specify an asterisk (`*`) or one or more values. Separate multiple values with commas (,). The value must be 1 to 32 characters in length, and can contain letters and digits. The value cannot start or end with an underscore (\_) or hyphen (-).
+     * @description The type of destination to which network traffic is mirrored. Valid values:
+     *
+     *   **ForwardGroupMirror**: a server group.
      *
      * @example ForwardGroupMirror
      *

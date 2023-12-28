@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListAclsRequest extends Model
 {
     /**
-     * @description The ACL IDs.
+     * @description The ID of the network ACL. You can specify at most 20 network ACL IDs in each request.
      *
      * @var string[]
      */
     public $aclIds;
 
     /**
-     * @description The ACL names. You can specify up to 10 ACL names in each request.
+     * @description The names of the network ACLs. You can specify at most 10 network ACL names in each request.
      *
      * @var string[]
      */
@@ -33,10 +33,10 @@ class ListAclsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     * @description The token that is used for the next query. Valid values:
      *
-     *   You do not need to specify this parameter for the first request.
-     *   You must specify the token that is obtained from the previous query as the value of NextToken.
+     *   If this is your first query or no next query is to be sent, ignore this parameter.
+     *   If a next query is to be sent, set the value to the value of NextToken that is returned from the last call.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -45,7 +45,7 @@ class ListAclsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The resource group ID. You can filter the results based on the specified ID.
+     * @description The ID of the resource group. You can filter the query results based on the specified ID.
      *
      * @example rg-atstuj3rtopty****
      *
@@ -54,6 +54,8 @@ class ListAclsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

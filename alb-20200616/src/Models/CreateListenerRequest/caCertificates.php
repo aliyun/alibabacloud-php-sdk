@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class caCertificates extends Model
 {
     /**
+     * @example 12315790212_166f8204689_1714763408_70998****
+     *
      * @var string
      */
     public $certificateId;

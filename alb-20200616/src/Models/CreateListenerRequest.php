@@ -15,8 +15,6 @@ use AlibabaCloud\Tea\Model;
 class CreateListenerRequest extends Model
 {
     /**
-     * @description A list of certificates.
-     *
      * @var caCertificates[]
      */
     public $caCertificates;
@@ -24,8 +22,8 @@ class CreateListenerRequest extends Model
     /**
      * @description Specifies whether to enable mutual authentication. Valid values:
      *
-     *   **true**
-     *   **false** (default):
+     *   **true**: enables mutual authentication.
+     *   **false** (default): disables mutual authentication.
      *
      * @example false
      *
@@ -34,8 +32,6 @@ class CreateListenerRequest extends Model
     public $caEnabled;
 
     /**
-     * @description A list of certificates.
-     *
      * @var certificates[]
      */
     public $certificates;
@@ -43,9 +39,9 @@ class CreateListenerRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * >  If you do not set this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -53,17 +49,15 @@ class CreateListenerRequest extends Model
     public $clientToken;
 
     /**
-     * @description The actions of the forwarding rule.
-     *
      * @var defaultActions[]
      */
     public $defaultActions;
 
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     * @description Specifies whether to perform only a precheck. Valid values:
      *
-     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *   **true**: prechecks the request without creating a listener. The system checks the required parameters, request syntax, and limits. If the request fails the precheck, an error code is returned based on the cause of the failure. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the API request. If the request passes the precheck, a 2xx HTTP status code is returned and the system proceeds to create a listener.
      *
      * @example false
      *
@@ -72,10 +66,10 @@ class CreateListenerRequest extends Model
     public $dryRun;
 
     /**
-     * @description Specifies whether to enable `GZIP` compression to compress specific types of files. Valid values:
+     * @description Specifies whether to enable `Gzip` compression to compress specific types of files. Valid values:
      *
-     *   **true** (default)
-     *   **false**
+     *   **true** (default): enables Gzip compression.
+     *   **false**: disables Gzip compression.
      *
      * @example true
      *
@@ -86,10 +80,10 @@ class CreateListenerRequest extends Model
     /**
      * @description Specifies whether to enable `HTTP/2`. Valid values:
      *
-     *   **true** (default)
-     *   **false**
+     *   **true** (default): enables HTTP/2.
+     *   **false**: disables HTTP/2.
      *
-     * > This parameter is available only when you create an HTTPS listener.
+     * >  Only HTTPS listeners support this parameter.
      * @example true
      *
      * @var bool
@@ -141,17 +135,15 @@ class CreateListenerRequest extends Model
     public $listenerProtocol;
 
     /**
-     * @description The ALB instance ID.
+     * @description The ID of the ALB instance.
      *
-     * @example lb-bp1o94dp5i6ea****
+     * @example alb-n5qw04uq8vavfe****
      *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description Selects a QUIC listener and associates it with the HTTPS listener of the ALB instance.
-     *
      * @var quicConfig
      */
     public $quicConfig;
@@ -171,11 +163,11 @@ class CreateListenerRequest extends Model
     public $requestTimeout;
 
     /**
-     * @description The ID of the security policy. System and custom security policies are supported.
+     * @description The ID of the security policy. System security policies and custom security policies are supported.
      *
      * Default value: **tls_cipher_policy\_1\_0** (system security policy).
      *
-     * > This parameter is available only when you create an HTTPS listener.
+     * >  Only HTTPS listeners support this parameter.
      * @example tls_cipher_policy_1_0
      *
      * @var string
@@ -183,13 +175,13 @@ class CreateListenerRequest extends Model
     public $securityPolicyId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The configuration of the XForward header.
-     *
      * @var XForwardedForConfig
      */
     public $XForwardedForConfig;

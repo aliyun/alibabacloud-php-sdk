@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class zoneMappings extends Model
 {
     /**
+     * @description 公网实例绑定的EIP实例ID。至少需要添加2个可用区，最多支持添加10个可用区。
+     *
+     * @example eip-bp1aedxso6u80u0qf****
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @description The private IPv4 address. You must add at least two zones. You can add a maximum of 10 zones.
+     *
+     * @example 192.168.10.1
+     *
      * @var string
      */
     public $intranetAddress;
 
     /**
-     * @description The ID of the vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an ALB instance. You can specify up to 10 vSwitch IDs.
+     * @description The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an ALB instance. You can specify up to 10 zones.
      *
      * @example vsw-sersdf****
      *
@@ -28,9 +36,9 @@ class zoneMappings extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the zone where the ALB instance is deployed. You can specify up to 10 zone IDs.
+     * @description The zone ID of the ALB instance. You can specify up to 10 zones for an ALB instance.
      *
-     * You can call the [DescribeZones](~~36064~~) operation to query the zones of the ALB instance.
+     * You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
      * @example cn-hangzhou-a
      *
      * @var string

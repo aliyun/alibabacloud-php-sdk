@@ -12,8 +12,12 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @description The ID of the forwarding rule.
+     * @description The direction to which the forwarding rule is applied. You can specify only one direction. Valid values:
      *
+     *   **Request** (default): The forwarding rule is applied to the client requests received by ALB.
+     *   **Response**: The forwarding rule is applied to the responses returned by backend servers.
+     *
+     * >  Basic ALB instances do not support forwarding rules of the **Response** type.
      * @example Request
      *
      * @var string
@@ -21,8 +25,9 @@ class rules extends Model
     public $direction;
 
     /**
-     * @description The server group to which requests are distributed.
+     * @description The priority of the forwarding rule. Valid values: **1** to **10000**. A lower value specifies a higher priority. You can specify priorities for at most 10 forwarding rules.
      *
+     * >  The priority of each forwarding rule added to a listener must be unique.
      * @example 10
      *
      * @var int
@@ -30,17 +35,24 @@ class rules extends Model
     public $priority;
 
     /**
+     * @description The actions of the forwarding rule.
+     *
      * @var ruleActions[]
      */
     public $ruleActions;
 
     /**
+     * @description The conditions of the forwarding rule.
+     *
      * @var ruleConditions[]
      */
     public $ruleConditions;
 
     /**
-     * @description The list of forwarding rules.
+     * @description The name of the forwarding rule. You can name at most 20 forwarding rules.
+     *
+     *   The name must be 2 to 128 characters in length.
+     *   It can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
      *
      * @example test
      *
@@ -49,6 +61,8 @@ class rules extends Model
     public $ruleName;
 
     /**
+     * @description The tag that you want to add.
+     *
      * @var tag[]
      */
     public $tag;

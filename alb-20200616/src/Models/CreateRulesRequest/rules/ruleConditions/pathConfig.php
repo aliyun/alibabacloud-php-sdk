@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pathConfig extends Model
 {
     /**
+     * @description The paths.
+     *
      * @var string[]
      */
     public $values;

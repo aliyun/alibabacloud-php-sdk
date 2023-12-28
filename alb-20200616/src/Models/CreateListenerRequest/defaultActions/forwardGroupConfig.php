@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class forwardGroupConfig extends Model
 {
     /**
-     * @description The server group to which requests are forwarded.
-     *
      * @var serverGroupTuples[]
      */
     public $serverGroupTuples;
