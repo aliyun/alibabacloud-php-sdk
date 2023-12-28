@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Avatar\V20220130\Models\ClientStartRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\ClientStartResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CloseTimedResetOperateRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CloseTimedResetOperateResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\ConfirmAvatar2dTrainRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\ConfirmAvatar2dTrainResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\Create2dAvatarRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\Create2dAvatarResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\DeleteAvatarRequest;
@@ -317,6 +319,55 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->closeTimedResetOperateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConfirmAvatar2dTrainRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ConfirmAvatar2dTrainResponse
+     */
+    public function confirmAvatar2dTrainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->confirm)) {
+            $query['Confirm'] = $request->confirm;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfirmAvatar2dTrain',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfirmAvatar2dTrainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ConfirmAvatar2dTrainRequest $request
+     *
+     * @return ConfirmAvatar2dTrainResponse
+     */
+    public function confirmAvatar2dTrain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmAvatar2dTrainWithOptions($request, $runtime);
     }
 
     /**
