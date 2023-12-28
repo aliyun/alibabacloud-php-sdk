@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class BeginSessionResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $asrMaxEndSilence;
+
+    /**
+     * @var bool
+     */
+    public $interruptible;
+
+    /**
      * @example 149C7528-C104-1B50-A4F9-0C5907A8AD9D
      *
      * @var string
@@ -31,6 +41,8 @@ class BeginSessionResponseBody extends Model
      */
     public $welcomeMessage;
     protected $_name = [
+        'asrMaxEndSilence'    => 'AsrMaxEndSilence',
+        'interruptible'       => 'Interruptible',
         'requestId'           => 'RequestId',
         'silenceReplyTimeout' => 'SilenceReplyTimeout',
         'welcomeMessage'      => 'WelcomeMessage',
@@ -43,6 +55,12 @@ class BeginSessionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->asrMaxEndSilence) {
+            $res['AsrMaxEndSilence'] = $this->asrMaxEndSilence;
+        }
+        if (null !== $this->interruptible) {
+            $res['Interruptible'] = $this->interruptible;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,6 +82,12 @@ class BeginSessionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AsrMaxEndSilence'])) {
+            $model->asrMaxEndSilence = $map['AsrMaxEndSilence'];
+        }
+        if (isset($map['Interruptible'])) {
+            $model->interruptible = $map['Interruptible'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Chatbot\V20220408;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ApplyForStreamAccessTokenRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ApplyForStreamAccessTokenResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\AssociateRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\AssociateResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\AssociateShrinkRequest;
@@ -203,6 +205,49 @@ class Chatbot extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param ApplyForStreamAccessTokenRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ApplyForStreamAccessTokenResponse
+     */
+    public function applyForStreamAccessTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyForStreamAccessToken',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyForStreamAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ApplyForStreamAccessTokenRequest $request
+     *
+     * @return ApplyForStreamAccessTokenResponse
+     */
+    public function applyForStreamAccessToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyForStreamAccessTokenWithOptions($request, $runtime);
     }
 
     /**
