@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSmsAuthTokensRequest extends Model
 {
     /**
+     * @description The ID of the iOS application. This parameter is required if OsType is set to **iOS**.
+     *
      * @example 12345****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetSmsAuthTokensRequest extends Model
     public $bundleId;
 
     /**
+     * @description The validity period of the token. Unit: seconds. Valid values: 900 to 43200.
+     *
      * @example 900
      *
      * @var int
@@ -23,6 +27,8 @@ class GetSmsAuthTokensRequest extends Model
     public $expire;
 
     /**
+     * @description The type of the operating system. Valid values: **Android** and **iOS**.
+     *
      * @example Android
      *
      * @var string
@@ -35,6 +41,8 @@ class GetSmsAuthTokensRequest extends Model
     public $ownerId;
 
     /**
+     * @description The package name. This parameter is required if OsType is set to **Android**.
+     *
      * @example com.aliqin.mytel.test
      *
      * @var string
@@ -52,6 +60,8 @@ class GetSmsAuthTokensRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The service code.
+     *
      * @example FC100000134840112
      *
      * @var string
@@ -59,6 +69,8 @@ class GetSmsAuthTokensRequest extends Model
     public $sceneCode;
 
     /**
+     * @description The signature. This parameter is required if OsType is set to **Android**.
+     *
      * @example 47fcc6615485e83b4100433****
      *
      * @var string
@@ -66,6 +78,8 @@ class GetSmsAuthTokensRequest extends Model
     public $signName;
 
     /**
+     * @description The validity period of the SMS verification code. Unit: seconds. Default value: 180.
+     *
      * @example 60
      *
      * @var int
@@ -73,6 +87,8 @@ class GetSmsAuthTokensRequest extends Model
     public $smsCodeExpire;
 
     /**
+     * @description The code of the text message template.
+     *
      * @example SMS_13987****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @description The external ID.
+     *
      * @example 1212312
      *
      * @var string
@@ -16,6 +18,11 @@ class model_ extends Model
     public $outId;
 
     /**
+     * @description The verification results. Valid values:
+     *
+     *   PASS: The verification is successful.
+     *   UNKNOWN: The verification failed.
+     *
      * @example PASS
      *
      * @var string

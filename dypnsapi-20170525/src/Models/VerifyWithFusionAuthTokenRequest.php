@@ -24,6 +24,8 @@ class VerifyWithFusionAuthTokenRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The unified verification token that is returned by the client SDKs.
+     *
      * @example LD108enNdlsl*******sFLKCks1==
      *
      * @var string

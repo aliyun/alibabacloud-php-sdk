@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifySchemeResponseBody extends Model
 {
     /**
+     * @description The response code. OK indicates that the request is successful. For more information about other error codes, see [API response codes](~~85198~~).
+     *
      * @example OK
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeVerifySchemeResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeVerifySchemeResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 0C5380A7-2032-5F7D-9614-1BF8B54D16CB
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeVerifySchemeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The response parameters.
+     *
      * @var schemeQueryResultDTO
      */
     public $schemeQueryResultDTO;

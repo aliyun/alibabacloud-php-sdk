@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFusionAuthTokenResponseBody extends Model
 {
     /**
+     * @description The response code. If OK is returned, the request is successful. Other values indicate that the request failed. For more information, see Error codes.
+     *
      * @example OK
      *
      * @var string
@@ -16,13 +18,17 @@ class GetFusionAuthTokenResponseBody extends Model
     public $code;
 
     /**
-     * @example 示例值示例值
+     * @description The returned message.
+     *
+     * @example Success
      *
      * @var string
      */
     public $message;
 
     /**
+     * @description The authentication code. The value of this parameter is a string.
+     *
      * @example FKcksloqk***********jalEc+
      *
      * @var string
@@ -30,6 +36,8 @@ class GetFusionAuthTokenResponseBody extends Model
     public $model;
 
     /**
+     * @description The request ID, which is used to locate and troubleshoot issues.
+     *
      * @example CC3BB6D2-2FDF-4321-9DCE-B38165CE4C47
      *
      * @var string
@@ -37,6 +45,8 @@ class GetFusionAuthTokenResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values: true false
+     *
      * @example false
      *
      * @var bool

@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class CreateVerifySchemeRequest extends Model
 {
     /**
+     * @description The app name.
+     *
+     * @example Alibaba Cloud Communications
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The verification type. You can select multiple types only when the phone number verification is supported. Separate multiple types with commas (,).
+     *
+     *   **1**: phone number verification
+     *   **2**: SMS verification
+     *
      * @example 1,2
      *
      * @var string
@@ -21,6 +30,8 @@ class CreateVerifySchemeRequest extends Model
     public $authType;
 
     /**
+     * @description The bundle ID. This parameter is required when OsType is set to iOS. The bundle ID must be 1 to 128 characters in length and can contain digits, letters, hyphens (-), underscores (\_), and periods (.).
+     *
      * @example example.aliyundoc.com
      *
      * @var string
@@ -28,6 +39,8 @@ class CreateVerifySchemeRequest extends Model
     public $bundleId;
 
     /**
+     * @description The channel code of China Mobile.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +48,8 @@ class CreateVerifySchemeRequest extends Model
     public $cmApiCode;
 
     /**
+     * @description The channel code of China Telecom.
+     *
      * @example 3
      *
      * @var int
@@ -42,6 +57,8 @@ class CreateVerifySchemeRequest extends Model
     public $ctApiCode;
 
     /**
+     * @description The channel code of China Unicom.
+     *
      * @example 2
      *
      * @var int
@@ -49,11 +66,17 @@ class CreateVerifySchemeRequest extends Model
     public $cuApiCode;
 
     /**
+     * @description The email address that receives the key.
+     *
+     * @example username@aliyundoc.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description The IP address whitelist.
+     *
      * @example 139.9.167.181
      * 139.9.172.0/24
      * @var string
@@ -61,6 +84,8 @@ class CreateVerifySchemeRequest extends Model
     public $ipWhiteList;
 
     /**
+     * @description The source URL of the HTML5 app page. We recommend that you specify this parameter as a domain name.
+     *
      * @example https://h5.minexiot.com
      *
      * @var string
@@ -68,6 +93,8 @@ class CreateVerifySchemeRequest extends Model
     public $origin;
 
     /**
+     * @description The type of the operating system for the terminal. Valid values: iOS and Android.
+     *
      * @example iOS
      *
      * @var string
@@ -80,6 +107,8 @@ class CreateVerifySchemeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The package name. This parameter is required when OsType is set to Android. The name must be 1 to 128 characters in length and can contain digits, letters, hyphens (-), underscores (\_), and periods (.).
+     *
      * @example com.aliyun
      *
      * @var string
@@ -87,6 +116,8 @@ class CreateVerifySchemeRequest extends Model
     public $packName;
 
     /**
+     * @description The package signature. This parameter is required when OsType is set to Android. The signature must be 32 characters in length and can contain digits and letters.
+     *
      * @example 123aliyun
      *
      * @var string
@@ -104,6 +135,8 @@ class CreateVerifySchemeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The service type.
+     *
      * @example 0
      *
      * @var string
@@ -111,16 +144,26 @@ class CreateVerifySchemeRequest extends Model
     public $sceneType;
 
     /**
+     * @description The service name.
+     *
+     * @example Aliyun
+     *
      * @var string
      */
     public $schemeName;
 
     /**
+     * @description The bound SMS signature. This parameter is valid only when AuthType is set to 2. The signature must be approved.
+     *
+     * @example Aliyun Test
+     *
      * @var string
      */
     public $smsSignName;
 
     /**
+     * @description The URL of the HTML5 app page.
+     *
      * @example https://h5.minexiot.com/index.html
      *
      * @var string

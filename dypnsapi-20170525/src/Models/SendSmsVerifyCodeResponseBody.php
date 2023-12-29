@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SendSmsVerifyCodeResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example None
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
+     * @description The response code. If OK is returned, the request is successful. For more information, see [Response codes](https://help.aliyun.com/zh/pnvs/developer-reference/api-return-code?spm=a2c4g.11174283.0.0.70c5616bkj38Wa).
+     *
      * @example OK
      *
      * @var string
@@ -22,18 +28,27 @@ class SendSmsVerifyCodeResponseBody extends Model
     public $code;
 
     /**
-     * @example 示例值
+     * @description The returned message.
+     *
+     * @example Success
      *
      * @var string
      */
     public $message;
 
     /**
+     * @description The returned data.
+     *
      * @var model_
      */
     public $model;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The fees generated for all verification services. Unitrogen: CNY.
+     *
      * @example 1234
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $amountSum;
 
     /**
+     * @description The details of fees.
+     *
      * @var sceneBillingList[]
      */
     public $sceneBillingList;

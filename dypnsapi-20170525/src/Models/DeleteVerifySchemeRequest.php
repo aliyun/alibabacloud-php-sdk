@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVerifySchemeRequest extends Model
 {
     /**
+     * @description The user ID.
+     *
      * @example 12345678
      *
      * @var int
@@ -31,6 +33,8 @@ class DeleteVerifySchemeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The service code.
+     *
      * @example FC10000014164****
      *
      * @var string

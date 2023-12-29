@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class QueryGateVerifyStatisticPublicRequest extends Model
 {
     /**
+     * @description The verification method. Valid values:
+     *
+     *   **1**: one-click logon
+     *   **2**: phone number verification, including the verification of the phone number used in HTML5 pages
+     *   **3**: SMS verification
+     *   **4**: facial recognition
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +23,8 @@ class QueryGateVerifyStatisticPublicRequest extends Model
     public $authenticationType;
 
     /**
+     * @description The end date. Specify this parameter in the YYYYMMDD format. Example: 20220106.
+     *
      * @example 20220106
      *
      * @var string
@@ -23,6 +32,11 @@ class QueryGateVerifyStatisticPublicRequest extends Model
     public $endDate;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **Android**
+     *   **iOS**
+     *
      * @example Android
      *
      * @var string
@@ -40,6 +54,8 @@ class QueryGateVerifyStatisticPublicRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The service code.
+     *
      * @example FC100000038194004
      *
      * @var string
@@ -47,6 +63,8 @@ class QueryGateVerifyStatisticPublicRequest extends Model
     public $sceneCode;
 
     /**
+     * @description The start date. Specify this parameter in the YYYYMMDD format. Example: 20220101.
+     *
      * @example 20220101
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAuthorizationUrlRequest extends Model
 {
     /**
+     * @description The authorization end date, which is in the yyyy-MM-dd format. This parameter is required for services of contract type.
+     *
      * @example 2020–12–28
      *
      * @var string
@@ -21,6 +23,8 @@ class GetAuthorizationUrlRequest extends Model
     public $ownerId;
 
     /**
+     * @description The phone number.
+     *
      * @example 1390000****
      *
      * @var string
@@ -38,6 +42,8 @@ class GetAuthorizationUrlRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the authorization scenario. You can view the ID of the authorization scenario on the **Authorization Scenario Management** page in the **Phone Number Verification Service console**.
+     *
      * @example 234****
      *
      * @var int

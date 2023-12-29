@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The phone number.
+     *
+     * @example 13900001234
+     *
      * @var string
      */
     public $mobile;

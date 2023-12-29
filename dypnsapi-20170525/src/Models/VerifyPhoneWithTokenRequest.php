@@ -14,6 +14,8 @@ class VerifyPhoneWithTokenRequest extends Model
     public $ownerId;
 
     /**
+     * @description The phone number.
+     *
      * @example 1380000****
      *
      * @var string
@@ -31,6 +33,8 @@ class VerifyPhoneWithTokenRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The token for phone number verification that is obtained by the JavaScript SDK.
+     *
      * @example Dfafdafad542****
      *
      * @var string

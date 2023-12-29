@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetAuthTokenRequest extends Model
 {
     /**
+     * @description The requested domain name.
+     *
+     * @example https://www.aliyundoc.com
+     *
      * @var string
      */
     public $origin;
@@ -31,12 +35,22 @@ class GetAuthTokenRequest extends Model
     /**
      * @var string
      */
+    public $sceneCode;
+
+    /**
+     * @description The URL of the requested web page.
+     *
+     * @example https://www.aliyundoc.com/
+     *
+     * @var string
+     */
     public $url;
     protected $_name = [
         'origin'               => 'Origin',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'sceneCode'            => 'SceneCode',
         'url'                  => 'Url',
     ];
 
@@ -58,6 +72,9 @@ class GetAuthTokenRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sceneCode) {
+            $res['SceneCode'] = $this->sceneCode;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -85,6 +102,9 @@ class GetAuthTokenRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SceneCode'])) {
+            $model->sceneCode = $map['SceneCode'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];

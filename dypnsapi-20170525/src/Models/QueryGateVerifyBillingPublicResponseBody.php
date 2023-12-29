@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QueryGateVerifyBillingPublicResponseBody extends Model
 {
     /**
+     * @description The response code. Valid values:
+     *
+     *   If OK is returned, the request is successful.
+     *   For more information about other error codes, see [API response codes](~~85198~~).
+     *
      * @example OK
      *
      * @var string
@@ -17,11 +22,15 @@ class QueryGateVerifyBillingPublicResponseBody extends Model
     public $code;
 
     /**
+     * @description The billing information about each verification service.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -29,6 +38,8 @@ class QueryGateVerifyBillingPublicResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 8906582E-6722
      *
      * @var string

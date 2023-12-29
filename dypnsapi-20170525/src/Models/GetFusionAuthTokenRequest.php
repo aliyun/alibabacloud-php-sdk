@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFusionAuthTokenRequest extends Model
 {
     /**
+     * @description The bundle ID of the app. This parameter is required when Platform is set to iOS.
+     *
      * @example com.example.test
      *
      * @var string
@@ -16,6 +18,8 @@ class GetFusionAuthTokenRequest extends Model
     public $bundleId;
 
     /**
+     * @description The validity period of the token. Unit: seconds. Valid values: 900 to 43200.
+     *
      * @example 900
      *
      * @var int
@@ -28,6 +32,8 @@ class GetFusionAuthTokenRequest extends Model
     public $ownerId;
 
     /**
+     * @description The package name of the app. This parameter is required when Platform is set to Android.
+     *
      * @example com.example.test
      *
      * @var string
@@ -35,6 +41,8 @@ class GetFusionAuthTokenRequest extends Model
     public $packageName;
 
     /**
+     * @description The package signature of the app. This parameter is required when Platform is set to Android.
+     *
      * @example 47fcc************************278
      *
      * @var string
@@ -42,6 +50,8 @@ class GetFusionAuthTokenRequest extends Model
     public $packageSign;
 
     /**
+     * @description The platform type. Valid values: Android and iOS.
+     *
      * @example Android
      *
      * @var string
@@ -59,6 +69,8 @@ class GetFusionAuthTokenRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The service code.
+     *
      * @example FA1000*************201
      *
      * @var string

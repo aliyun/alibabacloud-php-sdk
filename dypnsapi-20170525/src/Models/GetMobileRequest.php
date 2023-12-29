@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMobileRequest extends Model
 {
     /**
+     * @description The logon token obtained by the SDK for your app.
+     *
      * @example Dfafdafad5422****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetMobileRequest extends Model
     public $accessToken;
 
     /**
+     * @description The external ID.
+     *
      * @example 22345****
      *
      * @var string

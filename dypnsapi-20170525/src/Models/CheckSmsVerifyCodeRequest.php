@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CheckSmsVerifyCodeRequest extends Model
 {
     /**
+     * @description The verification policy for uppercase and lowercase letters of the verification code. Valid values:
+     *
+     *   1: The verification policy does not distinguish uppercase and lowercase letters.
+     *   2: The verification policy distinguishes uppercase and lowercase letters.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,8 @@ class CheckSmsVerifyCodeRequest extends Model
     public $caseAuthPolicy;
 
     /**
+     * @description The country code of the phone number. Default value: 86.
+     *
      * @example 86
      *
      * @var string
@@ -23,6 +30,8 @@ class CheckSmsVerifyCodeRequest extends Model
     public $countryCode;
 
     /**
+     * @description The external ID.
+     *
      * @example 12123231
      *
      * @var string
@@ -35,6 +44,8 @@ class CheckSmsVerifyCodeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The phone number.
+     *
      * @example 18653529399
      *
      * @var string
@@ -52,13 +63,17 @@ class CheckSmsVerifyCodeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @example 示例值示例值
+     * @description The verification service name. If this parameter is not specified, the default service is used. The name can be up to 20 characters in length.
+     *
+     * @example Aliyun
      *
      * @var string
      */
     public $schemeName;
 
     /**
+     * @description The verification code.
+     *
      * @example 1231
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @description The phone number, which is returned when the verification is successful.
+     *
      * @example 180********
      *
      * @var string
@@ -16,6 +18,8 @@ class model_ extends Model
     public $phoneNumber;
 
     /**
+     * @description The phone number score, which is generated only after the phone number scoring node is enabled and the verification is successful. The higher the score, the more risky the phone number. Valid values: 0 to 100.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class model_ extends Model
     public $phoneScore;
 
     /**
+     * @description The verification result. Valid values: PASS and UNKNOWN.
+     *
      * @example PASS
      *
      * @var string

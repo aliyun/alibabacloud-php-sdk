@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class getMobileResultDTO extends Model
 {
     /**
+     * @description The phone number,
+     *
      * @example 13900001234
      *
      * @var string

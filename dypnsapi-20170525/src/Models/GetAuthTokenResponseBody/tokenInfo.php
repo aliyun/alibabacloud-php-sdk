@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tokenInfo extends Model
 {
     /**
+     * @description The business authentication token.
+     *
+     * >  AccessToken is valid for 10 minutes and can be used repeatedly within its validity period.
      * @example agag****
      *
      * @var string
@@ -16,6 +19,9 @@ class tokenInfo extends Model
     public $accessToken;
 
     /**
+     * @description The API authentication token.
+     *
+     * >  JwtToken is valid for 1 hour and can be used repeatedly within its validity period.
      * @example aweghd****
      *
      * @var string

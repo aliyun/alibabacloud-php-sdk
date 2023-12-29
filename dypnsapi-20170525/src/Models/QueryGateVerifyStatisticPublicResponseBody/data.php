@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the daily calls.
+     *
      * @var dayStatistic[]
      */
     public $dayStatistic;
 
     /**
+     * @description The total calls.
+     *
      * @example 20
      *
      * @var int
@@ -22,6 +26,8 @@ class data extends Model
     public $total;
 
     /**
+     * @description The failed calls.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $totalFail;
 
     /**
+     * @description The successful calls.
+     *
      * @example 0
      *
      * @var int
@@ -36,6 +44,8 @@ class data extends Model
     public $totalSuccess;
 
     /**
+     * @description The unknown calls.
+     *
      * @example 0
      *
      * @var int

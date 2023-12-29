@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class QuerySendDetailsResponseBody extends Model
 {
     /**
+     * @description The details about the access denial.
+     *
+     * @example none
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
+     * @description The response code.
+     *
+     * If OK is returned, the request is successful. Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html?spm=a2c4g.419277.0.i11).
      * @example OK
      *
      * @var string
@@ -22,18 +29,27 @@ class QuerySendDetailsResponseBody extends Model
     public $code;
 
     /**
-     * @example 示例值
+     * @description The returned message.
+     *
+     * @example Success
      *
      * @var string
      */
     public $message;
 
     /**
+     * @description The returned data.
+     *
      * @var model_[]
      */
     public $model;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -41,6 +57,8 @@ class QuerySendDetailsResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of entries in the list.
+     *
      * @example 42
      *
      * @var int

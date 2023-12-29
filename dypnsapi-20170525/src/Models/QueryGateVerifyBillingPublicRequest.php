@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class QueryGateVerifyBillingPublicRequest extends Model
 {
     /**
+     * @description The verification method. Valid values:
+     *
+     *   **0**: phone number verification
+     *   **1**: one-click logon
+     *   **2**: all
+     *   **3**: facial recognition
+     *   **4**: SMS verification
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +24,8 @@ class QueryGateVerifyBillingPublicRequest extends Model
     public $authenticationType;
 
     /**
+     * @description The month in which the bill is generated. Specify this parameter in the YYYYMM format. Example: 202111.
+     *
      * @example 202111
      *
      * @var string

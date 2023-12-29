@@ -24,6 +24,8 @@ class GetPhoneWithTokenRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The token for phone number verification that is obtained by the JavaScript SDK. The validity period of the token is 10 minutes for China Telecom, 30 minutes for China Unicom, and 2 minutes for China Mobile. The token can be used only once.
+     *
      * @example Dfafdafad542****
      *
      * @var string

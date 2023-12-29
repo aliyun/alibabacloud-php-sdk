@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sceneBillingList extends Model
 {
     /**
+     * @description The billable items.
+     *
      * @example 74
      *
      * @var string
@@ -16,6 +18,8 @@ class sceneBillingList extends Model
     public $add;
 
     /**
+     * @description The fees generated for the verification service. Unitrogen: CNY.
+     *
      * @example 1.48
      *
      * @var string
@@ -23,16 +27,26 @@ class sceneBillingList extends Model
     public $amount;
 
     /**
+     * @description The application name.
+     *
+     * @example Aliyun
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The verification method.
+     *
+     * @example Verification of local phone number
+     *
      * @var string
      */
     public $itemName;
 
     /**
+     * @description The service code.
+     *
      * @example FC100000038194004
      *
      * @var string
@@ -40,11 +54,17 @@ class sceneBillingList extends Model
     public $sceneCode;
 
     /**
+     * @description The service name.
+     *
+     * @example Alibaba Cloud Communications
+     *
      * @var string
      */
     public $sceneName;
 
     /**
+     * @description The unit price. Unit: CNY.
+     *
      * @example 0.02
      *
      * @var string

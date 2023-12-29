@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateSchemeConfigResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   If OK is returned, the request is successful.
+     *   For more information about other error codes, see [API response codes](https://help.aliyun.com/zh/pnvs/developer-reference/api-return-code?spm=a2c4g.11186623.0.0.5c3a662fbgeAuk).
+     *
      * @example OK
      *
      * @var string
@@ -17,18 +22,24 @@ class CreateSchemeConfigResponseBody extends Model
     public $code;
 
     /**
-     * @example 示例值示例值
+     * @description The returned message.
+     *
+     * @example Success
      *
      * @var string
      */
     public $message;
 
     /**
+     * @description The returned results.
+     *
      * @var model_
      */
     public $model;
 
     /**
+     * @description The request ID.
+     *
      * @example B95B36EC-8108-4479-D3AA-2BB27F9B155A
      *
      * @var string
@@ -36,6 +47,11 @@ class CreateSchemeConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool

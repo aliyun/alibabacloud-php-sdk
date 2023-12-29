@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @description The business ID.
+     *
      * @example 112231421412414124123^4
      *
      * @var string
@@ -16,6 +18,8 @@ class model_ extends Model
     public $bizId;
 
     /**
+     * @description The external ID.
+     *
      * @example 1231231313
      *
      * @var string
@@ -23,6 +27,8 @@ class model_ extends Model
     public $outId;
 
     /**
+     * @description The request ID.
+     *
      * @example API-reqelekrqkllkkewrlwrjlsdfsdf
      *
      * @var string
@@ -30,6 +36,8 @@ class model_ extends Model
     public $requestId;
 
     /**
+     * @description The verification code.
+     *
      * @example 42324
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifySchemeRequest extends Model
 {
     /**
+     * @description The user ID.
+     *
      * @example 1234****
      *
      * @var int
@@ -31,6 +33,8 @@ class DescribeVerifySchemeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The service code.
+     *
      * @example FC10000010643****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class gateVerify extends Model
 {
     /**
+     * @description The external ID.
+     *
      * @example 12134****
      *
      * @var string
@@ -16,6 +18,12 @@ class gateVerify extends Model
     public $verifyId;
 
     /**
+     * @description The verification results. Valid values:
+     *
+     *   PASS: The input phone number is consistent with the phone number used in HTML5 pages.
+     *   REJECT: The input phone number is different from the phone number used in HTML5 pages.
+     *   UNKNOWN: The system cannot judge whether the input phone number is consistent with the phone number used in HTML5 pages.
+     *
      * @example PASS
      *
      * @var string

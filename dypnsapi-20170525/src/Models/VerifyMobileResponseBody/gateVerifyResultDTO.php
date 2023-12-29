@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class gateVerifyResultDTO extends Model
 {
     /**
+     * @description The verification ID.
+     *
      * @example 121343241
      *
      * @var string
@@ -16,6 +18,12 @@ class gateVerifyResultDTO extends Model
     public $verifyId;
 
     /**
+     * @description The verification results. Valid values:
+     *
+     *   **PASS: The input phone number is consistent with the phone number that you use.**
+     *   **REJECT: The input phone number is different from the phone number that you use.**
+     *   **UNKNOWN: The system cannot judge whether the input phone number is consistent with the phone number that you use.
+     *
      * @example PASS
      *
      * @var string

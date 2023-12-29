@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateVerifySchemeResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   If OK is returned, the request is successful.
+     *   For more information about other error codes, see [API response codes](~~85198~~).
+     *
      * @example OK
      *
      * @var string
@@ -17,11 +22,15 @@ class CreateVerifySchemeResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var gateVerifySchemeDTO
      */
     public $gateVerifySchemeDTO;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,16 +38,29 @@ class CreateVerifySchemeResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example A1E75E69-3049-5FDB-A376-D745837CD2B1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

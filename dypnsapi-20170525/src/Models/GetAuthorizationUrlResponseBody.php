@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetAuthorizationUrlResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   If OK is returned, the request is successful.
+     *   For more information about other error codes, see [API response codes](~~85198~~).
+     *
      * @example OK
      *
      * @var string
@@ -17,16 +22,24 @@ class GetAuthorizationUrlResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 8906582E-6722
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVerifySchemeResponseBody extends Model
 {
     /**
+     * @description The request is successful. For more information about other error codes, see [API response codes](~~85198~~).
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteVerifySchemeResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example OK
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteVerifySchemeResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example E3754956-D0B1-5947-962A-AE767D354F01
      *
      * @var string
@@ -30,6 +36,11 @@ class DeleteVerifySchemeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result of the operation. Valid values:
+     *
+     *   **true**: The verification service is deleted.
+     *   **false**: The verification service failed to be deleted.
+     *
      * @example true
      *
      * @var bool

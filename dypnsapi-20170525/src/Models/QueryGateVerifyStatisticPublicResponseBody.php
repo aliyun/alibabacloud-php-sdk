@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QueryGateVerifyStatisticPublicResponseBody extends Model
 {
     /**
+     * @description The response code. Valid values:
+     *
+     *   If OK is returned, the request is successful.
+     *   For more information about other error codes, see [API response codes](~~85198~~).
+     *
      * @example OK
      *
      * @var string
@@ -17,16 +22,24 @@ class QueryGateVerifyStatisticPublicResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the calls of Phone Number Verification Service, including the total calls, the successful calls, failed calls, unknown calls, and daily calls within the statistical date range.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 8906582E-6722
      *
      * @var string

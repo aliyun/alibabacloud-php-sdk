@@ -2,17 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateSchemeConfigResponseBody;
+namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models\JyCreateVerifySchemeResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class model_ extends Model
+class gateVerifySchemeData extends Model
 {
     /**
-     * @description The service code.
-     *
-     * @example FA100000168468035
-     *
      * @var string
      */
     public $schemeCode;
@@ -37,7 +33,7 @@ class model_ extends Model
     /**
      * @param array $map
      *
-     * @return model_
+     * @return gateVerifySchemeData
      */
     public static function fromMap($map = [])
     {

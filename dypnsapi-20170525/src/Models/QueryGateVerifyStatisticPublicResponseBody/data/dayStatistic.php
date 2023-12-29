@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dayStatistic extends Model
 {
     /**
+     * @description The date. This field is accurate to the day. The value of this field is in the YYYYMMDD format. Example: 20220103.
+     *
      * @example 20220103
      *
      * @var string
@@ -16,6 +18,8 @@ class dayStatistic extends Model
     public $statisticDateStr;
 
     /**
+     * @description The failed calls on the day.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class dayStatistic extends Model
     public $totalFail;
 
     /**
+     * @description The successful calls on the day.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class dayStatistic extends Model
     public $totalSuccess;
 
     /**
+     * @description The unknown calls on the day.
+     *
      * @example 0
      *
      * @var int

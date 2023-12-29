@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSchemeConfigRequest extends Model
 {
     /**
+     * @description The package name. This parameter is required when Platform is set to Android. The name must be 1 to 128 characters in length and can contain digits, letters, hyphens (-), underscores (\_), and periods (.).
+     *
      * @example com.aliyun.android
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateSchemeConfigRequest extends Model
     public $androidPackageName;
 
     /**
+     * @description The package signature. This parameter is required when Platform is set to Android. The signature must be 32 characters in length and can contain digits and letters.
+     *
      * @example dfsfaawklll1****olkweklk***
      *
      * @var string
@@ -23,13 +27,17 @@ class CreateSchemeConfigRequest extends Model
     public $androidPackageSign;
 
     /**
-     * @example 阿里云通信
+     * @description The app name, which can be up to 20 characters in length and can contain letters.
+     *
+     * @example Alibaba Cloud Communications
      *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The reserved field. HTML5 apps are not supported.
+     *
      * @example -
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateSchemeConfigRequest extends Model
     public $h5Origin;
 
     /**
+     * @description The reserved field. HTML5 apps are not supported.
+     *
      * @example -
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateSchemeConfigRequest extends Model
     public $h5Url;
 
     /**
+     * @description The bundle ID. This parameter is required when OsType is set to iOS. The bundle ID must be 1 to 128 characters in length and can contain digits, letters, hyphens (-), underscores (\_), and periods (.).
+     *
      * @example com.aliyun.ios
      *
      * @var string
@@ -56,6 +68,13 @@ class CreateSchemeConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The app platform.
+     *
+     * Valid values:
+     *
+     *   Android
+     *   iOS
+     *
      * @example Android
      *
      * @var string
@@ -73,7 +92,9 @@ class CreateSchemeConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @example Android APP测试方案
+     * @description The service name, which can be up to 10 characters in length and can contain letters.
+     *
+     * @example Aliyun
      *
      * @var string
      */

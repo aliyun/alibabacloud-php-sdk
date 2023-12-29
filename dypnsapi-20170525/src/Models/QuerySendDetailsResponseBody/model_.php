@@ -9,13 +9,20 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
-     * @example 示例值示例值
+     * @description The content of the text message.
+     *
+     * @example 203160
      *
      * @var string
      */
     public $content;
 
     /**
+     * @description The status code returned by the carrier.
+     *
+     *   If the text message was delivered, "DELIVERED" is returned.
+     *   If the text message failed to be sent, see [Error codes](https://help.aliyun.com/document_detail/101347.html?spm=a2c4g.419277.0.i8) for more information.
+     *
      * @example DELIVERED
      *
      * @var string
@@ -23,6 +30,8 @@ class model_ extends Model
     public $errCode;
 
     /**
+     * @description The extension field.
+     *
      * @example 12131231
      *
      * @var string
@@ -30,6 +39,8 @@ class model_ extends Model
     public $outId;
 
     /**
+     * @description The phone number.
+     *
      * @example 1390000****
      *
      * @var string
@@ -37,6 +48,8 @@ class model_ extends Model
     public $phoneNum;
 
     /**
+     * @description The date and time when the text message was received.
+     *
      * @example 2019-01-08 16:44:13
      *
      * @var string
@@ -44,6 +57,9 @@ class model_ extends Model
     public $receiveDate;
 
     /**
+     * @description The date when the text message was sent. You can query text messages that were sent within the last 30 days.
+     *
+     * The date is in the yyyyMMdd format. Example: 20181225.
      * @example 2019-01-08 16:44:13
      *
      * @var string
@@ -51,6 +67,12 @@ class model_ extends Model
     public $sendDate;
 
     /**
+     * @description The delivery status of the text message.
+     *
+     *   1: A delivery receipt is to be sent.
+     *   2: The text message failed to be sent.
+     *   3: The text message was sent.
+     *
      * @example 3
      *
      * @var int
@@ -58,6 +80,11 @@ class model_ extends Model
     public $sendStatus;
 
     /**
+     * @description The code of the text message template.
+     *
+     * Log on to the SMS console. In the left-side navigation pane, click **Go China** or **Go Globe**. You can view the text message template code in the **Template Code** column on the **Message Templates** tab.
+     *
+     * >  The text message templates must be created on the Go Globe page and approved.
      * @example SMS_12231****
      *
      * @var string
