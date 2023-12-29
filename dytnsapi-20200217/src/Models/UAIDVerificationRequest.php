@@ -42,6 +42,13 @@ class UAIDVerificationRequest extends Model
     public $ownerId;
 
     /**
+     * @example 示例值示例值
+     *
+     * @var string
+     */
+    public $province;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -70,6 +77,7 @@ class UAIDVerificationRequest extends Model
         'ip'                   => 'Ip',
         'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
+        'province'             => 'Province',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'token'                => 'Token',
@@ -97,6 +105,9 @@ class UAIDVerificationRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->province) {
+            $res['Province'] = $this->province;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -136,6 +147,9 @@ class UAIDVerificationRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Province'])) {
+            $model->province = $map['Province'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
