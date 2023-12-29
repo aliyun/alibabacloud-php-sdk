@@ -72,6 +72,16 @@ class UpdateTriggerResponseBody extends Model
     public $sourceArn;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $targetArn;
+
+    /**
      * @description The configurations of the trigger. The configurations vary based on the trigger type.
      *
      * @example {"events": ["oss:ObjectCreated:*"], "filter": {"key": {"prefix": "/prefix", "suffix": ".zip"}}}
@@ -132,6 +142,8 @@ class UpdateTriggerResponseBody extends Model
         'lastModifiedTime' => 'lastModifiedTime',
         'qualifier'        => 'qualifier',
         'sourceArn'        => 'sourceArn',
+        'status'           => 'status',
+        'targetArn'        => 'targetArn',
         'triggerConfig'    => 'triggerConfig',
         'triggerId'        => 'triggerId',
         'triggerName'      => 'triggerName',
@@ -167,6 +179,12 @@ class UpdateTriggerResponseBody extends Model
         }
         if (null !== $this->sourceArn) {
             $res['sourceArn'] = $this->sourceArn;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+        if (null !== $this->targetArn) {
+            $res['targetArn'] = $this->targetArn;
         }
         if (null !== $this->triggerConfig) {
             $res['triggerConfig'] = $this->triggerConfig;
@@ -218,6 +236,12 @@ class UpdateTriggerResponseBody extends Model
         }
         if (isset($map['sourceArn'])) {
             $model->sourceArn = $map['sourceArn'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
+        }
+        if (isset($map['targetArn'])) {
+            $model->targetArn = $map['targetArn'];
         }
         if (isset($map['triggerConfig'])) {
             $model->triggerConfig = $map['triggerConfig'];

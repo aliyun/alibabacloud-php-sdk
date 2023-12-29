@@ -55,6 +55,16 @@ class CreateAliasResponseBody extends Model
     public $lastModifiedTime;
 
     /**
+     * @var string
+     */
+    public $resolvePolicy;
+
+    /**
+     * @var RoutePolicy
+     */
+    public $routePolicy;
+
+    /**
      * @description The ID of the version to which the alias points.
      *
      * @example 1
@@ -68,6 +78,8 @@ class CreateAliasResponseBody extends Model
         'createdTime'             => 'createdTime',
         'description'             => 'description',
         'lastModifiedTime'        => 'lastModifiedTime',
+        'resolvePolicy'           => 'resolvePolicy',
+        'routePolicy'             => 'routePolicy',
         'versionId'               => 'versionId',
     ];
 
@@ -92,6 +104,12 @@ class CreateAliasResponseBody extends Model
         }
         if (null !== $this->lastModifiedTime) {
             $res['lastModifiedTime'] = $this->lastModifiedTime;
+        }
+        if (null !== $this->resolvePolicy) {
+            $res['resolvePolicy'] = $this->resolvePolicy;
+        }
+        if (null !== $this->routePolicy) {
+            $res['routePolicy'] = null !== $this->routePolicy ? $this->routePolicy->toMap() : null;
         }
         if (null !== $this->versionId) {
             $res['versionId'] = $this->versionId;
@@ -122,6 +140,12 @@ class CreateAliasResponseBody extends Model
         }
         if (isset($map['lastModifiedTime'])) {
             $model->lastModifiedTime = $map['lastModifiedTime'];
+        }
+        if (isset($map['resolvePolicy'])) {
+            $model->resolvePolicy = $map['resolvePolicy'];
+        }
+        if (isset($map['routePolicy'])) {
+            $model->routePolicy = RoutePolicy::fromMap($map['routePolicy']);
         }
         if (isset($map['versionId'])) {
             $model->versionId = $map['versionId'];

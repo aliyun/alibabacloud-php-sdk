@@ -23,6 +23,13 @@ class StatefulAsyncInvocation extends Model
     public $destinationStatus;
 
     /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $durationMs;
+
+    /**
      * @example 1633449599
      *
      * @var int
@@ -63,7 +70,7 @@ class StatefulAsyncInvocation extends Model
     public $invocationId;
 
     /**
-     * @example "body"
+     * @example {"key1":"value1","key2":"value2"}
      *
      * @var string
      */
@@ -82,6 +89,13 @@ class StatefulAsyncInvocation extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example my-result
+     *
+     * @var string
+     */
+    public $returnPayload;
 
     /**
      * @example serviceName
@@ -106,6 +120,7 @@ class StatefulAsyncInvocation extends Model
     protected $_name = [
         'alreadyRetriedTimes'    => 'alreadyRetriedTimes',
         'destinationStatus'      => 'destinationStatus',
+        'durationMs'             => 'durationMs',
         'endTime'                => 'endTime',
         'events'                 => 'events',
         'functionName'           => 'functionName',
@@ -115,6 +130,7 @@ class StatefulAsyncInvocation extends Model
         'invocationPayload'      => 'invocationPayload',
         'qualifier'              => 'qualifier',
         'requestId'              => 'requestId',
+        'returnPayload'          => 'returnPayload',
         'serviceName'            => 'serviceName',
         'startedTime'            => 'startedTime',
         'status'                 => 'status',
@@ -132,6 +148,9 @@ class StatefulAsyncInvocation extends Model
         }
         if (null !== $this->destinationStatus) {
             $res['destinationStatus'] = $this->destinationStatus;
+        }
+        if (null !== $this->durationMs) {
+            $res['durationMs'] = $this->durationMs;
         }
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
@@ -166,6 +185,9 @@ class StatefulAsyncInvocation extends Model
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+        if (null !== $this->returnPayload) {
+            $res['returnPayload'] = $this->returnPayload;
+        }
         if (null !== $this->serviceName) {
             $res['serviceName'] = $this->serviceName;
         }
@@ -192,6 +214,9 @@ class StatefulAsyncInvocation extends Model
         }
         if (isset($map['destinationStatus'])) {
             $model->destinationStatus = $map['destinationStatus'];
+        }
+        if (isset($map['durationMs'])) {
+            $model->durationMs = $map['durationMs'];
         }
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
@@ -225,6 +250,9 @@ class StatefulAsyncInvocation extends Model
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['returnPayload'])) {
+            $model->returnPayload = $map['returnPayload'];
         }
         if (isset($map['serviceName'])) {
             $model->serviceName = $map['serviceName'];
