@@ -65,6 +65,8 @@ class CreateCommonBandwidthPackageRequest extends Model
     /**
      * @description The billing method of the Internet Shared Bandwidth instance. Valid values: **PayByTraffic**: pay-by-data-transfer
      *
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $internetChargeType;

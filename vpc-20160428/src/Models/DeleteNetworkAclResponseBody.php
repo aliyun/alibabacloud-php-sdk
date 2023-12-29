@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkAclResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4B48E3D-DF70-471B-AA83-089E83A1B45
      *
