@@ -39,6 +39,13 @@ class applications extends Model
     public $applicationSourceType;
 
     /**
+     * @description 应用模板ID
+     *
+     * @var string
+     */
+    public $applicationTemplateId;
+
+    /**
      * @description The client ID of the application.
      *
      * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -150,6 +157,7 @@ class applications extends Model
         'applicationId'         => 'ApplicationId',
         'applicationName'       => 'ApplicationName',
         'applicationSourceType' => 'ApplicationSourceType',
+        'applicationTemplateId' => 'ApplicationTemplateId',
         'clientId'              => 'ClientId',
         'createTime'            => 'CreateTime',
         'description'           => 'Description',
@@ -178,6 +186,9 @@ class applications extends Model
         }
         if (null !== $this->applicationSourceType) {
             $res['ApplicationSourceType'] = $this->applicationSourceType;
+        }
+        if (null !== $this->applicationTemplateId) {
+            $res['ApplicationTemplateId'] = $this->applicationTemplateId;
         }
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
@@ -232,6 +243,9 @@ class applications extends Model
         }
         if (isset($map['ApplicationSourceType'])) {
             $model->applicationSourceType = $map['ApplicationSourceType'];
+        }
+        if (isset($map['ApplicationTemplateId'])) {
+            $model->applicationTemplateId = $map['ApplicationTemplateId'];
         }
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
