@@ -8,12 +8,18 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\AddRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\AddRecordTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppStreamingOutTemplateRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppStreamingOutTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppStreamingOutTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppStreamingOutTemplateRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppStreamingOutTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppStreamingOutTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteChannelRequest;
@@ -28,6 +34,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppKeyRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppKeyResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppStreamingOutTemplatesRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppStreamingOutTemplatesResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppStreamingOutTemplatesShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCallListRequest;
@@ -106,6 +115,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\GetMPUTaskStatusRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\GetMPUTaskStatusResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppStreamingOutTemplateRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppStreamingOutTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppStreamingOutTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsRequest;
@@ -261,6 +273,57 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addRecordTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAppStreamingOutTemplateRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateAppStreamingOutTemplateResponse
+     */
+    public function createAppStreamingOutTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateAppStreamingOutTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->streamingOutTemplate)) {
+            $request->streamingOutTemplateShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->streamingOutTemplate, 'StreamingOutTemplate', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->streamingOutTemplateShrink)) {
+            $query['StreamingOutTemplate'] = $request->streamingOutTemplateShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAppStreamingOutTemplate',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAppStreamingOutTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAppStreamingOutTemplateRequest $request
+     *
+     * @return CreateAppStreamingOutTemplateResponse
+     */
+    public function createAppStreamingOutTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppStreamingOutTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -447,6 +510,57 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMPULayoutWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAppStreamingOutTemplateRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteAppStreamingOutTemplateResponse
+     */
+    public function deleteAppStreamingOutTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteAppStreamingOutTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->streamingOutTemplate)) {
+            $request->streamingOutTemplateShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->streamingOutTemplate, 'StreamingOutTemplate', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->streamingOutTemplateShrink)) {
+            $query['StreamingOutTemplate'] = $request->streamingOutTemplateShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAppStreamingOutTemplate',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAppStreamingOutTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAppStreamingOutTemplateRequest $request
+     *
+     * @return DeleteAppStreamingOutTemplateResponse
+     */
+    public function deleteAppStreamingOutTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppStreamingOutTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -738,6 +852,63 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAppKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAppStreamingOutTemplatesRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeAppStreamingOutTemplatesResponse
+     */
+    public function describeAppStreamingOutTemplatesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeAppStreamingOutTemplatesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->condition)) {
+            $request->conditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->condition, 'Condition', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->conditionShrink)) {
+            $query['Condition'] = $request->conditionShrink;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppStreamingOutTemplates',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppStreamingOutTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAppStreamingOutTemplatesRequest $request
+     *
+     * @return DescribeAppStreamingOutTemplatesResponse
+     */
+    public function describeAppStreamingOutTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppStreamingOutTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -2923,6 +3094,57 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAppStreamingOutTemplateRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyAppStreamingOutTemplateResponse
+     */
+    public function modifyAppStreamingOutTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyAppStreamingOutTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->streamingOutTemplate)) {
+            $request->streamingOutTemplateShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->streamingOutTemplate, 'StreamingOutTemplate', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->streamingOutTemplateShrink)) {
+            $query['StreamingOutTemplate'] = $request->streamingOutTemplateShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAppStreamingOutTemplate',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAppStreamingOutTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAppStreamingOutTemplateRequest $request
+     *
+     * @return ModifyAppStreamingOutTemplateResponse
+     */
+    public function modifyAppStreamingOutTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppStreamingOutTemplateWithOptions($request, $runtime);
     }
 
     /**
