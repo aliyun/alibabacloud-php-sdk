@@ -69,12 +69,18 @@ class ModifyMaskingRulesRequest extends Model
      * @var string
      */
     public $ruleNameList;
+
+    /**
+     * @var string
+     */
+    public $ruleVersion;
     protected $_name = [
         'DBClusterId'  => 'DBClusterId',
         'enable'       => 'Enable',
         'ruleConfig'   => 'RuleConfig',
         'ruleName'     => 'RuleName',
         'ruleNameList' => 'RuleNameList',
+        'ruleVersion'  => 'RuleVersion',
     ];
 
     public function validate()
@@ -98,6 +104,9 @@ class ModifyMaskingRulesRequest extends Model
         }
         if (null !== $this->ruleNameList) {
             $res['RuleNameList'] = $this->ruleNameList;
+        }
+        if (null !== $this->ruleVersion) {
+            $res['RuleVersion'] = $this->ruleVersion;
         }
 
         return $res;
@@ -125,6 +134,9 @@ class ModifyMaskingRulesRequest extends Model
         }
         if (isset($map['RuleNameList'])) {
             $model->ruleNameList = $map['RuleNameList'];
+        }
+        if (isset($map['RuleVersion'])) {
+            $model->ruleVersion = $map['RuleVersion'];
         }
 
         return $model;

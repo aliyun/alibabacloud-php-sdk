@@ -14,8 +14,14 @@ class data extends Model
      * @var string[]
      */
     public $ruleList;
+
+    /**
+     * @var string
+     */
+    public $ruleVersion;
     protected $_name = [
-        'ruleList' => 'RuleList',
+        'ruleList'    => 'RuleList',
+        'ruleVersion' => 'RuleVersion',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class data extends Model
         $res = [];
         if (null !== $this->ruleList) {
             $res['RuleList'] = $this->ruleList;
+        }
+        if (null !== $this->ruleVersion) {
+            $res['RuleVersion'] = $this->ruleVersion;
         }
 
         return $res;
@@ -44,6 +53,9 @@ class data extends Model
             if (!empty($map['RuleList'])) {
                 $model->ruleList = $map['RuleList'];
             }
+        }
+        if (isset($map['RuleVersion'])) {
+            $model->ruleVersion = $map['RuleVersion'];
         }
 
         return $model;

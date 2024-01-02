@@ -8931,6 +8931,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->ruleNameList)) {
             $query['RuleNameList'] = $request->ruleNameList;
         }
+        if (!Utils::isUnset($request->ruleVersion)) {
+            $query['RuleVersion'] = $request->ruleVersion;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
