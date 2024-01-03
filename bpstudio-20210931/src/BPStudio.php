@@ -28,6 +28,7 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTokenRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTokenResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListApplicationRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListApplicationResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListFoCreatedAppsResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListTemplateRequest;
@@ -613,6 +614,39 @@ class BPStudio extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListFoCreatedAppsResponse
+     */
+    public function listFoCreatedAppsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListFoCreatedApps',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListFoCreatedAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListFoCreatedAppsResponse
+     */
+    public function listFoCreatedApps()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFoCreatedAppsWithOptions($runtime);
     }
 
     /**
