@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListCostUnitOrdersRequest extends Model
 {
     /**
+     * @example 2021-11-16
+     *
      * @var string
      */
     public $beginDate;
 
     /**
+     * @example 2021-12-04 00
+     *
      * @var string
      */
     public $finalDate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

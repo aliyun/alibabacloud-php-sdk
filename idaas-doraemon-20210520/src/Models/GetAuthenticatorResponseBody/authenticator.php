@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class authenticator extends Model
 {
     /**
+     * @example ceshi
+     *
      * @var string
      */
     public $authenticatorName;
@@ -19,41 +21,57 @@ class authenticator extends Model
     public $authenticatorUuid;
 
     /**
+     * @example 1313
+     *
      * @var string
      */
     public $credentialId;
 
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $customAuthenticator;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $lastVerifySourceIp;
 
     /**
+     * @example 123123
+     *
      * @var int
      */
     public $lastVerifyTime;
 
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $lastVerifyUserAgent;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $registerSourceIp;
 
     /**
+     * @example 1231313123
+     *
      * @var int
      */
     public $registerTime;
 
     /**
+     * @example TOTP
+     *
      * @var string
      */
     public $type;

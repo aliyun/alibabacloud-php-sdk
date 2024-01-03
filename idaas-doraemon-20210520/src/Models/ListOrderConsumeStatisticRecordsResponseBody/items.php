@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example 23567876823
+     *
      * @var string
      */
     public $aliOrderCode;
 
     /**
+     * @example sms_auth
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $chargedCount;
 
     /**
+     * @example SMS
+     *
      * @var string
      */
     public $serviceCode;
 
     /**
+     * @example 1655388050
+     *
      * @var int
      */
     public $statisticTime;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalPrice;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $unitPrice;

@@ -15,21 +15,29 @@ class ListAuthenticationLogsResponseBody extends Model
     public $authenticationLogContent;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example F620E712-F325-520D-BE1A-E2421B062F57
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;

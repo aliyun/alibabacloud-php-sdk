@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RegisterAuthenticatorResponseBody extends Model
 {
     /**
+     * @example 123123123
+     *
      * @var string
      */
     public $authenticatorUuid;
@@ -19,6 +21,8 @@ class RegisterAuthenticatorResponseBody extends Model
     public $etasResponseSting;
 
     /**
+     * @example 23123
+     *
      * @var string
      */
     public $requestId;

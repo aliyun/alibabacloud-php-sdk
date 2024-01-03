@@ -9,16 +9,27 @@ use AlibabaCloud\Tea\Model;
 class ListOrderConsumeStatisticRecordsRequest extends Model
 {
     /**
+     * @example 211283925690732
+     *
      * @var string
      */
     public $aliOrderCode;
 
     /**
+     * @var string
+     */
+    public $applicationExternalId;
+
+    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -26,18 +37,29 @@ class ListOrderConsumeStatisticRecordsRequest extends Model
     /**
      * @var string
      */
+    public $serviceCode;
+
+    /**
+     * @example 2022-05-31
+     *
+     * @var string
+     */
     public $statisticTimeMax;
 
     /**
+     * @example 2022-05-31
+     *
      * @var string
      */
     public $statisticTimeMin;
     protected $_name = [
-        'aliOrderCode'     => 'AliOrderCode',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'statisticTimeMax' => 'StatisticTimeMax',
-        'statisticTimeMin' => 'StatisticTimeMin',
+        'aliOrderCode'          => 'AliOrderCode',
+        'applicationExternalId' => 'ApplicationExternalId',
+        'pageNumber'            => 'PageNumber',
+        'pageSize'              => 'PageSize',
+        'serviceCode'           => 'ServiceCode',
+        'statisticTimeMax'      => 'StatisticTimeMax',
+        'statisticTimeMin'      => 'StatisticTimeMin',
     ];
 
     public function validate()
@@ -50,11 +72,17 @@ class ListOrderConsumeStatisticRecordsRequest extends Model
         if (null !== $this->aliOrderCode) {
             $res['AliOrderCode'] = $this->aliOrderCode;
         }
+        if (null !== $this->applicationExternalId) {
+            $res['ApplicationExternalId'] = $this->applicationExternalId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->serviceCode) {
+            $res['ServiceCode'] = $this->serviceCode;
         }
         if (null !== $this->statisticTimeMax) {
             $res['StatisticTimeMax'] = $this->statisticTimeMax;
@@ -77,11 +105,17 @@ class ListOrderConsumeStatisticRecordsRequest extends Model
         if (isset($map['AliOrderCode'])) {
             $model->aliOrderCode = $map['AliOrderCode'];
         }
+        if (isset($map['ApplicationExternalId'])) {
+            $model->applicationExternalId = $map['ApplicationExternalId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ServiceCode'])) {
+            $model->serviceCode = $map['ServiceCode'];
         }
         if (isset($map['StatisticTimeMax'])) {
             $model->statisticTimeMax = $map['StatisticTimeMax'];

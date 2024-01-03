@@ -1,3 +1,6 @@
+2024-01-03 Version: 1.2.9
+- Generated php 2021-05-20 for idaas-doraemon.
+
 2022-08-08 Version: 1.2.8
 - ListOrderConsumeStatisticRecords add AliOrderCode.
 

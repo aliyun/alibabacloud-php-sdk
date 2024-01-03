@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListAuthenticatorsRequest extends Model
 {
     /**
+     * @example 11122223333
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @example TOTP
+     *
      * @var string
      */
     public $authenticatorType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example user-11122223333
+     *
      * @var string
      */
     public $userId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetAuthenticatorRequest extends Model
 {
     /**
+     * @example 11122223333
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @example 1331311
+     *
      * @var string
      */
     public $authenticatorUuid;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $userId;

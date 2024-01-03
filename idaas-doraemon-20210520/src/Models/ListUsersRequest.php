@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListUsersRequest extends Model
 {
     /**
+     * @example 11122223333
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @example user-11122223333
+     *
      * @var string
      */
     public $userId;

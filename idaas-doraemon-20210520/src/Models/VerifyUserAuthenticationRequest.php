@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class VerifyUserAuthenticationRequest extends Model
 {
     /**
+     * @example 11122223333
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $authenticationContext;
 
     /**
+     * @example webauthn
+     *
      * @var string
      */
     public $authenticatorType;
 
     /**
+     * @example 由具体认证方式决定
+     *
      * @var string
      */
     public $clientExtendParamsJson;
 
     /**
+     * @example 由具体认证方式决定
+     *
      * @var string
      */
     public $clientExtendParamsJsonSign;
 
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $logParams;
 
     /**
+     * @example login
+     *
      * @var string
      */
     public $logTag;
 
     /**
+     * @example AAAAdda
+     *
      * @var string
      */
     public $requireBindHashBase64;
 
     /**
+     * @example AAAAdda
+     *
      * @var string
      */
     public $requireChallengeBase64;
 
     /**
+     * @example 由具体认证方式决定
+     *
      * @var string
      */
     public $serverExtendParamsJson;
 
     /**
+     * @example user-11122223333
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $userSourceIp;

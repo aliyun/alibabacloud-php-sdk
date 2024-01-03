@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ServiceInvokeRequest extends Model
 {
     /**
+     * @example A0000003
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @example SimpleAuthInit
+     *
      * @var string
      */
     public $doraemonAction;
 
     /**
+     * @example eyJhdHRhY2htZW50IjoicGxhdGZvcm0iLCJ1c2VyVmVyaWZpY2F0aW9uIjoicmVxdWlyZWQifQ==
+     *
      * @var string
      */
     public $mobileExtendParamsJson;
 
     /**
+     * @example ba6f5596f00102cb1a7d971f8390b7ccb28e6bc4e8694d051f9299ccc69e1186
+     *
      * @var string
      */
     public $mobileExtendParamsJsonSign;
 
     /**
+     * @example eyJhdHRhY2htZW50IjoicGxhdGZvcm0iLCJ1c2VyVmVyaWZpY2F0aW9uIjoicmVxdWlyZWQifQ==
+     *
      * @var string
      */
     public $serverExtendParamsJson;
 
     /**
+     * @example IFAA
+     *
      * @var string
      */
     public $serviceCode;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $testModel;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $XClientIp;

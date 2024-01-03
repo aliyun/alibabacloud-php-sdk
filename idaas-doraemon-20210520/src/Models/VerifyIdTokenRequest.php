@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class VerifyIdTokenRequest extends Model
 {
     /**
+     * @example webauth_demo
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @description jwtIdToken
+     *
+     * @example eyJraWQiOiIzNj
+     *
      * @var string
      */
     public $jwtIdToken;

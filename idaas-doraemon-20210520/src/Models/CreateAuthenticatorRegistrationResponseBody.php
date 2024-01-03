@@ -19,6 +19,8 @@ class CreateAuthenticatorRegistrationResponseBody extends Model
     public $options;
 
     /**
+     * @example DA0A9BF3-029D-5968-B876-0DF49777B22D
+     *
      * @var string
      */
     public $requestId;

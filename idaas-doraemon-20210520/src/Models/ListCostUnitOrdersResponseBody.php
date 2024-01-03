@@ -15,21 +15,29 @@ class ListCostUnitOrdersResponseBody extends Model
     public $items;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A82621A5-715C-5486-80E9-9262EE43BA55
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $totalElements;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalPages;

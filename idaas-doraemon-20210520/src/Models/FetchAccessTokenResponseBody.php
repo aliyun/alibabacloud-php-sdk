@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class FetchAccessTokenResponseBody extends Model
 {
     /**
+     * @example Operation.Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class FetchAccessTokenResponseBody extends Model
     public $data;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example BD908DED-849D-5FDB-9C9B-52B1D3F9DC41
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

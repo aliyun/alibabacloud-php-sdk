@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class VerifyIdTokenResponseBody extends Model
 {
     /**
+     * @example F620E712-F325-520D-BE1A-E2421B062F57
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $userId;

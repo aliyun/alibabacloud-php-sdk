@@ -14,11 +14,15 @@ class users extends Model
     public $userDisplayName;
 
     /**
+     * @example 2323232676856745
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example lili
+     *
      * @var string
      */
     public $userName;

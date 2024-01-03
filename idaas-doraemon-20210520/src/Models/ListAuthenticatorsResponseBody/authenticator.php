@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class authenticator extends Model
 {
     /**
+     * @example webauth_demo
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @example TOTP-DefaultName
+     *
      * @var string
      */
     public $authenticatorName;
 
     /**
+     * @example 0fcd5fce3fdc42052633a65eb242f10aZ8nzoQMpV3m
+     *
      * @var string
      */
     public $authenticatorUuid;
 
     /**
+     * @example scimcred-00skzv5noh34r5aoci76
+     *
      * @var string
      */
     public $credentialId;
 
     /**
+     * @example 123123
+     *
      * @var int
      */
     public $lastVerifyTime;
 
     /**
+     * @example 1342800000000
+     *
      * @var int
      */
     public $registerTime;
 
     /**
+     * @example TOTP
+     *
      * @var string
      */
     public $type;

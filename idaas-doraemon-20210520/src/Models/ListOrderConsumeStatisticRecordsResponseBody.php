@@ -15,21 +15,29 @@ class ListOrderConsumeStatisticRecordsResponseBody extends Model
     public $items;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1655384783875
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalElements;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalPages;

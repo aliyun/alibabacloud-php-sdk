@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateUserAuthenticateOptionsRequest extends Model
 {
     /**
+     * @example 11122223333
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @example webauthn
+     *
      * @var string
      */
     public $authenticatorType;
 
     /**
+     * @example 1111222
+     *
      * @var string
      */
     public $bindHashBase64;
 
     /**
+     * @example 由具体认证方式决定
+     *
      * @var string
      */
     public $clientExtendParamsJson;
 
     /**
+     * @example 由具体认证方式决定
+     *
      * @var string
      */
     public $clientExtendParamsJsonSign;
 
     /**
+     * @example 由具体认证方式决定
+     *
      * @var string
      */
     public $serverExtendParamsJson;
 
     /**
+     * @example user-11122223333
+     *
      * @var string
      */
     public $userId;

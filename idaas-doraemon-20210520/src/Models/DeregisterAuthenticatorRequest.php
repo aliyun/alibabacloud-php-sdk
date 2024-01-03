@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeregisterAuthenticatorRequest extends Model
 {
     /**
+     * @example 11122223333
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @example a00712a4e56196755059356c290793031xHdUrCPXUS
+     *
      * @var string
      */
     public $authenticatorUuid;
 
     /**
+     * @example user-11122223333
+     *
      * @var string
      */
     public $userId;

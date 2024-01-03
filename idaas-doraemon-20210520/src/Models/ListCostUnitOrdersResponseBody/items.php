@@ -9,41 +9,62 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example 215222637610732
+     *
      * @var string
      */
     public $aliOrderCode;
 
     /**
+     * @example idaas_auth_public_cn-pl32pciy101
+     *
      * @var string
      */
     public $aliOrderInstanceId;
 
     /**
+     * @example 1646028448000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @var bool
+     */
+    public $exhausted;
+
+    /**
+     * @example 1923321600000
+     *
      * @var int
      */
     public $expiredTime;
 
     /**
+     * @example VALID
+     *
      * @var string
      */
     public $orderStatus;
 
     /**
+     * @example 1923321600000
+     *
      * @var int
      */
     public $refundTime;
 
     /**
+     * @example 100000
+     *
      * @var int
      */
     public $totalCostUnit;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $usedCostUnit;
@@ -51,6 +72,7 @@ class items extends Model
         'aliOrderCode'       => 'AliOrderCode',
         'aliOrderInstanceId' => 'AliOrderInstanceId',
         'createTime'         => 'CreateTime',
+        'exhausted'          => 'Exhausted',
         'expiredTime'        => 'ExpiredTime',
         'orderStatus'        => 'OrderStatus',
         'refundTime'         => 'RefundTime',
@@ -73,6 +95,9 @@ class items extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->exhausted) {
+            $res['Exhausted'] = $this->exhausted;
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
@@ -109,6 +134,9 @@ class items extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Exhausted'])) {
+            $model->exhausted = $map['Exhausted'];
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];

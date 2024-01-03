@@ -30,6 +30,9 @@ use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListPwnedPasswordsRequest;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListPwnedPasswordsResponse;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListUsersResponse;
+use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\QuerySmsReportsRequest;
+use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\QuerySmsReportsResponse;
+use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\QuerySmsUpsResponse;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\RegisterAuthenticatorRequest;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\RegisterAuthenticatorResponse;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ServiceInvokeRequest;
@@ -620,11 +623,17 @@ class Idaasdoraemon extends OpenApiClient
         if (!Utils::isUnset($request->aliOrderCode)) {
             $query['AliOrderCode'] = $request->aliOrderCode;
         }
+        if (!Utils::isUnset($request->applicationExternalId)) {
+            $query['ApplicationExternalId'] = $request->applicationExternalId;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
         }
         if (!Utils::isUnset($request->statisticTimeMax)) {
             $query['StatisticTimeMax'] = $request->statisticTimeMax;
@@ -749,6 +758,79 @@ class Idaasdoraemon extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySmsReportsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QuerySmsReportsResponse
+     */
+    public function querySmsReportsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySmsReports',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySmsReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySmsReportsRequest $request
+     *
+     * @return QuerySmsReportsResponse
+     */
+    public function querySmsReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySmsReportsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return QuerySmsUpsResponse
+     */
+    public function querySmsUpsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'QuerySmsUps',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySmsUpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return QuerySmsUpsResponse
+     */
+    public function querySmsUps()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySmsUpsWithOptions($runtime);
     }
 
     /**

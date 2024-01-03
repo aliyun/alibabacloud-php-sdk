@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListPwnedPasswordsResponseBody extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -25,11 +29,17 @@ class ListPwnedPasswordsResponseBody extends Model
     public $pwnedPasswordInfos;
 
     /**
+     * @description Id of the request
+     *
+     * @example D0F570B0-89CE-07F2-B41E-F97E089E13C6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $totalCount;

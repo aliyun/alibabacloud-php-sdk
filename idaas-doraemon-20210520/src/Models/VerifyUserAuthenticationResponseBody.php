@@ -15,21 +15,29 @@ class VerifyUserAuthenticationResponseBody extends Model
     public $authenticateResultInfo;
 
     /**
+     * @example zmtdjb
+     *
      * @var string
      */
     public $etasSDKString;
 
     /**
+     * @example qacdfhigvbcvb
+     *
      * @var string
      */
     public $idToken;
 
     /**
+     * @example 83ED3BC7-B36E-53B5-83D4-152CF2088DB9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $verifyResult;

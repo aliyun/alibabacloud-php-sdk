@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class authenticationLogContent extends Model
 {
     /**
+     * @example 1218758215717204
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @example webauth_demo
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @example 2bba0564edce2ff90c544dc623d1c1f5iPpCGAqTioA
+     *
      * @var string
      */
     public $applicationUuid;
 
     /**
+     * @example TOTP-DefaultName
+     *
      * @var string
      */
     public $authenticatorName;
 
     /**
+     * @example TOTP
+     *
      * @var string
      */
     public $authenticatorType;
 
     /**
+     * @example 0fcd5fce3fdc42052633a65eb242f10aZ8nzoQMpV3m
+     *
      * @var string
      */
     public $authenticatorUuid;
 
     /**
+     * @example exfa
+     *
      * @var string
      */
     public $challengeBase64;
 
     /**
+     * @example scimcred-00t3zfhiy2ylzvm2i287
+     *
      * @var string
      */
     public $credentialId;
 
     /**
+     * @example Failed
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example user not exist, alipayId=2088022534411015
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logParams;
 
     /**
+     * @example ListTagResources
+     *
      * @var string
      */
     public $operationAction;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $operationResult;
 
     /**
+     * @example 1647309893086
+     *
      * @var int
      */
     public $operationTime;
@@ -84,21 +112,29 @@ class authenticationLogContent extends Model
     public $rawContext;
 
     /**
+     * @example ed0222867189ad2bacfa746843d4b9692mlWC9sU3zl
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @example 10.13.1.56
+     *
      * @var string
      */
     public $userAgent;
 
     /**
+     * @example 3b323
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 10.13.1.56
+     *
      * @var string
      */
     public $userSourceIp;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class FetchAccessTokenRequest extends Model
 {
     /**
+     * @example secAuthApp
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @example eyJhdHRhY2htZW50IjoicGxhdGZvcm0iLCJ1c2VyVmVyaWZpY2F0aW9uIjoicmVxdWlyZWQifQ==
+     *
      * @var string
      */
     public $mobileExtendParamsJson;
 
     /**
+     * @example a3984bc27776bb6f65f82276f75d6a12d56e1b41e98ed6975d852b14309b8a20
+     *
      * @var string
      */
     public $mobileExtendParamsJsonSign;
 
     /**
+     * @example eyJhdHRhY2htZW50IjoicGxhdGZvcm0iLCJ1c2VyVmVyaWZpY2F0aW9uIjoicmVxdWlyZWQifQ==
+     *
      * @var string
      */
     public $serverExtendParamsJson;
 
     /**
+     * @example 6ba923abf6749536b7fd31c6a31360fboOFZQ8WbzmG
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 124.127.214.94
+     *
      * @var string
      */
     public $XClientIp;

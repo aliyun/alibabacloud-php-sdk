@@ -9,101 +9,141 @@ use AlibabaCloud\Tea\Model;
 class authenticationLogContent extends Model
 {
     /**
+     * @example 1588301417442737
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @example sms_auth
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @example 0b6ba5da7bd4cef233ae7b48b5e5dcc1yx9aipQp0hD
+     *
      * @var string
      */
     public $applicationUuid;
 
     /**
+     * @example send
+     *
      * @var string
      */
     public $authenticationAction;
 
     /**
+     * @example 1647233491138
+     *
      * @var int
      */
     public $authenticationTime;
 
     /**
+     * @example TOTP-DefaultName
+     *
      * @var string
      */
     public $authenticatorName;
 
     /**
+     * @example TOTP
+     *
      * @var string
      */
     public $authenticatorType;
 
     /**
+     * @example c810731ad3af06e45171395abf19cf9cb00E7i97PhE
+     *
      * @var string
      */
     public $authenticatorUuid;
 
     /**
+     * @example 3519
+     *
      * @var string
      */
     public $challengeBase64;
 
     /**
+     * @example scimcred-00w9gcvpwueg7geg1a87
+     *
      * @var string
      */
     public $credentialId;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example Request was denied due to business check permission
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example khj
+     *
      * @var string
      */
     public $logParams;
 
     /**
+     * @example login
+     *
      * @var string
      */
     public $logTag;
 
     /**
+     * @example {"name":"lili"}
+     *
      * @var string
      */
     public $rawAuthenticationContext;
 
     /**
+     * @example 8cefc5fe5d10dffffdcff011a6b34a863hHmgm0SIrh
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @example aoxis
+     *
      * @var string
      */
     public $userAgent;
 
     /**
+     * @example xhtseqml
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 10.23.11.56
+     *
      * @var string
      */
     public $userSourceIp;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $verifyResult;

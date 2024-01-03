@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class authenticateResultInfo extends Model
 {
     /**
+     * @example 10e8c224555bba8bfb780badebc4a08cc1Z6LmC6Hp9
+     *
      * @var string
      */
     public $bindHashBase64;
 
     /**
+     * @example scimcred-000vfaknfwlp8kesl520
+     *
      * @var string
      */
     public $credentialId;
 
     /**
+     * @example 3b32
+     *
      * @var string
      */
     public $userId;

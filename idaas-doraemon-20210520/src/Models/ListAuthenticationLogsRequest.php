@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ListAuthenticationLogsRequest extends Model
 {
     /**
+     * @example webauth_demo
+     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
+     * @example TOTP
+     *
      * @var string
      */
     public $authenticatorType;
 
     /**
+     * @example 0fcd5fce3fdc42052633a65eb242f10aZ8nzoQMpV3m
+     *
      * @var string
      */
     public $authenticatorUuid;
 
     /**
+     * @example scimcred-003o4e2wqxlaxjmjyz96
+     *
      * @var string
      */
     public $credentialId;
 
     /**
+     * @example 1640144294
+     *
      * @var int
      */
     public $fromTime;
 
     /**
+     * @example login
+     *
      * @var string
      */
     public $logTag;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1640144694
+     *
      * @var int
      */
     public $toTime;
 
     /**
+     * @example 10e8c224
+     *
      * @var string
      */
     public $userId;

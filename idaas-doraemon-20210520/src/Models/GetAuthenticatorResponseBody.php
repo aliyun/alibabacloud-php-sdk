@@ -15,6 +15,8 @@ class GetAuthenticatorResponseBody extends Model
     public $authenticator;
 
     /**
+     * @example 123131312313
+     *
      * @var string
      */
     public $requestId;

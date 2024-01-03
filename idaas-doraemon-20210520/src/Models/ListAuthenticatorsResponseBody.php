@@ -15,21 +15,29 @@ class ListAuthenticatorsResponseBody extends Model
     public $authenticator;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 531FA210-6F3D-5368-9AE2-AD7B9D1D5CAA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 13
+     *
      * @var int
      */
     public $totalCount;
