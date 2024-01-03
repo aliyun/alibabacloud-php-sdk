@@ -107,6 +107,11 @@ class mediaProducingJob extends Model
     public $timeline;
 
     /**
+     * @var string
+     */
+    public $userData;
+
+    /**
      * @example ****332c5b0cc6ba49eab379****
      *
      * @var string
@@ -127,6 +132,7 @@ class mediaProducingJob extends Model
         'status'       => 'Status',
         'templateId'   => 'TemplateId',
         'timeline'     => 'Timeline',
+        'userData'     => 'UserData',
         'vodMediaId'   => 'VodMediaId',
     ];
 
@@ -178,6 +184,9 @@ class mediaProducingJob extends Model
         }
         if (null !== $this->timeline) {
             $res['Timeline'] = $this->timeline;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
         if (null !== $this->vodMediaId) {
             $res['VodMediaId'] = $this->vodMediaId;
@@ -235,6 +244,9 @@ class mediaProducingJob extends Model
         }
         if (isset($map['Timeline'])) {
             $model->timeline = $map['Timeline'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
         if (isset($map['VodMediaId'])) {
             $model->vodMediaId = $map['VodMediaId'];
