@@ -19,6 +19,8 @@ class resourceShareInvitations extends Model
     public $createTime;
 
     /**
+     * @description The information about the failure.
+     *
      * @var invitationFailedDetails[]
      */
     public $invitationFailedDetails;
@@ -71,11 +73,12 @@ class resourceShareInvitations extends Model
     /**
      * @description The status of the invitation. Valid values:
      *
-     *   Pending: The invitation is waiting for confirmation.
-     *   Accepted: The invitation is accepted.
-     *   Cancelled: The invitation is canceled.
-     *   Rejected: The invitation is rejected.
-     *   Expired: The invitation has expired.
+     *   Pending
+     *   Accepted
+     *   Cancelled
+     *   Rejected
+     *   Expired
+     *   AcceptFailed
      *
      * @example Pending
      *

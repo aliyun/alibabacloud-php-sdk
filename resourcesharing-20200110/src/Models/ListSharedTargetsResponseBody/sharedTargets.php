@@ -51,6 +51,11 @@ class sharedTargets extends Model
     public $targetId;
 
     /**
+     * @var string
+     */
+    public $targetProperty;
+
+    /**
      * @description The time when the association of the principal was updated.
      *
      * @example 2020-12-07T09:16:59.905Z
@@ -63,6 +68,7 @@ class sharedTargets extends Model
         'external'        => 'External',
         'resourceShareId' => 'ResourceShareId',
         'targetId'        => 'TargetId',
+        'targetProperty'  => 'TargetProperty',
         'updateTime'      => 'UpdateTime',
     ];
 
@@ -84,6 +90,9 @@ class sharedTargets extends Model
         }
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
+        }
+        if (null !== $this->targetProperty) {
+            $res['TargetProperty'] = $this->targetProperty;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
@@ -111,6 +120,9 @@ class sharedTargets extends Model
         }
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
+        }
+        if (isset($map['TargetProperty'])) {
+            $model->targetProperty = $map['TargetProperty'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];

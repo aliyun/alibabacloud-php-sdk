@@ -9,26 +9,54 @@ use AlibabaCloud\Tea\Model;
 class acceptInvitationFailedDetails extends Model
 {
     /**
+     * @description The type of the sharing operation. Valid values:
+     *
+     *   Associate
+     *
+     * @example Associate
+     *
      * @var string
      */
     public $associateType;
 
     /**
+     * @description The ID of the shared resource.
+     *
+     * @example s-7xvh46nx5oqlre0wv***
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the shared resource.
+     *
+     * For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](~~450526~~).
+     * @example Snapshot
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The failure status. Valid values:
+     *
+     *   Unavailable: The resource cannot be shared.
+     *   LimitExceeded: The number of shared resources within the Alibaba Cloud account exceeds the upper limit.
+     *   ZonalResourceInaccessible: The resource is unavailable in this region.
+     *   InternalError: An internal error occurred during the check.
+     *
+     * @example Unavailable
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The failure cause.
+     *
+     * @example You cannot access the specified resource at this time.
+     *
      * @var string
      */
     public $statusMessage;

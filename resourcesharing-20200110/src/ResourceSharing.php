@@ -88,9 +88,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * *   A principal needs to accept or reject a resource sharing invitation only if the principal is not the management account or a member of a resource directory. If you share resources with an object in a resource directory, the system automatically accepts the resource sharing invitation for the object.
+     * ### [](#)
+     *   * *   A principal needs to accept or reject a resource sharing invitation only if the principal is not the management account or a member of a resource directory. If you share resources with an object in a resource directory, the system automatically accepts the resource sharing invitation for the object.
      *   * *   A resource sharing invitation is valid for seven days. A principal must accept or reject the invitation within the validity period.
-     *   * This topic provides an example on how to call the API operation to accept the resource sharing invitation `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
+     *   * This topic provides an example on how to call the API operation to accept the resource sharing invitation whose ID is `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
      *   *
      * @param AcceptResourceShareInvitationRequest $request AcceptResourceShareInvitationRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -123,9 +124,10 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * *   A principal needs to accept or reject a resource sharing invitation only if the principal is not the management account or a member of a resource directory. If you share resources with an object in a resource directory, the system automatically accepts the resource sharing invitation for the object.
+     * ### [](#)
+     *   * *   A principal needs to accept or reject a resource sharing invitation only if the principal is not the management account or a member of a resource directory. If you share resources with an object in a resource directory, the system automatically accepts the resource sharing invitation for the object.
      *   * *   A resource sharing invitation is valid for seven days. A principal must accept or reject the invitation within the validity period.
-     *   * This topic provides an example on how to call the API operation to accept the resource sharing invitation `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
+     *   * This topic provides an example on how to call the API operation to accept the resource sharing invitation whose ID is `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
      *   *
      * @param AcceptResourceShareInvitationRequest $request AcceptResourceShareInvitationRequest
      *
@@ -859,7 +861,8 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
+     * ### [](#)
+     *   * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
      *   *
      * @param ListResourceShareInvitationsRequest $request ListResourceShareInvitationsRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -901,7 +904,8 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
+     * ### [](#)
+     *   * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
      *   *
      * @param ListResourceShareInvitationsRequest $request ListResourceShareInvitationsRequest
      *

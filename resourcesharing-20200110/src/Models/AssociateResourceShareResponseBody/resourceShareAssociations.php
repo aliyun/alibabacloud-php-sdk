@@ -100,6 +100,11 @@ class resourceShareAssociations extends Model
     public $resourceShareName;
 
     /**
+     * @var string
+     */
+    public $targetProperty;
+
+    /**
      * @description The time when the association of the entity was updated. The value of this parameter depends on the value of the AssociationType parameter:
      *
      *   If the value of `AssociationType` is `Resource`, the value of this parameter is the time when the association of the shared resource was updated.
@@ -119,6 +124,7 @@ class resourceShareAssociations extends Model
         'entityType'               => 'EntityType',
         'resourceShareId'          => 'ResourceShareId',
         'resourceShareName'        => 'ResourceShareName',
+        'targetProperty'           => 'TargetProperty',
         'updateTime'               => 'UpdateTime',
     ];
 
@@ -152,6 +158,9 @@ class resourceShareAssociations extends Model
         }
         if (null !== $this->resourceShareName) {
             $res['ResourceShareName'] = $this->resourceShareName;
+        }
+        if (null !== $this->targetProperty) {
+            $res['TargetProperty'] = $this->targetProperty;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
@@ -191,6 +200,9 @@ class resourceShareAssociations extends Model
         }
         if (isset($map['ResourceShareName'])) {
             $model->resourceShareName = $map['ResourceShareName'];
+        }
+        if (isset($map['TargetProperty'])) {
+            $model->targetProperty = $map['TargetProperty'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class resourceShareInvitation extends Model
 {
     /**
+     * @description The information about the failure.
+     *
      * @var acceptInvitationFailedDetails[]
      */
     public $acceptInvitationFailedDetails;
@@ -42,7 +44,7 @@ class resourceShareInvitation extends Model
     public $resourceShareId;
 
     /**
-     * @description The ID of the invitation.
+     * @description The ID of the resource sharing invitation.
      *
      * @example i-pMnItMX19fBJ****
      *
@@ -71,11 +73,12 @@ class resourceShareInvitation extends Model
     /**
      * @description The status of the invitation. Valid values:
      *
-     *   Pending: The invitation is waiting for confirmation.
-     *   Accepted: The invitation is accepted.
-     *   Cancelled: The invitation is canceled.
-     *   Rejected: The invitation is rejected.
-     *   Expired: The invitation has expired.
+     *   Pending
+     *   Accepted
+     *   Cancelled
+     *   Rejected
+     *   Expired
+     *   AcceptFailed
      *
      * @example Accepted
      *

@@ -11,7 +11,7 @@ class AcceptResourceShareInvitationRequest extends Model
     /**
      * @description The ID of the resource sharing invitation.
      *
-     * You can call the [ListResourceShareInvitations](~~450564~~) operation to obtain the ID of a resource sharing invitation.
+     * You can call the [ListResourceShareInvitations](~~450564~~) operation to obtain the ID.
      * @example i-pMnItMX19fBJ****
      *
      * @var string
