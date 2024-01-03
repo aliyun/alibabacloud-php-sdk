@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\AddWebhookRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddWebhookResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CloseMergeRequestRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CloseMergeRequestResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateAppMembersRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateAppMembersResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommitStatusRequest;
@@ -79,6 +81,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemV2Request;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemV2Response;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteAppMemberRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteAppMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteBranchRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteBranchResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFileRequest;
@@ -121,6 +125,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\EnableDeployKeyRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\EnableDeployKeyResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\FrozenWorkspaceResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetApplicationRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetBranchInfoRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetBranchInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCodeupOrganizationRequest;
@@ -188,6 +194,10 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemWorkFlowInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\JoinPipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\JoinPipelineGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationMembersRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationMembersResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListCommitStatusesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListCommitStatusesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListFlowTagGroupsResponse;
@@ -314,6 +324,10 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\TransferRepositoryRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\TransferRepositoryResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\TriggerRepositoryMirrorSyncRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\TriggerRepositoryMirrorSyncResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateApplicationRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateApplicationResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateAppMemberRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateAppMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFileRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFileResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFlowTagGroupRequest;
@@ -704,6 +718,62 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->closeMergeRequestWithOptions($repositoryId, $localId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $appName
+     * @param CreateAppMembersRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAppMembersResponse
+     */
+    public function createAppMembersWithOptions($appName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->playerList)) {
+            $body['playerList'] = $request->playerList;
+        }
+        if (!Utils::isUnset($request->roleNames)) {
+            $body['roleNames'] = $request->roleNames;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAppMembers',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/members',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'string',
+        ]);
+
+        return CreateAppMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $appName
+     * @param CreateAppMembersRequest $request
+     *
+     * @return CreateAppMembersResponse
+     */
+    public function createAppMembers($appName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAppMembersWithOptions($appName, $request, $headers, $runtime);
     }
 
     /**
@@ -2744,6 +2814,60 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                 $appName
+     * @param DeleteAppMemberRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteAppMemberResponse
+     */
+    public function deleteAppMemberWithOptions($appName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->subjectId)) {
+            $query['subjectId'] = $request->subjectId;
+        }
+        if (!Utils::isUnset($request->subjectType)) {
+            $query['subjectType'] = $request->subjectType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAppMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/members',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'string',
+        ]);
+
+        return DeleteAppMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $appName
+     * @param DeleteAppMemberRequest $request
+     *
+     * @return DeleteAppMemberResponse
+     */
+    public function deleteAppMember($appName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAppMemberWithOptions($appName, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string              $repositoryId
      * @param DeleteBranchRequest $request
      * @param string[]            $headers
@@ -3987,6 +4111,54 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->frozenWorkspaceWithOptions($workspaceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $appName
+     * @param GetApplicationRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetApplicationResponse
+     */
+    public function getApplicationWithOptions($appName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApplication',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $appName
+     * @param GetApplicationRequest $request
+     *
+     * @return GetApplicationResponse
+     */
+    public function getApplication($appName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getApplicationWithOptions($appName, $request, $headers, $runtime);
     }
 
     /**
@@ -6014,6 +6186,115 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->joinPipelineGroupWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $appName
+     * @param ListApplicationMembersRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListApplicationMembersResponse
+     */
+    public function listApplicationMembersWithOptions($appName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApplicationMembers',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/members',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApplicationMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $appName
+     * @param ListApplicationMembersRequest $request
+     *
+     * @return ListApplicationMembersResponse
+     */
+    public function listApplicationMembers($appName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listApplicationMembersWithOptions($appName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListApplicationsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListApplicationsResponse
+     */
+    public function listApplicationsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['orderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->pagination)) {
+            $query['pagination'] = $request->pagination;
+        }
+        if (!Utils::isUnset($request->perPage)) {
+            $query['perPage'] = $request->perPage;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['sort'] = $request->sort;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApplications',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps%3Asearch',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListApplicationsRequest $request
+     *
+     * @return ListApplicationsResponse
+     */
+    public function listApplications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listApplicationsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10026,6 +10307,115 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->triggerRepositoryMirrorSyncWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $appName
+     * @param UpdateAppMemberRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAppMemberResponse
+     */
+    public function updateAppMemberWithOptions($appName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->player)) {
+            $body['player'] = $request->player;
+        }
+        if (!Utils::isUnset($request->roleNames)) {
+            $body['roleNames'] = $request->roleNames;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAppMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/members',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'string',
+        ]);
+
+        return UpdateAppMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $appName
+     * @param UpdateAppMemberRequest $request
+     *
+     * @return UpdateAppMemberResponse
+     */
+    public function updateAppMember($appName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAppMemberWithOptions($appName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $appName
+     * @param UpdateApplicationRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateApplicationResponse
+     */
+    public function updateApplicationWithOptions($appName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->ownerAccountId)) {
+            $body['ownerAccountId'] = $request->ownerAccountId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateApplication',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $appName
+     * @param UpdateApplicationRequest $request
+     *
+     * @return UpdateApplicationResponse
+     */
+    public function updateApplication($appName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateApplicationWithOptions($appName, $request, $headers, $runtime);
     }
 
     /**
