@@ -59,13 +59,13 @@ class DBInstanceAttribute extends Model
     /**
      * @description The configuration of the Babelfish feature for the ApsaraDB RDS for PostgreSQL instance.
      *
-     * >  This parameter is suitable only for ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled. For more information, see Introduction to Babelfish.[](~~428613~~)
+     * >  This parameter is suitable only for ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled. For more information, see [Introduction to Babelfish](~~428613~~).
      * @var babelfishConfig
      */
     public $babelfishConfig;
 
     /**
-     * @description This parameter is invalid. You do not need to specify this parameter.
+     * @description An invalid parameter. You can ignore this parameter.
      *
      * @example false
      *
@@ -74,7 +74,7 @@ class DBInstanceAttribute extends Model
     public $bpeEnabled;
 
     /**
-     * @description This parameter is invalid. You do not need to specify this parameter.
+     * @description An invalid parameter. You can ignore this parameter.
      *
      * @example false
      *
@@ -83,7 +83,7 @@ class DBInstanceAttribute extends Model
     public $burstingEnabled;
 
     /**
-     * @description The RDS edition of the instance. Valid values:
+     * @description The RDS edition. Valid values:
      *
      *   **Basic**: RDS Basic Edition
      *   **HighAvailability**: RDS High-availability Edition
@@ -97,6 +97,11 @@ class DBInstanceAttribute extends Model
      * @var string
      */
     public $category;
+
+    /**
+     * @var bool
+     */
+    public $coldDataEnabled;
 
     /**
      * @description The character set collation of the instance.
@@ -120,7 +125,7 @@ class DBInstanceAttribute extends Model
     public $connectionMode;
 
     /**
-     * @description The internal endpoint of the instance.
+     * @description The internal endpoint.
      *
      * @example rm-uf6wjk5*****.mysql.rds.aliyuncs.com
      *
@@ -134,7 +139,7 @@ class DBInstanceAttribute extends Model
      *   **1**: shared proxy
      *   **2**: dedicated proxy
      *
-     * >  We recommend that you use the ProxyType parameter instead of this parameter.
+     * >  We recommend that you use the **ProxyType** parameter instead of this parameter.
      * @example 2
      *
      * @var string
@@ -151,7 +156,7 @@ class DBInstanceAttribute extends Model
     public $creationTime;
 
     /**
-     * @description The minor engine version of the instance.
+     * @description The minor engine version.
      *
      * @example rds_20181010
      *
@@ -185,7 +190,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceClass;
 
     /**
-     * @description The instance family to which the instance belongs. Valid values:
+     * @description The instance family. Valid values:
      *
      *   **s**: shared instance family
      *   **x**: general-purpose instance family
@@ -199,7 +204,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceClassType;
 
     /**
-     * @description The description of the instance.
+     * @description The instance description.
      *
      * @example The number of cores that are configured for the instance.
      *
@@ -237,8 +242,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description The type of the network over which the instance is connected. Valid values:
      *
-     *   **Internet**: Internet
-     *   **Intranet**: internal network
+     *   **Internet**
+     *   **Intranet**
      *
      * @example Internet
      *
@@ -270,6 +275,7 @@ class DBInstanceAttribute extends Model
      *   **local_ssd** and **ephemeral_ssd**: local SSD
      *   **cloud_ssd**: standard SSD
      *   **cloud_essd**: enhanced SSD (ESSD)
+     *   **general_essd**: general ESSD
      *
      * @example local_ssd
      *
@@ -278,7 +284,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceStorageType;
 
     /**
-     * @description The type of the instance. Valid values:
+     * @description The instance type. Valid values:
      *
      *   **Primary**: primary instance
      *   **Readonly**: read-only instance
@@ -301,7 +307,7 @@ class DBInstanceAttribute extends Model
     public $DBMaxQuantity;
 
     /**
-     * @description The ID of the dedicated cluster.
+     * @description The dedicated cluster ID.
      *
      * @example dhg-7a9*****
      *
@@ -355,7 +361,7 @@ class DBInstanceAttribute extends Model
     public $expireTime;
 
     /**
-     * @description The extended information of the instance.
+     * @description The extended information.
      *
      * @var extra
      */
@@ -380,7 +386,7 @@ class DBInstanceAttribute extends Model
     public $guardDBInstanceId;
 
     /**
-     * @description The type of the IP address. Only **IPv4** addresses are supported.
+     * @description The IP address type. Only **IPv4** addresses are supported.
      *
      * @example IPv4
      *
@@ -389,7 +395,7 @@ class DBInstanceAttribute extends Model
     public $IPType;
 
     /**
-     * @description The ID of the instance from which incremental data comes. The incremental data of a disaster recovery instance or read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
+     * @description The ID of the instance from which incremental data comes. The incremental data of a read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
      *
      * @example rm-uf6wjk5*****
      *
@@ -420,6 +426,11 @@ class DBInstanceAttribute extends Model
      * @var string
      */
     public $instructionSetArch;
+
+    /**
+     * @var string
+     */
+    public $ioAccelerationEnabled;
 
     /**
      * @description The latest minor engine version that is supported by the instance.
@@ -465,7 +476,7 @@ class DBInstanceAttribute extends Model
     public $maintainTime;
 
     /**
-     * @description The ID of the primary instance.
+     * @description The primary instance ID.
      *
      * >  If this parameter is not returned, the instance is the primary instance.
      * @example rm-uf6wjk5*****
@@ -598,7 +609,7 @@ class DBInstanceAttribute extends Model
     public $securityIPList;
 
     /**
-     * @description The whitelist mode of the instance. Valid values:
+     * @description The whitelist mode. Valid values:
      *
      *   **normal**: standard whitelist mode
      *   **safety**: enhanced whitelist mode
@@ -624,7 +635,7 @@ class DBInstanceAttribute extends Model
     public $slaveZones;
 
     /**
-     * @description Indicates whether the instance supports superuser accounts, such as the system administrator (SA) account, the Active Directory (AD) account, and the host account.
+     * @description Indicates whether the instance supports superuser accounts, such as the system administrator (SA) account, the Active Directory (AD) account, and the host account. Valid values:
      *
      *   **Enable**
      *   **Disabled**
@@ -645,7 +656,7 @@ class DBInstanceAttribute extends Model
     public $tempDBInstanceId;
 
     /**
-     * @description The time zone of the instance.
+     * @description The time zone.
      *
      * @example Central Standard Time
      *
@@ -666,7 +677,7 @@ class DBInstanceAttribute extends Model
      * @description The severity level of the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
      *
      *   **1**: The instance is normal.
-     *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance. You must adjust the specifications of these instances based on your business requirements.
+     *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance, and instance performance may be affected. You must adjust the specifications of these instances based on your business requirements.
      *
      * @example 1
      *
@@ -693,7 +704,7 @@ class DBInstanceAttribute extends Model
     public $vpcCloudInstanceId;
 
     /**
-     * @description The virtual private cloud (VPC) ID of the instance.
+     * @description The VPC ID.
      *
      * @example vpc-*****
      *
@@ -729,6 +740,7 @@ class DBInstanceAttribute extends Model
         'bpeEnabled'                     => 'BpeEnabled',
         'burstingEnabled'                => 'BurstingEnabled',
         'category'                       => 'Category',
+        'coldDataEnabled'                => 'ColdDataEnabled',
         'collation'                      => 'Collation',
         'connectionMode'                 => 'ConnectionMode',
         'connectionString'               => 'ConnectionString',
@@ -761,6 +773,7 @@ class DBInstanceAttribute extends Model
         'incrementSourceDBInstanceId'    => 'IncrementSourceDBInstanceId',
         'instanceNetworkType'            => 'InstanceNetworkType',
         'instructionSetArch'             => 'InstructionSetArch',
+        'ioAccelerationEnabled'          => 'IoAccelerationEnabled',
         'latestKernelVersion'            => 'LatestKernelVersion',
         'lockMode'                       => 'LockMode',
         'lockReason'                     => 'LockReason',
@@ -824,6 +837,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+        if (null !== $this->coldDataEnabled) {
+            $res['ColdDataEnabled'] = $this->coldDataEnabled;
         }
         if (null !== $this->collation) {
             $res['Collation'] = $this->collation;
@@ -920,6 +936,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->instructionSetArch) {
             $res['InstructionSetArch'] = $this->instructionSetArch;
+        }
+        if (null !== $this->ioAccelerationEnabled) {
+            $res['IoAccelerationEnabled'] = $this->ioAccelerationEnabled;
         }
         if (null !== $this->latestKernelVersion) {
             $res['LatestKernelVersion'] = $this->latestKernelVersion;
@@ -1050,6 +1069,9 @@ class DBInstanceAttribute extends Model
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+        if (isset($map['ColdDataEnabled'])) {
+            $model->coldDataEnabled = $map['ColdDataEnabled'];
+        }
         if (isset($map['Collation'])) {
             $model->collation = $map['Collation'];
         }
@@ -1145,6 +1167,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['InstructionSetArch'])) {
             $model->instructionSetArch = $map['InstructionSetArch'];
+        }
+        if (isset($map['IoAccelerationEnabled'])) {
+            $model->ioAccelerationEnabled = $map['IoAccelerationEnabled'];
         }
         if (isset($map['LatestKernelVersion'])) {
             $model->latestKernelVersion = $map['LatestKernelVersion'];

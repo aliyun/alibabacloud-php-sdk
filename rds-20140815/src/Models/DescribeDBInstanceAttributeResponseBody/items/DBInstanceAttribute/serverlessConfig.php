@@ -40,7 +40,7 @@ class serverlessConfig extends Model
     public $scaleMin;
 
     /**
-     * @description Indicates whether the forced scaling feature is enabled for the serverless instance.
+     * @description Indicates whether the forced scaling feature is enabled for the serverless instance. Valid values:
      *
      *   **true**
      *   **false** (default)

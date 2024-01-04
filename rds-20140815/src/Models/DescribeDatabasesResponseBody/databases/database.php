@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class database extends Model
 {
     /**
-     * @description An array that consists of the details of the accounts. Each account has specific permissions on the database.
+     * @description The information about the account. Each account has specific permissions on the database.
      *
      * @var accounts
      */
@@ -22,15 +22,15 @@ class database extends Model
     /**
      * @description The advanced information about the database.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @var advancedInfo
      */
     public $advancedInfo;
 
     /**
-     * @description The basic information of the database.
+     * @description The basic information about the database.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @var basicInfo
      */
     public $basicInfo;
@@ -47,7 +47,7 @@ class database extends Model
     /**
      * @description The collation of the character set. The example value C stands for localization.
      *
-     * > This parameter is returned only for instances that run PostgreSQL.
+     * >  This parameter is returned only for instances that run PostgreSQL.
      * @example C
      *
      * @var string
@@ -57,7 +57,7 @@ class database extends Model
     /**
      * @description The limit on the number of concurrent requests. The value -1 indicates that the number of concurrent requests is unlimited.
      *
-     * > This parameter is returned only for instances that run PostgreSQL.
+     * >  This parameter is returned only for instances that run PostgreSQL.
      * @example -1
      *
      * @var string
@@ -67,7 +67,7 @@ class database extends Model
     /**
      * @description The type of the character set.
      *
-     * > This parameter is returned only for instances that run PostgreSQL.
+     * >  This parameter is returned only for instances that run PostgreSQL.
      * @example en_US.utf8
      *
      * @var string
@@ -93,7 +93,7 @@ class database extends Model
     public $DBInstanceId;
 
     /**
-     * @description The name of the database.
+     * @description The database name.
      *
      * @example testDB01
      *
@@ -102,7 +102,7 @@ class database extends Model
     public $DBName;
 
     /**
-     * @description The status of the database. Valid values:
+     * @description The database status. Valid values:
      *
      *   **Creating**
      *   **Running**
@@ -124,7 +124,7 @@ class database extends Model
     public $engine;
 
     /**
-     * @description A reserved parameter.
+     * @description The page number.
      *
      * @example 1
      *
@@ -133,7 +133,7 @@ class database extends Model
     public $pageNumber;
 
     /**
-     * @description A reserved parameter.
+     * @description The number of entries per page.
      *
      * @example 30
      *
@@ -142,7 +142,7 @@ class database extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy****
      *
@@ -151,17 +151,17 @@ class database extends Model
     public $resourceGroupId;
 
     /**
-     * @description The running of the database.
+     * @description The runtime information about the database.
      *
-     * > This parameter is returned only for instances that run SQL Server.
+     * >  This parameter is returned only for instances that run SQL Server.
      * @var runtimeInfo
      */
     public $runtimeInfo;
 
     /**
-     * @description The tablespace of the database.
+     * @description The database tablespace.
      *
-     * > This parameter is returned only for instances that run PostgreSQL.
+     * >  This parameter is returned only for instances that run PostgreSQL.
      * @example pg_default
      *
      * @var string
@@ -171,6 +171,7 @@ class database extends Model
     /**
      * @description The total number of entries returned.
      *
+     * >  This parameter is returned only for instances that run SQL Server.
      * @example 100
      *
      * @var int

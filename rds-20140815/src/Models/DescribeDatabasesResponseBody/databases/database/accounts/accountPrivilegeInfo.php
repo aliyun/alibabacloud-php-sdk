@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class accountPrivilegeInfo extends Model
 {
     /**
-     * @description The username of the account.
+     * @description The account username.
      *
      * @example test
      *
@@ -32,7 +32,7 @@ class accountPrivilegeInfo extends Model
     public $accountPrivilege;
 
     /**
-     * @description The details of the permissions that the account has on the database.
+     * @description The permission that the account has on the database.
      *
      * @example SELECT
      *

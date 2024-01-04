@@ -174,6 +174,11 @@ class CloneDBInstanceShrinkRequest extends Model
     public $instanceNetworkType;
 
     /**
+     * @var string
+     */
+    public $ioAccelerationEnabled;
+
+    /**
      * @description The billing method of the instance. Valid values:
      *
      *   **Postpaid**: pay-as-you-go.
@@ -334,6 +339,7 @@ class CloneDBInstanceShrinkRequest extends Model
         'dedicatedHostGroupId'   => 'DedicatedHostGroupId',
         'deletionProtection'     => 'DeletionProtection',
         'instanceNetworkType'    => 'InstanceNetworkType',
+        'ioAccelerationEnabled'  => 'IoAccelerationEnabled',
         'payType'                => 'PayType',
         'period'                 => 'Period',
         'privateIpAddress'       => 'PrivateIpAddress',
@@ -399,6 +405,9 @@ class CloneDBInstanceShrinkRequest extends Model
         }
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
+        }
+        if (null !== $this->ioAccelerationEnabled) {
+            $res['IoAccelerationEnabled'] = $this->ioAccelerationEnabled;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -498,6 +507,9 @@ class CloneDBInstanceShrinkRequest extends Model
         }
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
+        }
+        if (isset($map['IoAccelerationEnabled'])) {
+            $model->ioAccelerationEnabled = $map['IoAccelerationEnabled'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];

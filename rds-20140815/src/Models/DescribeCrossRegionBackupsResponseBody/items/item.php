@@ -78,9 +78,9 @@ class item extends Model
     /**
      * @description The RDS edition of the instance. Valid values:
      *
-     *   **Basic**: RDS Basic Edition
-     *   **HighAvailability**: RDS High-availability Edition
-     *   **Finance**: Enterprise Edition. This edition is supported only by the China site (aliyun.com).
+     *   **Basic**: RDS Basic Edition.
+     *   **HighAvailability**: RDS High-availability Edition.
+     *   **Finance**: RDS Enterprise Edition. This edition is available only for the China site (aliyun.com).
      *
      * @example HighAvailability
      *
@@ -154,9 +154,9 @@ class item extends Model
     /**
      * @description The storage type. Valid values:
      *
-     *   **local_ssd**: local SSD. This is the recommended storage type.
+     *   **local_ssd**: local SSDs. This is the recommended storage type.
      *   **cloud_ssd**: standard SSD.
-     *   **cloud_essd**: enhanced SSD (ESSD)
+     *   **cloud_essd**: enhanced SSD (ESSD).
      *
      * @example ssd
      *
@@ -174,7 +174,7 @@ class item extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The database engine version.
      *
      * @example 5.6
      *
@@ -183,7 +183,7 @@ class item extends Model
     public $engineVersion;
 
     /**
-     * @description The ID of the instance. This parameter is used to determine whether the instance that generates the cross-region data backup file is a primary or secondary instance.
+     * @description The instance ID. This parameter is used to determine whether the instance that generates the cross-region data backup file is a primary or secondary instance.
      *
      * @example 8161055
      *
@@ -192,7 +192,7 @@ class item extends Model
     public $instanceId;
 
     /**
-     * @description An array that consists of the regions to which the cross-region data backup file can be restored.
+     * @description The regions to which the cross-region data backup file can be restored.
      *
      * @var restoreRegions
      */

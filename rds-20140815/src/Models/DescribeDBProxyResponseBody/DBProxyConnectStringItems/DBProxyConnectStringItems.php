@@ -79,7 +79,7 @@ class DBProxyConnectStringItems extends Model
     public $DBProxyVpcId;
 
     /**
-     * @description The ID of the proxy instance.
+     * @description The proxy instance ID.
      *
      * @example rm-bp145737x5****131161274792****
      *

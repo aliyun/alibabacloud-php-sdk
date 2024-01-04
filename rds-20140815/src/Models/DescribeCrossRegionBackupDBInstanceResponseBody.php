@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossRegionBackupDBInstanceResponseBody extends Model
 {
     /**
-     * @description An array that consists of instances and their cross-region backup settings.
+     * @description The cross-region backup settings.
      *
      * @var items
      */
@@ -26,7 +26,7 @@ class DescribeCrossRegionBackupDBInstanceResponseBody extends Model
     public $itemsNumbers;
 
     /**
-     * @description The page number of the returned page. Valid values: any non-zero positive integer.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: **1**.
      * @example 1
@@ -36,7 +36,7 @@ class DescribeCrossRegionBackupDBInstanceResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 30.
+     * @description The number of entries per page. Default value: 30.
      *
      * @example 30
      *
@@ -45,7 +45,7 @@ class DescribeCrossRegionBackupDBInstanceResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -54,7 +54,7 @@ class DescribeCrossRegionBackupDBInstanceResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 33517002-182D-40BE-93EC-610BD3381045
      *
@@ -63,7 +63,7 @@ class DescribeCrossRegionBackupDBInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries returned.
      *
      * @example 100
      *

@@ -48,6 +48,11 @@ class DBInstance extends Model
     public $category;
 
     /**
+     * @var bool
+     */
+    public $coldDataEnabled;
+
+    /**
      * @description The connection mode of the instance. Valid values:
      *
      *   **Standard**: standard mode
@@ -327,6 +332,11 @@ class DBInstance extends Model
     public $instanceNetworkType;
 
     /**
+     * @var string
+     */
+    public $ioAccelerationEnabled;
+
+    /**
      * @description The lock mode of the instance. Valid values:
      *
      *   **Unlock**: The instance is not locked.
@@ -500,6 +510,7 @@ class DBInstance extends Model
         'bpeEnabled'                   => 'BpeEnabled',
         'burstingEnabled'              => 'BurstingEnabled',
         'category'                     => 'Category',
+        'coldDataEnabled'              => 'ColdDataEnabled',
         'connectionMode'               => 'ConnectionMode',
         'connectionString'             => 'ConnectionString',
         'createTime'                   => 'CreateTime',
@@ -529,6 +540,7 @@ class DBInstance extends Model
         'generalGroupName'             => 'GeneralGroupName',
         'guardDBInstanceId'            => 'GuardDBInstanceId',
         'instanceNetworkType'          => 'InstanceNetworkType',
+        'ioAccelerationEnabled'        => 'IoAccelerationEnabled',
         'lockMode'                     => 'LockMode',
         'lockReason'                   => 'LockReason',
         'masterInstanceId'             => 'MasterInstanceId',
@@ -563,6 +575,9 @@ class DBInstance extends Model
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+        if (null !== $this->coldDataEnabled) {
+            $res['ColdDataEnabled'] = $this->coldDataEnabled;
         }
         if (null !== $this->connectionMode) {
             $res['ConnectionMode'] = $this->connectionMode;
@@ -651,6 +666,9 @@ class DBInstance extends Model
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
         }
+        if (null !== $this->ioAccelerationEnabled) {
+            $res['IoAccelerationEnabled'] = $this->ioAccelerationEnabled;
+        }
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
         }
@@ -722,6 +740,9 @@ class DBInstance extends Model
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+        if (isset($map['ColdDataEnabled'])) {
+            $model->coldDataEnabled = $map['ColdDataEnabled'];
         }
         if (isset($map['ConnectionMode'])) {
             $model->connectionMode = $map['ConnectionMode'];
@@ -809,6 +830,9 @@ class DBInstance extends Model
         }
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
+        }
+        if (isset($map['IoAccelerationEnabled'])) {
+            $model->ioAccelerationEnabled = $map['IoAccelerationEnabled'];
         }
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];

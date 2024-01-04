@@ -20,7 +20,7 @@ class CreateDBNodesRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
+     * @description The instance ID You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-2ze450g4ctg6t****
      *
@@ -29,7 +29,7 @@ class CreateDBNodesRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description An array that consists of the details of the node.
+     * @description The details of the node.
      *
      * @var DBNode[]
      */
@@ -46,7 +46,7 @@ class CreateDBNodesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
      *
      * @example rg-acfmy*****
      *

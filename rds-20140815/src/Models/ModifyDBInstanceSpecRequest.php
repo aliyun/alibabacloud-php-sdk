@@ -54,10 +54,15 @@ class ModifyDBInstanceSpecRequest extends Model
     public $category;
 
     /**
-     * @description The new instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can also call the [DescribeAvailableClasses](~~610393~~) operation to query the instance types that are supported by an instance.
+     * @var bool
+     */
+    public $coldDataEnabled;
+
+    /**
+     * @description The new instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can also call the DescribeAvailableClasses operation to query the instance types that are supported by an instance.
      *
-     * - You must specify at least one of DBInstanceClass and **DBInstanceStorage**.
-     * - You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the current instance type of the instance.
+     * > *   You must specify at least one of DBInstanceClass and **DBInstanceStorage**.
+     * > *   You can call the DescribeDBInstanceAttribute operation to query the current instance type of the instance.
      * @example rds.mys2.small
      *
      * @var string
@@ -65,7 +70,7 @@ class ModifyDBInstanceSpecRequest extends Model
     public $DBInstanceClass;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5*******
      *
@@ -74,11 +79,10 @@ class ModifyDBInstanceSpecRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The new storage capacity of the instance. Unit: GB. You can increase the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can call the [DescribeAvailableClasses](~~610393~~) operation to query the storage capacity range that is supported by the new instance type.
+     * @description The new storage capacity of the instance. Unit: GB. You can increase the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can also call the DescribeAvailableClasses operation to query the storage capacity range that is that is supported by the new instance type.
      *
-     *   You must specify at least one of the DBInstanceStorage and **DBInstanceClass** parameters.
-     *   You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the current storage capacity of the instance.
-     *
+     * > *   You must specify at least one of the DBInstanceStorage and **DBInstanceClass**.
+     * > *   You can call the DescribeDBInstanceAttribute to query the current storage capacity of the instance.
      * @example 20
      *
      * @var int
@@ -129,7 +133,7 @@ class ModifyDBInstanceSpecRequest extends Model
      * @description The time when you want the change to take effect. Valid values:
      *
      *   **Immediate**: This is the default value.
-     *   **MaintainTime**: The effective time is within the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](~~610402~~).
+     *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
      *
      * @example MaintainTime
      *
@@ -159,6 +163,11 @@ class ModifyDBInstanceSpecRequest extends Model
      * @var string
      */
     public $engineVersion;
+
+    /**
+     * @var string
+     */
+    public $ioAccelerationEnabled;
 
     /**
      * @var string
@@ -264,6 +273,7 @@ class ModifyDBInstanceSpecRequest extends Model
         'autoUseCoupon'           => 'AutoUseCoupon',
         'burstingEnabled'         => 'BurstingEnabled',
         'category'                => 'Category',
+        'coldDataEnabled'         => 'ColdDataEnabled',
         'DBInstanceClass'         => 'DBInstanceClass',
         'DBInstanceId'            => 'DBInstanceId',
         'DBInstanceStorage'       => 'DBInstanceStorage',
@@ -272,6 +282,7 @@ class ModifyDBInstanceSpecRequest extends Model
         'direction'               => 'Direction',
         'effectiveTime'           => 'EffectiveTime',
         'engineVersion'           => 'EngineVersion',
+        'ioAccelerationEnabled'   => 'IoAccelerationEnabled',
         'ownerAccount'            => 'OwnerAccount',
         'ownerId'                 => 'OwnerId',
         'payType'                 => 'PayType',
@@ -302,6 +313,9 @@ class ModifyDBInstanceSpecRequest extends Model
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+        if (null !== $this->coldDataEnabled) {
+            $res['ColdDataEnabled'] = $this->coldDataEnabled;
+        }
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
         }
@@ -325,6 +339,9 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+        if (null !== $this->ioAccelerationEnabled) {
+            $res['IoAccelerationEnabled'] = $this->ioAccelerationEnabled;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -383,6 +400,9 @@ class ModifyDBInstanceSpecRequest extends Model
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+        if (isset($map['ColdDataEnabled'])) {
+            $model->coldDataEnabled = $map['ColdDataEnabled'];
+        }
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
         }
@@ -406,6 +426,9 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+        if (isset($map['IoAccelerationEnabled'])) {
+            $model->ioAccelerationEnabled = $map['IoAccelerationEnabled'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

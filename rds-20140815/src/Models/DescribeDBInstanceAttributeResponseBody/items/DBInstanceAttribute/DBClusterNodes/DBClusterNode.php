@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DBClusterNode extends Model
 {
     /**
-     * @description The specification of the node.
+     * @description The node specification.
      *
      * @example mysql.n2.medium.xc
      *
@@ -18,9 +18,11 @@ class DBClusterNode extends Model
     public $classCode;
 
     /**
-     * @description Node specification type. Value range:
+     * @description The node type. Valid values:
      *
-     * - x: General specifications
+     *   d: dedicated node type
+     *   x: general-purpose node type
+     *
      * @example x
      *
      * @var string
@@ -28,7 +30,7 @@ class DBClusterNode extends Model
     public $classType;
 
     /**
-     * @description The number of vCPUs that you want to allocate to the elastic container instance. Unit: cores.
+     * @description The number of CPU cores of the node.
      *
      * @example 4
      *
@@ -37,7 +39,7 @@ class DBClusterNode extends Model
     public $cpu;
 
     /**
-     * @description The memory size that you applied for each instance. Unit: MB.
+     * @description The memory capacity of the node. Unit: MB.
      *
      * @example 4096
      *
@@ -66,8 +68,8 @@ class DBClusterNode extends Model
     /**
      * @description The role of the node. Valid values:
      *
-     *   **primary**: primary node
-     *   **secondary**: secondary node
+     *   **primary**
+     *   **secondary**
      *
      * @example primary
      *
@@ -85,8 +87,14 @@ class DBClusterNode extends Model
     public $nodeZoneId;
 
     /**
-     * @description The status of the migration task. Valid values:
-     * - restarting
+     * @description The node status. Valid values:
+     *
+     *   active
+     *   creating
+     *   deleting
+     *   classchanging
+     *   restarting
+     *
      * @example active
      *
      * @var string

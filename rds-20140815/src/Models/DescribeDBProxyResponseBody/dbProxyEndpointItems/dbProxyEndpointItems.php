@@ -18,7 +18,7 @@ class dbProxyEndpointItems extends Model
     public $dbProxyEndpointAliases;
 
     /**
-     * @description The ID of the proxy terminal.
+     * @description The proxy terminal ID.
      *
      * @example gos787jog2wk0ye1****
      *
@@ -27,7 +27,7 @@ class dbProxyEndpointItems extends Model
     public $dbProxyEndpointName;
 
     /**
-     * @description The type of the proxy terminal.
+     * @description The proxy terminal type. Valid values:
      *
      *   Custom: custom proxy terminal
      *   RWSplit: default proxy terminal
@@ -39,7 +39,7 @@ class dbProxyEndpointItems extends Model
     public $dbProxyEndpointType;
 
     /**
-     * @description The read and write attributes of the proxy terminal.
+     * @description The read and write attributes of the proxy terminal. Valid values:
      *
      *   ReadOnly: The proxy terminal supports only read requests.
      *   ReadWrite: The proxy terminal supports read and write requests.

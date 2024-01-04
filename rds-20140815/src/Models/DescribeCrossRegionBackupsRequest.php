@@ -93,7 +93,7 @@ class DescribeCrossRegionBackupsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *

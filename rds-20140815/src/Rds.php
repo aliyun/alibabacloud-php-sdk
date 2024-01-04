@@ -1768,6 +1768,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->instanceNetworkType)) {
             $query['InstanceNetworkType'] = $request->instanceNetworkType;
         }
+        if (!Utils::isUnset($request->ioAccelerationEnabled)) {
+            $query['IoAccelerationEnabled'] = $request->ioAccelerationEnabled;
+        }
         if (!Utils::isUnset($request->payType)) {
             $query['PayType'] = $request->payType;
         }
@@ -2532,6 +2535,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->coldDataEnabled)) {
+            $query['ColdDataEnabled'] = $request->coldDataEnabled;
+        }
         if (!Utils::isUnset($request->connectionMode)) {
             $query['ConnectionMode'] = $request->connectionMode;
         }
@@ -2585,6 +2591,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceNetworkType)) {
             $query['InstanceNetworkType'] = $request->instanceNetworkType;
+        }
+        if (!Utils::isUnset($request->ioAccelerationEnabled)) {
+            $query['IoAccelerationEnabled'] = $request->ioAccelerationEnabled;
         }
         if (!Utils::isUnset($request->payType)) {
             $query['PayType'] = $request->payType;
@@ -4258,6 +4267,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->instructionSetArch)) {
             $query['InstructionSetArch'] = $request->instructionSetArch;
+        }
+        if (!Utils::isUnset($request->ioAccelerationEnabled)) {
+            $query['IoAccelerationEnabled'] = $request->ioAccelerationEnabled;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -7524,10 +7536,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the instance runs one of the following database engines:
-     *   * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
-     *   * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
-     *   * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * ### [](#)References
+     *   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
+     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
+     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~).
      *   *
      * @param DescribeCrossRegionBackupDBInstanceRequest $request DescribeCrossRegionBackupDBInstanceRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
@@ -7578,10 +7595,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the instance runs one of the following database engines:
-     *   * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
-     *   * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
-     *   * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
+     * ### [](#)Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * ### [](#)References
+     *   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
+     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
+     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~).
      *   *
      * @param DescribeCrossRegionBackupDBInstanceRequest $request DescribeCrossRegionBackupDBInstanceRequest
      *
@@ -7600,6 +7622,7 @@ class Rds extends OpenApiClient
      *   * *   PostgreSQL
      *   * *   SQL Server
      *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
      *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
      *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
      *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
@@ -7677,6 +7700,7 @@ class Rds extends OpenApiClient
      *   * *   PostgreSQL
      *   * *   SQL Server
      *   * ### [](#)References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
      *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
      *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
      *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
@@ -15184,15 +15208,14 @@ class Rds extends OpenApiClient
      *   * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
      *   * ### [](#)Precautions
      *   * *   During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
-     *   * *   Before you call this operation, make sure that the following requirements are met:
+     *   * *   Before you call this operation, **make sure that the following conditions are met**:
      *   *     *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
-     *   *     *   The source and destination instances must be created by using the same user credentials.
+     *   *     *   The source and destination instances must be created by using the same user.
      *   *     *   The instance is in the Running state.
      *   *     *   The source and destination databases must be in the Running state.
      *   *     *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
-     *   * >
-     *   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-     *   * *   You can migrate the data of multiple databases at a time.
+     *   * > *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+     *   * > *   You can migrate the data of multiple databases at a time.
      *   *
      * @param ImportDatabaseBetweenInstancesRequest $request ImportDatabaseBetweenInstancesRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -15249,15 +15272,14 @@ class Rds extends OpenApiClient
      *   * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
      *   * ### [](#)Precautions
      *   * *   During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
-     *   * *   Before you call this operation, make sure that the following requirements are met:
+     *   * *   Before you call this operation, **make sure that the following conditions are met**:
      *   *     *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
-     *   *     *   The source and destination instances must be created by using the same user credentials.
+     *   *     *   The source and destination instances must be created by using the same user.
      *   *     *   The instance is in the Running state.
      *   *     *   The source and destination databases must be in the Running state.
      *   *     *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
-     *   * >
-     *   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-     *   * *   You can migrate the data of multiple databases at a time.
+     *   * > *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+     *   * > *   You can migrate the data of multiple databases at a time.
      *   *
      * @param ImportDatabaseBetweenInstancesRequest $request ImportDatabaseBetweenInstancesRequest
      *
@@ -15926,6 +15948,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->effectiveTime)) {
             $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->ioAccelerationEnabled)) {
+            $query['IoAccelerationEnabled'] = $request->ioAccelerationEnabled;
         }
         if (!Utils::isUnset($request->isModifySpec)) {
             $query['IsModifySpec'] = $request->isModifySpec;
@@ -18088,6 +18113,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->category)) {
             $query['Category'] = $request->category;
         }
+        if (!Utils::isUnset($request->coldDataEnabled)) {
+            $query['ColdDataEnabled'] = $request->coldDataEnabled;
+        }
         if (!Utils::isUnset($request->DBInstanceClass)) {
             $query['DBInstanceClass'] = $request->DBInstanceClass;
         }
@@ -18111,6 +18139,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->engineVersion)) {
             $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->ioAccelerationEnabled)) {
+            $query['IoAccelerationEnabled'] = $request->ioAccelerationEnabled;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;

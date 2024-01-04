@@ -67,6 +67,11 @@ class MigrateToOtherZoneRequest extends Model
     public $effectiveTime;
 
     /**
+     * @var string
+     */
+    public $ioAccelerationEnabled;
+
+    /**
      * @description Specifies whether to change the specifications of the instance during the cross-zone migration. Valid values:
      *
      *   **true**: You want to change the specifications of the instance during the cross-zone migration. If you set this parameter to **true**, you must specify at least one of **DBInstanceClass** and **DBInstanceStorage**.
@@ -162,22 +167,23 @@ class MigrateToOtherZoneRequest extends Model
      */
     public $zoneIdSlave2;
     protected $_name = [
-        'category'             => 'Category',
-        'DBInstanceClass'      => 'DBInstanceClass',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBInstanceStorage'    => 'DBInstanceStorage',
-        'effectiveTime'        => 'EffectiveTime',
-        'isModifySpec'         => 'IsModifySpec',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'switchTime'           => 'SwitchTime',
-        'VPCId'                => 'VPCId',
-        'vSwitchId'            => 'VSwitchId',
-        'zoneId'               => 'ZoneId',
-        'zoneIdSlave1'         => 'ZoneIdSlave1',
-        'zoneIdSlave2'         => 'ZoneIdSlave2',
+        'category'              => 'Category',
+        'DBInstanceClass'       => 'DBInstanceClass',
+        'DBInstanceId'          => 'DBInstanceId',
+        'DBInstanceStorage'     => 'DBInstanceStorage',
+        'effectiveTime'         => 'EffectiveTime',
+        'ioAccelerationEnabled' => 'IoAccelerationEnabled',
+        'isModifySpec'          => 'IsModifySpec',
+        'ownerAccount'          => 'OwnerAccount',
+        'ownerId'               => 'OwnerId',
+        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
+        'resourceOwnerId'       => 'ResourceOwnerId',
+        'switchTime'            => 'SwitchTime',
+        'VPCId'                 => 'VPCId',
+        'vSwitchId'             => 'VSwitchId',
+        'zoneId'                => 'ZoneId',
+        'zoneIdSlave1'          => 'ZoneIdSlave1',
+        'zoneIdSlave2'          => 'ZoneIdSlave2',
     ];
 
     public function validate()
@@ -201,6 +207,9 @@ class MigrateToOtherZoneRequest extends Model
         }
         if (null !== $this->effectiveTime) {
             $res['EffectiveTime'] = $this->effectiveTime;
+        }
+        if (null !== $this->ioAccelerationEnabled) {
+            $res['IoAccelerationEnabled'] = $this->ioAccelerationEnabled;
         }
         if (null !== $this->isModifySpec) {
             $res['IsModifySpec'] = $this->isModifySpec;
@@ -261,6 +270,9 @@ class MigrateToOtherZoneRequest extends Model
         }
         if (isset($map['EffectiveTime'])) {
             $model->effectiveTime = $map['EffectiveTime'];
+        }
+        if (isset($map['IoAccelerationEnabled'])) {
+            $model->ioAccelerationEnabled = $map['IoAccelerationEnabled'];
         }
         if (isset($map['IsModifySpec'])) {
             $model->isModifySpec = $map['IsModifySpec'];

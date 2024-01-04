@@ -15,7 +15,7 @@ class CreateDBInstanceShrinkRequest extends Model
      * Valid values: **1** to **20**. Default value: **1**.
      *
      * > *   If you want to create multiple ApsaraDB RDS for MySQL instances at a time by using a single request, you can add tags to all the instances by using the **Tag.Key** parameter and the **Tag.Value** parameter. After the instances are created, you can manage the instances based on the tags.
-     * > *   After you submit a request to create multiple ApsaraDB RDS for MySQL instances, this operation returns **TaskId**, **RequestId**, and **Message**. You can call the DescribeDBInstanceAttribute operation to query the details of an instance.
+     * > *   After you submit a request to create multiple ApsaraDB RDS for MySQL instances, this operation returns **TaskId**, **RequestId**, and **Message**. You can call the DescribeDBInstanceAttribute operation to query the information about an instance.
      * > *   If the value of the **Engine** parameter is not **MySQL** and the value of the Amount parameter is greater than **1**, this operation fails and returns an error code `InvalidParam.Engine`.
      * @example 2
      *
@@ -111,10 +111,7 @@ class CreateDBInstanceShrinkRequest extends Model
      *   **serverless_standard**: RDS High-availability Edition. This edition is available only for instances that run MySQL and PostgreSQL.
      *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server.
      *
-     **
-     *
-     **Note** This parameter is required when you create a serverless instance.
-     *
+     * > This parameter is required when you create a serverless instance.
      * @example HighAvailability
      *
      * @var string
@@ -131,12 +128,17 @@ class CreateDBInstanceShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $coldDataEnabled;
+
+    /**
      * @description The connection mode of the instance. Valid values:
      *
      *   **Standard**: standard mode
      *   **Safe**: database proxy mode
      *
-     * > : SQL Server 2012, SQL Server 2016, and SQL Server 2017 support only the standard mode.
+     * > SQL Server 2012, SQL Server 2016, and SQL Server 2017 support only the standard mode.
      * @example Standard
      *
      * @var string
@@ -184,7 +186,7 @@ class CreateDBInstanceShrinkRequest extends Model
     /**
      * @description The instance name. The name must be 2 to 255 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      *
-     * > : The name cannot start with http:// or https://.
+     * > The name cannot start with http:// or https://.
      * @example Test database
      *
      * @var string
@@ -243,9 +245,9 @@ class CreateDBInstanceShrinkRequest extends Model
     public $DBIsIgnoreCase;
 
     /**
-     * @description The ID of the parameter template. You can call the DescribeParameterGroups operation to query the ID of the parameter template.
+     * @description The parameter template ID. You can call the DescribeParameterGroups operation to query the parameter template ID.
      *
-     * > : This parameter is available if you want to create an instance that runs MySQL or PostgreSQL . If you do not configure this parameter, the default parameter template is used. If you want to use a custom parameter template, you can customize a parameter template and set this parameter to the ID of the custom template.
+     * >  This parameter is available if you want to create an instance that runs MySQL or PostgreSQL. If you do not configure this parameter, the default parameter template is used. If you want to use a custom parameter template, you can customize a parameter template and set this parameter to the ID of the custom template.
      * @example rpg-sys-*****
      *
      * @var string
@@ -257,7 +259,7 @@ class CreateDBInstanceShrinkRequest extends Model
      *
      *   If you set **Engine** to **MySQL**:
      *
-     *   The time zone of the instance is in UTC. Valid values: \*\*-12:59\*\* to **+13:00**.
+     *   The time zone of the instance is in UTC. Valid values: **-12:59** to **+13:00**.
      *   If the instance uses local SSDs, you can specify the name of the time zone. Example: Asia/Hong_Kong. For more information, see [Time zones](~~297356~~).
      *
      *   If you set **Engine** to **PostgreSQL**:
@@ -278,7 +280,7 @@ class CreateDBInstanceShrinkRequest extends Model
      *
      * If you create the instance in a dedicated cluster, you must specify this parameter.
      *
-     *   You can call the DescribeDedicatedHostGroups operation to query the details of a dedicated cluster.
+     *   You can call the DescribeDedicatedHostGroups operation to query the information about the dedicated cluster.
      *   If no dedicated clusters are created, you can call the CreateDedicatedHostGroup operation to create a dedicated cluster.
      *
      * @example dhg-4n*****
@@ -340,12 +342,12 @@ class CreateDBInstanceShrinkRequest extends Model
     /**
      * @description The database engine version of the instance.
      *
-     *   Regular RDS instance
+     *   Regular instance
      *
      *   Valid values when you set Engine to MySQL: **5.5**, **5.6**, **5.7**, and **8.0**
-     *   Valid values when you set Engine to SQLServer: **08r2\_ent_ha**(cloud disks, discontinued), **2008r2**(local disks, discontinued), **2012**(SQL Server EE Basic), **2012\_ent_ha**, **2012\_std_ha**, **2012\_web**, **2014\_ent_ha**, **2014\_std_ha**, **2016\_ent_ha**, **2016\_std_ha**, **2016\_web**, **2017\_ent**, **2017\_std_ha**, **2017\_web**, **2019\_ent**, **2019\_std_ha**, **2019\_web**, **2022\_ent**, **2022\_std_ha**, and **2022\_web**
+     *   Valid values when you set Engine to SQLServer: **08r2\_ent_ha** (cloud disks, discontinued), **2008r2** (local disks, discontinued), **2012** (SQL Server EE Basic), **2012\_ent_ha**, **2012\_std_ha**, **2012\_web**, **2014\_ent_ha**, **2014\_std_ha**, **2016\_ent_ha**, **2016\_std_ha**, **2016\_web**, **2017\_ent**, **2017\_std_ha**, **2017\_web**, **2019\_ent**, **2019\_std_ha**, **2019\_web**, **2022\_ent**, **2022\_std_ha**, and **2022\_web**
      *   Valid values when you set Engine to PostgreSQL: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, and **15.0**
-     *   Valid value when you set Engine to MariaDB: **10.3**
+     *   Valid values when you set the Engine parameter to MariaDB: **10.3**
      *
      *   Serverless instance
      *
@@ -353,19 +355,9 @@ class CreateDBInstanceShrinkRequest extends Model
      *   Valid values when you set Engine to SQLServer: **2016\_std_sl**, **2017\_std_sl**, and **2019\_std_sl**
      *   Valid value when you set Engine to PostgreSQL: **14.0**
      *
-     * <!---->
-     *
-     *   ApsaraDB RDS for MariaDB does not support serverless instances.
-     *   For ApsaraDB RDS for SQL Server instances, `_ent` indicates SQL Server EE on RDS Cluster Edition, `_ent_ha` indicates SQL Server EE, `_std_ha` indicates SQL Server SE, and `_web` indicates SQL Server Web.
-     *
-     * >
-     *
-     *   ApsaraDB RDS for MariaDB does not support serverless instances.
-     *
-     *   Valid value if you set Engine to SQL Server: `_ent` specifies SQL Server EE on RDS Cluster Edition, `_ent_ha` specifies SQL Server EE, `_std_ha` specifies SQL Server SE, and `_web` specifies SQL Server Web.
-     *
-     *   RDS instances that run SQL Server 2014 are not available for purchase on the international site.
-     *
+     * > *   ApsaraDB RDS for MariaDB does not support serverless instances.
+     * > *   Valid value if you set Engine to SQLServer: `_ent` specifies SQL Server EE on RDS Cluster Edition, `_ent_ha` specifies SQL Server EE, `_std_ha` specifies SQL Server SE, and `_web` specifies SQL Server Web.
+     * > *   RDS instances that run SQL Server 2014 are not available for purchase on the international site (alibabacloud.com).
      * @example 5.6
      *
      * @var string
@@ -378,19 +370,19 @@ class CreateDBInstanceShrinkRequest extends Model
      *   **VPC**: virtual private cloud (VPC).
      *   **Classic**: the classic network
      *
-     * >
-     *
-     *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-     *
-     *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-     *
-     *   RDS instances that run SQL Server Basic and SQL Server Web can reside in the classic network and virtual private clouds (VPCs). If the instance runs other database engines, you must set this parameter to **VPC**.
-     *
+     * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+     * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+     * > *   RDS instances that run SQL Server Basic and SQL Server Web can reside in the classic network and virtual private clouds (VPCs). If the instance runs other database engines, you must set this parameter to **VPC**.
      * @example Classic
      *
      * @var string
      */
     public $instanceNetworkType;
+
+    /**
+     * @var string
+     */
+    public $ioAccelerationEnabled;
 
     /**
      * @description The billing method of the instance. Valid values:
@@ -399,7 +391,7 @@ class CreateDBInstanceShrinkRequest extends Model
      *   **Prepaid**: subscription.
      *   **Serverless**: serverless. This value is not supported for instances that run MariaDB. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](~~411291~~), [Overview of serverless ApsaraDB RDS for SQL Server instances](~~604344~~), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](~~607742~~).
      *
-     * > : The system automatically generates a purchase order and completes the payment.
+     * > The system automatically generates a purchase order and completes the payment.
      * @example Postpaid
      *
      * @var string
@@ -498,7 +490,7 @@ class CreateDBInstanceShrinkRequest extends Model
      *   **Enable**
      *   **Disable** (default)
      *
-     * >  After the instance is created, you can call the ModifyDasInstanceConfig operation to adjust the settings of automatic storage expansion for the instance. For more information, see [Configure automatic storage expansion for an ApsaraDB RDS for MySQL instance](~~173826~~).
+     * >  After the instance is created, you can call the ModifyDasInstanceConfig operation to adjust the settings of automatic storage expansion for the instance. For more information, see [Configure automatic storage expansion](~~173826~~).
      * @example Disable
      *
      * @var string
@@ -542,7 +534,7 @@ class CreateDBInstanceShrinkRequest extends Model
     public $systemDBCharset;
 
     /**
-     * @description The tags.
+     * @description The tags that are added to instances.
      *
      * @var tag[]
      */
@@ -553,7 +545,7 @@ class CreateDBInstanceShrinkRequest extends Model
      *
      * If you want to create an instance that runs RDS Enterprise Edition in a dedicated cluster, you must specify this parameter. If you do not specify this parameter, the system automatically assigns a host.
      *
-     *   You can call the DescribeDedicatedHosts operation to query the details of the hosts in a dedicated cluster.
+     *   You can call the DescribeDedicatedHosts operation to query the host in the dedicated cluster.
      *   If no hosts are created, you can call the CreateDedicatedHost operation to create a host.
      *
      * @example i-bp*****3
@@ -567,7 +559,7 @@ class CreateDBInstanceShrinkRequest extends Model
      *
      * If you create the instance in a dedicated cluster, you must specify this parameter. If you do not specify this parameter, the system automatically assigns a host.
      *
-     *   You can call the DescribeDedicatedHost operation to query the details about the hosts in a dedicated cluster.
+     *   You can call the DescribeDedicatedHosts operation to query the host in the dedicated cluster.
      *   If no hosts are created, you can call the CreateDedicatedHost operation to create a host.
      *
      * @example i-bp*****1
@@ -581,7 +573,7 @@ class CreateDBInstanceShrinkRequest extends Model
      *
      * If you want to create an instance that runs RDS High-availability Edition or RDS Enterprise Edition in a dedicated cluster, you must specify this parameter. If you do not specify this parameter, the system automatically assigns a host.
      *
-     *   You can call the DescribeDedicatedHosts operation to query the details of the hosts in a dedicated cluster.
+     *   You can call the DescribeDedicatedHosts operation to query the host in the dedicated cluster.
      *   If no hosts are created, you can call the CreateDedicatedHost operation to create a host.
      *
      * @example i-bp*****2
@@ -593,25 +585,20 @@ class CreateDBInstanceShrinkRequest extends Model
     /**
      * @description The minor engine version of the instance. This parameter is required only when you create an instance that runs MySQL or PostgreSQL. The value format varies based on the database engine of the instance.
      *
-     *   If you create an instance that runs MySQL, the value is in the following format: `<RDS edition>_<Minor engine version>`. Examples: `rds_20200229`, `xcluster_20200229`, and `xcluster80_20200229`. The following list describes the fields in the example values:
+     *   If you create an instance that runs MySQL, the value is in the following format: `<RDS edition>_<Minor engine version>`. Examples: `rds_20200229`, `xcluster_20200229`, and `xcluster80_20200229`.
      *
      *   rds: The instance runs RDS Basic Edition or RDS High-availability Edition.
      *   xcluster: The instance runs MySQL 5.7 on RDS Enterprise Edition.
      *   xcluster80: The instance runs MySQL 8.0 on RDS Enterprise Edition.
      *
-     **
+     * > You can call the DescribeDBMiniEngineVersions operation to query the minor engine version. For more information about the differences between minor engine versions of AliSQL, see [Release notes](~~96060~~).
      *
-     **Note** You can call the DescribeDBMiniEngineVersions operation to query the minor engine version. For more information about minor engine versions, see [Release notes of minor AliSQL versions](~~96060~~).
-     *
-     *   If you create an instance that runs PostgreSQL, the value is in the following format: `rds_postgres_<Major engine version>00_<Minor engine version>`. Example: `rds_postgres_1400_20220830`. The following list describes the fields in the example values:
+     *   If you create an instance that runs PostgreSQL, the value is in the following format: `rds_postgres_<Major engine version>00_<Minor engine version>`. Example: `rds_postgres_1400_20220830`.
      *
      *   1400: The major engine version is PostgreSQL 14.
      *   20220830: the AliPG version. You can call the DescribeDBMiniEngineVersions operation to query the AliPG version. For more information about minor engine versions, see [Release notes for AliPG](~~126002~~).
      *
-     **
-     *
-     **Note** If you configure the **BabelfishConfig** parameter for your instance that runs PostgreSQL and set the babelfishEnabled field to true, the value of this parameter is in the following format: `rds_postgres_Major engine version00_AliPG version_babelfish`.
-     *
+     * > If you configure the **BabelfishConfig** parameter for your instance that runs PostgreSQL and set the babelfishEnabled field to true, the value of this parameter is in the following format: `rds_postgres_Major engine version00_AliPG version_babelfish`.
      * @example rds_20200229
      *
      * @var string
@@ -632,7 +619,7 @@ class CreateDBInstanceShrinkRequest extends Model
     public $usedTime;
 
     /**
-     * @description The ID of the backup file. You can call the ListUserBackupFiles operation to query backup files. If you want to create an instance by using the data of a backup file, you must specify this parameter.
+     * @description The ID of the full backup file. You can call the ListUserBackupFiles operation to query the ID of the full backup file. If you want to create an instance by using the data of a backup file, you must specify this parameter.
      *
      * This parameter is supported only when the following requirements are met:
      *
@@ -650,7 +637,7 @@ class CreateDBInstanceShrinkRequest extends Model
     /**
      * @description The ID of the VPC to which the instance belongs.
      *
-     * > : This parameter is available when you set the **InstanceNetworkType** parameter to **VPC**.
+     * > This parameter is available when you set the **InstanceNetworkType** parameter to **VPC**.
      * @example vpc-*****
      *
      * @var string
@@ -714,6 +701,7 @@ class CreateDBInstanceShrinkRequest extends Model
         'businessInfo'                   => 'BusinessInfo',
         'category'                       => 'Category',
         'clientToken'                    => 'ClientToken',
+        'coldDataEnabled'                => 'ColdDataEnabled',
         'connectionMode'                 => 'ConnectionMode',
         'connectionString'               => 'ConnectionString',
         'createStrategy'                 => 'CreateStrategy',
@@ -732,6 +720,7 @@ class CreateDBInstanceShrinkRequest extends Model
         'engine'                         => 'Engine',
         'engineVersion'                  => 'EngineVersion',
         'instanceNetworkType'            => 'InstanceNetworkType',
+        'ioAccelerationEnabled'          => 'IoAccelerationEnabled',
         'payType'                        => 'PayType',
         'period'                         => 'Period',
         'port'                           => 'Port',
@@ -794,6 +783,9 @@ class CreateDBInstanceShrinkRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->coldDataEnabled) {
+            $res['ColdDataEnabled'] = $this->coldDataEnabled;
+        }
         if (null !== $this->connectionMode) {
             $res['ConnectionMode'] = $this->connectionMode;
         }
@@ -847,6 +839,9 @@ class CreateDBInstanceShrinkRequest extends Model
         }
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
+        }
+        if (null !== $this->ioAccelerationEnabled) {
+            $res['IoAccelerationEnabled'] = $this->ioAccelerationEnabled;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -971,6 +966,9 @@ class CreateDBInstanceShrinkRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['ColdDataEnabled'])) {
+            $model->coldDataEnabled = $map['ColdDataEnabled'];
+        }
         if (isset($map['ConnectionMode'])) {
             $model->connectionMode = $map['ConnectionMode'];
         }
@@ -1024,6 +1022,9 @@ class CreateDBInstanceShrinkRequest extends Model
         }
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
+        }
+        if (isset($map['IoAccelerationEnabled'])) {
+            $model->ioAccelerationEnabled = $map['IoAccelerationEnabled'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];

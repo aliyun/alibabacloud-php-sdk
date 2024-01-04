@@ -77,7 +77,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance type of the read-only instance. For more information, see [Read-only ApsaraDB RDS instance types](~~145759~~). We recommend that you specify an instance type whose specifications are higher than or equal to the specifications of the instance type of the primary instance. If the specifications of the read-only instance are lower than the specifications of the primary instance, the read-only instance may encounter issues such as high latency and heavy load.
+     * @description The instance type of the read-only instance. For more information, see [Read-only instance types](~~145759~~). We recommend that you specify an instance type whose specifications are higher than or equal to the specifications of the instance type of the primary instance. If the specifications of the read-only instance are lower than the specifications of the primary instance, the read-only instance may encounter issues such as high latency and heavy load.
      *
      * @example rds.mys2.small
      *
@@ -96,7 +96,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the primary instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance IDs.
+     * @description The primary instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
      * @example rm-uf6wjk5****
      *
@@ -105,7 +105,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The storage capacity of the read-only instance. For more information, see the **Storage space** column in [Read-only instance types](~~145759~~). This value must be a multiple of 5 GB. Unit: GB.
+     * @description The storage capacity of the read-only instance. The storage capacity of the read-only instance must be greater than or equal to that of the primary instance. For more information, see the **Storage capacity** column in [Read-only instance types](~~145759~~). This value must be a multiple of 5. Unit: GB.
      *
      * @example 20
      *
@@ -201,6 +201,11 @@ class CreateReadOnlyDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $ioAccelerationEnabled;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -252,7 +257,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The region ID. The read-only instance and the primary instance must reside in the same region. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. The read-only instance and the primary instance must reside in the same region. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -340,7 +345,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The zone ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent zone list.
+     * @description The zone ID. You can call the DescribeRegions operation to query the zone ID.
      *
      * @example cn-hangzhou-b
      *
@@ -365,6 +370,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
         'gdnInstanceName'                => 'GdnInstanceName',
         'instanceNetworkType'            => 'InstanceNetworkType',
         'instructionSetArch'             => 'InstructionSetArch',
+        'ioAccelerationEnabled'          => 'IoAccelerationEnabled',
         'ownerAccount'                   => 'OwnerAccount',
         'ownerId'                        => 'OwnerId',
         'payType'                        => 'PayType',
@@ -441,6 +447,9 @@ class CreateReadOnlyDBInstanceRequest extends Model
         }
         if (null !== $this->instructionSetArch) {
             $res['InstructionSetArch'] = $this->instructionSetArch;
+        }
+        if (null !== $this->ioAccelerationEnabled) {
+            $res['IoAccelerationEnabled'] = $this->ioAccelerationEnabled;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -555,6 +564,9 @@ class CreateReadOnlyDBInstanceRequest extends Model
         }
         if (isset($map['InstructionSetArch'])) {
             $model->instructionSetArch = $map['InstructionSetArch'];
+        }
+        if (isset($map['IoAccelerationEnabled'])) {
+            $model->ioAccelerationEnabled = $map['IoAccelerationEnabled'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

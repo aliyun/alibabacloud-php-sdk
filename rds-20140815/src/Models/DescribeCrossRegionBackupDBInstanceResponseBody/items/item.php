@@ -30,7 +30,7 @@ class item extends Model
     public $backupEnabledTime;
 
     /**
-     * @description The ID of the region in which the cross-region data backup file is stored.
+     * @description The ID of the destination region within which the cross-region backup file is stored.
      *
      * @example cn-shanghai
      *
@@ -48,9 +48,9 @@ class item extends Model
     public $crossBackupType;
 
     /**
-     * @description The name of the instance. It must be 2 to 256 characters in length. The name can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * @description The name of the instance. It must be 2 to 256 characters in length. The value can contain letters, digits, underscores (\_), and hyphens (-), and must start with a letter.
      *
-     * > The value cannot start with http:// or https://.
+     * >  The value cannot start with http:// or https://.
      * @example Test database
      *
      * @var string
@@ -58,7 +58,7 @@ class item extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -67,7 +67,7 @@ class item extends Model
     public $DBInstanceId;
 
     /**
-     * @description The status of the instance. For more information, see [Instance states](~~26315~~).
+     * @description The instance status. For more information, see [Instance statuses](~~26315~~).
      *
      * @example Running
      *
@@ -85,7 +85,7 @@ class item extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The database engine version.
      *
      * @example 5.6
      *
@@ -121,7 +121,7 @@ class item extends Model
     public $logBackupEnabled;
 
     /**
-     * @description The time when cross-region log backup was enabled on the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the cross-region log backup feature was enabled on the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-06-12T05:44:21Z
      *

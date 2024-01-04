@@ -108,6 +108,8 @@ class DescribeDBProxyResponseBody extends Model
     public $DBProxyInstanceType;
 
     /**
+     * @example Disabled
+     *
      * @var string
      */
     public $DBProxyPersistentConnectionStatus;

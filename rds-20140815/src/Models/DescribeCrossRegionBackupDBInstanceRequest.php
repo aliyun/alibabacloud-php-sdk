@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossRegionBackupDBInstanceRequest extends Model
 {
     /**
-     * @description The ID of the instance. Up to 30 instance IDs are allowed in a single request. If you enter more than one instance ID, separate them with commas (,).
+     * @description The instance ID. Up to 30 instance IDs are allowed in a single request. If you enter more than one instance ID, separate them with commas (,).
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
