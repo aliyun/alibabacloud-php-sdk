@@ -282,6 +282,11 @@ class dtsJobList extends Model
     public $jobType;
 
     /**
+     * @var float
+     */
+    public $maxDu;
+
+    /**
      * @description The memory that has been used. Unit: MB.
      *
      * @example 500
@@ -350,6 +355,11 @@ class dtsJobList extends Model
      * @var migrationMode
      */
     public $migrationMode;
+
+    /**
+     * @var float
+     */
+    public $minDu;
 
     /**
      * @description The source of the task. Valid values:
@@ -492,6 +502,7 @@ class dtsJobList extends Model
         'fullDataCheckStatus'           => 'FullDataCheckStatus',
         'incDataCheckStatus'            => 'IncDataCheckStatus',
         'jobType'                       => 'JobType',
+        'maxDu'                         => 'MaxDu',
         'memUsage'                      => 'MemUsage',
         'migrationErrCode'              => 'MigrationErrCode',
         'migrationErrHelpDocId'         => 'MigrationErrHelpDocId',
@@ -500,6 +511,7 @@ class dtsJobList extends Model
         'migrationErrType'              => 'MigrationErrType',
         'migrationErrWorkaround'        => 'MigrationErrWorkaround',
         'migrationMode'                 => 'MigrationMode',
+        'minDu'                         => 'MinDu',
         'originType'                    => 'OriginType',
         'payType'                       => 'PayType',
         'performance'                   => 'Performance',
@@ -618,6 +630,9 @@ class dtsJobList extends Model
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
+        if (null !== $this->maxDu) {
+            $res['MaxDu'] = $this->maxDu;
+        }
         if (null !== $this->memUsage) {
             $res['MemUsage'] = $this->memUsage;
         }
@@ -641,6 +656,9 @@ class dtsJobList extends Model
         }
         if (null !== $this->migrationMode) {
             $res['MigrationMode'] = null !== $this->migrationMode ? $this->migrationMode->toMap() : null;
+        }
+        if (null !== $this->minDu) {
+            $res['MinDu'] = $this->minDu;
         }
         if (null !== $this->originType) {
             $res['OriginType'] = $this->originType;
@@ -795,6 +813,9 @@ class dtsJobList extends Model
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
+        if (isset($map['MaxDu'])) {
+            $model->maxDu = $map['MaxDu'];
+        }
         if (isset($map['MemUsage'])) {
             $model->memUsage = $map['MemUsage'];
         }
@@ -818,6 +839,9 @@ class dtsJobList extends Model
         }
         if (isset($map['MigrationMode'])) {
             $model->migrationMode = migrationMode::fromMap($map['MigrationMode']);
+        }
+        if (isset($map['MinDu'])) {
+            $model->minDu = $map['MinDu'];
         }
         if (isset($map['OriginType'])) {
             $model->originType = $map['OriginType'];

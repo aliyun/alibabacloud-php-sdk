@@ -443,6 +443,12 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->jobType)) {
             $query['JobType'] = $request->jobType;
         }
+        if (!Utils::isUnset($request->maxDu)) {
+            $query['MaxDu'] = $request->maxDu;
+        }
+        if (!Utils::isUnset($request->minDu)) {
+            $query['MinDu'] = $request->minDu;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
@@ -811,6 +817,12 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->errorPhone)) {
             $query['ErrorPhone'] = $request->errorPhone;
+        }
+        if (!Utils::isUnset($request->maxDu)) {
+            $query['MaxDu'] = $request->maxDu;
+        }
+        if (!Utils::isUnset($request->minDu)) {
+            $query['MinDu'] = $request->minDu;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -1571,6 +1583,12 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->jobId)) {
             $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->maxDu)) {
+            $query['MaxDu'] = $request->maxDu;
+        }
+        if (!Utils::isUnset($request->minDu)) {
+            $query['MinDu'] = $request->minDu;
         }
         if (!Utils::isUnset($request->payType)) {
             $query['PayType'] = $request->payType;

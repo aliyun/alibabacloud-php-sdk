@@ -351,11 +351,21 @@ class DescribeDtsJobDetailResponseBody extends Model
     public $lastUpdateTime;
 
     /**
+     * @var float
+     */
+    public $maxDu;
+
+    /**
      * @description The type of the destination instance.
      *
      * @var migrationMode
      */
     public $migrationMode;
+
+    /**
+     * @var float
+     */
+    public $minDu;
 
     /**
      * @description The error message returned if the task failed.
@@ -516,7 +526,9 @@ class DescribeDtsJobDetailResponseBody extends Model
         'httpStatusCode'            => 'HttpStatusCode',
         'jobType'                   => 'JobType',
         'lastUpdateTime'            => 'LastUpdateTime',
+        'maxDu'                     => 'MaxDu',
         'migrationMode'             => 'MigrationMode',
+        'minDu'                     => 'MinDu',
         'payType'                   => 'PayType',
         'requestId'                 => 'RequestId',
         'reserved'                  => 'Reserved',
@@ -656,8 +668,14 @@ class DescribeDtsJobDetailResponseBody extends Model
         if (null !== $this->lastUpdateTime) {
             $res['LastUpdateTime'] = $this->lastUpdateTime;
         }
+        if (null !== $this->maxDu) {
+            $res['MaxDu'] = $this->maxDu;
+        }
         if (null !== $this->migrationMode) {
             $res['MigrationMode'] = null !== $this->migrationMode ? $this->migrationMode->toMap() : null;
+        }
+        if (null !== $this->minDu) {
+            $res['MinDu'] = $this->minDu;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -845,8 +863,14 @@ class DescribeDtsJobDetailResponseBody extends Model
         if (isset($map['LastUpdateTime'])) {
             $model->lastUpdateTime = $map['LastUpdateTime'];
         }
+        if (isset($map['MaxDu'])) {
+            $model->maxDu = $map['MaxDu'];
+        }
         if (isset($map['MigrationMode'])) {
             $model->migrationMode = migrationMode::fromMap($map['MigrationMode']);
+        }
+        if (isset($map['MinDu'])) {
+            $model->minDu = $map['MinDu'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];

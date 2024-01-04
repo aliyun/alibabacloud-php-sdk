@@ -128,6 +128,16 @@ class ConfigureSubscriptionRequest extends Model
     public $errorPhone;
 
     /**
+     * @var float
+     */
+    public $maxDu;
+
+    /**
+     * @var float
+     */
+    public $minDu;
+
+    /**
      * @description The ID of the region in which the Data Transmission Service (DTS) instance resides. For more information, see [List of supported regions](~~141033~~).
      *
      * @example cn-hangzhou
@@ -340,6 +350,8 @@ class ConfigureSubscriptionRequest extends Model
         'dtsJobName'                      => 'DtsJobName',
         'errorNotice'                     => 'ErrorNotice',
         'errorPhone'                      => 'ErrorPhone',
+        'maxDu'                           => 'MaxDu',
+        'minDu'                           => 'MinDu',
         'regionId'                        => 'RegionId',
         'reserve'                         => 'Reserve',
         'sourceEndpointDatabaseName'      => 'SourceEndpointDatabaseName',
@@ -403,6 +415,12 @@ class ConfigureSubscriptionRequest extends Model
         }
         if (null !== $this->errorPhone) {
             $res['ErrorPhone'] = $this->errorPhone;
+        }
+        if (null !== $this->maxDu) {
+            $res['MaxDu'] = $this->maxDu;
+        }
+        if (null !== $this->minDu) {
+            $res['MinDu'] = $this->minDu;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -508,6 +526,12 @@ class ConfigureSubscriptionRequest extends Model
         }
         if (isset($map['ErrorPhone'])) {
             $model->errorPhone = $map['ErrorPhone'];
+        }
+        if (isset($map['MaxDu'])) {
+            $model->maxDu = $map['MaxDu'];
+        }
+        if (isset($map['MinDu'])) {
+            $model->minDu = $map['MinDu'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -195,6 +195,11 @@ class reverseJob extends Model
     public $incDataCheckStatus;
 
     /**
+     * @var float
+     */
+    public $maxDu;
+
+    /**
      * @description The memory that has been used. Unit: MB.
      *
      * @example 500
@@ -209,6 +214,11 @@ class reverseJob extends Model
      * @var migrationMode
      */
     public $migrationMode;
+
+    /**
+     * @var float
+     */
+    public $minDu;
 
     /**
      * @description The billing method of the DTS instance. Valid values:
@@ -288,8 +298,10 @@ class reverseJob extends Model
         'expireTime'                    => 'ExpireTime',
         'fullDataCheckStatus'           => 'FullDataCheckStatus',
         'incDataCheckStatus'            => 'IncDataCheckStatus',
+        'maxDu'                         => 'MaxDu',
         'memUsage'                      => 'MemUsage',
         'migrationMode'                 => 'MigrationMode',
+        'minDu'                         => 'MinDu',
         'payType'                       => 'PayType',
         'performance'                   => 'Performance',
         'precheckStatus'                => 'PrecheckStatus',
@@ -375,11 +387,17 @@ class reverseJob extends Model
         if (null !== $this->incDataCheckStatus) {
             $res['IncDataCheckStatus'] = null !== $this->incDataCheckStatus ? $this->incDataCheckStatus->toMap() : null;
         }
+        if (null !== $this->maxDu) {
+            $res['MaxDu'] = $this->maxDu;
+        }
         if (null !== $this->memUsage) {
             $res['MemUsage'] = $this->memUsage;
         }
         if (null !== $this->migrationMode) {
             $res['MigrationMode'] = null !== $this->migrationMode ? $this->migrationMode->toMap() : null;
+        }
+        if (null !== $this->minDu) {
+            $res['MinDu'] = $this->minDu;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -483,11 +501,17 @@ class reverseJob extends Model
         if (isset($map['IncDataCheckStatus'])) {
             $model->incDataCheckStatus = incDataCheckStatus::fromMap($map['IncDataCheckStatus']);
         }
+        if (isset($map['MaxDu'])) {
+            $model->maxDu = $map['MaxDu'];
+        }
         if (isset($map['MemUsage'])) {
             $model->memUsage = $map['MemUsage'];
         }
         if (isset($map['MigrationMode'])) {
             $model->migrationMode = migrationMode::fromMap($map['MigrationMode']);
+        }
+        if (isset($map['MinDu'])) {
+            $model->minDu = $map['MinDu'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];

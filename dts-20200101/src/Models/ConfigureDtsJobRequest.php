@@ -361,6 +361,16 @@ class ConfigureDtsJobRequest extends Model
     public $jobType;
 
     /**
+     * @var float
+     */
+    public $maxDu;
+
+    /**
+     * @var float
+     */
+    public $minDu;
+
+    /**
      * @var string
      */
     public $ownerId;
@@ -634,6 +644,8 @@ class ConfigureDtsJobRequest extends Model
         'errorPhone'                      => 'ErrorPhone',
         'fileOssUrl'                      => 'FileOssUrl',
         'jobType'                         => 'JobType',
+        'maxDu'                           => 'MaxDu',
+        'minDu'                           => 'MinDu',
         'ownerId'                         => 'OwnerId',
         'regionId'                        => 'RegionId',
         'reserve'                         => 'Reserve',
@@ -758,6 +770,12 @@ class ConfigureDtsJobRequest extends Model
         }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
+        }
+        if (null !== $this->maxDu) {
+            $res['MaxDu'] = $this->maxDu;
+        }
+        if (null !== $this->minDu) {
+            $res['MinDu'] = $this->minDu;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -926,6 +944,12 @@ class ConfigureDtsJobRequest extends Model
         }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
+        }
+        if (isset($map['MaxDu'])) {
+            $model->maxDu = $map['MaxDu'];
+        }
+        if (isset($map['MinDu'])) {
+            $model->minDu = $map['MinDu'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

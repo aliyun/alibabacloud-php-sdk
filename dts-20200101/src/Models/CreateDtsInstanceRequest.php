@@ -141,6 +141,16 @@ class CreateDtsInstanceRequest extends Model
     public $jobId;
 
     /**
+     * @var float
+     */
+    public $maxDu;
+
+    /**
+     * @var float
+     */
+    public $minDu;
+
+    /**
      * @description The billing method. Valid values:
      *
      *   **PrePaid**: subscription
@@ -290,6 +300,8 @@ class CreateDtsInstanceRequest extends Model
         'feeType'                       => 'FeeType',
         'instanceClass'                 => 'InstanceClass',
         'jobId'                         => 'JobId',
+        'maxDu'                         => 'MaxDu',
+        'minDu'                         => 'MinDu',
         'payType'                       => 'PayType',
         'period'                        => 'Period',
         'quantity'                      => 'Quantity',
@@ -338,6 +350,12 @@ class CreateDtsInstanceRequest extends Model
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->maxDu) {
+            $res['MaxDu'] = $this->maxDu;
+        }
+        if (null !== $this->minDu) {
+            $res['MinDu'] = $this->minDu;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -410,6 +428,12 @@ class CreateDtsInstanceRequest extends Model
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['MaxDu'])) {
+            $model->maxDu = $map['MaxDu'];
+        }
+        if (isset($map['MinDu'])) {
+            $model->minDu = $map['MinDu'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
