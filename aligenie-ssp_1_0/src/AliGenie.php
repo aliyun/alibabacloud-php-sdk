@@ -213,6 +213,10 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListUserMessageHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListUserMessageRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListUserMessageResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListUserMessageShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\MobileRecommendHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\MobileRecommendRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\MobileRecommendResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\MobileRecommendShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PlayAndPauseControlHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PlayAndPauseControlRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\PlayAndPauseControlResponse;
@@ -4057,6 +4061,85 @@ class AliGenie extends OpenApiClient
         $headers = new ListUserMessageHeaders([]);
 
         return $this->listUserMessageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param MobileRecommendRequest $tmpReq
+     * @param MobileRecommendHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return MobileRecommendResponse
+     */
+    public function mobileRecommendWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new MobileRecommendShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->deviceInfo)) {
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->userInfo)) {
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->botId)) {
+            $query['BotId'] = $request->botId;
+        }
+        if (!Utils::isUnset($request->count)) {
+            $query['Count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->deviceInfoShrink)) {
+            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        }
+        if (!Utils::isUnset($request->style)) {
+            $query['Style'] = $request->style;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userInfoShrink)) {
+            $query['UserInfo'] = $request->userInfoShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MobileRecommend',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/mobile/recommend/music',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return MobileRecommendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MobileRecommendRequest $request
+     *
+     * @return MobileRecommendResponse
+     */
+    public function mobileRecommend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new MobileRecommendHeaders([]);
+
+        return $this->mobileRecommendWithOptions($request, $headers, $runtime);
     }
 
     /**

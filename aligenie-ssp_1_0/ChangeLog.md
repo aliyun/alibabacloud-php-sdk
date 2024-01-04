@@ -1,3 +1,6 @@
+2024-01-04 Version: 1.1.0
+- Generated php ssp_1.0 for AliGenie.
+
 2023-08-23 Version: 1.0.13
 - Generated php ssp_1.0 for AliGenie.
 
