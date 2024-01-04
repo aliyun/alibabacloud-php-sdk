@@ -20,8 +20,8 @@ class audioStreamList extends Model
     /**
      * @description The output layout of the sound channels. Valid values:
      *
-     *   **mono**: mono sound channel
-     *   **stereo**: two sound channels
+     *   **mono**
+     *   **stereo**
      *
      * @example mono
      *
@@ -39,7 +39,7 @@ class audioStreamList extends Model
     public $channels;
 
     /**
-     * @description The full name of the codec format.
+     * @description The full name of the encoding format.
      *
      * @example AAC (Advanced Audio Coding)
      *
@@ -48,7 +48,7 @@ class audioStreamList extends Model
     public $codecLongName;
 
     /**
-     * @description The short name of the codec format.
+     * @description The short name of the encoding format.
      *
      * @example aac
      *
@@ -57,7 +57,7 @@ class audioStreamList extends Model
     public $codecName;
 
     /**
-     * @description The tag of the codec format.
+     * @description The tag of the encoding format.
      *
      * @example 0x6134706d
      *
@@ -66,7 +66,7 @@ class audioStreamList extends Model
     public $codecTag;
 
     /**
-     * @description The tag string of the codec format.
+     * @description The tag string of the encoding format.
      *
      * @example mp4a
      *
@@ -84,7 +84,7 @@ class audioStreamList extends Model
     public $codecTimeBase;
 
     /**
-     * @description The duration of the audio stream.
+     * @description The duration of the audio file.
      *
      * @example 3.227574
      *
@@ -93,7 +93,7 @@ class audioStreamList extends Model
     public $duration;
 
     /**
-     * @description The sequence number of the audio stream, which specifies the position of the audio stream in all audio streams.
+     * @description The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
      *
      * @example 0
      *
@@ -129,7 +129,7 @@ class audioStreamList extends Model
     public $sampleFmt;
 
     /**
-     * @description The sample rate.
+     * @description The sampling rate of the audio stream.
      *
      * @example 44100
      *
@@ -138,7 +138,7 @@ class audioStreamList extends Model
     public $sampleRate;
 
     /**
-     * @description The beginning of the time range that was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-01-11T12:00:00Z
      *
@@ -147,7 +147,7 @@ class audioStreamList extends Model
     public $startTime;
 
     /**
-     * @description The time base.
+     * @description The time base of the audio stream.
      *
      * @example 0.000000
      *

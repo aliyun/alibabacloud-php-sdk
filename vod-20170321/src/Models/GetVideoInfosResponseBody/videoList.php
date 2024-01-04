@@ -18,7 +18,7 @@ class videoList extends Model
     public $appId;
 
     /**
-     * @description The ID of the video category.
+     * @description The ID of the category.
      *
      * @example 781111****
      *
@@ -27,7 +27,7 @@ class videoList extends Model
     public $cateId;
 
     /**
-     * @description The name of the video category.
+     * @description The name of the category.
      *
      * @example This is a category name.
      *
@@ -36,7 +36,7 @@ class videoList extends Model
     public $cateName;
 
     /**
-     * @description The URL of the video thumbnail.
+     * @description The thumbnail URL of the audio or video file.
      *
      * @example https://example.aliyundoc.com/****.jpg
      *
@@ -45,7 +45,7 @@ class videoList extends Model
     public $coverURL;
 
     /**
-     * @description The time when the video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the audio or video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-06-26T05:38:48Z
      *
@@ -54,7 +54,7 @@ class videoList extends Model
     public $creationTime;
 
     /**
-     * @description The description of the video.
+     * @description The description of the audio or video file.
      *
      * @example This is a category description.
      *
@@ -63,7 +63,7 @@ class videoList extends Model
     public $description;
 
     /**
-     * @description The duration of the video. Unit: seconds.
+     * @description The duration of the audio or video file. Unit: seconds. 86,400 seconds is equivalent to 24 hours.
      *
      * @example 120
      *
@@ -72,7 +72,7 @@ class videoList extends Model
     public $duration;
 
     /**
-     * @description The time when the video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the audio or video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-06-26T06:38:48Z
      *
@@ -81,7 +81,7 @@ class videoList extends Model
     public $modificationTime;
 
     /**
-     * @description The period of time in which the object remains in the restored state.
+     * @description The period of time in which the audio or video file remains in the restored state.
      *
      * @example 2023-03-30T10:14:14Z
      *
@@ -91,9 +91,11 @@ class videoList extends Model
 
     /**
      * @description The restoration status of the audio or video file. Valid values:
-     * - **Processing**
-     * - **Success**
-     * - **Failed**
+     *
+     *   **Processing**
+     *   **Success**
+     *   **Failed**
+     *
      * @example Success
      *
      * @var string
@@ -101,7 +103,7 @@ class videoList extends Model
     public $restoreStatus;
 
     /**
-     * @description The size of the video mezzanine file. Unit: byte.
+     * @description The size of the source file. Unit: bytes.
      *
      * @example 453
      *
@@ -117,15 +119,15 @@ class videoList extends Model
     public $snapshots;
 
     /**
-     * @description The status of the video. By default, videos in all states are returned. Multiple states are separated by commas (,). Valid values:
+     * @description The status of the video. Valid values:
      *
      *   **Uploading**: The video is being uploaded.
-     *   **UploadFail**: The video fails to be uploaded.
+     *   **UploadFail**: The video failed to be uploaded.
      *   **UploadSucc**: The video is uploaded.
      *   **Transcoding**: The video is being transcoded.
-     *   **TranscodeFail**: The video fails to be transcoded.
+     *   **TranscodeFail**: The video failed to be transcoded.
      *   **Blocked**: The video is blocked.
-     *   **Normal**: The video can be played.
+     *   **Normal**: The video is normal.
      *
      * @example Normal
      *
@@ -135,14 +137,17 @@ class videoList extends Model
 
     /**
      * @description The storage class of the audio or video file. Valid values:
-     * - **Standard**: All media resources are stored as Standard objects.
-     * - **IA**: All media resources are stored as IA objects.
-     * - **Archive**: All media resources are stored as Archive objects.
-     * - **ColdArchive**: All media resources are stored as Cold Archive objects.
-     * - **SourceIA**: Only the source files are IA objects.
-     * - **SourceArchive**: Only the source files are Archive objects.
-     * - **SourceColdArchive**: Only the source files are Cold Archive objects.
-     * - **Changing**: The storage class is being modified.
+     *
+     *   **Standard**: All media resources are stored as Standard objects.
+     *   **IA**: All media resources are stored as IA objects.
+     *   **Archive**: All media resources are stored as Archive objects.
+     *   **ColdArchive**: All media resources are stored as Cold Archive objects.
+     *   **SourceIA**: Only the source files are IA objects.
+     *   **SourceArchive**: Only the source files are Archive objects.
+     *   **SourceColdArchive**: Only the source files are Cold Archive objects.
+     *   **Changing**: The storage class of the audio or video file is being changed.
+     *   **SourceChanging**: The storage class of the source file is being changed.
+     *
      * @example Standard
      *
      * @var string
@@ -150,7 +155,7 @@ class videoList extends Model
     public $storageClass;
 
     /**
-     * @description The Object Storage Service (OSS) bucket where the video file is stored.
+     * @description The storage address of the audio or video file.
      *
      * @example out-****.oss-cn-shanghai.aliyuncs.com
      *
@@ -159,7 +164,7 @@ class videoList extends Model
     public $storageLocation;
 
     /**
-     * @description The tags of the video. Multiple tags are separated by commas (,).
+     * @description The tags of the audio or video file. Multiple tags are separated by commas (,).
      *
      * @example tag1, tag2
      *
@@ -168,7 +173,7 @@ class videoList extends Model
     public $tags;
 
     /**
-     * @description The ID of the template group that was used to transcode the video.
+     * @description The ID of the transcoding template group.
      *
      * @example b4039216985f4312a5382a4ed****
      *
@@ -177,7 +182,7 @@ class videoList extends Model
     public $templateGroupId;
 
     /**
-     * @description The title of the video.
+     * @description The title of the audio or video file.
      *
      * @example Video tiltle
      *
@@ -186,7 +191,7 @@ class videoList extends Model
     public $title;
 
     /**
-     * @description The ID of the video.
+     * @description The ID of the audio or video file.
      *
      * @example 7753d144efd74d6c45fe0570****
      *

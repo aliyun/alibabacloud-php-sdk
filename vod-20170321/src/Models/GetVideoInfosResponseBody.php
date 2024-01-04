@@ -26,7 +26,7 @@ class GetVideoInfosResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The period of time in which the object remains in the restored state.
+     * @description The information about the audio or video files.
      *
      * @var videoList[]
      */

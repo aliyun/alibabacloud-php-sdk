@@ -66,6 +66,8 @@ class videoBase extends Model
     public $status;
 
     /**
+     * @example Standard
+     *
      * @var string
      */
     public $storageClass;

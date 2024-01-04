@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class transcodeJob extends Model
 {
     /**
-     * @description The ID of the job.
+     * @description The ID of the transcoding job.
      *
+     * >  This parameter is not returned for HLS packaging tasks. You must asynchronously receive the transcoding result.
      * @example d8921ce8505716cfe86fb112c4****
      *
      * @var string

@@ -18,7 +18,7 @@ class videoStreamList extends Model
     public $avgFPS;
 
     /**
-     * @description The bitrate of the file. Unit: Kbit/s.
+     * @description The bitrate. Unit: Kbit/s.
      *
      * @example 500
      *
@@ -27,7 +27,7 @@ class videoStreamList extends Model
     public $bitrate;
 
     /**
-     * @description The full name of the codec format.
+     * @description The full name of the encoding format.
      *
      * @example H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
      *
@@ -36,7 +36,7 @@ class videoStreamList extends Model
     public $codecLongName;
 
     /**
-     * @description The short name of the codec format.
+     * @description The short name of the encoding format.
      *
      * @example h264
      *
@@ -45,7 +45,7 @@ class videoStreamList extends Model
     public $codecName;
 
     /**
-     * @description The tag of the codec format.
+     * @description The tag of the encoding format.
      *
      * @example 0x31637661
      *
@@ -54,7 +54,7 @@ class videoStreamList extends Model
     public $codecTag;
 
     /**
-     * @description The tag string of the codec format.
+     * @description The tag string of the encoding format.
      *
      * @example avc1
      *
@@ -72,7 +72,7 @@ class videoStreamList extends Model
     public $codecTimeBase;
 
     /**
-     * @description The display aspect ratio.
+     * @description The display aspect ratio (DAR) of the video stream.
      *
      * @example 0:1
      *
@@ -81,7 +81,7 @@ class videoStreamList extends Model
     public $dar;
 
     /**
-     * @description The duration of the video stream.
+     * @description The duration of the audio file.
      *
      * @example 3.166667
      *
@@ -90,7 +90,7 @@ class videoStreamList extends Model
     public $duration;
 
     /**
-     * @description The target frame rate.
+     * @description The frame rate of the output file.
      *
      * @example 30.0
      *
@@ -99,7 +99,7 @@ class videoStreamList extends Model
     public $fps;
 
     /**
-     * @description The HDR type.
+     * @description The HDR type of the video stream.
      *
      * @example HDR
      *
@@ -108,7 +108,7 @@ class videoStreamList extends Model
     public $HDRType;
 
     /**
-     * @description Indicates whether the video stream contains bidirectional frames (B-frames).
+     * @description Indicates whether the video stream contains B-frames.
      *
      * @example 0
      *
@@ -117,7 +117,7 @@ class videoStreamList extends Model
     public $hasBFrames;
 
     /**
-     * @description The height of the video resolution.
+     * @description The height of the video stream.
      *
      * @example 320
      *
@@ -126,7 +126,7 @@ class videoStreamList extends Model
     public $height;
 
     /**
-     * @description The sequence number of the video stream, which indicates the position of the video stream in all video streams.
+     * @description The sequence number of the video stream. The value indicates the position of the video stream in all video streams.
      *
      * @example 1
      *
@@ -180,7 +180,7 @@ class videoStreamList extends Model
     public $profile;
 
     /**
-     * @description The rotation angle of the video. Valid values: **\[0, 360)**.
+     * @description The rotation angle of the video. Valid values: **\[0,360)**.
      *
      * @example 90
      *
@@ -189,7 +189,7 @@ class videoStreamList extends Model
     public $rotate;
 
     /**
-     * @description The sample aspect ratio.
+     * @description The sample aspect ratio (SAR) of the video stream.
      *
      * @example 0:1
      *
@@ -198,7 +198,7 @@ class videoStreamList extends Model
     public $sar;
 
     /**
-     * @description The beginning of the time range that was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-01-11T12:00:00Z
      *
@@ -207,7 +207,7 @@ class videoStreamList extends Model
     public $startTime;
 
     /**
-     * @description The time base.
+     * @description The time base of the audio stream.
      *
      * @example 0.000000
      *
@@ -216,7 +216,7 @@ class videoStreamList extends Model
     public $timebase;
 
     /**
-     * @description The width of the video resolution.
+     * @description The width of the video in pixels.
      *
      * @example 568
      *

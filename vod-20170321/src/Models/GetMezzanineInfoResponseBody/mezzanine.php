@@ -139,7 +139,7 @@ class mezzanine extends Model
     public $status;
 
     /**
-     * @description The storage class of the audio or video file. Valid values:
+     * @description The storage class of the audio file. Valid values:
      *
      *   **Standard**: All media resources are stored as Standard objects.
      *   **IA**: All media resources are stored as IA objects.
@@ -148,7 +148,8 @@ class mezzanine extends Model
      *   **SourceIA**: Only the source files are IA objects.
      *   **SourceArchive**: Only the source files are Archive objects.
      *   **SourceColdArchive**: Only the source files are Cold Archive objects.
-     *   **Changing**: The storage class is being modified.
+     *   **Changing**: The storage class of the audio file is being changed.
+     *   **SourceChanging**: The storage class of the source file is being changed.
      *
      * @example Standard
      *

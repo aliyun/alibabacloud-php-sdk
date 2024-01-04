@@ -19,14 +19,15 @@ class SubmitTranscodeJobsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The transcoding jobs.
-     * > This parameter is not returned for HLS packaging tasks. You must asynchronously receive the transcoding result.
+     * @description The information about the transcoding job.
+     *
+     * >  This parameter is not returned for HLS packaging tasks. You must asynchronously receive the transcoding result.
      * @var transcodeJobs
      */
     public $transcodeJobs;
 
     /**
-     * @description The ID of the transcoding job that was submitted.
+     * @description The ID of the transcoding task that was submitted.
      *
      * @example 9f4a0df7da2c8a81c8c0408c84****
      *

@@ -14,7 +14,7 @@ class UpdateTranscodeTemplateGroupRequest extends Model
      *   **Enabled**: The template group is locked.
      *   **Disabled**: The template group is not locked.
      *
-     * @example locked
+     * @example Disabled
      *
      * @var string
      */

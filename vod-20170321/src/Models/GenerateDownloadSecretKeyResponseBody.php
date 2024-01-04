@@ -6,28 +6,24 @@ namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AddVodStorageForAppResponseBody extends Model
+class GenerateDownloadSecretKeyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @example ***
      *
-     * @example 25818875-5F78-4A*****F6-D7393642CA58
+     * @var string
+     */
+    public $appEncryptKey;
+
+    /**
+     * @example E99B9BAD-7F9D-552B-A689-B72E92EA040E
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description The address of the VOD bucket.
-     *
-     * @example out-****.oss-cn-shanghai.aliyuncs.com
-     *
-     * @var string
-     */
-    public $storageLocation;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'storageLocation' => 'StorageLocation',
+        'appEncryptKey' => 'AppEncryptKey',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -37,11 +33,11 @@ class AddVodStorageForAppResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appEncryptKey) {
+            $res['AppEncryptKey'] = $this->appEncryptKey;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->storageLocation) {
-            $res['StorageLocation'] = $this->storageLocation;
         }
 
         return $res;
@@ -50,16 +46,16 @@ class AddVodStorageForAppResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AddVodStorageForAppResponseBody
+     * @return GenerateDownloadSecretKeyResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppEncryptKey'])) {
+            $model->appEncryptKey = $map['AppEncryptKey'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['StorageLocation'])) {
-            $model->storageLocation = $map['StorageLocation'];
         }
 
         return $model;

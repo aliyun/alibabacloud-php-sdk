@@ -19,7 +19,7 @@ class video extends Model
     public $appId;
 
     /**
-     * @description The category ID of the media file.
+     * @description The category ID of the audio or video file.
      *
      * @example 781111
      *
@@ -37,7 +37,7 @@ class video extends Model
     public $cateName;
 
     /**
-     * @description The thumbnail URL of the media file.
+     * @description The thumbnail URL of the audio or video file.
      *
      * @example https://example.aliyundoc.com/****.jpg
      *
@@ -46,7 +46,7 @@ class video extends Model
     public $coverURL;
 
     /**
-     * @description The time when the media file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the audio or video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-11-14T09:15:50Z
      *
@@ -55,7 +55,7 @@ class video extends Model
     public $creationTime;
 
     /**
-     * @description The description of the media file.
+     * @description The description of the audio or video file.
      *
      * @example Video description in ApsaraVideo VOD
      *
@@ -64,7 +64,7 @@ class video extends Model
     public $description;
 
     /**
-     * @description The duration of the media file. Unit: seconds.
+     * @description The duration of the audio or video file. Unit: seconds. 86,400 seconds is equivalent to 24 hours.
      *
      * @example 135.6
      *
@@ -73,7 +73,7 @@ class video extends Model
     public $duration;
 
     /**
-     * @description The time when the video was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the video was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-11-14T09:16:50Z
      *
@@ -82,7 +82,7 @@ class video extends Model
     public $modificationTime;
 
     /**
-     * @description The period of time in which the object remains in the restored state.
+     * @description The period of time in which the audio or video file remains in the restored state.
      *
      * @example 2023-03-30T10:14:14Z
      *
@@ -91,11 +91,12 @@ class video extends Model
     public $restoreExpiration;
 
     /**
-     * @description The restoration status of the media file. Valid values:
+     * @description The restoration status of the audio or video file. Valid values:
      *
-     * - **Processing**
-     * - **Success**
-     * - **Failed**
+     *   **Processing**
+     *   **Success**
+     *   **Failed**
+     *
      * @example Success
      *
      * @var string
@@ -112,18 +113,18 @@ class video extends Model
     public $size;
 
     /**
-     * @description The video snapshot URLs.
+     * @description The URL array of video snapshots.
      *
      * @var snapshots
      */
     public $snapshots;
 
     /**
-     * @description The status of the video. Valid values:
+     * @description The status of the audio or video file. Valid values:
      *
      *   **Uploading**: The video is being uploaded.
      *   **UploadFail**: The video failed to be uploaded.
-     *   **UploadSucc**: The video has been uploaded.
+     *   **UploadSucc**: The video is uploaded.
      *   **Transcoding**: The video is being transcoded.
      *   **TranscodeFail**: The video failed to be transcoded.
      *   **checking**: The video is being reviewed.
@@ -139,16 +140,18 @@ class video extends Model
     public $status;
 
     /**
-     * @description The storage class of the media file. Valid values:
+     * @description The storage class of the audio or video file. Valid values:
      *
-     * - **Standard**: All media resources are stored as Standard objects.
-     * - **IA**: All media resources are stored as IA objects.
-     * - **Archive**: All media resources are stored as Archive objects.
-     * - **ColdArchive**: All media resources are stored as Cold Archive objects.
-     * - **SourceIA**: Only the source files are IA objects.
-     * - **SourceArchive**: Only the source files are Archive objects.
-     * - **SourceColdArchive**: Only the source files are Cold Archive objects.
-     * - **Changing**: The storage class is being modified.
+     *   **Standard**: All media resources are stored as Standard objects.
+     *   **IA**: All media resources are stored as IA objects.
+     *   **Archive**: All media resources are stored as Archive objects.
+     *   **ColdArchive**: All media resources are stored as Cold Archive objects.
+     *   **SourceIA**: Only the source files are IA objects.
+     *   **SourceArchive**: Only the source files are Archive objects.
+     *   **SourceColdArchive**: Only the source files are Cold Archive objects.
+     *   **Changing**: The storage class of the audio or video file is being changed.
+     *   **SourceChanging**: The storage class of the source file is being changed.
+     *
      * @example Standard
      *
      * @var string
@@ -156,7 +159,7 @@ class video extends Model
     public $storageClass;
 
     /**
-     * @description The storage address of the media file.
+     * @description The storage address of the audio or video file.
      *
      * @example out-****.oss-cn-shanghai.aliyuncs.com
      *
@@ -165,7 +168,7 @@ class video extends Model
     public $storageLocation;
 
     /**
-     * @description The tags of the media file. Multiple tags are separated by commas (,).
+     * @description The tags of the audio or video file. Multiple tags are separated by commas (,).
      *
      * @example Tag 1,Tag 2
      *
@@ -174,7 +177,7 @@ class video extends Model
     public $tags;
 
     /**
-     * @description The title of the media file.
+     * @description The title of the audio or video file.
      *
      * @example Video title in ApsaraVideo VOD
      *
@@ -183,7 +186,7 @@ class video extends Model
     public $title;
 
     /**
-     * @description The ID of the media file.
+     * @description The ID of the audio or video file.
      *
      * @example 9ae2af636ca6c10412f44891fc****
      *

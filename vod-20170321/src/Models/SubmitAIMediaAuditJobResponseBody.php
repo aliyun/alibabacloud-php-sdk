@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SubmitAIMediaAuditJobResponseBody extends Model
 {
     /**
-     * @description The ID of the task.
+     * @description The ID of the job.
      *
      * @example bdbc266af6893943a70176d92e99****
      *
@@ -18,7 +18,7 @@ class SubmitAIMediaAuditJobResponseBody extends Model
     public $jobId;
 
     /**
-     * @description The ID of the video.
+     * @description The ID of the media file.
      *
      * @example fe028d09441afffb138cd7ee****
      *

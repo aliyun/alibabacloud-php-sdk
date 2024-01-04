@@ -16,9 +16,8 @@ class CancelUrlUploadJobsResponseBody extends Model
     public $canceledJobs;
 
     /**
-     * @description The job IDs or upload URLs that do not exist.
+     * @description The jobs that do not exist.
      *
-     * If you set the request parameter JobIds, the job IDs that do not exist are returned. If you set the request parameter UploadUrls, the upload URLs that do not exist are returned.
      * @var string[]
      */
     public $nonExists;

@@ -28,7 +28,7 @@ class GetVideoListResponseBody extends Model
     public $total;
 
     /**
-     * @description The period of time in which the object remains in the restored state.
+     * @description The information about the audio or video files. Information about a maximum of 5,000 audio or video files can be returned.
      *
      * @var videoList
      */
