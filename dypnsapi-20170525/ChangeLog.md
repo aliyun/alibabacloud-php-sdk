@@ -1,3 +1,6 @@
+2024-01-04 Version: 1.1.2
+- Generated php 2017-05-25 for Dypnsapi.
+
 2023-12-29 Version: 1.2.0
 - Generated php 2017-05-25 for Dypnsapi.
 
