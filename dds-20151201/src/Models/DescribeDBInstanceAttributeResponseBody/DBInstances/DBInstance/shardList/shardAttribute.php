@@ -27,6 +27,15 @@ class shardAttribute extends Model
     public $maxConnections;
 
     /**
+     * @description The maximum  MBPS of the shard node, Unit: MB/s.
+     *
+     * @example 350
+     *
+     * @var string
+     */
+    public $maxDiskMbps;
+
+    /**
      * @description The maximum IOPS of the shard node.
      *
      * @example 8000
@@ -100,6 +109,7 @@ class shardAttribute extends Model
     protected $_name = [
         'connectString'    => 'ConnectString',
         'maxConnections'   => 'MaxConnections',
+        'maxDiskMbps'      => 'MaxDiskMbps',
         'maxIOPS'          => 'MaxIOPS',
         'nodeClass'        => 'NodeClass',
         'nodeDescription'  => 'NodeDescription',
@@ -122,6 +132,9 @@ class shardAttribute extends Model
         }
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
+        }
+        if (null !== $this->maxDiskMbps) {
+            $res['MaxDiskMbps'] = $this->maxDiskMbps;
         }
         if (null !== $this->maxIOPS) {
             $res['MaxIOPS'] = $this->maxIOPS;
@@ -164,6 +177,9 @@ class shardAttribute extends Model
         }
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];
+        }
+        if (isset($map['MaxDiskMbps'])) {
+            $model->maxDiskMbps = $map['MaxDiskMbps'];
         }
         if (isset($map['MaxIOPS'])) {
             $model->maxIOPS = $map['MaxIOPS'];

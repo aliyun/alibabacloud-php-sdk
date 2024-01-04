@@ -38,6 +38,10 @@ class DescribeSecurityIpsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Whether to display DAS whitelist information.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $showHDMIps;

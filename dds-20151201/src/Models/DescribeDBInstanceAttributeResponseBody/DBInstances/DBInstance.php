@@ -321,6 +321,15 @@ class DBInstance extends Model
     public $maxIOPS;
 
     /**
+     * @description The maximum MBPS of the instance, Unit: MB/s.
+     *
+     * @example 350
+     *
+     * @var int
+     */
+    public $maxMBPS;
+
+    /**
      * @description The information of the mongos nodes.
      *
      * >  This parameter is returned if the instance is a sharded cluster instance.
@@ -594,6 +603,7 @@ class DBInstance extends Model
         'maintainStartTime'           => 'MaintainStartTime',
         'maxConnections'              => 'MaxConnections',
         'maxIOPS'                     => 'MaxIOPS',
+        'maxMBPS'                     => 'MaxMBPS',
         'mongosList'                  => 'MongosList',
         'networkType'                 => 'NetworkType',
         'protocolType'                => 'ProtocolType',
@@ -709,6 +719,9 @@ class DBInstance extends Model
         }
         if (null !== $this->maxIOPS) {
             $res['MaxIOPS'] = $this->maxIOPS;
+        }
+        if (null !== $this->maxMBPS) {
+            $res['MaxMBPS'] = $this->maxMBPS;
         }
         if (null !== $this->mongosList) {
             $res['MongosList'] = null !== $this->mongosList ? $this->mongosList->toMap() : null;
@@ -874,6 +887,9 @@ class DBInstance extends Model
         }
         if (isset($map['MaxIOPS'])) {
             $model->maxIOPS = $map['MaxIOPS'];
+        }
+        if (isset($map['MaxMBPS'])) {
+            $model->maxMBPS = $map['MaxMBPS'];
         }
         if (isset($map['MongosList'])) {
             $model->mongosList = mongosList::fromMap($map['MongosList']);
