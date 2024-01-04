@@ -194,6 +194,11 @@ class GetJobResponseBody extends Model
     public $status;
 
     /**
+     * @var StatusTransitionItem[]
+     */
+    public $statusHistory;
+
+    /**
      * @example Restarting
      *
      * @var string
@@ -268,6 +273,7 @@ class GetJobResponseBody extends Model
         'restartTimes'     => 'RestartTimes',
         'settings'         => 'Settings',
         'status'           => 'Status',
+        'statusHistory'    => 'StatusHistory',
         'subStatus'        => 'SubStatus',
         'thirdpartyLibDir' => 'ThirdpartyLibDir',
         'thirdpartyLibs'   => 'ThirdpartyLibs',
@@ -385,6 +391,15 @@ class GetJobResponseBody extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->statusHistory) {
+            $res['StatusHistory'] = [];
+            if (null !== $this->statusHistory && \is_array($this->statusHistory)) {
+                $n = 0;
+                foreach ($this->statusHistory as $item) {
+                    $res['StatusHistory'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->subStatus) {
             $res['SubStatus'] = $this->subStatus;
@@ -520,6 +535,15 @@ class GetJobResponseBody extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StatusHistory'])) {
+            if (!empty($map['StatusHistory'])) {
+                $model->statusHistory = [];
+                $n                    = 0;
+                foreach ($map['StatusHistory'] as $item) {
+                    $model->statusHistory[$n++] = null !== $item ? StatusTransitionItem::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['SubStatus'])) {
             $model->subStatus = $map['SubStatus'];

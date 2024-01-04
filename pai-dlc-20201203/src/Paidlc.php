@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobMetricsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobMetricsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobSanityCheckResultRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobSanityCheckResultResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodEventsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodEventsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsRequest;
@@ -33,6 +35,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetWebTerminalRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetWebTerminalResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListEcsSpecsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListEcsSpecsResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobSanityCheckResultsRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobSanityCheckResultsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobsShrinkRequest;
@@ -577,6 +581,57 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * @param string                         $JobId
+     * @param GetJobSanityCheckResultRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetJobSanityCheckResultResponse
+     */
+    public function getJobSanityCheckResultWithOptions($JobId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sanityCheckNumber)) {
+            $query['SanityCheckNumber'] = $request->sanityCheckNumber;
+        }
+        if (!Utils::isUnset($request->sanityCheckPhase)) {
+            $query['SanityCheckPhase'] = $request->sanityCheckPhase;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJobSanityCheckResult',
+            'version'     => '2020-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/sanitycheckresult',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetJobSanityCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                         $JobId
+     * @param GetJobSanityCheckResultRequest $request
+     *
+     * @return GetJobSanityCheckResultResponse
+     */
+    public function getJobSanityCheckResult($JobId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getJobSanityCheckResultWithOptions($JobId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string              $JobId
      * @param string              $PodId
      * @param GetPodEventsRequest $request
@@ -960,6 +1015,54 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->listEcsSpecsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                           $JobId
+     * @param ListJobSanityCheckResultsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListJobSanityCheckResultsResponse
+     */
+    public function listJobSanityCheckResultsWithOptions($JobId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListJobSanityCheckResults',
+            'version'     => '2020-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/sanitycheckresults',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListJobSanityCheckResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                           $JobId
+     * @param ListJobSanityCheckResultsRequest $request
+     *
+     * @return ListJobSanityCheckResultsResponse
+     */
+    public function listJobSanityCheckResults($JobId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listJobSanityCheckResultsWithOptions($JobId, $request, $headers, $runtime);
     }
 
     /**
