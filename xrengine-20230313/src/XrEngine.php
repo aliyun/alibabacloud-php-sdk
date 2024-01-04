@@ -8,26 +8,36 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\AuthUserRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\AuthUserResponse;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\BatchQueryMotionShopTaskStatusRequest;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\BatchQueryMotionShopTaskStatusResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\CreateDigitalHumanProjectRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\CreateDigitalHumanProjectResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\CreateLivePortraitProjectRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\CreateLivePortraitProjectResponse;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\GenerateMotionShopVideoUploadUrlRequest;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\GenerateMotionShopVideoUploadUrlResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\GetMapDataRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\GetMapDataResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\GetMapPublishDataRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\GetMapPublishDataResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\InitLocateRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\InitLocateResponse;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\ListCommonMaterialsRequest;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\ListCommonMaterialsResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\ListDigitalHumanMaterialsRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\ListDigitalHumanMaterialsResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\ListLocationServiceRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\ListLocationServiceResponse;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\ListMotionShopTasksRequest;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\ListMotionShopTasksResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\LivePortraitFaceDetectRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\LivePortraitFaceDetectResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\LocateRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\LocateResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\LoginModelScopeRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\LoginModelScopeResponse;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\MotionShopVideoDetectRequest;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\MotionShopVideoDetectResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopBatchQueryObjectGenerationProjectStatusRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopBatchQueryObjectGenerationProjectStatusResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\PopBatchQueryObjectProjectStatusRequest;
@@ -108,8 +118,12 @@ use AlibabaCloud\SDK\XrEngine\V20230313\Models\QueryDigitalHumanProjectRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\QueryDigitalHumanProjectResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\QueryLongTtsResultRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\QueryLongTtsResultResponse;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\QueryMotionShopVideoDetectResultRequest;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\QueryMotionShopVideoDetectResultResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\SubmitLongTtsTaskRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\SubmitLongTtsTaskResponse;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\SubmitMotionShopTaskRequest;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\SubmitMotionShopTaskResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\UpdateUserEmailRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\UpdateUserEmailResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -250,6 +264,52 @@ class XrEngine extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->authUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchQueryMotionShopTaskStatusRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return BatchQueryMotionShopTaskStatusResponse
+     */
+    public function batchQueryMotionShopTaskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->jwtToken)) {
+            $body['JwtToken'] = $request->jwtToken;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchQueryMotionShopTaskStatus',
+            'version'     => '2023-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchQueryMotionShopTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchQueryMotionShopTaskStatusRequest $request
+     *
+     * @return BatchQueryMotionShopTaskStatusResponse
+     */
+    public function batchQueryMotionShopTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchQueryMotionShopTaskStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -430,6 +490,49 @@ class XrEngine extends OpenApiClient
     }
 
     /**
+     * @param GenerateMotionShopVideoUploadUrlRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GenerateMotionShopVideoUploadUrlResponse
+     */
+    public function generateMotionShopVideoUploadUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jwtToken)) {
+            $query['JwtToken'] = $request->jwtToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateMotionShopVideoUploadUrl',
+            'version'     => '2023-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateMotionShopVideoUploadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateMotionShopVideoUploadUrlRequest $request
+     *
+     * @return GenerateMotionShopVideoUploadUrlResponse
+     */
+    public function generateMotionShopVideoUploadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateMotionShopVideoUploadUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetMapDataRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -568,6 +671,52 @@ class XrEngine extends OpenApiClient
     }
 
     /**
+     * @param ListCommonMaterialsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListCommonMaterialsResponse
+     */
+    public function listCommonMaterialsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jwtToken)) {
+            $query['JwtToken'] = $request->jwtToken;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCommonMaterials',
+            'version'     => '2023-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCommonMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCommonMaterialsRequest $request
+     *
+     * @return ListCommonMaterialsResponse
+     */
+    public function listCommonMaterials($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCommonMaterialsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListDigitalHumanMaterialsRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -677,6 +826,55 @@ class XrEngine extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listLocationServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMotionShopTasksRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListMotionShopTasksResponse
+     */
+    public function listMotionShopTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->current)) {
+            $body['Current'] = $request->current;
+        }
+        if (!Utils::isUnset($request->jwtToken)) {
+            $body['JwtToken'] = $request->jwtToken;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $body['Size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMotionShopTasks',
+            'version'     => '2023-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMotionShopTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMotionShopTasksRequest $request
+     *
+     * @return ListMotionShopTasksResponse
+     */
+    public function listMotionShopTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMotionShopTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -826,6 +1024,54 @@ class XrEngine extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->loginModelScopeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MotionShopVideoDetectRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return MotionShopVideoDetectResponse
+     */
+    public function motionShopVideoDetectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jwtToken)) {
+            $query['JwtToken'] = $request->jwtToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->ossKey)) {
+            $body['OssKey'] = $request->ossKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'MotionShopVideoDetect',
+            'version'     => '2023-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MotionShopVideoDetectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MotionShopVideoDetectRequest $request
+     *
+     * @return MotionShopVideoDetectResponse
+     */
+    public function motionShopVideoDetect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->motionShopVideoDetectWithOptions($request, $runtime);
     }
 
     /**
@@ -2855,6 +3101,54 @@ class XrEngine extends OpenApiClient
     }
 
     /**
+     * @param QueryMotionShopVideoDetectResultRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return QueryMotionShopVideoDetectResultResponse
+     */
+    public function queryMotionShopVideoDetectResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jwtToken)) {
+            $query['JwtToken'] = $request->jwtToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMotionShopVideoDetectResult',
+            'version'     => '2023-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryMotionShopVideoDetectResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryMotionShopVideoDetectResultRequest $request
+     *
+     * @return QueryMotionShopVideoDetectResultResponse
+     */
+    public function queryMotionShopVideoDetectResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMotionShopVideoDetectResultWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitLongTtsTaskRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2903,6 +3197,58 @@ class XrEngine extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitLongTtsTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitMotionShopTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitMotionShopTaskResponse
+     */
+    public function submitMotionShopTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->avatarId)) {
+            $body['AvatarId'] = $request->avatarId;
+        }
+        if (!Utils::isUnset($request->jwtToken)) {
+            $body['JwtToken'] = $request->jwtToken;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->videoId)) {
+            $body['VideoId'] = $request->videoId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitMotionShopTask',
+            'version'     => '2023-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitMotionShopTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitMotionShopTaskRequest $request
+     *
+     * @return SubmitMotionShopTaskResponse
+     */
+    public function submitMotionShopTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitMotionShopTaskWithOptions($request, $runtime);
     }
 
     /**
