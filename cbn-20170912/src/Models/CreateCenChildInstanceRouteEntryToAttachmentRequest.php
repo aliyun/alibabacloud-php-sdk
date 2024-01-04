@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateCenChildInstanceRouteEntryToAttachmentRequest extends Model
 {
     /**
-     * @description The ID of the Cloud Enterprise Network (CEN) instance.
+     * @description The CEN instance ID.
      *
      * @example vpc-bp1n6cbxcszp55vxo****
      *

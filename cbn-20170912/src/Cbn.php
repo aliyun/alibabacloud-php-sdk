@@ -6498,6 +6498,9 @@ class Cbn extends OpenApiClient
         if (!Utils::isUnset($request->cenId)) {
             $query['CenId'] = $request->cenId;
         }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
         if (!Utils::isUnset($request->healthCheckInterval)) {
             $query['HealthCheckInterval'] = $request->healthCheckInterval;
         }
