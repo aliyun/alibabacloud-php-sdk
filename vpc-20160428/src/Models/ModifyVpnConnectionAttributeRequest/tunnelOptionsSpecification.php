@@ -48,8 +48,9 @@ class tunnelOptionsSpecification extends Model
     /**
      * @description The tunnel role. Valid values:
      *
-     * - **master**: The tunnel is an active tunnel.
-     * - **slave**: The tunnel is a standby tunnel.
+     *   **master**: The tunnel is an active tunnel.
+     *   **slave**: The tunnel is a standby tunnel.
+     *
      * @example master
      *
      * @var string

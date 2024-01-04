@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateEipAddressRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateEipAddressResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateEipSegmentAddressRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateEipSegmentAddressResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateIpv6AddressRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateIpv6AddressResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateIpv6InternetBandwidthRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateIpv6InternetBandwidthResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateVpcIpv6CidrRequest;
@@ -658,6 +660,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ReleaseEipAddressRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ReleaseEipAddressResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ReleaseEipSegmentAddressRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ReleaseEipSegmentAddressResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ReleaseIpv6AddressRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ReleaseIpv6AddressResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\RemoveCommonBandwidthPackageIpRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\RemoveCommonBandwidthPackageIpResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\RemoveGlobalAccelerationInstanceIpRequest;
@@ -1782,6 +1786,88 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateEipSegmentAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AllocateIpv6AddressRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AllocateIpv6AddressResponse
+     */
+    public function allocateIpv6AddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ipv6Address)) {
+            $query['Ipv6Address'] = $request->ipv6Address;
+        }
+        if (!Utils::isUnset($request->ipv6AddressDescription)) {
+            $query['Ipv6AddressDescription'] = $request->ipv6AddressDescription;
+        }
+        if (!Utils::isUnset($request->ipv6AddressName)) {
+            $query['Ipv6AddressName'] = $request->ipv6AddressName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AllocateIpv6Address',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AllocateIpv6AddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AllocateIpv6AddressRequest $request
+     *
+     * @return AllocateIpv6AddressResponse
+     */
+    public function allocateIpv6Address($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->allocateIpv6AddressWithOptions($request, $runtime);
     }
 
     /**
@@ -25830,6 +25916,73 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->releaseEipSegmentAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReleaseIpv6AddressRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ReleaseIpv6AddressResponse
+     */
+    public function releaseIpv6AddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ipv6AddressId)) {
+            $query['Ipv6AddressId'] = $request->ipv6AddressId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseIpv6Address',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReleaseIpv6AddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReleaseIpv6AddressRequest $request
+     *
+     * @return ReleaseIpv6AddressResponse
+     */
+    public function releaseIpv6Address($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseIpv6AddressWithOptions($request, $runtime);
     }
 
     /**

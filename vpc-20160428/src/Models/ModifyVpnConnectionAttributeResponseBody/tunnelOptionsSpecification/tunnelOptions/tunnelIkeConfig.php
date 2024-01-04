@@ -38,7 +38,7 @@ class tunnelIkeConfig extends Model
     /**
      * @description The IKE negotiation mode.
      *
-     *   **main**: This mode offers higher security during negotiations.
+     *   **main:** This mode offers higher security during negotiations.
      *   **aggressive**: This mode is faster and has a higher success rate.
      *
      * @example main

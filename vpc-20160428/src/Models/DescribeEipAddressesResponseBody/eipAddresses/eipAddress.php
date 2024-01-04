@@ -57,7 +57,7 @@ class eipAddress extends Model
     public $bandwidthPackageId;
 
     /**
-     * @description The bandwidth type. Only **CommonBandwidthPackage** may be returned, which indicates Internet Shared Bandwidth.
+     * @description The type of the bandwidth. Only **CommonBandwidthPackage** may be returned, which indicates Internet Shared Bandwidth.
      *
      * @example CommonBandwidthPackage
      *
@@ -78,7 +78,7 @@ class eipAddress extends Model
     public $bizType;
 
     /**
-     * @description The service status of the EIP. Valid values:
+     * @description The service state of the EIP. Valid values:
      *
      *   **Normal**
      *   **FinancialLocked**
@@ -167,8 +167,8 @@ class eipAddress extends Model
     /**
      * @description The line type. Valid values:
      *
-     *   **BGP**: BGP (Multi-ISP). All regions support BGP (Multi-ISP) EIPs.
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro. BGP (Multi-ISP) Pro is supported only in the China (Hong Kong), Singapore, Japan (Tokyo), Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok) regions.
+     *   **BGP**: BGP (Multi-ISP). The BGP (Multi-ISP) line is supported in all regions.
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines. BGP (Multi-ISP) Pro line is supported only in the China (Hong Kong), Singapore, Japan (Tokyo), Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok) regions.
      *
      * If you are allowed to use single-ISP bandwidth, one of the following values may be returned:
      *
@@ -233,7 +233,7 @@ class eipAddress extends Model
     public $internetChargeType;
 
     /**
-     * @description The IP address of the EIP.
+     * @description The EIP.
      *
      * @example 47.75.XX.XX
      *
@@ -243,11 +243,9 @@ class eipAddress extends Model
 
     /**
      * @description The association mode. Valid values:
-     *
-     *   **NAT**: NAT mode
-     *   **MULTI_BINDED**: multi-EIP-to-ENI mode
-     *   **BINDED**: cut-through mode
-     *
+     * - **NAT**: NAT mode
+     * - **MULTI_BINDED**: multi-EIP-to-ENI mode
+     * - **BINDED**: cut-through mode
      * @example NAT
      *
      * @var string
@@ -381,7 +379,7 @@ class eipAddress extends Model
     public $securityProtectionTypes;
 
     /**
-     * @description The IDs of contiguous EIPs.
+     * @description The ID of the contiguous EIP group.
      *
      * This value is returned only when you query contiguous EIPs.
      * @example eipsg-t4nr90yik5oy38xd****
@@ -393,8 +391,8 @@ class eipAddress extends Model
     /**
      * @description Indicates whether the resource is created by the service account. Valid values:
      *
-     *   **0**: no
-     *   **1**: yes
+     *   **0**
+     *   **1**
      *
      * @example 0
      *

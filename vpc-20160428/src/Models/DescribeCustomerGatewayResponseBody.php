@@ -85,7 +85,7 @@ class DescribeCustomerGatewayResponseBody extends Model
     /**
      * @description The ID of the resource group to which the customer gateway belongs.
      *
-     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group information.
+     * You can call the [ListResourceGroups](~~158855~~) operation to query resource groups.
      * @example rg-acfmzs372yg****
      *
      * @var string

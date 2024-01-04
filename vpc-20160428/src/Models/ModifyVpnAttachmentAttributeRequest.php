@@ -30,12 +30,13 @@ class ModifyVpnAttachmentAttributeRequest extends Model
      *
      *   **BgpConfig.LocalAsn**: the autonomous system number (ASN) on the Alibaba Cloud side. Valid values: **1** to **4294967295**.
      *
+     * For example, if you enter 123.456, the ASN is: 123 × 65536 + 456 = 8061384.
+     *
      *   **BgpConfig.TunnelCidr:** the CIDR block of the IPsec tunnel. The CIDR block falls within 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
      *
      *   **LocalBgpIp:** the BGP IP address on the Alibaba Cloud side. This IP address must fall within the CIDR block of the IPsec tunnel.
      *
-     * >*   Before you configure BGP, we recommend that you learn how BGP dynamic routing works and the limits of using BGP dynamic routing. For more information, see [VPN Gateway supports BGP dynamic routing](~~170235~~).
-     * >*   We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. Refer to the relevant documentation for the private ASN range.
+     * > - We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. Refer to the relevant documentation for the private ASN range.
      * @example {"EnableBgp":"true","LocalAsn":"45104","TunnelCidr":"169.254.11.0/30","LocalBgpIp":"169.254.11.1"}
      *
      * @var string
@@ -100,25 +101,26 @@ class ModifyVpnAttachmentAttributeRequest extends Model
     public $enableNatTraversal;
 
     /**
-     * @description The health check configuration:
+     * @description The health check configurations:
      *
      *   **HealthCheckConfig.enable**: specifies whether to enable the health check feature. Valid values:
      *
      *   **true**
      *   **false**
      *
-     *   **HealthCheckConfig.dip**: the destination IP address that is used for health checks. Enter the IP address of the data center with which the VPC can communicate based on the IPsec-VPN connection.
+     *   **HealthCheckConfig.dip**: the destination IP address that is used for health checks. Enter the IP address on the data center side that the VPC can communicate with through the IPsec-VPN connection.
      *
-     *   **HealthCheckConfig.sip**: the source IP address that is used for health checks. Enter the IP address of the VPC with which the data center can communicate based on the IPsec-VPN connection.
+     *   **HealthCheckConfig.sip**: the source IP address that is used for health checks. Enter the IP address on the VPC side that the data center can communicate with through the IPsec-VPN connection.
      *
      *   **HealthCheckConfig.interval**: the interval between two consecutive health checks. Unit: seconds.
      *
-     *   **HealthCheckConfig.retry**: the maximum number of health check retries.
+     *   **HealthCheckConfig.retry:** the maximum number of health check retries.
      *
      *   **HealthCheckConfig.Policy**: specifies whether to withdraw advertised routes when health checks fail. Valid values:
      *
-     * - **revoke_route**: withdraws advertised routes.
-     * - **reserve_route**: does not withdraw advertised routes.
+     *   **revoke_route**
+     *   **reserve_route**
+     *
      * @example {"enable":"true","dip":"192.168.1.1","sip":"10.1.1.1","interval":"3","retry":"3","Policy": "revoke_route"}
      *
      * @var string

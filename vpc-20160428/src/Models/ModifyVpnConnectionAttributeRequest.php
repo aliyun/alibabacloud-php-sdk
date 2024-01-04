@@ -22,23 +22,23 @@ class ModifyVpnConnectionAttributeRequest extends Model
     public $autoConfigRoute;
 
     /**
-     * @description You can specify this parameter if you modify the configuration of a single-tunnel IPsec-VPN connection.
+     * @description This parameter is supported by single-tunnel IPsec-VPN connections.
      *
-     * The Border Gateway Protocol (BGP) configuration:
+     * The Border Gateway Protocol (BGP) configurations:
      *
      *   **BgpConfig.EnableBgp:** specifies whether to enable BGP. Valid values: **true** and **false**.
      *
-     *   **BgpConfig.LocalAsn**: the autonomous system number (ASN) on the Alibaba Cloud side. Valid values: **1** to **4294967295**.
+     *   **BgpConfig.LocalAsn:** the autonomous system number (ASN) on the Alibaba Cloud side. Valid values: **1** to **4294967295**.
      *
-     *   **BgpConfig.TunnelCidr:** the CIDR block of the IPsec tunnel. The CIDR block falls within 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
+     * For example, if you enter 123.456, the ASN is: 123 × 65536 + 456 = 8061384.
      *
-     * >The CIDR block of the IPsec tunnel of each IPsec-VPN connection must be unique on a VPN gateway.
+     *   **BgpConfig.TunnelCidr**: the CIDR block of the IPsec tunnel. The CIDR block must belong to 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
      *
-     *   **LocalBgpIp**: the BGP IP address on the Alibaba Cloud side. This IP address must fall within the CIDR block of the IPsec tunnel.
+     * > The CIDR block of the IPsec tunnel of each IPsec-VPN connection must be unique on a VPN gateway.
      *
-     * > *   This parameter is required when the VPN gateway has dynamic BGP enabled.
-     * >*   Before you configure BGP, we recommend that you learn how BGP dynamic routing works and the limits of using BGP dynamic routing. For more information, see [VPN Gateway supports BGP dynamic routing](~~170235~~).
-     * >*   We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. Refer to the relevant documentation for the private ASN range.
+     *   **LocalBgpIp**: the BGP IP address on the Alibaba Cloud side. This IP address must fall within the CIDR block range of the IPsec tunnel.
+     *
+     * > - We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. For information about the range of private ASNs, see the relevant documentation.
      * @example {"EnableBgp":"true","LocalAsn":"65530","TunnelCidr":"169.254.11.0/30","LocalBgpIp":"169.254.11.1"}
      *
      * @var string

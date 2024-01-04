@@ -9,11 +9,10 @@ use AlibabaCloud\Tea\Model;
 class tunnelBgpConfig extends Model
 {
     /**
-     * @description The ASN on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
+     * @description The ASN of the tunnel on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
      *
-     * > *   You can specify or modify this parameter if BGP is enabled for the IPsec-VPN connection (**EnableTunnelsBgp** is set to **true**).
-     * > *   Before you configure BGP, we recommend that you learn about how BGP works and its limits. For more information, see [VPN Gateway supports BGP dynamic routing](~~170235~~).
-     * > *   We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. For information about the range of private ASNs, see the relevant documentation.
+     * > - You can specify or modify this parameter if BGP is enabled for the IPsec-VPN connection (**EnableTunnelsBgp** is set to **true**).
+     * > - We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. For information about the range of private ASNs, see the relevant documentation.
      * @example 65530
      *
      * @var int
@@ -21,7 +20,7 @@ class tunnelBgpConfig extends Model
     public $localAsn;
 
     /**
-     * @description The BGP address on the Alibaba Cloud side. The address is an IP address that falls within the BGP CIDR block range.
+     * @description The BGP IP address of the tunnel on the Alibaba Cloud side. The address is an IP address that falls within the BGP CIDR block range.
      *
      * @example 169.254.10.1
      *

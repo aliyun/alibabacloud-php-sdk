@@ -150,7 +150,7 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     /**
      * @description The ID of the resource group to which the IPsec-VPN connection belongs.
      *
-     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group information.
+     * The IPsec-VPN connection and the VPN gateway associated with the IPsec-VPN connection belong to the same resource group. You can call the [ListResourceGroups](~~158855~~) operation to query resource groups.
      * @example rg-acfmzs372yg****
      *
      * @var string

@@ -2,25 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnGatewayResponseBody\tags;
+namespace AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateIpv6AddressRequest;
 
 use AlibabaCloud\Tea\Model;
 
 class tag extends Model
 {
     /**
-     * @description The key of tag N.
-     *
-     * @example aaa
+     * @example FinanceDept
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description The value of tag N.
-     *
-     * @example bbb
+     * @example FinanceJoshua
      *
      * @var string
      */
