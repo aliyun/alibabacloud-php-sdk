@@ -12,7 +12,7 @@ class DescribeImageModerationResultResponseBody extends Model
     /**
      * @example 200
      *
-     * @var string
+     * @var int
      */
     public $code;
 

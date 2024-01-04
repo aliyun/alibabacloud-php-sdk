@@ -27,10 +27,16 @@ class frames extends Model
      * @var string
      */
     public $tempUrl;
+
+    /**
+     * @var int
+     */
+    public $timestamp;
     protected $_name = [
-        'offset'  => 'Offset',
-        'results' => 'Results',
-        'tempUrl' => 'TempUrl',
+        'offset'    => 'Offset',
+        'results'   => 'Results',
+        'tempUrl'   => 'TempUrl',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()
@@ -54,6 +60,9 @@ class frames extends Model
         }
         if (null !== $this->tempUrl) {
             $res['TempUrl'] = $this->tempUrl;
+        }
+        if (null !== $this->timestamp) {
+            $res['Timestamp'] = $this->timestamp;
         }
 
         return $res;
@@ -81,6 +90,9 @@ class frames extends Model
         }
         if (isset($map['TempUrl'])) {
             $model->tempUrl = $map['TempUrl'];
+        }
+        if (isset($map['Timestamp'])) {
+            $model->timestamp = $map['Timestamp'];
         }
 
         return $model;
