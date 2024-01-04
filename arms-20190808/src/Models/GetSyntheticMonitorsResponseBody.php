@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSyntheticMonitorsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class GetSyntheticMonitorsResponseBody extends Model
     public $code;
 
     /**
+     * @description The list of monitoring points.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class GetSyntheticMonitorsResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 2FD473FF-5398-5A85-9BF6-7AB45561522F
      *
      * @var string

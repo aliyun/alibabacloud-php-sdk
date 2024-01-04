@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class netDNS extends Model
 {
     /**
+     * @description Specifies whether to use dig to display the data. 0: No. 1: Yes.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class netDNS extends Model
     public $dig;
 
     /**
+     * @description The IP version of the DNS server. 0: IPv4. 1: IPv6. 2: A version is automatically selected. Default value: 0.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class netDNS extends Model
     public $dnsServerIpType;
 
     /**
+     * @description The IP address of the DNS server. Default value: 114.114.114.114.
+     *
      * @example 114.114.114.114
      *
      * @var string
@@ -30,6 +36,8 @@ class netDNS extends Model
     public $nsServer;
 
     /**
+     * @description The DNS query. 0: recursive, 1: iterative. Default value: 0.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class netDNS extends Model
     public $queryMethod;
 
     /**
+     * @description The destination domain name.
+     *
      * @example www.aliyun.com
      *
      * @var string
@@ -44,6 +54,8 @@ class netDNS extends Model
     public $targetUrl;
 
     /**
+     * @description The timeout period for the DNS synthetic test. Unit: milliseconds. The minimum value is 1000 and the maximum value is 45000. Default value: 5000.
+     *
      * @example 1000
      *
      * @var int

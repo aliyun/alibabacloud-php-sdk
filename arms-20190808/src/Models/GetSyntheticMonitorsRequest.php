@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetSyntheticMonitorsRequest extends Model
 {
     /**
+     * @description The query conditions.
+     *
      * @var filter
      */
     public $filter;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

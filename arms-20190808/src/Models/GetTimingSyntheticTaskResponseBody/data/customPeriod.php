@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customPeriod extends Model
 {
     /**
+     * @description The hour at which the test ends. Valid values: 0 to 24.
+     *
      * @example 22
      *
      * @var int
@@ -16,6 +18,8 @@ class customPeriod extends Model
     public $endHour;
 
     /**
+     * @description The hour at which the test starts. Valid values: 0 to 24.
+     *
      * @example 14
      *
      * @var int

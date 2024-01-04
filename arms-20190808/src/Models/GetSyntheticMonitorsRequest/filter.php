@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The type of the monitoring point. Valid values: 1: PC. 2: mobile device.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class filter extends Model
     public $monitorCategory;
 
     /**
+     * @description The network type. Valid values: 1: private network. 2: Internet.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,9 @@ class filter extends Model
     public $network;
 
     /**
+     * @description The type of the monitoring task. Valid values:
+     *
+     * 1: ICMP. 2: TCP. 3: DNS. 4: HTTP. 5: website speed. 6: file download.
      * @example 1
      *
      * @var int

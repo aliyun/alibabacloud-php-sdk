@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the monitoring point is available. Valid values: true and false.
+     *
      * @example true
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $available;
 
     /**
+     * @description Indicates whether the monitoring point is selected. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool
@@ -23,11 +27,17 @@ class data extends Model
     public $canBeSelected;
 
     /**
+     * @description The city.
+     *
+     * @example Beijing
+     *
      * @var string
      */
     public $city;
 
     /**
+     * @description The city code.
+     *
      * @example 1100101
      *
      * @var string
@@ -35,6 +45,8 @@ class data extends Model
     public $cityCode;
 
     /**
+     * @description The client type of the monitoring point. Valid values: 1: data center. 2: Internet. 3: mobile device. 4: ECS instance.
+     *
      * @example 1
      *
      * @var int
@@ -42,11 +54,17 @@ class data extends Model
     public $clientType;
 
     /**
+     * @description The country.
+     *
+     * @example China
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @description Indicates whether IPv6 is supported. Valid values: 0: IPv6 is not supported. 1: IPv6 is supported.
+     *
      * @example 0
      *
      * @var int
@@ -54,11 +72,17 @@ class data extends Model
     public $ipv6;
 
     /**
+     * @description The carrier.
+     *
+     * @example Alibaba Cloud
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description The carrier code.
+     *
      * @example 1
      *
      * @var string
@@ -66,6 +90,10 @@ class data extends Model
     public $operatorCode;
 
     /**
+     * @description The region.
+     *
+     * @example Beijing
+     *
      * @var string
      */
     public $region;

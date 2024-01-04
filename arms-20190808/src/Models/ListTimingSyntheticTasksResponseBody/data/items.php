@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The detection frequency. Valid values: 1m, 5m, 10m, 15m, 20m, 30m, 1h, 2h, 3h, 4h, 6h, 8h, 12h, and 24h.
+     *
      * @example 1m
      *
      * @var string
@@ -17,6 +19,8 @@ class items extends Model
     public $frequency;
 
     /**
+     * @description The time when the task was created.
+     *
      * @example 1671454758000
      *
      * @var string
@@ -24,6 +28,8 @@ class items extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the task was modified.
+     *
      * @example 1673085633000
      *
      * @var string
@@ -31,6 +37,8 @@ class items extends Model
     public $gmtModified;
 
     /**
+     * @description The detection point type. 1: PC. 2: mobile device.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +46,8 @@ class items extends Model
     public $monitorCategory;
 
     /**
+     * @description The number of detection points.
+     *
      * @example 10
      *
      * @var string
@@ -45,11 +55,17 @@ class items extends Model
     public $monitorNum;
 
     /**
+     * @description The task name.
+     *
+     * @example AlibabaCloud DNS Task
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +73,8 @@ class items extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-aekzgwtq5vxxxxx
      *
      * @var string
@@ -64,6 +82,8 @@ class items extends Model
     public $resourceGroupId;
 
     /**
+     * @description The task status. CREATING: The task is being created. RUNNING: The task is running. PARTIAL_RUNNING: The task is partially running. STOP: The task is stopped. LIMIT_STOP: The task is stopped due to quota limit. EXCEPTION: The task is abnormal. DELETE: The task is deleted. DELETE_EXCEPTION: An exception occurs while deleting the task.
+     *
      * @example RUNNING
      *
      * @var string
@@ -71,11 +91,15 @@ class items extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The ID of the synthetic monitoring task.
+     *
      * @example 5308a2691f59422c8c3b7aeccec9cd3b
      *
      * @var string
@@ -83,6 +107,9 @@ class items extends Model
     public $taskId;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     * 1: ICMP. 2: TCP. 3: DNS. 4: HTTP. 5: website speed. 6: file download.
      * @example 1
      *
      * @var int
@@ -90,6 +117,8 @@ class items extends Model
     public $taskType;
 
     /**
+     * @description The URL for synthetic monitoring.
+     *
      * @example https://www.example.com
      *
      * @var string

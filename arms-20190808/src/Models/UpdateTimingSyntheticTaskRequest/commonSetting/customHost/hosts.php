@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class hosts extends Model
 {
     /**
+     * @description The domain name.
+     *
      * @example www.aliyun.com
      *
      * @var string
@@ -16,6 +18,12 @@ class hosts extends Model
     public $domain;
 
     /**
+     * @description The IP version. Valid values:
+     *
+     *   0: A version is automatically selected.
+     *   1: IPv4
+     *   2: IPv6
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +31,8 @@ class hosts extends Model
     public $ipType;
 
     /**
+     * @description The list of IP addresses.
+     *
      * @var string[]
      */
     public $ips;

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ListTimingSyntheticTasksRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -18,6 +20,8 @@ class ListTimingSyntheticTasksRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string
@@ -25,11 +29,15 @@ class ListTimingSyntheticTasksRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The search keyword.
+     *
      * @var search
      */
     public $search;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

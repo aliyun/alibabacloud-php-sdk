@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class customHost extends Model
 {
     /**
+     * @description The list of hosts.
+     *
      * @var hosts[]
      */
     public $hosts;
 
     /**
+     * @description The selection mode. 0: Random. 1: Polling.
+     *
      * @example 0
      *
      * @var int

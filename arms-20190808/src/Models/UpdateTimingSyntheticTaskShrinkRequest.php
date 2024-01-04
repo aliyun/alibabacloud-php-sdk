@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateTimingSyntheticTaskShrinkRequest extends Model
 {
     /**
+     * @description The list of assertions.
+     *
      * @var string
      */
     public $availableAssertionsShrink;
 
     /**
+     * @description The general settings.
+     *
      * @var string
      */
     public $commonSettingShrink;
 
     /**
+     * @description The custom cycle.
+     *
      * @var string
      */
     public $customPeriodShrink;
 
     /**
+     * @description The detection frequency. Valid values: 1m, 5m, 10m, 15m, 20m, 30m, 1h, 2h, 3h, 4h, 6h, 8h, 12h, and 24h.
+     *
      * @example 5m
      *
      * @var string
@@ -31,6 +39,8 @@ class UpdateTimingSyntheticTaskShrinkRequest extends Model
     public $frequency;
 
     /**
+     * @description The detection point type. 1: PC. 2: mobile device.
+     *
      * @example 1
      *
      * @var int
@@ -38,21 +48,31 @@ class UpdateTimingSyntheticTaskShrinkRequest extends Model
     public $monitorCategory;
 
     /**
+     * @description The monitoring configurations.
+     *
      * @var string
      */
     public $monitorConfShrink;
 
     /**
+     * @description The list of monitoring points.
+     *
      * @var string
      */
     public $monitorsShrink;
 
     /**
+     * @description The name of the task.
+     *
+     * @example AlibabaCloud DNS Task
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -60,6 +80,8 @@ class UpdateTimingSyntheticTaskShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string
@@ -67,11 +89,15 @@ class UpdateTimingSyntheticTaskShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The list of tags.
+     *
      * @var string
      */
     public $tagsShrink;
 
     /**
+     * @description The ID of the synthetic monitoring task.
+     *
      * @example 5308a2691f59422c8c3b7aeccxxxxxxx
      *
      * @var string
@@ -79,6 +105,9 @@ class UpdateTimingSyntheticTaskShrinkRequest extends Model
     public $taskId;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     * 1: ICMP. 2: TCP. 3: DNS. 4: HTTP. 5: website speed measurement. 6: file download.
      * @example 1
      *
      * @var int

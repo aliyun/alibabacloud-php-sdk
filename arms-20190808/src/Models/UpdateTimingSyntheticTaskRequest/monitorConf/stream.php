@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class stream extends Model
 {
     /**
+     * @description 自定义header，JSON Map格式。
+     *
      * @var string[]
      */
     public $customHeaderContent;
 
     /**
+     * @description 播放器，不传默认12。
+     *
+     * - 2：FlashPlayer
+     * @example 2
+     *
      * @var int
      */
     public $playerType;
 
     /**
+     * @description 资源地址类型：
+     *
+     * - 0：页面地址。不传默认0。
+     * @example 1
+     *
      * @var int
      */
     public $streamAddressType;
 
     /**
+     * @description 监测时长，单位秒，最长支持60s，不传默认60。
+     *
+     * @example 30
+     *
      * @var int
      */
     public $streamMonitorTimeout;
 
     /**
+     * @description 音视频标志：0-视频，1-音频。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $streamType;
 
     /**
+     * @description 流媒体地址。
+     *
+     * @example http://www.aliyun.com/stream/test.mp4
+     *
      * @var string
      */
     public $targetUrl;
 
     /**
+     * @description DNS劫持白名单。匹配规则支持IP、IP通配符、子网掩码和CNAME，可以填写多个匹配规则，多个匹配规则以竖线（|）隔开。例如：www.aliyun.com:203.0.3.55|203.3.44.67，表示www.aliyun.com域名下除203.0.3.55和203.3.44.67之外的其他IP都是被劫持的。
+     *
+     * @example www.aliyun.com:203.0.3.55|203.3.44.67
+     *
      * @var string
      */
     public $whiteList;

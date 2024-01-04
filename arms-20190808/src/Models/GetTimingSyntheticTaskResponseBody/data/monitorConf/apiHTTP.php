@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class apiHTTP extends Model
 {
     /**
+     * @description The connection timeout period. Unit: milliseconds. Default value: 5000. Minimum value: 1000. Maximum value: 300000.
+     *
      * @example 5000
      *
      * @var int
@@ -17,6 +19,11 @@ class apiHTTP extends Model
     public $connectTimeout;
 
     /**
+     * @description The request method.
+     *
+     *   POST
+     *   GET
+     *
      * @example POST
      *
      * @var string
@@ -24,16 +31,22 @@ class apiHTTP extends Model
     public $method;
 
     /**
+     * @description The HTTP request body.
+     *
      * @var requestBody
      */
     public $requestBody;
 
     /**
+     * @description The HTTP request header.
+     *
      * @var string[]
      */
     public $requestHeaders;
 
     /**
+     * @description The URL for synthetic monitoring.
+     *
      * @example http://127.0.0.1:8090/api/list
      *
      * @var string
@@ -41,6 +54,8 @@ class apiHTTP extends Model
     public $targetUrl;
 
     /**
+     * @description The timeout period. Unit: milliseconds. Default value: 10000. Minimum value: 1000. Maximum value: 300000.
+     *
      * @example 10000
      *
      * @var int

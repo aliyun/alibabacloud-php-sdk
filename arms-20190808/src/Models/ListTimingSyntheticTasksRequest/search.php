@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class search extends Model
 {
     /**
+     * @description The task name.
+     *
+     * @example AlibabaCloud DNS Task
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The order by which tasks are sorted. 1: ascending order. -1: descending order.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +27,8 @@ class search extends Model
     public $order;
 
     /**
+     * @description The condition by which tasks are sorted. You can sort tasks by gmtCreate, gmtModified, status, or monitorCount.
+     *
      * @example status
      *
      * @var string
@@ -28,6 +36,8 @@ class search extends Model
     public $orderField;
 
     /**
+     * @description The page number. This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +45,8 @@ class search extends Model
     public $page;
 
     /**
+     * @description The number of entries per page. This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -42,6 +54,8 @@ class search extends Model
     public $pageSize;
 
     /**
+     * @description The task status. CREATING: The task is being created. RUNNING: The task is running. PARTIAL_RUNNING: The task is partially running. STOP: The task is stopped. LIMIT_STOP: The task is stopped due to quota limit. EXCEPTION: The task is abnormal. DELETE: The task is deleted. DELETE_EXCEPTION: An exception occurs while deleting the task.
+     *
      * @example CREATING
      *
      * @var string
@@ -49,11 +63,15 @@ class search extends Model
     public $status;
 
     /**
+     * @description The task IDs.
+     *
      * @var string[]
      */
     public $taskIds;
 
     /**
+     * @description The task types.
+     *
      * @var int[]
      */
     public $taskTypes;

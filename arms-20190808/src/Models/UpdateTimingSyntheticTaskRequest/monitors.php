@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class monitors extends Model
 {
     /**
+     * @description The city code.
+     *
      * @example 100001
      *
      * @var string
@@ -16,6 +18,8 @@ class monitors extends Model
     public $cityCode;
 
     /**
+     * @description The client type of the monitoring point. Valid values: 1: data center. 2: Internet. 3: mobile device. 4: ECS instance.
+     *
      * @example 4
      *
      * @var int
@@ -23,6 +27,8 @@ class monitors extends Model
     public $clientType;
 
     /**
+     * @description The carrier code.
+     *
      * @example 1
      *
      * @var string

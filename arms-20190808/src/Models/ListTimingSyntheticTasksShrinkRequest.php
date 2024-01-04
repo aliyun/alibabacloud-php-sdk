@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTimingSyntheticTasksShrinkRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class ListTimingSyntheticTasksShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string
@@ -23,11 +27,15 @@ class ListTimingSyntheticTasksShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The search keyword.
+     *
      * @var string
      */
     public $searchShrink;
 
     /**
+     * @description The tags.
+     *
      * @var string
      */
     public $tagsShrink;

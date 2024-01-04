@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class netTCP extends Model
 {
     /**
+     * @description The number of TCP connections that are established in a test. Minimum value: 1. Maximum value: 16. Default value: 4.
+     *
      * @example 4
      *
      * @var int
@@ -16,6 +18,8 @@ class netTCP extends Model
     public $connectTimes;
 
     /**
+     * @description The interval at which TCP connections are established. Unit: milliseconds. Minimum value: 200. Maximum value: 10000. Default value: 200.
+     *
      * @example 300
      *
      * @var int
@@ -23,6 +27,8 @@ class netTCP extends Model
     public $interval;
 
     /**
+     * @description The destination host IP address.
+     *
      * @example 127.0.0.1:8888
      *
      * @var string
@@ -30,6 +36,8 @@ class netTCP extends Model
     public $targetUrl;
 
     /**
+     * @description The timeout period for the TCP synthetic test. Unit: milliseconds. Minimum value: 1000. Maximum value: 300000. Default value: 20000.
+     *
      * @example 1000
      *
      * @var int
@@ -37,6 +45,8 @@ class netTCP extends Model
     public $timeout;
 
     /**
+     * @description Specifies whether to enable the tracert command. Default value: true.
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +54,8 @@ class netTCP extends Model
     public $tracertEnable;
 
     /**
+     * @description The maximum number of hops for tracert. Minimum value: 1. Maximum value: 128. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -51,6 +63,8 @@ class netTCP extends Model
     public $tracertNumMax;
 
     /**
+     * @description The timeout period of tracert. Unit: milliseconds. Minimum value: 1000. Maximum value: 300000. Default value: 60000.
+     *
      * @example 1000
      *
      * @var int

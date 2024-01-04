@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTimingSyntheticTaskRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class GetTimingSyntheticTaskRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the synthetic monitoring task.
+     *
      * @example 856566a9cb2a4cafa05aa95ed0ec8f21
      *
      * @var string

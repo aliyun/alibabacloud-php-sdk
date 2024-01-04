@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetSyntheticMonitorsShrinkRequest extends Model
 {
     /**
+     * @description The query conditions.
+     *
      * @var string
      */
     public $filterShrink;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
