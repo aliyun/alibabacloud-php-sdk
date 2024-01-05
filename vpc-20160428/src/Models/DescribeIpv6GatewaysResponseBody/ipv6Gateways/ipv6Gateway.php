@@ -10,10 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ipv6Gateway extends Model
 {
     /**
-     * @description The state of the IPv6 gateway. Valid values:
+     * @description The status of the IPv6 gateway. Valid values:
      *
-     *   **Normal**: The IPv6 gateway runs as expected.
-     *   **FinancialLocked:** The IPv6 gateway is locked due to overdue payments.
+     *   **Normal**
+     *   **FinancialLocked**
+     *   **SecurityLocked**
      *
      * @example Normal
      *
@@ -86,7 +87,7 @@ class ipv6Gateway extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-bp67acfmxazb4ph****
      *
@@ -97,8 +98,8 @@ class ipv6Gateway extends Model
     /**
      * @description The status of the IPv6 gateway. Valid values:
      *
-     *   **Pending**: The IPv6 gateway is being configured.
-     *   **Available**: The IPv6 gateway is available.
+     *   **Pending**
+     *   **Available**
      *
      * @example Available
      *

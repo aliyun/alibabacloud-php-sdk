@@ -67,6 +67,11 @@ class routerTableListType extends Model
     public $resourceGroupId;
 
     /**
+     * @var bool
+     */
+    public $routePropagationEnable;
+
+    /**
      * @description The ID of the route table.
      *
      * @example vtb-bp145q7glnuzdvzu2****
@@ -153,21 +158,22 @@ class routerTableListType extends Model
      */
     public $vpcId;
     protected $_name = [
-        'associateType'   => 'AssociateType',
-        'creationTime'    => 'CreationTime',
-        'description'     => 'Description',
-        'gatewayIds'      => 'GatewayIds',
-        'ownerId'         => 'OwnerId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'routeTableId'    => 'RouteTableId',
-        'routeTableName'  => 'RouteTableName',
-        'routeTableType'  => 'RouteTableType',
-        'routerId'        => 'RouterId',
-        'routerType'      => 'RouterType',
-        'status'          => 'Status',
-        'tags'            => 'Tags',
-        'vSwitchIds'      => 'VSwitchIds',
-        'vpcId'           => 'VpcId',
+        'associateType'          => 'AssociateType',
+        'creationTime'           => 'CreationTime',
+        'description'            => 'Description',
+        'gatewayIds'             => 'GatewayIds',
+        'ownerId'                => 'OwnerId',
+        'resourceGroupId'        => 'ResourceGroupId',
+        'routePropagationEnable' => 'RoutePropagationEnable',
+        'routeTableId'           => 'RouteTableId',
+        'routeTableName'         => 'RouteTableName',
+        'routeTableType'         => 'RouteTableType',
+        'routerId'               => 'RouterId',
+        'routerType'             => 'RouterType',
+        'status'                 => 'Status',
+        'tags'                   => 'Tags',
+        'vSwitchIds'             => 'VSwitchIds',
+        'vpcId'                  => 'VpcId',
     ];
 
     public function validate()
@@ -194,6 +200,9 @@ class routerTableListType extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->routePropagationEnable) {
+            $res['RoutePropagationEnable'] = $this->routePropagationEnable;
         }
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
@@ -251,6 +260,9 @@ class routerTableListType extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['RoutePropagationEnable'])) {
+            $model->routePropagationEnable = $map['RoutePropagationEnable'];
         }
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];

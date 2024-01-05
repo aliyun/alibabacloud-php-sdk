@@ -56,6 +56,11 @@ class routeEntry extends Model
     public $nextHops;
 
     /**
+     * @var string
+     */
+    public $origin;
+
+    /**
      * @description The ID of the route.
      *
      * @example rte-bp1mnnr2al0naomnp****
@@ -124,6 +129,7 @@ class routeEntry extends Model
         'gmtModified'          => 'GmtModified',
         'ipVersion'            => 'IpVersion',
         'nextHops'             => 'NextHops',
+        'origin'               => 'Origin',
         'routeEntryId'         => 'RouteEntryId',
         'routeEntryName'       => 'RouteEntryName',
         'routeTableId'         => 'RouteTableId',
@@ -153,6 +159,9 @@ class routeEntry extends Model
         }
         if (null !== $this->nextHops) {
             $res['NextHops'] = null !== $this->nextHops ? $this->nextHops->toMap() : null;
+        }
+        if (null !== $this->origin) {
+            $res['Origin'] = $this->origin;
         }
         if (null !== $this->routeEntryId) {
             $res['RouteEntryId'] = $this->routeEntryId;
@@ -198,6 +207,9 @@ class routeEntry extends Model
         }
         if (isset($map['NextHops'])) {
             $model->nextHops = nextHops::fromMap($map['NextHops']);
+        }
+        if (isset($map['Origin'])) {
+            $model->origin = $map['Origin'];
         }
         if (isset($map['RouteEntryId'])) {
             $model->routeEntryId = $map['RouteEntryId'];

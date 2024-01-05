@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponseBody\associatedCens;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponseBody\associatedPropagationSources;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponseBody\cloudResources;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponseBody\ipv6CidrBlocks;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponseBody\secondaryCidrBlocks;
@@ -22,6 +23,11 @@ class DescribeVpcAttributeResponseBody extends Model
      * @var associatedCens
      */
     public $associatedCens;
+
+    /**
+     * @var associatedPropagationSources
+     */
+    public $associatedPropagationSources;
 
     /**
      * @description The IPv4 CIDR block of the VPC.
@@ -244,31 +250,32 @@ class DescribeVpcAttributeResponseBody extends Model
      */
     public $vpcName;
     protected $_name = [
-        'associatedCens'       => 'AssociatedCens',
-        'cidrBlock'            => 'CidrBlock',
-        'classicLinkEnabled'   => 'ClassicLinkEnabled',
-        'cloudResources'       => 'CloudResources',
-        'creationTime'         => 'CreationTime',
-        'description'          => 'Description',
-        'dhcpOptionsSetId'     => 'DhcpOptionsSetId',
-        'dhcpOptionsSetStatus' => 'DhcpOptionsSetStatus',
-        'ipv4GatewayId'        => 'Ipv4GatewayId',
-        'ipv6CidrBlock'        => 'Ipv6CidrBlock',
-        'ipv6CidrBlocks'       => 'Ipv6CidrBlocks',
-        'isDefault'            => 'IsDefault',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'requestId'            => 'RequestId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'secondaryCidrBlocks'  => 'SecondaryCidrBlocks',
-        'status'               => 'Status',
-        'supportIpv4Gateway'   => 'SupportIpv4Gateway',
-        'tags'                 => 'Tags',
-        'userCidrs'            => 'UserCidrs',
-        'VRouterId'            => 'VRouterId',
-        'vSwitchIds'           => 'VSwitchIds',
-        'vpcId'                => 'VpcId',
-        'vpcName'              => 'VpcName',
+        'associatedCens'               => 'AssociatedCens',
+        'associatedPropagationSources' => 'AssociatedPropagationSources',
+        'cidrBlock'                    => 'CidrBlock',
+        'classicLinkEnabled'           => 'ClassicLinkEnabled',
+        'cloudResources'               => 'CloudResources',
+        'creationTime'                 => 'CreationTime',
+        'description'                  => 'Description',
+        'dhcpOptionsSetId'             => 'DhcpOptionsSetId',
+        'dhcpOptionsSetStatus'         => 'DhcpOptionsSetStatus',
+        'ipv4GatewayId'                => 'Ipv4GatewayId',
+        'ipv6CidrBlock'                => 'Ipv6CidrBlock',
+        'ipv6CidrBlocks'               => 'Ipv6CidrBlocks',
+        'isDefault'                    => 'IsDefault',
+        'ownerId'                      => 'OwnerId',
+        'regionId'                     => 'RegionId',
+        'requestId'                    => 'RequestId',
+        'resourceGroupId'              => 'ResourceGroupId',
+        'secondaryCidrBlocks'          => 'SecondaryCidrBlocks',
+        'status'                       => 'Status',
+        'supportIpv4Gateway'           => 'SupportIpv4Gateway',
+        'tags'                         => 'Tags',
+        'userCidrs'                    => 'UserCidrs',
+        'VRouterId'                    => 'VRouterId',
+        'vSwitchIds'                   => 'VSwitchIds',
+        'vpcId'                        => 'VpcId',
+        'vpcName'                      => 'VpcName',
     ];
 
     public function validate()
@@ -280,6 +287,9 @@ class DescribeVpcAttributeResponseBody extends Model
         $res = [];
         if (null !== $this->associatedCens) {
             $res['AssociatedCens'] = null !== $this->associatedCens ? $this->associatedCens->toMap() : null;
+        }
+        if (null !== $this->associatedPropagationSources) {
+            $res['AssociatedPropagationSources'] = null !== $this->associatedPropagationSources ? $this->associatedPropagationSources->toMap() : null;
         }
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
@@ -367,6 +377,9 @@ class DescribeVpcAttributeResponseBody extends Model
         $model = new self();
         if (isset($map['AssociatedCens'])) {
             $model->associatedCens = associatedCens::fromMap($map['AssociatedCens']);
+        }
+        if (isset($map['AssociatedPropagationSources'])) {
+            $model->associatedPropagationSources = associatedPropagationSources::fromMap($map['AssociatedPropagationSources']);
         }
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
