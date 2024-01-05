@@ -16,13 +16,6 @@ class DBClusterList extends Model
     public $cacheStorageSizeGB;
 
     /**
-     * @example 200
-     *
-     * @var int
-     */
-    public $cacheStorageSizeGiB;
-
-    /**
      * @example cloud_essd
      *
      * @var string
@@ -84,13 +77,6 @@ class DBClusterList extends Model
     public $memory;
 
     /**
-     * @example 0
-     *
-     * @var int
-     */
-    public $objectStoreSizeGiB;
-
-    /**
      * @example PL1
      *
      * @var string
@@ -111,21 +97,19 @@ class DBClusterList extends Model
      */
     public $status;
     protected $_name = [
-        'cacheStorageSizeGB'  => 'CacheStorageSizeGB',
-        'cacheStorageSizeGiB' => 'CacheStorageSizeGiB',
-        'cacheStorageType'    => 'CacheStorageType',
-        'chargeType'          => 'ChargeType',
-        'cpuCores'            => 'CpuCores',
-        'createdTime'         => 'CreatedTime',
-        'dbClusterClass'      => 'DbClusterClass',
-        'dbClusterId'         => 'DbClusterId',
-        'dbClusterName'       => 'DbClusterName',
-        'dbInstanceName'      => 'DbInstanceName',
-        'memory'              => 'Memory',
-        'objectStoreSizeGiB'  => 'ObjectStoreSizeGiB',
-        'performanceLevel'    => 'PerformanceLevel',
-        'startTime'           => 'StartTime',
-        'status'              => 'Status',
+        'cacheStorageSizeGB' => 'CacheStorageSizeGB',
+        'cacheStorageType'   => 'CacheStorageType',
+        'chargeType'         => 'ChargeType',
+        'cpuCores'           => 'CpuCores',
+        'createdTime'        => 'CreatedTime',
+        'dbClusterClass'     => 'DbClusterClass',
+        'dbClusterId'        => 'DbClusterId',
+        'dbClusterName'      => 'DbClusterName',
+        'dbInstanceName'     => 'DbInstanceName',
+        'memory'             => 'Memory',
+        'performanceLevel'   => 'PerformanceLevel',
+        'startTime'          => 'StartTime',
+        'status'             => 'Status',
     ];
 
     public function validate()
@@ -137,9 +121,6 @@ class DBClusterList extends Model
         $res = [];
         if (null !== $this->cacheStorageSizeGB) {
             $res['CacheStorageSizeGB'] = $this->cacheStorageSizeGB;
-        }
-        if (null !== $this->cacheStorageSizeGiB) {
-            $res['CacheStorageSizeGiB'] = $this->cacheStorageSizeGiB;
         }
         if (null !== $this->cacheStorageType) {
             $res['CacheStorageType'] = $this->cacheStorageType;
@@ -168,9 +149,6 @@ class DBClusterList extends Model
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
-        if (null !== $this->objectStoreSizeGiB) {
-            $res['ObjectStoreSizeGiB'] = $this->objectStoreSizeGiB;
-        }
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
         }
@@ -194,9 +172,6 @@ class DBClusterList extends Model
         $model = new self();
         if (isset($map['CacheStorageSizeGB'])) {
             $model->cacheStorageSizeGB = $map['CacheStorageSizeGB'];
-        }
-        if (isset($map['CacheStorageSizeGiB'])) {
-            $model->cacheStorageSizeGiB = $map['CacheStorageSizeGiB'];
         }
         if (isset($map['CacheStorageType'])) {
             $model->cacheStorageType = $map['CacheStorageType'];
@@ -224,9 +199,6 @@ class DBClusterList extends Model
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
-        }
-        if (isset($map['ObjectStoreSizeGiB'])) {
-            $model->objectStoreSizeGiB = $map['ObjectStoreSizeGiB'];
         }
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];

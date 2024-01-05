@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceNetInfoResponseBody;
 
-use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceNetInfoResponseBody\DBInstanceNetInfos\portList;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceNetInfoResponseBody\DBClustersNetInfos\portList;
 use AlibabaCloud\Tea\Model;
 
-class DBInstanceNetInfos extends Model
+class DBClustersNetInfos extends Model
 {
     /**
      * @var string
@@ -15,22 +15,16 @@ class DBInstanceNetInfos extends Model
     public $clusterId;
 
     /**
-     * @example selectdb-cn-h033cnd****-fe.selectdbfe.pre.rds.aliyuncs.com
-     *
      * @var string
      */
     public $connectionString;
 
     /**
-     * @example 172.16.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @example VPC
-     *
      * @var string
      */
     public $netType;
@@ -41,31 +35,21 @@ class DBInstanceNetInfos extends Model
     public $portList;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $userVisible;
 
     /**
-     * @description VPC ID。
-     *
-     * @example vpc-wz90scxq6ods388ft****
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @example selectdb-cn-h033cnd****-fe-20230816101006
-     *
      * @var string
      */
     public $vpcInstanceId;
 
     /**
-     * @example vsw-uf6mlqti065rer6m0****
-     *
      * @var string
      */
     public $vswitchId;
@@ -128,7 +112,7 @@ class DBInstanceNetInfos extends Model
     /**
      * @param array $map
      *
-     * @return DBInstanceNetInfos
+     * @return DBClustersNetInfos
      */
     public static function fromMap($map = [])
     {

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceNetInfoResponseBody\DBClustersNetInfos;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceNetInfoResponseBody\DBInstanceNetInfos;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstanceNetInfoResponseBody extends Model
 {
+    /**
+     * @var DBClustersNetInfos[]
+     */
+    public $DBClustersNetInfos;
+
     /**
      * @var DBInstanceNetInfos[]
      */
@@ -21,6 +27,7 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'DBClustersNetInfos' => 'DBClustersNetInfos',
         'DBInstanceNetInfos' => 'DBInstanceNetInfos',
         'requestId'          => 'RequestId',
     ];
@@ -32,6 +39,15 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClustersNetInfos) {
+            $res['DBClustersNetInfos'] = [];
+            if (null !== $this->DBClustersNetInfos && \is_array($this->DBClustersNetInfos)) {
+                $n = 0;
+                foreach ($this->DBClustersNetInfos as $item) {
+                    $res['DBClustersNetInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->DBInstanceNetInfos) {
             $res['DBInstanceNetInfos'] = [];
             if (null !== $this->DBInstanceNetInfos && \is_array($this->DBInstanceNetInfos)) {
@@ -56,6 +72,15 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClustersNetInfos'])) {
+            if (!empty($map['DBClustersNetInfos'])) {
+                $model->DBClustersNetInfos = [];
+                $n                         = 0;
+                foreach ($map['DBClustersNetInfos'] as $item) {
+                    $model->DBClustersNetInfos[$n++] = null !== $item ? DBClustersNetInfos::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['DBInstanceNetInfos'])) {
             if (!empty($map['DBInstanceNetInfos'])) {
                 $model->DBInstanceNetInfos = [];

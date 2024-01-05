@@ -88,13 +88,6 @@ class CreateDBClusterRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @example 32
-     *
-     * @var string
-     */
-    public $storageSize;
-
-    /**
      * @example 1
      *
      * @var string
@@ -135,7 +128,6 @@ class CreateDBClusterRequest extends Model
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'storageSize'          => 'StorageSize',
         'usedTime'             => 'UsedTime',
         'vSwitchId'            => 'VSwitchId',
         'vpcId'                => 'VpcId',
@@ -181,9 +173,6 @@ class CreateDBClusterRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->storageSize) {
-            $res['StorageSize'] = $this->storageSize;
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -241,9 +230,6 @@ class CreateDBClusterRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['StorageSize'])) {
-            $model->storageSize = $map['StorageSize'];
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];

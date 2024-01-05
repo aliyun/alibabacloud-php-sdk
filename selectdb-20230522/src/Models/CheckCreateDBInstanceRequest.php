@@ -96,13 +96,6 @@ class CheckCreateDBInstanceRequest extends Model
     public $securityIPList;
 
     /**
-     * @example 32
-     *
-     * @var string
-     */
-    public $storageSize;
-
-    /**
      * @example 1
      *
      * @var int
@@ -145,7 +138,6 @@ class CheckCreateDBInstanceRequest extends Model
         'resourceGroupId'       => 'ResourceGroupId',
         'resourceOwnerId'       => 'ResourceOwnerId',
         'securityIPList'        => 'SecurityIPList',
-        'storageSize'           => 'StorageSize',
         'usedTime'              => 'UsedTime',
         'vSwitchId'             => 'VSwitchId',
         'vpcId'                 => 'VpcId',
@@ -197,9 +189,6 @@ class CheckCreateDBInstanceRequest extends Model
         }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
-        }
-        if (null !== $this->storageSize) {
-            $res['StorageSize'] = $this->storageSize;
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -263,9 +252,6 @@ class CheckCreateDBInstanceRequest extends Model
         }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
-        }
-        if (isset($map['StorageSize'])) {
-            $model->storageSize = $map['StorageSize'];
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];

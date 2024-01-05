@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesResponseBody;
 
-use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesResponseBody\items\DBClusterList;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesResponseBody\items\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -30,18 +29,6 @@ class items extends Model
      * @var int
      */
     public $clusterCount;
-
-    /**
-     * @example 2023-08-12T04:14Z
-     *
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var DBClusterList[]
-     */
-    public $DBClusterList;
 
     /**
      * @example selectdb-cn-7213cjv****
@@ -89,13 +76,6 @@ class items extends Model
      * @var string
      */
     public $gmtModified;
-
-    /**
-     * @example selectdb.2xlarge
-     *
-     * @var string
-     */
-    public $instanceClass;
 
     /**
      * @example Instance
@@ -274,8 +254,6 @@ class items extends Model
         'category'             => 'Category',
         'chargeType'           => 'ChargeType',
         'clusterCount'         => 'ClusterCount',
-        'createTime'           => 'CreateTime',
-        'DBClusterList'        => 'DBClusterList',
         'DBInstanceId'         => 'DBInstanceId',
         'description'          => 'Description',
         'engine'               => 'Engine',
@@ -283,7 +261,6 @@ class items extends Model
         'expireTime'           => 'ExpireTime',
         'gmtCreated'           => 'GmtCreated',
         'gmtModified'          => 'GmtModified',
-        'instanceClass'        => 'InstanceClass',
         'instanceUsedType'     => 'InstanceUsedType',
         'isDeleted'            => 'IsDeleted',
         'lockMode'             => 'LockMode',
@@ -330,18 +307,6 @@ class items extends Model
         if (null !== $this->clusterCount) {
             $res['ClusterCount'] = $this->clusterCount;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->DBClusterList) {
-            $res['DBClusterList'] = [];
-            if (null !== $this->DBClusterList && \is_array($this->DBClusterList)) {
-                $n = 0;
-                foreach ($this->DBClusterList as $item) {
-                    $res['DBClusterList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -362,9 +327,6 @@ class items extends Model
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
-        }
-        if (null !== $this->instanceClass) {
-            $res['InstanceClass'] = $this->instanceClass;
         }
         if (null !== $this->instanceUsedType) {
             $res['InstanceUsedType'] = $this->instanceUsedType;
@@ -477,18 +439,6 @@ class items extends Model
         if (isset($map['ClusterCount'])) {
             $model->clusterCount = $map['ClusterCount'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['DBClusterList'])) {
-            if (!empty($map['DBClusterList'])) {
-                $model->DBClusterList = [];
-                $n                    = 0;
-                foreach ($map['DBClusterList'] as $item) {
-                    $model->DBClusterList[$n++] = null !== $item ? DBClusterList::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
@@ -509,9 +459,6 @@ class items extends Model
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
-        }
-        if (isset($map['InstanceClass'])) {
-            $model->instanceClass = $map['InstanceClass'];
         }
         if (isset($map['InstanceUsedType'])) {
             $model->instanceUsedType = $map['InstanceUsedType'];

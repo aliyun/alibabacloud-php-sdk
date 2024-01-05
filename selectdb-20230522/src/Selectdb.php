@@ -193,9 +193,6 @@ class Selectdb extends OpenApiClient
         if (!Utils::isUnset($request->securityIPList)) {
             $query['SecurityIPList'] = $request->securityIPList;
         }
-        if (!Utils::isUnset($request->storageSize)) {
-            $query['StorageSize'] = $request->storageSize;
-        }
         if (!Utils::isUnset($request->usedTime)) {
             $query['UsedTime'] = $request->usedTime;
         }
@@ -321,9 +318,6 @@ class Selectdb extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->storageSize)) {
-            $query['StorageSize'] = $request->storageSize;
-        }
         if (!Utils::isUnset($request->usedTime)) {
             $query['UsedTime'] = $request->usedTime;
         }
@@ -419,9 +413,6 @@ class Selectdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityIPList)) {
             $query['SecurityIPList'] = $request->securityIPList;
-        }
-        if (!Utils::isUnset($request->storageSize)) {
-            $query['StorageSize'] = $request->storageSize;
         }
         if (!Utils::isUnset($request->usedTime)) {
             $query['UsedTime'] = $request->usedTime;
