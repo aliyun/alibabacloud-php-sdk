@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The type of the application. Valid values:
+     * @description The application type. Valid values:
      *
-     *   **SQL**: SQL application
-     *   **STREAMING**: streaming application
-     *   **BATCH**: batch application
+     *   **SQL**
+     *   **STREAMING**
+     *   **BATCH**
      *
      * @example SQL
      *
@@ -22,7 +22,7 @@ class data extends Model
     public $appType;
 
     /**
-     * @description The content of the template.
+     * @description The content of the application template.
      *
      * @example set spark.driver.resourceSpec=medium;set spark.executor.instances=2;set spark.executor.resourceSpec=medium;set spark.app.name=Spark SQL Test;
      *
@@ -31,7 +31,7 @@ class data extends Model
     public $content;
 
     /**
-     * @description The ID of the application template.
+     * @description The application template ID.
      *
      * @example 725204
      *
@@ -49,7 +49,7 @@ class data extends Model
     public $resourceGroupName;
 
     /**
-     * @description The type of the file. Valid values:
+     * @description The file type. Valid values:
      *
      *   **folder**
      *   **file**

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CS extends Model
 {
     /**
+     * @description The number of healthy access nodes.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class CS extends Model
     public $activeCount;
 
     /**
+     * @description The total number of access nodes.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class CS extends Model
     public $expectedCount;
 
     /**
+     * @description The number of risky nodes.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,12 @@ class CS extends Model
     public $riskCount;
 
     /**
+     * @description The health state of access nodes. Valid values:
+     *
+     *   **RISK**
+     *   **NORMAL**
+     *   **UNAVAILABLE**
+     *
      * @example NORMAL
      *
      * @var string
@@ -37,6 +49,8 @@ class CS extends Model
     public $status;
 
     /**
+     * @description The number of unavailable access nodes.
+     *
      * @example 0
      *
      * @var int

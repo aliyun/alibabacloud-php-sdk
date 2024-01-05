@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class groupsInfo extends Model
 {
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $clusterMode;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $clusterSizeResource;
@@ -28,7 +36,7 @@ class groupsInfo extends Model
     public $createTime;
 
     /**
-     * @description The amount of minimum elastic computing resources. Unit: ACU.
+     * @description The minimum amount of elastic computing resources. Unit: ACUs.
      *
      * @example 16ACU
      *
@@ -51,7 +59,7 @@ class groupsInfo extends Model
      *   **Interactive**
      *   **Job**
      *
-     * > For information about resource groups of Data Lakehouse Edition, see [Resource groups](~~428610~~).
+     * >  For more information about resource groups, see [Resource groups](~~428610~~).
      * @example Job
      *
      * @var string
@@ -68,12 +76,16 @@ class groupsInfo extends Model
     public $groupUsers;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var int
      */
     public $maxClusterCount;
 
     /**
-     * @description The maximum amount of reserved computing resources. Unit: ACU.
+     * @description The maximum amount of reserved computing resources. Unit: ACUs.
      *
      * @example 512ACU
      *
@@ -82,12 +94,16 @@ class groupsInfo extends Model
     public $maxComputeResource;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var int
      */
     public $minClusterCount;
 
     /**
-     * @description The minimum amount of reserved computing resources. Unit: AnalyticDB compute unit (ACU).
+     * @description The minimum amount of reserved computing resources. Unit: AnalyticDB compute units (ACUs).
      *
      * @example 0ACU
      *
@@ -96,6 +112,10 @@ class groupsInfo extends Model
     public $minComputeResource;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var int
      */
     public $runningClusterCount;
@@ -103,9 +123,9 @@ class groupsInfo extends Model
     /**
      * @description The state of the resource group. Valid values:
      *
-     *   **creating**
-     *   **ok**
-     *   **pendingdelete**
+     *   **creating**: The resource group is being created.
+     *   **ok**: The resource group is created.
+     *   **pendingdelete**: The resource group is pending to be deleted.
      *
      * @example ok
      *

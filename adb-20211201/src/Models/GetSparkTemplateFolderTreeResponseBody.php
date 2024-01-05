@@ -13,20 +13,20 @@ class GetSparkTemplateFolderTreeResponseBody extends Model
      *
      *   **Uid**: the UID of the Alibaba Cloud account.
      *
-     *   **Type**: the type of the application template. Valid values: **FOLDER**: directory.
+     *   **Type**: the application template type. Valid values: **FOLDER**
      *
      *   **Parent**: indicates whether a child directory exists. Valid values:
      *
-     *   **0**: No child directory exists.
-     *   **-1**: A child directory exists.
+     *   **0**: no.
+     *   **-1**: yes.
      *
      *   **Children**: the child directory.
      *
-     *   **LastModified**: the time when applications in the directory are last modified. The time is displayed in the UNIX timestamp format. Unit: seconds.
+     *   **LastModified**: the time when applications in the directory are last modified. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      *   **Name**: the name of the directory.
      *
-     *   **Id**: the ID of the directory.
+     *   **Id**: the directory ID.
      *
      * @example {           "Uid":195813423****,           "Type":"FOLDER",          "Parent":-1,           "Children":[              {                     "LastModified":1647853173,               "Uid":195813423****,                     "Type":"FOLDER",                     "Parent":0,                     "Id":157,                     "Name":"t"         }       ],            "Id":725204,            "Name":"root"      }
      *
@@ -35,7 +35,7 @@ class GetSparkTemplateFolderTreeResponseBody extends Model
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *

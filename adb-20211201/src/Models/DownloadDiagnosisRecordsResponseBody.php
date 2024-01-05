@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DownloadDiagnosisRecordsResponseBody extends Model
 {
     /**
+     * @description The download ID.
+     *
      * @example 25494
      *
      * @var int
@@ -16,6 +18,8 @@ class DownloadDiagnosisRecordsResponseBody extends Model
     public $downloadId;
 
     /**
+     * @description The request ID.
+     *
      * @example 845774AC-5D43-53A2-AAB8-C73828E68508
      *
      * @var string

@@ -11,7 +11,7 @@ class UpdateSparkTemplateFileRequest extends Model
     /**
      * @description The template data to be updated.
      *
-     * >  If you do not specify this parameter, the application template is not updated. For more information about how to configure an application template, see [Configure a Spark application](~~452402~~).
+     * >  If you do not specify this parameter, the application template is not updated. For information about how to configure a Spark application template, see [Configure a Spark application](~~452402~~).
      * @example set spark.driver.resourceSpec=medium;set spark.executor.instances=2;set spark.executor.resourceSpec=medium;set spark.app.name=Spark SQL Test;
      *
      * @var string
@@ -28,9 +28,9 @@ class UpdateSparkTemplateFileRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The ID of the application template.
+     * @description The application template ID.
      *
-     * >  You can call the [GetSparkTemplateFullTree](~~456205~~) operation to query the template ID.
+     * >  You can call the [GetSparkTemplateFullTree](~~456205~~) operation to query the application template ID.
      * @example 718056
      *
      * @var int

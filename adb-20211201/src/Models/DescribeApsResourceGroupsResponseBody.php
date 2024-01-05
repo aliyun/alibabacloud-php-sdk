@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeApsResourceGroupsResponseBody extends Model
 {
     /**
+     * @description The queried resource groups.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -22,6 +26,11 @@ class DescribeApsResourceGroupsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
+     *   If the request was successful, a success message is returned.
+     *   If the request failed, an error message is returned.
+     *
      * @example Success
      *
      * @var string
@@ -29,6 +38,8 @@ class DescribeApsResourceGroupsResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 6FC370D7-1D4C-5A8E-805E-F73366382C66
      *
      * @var string
@@ -36,6 +47,11 @@ class DescribeApsResourceGroupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example True
      *
      * @var bool

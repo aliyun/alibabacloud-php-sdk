@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisSQLInfoResponseBody extends Model
 {
     /**
+     * @description The queried execution information, including the SQL statement, statistics, execution plan, and operator information.
+     *
      * @example {     "DiagnosisSQLInfo": {         "hasSharedStage": false,         "resourceGroup": "user_default",         "cost": 274,         "queuedTime": 0,         "outputDataSize": 9,         "scheduled": true,         "query": "/*+display=tpch_q14*\/SELECT 100.00 * SUM(CASE WHEN p_type LIKE \"PROMO%\" THEN l_extendedprice * (1 - l_discount) ELSE 0 END) / SUM(l_extendedprice * (1 - l_discount)) AS promo_revenue FROM lineitem l, part p WHERE l_partkey = p_partkey AND l_shipdate &gt;= DATE \"1995-09-01\" AND l_shipdate &lt; DATE \"1995-09-01\" + INTERVAL \"1\" MONTH",         "outputRows": 1,         "userName": "test_user",         "parentId": 0,         "maxOutputRows": 200000,         "scanSize": 8247470,         "peakMemory": 13188295,         "startTime": 1626330527632,         "state": "FINISHED",         "endTime": 1626330527905,         "writeTableRows": 0,         "scanRows": 351966     } }
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $diagnosisSQLInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 1
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The queried execution information by stage.
+     *
      * @var stageInfos[]
      */
     public $stageInfos;

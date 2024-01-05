@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetSparkConfigLogPathResponseBody extends Model
 {
     /**
-     * @description The returned data.
+     * @description The queried Spark log configuration.
      *
      * @var data
      */

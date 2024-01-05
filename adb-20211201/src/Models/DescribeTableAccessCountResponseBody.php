@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeTableAccessCountResponseBody extends Model
 {
     /**
+     * @description The queried tables.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeTableAccessCountResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 30
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeTableAccessCountResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 6B7D627B-DA23-572D-AD71-256F64698B7D
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeTableAccessCountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

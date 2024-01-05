@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The AnalyticDB compute unit (ACU) usage of the cluster.
+     *
      * @var acuInfo[]
      */
     public $acuInfo;
 
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
      * @example amv-bp1bg858bo8c****
      *
      * @var string
@@ -22,6 +26,8 @@ class data extends Model
     public $DBClusterId;
 
     /**
+     * @description The end time of the query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-08-23T01:06:00Z
      *
      * @var string
@@ -29,6 +35,8 @@ class data extends Model
     public $endTime;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2022-08-22T01:06:00Z
      *
      * @var string

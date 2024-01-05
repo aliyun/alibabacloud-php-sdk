@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadRecordsRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
      * @example amv-8vb6ha79k6e****
      *
      * @var string
@@ -16,6 +19,13 @@ class DescribeDownloadRecordsRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The language of the returned data. Valid values:
+     *
+     *   **zh**: simplified Chinese.
+     *   **en**: English.
+     *   **ja**: Japanese.
+     *   **zh-tw**: traditional Chinese.
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +33,8 @@ class DescribeDownloadRecordsRequest extends Model
     public $lang;
 
     /**
+     * @description The region ID of the cluster.
+     *
      * @example cn-hangzhou
      *
      * @var string

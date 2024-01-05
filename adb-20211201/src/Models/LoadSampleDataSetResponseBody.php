@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LoadSampleDataSetResponseBody extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
      * @example amv-2ze0z517o1mgp66a
      *
      * @var string
@@ -16,6 +18,8 @@ class LoadSampleDataSetResponseBody extends Model
     public $DBClusterId;
 
     /**
+     * @description The request ID.
+     *
      * @example FA31BE84-ABE8-554A-A769-5F860C34EE10
      *
      * @var string

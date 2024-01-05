@@ -11,8 +11,8 @@ class data extends Model
     /**
      * @description Indicates whether the application template is created. Valid values:
      *
-     *   **true**: The application template is created.
-     *   **false**: The application fails to be created.
+     *   **True**
+     *   **False**
      *
      * @example True
      *

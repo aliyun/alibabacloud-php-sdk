@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateOssSubDirectoryResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The response code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -22,6 +26,11 @@ class CreateOssSubDirectoryResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
+     *   If the request was successful, a **success** message is returned.
+     *   If the request failed, an error message is returned.
+     *
      * @example Success
      *
      * @var string
@@ -29,6 +38,8 @@ class CreateOssSubDirectoryResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 3A0DE2E0-A37B-5EE4-9136-C4C473714802
      *
      * @var string
@@ -36,6 +47,11 @@ class CreateOssSubDirectoryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example True
      *
      * @var bool

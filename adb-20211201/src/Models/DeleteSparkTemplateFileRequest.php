@@ -20,7 +20,7 @@ class DeleteSparkTemplateFileRequest extends Model
     /**
      * @description The ID of the template file to be deleted.
      *
-     * >  You can call the [GetSparkTemplateFullTree](~~456205#doc-api-adb-GetSparkTemplateFullTree~~) operation to query the IDs of all existing template files.
+     * >  You can call the [GetSparkTemplateFullTree](~~456205~~) operation to query all template file IDs.
      * @example 284
      *
      * @var int

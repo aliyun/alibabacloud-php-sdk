@@ -18,9 +18,9 @@ class GetSparkTemplateFileContentRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The ID of the application template.
+     * @description The application template ID.
      *
-     * >  You can call the [GetSparkTemplateFullTree](~~456205~~) operation to query the template ID.
+     * >  You can call the [GetSparkTemplateFullTree](~~456205~~) operation to query the application template ID.
      * @example 725204
      *
      * @var int

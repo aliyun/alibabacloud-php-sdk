@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class stageInfos extends Model
 {
     /**
+     * @description The total amount of input data in the stage. Unit: bytes.
+     *
      * @example 2341
      *
      * @var int
@@ -16,6 +18,8 @@ class stageInfos extends Model
     public $inputDataSize;
 
     /**
+     * @description The total number of input rows in the stage.
+     *
      * @example 2341
      *
      * @var int
@@ -23,6 +27,8 @@ class stageInfos extends Model
     public $inputRows;
 
     /**
+     * @description The total amount of time consumed by all operators in the stage. Unit: milliseconds.
+     *
      * @example 2341
      *
      * @var int
@@ -30,6 +36,8 @@ class stageInfos extends Model
     public $operatorCost;
 
     /**
+     * @description The total amount of output data in the stage. Unit: bytes.
+     *
      * @example 2341
      *
      * @var int
@@ -37,6 +45,8 @@ class stageInfos extends Model
     public $outputDataSize;
 
     /**
+     * @description The total number of output rows in the stage.
+     *
      * @example 2341
      *
      * @var int
@@ -44,6 +54,8 @@ class stageInfos extends Model
     public $outputRows;
 
     /**
+     * @description The total peak memory of the stage. Unit: bytes.
+     *
      * @example 2341
      *
      * @var int
@@ -51,6 +63,8 @@ class stageInfos extends Model
     public $peakMemory;
 
     /**
+     * @description The execution progress of the stage.
+     *
      * @example 0.3
      *
      * @var float
@@ -58,7 +72,7 @@ class stageInfos extends Model
     public $progress;
 
     /**
-     * @description StageID。
+     * @description The stage ID.
      *
      * @example Stage[26]
      *
@@ -67,6 +81,8 @@ class stageInfos extends Model
     public $stageId;
 
     /**
+     * @description The state of the stage.
+     *
      * @example RUNNING
      *
      * @var string

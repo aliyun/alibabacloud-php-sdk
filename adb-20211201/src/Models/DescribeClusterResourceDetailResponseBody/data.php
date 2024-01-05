@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The amount of reserved computing resources. Unit: AnalyticDB compute units (ACUs). Valid values: 0 to 4096. The value must be in increments of 16 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
+     *
      * @example 16ACU
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $computeResource;
 
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
      * @example amv-adbxxxxx
      *
      * @var string
@@ -24,6 +28,8 @@ class data extends Model
     public $DBClusterId;
 
     /**
+     * @description The amount of idle reserved computing resources. Unit: ACUs. Valid values: 0 to 4096. The value must be in increments of 16 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
+     *
      * @example 0ACU
      *
      * @var string
@@ -31,11 +37,15 @@ class data extends Model
     public $freeComputeResource;
 
     /**
+     * @description The resource groups.
+     *
      * @var resourceGroupList[]
      */
     public $resourceGroupList;
 
     /**
+     * @description The amount of reserved storage resources. Unit: ACUs. Valid values: 0 to 2064. The value must be in increments of 24 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
+     *
      * @example 24ACU
      *
      * @var string

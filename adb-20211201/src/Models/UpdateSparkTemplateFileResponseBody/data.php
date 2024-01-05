@@ -11,8 +11,8 @@ class data extends Model
     /**
      * @description Indicates whether the application template is updated.
      *
-     *   **true**: The application template is updated.
-     *   **false**: The application template fails to be updated.
+     *   **True**
+     *   **False**
      *
      * @example True
      *

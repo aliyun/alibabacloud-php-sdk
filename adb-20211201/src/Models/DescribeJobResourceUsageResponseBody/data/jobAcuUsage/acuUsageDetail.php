@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class acuUsageDetail extends Model
 {
     /**
+     * @description The number of ACUs for the elastic resources.
+     *
      * @example 16ACU
      *
      * @var float
@@ -16,6 +18,8 @@ class acuUsageDetail extends Model
     public $elasticAcuNumber;
 
     /**
+     * @description The number of ACUs for the reserved resources.
+     *
      * @example 16ACU
      *
      * @var float
@@ -23,6 +27,8 @@ class acuUsageDetail extends Model
     public $reservedAcuNumber;
 
     /**
+     * @description The total number of ACUs.
+     *
      * @example 32ACU
      *
      * @var float

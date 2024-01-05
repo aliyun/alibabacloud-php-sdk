@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetSparkAppWebUiAddressResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description The returned data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D65A809F-34CE-4550-9BC1-0ED21ETG380
      *

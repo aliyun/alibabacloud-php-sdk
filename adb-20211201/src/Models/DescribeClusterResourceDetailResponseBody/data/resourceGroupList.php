@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceGroupList extends Model
 {
     /**
+     * @description A reserved parameter.
+     *
      * @example 0
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceGroupList extends Model
     public $clusterMode;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example 0
      *
      * @var string
@@ -23,6 +27,8 @@ class resourceGroupList extends Model
     public $clusterSizeResource;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class resourceGroupList extends Model
     public $maxClusterCount;
 
     /**
+     * @description The maximum amount of reserved computing resources. Unit: ACUs.
+     *
      * @example 128ACU
      *
      * @var string
@@ -37,6 +45,8 @@ class resourceGroupList extends Model
     public $maxComputeResource;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +54,8 @@ class resourceGroupList extends Model
     public $minClusterCount;
 
     /**
+     * @description The minimum amount of reserved computing resources. Unit: ACUs.
+     *
      * @example 16ACU
      *
      * @var string
@@ -51,6 +63,8 @@ class resourceGroupList extends Model
     public $minComputeResource;
 
     /**
+     * @description The resource group ID.
+     *
      * @example 17
      *
      * @var int
@@ -58,6 +72,8 @@ class resourceGroupList extends Model
     public $poolId;
 
     /**
+     * @description The name of the resource group.
+     *
      * @example testadb
      *
      * @var string
@@ -65,6 +81,8 @@ class resourceGroupList extends Model
     public $poolName;
 
     /**
+     * @description The type of the resource group.
+     *
      * @example interactive
      *
      * @var string
@@ -72,6 +90,8 @@ class resourceGroupList extends Model
     public $poolType;
 
     /**
+     * @description The user of the resource group.
+     *
      * @example user1
      *
      * @var string
@@ -79,6 +99,8 @@ class resourceGroupList extends Model
     public $poolUsers;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example 0
      *
      * @var int
@@ -86,6 +108,12 @@ class resourceGroupList extends Model
     public $runningClusterCount;
 
     /**
+     * @description The state of the resource group. Valid values:
+     *
+     *   **running**
+     *   **deleting**
+     *   **scaling**
+     *
      * @example running
      *
      * @var string

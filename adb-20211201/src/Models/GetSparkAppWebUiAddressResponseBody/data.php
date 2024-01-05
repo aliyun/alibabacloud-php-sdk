@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the Spark application.
+     * @description The Spark application ID.
      *
      * @example s202205201533hz1209892000****
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $appId;
 
     /**
-     * @description The ID of the Database.
+     * @description The database ID.
      *
      * @example amv-clusterxxx
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $DBClusterId;
 
     /**
-     * @description The expiration time. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The expiration time. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1655801973000
      *

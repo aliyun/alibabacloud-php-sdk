@@ -11,8 +11,11 @@ class jobs extends Model
     /**
      * @description The amount of elastic resources.
      *
-     * > *   If the Type parameter is set to EXECUTOR, ElasticAcu indicates the amount of elastic resources in the current resource group.
-     * > *   If the Type parameter is set to WORKER, ElasticAcu indicates the total amount of elastic storage resources in the current cluster.
+     * >
+     *
+     *   If Type is set to EXECUTOR, ElasticAcu indicates the amount of elastic resources in the current resource group.
+     *   If Type is set to WORKER, ElasticAcu indicates the total amount of elastic storage resources in the current cluster.
+     *
      * @example 16ACU
      *
      * @var string
@@ -29,9 +32,9 @@ class jobs extends Model
     public $elasticPlanName;
 
     /**
-     * @description The time when the scaling plan job was complete.
+     * @description The end time of the scaling plan job.
      *
-     * >  The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+     * >  The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      * @example 2022-01-01T12:01:00Z
      *
      * @var string
@@ -39,10 +42,13 @@ class jobs extends Model
     public $endTime;
 
     /**
-     * @description The number of instances.
+     * @description The number of compute nodes or storage replica sets.
      *
-     * > *   If the Type parameter is set to EXECUTOR, InstanceSize indicates the number of compute nodes.
-     * > *   If the Type parameter is set to EXECUTOR, InstanceSize indicates the number of replica sets at the storage layer in the cluster.
+     * >
+     *
+     *   If Type is set to EXECUTOR, InstanceSize indicates the number of compute nodes in the cluster.
+     *   If Type is set to EXECUTOR, InstanceSize indicates the number of storage replica sets in the cluster.
+     *
      * @example 1
      *
      * @var int
@@ -52,8 +58,11 @@ class jobs extends Model
     /**
      * @description The amount of reserved resources.
      *
-     * > *   If the Type parameter is set to EXECUTOR, ReserveAcu indicates the amount of reserved resources in the current resource group.
-     * > *   If the Type parameter is set to WORKER, ReserveAcu indicates the total amount of reserved storage resources in the current cluster.
+     * >
+     *
+     *   If Type is set to EXECUTOR, ReserveAcu indicates the amount of reserved resources in the current resource group.
+     *   If Type is set to WORKER, ReserveAcu indicates the total amount of reserved storage resources in the current cluster.
+     *
      * @example 16ACU
      *
      * @var string
@@ -70,9 +79,9 @@ class jobs extends Model
     public $resourceGroupName;
 
     /**
-     * @description The time when the scaling plan job was enabled.
+     * @description The start time of the scaling plan job.
      *
-     * >  The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+     * >  The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      * @example 2022-01-01T11:01:00Z
      *
      * @var string
@@ -80,13 +89,11 @@ class jobs extends Model
     public $startTime;
 
     /**
-     * @description The state of the scaling plan job.
+     * @description The state of the scaling plan job. Valid values:
      *
-     * Valid values:
-     *
-     *   RUNNING: The job is running.
-     *   SUCCESSFUL: The job is successfully run.
-     *   FAILED: The job fails.
+     *   RUNNING
+     *   SUCCESSFUL
+     *   FAILED
      *
      * @example SUCCESSFUL
      *
@@ -95,7 +102,7 @@ class jobs extends Model
     public $status;
 
     /**
-     * @description The amount of elastic resources after scaling.
+     * @description The desired specifications of elastic resources after scaling.
      *
      * @example 32ACU
      *
@@ -106,8 +113,11 @@ class jobs extends Model
     /**
      * @description The total amount of resources.
      *
-     * > *   If the Type parameter is set to EXECUTOR, TotalAcu indicates the total amount of computing resources in the current resource group.
-     * > *   If the Type parameter is set to WORKER, TotalAcu indicates the total amount of storage resources in the cluster.
+     * >
+     *
+     *   If Type is set to EXECUTOR, TotalAcu indicates the total amount of computing resources in the current resource group.
+     *   If Type is set to WORKER, TotalAcu indicates the total amount of storage resources in the cluster.
+     *
      * @example 32ACU
      *
      * @var string
@@ -115,12 +125,10 @@ class jobs extends Model
     public $totalAcu;
 
     /**
-     * @description The type of the scaling plan job.
+     * @description The type of the scaling plan job. Valid values:
      *
-     * Valid values:
-     *
-     *   EXECUTOR: interactive resource groups, which fall into the computing resource category.
-     *   WORKER: EIUs.
+     *   EXECUTOR: the interactive resource group type, which indicates the computing resource type.
+     *   WORKER: the EIU type.
      *
      * @example EXECUTOR
      *

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The AnalyticDB compute unit (ACU) usage of the cluster.
+     *
      * @var acuInfo[]
      */
     public $acuInfo;
 
     /**
+     * @description The cluster ID.
+     *
      * @example amv-clusterxxx
      *
      * @var string
@@ -22,6 +26,8 @@ class data extends Model
     public $DBClusterId;
 
     /**
+     * @description The end time of the query. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
+     *
      * @example 2023-06-07T02:37:00Z
      *
      * @var string
@@ -29,6 +35,8 @@ class data extends Model
     public $endTime;
 
     /**
+     * @description The name of the resource group.
+     *
      * @example test
      *
      * @var string
@@ -36,6 +44,8 @@ class data extends Model
     public $resourceGroupName;
 
     /**
+     * @description The type of the resource group.
+     *
      * @example interative
      *
      * @var string
@@ -43,6 +53,8 @@ class data extends Model
     public $resourceGroupType;
 
     /**
+     * @description The start time of the query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-04-24T07:00:00Z
      *
      * @var string

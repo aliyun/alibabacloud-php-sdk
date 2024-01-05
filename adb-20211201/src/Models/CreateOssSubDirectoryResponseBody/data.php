@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The cyclic redundancy check (CRC) value on the client.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $clientCRC;
 
     /**
+     * @description The tag of the OSS path.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $ETag;
 
     /**
+     * @description The request ID.
+     *
      * @example 3A0DE2E0-A37B-5EE4-9136-C4C473714802
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $requestId;
 
     /**
+     * @description The CRC-64 value on the OSS bucket.
+     *
      * @example 1
      *
      * @var int

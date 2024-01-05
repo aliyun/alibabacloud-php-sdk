@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the application.
+     * @description The Spark application ID.
      *
      * @example s202204191546hzpread6a896000****
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $appName;
 
     /**
-     * @description The ID of the Database.
+     * @description The database ID.
      *
      * @example amv-clusterxxx
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $DBClusterId;
 
     /**
-     * @description The alert message returned for the operation, such as task execution failure or insufficient resources. Null is returned if no alert occurs.
+     * @description The alert message returned for the operation, such as task execution failure or insufficient resources. If no alert occurs, null is returned.
      *
      * @example Insufficient resources.
      *
@@ -47,17 +47,17 @@ class data extends Model
     /**
      * @description The execution state of the application. Valid values:
      *
-     *   **SUBMITTED**: The application is submitted.
-     *   **STARTING**: The application task is starting.
-     *   **RUNNING**: The application task is being executed.
-     *   **FAILING**: The application task failed, and the environment is being cleared.
-     *   **FAILED**: The application task failed.
-     *   **KILLING**: The application task is terminated, and the environment is being cleared.
-     *   **KILLED**: The application task is terminated.
-     *   **SUCCEEDING**: The application task is completed, and the environment is being cleared.
-     *   **COMPLETED**: The application task is completed.
-     *   **FATAL**: An unexpected failure occurred.
-     *   **UNKNOWN**: An unknown error occurred.
+     *   **SUBMITTED**
+     *   **STARTING**
+     *   **RUNNING**
+     *   **FAILING**
+     *   **FAILED**
+     *   **KILLING**
+     *   **KILLED**
+     *   **SUCCEEDING**
+     *   **COMPLETED**
+     *   **FATAL**
+     *   **UNKNOWN**
      *
      * @example COMPLETED
      *

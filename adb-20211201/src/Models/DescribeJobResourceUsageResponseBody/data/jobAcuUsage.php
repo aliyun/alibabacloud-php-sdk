@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class jobAcuUsage extends Model
 {
     /**
+     * @description The ACU usage.
+     *
      * @var acuUsageDetail
      */
     public $acuUsageDetail;
 
     /**
+     * @description The end time of the job. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-05-23T16:00:00Z
      *
      * @var string
@@ -22,6 +26,8 @@ class jobAcuUsage extends Model
     public $jobEndTime;
 
     /**
+     * @description The job ID.
+     *
      * @example 1592
      *
      * @var string
@@ -29,6 +35,8 @@ class jobAcuUsage extends Model
     public $jobId;
 
     /**
+     * @description The start time of the job. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-05-22T16:00:00Z
      *
      * @var string
@@ -36,6 +44,8 @@ class jobAcuUsage extends Model
     public $jobStartTime;
 
     /**
+     * @description The name of the job resource group.
+     *
      * @example job_default
      *
      * @var string

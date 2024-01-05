@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBResourceGroupRequest extends Model
 {
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $clusterMode;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $clusterSizeResource;
@@ -51,6 +59,10 @@ class ModifyDBResourceGroupRequest extends Model
     public $groupType;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var int
      */
     public $maxClusterCount;
@@ -68,14 +80,18 @@ class ModifyDBResourceGroupRequest extends Model
     public $maxComputeResource;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example N/A
+     *
      * @var int
      */
     public $minClusterCount;
 
     /**
-     * @description The minimum amount of reserved computing resources. Unit: AnalyticDB compute unit (ACU).
+     * @description The minimum amount of reserved computing resources. Unit: AnalyticDB compute units (ACUs).
      *
-     *   If GroupType is set to Interactive, set the value to 16ACU.
+     *   If the GroupType parameter is set to Interactive, set the value to 16ACU.
      *   If GroupType is set to Job, set the value to 0ACU.
      *
      * @example 0ACU
@@ -85,6 +101,11 @@ class ModifyDBResourceGroupRequest extends Model
     public $minComputeResource;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * >  You can call the [DescribeRegions](~~454314~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

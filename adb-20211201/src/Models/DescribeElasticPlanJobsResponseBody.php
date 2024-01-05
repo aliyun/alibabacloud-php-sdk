@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticPlanJobsResponseBody extends Model
 {
     /**
-     * @description Details of the scaling plan jobs.
+     * @description The queried scaling plan jobs.
      *
      * @var jobs[]
      */
     public $jobs;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeElasticPlanJobsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of scaling plan jobs returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeElasticPlanJobsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A5C433C2-001F-58E3-99F5-3274C14DF8BD
      *

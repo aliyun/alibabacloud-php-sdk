@@ -12,16 +12,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterHealthStatusResponseBody extends Model
 {
     /**
+     * @description The access nodes of the queried cluster.
+     *
      * @var CS
      */
     public $CS;
 
     /**
+     * @description The compute node groups of the queried cluster.
+     *
      * @var executor
      */
     public $executor;
 
     /**
+     * @description The health state of the cluster. Valid values:
+     *
+     *   **RISK**
+     *   **NORMAL**
+     *   **UNAVAILABLE**
+     *
+     * >  When the states of the access nodes, compute node groups, and storage node groups of a cluster are all **NORMAL** and a connection to the cluster is established, the state of the cluster is **NORMAL**. When the state of the access nodes, compute node groups, or storage node groups of the cluster is **RISK**, the state of the cluster is **RISK**. When the state of the access nodes, compute node groups, or storage node groups of the cluster is **UNAVAILABLE**, the state of the cluster is **UNAVAILABLE**.
      * @example NORMAL
      *
      * @var string
@@ -29,6 +40,8 @@ class DescribeDBClusterHealthStatusResponseBody extends Model
     public $instanceStatus;
 
     /**
+     * @description The request ID.
+     *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEA
      *
      * @var string
@@ -36,6 +49,8 @@ class DescribeDBClusterHealthStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The storage node groups of the queried cluster.
+     *
      * @var worker
      */
     public $worker;

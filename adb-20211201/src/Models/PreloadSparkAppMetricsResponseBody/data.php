@@ -28,7 +28,7 @@ class data extends Model
     public $attemptId;
 
     /**
-     * @description The path of the event log.
+     * @description The event log path.
      *
      * @example oss://path/to/eventLog
      *

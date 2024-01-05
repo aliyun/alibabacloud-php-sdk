@@ -133,12 +133,7 @@ class DBCluster extends Model
     /**
      * @description The time when the cluster expired. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
      *
-     * >
-     *
-     *   The expiration time is returned for a subscription cluster.
-     *
-     *   An empty string is returned for a pay-as-you-go cluster.
-     *
+     * > - Anempty string is returned for a pay-as-you-go cluster.
      * @example 2022-07-01T09:50:18Z
      *
      * @var string
@@ -151,12 +146,7 @@ class DBCluster extends Model
      *   **true**
      *   **false**
      *
-     * >
-     *
-     *   If the cluster has expired, the system locks or releases the cluster within a period of time. We recommend that you renew expired clusters. For more information, see [Renewal policy](~~135246~~).
-     *
-     *   This parameter is not returned for pay-as-you-go clusters.
-     *
+     * > - This parameter is not returned for pay-as-you-go clusters.
      * @example false
      *
      * @var string
@@ -180,7 +170,7 @@ class DBCluster extends Model
      * @description The reason why the cluster is locked.
      *
      * >  This parameter is returned only when the cluster was locked. **instance_expire** is returned.
-     * @example instance_expired
+     * @example instance_expire
      *
      * @var string
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class EnableElasticPlanResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A5C433C2-001F-58E3-99F5-3274C14DF8BD
      *

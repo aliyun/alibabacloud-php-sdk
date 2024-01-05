@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountRequest extends Model
 {
     /**
-     * @description The description of the database account.
+     * @description The description of the account.
      *
      *   The description cannot start with `http://` or `https://`.
      *   The description can be up to 256 characters in length.

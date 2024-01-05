@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class worker extends Model
 {
     /**
+     * @description The number of healthy storage node groups.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class worker extends Model
     public $activeCount;
 
     /**
+     * @description The total number of storage node groups.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class worker extends Model
     public $expectedCount;
 
     /**
+     * @description The number of risky storage node groups.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,12 @@ class worker extends Model
     public $riskCount;
 
     /**
+     * @description The health state of storage node groups. Valid values:
+     *
+     *   **RISK**
+     *   **NORMAL**
+     *   **UNAVAILABLE**
+     *
      * @example NORMAL
      *
      * @var string
@@ -37,6 +49,8 @@ class worker extends Model
     public $status;
 
     /**
+     * @description The number of unavailable storage node groups.
+     *
      * @example 0
      *
      * @var int

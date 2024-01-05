@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
      * @example amv-clusterxxx
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $DBClusterId;
 
     /**
+     * @description The end time of the query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-05-23T16:00:00Z
      *
      * @var string
@@ -24,11 +28,15 @@ class data extends Model
     public $endTime;
 
     /**
+     * @description The AnalyticDB compute unit (ACU) usage of the job resource group.
+     *
      * @var jobAcuUsage[]
      */
     public $jobAcuUsage;
 
     /**
+     * @description The start time of the query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2023-05-22T16:00:00Z
      *
      * @var string

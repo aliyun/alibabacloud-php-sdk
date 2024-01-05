@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeJobResourceUsageResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeJobResourceUsageResponseBody extends Model
     public $code;
 
     /**
+     * @description The queried resource usage.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class scanMetrics extends Model
 {
     /**
-     * @description The number of scanned rows.
+     * @description The number of rows scanned.
      *
      * @example 1000
      *
@@ -18,7 +18,7 @@ class scanMetrics extends Model
     public $outputRowsCount;
 
     /**
-     * @description The number of scanned bytes.
+     * @description The size of the scanned data. Unit: bytes.
      *
      * @example 10000
      *

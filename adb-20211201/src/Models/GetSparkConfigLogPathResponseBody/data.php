@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The recommended default log path.
+     * @description The default log path.
      *
      * @example oss://aliyun-oa-adb-spark-1111-oss-cn-hanghzou/spark-logs
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $isLogPathExists;
 
     /**
-     * @description The time when the configuration was last modified.
+     * @description The last modification time.
      *
      * @example 1675654361000
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $modifiedTimestamp;
 
     /**
-     * @description The modifier ID.
+     * @description The account ID of the modifier.
      *
      * @example 10130223128xxx
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $modifiedUid;
 
     /**
-     * @description The log path.
+     * @description The recorded log path.
      *
      * @example oss://test/spark-logs/
      *

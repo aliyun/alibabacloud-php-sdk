@@ -28,12 +28,8 @@ class DescribeSQLPatternsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Indicates whether the execution of the SQL pattern can be blocked. Valid values:
+     * @description The queried SQL pattern.
      *
-     *   **true**
-     *   **false**
-     *
-     * > Only SELECT and INSERT statements can be blocked.
      * @var patternDetails[]
      */
     public $patternDetails;

@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The queried resource groups.
+     *
      * @var resourceGroups[]
      */
     public $resourceGroups;
 
     /**
+     * @description The step size of resources. Unit: AnalyticDB compute units (ACUs).
+     *
+     *   If the value of GroupType is **Interactive**, 16 is returned.
+     *   If the value of GroupType is **Job**, 8 is returned.
+     *
      * @example 8
      *
      * @var int

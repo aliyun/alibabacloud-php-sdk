@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisRecordsResponseBody extends Model
 {
     /**
+     * @description The page number. Pages start from page 1. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,12 @@ class DescribeDiagnosisRecordsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
+     *
      * @example 30
      *
      * @var int
@@ -24,11 +32,15 @@ class DescribeDiagnosisRecordsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The queried SQL statements.
+     *
      * @var querys[]
      */
     public $querys;
 
     /**
+     * @description The request ID.
+     *
      * @example 7F88BEFA-CF0B-5C95-8BB1-92EC9F09E40D
      *
      * @var string
@@ -36,6 +48,8 @@ class DescribeDiagnosisRecordsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

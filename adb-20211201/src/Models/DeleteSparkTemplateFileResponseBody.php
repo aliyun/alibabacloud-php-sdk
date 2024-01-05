@@ -17,7 +17,7 @@ class DeleteSparkTemplateFileResponseBody extends Model
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C3A9594F-1D40-4472-A96C-8FB8AA20D38C
      *

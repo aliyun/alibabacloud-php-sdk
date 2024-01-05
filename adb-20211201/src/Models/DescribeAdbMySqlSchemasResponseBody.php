@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeAdbMySqlSchemasResponseBody extends Model
 {
     /**
-     * @description The message returned for the operation. Valid values:
+     * @description The returned message.
      *
-     *   **Success** is returned if the operation is successful.
-     *   An error message is returned if the operation fails.
+     *   If the request was successful, a **success** message is returned.
+     *   If the request failed, an error message is returned.
      *
      * @example Success
      *
@@ -21,7 +21,7 @@ class DescribeAdbMySqlSchemasResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
@@ -30,17 +30,17 @@ class DescribeAdbMySqlSchemasResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The names of databases.
+     * @description The queried databases.
      *
      * @var string[]
      */
     public $schemas;
 
     /**
-     * @description Indicates whether the operation is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: The operation is successful.
-     *   **false**: The operation fails.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

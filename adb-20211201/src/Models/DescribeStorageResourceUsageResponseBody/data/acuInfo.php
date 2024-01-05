@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class acuInfo extends Model
 {
     /**
+     * @description The resource usage metric. Valid values:
+     *
+     *   `TotalAcuNumber`: the total number of ACUs.
+     *   `ReservedAcuNumber`: the number of ACUs for the reserved resources.
+     *
      * @example TotalAcuNumber
      *
      * @var string
@@ -16,6 +21,8 @@ class acuInfo extends Model
     public $name;
 
     /**
+     * @description The values of the metric at specific points in time.
+     *
      * @var string[]
      */
     public $values;

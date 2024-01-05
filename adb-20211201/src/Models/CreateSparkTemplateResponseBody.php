@@ -17,7 +17,7 @@ class CreateSparkTemplateResponseBody extends Model
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *

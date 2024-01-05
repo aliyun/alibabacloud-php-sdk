@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The number of accesses to the table.
+     *
      * @example 6
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $accessCount;
 
     /**
+     * @description The ID of the cluster to which the table belongs.
+     *
      * @example amv-2ze627uzpkh8a8****
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $instanceName;
 
     /**
+     * @description The date when the table was accessed.
+     *
      * @example 2022-09-26
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $reportDate;
 
     /**
+     * @description The name of the table.
+     *
      * @example CUSTOMER
      *
      * @var string
@@ -37,6 +45,8 @@ class items extends Model
     public $tableName;
 
     /**
+     * @description The database to which the table belongs.
+     *
      * @example tpch
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTableDDLRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example am-bp1ub9grke1****
      *
@@ -18,7 +18,7 @@ class GetTableDDLRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The ID of the region in which the cluster resides.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

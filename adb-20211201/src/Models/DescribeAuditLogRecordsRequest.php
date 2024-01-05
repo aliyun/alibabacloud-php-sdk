@@ -171,9 +171,9 @@ class DescribeAuditLogRecordsRequest extends Model
      *   **INSERT INTO SELECT**
      *   **ALTER**
      *   **DROP**
-     *   **INSERT**
+     *   **CREATE**
      *
-     * > You can query only a single type of SQL statements at a time. If you leave this parameter empty, the **SELECT** SQL statements are queried.
+     * >  You can query only a single type of SQL statements at a time. If you leave this parameter empty, the **SELECT** statements are queried.
      * @example SELECT
      *
      * @var string

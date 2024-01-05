@@ -1894,10 +1894,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAuditLogRecordsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+     *   *
+     * @param DescribeAuditLogRecordsRequest $request DescribeAuditLogRecordsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAuditLogRecordsResponse
+     * @return DescribeAuditLogRecordsResponse DescribeAuditLogRecordsResponse
      */
     public function describeAuditLogRecordsWithOptions($request, $runtime)
     {
@@ -1979,9 +1981,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAuditLogRecordsRequest $request
+     * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+     *   *
+     * @param DescribeAuditLogRecordsRequest $request DescribeAuditLogRecordsRequest
      *
-     * @return DescribeAuditLogRecordsResponse
+     * @return DescribeAuditLogRecordsResponse DescribeAuditLogRecordsResponse
      */
     public function describeAuditLogRecords($request)
     {
@@ -4718,7 +4722,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the directory structure but not application data in the directory. To query the directory structure that contains application data, call the [GetSparkTemplateFullTree](~~456205~~) operation.
+     * ### [](#)Usage notes
+     *   * You can call this operation to query the directory structure but not application data in the directory. To query the directory structure that contains application data, call the [GetSparkTemplateFullTree](~~612467~~) operation.
      *   *
      * @param GetSparkTemplateFolderTreeRequest $request GetSparkTemplateFolderTreeRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -4751,7 +4756,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the directory structure but not application data in the directory. To query the directory structure that contains application data, call the [GetSparkTemplateFullTree](~~456205~~) operation.
+     * ### [](#)Usage notes
+     *   * You can call this operation to query the directory structure but not application data in the directory. To query the directory structure that contains application data, call the [GetSparkTemplateFullTree](~~612467~~) operation.
      *   *
      * @param GetSparkTemplateFolderTreeRequest $request GetSparkTemplateFolderTreeRequest
      *

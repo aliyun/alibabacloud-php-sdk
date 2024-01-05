@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateSparkTemplateRequest extends Model
 {
     /**
-     * @description The type of the application. Valid values:
+     * @description The application type. Valid values:
      *
-     *   **SQL**: SQL application
-     *   **STREAMING**: streaming application
-     *   **BATCH**: batch application
+     *   **SQL**
+     *   **STREAMING**
+     *   **BATCH**
      *
-     * >  This parameter is not required if the application template is of the folder type.
+     * >  You do not need to specify this parameter when Type is set to folder.
      * @example SQL
      *
      * @var string
@@ -43,6 +43,7 @@ class CreateSparkTemplateRequest extends Model
     /**
      * @description The ID of the directory to which the application template belongs.
      *
+     * >  You can call the [GetSparkTemplateFolderTree](~~456218~~) operation to query the directory ID.
      * @example 10
      *
      * @var int
@@ -52,8 +53,8 @@ class CreateSparkTemplateRequest extends Model
     /**
      * @description The type of the application template. Valid values:
      *
-     *   **folder**: directory
-     *   **file**: application
+     *   **folder**: directory.
+     *   **file**: application.
      *
      * @example file
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class KillSparkAppRequest extends Model
 {
     /**
-     * @description The ID of the Spark application.
+     * @description The ID of the Spark application that you want to terminate.
      *
      * @example s202204132018hzprec1ac****
      *
@@ -18,6 +18,11 @@ class KillSparkAppRequest extends Model
     public $appId;
 
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
+     * >  You can call the [DescribeDBClusters](~~454250~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+     * @example amv-bp1ub9grke1****
+     *
      * @var string
      */
     public $DBClusterId;

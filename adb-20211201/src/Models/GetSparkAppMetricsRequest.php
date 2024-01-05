@@ -18,6 +18,11 @@ class GetSparkAppMetricsRequest extends Model
     public $appId;
 
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~612397~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+     * @example amv-bp1ggnu61d77****
+     *
      * @var string
      */
     public $DBClusterId;

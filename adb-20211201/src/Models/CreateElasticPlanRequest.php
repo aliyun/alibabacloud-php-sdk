@@ -9,16 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateElasticPlanRequest extends Model
 {
     /**
-     * @description Specifies whether to enable **Proportional Default Scaling for EIUs**.
+     * @description Specifies whether to enable **Default Proportional Scaling for EIUs**. Valid values:
      *
-     * Valid values:
+     *   true. In this case, storage resources are scaled along with computing resources, and the TargetSize and CronExpression parameters are not supported.
+     *   false
      *
-     *   true: enables Proportional Default Scaling for EIUs. If you enable Proportional Default Scaling, storage resources are scaled along with computing resources, and the TargetSize and CronExpression parameters are not supported.
+     * >
      *
-     *   false: does not enable Proportional Default Scaling for EIUs.
+     *   This parameter must be specified when Type is set to WORKER. This parameter is not required when Type is set to EXECUTOR.
      *
-     * > *   This parameter is required if the Type parameter is set to WORKER. This parameter is not required if the Type parameter is set to EXECUTOR.
-     * > *   You can enable Proportional Default Scaling for EIUs for only a single scaling plan of a cluster.
+     *   You can enable Default Proportional Scaling for EIUs for only a single scaling plan of a cluster.
+     *
      * @example false
      *
      * @var bool
@@ -35,9 +36,9 @@ class CreateElasticPlanRequest extends Model
     public $cronExpression;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~454250~~) operation to query the ID of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * >  You can call the [DescribeDBClusters](~~454250~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
      * @example amv-wz9509beptiz****
      *
      * @var string
@@ -47,7 +48,7 @@ class CreateElasticPlanRequest extends Model
     /**
      * @description The name of the scaling plan.
      *
-     * >  The name must be 2 to 30 characters in length, and can contain letters, digits, and underscores (\_). It must start with a letter.
+     * >  The name must be 2 to 30 characters in length and can contain letters, digits, and underscores (\_). The name must start with a letter.
      * @example test
      *
      * @var string
@@ -55,12 +56,10 @@ class CreateElasticPlanRequest extends Model
     public $elasticPlanName;
 
     /**
-     * @description Specifies whether to immediately enable the scaling plan after the scaling plan is created.
+     * @description Specifies whether to immediately enable the scaling plan after the plan is created. Valid values:
      *
-     * Valid values:
-     *
-     *   true: immediately enables the scaling plan.
-     *   false: does not immediately enable the scaling plan.
+     *   true
+     *   false
      *
      * @example true
      *
@@ -69,7 +68,7 @@ class CreateElasticPlanRequest extends Model
     public $enabled;
 
     /**
-     * @description The time to end the scaling plan.
+     * @description The end time of the scaling plan.
      *
      * >  Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2025-01-01T12:01:00Z
@@ -81,8 +80,12 @@ class CreateElasticPlanRequest extends Model
     /**
      * @description The name of the resource group.
      *
-     * > *   This parameter is required if you want to create a scaling plan that uses interactive resource groups. This parameter is not required if you want to create a scaling plan that uses elastic I/O units (EIUs).
-     * > *   You can call the [DescribeDBResourceGroup](~~459446~~) operation to query the name of a resource group within a specific cluster.
+     * >
+     *
+     *   If you want to create a scaling plan that uses interactive resource groups, you must specify this parameter. If you want to create a scaling plan that uses elastic I/O units (EIUs), you do not need to specify this parameter.
+     *
+     *   You can call the [DescribeDBResourceGroup](~~459446~~) operation to query the resource group name for a cluster.
+     *
      * @example test
      *
      * @var string
@@ -90,7 +93,7 @@ class CreateElasticPlanRequest extends Model
     public $resourceGroupName;
 
     /**
-     * @description The time to start the scaling plan.
+     * @description The start time of the scaling plan.
      *
      * >  Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2022-01-01T12:01:00Z
@@ -100,10 +103,14 @@ class CreateElasticPlanRequest extends Model
     public $startTime;
 
     /**
-     * @description The amount of elastic resources after scaling.
+     * @description The desired specifications of elastic resources after scaling.
      *
-     * > *   This parameter is not required only if the resource group uses **EIUs** and **Proportional Default Scaling for EIUs** is enabled.
-     * > *   You can call the [DescribeElasticPlanSpecifications](~~601278~~) operation to query the specifications that are supported for scaling plans.
+     * >
+     *
+     *   If the scaling plan uses **EIUs** and **Default Proportional Scaling for EIUs** is enabled, you do not need to specify this parameter. In other cases, you must specify this parameter.
+     *
+     *   You can call the [DescribeElasticPlanSpecifications](~~601278~~) operation to query the specifications that are supported for scaling plans.
+     *
      * @example 32ACU
      *
      * @var string
@@ -111,12 +118,10 @@ class CreateElasticPlanRequest extends Model
     public $targetSize;
 
     /**
-     * @description The type of the scaling plan.
+     * @description The type of the scaling plan. Valid values:
      *
-     * Valid values:
-     *
-     *   EXECUTOR: interactive resource groups, which fall into the computing resource category.
-     *   WORKER: EIUs.
+     *   EXECUTOR: the interactive resource group type, which indicates the computing resource type.
+     *   WORKER: the EIU type.
      *
      * @example EXECUTOR
      *

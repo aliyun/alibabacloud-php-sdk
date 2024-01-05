@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTableDDLResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 863D51B7-5321-41D8-A0B6-A088B0******
      *

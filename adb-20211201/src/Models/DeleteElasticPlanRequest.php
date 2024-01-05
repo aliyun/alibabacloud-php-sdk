@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteElasticPlanRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a specific region.
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
      * @example amv-wz9509beptiz****
      *
      * @var string
@@ -21,7 +21,7 @@ class DeleteElasticPlanRequest extends Model
     /**
      * @description The name of the scaling plan.
      *
-     * >  You can call the [DescribeElasticPlans](~~601334~~) operation to query the name of a scaling plan for a specific cluster.
+     * >  You can call the [DescribeElasticPlans](~~601334~~) operation to query the names of scaling plans.
      * @example test
      *
      * @var string

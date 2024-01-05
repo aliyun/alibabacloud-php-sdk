@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticPlanJobsRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the ID of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
      * @example amv-wz9509beptiz****
      *
      * @var string
@@ -21,8 +21,12 @@ class DescribeElasticPlanJobsRequest extends Model
     /**
      * @description The name of the scaling plan.
      *
-     * > *   If you do not specify this parameter, all scaling plans of the cluster are queried.
-     * > *   You can call the [DescribeElasticPlans](~~601334~~) operation to query the name of a scaling plan.
+     * >
+     *
+     *   If you do not specify this parameter, all scaling plans of the cluster are queried.
+     *
+     *   You can call the [DescribeElasticPlans](~~601334~~) operation to query the names of scaling plans.
+     *
      * @example test
      *
      * @var string
@@ -30,7 +34,7 @@ class DescribeElasticPlanJobsRequest extends Model
     public $elasticPlanName;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 1
      *
@@ -39,7 +43,7 @@ class DescribeElasticPlanJobsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of scaling plan jobs to return per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -50,8 +54,12 @@ class DescribeElasticPlanJobsRequest extends Model
     /**
      * @description The name of the resource group.
      *
-     * > *   If you do not specify this parameter, the scaling plans of all resource groups are queried, including interactive resource groups and elastic I/O units (EIUs).
-     * > *   You can call the [DescribeDBResourceGroup](~~459446~~) operation to query the name of a resource group within a specific cluster.
+     * >
+     *
+     *   If you do not specify this parameter, the scaling plans of all resource groups are queried, including the interactive resource group and elastic I/O unit (EIU) types.
+     *
+     *   You can call the [DescribeDBResourceGroup](~~459446~~) operation to query the resource group name for a cluster.
+     *
      * @example test
      *
      * @var string
@@ -59,9 +67,8 @@ class DescribeElasticPlanJobsRequest extends Model
     public $resourceGroupName;
 
     /**
-     * @description The time to enable the scaling plan job.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time must be in UTC.
      * @example 2022-01-01T12:01:00Z
      *
      * @var string
@@ -69,17 +76,13 @@ class DescribeElasticPlanJobsRequest extends Model
     public $startTime;
 
     /**
-     * @description The state of the scaling plan job.
+     * @description The state of the scaling plan job. Valid values:
      *
-     * Valid values:
+     *   RUNNING
+     *   SUCCESSFUL
+     *   FAILED
      *
-     *   RUNNING: The job is running.
-     *
-     *   SUCCESSFUL: The job is successfully run.
-     *
-     *   FAILED: The job fails.
-     *
-     * > If you do not specify this parameter, scaling plan jobs in all states are queried.
+     * >  If you do not specify this parameter, the scaling plans in all states are queried.
      * @example SUCCESSFUL
      *
      * @var string

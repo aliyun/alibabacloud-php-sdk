@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class backup extends Model
 {
     /**
+     * @description The end time of the backup.
+     *
      * @example 2022-06-02T16:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class backup extends Model
     public $backupEndTime;
 
     /**
+     * @description The backup set ID.
+     *
      * @example 32732****
      *
      * @var string
@@ -23,6 +27,8 @@ class backup extends Model
     public $backupId;
 
     /**
+     * @description The backup method. Snapshot is returned.
+     *
      * @example Snapshot
      *
      * @var string
@@ -30,6 +36,8 @@ class backup extends Model
     public $backupMethod;
 
     /**
+     * @description The size of the backup set. Unit: bytes.
+     *
      * @example 2167808
      *
      * @var int
@@ -37,6 +45,8 @@ class backup extends Model
     public $backupSize;
 
     /**
+     * @description The start time of the backup.
+     *
      * @example 2022-06-01T16:00Z
      *
      * @var string
@@ -44,6 +54,11 @@ class backup extends Model
     public $backupStartTime;
 
     /**
+     * @description The backup type. Valid values:
+     *
+     *   **FullBackup**
+     *   **IncrementalBackup**
+     *
      * @example FullBackup
      *
      * @var string
@@ -51,6 +66,8 @@ class backup extends Model
     public $backupType;
 
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *
      * @example am-bp11q28kvl688****
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class resourceGroups extends Model
 {
     /**
+     * @description Indicates whether the resource group is available. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example True
      *
      * @var bool
@@ -21,6 +26,8 @@ class resourceGroups extends Model
     public $cuOptions;
 
     /**
+     * @description The name of the resource group.
+     *
      * @example test
      *
      * @var string
@@ -28,6 +35,12 @@ class resourceGroups extends Model
     public $groupName;
 
     /**
+     * @description The type of the resource group. Valid values:
+     *
+     *   **Interactive**
+     *   **Job**
+     *
+     * >  For more information about resource groups, see [Resource groups](~~428610~~).
      * @example Job
      *
      * @var string
@@ -35,6 +48,8 @@ class resourceGroups extends Model
     public $groupType;
 
     /**
+     * @description The amount of remaining computing resources. Unit: ACUs.
+     *
      * @example 512
      *
      * @var int
@@ -42,6 +57,11 @@ class resourceGroups extends Model
     public $leftComputeResource;
 
     /**
+     * @description The maximum amount of reserved computing resources. Unit: ACUs.
+     *
+     *   If the value of GroupType is **Interactive**, the amount of reserved computing resources that are not allocated in the cluster is returned in increments of 16 ACUs.
+     *   If the value of GroupType is **Job**, the amount of reserved computing resources that are not allocated in the cluster is returned in increments of 8 ACUs.
+     *
      * @example 512
      *
      * @var int
@@ -49,6 +69,11 @@ class resourceGroups extends Model
     public $maxComputeResource;
 
     /**
+     * @description The minimum amount of reserved computing resources. Unit: ACUs.
+     *
+     *   If the value of GroupType is **Interactive**, 16 is returned.
+     *   If the value of GroupType is **Job**, 0 is returned.
+     *
      * @example 0
      *
      * @var int

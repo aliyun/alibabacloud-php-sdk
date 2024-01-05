@@ -18,9 +18,9 @@ class ModifyElasticPlanRequest extends Model
     public $cronExpression;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the ID of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
      * @example amv-wz9509beptiz****
      *
      * @var string
@@ -30,7 +30,7 @@ class ModifyElasticPlanRequest extends Model
     /**
      * @description The name of the scaling plan.
      *
-     * >  You can call the [DescribeElasticPlans](~~601334~~) operation to query the name of a scaling plan of a specific cluster.
+     * >  You can call the [DescribeElasticPlans](~~601334~~) operation to query the names of scaling plans.
      * @example test
      *
      * @var string
@@ -38,7 +38,7 @@ class ModifyElasticPlanRequest extends Model
     public $elasticPlanName;
 
     /**
-     * @description The time to end the scaling plan.
+     * @description The end time of the scaling plan.
      *
      * >  Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2025-01-01T12:01:00Z
@@ -48,7 +48,7 @@ class ModifyElasticPlanRequest extends Model
     public $endTime;
 
     /**
-     * @description The time to start the scaling plan.
+     * @description The start time of the scaling plan.
      *
      * >  Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2022-01-01T12:01:00Z
@@ -58,10 +58,14 @@ class ModifyElasticPlanRequest extends Model
     public $startTime;
 
     /**
-     * @description The amount of elastic resources after scaling.
+     * @description The desired specifications of elastic resources after scaling.
      *
-     * > *   This parameter is not required only if the resource group uses **EIUs** and **Proportional Default Scaling for EIUs** is enabled.
-     * > *   You can call the [DescribeElasticPlanSpecifications](~~601278~~) operation to query the specifications that are supported for scaling plans.
+     * >
+     *
+     *   If the scaling plan uses **EIUs** and **Default Proportional Scaling for EIUs** is enabled, you do not need to specify this parameter. In other cases, you must specify this parameter.
+     *
+     *   You can call the [DescribeElasticPlanSpecifications](~~601278~~) operation to query the specifications that are supported for scaling plans.
+     *
      * @example 32ACU
      *
      * @var string

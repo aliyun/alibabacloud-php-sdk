@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetSparkConfigLogPathRequest extends Model
 {
     /**
-     * @description The database ID.
+     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
      * @example am-adsdxxxx
      *

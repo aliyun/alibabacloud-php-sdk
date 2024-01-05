@@ -22,7 +22,7 @@ class DBCluster extends Model
     public $commodityCode;
 
     /**
-     * @description The specifications of reserved computing resources. Each ACU is equivalent to 1 core and 4 GB memory. Computing resources serve compute operations. The amount of computing resources is proportional to the query speed of the cluster. You can scale computing resources based on your needs.
+     * @description The specifications of reserved computing resources. Each ACU is equivalent to 1 core and 4 GB memory. Computing resources are used to compute data. The increase in the computing resources can accelerate queries. You can scale computing resources based on your business requirements.
      *
      * @example 16ACU
      *
@@ -87,15 +87,15 @@ class DBCluster extends Model
     /**
      * @description The state of the cluster. Valid values:
      *
-     *   **Preparing**: The cluster is being prepared.
-     *   **Creating**: The cluster is being created.
-     *   **Running**: The cluster is running.
-     *   **Deleting**: The cluster is being deleted.
-     *   **Restoring**: The cluster is being restored from a backup.
-     *   **ClassChanging**: The cluster specifications are being changed.
-     *   **NetAddressCreating**: A network connection is being created.
-     *   **NetAddressDeleting**: A network connection is being deleted.
-     *   **NetAddressModifying**: A network connection is being modified.
+     *   **Preparing**
+     *   **Creating**
+     *   **Running**
+     *   **Deleting**
+     *   **Restoring**
+     *   **ClassChanging**
+     *   **NetAddressCreating**
+     *   **NetAddressDeleting**
+     *   **NetAddressModifying**
      *
      * @example Running
      *
@@ -104,7 +104,7 @@ class DBCluster extends Model
     public $DBClusterStatus;
 
     /**
-     * @description The type of the cluster. By default, **Common** is returned, which indicates a common cluster.
+     * @description The cluster type. By default, **Common** is returned, which indicates a common cluster.
      *
      * @example Common
      *
@@ -140,10 +140,10 @@ class DBCluster extends Model
     public $engineVersion;
 
     /**
-     * @description The time when the cluster expires.
+     * @description The expiration time of the cluster.
      *
-     *   The expiration time is returned for a subscription cluster.
-     *   An empty string is returned for a pay-as-you-go cluster.
+     *   If the billing method of the cluster is subscription, the actual expiration time is returned.
+     *   If the billing method of the cluster is pay-as-you-go, null is returned.
      *
      * @example 2022-10-01T09:50:18Z
      *
@@ -174,7 +174,7 @@ class DBCluster extends Model
      *
      *   **Unlock**: The cluster is not locked.
      *   **ManualLock**: The cluster is manually locked.
-     *   **LockByExpiration**: The cluster is automatically locked after the cluster expires.
+     *   **LockByExpiration**: The cluster is automatically locked due to cluster expiration.
      *
      * @example ManualLock
      *
@@ -185,7 +185,7 @@ class DBCluster extends Model
     /**
      * @description The reason why the cluster is locked.
      *
-     * > This parameter is returned only when the cluster was locked. The value is **instance_expire**.
+     * >  This parameter is returned only when the cluster was locked. **instance_expire** is returned.
      * @example instance_expire
      *
      * @var string
@@ -195,7 +195,7 @@ class DBCluster extends Model
     /**
      * @description The maintenance window of the cluster. The time is displayed in the `HH:mmZ-HH:mmZ` format in UTC.
      *
-     * > For more information about maintenance windows, see [Configure a maintenance window](~~122569~~).
+     * >  For more information about maintenance windows, see [Configure a maintenance window](~~122569~~).
      * @example 04:00Z-05:00Z
      *
      * @var string
@@ -242,7 +242,7 @@ class DBCluster extends Model
     public $regionId;
 
     /**
-     * @description The amount of remaining reserved computing resources that are available in the cluster. Each ACU is equivalent to 1 core and 4 GB memory.
+     * @description The remaining reserved computing resources that are available in the cluster. Each ACU is equivalent to 1 core and 4 GB memory.
      *
      * @example 24ACU
      *
@@ -251,7 +251,7 @@ class DBCluster extends Model
     public $reservedACU;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmyiu4ekp****
      *
@@ -260,7 +260,7 @@ class DBCluster extends Model
     public $resourceGroupId;
 
     /**
-     * @description The specifications of reserved storage resources. Each AnalyticDB compute unit (ACU) is equivalent to 1 core and 4 GB memory. Storage resources serve read and write requests. The amount of storage resources is proportional to the read and write performance of the cluster.
+     * @description The specifications of reserved storage resources. Each AnalyticDB compute unit (ACU) is equivalent to 1 core and 4 GB memory. Storage resources are used to read and write data. The increase in the storage resources can improve the read and write performance of the cluster.
      *
      * @example 24ACU
      *
@@ -278,11 +278,15 @@ class DBCluster extends Model
     public $storageResourceTotal;
 
     /**
+     * @description A reserved parameter.
+     *
      * @var string[]
      */
     public $supportedFeatures;
 
     /**
+     * @description The tags that are added to the cluster.
+     *
      * @var tags
      */
     public $tags;

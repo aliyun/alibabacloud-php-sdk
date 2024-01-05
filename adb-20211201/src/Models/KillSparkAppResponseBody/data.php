@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the Spark application.
+     * @description The Spark application ID.
      *
      * @example s202204132018hzprec1ac****
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $appId;
 
     /**
-     * @description The name of the Spark application.
+     * @description The name of the application.
      *
      * @example LAKEHOUSE-1-1
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $appName;
 
     /**
-     * @description The database ID.
+     * @description The cluster ID.
      *
      * @example amv-clusterxxx
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $DBClusterId;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The error message returned.
      *
      * @example [Advisor] Advisor feature is not available for instance: am-2ze292w4fyglwxxxx
      *
@@ -45,13 +45,19 @@ class data extends Model
     public $message;
 
     /**
-     * @description The state of the Spark application. Valid values:
+     * @description The execution state of the Spark application. Valid values:
      *
-     *   **waiting**
-     *   **running**
-     *   **finished**
-     *   **failed**
-     *   **closed**
+     *   **SUBMITTED**
+     *   **STARTING**
+     *   **RUNNING**
+     *   **FAILING**
+     *   **FAILED**
+     *   **KILLING**
+     *   **KILLED**
+     *   **SUCCEEDING**
+     *   **COMPLETED**
+     *   **FATAL**
+     *   **UNKNOWN**
      *
      * @example running
      *

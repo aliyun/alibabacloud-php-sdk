@@ -11,8 +11,8 @@ class data extends Model
     /**
      * @description Indicates whether the template file is deleted. Valid values:
      *
-     *   **true**: The template file is deleted.
-     *   **false**: The template file fails to be deleted.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
