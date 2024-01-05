@@ -11,6 +11,11 @@ class UpdatePublicTemplateRequest extends Model
     /**
      * @var string
      */
+    public $category;
+
+    /**
+     * @var string
+     */
     public $content;
 
     /**
@@ -33,6 +38,7 @@ class UpdatePublicTemplateRequest extends Model
      */
     public $templateName;
     protected $_name = [
+        'category'     => 'Category',
         'content'      => 'Content',
         'popularity'   => 'Popularity',
         'publisher'    => 'Publisher',
@@ -47,6 +53,9 @@ class UpdatePublicTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
@@ -74,6 +83,9 @@ class UpdatePublicTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }

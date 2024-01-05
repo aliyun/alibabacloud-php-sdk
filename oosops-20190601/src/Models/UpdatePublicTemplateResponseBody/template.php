@@ -11,6 +11,11 @@ class template extends Model
     /**
      * @var string
      */
+    public $category;
+
+    /**
+     * @var string
+     */
     public $createdBy;
 
     /**
@@ -68,6 +73,7 @@ class template extends Model
      */
     public $updatedDate;
     protected $_name = [
+        'category'        => 'Category',
         'createdBy'       => 'CreatedBy',
         'createdDate'     => 'CreatedDate',
         'description'     => 'Description',
@@ -89,6 +95,9 @@ class template extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
         }
@@ -137,6 +146,9 @@ class template extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];
         }
