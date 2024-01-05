@@ -200,6 +200,11 @@ class DBInstance extends Model
     public $payType;
 
     /**
+     * @var string
+     */
+    public $prodType;
+
+    /**
      * @description The region ID.
      *
      * @example cn-hangzhou
@@ -311,6 +316,7 @@ class DBInstance extends Model
         'lockReason'            => 'LockReason',
         'masterNodeNum'         => 'MasterNodeNum',
         'payType'               => 'PayType',
+        'prodType'              => 'ProdType',
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
         'segNodeNum'            => 'SegNodeNum',
@@ -380,6 +386,9 @@ class DBInstance extends Model
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->prodType) {
+            $res['ProdType'] = $this->prodType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -473,6 +482,9 @@ class DBInstance extends Model
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+        if (isset($map['ProdType'])) {
+            $model->prodType = $map['ProdType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

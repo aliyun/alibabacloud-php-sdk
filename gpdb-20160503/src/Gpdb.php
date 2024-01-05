@@ -46,6 +46,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteVectorIndexRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteVectorIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeActiveSQLRecordsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeActiveSQLRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupPolicyRequest;
@@ -635,6 +637,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->privateIpAddress)) {
             $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        if (!Utils::isUnset($request->prodType)) {
+            $query['ProdType'] = $request->prodType;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -1654,6 +1659,73 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeActiveSQLRecordsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeActiveSQLRecordsResponse
+     */
+    public function describeActiveSQLRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->maxDuration)) {
+            $query['MaxDuration'] = $request->maxDuration;
+        }
+        if (!Utils::isUnset($request->minDuration)) {
+            $query['MinDuration'] = $request->minDuration;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeActiveSQLRecords',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeActiveSQLRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeActiveSQLRecordsRequest $request
+     *
+     * @return DescribeActiveSQLRecordsResponse
+     */
+    public function describeActiveSQLRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveSQLRecordsWithOptions($request, $runtime);
     }
 
     /**

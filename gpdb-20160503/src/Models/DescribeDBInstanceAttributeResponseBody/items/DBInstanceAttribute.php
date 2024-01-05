@@ -427,6 +427,11 @@ class DBInstanceAttribute extends Model
     public $port;
 
     /**
+     * @var string
+     */
+    public $prodType;
+
+    /**
      * @description An invalid parameter. It is no longer returned when you call this operation.
      *
      * @example null
@@ -677,6 +682,7 @@ class DBInstanceAttribute extends Model
         'minorVersion'              => 'MinorVersion',
         'payType'                   => 'PayType',
         'port'                      => 'Port',
+        'prodType'                  => 'ProdType',
         'readDelayTime'             => 'ReadDelayTime',
         'regionId'                  => 'RegionId',
         'resourceGroupId'           => 'ResourceGroupId',
@@ -829,6 +835,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->prodType) {
+            $res['ProdType'] = $this->prodType;
         }
         if (null !== $this->readDelayTime) {
             $res['ReadDelayTime'] = $this->readDelayTime;
@@ -1027,6 +1036,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['ProdType'])) {
+            $model->prodType = $map['ProdType'];
         }
         if (isset($map['ReadDelayTime'])) {
             $model->readDelayTime = $map['ReadDelayTime'];

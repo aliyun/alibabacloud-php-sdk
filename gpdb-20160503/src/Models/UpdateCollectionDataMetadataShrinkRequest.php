@@ -30,11 +30,15 @@ class UpdateCollectionDataMetadataShrinkRequest extends Model
     public $filter;
 
     /**
+     * @description The row IDs of the data that you want to update. You must specify one of the Ids and Filter parameters.
+     *
      * @var string
      */
     public $idsShrink;
 
     /**
+     * @description The data that you want to update, which is a JSON string in the MAP format. In the JSON string, key specifies the field name and value specifies the new data value.
+     *
      * @example {
      * }
      * @var string
@@ -61,6 +65,8 @@ class UpdateCollectionDataMetadataShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string

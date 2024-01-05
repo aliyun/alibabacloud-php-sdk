@@ -267,6 +267,11 @@ class CreateDBInstanceRequest extends Model
     public $privateIpAddress;
 
     /**
+     * @var string
+     */
+    public $prodType;
+
+    /**
      * @description The ID of the region. You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
@@ -481,6 +486,7 @@ class CreateDBInstanceRequest extends Model
         'payType'                   => 'PayType',
         'period'                    => 'Period',
         'privateIpAddress'          => 'PrivateIpAddress',
+        'prodType'                  => 'ProdType',
         'regionId'                  => 'RegionId',
         'resourceGroupId'           => 'ResourceGroupId',
         'securityIPList'            => 'SecurityIPList',
@@ -572,6 +578,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->prodType) {
+            $res['ProdType'] = $this->prodType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -707,6 +716,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+        if (isset($map['ProdType'])) {
+            $model->prodType = $map['ProdType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
