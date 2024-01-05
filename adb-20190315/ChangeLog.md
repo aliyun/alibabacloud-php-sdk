@@ -1,3 +1,6 @@
+2024-01-05 Version: 3.1.2
+- Generated php 2019-03-15 for adb.
+
 2023-12-27 Version: 3.1.1
 - Generated php 2019-03-15 for adb.
 
