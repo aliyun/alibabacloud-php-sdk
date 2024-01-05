@@ -38,6 +38,8 @@ class DescribePolicyBindingsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The association between the backup policy and data sources.
+     *
      * @var policyBindings[]
      */
     public $policyBindings;

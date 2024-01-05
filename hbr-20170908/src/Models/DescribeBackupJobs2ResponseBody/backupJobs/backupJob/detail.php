@@ -37,7 +37,7 @@ class detail extends Model
     public $destinationNativeSnapshotProgress;
 
     /**
-     * @description The status of the remote replication.
+     * @description The state of the remote replication.
      *
      * @example COMPLETE
      *

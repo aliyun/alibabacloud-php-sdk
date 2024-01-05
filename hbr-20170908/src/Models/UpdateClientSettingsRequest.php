@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateClientSettingsRequest extends Model
 {
     /**
+     * @description Specifies whether to generate alert for partially completed jobs. This parameter is valid only for on-premises file backup and ECS file backup.
+     *
      * @example false
      *
      * @var bool
@@ -16,7 +18,7 @@ class UpdateClientSettingsRequest extends Model
     public $alertOnPartialComplete;
 
     /**
-     * @description The ID of the backup client.
+     * @description The ID of the HBR client.
      *
      * @example c-*********************
      *
@@ -25,10 +27,10 @@ class UpdateClientSettingsRequest extends Model
     public $clientId;
 
     /**
-     * @description The network type of the backup client. Valid values:
+     * @description The type of the endpoint on the data plane. Valid values:
      *
-     *   **PUBLIC**: public network
-     *   **VPC**: VPC.
+     *   **PUBLIC**: Internet
+     *   **VPC**: virtual private cloud (VPC)
      *   **CLASSIC**: classic network
      *
      * @example VPC
@@ -38,11 +40,11 @@ class UpdateClientSettingsRequest extends Model
     public $dataNetworkType;
 
     /**
-     * @description The proxy settings of the backup client. Valid values:
+     * @description The proxy configuration on the data plane. Valid values:
      *
-     *   **DISABLE**: No proxy is configured.
-     *   **USE_CONTROL_PROXY**: The proxy settings are the same as the settings that are predefined by the system. Default value: USE_CONTROL_PROXY.
-     *   **CUSTOM**: Custom HTTP proxy settings are configured.
+     *   **DISABLE**: No proxy is used.
+     *   **USE_CONTROL_PROXY** (default): The configuration is the same as that on the control plane.
+     *   **CUSTOM**: The configuration is customized (HTTP).
      *
      * @example USE_CONTROL_PROXY
      *
@@ -51,7 +53,7 @@ class UpdateClientSettingsRequest extends Model
     public $dataProxySetting;
 
     /**
-     * @description The number of CPU cores that can be used by a single backup job. A value of 0 indicates no limits.
+     * @description The number of CPU cores used by a single backup job. The value 0 indicates that the number is unlimited.
      *
      * @example 1
      *
@@ -60,6 +62,8 @@ class UpdateClientSettingsRequest extends Model
     public $maxCpuCore;
 
     /**
+     * @description The maximum memory that can be used by the client. Unit: bytes. Only V2.13.0 and later are supported.
+     *
      * @example 4096
      *
      * @var int
@@ -67,7 +71,7 @@ class UpdateClientSettingsRequest extends Model
     public $maxMemory;
 
     /**
-     * @description The number of concurrent tasks that can be included in a backup job. A value of 0 indicates no limits.
+     * @description The number of concurrent backup jobs. The value 0 indicates that the number is unlimited.
      *
      * @example 1
      *
@@ -76,7 +80,7 @@ class UpdateClientSettingsRequest extends Model
     public $maxWorker;
 
     /**
-     * @description The custom IP address of the proxy server.
+     * @description The custom host IP address of the proxy server on the data plane.
      *
      * @example 192.168.11.100
      *
@@ -85,7 +89,7 @@ class UpdateClientSettingsRequest extends Model
     public $proxyHost;
 
     /**
-     * @description The custom password of the proxy server.
+     * @description The custom password of the proxy server on the data plane.
      *
      * @example ******
      *
@@ -94,7 +98,7 @@ class UpdateClientSettingsRequest extends Model
     public $proxyPassword;
 
     /**
-     * @description The custom port number of the proxy server.
+     * @description The custom host port of the proxy server on the data plane.
      *
      * @example 3128
      *
@@ -103,7 +107,7 @@ class UpdateClientSettingsRequest extends Model
     public $proxyPort;
 
     /**
-     * @description The custom username of the proxy server.
+     * @description The custom username of the proxy server on the data plane.
      *
      * @example user
      *
@@ -112,7 +116,7 @@ class UpdateClientSettingsRequest extends Model
     public $proxyUser;
 
     /**
-     * @description The ID of resource group.
+     * @description The ID of the resource group.
      *
      * @example rg-*********************
      *
@@ -121,10 +125,10 @@ class UpdateClientSettingsRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description Specifies whether to transmit data over HTTPS.
+     * @description Specifies whether to transmit the data on the data plane over HTTPS. Valid values:
      *
-     *   true: The system transmits data over HTTPS.
-     *   false: The system transmits data over HTTP.
+     *   true: Data is transmitted over HTTPS.
+     *   false: Data is transmitted over HTTP.
      *
      * @example false
      *
@@ -133,7 +137,7 @@ class UpdateClientSettingsRequest extends Model
     public $useHttps;
 
     /**
-     * @description The ID of the backup vault. If you use a backup client of an earlier version, you must set this parameter.
+     * @description The ID of the backup vault. This parameter is required for the old HBR client.
      *
      * @example v-*********************
      *

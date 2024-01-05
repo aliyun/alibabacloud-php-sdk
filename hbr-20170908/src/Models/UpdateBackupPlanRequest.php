@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateBackupPlanRequest extends Model
 {
     /**
+     * @example {"dataSourceId": "ds-123456789", "path": "/changelist"}
+     *
      * @var string
      */
     public $changeListPath;

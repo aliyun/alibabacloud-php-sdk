@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyBindingRequest;
 
+use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyBindingRequest\advancedOptions\commonFileSystemDetail;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyBindingRequest\advancedOptions\ossDetail;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyBindingRequest\advancedOptions\udmDetail;
 use AlibabaCloud\Tea\Model;
@@ -11,19 +12,27 @@ use AlibabaCloud\Tea\Model;
 class advancedOptions extends Model
 {
     /**
+     * @var commonFileSystemDetail
+     */
+    public $commonFileSystemDetail;
+
+    /**
+     * @description The details of the Object Storage Service (OSS) backup.
+     *
      * @var ossDetail
      */
     public $ossDetail;
 
     /**
-     * @description The details of ECS instance backup.
+     * @description The backup details of the Elastic Compute Service (ECS) instance.
      *
      * @var udmDetail
      */
     public $udmDetail;
     protected $_name = [
-        'ossDetail' => 'OssDetail',
-        'udmDetail' => 'UdmDetail',
+        'commonFileSystemDetail' => 'CommonFileSystemDetail',
+        'ossDetail'              => 'OssDetail',
+        'udmDetail'              => 'UdmDetail',
     ];
 
     public function validate()
@@ -33,6 +42,9 @@ class advancedOptions extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commonFileSystemDetail) {
+            $res['CommonFileSystemDetail'] = null !== $this->commonFileSystemDetail ? $this->commonFileSystemDetail->toMap() : null;
+        }
         if (null !== $this->ossDetail) {
             $res['OssDetail'] = null !== $this->ossDetail ? $this->ossDetail->toMap() : null;
         }
@@ -51,6 +63,9 @@ class advancedOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommonFileSystemDetail'])) {
+            $model->commonFileSystemDetail = commonFileSystemDetail::fromMap($map['CommonFileSystemDetail']);
+        }
         if (isset($map['OssDetail'])) {
             $model->ossDetail = ossDetail::fromMap($map['OssDetail']);
         }

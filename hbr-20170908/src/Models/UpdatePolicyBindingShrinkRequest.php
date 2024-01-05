@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdatePolicyBindingShrinkRequest extends Model
 {
     /**
-     * @description Advanced options.
+     * @description The advanced options.
      *
      * @var string
      */

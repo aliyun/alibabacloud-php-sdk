@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @description This parameter is returned only if the value of the **RuleType** parameter is **BACKUP**. This parameter indicates the backup type. Valid value: **COMPLETE**, which indicates full backup.
+     * @description This parameter is returned only if the value of the **RuleType** parameter is **BACKUP**. This parameter indicates the backup type. Only **COMPLETE** may be returned, which indicates full backup.
      *
      * @example COMPLETE
      *
@@ -19,6 +19,13 @@ class rules extends Model
     public $backupType;
 
     /**
+     * @description Indicates whether the feature of keeping at least one backup version is enabled. Valid values:
+     *
+     *   **0**: This feature is disabled.
+     *   **1**: This feature is enabled.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $keepLatestSnapshots;
@@ -52,7 +59,7 @@ class rules extends Model
     public $retentionRules;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
      * @example rule-000************f1e
      *
@@ -63,9 +70,9 @@ class rules extends Model
     /**
      * @description The type of the rule. Each backup policy must have at least one rule of the **BACKUP** type and only one rule of the **TRANSITION** type.
      *
-     *   **BACKUP**: backup rule
-     *   **TRANSITION**: lifecycle rule
-     *   **REPLICATION**: replication rule
+     *   **BACKUP**: the backup rule.
+     *   **TRANSITION**: the lifecycle rule.
+     *   **REPLICATION**: the replication rule.
      *
      * @example BACKUP
      *
@@ -74,10 +81,10 @@ class rules extends Model
     public $ruleType;
 
     /**
-     * @description This parameter is returned only if the value of the **RuleType** parameter is **BACKUP**. This parameter indicates the backup schedule settings. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+     * @description This parameter is returned only if the value of the **RuleType** parameter is **BACKUP**. This parameter indicates the scheduling settings for the backups. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is complete. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
      *
-     *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-     *   interval: the interval at which the system runs a backup job. The interval follows the ISO 8601 standard. For example, PT1H indicates an interval of one hour. P1D indicates an interval of one day.
+     *   startTime: the time when the system starts to run a backup job. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H indicates an interval of one hour. P1D indicates an interval of one day.
      *
      * @example I|1648647166|P1D
      *

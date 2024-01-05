@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class backupJob extends Model
 {
     /**
-     * @description The actual amount of data that is backed up after duplicates are removed. Unit: bytes.
+     * @description The actual amount of data that is backed up after the system removes duplicate files. Unit: bytes.
      *
      * @example 600
      *
@@ -21,12 +21,16 @@ class backupJob extends Model
     public $actualBytes;
 
     /**
+     * @description The number of files that are actually processed.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $actualFiles;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the actual number of objects that are backed up by the backup job.
+     * @description The actual number of objects that are backed up by the backup job. This parameter is returned only if the value of **SourceType** is **ECS_FILE**.
      *
      * @example 6
      *
@@ -35,7 +39,7 @@ class backupJob extends Model
     public $actualItems;
 
     /**
-     * @description The backup type. Valid value: **COMPLETE**, which indicates full backup.
+     * @description The backup type. Only **COMPLETE** may be returned, which indicates full backup.
      *
      * @example COMPLETE
      *
@@ -44,7 +48,7 @@ class backupJob extends Model
     public $backupType;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **OSS**. This parameter indicates the name of the OSS bucket that is backed up.
+     * @description The name of the OSS bucket that is backed up. This parameter is returned only if the value of **SourceType** is **OSS**.
      *
      * @example hbr-backup-oss
      *
@@ -71,12 +75,16 @@ class backupJob extends Model
     public $bytesTotal;
 
     /**
+     * @description The configurations of the incremental file synchronization. This parameter is returned only for data synchronization.
+     *
+     * @example {"dataSourceId": "ds-123456789", "path": "/changelist"}
+     *
      * @var string
      */
     public $changeListPath;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the ID of the HBR client.
+     * @description The ID of the backup client. This parameter is returned only if the value of **SourceType** is **ECS_FILE**.
      *
      * @example c-*********************
      *
@@ -85,7 +93,7 @@ class backupJob extends Model
     public $clientId;
 
     /**
-     * @description The time when the backup job was completed. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the backup job was complete. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1554347313
      *
@@ -94,7 +102,7 @@ class backupJob extends Model
     public $completeTime;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **NAS**. This parameter indicates the time when the file system was created. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the file system was created. This parameter is returned only if the value of **SourceType** is **NAS**. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1607436917
      *
@@ -103,7 +111,7 @@ class backupJob extends Model
     public $createTime;
 
     /**
-     * @description The time when the backup job was created. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the backup job was created. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1554347313
      *
@@ -112,7 +120,7 @@ class backupJob extends Model
     public $createdTime;
 
     /**
-     * @description The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+     * @description The name of the Resource Access Management (RAM) role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
      *
      * @example BackupRole
      *
@@ -121,7 +129,7 @@ class backupJob extends Model
     public $crossAccountRoleName;
 
     /**
-     * @description Indicates whether data is backed up within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
+     * @description The backup type. Valid values:
      *
      *   SELF_ACCOUNT: Data is backed up within the same Alibaba Cloud account.
      *   CROSS_ACCOUNT: Data is backed up across Alibaba Cloud accounts.
@@ -142,16 +150,28 @@ class backupJob extends Model
     public $crossAccountUserId;
 
     /**
+     * @description The data source details at the destination. This parameter is returned only for data synchronization.
+     *
+     * @example {\"prefix\":\"/\"}
+     *
      * @var string
      */
     public $destDataSourceDetail;
 
     /**
+     * @description The data source ID at the destination. This parameter is returned only for data synchronization.
+     *
+     * @example ds-000cov4ufudxklj24zdk
+     *
      * @var string
      */
     public $destDataSourceId;
 
     /**
+     * @description The data source type at the destination. This parameter is returned only for data synchronization.
+     *
+     * @example OSS
+     *
      * @var string
      */
     public $destSourceType;
@@ -173,7 +193,7 @@ class backupJob extends Model
     public $errorMessage;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the paths to the files that are excluded from the backup job. The value must be 1 to 255 characters in length.
+     * @description The paths to the files that are excluded from the backup job. This parameter is returned only if the value of **SourceType** is **ECS_FILE**. The value can be up to 255 characters in length.
      *
      * @example ["/var", "/proc"]
      *
@@ -182,7 +202,7 @@ class backupJob extends Model
     public $exclude;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **NAS**. This parameter indicates the ID of the NAS file system.
+     * @description The ID of the NAS file system. This parameter is returned only if the value of **SourceType** is **NAS**.
      *
      * @example 005494
      *
@@ -191,17 +211,25 @@ class backupJob extends Model
     public $fileSystemId;
 
     /**
+     * @description The number of files that have been processed.
+     *
+     * @example 9
+     *
      * @var int
      */
     public $filesDone;
 
     /**
+     * @description The total number of files to be processed.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $filesTotal;
 
     /**
-     * @description 仅SourceType=CONTAINER时返回，表示容器备份任务备份的集群标识。当集群类型为阿里云容器服务Kubernetes集群时，该值为Kubernetes集群ID。
+     * @description The identifier of the cluster that is backed up in the container backup job. This parameter is returned only if the value of SourceType is CONTAINER. If the cluster is a Container Service for Kubernetes (ACK) cluster, the value of this parameter is the ACK cluster ID.
      *
      * @var string
      */
@@ -217,7 +245,7 @@ class backupJob extends Model
     public $include;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **NAS**. This parameter indicates the ID of the ECS instance.
+     * @description The ID of the ECS instance. This parameter is returned only if the value of **SourceType** is **NAS**.
      *
      * @example i-*********************
      *
@@ -235,7 +263,7 @@ class backupJob extends Model
     public $instanceName;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the number of objects that are backed up.
+     * @description The number of objects that are backed up. This parameter is returned only if the value of **SourceType** is **ECS_FILE**.
      *
      * @example 8
      *
@@ -244,7 +272,7 @@ class backupJob extends Model
     public $itemsDone;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the total number of objects in the data source.
+     * @description The total number of objects in the data source. This parameter is returned only if the value of **SourceType** is **ECS_FILE**.
      *
      * @example 10
      *
@@ -271,11 +299,11 @@ class backupJob extends Model
     public $jobName;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates whether Windows Volume Shadow Copy Service (VSS) is used to define a source path.
+     * @description Indicates whether Windows Volume Shadow Copy Service (VSS) is used to define a source path. This parameter is returned only if the value of **SourceType** is **ECS_FILE**.
      *
      *   This parameter is available only for Windows ECS instances.
-     *   If data changes occur in the backup source, the source data must be the same as the data to be backed up before you can set this parameter to `["UseVSS":true]`.
-     *   If you use VSS, you cannot back up data from multiple directories.
+     *   A value of `["UseVSS":true]` indicates that the consistency between the source data and backup data is ensured while data changes occur in the source data.
+     *   If VSS is used, multiple directories cannot be backed up at a time.
      *
      * @example {"UseVSS":false}
      *
@@ -307,7 +335,7 @@ class backupJob extends Model
     public $planId;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **OSS**. This parameter indicates the prefix of objects that are backed up.
+     * @description The prefix of objects that are backed up. This parameter is returned only if the value of **SourceType** is **OSS**.
      *
      * @example example/
      *
@@ -316,7 +344,7 @@ class backupJob extends Model
     public $prefix;
 
     /**
-     * @description The backup progress. For example, 10000 indicates that the progress is 100%.
+     * @description The backup progress. Valid values: 0 to 10000. For example, a value of 10000 indicates that the progress is 100%.
      *
      * @example 10000
      *
@@ -327,9 +355,9 @@ class backupJob extends Model
     /**
      * @description The type of the data source. Valid values:
      *
-     *   **ECS_FILE**: ECS files
-     *   **OSS**: OSS buckets
-     *   **NAS**: NAS file systems
+     *   **ECS_FILE**: ECS file.
+     *   **OSS**: OSS bucket.
+     *   **NAS**: NAS file system.
      *
      * @example ECS_FILE
      *
@@ -347,10 +375,10 @@ class backupJob extends Model
     public $speed;
 
     /**
-     * @description This parameter is returned only if the **SourceType** parameter is set to **ECS_FILE**. This parameter indicates the throttling rules. Format: `{start}|{end}|{bandwidth}`. Separate multiple throttling rules with vertical bars (`|`). A specified time range cannot overlap with another one.
+     * @description The throttling rules. This parameter is returned only if the value of **SourceType** is **ECS_FILE**. Format: `{start}:{end}:{bandwidth}`. Multiple throttling rules are separated by vertical bars (`|`). The time ranges of the throttling rules cannot overlap.
      *
      *   **start**: the start hour.
-     *   **end**: the end hour.
+     *   **end**: the end hour
      *   **bandwidth**: the bandwidth. Unit: KB/s.
      *
      * @example 0:24:5120
@@ -360,7 +388,7 @@ class backupJob extends Model
     public $speedLimit;
 
     /**
-     * @description The time when the backup job started. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the backup job started. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1554347313
      *
@@ -369,11 +397,11 @@ class backupJob extends Model
     public $startTime;
 
     /**
-     * @description The status of the backup job. Valid values:
+     * @description The state of the backup job. Valid values:
      *
-     *   **COMPLETE**: The backup job is completed.
-     *   **PARTIAL_COMPLETE**: The backup job is partially completed.
-     *   **FAILED**: The backup job has failed.
+     *   **COMPLETE**
+     *   **PARTIAL_COMPLETE**
+     *   **FAILED**
      *
      * @example COMPLETE
      *
@@ -382,7 +410,7 @@ class backupJob extends Model
     public $status;
 
     /**
-     * @description The name of a table in the Tablestore instance.
+     * @description The name of the table in the Tablestore instance.
      *
      * @example table1
      *
@@ -391,7 +419,7 @@ class backupJob extends Model
     public $tableName;
 
     /**
-     * @description The time when the backup job was updated. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the backup job was last updated. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1554347313
      *

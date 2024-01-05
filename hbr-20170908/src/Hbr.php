@@ -4066,8 +4066,14 @@ class Hbr extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
         }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
         if (!Utils::isUnset($request->queryShrink)) {
             $query['Query'] = $request->queryShrink;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
         }
         if (!Utils::isUnset($request->sourceType)) {
             $query['SourceType'] = $request->sourceType;
@@ -4437,7 +4443,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the settings of a backup client of an earlier version or the latest version.
+     * You can call this operation to update the configurations of both the old and new HBR clients.
      *   *
      * @param UpdateClientSettingsRequest $request UpdateClientSettingsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -4509,7 +4515,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the settings of a backup client of an earlier version or the latest version.
+     * You can call this operation to update the configurations of both the old and new HBR clients.
      *   *
      * @param UpdateClientSettingsRequest $request UpdateClientSettingsRequest
      *

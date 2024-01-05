@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponseBody\policyBindings;
 
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponseBody\policyBindings\advancedOptions\commonFileSystemDetail;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponseBody\policyBindings\advancedOptions\commonNasDetail;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponseBody\policyBindings\advancedOptions\fileDetail;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponseBody\policyBindings\advancedOptions\ossDetail;
@@ -13,29 +14,43 @@ use AlibabaCloud\Tea\Model;
 class advancedOptions extends Model
 {
     /**
+     * @var commonFileSystemDetail
+     */
+    public $commonFileSystemDetail;
+
+    /**
+     * @description The advanced options for on-premises NAS backup.
+     *
      * @var commonNasDetail
      */
     public $commonNasDetail;
 
     /**
+     * @description The advanced options for file backup.
+     *
      * @var fileDetail
      */
     public $fileDetail;
 
     /**
+     * @description The advanced options for OSS backup.
+     *
      * @var ossDetail
      */
     public $ossDetail;
 
     /**
+     * @description The advanced options for ECS instance backup.
+     *
      * @var udmDetail
      */
     public $udmDetail;
     protected $_name = [
-        'commonNasDetail' => 'CommonNasDetail',
-        'fileDetail'      => 'FileDetail',
-        'ossDetail'       => 'OssDetail',
-        'udmDetail'       => 'UdmDetail',
+        'commonFileSystemDetail' => 'CommonFileSystemDetail',
+        'commonNasDetail'        => 'CommonNasDetail',
+        'fileDetail'             => 'FileDetail',
+        'ossDetail'              => 'OssDetail',
+        'udmDetail'              => 'UdmDetail',
     ];
 
     public function validate()
@@ -45,6 +60,9 @@ class advancedOptions extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commonFileSystemDetail) {
+            $res['CommonFileSystemDetail'] = null !== $this->commonFileSystemDetail ? $this->commonFileSystemDetail->toMap() : null;
+        }
         if (null !== $this->commonNasDetail) {
             $res['CommonNasDetail'] = null !== $this->commonNasDetail ? $this->commonNasDetail->toMap() : null;
         }
@@ -69,6 +87,9 @@ class advancedOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommonFileSystemDetail'])) {
+            $model->commonFileSystemDetail = commonFileSystemDetail::fromMap($map['CommonFileSystemDetail']);
+        }
         if (isset($map['CommonNasDetail'])) {
             $model->commonNasDetail = commonNasDetail::fromMap($map['CommonNasDetail']);
         }

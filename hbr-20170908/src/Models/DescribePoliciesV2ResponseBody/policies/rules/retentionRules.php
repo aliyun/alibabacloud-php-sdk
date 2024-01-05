@@ -11,9 +11,9 @@ class retentionRules extends Model
     /**
      * @description The type of the special retention rule. Valid values:
      *
-     *   **WEEKLY**: retains weekly backups
-     *   **MONTHLY**: retains monthly backups
-     *   **YEARLY**: retains yearly backups
+     *   **WEEKLY**: weekly backups.
+     *   **MONTHLY**: monthly backups.
+     *   **YEARLY**: yearly backups.
      *
      * @example YEARLY
      *

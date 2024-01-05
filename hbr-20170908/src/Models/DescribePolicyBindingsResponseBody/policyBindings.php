@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class policyBindings extends Model
 {
     /**
+     * @description The advanced options.
+     *
      * @var advancedOptions
      */
     public $advancedOptions;
 
     /**
+     * @description The time when the backup policy was created. This value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1661399570
      *
      * @var int
@@ -22,6 +26,8 @@ class policyBindings extends Model
     public $createdTime;
 
     /**
+     * @description The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+     *
      * @example hbrcrossrole
      *
      * @var string
@@ -29,6 +35,11 @@ class policyBindings extends Model
     public $crossAccountRoleName;
 
     /**
+     * @description Indicates whether data is backed up within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
+     *
+     *   SELF_ACCOUNT: Data is backed up within the same Alibaba Cloud account.
+     *   CROSS_ACCOUNT: Data is backed up across Alibaba Cloud accounts.
+     *
      * @example CROSS_ACCOUNT
      *
      * @var string
@@ -36,6 +47,8 @@ class policyBindings extends Model
     public $crossAccountType;
 
     /**
+     * @description The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+     *
      * @example 1480************
      *
      * @var int
@@ -43,6 +56,8 @@ class policyBindings extends Model
     public $crossAccountUserId;
 
     /**
+     * @description The ID of the data source.
+     *
      * @example i-8vb************5ly
      *
      * @var string
@@ -50,6 +65,11 @@ class policyBindings extends Model
     public $dataSourceId;
 
     /**
+     * @description Indicates whether the backup policy is enabled for the data source. Valid values:
+     *
+     *   true: The backup policy is disabled.
+     *   false: The backup policy is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -57,6 +77,8 @@ class policyBindings extends Model
     public $disabled;
 
     /**
+     * @description The description of the association.
+     *
      * @example po-000************eslc-i-uf6************y5g
      *
      * @var string
@@ -64,6 +86,8 @@ class policyBindings extends Model
     public $policyBindingDescription;
 
     /**
+     * @description The ID of the association.
+     *
      * @example pd-000************slc
      *
      * @var string
@@ -71,6 +95,8 @@ class policyBindings extends Model
     public $policyBindingId;
 
     /**
+     * @description The policy ID.
+     *
      * @example po-000************56y
      *
      * @var string
@@ -78,6 +104,10 @@ class policyBindings extends Model
     public $policyId;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   **UDM_ECS**: ECS instances
+     *
      * @example UDM_ECS
      *
      * @var string
@@ -85,6 +115,8 @@ class policyBindings extends Model
     public $sourceType;
 
     /**
+     * @description The time when the backup policy was updated. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1653611573
      *
      * @var int

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
-     * @description The time when the backup policy was created. This value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the backup policy was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1650248136
      *
@@ -62,7 +62,7 @@ class policies extends Model
     public $rules;
 
     /**
-     * @description The time when the backup policy was updated. This value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the backup policy was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1662080404
      *

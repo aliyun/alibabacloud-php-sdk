@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
+     * @example DataSourceType
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example IN
+     *
      * @var string
      */
     public $operator;

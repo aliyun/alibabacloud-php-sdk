@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdatePolicyBindingRequest extends Model
 {
     /**
-     * @description Advanced options.
+     * @description The advanced options.
      *
      * @var advancedOptions
      */

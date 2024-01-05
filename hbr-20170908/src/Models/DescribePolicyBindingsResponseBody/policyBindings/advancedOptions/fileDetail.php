@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class fileDetail extends Model
 {
     /**
+     * @description Indicates whether an advanced policy is used. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $advPolicy;
 
     /**
+     * @description Indicates whether the Volume Shadow Copy Service (VSS) feature is enabled. Valid values:
+     *
+     *   **true**: The feature is enabled.
+     *   **false**: The feature is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $useVSS;

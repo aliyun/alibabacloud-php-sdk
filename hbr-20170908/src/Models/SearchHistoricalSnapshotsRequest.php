@@ -27,6 +27,11 @@ class SearchHistoricalSnapshotsRequest extends Model
     public $nextToken;
 
     /**
+     * @var string
+     */
+    public $order;
+
+    /**
      * @description The query conditions. Example:
      *
      * "field": "VaultId",
@@ -65,6 +70,11 @@ class SearchHistoricalSnapshotsRequest extends Model
     public $query;
 
     /**
+     * @var string
+     */
+    public $sortBy;
+
+    /**
      * @description The type of the data source. Valid values:
      *
      *   **ECS_FILE**: backup snapshots for Elastic Compute Service (ECS) files
@@ -79,7 +89,9 @@ class SearchHistoricalSnapshotsRequest extends Model
     protected $_name = [
         'limit'      => 'Limit',
         'nextToken'  => 'NextToken',
+        'order'      => 'Order',
         'query'      => 'Query',
+        'sortBy'     => 'SortBy',
         'sourceType' => 'SourceType',
     ];
 
@@ -96,8 +108,14 @@ class SearchHistoricalSnapshotsRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
         if (null !== $this->query) {
             $res['Query'] = $this->query;
+        }
+        if (null !== $this->sortBy) {
+            $res['SortBy'] = $this->sortBy;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -120,10 +138,16 @@ class SearchHistoricalSnapshotsRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
         if (isset($map['Query'])) {
             if (!empty($map['Query'])) {
                 $model->query = $map['Query'];
             }
+        }
+        if (isset($map['SortBy'])) {
+            $model->sortBy = $map['SortBy'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];

@@ -6,45 +6,18 @@ namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponseBo
 
 use AlibabaCloud\Tea\Model;
 
-class commonNasDetail extends Model
+class commonFileSystemDetail extends Model
 {
     /**
-     * @description The ID of the HBR client.
-     *
-     * @example c-0001eg6mcvjs93f46s2d
-     *
-     * @var string
-     */
-    public $clientId;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
-
-    /**
-     * @description The size of backup shards (the number of files).
-     *
-     * @example 100000
-     *
      * @var int
      */
     public $fetchSliceSize;
 
     /**
-     * @description Indicates whether the system performs full backup if incremental backup fails. Valid values:
-     *
-     *   **true**: The system performs full backup if incremental backup fails.
-     *   **false**: The system does not perform full backup if incremental backup fails.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $fullOnIncrementFail;
     protected $_name = [
-        'clientId'            => 'ClientId',
-        'clusterId'           => 'ClusterId',
         'fetchSliceSize'      => 'FetchSliceSize',
         'fullOnIncrementFail' => 'FullOnIncrementFail',
     ];
@@ -56,12 +29,6 @@ class commonNasDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientId) {
-            $res['ClientId'] = $this->clientId;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->fetchSliceSize) {
             $res['FetchSliceSize'] = $this->fetchSliceSize;
         }
@@ -75,17 +42,11 @@ class commonNasDetail extends Model
     /**
      * @param array $map
      *
-     * @return commonNasDetail
+     * @return commonFileSystemDetail
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientId'])) {
-            $model->clientId = $map['ClientId'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['FetchSliceSize'])) {
             $model->fetchSliceSize = $map['FetchSliceSize'];
         }

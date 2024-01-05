@@ -47,7 +47,7 @@ class DescribePoliciesV2ResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The list of backup policies.
+     * @description The backup policies.
      *
      * @var policies[]
      */

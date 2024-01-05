@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupJobs2ResponseBody extends Model
 {
     /**
-     * @description The returned backup jobs that meet the specified conditions.
+     * @description The backup jobs that meet the specified conditions.
      *
      * @var backupJobs
      */

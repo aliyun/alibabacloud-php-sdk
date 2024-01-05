@@ -36,7 +36,7 @@ class trialInfo extends Model
     public $trialStartTime;
 
     /**
-     * @description The time when the free-trial backup vault is released.
+     * @description The time when the free-trial backup vault was released.
      *
      * @example 1594965600
      *
