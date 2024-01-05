@@ -46,6 +46,8 @@ use AlibabaCloud\SDK\Bailian\V20230601\Models\GetImportTaskResultRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\GetImportTaskResultResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\GetPromptRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\GetPromptResponse;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\GetText2ImageJobRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\GetText2ImageJobResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\ImportEnterpriseDocumentRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\ImportEnterpriseDocumentResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\ImportEnterpriseDocumentShrinkRequest;
@@ -67,6 +69,8 @@ use AlibabaCloud\SDK\Bailian\V20230601\Models\QueryUserDocumentResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\SearchEnterpriseDataRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\SearchEnterpriseDataResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\SearchEnterpriseDataShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\SubmitText2ImageJobRequest;
+use AlibabaCloud\SDK\Bailian\V20230601\Models\SubmitText2ImageJobResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\UpdateEnterpriseDataInfoRequest;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\UpdateEnterpriseDataInfoResponse;
 use AlibabaCloud\SDK\Bailian\V20230601\Models\UpdateEnterpriseDataTagRequest;
@@ -1045,6 +1049,46 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @param GetText2ImageJobRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetText2ImageJobResponse
+     */
+    public function getText2ImageJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetText2ImageJob',
+            'version'     => '2023-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetText2ImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetText2ImageJobRequest $request
+     *
+     * @return GetText2ImageJobResponse
+     */
+    public function getText2ImageJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getText2ImageJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ImportEnterpriseDocumentRequest $tmpReq
      * @param RuntimeOptions                  $runtime
      *
@@ -1542,6 +1586,70 @@ class Bailian extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchEnterpriseDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitText2ImageJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitText2ImageJobResponse
+     */
+    public function submitText2ImageJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->n)) {
+            $query['N'] = $request->n;
+        }
+        if (!Utils::isUnset($request->negativePrompt)) {
+            $query['NegativePrompt'] = $request->negativePrompt;
+        }
+        if (!Utils::isUnset($request->prompt)) {
+            $query['Prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->seed)) {
+            $query['Seed'] = $request->seed;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['Size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->style)) {
+            $query['Style'] = $request->style;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitText2ImageJob',
+            'version'     => '2023-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitText2ImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitText2ImageJobRequest $request
+     *
+     * @return SubmitText2ImageJobResponse
+     */
+    public function submitText2ImageJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitText2ImageJobWithOptions($request, $runtime);
     }
 
     /**
