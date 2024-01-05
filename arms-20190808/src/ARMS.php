@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusRemoteWriteRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusRemoteWriteResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddRecordingRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddRecordingRuleResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\AddTagToFlinkClusterRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\AddTagToFlinkClusterResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AppendInstancesToPrometheusGlobalViewRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AppendInstancesToPrometheusGlobalViewResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ApplyScenarioRequest;
@@ -998,6 +1000,64 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addRecordingRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddTagToFlinkClusterRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AddTagToFlinkClusterResponse
+     */
+    public function addTagToFlinkClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->flinkWorkSpaceId)) {
+            $query['FlinkWorkSpaceId'] = $request->flinkWorkSpaceId;
+        }
+        if (!Utils::isUnset($request->flinkWorkSpaceName)) {
+            $query['FlinkWorkSpaceName'] = $request->flinkWorkSpaceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->targetUserId)) {
+            $query['TargetUserId'] = $request->targetUserId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTagToFlinkCluster',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddTagToFlinkClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddTagToFlinkClusterRequest $request
+     *
+     * @return AddTagToFlinkClusterResponse
+     */
+    public function addTagToFlinkCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addTagToFlinkClusterWithOptions($request, $runtime);
     }
 
     /**
