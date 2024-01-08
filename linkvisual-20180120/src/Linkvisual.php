@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\ClearFaceDeviceDBRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\ClearFaceDeviceDBResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateEventRecordPlanRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateEventRecordPlanResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateGbDeviceRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateGbDeviceResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateLocalFileUploadJobRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateLocalFileUploadJobResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateLocalRecordDownloadByTimeJobRequest;
@@ -1049,6 +1051,70 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEventRecordPlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateGbDeviceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateGbDeviceResponse
+     */
+    public function createGbDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->deviceType)) {
+            $query['DeviceType'] = $request->deviceType;
+        }
+        if (!Utils::isUnset($request->gbId)) {
+            $query['GbId'] = $request->gbId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->mediaNetProtocol)) {
+            $query['MediaNetProtocol'] = $request->mediaNetProtocol;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->subProductKey)) {
+            $query['SubProductKey'] = $request->subProductKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGbDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateGbDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateGbDeviceRequest $request
+     *
+     * @return CreateGbDeviceResponse
+     */
+    public function createGbDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGbDeviceWithOptions($request, $runtime);
     }
 
     /**

@@ -1,3 +1,6 @@
+2024-01-08 Version: 1.4.0
+- Generated php 2018-01-20 for Linkvisual.
+
 2023-12-20 Version: 1.3.0
 - Generated php 2018-01-20 for Linkvisual.
 
