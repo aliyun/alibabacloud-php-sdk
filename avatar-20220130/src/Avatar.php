@@ -1399,6 +1399,9 @@ class Avatar extends OpenApiClient
         if (!Utils::isUnset($tmpReq->app)) {
             $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
         }
+        if (!Utils::isUnset($tmpReq->audioInfo)) {
+            $request->audioInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->audioInfo, 'AudioInfo', 'json');
+        }
         if (!Utils::isUnset($tmpReq->avatarInfo)) {
             $request->avatarInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->avatarInfo, 'AvatarInfo', 'json');
         }
@@ -1408,6 +1411,9 @@ class Avatar extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appShrink)) {
             $query['App'] = $request->appShrink;
+        }
+        if (!Utils::isUnset($request->audioInfoShrink)) {
+            $query['AudioInfo'] = $request->audioInfoShrink;
         }
         if (!Utils::isUnset($request->avatarInfoShrink)) {
             $query['AvatarInfo'] = $request->avatarInfoShrink;
@@ -1477,6 +1483,9 @@ class Avatar extends OpenApiClient
         if (!Utils::isUnset($tmpReq->app)) {
             $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
         }
+        if (!Utils::isUnset($tmpReq->audioInfo)) {
+            $request->audioInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->audioInfo, 'AudioInfo', 'json');
+        }
         if (!Utils::isUnset($tmpReq->avatarInfo)) {
             $request->avatarInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->avatarInfo, 'AvatarInfo', 'json');
         }
@@ -1486,6 +1495,9 @@ class Avatar extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appShrink)) {
             $query['App'] = $request->appShrink;
+        }
+        if (!Utils::isUnset($request->audioInfoShrink)) {
+            $query['AudioInfo'] = $request->audioInfoShrink;
         }
         if (!Utils::isUnset($request->avatarInfoShrink)) {
             $query['AvatarInfo'] = $request->avatarInfoShrink;

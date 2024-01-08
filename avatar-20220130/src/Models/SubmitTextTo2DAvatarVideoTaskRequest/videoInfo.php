@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo2DAvatarVideoTaskRequest;
 
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo2DAvatarVideoTaskRequest\videoInfo\subtitleStyle;
 use AlibabaCloud\Tea\Model;
 
 class videoInfo extends Model
@@ -43,6 +44,11 @@ class videoInfo extends Model
      * @var bool
      */
     public $subtitleEmbedded;
+
+    /**
+     * @var subtitleStyle
+     */
+    public $subtitleStyle;
     protected $_name = [
         'alphaFormat'        => 'AlphaFormat',
         'backgroundImageUrl' => 'BackgroundImageUrl',
@@ -50,6 +56,7 @@ class videoInfo extends Model
         'isSubtitles'        => 'IsSubtitles',
         'resolution'         => 'Resolution',
         'subtitleEmbedded'   => 'SubtitleEmbedded',
+        'subtitleStyle'      => 'SubtitleStyle',
     ];
 
     public function validate()
@@ -76,6 +83,9 @@ class videoInfo extends Model
         }
         if (null !== $this->subtitleEmbedded) {
             $res['SubtitleEmbedded'] = $this->subtitleEmbedded;
+        }
+        if (null !== $this->subtitleStyle) {
+            $res['SubtitleStyle'] = null !== $this->subtitleStyle ? $this->subtitleStyle->toMap() : null;
         }
 
         return $res;
@@ -106,6 +116,9 @@ class videoInfo extends Model
         }
         if (isset($map['SubtitleEmbedded'])) {
             $model->subtitleEmbedded = $map['SubtitleEmbedded'];
+        }
+        if (isset($map['SubtitleStyle'])) {
+            $model->subtitleStyle = subtitleStyle::fromMap($map['SubtitleStyle']);
         }
 
         return $model;

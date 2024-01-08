@@ -16,6 +16,11 @@ class audioInfo extends Model
     public $pitchRate;
 
     /**
+     * @var int
+     */
+    public $sampleRate;
+
+    /**
      * @example 0
      *
      * @var int
@@ -37,6 +42,7 @@ class audioInfo extends Model
     public $volume;
     protected $_name = [
         'pitchRate'  => 'PitchRate',
+        'sampleRate' => 'SampleRate',
         'speechRate' => 'SpeechRate',
         'voice'      => 'Voice',
         'volume'     => 'Volume',
@@ -51,6 +57,9 @@ class audioInfo extends Model
         $res = [];
         if (null !== $this->pitchRate) {
             $res['PitchRate'] = $this->pitchRate;
+        }
+        if (null !== $this->sampleRate) {
+            $res['SampleRate'] = $this->sampleRate;
         }
         if (null !== $this->speechRate) {
             $res['SpeechRate'] = $this->speechRate;
@@ -75,6 +84,9 @@ class audioInfo extends Model
         $model = new self();
         if (isset($map['PitchRate'])) {
             $model->pitchRate = $map['PitchRate'];
+        }
+        if (isset($map['SampleRate'])) {
+            $model->sampleRate = $map['SampleRate'];
         }
         if (isset($map['SpeechRate'])) {
             $model->speechRate = $map['SpeechRate'];

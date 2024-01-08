@@ -16,6 +16,11 @@ class SubmitAudioTo3DAvatarVideoTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $audioInfoShrink;
+
+    /**
+     * @var string
+     */
     public $avatarInfoShrink;
 
     /**
@@ -56,6 +61,7 @@ class SubmitAudioTo3DAvatarVideoTaskShrinkRequest extends Model
     public $videoInfoShrink;
     protected $_name = [
         'appShrink'        => 'App',
+        'audioInfoShrink'  => 'AudioInfo',
         'avatarInfoShrink' => 'AvatarInfo',
         'callback'         => 'Callback',
         'callbackParams'   => 'CallbackParams',
@@ -75,6 +81,9 @@ class SubmitAudioTo3DAvatarVideoTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->appShrink) {
             $res['App'] = $this->appShrink;
+        }
+        if (null !== $this->audioInfoShrink) {
+            $res['AudioInfo'] = $this->audioInfoShrink;
         }
         if (null !== $this->avatarInfoShrink) {
             $res['AvatarInfo'] = $this->avatarInfoShrink;
@@ -114,6 +123,9 @@ class SubmitAudioTo3DAvatarVideoTaskShrinkRequest extends Model
         $model = new self();
         if (isset($map['App'])) {
             $model->appShrink = $map['App'];
+        }
+        if (isset($map['AudioInfo'])) {
+            $model->audioInfoShrink = $map['AudioInfo'];
         }
         if (isset($map['AvatarInfo'])) {
             $model->avatarInfoShrink = $map['AvatarInfo'];

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Avatar\V20220130\Models;
 
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo3DAvatarVideoTaskRequest\app;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo3DAvatarVideoTaskRequest\audioInfo;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo3DAvatarVideoTaskRequest\avatarInfo;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo3DAvatarVideoTaskRequest\videoInfo;
 use AlibabaCloud\Tea\Model;
@@ -15,6 +16,11 @@ class SubmitAudioTo3DAvatarVideoTaskRequest extends Model
      * @var app
      */
     public $app;
+
+    /**
+     * @var audioInfo
+     */
+    public $audioInfo;
 
     /**
      * @var avatarInfo
@@ -59,6 +65,7 @@ class SubmitAudioTo3DAvatarVideoTaskRequest extends Model
     public $videoInfo;
     protected $_name = [
         'app'            => 'App',
+        'audioInfo'      => 'AudioInfo',
         'avatarInfo'     => 'AvatarInfo',
         'callback'       => 'Callback',
         'callbackParams' => 'CallbackParams',
@@ -78,6 +85,9 @@ class SubmitAudioTo3DAvatarVideoTaskRequest extends Model
         $res = [];
         if (null !== $this->app) {
             $res['App'] = null !== $this->app ? $this->app->toMap() : null;
+        }
+        if (null !== $this->audioInfo) {
+            $res['AudioInfo'] = null !== $this->audioInfo ? $this->audioInfo->toMap() : null;
         }
         if (null !== $this->avatarInfo) {
             $res['AvatarInfo'] = null !== $this->avatarInfo ? $this->avatarInfo->toMap() : null;
@@ -117,6 +127,9 @@ class SubmitAudioTo3DAvatarVideoTaskRequest extends Model
         $model = new self();
         if (isset($map['App'])) {
             $model->app = app::fromMap($map['App']);
+        }
+        if (isset($map['AudioInfo'])) {
+            $model->audioInfo = audioInfo::fromMap($map['AudioInfo']);
         }
         if (isset($map['AvatarInfo'])) {
             $model->avatarInfo = avatarInfo::fromMap($map['AvatarInfo']);
