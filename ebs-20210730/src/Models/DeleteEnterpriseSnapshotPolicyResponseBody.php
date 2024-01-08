@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnterpriseSnapshotPolicyResponseBody extends Model
 {
     /**
-     * @example xxx
+     * @description The ID of the request.
+     *
+     * @example B9F716DF-FAFD-50FD-B962-BCE0C837639A
      *
      * @var string
      */

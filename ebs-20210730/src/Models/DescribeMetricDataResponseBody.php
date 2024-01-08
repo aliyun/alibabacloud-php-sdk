@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricDataResponseBody extends Model
 {
     /**
+     * @description The disk monitoring data.
+     *
      * @var dataList[]
      */
     public $dataList;
 
     /**
+     * @description The request ID.
+     *
      * @example 11B55F58-D3A4-4A9B-9596-342420D0****
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeMetricDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of data entries queried.
+     *
      * @example 3
      *
      * @var int

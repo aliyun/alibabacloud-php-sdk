@@ -105,6 +105,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\UpdateEnterpriseSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\UpdateEnterpriseSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\UpdateEnterpriseSnapshotPolicyShrinkRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\UpdateSolutionInstanceAttributeRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\UpdateSolutionInstanceAttributeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1597,6 +1599,9 @@ class Ebs extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->diskIds)) {
+            $query['DiskIds'] = $request->diskIds;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
@@ -3224,5 +3229,60 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateEnterpriseSnapshotPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSolutionInstanceAttributeRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateSolutionInstanceAttributeResponse
+     */
+    public function updateSolutionInstanceAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->solutionInstanceId)) {
+            $query['SolutionInstanceId'] = $request->solutionInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSolutionInstanceAttribute',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSolutionInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSolutionInstanceAttributeRequest $request
+     *
+     * @return UpdateSolutionInstanceAttributeResponse
+     */
+    public function updateSolutionInstanceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSolutionInstanceAttributeWithOptions($request, $runtime);
     }
 }

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @description The datapoints that consist of consecutive timestamps in seconds and metric values that were recorded at these time points.
+     *
      * @example {
      * }
      * @var mixed
@@ -16,6 +18,8 @@ class dataList extends Model
     public $datapoints;
 
     /**
+     * @description The tags.
+     *
      * @example {"DiskId": "d-1234"}
      *
      * @var mixed

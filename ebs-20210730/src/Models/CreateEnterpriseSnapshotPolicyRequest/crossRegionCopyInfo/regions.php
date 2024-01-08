@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
+     * @description The region ID of the destination. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class regions extends Model
     public $regionId;
 
     /**
+     * @description Number of days to retain the destination snapshot. The range of values is greater than 1.
+     *
      * @example 7
      *
      * @var int

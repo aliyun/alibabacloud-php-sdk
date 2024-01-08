@@ -15,18 +15,24 @@ use AlibabaCloud\Tea\Model;
 class CreateEnterpriseSnapshotPolicyRequest extends Model
 {
     /**
-     * @example xxx
+     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description Snapshot replication destination information.
+     *
      * @var crossRegionCopyInfo
      */
     public $crossRegionCopyInfo;
 
     /**
+     * @description The description of the policy.
+     *
      * @example xxx
      *
      * @var string
@@ -34,6 +40,8 @@ class CreateEnterpriseSnapshotPolicyRequest extends Model
     public $desc;
 
     /**
+     * @description The name of the policy.
+     *
      * @example xx
      *
      * @var string
@@ -41,6 +49,8 @@ class CreateEnterpriseSnapshotPolicyRequest extends Model
     public $name;
 
     /**
+     * @description The region ID . You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which snapshot policy is supported.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -48,6 +58,8 @@ class CreateEnterpriseSnapshotPolicyRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which to assign the snapshot policy.
+     *
      * @example xxx
      *
      * @var string
@@ -55,38 +67,54 @@ class CreateEnterpriseSnapshotPolicyRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The snapshot retention rule.
+     *
      * @var retainRule
      */
     public $retainRule;
 
     /**
+     * @description The rule for scheduling.
+     *
      * @var schedule
      */
     public $schedule;
 
     /**
+     * @description The special snapshot retention rules.
+     *
      * @var specialRetainRules
      */
     public $specialRetainRules;
 
     /**
-     * @example ENABLED|DISABLED
+     * @description The status of the policy. Valid values:
+     *
+     * - DISABLED: Disable snapshot policy execution.
+     * @example ENABLED
      *
      * @var string
      */
     public $state;
 
     /**
+     * @description Advanced snapshot features.
+     *
      * @var storageRule
      */
     public $storageRule;
 
     /**
+     * @description The list of tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description Binding target type, valid value:
+     *
+     * - DISK
      * @example DISK
      *
      * @var string

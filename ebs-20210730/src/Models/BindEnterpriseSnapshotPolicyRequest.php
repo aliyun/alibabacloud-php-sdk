@@ -9,18 +9,24 @@ use AlibabaCloud\Tea\Model;
 class BindEnterpriseSnapshotPolicyRequest extends Model
 {
     /**
-     * @example xxx
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The list of disks.
+     *
      * @var string[]
      */
     public $diskTargets;
 
     /**
+     * @description The id of the policy.
+     *
      * @example esp-xxx
      *
      * @var string
@@ -28,6 +34,8 @@ class BindEnterpriseSnapshotPolicyRequest extends Model
     public $policyId;
 
     /**
+     * @description The region ID . You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which snapshot policy is supported.
+     *
      * @example cn-hangzhou
      *
      * @var string

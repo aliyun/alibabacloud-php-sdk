@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricDataRequest extends Model
 {
     /**
-     * @example {hostname=[hostname0], diskId=[d-1234, d-5678]}
+     * @description The dimension map in the JSON format. A dimension is a key-value pair. Valid dimension key: diskId.
+     *
+     * @example {"diskId":["d-bp14xxxx","d-bp11xxxx"]}
      *
      * @var string
      */
     public $dimensions;
 
     /**
+     * @description The end of the time range to query. The specified time must be later than the current time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2023-11-21T02:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeMetricDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The name of the metric.
+     *
      * @example disk_slow_io_triggerred
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeMetricDataRequest extends Model
     public $metricName;
 
     /**
+     * @description The interval at which metric data is collected. Unit: seconds. Default value: 60. Valid values: 60, 300, 600, and 3600, which support queries for time ranges of up to 2 hours, 2 hours, 1 day, and 7 days, respectively. For example, if you set Period to 60, the end time is less than 2 hours from the end time.
+     *
      * @example 60
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeMetricDataRequest extends Model
     public $period;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeMetricDataRequest extends Model
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query. You can specify a point in time that is up to one year apart from the current time. If StartTime and EndTime are both unspecified, the monitoring metric data of the last Period value is queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2023-11-21T01:50:00Z
      *
      * @var string

@@ -29,6 +29,10 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
     public $capacity;
 
     /**
+     * @description This parameter is no longer used.
+     *
+     * @example test1233
+     *
      * @deprecated
      *
      * @var string
@@ -45,11 +49,22 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
     public $dbscName;
 
     /**
+     * @description The specific number of PeriodUnit.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the subscription duration for the dedicated block storage cluster,
+     * Valid values:
+     *
+     *   **Month**
+     *
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
@@ -64,6 +79,8 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which to assign the dedicated block storage cluster.
+     *
      * @example rg-acfmvs*******
      *
      * @var string
@@ -71,6 +88,8 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The resource tags. You can specify up to 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

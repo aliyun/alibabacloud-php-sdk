@@ -28,6 +28,10 @@ class disk extends Model
     public $bdfId;
 
     /**
+     * @description Whether the ESSD AutoPL disk is enabled burst IOPS / BPS. This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~).
+     *
+     * @example true
+     *
      * @var bool
      */
     public $burstingEnabled;
@@ -226,6 +230,10 @@ class disk extends Model
     public $portable;
 
     /**
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk.
+     * >  This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
+     * @example 50000
+     *
      * @var int
      */
     public $provisionedIops;
@@ -309,6 +317,10 @@ class disk extends Model
     public $tags;
 
     /**
+     * @description The maximum number of BPS.
+     *
+     * @example 350
+     *
      * @var int
      */
     public $throughput;

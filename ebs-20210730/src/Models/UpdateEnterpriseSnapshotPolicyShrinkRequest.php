@@ -9,18 +9,24 @@ use AlibabaCloud\Tea\Model;
 class UpdateEnterpriseSnapshotPolicyShrinkRequest extends Model
 {
     /**
-     * @example xxx
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
+     * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description Snapshot replication destination information.
+     *
      * @var string
      */
     public $crossRegionCopyInfoShrink;
 
     /**
+     * @description The description of the policy.
+     *
      * @example xxx
      *
      * @var string
@@ -28,6 +34,8 @@ class UpdateEnterpriseSnapshotPolicyShrinkRequest extends Model
     public $desc;
 
     /**
+     * @description The name of the policy.
+     *
      * @example xxx
      *
      * @var string
@@ -35,6 +43,8 @@ class UpdateEnterpriseSnapshotPolicyShrinkRequest extends Model
     public $name;
 
     /**
+     * @description The id of the policy.
+     *
      * @example esp-xxx
      *
      * @var string
@@ -42,6 +52,8 @@ class UpdateEnterpriseSnapshotPolicyShrinkRequest extends Model
     public $policyId;
 
     /**
+     * @description The region ID . You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which snapshot policy is supported.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -49,28 +61,41 @@ class UpdateEnterpriseSnapshotPolicyShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description Snapshot retention rule.
+     *
      * @var string
      */
     public $retainRuleShrink;
 
     /**
+     * @description The rule for scheduling.
+     *
      * @var string
      */
     public $scheduleShrink;
 
     /**
+     * @description The special snapshot retention rules.
+     *
      * @var string
      */
     public $specialRetainRulesShrink;
 
     /**
-     * @example ENABLED|DISABLED
+     * @description The status of the policy. Valid values:
+     *
+     *   **ENABLED**: Enable snapshot policy execution.
+     *   **DISABLED**: Disable snapshot policy execution.
+     *
+     * @example ENABLED
      *
      * @var string
      */
     public $state;
 
     /**
+     * @description Advanced snapshot features.
+     *
      * @var string
      */
     public $storageRuleShrink;

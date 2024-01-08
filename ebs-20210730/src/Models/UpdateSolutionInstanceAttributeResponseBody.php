@@ -6,27 +6,17 @@ namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateEnterpriseSnapshotPolicyResponseBody extends Model
+class UpdateSolutionInstanceAttributeResponseBody extends Model
 {
     /**
-     * @description The id of a policy.
+     * @description The ID of the request.
      *
-     * @example esp-xxx
-     *
-     * @var string
-     */
-    public $policyId;
-
-    /**
-     * @description The request ID.
-     *
-     * @example 7A8959DA-1E04-5724-8288-58334031454E
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F****
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'policyId'  => 'PolicyId',
         'requestId' => 'RequestId',
     ];
 
@@ -37,9 +27,6 @@ class CreateEnterpriseSnapshotPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyId) {
-            $res['PolicyId'] = $this->policyId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,14 +37,11 @@ class CreateEnterpriseSnapshotPolicyResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateEnterpriseSnapshotPolicyResponseBody
+     * @return UpdateSolutionInstanceAttributeResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyId'])) {
-            $model->policyId = $map['PolicyId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
+     * @description Creation Time.
+     *
      * @example 2023-06-24T06:03:35Z
      *
      * @var string
@@ -22,11 +24,15 @@ class policies extends Model
     public $createTime;
 
     /**
+     * @description Snapshot replication destination information.
+     *
      * @var crossRegionCopyInfo
      */
     public $crossRegionCopyInfo;
 
     /**
+     * @description The description of the policy.
+     *
      * @example xxx
      *
      * @var string
@@ -34,6 +40,14 @@ class policies extends Model
     public $desc;
 
     /**
+     * @var string[]
+     */
+    public $diskIds;
+
+    /**
+     * @description Indicates whether it is an ECS snapshot policy，The range of values:
+     *
+     * - false
      * @example false
      *
      * @var bool
@@ -41,6 +55,8 @@ class policies extends Model
     public $managedForEcs;
 
     /**
+     * @description The name of the policy.
+     *
      * @example xxx
      *
      * @var string
@@ -48,6 +64,8 @@ class policies extends Model
     public $name;
 
     /**
+     * @description The id of the policy.
+     *
      * @example esp-xxx
      *
      * @var string
@@ -55,7 +73,7 @@ class policies extends Model
     public $policyId;
 
     /**
-     * @description the resource group
+     * @description The resource group
      *
      * @example rg-xxx
      *
@@ -64,21 +82,30 @@ class policies extends Model
     public $resourceGroupId;
 
     /**
+     * @description The snapshot retention rule.
+     *
      * @var retainRule
      */
     public $retainRule;
 
     /**
+     * @description The rule for scheduling.
+     *
      * @var schedule
      */
     public $schedule;
 
     /**
+     * @description The special snapshot retention rules.
+     *
      * @var specialRetainRules
      */
     public $specialRetainRules;
 
     /**
+     * @description The status of the policy. Valid values:
+     *
+     * - DISABLED: Disable policy execution.
      * @example DISABLED
      *
      * @var string
@@ -86,18 +113,22 @@ class policies extends Model
     public $state;
 
     /**
+     * @description Advanced snapshot features.
+     *
      * @var storageRule
      */
     public $storageRule;
 
     /**
-     * @description the pair tags
+     * @description The list of tags.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description Number of bound targets.
+     *
      * @example 10
      *
      * @var int
@@ -105,6 +136,8 @@ class policies extends Model
     public $targetCount;
 
     /**
+     * @description The target type.
+     *
      * @example DISK
      *
      * @var string
@@ -114,6 +147,7 @@ class policies extends Model
         'createTime'          => 'CreateTime',
         'crossRegionCopyInfo' => 'CrossRegionCopyInfo',
         'desc'                => 'Desc',
+        'diskIds'             => 'DiskIds',
         'managedForEcs'       => 'ManagedForEcs',
         'name'                => 'Name',
         'policyId'            => 'PolicyId',
@@ -143,6 +177,9 @@ class policies extends Model
         }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->diskIds) {
+            $res['DiskIds'] = $this->diskIds;
         }
         if (null !== $this->managedForEcs) {
             $res['ManagedForEcs'] = $this->managedForEcs;
@@ -206,6 +243,11 @@ class policies extends Model
         }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
+        }
+        if (isset($map['DiskIds'])) {
+            if (!empty($map['DiskIds'])) {
+                $model->diskIds = $map['DiskIds'];
+            }
         }
         if (isset($map['ManagedForEcs'])) {
             $model->managedForEcs = $map['ManagedForEcs'];

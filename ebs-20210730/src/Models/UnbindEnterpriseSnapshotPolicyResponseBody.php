@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UnbindEnterpriseSnapshotPolicyResponseBody extends Model
 {
     /**
-     * @example xxx
+     * @description The request ID.
+     *
+     * @example 061DE1AB-08BA-5ACD-A03A-440117C6939A
      *
      * @var string
      */

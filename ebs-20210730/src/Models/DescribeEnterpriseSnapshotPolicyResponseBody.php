@@ -10,13 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnterpriseSnapshotPolicyResponseBody extends Model
 {
     /**
-     * @example NextToken
+     * @description The query token returned in this call.
+     *
+     * @example AAAAAdDWBF2
      *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeEnterpriseSnapshotPolicyResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -31,18 +37,24 @@ class DescribeEnterpriseSnapshotPolicyResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The list of policies.
+     *
      * @var policies[]
      */
     public $policies;
 
     /**
-     * @example xxx
+     * @description The ID of the request.
+     *
+     * @example 5CA35A83-8D8A-5B67-BAA0-2E124F194DA4
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 10
      *
      * @var int

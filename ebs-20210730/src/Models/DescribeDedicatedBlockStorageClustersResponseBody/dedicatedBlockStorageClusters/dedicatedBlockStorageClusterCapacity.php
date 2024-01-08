@@ -20,12 +20,16 @@ class dedicatedBlockStorageClusterCapacity extends Model
     /**
      * @description The total capacity of the dedicated block storage cluster that was delivered in disk creation orders. Unit: GB.
      *
+     * @example 61440
+     *
      * @var int
      */
     public $availableDeviceCapacity;
 
     /**
      * @description This parameter is displayed only if Thin Provision is enabled.
+     *
+     * @example 40000.3
      *
      * @var float
      */
@@ -34,12 +38,16 @@ class dedicatedBlockStorageClusterCapacity extends Model
     /**
      * @description The capacity of the dedicated block storage cluster that was delivered in orders. Unit: GB.
      *
+     * @example 61440
+     *
      * @var int
      */
     public $clusterAvailableCapacity;
 
     /**
      * @description The capacity of the dedicated block storage cluster that is to be delivered in orders. Unit: GB.
+     *
+     * @example 0
      *
      * @var int
      */
@@ -66,12 +74,16 @@ class dedicatedBlockStorageClusterCapacity extends Model
     /**
      * @description The total capacity of the dedicated block storage cluster that is to be delivered in disk creation orders. Unit: GB.
      *
+     * @example 61440
+     *
      * @var int
      */
     public $totalDeviceCapacity;
 
     /**
      * @description This parameter is displayed only if Thin Provision is enabled.
+     *
+     * @example 73728
      *
      * @var int
      */
@@ -89,12 +101,16 @@ class dedicatedBlockStorageClusterCapacity extends Model
     /**
      * @description The capacity of the dedicated block storage cluster that was used to create disks. Unit: GB.
      *
+     * @example 32000
+     *
      * @var int
      */
     public $usedDeviceCapacity;
 
     /**
      * @description This parameter is displayed only if Thin Provision is enabled.
+     *
+     * @example 33727.7
      *
      * @var float
      */

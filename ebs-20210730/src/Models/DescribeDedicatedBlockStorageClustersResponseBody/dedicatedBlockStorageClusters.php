@@ -11,6 +11,10 @@ use AlibabaCloud\Tea\Model;
 class dedicatedBlockStorageClusters extends Model
 {
     /**
+     * @description The unique ID (UID) of the Alibaba Cloud account.
+     *
+     * @example 12345601234560***
+     *
      * @var string
      */
     public $aliUid;
@@ -68,6 +72,10 @@ class dedicatedBlockStorageClusters extends Model
     public $description;
 
     /**
+     * @description The dedicated block storage cluster enable thin provison.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableThinProvision;
@@ -115,6 +123,10 @@ class dedicatedBlockStorageClusters extends Model
     public $resourceGroupId;
 
     /**
+     * @description Oversold ratio of cluster space capacity for creating disk.
+     *
+     * @example 1.2
+     *
      * @var float
      */
     public $sizeOverSoldRatio;
@@ -134,6 +146,10 @@ class dedicatedBlockStorageClusters extends Model
     public $status;
 
     /**
+     * @description StorageDomain.
+     *
+     * @example StorageDomain
+     *
      * @var string
      */
     public $storageDomain;

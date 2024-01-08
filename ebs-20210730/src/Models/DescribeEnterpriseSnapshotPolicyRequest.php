@@ -10,13 +10,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnterpriseSnapshotPolicyRequest extends Model
 {
     /**
-     * @example xxx
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
+     *
+     * The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure idempotence ](~~25693~~).
+     * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @var string[]
+     */
+    public $diskIds;
+
+    /**
+     * @description The maximum number of entries to be returned. You can use this parameter together with NextToken.
+     *
+     * Default value: 10.
      * @example 100
      *
      * @var int
@@ -24,6 +35,11 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
+     *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+     *
      * @example xxx
      *
      * @var string
@@ -31,6 +47,8 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $nextToken;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +56,8 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -45,11 +65,15 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $pageSize;
 
     /**
+     * @description The list of policies.
+     *
      * @var string[]
      */
     public $policyIds;
 
     /**
+     * @description The region ID . You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which snapshot policy is supported.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +81,8 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the policy belongs.
+     *
      * @example xxx
      *
      * @var string
@@ -64,11 +90,14 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
         'clientToken'     => 'ClientToken',
+        'diskIds'         => 'DiskIds',
         'maxResults'      => 'MaxResults',
         'nextToken'       => 'NextToken',
         'pageNumber'      => 'PageNumber',
@@ -88,6 +117,9 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->diskIds) {
+            $res['DiskIds'] = $this->diskIds;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -133,6 +165,11 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DiskIds'])) {
+            if (!empty($map['DiskIds'])) {
+                $model->diskIds = $map['DiskIds'];
+            }
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

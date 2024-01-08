@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class storageRule extends Model
 {
     /**
+     * @description Whether to enable the rapid availability of snapshots. The range of values:
+     *
+     * - false
      * @example false
      *
      * @var bool
