@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
+     * @description The ID of the policy.
+     *
      * @example 30000165
      *
      * @var int
@@ -16,6 +18,8 @@ class policies extends Model
     public $id;
 
     /**
+     * @description The name of the policy.
+     *
      * @example wasm-testmaster
      *
      * @var string
@@ -23,6 +27,11 @@ class policies extends Model
     public $name;
 
     /**
+     * @description The type of the policy. Valid values:
+     *
+     *   **custom**: a custom policy
+     *   **default**: the default policy
+     *
      * @example default
      *
      * @var string

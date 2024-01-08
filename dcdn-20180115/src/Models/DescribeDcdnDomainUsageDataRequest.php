@@ -30,12 +30,12 @@ class DescribeDcdnDomainUsageDataRequest extends Model
     public $area;
 
     /**
-     * @description The protocol by which the data is queried. Valid values:
+     * @description The protocol of the data to query. Valid values:
      *
      *   **quic**: Quick UDP Internet Connections (QUIC)
      *   **https**: HTTPS
      *   **http**: HTTP
-     *   **all**: HTTP, HTTPS, and QUIC
+     *   **all**: all the preceding protocols
      *
      * Default value: **all**
      * @example all
@@ -47,7 +47,7 @@ class DescribeDcdnDomainUsageDataRequest extends Model
     /**
      * @description The accelerated domain name. You can specify up to 100 domain names in each request. Separate multiple domain names with commas (,).
      *
-     * > If you do not specify this parameter, the usage data of all accelerated domain names that belong to your Alibaba Cloud account is returned.
+     * >  If you do not specify this parameter, the usage data of all accelerated domain names that belong to your Alibaba Cloud account is returned.
      * @example example.com
      *
      * @var string
@@ -57,7 +57,7 @@ class DescribeDcdnDomainUsageDataRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * > The end time must be later than the start time. The maximum time range that can be queried is 31 days.
+     * >  The end time must be later than the start time. The maximum time range that can be queried is 31 days.
      * @example 2015-12-10T22:00:00Z
      *
      * @var string
@@ -71,7 +71,7 @@ class DescribeDcdnDomainUsageDataRequest extends Model
      *   **traf**: traffic
      *   **acc**: requests
      *
-     * > If the value is set to **acc**, the **Area** parameter is not supported.
+     * >  **acc** does not support the **Area** parameter.
      * @example bps
      *
      * @var string
@@ -91,7 +91,7 @@ class DescribeDcdnDomainUsageDataRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * > The minimum time granularity at which the data is queried is 5 minutes.
+     * >  The minimum time granularity at which the data is queried is 5 minutes.
      * @example 2015-12-10T20:00:00Z
      *
      * @var string
@@ -99,13 +99,13 @@ class DescribeDcdnDomainUsageDataRequest extends Model
     public $startTime;
 
     /**
-     * @description 请求数类型，取值：
+     * @description The type of the requests. Valid values:
      *
-     * - **static**：静态。
-     * - **dynamic**：动态。
-     * - **all**：全部。
+     *   **static**: static requests
+     *   **dynamic**: dynamic requests
+     *   **all**: all requests
      *
-     * 默认为**all**。
+     * Default value: **all**
      * @example dynamic
      *
      * @var string

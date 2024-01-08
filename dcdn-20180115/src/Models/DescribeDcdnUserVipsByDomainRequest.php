@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserVipsByDomainRequest extends Model
 {
     /**
+     * @description Specifies whether to query the virtual IP addresses of only healthy POPs. Valid value:
+     *
+     *   **on**: queries healthy VIPs.
+     *   **off**: queries all VIPs.
+     *
      * @example on
      *
      * @var string
@@ -16,6 +21,9 @@ class DescribeDcdnUserVipsByDomainRequest extends Model
     public $available;
 
     /**
+     * @description The accelerated domain name. You can specify only one domain name.
+     *
+     * Enumeration values: example.com
      * @example example.com
      *
      * @var string

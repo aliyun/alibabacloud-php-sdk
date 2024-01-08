@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnOriginSiteHealthStatusResponseBody extends Model
 {
     /**
+     * @description The information about the origin server of the accelerated domain name.
+     *
      * @var originSiteStatus[]
      */
     public $originSiteStatus;
 
     /**
+     * @description The request ID.
+     *
      * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
      *
      * @var string

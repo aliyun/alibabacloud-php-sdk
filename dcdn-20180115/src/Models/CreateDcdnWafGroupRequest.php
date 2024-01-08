@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDcdnWafGroupRequest extends Model
 {
     /**
+     * @description The name of the WAF rule group. The name can be up to 128 characters in length. This parameter is required when you create a custom WAF rule group.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,12 @@ class CreateDcdnWafGroupRequest extends Model
     public $name;
 
     /**
+     * @description Specifies whether to enable subscription. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
+     * When you replicate a custom rule group, do not specify this parameter.
      * @example on
      *
      * @var string
@@ -23,6 +31,8 @@ class CreateDcdnWafGroupRequest extends Model
     public $subscribe;
 
     /**
+     * @description The ID of the rule group to be replicated. This parameter is required when you replicate a custom WAF rule group. You can call the [DescribeDcdnWafGroups](~~DescribeDcdnWafGroups~~) operation to query the ID of the rule group. If no template is used, set the value to 0 or do not specify this parameter.
+     *
      * @example 0
      *
      * @var int

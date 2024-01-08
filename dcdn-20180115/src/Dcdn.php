@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\CheckDcdnProjectExistRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CheckDcdnProjectExistResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CommitStagingRoutineCodeRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CommitStagingRoutineCodeResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnCertificateSigningRequestRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnCertificateSigningRequestResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDeliverTaskResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSLSRealTimeLogDeliveryRequest;
@@ -394,6 +396,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\RollbackDcdnStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RollbackDcdnStagingConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCertificateResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCSRCertificateRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCSRCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSSLCertificateRequest;
@@ -1500,6 +1504,70 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->commitStagingRoutineCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDcdnCertificateSigningRequestRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return CreateDcdnCertificateSigningRequestResponse
+     */
+    public function createDcdnCertificateSigningRequestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->city)) {
+            $query['City'] = $request->city;
+        }
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
+        }
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
+        }
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
+        }
+        if (!Utils::isUnset($request->SANs)) {
+            $query['SANs'] = $request->SANs;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDcdnCertificateSigningRequest',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDcdnCertificateSigningRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDcdnCertificateSigningRequestRequest $request
+     *
+     * @return CreateDcdnCertificateSigningRequestResponse
+     */
+    public function createDcdnCertificateSigningRequest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDcdnCertificateSigningRequestWithOptions($request, $runtime);
     }
 
     /**
@@ -5704,7 +5772,7 @@ class Dcdn extends OpenApiClient
     /**
      * * You can call this operation up to 10 times per second per account.
      *   * * Usage data includes traffic (measured in bytes), bandwidth values (measured in bit/s), and the number of requests.
-     *   * **Time granularity**:
+     *   * **Time granularity**
      *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
      *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
      *   * |---|---|---|---|
@@ -5766,7 +5834,7 @@ class Dcdn extends OpenApiClient
     /**
      * * You can call this operation up to 10 times per second per account.
      *   * * Usage data includes traffic (measured in bytes), bandwidth values (measured in bit/s), and the number of requests.
-     *   * **Time granularity**:
+     *   * **Time granularity**
      *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
      *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
      *   * |---|---|---|---|
@@ -8495,10 +8563,12 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnUserVipsByDomainRequest $request
-     * @param RuntimeOptions                      $runtime
+     * You can call this operation up to 30 times per second per account.
+     *   *
+     * @param DescribeDcdnUserVipsByDomainRequest $request DescribeDcdnUserVipsByDomainRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDcdnUserVipsByDomainResponse
+     * @return DescribeDcdnUserVipsByDomainResponse DescribeDcdnUserVipsByDomainResponse
      */
     public function describeDcdnUserVipsByDomainWithOptions($request, $runtime)
     {
@@ -8529,9 +8599,11 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnUserVipsByDomainRequest $request
+     * You can call this operation up to 30 times per second per account.
+     *   *
+     * @param DescribeDcdnUserVipsByDomainRequest $request DescribeDcdnUserVipsByDomainRequest
      *
-     * @return DescribeDcdnUserVipsByDomainResponse
+     * @return DescribeDcdnUserVipsByDomainResponse DescribeDcdnUserVipsByDomainResponse
      */
     public function describeDcdnUserVipsByDomain($request)
     {
@@ -11458,6 +11530,52 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rollbackDcdnStagingConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetDcdnDomainCSRCertificateRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetDcdnDomainCSRCertificateResponse
+     */
+    public function setDcdnDomainCSRCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->serverCertificate)) {
+            $query['ServerCertificate'] = $request->serverCertificate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDcdnDomainCSRCertificate',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDcdnDomainCSRCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetDcdnDomainCSRCertificateRequest $request
+     *
+     * @return SetDcdnDomainCSRCertificateResponse
+     */
+    public function setDcdnDomainCSRCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDcdnDomainCSRCertificateWithOptions($request, $runtime);
     }
 
     /**

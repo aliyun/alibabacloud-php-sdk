@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafGroupRequest extends Model
 {
     /**
+     * @description The ID of the WAF rule group. You can query the ID by calling the [DescribeDcdnWafGroups](~~DescribeDcdnWafGroups~~) operation.
+     *
      * @example 1012
      *
      * @var int
@@ -16,6 +18,11 @@ class DescribeDcdnWafGroupRequest extends Model
     public $id;
 
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   **en**: English
+     *    **zh**: Chinese
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeDcdnWafGroupRequest extends Model
     public $language;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +39,8 @@ class DescribeDcdnWafGroupRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -37,6 +48,9 @@ class DescribeDcdnWafGroupRequest extends Model
     public $pageSize;
 
     /**
+     * @description The query conditions. The value needs to be a JSON string in the following format: Format:
+     *
+     * > If you do not specify this parameter, all protection rules are queried.
      * @example {\"RiskLevel\":\"\",\"ProtectionType\":\"\",\"ApplicationType\":\"\",\"RuleIdLike\":\"\"}
      *
      * @var string
@@ -44,6 +58,11 @@ class DescribeDcdnWafGroupRequest extends Model
     public $queryArgs;
 
     /**
+     * @description The range of the rule group to be queried.
+     *
+     *   **in**: rules in the rule group are returned.
+     *  **out**: rules that are in the full rule set but are not in the rule group are returned.
+     *
      * @example in
      *
      * @var string

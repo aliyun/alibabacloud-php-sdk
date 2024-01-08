@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The default action of the rule. Valid values:
+     *
+     *   **monitor**: monitors requests.
+     *   **deny**: denies requests.
+     *   **block**: blocks requests.
+     *
      * @example block
      *
      * @var string
@@ -16,6 +22,8 @@ class rules extends Model
     public $action;
 
     /**
+     * @description The default configuration of the rule.
+     *
      * @example {\"wafGroupIds\":\"1012\"}
      *
      * @var string
@@ -23,6 +31,8 @@ class rules extends Model
     public $config;
 
     /**
+     * @description The default name of the rule.
+     *
      * @example Default_WafGroup_Rule
      *
      * @var string
@@ -30,6 +40,11 @@ class rules extends Model
     public $name;
 
     /**
+     * @description The default status of the rule. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example on
      *
      * @var string
@@ -37,6 +52,13 @@ class rules extends Model
     public $status;
 
     /**
+     * @description The rule type. Valid values:
+     *
+     *   **waf_group**: basic web protection
+     *   **high_frequency**: high-frequency scanning blocking
+     *   **directory_traversal**: directory traversal blocking
+     *   **scan_tools**: scanner blocking
+     *
      * @example waf_group
      *
      * @var string

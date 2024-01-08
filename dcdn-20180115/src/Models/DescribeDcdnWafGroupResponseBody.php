@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the custom WAF rule group.
+     *
      * @example 1012
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeDcdnWafGroupResponseBody extends Model
     public $id;
 
     /**
+     * @description The name of the WAF rule group.
+     *
      * @example test
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeDcdnWafGroupResponseBody extends Model
     public $name;
 
     /**
+     * @description The page number of the page returned.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +37,8 @@ class DescribeDcdnWafGroupResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeDcdnWafGroupResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string
@@ -45,11 +55,18 @@ class DescribeDcdnWafGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The configurations of the rule.
+     *
      * @var rules[]
      */
     public $rules;
 
     /**
+     * @description Indicates whether to enable subscription. Valid values:
+     *
+     *   **on:**
+     *   **off**
+     *
      * @example on
      *
      * @var string
@@ -57,6 +74,8 @@ class DescribeDcdnWafGroupResponseBody extends Model
     public $subscribe;
 
     /**
+     * @description The ID of the template.
+     *
      * @example 1012
      *
      * @var int
@@ -64,6 +83,8 @@ class DescribeDcdnWafGroupResponseBody extends Model
     public $templateId;
 
     /**
+     * @description The total number of rules that are filtered out.
+     *
      * @example 16
      *
      * @var int

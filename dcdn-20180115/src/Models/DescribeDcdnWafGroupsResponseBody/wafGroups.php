@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class wafGroups extends Model
 {
     /**
+     * @description The time when the WAF rule group was modified.
+     *
      * @example 2020-04-12 22:25:11
      *
      * @var string
@@ -17,6 +19,8 @@ class wafGroups extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the custom WAF rule group.
+     *
      * @example 30000156
      *
      * @var int
@@ -24,6 +28,8 @@ class wafGroups extends Model
     public $id;
 
     /**
+     * @description The name of the WAF rule.
+     *
      * @example DCDN-test-operation-reports-1
      *
      * @var string
@@ -31,11 +37,15 @@ class wafGroups extends Model
     public $name;
 
     /**
+     * @description The policy that is associated with the WAF rule group.
+     *
      * @var policies[]
      */
     public $policies;
 
     /**
+     * @description The number of WAF rules.
+     *
      * @example 452
      *
      * @var int
@@ -43,6 +53,11 @@ class wafGroups extends Model
     public $ruleCount;
 
     /**
+     * @description Indicates whether to enable subscription. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example on
      *
      * @var string
@@ -50,6 +65,8 @@ class wafGroups extends Model
     public $subscribe;
 
     /**
+     * @description The ID of the template.
+     *
      * @example 1012
      *
      * @var int

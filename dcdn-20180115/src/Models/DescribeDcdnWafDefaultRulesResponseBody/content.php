@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The protection scenario. Valid values:
+     *
+     *   **waf_group**: basic web protection
+     *   **anti_scan**: scan protection
+     *
      * @example anti_scan
      *
      * @var string
@@ -17,6 +22,8 @@ class content extends Model
     public $defenseScene;
 
     /**
+     * @description The configurations of the rule.
+     *
      * @var rules[]
      */
     public $rules;

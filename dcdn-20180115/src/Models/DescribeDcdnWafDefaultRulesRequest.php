@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafDefaultRulesRequest extends Model
 {
     /**
+     * @description The query conditions. The value is a string in the JSON format. Format: `QueryArgs={"DefenseScene":"anti_scan"}`
+     *
      * @example {"DefenseScene":"anti_scan"}
      *
      * @var string

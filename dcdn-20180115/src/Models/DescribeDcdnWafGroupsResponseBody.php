@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafGroupsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeDcdnWafGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeDcdnWafGroupsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeDcdnWafGroupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of WAF rule groups.
+     *
      * @example 16
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeDcdnWafGroupsResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The list of WAF rule groups.
+     *
      * @var wafGroups[]
      */
     public $wafGroups;

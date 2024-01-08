@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafGroupsRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *  **en**: English
+     *   **zh**: Chinese
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeDcdnWafGroupsRequest extends Model
     public $language;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +30,8 @@ class DescribeDcdnWafGroupsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +39,9 @@ class DescribeDcdnWafGroupsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The query conditions. The value is a string in the JSON format. Format: `QueryArgs={"PolicyIds":"IDs of protection policies","RuleIds":"IDs of the protection rules","RuleNameLike":"Names of the protection rule","DomainNames":"Protected domain names","DefenseScenes":"waf_group","RuleStatus":"on","OrderBy":"GmtModified","Desc":"false"}`
+     *
+     * > If you do not specify this parameter, all protection rules are queried.
      * @example {"RuleIds":"100001,200002"}
      *
      * @var string

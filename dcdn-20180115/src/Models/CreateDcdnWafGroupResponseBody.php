@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDcdnWafGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the created WAF rule group.
+     *
      * @example 30000166
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateDcdnWafGroupResponseBody extends Model
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example 675F4820-400E-5929-8B03-2C031A5D5391
      *
      * @var string

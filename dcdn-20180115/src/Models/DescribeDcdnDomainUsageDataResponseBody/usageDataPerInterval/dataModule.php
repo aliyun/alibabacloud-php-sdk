@@ -20,7 +20,7 @@ class dataModule extends Model
     /**
      * @description The data usage in a specific scenario.
      *
-     * > SpecialValue indicates the data usage in a specific scenario. If no special billable item is specified, ignore this parameter.
+     * >  This parameter indicates the data usage in a specific scenario. If no special billable item is specified, ignore this parameter.
      * @example 4233041**
      *
      * @var string
@@ -37,7 +37,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The amount of resource usage.
+     * @description The usage.
      *
      * @example 4233041**
      *

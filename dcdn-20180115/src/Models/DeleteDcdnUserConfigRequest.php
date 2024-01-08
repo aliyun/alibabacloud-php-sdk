@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDcdnUserConfigRequest extends Model
 {
     /**
+     * @description The name of the user feature that you want to delete. Currently, only DCDN Web Application Firewall (WAF) can be deleted. Default value: waf.
+     *
      * @example waf
      *
      * @var string

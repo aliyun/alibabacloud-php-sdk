@@ -28,7 +28,7 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The accelerated domain name.
+     * @description The accelerated domain name that was queried.
      *
      * @example example.com
      *
@@ -64,16 +64,16 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The type of the content returned.
+     * @description The type of the returned data.
      *
-     * @example static
+     * @example bps
      *
      * @var string
      */
     public $type;
 
     /**
-     * @description The network traffic that was collected at each interval.
+     * @description The traffic that was collected at each interval.
      *
      * @var usageDataPerInterval
      */

@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteDcdnWafGroupRequest extends Model
+class SetDcdnDomainCSRCertificateResponseBody extends Model
 {
     /**
-     * @description The ID of the custom WAF rule group.
+     * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
      *
-     * @example 30000135
-     *
-     * @var int
+     * @var string
      */
-    public $id;
+    public $requestId;
     protected $_name = [
-        'id' => 'Id',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class DeleteDcdnWafGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class DeleteDcdnWafGroupRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteDcdnWafGroupRequest
+     * @return SetDcdnDomainCSRCertificateResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

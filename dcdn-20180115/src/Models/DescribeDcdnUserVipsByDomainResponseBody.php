@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserVipsByDomainResponseBody extends Model
 {
     /**
+     * @description The domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDcdnUserVipsByDomainResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The request ID.
+     *
      * @example 820E7900-5CA9-4AEF-B0DD-20ED5F64BE55
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeDcdnUserVipsByDomainResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of VIPs.
+     *
      * @var vips
      */
     public $vips;
