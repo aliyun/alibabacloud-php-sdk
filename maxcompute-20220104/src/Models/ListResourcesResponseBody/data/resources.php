@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The remarks.
+     *
+     * @example file
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The Base64-encoded 128-bit MD5 hash value of the HTTP request body.
+     *
+     * @example MACiECZtnLiNkNS1v5****=1
+     *
      * @var string
      */
     public $contentMD5;
@@ -28,16 +36,28 @@ class resources extends Model
     public $creationTime;
 
     /**
+     * @description The display name.
+     *
+     * @example res_1
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The time when the resource was modified.
+     *
+     * @example 2023-04-18T06:15:05Z
+     *
      * @var int
      */
     public $lastModifiedTime;
 
     /**
+     * @description The user who updated the resource.
+     *
+     * @example ALIYUN$xxx@test.aliyunid.com
+     *
      * @var string
      */
     public $lastUpdator;
@@ -61,7 +81,7 @@ class resources extends Model
     public $owner;
 
     /**
-     * @description The schema of the resource.
+     * @description The schema to which the resource belongs.
      *
      * @example schemaA
      *
@@ -70,13 +90,38 @@ class resources extends Model
     public $schema;
 
     /**
+     * @description The size of the resource.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $size;
 
     /**
-     * @description The type of the resource.
+     * @description The resource type.
      *
+     * Valid values:
+     *
+     *   file
+     *
+     * <!-- -->
+     *
+     *   py
+     *
+     * <!-- -->
+     *
+     *   jar
+     *
+     * <!-- -->
+     *
+     *   volumefile
+     *
+     * <!-- -->
+     *
+     *   table
+     *
+     * <!-- -->
      * @example file
      *
      * @var string

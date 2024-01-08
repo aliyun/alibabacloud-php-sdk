@@ -13,11 +13,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the order.
+     *
      * @var billingPolicy
      */
     public $billingPolicy;
 
     /**
+     * @description The cluster ID.
+     *
      * @example AT-120N
      *
      * @var string
@@ -25,6 +29,8 @@ class data extends Model
     public $cluster;
 
     /**
+     * @description The time when the resource was created.
+     *
      * @example 2022-09-06T02:14:44Z
      *
      * @var int
@@ -32,6 +38,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to create the resource.
+     *
      * @example 672863518
      *
      * @var string
@@ -39,6 +47,8 @@ class data extends Model
     public $creatorId;
 
     /**
+     * @description The quota ID.
+     *
      * @example 0
      *
      * @var string
@@ -46,6 +56,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The name of the quota.
+     *
      * @example quota_a
      *
      * @var string
@@ -53,6 +65,8 @@ class data extends Model
     public $name;
 
     /**
+     * @description The alias of the quota.
+     *
      * @example quota_nickname
      *
      * @var string
@@ -60,11 +74,17 @@ class data extends Model
     public $nickName;
 
     /**
+     * @description The description of the quota.
+     *
+     * @example {"minCU":10,
+     * }
      * @var mixed[]
      */
     public $parameter;
 
     /**
+     * @description The ID of the parent resource.
+     *
      * @example null
      *
      * @var string
@@ -72,6 +92,8 @@ class data extends Model
     public $parentId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -79,16 +101,22 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The identifier of an object in a MaxCompute quota. This identifier is the same as the identifier in the sales bill of Alibaba Cloud. This parameter is used for tags.
+     *
      * @var saleTag
      */
     public $saleTag;
 
     /**
+     * @description The information about the scheduling plan.
+     *
      * @var scheduleInfo
      */
     public $scheduleInfo;
 
     /**
+     * @description The status of the resource.
+     *
      * @example ON
      *
      * @var string
@@ -96,11 +124,15 @@ class data extends Model
     public $status;
 
     /**
+     * @description The information about the level-2 quota.
+     *
      * @var subQuotaInfoList[]
      */
     public $subQuotaInfoList;
 
     /**
+     * @description The tag of the resource for the quota.
+     *
      * @example abc
      *
      * @var string
@@ -108,6 +140,8 @@ class data extends Model
     public $tag;
 
     /**
+     * @description The tenant ID.
+     *
      * @example 478403690625249
      *
      * @var string
@@ -115,6 +149,8 @@ class data extends Model
     public $tenantId;
 
     /**
+     * @description The type of the resource system. This parameter corresponds to the resourceSystemType parameter of the cluster.
+     *
      * @example FUXI_ONLINE
      *
      * @var string
@@ -122,6 +158,8 @@ class data extends Model
     public $type;
 
     /**
+     * @description The version number.
+     *
      * @example 1
      *
      * @var string

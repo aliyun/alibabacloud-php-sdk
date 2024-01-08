@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetQuotaRequest extends Model
 {
     /**
+     * @description The trusted AccessKey pairs.
+     *
      * @example null
      *
      * @var string
@@ -16,6 +18,8 @@ class GetQuotaRequest extends Model
     public $akProven;
 
     /**
+     * @description Specifies whether to include submodules. Valid values: -true: The request includes submodules. -false: The request does not include submodules. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class GetQuotaRequest extends Model
     public $mock;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-chengdu
      *
      * @var string
@@ -30,6 +36,8 @@ class GetQuotaRequest extends Model
     public $region;
 
     /**
+     * @description The tenant ID.
+     *
      * @example 520539530998273
      *
      * @var string

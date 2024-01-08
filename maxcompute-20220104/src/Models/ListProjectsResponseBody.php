@@ -17,7 +17,7 @@ class ListProjectsResponseBody extends Model
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0b16399216671970335563173e2340
      *

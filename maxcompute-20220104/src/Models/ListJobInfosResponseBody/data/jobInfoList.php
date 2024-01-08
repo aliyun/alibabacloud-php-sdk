@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class jobInfoList extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example AY20A
      *
      * @var string
@@ -16,6 +18,8 @@ class jobInfoList extends Model
     public $cluster;
 
     /**
+     * @description The CU snapshot proportion of the job.
+     *
      * @example 0.48
      *
      * @var float
@@ -23,6 +27,8 @@ class jobInfoList extends Model
     public $cuSnapshot;
 
     /**
+     * @description The total number of used compute units (CUs).
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class jobInfoList extends Model
     public $cuUsage;
 
     /**
+     * @description The time when the job stops running.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class jobInfoList extends Model
     public $endAtTime;
 
     /**
+     * @description The node ID of DataWorks.
+     *
      * @example node_4
      *
      * @var string
@@ -44,6 +54,8 @@ class jobInfoList extends Model
     public $extNodeId;
 
     /**
+     * @description The account of the node owner.
+     *
      * @example duty_2
      *
      * @var string
@@ -51,6 +63,8 @@ class jobInfoList extends Model
     public $extNodeOnDuty;
 
     /**
+     * @description The upstream platform.
+     *
      * @example platform_3
      *
      * @var string
@@ -58,6 +72,8 @@ class jobInfoList extends Model
     public $extPlantFrom;
 
     /**
+     * @description The instance ID.
+     *
      * @example 20230410050036549gfmsdwf60gg
      *
      * @var string
@@ -65,6 +81,8 @@ class jobInfoList extends Model
     public $instanceId;
 
     /**
+     * @description The account that commits the job.
+     *
      * @example ALIYUN$xxx@test.aliyunid.com
      *
      * @var string
@@ -72,6 +90,8 @@ class jobInfoList extends Model
     public $jobOwner;
 
     /**
+     * @description The type of the job.
+     *
      * @example SQL
      *
      * @var string
@@ -79,6 +99,8 @@ class jobInfoList extends Model
     public $jobType;
 
     /**
+     * @description The memory snapshot proportion of the job.
+     *
      * @example 0.42
      *
      * @var float
@@ -86,6 +108,8 @@ class jobInfoList extends Model
     public $memorySnapshot;
 
     /**
+     * @description The total memory usage.
+     *
      * @example 40
      *
      * @var int
@@ -93,6 +117,8 @@ class jobInfoList extends Model
     public $memoryUsage;
 
     /**
+     * @description The priority of the job.
+     *
      * @example 1
      *
      * @var int
@@ -100,6 +126,8 @@ class jobInfoList extends Model
     public $priority;
 
     /**
+     * @description The name of the MaxCompute project.
+     *
      * @example openrec_new
      *
      * @var string
@@ -107,6 +135,8 @@ class jobInfoList extends Model
     public $project;
 
     /**
+     * @description The nickname of the quota that is used by the job.
+     *
      * @example my_quota
      *
      * @var string
@@ -114,6 +144,8 @@ class jobInfoList extends Model
     public $quotaNickname;
 
     /**
+     * @description The type of the quota.
+     *
      * @example subscription
      *
      * @var string
@@ -121,6 +153,8 @@ class jobInfoList extends Model
     public $quotaType;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -128,6 +162,8 @@ class jobInfoList extends Model
     public $region;
 
     /**
+     * @description The time when the job starts to run.
+     *
      * @example 1672112113
      *
      * @var int
@@ -135,6 +171,8 @@ class jobInfoList extends Model
     public $runningAtTime;
 
     /**
+     * @description The period for which the job runs.
+     *
      * @example 800
      *
      * @var int
@@ -142,6 +180,8 @@ class jobInfoList extends Model
     public $runningTime;
 
     /**
+     * @description The signature of the SQL job.
+     *
      * @example i094KijGrN3kOXZ74kbexB77XQY=
      *
      * @var string
@@ -149,6 +189,8 @@ class jobInfoList extends Model
     public $signature;
 
     /**
+     * @description The status of the job.
+     *
      * @example running
      *
      * @var string
@@ -156,6 +198,8 @@ class jobInfoList extends Model
     public $status;
 
     /**
+     * @description The status of the snapshot.
+     *
      * @example running
      *
      * @var string
@@ -163,6 +207,8 @@ class jobInfoList extends Model
     public $statusSnapshot;
 
     /**
+     * @description The time when the job was committed.
+     *
      * @example 1672112013
      *
      * @var int
@@ -170,6 +216,8 @@ class jobInfoList extends Model
     public $submittedAtTime;
 
     /**
+     * @description The tags.
+     *
      * @example []
      *
      * @var string
@@ -177,6 +225,8 @@ class jobInfoList extends Model
     public $tags;
 
     /**
+     * @description The tenant ID.
+     *
      * @example 213065738244354
      *
      * @var string
@@ -184,6 +234,8 @@ class jobInfoList extends Model
     public $tenantId;
 
     /**
+     * @description The total period for which the job runs.
+     *
      * @example 900
      *
      * @var int
@@ -191,6 +243,8 @@ class jobInfoList extends Model
     public $totalTime;
 
     /**
+     * @description The duration for which the job waits to start.
+     *
      * @example 100
      *
      * @var int

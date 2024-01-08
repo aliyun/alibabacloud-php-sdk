@@ -11,11 +11,19 @@ use AlibabaCloud\Tea\Model;
 class tables extends Model
 {
     /**
+     * @description Indicates whether to enable the scheduled update feature for the materialized view.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoRefreshEnabled;
 
     /**
+     * @description The DDL statement that is used to create the table.
+     *
+     * @example create table if not exists sale_detail(
+     * partitioned by (sale_date STRING, region STRING);
      * @var string
      */
     public $createTableDDL;
@@ -30,51 +38,91 @@ class tables extends Model
     public $creationTime;
 
     /**
+     * @description The display name of the table.
+     *
+     * @example sale_detail
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The number of files.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $fileNum;
 
     /**
+     * @description Indicates whether the table is an external table.
+     *
+     * @example False
+     *
      * @var bool
      */
     public $isExternalTable;
 
     /**
+     * @description Indicates whether the data in the materialized view is invalid due to data changes in the source table.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isOutdated;
 
     /**
+     * @description The time when the data was last accessed.
+     *
+     * @example 2023-12-21T02:05:56Z
+     *
      * @var int
      */
     public $lastAccessTime;
 
     /**
+     * @description The last time when the DDL statement of the table was updated.
+     *
+     * @example 2023-11-21T02:05:56Z
+     *
      * @var int
      */
     public $lastDDLTime;
 
     /**
+     * @description The time when the data was last updated.
+     *
+     * @example 2023-11-21T02:05:56Z
+     *
      * @var int
      */
     public $lastModifiedTime;
 
     /**
+     * @description The lifecycle of the table.
+     *
+     * @example -1
+     *
      * @var string
      */
     public $lifecycle;
 
     /**
+     * @description The storage location of the external table.
+     *
+     * @example oss://oss-cn-hangzhou-internal.aliyuncs.com/oss-mc-test/Demo1/
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description Indicates whether a materialized view is created.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $materializedView;
@@ -89,21 +137,35 @@ class tables extends Model
     public $name;
 
     /**
+     * @description The information about columns.
+     *
      * @var nativeColumns[]
      */
     public $nativeColumns;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of AliyunODPSDefaultRole in Resource Access Management (RAM).
+     *
+     * @example acs:ram::xxxxx:role/aliyunodpsdefaultrole
+     *
      * @var string
      */
     public $odpsPropertiesRolearn;
 
     /**
+     * @description Indicates whether to ignore the table header.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $odpsSqlTextOptionFlushHeader;
 
     /**
+     * @description Indicates whether to ignore the first N rows of the table header.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $odpsTextOptionHeaderLinesCount;
@@ -118,27 +180,41 @@ class tables extends Model
     public $owner;
 
     /**
+     * @description The information about the partition column.
+     *
      * @var partitionColumns[]
      */
     public $partitionColumns;
 
     /**
+     * @description The physical size of the table.
+     *
+     * @example 2763
+     *
      * @var int
      */
     public $physicalSize;
 
     /**
+     * @description The name of the project.
+     *
+     * @example projectA
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description Indicates whether to enable the query rewrite operation that is performed based on the materialized view.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $rewriteEnabled;
 
     /**
-     * @description The schema of the table.
+     * @description The schema to which the table belongs.
      *
      * @example default
      *
@@ -147,31 +223,55 @@ class tables extends Model
     public $schema;
 
     /**
+     * @description The size of the table.
+     *
+     * @example 5372
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The extractor of the external table.
+     *
+     * @example com.aliyun.odps.CsvStorageHandler
+     *
      * @var string
      */
     public $storageHandler;
 
     /**
+     * @description The description of the table.
+     *
+     * @example sale_detail
+     *
      * @var string
      */
     public $tableComment;
 
     /**
+     * @description The security level of the table.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $tableLabel;
 
     /**
+     * @description The name of the Tablestore table that you want MaxCompute to access.
+     *
+     * @example ots_tpch_orders
+     *
      * @var string
      */
     public $tablesotreTableName;
 
     /**
+     * @description The columns of the Tablestore table that you want MaxCompute to access. The columns include primary key columns and attribute columns.
+     *
+     * @example :o_orderkey,:o_orderdate,o_custkey,o_orderstatus,o_totalprice
+     *
      * @var string
      */
     public $tablestoreColumnsMapping;
@@ -186,6 +286,10 @@ class tables extends Model
     public $type;
 
     /**
+     * @description The statement that is used to generate the view.
+     *
+     * @example select shop_name, sum(total_price)
+     * from sale_detail group by shop_name
      * @var string
      */
     public $viewText;

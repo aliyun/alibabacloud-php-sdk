@@ -25,6 +25,10 @@ class project extends Model
     public $name;
 
     /**
+     * @description The Schema name.
+     *
+     * @example default
+     *
      * @var string
      */
     public $schemaName;

@@ -36,6 +36,10 @@ class ListTablesRequest extends Model
     public $prefix;
 
     /**
+     * @description The name of the schema.
+     *
+     * @example default
+     *
      * @var string
      */
     public $schemaName;

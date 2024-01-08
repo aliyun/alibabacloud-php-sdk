@@ -21,6 +21,15 @@ class properties extends Model
     public $allowFullScan;
 
     /**
+     * @description This operation does not return a value for this parameter.
+     *
+     * @example No value
+     *
+     * @var string
+     */
+    public $elderTunnelQuota;
+
+    /**
      * @description Indicates whether the DECIMAL data type in MaxCompute V2.0 is enabled.
      *
      * @example true
@@ -105,6 +114,7 @@ class properties extends Model
     public $typeSystem;
     protected $_name = [
         'allowFullScan'          => 'allowFullScan',
+        'elderTunnelQuota'       => 'elderTunnelQuota',
         'enableDecimal2'         => 'enableDecimal2',
         'enableTunnelQuotaRoute' => 'enableTunnelQuotaRoute',
         'encryption'             => 'encryption',
@@ -126,6 +136,9 @@ class properties extends Model
         $res = [];
         if (null !== $this->allowFullScan) {
             $res['allowFullScan'] = $this->allowFullScan;
+        }
+        if (null !== $this->elderTunnelQuota) {
+            $res['elderTunnelQuota'] = $this->elderTunnelQuota;
         }
         if (null !== $this->enableDecimal2) {
             $res['enableDecimal2'] = $this->enableDecimal2;
@@ -171,6 +184,9 @@ class properties extends Model
         $model = new self();
         if (isset($map['allowFullScan'])) {
             $model->allowFullScan = $map['allowFullScan'];
+        }
+        if (isset($map['elderTunnelQuota'])) {
+            $model->elderTunnelQuota = $map['elderTunnelQuota'];
         }
         if (isset($map['enableDecimal2'])) {
             $model->enableDecimal2 = $map['enableDecimal2'];

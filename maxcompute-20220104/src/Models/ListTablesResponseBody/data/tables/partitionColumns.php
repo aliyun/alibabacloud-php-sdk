@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class partitionColumns extends Model
 {
     /**
+     * @description The remarks.
+     *
+     * @example Sale date
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The security level of the partition column.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The name of the partition column.
+     *
+     * @example sale_date
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the partition column.
+     *
+     * @example STRING
+     *
      * @var string
      */
     public $type;

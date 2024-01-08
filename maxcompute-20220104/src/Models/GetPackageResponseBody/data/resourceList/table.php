@@ -25,6 +25,10 @@ class table extends Model
     public $name;
 
     /**
+     * @description The name of schema.
+     *
+     * @example default
+     *
      * @var string
      */
     public $schemaName;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateQuotaResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateQuotaResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 0bc12e6a16679892465424670db3eb
      *
      * @var string

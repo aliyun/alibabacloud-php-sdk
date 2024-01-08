@@ -23,6 +23,7 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetJobResourceUsageResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetJobResourceUsageShrinkRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetPackageRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetPackageResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaPlanRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaPlanResponse;
@@ -575,16 +576,23 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param string         $projectName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string            $projectName
+     * @param GetProjectRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
      * @return GetProjectResponse
      */
-    public function getProjectWithOptions($projectName, $headers, $runtime)
+    public function getProjectWithOptions($projectName, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->verbose)) {
+            $query['verbose'] = $request->verbose;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetProject',
@@ -602,16 +610,17 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * @param string $projectName
+     * @param string            $projectName
+     * @param GetProjectRequest $request
      *
      * @return GetProjectResponse
      */
-    public function getProject($projectName)
+    public function getProject($projectName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getProjectWithOptions($projectName, $headers, $runtime);
+        return $this->getProjectWithOptions($projectName, $request, $headers, $runtime);
     }
 
     /**

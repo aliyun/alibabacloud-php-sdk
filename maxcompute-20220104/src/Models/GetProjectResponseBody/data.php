@@ -31,6 +31,15 @@ class data extends Model
     public $costStorage;
 
     /**
+     * @description Create time
+     *
+     * @example 1704380838000
+     *
+     * @var int
+     */
+    public $createdTime;
+
+    /**
      * @description The default computing quota.
      *
      * @example quota_a
@@ -81,6 +90,15 @@ class data extends Model
     public $properties;
 
     /**
+     * @description RegionID
+     *
+     * @example cn-beijing
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description The tag.
      *
      * @var saleTag
@@ -104,9 +122,20 @@ class data extends Model
     public $status;
 
     /**
+     * @description The Super_Administrator role.
+     *
      * @var string[]
      */
     public $superAdmins;
+
+    /**
+     * @description Indicates whether the current project supports the three-layer model of MaxCompute.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $threeTierModel;
 
     /**
      * @description The type of the project. Valid values: -**managed**: The project is an internal project. -**external**: The project is an external project.
@@ -119,16 +148,19 @@ class data extends Model
     protected $_name = [
         'comment'            => 'comment',
         'costStorage'        => 'costStorage',
+        'createdTime'        => 'createdTime',
         'defaultQuota'       => 'defaultQuota',
         'ipWhiteList'        => 'ipWhiteList',
         'name'               => 'name',
         'owner'              => 'owner',
         'productType'        => 'productType',
         'properties'         => 'properties',
+        'regionId'           => 'regionId',
         'saleTag'            => 'saleTag',
         'securityProperties' => 'securityProperties',
         'status'             => 'status',
         'superAdmins'        => 'superAdmins',
+        'threeTierModel'     => 'threeTierModel',
         'type'               => 'type',
     ];
 
@@ -144,6 +176,9 @@ class data extends Model
         }
         if (null !== $this->costStorage) {
             $res['costStorage'] = $this->costStorage;
+        }
+        if (null !== $this->createdTime) {
+            $res['createdTime'] = $this->createdTime;
         }
         if (null !== $this->defaultQuota) {
             $res['defaultQuota'] = $this->defaultQuota;
@@ -163,6 +198,9 @@ class data extends Model
         if (null !== $this->properties) {
             $res['properties'] = null !== $this->properties ? $this->properties->toMap() : null;
         }
+        if (null !== $this->regionId) {
+            $res['regionId'] = $this->regionId;
+        }
         if (null !== $this->saleTag) {
             $res['saleTag'] = null !== $this->saleTag ? $this->saleTag->toMap() : null;
         }
@@ -174,6 +212,9 @@ class data extends Model
         }
         if (null !== $this->superAdmins) {
             $res['superAdmins'] = $this->superAdmins;
+        }
+        if (null !== $this->threeTierModel) {
+            $res['threeTierModel'] = $this->threeTierModel;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -196,6 +237,9 @@ class data extends Model
         if (isset($map['costStorage'])) {
             $model->costStorage = $map['costStorage'];
         }
+        if (isset($map['createdTime'])) {
+            $model->createdTime = $map['createdTime'];
+        }
         if (isset($map['defaultQuota'])) {
             $model->defaultQuota = $map['defaultQuota'];
         }
@@ -214,6 +258,9 @@ class data extends Model
         if (isset($map['properties'])) {
             $model->properties = properties::fromMap($map['properties']);
         }
+        if (isset($map['regionId'])) {
+            $model->regionId = $map['regionId'];
+        }
         if (isset($map['saleTag'])) {
             $model->saleTag = saleTag::fromMap($map['saleTag']);
         }
@@ -227,6 +274,9 @@ class data extends Model
             if (!empty($map['superAdmins'])) {
                 $model->superAdmins = $map['superAdmins'];
             }
+        }
+        if (isset($map['threeTierModel'])) {
+            $model->threeTierModel = $map['threeTierModel'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

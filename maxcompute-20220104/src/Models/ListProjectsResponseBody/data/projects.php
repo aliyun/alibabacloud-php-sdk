@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class projects extends Model
 {
     /**
-     * @description The tag.
+     * @description The tags.
      *
      * @var tags[]
      */
@@ -39,6 +39,15 @@ class projects extends Model
     public $costStorage;
 
     /**
+     * @description Create time
+     *
+     * @example 1704380838000
+     *
+     * @var int
+     */
+    public $createdTime;
+
+    /**
      * @description The default computing quota.
      *
      * @example quotaA
@@ -55,7 +64,7 @@ class projects extends Model
     public $ipWhiteList;
 
     /**
-     * @description The name of the MaxCompute project.
+     * @description The name of the project.
      *
      * @example odps_project
      *
@@ -80,6 +89,15 @@ class projects extends Model
     public $properties;
 
     /**
+     * @description Region Id
+     *
+     * @example cn-beijing
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description The identifier of an object in a MaxCompute quota. This identifier is the same as the identifier in the sales bill of Alibaba Cloud. This parameter is used for tags.
      *
      * @var saleTag
@@ -94,7 +112,7 @@ class projects extends Model
     public $securityProperties;
 
     /**
-     * @description The status of the project. Valid values: -AVAILABLE: The project is available. -READONLY: The project is read only. -FROZEN: The project is frozen. -DELETING: The project is being deleted.
+     * @description The status of the project. Valid values: -AVAILABLE: The project is available. -READONLY: The project is read-only. -FROZEN: The project is frozen. -DELETING: The project is being deleted.
      *
      * @example AVAILABLE
      *
@@ -103,8 +121,17 @@ class projects extends Model
     public $status;
 
     /**
-     * @description Indicates whether the current project support the three-tier model
+     * @description Indicates whether the current project supports the MaxCompute three-layer model.
      *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -123,11 +150,13 @@ class projects extends Model
         'tags'               => 'Tags',
         'comment'            => 'comment',
         'costStorage'        => 'costStorage',
+        'createdTime'        => 'createdTime',
         'defaultQuota'       => 'defaultQuota',
         'ipWhiteList'        => 'ipWhiteList',
         'name'               => 'name',
         'owner'              => 'owner',
         'properties'         => 'properties',
+        'regionId'           => 'regionId',
         'saleTag'            => 'saleTag',
         'securityProperties' => 'securityProperties',
         'status'             => 'status',
@@ -157,6 +186,9 @@ class projects extends Model
         if (null !== $this->costStorage) {
             $res['costStorage'] = $this->costStorage;
         }
+        if (null !== $this->createdTime) {
+            $res['createdTime'] = $this->createdTime;
+        }
         if (null !== $this->defaultQuota) {
             $res['defaultQuota'] = $this->defaultQuota;
         }
@@ -171,6 +203,9 @@ class projects extends Model
         }
         if (null !== $this->properties) {
             $res['properties'] = null !== $this->properties ? $this->properties->toMap() : null;
+        }
+        if (null !== $this->regionId) {
+            $res['regionId'] = $this->regionId;
         }
         if (null !== $this->saleTag) {
             $res['saleTag'] = null !== $this->saleTag ? $this->saleTag->toMap() : null;
@@ -214,6 +249,9 @@ class projects extends Model
         if (isset($map['costStorage'])) {
             $model->costStorage = $map['costStorage'];
         }
+        if (isset($map['createdTime'])) {
+            $model->createdTime = $map['createdTime'];
+        }
         if (isset($map['defaultQuota'])) {
             $model->defaultQuota = $map['defaultQuota'];
         }
@@ -228,6 +266,9 @@ class projects extends Model
         }
         if (isset($map['properties'])) {
             $model->properties = properties::fromMap($map['properties']);
+        }
+        if (isset($map['regionId'])) {
+            $model->regionId = $map['regionId'];
         }
         if (isset($map['saleTag'])) {
             $model->saleTag = saleTag::fromMap($map['saleTag']);

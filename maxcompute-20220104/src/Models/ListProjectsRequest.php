@@ -9,8 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsRequest extends Model
 {
     /**
-     * @description The flag to choose whether list the specific catalog - system_catalog.
+     * @description Specifies whether to list a project named SystemCatalog.
      *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -81,7 +90,7 @@ class ListProjectsRequest extends Model
     public $saleTags;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID.
      *
      * @example 549532154333697
      *

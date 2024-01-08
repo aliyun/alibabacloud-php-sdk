@@ -17,7 +17,7 @@ class ListTablesResponseBody extends Model
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0a06dd4516687375802853481ec9fd
      *

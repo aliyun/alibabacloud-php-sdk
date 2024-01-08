@@ -17,16 +17,28 @@ class GetRoleAclResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example 040002
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example error message
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;

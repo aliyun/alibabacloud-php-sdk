@@ -19,6 +19,15 @@ class storageTierInfo extends Model
     public $projectBackupSize;
 
     /**
+     * @description The total storage.
+     *
+     * @example 56066037
+     *
+     * @var int
+     */
+    public $projectTotalSize;
+
+    /**
      * @description The tiered storage.
      *
      * @var storageTierSize
@@ -26,6 +35,7 @@ class storageTierInfo extends Model
     public $storageTierSize;
     protected $_name = [
         'projectBackupSize' => 'projectBackupSize',
+        'projectTotalSize'  => 'projectTotalSize',
         'storageTierSize'   => 'storageTierSize',
     ];
 
@@ -38,6 +48,9 @@ class storageTierInfo extends Model
         $res = [];
         if (null !== $this->projectBackupSize) {
             $res['projectBackupSize'] = $this->projectBackupSize;
+        }
+        if (null !== $this->projectTotalSize) {
+            $res['projectTotalSize'] = $this->projectTotalSize;
         }
         if (null !== $this->storageTierSize) {
             $res['storageTierSize'] = null !== $this->storageTierSize ? $this->storageTierSize->toMap() : null;
@@ -56,6 +69,9 @@ class storageTierInfo extends Model
         $model = new self();
         if (isset($map['projectBackupSize'])) {
             $model->projectBackupSize = $map['projectBackupSize'];
+        }
+        if (isset($map['projectTotalSize'])) {
+            $model->projectTotalSize = $map['projectTotalSize'];
         }
         if (isset($map['storageTierSize'])) {
             $model->storageTierSize = storageTierSize::fromMap($map['storageTierSize']);

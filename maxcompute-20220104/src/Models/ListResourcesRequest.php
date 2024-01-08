@@ -36,6 +36,10 @@ class ListResourcesRequest extends Model
     public $name;
 
     /**
+     * @description The name of the schema.
+     *
+     * @example default
+     *
      * @var string
      */
     public $schemaName;

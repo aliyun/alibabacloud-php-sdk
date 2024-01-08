@@ -20,7 +20,7 @@ class properties extends Model
     public $allowFullScan;
 
     /**
-     * @description Indicates whether the DECIMAL data type in MaxCompute V2.0 is enabled.
+     * @description Indicates whether the DECIMAL data type in the MaxCompute V2.0 data type edition is enabled.
      *
      * @example true
      *
@@ -45,7 +45,7 @@ class properties extends Model
     public $encryption;
 
     /**
-     * @description The number of days for which backup data can be retained.
+     * @description The maximum number of days for which backup data can be retained.
      *
      * @example 1
      *
@@ -63,14 +63,14 @@ class properties extends Model
     public $sqlMeteringMax;
 
     /**
-     * @description The lifecycle of tables in the project.
+     * @description The lifecycle of a table in the project.
      *
      * @var tableLifecycle
      */
     public $tableLifecycle;
 
     /**
-     * @description The time zone of the project.
+     * @description The time zone of the instance.
      *
      * @example Asia/Shanghai
      *

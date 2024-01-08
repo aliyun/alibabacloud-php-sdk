@@ -17,16 +17,28 @@ class GetPackageResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example 040002
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example error message.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;

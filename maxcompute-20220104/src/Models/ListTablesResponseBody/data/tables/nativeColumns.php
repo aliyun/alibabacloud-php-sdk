@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class nativeColumns extends Model
 {
     /**
+     * @description The remarks.
+     *
+     * @example Store name
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The security level of the column.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The name of the column.
+     *
+     * @example shop_name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the column.
+     *
+     * @example STRING
+     *
      * @var string
      */
     public $type;

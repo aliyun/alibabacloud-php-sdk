@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateQuotaRequest extends Model
 {
     /**
+     * @description The request body parameter.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $body;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -21,6 +27,8 @@ class UpdateQuotaRequest extends Model
     public $region;
 
     /**
+     * @description The tenant ID.
+     *
      * @example 196871833188896
      *
      * @var string

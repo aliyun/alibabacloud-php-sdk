@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListJobInfosRequest extends Model
 {
     /**
+     * @description Specifies whether to sort query results in ascending or descending order.
+     *
      * @example true
      *
      * @var bool
@@ -16,11 +18,17 @@ class ListJobInfosRequest extends Model
     public $ascOrder;
 
     /**
+     * @description The request body parameters.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $body;
 
     /**
+     * @description The column based on which you want to sort query results.
+     *
      * @example cuUsage
      *
      * @var string
@@ -28,6 +36,8 @@ class ListJobInfosRequest extends Model
     public $orderColumn;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +45,8 @@ class ListJobInfosRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -42,6 +54,8 @@ class ListJobInfosRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -49,6 +63,8 @@ class ListJobInfosRequest extends Model
     public $region;
 
     /**
+     * @description The tenant ID.
+     *
      * @example 478403690625249
      *
      * @var string

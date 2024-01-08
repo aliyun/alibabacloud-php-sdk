@@ -11,6 +11,8 @@ class UpdateQuotaHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description The trusted AccessKey pairs.
+     *
      * @example null
      *
      * @var string

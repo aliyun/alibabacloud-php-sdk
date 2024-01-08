@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListJobInfosResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
+     *
      * @example 200
      *
      * @var int
@@ -22,6 +26,8 @@ class ListJobInfosResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 0bc13a9516807484336515320e38f5
      *
      * @var string
