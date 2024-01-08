@@ -22,6 +22,11 @@ class RecognizeAllTextShrinkRequest extends Model
     /**
      * @var string
      */
+    public $internationalBusinessLicenseConfigShrink;
+
+    /**
+     * @var string
+     */
     public $internationalIdCardConfigShrink;
 
     /**
@@ -86,6 +91,11 @@ class RecognizeAllTextShrinkRequest extends Model
     public $pageNo;
 
     /**
+     * @var string
+     */
+    public $tableConfigShrink;
+
+    /**
      * @example Advanced
      *
      * @var string
@@ -104,21 +114,23 @@ class RecognizeAllTextShrinkRequest extends Model
      */
     public $body;
     protected $_name = [
-        'advancedConfigShrink'            => 'AdvancedConfig',
-        'idCardConfigShrink'              => 'IdCardConfig',
-        'internationalIdCardConfigShrink' => 'InternationalIdCardConfig',
-        'multiLanConfigShrink'            => 'MultiLanConfig',
-        'outputBarCode'                   => 'OutputBarCode',
-        'outputCoordinate'                => 'OutputCoordinate',
-        'outputFigure'                    => 'OutputFigure',
-        'outputKVExcel'                   => 'OutputKVExcel',
-        'outputOricoord'                  => 'OutputOricoord',
-        'outputQrcode'                    => 'OutputQrcode',
-        'outputStamp'                     => 'OutputStamp',
-        'pageNo'                          => 'PageNo',
-        'type'                            => 'Type',
-        'url'                             => 'Url',
-        'body'                            => 'body',
+        'advancedConfigShrink'                     => 'AdvancedConfig',
+        'idCardConfigShrink'                       => 'IdCardConfig',
+        'internationalBusinessLicenseConfigShrink' => 'InternationalBusinessLicenseConfig',
+        'internationalIdCardConfigShrink'          => 'InternationalIdCardConfig',
+        'multiLanConfigShrink'                     => 'MultiLanConfig',
+        'outputBarCode'                            => 'OutputBarCode',
+        'outputCoordinate'                         => 'OutputCoordinate',
+        'outputFigure'                             => 'OutputFigure',
+        'outputKVExcel'                            => 'OutputKVExcel',
+        'outputOricoord'                           => 'OutputOricoord',
+        'outputQrcode'                             => 'OutputQrcode',
+        'outputStamp'                              => 'OutputStamp',
+        'pageNo'                                   => 'PageNo',
+        'tableConfigShrink'                        => 'TableConfig',
+        'type'                                     => 'Type',
+        'url'                                      => 'Url',
+        'body'                                     => 'body',
     ];
 
     public function validate()
@@ -133,6 +145,9 @@ class RecognizeAllTextShrinkRequest extends Model
         }
         if (null !== $this->idCardConfigShrink) {
             $res['IdCardConfig'] = $this->idCardConfigShrink;
+        }
+        if (null !== $this->internationalBusinessLicenseConfigShrink) {
+            $res['InternationalBusinessLicenseConfig'] = $this->internationalBusinessLicenseConfigShrink;
         }
         if (null !== $this->internationalIdCardConfigShrink) {
             $res['InternationalIdCardConfig'] = $this->internationalIdCardConfigShrink;
@@ -164,6 +179,9 @@ class RecognizeAllTextShrinkRequest extends Model
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+        if (null !== $this->tableConfigShrink) {
+            $res['TableConfig'] = $this->tableConfigShrink;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -190,6 +208,9 @@ class RecognizeAllTextShrinkRequest extends Model
         }
         if (isset($map['IdCardConfig'])) {
             $model->idCardConfigShrink = $map['IdCardConfig'];
+        }
+        if (isset($map['InternationalBusinessLicenseConfig'])) {
+            $model->internationalBusinessLicenseConfigShrink = $map['InternationalBusinessLicenseConfig'];
         }
         if (isset($map['InternationalIdCardConfig'])) {
             $model->internationalIdCardConfigShrink = $map['InternationalIdCardConfig'];
@@ -220,6 +241,9 @@ class RecognizeAllTextShrinkRequest extends Model
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['TableConfig'])) {
+            $model->tableConfigShrink = $map['TableConfig'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

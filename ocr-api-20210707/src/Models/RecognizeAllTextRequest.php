@@ -6,8 +6,10 @@ namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextRequest\advancedConfig;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextRequest\idCardConfig;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextRequest\internationalBusinessLicenseConfig;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextRequest\internationalIdCardConfig;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextRequest\multiLanConfig;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextRequest\tableConfig;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
@@ -22,6 +24,11 @@ class RecognizeAllTextRequest extends Model
      * @var idCardConfig
      */
     public $idCardConfig;
+
+    /**
+     * @var internationalBusinessLicenseConfig
+     */
+    public $internationalBusinessLicenseConfig;
 
     /**
      * @var internationalIdCardConfig
@@ -90,6 +97,11 @@ class RecognizeAllTextRequest extends Model
     public $pageNo;
 
     /**
+     * @var tableConfig
+     */
+    public $tableConfig;
+
+    /**
      * @example Advanced
      *
      * @var string
@@ -108,21 +120,23 @@ class RecognizeAllTextRequest extends Model
      */
     public $body;
     protected $_name = [
-        'advancedConfig'            => 'AdvancedConfig',
-        'idCardConfig'              => 'IdCardConfig',
-        'internationalIdCardConfig' => 'InternationalIdCardConfig',
-        'multiLanConfig'            => 'MultiLanConfig',
-        'outputBarCode'             => 'OutputBarCode',
-        'outputCoordinate'          => 'OutputCoordinate',
-        'outputFigure'              => 'OutputFigure',
-        'outputKVExcel'             => 'OutputKVExcel',
-        'outputOricoord'            => 'OutputOricoord',
-        'outputQrcode'              => 'OutputQrcode',
-        'outputStamp'               => 'OutputStamp',
-        'pageNo'                    => 'PageNo',
-        'type'                      => 'Type',
-        'url'                       => 'Url',
-        'body'                      => 'body',
+        'advancedConfig'                     => 'AdvancedConfig',
+        'idCardConfig'                       => 'IdCardConfig',
+        'internationalBusinessLicenseConfig' => 'InternationalBusinessLicenseConfig',
+        'internationalIdCardConfig'          => 'InternationalIdCardConfig',
+        'multiLanConfig'                     => 'MultiLanConfig',
+        'outputBarCode'                      => 'OutputBarCode',
+        'outputCoordinate'                   => 'OutputCoordinate',
+        'outputFigure'                       => 'OutputFigure',
+        'outputKVExcel'                      => 'OutputKVExcel',
+        'outputOricoord'                     => 'OutputOricoord',
+        'outputQrcode'                       => 'OutputQrcode',
+        'outputStamp'                        => 'OutputStamp',
+        'pageNo'                             => 'PageNo',
+        'tableConfig'                        => 'TableConfig',
+        'type'                               => 'Type',
+        'url'                                => 'Url',
+        'body'                               => 'body',
     ];
 
     public function validate()
@@ -137,6 +151,9 @@ class RecognizeAllTextRequest extends Model
         }
         if (null !== $this->idCardConfig) {
             $res['IdCardConfig'] = null !== $this->idCardConfig ? $this->idCardConfig->toMap() : null;
+        }
+        if (null !== $this->internationalBusinessLicenseConfig) {
+            $res['InternationalBusinessLicenseConfig'] = null !== $this->internationalBusinessLicenseConfig ? $this->internationalBusinessLicenseConfig->toMap() : null;
         }
         if (null !== $this->internationalIdCardConfig) {
             $res['InternationalIdCardConfig'] = null !== $this->internationalIdCardConfig ? $this->internationalIdCardConfig->toMap() : null;
@@ -168,6 +185,9 @@ class RecognizeAllTextRequest extends Model
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+        if (null !== $this->tableConfig) {
+            $res['TableConfig'] = null !== $this->tableConfig ? $this->tableConfig->toMap() : null;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -194,6 +214,9 @@ class RecognizeAllTextRequest extends Model
         }
         if (isset($map['IdCardConfig'])) {
             $model->idCardConfig = idCardConfig::fromMap($map['IdCardConfig']);
+        }
+        if (isset($map['InternationalBusinessLicenseConfig'])) {
+            $model->internationalBusinessLicenseConfig = internationalBusinessLicenseConfig::fromMap($map['InternationalBusinessLicenseConfig']);
         }
         if (isset($map['InternationalIdCardConfig'])) {
             $model->internationalIdCardConfig = internationalIdCardConfig::fromMap($map['InternationalIdCardConfig']);
@@ -224,6 +247,9 @@ class RecognizeAllTextRequest extends Model
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['TableConfig'])) {
+            $model->tableConfig = tableConfig::fromMap($map['TableConfig']);
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

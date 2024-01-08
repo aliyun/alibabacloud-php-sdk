@@ -326,11 +326,17 @@ class Ocrapi extends OpenApiClient
         if (!Utils::isUnset($tmpReq->idCardConfig)) {
             $request->idCardConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->idCardConfig, 'IdCardConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->internationalBusinessLicenseConfig)) {
+            $request->internationalBusinessLicenseConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->internationalBusinessLicenseConfig, 'InternationalBusinessLicenseConfig', 'json');
+        }
         if (!Utils::isUnset($tmpReq->internationalIdCardConfig)) {
             $request->internationalIdCardConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->internationalIdCardConfig, 'InternationalIdCardConfig', 'json');
         }
         if (!Utils::isUnset($tmpReq->multiLanConfig)) {
             $request->multiLanConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->multiLanConfig, 'MultiLanConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tableConfig)) {
+            $request->tableConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableConfig, 'TableConfig', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->advancedConfigShrink)) {
@@ -338,6 +344,9 @@ class Ocrapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->idCardConfigShrink)) {
             $query['IdCardConfig'] = $request->idCardConfigShrink;
+        }
+        if (!Utils::isUnset($request->internationalBusinessLicenseConfigShrink)) {
+            $query['InternationalBusinessLicenseConfig'] = $request->internationalBusinessLicenseConfigShrink;
         }
         if (!Utils::isUnset($request->internationalIdCardConfigShrink)) {
             $query['InternationalIdCardConfig'] = $request->internationalIdCardConfigShrink;
@@ -368,6 +377,9 @@ class Ocrapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageNo)) {
             $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->tableConfigShrink)) {
+            $query['TableConfig'] = $request->tableConfigShrink;
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
