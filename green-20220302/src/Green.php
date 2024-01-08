@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Green\V20220302\Models\ImageAsyncModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageAsyncModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationCancelRequest;
@@ -442,6 +444,52 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->textModerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TextModerationPlusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TextModerationPlusResponse
+     */
+    public function textModerationPlusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->service)) {
+            $body['Service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TextModerationPlus',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TextModerationPlusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TextModerationPlusRequest $request
+     *
+     * @return TextModerationPlusResponse
+     */
+    public function textModerationPlus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->textModerationPlusWithOptions($request, $runtime);
     }
 
     /**
