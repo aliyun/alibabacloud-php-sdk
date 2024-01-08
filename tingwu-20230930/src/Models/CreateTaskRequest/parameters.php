@@ -50,6 +50,11 @@ class parameters extends Model
     public $summarizationEnabled;
 
     /**
+     * @var bool
+     */
+    public $textPolishEnabled;
+
+    /**
      * @var transcoding
      */
     public $transcoding;
@@ -77,6 +82,7 @@ class parameters extends Model
         'pptExtractionEnabled'     => 'PptExtractionEnabled',
         'summarization'            => 'Summarization',
         'summarizationEnabled'     => 'SummarizationEnabled',
+        'textPolishEnabled'        => 'TextPolishEnabled',
         'transcoding'              => 'Transcoding',
         'transcription'            => 'Transcription',
         'translation'              => 'Translation',
@@ -107,6 +113,9 @@ class parameters extends Model
         }
         if (null !== $this->summarizationEnabled) {
             $res['SummarizationEnabled'] = $this->summarizationEnabled;
+        }
+        if (null !== $this->textPolishEnabled) {
+            $res['TextPolishEnabled'] = $this->textPolishEnabled;
         }
         if (null !== $this->transcoding) {
             $res['Transcoding'] = null !== $this->transcoding ? $this->transcoding->toMap() : null;
@@ -149,6 +158,9 @@ class parameters extends Model
         }
         if (isset($map['SummarizationEnabled'])) {
             $model->summarizationEnabled = $map['SummarizationEnabled'];
+        }
+        if (isset($map['TextPolishEnabled'])) {
+            $model->textPolishEnabled = $map['TextPolishEnabled'];
         }
         if (isset($map['Transcoding'])) {
             $model->transcoding = transcoding::fromMap($map['Transcoding']);
