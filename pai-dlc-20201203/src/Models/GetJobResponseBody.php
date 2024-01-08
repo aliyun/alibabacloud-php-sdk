@@ -206,6 +206,11 @@ class GetJobResponseBody extends Model
     public $subStatus;
 
     /**
+     * @var string
+     */
+    public $tenantId;
+
+    /**
      * @example /root/code/
      *
      * @var string
@@ -275,6 +280,7 @@ class GetJobResponseBody extends Model
         'status'           => 'Status',
         'statusHistory'    => 'StatusHistory',
         'subStatus'        => 'SubStatus',
+        'tenantId'         => 'TenantId',
         'thirdpartyLibDir' => 'ThirdpartyLibDir',
         'thirdpartyLibs'   => 'ThirdpartyLibs',
         'userCommand'      => 'UserCommand',
@@ -403,6 +409,9 @@ class GetJobResponseBody extends Model
         }
         if (null !== $this->subStatus) {
             $res['SubStatus'] = $this->subStatus;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
         if (null !== $this->thirdpartyLibDir) {
             $res['ThirdpartyLibDir'] = $this->thirdpartyLibDir;
@@ -547,6 +556,9 @@ class GetJobResponseBody extends Model
         }
         if (isset($map['SubStatus'])) {
             $model->subStatus = $map['SubStatus'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
         if (isset($map['ThirdpartyLibDir'])) {
             $model->thirdpartyLibDir = $map['ThirdpartyLibDir'];

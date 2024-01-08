@@ -21,9 +21,15 @@ class GetJobSanityCheckResultRequest extends Model
      * @var string
      */
     public $sanityCheckPhase;
+
+    /**
+     * @var string
+     */
+    public $token;
     protected $_name = [
         'sanityCheckNumber' => 'SanityCheckNumber',
         'sanityCheckPhase'  => 'SanityCheckPhase',
+        'token'             => 'Token',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class GetJobSanityCheckResultRequest extends Model
         }
         if (null !== $this->sanityCheckPhase) {
             $res['SanityCheckPhase'] = $this->sanityCheckPhase;
+        }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
 
         return $res;
@@ -56,6 +65,9 @@ class GetJobSanityCheckResultRequest extends Model
         }
         if (isset($map['SanityCheckPhase'])) {
             $model->sanityCheckPhase = $map['SanityCheckPhase'];
+        }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
 
         return $model;

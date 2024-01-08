@@ -598,6 +598,9 @@ class Paidlc extends OpenApiClient
         if (!Utils::isUnset($request->sanityCheckPhase)) {
             $query['SanityCheckPhase'] = $request->sanityCheckPhase;
         }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
