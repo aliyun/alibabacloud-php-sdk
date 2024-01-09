@@ -11,12 +11,12 @@ class DirectDeductResourceResult extends Model
     /**
      * @var string
      */
-    public $errorMessage;
+    public $errorCode;
 
     /**
      * @var string
      */
-    public $errorcode;
+    public $errorMessage;
 
     /**
      * @example 3239281273464326823
@@ -30,8 +30,8 @@ class DirectDeductResourceResult extends Model
      */
     public $success;
     protected $_name = [
+        'errorCode'    => 'errorCode',
         'errorMessage' => 'errorMessage',
-        'errorcode'    => 'errorcode',
         'requestId'    => 'requestId',
         'success'      => 'success',
     ];
@@ -43,11 +43,11 @@ class DirectDeductResourceResult extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['errorCode'] = $this->errorCode;
+        }
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->errorcode) {
-            $res['errorcode'] = $this->errorcode;
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
@@ -67,11 +67,11 @@ class DirectDeductResourceResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['errorCode'])) {
+            $model->errorCode = $map['errorCode'];
+        }
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
-        }
-        if (isset($map['errorcode'])) {
-            $model->errorcode = $map['errorcode'];
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
