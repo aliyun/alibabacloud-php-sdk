@@ -28,10 +28,22 @@ class SubmitDigitalDocStructureJobRequest extends Model
      * @var string
      */
     public $fileUrl;
+
+    /**
+     * @var string
+     */
+    public $imageStrategy;
+
+    /**
+     * @var bool
+     */
+    public $revealMarkdown;
     protected $_name = [
         'fileName'          => 'FileName',
         'fileNameExtension' => 'FileNameExtension',
         'fileUrl'           => 'FileUrl',
+        'imageStrategy'     => 'ImageStrategy',
+        'revealMarkdown'    => 'RevealMarkdown',
     ];
 
     public function validate()
@@ -49,6 +61,12 @@ class SubmitDigitalDocStructureJobRequest extends Model
         }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
+        }
+        if (null !== $this->imageStrategy) {
+            $res['ImageStrategy'] = $this->imageStrategy;
+        }
+        if (null !== $this->revealMarkdown) {
+            $res['RevealMarkdown'] = $this->revealMarkdown;
         }
 
         return $res;
@@ -70,6 +88,12 @@ class SubmitDigitalDocStructureJobRequest extends Model
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
+        }
+        if (isset($map['ImageStrategy'])) {
+            $model->imageStrategy = $map['ImageStrategy'];
+        }
+        if (isset($map['RevealMarkdown'])) {
+            $model->revealMarkdown = $map['RevealMarkdown'];
         }
 
         return $model;

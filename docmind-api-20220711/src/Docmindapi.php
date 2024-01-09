@@ -231,6 +231,12 @@ class Docmindapi extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
+        if (!Utils::isUnset($request->imageStrategy)) {
+            $query['ImageStrategy'] = $request->imageStrategy;
+        }
+        if (!Utils::isUnset($request->revealMarkdown)) {
+            $query['RevealMarkdown'] = $request->revealMarkdown;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1049,6 +1055,12 @@ class Docmindapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->imageStrategy)) {
+            $query['ImageStrategy'] = $request->imageStrategy;
+        }
+        if (!Utils::isUnset($request->revealMarkdown)) {
+            $query['RevealMarkdown'] = $request->revealMarkdown;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

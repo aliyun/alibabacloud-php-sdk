@@ -14,8 +14,20 @@ class GetDocStructureResultRequest extends Model
      * @var string
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $imageStrategy;
+
+    /**
+     * @var bool
+     */
+    public $revealMarkdown;
     protected $_name = [
-        'id' => 'Id',
+        'id'             => 'Id',
+        'imageStrategy'  => 'ImageStrategy',
+        'revealMarkdown' => 'RevealMarkdown',
     ];
 
     public function validate()
@@ -27,6 +39,12 @@ class GetDocStructureResultRequest extends Model
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->imageStrategy) {
+            $res['ImageStrategy'] = $this->imageStrategy;
+        }
+        if (null !== $this->revealMarkdown) {
+            $res['RevealMarkdown'] = $this->revealMarkdown;
         }
 
         return $res;
@@ -42,6 +60,12 @@ class GetDocStructureResultRequest extends Model
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['ImageStrategy'])) {
+            $model->imageStrategy = $map['ImageStrategy'];
+        }
+        if (isset($map['RevealMarkdown'])) {
+            $model->revealMarkdown = $map['RevealMarkdown'];
         }
 
         return $model;
