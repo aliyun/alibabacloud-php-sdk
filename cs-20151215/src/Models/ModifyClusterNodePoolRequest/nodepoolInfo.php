@@ -19,7 +19,7 @@ class nodepoolInfo extends Model
     public $name;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the node pool belongs.
      *
      * @example rg-acfmyvw3wjm****
      *

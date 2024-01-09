@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class upgradeConfig extends Model
 {
     /**
-     * @description Specifies whether to enable auto upgrade. Valid values:
+     * @description Indicates whether auto update is enabled. Valid values:
      *
-     *   `true`: enables auto update.
+     *   `true`: enables auto upgrade.
      *   `false`: disables auto update.
      *
      * @example false
@@ -31,7 +31,7 @@ class upgradeConfig extends Model
     public $maxUnavailable;
 
     /**
-     * @description The number of additional nodes.
+     * @description The number of nodes that are temporarily added to the node pool during an auto update.
      *
      * @example 0
      *

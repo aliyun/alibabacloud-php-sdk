@@ -15,7 +15,7 @@ class scalingGroup extends Model
     /**
      * @description Specifies whether to enable auto-renewal for nodes in the node pool. This parameter takes effect only when you set `instance_charge_type` to `PrePaid`. Valid values:
      *
-     *   `true`: enables auto-renewal.
+     *   `true`: enables auto-renewal
      *   `false`: disables auto-renewal.
      *
      * Default value: `true`.
@@ -26,7 +26,7 @@ class scalingGroup extends Model
     public $autoRenew;
 
     /**
-     * @description The duration of the auto-renewal. This property takes effect and is required only when you set instance_charge_type to PrePaid and auto_renew to true. If `PeriodUnit=Month` is configured, the valid values are 1, 2, 3, 6, and 12.
+     * @description The duration of the auto-renewal. This parameter takes effect and is required only when you set instance_charge_type to PrePaid and auto_renew to true. If `PeriodUnit=Month` is configured, the valid values are 1, 2, 3, 6, and 12.
      *
      * Default value: 1.
      * @example 1
@@ -55,14 +55,14 @@ class scalingGroup extends Model
     public $compensateWithOnDemand;
 
     /**
-     * @description The configurations of the data disks that are mounted to the nodes in the node pool.
+     * @description The configuration of the data disks that are mounted to the nodes in the node pool.
      *
      * @var DataDisk[]
      */
     public $dataDisks;
 
     /**
-     * @description The ID of the deployment set.
+     * @description The ID of the deployment set to which the ECS instances in the node pool belong.
      *
      * @example ds-bp1d19mmbsv3jf6xxxxx
      *
@@ -129,8 +129,8 @@ class scalingGroup extends Model
     /**
      * @description The metering method of the public IP address. Valid values:
      *
-     *   PayByBandwidth: pay-by-bandwidth
-     *   PayByTraffic: pay-by-data-transfer
+     *   PayByBandwidth: pay-by-bandwidth.
+     *   PayByTraffic: pay-by-data-transfer.
      *
      * @example PayByTraffic
      *
@@ -150,7 +150,7 @@ class scalingGroup extends Model
     /**
      * @description The name of the key pair. You must set this parameter or the `login_password` parameter.
      *
-     * >  If you create a managed node pool, only `key_pair` is supported.
+     * >  If you want to create a managed node pool, you must set `key_pair`.
      * @example np-key-name
      *
      * @var string
@@ -176,13 +176,13 @@ class scalingGroup extends Model
     /**
      * @description The ECS instance scaling policy for a multi-zone scaling group. Valid values:
      *
-     *   `PRIORITY`: the scaling group is scaled based on the VSwitchIds.N parameter. If an ECS instance cannot be created in the zone where the vSwitch that has the highest priority resides, Auto Scaling creates the ECS instance in the zone where the vSwitch that has the next highest priority resides.
+     *   `PRIORITY`: ECS instances are created based on the VSwitchIds.N parameter. If Auto Scaling fails to create ECS instances in the zone of the vSwitch with the highest priority, Auto Scaling attempts to create ECS instances in the zone of the vSwitch with a lower priority.
      *
      *   `COST_OPTIMIZED`: ECS instances are created based on the vCPU unit price in ascending order. Preemptible instances are preferably created when preemptible instance types are specified in the scaling configuration. You can set the `CompensateWithOnDemand` parameter to specify whether to automatically create pay-as-you-go instances when preemptible instances cannot be created due to insufficient resources.
      *
      **
      *
-     **Note**The `COST_OPTIMIZED` setting takes effect only when multiple instance types are specified or at least one instance type is specified for preemptible instances.
+     **Note** `COST_OPTIMIZED` is valid only when multiple instance types are specified or at least one preemptible instance type is specified.
      *
      *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call [RebalanceInstances](~~71516~~) of Auto Scaling to balance the instance distribution among zones.
      *
@@ -248,7 +248,7 @@ class scalingGroup extends Model
     public $platform;
 
     /**
-     * @description The configurations of the private node pool.
+     * @description The configuration of the private node pool.
      *
      * @var privatePoolOptions
      */
@@ -298,7 +298,7 @@ class scalingGroup extends Model
     public $socEnabled;
 
     /**
-     * @description The number of instance types that are available for creating preemptible instances. Auto Scaling creates preemptible instances of multiple instance types that are available at the lowest cost. Valid values: 1 to 10.
+     * @description The number of instance types that are available. Auto Scaling creates preemptible instances of multiple instance types that are available at the lowest cost. Valid values: 1 to 10.
      *
      * @example 5
      *
@@ -307,7 +307,7 @@ class scalingGroup extends Model
     public $spotInstancePools;
 
     /**
-     * @description Specifies whether to supplement preemptible instances. If this parameter is set to true, when the scaling group receives a system message that a preemptible instance is to be reclaimed, the scaling group attempts to create a new instance to replace this instance. Valid values: Valid values:
+     * @description Specifies whether to supplement preemptible instances when the number of preemptible instances drops below the specified minimum number. If this parameter is set to true, when the scaling group receives a system message that a preemptible instance is to be reclaimed, the scaling group attempts to create a new instance to replace this instance. Valid values:
      *
      *   `true`: enables the supplementation of preemptible instances.
      *   `false`: disables the supplementation of preemptible instances.
@@ -319,17 +319,17 @@ class scalingGroup extends Model
     public $spotInstanceRemedy;
 
     /**
-     * @description The instance type for preemptible instances and the price limit of the instance type.
+     * @description The instance type of preemptible instance and the maximum bid price.
      *
      * @var spotPriceLimit[]
      */
     public $spotPriceLimit;
 
     /**
-     * @description The bidding policy for the instance. Valid values:
+     * @description The bidding policy of preemptible instances. Valid values:
      *
      *   `NoSpot`: non-preemptible instance.
-     *   `SpotWithPriceLimit`: specifies the highest bid for the preemptible instance.
+     *   `SpotWithPriceLimit`: specifies the highest bid.
      *   `SpotAsPriceGo`: automatically submits bids based on the up-to-date market price.
      *
      * For more information, see [Preemptible instances](~~165053~~).
@@ -340,8 +340,12 @@ class scalingGroup extends Model
     public $spotStrategy;
 
     /**
-     * @description 节点系统盘是否开启Burst（性能突发）。 取值：
-     * 当`SystemDiskCategory`取值为`cloud_auto`时才支持设置该参数。更多信息，请参见[ESSD AutoPL云盘](~~368372~~)。
+     * @description Specifies whether to enable the burst feature for system disks. Valid values:
+     *
+     *   true: enables the burst feature.
+     *   false: disables the burst feature.
+     *
+     * This parameter is supported only when `SystemDiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](~~368372~~).
      * @example true
      *
      * @var bool
@@ -403,9 +407,9 @@ class scalingGroup extends Model
     public $systemDiskPerformanceLevel;
 
     /**
-     * @description 节点系统盘预配置的读写IOPS。可能值：0~min{50,000, 1000\*容量-基准性能}。 基准性能=min{1,800+50\*容量, 50000}。
+     * @description The predefined IOPS of a system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
      *
-     * 当`SystemDiskCategory`取值为`cloud_auto`时才支持设置该参数。更多信息，请参见[ESSD AutoPL云盘](~~368372~~)。
+     * This parameter is supported only when `SystemDiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](~~368372~~).
      * @example 1000
      *
      * @var int
@@ -431,9 +435,9 @@ class scalingGroup extends Model
     public $tags;
 
     /**
-     * @description The IDs of vSwitches. You can specify 1 to 20 vSwitches.
+     * @description The vSwitch IDs. Valid values: 1 to 8.
      *
-     * >  To ensure high availability, we recommend that you select VSwitches in different zones.
+     * >  To ensure high availability, we recommend that you select vSwitches that reside in different zones.
      * @var string[]
      */
     public $vswitchIds;

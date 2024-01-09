@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveNodePoolNodesRequest extends Model
 {
     /**
+     * @description 是否并发移除。
+     *
      * @example false
      *
      * @var bool

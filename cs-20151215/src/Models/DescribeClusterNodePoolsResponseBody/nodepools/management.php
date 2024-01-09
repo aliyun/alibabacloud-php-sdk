@@ -76,7 +76,7 @@ class management extends Model
     public $enable;
 
     /**
-     * @description The configuration of auto update. The configuration takes effect only when `enable=true` is specified.
+     * @description The configuration of auto update. The configuration take effects only when `enable=true` is specified.
      *
      * @var upgradeConfig
      */

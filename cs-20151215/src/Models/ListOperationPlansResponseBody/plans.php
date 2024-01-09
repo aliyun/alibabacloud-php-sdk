@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class plans extends Model
 {
     /**
+     * @example c29ced64b3dfe4f33b57ca0aa9f68****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 2023-11-21T20:01:22+08:00
+     *
      * @var string
      */
     public $created;
 
     /**
+     * @example 2023-11-22T18:00:00+08:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example P-655c9c127e0e6603ef00****
+     *
      * @var string
      */
     public $planId;
 
     /**
+     * @example 2023-11-22T15:18:00+08:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example scheduled
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example c29ced64b3dfe4f33b57ca0aa9f68****
+     *
      * @var string
      */
     public $targetId;
 
     /**
+     * @example cluster
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @example cluster_upgrade
+     *
      * @var string
      */
     public $type;

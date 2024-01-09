@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class checks extends Model
 {
     /**
+     * @description The ID of the cluster check task.
+     *
      * @example 1697100584236600453-ce0da5a1d627e4e9e9f96cae8ad07****-clustercheck-lboto
      *
      * @var string
@@ -16,6 +18,8 @@ class checks extends Model
     public $checkId;
 
     /**
+     * @description The time when the cluster check task was created.
+     *
      * @example 2023-10-16T08:31:20.292030178Z
      *
      * @var string
@@ -23,6 +27,8 @@ class checks extends Model
     public $createdAt;
 
     /**
+     * @description The time when the cluster check task was completed.
+     *
      * @example 2023-10-16T08:35:20.292030178Z
      *
      * @var string
@@ -30,6 +36,8 @@ class checks extends Model
     public $finishedAt;
 
     /**
+     * @description The message that indicates the status of the cluster check task.
+     *
      * @example task succeed
      *
      * @var string
@@ -37,6 +45,8 @@ class checks extends Model
     public $message;
 
     /**
+     * @description The status of the cluster check.
+     *
      * @example Succeeded
      *
      * @var string
@@ -44,6 +54,8 @@ class checks extends Model
     public $status;
 
     /**
+     * @description The check method.
+     *
      * @example ClusterUpgrade
      *
      * @var string

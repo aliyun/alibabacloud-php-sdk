@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunClusterCheckResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster check task.
+     *
      * @example 1697100584236600453-ce0da5a1d627e4e9e9f96cae8ad07****-clustercheck-lboto
      *
      * @var string

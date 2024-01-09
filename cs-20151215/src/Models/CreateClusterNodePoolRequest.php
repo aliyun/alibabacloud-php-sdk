@@ -17,7 +17,7 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterNodePoolRequest extends Model
 {
     /**
-     * @description The configuration about auto scaling.
+     * @description The configuration of auto scaling.
      *
      * @var autoScaling
      */
@@ -36,7 +36,7 @@ class CreateClusterNodePoolRequest extends Model
     /**
      * @description This parameter is deprecated.
      *
-     * The configurations of the edge node pool.
+     * The configuration of the edge node pool.
      * @var interconnectConfig
      */
     public $interconnectConfig;
@@ -55,14 +55,14 @@ class CreateClusterNodePoolRequest extends Model
     public $interconnectMode;
 
     /**
-     * @description The configurations about the cluster.
+     * @description The configuration of the cluster.
      *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
-     * @description The configurations about the managed node pool feature.
+     * @description The configuration of the managed node pool feature.
      *
      * @var management
      */
@@ -83,7 +83,7 @@ class CreateClusterNodePoolRequest extends Model
     public $nodeConfig;
 
     /**
-     * @description The configurations of the node pool.
+     * @description The configuration of the node pool.
      *
      * @var nodepoolInfo
      */
@@ -97,7 +97,7 @@ class CreateClusterNodePoolRequest extends Model
     public $scalingGroup;
 
     /**
-     * @description The configurations about confidential computing for the cluster.
+     * @description The configuration of confidential computing for the cluster.
      *
      * @var teeConfig
      */

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class FixNodePoolVulsRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoRestart;

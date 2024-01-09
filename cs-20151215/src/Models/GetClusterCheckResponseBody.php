@@ -18,11 +18,15 @@ class GetClusterCheckResponseBody extends Model
     public $checkId;
 
     /**
+     * @description The list of check items.
+     *
      * @var mixed[][][]
      */
     public $checkItems;
 
     /**
+     * @description The time when the cluster check task was created.
+     *
      * @example 2023-10-16T08:31:20.292030178Z
      *
      * @var string
@@ -30,6 +34,8 @@ class GetClusterCheckResponseBody extends Model
     public $createdAt;
 
     /**
+     * @description The time when the cluster check task was completed.
+     *
      * @example 2023-10-16T08:35:20.292030178Z
      *
      * @var string
@@ -37,6 +43,8 @@ class GetClusterCheckResponseBody extends Model
     public $finishedAt;
 
     /**
+     * @description The message that indicates the status of the cluster check task.
+     *
      * @example task succeed
      *
      * @var string
@@ -44,6 +52,8 @@ class GetClusterCheckResponseBody extends Model
     public $message;
 
     /**
+     * @description The status of the cluster check.
+     *
      * @example Succeeded
      *
      * @var string
@@ -51,6 +61,8 @@ class GetClusterCheckResponseBody extends Model
     public $status;
 
     /**
+     * @description The check method.
+     *
      * @example ClusterUpgrade
      *
      * @var string

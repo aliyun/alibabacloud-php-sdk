@@ -21,7 +21,7 @@ class upgradeConfig extends Model
     public $autoUpgrade;
 
     /**
-     * @description The maximum number of nodes that can be in the Unavailable state. Valid values: 1 to 1000.
+     * @description The maximum number of nodes that can be in the unschedulable state. Valid values: 1 to 1000.
      *
      * Default value: 1.
      * @example 1
@@ -40,9 +40,9 @@ class upgradeConfig extends Model
     public $surge;
 
     /**
-     * @description The percentage of additional nodes to the nodes in the node pool. You must set this parameter or `surge`.
+     * @description The percentage of temporary nodes to the nodes in the node pool. You must set this parameter or `surge`.
      *
-     * The number of additional nodes = The percentage of additional nodes × The number of nodes in the node pool. For example, the percentage of additional nodes is set to 50% and the number of nodes in the node pool is six. The number of additional nodes will be three.
+     * The number of extra nodes = The percentage of extra nodes × The number of nodes in the node pool. For example, the percentage of extra nodes is set to 50% and the number of nodes in the node pool is six. The number of extra nodes will be three.
      * @example 50
      *
      * @var int

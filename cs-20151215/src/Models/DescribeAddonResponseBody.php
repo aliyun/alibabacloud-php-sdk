@@ -15,26 +15,36 @@ class DescribeAddonResponseBody extends Model
     public $architecture;
 
     /**
+     * @example network
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $configSchema;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $installByDefault;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $managed;
 
     /**
+     * @example coredns
+     *
      * @var string
      */
     public $name;
@@ -50,6 +60,8 @@ class DescribeAddonResponseBody extends Model
     public $supportedActions;
 
     /**
+     * @example v1.9.3.6-32932850-aliyun
+     *
      * @var string
      */
     public $version;

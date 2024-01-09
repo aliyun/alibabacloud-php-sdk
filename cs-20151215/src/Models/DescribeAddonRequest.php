@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonRequest extends Model
 {
     /**
+     * @example c02b3e03be10643e8a644a843ffcb****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example ack.pro.small
+     *
      * @var string
      */
     public $clusterSpec;
 
     /**
+     * @example ManagedKubernetes
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example 1.26.3-aliyun.1
+     *
      * @var string
      */
     public $clusterVersion;
 
     /**
+     * @example Default
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example v1.9.3.10-7dfca203-aliyun
+     *
      * @var string
      */
     public $version;

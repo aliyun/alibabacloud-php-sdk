@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListOperationPlansRequest extends Model
 {
     /**
+     * @example c29ced64b3dfe4f33b57ca0aa9f68****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cluster_upgrade
+     *
      * @var string
      */
     public $type;

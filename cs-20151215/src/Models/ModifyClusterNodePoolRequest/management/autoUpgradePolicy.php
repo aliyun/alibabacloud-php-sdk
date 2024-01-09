@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class autoUpgradePolicy extends Model
 {
     /**
+     * @description Specifies whether ACK is allowed to automatically update the kubelet. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
      * @example true
      *
      * @var bool

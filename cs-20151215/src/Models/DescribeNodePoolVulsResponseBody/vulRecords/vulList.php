@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vulList extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
      * @example RHSA-2019:3197-Important: sudo security update
      *
      * @var string
@@ -16,11 +18,15 @@ class vulList extends Model
     public $aliasName;
 
     /**
+     * @description A list of CVE names corresponding to the vulnerabilities.
+     *
      * @var string[]
      */
     public $cveList;
 
     /**
+     * @description The name of the vulnerability.
+     *
      * @example oval:com.redhat.rhsa:def:20193197
      *
      * @var string
@@ -28,6 +34,21 @@ class vulList extends Model
     public $name;
 
     /**
+     * @description The severity level of the vulnerability.
+     *
+     * Valid values:
+     *
+     *   nntf
+     *
+     * .
+     *
+     *   later
+     *
+     * .
+     *
+     *   asap
+     *
+     * .
      * @example asap
      *
      * @var string

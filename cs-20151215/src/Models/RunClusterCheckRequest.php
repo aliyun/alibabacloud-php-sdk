@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RunClusterCheckRequest extends Model
 {
     /**
+     * @description The cluster check items.
+     *
      * @var string[]
      */
     public $options;
 
     /**
+     * @description The check method.
+     *
      * @example ClusterUpgrade
      *
      * @var string

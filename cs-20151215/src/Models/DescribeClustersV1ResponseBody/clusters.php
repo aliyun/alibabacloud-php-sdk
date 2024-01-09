@@ -85,7 +85,7 @@ class clusters extends Model
     public $dockerVersion;
 
     /**
-     * @description The ID of the Server Load Balancer (SLB) instance that is used for the Ingress of the cluster.
+     * @description The ID of the Server Load Balancer (SLB) instance that is used by the Ingress of the cluster.
      *
      * The default SLB specification is slb.s1.small, which belongs to the high-performance instance type.
      * @example lb-2vcrbmlevo6kjpgch****
@@ -97,7 +97,7 @@ class clusters extends Model
     /**
      * @description The Kubernetes version of the cluster. The Kubernetes versions supported by ACK are the same as the versions of open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not specify this parameter, the latest Kubernetes version is used.
      *
-     * You can create clusters of the latest two Kubernetes versions in the ACK console. You can call a specific ACK API operation to create clusters of other Kubernetes versions. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](~~185269~~).
+     * You can create clusters of the latest two Kubernetes versions in the ACK console. You can call the corresponding ACK API operation to create clusters of other Kubernetes versions. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](~~185269~~).
      * @example 1.16.9-aliyun.1
      *
      * @var string
@@ -130,9 +130,9 @@ class clusters extends Model
     public $metaData;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
-     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
+     * The name must be 1 to 63 characters in length and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
      * @example cluster-demo
      *
      * @var string
@@ -145,7 +145,7 @@ class clusters extends Model
      *   `classic`: classic network
      *   `vpc`: virtual private cloud (VPC)
      *   `overlay`: overlay network
-     *   `calico`: network powered by Calico
+     *   `calico`: network powered by Calico.
      *
      * @example vpc
      *
@@ -177,8 +177,8 @@ class clusters extends Model
     /**
      * @description The cluster identifier. Valid values:
      *
-     *   `Edge`: ACK Edge cluster
-     *   `Default`: non-ACK Edge cluster
+     *   `Edge`: The cluster is an ACK Edge cluster.
+     *   `Default`: The cluster is not an ACK Edge cluster.
      *
      * @example Default
      *
@@ -187,7 +187,7 @@ class clusters extends Model
     public $profile;
 
     /**
-     * @description The region ID of the associated cluster.
+     * @description The region ID of the cluster.
      *
      * @example cn-beijing
      *
@@ -205,7 +205,7 @@ class clusters extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the security group to which the cluster belongs.
+     * @description The ID of the security group to which the instances of the cluster belong.
      *
      * @example sg-2vcgwsrwgt5mp0yi****
      *
@@ -257,7 +257,7 @@ class clusters extends Model
     public $subnetCidr;
 
     /**
-     * @description The labels of the cluster.
+     * @description The resource labels of the cluster.
      *
      * @var Tag[]
      */
@@ -291,7 +291,7 @@ class clusters extends Model
     public $vswitchId;
 
     /**
-     * @description The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes of the cluster to allow the worker nodes to manage ECS instances.
+     * @description The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes of the cluster to allow the worker nodes to manage Elastic Compute Service (ECS) instances.
      *
      * @example KubernetesWorkerRole-ec87d15b-edca-4302-933f-c8a16bf0****
      *

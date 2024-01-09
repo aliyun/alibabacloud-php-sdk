@@ -32,9 +32,9 @@ class upgradeConfig extends Model
     public $maxUnavailable;
 
     /**
-     * @description The number of additional nodes. Additional nodes are used to host the workloads of nodes that are being updated.
+     * @description The number of nodes that are temporarily added to the node pool during an auto update. Additional nodes are used to host the workloads of nodes that are being updated.
      *
-     * > We recommend that you set the number of additional nodes to a value that is no greater than the current number of nodes.
+     * >  We recommend that you set the number of additional nodes to a value that does not exceed the current number of existing nodes.
      * @example 5
      *
      * @var int

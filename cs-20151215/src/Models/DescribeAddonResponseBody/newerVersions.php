@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class newerVersions extends Model
 {
     /**
+     * @example 1.20.4
+     *
      * @var string
      */
     public $minimumClusterVersion;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $upgradable;
 
     /**
+     * @example v1.9.3.10-7dfca203-aliyun
+     *
      * @var string
      */
     public $version;

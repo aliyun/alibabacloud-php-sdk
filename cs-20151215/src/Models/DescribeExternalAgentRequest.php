@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeExternalAgentRequest extends Model
 {
     /**
-     * @description The agent mode.
+     * @description The permission mode of the agent. Valid values:
      *
+     * admin: the admin mode, which provides full permissions. restricted: the restricted mode, which provides partial permissions. Default value: admin.
      * @example admin
      *
      * @var string

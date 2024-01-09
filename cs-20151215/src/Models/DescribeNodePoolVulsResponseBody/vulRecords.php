@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class vulRecords extends Model
 {
     /**
+     * @description The node ID.
+     *
      * @example i-t4n2qolb0wtzt0pz****
      *
      * @var string
@@ -17,11 +19,17 @@ class vulRecords extends Model
     public $instanceId;
 
     /**
+     * @description The node name. This name is the identifier of the node in the cluster.
+     *
+     * @example cn-hangzhou.192.168.x.x
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description A list of vulnerabilities.
+     *
      * @var vulList[]
      */
     public $vulList;

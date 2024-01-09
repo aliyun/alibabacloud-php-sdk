@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example cb95aa626a47740afbf6aa099b65****
      *
@@ -28,7 +28,7 @@ class body extends Model
     public $created;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example lb-wz9poz4r0ymh8u0uf****
      *
@@ -46,7 +46,7 @@ class body extends Model
     public $resourceInfo;
 
     /**
-     * @description The type of resource.
+     * @description The resource type.
      *
      * @example ALIYUN::SLB::LoadBalancer
      *
@@ -55,7 +55,7 @@ class body extends Model
     public $resourceType;
 
     /**
-     * @description The status of the resource. Valid values:
+     * @description The resource status. Valid values:
      *
      *   `CREATE_COMPLETE`: The resource is created.
      *   `CREATE_FAILED`: The resource failed to be created.

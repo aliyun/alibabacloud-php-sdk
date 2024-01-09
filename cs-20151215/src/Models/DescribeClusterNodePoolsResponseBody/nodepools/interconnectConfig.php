@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class interconnectConfig extends Model
 {
     /**
-     * @description The bandwidth of the enhanced edge node pool. Unit: M.
+     * @description This parameter is deprecated.
      *
+     * The bandwidth of the enhanced edge node pool. Unit: Mbit/s.
      * @example 10
      *
      * @var int
@@ -18,8 +19,9 @@ class interconnectConfig extends Model
     public $bandwidth;
 
     /**
-     * @description The ID of the Cloud Connect Network (CCN) instance that is associated with the enhanced edge node pool.
+     * @description This parameter is deprecated.
      *
+     * The ID of the Cloud Connect Network (CCN) instance that is associated with the enhanced edge node pool.
      * @example ccn-qm5i0i0q9yi*******
      *
      * @var string
@@ -27,8 +29,9 @@ class interconnectConfig extends Model
     public $ccnId;
 
     /**
-     * @description The region to which the CCN instance that is associated with the enhanced edge node pool belongs.
+     * @description This parameter is deprecated.
      *
+     * The region to which the CCN instance that is with the enhanced edge node pool belongs.
      * @example cn-shanghai
      *
      * @var string
@@ -36,8 +39,9 @@ class interconnectConfig extends Model
     public $ccnRegionId;
 
     /**
-     * @description The ID of the Cloud Enterprise Network (CEN) instance that is associated with the enhanced edge node pool.
+     * @description This parameter is deprecated.
      *
+     * The ID of the Cloud Enterprise Network (CEN) instance that is associated with the enhanced edge node pool.
      * @example cen-ey9k9nfhz0f*******
      *
      * @var string
@@ -45,8 +49,9 @@ class interconnectConfig extends Model
     public $cenId;
 
     /**
-     * @description The subscription duration of the enhanced edge node pool. The duration is measured in months.
+     * @description This parameter is deprecated.
      *
+     * The subscription duration of the enhanced edge node pool. The duration is measured in months.
      * @example 1
      *
      * @var string

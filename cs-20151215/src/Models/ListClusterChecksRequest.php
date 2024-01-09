@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListClusterChecksRequest extends Model
 {
     /**
+     * @description The check method.
+     *
      * @example ClusterUpgrade
      *
      * @var string

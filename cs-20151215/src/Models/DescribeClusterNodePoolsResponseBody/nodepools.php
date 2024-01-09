@@ -25,14 +25,15 @@ class nodepools extends Model
     public $autoScaling;
 
     /**
-     * @description The network configuration of the edge node pool. This parameter takes effect only for edge node pools.
+     * @description This parameter is deprecated.
      *
+     * The network configuration of the edge node pool. This parameter takes effect only for edge node pools.
      * @var interconnectConfig
      */
     public $interconnectConfig;
 
     /**
-     * @description The network type of the edge node pool. Valid values: basic and enhanced. This parameter takes effect only for edge node pools.
+     * @description The network type of the edge node pool. basic: basic edge node pools. dedicated: dedicated edge node pools. This parameter takes effect only for edge node pools.
      *
      * @example improved
      *
@@ -41,14 +42,14 @@ class nodepools extends Model
     public $interconnectMode;
 
     /**
-     * @description The configuration of the cluster where the node pool is deployed.
+     * @description The configurations of the cluster where the node pool is deployed.
      *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
-     * @description The configuration of the managed node pool feature. The configuration takes effect only for ACK Pro managed clusters.
+     * @description The configurations of managed node pools. Managed node pools are available only in professional managed Kubernetes clusters.
      *
      * @var management
      */
@@ -64,7 +65,7 @@ class nodepools extends Model
     public $maxNodes;
 
     /**
-     * @description 节点配置。
+     * @description The configurations of nodes.
      *
      * @var nodeConfig
      */
@@ -92,7 +93,7 @@ class nodepools extends Model
     public $status;
 
     /**
-     * @description The configuration of confidential computing.
+     * @description The configurations of confidential computing.
      *
      * @var teeConfig
      */

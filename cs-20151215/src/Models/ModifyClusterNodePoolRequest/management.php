@@ -26,11 +26,18 @@ class management extends Model
     public $autoRepair;
 
     /**
+     * @description The auto node repair policy.
+     *
      * @var autoRepairPolicy
      */
     public $autoRepairPolicy;
 
     /**
+     * @description Specifies whether to enable auto update. Valid values:
+     *
+     *   `true`: enables auto update.
+     *   `false`: disables auto update.
+     *
      * @example true
      *
      * @var bool
@@ -38,11 +45,18 @@ class management extends Model
     public $autoUpgrade;
 
     /**
+     * @description The auto update policy.
+     *
      * @var autoUpgradePolicy
      */
     public $autoUpgradePolicy;
 
     /**
+     * @description Specifies whether ACK is allowed to automatically patch CVE vulnerabilities. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
      * @example true
      *
      * @var bool
@@ -50,6 +64,8 @@ class management extends Model
     public $autoVulFix;
 
     /**
+     * @description The auto CVE patching policy.
+     *
      * @var autoVulFixPolicy
      */
     public $autoVulFixPolicy;
@@ -68,7 +84,7 @@ class management extends Model
     public $enable;
 
     /**
-     * @description The configurations about auto update. The configurations take effect only when you specify `enable=true`.
+     * @description The configuration of auto update. The configuration takes effect only when `enable=true` is specified.
      *
      * @deprecated
      *

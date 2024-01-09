@@ -51,7 +51,7 @@ class autoScaling extends Model
      *
      * Specifies whether to associate an elastic IP address (EIP) with the node pool. Valid values:
      *
-     *   `true`: associates an EIP with the node pool.
+     *   `true`: associates an EIP with the node pool
      *   `false`: does not associate an EIP with the node pool.
      *
      * Default value: `false`.
@@ -85,7 +85,7 @@ class autoScaling extends Model
      *   `cpu`: regular instance.
      *   `gpu`: GPU-accelerated instance.
      *   `gpushare`: shared GPU-accelerated instance.
-     *   `spot`: preemptible instance.
+     *   `spot`: preemptible instance
      *
      * Default value: `cpu`.
      * @example cpu

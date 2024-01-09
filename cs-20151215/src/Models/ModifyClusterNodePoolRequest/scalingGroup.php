@@ -147,7 +147,7 @@ class scalingGroup extends Model
      *
      **
      *
-     **Note**The `COST_OPTIMIZED` setting takes effect only when multiple instance types are specified or at least one instance type is specified for preemptible instances.
+     **Note** `COST_OPTIMIZED` is valid only when multiple instance types are specified or at least one preemptible instance type is specified.
      *
      *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](~~71516~~).
      *
@@ -197,7 +197,7 @@ class scalingGroup extends Model
     public $periodUnit;
 
     /**
-     * @description The OS platform. Valid values:
+     * @description The operating system. Valid values:
      *
      *   `AliyunLinux`
      *   `CentOS`
@@ -213,7 +213,7 @@ class scalingGroup extends Model
     public $platform;
 
     /**
-     * @description The configurations of the private node pool.
+     * @description The configuration of the private node pool.
      *
      * @var privatePoolOptions
      */
@@ -355,15 +355,15 @@ class scalingGroup extends Model
     /**
      * @description The labels that you want to add to the ECS instances.
      *
-     * A key must be unique and cannot exceed 128 characters in length. Neither keys nor values can start with aliyun or acs:. Neither keys nor values can contain https:// or http://.
+     * The key must be unique and cannot exceed 128 characters in length. Neither keys nor values can start with aliyun or acs:. Neither keys nor values can contain https:// or http://.
      * @var Tag[]
      */
     public $tags;
 
     /**
-     * @description The IDs of vSwitches. You can specify 1 to 20 vSwitches.
+     * @description The vSwitch IDs. You can specify 1 to 20 vSwitches.
      *
-     * > We recommend that you select vSwitches in different zones to ensure high availability.
+     * >  To ensure high availability, we recommend that you select vSwitches in different zones.
      * @var string[]
      */
     public $vswitchIds;

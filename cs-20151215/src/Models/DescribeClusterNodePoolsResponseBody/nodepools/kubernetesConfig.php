@@ -23,9 +23,9 @@ class kubernetesConfig extends Model
     public $cmsEnabled;
 
     /**
-     * @description The CPU management policy of the nodes in the node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later.
+     * @description The CPU management policy. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later.
      *
-     *   `static`: allows pods with specific resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
+     *   `static`: This policy allows pods with specific resource characteristics on the node to be granted with enhanced CPU affinity and exclusivity.
      *   `none`: indicates that the default CPU affinity is used.
      *
      * @example none
@@ -37,8 +37,8 @@ class kubernetesConfig extends Model
     /**
      * @description The labels of the nodes in the node pool. You can add labels to the nodes in the cluster. You must add labels based on the following rules:
      *
-     *   Each label is a case-sensitive key-value pair. You can add up to 20 labels.
-     *   A key must be unique and cannot exceed 64 characters in length. A value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
+     *   Each label is a case-sensitive key-value pair. You can add at most 20 labels.
+     *   The key must be unique and cannot exceed 64 characters in length. The value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
      *
      * @var Tag[]
      */
@@ -76,13 +76,15 @@ class kubernetesConfig extends Model
     public $runtimeVersion;
 
     /**
-     * @description The taints of the nodes in the node pool. Taints are added to nodes to prevent pods from being scheduled to inappropriate nodes. However, tolerations allow pods to be scheduled to nodes with matching taints. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+     * @description The taints that you want to add to nodes. Taints are added to nodes to prevent pods from being scheduled to inappropriate nodes. However, tolerations allow pods to be scheduled to nodes with matching taints. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
      *
      * @var Taint[]
      */
     public $taints;
 
     /**
+     * @description 扩容后的节点是否可调度。
+     *
      * @example true
      *
      * @var bool
@@ -90,7 +92,7 @@ class kubernetesConfig extends Model
     public $unschedulable;
 
     /**
-     * @description The user data of the node pool. For more information, see [Generate user data](~~49121~~).
+     * @description The user data of the node pool. For more information, see [Generate user-defined data](~~49121~~).
      *
      * @example IyEvYmluL3NoCmVjaG8gIkhlbGxvIEFD****
      *

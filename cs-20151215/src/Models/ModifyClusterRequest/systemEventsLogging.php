@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class systemEventsLogging extends Model
 {
     /**
+     * @description 是否开启系统事件存储。
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description 系统事件存储的LogProject名称。
+     *
+     * @example k8s-log-cb95aa626a47740afbf6aa099b65****
+     *
      * @var string
      */
     public $loggingProject;

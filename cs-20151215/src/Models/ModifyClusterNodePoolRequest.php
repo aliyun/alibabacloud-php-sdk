@@ -15,7 +15,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterNodePoolRequest extends Model
 {
     /**
-     * @description The configurations about auto scaling.
+     * @description The configuration of auto scaling.
      *
      * @var autoScaling
      */
@@ -29,14 +29,14 @@ class ModifyClusterNodePoolRequest extends Model
     public $concurrency;
 
     /**
-     * @description The configurations about the cluster.
+     * @description The configuration of the cluster where the node pool is deployed.
      *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
-     * @description The configurations about the managed node pool feature.
+     * @description The configuration of the managed node pool feature.
      *
      * @var management
      */

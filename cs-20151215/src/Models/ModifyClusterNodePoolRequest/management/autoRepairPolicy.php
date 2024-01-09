@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class autoRepairPolicy extends Model
 {
     /**
+     * @description Specifies whether ACK is allowed to automatically restart nodes after patching CVE vulnerabilities. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
      * @example true
      *
      * @var bool

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class autoScaling extends Model
 {
     /**
-     * @description The peak bandwidth of the EIP.
+     * @description The maximum bandwidth of the elastic IP address (EIP).
      *
      * @example 5
      *
@@ -80,7 +80,7 @@ class autoScaling extends Model
      *   `cpu`: regular instance.
      *   `gpu`: GPU-accelerated instance.
      *   `gpushare`: shared GPU-accelerated instance.
-     *   `spot`: preemptible instance.
+     *   `spot`: preemptible instance
      *
      * Default value: `cpu`.
      * @example cpu

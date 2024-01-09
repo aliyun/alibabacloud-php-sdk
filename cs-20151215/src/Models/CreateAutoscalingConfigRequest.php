@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateAutoscalingConfigRequest extends Model
 {
     /**
-     * @description The cooldown period. Newly added nodes can be removed in scale-in activities only after the cooldown period ends. Unit: minutes.
+     * @description The waiting time before the auto scaling feature performs a scale-in activity. Only if the resource usage on a node remains below the scale-in threshold within the waiting time, the node is removed after the waiting time ends. Unit: minutes.
      *
      * @example 10 m
      *
@@ -109,7 +109,7 @@ class CreateAutoscalingConfigRequest extends Model
     public $scanInterval;
 
     /**
-     * @description Specifies whether to allow the cluster autoscaler to scale in nodes that host pods mounted with local storage (such as EmptyDir volumes or HostPath volumes). Valid values:
+     * @description Specifies whether to allow the cluster autoscaler to scale in nodes that host pods mounted with local storage, such as EmptyDir volumes or HostPath volumes. Valid values:
      *
      *   `true`: does not allow the cluster autoscaler to scale in these nodes.
      *   `false`: allows the cluster autoscaler to scale in these nodes.
@@ -133,7 +133,7 @@ class CreateAutoscalingConfigRequest extends Model
     public $skipNodesWithSystemPods;
 
     /**
-     * @description The waiting time before the auto scaling feature performs a scale-in activity. Only if the resource usage on a node remains below the scale-in threshold within the waiting time, the node is removed after the waiting time ends. Unit: minutes.
+     * @description The cooldown period. Newly added nodes can be removed in scale-in activities only after the cooldown period ends. Unit: minutes.
      *
      * @example 10 m
      *

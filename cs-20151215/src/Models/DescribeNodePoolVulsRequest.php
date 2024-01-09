@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeNodePoolVulsRequest extends Model
 {
     /**
+     * @description The priority to fix the vulnerability. Separate multiple priorities with commas (,). Valid values:
+     *
+     *   `asap`: high
+     *   `later`: medium
+     *   `nntf`: low
+     *
+     * @example asap
+     *
      * @var string
      */
     public $necessity;

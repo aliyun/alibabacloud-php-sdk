@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNodePoolVulsResponseBody extends Model
 {
     /**
+     * @description The node pool vulnerabilities.
+     *
      * @var vulRecords[]
      */
     public $vulRecords;

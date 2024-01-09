@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterRequest extends Model
 {
     /**
-     * @description 注册集群 API Server SLB 访问控制列表。
+     * @description The network access control list (ACL) of the SLB instance associated with the API server if the cluster is a registered cluster.
      *
      * @var string[]
      */
@@ -38,6 +38,11 @@ class ModifyClusterRequest extends Model
     public $apiServerEipId;
 
     /**
+     * @description The cluster name.
+     *
+     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
+     * @example cluster-new-name
+     *
      * @var string
      */
     public $clusterName;
@@ -119,6 +124,8 @@ class ModifyClusterRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description 系统事件存储配置。
+     *
      * @var systemEventsLogging
      */
     public $systemEventsLogging;

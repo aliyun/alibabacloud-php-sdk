@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListClusterChecksResponseBody extends Model
 {
     /**
+     * @description The list of check items.
+     *
      * @var checks[]
      */
     public $checks;

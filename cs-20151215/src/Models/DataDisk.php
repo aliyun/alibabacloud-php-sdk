@@ -44,6 +44,13 @@ class DataDisk extends Model
     public $device;
 
     /**
+     * @example DataDiskName
+     *
+     * @var string
+     */
+    public $diskName;
+
+    /**
      * @example true
      *
      * @var string
@@ -70,13 +77,6 @@ class DataDisk extends Model
      * @var string
      */
     public $mountTarget;
-
-    /**
-     * @example DataDiskName
-     *
-     * @var string
-     */
-    public $name;
 
     /**
      * @example PL1
@@ -111,11 +111,11 @@ class DataDisk extends Model
         'burstingEnabled'      => 'bursting_enabled',
         'category'             => 'category',
         'device'               => 'device',
+        'diskName'             => 'disk_name',
         'encrypted'            => 'encrypted',
         'fileSystem'           => 'file_system',
         'kmsKeyId'             => 'kms_key_id',
         'mountTarget'          => 'mount_target',
-        'name'                 => 'name',
         'performanceLevel'     => 'performance_level',
         'provisionedIops'      => 'provisioned_iops',
         'size'                 => 'size',
@@ -144,6 +144,9 @@ class DataDisk extends Model
         if (null !== $this->device) {
             $res['device'] = $this->device;
         }
+        if (null !== $this->diskName) {
+            $res['disk_name'] = $this->diskName;
+        }
         if (null !== $this->encrypted) {
             $res['encrypted'] = $this->encrypted;
         }
@@ -155,9 +158,6 @@ class DataDisk extends Model
         }
         if (null !== $this->mountTarget) {
             $res['mount_target'] = $this->mountTarget;
-        }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
         }
         if (null !== $this->performanceLevel) {
             $res['performance_level'] = $this->performanceLevel;
@@ -198,6 +198,9 @@ class DataDisk extends Model
         if (isset($map['device'])) {
             $model->device = $map['device'];
         }
+        if (isset($map['disk_name'])) {
+            $model->diskName = $map['disk_name'];
+        }
         if (isset($map['encrypted'])) {
             $model->encrypted = $map['encrypted'];
         }
@@ -209,9 +212,6 @@ class DataDisk extends Model
         }
         if (isset($map['mount_target'])) {
             $model->mountTarget = $map['mount_target'];
-        }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
         }
         if (isset($map['performance_level'])) {
             $model->performanceLevel = $map['performance_level'];

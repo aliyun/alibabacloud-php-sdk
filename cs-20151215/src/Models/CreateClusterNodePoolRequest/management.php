@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class management extends Model
 {
     /**
-     * @description Specifies whether to enable auto repair. This parameter takes effect only when you specify `enable=true`.
+     * @description Specifies whether to enable auto repair. This parameter takes effect only when you specify `enable=true`. Valid values:
      *
      *   `true`: enables auto repair.
      *   `false`: disables auto repair.
@@ -66,7 +66,7 @@ class management extends Model
     public $enable;
 
     /**
-     * @description The configurations about auto update. The configurations take effect only when you specify `enable=true`.
+     * @description The configuration of auto update. The configuration takes effect only when you specify `enable=true`.
      *
      * @deprecated
      *

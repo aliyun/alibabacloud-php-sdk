@@ -24,7 +24,7 @@ class kubernetesConfig extends Model
     public $cmsEnabled;
 
     /**
-     * @description The CPU management policy. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later.
+     * @description The CPU management policy of the nodes in a node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later.
      *
      *   `static`: allows pods with specific resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
      *   `none`: specifies that the default CPU affinity is used.
@@ -75,7 +75,7 @@ class kubernetesConfig extends Model
     public $runtimeVersion;
 
     /**
-     * @description The configurations of the taints.
+     * @description The configuration of taints.
      *
      * @var Taint[]
      */
@@ -89,7 +89,7 @@ class kubernetesConfig extends Model
     public $unschedulable;
 
     /**
-     * @description The user data on the node.
+     * @description The user-defined data on nodes.
      *
      * @example dGhpcyBpcyBhIGV4YW1wbGU=
      *

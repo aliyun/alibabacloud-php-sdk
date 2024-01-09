@@ -18,7 +18,7 @@ class CreateClusterNodePoolResponseBody extends Model
     public $nodepoolId;
 
     /**
-     * @description 任务ID
+     * @description The ID of the task.
      *
      * @example T-613b19bbd160ad492800****
      *

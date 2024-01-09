@@ -35,6 +35,8 @@ class scalingGroup extends Model
     public $autoRenewPeriod;
 
     /**
+     * @description 是否开启CIS加固，仅当系统镜像选择Alibaba Cloud Linux 2或Alibaba Cloud Linux 3时，可为节点开启CIS加固。
+     *
      * @example false
      *
      * @var bool
@@ -70,7 +72,7 @@ class scalingGroup extends Model
     public $deploymentsetId;
 
     /**
-     * @description The expected number of nodes in the node pool.
+     * @description You can now specify the desired number of nodes for a node pool.
      *
      * @example 2
      *
@@ -88,6 +90,8 @@ class scalingGroup extends Model
     public $imageId;
 
     /**
+     * @description 操作系统镜像类型。
+     *
      * @example AliyunLinux
      *
      * @var string
@@ -95,7 +99,7 @@ class scalingGroup extends Model
     public $imageType;
 
     /**
-     * @description The billing method of the nodes in the node pool. Valid values:
+     * @description The billing method of the nodes in a node pool. Valid values:
      *
      *   `PrePaid`: the subscription billing method.
      *   `PostPaid`: the pay-as-you-go billing method.
@@ -107,7 +111,7 @@ class scalingGroup extends Model
     public $instanceChargeType;
 
     /**
-     * @description A list of instance types. You can select multiple instance types. When the system needs to create a node, it starts from the first instance type until the node is created. The instance type that is used to create the node varies based on the actual instance stock.
+     * @description A list of instance types. You can select multiple instance types. When the system needs to create a node, it starts from the first instance type until the node is created. The actual instance types used to create nodes are subject to inventory availability.
      *
      * @example ecs.n4.large
      *
@@ -144,6 +148,8 @@ class scalingGroup extends Model
     public $keyPair;
 
     /**
+     * @description 弹出的ECS实例是否使用以非root用户登陆。
+     *
      * @example true
      *
      * @var bool
@@ -169,7 +175,7 @@ class scalingGroup extends Model
      *
      **
      *
-     **Note**The `COST_OPTIMIZED` setting takes effect only when multiple instance types are specified or at least one instance type is specified for preemptible instances.
+     **Note** `COST_OPTIMIZED` takes effect only when multiple instance types or preemptible instances are specified in the auto scaling conflagrations.
      *
      *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](~~71516~~).
      *
@@ -210,7 +216,7 @@ class scalingGroup extends Model
     /**
      * @description The billing cycle of the nodes. This parameter takes effect only when `instance_charge_type` is set to `PrePaid`.
      *
-     * Valid value: `Month`.
+     * Valid value: `Month`
      * @example Month
      *
      * @var string
@@ -239,7 +245,7 @@ class scalingGroup extends Model
     public $privatePoolOptions;
 
     /**
-     * @description The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes of the cluster to allow the worker nodes to manage ECS instances.
+     * @description The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes that are created on Elastic Compute Service (ECS) instances.
      *
      * @example KubernetesWorkerRole-021dc54f-929b-437a-8ae0-34c24d3e****
      *
@@ -248,7 +254,7 @@ class scalingGroup extends Model
     public $ramPolicy;
 
     /**
-     * @description After you specify the list of RDS instances, the ECS instances in the cluster are automatically added to the whitelist of the RDS instances.
+     * @description After you specify a list of ApsaraDB RDS instances, the ECS instances in the cluster are automatically added to the whitelists of the ApsaraDB RDS instances.
      *
      * @var string[]
      */
@@ -267,7 +273,7 @@ class scalingGroup extends Model
      * @description The scaling mode of the scaling group. Valid values:
      *
      *   `release`: the standard mode. ECS instances are created and released based on resource usage.
-     *   `recycle`: the swift mode. ECS instances are created, stopped, or started during scaling events. This reduces the time required for the next scale-out event. When the instance is stopped, you are charged only for the storage service. This does not apply to ECS instances that are attached with local disks.
+     *   `recycle`: the swift mode. ECS instances are created, stopped, or started during scaling events. This reduces the time required for the next scale-out event. When the instance is stopped, you are charged only for the storage service. This does not apply to ECS instances attached with local disks.
      *
      * @example release
      *
@@ -292,6 +298,8 @@ class scalingGroup extends Model
     public $securityGroupIds;
 
     /**
+     * @description 是否开启等保加固，仅当系统镜像选择Alibaba Cloud Linux 2或Alibaba Cloud Linux 3时，可为节点开启等保加固。阿里云为Alibaba Cloud Linux 2和Alibaba Cloud Linux 3等保2.0三级版镜像提供等保合规的基线检查标准和扫描程序。
+     *
      * @example false
      *
      * @var bool
@@ -308,7 +316,7 @@ class scalingGroup extends Model
     public $spotInstancePools;
 
     /**
-     * @description Indicates whether preemptible instances are supplemented when the number of preemptible instances drops below the specified minimum number. If this parameter is set to true, when the scaling group receives a system message that a preemptible instance is to be reclaimed, the scaling group attempts to create a new instance to replace this instance. Valid values: Valid values:
+     * @description Indicates whether preemptible instances are supplemented when the number of preemptible instances drops below the specified minimum number. If this parameter is set to true, when the scaling group receives a system message that a preemptible instance is to be reclaimed, the scaling group attempts to create a new instance to replace this instance. Valid values:
      *
      *   `true`: Supplementation of preemptible instances is enabled.
      *   `false`: Supplementation of preemptible instances is disabled.
@@ -341,6 +349,8 @@ class scalingGroup extends Model
     public $spotStrategy;
 
     /**
+     * @description 节点系统盘是否开启Burst（性能突发），磁盘类型为cloud_auto时配置。
+     *
      * @example true
      *
      * @var bool
@@ -348,6 +358,8 @@ class scalingGroup extends Model
     public $systemDiskBurstingEnabled;
 
     /**
+     * @description 系统盘的多磁盘类型。当无法使用高优先级的磁盘类型时，自动尝试下一优先级的磁盘类型创建系统盘。取值范围：cloud：普通云盘。cloud_efficiency：高效云盘。cloud_ssd：SSD云盘。cloud_essd：ESSD云盘。
+     *
      * @var string[]
      */
     public $systemDiskCategories;
@@ -365,6 +377,8 @@ class scalingGroup extends Model
     public $systemDiskCategory;
 
     /**
+     * @description 系统盘采用的加密算法。取值范围：aes-256。
+     *
      * @example aes-256
      *
      * @var string
@@ -372,6 +386,8 @@ class scalingGroup extends Model
     public $systemDiskEncryptAlgorithm;
 
     /**
+     * @description 是否加密系统盘。取值范围：true：加密。false：不加密。
+     *
      * @example false
      *
      * @var bool
@@ -379,6 +395,8 @@ class scalingGroup extends Model
     public $systemDiskEncrypted;
 
     /**
+     * @description 系统盘使用的KMS密钥ID。
+     *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
      * @var string
@@ -395,6 +413,8 @@ class scalingGroup extends Model
     public $systemDiskPerformanceLevel;
 
     /**
+     * @description 节点系统盘预配置的读写IOPS，磁盘类型为cloud_auto时配置。
+     *
      * @example 1000
      *
      * @var int
@@ -404,7 +424,7 @@ class scalingGroup extends Model
     /**
      * @description The system disk size of a node. Unit: GiB.
      *
-     * Valid values: 20 to 500.
+     * Valid values: 20 to 500
      * @example 120
      *
      * @var int
@@ -414,15 +434,15 @@ class scalingGroup extends Model
     /**
      * @description The labels that you want to add to the ECS instances.
      *
-     * A key must be unique and cannot exceed 128 characters in length. Neither keys nor values can start with aliyun or acs:. Neither keys nor values can contain https:// or http://.
+     * The key must be unique and cannot exceed 128 characters in length. Neither keys nor values can start with aliyun or acs:. Neither keys nor values can contain https:// or http://.
      * @var Tag[]
      */
     public $tags;
 
     /**
-     * @description The IDs of vSwitches. You can specify 1 to 20 vSwitches.
+     * @description The vSwitch IDs. You can specify 1 to 20 vSwitches.
      *
-     * > We recommend that you select vSwitches in different zones to ensure high availability.
+     * >  To ensure high availability, we recommend that you select vSwitches in different zones.
      * @var string[]
      */
     public $vswitchIds;
