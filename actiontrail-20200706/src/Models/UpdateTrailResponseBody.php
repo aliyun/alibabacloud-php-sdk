@@ -27,6 +27,16 @@ class UpdateTrailResponseBody extends Model
     public $homeRegion;
 
     /**
+     * @var string
+     */
+    public $maxComputeProjectArn;
+
+    /**
+     * @var string
+     */
+    public $maxComputeWriteRoleArn;
+
+    /**
      * @description The name of the trail.
      *
      * @example trail-test
@@ -98,16 +108,18 @@ class UpdateTrailResponseBody extends Model
      */
     public $trailRegion;
     protected $_name = [
-        'eventRW'         => 'EventRW',
-        'homeRegion'      => 'HomeRegion',
-        'name'            => 'Name',
-        'ossBucketName'   => 'OssBucketName',
-        'ossKeyPrefix'    => 'OssKeyPrefix',
-        'ossWriteRoleArn' => 'OssWriteRoleArn',
-        'requestId'       => 'RequestId',
-        'slsProjectArn'   => 'SlsProjectArn',
-        'slsWriteRoleArn' => 'SlsWriteRoleArn',
-        'trailRegion'     => 'TrailRegion',
+        'eventRW'                => 'EventRW',
+        'homeRegion'             => 'HomeRegion',
+        'maxComputeProjectArn'   => 'MaxComputeProjectArn',
+        'maxComputeWriteRoleArn' => 'MaxComputeWriteRoleArn',
+        'name'                   => 'Name',
+        'ossBucketName'          => 'OssBucketName',
+        'ossKeyPrefix'           => 'OssKeyPrefix',
+        'ossWriteRoleArn'        => 'OssWriteRoleArn',
+        'requestId'              => 'RequestId',
+        'slsProjectArn'          => 'SlsProjectArn',
+        'slsWriteRoleArn'        => 'SlsWriteRoleArn',
+        'trailRegion'            => 'TrailRegion',
     ];
 
     public function validate()
@@ -122,6 +134,12 @@ class UpdateTrailResponseBody extends Model
         }
         if (null !== $this->homeRegion) {
             $res['HomeRegion'] = $this->homeRegion;
+        }
+        if (null !== $this->maxComputeProjectArn) {
+            $res['MaxComputeProjectArn'] = $this->maxComputeProjectArn;
+        }
+        if (null !== $this->maxComputeWriteRoleArn) {
+            $res['MaxComputeWriteRoleArn'] = $this->maxComputeWriteRoleArn;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -164,6 +182,12 @@ class UpdateTrailResponseBody extends Model
         }
         if (isset($map['HomeRegion'])) {
             $model->homeRegion = $map['HomeRegion'];
+        }
+        if (isset($map['MaxComputeProjectArn'])) {
+            $model->maxComputeProjectArn = $map['MaxComputeProjectArn'];
+        }
+        if (isset($map['MaxComputeWriteRoleArn'])) {
+            $model->maxComputeWriteRoleArn = $map['MaxComputeWriteRoleArn'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

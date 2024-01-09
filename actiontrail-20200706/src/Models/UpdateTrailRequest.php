@@ -22,6 +22,16 @@ class UpdateTrailRequest extends Model
     public $eventRW;
 
     /**
+     * @var string
+     */
+    public $maxComputeProjectArn;
+
+    /**
+     * @var string
+     */
+    public $maxComputeWriteRoleArn;
+
+    /**
      * @description The name of the trail whose configurations you want to update.
      *
      * >  The name must be unique within an Alibaba Cloud account.
@@ -96,14 +106,16 @@ class UpdateTrailRequest extends Model
      */
     public $trailRegion;
     protected $_name = [
-        'eventRW'         => 'EventRW',
-        'name'            => 'Name',
-        'ossBucketName'   => 'OssBucketName',
-        'ossKeyPrefix'    => 'OssKeyPrefix',
-        'ossWriteRoleArn' => 'OssWriteRoleArn',
-        'slsProjectArn'   => 'SlsProjectArn',
-        'slsWriteRoleArn' => 'SlsWriteRoleArn',
-        'trailRegion'     => 'TrailRegion',
+        'eventRW'                => 'EventRW',
+        'maxComputeProjectArn'   => 'MaxComputeProjectArn',
+        'maxComputeWriteRoleArn' => 'MaxComputeWriteRoleArn',
+        'name'                   => 'Name',
+        'ossBucketName'          => 'OssBucketName',
+        'ossKeyPrefix'           => 'OssKeyPrefix',
+        'ossWriteRoleArn'        => 'OssWriteRoleArn',
+        'slsProjectArn'          => 'SlsProjectArn',
+        'slsWriteRoleArn'        => 'SlsWriteRoleArn',
+        'trailRegion'            => 'TrailRegion',
     ];
 
     public function validate()
@@ -115,6 +127,12 @@ class UpdateTrailRequest extends Model
         $res = [];
         if (null !== $this->eventRW) {
             $res['EventRW'] = $this->eventRW;
+        }
+        if (null !== $this->maxComputeProjectArn) {
+            $res['MaxComputeProjectArn'] = $this->maxComputeProjectArn;
+        }
+        if (null !== $this->maxComputeWriteRoleArn) {
+            $res['MaxComputeWriteRoleArn'] = $this->maxComputeWriteRoleArn;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -151,6 +169,12 @@ class UpdateTrailRequest extends Model
         $model = new self();
         if (isset($map['EventRW'])) {
             $model->eventRW = $map['EventRW'];
+        }
+        if (isset($map['MaxComputeProjectArn'])) {
+            $model->maxComputeProjectArn = $map['MaxComputeProjectArn'];
+        }
+        if (isset($map['MaxComputeWriteRoleArn'])) {
+            $model->maxComputeWriteRoleArn = $map['MaxComputeWriteRoleArn'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

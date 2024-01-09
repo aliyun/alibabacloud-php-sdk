@@ -52,6 +52,16 @@ class trailList extends Model
     public $isOrganizationTrail;
 
     /**
+     * @var string
+     */
+    public $maxComputeProjectArn;
+
+    /**
+     * @var string
+     */
+    public $maxComputeWriteRoleArn;
+
+    /**
      * @description The name of the trail.
      *
      * @example test-4
@@ -191,25 +201,27 @@ class trailList extends Model
      */
     public $updateTime;
     protected $_name = [
-        'createTime'          => 'CreateTime',
-        'eventRW'             => 'EventRW',
-        'homeRegion'          => 'HomeRegion',
-        'isOrganizationTrail' => 'IsOrganizationTrail',
-        'name'                => 'Name',
-        'organizationId'      => 'OrganizationId',
-        'ossBucketLocation'   => 'OssBucketLocation',
-        'ossBucketName'       => 'OssBucketName',
-        'ossKeyPrefix'        => 'OssKeyPrefix',
-        'ossWriteRoleArn'     => 'OssWriteRoleArn',
-        'region'              => 'Region',
-        'slsProjectArn'       => 'SlsProjectArn',
-        'slsWriteRoleArn'     => 'SlsWriteRoleArn',
-        'startLoggingTime'    => 'StartLoggingTime',
-        'status'              => 'Status',
-        'stopLoggingTime'     => 'StopLoggingTime',
-        'trailArn'            => 'TrailArn',
-        'trailRegion'         => 'TrailRegion',
-        'updateTime'          => 'UpdateTime',
+        'createTime'             => 'CreateTime',
+        'eventRW'                => 'EventRW',
+        'homeRegion'             => 'HomeRegion',
+        'isOrganizationTrail'    => 'IsOrganizationTrail',
+        'maxComputeProjectArn'   => 'MaxComputeProjectArn',
+        'maxComputeWriteRoleArn' => 'MaxComputeWriteRoleArn',
+        'name'                   => 'Name',
+        'organizationId'         => 'OrganizationId',
+        'ossBucketLocation'      => 'OssBucketLocation',
+        'ossBucketName'          => 'OssBucketName',
+        'ossKeyPrefix'           => 'OssKeyPrefix',
+        'ossWriteRoleArn'        => 'OssWriteRoleArn',
+        'region'                 => 'Region',
+        'slsProjectArn'          => 'SlsProjectArn',
+        'slsWriteRoleArn'        => 'SlsWriteRoleArn',
+        'startLoggingTime'       => 'StartLoggingTime',
+        'status'                 => 'Status',
+        'stopLoggingTime'        => 'StopLoggingTime',
+        'trailArn'               => 'TrailArn',
+        'trailRegion'            => 'TrailRegion',
+        'updateTime'             => 'UpdateTime',
     ];
 
     public function validate()
@@ -230,6 +242,12 @@ class trailList extends Model
         }
         if (null !== $this->isOrganizationTrail) {
             $res['IsOrganizationTrail'] = $this->isOrganizationTrail;
+        }
+        if (null !== $this->maxComputeProjectArn) {
+            $res['MaxComputeProjectArn'] = $this->maxComputeProjectArn;
+        }
+        if (null !== $this->maxComputeWriteRoleArn) {
+            $res['MaxComputeWriteRoleArn'] = $this->maxComputeWriteRoleArn;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -299,6 +317,12 @@ class trailList extends Model
         }
         if (isset($map['IsOrganizationTrail'])) {
             $model->isOrganizationTrail = $map['IsOrganizationTrail'];
+        }
+        if (isset($map['MaxComputeProjectArn'])) {
+            $model->maxComputeProjectArn = $map['MaxComputeProjectArn'];
+        }
+        if (isset($map['MaxComputeWriteRoleArn'])) {
+            $model->maxComputeWriteRoleArn = $map['MaxComputeWriteRoleArn'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

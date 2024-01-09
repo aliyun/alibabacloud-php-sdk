@@ -196,6 +196,12 @@ class Actiontrail extends OpenApiClient
         if (!Utils::isUnset($request->isOrganizationTrail)) {
             $query['IsOrganizationTrail'] = $request->isOrganizationTrail;
         }
+        if (!Utils::isUnset($request->maxComputeProjectArn)) {
+            $query['MaxComputeProjectArn'] = $request->maxComputeProjectArn;
+        }
+        if (!Utils::isUnset($request->maxComputeWriteRoleArn)) {
+            $query['MaxComputeWriteRoleArn'] = $request->maxComputeWriteRoleArn;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -1115,6 +1121,12 @@ class Actiontrail extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->eventRW)) {
             $query['EventRW'] = $request->eventRW;
+        }
+        if (!Utils::isUnset($request->maxComputeProjectArn)) {
+            $query['MaxComputeProjectArn'] = $request->maxComputeProjectArn;
+        }
+        if (!Utils::isUnset($request->maxComputeWriteRoleArn)) {
+            $query['MaxComputeWriteRoleArn'] = $request->maxComputeWriteRoleArn;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
