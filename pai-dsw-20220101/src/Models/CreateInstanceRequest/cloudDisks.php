@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest;
 
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\cloudDisks\status;
 use AlibabaCloud\Tea\Model;
 
 class cloudDisks extends Model
@@ -30,6 +31,11 @@ class cloudDisks extends Model
     public $path;
 
     /**
+     * @var status
+     */
+    public $status;
+
+    /**
      * @example rootfs
      *
      * @var string
@@ -39,6 +45,7 @@ class cloudDisks extends Model
         'capacity'  => 'Capacity',
         'mountPath' => 'MountPath',
         'path'      => 'Path',
+        'status'    => 'Status',
         'subType'   => 'SubType',
     ];
 
@@ -57,6 +64,9 @@ class cloudDisks extends Model
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = null !== $this->status ? $this->status->toMap() : null;
         }
         if (null !== $this->subType) {
             $res['SubType'] = $this->subType;
@@ -81,6 +91,9 @@ class cloudDisks extends Model
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = status::fromMap($map['Status']);
         }
         if (isset($map['SubType'])) {
             $model->subType = $map['SubType'];

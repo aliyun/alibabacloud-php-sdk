@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\cloudDisks;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\datasets;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\requestedResource;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest\userVpc;
@@ -17,6 +18,13 @@ class UpdateInstanceRequest extends Model
      * @var string
      */
     public $accessibility;
+
+    /**
+     * @example []
+     *
+     * @var cloudDisks[]
+     */
+    public $cloudDisks;
 
     /**
      * @var datasets[]
@@ -36,6 +44,13 @@ class UpdateInstanceRequest extends Model
      * @var bool
      */
     public $disassociateDriver;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $disassociateForwardInfos;
 
     /**
      * @example false
@@ -112,21 +127,23 @@ class UpdateInstanceRequest extends Model
      */
     public $workspaceSource;
     protected $_name = [
-        'accessibility'        => 'Accessibility',
-        'datasets'             => 'Datasets',
-        'disassociateDatasets' => 'DisassociateDatasets',
-        'disassociateDriver'   => 'DisassociateDriver',
-        'disassociateVpc'      => 'DisassociateVpc',
-        'driver'               => 'Driver',
-        'ecsSpec'              => 'EcsSpec',
-        'imageId'              => 'ImageId',
-        'imageUrl'             => 'ImageUrl',
-        'instanceName'         => 'InstanceName',
-        'priority'             => 'Priority',
-        'requestedResource'    => 'RequestedResource',
-        'userId'               => 'UserId',
-        'userVpc'              => 'UserVpc',
-        'workspaceSource'      => 'WorkspaceSource',
+        'accessibility'            => 'Accessibility',
+        'cloudDisks'               => 'CloudDisks',
+        'datasets'                 => 'Datasets',
+        'disassociateDatasets'     => 'DisassociateDatasets',
+        'disassociateDriver'       => 'DisassociateDriver',
+        'disassociateForwardInfos' => 'DisassociateForwardInfos',
+        'disassociateVpc'          => 'DisassociateVpc',
+        'driver'                   => 'Driver',
+        'ecsSpec'                  => 'EcsSpec',
+        'imageId'                  => 'ImageId',
+        'imageUrl'                 => 'ImageUrl',
+        'instanceName'             => 'InstanceName',
+        'priority'                 => 'Priority',
+        'requestedResource'        => 'RequestedResource',
+        'userId'                   => 'UserId',
+        'userVpc'                  => 'UserVpc',
+        'workspaceSource'          => 'WorkspaceSource',
     ];
 
     public function validate()
@@ -138,6 +155,15 @@ class UpdateInstanceRequest extends Model
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+        if (null !== $this->cloudDisks) {
+            $res['CloudDisks'] = [];
+            if (null !== $this->cloudDisks && \is_array($this->cloudDisks)) {
+                $n = 0;
+                foreach ($this->cloudDisks as $item) {
+                    $res['CloudDisks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->datasets) {
             $res['Datasets'] = [];
@@ -153,6 +179,9 @@ class UpdateInstanceRequest extends Model
         }
         if (null !== $this->disassociateDriver) {
             $res['DisassociateDriver'] = $this->disassociateDriver;
+        }
+        if (null !== $this->disassociateForwardInfos) {
+            $res['DisassociateForwardInfos'] = $this->disassociateForwardInfos;
         }
         if (null !== $this->disassociateVpc) {
             $res['DisassociateVpc'] = $this->disassociateVpc;
@@ -202,6 +231,15 @@ class UpdateInstanceRequest extends Model
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
+        if (isset($map['CloudDisks'])) {
+            if (!empty($map['CloudDisks'])) {
+                $model->cloudDisks = [];
+                $n                 = 0;
+                foreach ($map['CloudDisks'] as $item) {
+                    $model->cloudDisks[$n++] = null !== $item ? cloudDisks::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Datasets'])) {
             if (!empty($map['Datasets'])) {
                 $model->datasets = [];
@@ -216,6 +254,9 @@ class UpdateInstanceRequest extends Model
         }
         if (isset($map['DisassociateDriver'])) {
             $model->disassociateDriver = $map['DisassociateDriver'];
+        }
+        if (isset($map['DisassociateForwardInfos'])) {
+            $model->disassociateForwardInfos = $map['DisassociateForwardInfos'];
         }
         if (isset($map['DisassociateVpc'])) {
             $model->disassociateVpc = $map['DisassociateVpc'];

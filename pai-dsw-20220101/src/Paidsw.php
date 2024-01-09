@@ -1270,6 +1270,9 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->accessibility)) {
             $body['Accessibility'] = $request->accessibility;
         }
+        if (!Utils::isUnset($request->cloudDisks)) {
+            $body['CloudDisks'] = $request->cloudDisks;
+        }
         if (!Utils::isUnset($request->datasets)) {
             $body['Datasets'] = $request->datasets;
         }
@@ -1278,6 +1281,9 @@ class Paidsw extends OpenApiClient
         }
         if (!Utils::isUnset($request->disassociateDriver)) {
             $body['DisassociateDriver'] = $request->disassociateDriver;
+        }
+        if (!Utils::isUnset($request->disassociateForwardInfos)) {
+            $body['DisassociateForwardInfos'] = $request->disassociateForwardInfos;
         }
         if (!Utils::isUnset($request->disassociateVpc)) {
             $body['DisassociateVpc'] = $request->disassociateVpc;
