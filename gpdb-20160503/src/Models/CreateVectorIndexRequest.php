@@ -32,6 +32,11 @@ class CreateVectorIndexRequest extends Model
     /**
      * @var int
      */
+    public $externalStorage;
+
+    /**
+     * @var int
+     */
     public $hnswM;
 
     /**
@@ -84,6 +89,7 @@ class CreateVectorIndexRequest extends Model
         'collection'             => 'Collection',
         'DBInstanceId'           => 'DBInstanceId',
         'dimension'              => 'Dimension',
+        'externalStorage'        => 'ExternalStorage',
         'hnswM'                  => 'HnswM',
         'managerAccount'         => 'ManagerAccount',
         'managerAccountPassword' => 'ManagerAccountPassword',
@@ -109,6 +115,9 @@ class CreateVectorIndexRequest extends Model
         }
         if (null !== $this->dimension) {
             $res['Dimension'] = $this->dimension;
+        }
+        if (null !== $this->externalStorage) {
+            $res['ExternalStorage'] = $this->externalStorage;
         }
         if (null !== $this->hnswM) {
             $res['HnswM'] = $this->hnswM;
@@ -154,6 +163,9 @@ class CreateVectorIndexRequest extends Model
         }
         if (isset($map['Dimension'])) {
             $model->dimension = $map['Dimension'];
+        }
+        if (isset($map['ExternalStorage'])) {
+            $model->externalStorage = $map['ExternalStorage'];
         }
         if (isset($map['HnswM'])) {
             $model->hnswM = $map['HnswM'];

@@ -494,6 +494,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->dimension)) {
             $query['Dimension'] = $request->dimension;
         }
+        if (!Utils::isUnset($request->externalStorage)) {
+            $query['ExternalStorage'] = $request->externalStorage;
+        }
         if (!Utils::isUnset($request->fullTextRetrievalFields)) {
             $query['FullTextRetrievalFields'] = $request->fullTextRetrievalFields;
         }
@@ -821,6 +824,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->embeddingModel)) {
             $query['EmbeddingModel'] = $request->embeddingModel;
         }
+        if (!Utils::isUnset($request->externalStorage)) {
+            $query['ExternalStorage'] = $request->externalStorage;
+        }
         if (!Utils::isUnset($request->fullTextRetrievalFields)) {
             $query['FullTextRetrievalFields'] = $request->fullTextRetrievalFields;
         }
@@ -1073,6 +1079,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->dimension)) {
             $query['Dimension'] = $request->dimension;
+        }
+        if (!Utils::isUnset($request->externalStorage)) {
+            $query['ExternalStorage'] = $request->externalStorage;
         }
         if (!Utils::isUnset($request->hnswM)) {
             $query['HnswM'] = $request->hnswM;

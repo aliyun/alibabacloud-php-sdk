@@ -30,6 +30,11 @@ class CreateCollectionRequest extends Model
     public $dimension;
 
     /**
+     * @var int
+     */
+    public $externalStorage;
+
+    /**
      * @example title,content
      *
      * @var string
@@ -101,6 +106,7 @@ class CreateCollectionRequest extends Model
         'collection'              => 'Collection',
         'DBInstanceId'            => 'DBInstanceId',
         'dimension'               => 'Dimension',
+        'externalStorage'         => 'ExternalStorage',
         'fullTextRetrievalFields' => 'FullTextRetrievalFields',
         'hnswM'                   => 'HnswM',
         'managerAccount'          => 'ManagerAccount',
@@ -129,6 +135,9 @@ class CreateCollectionRequest extends Model
         }
         if (null !== $this->dimension) {
             $res['Dimension'] = $this->dimension;
+        }
+        if (null !== $this->externalStorage) {
+            $res['ExternalStorage'] = $this->externalStorage;
         }
         if (null !== $this->fullTextRetrievalFields) {
             $res['FullTextRetrievalFields'] = $this->fullTextRetrievalFields;
@@ -183,6 +192,9 @@ class CreateCollectionRequest extends Model
         }
         if (isset($map['Dimension'])) {
             $model->dimension = $map['Dimension'];
+        }
+        if (isset($map['ExternalStorage'])) {
+            $model->externalStorage = $map['ExternalStorage'];
         }
         if (isset($map['FullTextRetrievalFields'])) {
             $model->fullTextRetrievalFields = $map['FullTextRetrievalFields'];

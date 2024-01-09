@@ -30,6 +30,11 @@ class CreateDocumentCollectionRequest extends Model
     public $embeddingModel;
 
     /**
+     * @var int
+     */
+    public $externalStorage;
+
+    /**
      * @example title,page
      *
      * @var string
@@ -107,6 +112,7 @@ class CreateDocumentCollectionRequest extends Model
         'collection'              => 'Collection',
         'DBInstanceId'            => 'DBInstanceId',
         'embeddingModel'          => 'EmbeddingModel',
+        'externalStorage'         => 'ExternalStorage',
         'fullTextRetrievalFields' => 'FullTextRetrievalFields',
         'hnswM'                   => 'HnswM',
         'managerAccount'          => 'ManagerAccount',
@@ -135,6 +141,9 @@ class CreateDocumentCollectionRequest extends Model
         }
         if (null !== $this->embeddingModel) {
             $res['EmbeddingModel'] = $this->embeddingModel;
+        }
+        if (null !== $this->externalStorage) {
+            $res['ExternalStorage'] = $this->externalStorage;
         }
         if (null !== $this->fullTextRetrievalFields) {
             $res['FullTextRetrievalFields'] = $this->fullTextRetrievalFields;
@@ -189,6 +198,9 @@ class CreateDocumentCollectionRequest extends Model
         }
         if (isset($map['EmbeddingModel'])) {
             $model->embeddingModel = $map['EmbeddingModel'];
+        }
+        if (isset($map['ExternalStorage'])) {
+            $model->externalStorage = $map['ExternalStorage'];
         }
         if (isset($map['FullTextRetrievalFields'])) {
             $model->fullTextRetrievalFields = $map['FullTextRetrievalFields'];
