@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationRequest extends Model
 {
     /**
+     * @description Keywords in the app name
+     *
      * @example test
      *
      * @var string
@@ -34,6 +36,8 @@ class ListApplicationRequest extends Model
     public $nextToken;
 
     /**
+     * @description 1 update time,<br>2 creation time
+     *
      * @example 1
      *
      * @var int
@@ -41,6 +45,8 @@ class ListApplicationRequest extends Model
     public $orderType;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example default
      *
      * @var string
@@ -50,8 +56,8 @@ class ListApplicationRequest extends Model
     /**
      * @description The status of the applications to be returned.
      *
-     * @example success,release
-     *
+     * @example The following values are "success" and "release".
+     * If this parameter is left blank, the returned app list includes apps in all states.
      * @var string
      */
     public $status;

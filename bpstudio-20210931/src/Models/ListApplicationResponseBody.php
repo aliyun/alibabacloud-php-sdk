@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,18 +19,24 @@ class ListApplicationResponseBody extends Model
     public $code;
 
     /**
-     * @description The information about the applications.
+     * @description App listing information
      *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The interface returns information
+     *
+     * @example Success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The query token returned in this call.
+     *
      * @example 2
      *
      * @var int
@@ -36,6 +44,8 @@ class ListApplicationResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the application.
+     *
      * @example BFB7F5C8-FE7A-06CA-9F87-ABBF6B848F0C
      *
      * @var string
@@ -43,6 +53,8 @@ class ListApplicationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 123
      *
      * @var int

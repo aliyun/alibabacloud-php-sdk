@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The application ID.
+     *
      * @example JIX9NEZUALGS46UI
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $applicationId;
 
     /**
+     * @description The time when the application was created.
+     *
      * @example 2021-09-15  08:30:00
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The URL of the application architecture image.
+     *
      * @example https://bp-studio-daily.oss-cn-beijing.aliyuncs.com/1411182597819805/sr-Y3KR7ZSQZR2F0YX3.png
      *
      * @var string
@@ -30,11 +36,17 @@ class data extends Model
     public $imageURL;
 
     /**
+     * @description The name of the application.
+     *
+     * @example cadt-appName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the resource group to which the application belongs.
+     *
      * @example default
      *
      * @var string
