@@ -219,7 +219,9 @@ class CreateDBInstanceRequest extends Model
     public $hiddenZoneId;
 
     /**
-     * @description The network type of the instance. Set the value to VPC.
+     * @description The network type of the instance. Valid value:
+     *
+     **VPC**: Virtual Private Cloud (VPC)
      *
      * @example VPC
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class networkAddress extends Model
 {
     /**
-     * @description The remaining duration of the classic network address. Unit: seconds.
+     * @description The remaining duration of the classic network endpoint. Unit: seconds.
      *
      * @example 2591963
      *
@@ -27,7 +27,7 @@ class networkAddress extends Model
     public $IPAddress;
 
     /**
-     * @description The endpoint of the instance.
+     * @description The connection string of the instance.
      *
      * @example s-bpxxxxxxxx.mongodb.rds.aliyuncs.com
      *
@@ -36,11 +36,12 @@ class networkAddress extends Model
     public $networkAddress;
 
     /**
-     * @description The network type. Valid values:
+     * @description The network type of the instance.
      *
-     * - **VPC**
-     * - **Classic**
-     * - **Public**: pubic endpoint
+     *   **VPC**: virtual private cloud
+     *   **Classic**: classic network
+     *   **Public**: the Internet
+     *
      * @example VPC
      *
      * @var string
@@ -48,7 +49,7 @@ class networkAddress extends Model
     public $networkType;
 
     /**
-     * @description The ID of the mongos.
+     * @description The ID of the mongos node.
      *
      * @example s-bpxxxxxxxx
      *
@@ -59,9 +60,10 @@ class networkAddress extends Model
     /**
      * @description The type of the node. Valid values:
      *
-     * - **mongos**
-     * - **shard**
-     * - **configserver**
+     *   **mongos**: mongos node
+     *   **shard**: shard node
+     *   **configserver**: Configserver node
+     *
      * @example mongos
      *
      * @var string
@@ -69,7 +71,7 @@ class networkAddress extends Model
     public $nodeType;
 
     /**
-     * @description The port number.
+     * @description The port that is used to connect to the instance.
      *
      * @example 3717
      *
@@ -80,7 +82,9 @@ class networkAddress extends Model
     /**
      * @description The role of the node. Valid values:
      *
-     * - Secondary
+     *   Primary
+     *   Secondary
+     *
      * @example Primary
      *
      * @var string
@@ -88,7 +92,7 @@ class networkAddress extends Model
     public $role;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID of the instance.
      *
      * >  This parameter is returned when the network type is **VPC**.
      * @example vpc-bpxxxxxxxx
@@ -98,7 +102,7 @@ class networkAddress extends Model
     public $VPCId;
 
     /**
-     * @description The vSwitch ID of the VPC.
+     * @description The ID of the vSwitch in the VPC.
      *
      * >  This parameter is returned when the network type is **VPC**.
      * @example vsw-bpxxxxxxxx

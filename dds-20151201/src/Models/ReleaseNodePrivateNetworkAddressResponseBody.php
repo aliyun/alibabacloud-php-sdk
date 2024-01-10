@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ReleaseNodePrivateNetworkAddressResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0FDDC511-7252-4A4A-ADDA-5CB1BF63873D
      *

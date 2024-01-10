@@ -102,8 +102,9 @@ class DescribeDBInstancesRequest extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance. Valid values:
+     * @description The database engine version of the instance.
      *
+     *   **6.0**
      *   **5.0**
      *   **4.4**
      *   **4.2**

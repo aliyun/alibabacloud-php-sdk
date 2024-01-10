@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class compatibleConnection extends Model
 {
     /**
-     * @description The remaining duration of the classic network address. Unit: seconds.
+     * @description The remaining duration of the classic network endpoint. Unit: seconds.
      *
      * @example 2591963
      *
@@ -36,11 +36,11 @@ class compatibleConnection extends Model
     public $networkAddress;
 
     /**
-     * @description The network type. Valid values:
+     * @description The network type of the instance.
      *
-     *   **VPC**
-     *   **Classic**
-     *   **Public**: pubic endpoint
+     *   **VPC**: virtual private cloud
+     *   **Classic**: classic network
+     *   **Public**: the Internet
      *
      * @example VPC
      *
@@ -49,7 +49,7 @@ class compatibleConnection extends Model
     public $networkType;
 
     /**
-     * @description The port number.
+     * @description The port that is used to connect to the instance.
      *
      * @example 3717
      *
@@ -58,7 +58,7 @@ class compatibleConnection extends Model
     public $port;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID of the instance.
      *
      * >  This parameter is returned when the network type is **VPC**.
      * @example vpc-bpxxxxxxxx
@@ -68,7 +68,7 @@ class compatibleConnection extends Model
     public $VPCId;
 
     /**
-     * @description The vSwitch ID of the VPC.
+     * @description The ID of the vSwitch in the Virtual Private Cloud (VPC).
      *
      * >  This parameter is returned when the network type is **VPC**.
      * @example vsw-bpxxxxxxxx

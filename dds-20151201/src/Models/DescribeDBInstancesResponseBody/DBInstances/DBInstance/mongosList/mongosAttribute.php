@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class mongosAttribute extends Model
 {
     /**
-     * @description The type of the mongos node.
+     * @description The instance type of the mongos node.
      *
      * @example dds.mongos.standard
      *

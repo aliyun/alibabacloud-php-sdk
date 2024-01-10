@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeShardingNetworkAddressRequest extends Model
 {
     /**
-     * @description The ID of an instance.
+     * @description The instance ID.
      *
      * @example dds-bpxxxxxxxx
      *
@@ -18,9 +18,9 @@ class DescribeShardingNetworkAddressRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description A sharded cluster instance consists of three components: mongos, shard, and Configserver.
+     * @description The ID of the mongos, shard, or Configserver node in the sharded cluster instance.
      *
-     * >  You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the ID of the mongos, shard, or Configserverr node.
+     * >  You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to view the ID of the mongos, shard, or Configserver node.
      * @example d-bpxxxxxxxx
      *
      * @var string

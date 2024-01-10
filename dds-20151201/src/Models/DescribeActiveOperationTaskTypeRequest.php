@@ -9,12 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTaskTypeRequest extends Model
 {
     /**
-     * @description Specifies whether to return all O\&M tasks. Valid values:
+     * @description Specifies whether to return historical O\&M tasks. Valid values:
      *
-     *   **0**: returns only pending tasks.
-     *   **1**: returns all tasks.
+     *   **0** (default): The system returns only pending O\&M tasks.
+     *   **1**: The system returns historical O\&M tasks.
      *
-     * Default value: **0**.
      * @example 0
      *
      * @var int
@@ -32,7 +31,7 @@ class DescribeActiveOperationTaskTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID. You can call the [DescribeSecurityGroupConfiguration](~~146130~~) operation to query the resource group ID.
      *
      * @example rg-acfmyiu4ekp****
      *

@@ -19,7 +19,7 @@ class RestoreDBInstanceRequest extends Model
     public $backupId;
 
     /**
-     * @description The ID of an instance.
+     * @description The instance ID.
      *
      * @example dds-bp2356****
      *

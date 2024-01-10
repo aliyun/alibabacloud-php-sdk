@@ -17,7 +17,7 @@ class DescribeParameterModificationHistoryResponseBody extends Model
     public $historicalParameters;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B1BB6E0E-B4EF-4145-81FA-A07719860248
      *

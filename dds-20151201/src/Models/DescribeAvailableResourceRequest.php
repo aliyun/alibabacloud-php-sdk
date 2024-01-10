@@ -30,7 +30,7 @@ class DescribeAvailableResourceRequest extends Model
     public $dbType;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The major engine version of the instance.
      *
      * @example 5.0
      *
@@ -100,13 +100,13 @@ class DescribeAvailableResourceRequest extends Model
     /**
      * @description The storage type of the instance. Valid values:
      *
-     * - **local_ssd**: local SSD
-     * - **cloud_essd1**: PL1 enhanced SSD (ESSD)
-     * - **cloud_essd2**: PL2 ESSD
-     * - **cloud_essd3**: PL3 ESSD
-     * - **cloud_auto**: ESSD AutoPL
+     *   local_ssd: local SSD
+     *   cloud_essd1: PL1 enhanced SSD (ESSD)
+     *   cloud_essd2: PL2 ESSD
+     *   cloud_essd3: PL3 ESSD
+     *   cloud_auto: ESSD AutoPL disk
      *
-     * By default, this parameter is empty, which indicates that all types of storage resources are queried.
+     * This parameter is empty by default, which indicates all types of storage resources are queried.
      * @example local_ssd
      *
      * @var string

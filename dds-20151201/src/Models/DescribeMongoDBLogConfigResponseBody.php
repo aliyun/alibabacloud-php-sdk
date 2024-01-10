@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeMongoDBLogConfigResponseBody extends Model
 {
     /**
-     * @description Indicates whether to enable the audit log feature is enabled.
+     * @description Indicates whether the audit log feature is enabled. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   **true**: The audit log feature is enabled.
+     *   **false**: The audit log feature is disabled.
      *
      * @example true
      *
@@ -33,10 +33,10 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     public $isEtlMetaExist;
 
     /**
-     * @description Indicates whether a Log Service project exists in the current region. Valid values:
+     * @description Indicates whether a project exists in the current region. Valid values:
      *
-     *   **1**: A Log Service project exists in the current region.
-     *   **0** or **null**: A Log Service project does not exist in the current region.
+     *   **1**: A logging project exists in the current region.
+     *   **0** or **null**: A logging project does not exist in the current region.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     public $isUserProjectLogstoreExist;
 
     /**
-     * @description The maximum storage space for the formal edition of the audit log feature. If the value is **-1**, no maximum is set.
+     * @description The maximum storage capacity for the formal edition of the audit log feature. If the value is -1, no maximum storage capacity is set.
      *
      * @example -1
      *
@@ -54,7 +54,7 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     public $preserveStorageForStandard;
 
     /**
-     * @description The maximum storage space for the free trial edition of the audit log feature. Unit: bytes. You can set the maximum up to 107,374,182,400 bytes.
+     * @description The maximum storage capacity for the free trial edition of the audit log feature. Unit: bytes. You can set the maximum storage capacity to 107,374,182,400 bytes.
      *
      * @example 107374182400
      *
@@ -63,7 +63,7 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     public $preserveStorageForTrail;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 664ECE26-658A-47C5-88F6-870B0132E8D2
      *
@@ -84,7 +84,7 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     public $serviceType;
 
     /**
-     * @description The retention period for the official edition of the audit log feature. Valid values: 1 to 365 days.
+     * @description The retention period for the official edition of the audit log feature. Valid values: 1 to 365. Unit: day.
      *
      * @example 30
      *
@@ -102,7 +102,7 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     public $ttlForTrail;
 
     /**
-     * @description The used storage space for the formal edition of the audit log feature. Unit: bytes.
+     * @description The used storage capacity for the formal edition of the audit log feature. Unit: bytes.
      *
      * @example 20163
      *
@@ -111,7 +111,7 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     public $usedStorageForStandard;
 
     /**
-     * @description The used storage space for the free trial edition of the audit log feature. Unit: bytes.
+     * @description The used storage capacity for the free trial edition of the audit log feature. Unit: bytes.
      *
      * @example 12548178759
      *
@@ -120,7 +120,7 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     public $usedStorageForTrail;
 
     /**
-     * @description The name of the Log Service project.
+     * @description The name of the project.
      *
      * @example nosql-176498472570****-cn-hangzhou
      *

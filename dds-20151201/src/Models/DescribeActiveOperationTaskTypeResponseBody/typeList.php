@@ -20,8 +20,8 @@ class typeList extends Model
     /**
      * @description The type of the task. Valid values:
      *
-     *   **rds\_apsaradb\_transfer**: instance migration
-     *   **rds\_apsaradb\_upgrade**: minor version update
+     *   \*\*rds_apsaradb_transfer\*\*: data migration
+     *   \*\*rds_apsaradb_upgrade\*\*: minor version update
      *
      * @example rds_apsaradb_upgrade
      *
@@ -30,7 +30,7 @@ class typeList extends Model
     public $taskType;
 
     /**
-     * @description The task type (English).
+     * @description The task type in English.
      *
      * @example rds_apsaradb_upgrade
      *
@@ -39,7 +39,7 @@ class typeList extends Model
     public $taskTypeInfoEn;
 
     /**
-     * @description The task type (Chinese).
+     * @description The task type in Chinese.
      *
      * @example rds_apsaradb_upgrade
      *

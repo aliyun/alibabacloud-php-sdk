@@ -216,7 +216,7 @@ class CreateShardingDBInstanceRequest extends Model
     public $protocolType;
 
     /**
-     * @description The provisioned IOPS. Valid values: 0 to 50000.
+     * @description The provisioned IOPS of the instance:
      *
      * @example 1960
      *
@@ -353,7 +353,7 @@ class CreateShardingDBInstanceRequest extends Model
     public $storageType;
 
     /**
-     * @description The custom tags added to the instance.
+     * @description The custom tags that you want to add to the instance.
      *
      * @var tag[]
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class shardAttribute extends Model
 {
     /**
-     * @description The type of the shard node.
+     * @description The instance type of the shard node.
      *
      * @example dds.shard.mid
      *
