@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUpsertCollectionDataJobRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUpsertCollectionDataJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAccountRequest;
@@ -149,6 +151,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUpsertCollectionDataJobRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUpsertCollectionDataJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\HandleActiveSQLRecordRequest;
@@ -235,11 +239,22 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBVersionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertChunksRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertChunksResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertChunksShrinkRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataAsyncAdvanceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataAsyncRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataAsyncResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataShrinkRequest;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
+use AlibabaCloud\SDK\OSS\OSS;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
+use AlibabaCloud\Tea\FileForm\FileForm\FileField;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -359,6 +374,69 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateInstancePublicConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelUpsertCollectionDataJobRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CancelUpsertCollectionDataJobResponse
+     */
+    public function cancelUpsertCollectionDataJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->collection)) {
+            $body['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $body['NamespacePassword'] = $request->namespacePassword;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelUpsertCollectionDataJob',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelUpsertCollectionDataJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelUpsertCollectionDataJobRequest $request
+     *
+     * @return CancelUpsertCollectionDataJobResponse
+     */
+    public function cancelUpsertCollectionDataJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelUpsertCollectionDataJobWithOptions($request, $runtime);
     }
 
     /**
@@ -4799,6 +4877,69 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @param GetUpsertCollectionDataJobRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetUpsertCollectionDataJobResponse
+     */
+    public function getUpsertCollectionDataJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->collection)) {
+            $body['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $body['NamespacePassword'] = $request->namespacePassword;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUpsertCollectionDataJob',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUpsertCollectionDataJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUpsertCollectionDataJobRequest $request
+     *
+     * @return GetUpsertCollectionDataJobResponse
+     */
+    public function getUpsertCollectionDataJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUpsertCollectionDataJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GrantCollectionRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -7280,5 +7421,146 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upsertCollectionDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpsertCollectionDataAsyncRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpsertCollectionDataAsyncResponse
+     */
+    public function upsertCollectionDataAsyncWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->collection)) {
+            $body['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $body['NamespacePassword'] = $request->namespacePassword;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpsertCollectionDataAsync',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpsertCollectionDataAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpsertCollectionDataAsyncRequest $request
+     *
+     * @return UpsertCollectionDataAsyncResponse
+     */
+    public function upsertCollectionDataAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upsertCollectionDataAsyncWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpsertCollectionDataAsyncAdvanceRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpsertCollectionDataAsyncResponse
+     */
+    public function upsertCollectionDataAsyncAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'gpdb',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $upsertCollectionDataAsyncReq = new UpsertCollectionDataAsyncRequest([]);
+        OpenApiUtilClient::convert($request, $upsertCollectionDataAsyncReq);
+        if (!Utils::isUnset($request->fileUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->fileUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $upsertCollectionDataAsyncReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->upsertCollectionDataAsyncWithOptions($upsertCollectionDataAsyncReq, $runtime);
     }
 }
