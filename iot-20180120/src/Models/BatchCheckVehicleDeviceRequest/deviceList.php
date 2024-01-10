@@ -26,11 +26,17 @@ class deviceList extends Model
     /**
      * @var string
      */
+    public $deviceSecret;
+
+    /**
+     * @var string
+     */
     public $manufacturer;
     protected $_name = [
         'deviceId'     => 'DeviceId',
         'deviceModel'  => 'DeviceModel',
         'deviceName'   => 'DeviceName',
+        'deviceSecret' => 'DeviceSecret',
         'manufacturer' => 'Manufacturer',
     ];
 
@@ -49,6 +55,9 @@ class deviceList extends Model
         }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
+        }
+        if (null !== $this->deviceSecret) {
+            $res['DeviceSecret'] = $this->deviceSecret;
         }
         if (null !== $this->manufacturer) {
             $res['Manufacturer'] = $this->manufacturer;
@@ -73,6 +82,9 @@ class deviceList extends Model
         }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
+        }
+        if (isset($map['DeviceSecret'])) {
+            $model->deviceSecret = $map['DeviceSecret'];
         }
         if (isset($map['Manufacturer'])) {
             $model->manufacturer = $map['Manufacturer'];

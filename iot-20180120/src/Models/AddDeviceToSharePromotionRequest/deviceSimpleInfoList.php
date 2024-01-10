@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class deviceSimpleInfoList extends Model
 {
     /**
+     * @example device01
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example a2YwD2****
+     *
      * @var string
      */
     public $productKey;

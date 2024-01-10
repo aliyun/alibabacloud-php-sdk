@@ -67,6 +67,11 @@ class deviceStatus extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var int
+     */
+    public $timestamp;
     protected $_name = [
         'asAddress'      => 'AsAddress',
         'deviceId'       => 'DeviceId',
@@ -74,6 +79,7 @@ class deviceStatus extends Model
         'iotId'          => 'IotId',
         'lastOnlineTime' => 'LastOnlineTime',
         'status'         => 'Status',
+        'timestamp'      => 'Timestamp',
     ];
 
     public function validate()
@@ -100,6 +106,9 @@ class deviceStatus extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->timestamp) {
+            $res['Timestamp'] = $this->timestamp;
         }
 
         return $res;
@@ -130,6 +139,9 @@ class deviceStatus extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Timestamp'])) {
+            $model->timestamp = $map['Timestamp'];
         }
 
         return $model;

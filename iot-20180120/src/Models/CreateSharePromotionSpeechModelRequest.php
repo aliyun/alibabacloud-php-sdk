@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class CreateSharePromotionSpeechModelRequest extends Model
 {
     /**
+     * @example wav
+     *
      * @var string
      */
     public $audioFormat;
 
     /**
+     * @example ZFDZ
+     *
      * @var string
      */
     public $bizCode;
 
     /**
+     * @example iot-cv3********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 61******_****_4901_****_47***********
+     *
      * @var string
      */
     public $sharePromotionActivityId;
 
     /**
+     * @example 52******_7**e_4**3_9**e_61**********
+     *
      * @var string
      */
     public $shareTaskCode;
 
     /**
+     * @example custom
+     *
      * @var string
      */
     public $speechModelType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $speechRate;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @example Xiaoyun
+     *
      * @var string
      */
     public $voice;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $volume;

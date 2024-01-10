@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @example device02
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $failCode;
@@ -24,6 +28,8 @@ class item extends Model
     public $failReason;
 
     /**
+     * @example a2YwD2****
+     *
      * @var string
      */
     public $productKey;

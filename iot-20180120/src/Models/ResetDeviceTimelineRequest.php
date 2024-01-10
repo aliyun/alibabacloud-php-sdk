@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ResetDeviceTimelineRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example iot-v64******
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;

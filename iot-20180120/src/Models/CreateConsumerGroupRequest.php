@@ -27,21 +27,9 @@ class CreateConsumerGroupRequest extends Model
      * @var string
      */
     public $iotInstanceId;
-
-    /**
-     * @var string
-     */
-    public $subBizCode;
-
-    /**
-     * @var string
-     */
-    public $type;
     protected $_name = [
         'groupName'     => 'GroupName',
         'iotInstanceId' => 'IotInstanceId',
-        'subBizCode'    => 'SubBizCode',
-        'type'          => 'Type',
     ];
 
     public function validate()
@@ -56,12 +44,6 @@ class CreateConsumerGroupRequest extends Model
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->subBizCode) {
-            $res['SubBizCode'] = $this->subBizCode;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -80,12 +62,6 @@ class CreateConsumerGroupRequest extends Model
         }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['SubBizCode'])) {
-            $model->subBizCode = $map['SubBizCode'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
 
         return $model;

@@ -15,16 +15,22 @@ class AddDeviceToSharePromotionRequest extends Model
     public $deviceSimpleInfoList;
 
     /**
+     * @example iot-cv3********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 61******_****_4901_****_47***********
+     *
      * @var string
      */
     public $sharePromotionActivityId;
 
     /**
+     * @example 52******_7**e_4**3_9**e_61**********
+     *
      * @var string
      */
     public $shareTaskCode;

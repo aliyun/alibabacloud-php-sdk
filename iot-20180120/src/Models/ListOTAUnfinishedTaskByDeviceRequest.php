@@ -76,13 +76,19 @@ class ListOTAUnfinishedTaskByDeviceRequest extends Model
      * @var string
      */
     public $taskStatus;
+
+    /**
+     * @var string[]
+     */
+    public $taskStatusList;
     protected $_name = [
-        'deviceName'    => 'DeviceName',
-        'iotId'         => 'IotId',
-        'iotInstanceId' => 'IotInstanceId',
-        'moduleName'    => 'ModuleName',
-        'productKey'    => 'ProductKey',
-        'taskStatus'    => 'TaskStatus',
+        'deviceName'     => 'DeviceName',
+        'iotId'          => 'IotId',
+        'iotInstanceId'  => 'IotInstanceId',
+        'moduleName'     => 'ModuleName',
+        'productKey'     => 'ProductKey',
+        'taskStatus'     => 'TaskStatus',
+        'taskStatusList' => 'TaskStatusList',
     ];
 
     public function validate()
@@ -109,6 +115,9 @@ class ListOTAUnfinishedTaskByDeviceRequest extends Model
         }
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
+        }
+        if (null !== $this->taskStatusList) {
+            $res['TaskStatusList'] = $this->taskStatusList;
         }
 
         return $res;
@@ -139,6 +148,11 @@ class ListOTAUnfinishedTaskByDeviceRequest extends Model
         }
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
+        }
+        if (isset($map['TaskStatusList'])) {
+            if (!empty($map['TaskStatusList'])) {
+                $model->taskStatusList = $map['TaskStatusList'];
+            }
         }
 
         return $model;

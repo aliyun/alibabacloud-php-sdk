@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\AddDataForApiSourceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddDataForApiSourceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddDeviceToSharePromotionRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddDeviceToSharePromotionResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\AddPowerStationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\AddPowerStationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddShareTaskDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddShareTaskDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AsyncRRpcRequest;
@@ -124,6 +126,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CloseEdgeInstanceDeploymentRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CloseEdgeInstanceDeploymentResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ConfirmOTATaskRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ConfirmOTATaskResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CopyThingModelAsyncRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CopyThingModelAsyncResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CopyThingModelRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CopyThingModelResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CountSpeechBroadcastHourRequest;
@@ -267,6 +271,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteParserDataSourceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteParserDataSourceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteParserRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteParserResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeletePowerStationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeletePowerStationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteProductRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteProductResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteProductTagsRequest;
@@ -301,6 +307,9 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteTopicConfigRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteTopicConfigResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteTopicRouteTableRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteTopicRouteTableResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteUserDefineTableDataByPrimaryKeyRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteUserDefineTableDataByPrimaryKeyResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteUserDefineTableDataByPrimaryKeyShrinkRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DetachDestinationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DetachDestinationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DetachParserDataSourceRequest;
@@ -379,6 +388,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\GetSpeechLicenseDeviceStatisticsRespon
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetSpeechVoiceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetStudioAppTokenOpenRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetStudioAppTokenOpenResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetThingModelStatusInnerRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetThingModelStatusInnerResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetThingModelTslPublishedRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetThingModelTslPublishedResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetThingModelTslRequest;
@@ -439,6 +450,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\ListParserDestinationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListParserDestinationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListParserRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListParserResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListPowerStationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListPowerStationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListProductByTagsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListProductByTagsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListProductTagsRequest;
@@ -456,6 +469,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\ListThingTemplatesRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListThingTemplatesResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ModifyOTAFirmwareRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ModifyOTAFirmwareResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ModifyPowerStationRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ModifyPowerStationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\NotifyAddThingTopoRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\NotifyAddThingTopoResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\OpenIotServiceRequest;
@@ -474,6 +489,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\PublishScriptRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PublishScriptResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PublishStudioAppRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PublishStudioAppResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\PublishThingModelAsyncRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\PublishThingModelAsyncResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PublishThingModelRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PublishThingModelResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PubRequest;
@@ -492,6 +509,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QueryConsumerGroupListRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryConsumerGroupListResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryConsumerGroupStatusRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryConsumerGroupStatusResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryCustomTimelineTableStatusRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryCustomTimelineTableStatusResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDetailSceneRuleLogRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDetailSceneRuleLogResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceBySQLRequest;
@@ -748,6 +767,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\SpeechBySynthesisRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SpeechBySynthesisResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartParserRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartParserResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\StartPTDetectionRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\StartPTDetectionResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StopParserRequest;
@@ -796,6 +817,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateEdgeInstanceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateJobShrinkRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateOTAJobRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateOTAJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateOTAModuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateOTAModuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateParserDataSourceRequest;
@@ -1024,6 +1047,61 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addDeviceToSharePromotionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddPowerStationRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddPowerStationResponse
+     */
+    public function addPowerStationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithmInstanceUid)) {
+            $query['AlgorithmInstanceUid'] = $request->algorithmInstanceUid;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->powerStationName)) {
+            $query['PowerStationName'] = $request->powerStationName;
+        }
+        if (!Utils::isUnset($request->ratedPower)) {
+            $query['RatedPower'] = $request->ratedPower;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddPowerStation',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddPowerStationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddPowerStationRequest $request
+     *
+     * @return AddPowerStationResponse
+     */
+    public function addPowerStation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addPowerStationWithOptions($request, $runtime);
     }
 
     /**
@@ -2645,6 +2723,12 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->contentType)) {
+            $query['ContentType'] = $request->contentType;
+        }
+        if (!Utils::isUnset($request->correlationData)) {
+            $query['CorrelationData'] = $request->correlationData;
+        }
         if (!Utils::isUnset($request->deviceName)) {
             $query['DeviceName'] = $request->deviceName;
         }
@@ -2654,14 +2738,32 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->messageContent)) {
             $query['MessageContent'] = $request->messageContent;
         }
+        if (!Utils::isUnset($request->messageExpiryInterval)) {
+            $query['MessageExpiryInterval'] = $request->messageExpiryInterval;
+        }
+        if (!Utils::isUnset($request->payloadFormatIndicator)) {
+            $query['PayloadFormatIndicator'] = $request->payloadFormatIndicator;
+        }
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;
         }
         if (!Utils::isUnset($request->qos)) {
             $query['Qos'] = $request->qos;
         }
+        if (!Utils::isUnset($request->responseTopicTemplateName)) {
+            $query['ResponseTopicTemplateName'] = $request->responseTopicTemplateName;
+        }
+        if (!Utils::isUnset($request->retained)) {
+            $query['Retained'] = $request->retained;
+        }
         if (!Utils::isUnset($request->topicShortName)) {
             $query['TopicShortName'] = $request->topicShortName;
+        }
+        if (!Utils::isUnset($request->topicTemplateName)) {
+            $query['TopicTemplateName'] = $request->topicTemplateName;
+        }
+        if (!Utils::isUnset($request->userProp)) {
+            $query['UserProp'] = $request->userProp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4317,6 +4419,58 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param CopyThingModelAsyncRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CopyThingModelAsyncResponse
+     */
+    public function copyThingModelAsyncWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->sourceModelVersion)) {
+            $query['SourceModelVersion'] = $request->sourceModelVersion;
+        }
+        if (!Utils::isUnset($request->sourceProductKey)) {
+            $query['SourceProductKey'] = $request->sourceProductKey;
+        }
+        if (!Utils::isUnset($request->targetProductKey)) {
+            $query['TargetProductKey'] = $request->targetProductKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CopyThingModelAsync',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CopyThingModelAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CopyThingModelAsyncRequest $request
+     *
+     * @return CopyThingModelAsyncResponse
+     */
+    public function copyThingModelAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->copyThingModelAsyncWithOptions($request, $runtime);
+    }
+
+    /**
      * ## Usage notes
      *   * You can call this operation to query the shared speeches that were broadcasted six hours ago. For example, if a speech was broadcasted at 07:15, you can query the speech after 13:15.
      *   * ## QPS limits
@@ -4398,12 +4552,6 @@ class Iot extends OpenApiClient
         }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->subBizCode)) {
-            $query['SubBizCode'] = $request->subBizCode;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8718,6 +8866,55 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param DeletePowerStationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeletePowerStationResponse
+     */
+    public function deletePowerStationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithmInstanceUid)) {
+            $query['AlgorithmInstanceUid'] = $request->algorithmInstanceUid;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->powerStationUid)) {
+            $query['PowerStationUid'] = $request->powerStationUid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePowerStation',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePowerStationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePowerStationRequest $request
+     *
+     * @return DeletePowerStationResponse
+     */
+    public function deletePowerStation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePowerStationWithOptions($request, $runtime);
+    }
+
+    /**
      * ## Limits
      *   * *   After a product is deleted, the ProductKey of the product is invalid. The related information about the product is also deleted. You cannot perform the required operations on the product.
      *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
@@ -9619,6 +9816,60 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteTopicRouteTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteUserDefineTableDataByPrimaryKeyRequest $tmpReq
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DeleteUserDefineTableDataByPrimaryKeyResponse
+     */
+    public function deleteUserDefineTableDataByPrimaryKeyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteUserDefineTableDataByPrimaryKeyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->conditions)) {
+            $request->conditionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->conditions, 'Conditions', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->conditionsShrink)) {
+            $query['Conditions'] = $request->conditionsShrink;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->tableIdentifier)) {
+            $query['TableIdentifier'] = $request->tableIdentifier;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUserDefineTableDataByPrimaryKey',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteUserDefineTableDataByPrimaryKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteUserDefineTableDataByPrimaryKeyRequest $request
+     *
+     * @return DeleteUserDefineTableDataByPrimaryKeyResponse
+     */
+    public function deleteUserDefineTableDataByPrimaryKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUserDefineTableDataByPrimaryKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -11641,6 +11892,55 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param GetThingModelStatusInnerRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetThingModelStatusInnerResponse
+     */
+    public function getThingModelStatusInnerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->insId)) {
+            $query['InsId'] = $request->insId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetThingModelStatusInner',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetThingModelStatusInnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetThingModelStatusInnerRequest $request
+     *
+     * @return GetThingModelStatusInnerResponse
+     */
+    public function getThingModelStatusInner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getThingModelStatusInnerWithOptions($request, $runtime);
+    }
+
+    /**
      * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
      *   *
      * @param GetThingModelTslRequest $request GetThingModelTslRequest
@@ -13337,6 +13637,9 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->taskStatus)) {
             $query['TaskStatus'] = $request->taskStatus;
         }
+        if (!Utils::isUnset($request->taskStatusList)) {
+            $query['TaskStatusList'] = $request->taskStatusList;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -13522,6 +13825,61 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listParserDestinationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPowerStationRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListPowerStationResponse
+     */
+    public function listPowerStationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithmInstanceUid)) {
+            $query['AlgorithmInstanceUid'] = $request->algorithmInstanceUid;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->powerStationName)) {
+            $query['PowerStationName'] = $request->powerStationName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPowerStation',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPowerStationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPowerStationRequest $request
+     *
+     * @return ListPowerStationResponse
+     */
+    public function listPowerStation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPowerStationWithOptions($request, $runtime);
     }
 
     /**
@@ -13986,6 +14344,64 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyOTAFirmwareWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyPowerStationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyPowerStationResponse
+     */
+    public function modifyPowerStationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithmInstanceUid)) {
+            $query['AlgorithmInstanceUid'] = $request->algorithmInstanceUid;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->powerStationName)) {
+            $query['PowerStationName'] = $request->powerStationName;
+        }
+        if (!Utils::isUnset($request->powerStationUid)) {
+            $query['PowerStationUid'] = $request->powerStationUid;
+        }
+        if (!Utils::isUnset($request->ratedPower)) {
+            $query['RatedPower'] = $request->ratedPower;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPowerStation',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyPowerStationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyPowerStationRequest $request
+     *
+     * @return ModifyPowerStationResponse
+     */
+    public function modifyPowerStation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPowerStationWithOptions($request, $runtime);
     }
 
     /**
@@ -14682,6 +15098,58 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param PublishThingModelAsyncRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return PublishThingModelAsyncResponse
+     */
+    public function publishThingModelAsyncWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->thingModelVersion)) {
+            $query['ThingModelVersion'] = $request->thingModelVersion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishThingModelAsync',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublishThingModelAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PublishThingModelAsyncRequest $request
+     *
+     * @return PublishThingModelAsyncResponse
+     */
+    public function publishThingModelAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishThingModelAsyncWithOptions($request, $runtime);
+    }
+
+    /**
      * @param PushSpeechRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -15087,6 +15555,52 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryConsumerGroupStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCustomTimelineTableStatusRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryCustomTimelineTableStatusResponse
+     */
+    public function queryCustomTimelineTableStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCustomTimelineTableStatus',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCustomTimelineTableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryCustomTimelineTableStatusRequest $request
+     *
+     * @return QueryCustomTimelineTableStatusResponse
+     */
+    public function queryCustomTimelineTableStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCustomTimelineTableStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -22552,6 +23066,70 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param StartPTDetectionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StartPTDetectionResponse
+     */
+    public function startPTDetectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithmInstanceUid)) {
+            $query['AlgorithmInstanceUid'] = $request->algorithmInstanceUid;
+        }
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->dataCollectionTime)) {
+            $query['DataCollectionTime'] = $request->dataCollectionTime;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->powerPlantsNumber)) {
+            $query['PowerPlantsNumber'] = $request->powerPlantsNumber;
+        }
+        if (!Utils::isUnset($request->powerStationUid)) {
+            $query['PowerStationUid'] = $request->powerStationUid;
+        }
+        if (!Utils::isUnset($request->sensitivity)) {
+            $query['Sensitivity'] = $request->sensitivity;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartPTDetection',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartPTDetectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartPTDetectionRequest $request
+     *
+     * @return StartPTDetectionResponse
+     */
+    public function startPTDetection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startPTDetectionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StartParserRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -23952,6 +24530,70 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateOTAJobRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateOTAJobResponse
+     */
+    public function updateOTAJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->maximumPerMinute)) {
+            $query['MaximumPerMinute'] = $request->maximumPerMinute;
+        }
+        if (!Utils::isUnset($request->srcVersionList)) {
+            $query['SrcVersionList'] = $request->srcVersionList;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->targetSelection)) {
+            $query['TargetSelection'] = $request->targetSelection;
+        }
+        if (!Utils::isUnset($request->timeoutInMinutes)) {
+            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+        }
+        if (!Utils::isUnset($request->upgradeType)) {
+            $query['UpgradeType'] = $request->upgradeType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOTAJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateOTAJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateOTAJobRequest $request
+     *
+     * @return UpdateOTAJobResponse
+     */
+    public function updateOTAJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOTAJobWithOptions($request, $runtime);
     }
 
     /**

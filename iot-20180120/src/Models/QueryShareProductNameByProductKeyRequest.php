@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryShareProductNameByProductKeyRequest extends Model
 {
     /**
+     * @example a2YwD2****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 52******_7**e_4**3_9**e_61**********
+     *
      * @var string
      */
     public $shareTaskCode;

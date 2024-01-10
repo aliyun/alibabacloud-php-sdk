@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateSharePromotionActivityRequest extends Model
 {
     /**
+     * @example 1694315533000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example iot-cv3********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example task01
+     *
      * @var string
      */
     public $sharePromotionActivityName;
 
     /**
+     * @example 1691547072000
+     *
      * @var int
      */
     public $startTime;

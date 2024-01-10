@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryShareProductNameByProductKeyResponseBody extends Model
 {
     /**
+     * @example iot.speech.InvalidIotInstanceId
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class QueryShareProductNameByProductKeyResponseBody extends Model
     public $data;
 
     /**
+     * @example Invalid instance ID.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example E55E50B7-40EE-4B6B-8BBE-D3ED55CCF565
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
