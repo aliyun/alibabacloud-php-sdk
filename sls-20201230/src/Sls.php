@@ -40,6 +40,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataSetResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationLabelResponse;
@@ -1280,6 +1281,43 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->createSavedSearchWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CreateTicketResponse
+     */
+    public function createTicketWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTicket',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/tickets',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTicketResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @return CreateTicketResponse
+     */
+    public function createTicket()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTicketWithOptions($headers, $runtime);
     }
 
     /**

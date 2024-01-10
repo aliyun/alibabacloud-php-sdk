@@ -33,8 +33,6 @@ class LogtailPipelineConfig extends Model
     public $flushers;
 
     /**
-     * @example {     "TopicType": "custom",     "TopicFormat": "aaa",     "EnableAlwaysOnline": true,     "EnableTimestampNanosecond": true,     "UsingOldContentTag": true }
-     *
      * @var mixed[]
      */
     public $global;
