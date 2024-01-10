@@ -27,8 +27,25 @@ class InstallManagedPrometheusRequest extends Model
     public $clusterName;
 
     /**
-     * @description The type of the monitoring object. Valid values: ask and ecs.
+     * @description The cluster type.
      *
+     * Valid values:
+     *
+     *   ecs
+     *
+     * <!-- -->
+     *
+     *   one
+     *
+     * <!-- -->
+     *
+     *   ask
+     *
+     * <!-- -->
+     *
+     *   pro
+     *
+     * <!-- -->
      * @example ask
      *
      * @var string

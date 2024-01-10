@@ -1,3 +1,6 @@
+2024-01-10 Version: 4.0.0
+- Generated php 2019-08-08 for ARMS.
+
 2024-01-05 Version: 3.11.0
 - Generated php 2019-08-08 for ARMS.
 

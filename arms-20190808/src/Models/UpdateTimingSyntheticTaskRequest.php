@@ -45,15 +45,6 @@ class UpdateTimingSyntheticTaskRequest extends Model
     public $frequency;
 
     /**
-     * @description The detection point type. 1: PC. 2: mobile device.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $monitorCategory;
-
-    /**
      * @description The monitoring configurations.
      *
      * @var monitorConf
@@ -109,22 +100,11 @@ class UpdateTimingSyntheticTaskRequest extends Model
      * @var string
      */
     public $taskId;
-
-    /**
-     * @description The type of the task. Valid values:
-     *
-     * 1: ICMP. 2: TCP. 3: DNS. 4: HTTP. 5: website speed measurement. 6: file download.
-     * @example 1
-     *
-     * @var int
-     */
-    public $taskType;
     protected $_name = [
         'availableAssertions' => 'AvailableAssertions',
         'commonSetting'       => 'CommonSetting',
         'customPeriod'        => 'CustomPeriod',
         'frequency'           => 'Frequency',
-        'monitorCategory'     => 'MonitorCategory',
         'monitorConf'         => 'MonitorConf',
         'monitors'            => 'Monitors',
         'name'                => 'Name',
@@ -132,7 +112,6 @@ class UpdateTimingSyntheticTaskRequest extends Model
         'resourceGroupId'     => 'ResourceGroupId',
         'tags'                => 'Tags',
         'taskId'              => 'TaskId',
-        'taskType'            => 'TaskType',
     ];
 
     public function validate()
@@ -159,9 +138,6 @@ class UpdateTimingSyntheticTaskRequest extends Model
         }
         if (null !== $this->frequency) {
             $res['Frequency'] = $this->frequency;
-        }
-        if (null !== $this->monitorCategory) {
-            $res['MonitorCategory'] = $this->monitorCategory;
         }
         if (null !== $this->monitorConf) {
             $res['MonitorConf'] = null !== $this->monitorConf ? $this->monitorConf->toMap() : null;
@@ -196,9 +172,6 @@ class UpdateTimingSyntheticTaskRequest extends Model
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
 
         return $res;
     }
@@ -228,9 +201,6 @@ class UpdateTimingSyntheticTaskRequest extends Model
         }
         if (isset($map['Frequency'])) {
             $model->frequency = $map['Frequency'];
-        }
-        if (isset($map['MonitorCategory'])) {
-            $model->monitorCategory = $map['MonitorCategory'];
         }
         if (isset($map['MonitorConf'])) {
             $model->monitorConf = monitorConf::fromMap($map['MonitorConf']);
@@ -264,9 +234,6 @@ class UpdateTimingSyntheticTaskRequest extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
         }
 
         return $model;

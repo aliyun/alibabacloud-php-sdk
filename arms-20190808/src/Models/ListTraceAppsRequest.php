@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class ListTraceAppsRequest extends Model
 {
     /**
+     * @description The type of the application that is associated with the alert rule. Valid values:
+     *
+     *   `TRACE`: Application Monitoring
+     *   `EBPF`: Application Monitoring eBPF Edition
+     *
+     * @example TRACE
+     *
      * @var string
      */
     public $appType;

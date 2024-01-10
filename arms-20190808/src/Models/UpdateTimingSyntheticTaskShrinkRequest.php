@@ -39,15 +39,6 @@ class UpdateTimingSyntheticTaskShrinkRequest extends Model
     public $frequency;
 
     /**
-     * @description The detection point type. 1: PC. 2: mobile device.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $monitorCategory;
-
-    /**
      * @description The monitoring configurations.
      *
      * @var string
@@ -103,22 +94,11 @@ class UpdateTimingSyntheticTaskShrinkRequest extends Model
      * @var string
      */
     public $taskId;
-
-    /**
-     * @description The type of the task. Valid values:
-     *
-     * 1: ICMP. 2: TCP. 3: DNS. 4: HTTP. 5: website speed measurement. 6: file download.
-     * @example 1
-     *
-     * @var int
-     */
-    public $taskType;
     protected $_name = [
         'availableAssertionsShrink' => 'AvailableAssertions',
         'commonSettingShrink'       => 'CommonSetting',
         'customPeriodShrink'        => 'CustomPeriod',
         'frequency'                 => 'Frequency',
-        'monitorCategory'           => 'MonitorCategory',
         'monitorConfShrink'         => 'MonitorConf',
         'monitorsShrink'            => 'Monitors',
         'name'                      => 'Name',
@@ -126,7 +106,6 @@ class UpdateTimingSyntheticTaskShrinkRequest extends Model
         'resourceGroupId'           => 'ResourceGroupId',
         'tagsShrink'                => 'Tags',
         'taskId'                    => 'TaskId',
-        'taskType'                  => 'TaskType',
     ];
 
     public function validate()
@@ -148,9 +127,6 @@ class UpdateTimingSyntheticTaskShrinkRequest extends Model
         if (null !== $this->frequency) {
             $res['Frequency'] = $this->frequency;
         }
-        if (null !== $this->monitorCategory) {
-            $res['MonitorCategory'] = $this->monitorCategory;
-        }
         if (null !== $this->monitorConfShrink) {
             $res['MonitorConf'] = $this->monitorConfShrink;
         }
@@ -171,9 +147,6 @@ class UpdateTimingSyntheticTaskShrinkRequest extends Model
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -199,9 +172,6 @@ class UpdateTimingSyntheticTaskShrinkRequest extends Model
         if (isset($map['Frequency'])) {
             $model->frequency = $map['Frequency'];
         }
-        if (isset($map['MonitorCategory'])) {
-            $model->monitorCategory = $map['MonitorCategory'];
-        }
         if (isset($map['MonitorConf'])) {
             $model->monitorConfShrink = $map['MonitorConf'];
         }
@@ -222,9 +192,6 @@ class UpdateTimingSyntheticTaskShrinkRequest extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
         }
 
         return $model;

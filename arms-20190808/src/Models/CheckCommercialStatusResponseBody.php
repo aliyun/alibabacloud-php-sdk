@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckCommercialStatusResponseBody extends Model
 {
     /**
+     * @description The returned struct.
+     *
      * @example True
      *
      * @var string
@@ -16,7 +18,7 @@ class CheckCommercialStatusResponseBody extends Model
     public $data;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 1A474FF8-7861-4D00-81B5-5BC3DA4E****
      *

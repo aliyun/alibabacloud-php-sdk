@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class insightsEvents extends Model
 {
     /**
-     * @description The time at which the event occurred. The value is a timestamp.
+     * @description The time when the event occurred. The value is a timestamp.
      *
      * @example 1658890560
      *
@@ -18,7 +18,7 @@ class insightsEvents extends Model
     public $date;
 
     /**
-     * @description The ID of the application associated with the event.
+     * @description The description of the event.
      *
      * @example The severity of the event.
      *
@@ -27,7 +27,7 @@ class insightsEvents extends Model
     public $desc;
 
     /**
-     * @description Queries the abnormal Insights events within a specified period of time.
+     * @description The severity of the event.
      *
      * @example P3
      *
@@ -36,7 +36,7 @@ class insightsEvents extends Model
     public $level;
 
     /**
-     * @description auditing
+     * @description The ID of the application associated with the event.
      *
      * @example dsv9zcel92@7da413b******
      *
@@ -45,12 +45,16 @@ class insightsEvents extends Model
     public $pid;
 
     /**
+     * @description Problem identification.
+     *
+     * @example erep3o9zue@01ebe697ab70566|@1499161100890550|@cn-hangzhou|@1701841800000|@1701842040000|@daa6c51a-3c44-4d57-9548-4e212c******
+     *
      * @var string
      */
     public $problemId;
 
     /**
-     * @description The overall response time of the \[HTTP] service of the application \[sd] spikes at \[2022-07-27 10:57:00]
+     * @description The title of the event.
      *
      * @example The type of the event.
      *
@@ -59,7 +63,7 @@ class insightsEvents extends Model
     public $title;
 
     /**
-     * @description The time at which the event occurred. The value is a timestamp.
+     * @description The type of the event.
      *
      * @example rtIncrease
      *

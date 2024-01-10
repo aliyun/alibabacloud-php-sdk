@@ -38,7 +38,7 @@ class CreatePrometheusInstanceRequest extends Model
 
     /**
      * @description Types include:
-     * - aliyun-cs: Prometheus Instance for Container Service
+     * - flink: Prometheus for FLink
      * @example remote-write
      *
      * @var string

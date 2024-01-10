@@ -1399,10 +1399,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CheckCommercialStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call this operation to check whether ARMS is available for commercial use in a region.
+     *   *
+     * @param CheckCommercialStatusRequest $request CheckCommercialStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckCommercialStatusResponse
+     * @return CheckCommercialStatusResponse CheckCommercialStatusResponse
      */
     public function checkCommercialStatusWithOptions($request, $runtime)
     {
@@ -1427,9 +1429,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CheckCommercialStatusRequest $request
+     * You can call this operation to check whether ARMS is available for commercial use in a region.
+     *   *
+     * @param CheckCommercialStatusRequest $request CheckCommercialStatusRequest
      *
-     * @return CheckCommercialStatusResponse
+     * @return CheckCommercialStatusResponse CheckCommercialStatusResponse
      */
     public function checkCommercialStatus($request)
     {
@@ -12431,9 +12435,6 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->frequency)) {
             $query['Frequency'] = $request->frequency;
         }
-        if (!Utils::isUnset($request->monitorCategory)) {
-            $query['MonitorCategory'] = $request->monitorCategory;
-        }
         if (!Utils::isUnset($request->monitorConfShrink)) {
             $query['MonitorConf'] = $request->monitorConfShrink;
         }
@@ -12454,9 +12455,6 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
-        }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

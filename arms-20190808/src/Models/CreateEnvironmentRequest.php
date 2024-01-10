@@ -20,7 +20,7 @@ class CreateEnvironmentRequest extends Model
 
     /**
      * @description The ID of the resource associated with the environment, such as the ACK cluster ID or VPC ID.
-     *
+     * For Cloud type environments, the current field value is RegionId.
      * @example c6e9dec475dca4a50a188411d8cbxxx
      *
      * @var string
@@ -40,7 +40,7 @@ class CreateEnvironmentRequest extends Model
      * @description The subtype of the environment. Valid values:
      *
      *   CS: Container Service for Kubernetes (ACK)
-     *   ECS: ECS
+     *   ECS: Elastic Compute Service (ECS)
      *   Cloud: cloud service
      *
      * @example ECS, ACK, etc.

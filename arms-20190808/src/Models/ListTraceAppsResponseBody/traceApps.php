@@ -28,6 +28,10 @@ class traceApps extends Model
     public $appName;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example cc7a37ee31aea4ed1a059eff8034b****
+     *
      * @var string
      */
     public $clusterId;
@@ -42,18 +46,26 @@ class traceApps extends Model
     public $createTime;
 
     /**
-     * @description The labels of the application.
+     * @description The tags of the application.
      *
      * @var string[]
      */
     public $labels;
 
     /**
+     * @description The language.
+     *
+     * @example PHP
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The namespace.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
@@ -98,7 +110,7 @@ class traceApps extends Model
     public $show;
 
     /**
-     * @description The application source.
+     * @description The source of the application.
      *
      * @example ACK
      *
@@ -144,11 +156,19 @@ class traceApps extends Model
     public $userId;
 
     /**
+     * @description The type of the workload.
+     *
+     * @example Deployment
+     *
      * @var string
      */
     public $workloadKind;
 
     /**
+     * @description The name of the workload.
+     *
+     * @example nginx-deployment
+     *
      * @var string
      */
     public $workloadName;

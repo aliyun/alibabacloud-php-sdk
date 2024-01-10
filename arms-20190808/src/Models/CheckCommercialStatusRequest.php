@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckCommercialStatusRequest extends Model
 {
     /**
+     * @description The region ID. Default value: cn-hangzhou.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,10 @@ class CheckCommercialStatusRequest extends Model
     public $regionId;
 
     /**
+     * @description Sub-services:
+     * - xtrace: Managed Service for OpenTelemetry
+     * @example apm
+     *
      * @var string
      */
     public $service;
