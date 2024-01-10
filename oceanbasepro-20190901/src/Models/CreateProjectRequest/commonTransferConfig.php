@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest;
 
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest\commonTransferConfig\customColumns;
 use AlibabaCloud\Tea\Model;
 
 class commonTransferConfig extends Model
@@ -14,6 +15,11 @@ class commonTransferConfig extends Model
      * @var bool
      */
     public $activeActive;
+
+    /**
+     * @var customColumns[]
+     */
+    public $customColumns;
 
     /**
      * @example null
@@ -79,6 +85,16 @@ class commonTransferConfig extends Model
     public $rocketMqSendMsgTimeout;
 
     /**
+     * @var bool
+     */
+    public $syncSchema;
+
+    /**
+     * @var string
+     */
+    public $syncSchemaColumnName;
+
+    /**
      * @example ALL
      *
      * @var string
@@ -86,6 +102,7 @@ class commonTransferConfig extends Model
     public $tableCategory;
     protected $_name = [
         'activeActive'           => 'ActiveActive',
+        'customColumns'          => 'CustomColumns',
         'dataWorksBusinessName'  => 'DataWorksBusinessName',
         'datahubTopicType'       => 'DatahubTopicType',
         'mqPartition'            => 'MqPartition',
@@ -95,6 +112,8 @@ class commonTransferConfig extends Model
         'rocketMqMsgTags'        => 'RocketMqMsgTags',
         'rocketMqProducerGroup'  => 'RocketMqProducerGroup',
         'rocketMqSendMsgTimeout' => 'RocketMqSendMsgTimeout',
+        'syncSchema'             => 'SyncSchema',
+        'syncSchemaColumnName'   => 'SyncSchemaColumnName',
         'tableCategory'          => 'TableCategory',
     ];
 
@@ -107,6 +126,15 @@ class commonTransferConfig extends Model
         $res = [];
         if (null !== $this->activeActive) {
             $res['ActiveActive'] = $this->activeActive;
+        }
+        if (null !== $this->customColumns) {
+            $res['CustomColumns'] = [];
+            if (null !== $this->customColumns && \is_array($this->customColumns)) {
+                $n = 0;
+                foreach ($this->customColumns as $item) {
+                    $res['CustomColumns'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->dataWorksBusinessName) {
             $res['DataWorksBusinessName'] = $this->dataWorksBusinessName;
@@ -135,6 +163,12 @@ class commonTransferConfig extends Model
         if (null !== $this->rocketMqSendMsgTimeout) {
             $res['RocketMqSendMsgTimeout'] = $this->rocketMqSendMsgTimeout;
         }
+        if (null !== $this->syncSchema) {
+            $res['SyncSchema'] = $this->syncSchema;
+        }
+        if (null !== $this->syncSchemaColumnName) {
+            $res['SyncSchemaColumnName'] = $this->syncSchemaColumnName;
+        }
         if (null !== $this->tableCategory) {
             $res['TableCategory'] = $this->tableCategory;
         }
@@ -152,6 +186,15 @@ class commonTransferConfig extends Model
         $model = new self();
         if (isset($map['ActiveActive'])) {
             $model->activeActive = $map['ActiveActive'];
+        }
+        if (isset($map['CustomColumns'])) {
+            if (!empty($map['CustomColumns'])) {
+                $model->customColumns = [];
+                $n                    = 0;
+                foreach ($map['CustomColumns'] as $item) {
+                    $model->customColumns[$n++] = null !== $item ? customColumns::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['DataWorksBusinessName'])) {
             $model->dataWorksBusinessName = $map['DataWorksBusinessName'];
@@ -179,6 +222,12 @@ class commonTransferConfig extends Model
         }
         if (isset($map['RocketMqSendMsgTimeout'])) {
             $model->rocketMqSendMsgTimeout = $map['RocketMqSendMsgTimeout'];
+        }
+        if (isset($map['SyncSchema'])) {
+            $model->syncSchema = $map['SyncSchema'];
+        }
+        if (isset($map['SyncSchemaColumnName'])) {
+            $model->syncSchemaColumnName = $map['SyncSchemaColumnName'];
         }
         if (isset($map['TableCategory'])) {
             $model->tableCategory = $map['TableCategory'];
