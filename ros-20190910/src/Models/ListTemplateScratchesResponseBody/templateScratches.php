@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class templateScratches extends Model
 {
     /**
-     * @description The time at which the scenario was created.
+     * @description The time when the scenario was created.
      *
      * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      * @example 2021-12-07T08:06:44
@@ -33,9 +33,9 @@ class templateScratches extends Model
     public $description;
 
     /**
-     * @description The status code of the scenario that fails to be created.
+     * @description The status code that is returned if the scenario failed to be generated.
      *
-     * > This parameter is returned only if you set Status to GENERATE_FAILED.
+     * >  This parameter is returned only if Status is set to GENERATE_FAILED.
      * @example InvalidZoneId
      *
      * @var string
@@ -56,13 +56,17 @@ class templateScratches extends Model
     public $logicalIdStrategy;
 
     /**
-     * @description The preference parameters of the scenario.
+     * @description The parameters that are configured for the scenario.
      *
      * @var preferenceParameters[]
      */
     public $preferenceParameters;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfm4nxcvht4pmi
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -89,7 +93,7 @@ class templateScratches extends Model
     public $sourceTag;
 
     /**
-     * @description The status of the scenario.
+     * @description The state of the scenario.
      *
      * @example GENERATE_COMPLETE
      *
@@ -98,9 +102,9 @@ class templateScratches extends Model
     public $status;
 
     /**
-     * @description The reason why the scenario fails to be created.
+     * @description The reason why the scenario failed to be generated.
      *
-     * > This parameter is returned only if you set Status to GENERATE_FAILED.
+     * >  This parameter is returned only if Status is set to GENERATE_FAILED.
      * @example Resource ALIYUN::ECS::VPC vpc-m5eauuq80anx59v28**** could not be found for template scratch.
      *
      * @var string
@@ -115,7 +119,7 @@ class templateScratches extends Model
     public $tags;
 
     /**
-     * @description The ID of the scenario.
+     * @description The scenario ID.
      *
      * @example ts-48ad85d66cca4620****
      *
@@ -136,7 +140,7 @@ class templateScratches extends Model
     public $templateScratchType;
 
     /**
-     * @description The time at which the scenario was updated.
+     * @description The time when the scenario was updated.
      *
      * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      * @example 2021-12-07T08:06:44

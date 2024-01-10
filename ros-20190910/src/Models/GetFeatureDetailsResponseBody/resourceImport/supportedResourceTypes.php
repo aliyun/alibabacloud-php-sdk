@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class supportedResourceTypes extends Model
 {
     /**
+     * @description The resource identifiers.
+     *
      * @var string[]
      */
     public $resourceIdentifiers;
 
     /**
+     * @description The resource type.
+     *
      * @example ALIYUN::ECS::Disk
      *
      * @var string

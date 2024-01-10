@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class driftDetection extends Model
 {
     /**
+     * @description The resource types that are supported by the drift detection feature.
+     *
      * @var string[]
      */
     public $supportedResourceTypes;

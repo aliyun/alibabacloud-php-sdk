@@ -35,7 +35,7 @@ class supportedVersions extends Model
     public $transform;
 
     /**
-     * @description The versions to which Terraform can be updated in ROS.
+     * @description The Terraform versions that can be updated in ROS.
      *
      * @var string[]
      */

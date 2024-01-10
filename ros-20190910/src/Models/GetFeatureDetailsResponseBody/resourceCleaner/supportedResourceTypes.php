@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class supportedResourceTypes extends Model
 {
     /**
-     * @description The resource type that can be cleaned up.
+     * @description The resource type that supports the resource cleaner feature.
      *
      * @example ECS:Instance
      *
@@ -18,21 +18,14 @@ class supportedResourceTypes extends Model
     public $resourceType;
 
     /**
-     * @description The names of the side effects. The StopInstance value indicates that an instance that is related to the specified resource is stopped.
+     * @description The names of the side effects that may be caused by the cleanup operation performed on the resources of the specified type.
      *
      * @var string[]
      */
     public $sideEffects;
 
     /**
-     * @description The filters that are used to filter resources. Valid values:
-     *
-     *   RegionId: the ID of the region.
-     *   ResourceId: the ID of the resource.
-     *   ResourceName: the name of the resource.
-     *   Tags: the tags of the resource.
-     *   ResourceGroupId: the ID of the resource group.
-     *   DeletionProtection: the deletion protection feature.
+     * @description The names of the filters that are supported by the resource type.
      *
      * @var string[]
      */

@@ -18,7 +18,7 @@ class providerVersions extends Model
     public $providerName;
 
     /**
-     * @description The versions of the provider.
+     * @description The provider versions.
      *
      * @var string[]
      */

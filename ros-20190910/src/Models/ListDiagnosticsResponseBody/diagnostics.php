@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class diagnostics extends Model
 {
     /**
+     * @description The time when the diagnostic report was generated.
+     *
      * @example 2022-08-01T02:23:55
      *
      * @var string
@@ -16,6 +18,8 @@ class diagnostics extends Model
     public $createTime;
 
     /**
+     * @description The keyword in the diagnosis.
+     *
      * @example 047D84D9-D3EB-5DA8-87F1-9A7DD5598A5D
      *
      * @var string
@@ -23,6 +27,8 @@ class diagnostics extends Model
     public $diagnosticKey;
 
     /**
+     * @description The product that is diagnosed.
+     *
      * @example ros
      *
      * @var string
@@ -30,6 +36,8 @@ class diagnostics extends Model
     public $diagnosticProduct;
 
     /**
+     * @description The ID of the diagnostic report.
+     *
      * @example dr-2963bfbcac834f1a****
      *
      * @var string
@@ -37,6 +45,8 @@ class diagnostics extends Model
     public $reportId;
 
     /**
+     * @description The diagnosis status.
+     *
      * @example success
      *
      * @var string

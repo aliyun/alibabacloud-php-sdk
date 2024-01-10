@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class resourceImport extends Model
 {
     /**
+     * @description The resource types that are supported by the resource import feature.
+     *
      * @var supportedResourceTypes[]
      */
     public $supportedResourceTypes;

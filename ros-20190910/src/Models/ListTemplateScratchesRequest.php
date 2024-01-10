@@ -40,6 +40,10 @@ class ListTemplateScratchesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -76,8 +80,10 @@ class ListTemplateScratchesRequest extends Model
     /**
      * @description The type of the scenario. Valid values:
      *
-     *   ResourceImport: resource management
      *   ArchitectureReplication: resource replication
+     *   ArchitectureDetection: resource detection
+     *   ResourceImport: resource management
+     *   ResourceMigration: resource migration
      *
      * @example ArchitectureReplication
      *

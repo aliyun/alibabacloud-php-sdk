@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDiagnosticResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example Forbidden
      *
      * @var string
@@ -17,6 +19,8 @@ class GetDiagnosticResponseBody extends Model
     public $code;
 
     /**
+     * @description The keyword in the diagnosis.
+     *
      * @example 0938F60C-A2CA-5A2E-9983-03EB1E6D7AE2
      *
      * @var string
@@ -24,6 +28,8 @@ class GetDiagnosticResponseBody extends Model
     public $diagnosticKey;
 
     /**
+     * @description The name of the diagnostic item.
+     *
      * @example ros
      *
      * @var string
@@ -31,11 +37,15 @@ class GetDiagnosticResponseBody extends Model
     public $diagnosticProduct;
 
     /**
+     * @description The diagnosis result.
+     *
      * @var diagnosticResult
      */
     public $diagnosticResult;
 
     /**
+     * @description The time when the diagnosis was performed.
+     *
      * @example 2023-03-27T03:32:03Z
      *
      * @var string
@@ -43,6 +53,8 @@ class GetDiagnosticResponseBody extends Model
     public $diagnosticTime;
 
     /**
+     * @description The HTTP status code
+     *
      * @example 200
      *
      * @var string
@@ -50,6 +62,8 @@ class GetDiagnosticResponseBody extends Model
     public $httpCode;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -57,6 +71,8 @@ class GetDiagnosticResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example The specified parameter ReportId is invalid, Can not find diagnostic report dr-5f6135782f104b0f****.
      *
      * @var string
@@ -64,6 +80,8 @@ class GetDiagnosticResponseBody extends Model
     public $message;
 
     /**
+     * @description The suggestion for the diagnosis.
+     *
      * @example {\"RosActionMessages\": {\"Reason\": \"Fail to delete stack (fc966920-450a-456b-983c-deeaec8e****), as deletion protection is enabled.\", \"Recommend\": \"\"}}
      *
      * @var mixed[]
@@ -71,6 +89,8 @@ class GetDiagnosticResponseBody extends Model
     public $recommends;
 
     /**
+     * @description The ID of the diagnostic report.
+     *
      * @example dr-cc80afc48c8741e9****
      *
      * @var string
@@ -78,6 +98,8 @@ class GetDiagnosticResponseBody extends Model
     public $reportId;
 
     /**
+     * @description The request ID.
+     *
      * @example 96A24844-9603-5E79-BDF4-EFD412FC5D4C
      *
      * @var string
@@ -85,6 +107,12 @@ class GetDiagnosticResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The diagnosis status. Valid values:
+     *
+     *   Running: The diagnosis is in progress.
+     *   Complete: The diagnosis is complete.
+     *   Failed: The diagnosis failed.
+     *
      * @example Running
      *
      * @var string
@@ -92,6 +120,8 @@ class GetDiagnosticResponseBody extends Model
     public $status;
 
     /**
+     * @description The reason for the diagnosis status.
+     *
      * @example Complete
      *
      * @var string
@@ -99,6 +129,11 @@ class GetDiagnosticResponseBody extends Model
     public $statusReason;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

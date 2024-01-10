@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class GetFeatureDetailsResponseBody extends Model
 {
     /**
+     * @description Details of the drift detection feature.
+     *
      * @var driftDetection
      */
     public $driftDetection;
@@ -36,6 +38,8 @@ class GetFeatureDetailsResponseBody extends Model
     public $resourceCleaner;
 
     /**
+     * @description Details of the resource import feature.
+     *
      * @var resourceImport
      */
     public $resourceImport;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDiagnosticRequest extends Model
 {
     /**
+     * @description The report ID. You can troubleshoot issues based on the report.
+     *
      * @example dr-56a0e30bf9854b00****
      *
      * @var string

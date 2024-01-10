@@ -18,9 +18,11 @@ class supportedResourceTypes extends Model
     public $resourceType;
 
     /**
-     * @description Indicates whether the resource scope can be specified by resource group. Valid values:
+     * @description Indicates whether the resource scope can be specified by source resource group. Valid values:
      *
-     * - false
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -28,9 +30,11 @@ class supportedResourceTypes extends Model
     public $sourceResourceGroupSupported;
 
     /**
-     * @description Indicates whether the resource scope can be specified by tag, resource group, or resource. Valid values:
+     * @description Indicates whether the resource scope can be specified by source resource. Valid values:
      *
-     * - false
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -38,9 +42,11 @@ class supportedResourceTypes extends Model
     public $sourceResourcesSupported;
 
     /**
-     * @description Indicates whether the resource scope can be specified by resource. Valid values:
+     * @description Indicates whether the resource scope can be specified by source tag, resource group, or resource. Valid values:
      *
-     * - false
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -48,9 +54,11 @@ class supportedResourceTypes extends Model
     public $sourceSupported;
 
     /**
-     * @description Indicates whether the resource scope can be specified by tag. Valid values:
+     * @description Indicates whether the resource scope can be specified by source tag. Valid values:
      *
-     * - false
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -58,6 +66,8 @@ class supportedResourceTypes extends Model
     public $sourceTagSupported;
 
     /**
+     * @description The scenario types that are supported.
+     *
      * @var string[]
      */
     public $supportedTemplateScratchTypes;

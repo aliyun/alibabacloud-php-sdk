@@ -117,6 +117,8 @@ class GetStackResponseBody extends Model
     public $operationInfo;
 
     /**
+     * @description The ID of the order. This parameter is returned only if you set the ChargeType parameter to PrePaid.
+     *
      * @var string[]
      */
     public $orderIds;

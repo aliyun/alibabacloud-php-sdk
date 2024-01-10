@@ -38,7 +38,7 @@ class ListStacksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The stacks.
+     * @description Details of the stacks.
      *
      * @var stacks[]
      */

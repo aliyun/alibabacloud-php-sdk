@@ -37,7 +37,7 @@ class ListTemplateScratchesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of scenarios.
+     * @description The scenarios.
      *
      * @var templateScratches[]
      */

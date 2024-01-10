@@ -47,10 +47,11 @@ class UpdateTemplateScratchRequest extends Model
     /**
      * @description The policy based on which the logical ID is generated. Valid values:
      *
-     *   LongTypePrefixAndIndexSuffix (default): long-type prefix + index-type suffix
+     *   LongTypePrefixAndIndexSuffix: long-type prefix + index-type suffix
      *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
      *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
      *
+     * >  If you set TemplateScratchType to ArchitectureDetection, the default value of LogicalIdStrategy is LongTypePrefixAndHashSuffix. In other cases, the default value of LogicalIdStrategy is LongTypePrefixAndIndexSuffix.
      * @example LongTypePrefixAndIndexSuffix
      *
      * @var string
@@ -58,7 +59,7 @@ class UpdateTemplateScratchRequest extends Model
     public $logicalIdStrategy;
 
     /**
-     * @description The preference parameters of the scenario.
+     * @description The parameters that you want to configure for the scenario.
      *
      * @var preferenceParameters[]
      */
@@ -75,6 +76,10 @@ class UpdateTemplateScratchRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -89,6 +94,7 @@ class UpdateTemplateScratchRequest extends Model
     /**
      * @description The source resources.
      *
+     * If you set TemplateScratchType to ArchitectureDetection, you can specify up to 20 source resources for SourceResources. In other cases, you can specify up to 200 source resources.
      * @var sourceResources[]
      */
     public $sourceResources;

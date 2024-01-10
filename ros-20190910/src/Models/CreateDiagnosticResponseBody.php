@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDiagnosticResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example Forbidden
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDiagnosticResponseBody extends Model
     public $code;
 
     /**
+     * @description The type of the item that is diagnosed.
+     *
      * @example Stack
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateDiagnosticResponseBody extends Model
     public $diagnosticType;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -30,6 +36,8 @@ class CreateDiagnosticResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example You are not authorized to complete this action.
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateDiagnosticResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the diagnostic report.
+     *
      * @example dr-e94e39a1274d44b6****
      *
      * @var string
@@ -44,6 +54,8 @@ class CreateDiagnosticResponseBody extends Model
     public $reportId;
 
     /**
+     * @description The request ID.
+     *
      * @example 943B24D7-1A67-55A4-B045-818F90693D3A
      *
      * @var string
@@ -51,6 +63,11 @@ class CreateDiagnosticResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

@@ -64,6 +64,10 @@ class templateScratch extends Model
     public $preferenceParameters;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmzmhzoaad5oq
+     *
      * @var string
      */
     public $resourceGroupId;

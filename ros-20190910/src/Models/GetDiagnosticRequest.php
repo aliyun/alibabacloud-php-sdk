@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDiagnosticRequest extends Model
 {
     /**
+     * @description The ID of the diagnostic report.
+     *
      * @example dr-d540def087714890****
      *
      * @var string

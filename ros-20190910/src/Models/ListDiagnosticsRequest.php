@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnosticsRequest extends Model
 {
     /**
+     * @description The keyword in the diagnosis.
+     *
      * @example 2829A772-B154-5A0A-B61B-DEE8A9EE8A5D
      *
      * @var string
@@ -16,6 +18,8 @@ class ListDiagnosticsRequest extends Model
     public $diagnosticKey;
 
     /**
+     * @description The product that is diagnosed.
+     *
      * @example ros
      *
      * @var string
@@ -23,6 +27,9 @@ class ListDiagnosticsRequest extends Model
     public $diagnosticProduct;
 
     /**
+     * @description The maximum number of results to be returned in a single call when NextToken is used for the query.
+     *
+     * Default value: 50.
      * @example 50
      *
      * @var string
@@ -30,6 +37,8 @@ class ListDiagnosticsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example caeba0bbb2be03f84eb48b699f01****
      *
      * @var string
@@ -37,6 +46,8 @@ class ListDiagnosticsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The diagnosis status.
+     *
      * @example Complete
      *
      * @var string

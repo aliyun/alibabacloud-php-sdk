@@ -11,7 +11,7 @@ class sourceTag extends Model
     /**
      * @description The source tags that consist of key-value pairs.
      *
-     * You can add up to 10 source tags.
+     * If you set TemplateScratchType to ArchitectureDetection, you can add up to five source tags. In other cases, you can add up to 10 source tags.
      * @example {"a": "b"}
      *
      * @var mixed[]
@@ -19,7 +19,7 @@ class sourceTag extends Model
     public $resourceTags;
 
     /**
-     * @description The resource types.
+     * @description The filters for resource types.
      *
      * @var string[]
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTypeTemplateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 87F54B2B-AEF0-4C33-A72A-3F8856A575E9
      *
      * @var string

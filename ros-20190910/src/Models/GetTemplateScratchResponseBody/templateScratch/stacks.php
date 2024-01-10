@@ -18,7 +18,7 @@ class stacks extends Model
     public $regionId;
 
     /**
-     * @description The ID of the stack.
+     * @description The stack ID.
      *
      * @example 3708bf6a-3a67-44d4-9eb1-c56704b9****
      *

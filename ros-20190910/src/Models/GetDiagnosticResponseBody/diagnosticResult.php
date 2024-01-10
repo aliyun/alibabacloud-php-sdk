@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class diagnosticResult extends Model
 {
     /**
+     * @description The resources that failed to be diagnosed.
+     *
      * @var mixed[]
      */
     public $failedResources;
 
     /**
+     * @description The information about Resource Orchestration Service (ROS) calling.
+     *
      * @var mixed[]
      */
     public $rosActionMessages;
 
     /**
+     * @description The stack information.
+     *
      * @var mixed[]
      */
     public $stackMessages;

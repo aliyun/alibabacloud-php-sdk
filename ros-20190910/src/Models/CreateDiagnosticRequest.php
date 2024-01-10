@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDiagnosticRequest extends Model
 {
     /**
+     * @description The keyword in the diagnosis.
+     *
      * @example 37A5679B-8488-5A5D-8D5C-90E66A577A5D
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDiagnosticRequest extends Model
     public $diagnosticKey;
 
     /**
+     * @description The type of the item that is diagnosed. Set the value to Stack, which specifies that the stack is diagnosed.
+     *
      * @example Stack
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateDiagnosticRequest extends Model
     public $diagnosticType;
 
     /**
+     * @description The name of the product that is diagonosed.
+     *
      * @example ros
      *
      * @var string

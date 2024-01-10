@@ -111,6 +111,8 @@ class GetStackResourceResponseBody extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example efdf5c10-96a5-4fd7-ab89-68e7baa2****
      *
      * @var string
@@ -118,6 +120,8 @@ class GetStackResourceResponseBody extends Model
     public $stackId;
 
     /**
+     * @description The name of the stack.
+     *
      * @example test-describe-resource
      *
      * @var string

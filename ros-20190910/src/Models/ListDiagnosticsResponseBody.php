@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnosticsResponseBody extends Model
 {
     /**
+     * @description The items that are diagnosed.
+     *
      * @var diagnostics[]
      */
     public $diagnostics;
 
     /**
+     * @description The HTTP status code returned. The value 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -22,6 +26,8 @@ class ListDiagnosticsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example You are not authorized to complete this action.
      *
      * @var string
@@ -29,6 +35,8 @@ class ListDiagnosticsResponseBody extends Model
     public $message;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example caeba0bbb2be03f84eb48b699f01****
      *
      * @var string
@@ -36,6 +44,8 @@ class ListDiagnosticsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 1983D1C4-88EA-5D7D-90AB-467D01867A5D
      *
      * @var string
@@ -43,6 +53,11 @@ class ListDiagnosticsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

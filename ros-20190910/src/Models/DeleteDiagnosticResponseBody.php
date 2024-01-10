@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDiagnosticResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example Forbidden
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteDiagnosticResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +27,8 @@ class DeleteDiagnosticResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example You are not authorized to complete this action.
      *
      * @var string
@@ -30,6 +36,8 @@ class DeleteDiagnosticResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 91EF0DC1-3BB5-555E-AAA1-4F5C640D15DA
      *
      * @var string
@@ -37,6 +45,11 @@ class DeleteDiagnosticResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

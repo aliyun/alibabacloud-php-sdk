@@ -18,7 +18,7 @@ class sourceResourceGroup extends Model
     public $resourceGroupId;
 
     /**
-     * @description The resource types.
+     * @description The filters for resource types.
      *
      * @var string[]
      */

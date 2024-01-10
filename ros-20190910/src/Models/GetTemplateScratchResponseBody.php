@@ -19,7 +19,7 @@ class GetTemplateScratchResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The scenario.
+     * @description The resource scenario.
      *
      * @var templateScratch
      */
