@@ -30,6 +30,11 @@ class SubmitTracemuRequest extends Model
     public $output;
 
     /**
+     * @var string
+     */
+    public $params;
+
+    /**
      * @example 平头哥半导体科技有限公司
      *
      * @var string
@@ -39,6 +44,7 @@ class SubmitTracemuRequest extends Model
         'keyUri'  => 'KeyUri',
         'mediaId' => 'MediaId',
         'output'  => 'Output',
+        'params'  => 'Params',
         'trace'   => 'Trace',
     ];
 
@@ -57,6 +63,9 @@ class SubmitTracemuRequest extends Model
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->trace) {
             $res['Trace'] = $this->trace;
@@ -81,6 +90,9 @@ class SubmitTracemuRequest extends Model
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
+        }
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
         }
         if (isset($map['Trace'])) {
             $model->trace = $map['Trace'];

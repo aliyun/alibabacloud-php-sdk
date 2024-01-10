@@ -23,6 +23,11 @@ class SubmitTraceExtractRequest extends Model
     public $input;
 
     /**
+     * @var string
+     */
+    public $params;
+
+    /**
      * @example http://example.com/test.mp4
      *
      * @var string
@@ -38,6 +43,7 @@ class SubmitTraceExtractRequest extends Model
     protected $_name = [
         'callBack' => 'CallBack',
         'input'    => 'Input',
+        'params'   => 'Params',
         'url'      => 'Url',
         'userData' => 'UserData',
     ];
@@ -54,6 +60,9 @@ class SubmitTraceExtractRequest extends Model
         }
         if (null !== $this->input) {
             $res['Input'] = $this->input;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -78,6 +87,9 @@ class SubmitTraceExtractRequest extends Model
         }
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
+        }
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
