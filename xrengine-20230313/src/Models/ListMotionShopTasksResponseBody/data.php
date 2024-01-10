@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\XrEngine\V20230313\Models\ListMotionShopTasksResponseBody;
 
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\ListMotionShopTasksResponseBody\data\material;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\ListMotionShopTasksResponseBody\data\result;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
+    /**
+     * @var material
+     */
+    public $material;
+
     /**
      * @var result
      */
@@ -24,9 +30,10 @@ class data extends Model
      */
     public $taskId;
     protected $_name = [
-        'result' => 'Result',
-        'status' => 'Status',
-        'taskId' => 'TaskId',
+        'material' => 'Material',
+        'result'   => 'Result',
+        'status'   => 'Status',
+        'taskId'   => 'TaskId',
     ];
 
     public function validate()
@@ -36,6 +43,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->material) {
+            $res['Material'] = null !== $this->material ? $this->material->toMap() : null;
+        }
         if (null !== $this->result) {
             $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
@@ -57,6 +67,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Material'])) {
+            $model->material = material::fromMap($map['Material']);
+        }
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
         }
