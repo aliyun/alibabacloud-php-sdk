@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\operationPolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest\systemEventsLogging;
 use AlibabaCloud\Tea\Model;
 
@@ -115,6 +116,11 @@ class ModifyClusterRequest extends Model
     public $maintenanceWindow;
 
     /**
+     * @var operationPolicy
+     */
+    public $operationPolicy;
+
+    /**
      * @description The ID of the resource group to which the cluster belongs.
      *
      * @example rg-acfmyvw3wjm****
@@ -140,6 +146,7 @@ class ModifyClusterRequest extends Model
         'ingressLoadbalancerId'      => 'ingress_loadbalancer_id',
         'instanceDeletionProtection' => 'instance_deletion_protection',
         'maintenanceWindow'          => 'maintenance_window',
+        'operationPolicy'            => 'operation_policy',
         'resourceGroupId'            => 'resource_group_id',
         'systemEventsLogging'        => 'system_events_logging',
     ];
@@ -180,6 +187,9 @@ class ModifyClusterRequest extends Model
         }
         if (null !== $this->maintenanceWindow) {
             $res['maintenance_window'] = null !== $this->maintenanceWindow ? $this->maintenanceWindow->toMap() : null;
+        }
+        if (null !== $this->operationPolicy) {
+            $res['operation_policy'] = null !== $this->operationPolicy ? $this->operationPolicy->toMap() : null;
         }
         if (null !== $this->resourceGroupId) {
             $res['resource_group_id'] = $this->resourceGroupId;
@@ -230,6 +240,9 @@ class ModifyClusterRequest extends Model
         }
         if (isset($map['maintenance_window'])) {
             $model->maintenanceWindow = MaintenanceWindow::fromMap($map['maintenance_window']);
+        }
+        if (isset($map['operation_policy'])) {
+            $model->operationPolicy = operationPolicy::fromMap($map['operation_policy']);
         }
         if (isset($map['resource_group_id'])) {
             $model->resourceGroupId = $map['resource_group_id'];

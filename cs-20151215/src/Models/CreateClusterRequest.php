@@ -109,7 +109,7 @@ class CreateClusterRequest extends Model
      *   `ack.pro.small`: ACK Pro cluster.
      *   `ack.standard`: ACK Basic cluster.
      *
-     * For more information, see [Overview of ACK Pro clusters](https://help.aliyun.com/document_detail/173290.html).
+     * For more information, see [Overview of ACK Pro clusters](~~173290~~).
      * @example ack.pro.small
      *
      * @var string
@@ -117,13 +117,8 @@ class CreateClusterRequest extends Model
     public $clusterSpec;
 
     /**
-     * @description The cluster type. Valid values:
-     *
-     *   `Kubernetes`: ACK dedicated cluster.
-     *   `ManagedKubernetes`: ACK Basic cluster or ACK Edge cluster.
-     *   `Ask`: ACK Serverless Basic cluster.
-     *   `ExternalKubernetes`: external cluster that is registered to ACK.
-     *
+     * @description The cluster type. Valid value: ManagedKubernetes.
+     * You can create ACK managed clusters, ACK Serverless clusters, and ACK Edge clusters.
      * @example Kubernetes
      *
      * @var string
@@ -303,8 +298,8 @@ class CreateClusterRequest extends Model
     /**
      * @description The cluster IP stack.
      *
-     * @example 可选值：ipv4(单栈)/dual(双栈) ，默认值为IPv4。
-     *
+     * @example Optional value：IPv4 (Single stack) or IPv6 (Dual Stack)
+     * Default value: IPV4
      * @var string
      */
     public $ipStack;

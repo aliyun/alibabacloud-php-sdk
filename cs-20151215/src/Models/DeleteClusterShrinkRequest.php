@@ -17,6 +17,8 @@ class DeleteClusterShrinkRequest extends Model
      * Default value: `false`.
      * @example false
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $keepSlb;

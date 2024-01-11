@@ -13,7 +13,6 @@ class OpenAckServiceRequest extends Model
      *
      *   `propayasgo`: ACK Pro
      *   `edgepayasgo`: ACK Edge
-     *   `gspayasgo`: ACK for Alibaba Cloud Genomics Service (AGS)
      *
      * @example propayasgo
      *

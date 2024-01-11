@@ -4782,6 +4782,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->maintenanceWindow)) {
             $body['maintenance_window'] = $request->maintenanceWindow;
         }
+        if (!Utils::isUnset($request->operationPolicy)) {
+            $body['operation_policy'] = $request->operationPolicy;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $body['resource_group_id'] = $request->resourceGroupId;
         }
