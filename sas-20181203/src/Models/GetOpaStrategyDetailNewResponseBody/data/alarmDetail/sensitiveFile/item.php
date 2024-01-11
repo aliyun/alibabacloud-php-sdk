@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The ID of the sensitive files.
+     *
+     * >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+     * @example key
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the sensitive files.
+     *
+     * >  You can call the [GetSensitiveDefineRuleConfig](~~4576877~~) operation to query the ID of the malicious sample.
+     * @example name
+     *
      * @var string
      */
     public $name;

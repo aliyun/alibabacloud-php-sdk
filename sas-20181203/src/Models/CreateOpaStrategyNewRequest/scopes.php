@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class scopes extends Model
 {
     /**
-     * @description The rule instance ID in the cluster.
+     * @description The ID of the cluster node to which the rule is applied.
      *
-     * > This parameter is invalid when you create a rule.
+     * > This parameter is not required when you create the instance.
      * @example ack-p-1
      *
      * @var string
@@ -21,8 +21,8 @@ class scopes extends Model
     /**
      * @description Specifies whether to include all namespaces. Valid values:
      *
-     *   **1**: yes
-     *   **0**: no
+     *   **1**: includes all namespaces.
+     *   **0**: does not include all namespaces.
      *
      * @example 1
      *
@@ -31,9 +31,9 @@ class scopes extends Model
     public $allNamespace;
 
     /**
-     * @description The ID of the cluster in the rule.
+     * @description The ID of the cluster that is specified in the rule.
      *
-     * >  You can call the [DescribeGroupedContainerInstances](~~421736~~) operation to query the IDs of clusters.
+     * >  You can call the [DescribeGroupedContainerInstances](~~421736~~) operation to query the cluster ID.
      * @example cc50d***015d2
      *
      * @var string
@@ -43,7 +43,7 @@ class scopes extends Model
     /**
      * @description The namespaces.
      *
-     * > This parameter is valid only when AllNamespace is set to 0.
+     * > This parameter is valid only when the AllNamespace parameter is set to 0.
      * @var string[]
      */
     public $namespaceList;

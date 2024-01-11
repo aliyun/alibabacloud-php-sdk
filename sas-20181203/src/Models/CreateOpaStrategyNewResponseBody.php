@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateOpaStrategyNewResponseBody extends Model
 {
     /**
-     * @description The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class CreateOpaStrategyNewResponseBody extends Model
     public $code;
 
     /**
-     * @description The IDs of the clusters for which the rule fails to be created.
+     * @description The IDs of the clusters that failed to be saved.
      *
      * @var string[]
      */

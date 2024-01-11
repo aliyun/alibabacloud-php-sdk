@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class riskClass extends Model
 {
     /**
+     * @description The ID of the vulnerability types. Valid values:
+     *
+     *   **cve**: system vulnerability
+     *   **app**: application vulnerability
+     *
+     * @example cve
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the vulnerability. Valid values:
+     *
+     *   **system vulnerability**
+     *   **application vulnerability**
+     *
+     * @example system vulnerability
+     *
      * @var string
      */
     public $name;

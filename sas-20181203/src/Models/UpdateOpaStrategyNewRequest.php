@@ -11,16 +11,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateOpaStrategyNewRequest extends Model
 {
     /**
-     * @description The risks that you want to detect by using the rule on images.
+     * @description The rule configuration.
      *
      * @var alarmDetail
      */
     public $alarmDetail;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
-     * > This parameter is deprecated. We recommend that you use the Scopes parameter to specify the clusters in which the rule takes effect.
+     * > This parameter is deprecated. You can use the Scopes parameter to specify a scope in which cluster parameters take effect.
      * @example c870ec78ecbcb41d2a35c679823ef****
      *
      * @var string
@@ -28,7 +28,7 @@ class UpdateOpaStrategyNewRequest extends Model
     public $clusterId;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
      * > This parameter is deprecated.
      * @example docker-law
@@ -38,7 +38,7 @@ class UpdateOpaStrategyNewRequest extends Model
     public $clusterName;
 
     /**
-     * @description The description of the rule.
+     * @description The rule description.
      *
      * @example 4566
      *
@@ -47,14 +47,14 @@ class UpdateOpaStrategyNewRequest extends Model
     public $description;
 
     /**
-     * @description The names of the images in the rule.
+     * @description The image names.
      *
      * @var string[]
      */
     public $imageName;
 
     /**
-     * @description The tags that are added to the images in the rule.
+     * @description The image tags.
      *
      * @var string[]
      */
@@ -75,7 +75,7 @@ class UpdateOpaStrategyNewRequest extends Model
     /**
      * @description The action that is performed when the rule is hit. Valid values:
      *
-     *   **1**: trigger alerts
+     *   **1**: alert
      *   **2**: block
      *   **3**: allow
      *
@@ -86,16 +86,16 @@ class UpdateOpaStrategyNewRequest extends Model
     public $ruleAction;
 
     /**
-     * @description The effective scope of the rule.
+     * @description The application scope.
      *
      * @var scopes[]
      */
     public $scopes;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
-     * >  You can call the \[ListOpaClusterStrategyNew]\(~~2623574~~) operation to query the IDs of rules.
+     * >  You can call the [ListOpaClusterStrategyNew](~~2623574~~) operation to query the rule ID.
      * @example 1003
      *
      * @var int
@@ -103,7 +103,7 @@ class UpdateOpaStrategyNewRequest extends Model
     public $strategyId;
 
     /**
-     * @description The name of the rule.
+     * @description The rule name.
      *
      * @example test
      *
@@ -114,7 +114,7 @@ class UpdateOpaStrategyNewRequest extends Model
     /**
      * @description The ID of the rule template.
      *
-     * >  You can call the [GetOpaStrategyTemplateSummary](~~2539952~~) operation to query the IDs of rule templates.
+     * >  You can call the [GetOpaStrategyTemplateSummary](~~2539952~~) operation to query the ID of the rule template.
      * @example 109
      *
      * @var int
@@ -134,7 +134,7 @@ class UpdateOpaStrategyNewRequest extends Model
     public $unScanedImage;
 
     /**
-     * @description The whitelist.
+     * @description The whitelists.
      *
      * @var string[]
      */

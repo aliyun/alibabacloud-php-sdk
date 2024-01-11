@@ -9,61 +9,109 @@ use AlibabaCloud\Tea\Model;
 class standardStatistic extends Model
 {
     /**
+     * @description The number of unchecked check items.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $notCheckCount;
 
     /**
+     * @description The number of unchecked high-risk check items.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $notCheckHighCount;
 
     /**
+     * @description The number of unchecked low-risk check items.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $notCheckLowCount;
 
     /**
+     * @description The number of unchecked medium-risk check items.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $notCheckMediumCount;
 
     /**
+     * @description The number of check items that failed to pass the check.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $notPassCount;
 
     /**
+     * @description The number of high-risk check items that failed to pass the check.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $notPassHighCount;
 
     /**
+     * @description The number of low-risk check items that failed to pass the check.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $notPassLowCount;
 
     /**
+     * @description The number of medium-risk check items that failed to pass the check.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $notPassMediumCount;
 
     /**
+     * @description The number of check items that passed the check.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $passCount;
 
     /**
+     * @description The number off high-risk check items that passed the check.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $passHighCount;
 
     /**
+     * @description The number off low-risk check items that passed the check.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $passLowCount;
 
     /**
+     * @description The number off medium-risk check items that passed the check.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $passMediumCount;

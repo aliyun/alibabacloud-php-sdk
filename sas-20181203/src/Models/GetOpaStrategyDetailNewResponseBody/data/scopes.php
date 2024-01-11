@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class scopes extends Model
 {
     /**
-     * @description The ID of the rule in the cluster.
+     * @description The ID of the cluster node to which the rule is applied.
      *
      * @example ack-0
      *
@@ -18,7 +18,7 @@ class scopes extends Model
     public $ackPolicyInstanceId;
 
     /**
-     * @description Specifies whether all namespaces are included. Valid values:
+     * @description Indicates whether all namespaces are included. Valid values:
      *
      *   **1**: All namespaces are included.
      *   **0**: Not all namespaces are included.

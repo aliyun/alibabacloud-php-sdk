@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class GetCheckSummaryResponseBody extends Model
 {
     /**
+     * @description overall risk statistics of check items.
+     *
      * @var overallStatistic
      */
     public $overallStatistic;

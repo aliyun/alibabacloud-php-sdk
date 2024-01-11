@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackUpExportInfoRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The number of the page to return. Default value: 1.
      *
      * @example 1
      *
@@ -41,7 +41,7 @@ class DescribeBackUpExportInfoRequest extends Model
     public $lang;
 
     /**
-     * @description The number of entries to return on each page. Default value: 20.
+     * @description The number of entries to return on each page. Default value: 1.
      *
      * @example 20
      *

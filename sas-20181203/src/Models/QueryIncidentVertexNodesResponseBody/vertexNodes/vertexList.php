@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class vertexList extends Model
 {
     /**
-     * @description AliUid
+     * @description The ID of the Alibaba Cloud account to which the node belongs.
      *
      * @example 20973951
      *
@@ -20,11 +20,15 @@ class vertexList extends Model
     public $aliuid;
 
     /**
+     * @description The display information about the node.
+     *
      * @var displayInfo[]
      */
     public $displayInfo;
 
     /**
+     * @description The node ID.
+     *
      * @example 225
      *
      * @var string
@@ -32,6 +36,11 @@ class vertexList extends Model
     public $id;
 
     /**
+     * @description The display language of the neighboring node. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -39,6 +48,8 @@ class vertexList extends Model
     public $lang;
 
     /**
+     * @description The node name.
+     *
      * @example zabbix
      *
      * @var string
@@ -46,11 +57,15 @@ class vertexList extends Model
     public $name;
 
     /**
+     * @description The neighboring nodes of the node.
+     *
      * @var neighborList[]
      */
     public $neighborList;
 
     /**
+     * @description The node properties. The value is in the text format.
+     *
      * @example {\"bandWidth\":\"5120\",\"internetIp\":\"47.242.191.206\",\"changeReason\":\"EIP_BIND\",\"bindInstanceId\":\"eci-j6ci7lvci50rore7dkv8\",\"bindType\":\"EIP_ECS\"}
      *
      * @var string
@@ -58,11 +73,15 @@ class vertexList extends Model
     public $properties;
 
     /**
+     * @description The node property.
+     *
      * @var mixed[]
      */
     public $property;
 
     /**
+     * @description The ID of the rule for which the node was created.
+     *
      * @example 171
      *
      * @var string
@@ -70,6 +89,8 @@ class vertexList extends Model
     public $ruleId;
 
     /**
+     * @description The time when the node was created.
+     *
      * @example 1636081135
      *
      * @var string
@@ -77,6 +98,8 @@ class vertexList extends Model
     public $time;
 
     /**
+     * @description The UNIX timestamp when the node was created. Unit: milliseconds.
+     *
      * @example 1645179073
      *
      * @var int
@@ -84,6 +107,14 @@ class vertexList extends Model
     public $timestamp;
 
     /**
+     * @description The node type. Valid values include but are not limited to:
+     *
+     *   **process**
+     *   **file**
+     *   **alert**
+     *   **ip**
+     *   **domain**
+     *
      * @example sys
      *
      * @var string
@@ -91,6 +122,8 @@ class vertexList extends Model
     public $type;
 
     /**
+     * @description The time when the node was updated.
+     *
      * @example 2021-12-16T07:20:33.000Z
      *
      * @var string
@@ -98,7 +131,7 @@ class vertexList extends Model
     public $updateTime;
 
     /**
-     * @description UUID
+     * @description The node UUID.
      *
      * @example 02ca8614-ecdb-44d3-b3d0-158655080e4f
      *

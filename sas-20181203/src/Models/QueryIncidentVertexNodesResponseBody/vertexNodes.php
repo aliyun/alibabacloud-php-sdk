@@ -13,16 +13,25 @@ use AlibabaCloud\Tea\Model;
 class vertexNodes extends Model
 {
     /**
+     * @description The edges that are returned.
+     *
      * @var edgeList[]
      */
     public $edgeList;
 
     /**
+     * @description The entities that are returned.
+     *
      * @var entityTypeList[]
      */
     public $entityTypeList;
 
     /**
+     * @description The language of the content within the request. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,11 +39,15 @@ class vertexNodes extends Model
     public $lang;
 
     /**
+     * @description The relationships that are returned.
+     *
      * @var relationTypeList[]
      */
     public $relationTypeList;
 
     /**
+     * @description The detailed information about the node.
+     *
      * @var vertexList[]
      */
     public $vertexList;

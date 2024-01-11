@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryIncidentVertexExtendInfoResponseBody extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var string
@@ -17,6 +19,8 @@ class QueryIncidentVertexExtendInfoResponseBody extends Model
     public $count;
 
     /**
+     * @description The request ID.
+     *
      * @example 0BCDBBF1-0048-535A-8529-67EA0CD1A807
      *
      * @var string
@@ -24,6 +28,11 @@ class QueryIncidentVertexExtendInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example True
      *
      * @var bool
@@ -31,6 +40,8 @@ class QueryIncidentVertexExtendInfoResponseBody extends Model
     public $success;
 
     /**
+     * @description The returned extended information about the node.
+     *
      * @var vertexExtendInfo[]
      */
     public $vertexExtendInfo;

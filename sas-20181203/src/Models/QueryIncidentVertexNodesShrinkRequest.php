@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryIncidentVertexNodesShrinkRequest extends Model
 {
     /**
+     * @description The types of the edges that you want to query.
+     *
      * @var string
      */
     public $edgeLabelListShrink;
 
     /**
+     * @description The page number. Valid values start from 1.
+     *
      * @example 0
      *
      * @var int
@@ -21,6 +25,8 @@ class QueryIncidentVertexNodesShrinkRequest extends Model
     public $offset;
 
     /**
+     * @description The number of entries per page. Valid values start from 1.
+     *
      * @example 10
      *
      * @var int
@@ -28,6 +34,9 @@ class QueryIncidentVertexNodesShrinkRequest extends Model
     public $size;
 
     /**
+     * @description The ID of the node that you want to query.
+     *
+     * >  You can call the [QueryIncidentTracingDetail](~~QueryIncidentTracingDetail~~) operation to query the node ID.
      * @example d6d7738a34cc252219866d223c0093f8
      *
      * @var string
@@ -35,6 +44,14 @@ class QueryIncidentVertexNodesShrinkRequest extends Model
     public $vertexId;
 
     /**
+     * @description The node label. Valid values include but are not limited to:
+     *
+     *   **process**
+     *   **file**
+     *   **alert**
+     *   **ip**
+     *   **domain**
+     *
      * @example process
      *
      * @var string

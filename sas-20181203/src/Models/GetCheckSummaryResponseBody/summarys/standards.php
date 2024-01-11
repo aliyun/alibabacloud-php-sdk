@@ -73,6 +73,8 @@ class standards extends Model
     public $showName;
 
     /**
+     * @description Risk statistics of check items within the same standard.
+     *
      * @var standardStatistic
      */
     public $standardStatistic;

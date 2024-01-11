@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class displayInfo extends Model
 {
     /**
+     * @description The display name of the property.
+     *
      * @example zabbix
      *
      * @var string
@@ -16,6 +18,8 @@ class displayInfo extends Model
     public $name;
 
     /**
+     * @description The display value of the property.
+     *
      * @example cs-nacos
      *
      * @var string

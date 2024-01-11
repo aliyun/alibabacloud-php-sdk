@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The ID of the image build risk.
+     *
+     * >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+     * @example key
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the image build risk.
+     *
+     * >  You can call the [ListImageBuildRiskItem](~~ListImageBuildRiskItem~~) operation to query the ID of the malicious sample.
+     * @example name
+     *
      * @var string
      */
     public $name;

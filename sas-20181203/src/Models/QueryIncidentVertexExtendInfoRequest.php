@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryIncidentVertexExtendInfoRequest extends Model
 {
     /**
+     * @description The page number. Valid values start from 1.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,12 @@ class QueryIncidentVertexExtendInfoRequest extends Model
     public $offset;
 
     /**
+     * @description The type of the edge that you want to query. Valid values include but are not limited to:
+     *
+     *   **process_exec_file:** A process executes a file.
+     *   **process_connect_ip:** A process connects to an IP address.
+     *   **domain_trgger_alert:** A domain name triggers an alert.
+     *
      * @example process_connect_ip
      *
      * @var string
@@ -23,6 +31,8 @@ class QueryIncidentVertexExtendInfoRequest extends Model
     public $relationType;
 
     /**
+     * @description The number of entries per page. Valid values start from 1.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +40,9 @@ class QueryIncidentVertexExtendInfoRequest extends Model
     public $size;
 
     /**
+     * @description The ID of the node that you want to query.
+     *
+     * >  You can call the [QueryIncidentTracingDetail](~~QueryIncidentTracingDetail~~) operation to query the node ID.
      * @example 29872354f741b1b044b8a9b4e2ab0535
      *
      * @var string
@@ -37,6 +50,14 @@ class QueryIncidentVertexExtendInfoRequest extends Model
     public $vertexId;
 
     /**
+     * @description The node label. Valid values include but are not limited to:
+     *
+     *   **process**
+     *   **file**
+     *   **alert**
+     *   **ip**
+     *   **domain**
+     *
      * @example process
      *
      * @var string

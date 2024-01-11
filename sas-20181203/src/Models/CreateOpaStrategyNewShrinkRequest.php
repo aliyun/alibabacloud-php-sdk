@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class CreateOpaStrategyNewShrinkRequest extends Model
 {
     /**
-     * @description The risks that you want to detect by using the rule.
+     * @description The rule configuration.
      *
      * @var string
      */
     public $alarmDetailShrink;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * > This parameter is deprecated.
      * @example cfa7e2fb8c221483ba59e098c34c6****
@@ -27,7 +27,7 @@ class CreateOpaStrategyNewShrinkRequest extends Model
     public $clusterId;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
      * > This parameter is deprecated.
      * @example *
@@ -37,7 +37,7 @@ class CreateOpaStrategyNewShrinkRequest extends Model
     public $clusterName;
 
     /**
-     * @description The description of the rule.
+     * @description The rule description.
      *
      * @example default policy
      *
@@ -46,14 +46,14 @@ class CreateOpaStrategyNewShrinkRequest extends Model
     public $description;
 
     /**
-     * @description The names of the images.
+     * @description The image names.
      *
      * @var string[]
      */
     public $imageName;
 
     /**
-     * @description The tags that are added to the containers.
+     * @description The container tags.
      *
      * @var string[]
      */
@@ -85,14 +85,14 @@ class CreateOpaStrategyNewShrinkRequest extends Model
     public $ruleAction;
 
     /**
-     * @description The effective scope of the rule.
+     * @description The application scope of the rule.
      *
      * @var scopes[]
      */
     public $scopes;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
      * > This parameter is invalid when you create a rule.
      * @example 16
@@ -102,7 +102,7 @@ class CreateOpaStrategyNewShrinkRequest extends Model
     public $strategyId;
 
     /**
-     * @description The name of the rule.
+     * @description The rule name.
      *
      * @example default
      *
@@ -113,7 +113,7 @@ class CreateOpaStrategyNewShrinkRequest extends Model
     /**
      * @description The ID of the rule template.
      *
-     * >  You can call the [GetOpaStrategyTemplateSummary](~~2539952~~) operation to query the IDs of rule templates.
+     * >  You can call the [GetOpaStrategyTemplateSummary](~~2539952~~) operation to query the ID of the rule template.
      * @example 109
      *
      * @var int

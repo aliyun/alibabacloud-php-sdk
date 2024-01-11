@@ -28172,6 +28172,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         if (!Utils::isUnset($request->operateTaskId)) {
             $query['OperateTaskId'] = $request->operateTaskId;
         }

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class displayInfo extends Model
 {
     /**
+     * @description The display name of the property.
+     *
+     * @example IDA
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The display value of the property.
+     *
      * @example app:nxueo
      *
      * @var string

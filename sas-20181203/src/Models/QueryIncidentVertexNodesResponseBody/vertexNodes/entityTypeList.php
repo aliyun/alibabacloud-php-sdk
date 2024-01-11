@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class entityTypeList extends Model
 {
     /**
+     * @description The version of the entity.
+     *
      * @example 993
      *
      * @var string
@@ -16,6 +18,8 @@ class entityTypeList extends Model
     public $currentVersionId;
 
     /**
+     * @description The display color of the entity.
+     *
      * @example red
      *
      * @var string
@@ -23,6 +27,8 @@ class entityTypeList extends Model
     public $displayColor;
 
     /**
+     * @description The display icon of the entity.
+     *
      * @example http://img.22222.com
      *
      * @var string
@@ -30,6 +36,8 @@ class entityTypeList extends Model
     public $displayIcon;
 
     /**
+     * @description The display order of the entity.
+     *
      * @example 01
      *
      * @var int
@@ -37,6 +45,8 @@ class entityTypeList extends Model
     public $displayOrder;
 
     /**
+     * @description The display template of the entity.
+     *
      * @example template1
      *
      * @var string
@@ -44,6 +54,8 @@ class entityTypeList extends Model
     public $displayTemplate;
 
     /**
+     * @description The time when the entity was created.
+     *
      * @example 2022-09-23T10:50Z
      *
      * @var string
@@ -51,6 +63,8 @@ class entityTypeList extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the entity was updated.
+     *
      * @example 1623317089000
      *
      * @var string
@@ -58,7 +72,7 @@ class entityTypeList extends Model
     public $gmtModified;
 
     /**
-     * @description ID
+     * @description The ID of the entity.
      *
      * @example 33926
      *
@@ -67,6 +81,8 @@ class entityTypeList extends Model
     public $id;
 
     /**
+     * @description Indicates whether the entity is a virtual node.
+     *
      * @example true
      *
      * @var int
@@ -74,6 +90,8 @@ class entityTypeList extends Model
     public $isVirtualNode;
 
     /**
+     * @description The name of the entity.
+     *
      * @example auto-test-policy-name
      *
      * @var string
@@ -81,6 +99,8 @@ class entityTypeList extends Model
     public $name;
 
     /**
+     * @description The namespace of the entity.
+     *
      * @example 78
      *
      * @var string
@@ -88,7 +108,7 @@ class entityTypeList extends Model
     public $namespace;
 
     /**
-     * @description SyncId
+     * @description The synchronization ID of the entity.
      *
      * @example 3212024a-1816-46d5-b286-e5d5780fd778
      *
@@ -97,6 +117,11 @@ class entityTypeList extends Model
     public $syncId;
 
     /**
+     * @description Indicates whether the entity is traced. Valid values:
+     *
+     *   **1**: The entity is traced.
+     *   **0**: The entity fails to be traced.
+     *
      * @example true
      *
      * @var int

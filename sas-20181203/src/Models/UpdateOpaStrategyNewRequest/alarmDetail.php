@@ -14,31 +14,35 @@ use AlibabaCloud\Tea\Model;
 class alarmDetail extends Model
 {
     /**
-     * @description The baseline risks.
+     * @description The baseline check configuration.
      *
      * @var baseline
      */
     public $baseline;
 
     /**
+     * @description The configuration of image build risk.
+     *
      * @var buildRisk
      */
     public $buildRisk;
 
     /**
-     * @description The malicious sample risks.
+     * @description The configuration of malicious samples.
      *
      * @var maliciousFile
      */
     public $maliciousFile;
 
     /**
+     * @description The configuration of sensitive file.
+     *
      * @var sensitiveFile
      */
     public $sensitiveFile;
 
     /**
-     * @description The vulnerability risks.
+     * @description The vulnerability configuration.
      *
      * @var vul
      */

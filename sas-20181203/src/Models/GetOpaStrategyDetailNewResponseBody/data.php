@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The rule configuration information.
+     * @description The rule configuration.
      *
      * @var alarmDetail
      */
@@ -45,7 +45,7 @@ class data extends Model
     public $currentPage;
 
     /**
-     * @description The rule description.
+     * @description The description.
      *
      * @example Custom defense configuration
      *
@@ -80,7 +80,7 @@ class data extends Model
     public $lang;
 
     /**
-     * @description Indicates whether the rule applies to malicious Internet images. Valid values:
+     * @description Indicates whether the rule supports malicious Internet images. Valid values:
      *
      *   **true**
      *   **false**
@@ -114,7 +114,7 @@ class data extends Model
     public $ruleAction;
 
     /**
-     * @description The scope.
+     * @description The application scope.
      *
      * @var scopes[]
      */
@@ -148,7 +148,7 @@ class data extends Model
     public $strategyTemplateId;
 
     /**
-     * @description Indicates whether the rule applies to unscanned images. Valid values:
+     * @description Indicates whether the rule supports unscanned images. Valid values:
      *
      *   **true**
      *   **false**

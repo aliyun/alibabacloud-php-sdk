@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class vertexExtendInfo extends Model
 {
     /**
-     * @description AliUid
+     * @description The ID of the Alibaba Cloud account.
      *
      * @example 1168908270980461
      *
@@ -21,11 +21,15 @@ class vertexExtendInfo extends Model
     public $aliuid;
 
     /**
+     * @description The display information.
+     *
      * @var displayInfo[]
      */
     public $displayInfo;
 
     /**
+     * @description The node ID.
+     *
      * @example 1377
      *
      * @var string
@@ -33,6 +37,11 @@ class vertexExtendInfo extends Model
     public $id;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -40,6 +49,8 @@ class vertexExtendInfo extends Model
     public $lang;
 
     /**
+     * @description The node name.
+     *
      * @example oval:com.redhat.rhsa:def:20193878
      *
      * @var string
@@ -47,11 +58,15 @@ class vertexExtendInfo extends Model
     public $name;
 
     /**
+     * @description The neighboring nodes.
+     *
      * @var neighborList[]
      */
     public $neighborList;
 
     /**
+     * @description The node properties. The value is in the text format.
+     *
      * @example DIRECTORY
      *
      * @var string
@@ -59,11 +74,15 @@ class vertexExtendInfo extends Model
     public $properties;
 
     /**
+     * @description The node property.
+     *
      * @var property
      */
     public $property;
 
     /**
+     * @description The ID of the rule for which the node was created.
+     *
      * @example 400035
      *
      * @var string
@@ -71,6 +90,8 @@ class vertexExtendInfo extends Model
     public $ruleId;
 
     /**
+     * @description The time when the node was created.
+     *
      * @example 2021-11-06 11:00:00
      *
      * @var string
@@ -78,6 +99,8 @@ class vertexExtendInfo extends Model
     public $time;
 
     /**
+     * @description The UNIX timestamp when the node was created. Unit: milliseconds.
+     *
      * @example 1645168444
      *
      * @var int
@@ -85,6 +108,14 @@ class vertexExtendInfo extends Model
     public $timestamp;
 
     /**
+     * @description The node type. Valid values include but are not limited to:
+     *
+     *   **process**
+     *   **file**
+     *   **alert**
+     *   **ip**
+     *   **domain**
+     *
      * @example cve
      *
      * @var string
@@ -92,7 +123,7 @@ class vertexExtendInfo extends Model
     public $type;
 
     /**
-     * @description UUID
+     * @description The node UUID.
      *
      * @example 678e29f4-d78f-4a7c-a2bc-38434a138538
      *

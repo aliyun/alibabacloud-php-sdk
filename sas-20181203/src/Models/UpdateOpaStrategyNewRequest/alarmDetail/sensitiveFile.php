@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class sensitiveFile extends Model
 {
     /**
+     * @description The configuration of sensitive file.
+     *
      * @var item[]
      */
     public $item;
 
     /**
+     * @description The risk levels.
+     *
      * @var string[]
      */
     public $riskLevel;

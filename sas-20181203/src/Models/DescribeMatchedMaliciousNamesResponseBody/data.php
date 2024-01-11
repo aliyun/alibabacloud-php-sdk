@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The display name of the malicious file type.
+     * @description 恶意样本类型显示名称。
      *
      * @example displayname
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $displayName;
 
     /**
-     * @description The key of the malicious file type.
+     * @description 恶意样本类型Key。
      *
      * @example key
      *

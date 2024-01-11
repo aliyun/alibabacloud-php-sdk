@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class neighborList extends Model
 {
     /**
+     * @description The number of neighboring nodes.
+     *
      * @example 27
      *
      * @var int
@@ -16,6 +18,11 @@ class neighborList extends Model
     public $count;
 
     /**
+     * @description Indicates whether more neighboring nodes exist. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example False
      *
      * @var bool
@@ -23,6 +30,14 @@ class neighborList extends Model
     public $hasMore;
 
     /**
+     * @description The type of the neighboring node. Valid values include but are not limited to:
+     *
+     *   **process**
+     *   **file**
+     *   **alert**
+     *   **ip**
+     *   **domain**
+     *
      * @example elf
      *
      * @var string

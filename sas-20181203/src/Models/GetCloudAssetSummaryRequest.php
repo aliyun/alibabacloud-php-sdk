@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCloudAssetSummaryRequest extends Model
 {
     /**
+     * @description The asset type by service provider.
+     *
      * @var int[]
      */
     public $vendors;

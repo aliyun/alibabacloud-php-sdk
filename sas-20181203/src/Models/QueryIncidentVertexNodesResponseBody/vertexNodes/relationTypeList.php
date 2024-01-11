@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class relationTypeList extends Model
 {
     /**
+     * @description The version of the relationship.
+     *
      * @example 1487
      *
      * @var string
@@ -16,7 +18,7 @@ class relationTypeList extends Model
     public $currentVersionId;
 
     /**
-     * @description ICON
+     * @description The display icon of the relationship.
      *
      * @example http://img.33.com
      *
@@ -25,6 +27,11 @@ class relationTypeList extends Model
     public $DIsplayIcon;
 
     /**
+     * @description The direction of the relationship. Valid values:
+     *
+     *   **1**: forward
+     *   **0**: reverse
+     *
      * @example in
      *
      * @var int
@@ -32,6 +39,8 @@ class relationTypeList extends Model
     public $directed;
 
     /**
+     * @description The display color of the relationship.
+     *
      * @example red
      *
      * @var string
@@ -39,6 +48,8 @@ class relationTypeList extends Model
     public $displayColor;
 
     /**
+     * @description The display template of the relationship.
+     *
      * @example template1
      *
      * @var string
@@ -46,6 +57,8 @@ class relationTypeList extends Model
     public $displayTemplate;
 
     /**
+     * @description The time when the relationship was created.
+     *
      * @example 2022-08-02T10:20Z
      *
      * @var string
@@ -53,6 +66,8 @@ class relationTypeList extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the relationship was updated.
+     *
      * @example 1637556498000
      *
      * @var string
@@ -60,6 +75,8 @@ class relationTypeList extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the relationship.
+     *
      * @example 9350
      *
      * @var string
@@ -67,6 +84,8 @@ class relationTypeList extends Model
     public $id;
 
     /**
+     * @description The name of the relationship.
+     *
      * @example mongod
      *
      * @var string
@@ -74,6 +93,8 @@ class relationTypeList extends Model
     public $name;
 
     /**
+     * @description The namespace of the relationship.
+     *
      * @example default
      *
      * @var string
@@ -81,6 +102,8 @@ class relationTypeList extends Model
     public $namespace;
 
     /**
+     * @description The display type of the relationship.
+     *
      * @example type1
      *
      * @var string
@@ -88,7 +111,7 @@ class relationTypeList extends Model
     public $showType;
 
     /**
-     * @description SyncId
+     * @description The synchronization ID of the relationship.
      *
      * @example a45185c7-b1b8-4a49-b04a-d6bfa051ef0e
      *

@@ -30,6 +30,8 @@ class GetCheckSummaryRequest extends Model
     public $resourceDirectoryAccountId;
 
     /**
+     * @description The service provider (SP) of the cloud asset.
+     *
      * @var string[]
      */
     public $vendors;

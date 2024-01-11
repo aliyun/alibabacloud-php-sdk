@@ -9,121 +9,222 @@ use AlibabaCloud\Tea\Model;
 class property extends Model
 {
     /**
+     * @description The alert description.
+     *
+     * @example exploit
+     *
      * @var string
      */
     public $alertDesc;
 
     /**
+     * @description The details of the alert.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $alertDetail;
 
     /**
+     * @description The alert level. Valid values:
+     *
+     *   **serious**
+     *   **suspicious**
+     *   **remind**
+     *
+     * @example serious
+     *
      * @var string
      */
     public $alertLevel;
 
     /**
+     * @description The alert name.
+     *
+     * @example pt_device_in_bps_down_alert
+     *
      * @var string
      */
     public $alertName;
 
     /**
+     * @description The code of the alert name.
+     *
+     * @example 6367
+     *
      * @var string
      */
     public $alertNameCode;
 
     /**
+     * @description The alert name. The value is in English.
+     *
+     * @example attack_alert
+     *
      * @var string
      */
     public $alertNameEn;
 
     /**
+     * @description The service that generates the alert.
+     *
+     * @example sas
+     *
      * @var string
      */
     public $alertSrcProd;
 
     /**
+     * @description The module of the service that generates the alert.
+     *
+     * @example aegis
+     *
      * @var string
      */
     public $alertSrcProdModule;
 
     /**
+     * @description The alert title.
+     *
+     * @example login_common_account
+     *
      * @var string
      */
     public $alertTitle;
 
     /**
+     * @description The alert type.
+     *
+     * @example attack_alert
+     *
      * @var string
      */
     public $alertType;
 
     /**
+     * @description The code of the alert type.
+     *
+     * @example 112
+     *
      * @var string
      */
     public $alertTypeCode;
 
     /**
+     * @description The alert type. The value is in English.
+     *
+     * @example attack_alert
+     *
      * @var string
      */
     public $alertTypeEn;
 
     /**
+     * @description The alert ID.
+     *
+     * @example alert-abc4990f2e1948eb960a2bb7ac0****
+     *
      * @var string
      */
     public $alertUuid;
 
     /**
+     * @description The assets.
+     *
+     * @example []
+     *
      * @var string
      */
     public $assetList;
 
     /**
+     * @description ATT\&CK
+     *
+     * @example Keychain
+     *
      * @var string
      */
     public $attCk;
 
     /**
+     * @description The code of the cloud service provider.
+     *
+     * @example alibaba_cloud
+     *
      * @var string
      */
     public $cloudCode;
 
     /**
+     * @description The instance.
+     *
+     * @example [
+     * "003d544744249351****"
+     * ]
      * @var string
      */
     public $entityList;
 
     /**
+     * @description The creation time.
+     *
+     * @example 2022-11-24T10:13Z
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The modification time.
+     *
+     * @example 2023-05-08 20:06:07
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The time when the log was generated.
+     *
+     * @example 2022-11-24T10:13Z
+     *
      * @var string
      */
     public $logTime;
 
     /**
+     * @description The log ID.
+     *
+     * @example abc4990f2e1948eb960a2bb7ac0f****
+     *
      * @var string
      */
     public $logUuid;
 
     /**
+     * @description The ID of the master account.
+     *
+     * @example 168370268****
+     *
      * @var string
      */
     public $mainUserId;
 
     /**
+     * @description The time when the alert was generated.
+     *
+     * @example 2022-11-24T10:13Z
+     *
      * @var string
      */
     public $occurTime;
 
     /**
+     * @description The ID of the sub-account.
+     *
+     * @example 11689082709****
+     *
      * @var string
      */
     public $subUserId;

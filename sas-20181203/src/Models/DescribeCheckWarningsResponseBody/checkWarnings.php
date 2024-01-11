@@ -75,6 +75,11 @@ class checkWarnings extends Model
     public $item;
 
     /**
+     * @var int
+     */
+    public $lastHandleTime;
+
+    /**
      * @description The severity level of a risk item. Valid values:
      *
      *   **high**
@@ -136,6 +141,7 @@ class checkWarnings extends Model
         'execErrorMessage' => 'ExecErrorMessage',
         'fixStatus'        => 'FixStatus',
         'item'             => 'Item',
+        'lastHandleTime'   => 'LastHandleTime',
         'level'            => 'Level',
         'reason'           => 'Reason',
         'status'           => 'Status',
@@ -170,6 +176,9 @@ class checkWarnings extends Model
         }
         if (null !== $this->item) {
             $res['Item'] = $this->item;
+        }
+        if (null !== $this->lastHandleTime) {
+            $res['LastHandleTime'] = $this->lastHandleTime;
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
@@ -218,6 +227,9 @@ class checkWarnings extends Model
         }
         if (isset($map['Item'])) {
             $model->item = $map['Item'];
+        }
+        if (isset($map['LastHandleTime'])) {
+            $model->lastHandleTime = $map['LastHandleTime'];
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];

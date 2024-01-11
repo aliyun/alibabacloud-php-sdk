@@ -242,6 +242,16 @@ class groupedContainerInstanceList extends Model
     public $riskStatus;
 
     /**
+     * @var int
+     */
+    public $syncOpen;
+
+    /**
+     * @var int
+     */
+    public $syncStatus;
+
+    /**
      * @description The number of vulnerabilities that are detected from the current pod, application, namespace, or cluster.
      *
      * @example 1
@@ -274,6 +284,8 @@ class groupedContainerInstanceList extends Model
         'riskInstanceCount'  => 'RiskInstanceCount',
         'riskLevel'          => 'RiskLevel',
         'riskStatus'         => 'RiskStatus',
+        'syncOpen'           => 'SyncOpen',
+        'syncStatus'         => 'SyncStatus',
         'vulCount'           => 'VulCount',
     ];
 
@@ -355,6 +367,12 @@ class groupedContainerInstanceList extends Model
         }
         if (null !== $this->riskStatus) {
             $res['RiskStatus'] = $this->riskStatus;
+        }
+        if (null !== $this->syncOpen) {
+            $res['SyncOpen'] = $this->syncOpen;
+        }
+        if (null !== $this->syncStatus) {
+            $res['SyncStatus'] = $this->syncStatus;
         }
         if (null !== $this->vulCount) {
             $res['VulCount'] = $this->vulCount;
@@ -442,6 +460,12 @@ class groupedContainerInstanceList extends Model
         }
         if (isset($map['RiskStatus'])) {
             $model->riskStatus = $map['RiskStatus'];
+        }
+        if (isset($map['SyncOpen'])) {
+            $model->syncOpen = $map['SyncOpen'];
+        }
+        if (isset($map['SyncStatus'])) {
+            $model->syncStatus = $map['SyncStatus'];
         }
         if (isset($map['VulCount'])) {
             $model->vulCount = $map['VulCount'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class edgeList extends Model
 {
     /**
-     * @description Aliuid
+     * @description The ID of the Alibaba Cloud account to which the edge belongs.
      *
      * @example 20973951
      *
@@ -18,6 +18,8 @@ class edgeList extends Model
     public $aliuid;
 
     /**
+     * @description The ID of the end node for the edge.
+     *
      * @example 64002
      *
      * @var string
@@ -25,6 +27,14 @@ class edgeList extends Model
     public $endId;
 
     /**
+     * @description The type of the end node for the edge. Valid values include but are not limited to:
+     *
+     *   **process**
+     *   **file**
+     *   **alert**
+     *   **ip**
+     *   **domain**
+     *
      * @example file
      *
      * @var string
@@ -32,6 +42,8 @@ class edgeList extends Model
     public $endType;
 
     /**
+     * @description The name of the edge.
+     *
      * @example jdk
      *
      * @var string
@@ -39,7 +51,7 @@ class edgeList extends Model
     public $name;
 
     /**
-     * @description Origin
+     * @description The original name of the edge.
      *
      * @example distribution
      *
@@ -48,6 +60,8 @@ class edgeList extends Model
     public $origin;
 
     /**
+     * @description The edge properties. The value is in the text format.
+     *
      * @example {\"bandWidth\":\"7810048\",\"internetIp\":\"47.57.13.255\",\"changeReason\":\"MODIFY_SPEC\",\"bindInstanceId\":\"i-j6chvo01tle7qfnhewr3\",\"bindType\":\"EIP_ECS\"}
      *
      * @var string
@@ -55,11 +69,15 @@ class edgeList extends Model
     public $properties;
 
     /**
+     * @description The property of the edge.
+     *
      * @var mixed[]
      */
     public $property;
 
     /**
+     * @description The ID of the rule for which the edge was created.
+     *
      * @example 368
      *
      * @var string
@@ -67,6 +85,8 @@ class edgeList extends Model
     public $ruleId;
 
     /**
+     * @description The display type of the edge.
+     *
      * @example type
      *
      * @var string
@@ -74,6 +94,8 @@ class edgeList extends Model
     public $showType;
 
     /**
+     * @description The ID of the start node for the edge.
+     *
      * @example 52003
      *
      * @var string
@@ -81,6 +103,14 @@ class edgeList extends Model
     public $startId;
 
     /**
+     * @description The type of the start node for the edge. Valid values include but are not limited to:
+     *
+     *   **process**
+     *   **file**
+     *   **alert**
+     *   **ip**
+     *   **domain**
+     *
      * @example process
      *
      * @var string
@@ -88,6 +118,8 @@ class edgeList extends Model
     public $startType;
 
     /**
+     * @description The time when the edge was created.
+     *
      * @example 2021-11-06 11:00:00
      *
      * @var string
@@ -95,6 +127,8 @@ class edgeList extends Model
     public $time;
 
     /**
+     * @description The UNIX timestamp when the edge was created. Unit: milliseconds.
+     *
      * @example 1645168444
      *
      * @var int
@@ -102,6 +136,8 @@ class edgeList extends Model
     public $timestamp;
 
     /**
+     * @description The type of the edge.
+     *
      * @example cve
      *
      * @var string
@@ -109,6 +145,8 @@ class edgeList extends Model
     public $type;
 
     /**
+     * @description The type name of the edge.
+     *
      * @example weak_password
      *
      * @var string
@@ -116,6 +154,8 @@ class edgeList extends Model
     public $typeName;
 
     /**
+     * @description The time when the edge was updated.
+     *
      * @example 2021-12-16T07:20:33.000Z
      *
      * @var string
@@ -123,7 +163,7 @@ class edgeList extends Model
     public $updateTime;
 
     /**
-     * @description UUID
+     * @description The UUID of the edge.
      *
      * @example 549237d6-86d1-47f6-9ffa-3f97da9e6b10
      *

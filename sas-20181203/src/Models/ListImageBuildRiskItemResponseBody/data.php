@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The key of the name for the image build risk item.
+     *
      * @example key
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $itemKey;
 
     /**
+     * @description The name of the name for the image build risk item.
+     *
      * @example itemName.
      *
      * @var string

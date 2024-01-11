@@ -11,7 +11,7 @@ class DescribeSuspEventExportInfoResponseBody extends Model
     /**
      * @description The handling status for the exception. Valid values:
      *
-     *   **processing**: in progress
+     *   **exporting**: in progress
      *   **success**: successful
      *   **failed**: failed
      *   **pending**: pending

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class buildRisk extends Model
 {
     /**
+     * @description The configuration of image build risk.
+     *
      * @var item[]
      */
     public $item;
 
     /**
+     * @description The risk levels.
+     *
      * @var string[]
      */
     public $riskLevel;
