@@ -222,10 +222,6 @@ class CreateChangeSetRequest extends Model
     public $stackPolicyURL;
 
     /**
-     * @description The structure of the template body. The template body must be 1 to 524,288 bytes in length.\
-     * You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
-     * @example {"ROSTemplateFormatVersion":"2015-09-01"}
-     *
      * @var string
      */
     public $templateBody;
