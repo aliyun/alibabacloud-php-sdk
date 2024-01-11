@@ -60,6 +60,16 @@ class DescribeParameterTemplatesRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @description The role of the instance. Valid values:
+     *
+     * default: normal
+     * @example normal
+     *
+     * @var string
+     */
+    public $role;
     protected $_name = [
         'engine'               => 'Engine',
         'engineVersion'        => 'EngineVersion',
@@ -68,6 +78,7 @@ class DescribeParameterTemplatesRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'role'                 => 'Role',
     ];
 
     public function validate()
@@ -97,6 +108,9 @@ class DescribeParameterTemplatesRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
 
         return $res;
@@ -130,6 +144,9 @@ class DescribeParameterTemplatesRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
 
         return $model;
