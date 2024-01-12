@@ -40,6 +40,13 @@ class AddShardingNodeRequest extends Model
     public $couponNo;
 
     /**
+     * @description Specifies whether to enable forced transmission during a configuration change. Valid values:
+     *
+     *   **false** (default): Before the configuration change, the system checks the minor version of the instance. If the minor version of the instance is outdated, an error is reported. You must update the minor version of the instance and try again.
+     *   **true**: The system skips the version check and directly performs the configuration change.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $forceTrans;
@@ -81,10 +88,7 @@ class AddShardingNodeRequest extends Model
     /**
      * @description The number of data shards that you want to add. Default value: **1**.
      *
-     * >
-     *
-     *   A cluster instance must contain 2 to 256 data shards. You can add a maximum of 64 data shards at a time.
-     *
+     * >  The instance can contain 2 to 256 data shards. You can add up to 64 data shards at a time. Make sure that the number of shards does not exceed this limit.
      * @example 2
      *
      * @var int
@@ -101,6 +105,10 @@ class AddShardingNodeRequest extends Model
     public $sourceBiz;
 
     /**
+     * @description The vSwitch ID. You can specify a different vSwitch within the same virtual private cloud (VPC). In this case, the new data shards are created in the specified vSwitch. If you do not specify this parameter, the new data shards are created in the original vSwitch.
+     *
+     * @example vsw-bp1e7clcw529l773d****
+     *
      * @var string
      */
     public $vSwitchId;

@@ -32,6 +32,9 @@ class DescribeIntranetAttributeResponseBody extends Model
     public $bandwidthExpireTime;
 
     /**
+     * @description The billing methods of unexpired bandwith plans. Valid values:
+     * - **0**: Pay-as-you-go
+     * - **1**: Subscription
      * @example 0
      *
      * @var string

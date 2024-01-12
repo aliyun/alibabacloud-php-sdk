@@ -93,6 +93,11 @@ class CreateTairInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $clusterBackupId;
+
+    /**
      * @description The coupon code.
      *
      * @example youhuiquan_promotion_option_id_for_blank
@@ -394,6 +399,7 @@ class CreateTairInstanceRequest extends Model
         'businessInfo'           => 'BusinessInfo',
         'chargeType'             => 'ChargeType',
         'clientToken'            => 'ClientToken',
+        'clusterBackupId'        => 'ClusterBackupId',
         'couponNo'               => 'CouponNo',
         'dryRun'                 => 'DryRun',
         'engineVersion'          => 'EngineVersion',
@@ -457,6 +463,9 @@ class CreateTairInstanceRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->clusterBackupId) {
+            $res['ClusterBackupId'] = $this->clusterBackupId;
         }
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
@@ -592,6 +601,9 @@ class CreateTairInstanceRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['ClusterBackupId'])) {
+            $model->clusterBackupId = $map['ClusterBackupId'];
         }
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];

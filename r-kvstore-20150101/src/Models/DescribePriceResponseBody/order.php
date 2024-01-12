@@ -61,6 +61,8 @@ class order extends Model
     public $ruleIds;
 
     /**
+     * @description Indicates whether the discount information is displayed.
+     *
      * @var bool
      */
     public $showDiscountInfo;

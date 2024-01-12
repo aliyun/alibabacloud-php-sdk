@@ -62,6 +62,8 @@ class KVStoreZone extends Model
     /**
      * @description The name of the zone within the specified region.
      *
+     * @example Hohhot Zone B
+     *
      * @var string
      */
     public $zoneName;

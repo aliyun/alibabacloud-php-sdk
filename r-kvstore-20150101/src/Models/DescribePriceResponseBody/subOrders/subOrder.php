@@ -28,7 +28,7 @@ class subOrder extends Model
     public $instanceId;
 
     /**
-     * @description The list price of the order.
+     * @description The original price of the order.
      *
      * @example 0.21
      *
@@ -37,7 +37,7 @@ class subOrder extends Model
     public $originalAmount;
 
     /**
-     * @description The ID of the promotion rule.
+     * @description The rule IDs.
      *
      * @var ruleIds
      */

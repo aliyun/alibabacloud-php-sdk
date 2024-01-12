@@ -101,6 +101,11 @@ class CreateInstanceRequest extends Model
     public $chargeType;
 
     /**
+     * @var string
+     */
+    public $clusterBackupId;
+
+    /**
      * @description The operation that you want to perform. Set the value to **AllocateInstancePublicConnection**.
      *
      * @example r-bp1zxszhcgatnx****
@@ -427,6 +432,7 @@ class CreateInstanceRequest extends Model
         'businessInfo'           => 'BusinessInfo',
         'capacity'               => 'Capacity',
         'chargeType'             => 'ChargeType',
+        'clusterBackupId'        => 'ClusterBackupId',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
         'couponNo'               => 'CouponNo',
         'dedicatedHostGroupId'   => 'DedicatedHostGroupId',
@@ -494,6 +500,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->clusterBackupId) {
+            $res['ClusterBackupId'] = $this->clusterBackupId;
         }
         if (null !== $this->connectionStringPrefix) {
             $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
@@ -641,6 +650,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['ClusterBackupId'])) {
+            $model->clusterBackupId = $map['ClusterBackupId'];
         }
         if (isset($map['ConnectionStringPrefix'])) {
             $model->connectionStringPrefix = $map['ConnectionStringPrefix'];

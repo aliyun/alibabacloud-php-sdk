@@ -58,6 +58,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeCacheAnalysisReportListRe
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeCacheAnalysisReportListResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeCacheAnalysisReportRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeCacheAnalysisReportResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterBackupListRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterBackupListResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterMemberInfoRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterMemberInfoResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBInstanceNetInfoRequest;
@@ -1010,6 +1012,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
         }
+        if (!Utils::isUnset($request->clusterBackupId)) {
+            $query['ClusterBackupId'] = $request->clusterBackupId;
+        }
         if (!Utils::isUnset($request->connectionStringPrefix)) {
             $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
@@ -1278,6 +1283,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clusterBackupId)) {
+            $query['ClusterBackupId'] = $request->clusterBackupId;
         }
         if (!Utils::isUnset($request->couponNo)) {
             $query['CouponNo'] = $request->couponNo;
@@ -2234,6 +2242,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->backupId)) {
             $query['BackupId'] = $request->backupId;
         }
+        if (!Utils::isUnset($request->backupJobId)) {
+            $query['BackupJobId'] = $request->backupJobId;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
@@ -2461,6 +2472,46 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCacheAnalysisReportListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeClusterBackupListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeClusterBackupListResponse
+     */
+    public function describeClusterBackupListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterBackupList',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterBackupListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClusterBackupListRequest $request
+     *
+     * @return DescribeClusterBackupListResponse
+     */
+    public function describeClusterBackupList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterBackupListWithOptions($request, $runtime);
     }
 
     /**
@@ -7106,7 +7157,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter are added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
+     * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
      *   *
      * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -7157,7 +7208,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter are added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
+     * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter is added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
      *   *
      * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
      *
