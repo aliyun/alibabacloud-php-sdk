@@ -420,11 +420,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CancelClusterUpgradeResponse
+     * @param string         $ClusterId
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CancelClusterUpgradeResponse CancelClusterUpgradeResponse
      */
     public function cancelClusterUpgradeWithOptions($ClusterId, $headers, $runtime)
     {
@@ -447,9 +451,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated
+     *   *
+     * Deprecated
+     *
      * @param string $ClusterId
      *
-     * @return CancelClusterUpgradeResponse
+     * @return CancelClusterUpgradeResponse CancelClusterUpgradeResponse
      */
     public function cancelClusterUpgrade($ClusterId)
     {
@@ -2011,11 +2019,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeAddonsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DescribeAddonsResponse
+     * @param DescribeAddonsRequest $request DescribeAddonsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAddonsResponse DescribeAddonsResponse
      */
     public function describeAddonsWithOptions($request, $headers, $runtime)
     {
@@ -2056,9 +2068,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeAddonsRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DescribeAddonsResponse
+     * @param DescribeAddonsRequest $request DescribeAddonsRequest
+     *
+     * @return DescribeAddonsResponse DescribeAddonsResponse
      */
     public function describeAddons($request)
     {
@@ -2069,12 +2085,16 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated
+     *   *
+     * Deprecated
+     *
      * @param string         $ClusterID
      * @param string         $AddonName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterAddonInstanceResponse
+     * @return DescribeClusterAddonInstanceResponse DescribeClusterAddonInstanceResponse
      */
     public function describeClusterAddonInstanceWithOptions($ClusterID, $AddonName, $headers, $runtime)
     {
@@ -2097,10 +2117,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated
+     *   *
+     * Deprecated
+     *
      * @param string $ClusterID
      * @param string $AddonName
      *
-     * @return DescribeClusterAddonInstanceResponse
+     * @return DescribeClusterAddonInstanceResponse DescribeClusterAddonInstanceResponse
      */
     public function describeClusterAddonInstance($ClusterID, $AddonName)
     {
@@ -2111,13 +2135,17 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated
+     *   *
+     * Deprecated
+     *
      * @param string         $clusterId
      * @param string         $componentId
      * @param string         $version
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterAddonMetadataResponse
+     * @return DescribeClusterAddonMetadataResponse DescribeClusterAddonMetadataResponse
      */
     public function describeClusterAddonMetadataWithOptions($clusterId, $componentId, $version, $headers, $runtime)
     {
@@ -2140,11 +2168,15 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated
+     *   *
+     * Deprecated
+     *
      * @param string $clusterId
      * @param string $componentId
      * @param string $version
      *
-     * @return DescribeClusterAddonMetadataResponse
+     * @return DescribeClusterAddonMetadataResponse DescribeClusterAddonMetadataResponse
      */
     public function describeClusterAddonMetadata($clusterId, $componentId, $version)
     {
@@ -2205,12 +2237,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                                    $ClusterId
-     * @param DescribeClusterAddonsUpgradeStatusRequest $tmpReq
-     * @param string[]                                  $headers
-     * @param RuntimeOptions                            $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DescribeClusterAddonsUpgradeStatusResponse
+     * @param string                                    $ClusterId
+     * @param DescribeClusterAddonsUpgradeStatusRequest $tmpReq    DescribeClusterAddonsUpgradeStatusRequest
+     * @param string[]                                  $headers   map
+     * @param RuntimeOptions                            $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return DescribeClusterAddonsUpgradeStatusResponse DescribeClusterAddonsUpgradeStatusResponse
      */
     public function describeClusterAddonsUpgradeStatusWithOptions($ClusterId, $tmpReq, $headers, $runtime)
     {
@@ -2244,10 +2280,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                                    $ClusterId
-     * @param DescribeClusterAddonsUpgradeStatusRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DescribeClusterAddonsUpgradeStatusResponse
+     * @param string                                    $ClusterId
+     * @param DescribeClusterAddonsUpgradeStatusRequest $request   DescribeClusterAddonsUpgradeStatusRequest
+     *
+     * @return DescribeClusterAddonsUpgradeStatusResponse DescribeClusterAddonsUpgradeStatusResponse
      */
     public function describeClusterAddonsUpgradeStatus($ClusterId, $request)
     {
@@ -2258,11 +2298,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DescribeClusterAddonsVersionResponse
+     * @param string         $ClusterId
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return DescribeClusterAddonsVersionResponse DescribeClusterAddonsVersionResponse
      */
     public function describeClusterAddonsVersionWithOptions($ClusterId, $headers, $runtime)
     {
@@ -2285,9 +2329,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated
+     *   *
+     * Deprecated
+     *
      * @param string $ClusterId
      *
-     * @return DescribeClusterAddonsVersionResponse
+     * @return DescribeClusterAddonsVersionResponse DescribeClusterAddonsVersionResponse
      */
     public function describeClusterAddonsVersion($ClusterId)
     {
@@ -5216,11 +5264,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return PauseClusterUpgradeResponse
+     * @param string         $ClusterId
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return PauseClusterUpgradeResponse PauseClusterUpgradeResponse
      */
     public function pauseClusterUpgradeWithOptions($ClusterId, $headers, $runtime)
     {
@@ -5243,9 +5295,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated
+     *   *
+     * Deprecated
+     *
      * @param string $ClusterId
      *
-     * @return PauseClusterUpgradeResponse
+     * @return PauseClusterUpgradeResponse PauseClusterUpgradeResponse
      */
     public function pauseClusterUpgrade($ClusterId)
     {
@@ -5663,11 +5719,15 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return ResumeUpgradeClusterResponse
+     * @param string         $ClusterId
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ResumeUpgradeClusterResponse ResumeUpgradeClusterResponse
      */
     public function resumeUpgradeClusterWithOptions($ClusterId, $headers, $runtime)
     {
@@ -5690,9 +5750,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated
+     *   *
+     * Deprecated
+     *
      * @param string $ClusterId
      *
-     * @return ResumeUpgradeClusterResponse
+     * @return ResumeUpgradeClusterResponse ResumeUpgradeClusterResponse
      */
     public function resumeUpgradeCluster($ClusterId)
     {
@@ -6705,7 +6769,7 @@ class CS extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return UpgradeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
