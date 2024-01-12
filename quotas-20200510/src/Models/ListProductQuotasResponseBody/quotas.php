@@ -90,6 +90,11 @@ class quotas extends Model
     public $expireTime;
 
     /**
+     * @description Indicates whether the quota is a global quota. Valid values:
+     *
+     *   true: The quota is shared in all regions.
+     *   false: The quota is independently used in a region.
+     *
      * @example true
      *
      * @var bool

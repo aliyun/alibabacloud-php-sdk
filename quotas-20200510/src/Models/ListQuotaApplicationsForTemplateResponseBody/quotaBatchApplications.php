@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class quotaBatchApplications extends Model
 {
     /**
+     * @description The Alibaba Cloud accounts for which the quotas are applied.
+     *
      * @var string[]
      */
     public $aliyunUids;
@@ -108,6 +110,10 @@ class quotaBatchApplications extends Model
     public $quotaCategory;
 
     /**
+     * @description The reason for the quota increase application.
+     *
+     * @example Business expansion
+     *
      * @var string
      */
     public $reason;

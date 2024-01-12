@@ -1193,6 +1193,9 @@ class Quotas extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $body['AcceptLanguage'] = $request->acceptLanguage;
+        }
         if (!Utils::isUnset($request->dimensions)) {
             $body['Dimensions'] = $request->dimensions;
         }

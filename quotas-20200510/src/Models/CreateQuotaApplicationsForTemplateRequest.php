@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateQuotaApplicationsForTemplateRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud accounts for which the quotas are applied.
+     * @description The Alibaba Cloud accounts that correspond to the resource directory member accounts for which the quotas are applied.
      *
-     * >  For more information about the members of a resource directory, see [Query all the members in a resource directory](~~604207~~).
+     * >  You can apply for a quota increase for up to 50 member accounts in each request. For more information about the member accounts in a resource directory, see [ListAccounts](~~604207~~).
      * @var string[]
      */
     public $aliyunUids;

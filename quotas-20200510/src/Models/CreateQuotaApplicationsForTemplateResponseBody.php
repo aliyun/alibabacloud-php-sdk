@@ -26,6 +26,8 @@ class CreateQuotaApplicationsForTemplateResponseBody extends Model
     public $batchQuotaApplicationId;
 
     /**
+     * @description The Alibaba Cloud accounts of the members in a resource directory whose quota increase request is rejected, and the reason for the rejection.
+     *
      * @var failResults[]
      */
     public $failResults;

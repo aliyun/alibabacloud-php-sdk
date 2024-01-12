@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class failResults extends Model
 {
     /**
+     * @description The Alibaba Cloud account of the members in a resource directory whose quota increase request is rejected.
+     *
+     * @example 135048337611****
+     *
      * @var string
      */
     public $aliyunUid;
 
     /**
+     * @description The reason for the rejection.
+     *
+     * @example The quota adjustment application is being processed. Please try again later.
+     *
      * @var string
      */
     public $reason;
