@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\XrEngine\V20230313\Models\AuthUserRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\AuthUserResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\BatchQueryMotionShopTaskStatusRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\BatchQueryMotionShopTaskStatusResponse;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\CreateAvatarTalkProjectRequest;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\CreateAvatarTalkProjectResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\CreateDigitalHumanProjectRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\CreateDigitalHumanProjectResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\CreateLivePortraitProjectRequest;
@@ -310,6 +312,63 @@ class XrEngine extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchQueryMotionShopTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAvatarTalkProjectRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAvatarTalkProjectResponse
+     */
+    public function createAvatarTalkProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jwtToken)) {
+            $query['JwtToken'] = $request->jwtToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->avatarProjectId)) {
+            $body['AvatarProjectId'] = $request->avatarProjectId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->ttsVoice)) {
+            $body['TtsVoice'] = $request->ttsVoice;
+        }
+        if (!Utils::isUnset($request->txtContent)) {
+            $body['TxtContent'] = $request->txtContent;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAvatarTalkProject',
+            'version'     => '2023-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAvatarTalkProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAvatarTalkProjectRequest $request
+     *
+     * @return CreateAvatarTalkProjectResponse
+     */
+    public function createAvatarTalkProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAvatarTalkProjectWithOptions($request, $runtime);
     }
 
     /**

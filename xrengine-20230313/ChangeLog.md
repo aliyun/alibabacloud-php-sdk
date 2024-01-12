@@ -1,3 +1,6 @@
+2024-01-12 Version: 1.3.0
+- Generated php 2023-03-13 for xrEngine.
+
 2024-01-10 Version: 1.2.2
 - Generated php 2023-03-13 for xrEngine.
 
