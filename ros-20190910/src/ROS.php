@@ -927,17 +927,19 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->tags)) {
             $query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->templateBody)) {
-            $query['TemplateBody'] = $request->templateBody;
-        }
         if (!Utils::isUnset($request->templateName)) {
             $query['TemplateName'] = $request->templateName;
         }
         if (!Utils::isUnset($request->templateURL)) {
             $query['TemplateURL'] = $request->templateURL;
         }
+        $body = [];
+        if (!Utils::isUnset($request->templateBody)) {
+            $body['TemplateBody'] = $request->templateBody;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateTemplate',
@@ -2164,9 +2166,6 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->services)) {
             $query['Services'] = $request->services;
         }
-        if (!Utils::isUnset($request->templateBody)) {
-            $query['TemplateBody'] = $request->templateBody;
-        }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
@@ -2176,8 +2175,13 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->templateVersion)) {
             $query['TemplateVersion'] = $request->templateVersion;
         }
+        $body = [];
+        if (!Utils::isUnset($request->templateBody)) {
+            $body['TemplateBody'] = $request->templateBody;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetServiceProvisions',
@@ -3715,9 +3719,6 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->stackId)) {
             $query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->templateBody)) {
-            $query['TemplateBody'] = $request->templateBody;
-        }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
@@ -3727,8 +3728,13 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->templateVersion)) {
             $query['TemplateVersion'] = $request->templateVersion;
         }
+        $body = [];
+        if (!Utils::isUnset($request->templateBody)) {
+            $body['TemplateBody'] = $request->templateBody;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListStackOperationRisks',
@@ -5373,9 +5379,6 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->templateBody)) {
-            $query['TemplateBody'] = $request->templateBody;
-        }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
@@ -5385,8 +5388,13 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->templateURL)) {
             $query['TemplateURL'] = $request->templateURL;
         }
+        $body = [];
+        if (!Utils::isUnset($request->templateBody)) {
+            $body['TemplateBody'] = $request->templateBody;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateTemplate',
