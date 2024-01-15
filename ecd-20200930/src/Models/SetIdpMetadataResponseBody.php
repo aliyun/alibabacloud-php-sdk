@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetIdpMetadataResponseBody extends Model
 {
     /**
-     * @description The entityID value obtained after the IdP metadata file is parsed.
+     * @description The entity ID obtained after the IdP metadata file is parsed.
      *
      * @example http://test****.cn/adfs/services/trust
      *
@@ -18,7 +18,7 @@ class SetIdpMetadataResponseBody extends Model
     public $idpEntityId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *

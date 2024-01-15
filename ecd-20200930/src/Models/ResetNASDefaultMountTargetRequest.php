@@ -18,7 +18,7 @@ class ResetNASDefaultMountTargetRequest extends Model
     public $fileSystemId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

@@ -23,6 +23,10 @@ class ModifyOfficeSiteAttributeRequest extends Model
     public $desktopAccessType;
 
     /**
+     * @description Specifies whether to grant the local administrator permissions to end users.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableAdminAccess;

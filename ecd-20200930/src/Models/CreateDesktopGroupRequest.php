@@ -45,8 +45,17 @@ class CreateDesktopGroupRequest extends Model
     public $autoPay;
 
     /**
-     * @description 是否自动续费。
+     * @description Specifies whether to enable auto-renewal.
      *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -169,7 +178,7 @@ class CreateDesktopGroupRequest extends Model
     public $fileSystemId;
 
     /**
-     * @description 桌面组版本。
+     * @description The desktop group version.
      *
      * @example 2
      *

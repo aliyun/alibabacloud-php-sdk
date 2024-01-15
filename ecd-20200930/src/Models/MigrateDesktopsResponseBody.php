@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MigrateDesktopsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example E46DECEC-AC72-570E-958B-B52A4B****
      *
      * @var string

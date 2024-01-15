@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListOfficeSiteUsersRequest extends Model
 {
     /**
-     * @description The character string for fuzzy search.
+     * @description The query string for fuzzy query.
      *
      * @example *jin*
      *
@@ -18,9 +18,11 @@ class ListOfficeSiteUsersRequest extends Model
     public $filter;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
-     * Default value: 10
+     *   Valid values: 1 to 100.
+     *   Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -28,7 +30,7 @@ class ListOfficeSiteUsersRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that specifies the start point of the next query.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request or if no next query exists. You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -37,7 +39,7 @@ class ListOfficeSiteUsersRequest extends Model
     public $nextToken;
 
     /**
-     * @description The organizational unit (OU) in the specified AD domain.
+     * @description The organizational unit (OU) of the specified AD domain.
      *
      * @example example.com/Domain Controllers
      *
@@ -46,7 +48,7 @@ class ListOfficeSiteUsersRequest extends Model
     public $OUPath;
 
     /**
-     * @description The ID of the workspace. Only workspaces of the enterprise AD account type are supported.
+     * @description The workspace ID. Only workspaces of the enterprise AD account type are supported.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -55,7 +57,7 @@ class ListOfficeSiteUsersRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) to query the most recent region list.
      *
      * @example cn-hangzhou
      *

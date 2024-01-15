@@ -27,7 +27,7 @@ class desktopTypes extends Model
     public $dataDiskSize;
 
     /**
-     * @description The ID of the desktop type.
+     * @description The ID of the cloud desktop type.
      *
      * @example ecd.graphics.xlarge
      *
@@ -36,7 +36,7 @@ class desktopTypes extends Model
     public $desktopTypeId;
 
     /**
-     * @description The status of the desktop type. If `SUFFICIENT` is returned, the number of cloud desktops of the specified desktop type is sufficient.
+     * @description The status of the cloud desktop type. If SUFFICIENT is returned, the number of cloud desktops of the type is sufficient.
      *
      * @example SUFFICIENT
      *
@@ -63,7 +63,7 @@ class desktopTypes extends Model
     public $gpuSpec;
 
     /**
-     * @description The family of the desktop type.
+     * @description The family of the cloud desktop type.
      *
      * @example ecd.graphics
      *
@@ -72,7 +72,7 @@ class desktopTypes extends Model
     public $instanceTypeFamily;
 
     /**
-     * @description The size of the memory. Unit: MiB.
+     * @description The memory size. Unit: MiB.
      *
      * @example 23552
      *

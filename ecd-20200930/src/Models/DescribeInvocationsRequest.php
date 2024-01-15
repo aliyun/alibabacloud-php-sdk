@@ -21,7 +21,7 @@ class DescribeInvocationsRequest extends Model
     public $commandType;
 
     /**
-     * @description The encoding method of the command content and outputs. Valid values:
+     * @description The encoding method of the command content and output. Valid values:
      *
      *   PlainText
      *   Base64
@@ -34,7 +34,7 @@ class DescribeInvocationsRequest extends Model
     public $contentEncoding;
 
     /**
-     * @description The ID of the cloud desktop. If you specify a cloud desktop, all execution records of Cloud Assistant commands on the cloud desktop are queried.
+     * @description The ID of the cloud desktop. If you specify a cloud desktop, all the execution records of Cloud Assistant commands on the cloud desktop are queried.
      *
      * @example ecd-7w78ozhjcwa3u****
      *
@@ -43,7 +43,7 @@ class DescribeInvocationsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The IDs of the cloud desktops. The DesktopId parameter will be discontinued. We recommend that you use the DesktopIds parameter to specify the IDs of cloud desktops.
+     * @description The IDs of the cloud desktops.
      *
      * @var string[]
      */
@@ -61,8 +61,8 @@ class DescribeInvocationsRequest extends Model
     /**
      * @description Specifies whether to return command outputs in the response. Valid values:
      *
-     *   true
-     *   false
+     *   true: returns command outputs.
+     *   false: does not return command outputs.
      *
      * Default value: false.
      * @example false
@@ -81,12 +81,12 @@ class DescribeInvocationsRequest extends Model
     public $invokeId;
 
     /**
-     * @description The overall execution status of the command. The overall execution status is determined by the execution status of the command on one or more cloud desktops. Valid values:
+     * @description The overall execution status of a command. The overall execution status is determined by the execution status of the command on one or more cloud desktops. Valid values:
      *
      *   Running: The execution is in progress on one or more cloud desktops.
-     *   Finished: The execution is complete on all cloud desktops, or the execution is manually stopped on specific cloud desktops and the execution is complete on other cloud desktops.
+     *   Finished: The execution is finished on all cloud desktops, or the execution is manually stopped on some cloud desktops and the execution is finished on others.
      *   Failed: The execution failed on all cloud desktops.
-     *   PartialFailed: The execution failed on specific cloud desktops.
+     *   PartialFailed: The execution failed on some cloud desktops.
      *   Stopped: The execution is stopped.
      *
      * Default value: Running.
@@ -99,9 +99,7 @@ class DescribeInvocationsRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
-     *   Maximum value: 100.
-     *   Default value: 10.
-     *
+     * Default value: 100.
      * @example 10
      *
      * @var int
@@ -109,7 +107,7 @@ class DescribeInvocationsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the next query. Set the value to the NextToken value that is returned from the last call.
+     * @description The query token. Set the value to the NextToken value that is returned from the last call to the previous DescribeInvocations operation.
      *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
      *

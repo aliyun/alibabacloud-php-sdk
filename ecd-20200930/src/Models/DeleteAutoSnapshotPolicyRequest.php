@@ -11,7 +11,6 @@ class DeleteAutoSnapshotPolicyRequest extends Model
     /**
      * @description The ID of the policy template that you want to manage.
      *
-     * > You can call the [ListDefensePolicies](~~195814~~) operation to query the IDs of all policy templates.
      * @var string[]
      */
     public $policyId;

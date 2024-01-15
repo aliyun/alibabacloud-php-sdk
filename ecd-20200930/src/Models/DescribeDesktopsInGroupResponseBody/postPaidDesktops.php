@@ -9,8 +9,21 @@ use AlibabaCloud\Tea\Model;
 class postPaidDesktops extends Model
 {
     /**
-     * @description The connection status of the cloud desktop.
+     * @description The connection state.
      *
+     * Valid values:
+     *
+     *   Unknown
+     *
+     * <!-- -->
+     *
+     *   Connected
+     *
+     * <!-- -->
+     *
+     *   Disconnected
+     *
+     * <!-- -->
      * @example Connected
      *
      * @var string
@@ -27,7 +40,7 @@ class postPaidDesktops extends Model
     public $createDuration;
 
     /**
-     * @description The time when the cloud desktop was created.
+     * @description The time when the auxiliary media asset was created.
      *
      * @example 2022-01-21T06:34:57Z
      *
@@ -56,6 +69,39 @@ class postPaidDesktops extends Model
     /**
      * @description The state of the cloud desktop.
      *
+     * Valid values:
+     *
+     *   Stopped
+     *
+     * <!-- -->
+     *
+     *   Starting
+     *
+     * <!-- -->
+     *
+     *   Rebuilding
+     *
+     * <!-- -->
+     *
+     *   Running
+     *
+     * <!-- -->
+     *
+     *   Stopping
+     *
+     * <!-- -->
+     *
+     *   Expired
+     *
+     * <!-- -->
+     *
+     *   Deleted
+     *
+     * <!-- -->
+     *
+     *   Pending
+     *
+     * <!-- -->
      * @example Stopped
      *
      * @var string
@@ -65,6 +111,15 @@ class postPaidDesktops extends Model
     /**
      * @description The disk type.
      *
+     * Valid values:
+     *
+     *   SYSTEM
+     *
+     * <!-- -->
+     *
+     *   DATA:
+     *
+     * <!-- -->
      * @example SYSTEM
      *
      * @var string
@@ -97,7 +152,7 @@ class postPaidDesktops extends Model
     public $endUserName;
 
     /**
-     * @description The usernames of users that are connected to cloud desktops. If no users are connected, null is returned.
+     * @description The names of users that are connected to cloud desktops. If no users are connected, null is returned.
      *
      * @var string[]
      */
@@ -142,6 +197,15 @@ class postPaidDesktops extends Model
     /**
      * @description The flag that is used for management.
      *
+     * Valid values:
+     *
+     *   Updating: The configurations of the cloud desktop are being changed.
+     *
+     * <!-- -->
+     *
+     *   NoFlag: No flags are available.
+     *
+     * <!-- -->
      * @example NoFlag
      *
      * @var string
@@ -165,8 +229,17 @@ class postPaidDesktops extends Model
     public $memberEniIp;
 
     /**
-     * @description The OS type.
+     * @description The OS.
      *
+     * Valid values:
+     *
+     *   Linux
+     *
+     * <!-- -->
+     *
+     *   Windows
+     *
+     * <!-- -->
      * @example Windows
      *
      * @var string
@@ -183,7 +256,7 @@ class postPaidDesktops extends Model
     public $primaryEniIp;
 
     /**
-     * @description The protocol. Valid values:
+     * @description The protocol type. Valid values:
      *
      *   ASP
      *   HDX

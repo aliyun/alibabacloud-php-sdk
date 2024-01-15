@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListFilePermissionResponseBody extends Model
 {
     /**
+     * @description The permissions on the shared file.
+     *
      * @var FilePermissionMember[]
      */
     public $filePermissions;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *
      * @var string

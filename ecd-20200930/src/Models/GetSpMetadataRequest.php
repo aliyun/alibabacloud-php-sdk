@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetSpMetadataRequest extends Model
 {
     /**
-     * @description The ID of the workspace. The parameter is the same as the `OfficeSiteId` parameter. We recommend that you use `OfficeSiteId` instead of `DirectoryId`. You can specify a value for either the `DirectoryId` parameter or the `OfficeSiteId` parameter, but not both.
+     * @description The workspace ID. This parameter is the same as `OfficeSiteId`. We recommend that you use `OfficeSiteId` to replace `DirectoryId`. You can specify only `DirectoryId` or `OfficeSiteId`.
      *
      * @example cn-hangzhou+dir-400695****
      *
@@ -18,7 +18,7 @@ class GetSpMetadataRequest extends Model
     public $directoryId;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example cn-hangzhou+dir-400695****
      *
@@ -27,7 +27,7 @@ class GetSpMetadataRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

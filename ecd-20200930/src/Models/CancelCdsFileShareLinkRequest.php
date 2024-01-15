@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelCdsFileShareLinkRequest extends Model
 {
     /**
+     * @description The ID of the cloud disk.
+     *
      * @example cn-hangzhou+cds-352282****
      *
      * @var string
@@ -16,6 +18,8 @@ class CancelCdsFileShareLinkRequest extends Model
     public $cdsId;
 
     /**
+     * @description The ID of the file sharing task.
+     *
      * @example 7JQX1Fsw****
      *
      * @var string

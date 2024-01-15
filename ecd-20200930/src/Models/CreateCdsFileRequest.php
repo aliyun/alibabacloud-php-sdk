@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCdsFileRequest extends Model
 {
     /**
+     * @description The ID of the cloud disk.
+     *
      * @example cn-hangzhou+cds-82414*****
      *
      * @var string
@@ -16,6 +18,25 @@ class CreateCdsFileRequest extends Model
     public $cdsId;
 
     /**
+     * @description The policy that is used when the file that you want to upload has the same name as an existing file in the cloud disk.
+     *
+     * Valid values:
+     *
+     *   refuse
+     *
+     * .
+     *
+     *   auto_rename
+     *
+     * .
+     *
+     *   ignore
+     *
+     * .
+     *
+     *   over_write
+     *
+     * .
      * @example ignore
      *
      * @var string
@@ -23,6 +44,8 @@ class CreateCdsFileRequest extends Model
     public $conflictPolicy;
 
     /**
+     * @description The user ID.
+     *
      * @example test1
      *
      * @var string
@@ -30,6 +53,8 @@ class CreateCdsFileRequest extends Model
     public $endUserId;
 
     /**
+     * @description The hash value of the SHA1 algorithm that is used by the file.
+     *
      * @example 7C4A8D09CA3762AF61E59520943DC26494F8****
      *
      * @var string
@@ -37,6 +62,8 @@ class CreateCdsFileRequest extends Model
     public $fileHash;
 
     /**
+     * @description The file size. Unit: bytes.
+     *
      * @example 2048
      *
      * @var int
@@ -44,6 +71,8 @@ class CreateCdsFileRequest extends Model
     public $fileLength;
 
     /**
+     * @description The file name.
+     *
      * @example testFile.txt
      *
      * @var string
@@ -51,6 +80,17 @@ class CreateCdsFileRequest extends Model
     public $fileName;
 
     /**
+     * @description The file type.
+     *
+     * Valid values:
+     *
+     *   file
+     *
+     * <!-- -->
+     *
+     *   folder
+     *
+     * <!-- -->
      * @example file
      *
      * @var string
@@ -58,6 +98,13 @@ class CreateCdsFileRequest extends Model
     public $fileType;
 
     /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @description The ID of the parent folder.
+     *
      * @example 637c9163b453b1a384874264ba79f3f9eab9****
      *
      * @var string
@@ -65,6 +112,8 @@ class CreateCdsFileRequest extends Model
     public $parentFileId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -78,6 +127,7 @@ class CreateCdsFileRequest extends Model
         'fileLength'     => 'FileLength',
         'fileName'       => 'FileName',
         'fileType'       => 'FileType',
+        'groupId'        => 'GroupId',
         'parentFileId'   => 'ParentFileId',
         'regionId'       => 'RegionId',
     ];
@@ -109,6 +159,9 @@ class CreateCdsFileRequest extends Model
         }
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->parentFileId) {
             $res['ParentFileId'] = $this->parentFileId;
@@ -148,6 +201,9 @@ class CreateCdsFileRequest extends Model
         }
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['ParentFileId'])) {
             $model->parentFileId = $map['ParentFileId'];

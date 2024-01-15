@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelCopyImageRequest extends Model
 {
     /**
+     * @description The ID of the image that is being copied.
+     *
      * @example m-gx2x1dhsmusr2****
      *
      * @var string
@@ -16,6 +18,8 @@ class CancelCopyImageRequest extends Model
     public $imageId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

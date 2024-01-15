@@ -95,6 +95,15 @@ class DescribeDesktopsInGroupResponseBody extends Model
      * @var int
      */
     public $stopedPrePaidDesktopsCount;
+
+    /**
+     * @description The number of subscription cloud desktops that are stopped.
+     *
+     * @example 100
+     *
+     * @var int
+     */
+    public $stoppedPrePaidDesktopsCount;
     protected $_name = [
         'nextToken'                   => 'NextToken',
         'onlinePrePaidDesktopsCount'  => 'OnlinePrePaidDesktopsCount',
@@ -106,6 +115,7 @@ class DescribeDesktopsInGroupResponseBody extends Model
         'requestId'                   => 'RequestId',
         'runningPrePaidDesktopsCount' => 'RunningPrePaidDesktopsCount',
         'stopedPrePaidDesktopsCount'  => 'StopedPrePaidDesktopsCount',
+        'stoppedPrePaidDesktopsCount' => 'StoppedPrePaidDesktopsCount',
     ];
 
     public function validate()
@@ -156,6 +166,9 @@ class DescribeDesktopsInGroupResponseBody extends Model
         }
         if (null !== $this->stopedPrePaidDesktopsCount) {
             $res['StopedPrePaidDesktopsCount'] = $this->stopedPrePaidDesktopsCount;
+        }
+        if (null !== $this->stoppedPrePaidDesktopsCount) {
+            $res['StoppedPrePaidDesktopsCount'] = $this->stoppedPrePaidDesktopsCount;
         }
 
         return $res;
@@ -210,6 +223,9 @@ class DescribeDesktopsInGroupResponseBody extends Model
         }
         if (isset($map['StopedPrePaidDesktopsCount'])) {
             $model->stopedPrePaidDesktopsCount = $map['StopedPrePaidDesktopsCount'];
+        }
+        if (isset($map['StoppedPrePaidDesktopsCount'])) {
+            $model->stoppedPrePaidDesktopsCount = $map['StoppedPrePaidDesktopsCount'];
         }
 
         return $model;

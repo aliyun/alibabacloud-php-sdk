@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCdsFileResponseBody extends Model
 {
     /**
+     * @description The operation result. A value of success indicates that the operation is successful. If the operation failed, an error message is returned.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +18,17 @@ class DeleteCdsFileResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the data is returned.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var string
@@ -23,6 +36,8 @@ class DeleteCdsFileResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -30,6 +45,8 @@ class DeleteCdsFileResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 5CC5E450-FC43-4F5B-B540-9964BD31****
      *
      * @var string
@@ -37,6 +54,17 @@ class DeleteCdsFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDirectorySsoStatusRequest extends Model
 {
     /**
+     * @description The AD directory ID.
+     *
      * @example cn-hangzhou+dir-h95efs1mbukd9****
      *
      * @var string
@@ -16,6 +18,11 @@ class SetDirectorySsoStatusRequest extends Model
     public $directoryId;
 
     /**
+     * @description Specifies whether to enable SSO. Valid values:
+     *
+     *   true: enables SSO.
+     *   false: disables SSO.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class SetDirectorySsoStatusRequest extends Model
     public $enableSso;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

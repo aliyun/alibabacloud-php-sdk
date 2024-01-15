@@ -20,8 +20,8 @@ class AttachCenRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
      *
-     *   If you specify the CenId parameter and the CEN instance that you specify for the CenId parameter belongs to the Alibaba Cloud account, skip this parameter.
-     *   If you specify the CenId parameter and the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, enter the ID of the exact Alibaba Cloud account.
+     *   If the CEN instance specified by CenId belongs to the current Alibaba Cloud account, you can skip this parameter.
+     *   If the CEN instance specified by CenId belongs to another Alibaba Cloud account, you must specify this parameter.
      *
      * @example 102681951715****
      *
@@ -39,7 +39,7 @@ class AttachCenRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID of the workspace.
      *
      * @example cn-hangzhou
      *
@@ -48,7 +48,7 @@ class AttachCenRequest extends Model
     public $regionId;
 
     /**
-     * @description The verification code. If the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, you must call the SendVerifyCode operation to obtain the verification code.
+     * @description The verification code. If the CEN instance that is specified by CenId belongs to another Alibaba Cloud account, you must call the SendVerifyCode operation to obtain the verification code.
      *
      * @example 12****
      *

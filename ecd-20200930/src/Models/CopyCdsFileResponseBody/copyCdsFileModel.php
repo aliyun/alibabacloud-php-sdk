@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class copyCdsFileModel extends Model
 {
     /**
+     * @description The ID of the asynchronous task. This parameter is not returned if you copy a file. This parameter is returned if you copy a folder in the backend in an asynchronous manner. You can call the GetAsyncTask operation to obtain the ID and details of an asynchronous task.
+     *
      * @example 4221bf6e6ab43a255edc4463bffa6f5f5d31****
      *
      * @var string
@@ -16,6 +18,8 @@ class copyCdsFileModel extends Model
     public $asyncTaskId;
 
     /**
+     * @description The ID of the copied file or folder.
+     *
      * @example 6400727cb878821bcb414615a609b4072463****
      *
      * @var string

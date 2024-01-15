@@ -18,7 +18,10 @@ class DescribeBundlesRequest extends Model
     public $bundleId;
 
     /**
-     * @description The type of the desktop template.
+     * @description The type of the cloud desktop template. Valid values:
+     *
+     *   SYSTEM: the system template
+     *   CUSTOM: the custom template
      *
      * @example SYSTEM
      *
@@ -27,7 +30,7 @@ class DescribeBundlesRequest extends Model
     public $bundleType;
 
     /**
-     * @description Specifies whether to query the inventory status of the desktop type.
+     * @description Specifies whether to query the inventory status of the cloud desktop type.
      *
      * @example true
      *
@@ -36,7 +39,7 @@ class DescribeBundlesRequest extends Model
     public $checkStock;
 
     /**
-     * @description The number of vCPUs of the desktop type.
+     * @description The number of vCPUs that is defined in the cloud desktop type.
      *
      * @example 2
      *
@@ -45,7 +48,11 @@ class DescribeBundlesRequest extends Model
     public $cpuCount;
 
     /**
-     * @description The family of the desktop type.
+     * @description The family of the cloud desktop type. Valid values:
+     *
+     *   eds.general: General Office
+     *   eds.hf: High Frequency
+     *   eds.graphics: Graphics
      *
      * @example eds.general
      *
@@ -63,7 +70,7 @@ class DescribeBundlesRequest extends Model
     public $fotaChannel;
 
     /**
-     * @description Specifies whether the cloud desktop that uses the desktop template belongs to the desktop group. Default value: `false`.
+     * @description Specifies whether the cloud desktop template belongs to a desktop group. Default value: false.
      *
      * @example false
      *
@@ -72,7 +79,7 @@ class DescribeBundlesRequest extends Model
     public $fromDesktopGroup;
 
     /**
-     * @description The number of GPUs of the desktop type.
+     * @description The number of GPUs that is defined in the cloud desktop type.
      *
      * @example 1
      *
@@ -81,6 +88,8 @@ class DescribeBundlesRequest extends Model
     public $gpuCount;
 
     /**
+     * @description The image ID.
+     *
      * @var string[]
      */
     public $imageId;
@@ -88,9 +97,7 @@ class DescribeBundlesRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
-     *   Maximum value: 100.
-     *   Default value: 10.
-     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -98,7 +105,7 @@ class DescribeBundlesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The memory size of the desktop type. Unit: GiB.
+     * @description The memory size that is defined in the cloud desktop type. Unit: GiB.
      *
      * @example 4
      *
@@ -107,7 +114,7 @@ class DescribeBundlesRequest extends Model
     public $memorySize;
 
     /**
-     * @description The token that determines the start point of the next query.
+     * @description The token that is used to start the next query.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -116,7 +123,22 @@ class DescribeBundlesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The type of the protocol.
+     * @description The OS. Valid values:
+     *
+     * **Windows**
+     * **Linux**
+     *
+     * @example Windows
+     *
+     * @var string
+     */
+    public $osType;
+
+    /**
+     * @description The protocol type.
+     *
+     *   HDX
+     *   ASP (Recommend)
      *
      * @example ASP
      *
@@ -125,13 +147,22 @@ class DescribeBundlesRequest extends Model
     public $protocolType;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](~~436773~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The scenario to use the image.
+     *
+     * @example FastBuy
+     *
+     * @var string
+     */
+    public $scope;
 
     /**
      * @description The desktop template that is selected based on specific criteria.
@@ -144,6 +175,10 @@ class DescribeBundlesRequest extends Model
 
     /**
      * @description The type of the session.
+     *
+     * Enumeration Value:
+     * **SingleSession**
+     * **MultipleSession**
      *
      * @example SingleSession
      *
@@ -181,8 +216,10 @@ class DescribeBundlesRequest extends Model
         'maxResults'              => 'MaxResults',
         'memorySize'              => 'MemorySize',
         'nextToken'               => 'NextToken',
+        'osType'                  => 'OsType',
         'protocolType'            => 'ProtocolType',
         'regionId'                => 'RegionId',
+        'scope'                   => 'Scope',
         'selectedBundle'          => 'SelectedBundle',
         'sessionType'             => 'SessionType',
         'supportMultiSession'     => 'SupportMultiSession',
@@ -232,11 +269,17 @@ class DescribeBundlesRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+        if (null !== $this->osType) {
+            $res['OsType'] = $this->osType;
+        }
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
         }
         if (null !== $this->selectedBundle) {
             $res['SelectedBundle'] = $this->selectedBundle;
@@ -302,11 +345,17 @@ class DescribeBundlesRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+        if (isset($map['OsType'])) {
+            $model->osType = $map['OsType'];
+        }
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
         }
         if (isset($map['SelectedBundle'])) {
             $model->selectedBundle = $map['SelectedBundle'];

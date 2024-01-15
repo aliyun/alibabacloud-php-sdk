@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class authorizeSecurityPolicyRule extends Model
 {
     /**
+     * @description The object to which the security group rule applies. The value is an IPv4 CIDR block.
+     *
      * @example 10.0.XX.XX/8
      *
      * @var string
@@ -16,6 +18,8 @@ class authorizeSecurityPolicyRule extends Model
     public $cidrIp;
 
     /**
+     * @description The description of security group rule N.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,14 @@ class authorizeSecurityPolicyRule extends Model
     public $description;
 
     /**
+     * @description The protocol type of security group rule N. Valid values:
+     *
+     *   tcp: TCP
+     *   udp: UDP
+     *   icmp: ICMP (IPv4)
+     *   gre: GRE
+     *   all: all protocols
+     *
      * @example tcp
      *
      * @var string
@@ -30,6 +42,11 @@ class authorizeSecurityPolicyRule extends Model
     public $ipProtocol;
 
     /**
+     * @description The authorization policy of security group rule N. Valid values:
+     *
+     *   accept: specifies the Allow policy that allows all access requests.
+     *   drop: specifies the Deny policy that denies all access requests. If no messages of access denied are returned, the requests time out or failed.
+     *
      * @example accept
      *
      * @var string
@@ -37,6 +54,14 @@ class authorizeSecurityPolicyRule extends Model
     public $policy;
 
     /**
+     * @description The port range of security group rule N. The value of the port range is determined by the protocol type specified by the AuthorizeSecurityPolicyRule.N.IpProtocol parameter.
+     *
+     *   When the AuthorizeSecurityPolicyRule.N.IpProtocol parameter is set to tcp or udp, the port range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+     *   When AuthorizeSecurityPolicyRule.N.IpProtocol is set to icmp, set the value to -1/-1.
+     *   When AuthorizeSecurityPolicyRule.N.IpProtocol is set to gre, set the value to -1/-1.
+     *   When AuthorizeSecurityPolicyRule.N.IpProtocol is set to all, set the value to -1/-1.
+     *
+     * For more information about the common ports of typical applications, see [Common ports](~~40724~~).
      * @example 22/22
      *
      * @var string
@@ -44,6 +69,9 @@ class authorizeSecurityPolicyRule extends Model
     public $portRange;
 
     /**
+     * @description The priority of security group rule N. A smaller value indicates a higher priority.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var string
@@ -51,6 +79,11 @@ class authorizeSecurityPolicyRule extends Model
     public $priority;
 
     /**
+     * @description The direction of security group rule N. Valid values:
+     *
+     *   inflow: inbound
+     *   outflow: outbound
+     *
      * @example inflow
      *
      * @var string

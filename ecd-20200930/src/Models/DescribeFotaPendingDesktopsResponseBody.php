@@ -10,14 +10,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeFotaPendingDesktopsResponseBody extends Model
 {
     /**
-     * @description Details about the cloud desktops whose images have not been updated. The cloud desktops can be updated to the image of a specific version that is described in an image update task (TaskUid).
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @description Details about the cloud desktops whose images can be but are not yet updated to the version that is described in an image update task (TaskUid).
      *
      * @var fotaPendingDesktops[]
      */
     public $fotaPendingDesktops;
 
     /**
-     * @description The token that is used to start the next query. If the value of this parameter is empty, all results are returned.
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. If the NextToken parameter is empty, no next page exists.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -34,7 +44,9 @@ class DescribeFotaPendingDesktopsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'code'                => 'Code',
         'fotaPendingDesktops' => 'FotaPendingDesktops',
+        'message'             => 'Message',
         'nextToken'           => 'NextToken',
         'requestId'           => 'RequestId',
     ];
@@ -46,6 +58,9 @@ class DescribeFotaPendingDesktopsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->fotaPendingDesktops) {
             $res['FotaPendingDesktops'] = [];
             if (null !== $this->fotaPendingDesktops && \is_array($this->fotaPendingDesktops)) {
@@ -54,6 +69,9 @@ class DescribeFotaPendingDesktopsResponseBody extends Model
                     $res['FotaPendingDesktops'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
@@ -73,6 +91,9 @@ class DescribeFotaPendingDesktopsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['FotaPendingDesktops'])) {
             if (!empty($map['FotaPendingDesktops'])) {
                 $model->fotaPendingDesktops = [];
@@ -81,6 +102,9 @@ class DescribeFotaPendingDesktopsResponseBody extends Model
                     $model->fotaPendingDesktops[$n++] = null !== $item ? fotaPendingDesktops::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];

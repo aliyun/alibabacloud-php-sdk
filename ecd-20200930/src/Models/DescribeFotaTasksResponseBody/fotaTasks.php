@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class fotaTasks extends Model
 {
     /**
-     * @description The version of the custom image. You can call the [DescribeImages](~~188895~~) operation to obtain the value of this parameter.
+     * @description The version of the image. You can call the [DescribeImages](~~188895~~) operation to obtain this parameter.
      *
      * @example 0.0.1-D-20220513.143129
      *
@@ -18,7 +18,7 @@ class fotaTasks extends Model
     public $appVersion;
 
     /**
-     * @description This parameter is not available to the public.
+     * @description This parameter is not available.
      *
      * @example To be hidden.
      *
@@ -27,12 +27,16 @@ class fotaTasks extends Model
     public $fotaProject;
 
     /**
+     * @description The number of custom images that can be updated to this version.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pendingCustomImageCount;
 
     /**
-     * @description The number of cloud desktops for which the images can be updated to this version.
+     * @description The number of cloud desktops for which images can be updated to this version.
      *
      * @example 1
      *
@@ -41,7 +45,7 @@ class fotaTasks extends Model
     public $pendingDesktopCount;
 
     /**
-     * @description The time when the updated image was published.
+     * @description The time when the image version is available for update was published.
      *
      * @example 2022-05-31T04:28:48Z
      *
@@ -50,7 +54,7 @@ class fotaTasks extends Model
     public $publishTime;
 
     /**
-     * @description The description of the image version to which the original image is updated.
+     * @description The description of the image version that is available for update.
      *
      * @example test
      *
@@ -68,8 +72,17 @@ class fotaTasks extends Model
     public $size;
 
     /**
-     * @description Indicates whether the user can update the image of the cloud desktop.
+     * @description Indicates whether an end user can update the image.
      *
+     * Valid values:
+     *
+     *   valid
+     *
+     * <!-- -->
+     *
+     *   invalid
+     *
+     * <!-- -->
      * @example valid
      *
      * @var string

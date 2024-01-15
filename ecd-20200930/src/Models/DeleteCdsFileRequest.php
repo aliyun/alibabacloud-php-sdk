@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCdsFileRequest extends Model
 {
     /**
+     * @description The ID of the cloud disk.
+     *
      * @example cn-hangzhou+cds-066224****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteCdsFileRequest extends Model
     public $cdsId;
 
     /**
+     * @description The ID of the end user who uses the cloud disk.
+     *
      * @example user01
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteCdsFileRequest extends Model
     public $endUserId;
 
     /**
+     * @description The ID of the file. The ID is a unique identifier for the file.
+     *
      * @example 6333e553a133ce21e6f747cf948bb9ef95d7****
      *
      * @var string
@@ -30,6 +36,15 @@ class DeleteCdsFileRequest extends Model
     public $fileId;
 
     /**
+     * @description The group ID.
+     *
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,6 +54,7 @@ class DeleteCdsFileRequest extends Model
         'cdsId'     => 'CdsId',
         'endUserId' => 'EndUserId',
         'fileId'    => 'FileId',
+        'groupId'   => 'GroupId',
         'regionId'  => 'RegionId',
     ];
 
@@ -57,6 +73,9 @@ class DeleteCdsFileRequest extends Model
         }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -81,6 +100,9 @@ class DeleteCdsFileRequest extends Model
         }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

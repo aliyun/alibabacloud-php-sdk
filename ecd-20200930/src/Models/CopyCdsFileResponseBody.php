@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CopyCdsFileResponseBody extends Model
 {
     /**
+     * @description The operation result. The value success indicates that the operation is successful. If the operation failed, an error message is returned.
+     *
      * @example success
      *
      * @var string
@@ -17,11 +19,15 @@ class CopyCdsFileResponseBody extends Model
     public $code;
 
     /**
+     * @description The details about the file copying.
+     *
      * @var copyCdsFileModel
      */
     public $copyCdsFileModel;
 
     /**
+     * @description The error message that is returned. This parameter is not returned if the value of Code is success.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class CopyCdsFileResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 93AD30C1-16B8-5C54-AD23-A51FF53F****
      *
      * @var string
@@ -36,6 +44,17 @@ class CopyCdsFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var string

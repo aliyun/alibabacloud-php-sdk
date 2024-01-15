@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeNASFileSystemsRequest extends Model
 {
     /**
-     * @description The IDs of the NAS file systems.
+     * @description The IDs of the NAS file system.
      *
      * @example 04f314****
      *
@@ -29,9 +29,7 @@ class DescribeNASFileSystemsRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
-     *   Maximum value: 100.
-     *   Default value: 10.
-     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -39,7 +37,7 @@ class DescribeNASFileSystemsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the query. Set the value to the NextToken value that is returned from the last call.
+     * @description The token that determines the start point of the query.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *

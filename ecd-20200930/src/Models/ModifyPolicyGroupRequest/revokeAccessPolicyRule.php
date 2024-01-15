@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class revokeAccessPolicyRule extends Model
 {
     /**
+     * @description The IPv4 CIDR block that can be accessed from the client.
+     *
      * @example 47.100.XX.XX/16
      *
      * @var string
@@ -16,6 +18,8 @@ class revokeAccessPolicyRule extends Model
     public $cidrIp;
 
     /**
+     * @description The description of the client IP address whitelist that you want to delete.
+     *
      * @example test
      *
      * @var string

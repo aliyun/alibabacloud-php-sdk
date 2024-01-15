@@ -10,14 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeFotaTasksResponseBody extends Model
 {
     /**
-     * @description Details about the image update tasks.
+     * @description The operation result. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+     *
+     * @example success
+     *
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @description Details about the image update task.
      *
      * @var fotaTasks[]
      */
     public $fotaTasks;
 
     /**
-     * @description The ID of the request.
+     * @description The returned error message. This parameter is not returned if the value of Code is `success`.
+     *
+     * @example success
+     *
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is the token that is used for the next query.
+     *
+     * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @description The request ID.
      *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *
@@ -25,7 +55,10 @@ class DescribeFotaTasksResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'code'      => 'Code',
         'fotaTasks' => 'FotaTasks',
+        'message'   => 'Message',
+        'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
 
@@ -36,6 +69,9 @@ class DescribeFotaTasksResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->fotaTasks) {
             $res['FotaTasks'] = [];
             if (null !== $this->fotaTasks && \is_array($this->fotaTasks)) {
@@ -44,6 +80,12 @@ class DescribeFotaTasksResponseBody extends Model
                     $res['FotaTasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -60,6 +102,9 @@ class DescribeFotaTasksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['FotaTasks'])) {
             if (!empty($map['FotaTasks'])) {
                 $model->fotaTasks = [];
@@ -68,6 +113,12 @@ class DescribeFotaTasksResponseBody extends Model
                     $model->fotaTasks[$n++] = null !== $item ? fotaTasks::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeFotaTasksRequest extends Model
 {
     /**
-     * @description This parameter is not available to the public.
+     * @description This parameter is not available.
      *
      * @example To be hidden.
      *
@@ -18,9 +18,21 @@ class DescribeFotaTasksRequest extends Model
     public $fotaStatus;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The language of the image version to update. Valid values:
      *
-     *   Maximum value: 100
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @description The number of entries per page.
+     *
+     *   Valid values: 1 to 100
      *   Default value: 20
      *
      * @example 20
@@ -30,7 +42,7 @@ class DescribeFotaTasksRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. If the NextToken parameter is empty, no next page exists.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -39,7 +51,7 @@ class DescribeFotaTasksRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -48,7 +60,7 @@ class DescribeFotaTasksRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the image update task. You can call the DescribeFotaTasks operation to obtain the value of this parameter.
+     * @description The IDs of the image update tasks. You can call the DescribeFotaTasks operation to obtain the value of this parameter.
      *
      * @var string[]
      */
@@ -57,6 +69,15 @@ class DescribeFotaTasksRequest extends Model
     /**
      * @description Specifies whether to automatically push the image update task.
      *
+     * Valid values:
+     *
+     *   Running
+     *
+     * <!-- -->
+     *
+     *   Pending
+     *
+     * <!-- -->
      * @example Pending
      *
      * @var string
@@ -64,6 +85,7 @@ class DescribeFotaTasksRequest extends Model
     public $userStatus;
     protected $_name = [
         'fotaStatus' => 'FotaStatus',
+        'lang'       => 'Lang',
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
         'regionId'   => 'RegionId',
@@ -80,6 +102,9 @@ class DescribeFotaTasksRequest extends Model
         $res = [];
         if (null !== $this->fotaStatus) {
             $res['FotaStatus'] = $this->fotaStatus;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -110,6 +135,9 @@ class DescribeFotaTasksRequest extends Model
         $model = new self();
         if (isset($map['FotaStatus'])) {
             $model->fotaStatus = $map['FotaStatus'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

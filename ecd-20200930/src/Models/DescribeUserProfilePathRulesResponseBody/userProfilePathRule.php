@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class userProfilePathRule extends Model
 {
     /**
+     * @description The desktop group ID.
+     *
      * @example dg-4i8fvpv6tfs03****
      *
      * @var string
@@ -17,11 +19,24 @@ class userProfilePathRule extends Model
     public $desktopGroupId;
 
     /**
+     * @description The directory rules.
+     *
      * @var rules[]
      */
     public $rules;
 
     /**
+     * @description The directory type that is configured for the directory.
+     *
+     * Valid values:
+     *
+     *   DesktopGroup
+     *
+     * <!-- -->
+     *
+     *   Default
+     *
+     * <!-- -->
      * @example Default
      *
      * @var string

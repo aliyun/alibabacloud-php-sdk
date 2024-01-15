@@ -19,7 +19,7 @@ class DescribeOfficeSitesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Details of the workspaces.
+     * @description Details about the workspaces.
      *
      * @var officeSites[]
      */

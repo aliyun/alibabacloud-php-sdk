@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class invocations extends Model
 {
     /**
-     * @description The command content that is encoded in Base64.
+     * @description The Base64-encoded command content.
      *
      * @example cnBtIC1xYSB8IGdyZXAgdnNm****
      *
@@ -28,7 +28,7 @@ class invocations extends Model
     public $commandType;
 
     /**
-     * @description The time when the task was created.
+     * @description The time when the execution task is created.
      *
      * @example 2020-12-19T09:15:46Z
      *
@@ -37,8 +37,6 @@ class invocations extends Model
     public $creationTime;
 
     /**
-     * @description The ID of the end user.
-     *
      * @example User1
      *
      * @var string
@@ -46,30 +44,30 @@ class invocations extends Model
     public $endUserId;
 
     /**
-     * @description The overall execution status of the command. The overall execution status is determined by the execution status of the command on all related cloud desktops. Valid values:
+     * @description The overall execution status of the command. The overall execution status is determined by the execution status on all involved cloud desktops. The valid values include:
      *
      *   Pending: The system is verifying or sending the command. If the execution status on at least one cloud desktop is Pending, the overall execution status is Pending.
      *
      *   Running: The execution is in progress on cloud desktops. If the execution status on at least one cloud desktop is Running, the overall execution status is Running.
      *
-     *   Success: If the execution status on at least one cloud desktop is Success, and the execution status on other cloud desktops is Success or Stopped, the overall execution status is Success.
+     *   Success: If the execution status on all cloud desktops is Success or Stopped, or the execution status on at least one cloud desktop is Success, the overall execution status is Success.
      *
-     *   Failed: If the execution status on all cloud desktops is Stopped or Failed, the overall execution status is Failed. If one or more execution status on a cloud desktop is one of the following values, Failed is returned:
+     *   Failed: If the execution status on all cloud desktops is Stopped or Failed, the overall execution status is Failed. If one or more execution status of a cloud desktop is one of the following values, Failed is returned:
      *
      *   Invalid: The command is invalid.
-     *   Aborted: The command failed to be sent.
-     *   Failed: The execution is complete, but the exit code is not 0.
-     *   Timeout: The execution times out.
-     *   Error: An error occurs when the execution is in progress.
+     *   Aborted: The command fails to be sent.
+     *   Failed: The command is executed, but the exit code is not 0.
+     *   Timeout: The command times out.
+     *   Error: An error occurs in the command.
      *
-     *   Stopping: The execution is being stopped. If the execution status on at least one cloud desktop is Stopping, the overall execution status is Stopping.
+     *   Stopping: The execution is being stopped. If the execution status on at least one cloud desktop is Stopping, the overall execution state is Stopping.
      *
-     *   Stopped: The execution is stopped. If the execution status on all cloud desktops is Stopped, the overall execution status is Stopped. If the execution status on a cloud desktop is one of the following values, Stopped is returned:
+     *   Stopped: The execution is stopped. If the execution status on all cloud desktops is Stopped, the overall execution state is Stopped. If the execution status on a cloud desktop is one of the following values, Stopped is returned:
      *
      *   Cancelled: The execution is canceled.
      *   Terminated: The execution is terminated.
      *
-     *   PartialFailed: The execution is successful on specific cloud desktops and failed on other cloud desktops. If the execution status on different cloud desktops includes Success, Failed, and Stopped, the overall execution status is PartialFailed.
+     *   PartialFailed: The execution succeeded on some cloud desktops and failed on others. If the execution status on different cloud desktops is Success, Failed, or Stopped, the overall execution state is PartialFailed.
      *
      * @example Pending
      *
@@ -78,7 +76,7 @@ class invocations extends Model
     public $invocationStatus;
 
     /**
-     * @description The cloud desktops on which the command is run.
+     * @description The cloud desktops on which the command is executed.
      *
      * @var invokeDesktops[]
      */

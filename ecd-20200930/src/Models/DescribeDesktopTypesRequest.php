@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopTypesRequest extends Model
 {
     /**
-     * @description The applicable scope of the desktop type. Default value: `Public`.
+     * @description Applicable Scope of specifications. Default value: `Public`
      *
      * @example Public
      *
@@ -27,7 +27,12 @@ class DescribeDesktopTypesRequest extends Model
     public $cpuCount;
 
     /**
-     * @description The ID of the cloud desktop whose desktop type that you want to modify. If you specify this parameter, the information that is returned includes whether the desktop type is compatible with the cloud desktop.
+     * @var string
+     */
+    public $desktopGroupIdForModify;
+
+    /**
+     * @description When changing the configuration, enter the desktop ID that needs to be changed. The return value will increase the compatibility between the specifications and the desktop.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -36,7 +41,7 @@ class DescribeDesktopTypesRequest extends Model
     public $desktopIdForModify;
 
     /**
-     * @description The ID of the desktop type. Valid values:
+     * @description The ID of the cloud desktop type. Valid values:
      *
      *   eds.graphics.16c1t4
      *   eds.graphics.24c1t4
@@ -59,7 +64,6 @@ class DescribeDesktopTypesRequest extends Model
      *   ecd.basic.large
      *   ecd.basic.small
      *
-     * > When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all desktop types are queried.
      * @example ecd.graphics.xlarge
      *
      * @var string
@@ -86,7 +90,6 @@ class DescribeDesktopTypesRequest extends Model
      *   ecd.advanced
      *   ecd.basic
      *
-     * > When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all desktop types are queried.
      * @example ecd.graphics
      *
      * @var string
@@ -94,7 +97,7 @@ class DescribeDesktopTypesRequest extends Model
     public $instanceTypeFamily;
 
     /**
-     * @description The size of the memory. Unit: GiB.
+     * @description The memory size. Unit: GiB.
      *
      * @example 4
      *
@@ -103,7 +106,7 @@ class DescribeDesktopTypesRequest extends Model
     public $memorySize;
 
     /**
-     * @description The type of the order that you want to place.
+     * @description The order type.
      *
      * @example DOWNGRADE
      *
@@ -112,7 +115,7 @@ class DescribeDesktopTypesRequest extends Model
     public $orderType;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -120,15 +123,16 @@ class DescribeDesktopTypesRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'appliedScope'       => 'AppliedScope',
-        'cpuCount'           => 'CpuCount',
-        'desktopIdForModify' => 'DesktopIdForModify',
-        'desktopTypeId'      => 'DesktopTypeId',
-        'gpuCount'           => 'GpuCount',
-        'instanceTypeFamily' => 'InstanceTypeFamily',
-        'memorySize'         => 'MemorySize',
-        'orderType'          => 'OrderType',
-        'regionId'           => 'RegionId',
+        'appliedScope'            => 'AppliedScope',
+        'cpuCount'                => 'CpuCount',
+        'desktopGroupIdForModify' => 'DesktopGroupIdForModify',
+        'desktopIdForModify'      => 'DesktopIdForModify',
+        'desktopTypeId'           => 'DesktopTypeId',
+        'gpuCount'                => 'GpuCount',
+        'instanceTypeFamily'      => 'InstanceTypeFamily',
+        'memorySize'              => 'MemorySize',
+        'orderType'               => 'OrderType',
+        'regionId'                => 'RegionId',
     ];
 
     public function validate()
@@ -143,6 +147,9 @@ class DescribeDesktopTypesRequest extends Model
         }
         if (null !== $this->cpuCount) {
             $res['CpuCount'] = $this->cpuCount;
+        }
+        if (null !== $this->desktopGroupIdForModify) {
+            $res['DesktopGroupIdForModify'] = $this->desktopGroupIdForModify;
         }
         if (null !== $this->desktopIdForModify) {
             $res['DesktopIdForModify'] = $this->desktopIdForModify;
@@ -182,6 +189,9 @@ class DescribeDesktopTypesRequest extends Model
         }
         if (isset($map['CpuCount'])) {
             $model->cpuCount = $map['CpuCount'];
+        }
+        if (isset($map['DesktopGroupIdForModify'])) {
+            $model->desktopGroupIdForModify = $map['DesktopGroupIdForModify'];
         }
         if (isset($map['DesktopIdForModify'])) {
             $model->desktopIdForModify = $map['DesktopIdForModify'];

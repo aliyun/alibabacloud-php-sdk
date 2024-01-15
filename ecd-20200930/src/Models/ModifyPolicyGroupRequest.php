@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\authorizeAccessPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\authorizeSecurityPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\clientType;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\domainResolveRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\revokeAccessPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\revokeSecurityPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest\usbSupplyRedirectRule;
@@ -15,6 +16,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyPolicyGroupRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $adminAccess;
+
+    /**
+     * @description Specifies whether to enable the anti-screenshot feature. Valid values:
+     *
+     * on
+     * off
+     *
+     * Default value: off.
      * @example on
      *
      * @var string
@@ -22,16 +34,26 @@ class ModifyPolicyGroupRequest extends Model
     public $appContentProtection;
 
     /**
+     * @description The client CIDR blocks in the whitelist.
+     *
      * @var authorizeAccessPolicyRule[]
      */
     public $authorizeAccessPolicyRule;
 
     /**
+     * @description The security group rules.
+     *
      * @var authorizeSecurityPolicyRule[]
      */
     public $authorizeSecurityPolicyRule;
 
     /**
+     * @description Specifies whether to enable the webcam redirection feature. Valid values:
+     *
+     * on
+     * off
+     *
+     * Default value: on.
      * @example on
      *
      * @var string
@@ -39,11 +61,19 @@ class ModifyPolicyGroupRequest extends Model
     public $cameraRedirect;
 
     /**
+     * @description The logon methods.
+     *
      * @var clientType[]
      */
     public $clientType;
 
     /**
+     * @description The permissions on clipboards. Valid values:
+     *
+     *   read: specifies one-way transfer. You can copy data from your computer to cloud desktops, but cannot copy data from cloud desktops to your computer.
+     *   readwrite: specifies two-way transfer. You can copy data between your computer and cloud desktops.
+     *   off: specifies that the two-way transfer is disabled. You cannot copy data between your computer and cloud desktops.
+     *
      * @example off
      *
      * @var string
@@ -51,6 +81,11 @@ class ModifyPolicyGroupRequest extends Model
     public $clipboard;
 
     /**
+     * @description The domain blacklist or whitelist. Wildcard domains are supported. Separate domain names with commas (,). Valid values:
+     *
+     *   \[black:],example1.com,example2.com: the domain name blacklist.
+     *   \[white:],example1.com,example2.com: the domain name whitelist.
+     *
      * @example on
      *
      * @var string
@@ -58,6 +93,26 @@ class ModifyPolicyGroupRequest extends Model
     public $domainList;
 
     /**
+     * @description The details of the DNS rule.
+     *
+     * @var domainResolveRule[]
+     */
+    public $domainResolveRule;
+
+    /**
+     * @description The DNS rule type.
+     *
+     * @example OFF
+     *
+     * @var string
+     */
+    public $domainResolveRuleType;
+
+    /**
+     * @description The user applies for the administrator assistance switch. Value range:
+     * on
+     * off
+     *
      * @example on
      *
      * @var string
@@ -65,6 +120,10 @@ class ModifyPolicyGroupRequest extends Model
     public $endUserApplyAdminCoordinate;
 
     /**
+     * @description The flow collaboration switch between users. Value range:
+     * on
+     * off
+     *
      * @example on
      *
      * @var string
@@ -72,6 +131,11 @@ class ModifyPolicyGroupRequest extends Model
     public $endUserGroupCoordinate;
 
     /**
+     * @description Specifies whether to enable the image display quality feature for the Graphics cloud desktop. If your business requires high desktop performance and optimal user experience, we recommend that you enable this feature. For example, you can enable this policy in professional design scenarios. Valid values:
+     *
+     * on
+     * off
+     *
      * @example off
      *
      * @var string
@@ -79,6 +143,12 @@ class ModifyPolicyGroupRequest extends Model
     public $gpuAcceleration;
 
     /**
+     * @description Specifies whether to allow the access from HTM5 clients to a cloud desktop. Valid values:
+     *
+     *   on: allows the access.
+     *   off: denies the access.
+     *
+     * >  We recommend that you use the ClientType-related parameters to control the EDS client type for cloud desktop logon.
      * @example off
      *
      * @var string
@@ -86,6 +156,14 @@ class ModifyPolicyGroupRequest extends Model
     public $html5Access;
 
     /**
+     * @description The file transfer policy for HTML5 clients. Valid values:
+     *
+     *   off: Files cannot be uploaded from or downloaded to HTML5 clients.
+     *   upload: Files can be uploaded from HTML5 clients.
+     *   download: Files can be downloaded to HTML5 clients.
+     *   all: Files can be uploaded from and downloaded to HTML5 clients.
+     *
+     * Default value: off.
      * @example off
      *
      * @var string
@@ -93,6 +171,12 @@ class ModifyPolicyGroupRequest extends Model
     public $html5FileTransfer;
 
     /**
+     * @description The protocol that you want to use for network communication. Valid values:
+     *
+     * TCP: Only the TCP protocol is used.
+     * BOTH: allows automatic switchover between the TCP protocol and the UDP protocol.
+     *
+     * Default value: TCP.
      * @example BOTH
      *
      * @var string
@@ -100,6 +184,12 @@ class ModifyPolicyGroupRequest extends Model
     public $internetCommunicationProtocol;
 
     /**
+     * @description The permissions on local disk mapping. Valid values:
+     *
+     *   read: read-only permissions. Local disks are mapped to cloud desktops. You can only read (copy) local files but cannot modify them.
+     *   readwrite: read and write permissions. Local disks are mapped to cloud desktops. You can read (copy) and modify local files.
+     *   off: no permissions. Local disks are not mapped to cloud desktops.
+     *
      * @example off
      *
      * @var string
@@ -107,6 +197,8 @@ class ModifyPolicyGroupRequest extends Model
     public $localDrive;
 
     /**
+     * @description The name of the policy.
+     *
      * @example testPolicyGroupName
      *
      * @var string
@@ -114,6 +206,12 @@ class ModifyPolicyGroupRequest extends Model
     public $name;
 
     /**
+     * @description The network redirection feature. Valid values:
+     *
+     * on
+     * off
+     *
+     * Default value: off.
      * @example on
      *
      * @var string
@@ -121,6 +219,8 @@ class ModifyPolicyGroupRequest extends Model
     public $netRedirect;
 
     /**
+     * @description The ID of the policy.
+     *
      * @example pg-gx2x1dhsmthe9****
      *
      * @var string
@@ -128,6 +228,8 @@ class ModifyPolicyGroupRequest extends Model
     public $policyGroupId;
 
     /**
+     * @description Specifies whether to allow user preemption. Default value: off. You cannot change the value.
+     *
      * @example off
      *
      * @var string
@@ -135,11 +237,19 @@ class ModifyPolicyGroupRequest extends Model
     public $preemptLogin;
 
     /**
+     * @description The names of the users that are allowed to connect to the same cloud desktop at the same time. You can specify up to five usernames.
+     *
+     * > To improve user experience and ensure data security, multiple end users cannot connect to the same cloud desktop at the same time.
      * @var string[]
      */
     public $preemptLoginUser;
 
     /**
+     * @description Specifies whether to enable printer redirection. Valid values:
+     *
+     *   off: disables printer redirection.
+     *   on: enables printer redirection.
+     *
      * @example off
      *
      * @var string
@@ -147,6 +257,12 @@ class ModifyPolicyGroupRequest extends Model
     public $printerRedirection;
 
     /**
+     * @description Specifies whether to enable the custom screen recording feature. Valid values:
+     *
+     * on
+     * off
+     *
+     * Default value: off.
      * @example OFF
      *
      * @var string
@@ -154,6 +270,8 @@ class ModifyPolicyGroupRequest extends Model
     public $recordContent;
 
     /**
+     * @description The duration in which the custom screen recording is valid. Default value: 30. Unit: days.
+     *
      * @example 30
      *
      * @var int
@@ -161,6 +279,12 @@ class ModifyPolicyGroupRequest extends Model
     public $recordContentExpires;
 
     /**
+     * @description Specifies whether to enable screen recording. Valid values:
+     *
+     * OFF: disabled.
+     * ALLTIME: All operations that are performed by an end user on the cloud desktop are recorded. The recording immediately starts when the end user connects to the cloud desktop and ends after the end user disconnects from the cloud desktop.
+     * PERIOD: The operations that are performed by an end user on the cloud desktop during a specific period of time are recorded. You must specify the start time and the end time of the recording.
+     *
      * @example OFF
      *
      * @var string
@@ -168,6 +292,11 @@ class ModifyPolicyGroupRequest extends Model
     public $recording;
 
     /**
+     * @description Specifies whether to record the sound that is generated on the cloud desktop during screen recording. Valid values:
+     *
+     * on
+     * off
+     *
      * @example on
      *
      * @var string
@@ -175,6 +304,8 @@ class ModifyPolicyGroupRequest extends Model
     public $recordingAudio;
 
     /**
+     * @description This parameter takes effect based on the Recording-related parameters. You can specify a time range for screen recording, and recording files are generated after the specified end time is reached.
+     *
      * @example 15
      *
      * @var int
@@ -182,6 +313,8 @@ class ModifyPolicyGroupRequest extends Model
     public $recordingDuration;
 
     /**
+     * @description The time when the screen recording ends. Specify the value in the HH:MM:SS format. The value is valid only when you set the Recording parameter to PERIOD.
+     *
      * @example 08:59:00
      *
      * @var string
@@ -189,6 +322,8 @@ class ModifyPolicyGroupRequest extends Model
     public $recordingEndTime;
 
     /**
+     * @description The period in which the screen recording audit is valid. Valid values: 15 to 180. Unit: days.
+     *
      * @example 30
      *
      * @var int
@@ -196,6 +331,13 @@ class ModifyPolicyGroupRequest extends Model
     public $recordingExpires;
 
     /**
+     * @description The frame rate of screen recording. Unit: fps. Valid values:
+     *
+     * 2
+     * 5
+     * 10
+     * 15
+     *
      * @example 5
      *
      * @var int
@@ -203,6 +345,8 @@ class ModifyPolicyGroupRequest extends Model
     public $recordingFps;
 
     /**
+     * @description The time when the screen recording starts. Specify the value in the HH:MM:SS format. The value is valid only when you set the Recording parameter to PERIOD.
+     *
      * @example 08:00:00
      *
      * @var string
@@ -210,6 +354,8 @@ class ModifyPolicyGroupRequest extends Model
     public $recordingStartTime;
 
     /**
+     * @description The ID of the region where the cloud desktop resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -217,6 +363,12 @@ class ModifyPolicyGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description The permissions on the keyboard and mouse to control the cloud desktop during remote assistance. Valid values:
+     *
+     * fullControl: The keyboard and mouse can be fully controlled.
+     * optionalControl: By default, this feature is disabled. You can apply for permissions to enable the feature.
+     * disableControl: The keyboard and mouse cannot be controlled.
+     *
      * @example fullControl
      *
      * @var string
@@ -224,16 +376,25 @@ class ModifyPolicyGroupRequest extends Model
     public $remoteCoordinate;
 
     /**
+     * @description The security group rules that you want to delete.
+     *
      * @var revokeAccessPolicyRule[]
      */
     public $revokeAccessPolicyRule;
 
     /**
+     * @description The security group rules that you want to delete.
+     *
      * @var revokeSecurityPolicyRule[]
      */
     public $revokeSecurityPolicyRule;
 
     /**
+     * @description The effective scope of the policy. Valid values:
+     *
+     * GLOBAL: takes effect globally.
+     * IP: takes effect based on the IP address.
+     *
      * @example GLOBAL
      *
      * @var string
@@ -241,11 +402,18 @@ class ModifyPolicyGroupRequest extends Model
     public $scope;
 
     /**
+     * @description This parameter is required when the Scope parameter is set to IP.
+     *
      * @var string[]
      */
     public $scopeValue;
 
     /**
+     * @description Specifies whether to enable USB redirection. Valid values:
+     *
+     *   on: enables USB redirection.
+     *   off: disables USB redirection.
+     *
      * @example off
      *
      * @var string
@@ -253,11 +421,15 @@ class ModifyPolicyGroupRequest extends Model
     public $usbRedirect;
 
     /**
+     * @description The USB redirection rules.
+     *
      * @var usbSupplyRedirectRule[]
      */
     public $usbSupplyRedirectRule;
 
     /**
+     * @description The multimedia redirection feature.
+     *
      * @example on
      *
      * @var string
@@ -265,6 +437,12 @@ class ModifyPolicyGroupRequest extends Model
     public $videoRedirect;
 
     /**
+     * @description Specify whether to enable the policy of image display quality. Valid values:
+     *
+     *   on: enables the policy of image display quality.
+     *   off: disables the policy of image display quality.
+     *
+     * Default value: off.
      * @example low
      *
      * @var string
@@ -272,6 +450,11 @@ class ModifyPolicyGroupRequest extends Model
     public $visualQuality;
 
     /**
+     * @description Specifies whether to enable watermarking. Valid values:
+     *
+     *   on: enables watermarking.
+     *   off: disables watermarking.
+     *
      * @example off
      *
      * @var string
@@ -279,6 +462,8 @@ class ModifyPolicyGroupRequest extends Model
     public $watermark;
 
     /**
+     * @description The font color of the watermark. Valid values: 0 to 16777215.
+     *
      * @example 0
      *
      * @var int
@@ -286,6 +471,8 @@ class ModifyPolicyGroupRequest extends Model
     public $watermarkColor;
 
     /**
+     * @description The inclination angle of the watermark. Value values: -10 to -30.
+     *
      * @example -10
      *
      * @var float
@@ -293,6 +480,8 @@ class ModifyPolicyGroupRequest extends Model
     public $watermarkDegree;
 
     /**
+     * @description The font size of the watermark. Valid values: 10 to 50
+     *
      * @example 10
      *
      * @var int
@@ -300,6 +489,11 @@ class ModifyPolicyGroupRequest extends Model
     public $watermarkFontSize;
 
     /**
+     * @description The font style of the watermark. Valid values:
+     *
+     * plain
+     * bold
+     *
      * @example plain
      *
      * @var string
@@ -307,6 +501,8 @@ class ModifyPolicyGroupRequest extends Model
     public $watermarkFontStyle;
 
     /**
+     * @description The number of watermark rows. This parameter is not in use.
+     *
      * @example 3
      *
      * @var int
@@ -314,6 +510,21 @@ class ModifyPolicyGroupRequest extends Model
     public $watermarkRowAmount;
 
     /**
+     * @description The security priority rule for invisible watermarks. Valid values: on and off.
+     *
+     * @example off
+     *
+     * @var string
+     */
+    public $watermarkSecurity;
+
+    /**
+     * @description The transparency of the watermark. The valid values include:
+     *
+     *   LIGHT
+     *   MIDDLE
+     *   DARK
+     *
      * @example LIGHT
      *
      * @var string
@@ -321,6 +532,8 @@ class ModifyPolicyGroupRequest extends Model
     public $watermarkTransparency;
 
     /**
+     * @description The transparency of the watermark. A larger value indicates a less transparent watermark. Valid values: 10 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -328,12 +541,18 @@ class ModifyPolicyGroupRequest extends Model
     public $watermarkTransparencyValue;
 
     /**
+     * @description The type of the watermark. You can specify multiple watermark types at a time. Separate watermark types with commas (,). Valid values:
+     *
+     *   EndUserId: the username
+     *   HostName: the last 15 characters of the cloud desktop ID
+     *
      * @example EndUserId
      *
      * @var string
      */
     public $watermarkType;
     protected $_name = [
+        'adminAccess'                   => 'AdminAccess',
         'appContentProtection'          => 'AppContentProtection',
         'authorizeAccessPolicyRule'     => 'AuthorizeAccessPolicyRule',
         'authorizeSecurityPolicyRule'   => 'AuthorizeSecurityPolicyRule',
@@ -341,6 +560,8 @@ class ModifyPolicyGroupRequest extends Model
         'clientType'                    => 'ClientType',
         'clipboard'                     => 'Clipboard',
         'domainList'                    => 'DomainList',
+        'domainResolveRule'             => 'DomainResolveRule',
+        'domainResolveRuleType'         => 'DomainResolveRuleType',
         'endUserApplyAdminCoordinate'   => 'EndUserApplyAdminCoordinate',
         'endUserGroupCoordinate'        => 'EndUserGroupCoordinate',
         'gpuAcceleration'               => 'GpuAcceleration',
@@ -379,6 +600,7 @@ class ModifyPolicyGroupRequest extends Model
         'watermarkFontSize'             => 'WatermarkFontSize',
         'watermarkFontStyle'            => 'WatermarkFontStyle',
         'watermarkRowAmount'            => 'WatermarkRowAmount',
+        'watermarkSecurity'             => 'WatermarkSecurity',
         'watermarkTransparency'         => 'WatermarkTransparency',
         'watermarkTransparencyValue'    => 'WatermarkTransparencyValue',
         'watermarkType'                 => 'WatermarkType',
@@ -391,6 +613,9 @@ class ModifyPolicyGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->adminAccess) {
+            $res['AdminAccess'] = $this->adminAccess;
+        }
         if (null !== $this->appContentProtection) {
             $res['AppContentProtection'] = $this->appContentProtection;
         }
@@ -429,6 +654,18 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (null !== $this->domainList) {
             $res['DomainList'] = $this->domainList;
+        }
+        if (null !== $this->domainResolveRule) {
+            $res['DomainResolveRule'] = [];
+            if (null !== $this->domainResolveRule && \is_array($this->domainResolveRule)) {
+                $n = 0;
+                foreach ($this->domainResolveRule as $item) {
+                    $res['DomainResolveRule'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->domainResolveRuleType) {
+            $res['DomainResolveRuleType'] = $this->domainResolveRuleType;
         }
         if (null !== $this->endUserApplyAdminCoordinate) {
             $res['EndUserApplyAdminCoordinate'] = $this->endUserApplyAdminCoordinate;
@@ -562,6 +799,9 @@ class ModifyPolicyGroupRequest extends Model
         if (null !== $this->watermarkRowAmount) {
             $res['WatermarkRowAmount'] = $this->watermarkRowAmount;
         }
+        if (null !== $this->watermarkSecurity) {
+            $res['WatermarkSecurity'] = $this->watermarkSecurity;
+        }
         if (null !== $this->watermarkTransparency) {
             $res['WatermarkTransparency'] = $this->watermarkTransparency;
         }
@@ -583,6 +823,9 @@ class ModifyPolicyGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdminAccess'])) {
+            $model->adminAccess = $map['AdminAccess'];
+        }
         if (isset($map['AppContentProtection'])) {
             $model->appContentProtection = $map['AppContentProtection'];
         }
@@ -621,6 +864,18 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (isset($map['DomainList'])) {
             $model->domainList = $map['DomainList'];
+        }
+        if (isset($map['DomainResolveRule'])) {
+            if (!empty($map['DomainResolveRule'])) {
+                $model->domainResolveRule = [];
+                $n                        = 0;
+                foreach ($map['DomainResolveRule'] as $item) {
+                    $model->domainResolveRule[$n++] = null !== $item ? domainResolveRule::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['DomainResolveRuleType'])) {
+            $model->domainResolveRuleType = $map['DomainResolveRuleType'];
         }
         if (isset($map['EndUserApplyAdminCoordinate'])) {
             $model->endUserApplyAdminCoordinate = $map['EndUserApplyAdminCoordinate'];
@@ -757,6 +1012,9 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (isset($map['WatermarkRowAmount'])) {
             $model->watermarkRowAmount = $map['WatermarkRowAmount'];
+        }
+        if (isset($map['WatermarkSecurity'])) {
+            $model->watermarkSecurity = $map['WatermarkSecurity'];
         }
         if (isset($map['WatermarkTransparency'])) {
             $model->watermarkTransparency = $map['WatermarkTransparency'];

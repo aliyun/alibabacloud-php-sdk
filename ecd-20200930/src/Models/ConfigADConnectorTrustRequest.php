@@ -18,6 +18,19 @@ class ConfigADConnectorTrustRequest extends Model
     public $officeSiteId;
 
     /**
+     * @description Specifies whether to configure the trust password for the RDS license domain of the AD workspace.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * for the RDS license domain of the AD workspace.
+     *
+     *   false
+     *
+     * for common AD workspaces.
+     * @example true
+     *
      * @var bool
      */
     public $rdsLicenseDomain;

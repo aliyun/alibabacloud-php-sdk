@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\bundleModels;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\desktopTimers;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\tag;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\userCommands;
 use AlibabaCloud\Tea\Model;
@@ -64,6 +65,11 @@ class CreateDesktopsRequest extends Model
     public $chargeType;
 
     /**
+     * @var string
+     */
+    public $desktopMemberIp;
+
+    /**
      * @description The name of the cloud desktop. The name must meet the following requirements:
      *
      *   The name must be 1 to 64 characters in length.
@@ -83,6 +89,11 @@ class CreateDesktopsRequest extends Model
      * @var bool
      */
     public $desktopNameSuffix;
+
+    /**
+     * @var desktopTimers[]
+     */
+    public $desktopTimers;
 
     /**
      * @description This parameter is not available.
@@ -269,8 +280,10 @@ class CreateDesktopsRequest extends Model
         'bundleId'                => 'BundleId',
         'bundleModels'            => 'BundleModels',
         'chargeType'              => 'ChargeType',
+        'desktopMemberIp'         => 'DesktopMemberIp',
         'desktopName'             => 'DesktopName',
         'desktopNameSuffix'       => 'DesktopNameSuffix',
+        'desktopTimers'           => 'DesktopTimers',
         'directoryId'             => 'DirectoryId',
         'endUserId'               => 'EndUserId',
         'groupId'                 => 'GroupId',
@@ -321,11 +334,23 @@ class CreateDesktopsRequest extends Model
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+        if (null !== $this->desktopMemberIp) {
+            $res['DesktopMemberIp'] = $this->desktopMemberIp;
+        }
         if (null !== $this->desktopName) {
             $res['DesktopName'] = $this->desktopName;
         }
         if (null !== $this->desktopNameSuffix) {
             $res['DesktopNameSuffix'] = $this->desktopNameSuffix;
+        }
+        if (null !== $this->desktopTimers) {
+            $res['DesktopTimers'] = [];
+            if (null !== $this->desktopTimers && \is_array($this->desktopTimers)) {
+                $n = 0;
+                foreach ($this->desktopTimers as $item) {
+                    $res['DesktopTimers'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
@@ -426,11 +451,23 @@ class CreateDesktopsRequest extends Model
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+        if (isset($map['DesktopMemberIp'])) {
+            $model->desktopMemberIp = $map['DesktopMemberIp'];
+        }
         if (isset($map['DesktopName'])) {
             $model->desktopName = $map['DesktopName'];
         }
         if (isset($map['DesktopNameSuffix'])) {
             $model->desktopNameSuffix = $map['DesktopNameSuffix'];
+        }
+        if (isset($map['DesktopTimers'])) {
+            if (!empty($map['DesktopTimers'])) {
+                $model->desktopTimers = [];
+                $n                    = 0;
+                foreach ($map['DesktopTimers'] as $item) {
+                    $model->desktopTimers[$n++] = null !== $item ? desktopTimers::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];

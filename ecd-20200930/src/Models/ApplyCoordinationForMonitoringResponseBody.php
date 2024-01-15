@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ApplyCoordinationForMonitoringResponseBody extends Model
 {
     /**
+     * @description The list of stream collaboration models.
+     *
      * @var coordinateFlowModels[]
      */
     public $coordinateFlowModels;
 
     /**
+     * @description The request ID.
+     *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *
      * @var string

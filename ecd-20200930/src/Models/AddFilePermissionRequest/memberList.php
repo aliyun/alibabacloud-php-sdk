@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class memberList extends Model
 {
     /**
+     * @description The user of the cloud disk.
+     *
      * @var cdsIdentity
      */
     public $cdsIdentity;
 
     /**
+     * @description Specifies whether the users of the child group can inherit the folder permissions.
+     *
      * @example false
      *
      * @var bool
@@ -22,6 +26,8 @@ class memberList extends Model
     public $disinheritSubGroup;
 
     /**
+     * @description The time when the authorization expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. The value never expires. You can specify a value that is predefined by the system for this parameter. Example: 4775500800000.
+     *
      * @example 4775500800000
      *
      * @var int
@@ -29,6 +35,61 @@ class memberList extends Model
     public $expireTime;
 
     /**
+     * @description The ID of the role to which you want to attach the folder permissions. To configure the folder permissions: you can specify a role or create custom operation permissions. You can use RoleId to specify a role. RoleId is mutually exclusive with ActionList. If you specify both of them, the value of RoleId takes precedence.
+     *
+     * Valid values:
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
      * @example SystemFileUploaderAndDownloader
      *
      * @var string

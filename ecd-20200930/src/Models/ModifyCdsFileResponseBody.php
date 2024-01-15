@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCdsFileResponseBody extends Model
 {
     /**
+     * @description The modification result. The value success indicates that the modification is successful. If the modification failed, an error message is returned.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +18,17 @@ class ModifyCdsFileResponseBody extends Model
     public $code;
 
     /**
+     * @description Specifies whether data is returned.
+     *
+     * Valid values:
+     *
+     *   false: Data fails to be returned.
+     *
+     * <!-- -->
+     *
+     *   true
+     *
+     * <!-- -->
      * @example true
      *
      * @var string
@@ -23,6 +36,8 @@ class ModifyCdsFileResponseBody extends Model
     public $data;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example success
      *
      * @var string
@@ -30,6 +45,8 @@ class ModifyCdsFileResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *
      * @var string
@@ -37,6 +54,17 @@ class ModifyCdsFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * Valid values:
+     *
+     *   true: The request is successful.
+     *
+     * <!-- -->
+     *
+     *   false: The request fails.
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool

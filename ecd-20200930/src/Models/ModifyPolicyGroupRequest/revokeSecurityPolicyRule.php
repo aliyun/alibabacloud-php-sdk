@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class revokeSecurityPolicyRule extends Model
 {
     /**
+     * @description The IPv4 CIDR block of the security group rule.
+     *
      * @example 47.100.XX.XX/16
      *
      * @var string
@@ -16,6 +18,8 @@ class revokeSecurityPolicyRule extends Model
     public $cidrIp;
 
     /**
+     * @description The description of the security group rule.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,14 @@ class revokeSecurityPolicyRule extends Model
     public $description;
 
     /**
+     * @description The protocol type of the security group rule. Valid values:
+     *
+     * TCP
+     * UDP
+     * ICMP: ICMP (IPv4)
+     * GRE
+     * ALL
+     *
      * @example tcp
      *
      * @var string
@@ -30,6 +42,12 @@ class revokeSecurityPolicyRule extends Model
     public $ipProtocol;
 
     /**
+     * @description The authorization policy of the security group rule that you want to delete. Valid values:
+     *
+     * accept: allows all access requests.
+     * drop: disallows all access requests. If no denied messages are returned, the requests timed out or failed.
+     *
+     * Default value: accept.
      * @example accept
      *
      * @var string
@@ -37,6 +55,14 @@ class revokeSecurityPolicyRule extends Model
     public $policy;
 
     /**
+     * @description The port range of the security group rule that you want to delete. The value of the port range is determined by the protocol type specified by the IpProtocol parameter.
+     *
+     * If the IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. The start port number and the end port number are separated by a forward slash (/). Example: 1/200.
+     * If the IpProtocol parameter is set to ICMP, the port range is -1/-1.
+     * If the IpProtocol parameter is set to GRE, the port range is -1/-1.
+     * If the IpProtocol parameter is set to ALL, the port range is -1/-1.
+     *
+     * For more information about the common ports of typical applications, see [Common ports](https://www.alibabacloud.com/help/en/ecs/user-guide/common-ports?spm=a2c63.p38356.0.0.56b87f2c2SJTAw).
      * @example 22/22
      *
      * @var string
@@ -44,6 +70,9 @@ class revokeSecurityPolicyRule extends Model
     public $portRange;
 
     /**
+     * @description The priority of the security group rule. A smaller value indicates a higher priority.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var string
@@ -51,6 +80,11 @@ class revokeSecurityPolicyRule extends Model
     public $priority;
 
     /**
+     * @description The direction of the security group rule that you want to delete. Valid values:
+     *
+     * inflow: inbound
+     * outflow: outbound
+     *
      * @example outflow
      *
      * @var string

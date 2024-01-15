@@ -18,6 +18,15 @@ class DescribeImagesRequest extends Model
     public $desktopInstanceType;
 
     /**
+     * @description The image version.
+     *
+     * @example 0.0.3-R-20220616.133609
+     *
+     * @var string
+     */
+    public $fotaVersion;
+
+    /**
      * @description Specifies whether the image is a GPU-accelerated image.
      *
      * @example false
@@ -43,6 +52,15 @@ class DescribeImagesRequest extends Model
      * @var string[]
      */
     public $imageId;
+
+    /**
+     * @description The image name.
+     *
+     * @example Win_01
+     *
+     * @var string
+     */
+    public $imageName;
 
     /**
      * @description The state of the image.
@@ -129,9 +147,11 @@ class DescribeImagesRequest extends Model
     public $sessionType;
     protected $_name = [
         'desktopInstanceType' => 'DesktopInstanceType',
+        'fotaVersion'         => 'FotaVersion',
         'gpuCategory'         => 'GpuCategory',
         'gpuDriverVersion'    => 'GpuDriverVersion',
         'imageId'             => 'ImageId',
+        'imageName'           => 'ImageName',
         'imageStatus'         => 'ImageStatus',
         'imageType'           => 'ImageType',
         'languageType'        => 'LanguageType',
@@ -153,6 +173,9 @@ class DescribeImagesRequest extends Model
         if (null !== $this->desktopInstanceType) {
             $res['DesktopInstanceType'] = $this->desktopInstanceType;
         }
+        if (null !== $this->fotaVersion) {
+            $res['FotaVersion'] = $this->fotaVersion;
+        }
         if (null !== $this->gpuCategory) {
             $res['GpuCategory'] = $this->gpuCategory;
         }
@@ -161,6 +184,9 @@ class DescribeImagesRequest extends Model
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->imageName) {
+            $res['ImageName'] = $this->imageName;
         }
         if (null !== $this->imageStatus) {
             $res['ImageStatus'] = $this->imageStatus;
@@ -204,6 +230,9 @@ class DescribeImagesRequest extends Model
         if (isset($map['DesktopInstanceType'])) {
             $model->desktopInstanceType = $map['DesktopInstanceType'];
         }
+        if (isset($map['FotaVersion'])) {
+            $model->fotaVersion = $map['FotaVersion'];
+        }
         if (isset($map['GpuCategory'])) {
             $model->gpuCategory = $map['GpuCategory'];
         }
@@ -214,6 +243,9 @@ class DescribeImagesRequest extends Model
             if (!empty($map['ImageId'])) {
                 $model->imageId = $map['ImageId'];
             }
+        }
+        if (isset($map['ImageName'])) {
+            $model->imageName = $map['ImageName'];
         }
         if (isset($map['ImageStatus'])) {
             $model->imageStatus = $map['ImageStatus'];

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveFilePermissionRequest extends Model
 {
     /**
+     * @description The ID of the cloud disk in Cloud Drive Service.
+     *
      * @example cn-hangzhou+cds-066224****
      *
      * @var string
@@ -17,6 +19,8 @@ class RemoveFilePermissionRequest extends Model
     public $cdsId;
 
     /**
+     * @description The user ID.
+     *
      * @example user01
      *
      * @var string
@@ -24,6 +28,8 @@ class RemoveFilePermissionRequest extends Model
     public $endUserId;
 
     /**
+     * @description The file ID. The ID is a unique identifier for the file.
+     *
      * @example 6333e553a133ce21e6f747cf948bb9ef95d7****
      *
      * @var string
@@ -31,11 +37,22 @@ class RemoveFilePermissionRequest extends Model
     public $fileId;
 
     /**
+     * @description The group ID.
+     *
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @description The users that you want to authorize.
+     *
      * @var memberList[]
      */
     public $memberList;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -45,6 +62,7 @@ class RemoveFilePermissionRequest extends Model
         'cdsId'      => 'CdsId',
         'endUserId'  => 'EndUserId',
         'fileId'     => 'FileId',
+        'groupId'    => 'GroupId',
         'memberList' => 'MemberList',
         'regionId'   => 'RegionId',
     ];
@@ -64,6 +82,9 @@ class RemoveFilePermissionRequest extends Model
         }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->memberList) {
             $res['MemberList'] = [];
@@ -97,6 +118,9 @@ class RemoveFilePermissionRequest extends Model
         }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['MemberList'])) {
             if (!empty($map['MemberList'])) {

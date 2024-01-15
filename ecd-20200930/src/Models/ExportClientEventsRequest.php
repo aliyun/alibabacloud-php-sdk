@@ -27,8 +27,9 @@ class ExportClientEventsRequest extends Model
     public $desktopName;
 
     /**
-     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.\
-     * If you leave this parameter empty, the current time is used.
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+     *
+     * If you do not specify a value for this parameter, the current time is used.
      * @example 2022-03-23T07:11:01Z
      *
      * @var string
@@ -36,7 +37,7 @@ class ExportClientEventsRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the end user.
+     * @description The ID of the endpoint user.
      *
      * @example user01
      *
@@ -45,8 +46,17 @@ class ExportClientEventsRequest extends Model
     public $endUserId;
 
     /**
-     * @description The type of the event that you want to query. If you specify a value for the EventTypes parameter, the combination of event types that you want to query is considered the filter condition for the query. If you do not specify a value for the EventTypes parameter and the EventType parameter is left empty, all events are queried.
+     * @description The type of event that you want to query. Valid values:
      *
+     *   DESKTOP_CONNECT: The desktop session is established.
+     *   DESKTOP_DISCONNECT: The desktop session is disconnected.
+     *   DESKTOP_REBOOT: The cloud desktop is restarted.
+     *   CLIENT_AD_LOGIN: The AD user logs on to the client.
+     *   GET_CONNECTION_TICKET: The request to connect to the cloud desktop is sent.
+     *   DESKTOP_START: The cloud desktop is started.
+     *   DESKTOP_STOP: The cloud desktop is stopped.
+     *
+     * If you do not specify a value for this parameter, events of all types are queried.
      * @example CLIENT_LOGIN
      *
      * @var string
@@ -54,13 +64,19 @@ class ExportClientEventsRequest extends Model
     public $eventType;
 
     /**
-     * @description The combination of event types that you want to query. You can combine multiple event types. The query result contains all the combined events.
+     * @description The types of event.
      *
      * @var string[]
      */
     public $eventTypes;
 
     /**
+     * @description The language in which the cloud desktop is displayed in the console UI. You can export the list of cloud desktops in the specified language. Valid values:
+     *
+     *   `zh-CN`: Simplified Chinese
+     *   `en-GB`: English (United Kingdom)
+     *
+     * Default value: `zh-CN`.
      * @example zh-CN
      *
      * @var string
@@ -68,7 +84,10 @@ class ExportClientEventsRequest extends Model
     public $langType;
 
     /**
-     * @description The number of records that you want to export. Maximum Value: 5000 Default value: 5000
+     * @description The number of entries to return on each page.
+     *
+     *   Maximum value: 5000.
+     *   Default value: 5000.
      *
      * @example 50
      *
@@ -104,8 +123,9 @@ class ExportClientEventsRequest extends Model
     public $regionId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.\
-     * If you leave this parameter empty, all events that occurred before the point in time that you specify for `EndTime` are queried.
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+     *
+     * If you do not specify a value for this parameter, all events that occurred before the point in time that you specify for `EndTime` are queried.
      * @example 2022-03-23T04:10:21Z
      *
      * @var string

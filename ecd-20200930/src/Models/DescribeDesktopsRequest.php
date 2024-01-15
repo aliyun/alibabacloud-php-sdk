@@ -19,7 +19,7 @@ class DescribeDesktopsRequest extends Model
     public $chargeType;
 
     /**
-     * @description The ID of the desktop group. If you specify the `DesktopId` parameter, ignore the `DesktopGroupId` parameter. If you do not specify the `DesktopId` parameter, specify the `DesktopGroupId` parameter in the call to request all IDs of the cloud desktops in the specified desktop group.``
+     * @description The ID of the desktop group. If you specify the `DesktopId` parameter, ignore the `DesktopGroupId` parameter. If you do not specify the `DesktopId` parameter, specify the `DesktopGroupId` parameter in the call to request all IDs of the cloud desktops in the specified desktop group.
      *
      * @example dg-2i8qxpv6t1a03****
      *
@@ -28,7 +28,7 @@ class DescribeDesktopsRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The IDs of the cloud desktops. You can specify 1 to 100 IDs of cloud desktops.
+     * @description The IDs of the cloud desktops. You can specify 1 to 100 cloud desktop IDs.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -46,7 +46,7 @@ class DescribeDesktopsRequest extends Model
     public $desktopName;
 
     /**
-     * @description The state of the cloud desktop.
+     * @description The status of the cloud desktop.
      *
      * @example Running
      *
@@ -55,7 +55,14 @@ class DescribeDesktopsRequest extends Model
     public $desktopStatus;
 
     /**
-     * @description The new desktop type. You can call the [DescribeDesktopTypes](~~188882~~) operation to query the IDs of supported desktop types.
+     * @description The list of desktop status.
+     *
+     * @var string[]
+     */
+    public $desktopStatusList;
+
+    /**
+     * @description The new desktop type. You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) operation to query the IDs of supported desktop types.
      *
      * @example eds.general.2c8g
      *
@@ -64,7 +71,7 @@ class DescribeDesktopsRequest extends Model
     public $desktopType;
 
     /**
-     * @description The ID of the directory. The ID is the same as the workspace ID.
+     * @description The ID of the directory, The ID is the same as the workspace ID.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -73,9 +80,9 @@ class DescribeDesktopsRequest extends Model
     public $directoryId;
 
     /**
-     * @description The IDs of the users that are assigned the cloud desktop. You can specify IDs of 1 to 100 users.
+     * @description The IDs of the end users that are assigned the cloud desktop. You can specify 1 to 100 end user IDs.
      *
-     * > Only one user can use the cloud desktop at a time.
+     * > Only one end user can use the cloud desktop at a time.
      * @example alice
      *
      * @var string[]
@@ -83,7 +90,7 @@ class DescribeDesktopsRequest extends Model
     public $endUserId;
 
     /**
-     * @description The IDs of the users that are excluded from the users that are assigned the cloud desktop. You can specify IDs of 1 to 100 users.
+     * @description The IDs of the end users that are excluded from the end users that are assigned the cloud desktop. You can specify 1 to 100 end user IDs.
      *
      * @example andy
      *
@@ -112,6 +119,7 @@ class DescribeDesktopsRequest extends Model
     /**
      * @description The ID of the desktop group.
      *
+     * > The desktop group feature is in invitational preview. If you want to use this feature, submit a ticket.
      * @example dg-boyczi8enfyc5****
      *
      * @var string
@@ -119,14 +127,14 @@ class DescribeDesktopsRequest extends Model
     public $groupId;
 
     /**
-     * @description 镜像ID列表。
+     * @description The IDs of the images.
      *
      * @var string[]
      */
     public $imageId;
 
     /**
-     * @description The flag that is used for management.
+     * @description The flag that is used to manage the cloud desktops.
      *
      * @example NoFlag
      *
@@ -135,10 +143,10 @@ class DescribeDesktopsRequest extends Model
     public $managementFlag;
 
     /**
-     * @description The maximum number of entries to return on each page.
+     * @description The number of entries to return on each page.
      *
-     *   Maximum value: 100
-     *   Default value: 10
+     *   Maximum value: 100.
+     *   Default value: 10.
      *
      * @example 10
      *
@@ -174,7 +182,7 @@ class DescribeDesktopsRequest extends Model
     public $officeSiteName;
 
     /**
-     * @description Specifies whether to query cloud desktops in the desktop group.
+     * @description The progress when the cloud desktop was created.
      *
      * @example true
      *
@@ -208,7 +216,7 @@ class DescribeDesktopsRequest extends Model
     public $protocolType;
 
     /**
-     * @description Specifies whether to query the information about image version of the cloud desktop.
+     * @description Specifies whether to query the information about image update of the cloud desktop.
      *
      * @example false
      *
@@ -217,7 +225,7 @@ class DescribeDesktopsRequest extends Model
     public $queryFotaUpdate;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -226,7 +234,7 @@ class DescribeDesktopsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the automatic snapshot policy.
+     * @description The ID of the snapshot policy.
      *
      * @example sp-hb12mclyne09xw***
      *
@@ -235,14 +243,14 @@ class DescribeDesktopsRequest extends Model
     public $snapshotPolicyId;
 
     /**
-     * @description The tags that you want to add. A tag is a key-value pair that consists of a tag key and a tag value. Tags are used to identify resources. You can use tags to manage cloud desktops by group for easy searching and batch operations. For more information, see [Use tags to manage cloud desktops](~~203781~~).
+     * @description The tags. A tag is a key-value pair that consists of a tag key and a tag value. Tags are used to identify resources. You can use tags to manage cloud desktops by group for easy searching and batch operations. For more information, see [Use tags to manage cloud desktops](~~203781~~).
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The name of the user.
+     * @description The name of the end user.
      *
      * @example Alice
      *
@@ -255,6 +263,7 @@ class DescribeDesktopsRequest extends Model
         'desktopId'          => 'DesktopId',
         'desktopName'        => 'DesktopName',
         'desktopStatus'      => 'DesktopStatus',
+        'desktopStatusList'  => 'DesktopStatusList',
         'desktopType'        => 'DesktopType',
         'directoryId'        => 'DirectoryId',
         'endUserId'          => 'EndUserId',
@@ -300,6 +309,9 @@ class DescribeDesktopsRequest extends Model
         }
         if (null !== $this->desktopStatus) {
             $res['DesktopStatus'] = $this->desktopStatus;
+        }
+        if (null !== $this->desktopStatusList) {
+            $res['DesktopStatusList'] = $this->desktopStatusList;
         }
         if (null !== $this->desktopType) {
             $res['DesktopType'] = $this->desktopType;
@@ -401,6 +413,11 @@ class DescribeDesktopsRequest extends Model
         }
         if (isset($map['DesktopStatus'])) {
             $model->desktopStatus = $map['DesktopStatus'];
+        }
+        if (isset($map['DesktopStatusList'])) {
+            if (!empty($map['DesktopStatusList'])) {
+                $model->desktopStatusList = $map['DesktopStatusList'];
+            }
         }
         if (isset($map['DesktopType'])) {
             $model->desktopType = $map['DesktopType'];

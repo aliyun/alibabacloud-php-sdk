@@ -27,7 +27,7 @@ class desktopTypeAttribute extends Model
     public $gpuCount;
 
     /**
-     * @description The type of the GPU.
+     * @description The GPU type.
      *
      * @example NVIDIA T4
      *
@@ -36,7 +36,7 @@ class desktopTypeAttribute extends Model
     public $gpuSpec;
 
     /**
-     * @description The size of the memory. Unit: MB.
+     * @description The memory size. Unit: MB.
      *
      * @example 47104
      *

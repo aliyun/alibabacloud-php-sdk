@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeClientEventsResponseBody extends Model
 {
     /**
-     * @description Details about the events.
+     * @description The information about the regular user that connects to the cloud desktop from the EDS client. The information can be the RAM user ID or AD username.
      *
      * @var events[]
      */
     public $events;
 
     /**
-     * @description The query token that is returned in this call.
+     * @description The ID of the region.
      *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
      *
@@ -26,7 +26,7 @@ class DescribeClientEventsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The type of the directory.
      *
      * @example 28A40F12-F340-442B-A35F-46EF6A03227B
      *

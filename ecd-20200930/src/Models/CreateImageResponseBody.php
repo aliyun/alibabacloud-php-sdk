@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateImageResponseBody extends Model
 {
     /**
-     * @description The ID of the image.
-     *
      * @example m-gx2x1dhsmusr2****
      *
      * @var string
@@ -18,8 +16,6 @@ class CreateImageResponseBody extends Model
     public $imageId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *
      * @var string

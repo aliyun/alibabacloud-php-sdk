@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyGroupsResponseBody extends Model
 {
     /**
+     * @description Details of the policies.
+     *
      * @var describePolicyGroups[]
      */
     public $describePolicyGroups;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribePolicyGroupsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string

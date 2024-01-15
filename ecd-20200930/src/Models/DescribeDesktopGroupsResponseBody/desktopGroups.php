@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponseBody;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponseBody\desktopGroups\countPerStatus;
 use AlibabaCloud\Tea\Model;
 
 class desktopGroups extends Model
@@ -27,7 +28,7 @@ class desktopGroups extends Model
     public $buyDesktopsCount;
 
     /**
-     * @description The remarks on the desktop group.
+     * @description The remarks of the desktop group.
      *
      * @example test
      *
@@ -36,13 +37,18 @@ class desktopGroups extends Model
     public $comments;
 
     /**
-     * @description The maximum period of time during which a session is connected. When the specified maximum period of time is reached, the session automatically disconnects. Unit: milliseconds. This parameter is required only for cloud desktops in the same desktop group.
+     * @description The maximum period of time during which the session is connected. When the specified maximum period of time is reached, the session is automatically disconnected. Unit: milliseconds. This parameter is required only for cloud desktops of the same desktop group.
      *
      * @example 90000
      *
      * @var int
      */
     public $connectDuration;
+
+    /**
+     * @var countPerStatus[]
+     */
+    public $countPerStatus;
 
     /**
      * @description The number of vCPUs.
@@ -54,7 +60,7 @@ class desktopGroups extends Model
     public $cpu;
 
     /**
-     * @description The time when the cloud desktop was created.
+     * @description The time when the desktop group was created.
      *
      * @example 2022-02-17T14:51:07Z
      *
@@ -63,7 +69,7 @@ class desktopGroups extends Model
     public $createTime;
 
     /**
-     * @description The ID of the Alibaba Cloud account in which the desktop group is created.
+     * @description The ID of the Alibaba Cloud account that is used to create the desktop group.
      *
      * @example 1007214305******
      *
@@ -78,15 +84,15 @@ class desktopGroups extends Model
      *
      *   cloud_efficiency
      *
-     * .
+     * <!-- -->
      *
      *   cloud_ssd
      *
-     * .
+     * <!-- -->
      *
      *   cloud_essd
      *
-     * .
+     * <!-- -->
      * @example cloud_ssd
      *
      * @var string
@@ -101,6 +107,11 @@ class desktopGroups extends Model
      * @var string
      */
     public $dataDiskSize;
+
+    /**
+     * @var int
+     */
+    public $desktopCount;
 
     /**
      * @description The ID of the desktop group.
@@ -121,7 +132,12 @@ class desktopGroups extends Model
     public $desktopGroupName;
 
     /**
-     * @description The number of end users who are granted the permissions on the desktop group.
+     * @var string
+     */
+    public $desktopType;
+
+    /**
+     * @description The number of end users that are authorized to use the desktop group.
      *
      * @example 1
      *
@@ -130,7 +146,7 @@ class desktopGroups extends Model
     public $endUserCount;
 
     /**
-     * @description The expiration time of the subscription cloud desktop.
+     * @description The time when the subscription cloud desktop expires.
      *
      * @example 2022-03-17T16:00:00Z
      *
@@ -148,6 +164,11 @@ class desktopGroups extends Model
     public $gpuCount;
 
     /**
+     * @var string
+     */
+    public $gpuDriverVersion;
+
+    /**
      * @description The GPU memory.
      *
      * @example 16 GiB
@@ -157,7 +178,7 @@ class desktopGroups extends Model
     public $gpuSpec;
 
     /**
-     * @description The maximum period of time during which a session is idle. When a session is idle, you cannot perform operations by using a keyboard or a mouse. When the specified maximum period of time is reached, the session automatically disconnects. Unit: milliseconds. This parameter is required only for cloud desktops in the same desktop group.
+     * @description The maximum period of time during which the session is idle. When a session is idle, no inputs of keyboards or mouses are detected. When the specified maximum period of time is reached, the session is automatically disconnected. Unit: milliseconds. This parameter is required only for cloud desktops of the same desktop group.
      *
      * @example 90000
      *
@@ -175,7 +196,7 @@ class desktopGroups extends Model
     public $imageId;
 
     /**
-     * @description The keep-alive duration of a cloud desktop after the end user disconnects from the cloud desktop. Unit: milliseconds.
+     * @description The retention period of the cloud desktop after the end user is disconnected from the cloud desktop. Unit: milliseconds.
      *
      * @example 1000
      *
@@ -184,17 +205,17 @@ class desktopGroups extends Model
     public $keepDuration;
 
     /**
-     * @description The load balancing policy for the multi-session desktop group.
+     * @description The load balancing policy of the multi-session desktop group.
      *
      * Valid values:
      *
      *   0
      *
-     * .
+     * <!-- -->
      *
      *   1
      *
-     * .
+     * <!-- -->
      * @example 1
      *
      * @var int
@@ -247,7 +268,7 @@ class desktopGroups extends Model
     public $officeSiteName;
 
     /**
-     * @description The account type of the workspace.
+     * @description The account type of the workspace. Possible values: -simple: convenience account type. -ad_connector: enterprise Active Directory (AD) account.
      *
      * Valid values:
      *
@@ -259,9 +280,9 @@ class desktopGroups extends Model
      *
      * .
      *
-     *   AD_CONNECTOR
+     *   AD_CONNECTOR:
      *
-     * .
+     * <!-- -->
      *
      *   RAM
      *
@@ -309,11 +330,11 @@ class desktopGroups extends Model
      *
      *   0
      *
-     * .
+     * <!-- -->
      *
      *   1
      *
-     * .
+     * <!-- -->
      * @example 0
      *
      * @var int
@@ -369,7 +390,7 @@ class desktopGroups extends Model
     public $protocolType;
 
     /**
-     * @description The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session desktop group. `Ratio of connected sessions = Number of connected sessions/(Total number of cloud desktops × Maximum number of sessions allowed for each cloud desktop) × 100%`. If the specified threshold is reached, new cloud desktops are automatically created. If the specified threshold is not reached, idle cloud desktops are released.
+     * @description The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session desktop group. `Ratio of connected sessions = Number of connected sessions/(Total number of cloud desktops × Maximum number of sessions allowed for each cloud desktop) × 100%`. When the specified threshold is reached, new cloud desktops are automatically created. When the specified threshold is not reached, idle cloud desktops are released.
      *
      * @example 0.85
      *
@@ -378,25 +399,25 @@ class desktopGroups extends Model
     public $ratioThreshold;
 
     /**
-     * @description Indicates which type of disk is reset for the cloud desktops in the desktop group.
+     * @description Indicates which type of disk that is used by cloud desktops in the desktop group is reset.
      *
      * Valid values:
      *
      *   0
      *
-     * .
+     * <!-- -->
      *
      *   1
      *
-     * .
+     * <!-- -->
      *
      *   2
      *
-     * .
+     * <!-- -->
      *
      *   3
      *
-     * .
+     * <!-- -->
      * @example 0
      *
      * @var int
@@ -410,15 +431,15 @@ class desktopGroups extends Model
      *
      *   0
      *
-     * .
+     * <!-- -->
      *
      *   1
      *
-     * .
+     * <!-- -->
      *
      *   2
      *
-     * .
+     * <!-- -->
      * @example 1
      *
      * @var int
@@ -426,7 +447,7 @@ class desktopGroups extends Model
     public $status;
 
     /**
-     * @description The period of time before an idle cloud desktop stops. When the specified period of time is reached, the idle cloud desktop automatically stops. If an end user connects to a stopped cloud desktop, the cloud desktop automatically starts. Unit: milliseconds.
+     * @description The period of time before the idle cloud desktop enters the Stopped state. When the specified period of time is reached, the idle cloud desktop automatically enters the Stopped state. If an end user connects to a cloud desktop that is in the Stopped state, the cloud desktop automatically starts. Unit: milliseconds.
      *
      * @example 900000
      *
@@ -435,21 +456,26 @@ class desktopGroups extends Model
     public $stopDuration;
 
     /**
+     * @var string
+     */
+    public $subnetId;
+
+    /**
      * @description The category of the system disk.
      *
      * Valid values:
      *
      *   cloud_efficiency
      *
-     * .
+     * <!-- -->
      *
      *   cloud_ssd
      *
-     * .
+     * <!-- -->
      *
      *   cloud_essd
      *
-     * .
+     * <!-- -->
      * @example cloud_ssd
      *
      * @var string
@@ -484,7 +510,7 @@ class desktopGroups extends Model
     public $volumeEncryptionEnabled;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled.
+     * @description The ID of the Key Management Service (KMS) key for disk encryption.
      *
      * @example e5409ada-xxxx-xxxx-xxxx-89e31e23e993
      *
@@ -496,16 +522,20 @@ class desktopGroups extends Model
         'buyDesktopsCount'        => 'BuyDesktopsCount',
         'comments'                => 'Comments',
         'connectDuration'         => 'ConnectDuration',
+        'countPerStatus'          => 'CountPerStatus',
         'cpu'                     => 'Cpu',
         'createTime'              => 'CreateTime',
         'creator'                 => 'Creator',
         'dataDiskCategory'        => 'DataDiskCategory',
         'dataDiskSize'            => 'DataDiskSize',
+        'desktopCount'            => 'DesktopCount',
         'desktopGroupId'          => 'DesktopGroupId',
         'desktopGroupName'        => 'DesktopGroupName',
+        'desktopType'             => 'DesktopType',
         'endUserCount'            => 'EndUserCount',
         'expiredTime'             => 'ExpiredTime',
         'gpuCount'                => 'GpuCount',
+        'gpuDriverVersion'        => 'GpuDriverVersion',
         'gpuSpec'                 => 'GpuSpec',
         'idleDisconnectDuration'  => 'IdleDisconnectDuration',
         'imageId'                 => 'ImageId',
@@ -529,6 +559,7 @@ class desktopGroups extends Model
         'resetType'               => 'ResetType',
         'status'                  => 'Status',
         'stopDuration'            => 'StopDuration',
+        'subnetId'                => 'SubnetId',
         'systemDiskCategory'      => 'SystemDiskCategory',
         'systemDiskSize'          => 'SystemDiskSize',
         'version'                 => 'Version',
@@ -555,6 +586,15 @@ class desktopGroups extends Model
         if (null !== $this->connectDuration) {
             $res['ConnectDuration'] = $this->connectDuration;
         }
+        if (null !== $this->countPerStatus) {
+            $res['CountPerStatus'] = [];
+            if (null !== $this->countPerStatus && \is_array($this->countPerStatus)) {
+                $n = 0;
+                foreach ($this->countPerStatus as $item) {
+                    $res['CountPerStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
@@ -570,11 +610,17 @@ class desktopGroups extends Model
         if (null !== $this->dataDiskSize) {
             $res['DataDiskSize'] = $this->dataDiskSize;
         }
+        if (null !== $this->desktopCount) {
+            $res['DesktopCount'] = $this->desktopCount;
+        }
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
         }
         if (null !== $this->desktopGroupName) {
             $res['DesktopGroupName'] = $this->desktopGroupName;
+        }
+        if (null !== $this->desktopType) {
+            $res['DesktopType'] = $this->desktopType;
         }
         if (null !== $this->endUserCount) {
             $res['EndUserCount'] = $this->endUserCount;
@@ -584,6 +630,9 @@ class desktopGroups extends Model
         }
         if (null !== $this->gpuCount) {
             $res['GpuCount'] = $this->gpuCount;
+        }
+        if (null !== $this->gpuDriverVersion) {
+            $res['GpuDriverVersion'] = $this->gpuDriverVersion;
         }
         if (null !== $this->gpuSpec) {
             $res['GpuSpec'] = $this->gpuSpec;
@@ -654,6 +703,9 @@ class desktopGroups extends Model
         if (null !== $this->stopDuration) {
             $res['StopDuration'] = $this->stopDuration;
         }
+        if (null !== $this->subnetId) {
+            $res['SubnetId'] = $this->subnetId;
+        }
         if (null !== $this->systemDiskCategory) {
             $res['SystemDiskCategory'] = $this->systemDiskCategory;
         }
@@ -693,6 +745,15 @@ class desktopGroups extends Model
         if (isset($map['ConnectDuration'])) {
             $model->connectDuration = $map['ConnectDuration'];
         }
+        if (isset($map['CountPerStatus'])) {
+            if (!empty($map['CountPerStatus'])) {
+                $model->countPerStatus = [];
+                $n                     = 0;
+                foreach ($map['CountPerStatus'] as $item) {
+                    $model->countPerStatus[$n++] = null !== $item ? countPerStatus::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
@@ -708,11 +769,17 @@ class desktopGroups extends Model
         if (isset($map['DataDiskSize'])) {
             $model->dataDiskSize = $map['DataDiskSize'];
         }
+        if (isset($map['DesktopCount'])) {
+            $model->desktopCount = $map['DesktopCount'];
+        }
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
         }
         if (isset($map['DesktopGroupName'])) {
             $model->desktopGroupName = $map['DesktopGroupName'];
+        }
+        if (isset($map['DesktopType'])) {
+            $model->desktopType = $map['DesktopType'];
         }
         if (isset($map['EndUserCount'])) {
             $model->endUserCount = $map['EndUserCount'];
@@ -722,6 +789,9 @@ class desktopGroups extends Model
         }
         if (isset($map['GpuCount'])) {
             $model->gpuCount = $map['GpuCount'];
+        }
+        if (isset($map['GpuDriverVersion'])) {
+            $model->gpuDriverVersion = $map['GpuDriverVersion'];
         }
         if (isset($map['GpuSpec'])) {
             $model->gpuSpec = $map['GpuSpec'];
@@ -791,6 +861,9 @@ class desktopGroups extends Model
         }
         if (isset($map['StopDuration'])) {
             $model->stopDuration = $map['StopDuration'];
+        }
+        if (isset($map['SubnetId'])) {
+            $model->subnetId = $map['SubnetId'];
         }
         if (isset($map['SystemDiskCategory'])) {
             $model->systemDiskCategory = $map['SystemDiskCategory'];

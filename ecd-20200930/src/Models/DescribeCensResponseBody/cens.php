@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class cens extends Model
 {
     /**
-     * @description The ID of the CEN instance.
+     * @description The number of entries returned per page.
      *
      * @example cen-3gwy16dojz1m65****
      *
@@ -20,7 +20,7 @@ class cens extends Model
     public $cenId;
 
     /**
-     * @description The time when the CEN instance was created.
+     * @description The tag value of the CEN instance.
      *
      * @example 2021-06-16T08:46Z
      *
@@ -29,7 +29,7 @@ class cens extends Model
     public $creationTime;
 
     /**
-     * @description The description of the CEN instance.
+     * @description The tag key of the CEN instance.
      *
      * @example test
      *
@@ -48,7 +48,7 @@ class cens extends Model
     public $ipv6Level;
 
     /**
-     * @description The name of the CEN instance.
+     * @description The ID of the request.
      *
      * @example testCen
      *
@@ -57,14 +57,12 @@ class cens extends Model
     public $name;
 
     /**
-     * @description The IDs of the bandwidth plans that are associated with the CEN instance.
-     *
      * @var packageIds[]
      */
     public $packageIds;
 
     /**
-     * @description The level of CIDR block overlapping. Valid value: REDUCED. This value indicates that the CIDR blocks can overlap with each other but must not be the same.
+     * @description The name of the CEN instance.
      *
      * @example REDUCED
      *
@@ -73,11 +71,7 @@ class cens extends Model
     public $protectionLevel;
 
     /**
-     * @description The status of the CEN instance. Valid values:
-     *
-     *   Creating: The CEN instance is being created.
-     *   Active: The CEN instance is running.
-     *   Deleting: The CEN instance is being deleted.
+     * @description The ID of the region.
      *
      * @example Active
      *
@@ -86,7 +80,7 @@ class cens extends Model
     public $status;
 
     /**
-     * @description The tags of the CEN instance.
+     * @description The ID of the CEN instance.
      *
      * @var tags[]
      */

@@ -15,6 +15,8 @@ class CreateCdsFileResponseBody extends Model
     public $fileModel;
 
     /**
+     * @description The request ID.
+     *
      * @example 2BAFE05D-FFB9-5938-96D0-08017DB9****
      *
      * @var string

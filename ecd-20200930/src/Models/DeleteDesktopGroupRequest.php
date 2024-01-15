@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteDesktopGroupRequest extends Model
 {
     /**
-     * @description The ID of the desktop group.
-     *
      * @example dg-2i8qxpv6t1a03****
      *
      * @var string
@@ -18,8 +16,6 @@ class DeleteDesktopGroupRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The ID of the region.
-     *
      * @example cn-hangzhou
      *
      * @var string

@@ -18,7 +18,7 @@ class ListDirectoryUsersRequest extends Model
     public $directoryId;
 
     /**
-     * @description The query string for fuzzy query. If you specify this parameter, the system returns all results that contain the string.
+     * @description The query string for fuzzy match. If you specify this parameter, the system returns all results that contain the string.
      *
      * @example alice
      *
@@ -29,9 +29,7 @@ class ListDirectoryUsersRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
-     *   Maximum value: 100
-     *   Default value: 10
-     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -39,7 +37,7 @@ class ListDirectoryUsersRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
+     * @description The token used to start the next query. If the value of this parameter is empty, all results are returned.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -48,7 +46,7 @@ class ListDirectoryUsersRequest extends Model
     public $nextToken;
 
     /**
-     * @description The organizational unit (OU) of the AD domain to which users belong. You can call the [ListUserAdOrganizationUnits](~~311259~~) operation to obtain the OU.
+     * @description The organizational unit (OU) in the specified AD domain.
      *
      * @example example.com/Domain Controllers
      *

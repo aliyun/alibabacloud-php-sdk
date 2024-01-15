@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdsFileShareLinksRequest extends Model
 {
     /**
+     * @description The ID of the cloud disk.
+     *
      * @example cn-hangzhou+cds-532033****
      *
      * @var string
@@ -16,11 +18,15 @@ class DescribeCdsFileShareLinksRequest extends Model
     public $cdsId;
 
     /**
+     * @description The users that create the file sharing links.
+     *
      * @var string[]
      */
     public $creators;
 
     /**
+     * @description The maximum number of resources to return. Valid values: 1 to 100. Default value: 100. The number of returned resources must be less than or equal to the specified number.
+     *
      * @example 100
      *
      * @var int
@@ -28,6 +34,8 @@ class DescribeCdsFileShareLinksRequest extends Model
     public $maxResults;
 
     /**
+     * @description Specifies the marker after which the returned list begins. If this parameter is not specified, all results are returned. Default value: null.
+     *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
      *
      * @var string
@@ -35,6 +43,8 @@ class DescribeCdsFileShareLinksRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the file sharing link.
+     *
      * @example 7JQX1Fs****
      *
      * @var string
@@ -42,6 +52,8 @@ class DescribeCdsFileShareLinksRequest extends Model
     public $shareId;
 
     /**
+     * @description The sharing name for fuzzy search.
+     *
      * @example user
      *
      * @var string
@@ -49,6 +61,8 @@ class DescribeCdsFileShareLinksRequest extends Model
     public $shareName;
 
     /**
+     * @description The file sharing status. Valid values: ● disabled: canceled ● enabled: valid
+     *
      * @example disabled
      *
      * @var string

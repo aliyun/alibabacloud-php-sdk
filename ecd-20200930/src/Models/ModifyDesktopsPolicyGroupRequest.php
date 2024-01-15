@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopsPolicyGroupRequest extends Model
 {
     /**
-     * @description The IDs of the cloud desktops. You can specify one or more cloud desktops. The value is a JSON array.
+     * @description The ID of the cloud desktop.
      *
      * @example ecd-ia2zw38bi6cm7****
      *
@@ -27,14 +27,14 @@ class ModifyDesktopsPolicyGroupRequest extends Model
     public $policyGroupId;
 
     /**
-     * @description The IDs of the policies.
+     * @description The IDs of policy groups.
      *
      * @var string[]
      */
     public $policyGroupIds;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID of the cloud desktop.
      *
      * @example cn-hangzhou
      *

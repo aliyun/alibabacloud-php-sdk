@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotsRequest extends Model
 {
     /**
+     * @description The user who creates the snapshot.
+     *
      * @example Administrator
      *
      * @var string
@@ -16,7 +18,7 @@ class DescribeSnapshotsRequest extends Model
     public $creator;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The cloud desktop ID.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -25,7 +27,7 @@ class DescribeSnapshotsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The name of the cloud desktop.
+     * @description The cloud desktop name.
      *
      * @example testName
      *
@@ -34,7 +36,7 @@ class DescribeSnapshotsRequest extends Model
     public $desktopName;
 
     /**
-     * @description The time when you want to stop creating the snapshot. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-mm-ddthh:mm:ssz format. The time must be in UTC.
+     * @description The end of the time range to query. The query is performed based on the time when the system stopped creating a snapshot. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-mm-ddthh:mm:ssz format. The time must be in UTC.
      *
      * @example 2020-11-31T06:32:31Z
      *
@@ -45,7 +47,7 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @description The maximum number of entries to return on each page.
      *
-     *   Maximum value: 100
+     *   Valid values: 1 to 100
      *   Default value: 10
      *
      * @example 10
@@ -55,7 +57,7 @@ class DescribeSnapshotsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the query. Set the value to the value of NextToken that is returned from the last call.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example 8051af8d01b5479bec9f5ddf02e4a8fbd0ab6e7e43f8****
      *
@@ -64,7 +66,7 @@ class DescribeSnapshotsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -73,7 +75,7 @@ class DescribeSnapshotsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the snapshot.
+     * @description The snapshot ID.
      *
      * @example s-2ze81owrnv9pity4****
      *
@@ -82,23 +84,23 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotId;
 
     /**
-     * @description The name of the snapshot. The name must be 2 to 128 characters in length. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
+     * @description The snapshot name. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      *
-     * It cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
-     * @example test data disk
+     * The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
+     * @example test_data_disk
      *
      * @var string
      */
     public $snapshotName;
 
     /**
-     * @description The type of the snapshot. Default value: all.
+     * @description The snapshot type.
      *
      * Valid values:
      *
-     *   auto: auto snapshot
+     *   auto: automatic snapshot
      *   user: manual snapshot
-     *   all: all types of snapshots
+     *   all (default): all types of snapshots
      *
      * @example user
      *
@@ -107,7 +109,7 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotType;
 
     /**
-     * @description The type of the source disk for which you want to create the snapshot. Valid values:
+     * @description The type of the source disk of which you want to query snapshots. Valid values:
      *
      *   System: system disk
      *   Data: data disk
@@ -120,7 +122,7 @@ class DescribeSnapshotsRequest extends Model
     public $sourceDiskType;
 
     /**
-     * @description The time when you want to create the snapshot. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-mm-ddthh:mm:ssz format. The time must be in UTC.
+     * @description The beginning of the time range to query. The query is performed based on the time when the system created a snapshot. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-mm-ddthh:mm:ssz format. The time must be in UTC.
      *
      * @example 2020-11-30T06:32:31Z
      *

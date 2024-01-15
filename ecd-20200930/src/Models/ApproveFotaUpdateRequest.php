@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ApproveFotaUpdateRequest extends Model
 {
     /**
-     * @description The version of the custom image. You can call the [DescribeImages](~~188895~~) operation to obtain the value of this parameter.
+     * @description Mirror version.
      *
      * @example 0.0.1-D-20220513.143129
      *
@@ -27,7 +27,7 @@ class ApproveFotaUpdateRequest extends Model
     public $desktopId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

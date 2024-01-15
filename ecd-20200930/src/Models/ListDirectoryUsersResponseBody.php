@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListDirectoryUsersResponseBody extends Model
 {
     /**
-     * @description The token that is used to start the next query. If the value of this parameter is empty, all results are returned.
+     * @description The token used to start the next query. If the value of this parameter is empty, all results are returned.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -28,7 +28,7 @@ class ListDirectoryUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The names of users corresponding to the AD directory. If the AD directory corresponds only to Administrator and Guest users, the returned value of the Users parameter is empty.
+     * @description The names of users corresponding to the AD directory. If the AD directory corresponds only to the `Administrator` and `Guest` users, the returned `Users` value is empty.
      *
      * @var users[]
      */

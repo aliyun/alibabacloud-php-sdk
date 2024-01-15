@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ActivateOfficeSiteRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ActivateOfficeSiteResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\AddDesktopOversoldUserGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\AddDesktopOversoldUserGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddDevicesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddDevicesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddFilePermissionRequest;
@@ -15,6 +17,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\AddFilePermissionResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddFilePermissionShrinkRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddUserToDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddUserToDesktopGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\AddUserToDesktopOversoldUserGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\AddUserToDesktopOversoldUserGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ApplyAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ApplyAutoSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ApplyCoordinatePrivilegeRequest;
@@ -63,8 +67,14 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCdsFileRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCdsFileResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCdsFileShareLinkRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCdsFileShareLinkResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCloudDriveServiceRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCloudDriveServiceResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCloudDriveUsersRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCloudDriveUsersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopOversoldGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopOversoldGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDiskEncryptionServiceRequest;
@@ -101,6 +111,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDevicesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDevicesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDirectoriesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDirectoriesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteEduRoomRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteEduRoomResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteImagesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteImagesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteNASFileSystemsRequest;
@@ -115,8 +127,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteSnapshotRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteSnapshotResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteVirtualMFADeviceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteVirtualMFADeviceResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeAlarmEventStackInfoRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeAlarmEventStackInfoResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeAclEntriesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeAclEntriesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeAutoSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeBundlesRequest;
@@ -131,12 +143,22 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveGroupsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDrivePermissionsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDrivePermissionsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveUsersRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveUsersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCustomizedListHeadersRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCustomizedListHeadersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopIdsByVulNamesRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopIdsByVulNamesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopInfoRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopInfoResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopOversoldGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopOversoldGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopOversoldUserGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopOversoldUserGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopOversoldUserRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopOversoldUserResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopSessionsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopSessionsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsInGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsInGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsRequest;
@@ -155,10 +177,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaPendingDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaPendingDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaTasksRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaTasksResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFrontVulPatchListRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFrontVulPatchListResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGroupedVulRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGroupedVulResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGuestApplicationsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGuestApplicationsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeImageModifiedRecordsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeImageModifiedRecordsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeImagePermissionRequest;
@@ -177,24 +197,24 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceForCreateDesktopOversoldGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceForCreateDesktopOversoldGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceForModifyDesktopOversoldGroupSaleRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceForModifyDesktopOversoldGroupSaleResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceForRenewDesktopOversoldGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceForRenewDesktopOversoldGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRegionsResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeScanTaskProgressRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeScanTaskProgressResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSecurityEventOperationsRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSecurityEventOperationsResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSecurityEventOperationStatusRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSecurityEventOperationStatusResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSessionStatisticRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSessionStatisticResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSnapshotsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSnapshotsResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSuspEventOverviewRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSuspEventOverviewResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSuspEventQuaraFilesRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSuspEventQuaraFilesResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSuspEventsRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSuspEventsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserConnectionRecordsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserConnectionRecordsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserConnectTimeRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserConnectTimeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserProfilePathRulesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserProfilePathRulesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUsersInGroupRequest;
@@ -203,12 +223,6 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUsersPasswordRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUsersPasswordResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVirtualMFADevicesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVirtualMFADevicesResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVulDetailsRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVulDetailsResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVulListRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVulListResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVulOverviewRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVulOverviewResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DetachCenRequest;
@@ -225,16 +239,20 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopGroupInfoRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopGroupInfoResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopListInfoRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopListInfoResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\GetAsyncTaskRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\GetAsyncTaskResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetConnectionTicketRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetConnectionTicketResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\GetCoordinateTicketRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\GetCoordinateTicketResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetDesktopGroupDetailRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetDesktopGroupDetailResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetOfficeSiteSsoStatusRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetOfficeSiteSsoStatusResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetSpMetadataRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetSpMetadataResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\HandleSecurityEventsRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\HandleSecurityEventsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\HibernateDesktopsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\HibernateDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListCdsFilesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListCdsFilesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListCdsFilesShrinkRequest;
@@ -254,6 +272,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\LockVirtualMFADeviceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\LockVirtualMFADeviceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\MigrateDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\MigrateDesktopsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\MigrateImageProtocolRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\MigrateImageProtocolResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyAclEntriesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyAclEntriesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyADConnectorDirectoryRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyADConnectorDirectoryResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyADConnectorOfficeSiteRequest;
@@ -270,6 +292,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCloudDriveGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCloudDriveGroupsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCloudDrivePermissionRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCloudDrivePermissionResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCloudDriveUsersRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCloudDriveUsersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCustomizedListHeadersRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCustomizedListHeadersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopChargeTypeRequest;
@@ -280,10 +304,18 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopHostNameRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopHostNameResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopNameRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopNameResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopOversoldGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopOversoldGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopOversoldGroupSaleRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopOversoldGroupSaleResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopOversoldUserGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopOversoldUserGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopSpecRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopSpecResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopsPolicyGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopsPolicyGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopTimerRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopTimerResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDiskSpecRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDiskSpecResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyEntitlementRequest;
@@ -304,8 +336,6 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteCrossDesktopAccessRequ
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteCrossDesktopAccessResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteMfaEnabledRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteMfaEnabledResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOperateVulRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOperateVulResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserEntitlementRequest;
@@ -314,8 +344,6 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserToDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserToDesktopGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\MoveCdsFileRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\MoveCdsFileResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\OperateVulsRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\OperateVulsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebootDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebootDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebuildDesktopsRequest;
@@ -325,6 +353,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveFilePermissionResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveFilePermissionShrinkRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveUserFromDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveUserFromDesktopGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveUserFromDesktopOversoldUserGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveUserFromDesktopOversoldUserGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopOversoldGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopOversoldGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewNetworkPackagesRequest;
@@ -337,8 +369,6 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetSnapshotRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetSnapshotResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RevokeCoordinatePrivilegeRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RevokeCoordinatePrivilegeResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\RollbackSuspEventQuaraFileRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\RollbackSuspEventQuaraFileResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RunCommandRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RunCommandResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SendVerifyCodeRequest;
@@ -360,8 +390,6 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\SetUserProfilePathRulesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetUserProfilePathRulesShrinkRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\StartDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\StartDesktopsResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\StartVirusScanTaskRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\StartVirusScanTaskResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\StopDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\StopDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\StopInvocationRequest;
@@ -378,6 +406,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\UploadImageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UploadImageResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\VerifyCenRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\VerifyCenResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\WakeupDesktopsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\WakeupDesktopsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -468,6 +498,58 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param AddDesktopOversoldUserGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AddDesktopOversoldUserGroupResponse
+     */
+    public function addDesktopOversoldUserGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->oversoldGroupId)) {
+            $query['OversoldGroupId'] = $request->oversoldGroupId;
+        }
+        if (!Utils::isUnset($request->policyGroupId)) {
+            $query['PolicyGroupId'] = $request->policyGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDesktopOversoldUserGroup',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddDesktopOversoldUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddDesktopOversoldUserGroupRequest $request
+     *
+     * @return AddDesktopOversoldUserGroupResponse
+     */
+    public function addDesktopOversoldUserGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDesktopOversoldUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * You can add only one device to a tenant.
      *   *
      * @param AddDevicesRequest $request AddDevicesRequest
@@ -521,10 +603,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param AddFilePermissionRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
+     *   *
+     * @param AddFilePermissionRequest $tmpReq  AddFilePermissionRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddFilePermissionResponse
+     * @return AddFilePermissionResponse AddFilePermissionResponse
      */
     public function addFilePermissionWithOptions($tmpReq, $runtime)
     {
@@ -543,6 +627,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileId)) {
             $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->memberListShrink)) {
             $query['MemberList'] = $request->memberListShrink;
@@ -569,9 +656,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param AddFilePermissionRequest $request
+     * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
+     *   *
+     * @param AddFilePermissionRequest $request AddFilePermissionRequest
      *
-     * @return AddFilePermissionResponse
+     * @return AddFilePermissionResponse AddFilePermissionResponse
      */
     public function addFilePermission($request)
     {
@@ -633,6 +722,58 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addUserToDesktopGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddUserToDesktopOversoldUserGroupRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return AddUserToDesktopOversoldUserGroupResponse
+     */
+    public function addUserToDesktopOversoldUserGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addUserAmount)) {
+            $query['AddUserAmount'] = $request->addUserAmount;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->oversoldGroupId)) {
+            $query['OversoldGroupId'] = $request->oversoldGroupId;
+        }
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddUserToDesktopOversoldUserGroup',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddUserToDesktopOversoldUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddUserToDesktopOversoldUserGroupRequest $request
+     *
+     * @return AddUserToDesktopOversoldUserGroupResponse
+     */
+    public function addUserToDesktopOversoldUserGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addUserToDesktopOversoldUserGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -902,10 +1043,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   A Cloud Enterprise Network (CEN) instance is created.
+     * Prerequisites
+     *   * *   A CEN instance is created.
      *   * *   A workspace of the convenience account type is created.
-     *   * >  The secure office network of a workspace of the enterprise Active Directory (AD) account type is attached to a CEN instance when you create the workspace. The secure office network that corresponds to each workspace can be attached only to a single CEN instance.
+     *   * > Workspaces of the Active Directory (AD) account type are automatically attached to CEN instances when you create the workspaces. You can attach the secure office network of a workspace to only one CEN instance.
      *   *
      * @param AttachCenRequest $request AttachCenRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -950,10 +1091,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   A Cloud Enterprise Network (CEN) instance is created.
+     * Prerequisites
+     *   * *   A CEN instance is created.
      *   * *   A workspace of the convenience account type is created.
-     *   * >  The secure office network of a workspace of the enterprise Active Directory (AD) account type is attached to a CEN instance when you create the workspace. The secure office network that corresponds to each workspace can be attached only to a single CEN instance.
+     *   * > Workspaces of the Active Directory (AD) account type are automatically attached to CEN instances when you create the workspaces. You can attach the secure office network of a workspace to only one CEN instance.
      *   *
      * @param AttachCenRequest $request AttachCenRequest
      *
@@ -1288,6 +1429,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->fileId)) {
             $query['FileId'] = $request->fileId;
         }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -1452,6 +1596,15 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileId)) {
             $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->fileReceiverId)) {
+            $query['FileReceiverId'] = $request->fileReceiverId;
+        }
+        if (!Utils::isUnset($request->fileReceiverType)) {
+            $query['FileReceiverType'] = $request->fileReceiverType;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->parentFolderId)) {
             $query['ParentFolderId'] = $request->parentFolderId;
@@ -1628,13 +1781,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * - When you create a workspace of the enterprise Active Directory (AD) account type, AD connectors are automatically created for you to connect to enterprise AD systems. You are charged for the AD connectors. For more information, see [Billing overview](~~188395~~).
-     *   * - After you call this operation to create the AD workspace, you must configure the AD domain. To configure the AD domain, perform the following operations:
-     *   *     1. Configure the conditional forwarder in the Domain Name System (DNS) server.
-     *   *     2. Configure the trust relationship in the AD domain server, and call the [ConfigADConnectorTrust](~~311258~~) operation to configure the trust relationship for the AD workspace.
-     *   *     3. Call the [ListUserAdOrganizationUnits](~~311259~~) operation to obtain the organizational unit (OU) details of the AD domain. Then, call the [ConfigADConnectorUser](~~311262~~) operation to specify an OU and an administrator for the AD workspace.
-     *   *     > If you specify the DomainUserName and DomainPassword parameters when you create the AD workspace, you need to configure only the conditional forwarder. If you do not specify the DomainUserName and DomainPassword parameters, you need to configure the conditional forwarder, trust relationship, and OU.
-     *   * For more information, see [Create a workspace of the enterprise account type](~~214469~~).
+     * *   When you create a workspace of the enterprise AD account type, AD connectors are automatically created to allow you to connect to enterprise AD systems. You are charged for the AD connectors. For more information, see [Billing overview](~~188395~~).
+     *   * *   After you call this operation to create a workspace of the enterprise AD account type, perform the following steps to configure the AD domain: 1. Configure the conditional forwarder in the Domain Name System (DNS) server. 2. Configure the trust relationship in the AD domain server, and call the [ConfigADConnectorTrust](~~311258~~) operation to configure the trust relationship for the workspace of the enterprise AD account type. 3. Call the [ListUserAdOrganizationUnits](~~311259~~) operation to obtain the organizational unit (OU) details of the AD domain. Then, call the [ConfigADConnectorUser](~~311262~~) operation to specify an OU and an administrator for the workspace of the enterprise AD account type.
+     *   *     **
+     *   *     **Note**If you specify DomainUserName and DomainPassword when you create a workspace of the enterprise AD account type, you must configure only the conditional forwarder. If you do not specify DomainUserName or DomainPassword, you must configure the conditional forwarder, trust relationship, and OU.
+     *   * For more information, see [Create a workspace of the enterprise AD account type](~~214469~~).
      *   *
      * @param CreateADConnectorOfficeSiteRequest $request CreateADConnectorOfficeSiteRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1724,13 +1875,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * - When you create a workspace of the enterprise Active Directory (AD) account type, AD connectors are automatically created for you to connect to enterprise AD systems. You are charged for the AD connectors. For more information, see [Billing overview](~~188395~~).
-     *   * - After you call this operation to create the AD workspace, you must configure the AD domain. To configure the AD domain, perform the following operations:
-     *   *     1. Configure the conditional forwarder in the Domain Name System (DNS) server.
-     *   *     2. Configure the trust relationship in the AD domain server, and call the [ConfigADConnectorTrust](~~311258~~) operation to configure the trust relationship for the AD workspace.
-     *   *     3. Call the [ListUserAdOrganizationUnits](~~311259~~) operation to obtain the organizational unit (OU) details of the AD domain. Then, call the [ConfigADConnectorUser](~~311262~~) operation to specify an OU and an administrator for the AD workspace.
-     *   *     > If you specify the DomainUserName and DomainPassword parameters when you create the AD workspace, you need to configure only the conditional forwarder. If you do not specify the DomainUserName and DomainPassword parameters, you need to configure the conditional forwarder, trust relationship, and OU.
-     *   * For more information, see [Create a workspace of the enterprise account type](~~214469~~).
+     * *   When you create a workspace of the enterprise AD account type, AD connectors are automatically created to allow you to connect to enterprise AD systems. You are charged for the AD connectors. For more information, see [Billing overview](~~188395~~).
+     *   * *   After you call this operation to create a workspace of the enterprise AD account type, perform the following steps to configure the AD domain: 1. Configure the conditional forwarder in the Domain Name System (DNS) server. 2. Configure the trust relationship in the AD domain server, and call the [ConfigADConnectorTrust](~~311258~~) operation to configure the trust relationship for the workspace of the enterprise AD account type. 3. Call the [ListUserAdOrganizationUnits](~~311259~~) operation to obtain the organizational unit (OU) details of the AD domain. Then, call the [ConfigADConnectorUser](~~311262~~) operation to specify an OU and an administrator for the workspace of the enterprise AD account type.
+     *   *     **
+     *   *     **Note**If you specify DomainUserName and DomainPassword when you create a workspace of the enterprise AD account type, you must configure only the conditional forwarder. If you do not specify DomainUserName or DomainPassword, you must configure the conditional forwarder, trust relationship, and OU.
+     *   * For more information, see [Create a workspace of the enterprise AD account type](~~214469~~).
      *   *
      * @param CreateADConnectorOfficeSiteRequest $request CreateADConnectorOfficeSiteRequest
      *
@@ -1864,8 +2013,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * Desktop templates are categorized into system templates and custom templates. System templates are the templates provided by Alibaba Cloud. You can call this operation to create a custom template.
+     * Desktop templates are categorized into system templates and custom templates. System templates are the templates provided by Alibaba Cloud. You can call this operation to create a custom template.
      *   *
      * @param CreateBundleRequest $request CreateBundleRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1925,8 +2073,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * Desktop templates are categorized into system templates and custom templates. System templates are the templates provided by Alibaba Cloud. You can call this operation to create a custom template.
+     * Desktop templates are categorized into system templates and custom templates. System templates are the templates provided by Alibaba Cloud. You can call this operation to create a custom template.
      *   *
      * @param CreateBundleRequest $request CreateBundleRequest
      *
@@ -1940,10 +2087,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateCdsFileRequest $request
-     * @param RuntimeOptions       $runtime
+     * After the RAM permissions are authenticated, you can call the CreateCdsFile operation to obtain the upload URL of a file and upload the file to a cloud disk.
+     *   *
+     * @param CreateCdsFileRequest $request CreateCdsFileRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCdsFileResponse
+     * @return CreateCdsFileResponse CreateCdsFileResponse
      */
     public function createCdsFileWithOptions($request, $runtime)
     {
@@ -1970,6 +2119,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->fileType)) {
             $query['FileType'] = $request->fileType;
         }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
         if (!Utils::isUnset($request->parentFileId)) {
             $query['ParentFileId'] = $request->parentFileId;
         }
@@ -1995,9 +2147,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param CreateCdsFileRequest $request
+     * After the RAM permissions are authenticated, you can call the CreateCdsFile operation to obtain the upload URL of a file and upload the file to a cloud disk.
+     *   *
+     * @param CreateCdsFileRequest $request CreateCdsFileRequest
      *
-     * @return CreateCdsFileResponse
+     * @return CreateCdsFileResponse CreateCdsFileResponse
      */
     public function createCdsFile($request)
     {
@@ -2043,6 +2197,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->fileIds)) {
             $query['FileIds'] = $request->fileIds;
         }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
         if (!Utils::isUnset($request->previewLimit)) {
             $query['PreviewLimit'] = $request->previewLimit;
         }
@@ -2083,6 +2240,131 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCdsFileShareLinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCloudDriveServiceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateCloudDriveServiceResponse
+     */
+    public function createCloudDriveServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->cenId)) {
+            $query['CenId'] = $request->cenId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->maxSize)) {
+            $query['MaxSize'] = $request->maxSize;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->officeSiteId)) {
+            $query['OfficeSiteId'] = $request->officeSiteId;
+        }
+        if (!Utils::isUnset($request->officeSiteType)) {
+            $query['OfficeSiteType'] = $request->officeSiteType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->solutionId)) {
+            $query['SolutionId'] = $request->solutionId;
+        }
+        if (!Utils::isUnset($request->userMaxSize)) {
+            $query['UserMaxSize'] = $request->userMaxSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCloudDriveService',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCloudDriveServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCloudDriveServiceRequest $request
+     *
+     * @return CreateCloudDriveServiceResponse
+     */
+    public function createCloudDriveService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloudDriveServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCloudDriveUsersRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateCloudDriveUsersResponse
+     */
+    public function createCloudDriveUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cdsId)) {
+            $query['CdsId'] = $request->cdsId;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userMaxSize)) {
+            $query['UserMaxSize'] = $request->userMaxSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCloudDriveUsers',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCloudDriveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCloudDriveUsersRequest $request
+     *
+     * @return CreateCloudDriveUsersResponse
+     */
+    public function createCloudDriveUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloudDriveUsersWithOptions($request, $runtime);
     }
 
     /**
@@ -2250,6 +2532,88 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param CreateDesktopOversoldGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateDesktopOversoldGroupResponse
+     */
+    public function createDesktopOversoldGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->concurrenceCount)) {
+            $query['ConcurrenceCount'] = $request->concurrenceCount;
+        }
+        if (!Utils::isUnset($request->dataDiskSize)) {
+            $query['DataDiskSize'] = $request->dataDiskSize;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->desktopType)) {
+            $query['DesktopType'] = $request->desktopType;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->oversoldUserCount)) {
+            $query['OversoldUserCount'] = $request->oversoldUserCount;
+        }
+        if (!Utils::isUnset($request->oversoldWarn)) {
+            $query['OversoldWarn'] = $request->oversoldWarn;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->policyGroupId)) {
+            $query['PolicyGroupId'] = $request->policyGroupId;
+        }
+        if (!Utils::isUnset($request->stopDuration)) {
+            $query['StopDuration'] = $request->stopDuration;
+        }
+        if (!Utils::isUnset($request->systemDiskSize)) {
+            $query['SystemDiskSize'] = $request->systemDiskSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDesktopOversoldGroup',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDesktopOversoldGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDesktopOversoldGroupRequest $request
+     *
+     * @return CreateDesktopOversoldGroupResponse
+     */
+    public function createDesktopOversoldGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDesktopOversoldGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * 1\\. Before you create a cloud desktop in Elastic Desktop Service (EDS), make sure that the following operations are complete:
      *   * *   A workspace and a user are created. For more information, see the following topics:
      *   *     *   Create a workspace of the convenience account type and a convenience user: [CreateSimpleOfficeSite](~~215416~~) and [Create a convenience user](~~214472~~)
@@ -2285,11 +2649,17 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
         }
+        if (!Utils::isUnset($request->desktopMemberIp)) {
+            $query['DesktopMemberIp'] = $request->desktopMemberIp;
+        }
         if (!Utils::isUnset($request->desktopName)) {
             $query['DesktopName'] = $request->desktopName;
         }
         if (!Utils::isUnset($request->desktopNameSuffix)) {
             $query['DesktopNameSuffix'] = $request->desktopNameSuffix;
+        }
+        if (!Utils::isUnset($request->desktopTimers)) {
+            $query['DesktopTimers'] = $request->desktopTimers;
         }
         if (!Utils::isUnset($request->directoryId)) {
             $query['DirectoryId'] = $request->directoryId;
@@ -2491,15 +2861,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   You can create a NAS file system for each standard workspace so that cloud desktops within the workspace can share files.
-     *   * *   The system creates a General-purpose NAS file system and generates a default mount target. The storage types of the NAS file system includes Capacity type and Performance type. The Capacity type provides 10 PiB of storage while the Performance type provides only 1 PiB of storage.
-     *   * *   NAS file systems are billed on a pay-as-you-go basis. You are charged based on the amount of used storage. You can also purchase resource plans to offset the storage fees of the NAS file systems.
-     *   * For more information, see [Create a NAS file system](~~214481~~).
-     *   *
-     * @param CreateNASFileSystemRequest $request CreateNASFileSystemRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param CreateNASFileSystemRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return CreateNASFileSystemResponse CreateNASFileSystemResponse
+     * @return CreateNASFileSystemResponse
      */
     public function createNASFileSystemWithOptions($request, $runtime)
     {
@@ -2542,14 +2907,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   You can create a NAS file system for each standard workspace so that cloud desktops within the workspace can share files.
-     *   * *   The system creates a General-purpose NAS file system and generates a default mount target. The storage types of the NAS file system includes Capacity type and Performance type. The Capacity type provides 10 PiB of storage while the Performance type provides only 1 PiB of storage.
-     *   * *   NAS file systems are billed on a pay-as-you-go basis. You are charged based on the amount of used storage. You can also purchase resource plans to offset the storage fees of the NAS file systems.
-     *   * For more information, see [Create a NAS file system](~~214481~~).
-     *   *
-     * @param CreateNASFileSystemRequest $request CreateNASFileSystemRequest
+     * @param CreateNASFileSystemRequest $request
      *
-     * @return CreateNASFileSystemResponse CreateNASFileSystemResponse
+     * @return CreateNASFileSystemResponse
      */
     public function createNASFileSystem($request)
     {
@@ -2640,6 +3000,9 @@ class Ecd extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->adminAccess)) {
+            $query['AdminAccess'] = $request->adminAccess;
+        }
         if (!Utils::isUnset($request->appContentProtection)) {
             $query['AppContentProtection'] = $request->appContentProtection;
         }
@@ -2660,6 +3023,12 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->domainList)) {
             $query['DomainList'] = $request->domainList;
+        }
+        if (!Utils::isUnset($request->domainResolveRule)) {
+            $query['DomainResolveRule'] = $request->domainResolveRule;
+        }
+        if (!Utils::isUnset($request->domainResolveRuleType)) {
+            $query['DomainResolveRuleType'] = $request->domainResolveRuleType;
         }
         if (!Utils::isUnset($request->endUserApplyAdminCoordinate)) {
             $query['EndUserApplyAdminCoordinate'] = $request->endUserApplyAdminCoordinate;
@@ -2765,6 +3134,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->watermarkRowAmount)) {
             $query['WatermarkRowAmount'] = $request->watermarkRowAmount;
+        }
+        if (!Utils::isUnset($request->watermarkSecurity)) {
+            $query['WatermarkSecurity'] = $request->watermarkSecurity;
         }
         if (!Utils::isUnset($request->watermarkTransparency)) {
             $query['WatermarkTransparency'] = $request->watermarkTransparency;
@@ -2921,6 +3293,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->verifyCode)) {
             $query['VerifyCode'] = $request->verifyCode;
+        }
+        if (!Utils::isUnset($request->vpcType)) {
+            $query['VpcType'] = $request->vpcType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3121,6 +3496,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileId)) {
             $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -3452,9 +3830,54 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   Images include system images and custom images. System images cannot be deleted.
-     *   * *   If an image to delete is used by a desktop bundle, call the [DeleteBundles](~~188885~~) operation to delete the desktop bundle.
+     * @param DeleteEduRoomRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteEduRoomResponse
+     */
+    public function deleteEduRoomWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->eduRoomId)) {
+            $query['EduRoomId'] = $request->eduRoomId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEduRoom',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEduRoomResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEduRoomRequest $request
+     *
+     * @return DeleteEduRoomResponse
+     */
+    public function deleteEduRoom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEduRoomWithOptions($request, $runtime);
+    }
+
+    /**
+     * *   Images include system images and custom images. System images cannot be deleted.
+     *   * *   If an image to delete is referenced by a desktop template, you must first delete the template by calling the DeleteBundles operation.
      *   *
      * @param DeleteImagesRequest $request DeleteImagesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -3493,9 +3916,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   Images include system images and custom images. System images cannot be deleted.
-     *   * *   If an image to delete is used by a desktop bundle, call the [DeleteBundles](~~188885~~) operation to delete the desktop bundle.
+     * *   Images include system images and custom images. System images cannot be deleted.
+     *   * *   If an image to delete is referenced by a desktop template, you must first delete the template by calling the DeleteBundles operation.
      *   *
      * @param DeleteImagesRequest $request DeleteImagesRequest
      *
@@ -3509,9 +3931,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * Before you delete a NAS file system, make sure that the data you want to retain is backed up.
-     *   * >  If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
+     * Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
+     *   * **
+     *   * **Warning** If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
      *   *
      * @param DeleteNASFileSystemsRequest $request DeleteNASFileSystemsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3547,9 +3969,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * Before you delete a NAS file system, make sure that the data you want to retain is backed up.
-     *   * >  If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
+     * Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
+     *   * **
+     *   * **Warning** If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
      *   *
      * @param DeleteNASFileSystemsRequest $request DeleteNASFileSystemsRequest
      *
@@ -3609,10 +4031,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you delete a workspace, make sure that the following operations are complete:
+     * Before you delete a workspace, make sure that the following requirements are met:
      *   * *   All cloud desktops in the workspace are released.
      *   * *   The data that you want to retain is backed up.
-     *   * >  After a workspace is deleted, its resources and data cannot be restored. Proceed with caution.
+     *   * **
+     *   * **Warning** After you delete a workspace, the resources and data of the workspace cannot be recovered. Exercise with caution.
      *   *
      * @param DeleteOfficeSitesRequest $request DeleteOfficeSitesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -3648,10 +4071,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Before you delete a workspace, make sure that the following operations are complete:
+     * Before you delete a workspace, make sure that the following requirements are met:
      *   * *   All cloud desktops in the workspace are released.
      *   * *   The data that you want to retain is backed up.
-     *   * >  After a workspace is deleted, its resources and data cannot be restored. Proceed with caution.
+     *   * **
+     *   * **Warning** After you delete a workspace, the resources and data of the workspace cannot be recovered. Exercise with caution.
      *   *
      * @param DeleteOfficeSitesRequest $request DeleteOfficeSitesRequest
      *
@@ -3665,13 +4089,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   System policies cannot be deleted.
-     *   * *   Custom policies that are associated with cloud desktops cannot be deleted.
-     *   *
-     * @param DeletePolicyGroupsRequest $request DeletePolicyGroupsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param DeletePolicyGroupsRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return DeletePolicyGroupsResponse DeletePolicyGroupsResponse
+     * @return DeletePolicyGroupsResponse
      */
     public function deletePolicyGroupsWithOptions($request, $runtime)
     {
@@ -3702,12 +4123,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   System policies cannot be deleted.
-     *   * *   Custom policies that are associated with cloud desktops cannot be deleted.
-     *   *
-     * @param DeletePolicyGroupsRequest $request DeletePolicyGroupsRequest
+     * @param DeletePolicyGroupsRequest $request
      *
-     * @return DeletePolicyGroupsResponse DeletePolicyGroupsResponse
+     * @return DeletePolicyGroupsResponse
      */
     public function deletePolicyGroups($request)
     {
@@ -3767,8 +4185,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * If an MFA device is deleted, the device is unbound, reset, and disabled. When the Active Directory (AD) user wants to log on to the cloud desktop, the AD user must bind a new MFA device.
+     * If an MFA device is deleted, the device is unbound, reset, and disabled. When the Active Directory (AD) user wants to log on to the cloud desktop, the AD user must bind a new MFA device.
      *   *
      * @param DeleteVirtualMFADeviceRequest $request DeleteVirtualMFADeviceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -3804,8 +4221,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * If an MFA device is deleted, the device is unbound, reset, and disabled. When the Active Directory (AD) user wants to log on to the cloud desktop, the AD user must bind a new MFA device.
+     * If an MFA device is deleted, the device is unbound, reset, and disabled. When the Active Directory (AD) user wants to log on to the cloud desktop, the AD user must bind a new MFA device.
      *   *
      * @param DeleteVirtualMFADeviceRequest $request DeleteVirtualMFADeviceRequest
      *
@@ -3819,35 +4235,35 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlarmEventStackInfoRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeAclEntriesRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return DescribeAlarmEventStackInfoResponse
+     * @return DescribeAclEntriesResponse
      */
-    public function describeAlarmEventStackInfoWithOptions($request, $runtime)
+    public function describeAclEntriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->eventName)) {
-            $query['EventName'] = $request->eventName;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->uniqueInfo)) {
-            $query['UniqueInfo'] = $request->uniqueInfo;
+        if (!Utils::isUnset($request->sourceId)) {
+            $query['SourceId'] = $request->sourceId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlarmEventStackInfo',
+            'action'      => 'DescribeAclEntries',
             'version'     => '2020-09-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -3858,19 +4274,19 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeAlarmEventStackInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAclEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeAlarmEventStackInfoRequest $request
+     * @param DescribeAclEntriesRequest $request
      *
-     * @return DescribeAlarmEventStackInfoResponse
+     * @return DescribeAclEntriesResponse
      */
-    public function describeAlarmEventStackInfo($request)
+    public function describeAclEntries($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeAlarmEventStackInfoWithOptions($request, $runtime);
+        return $this->describeAclEntriesWithOptions($request, $runtime);
     }
 
     /**
@@ -3978,11 +4394,17 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
         }
+        if (!Utils::isUnset($request->osType)) {
+            $query['OsType'] = $request->osType;
+        }
         if (!Utils::isUnset($request->protocolType)) {
             $query['ProtocolType'] = $request->protocolType;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
         }
         if (!Utils::isUnset($request->selectedBundle)) {
             $query['SelectedBundle'] = $request->selectedBundle;
@@ -4137,7 +4559,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can audit the operation logs of regular users to improve security. The operation logs record events such as desktop startup, shutdown, and session disconnection.
+     * The version of the client.
      *   *
      * @param DescribeClientEventsRequest $request DescribeClientEventsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -4209,7 +4631,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can audit the operation logs of regular users to improve security. The operation logs record events such as desktop startup, shutdown, and session disconnection.
+     * The version of the client.
      *   *
      * @param DescribeClientEventsRequest $request DescribeClientEventsRequest
      *
@@ -4342,6 +4764,61 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCloudDrivePermissionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCloudDriveUsersRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeCloudDriveUsersResponse
+     */
+    public function describeCloudDriveUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cdsId)) {
+            $query['CdsId'] = $request->cdsId;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudDriveUsers',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudDriveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCloudDriveUsersRequest $request
+     *
+     * @return DescribeCloudDriveUsersResponse
+     */
+    public function describeCloudDriveUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudDriveUsersWithOptions($request, $runtime);
     }
 
     /**
@@ -4482,35 +4959,26 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopIdsByVulNamesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeDesktopInfoRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return DescribeDesktopIdsByVulNamesResponse
+     * @return DescribeDesktopInfoResponse
      */
-    public function describeDesktopIdsByVulNamesWithOptions($request, $runtime)
+    public function describeDesktopInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->necessity)) {
-            $query['Necessity'] = $request->necessity;
-        }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+        if (!Utils::isUnset($request->desktopId)) {
+            $query['DesktopId'] = $request->desktopId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->vulName)) {
-            $query['VulName'] = $request->vulName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDesktopIdsByVulNames',
+            'action'      => 'DescribeDesktopInfo',
             'version'     => '2020-09-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -4521,26 +4989,258 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeDesktopIdsByVulNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDesktopInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDesktopIdsByVulNamesRequest $request
+     * @param DescribeDesktopInfoRequest $request
      *
-     * @return DescribeDesktopIdsByVulNamesResponse
+     * @return DescribeDesktopInfoResponse
      */
-    public function describeDesktopIdsByVulNames($request)
+    public function describeDesktopInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDesktopIdsByVulNamesWithOptions($request, $runtime);
+        return $this->describeDesktopInfoWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeDesktopTypesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeDesktopOversoldGroupRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return DescribeDesktopTypesResponse
+     * @return DescribeDesktopOversoldGroupResponse
+     */
+    public function describeDesktopOversoldGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->oversoldGroupIds)) {
+            $query['OversoldGroupIds'] = $request->oversoldGroupIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDesktopOversoldGroup',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDesktopOversoldGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDesktopOversoldGroupRequest $request
+     *
+     * @return DescribeDesktopOversoldGroupResponse
+     */
+    public function describeDesktopOversoldGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDesktopOversoldGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDesktopOversoldUserRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDesktopOversoldUserResponse
+     */
+    public function describeDesktopOversoldUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->oversoldGroupId)) {
+            $query['OversoldGroupId'] = $request->oversoldGroupId;
+        }
+        if (!Utils::isUnset($request->userDesktopIds)) {
+            $query['UserDesktopIds'] = $request->userDesktopIds;
+        }
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDesktopOversoldUser',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDesktopOversoldUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDesktopOversoldUserRequest $request
+     *
+     * @return DescribeDesktopOversoldUserResponse
+     */
+    public function describeDesktopOversoldUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDesktopOversoldUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDesktopOversoldUserGroupRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDesktopOversoldUserGroupResponse
+     */
+    public function describeDesktopOversoldUserGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->oversoldGroupId)) {
+            $query['OversoldGroupId'] = $request->oversoldGroupId;
+        }
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $query['UserGroupIds'] = $request->userGroupIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDesktopOversoldUserGroup',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDesktopOversoldUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDesktopOversoldUserGroupRequest $request
+     *
+     * @return DescribeDesktopOversoldUserGroupResponse
+     */
+    public function describeDesktopOversoldUserGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDesktopOversoldUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can query data within the last 30 days.
+     *   *
+     * @param DescribeDesktopSessionsRequest $request DescribeDesktopSessionsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDesktopSessionsResponse DescribeDesktopSessionsResponse
+     */
+    public function describeDesktopSessionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->officeSiteId)) {
+            $query['OfficeSiteId'] = $request->officeSiteId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sessionStatus)) {
+            $query['SessionStatus'] = $request->sessionStatus;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDesktopSessions',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDesktopSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can query data within the last 30 days.
+     *   *
+     * @param DescribeDesktopSessionsRequest $request DescribeDesktopSessionsRequest
+     *
+     * @return DescribeDesktopSessionsResponse DescribeDesktopSessionsResponse
+     */
+    public function describeDesktopSessions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDesktopSessionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all types of cloud desktops are queried.
+     *   *
+     * @param DescribeDesktopTypesRequest $request DescribeDesktopTypesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDesktopTypesResponse DescribeDesktopTypesResponse
      */
     public function describeDesktopTypesWithOptions($request, $runtime)
     {
@@ -4551,6 +5251,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->cpuCount)) {
             $query['CpuCount'] = $request->cpuCount;
+        }
+        if (!Utils::isUnset($request->desktopGroupIdForModify)) {
+            $query['DesktopGroupIdForModify'] = $request->desktopGroupIdForModify;
         }
         if (!Utils::isUnset($request->desktopIdForModify)) {
             $query['DesktopIdForModify'] = $request->desktopIdForModify;
@@ -4592,9 +5295,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopTypesRequest $request
+     * When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all types of cloud desktops are queried.
+     *   *
+     * @param DescribeDesktopTypesRequest $request DescribeDesktopTypesRequest
      *
-     * @return DescribeDesktopTypesResponse
+     * @return DescribeDesktopTypesResponse DescribeDesktopTypesResponse
      */
     public function describeDesktopTypes($request)
     {
@@ -4627,6 +5332,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->desktopStatus)) {
             $query['DesktopStatus'] = $request->desktopStatus;
+        }
+        if (!Utils::isUnset($request->desktopStatusList)) {
+            $query['DesktopStatusList'] = $request->desktopStatusList;
         }
         if (!Utils::isUnset($request->desktopType)) {
             $query['DesktopType'] = $request->desktopType;
@@ -5086,6 +5794,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->fotaStatus)) {
             $query['FotaStatus'] = $request->fotaStatus;
         }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
@@ -5132,34 +5843,29 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can query the information about patches of up to 50 vulnerabilities in each request before you fix the current vulnerability.
-     *   *
-     * @param DescribeFrontVulPatchListRequest $request DescribeFrontVulPatchListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param DescribeGuestApplicationsRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return DescribeFrontVulPatchListResponse DescribeFrontVulPatchListResponse
+     * @return DescribeGuestApplicationsResponse
      */
-    public function describeFrontVulPatchListWithOptions($request, $runtime)
+    public function describeGuestApplicationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->operateType)) {
-            $query['OperateType'] = $request->operateType;
+        if (!Utils::isUnset($request->desktopId)) {
+            $query['DesktopId'] = $request->desktopId;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->vulInfo)) {
-            $query['VulInfo'] = $request->vulInfo;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFrontVulPatchList',
+            'action'      => 'DescribeGuestApplications',
             'version'     => '2020-09-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -5170,100 +5876,26 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeFrontVulPatchListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeGuestApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * You can query the information about patches of up to 50 vulnerabilities in each request before you fix the current vulnerability.
-     *   *
-     * @param DescribeFrontVulPatchListRequest $request DescribeFrontVulPatchListRequest
+     * @param DescribeGuestApplicationsRequest $request
      *
-     * @return DescribeFrontVulPatchListResponse DescribeFrontVulPatchListResponse
+     * @return DescribeGuestApplicationsResponse
      */
-    public function describeFrontVulPatchList($request)
+    public function describeGuestApplications($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeFrontVulPatchListWithOptions($request, $runtime);
+        return $this->describeGuestApplicationsWithOptions($request, $runtime);
     }
 
     /**
-     * ## Description
-     *   * After security protection is enabled, the system scans your cloud desktops for vulnerabilities once every day.
-     *   *
-     * @param DescribeGroupedVulRequest $request DescribeGroupedVulRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param DescribeImageModifiedRecordsRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return DescribeGroupedVulResponse DescribeGroupedVulResponse
-     */
-    public function describeGroupedVulWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->dealed)) {
-            $query['Dealed'] = $request->dealed;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->necessity)) {
-            $query['Necessity'] = $request->necessity;
-        }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeGroupedVul',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeGroupedVulResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * ## Description
-     *   * After security protection is enabled, the system scans your cloud desktops for vulnerabilities once every day.
-     *   *
-     * @param DescribeGroupedVulRequest $request DescribeGroupedVulRequest
-     *
-     * @return DescribeGroupedVulResponse DescribeGroupedVulResponse
-     */
-    public function describeGroupedVul($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeGroupedVulWithOptions($request, $runtime);
-    }
-
-    /**
-     * If you have changed the image for a cloud desktop, you can go to the Elastic Desktop Service (EDS) console to query the image change records. To query the image change records of a cloud desktop, find the cloud desktop that you want to manage, click **Change Image History** to the right of **Image ID/Name** on the **Basic Information** tab.
-     *   *
-     * @param DescribeImageModifiedRecordsRequest $request DescribeImageModifiedRecordsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeImageModifiedRecordsResponse DescribeImageModifiedRecordsResponse
+     * @return DescribeImageModifiedRecordsResponse
      */
     public function describeImageModifiedRecordsWithOptions($request, $runtime)
     {
@@ -5300,11 +5932,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If you have changed the image for a cloud desktop, you can go to the Elastic Desktop Service (EDS) console to query the image change records. To query the image change records of a cloud desktop, find the cloud desktop that you want to manage, click **Change Image History** to the right of **Image ID/Name** on the **Basic Information** tab.
-     *   *
-     * @param DescribeImageModifiedRecordsRequest $request DescribeImageModifiedRecordsRequest
+     * @param DescribeImageModifiedRecordsRequest $request
      *
-     * @return DescribeImageModifiedRecordsResponse DescribeImageModifiedRecordsResponse
+     * @return DescribeImageModifiedRecordsResponse
      */
     public function describeImageModifiedRecords($request)
     {
@@ -5314,10 +5944,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeImagePermissionRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can call the ModifyImagePermission operation to share images with other Alibaba Cloud accounts or unshare images. You can call the DescribeImagePermission operation to obtain the list of Alibaba Cloud accounts that have received shared images.
+     *   *
+     * @param DescribeImagePermissionRequest $request DescribeImagePermissionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImagePermissionResponse
+     * @return DescribeImagePermissionResponse DescribeImagePermissionResponse
      */
     public function describeImagePermissionWithOptions($request, $runtime)
     {
@@ -5348,9 +5980,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeImagePermissionRequest $request
+     * You can call the ModifyImagePermission operation to share images with other Alibaba Cloud accounts or unshare images. You can call the DescribeImagePermission operation to obtain the list of Alibaba Cloud accounts that have received shared images.
+     *   *
+     * @param DescribeImagePermissionRequest $request DescribeImagePermissionRequest
      *
-     * @return DescribeImagePermissionResponse
+     * @return DescribeImagePermissionResponse DescribeImagePermissionResponse
      */
     public function describeImagePermission($request)
     {
@@ -5372,6 +6006,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->desktopInstanceType)) {
             $query['DesktopInstanceType'] = $request->desktopInstanceType;
         }
+        if (!Utils::isUnset($request->fotaVersion)) {
+            $query['FotaVersion'] = $request->fotaVersion;
+        }
         if (!Utils::isUnset($request->gpuCategory)) {
             $query['GpuCategory'] = $request->gpuCategory;
         }
@@ -5380,6 +6017,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->imageName)) {
+            $query['ImageName'] = $request->imageName;
         }
         if (!Utils::isUnset($request->imageStatus)) {
             $query['ImageStatus'] = $request->imageStatus;
@@ -5439,8 +6079,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   After you run a command, the command may not succeed or return the expected results. You can call this operation to query the execution result.
-     *   * *   You can query the execution information in the previous two weeks. Up to 100,000 lines of execution information can be retained.
+     * *   After you run a command, it may not succeed. You can call this operation to query the execution result.
+     *   * *   You can query the information about execution in the last two weeks. A maximum of 100,000 lines of execution information can be retained.
      *   *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -5503,8 +6143,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   After you run a command, the command may not succeed or return the expected results. You can call this operation to query the execution result.
-     *   * *   You can query the execution information in the previous two weeks. Up to 100,000 lines of execution information can be retained.
+     * *   After you run a command, it may not succeed. You can call this operation to query the execution result.
+     *   * *   You can query the information about execution in the last two weeks. A maximum of 100,000 lines of execution information can be retained.
      *   *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      *
@@ -5787,6 +6427,315 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * ## Usage notes
+     *   * The request parameters vary based on the type of desktop resources whose price you want to query. Take note of the following items:
+     *   * *   If you set ResourceType to OfficeSite, you must specify InstanceType.
+     *   * *   If you set ResourceType to Bandwidth, the pay-by-data-transfer metering method is used for network billing.
+     *   * *   If you set ResourceType to Desktop, you must specify InstanceType, RootDiskSizeGib, and UserDiskSizeGib. You can specify OsType, PeriodUnit, Period, and Amount based on your business requirements.
+     *   * > Before you call this operation to query the prices of cloud desktops by setting ResourceType to Desktop, you must know the desktop types and disk sizes that EDS provides. The disk sizes vary based on the desktop types. For more information, see [Cloud desktop types](~~188609~~).
+     *   *
+     * @param DescribePriceRequest $request DescribePriceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribePriceResponse DescribePriceResponse
+     */
+    public function describePriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->bundleModels)) {
+            $query['BundleModels'] = $request->bundleModels;
+        }
+        if (!Utils::isUnset($request->eduCdsEnable)) {
+            $query['EduCdsEnable'] = $request->eduCdsEnable;
+        }
+        if (!Utils::isUnset($request->eduCdsSize)) {
+            $query['EduCdsSize'] = $request->eduCdsSize;
+        }
+        if (!Utils::isUnset($request->eduCommittedTime)) {
+            $query['EduCommittedTime'] = $request->eduCommittedTime;
+        }
+        if (!Utils::isUnset($request->eduDesktopBundleId)) {
+            $query['EduDesktopBundleId'] = $request->eduDesktopBundleId;
+        }
+        if (!Utils::isUnset($request->eduDesktopNum)) {
+            $query['EduDesktopNum'] = $request->eduDesktopNum;
+        }
+        if (!Utils::isUnset($request->eduRoomClassify)) {
+            $query['EduRoomClassify'] = $request->eduRoomClassify;
+        }
+        if (!Utils::isUnset($request->eduStudentBundleId)) {
+            $query['EduStudentBundleId'] = $request->eduStudentBundleId;
+        }
+        if (!Utils::isUnset($request->eduStudentNum)) {
+            $query['EduStudentNum'] = $request->eduStudentNum;
+        }
+        if (!Utils::isUnset($request->eduTeacherBundleId)) {
+            $query['EduTeacherBundleId'] = $request->eduTeacherBundleId;
+        }
+        if (!Utils::isUnset($request->eduTeacherNum)) {
+            $query['EduTeacherNum'] = $request->eduTeacherNum;
+        }
+        if (!Utils::isUnset($request->groupDesktopCount)) {
+            $query['GroupDesktopCount'] = $request->groupDesktopCount;
+        }
+        if (!Utils::isUnset($request->hardwareVersion)) {
+            $query['HardwareVersion'] = $request->hardwareVersion;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->osType)) {
+            $query['OsType'] = $request->osType;
+        }
+        if (!Utils::isUnset($request->packageSize)) {
+            $query['PackageSize'] = $request->packageSize;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->promotionId)) {
+            $query['PromotionId'] = $request->promotionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->rootDiskPerformanceLevel)) {
+            $query['RootDiskPerformanceLevel'] = $request->rootDiskPerformanceLevel;
+        }
+        if (!Utils::isUnset($request->rootDiskSizeGib)) {
+            $query['RootDiskSizeGib'] = $request->rootDiskSizeGib;
+        }
+        if (!Utils::isUnset($request->spPeriodInfo)) {
+            $query['SpPeriodInfo'] = $request->spPeriodInfo;
+        }
+        if (!Utils::isUnset($request->spPrice)) {
+            $query['SpPrice'] = $request->spPrice;
+        }
+        if (!Utils::isUnset($request->spType)) {
+            $query['SpType'] = $request->spType;
+        }
+        if (!Utils::isUnset($request->userDiskPerformanceLevel)) {
+            $query['UserDiskPerformanceLevel'] = $request->userDiskPerformanceLevel;
+        }
+        if (!Utils::isUnset($request->userDiskSizeGib)) {
+            $query['UserDiskSizeGib'] = $request->userDiskSizeGib;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePrice',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ## Usage notes
+     *   * The request parameters vary based on the type of desktop resources whose price you want to query. Take note of the following items:
+     *   * *   If you set ResourceType to OfficeSite, you must specify InstanceType.
+     *   * *   If you set ResourceType to Bandwidth, the pay-by-data-transfer metering method is used for network billing.
+     *   * *   If you set ResourceType to Desktop, you must specify InstanceType, RootDiskSizeGib, and UserDiskSizeGib. You can specify OsType, PeriodUnit, Period, and Amount based on your business requirements.
+     *   * > Before you call this operation to query the prices of cloud desktops by setting ResourceType to Desktop, you must know the desktop types and disk sizes that EDS provides. The disk sizes vary based on the desktop types. For more information, see [Cloud desktop types](~~188609~~).
+     *   *
+     * @param DescribePriceRequest $request DescribePriceRequest
+     *
+     * @return DescribePriceResponse DescribePriceResponse
+     */
+    public function describePrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePriceForCreateDesktopOversoldGroupRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return DescribePriceForCreateDesktopOversoldGroupResponse
+     */
+    public function describePriceForCreateDesktopOversoldGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->concurrenceCount)) {
+            $query['ConcurrenceCount'] = $request->concurrenceCount;
+        }
+        if (!Utils::isUnset($request->dataDiskSize)) {
+            $query['DataDiskSize'] = $request->dataDiskSize;
+        }
+        if (!Utils::isUnset($request->desktopType)) {
+            $query['DesktopType'] = $request->desktopType;
+        }
+        if (!Utils::isUnset($request->oversoldUserCount)) {
+            $query['OversoldUserCount'] = $request->oversoldUserCount;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->systemDiskSize)) {
+            $query['SystemDiskSize'] = $request->systemDiskSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePriceForCreateDesktopOversoldGroup',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePriceForCreateDesktopOversoldGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePriceForCreateDesktopOversoldGroupRequest $request
+     *
+     * @return DescribePriceForCreateDesktopOversoldGroupResponse
+     */
+    public function describePriceForCreateDesktopOversoldGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePriceForCreateDesktopOversoldGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePriceForModifyDesktopOversoldGroupSaleRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return DescribePriceForModifyDesktopOversoldGroupSaleResponse
+     */
+    public function describePriceForModifyDesktopOversoldGroupSaleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->concurrenceCount)) {
+            $query['ConcurrenceCount'] = $request->concurrenceCount;
+        }
+        if (!Utils::isUnset($request->oversoldGroupId)) {
+            $query['OversoldGroupId'] = $request->oversoldGroupId;
+        }
+        if (!Utils::isUnset($request->oversoldUserCount)) {
+            $query['OversoldUserCount'] = $request->oversoldUserCount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePriceForModifyDesktopOversoldGroupSale',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePriceForModifyDesktopOversoldGroupSaleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePriceForModifyDesktopOversoldGroupSaleRequest $request
+     *
+     * @return DescribePriceForModifyDesktopOversoldGroupSaleResponse
+     */
+    public function describePriceForModifyDesktopOversoldGroupSale($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePriceForModifyDesktopOversoldGroupSaleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePriceForRenewDesktopOversoldGroupRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return DescribePriceForRenewDesktopOversoldGroupResponse
+     */
+    public function describePriceForRenewDesktopOversoldGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->oversoldGroupId)) {
+            $query['OversoldGroupId'] = $request->oversoldGroupId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePriceForRenewDesktopOversoldGroup',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePriceForRenewDesktopOversoldGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePriceForRenewDesktopOversoldGroupRequest $request
+     *
+     * @return DescribePriceForRenewDesktopOversoldGroupResponse
+     */
+    public function describePriceForRenewDesktopOversoldGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePriceForRenewDesktopOversoldGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -5833,26 +6782,41 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeScanTaskProgressRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   This is a central operation and can be called only by using services in the China (Shanghai) region.
+     *   * *   You can query session statistics for the past hour.
+     *   *
+     * @param DescribeSessionStatisticRequest $request DescribeSessionStatisticRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeScanTaskProgressResponse
+     * @return DescribeSessionStatisticResponse DescribeSessionStatisticResponse
      */
-    public function describeScanTaskProgressWithOptions($request, $runtime)
+    public function describeSessionStatisticWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->officeSiteId)) {
+            $query['OfficeSiteId'] = $request->officeSiteId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->searchRegionId)) {
+            $query['SearchRegionId'] = $request->searchRegionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScanTaskProgress',
+            'action'      => 'DescribeSessionStatistic',
             'version'     => '2020-09-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -5863,114 +6827,22 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeScanTaskProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSessionStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeScanTaskProgressRequest $request
+     * *   This is a central operation and can be called only by using services in the China (Shanghai) region.
+     *   * *   You can query session statistics for the past hour.
+     *   *
+     * @param DescribeSessionStatisticRequest $request DescribeSessionStatisticRequest
      *
-     * @return DescribeScanTaskProgressResponse
+     * @return DescribeSessionStatisticResponse DescribeSessionStatisticResponse
      */
-    public function describeScanTaskProgress($request)
+    public function describeSessionStatistic($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeScanTaskProgressWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSecurityEventOperationStatusRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeSecurityEventOperationStatusResponse
-     */
-    public function describeSecurityEventOperationStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->securityEventId)) {
-            $query['SecurityEventId'] = $request->securityEventId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSecurityEventOperationStatus',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSecurityEventOperationStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSecurityEventOperationStatusRequest $request
-     *
-     * @return DescribeSecurityEventOperationStatusResponse
-     */
-    public function describeSecurityEventOperationStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSecurityEventOperationStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSecurityEventOperationsRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeSecurityEventOperationsResponse
-     */
-    public function describeSecurityEventOperationsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->securityEventId)) {
-            $query['SecurityEventId'] = $request->securityEventId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSecurityEventOperations',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSecurityEventOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSecurityEventOperationsRequest $request
-     *
-     * @return DescribeSecurityEventOperationsResponse
-     */
-    public function describeSecurityEventOperations($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSecurityEventOperationsWithOptions($request, $runtime);
+        return $this->describeSessionStatisticWithOptions($request, $runtime);
     }
 
     /**
@@ -6050,23 +6922,44 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeSuspEventOverviewRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeUserConnectTimeRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DescribeSuspEventOverviewResponse
+     * @return DescribeUserConnectTimeResponse
      */
-    public function describeSuspEventOverviewWithOptions($request, $runtime)
+    public function describeUserConnectTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->oversoldGroupId)) {
+            $query['OversoldGroupId'] = $request->oversoldGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->userDesktopId)) {
+            $query['UserDesktopId'] = $request->userDesktopId;
+        }
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSuspEventOverview',
+            'action'      => 'DescribeUserConnectTime',
             'version'     => '2020-09-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -6077,151 +6970,19 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeSuspEventOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserConnectTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeSuspEventOverviewRequest $request
+     * @param DescribeUserConnectTimeRequest $request
      *
-     * @return DescribeSuspEventOverviewResponse
+     * @return DescribeUserConnectTimeResponse
      */
-    public function describeSuspEventOverview($request)
+    public function describeUserConnectTime($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeSuspEventOverviewWithOptions($request, $runtime);
-    }
-
-    /**
-     * ## Description
-     *   * When alerts are handled, the system quarantines the files that contain detected threats to the quarantine panel. You can call this operation to view the quarantined files.
-     *   *
-     * @param DescribeSuspEventQuaraFilesRequest $request DescribeSuspEventQuaraFilesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeSuspEventQuaraFilesResponse DescribeSuspEventQuaraFilesResponse
-     */
-    public function describeSuspEventQuaraFilesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSuspEventQuaraFiles',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSuspEventQuaraFilesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * ## Description
-     *   * When alerts are handled, the system quarantines the files that contain detected threats to the quarantine panel. You can call this operation to view the quarantined files.
-     *   *
-     * @param DescribeSuspEventQuaraFilesRequest $request DescribeSuspEventQuaraFilesRequest
-     *
-     * @return DescribeSuspEventQuaraFilesResponse DescribeSuspEventQuaraFilesResponse
-     */
-    public function describeSuspEventQuaraFiles($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSuspEventQuaraFilesWithOptions($request, $runtime);
-    }
-
-    /**
-     * An alert event consists of alerts and exceptions. Each alert event corresponds to multiple exceptions.
-     *   *
-     * @param DescribeSuspEventsRequest $request DescribeSuspEventsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeSuspEventsResponse DescribeSuspEventsResponse
-     */
-    public function describeSuspEventsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->alarmUniqueInfo)) {
-            $query['AlarmUniqueInfo'] = $request->alarmUniqueInfo;
-        }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->dealed)) {
-            $query['Dealed'] = $request->dealed;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->levels)) {
-            $query['Levels'] = $request->levels;
-        }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->parentEventType)) {
-            $query['ParentEventType'] = $request->parentEventType;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSuspEvents',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSuspEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * An alert event consists of alerts and exceptions. Each alert event corresponds to multiple exceptions.
-     *   *
-     * @param DescribeSuspEventsRequest $request DescribeSuspEventsRequest
-     *
-     * @return DescribeSuspEventsResponse DescribeSuspEventsResponse
-     */
-    public function describeSuspEvents($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSuspEventsWithOptions($request, $runtime);
+        return $this->describeUserConnectTimeWithOptions($request, $runtime);
     }
 
     /**
@@ -6521,174 +7282,6 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVirtualMFADevicesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVulDetailsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeVulDetailsResponse
-     */
-    public function describeVulDetailsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliasName)) {
-            $query['AliasName'] = $request->aliasName;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeVulDetails',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeVulDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVulDetailsRequest $request
-     *
-     * @return DescribeVulDetailsResponse
-     */
-    public function describeVulDetails($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVulDetailsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVulListRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeVulListResponse
-     */
-    public function describeVulListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliasName)) {
-            $query['AliasName'] = $request->aliasName;
-        }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->dealed)) {
-            $query['Dealed'] = $request->dealed;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->necessity)) {
-            $query['Necessity'] = $request->necessity;
-        }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeVulList',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeVulListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVulListRequest $request
-     *
-     * @return DescribeVulListResponse
-     */
-    public function describeVulList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVulListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVulOverviewRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeVulOverviewResponse
-     */
-    public function describeVulOverviewWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeVulOverview',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeVulOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVulOverviewRequest $request
-     *
-     * @return DescribeVulOverviewResponse
-     */
-    public function describeVulOverview($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVulOverviewWithOptions($request, $runtime);
     }
 
     /**
@@ -7013,12 +7606,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call the operation to export desktop groups and then save the desktop groups in the .xlsx file. The information about exported desktop groups includes: the desktop group ID and name, the workspace ID and name, the desktop template, the security policy name, the number of authorized users, the billing method, and the creation time.
-     *   *
-     * @param ExportDesktopGroupInfoRequest $request ExportDesktopGroupInfoRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param ExportDesktopGroupInfoRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return ExportDesktopGroupInfoResponse ExportDesktopGroupInfoResponse
+     * @return ExportDesktopGroupInfoResponse
      */
     public function exportDesktopGroupInfoWithOptions($request, $runtime)
     {
@@ -7076,11 +7667,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can call the operation to export desktop groups and then save the desktop groups in the .xlsx file. The information about exported desktop groups includes: the desktop group ID and name, the workspace ID and name, the desktop template, the security policy name, the number of authorized users, the billing method, and the creation time.
-     *   *
-     * @param ExportDesktopGroupInfoRequest $request ExportDesktopGroupInfoRequest
+     * @param ExportDesktopGroupInfoRequest $request
      *
-     * @return ExportDesktopGroupInfoResponse ExportDesktopGroupInfoResponse
+     * @return ExportDesktopGroupInfoResponse
      */
     public function exportDesktopGroupInfo($request)
     {
@@ -7179,6 +7768,52 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param GetAsyncTaskRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAsyncTaskResponse
+     */
+    public function getAsyncTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asyncTaskId)) {
+            $query['AsyncTaskId'] = $request->asyncTaskId;
+        }
+        if (!Utils::isUnset($request->cdsId)) {
+            $query['CdsId'] = $request->cdsId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAsyncTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAsyncTaskRequest $request
+     *
+     * @return GetAsyncTaskResponse
+     */
+    public function getAsyncTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAsyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetConnectionTicketRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -7246,6 +7881,61 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getConnectionTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCoordinateTicketRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetCoordinateTicketResponse
+     */
+    public function getCoordinateTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->coId)) {
+            $query['CoId'] = $request->coId;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCoordinateTicket',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCoordinateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCoordinateTicketRequest $request
+     *
+     * @return GetCoordinateTicketResponse
+     */
+    public function getCoordinateTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCoordinateTicketWithOptions($request, $runtime);
     }
 
     /**
@@ -7341,8 +8031,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types. You cannot call this operation for RAM directories.
+     * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
      *   *
      * @param GetSpMetadataRequest $request GetSpMetadataRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -7381,8 +8070,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types. You cannot call this operation for RAM directories.
+     * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
      *   *
      * @param GetSpMetadataRequest $request GetSpMetadataRequest
      *
@@ -7396,32 +8084,28 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param HandleSecurityEventsRequest $request
-     * @param RuntimeOptions              $runtime
+     * Hibernating a cloud desktop is in private preview. If you want to try this feature, submit a ticket.
+     *   *
+     * @param HibernateDesktopsRequest $request HibernateDesktopsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return HandleSecurityEventsResponse
+     * @return HibernateDesktopsResponse HibernateDesktopsResponse
      */
-    public function handleSecurityEventsWithOptions($request, $runtime)
+    public function hibernateDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->operationCode)) {
-            $query['OperationCode'] = $request->operationCode;
-        }
-        if (!Utils::isUnset($request->operationParams)) {
-            $query['OperationParams'] = $request->operationParams;
+        if (!Utils::isUnset($request->desktopId)) {
+            $query['DesktopId'] = $request->desktopId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->securityEvent)) {
-            $query['SecurityEvent'] = $request->securityEvent;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HandleSecurityEvents',
+            'action'      => 'HibernateDesktops',
             'version'     => '2020-09-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -7432,19 +8116,21 @@ class Ecd extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return HandleSecurityEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return HibernateDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param HandleSecurityEventsRequest $request
+     * Hibernating a cloud desktop is in private preview. If you want to try this feature, submit a ticket.
+     *   *
+     * @param HibernateDesktopsRequest $request HibernateDesktopsRequest
      *
-     * @return HandleSecurityEventsResponse
+     * @return HibernateDesktopsResponse HibernateDesktopsResponse
      */
-    public function handleSecurityEvents($request)
+    public function hibernateDesktops($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->handleSecurityEventsWithOptions($request, $runtime);
+        return $this->hibernateDesktopsWithOptions($request, $runtime);
     }
 
     /**
@@ -7470,6 +8156,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileIdsShrink)) {
             $query['FileIds'] = $request->fileIdsShrink;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
@@ -7520,7 +8209,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If you use an AD directory to connect to an AD system of an enterprise, you can call this operation to obtain the information about users in the AD system.
+     * If you use an AD directory to connect to an AD system, you can call this operation to obtain the user information in the AD system.
      *   *
      * @param ListDirectoryUsersRequest $request ListDirectoryUsersRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -7568,7 +8257,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * If you use an AD directory to connect to an AD system of an enterprise, you can call this operation to obtain the information about users in the AD system.
+     * If you use an AD directory to connect to an AD system, you can call this operation to obtain the user information in the AD system.
      *   *
      * @param ListDirectoryUsersRequest $request ListDirectoryUsersRequest
      *
@@ -7599,6 +8288,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileId)) {
             $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -7750,8 +8442,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You must specify at least one of the ResourceId.N, Tag.N.Key, and Tag.N.Value parameters in the request to specify the query objects.
+     * You must specify at least one of the ResourceId.N, Tag.N.Key, and Tag.N.Value parameters in the request to specify the query objects.
      *   *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -7799,8 +8490,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You must specify at least one of the ResourceId.N, Tag.N.Key, and Tag.N.Value parameters in the request to specify the query objects.
+     * You must specify at least one of the ResourceId.N, Tag.N.Key, and Tag.N.Value parameters in the request to specify the query objects.
      *   *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
@@ -7869,8 +8559,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * After a virtual MFA device is locked, its status changes to LOCKED. The AD user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](~~206212~~) operation to unlock the device.
+     * After a virtual MFA device is locked, its status changes to LOCKED. The AD user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](~~206212~~) operation to unlock the device.
      *   *
      * @param LockVirtualMFADeviceRequest $request LockVirtualMFADeviceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -7906,8 +8595,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * After a virtual MFA device is locked, its status changes to LOCKED. The AD user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](~~206212~~) operation to unlock the device.
+     * After a virtual MFA device is locked, its status changes to LOCKED. The AD user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](~~206212~~) operation to unlock the device.
      *   *
      * @param LockVirtualMFADeviceRequest $request LockVirtualMFADeviceRequest
      *
@@ -7970,12 +8658,59 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * This operation modifies only the domain name and Domain Name System (DNS) parameters of AD directories in the ERROR or REGISTERING state. DNS parameters include DomainName, SubDomainName, DnsAddress.N, and SubDomainDnsAddress.
-     *   *
-     * @param ModifyADConnectorDirectoryRequest $request ModifyADConnectorDirectoryRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param MigrateImageProtocolRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return ModifyADConnectorDirectoryResponse ModifyADConnectorDirectoryResponse
+     * @return MigrateImageProtocolResponse
+     */
+    public function migrateImageProtocolWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->targetProtocolType)) {
+            $query['TargetProtocolType'] = $request->targetProtocolType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MigrateImageProtocol',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MigrateImageProtocolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MigrateImageProtocolRequest $request
+     *
+     * @return MigrateImageProtocolResponse
+     */
+    public function migrateImageProtocol($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->migrateImageProtocolWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyADConnectorDirectoryRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyADConnectorDirectoryResponse
      */
     public function modifyADConnectorDirectoryWithOptions($request, $runtime)
     {
@@ -8036,11 +8771,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * This operation modifies only the domain name and Domain Name System (DNS) parameters of AD directories in the ERROR or REGISTERING state. DNS parameters include DomainName, SubDomainName, DnsAddress.N, and SubDomainDnsAddress.
-     *   *
-     * @param ModifyADConnectorDirectoryRequest $request ModifyADConnectorDirectoryRequest
+     * @param ModifyADConnectorDirectoryRequest $request
      *
-     * @return ModifyADConnectorDirectoryResponse ModifyADConnectorDirectoryResponse
+     * @return ModifyADConnectorDirectoryResponse
      */
     public function modifyADConnectorDirectory($request)
     {
@@ -8050,12 +8783,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * This operation modifies the domain name and DNS parameters of workspaces that are of enterprise AD account type and in the Error or Registering state. DNS parameters include DomainName, SubDomainName, DnsAddress.N, and SubDomainDnsAddress.N.
-     *   *
-     * @param ModifyADConnectorOfficeSiteRequest $request ModifyADConnectorOfficeSiteRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param ModifyADConnectorOfficeSiteRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return ModifyADConnectorOfficeSiteResponse ModifyADConnectorOfficeSiteResponse
+     * @return ModifyADConnectorOfficeSiteResponse
      */
     public function modifyADConnectorOfficeSiteWithOptions($request, $runtime)
     {
@@ -8116,17 +8847,67 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * This operation modifies the domain name and DNS parameters of workspaces that are of enterprise AD account type and in the Error or Registering state. DNS parameters include DomainName, SubDomainName, DnsAddress.N, and SubDomainDnsAddress.N.
-     *   *
-     * @param ModifyADConnectorOfficeSiteRequest $request ModifyADConnectorOfficeSiteRequest
+     * @param ModifyADConnectorOfficeSiteRequest $request
      *
-     * @return ModifyADConnectorOfficeSiteResponse ModifyADConnectorOfficeSiteResponse
+     * @return ModifyADConnectorOfficeSiteResponse
      */
     public function modifyADConnectorOfficeSite($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyADConnectorOfficeSiteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAclEntriesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyAclEntriesResponse
+     */
+    public function modifyAclEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceId)) {
+            $query['SourceId'] = $request->sourceId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAclEntries',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAclEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAclEntriesRequest $request
+     *
+     * @return ModifyAclEntriesResponse
+     */
+    public function modifyAclEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAclEntriesWithOptions($request, $runtime);
     }
 
     /**
@@ -8185,8 +8966,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * Only custom desktop templates can be modified.
+     * Only custom desktop templates can be modified.
      *   *
      * @param ModifyBundleRequest $request ModifyBundleRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -8234,8 +9014,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * Only custom desktop templates can be modified.
+     * Only custom desktop templates can be modified.
      *   *
      * @param ModifyBundleRequest $request ModifyBundleRequest
      *
@@ -8272,6 +9051,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileName)) {
             $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -8508,6 +9290,61 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param ModifyCloudDriveUsersRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyCloudDriveUsersResponse
+     */
+    public function modifyCloudDriveUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cdsId)) {
+            $query['CdsId'] = $request->cdsId;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->userMaxSize)) {
+            $query['UserMaxSize'] = $request->userMaxSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCloudDriveUsers',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCloudDriveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCloudDriveUsersRequest $request
+     *
+     * @return ModifyCloudDriveUsersResponse
+     */
+    public function modifyCloudDriveUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCloudDriveUsersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyCustomizedListHeadersRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -8557,11 +9394,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, make sure that you are familiar with the billing methods of cloud desktops in Elastic Desktop Service (EDS). For more information, see [Billing overview](~~188395~~).
+     * *   Before you call this operation, make sure that you are familiar with the billing methods of cloud desktops. For more information, see [Billing overview](~~188395~~).
      *   * *   Before you call this operation, make sure that the cloud desktop that you want to manage is in the Running or Stopped state and no overdue payments of the cloud desktop are generated.
-     *   * *   After the order payment is completed, the system starts to change the billing method of the cloud desktop. During the change, you cannot perform operations, such as starting or stopping the cloud desktop, and changing configurations of the cloud desktop.<props="china">
-     *   * After you change the billing method of the cloud desktop from subscription to pay-as-you-go, you may get a refund. For more information, see [Change a subscription cloud desktop to a pay-as-you-go one](https://help.aliyun.com/document_detail/439964.html).
-     *   * </props>.
+     *   * *   After the order payment is completed, the system starts to change the billing method of the cloud desktop. During the change, you cannot perform operations, such as starting or stopping the cloud desktop, and changing configurations of the cloud desktop.
      *   *
      * @param ModifyDesktopChargeTypeRequest $request ModifyDesktopChargeTypeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -8593,6 +9428,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->useDuration)) {
+            $query['UseDuration'] = $request->useDuration;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8612,11 +9450,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, make sure that you are familiar with the billing methods of cloud desktops in Elastic Desktop Service (EDS). For more information, see [Billing overview](~~188395~~).
+     * *   Before you call this operation, make sure that you are familiar with the billing methods of cloud desktops. For more information, see [Billing overview](~~188395~~).
      *   * *   Before you call this operation, make sure that the cloud desktop that you want to manage is in the Running or Stopped state and no overdue payments of the cloud desktop are generated.
-     *   * *   After the order payment is completed, the system starts to change the billing method of the cloud desktop. During the change, you cannot perform operations, such as starting or stopping the cloud desktop, and changing configurations of the cloud desktop.<props="china">
-     *   * After you change the billing method of the cloud desktop from subscription to pay-as-you-go, you may get a refund. For more information, see [Change a subscription cloud desktop to a pay-as-you-go one](https://help.aliyun.com/document_detail/439964.html).
-     *   * </props>.
+     *   * *   After the order payment is completed, the system starts to change the billing method of the cloud desktop. During the change, you cannot perform operations, such as starting or stopping the cloud desktop, and changing configurations of the cloud desktop.
      *   *
      * @param ModifyDesktopChargeTypeRequest $request ModifyDesktopChargeTypeRequest
      *
@@ -8760,8 +9596,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You can only change the hostname of a Windows cloud desktop in the workspace of the enterprise Active Directory (AD) account type. After the hostname is changed, the cloud desktop is recreated.
+     * You can only change the hostname of a Windows cloud desktop in the Active Directory (AD) workspace. After the hostname is changed, the cloud desktop is recreated.
      *   *
      * @param ModifyDesktopHostNameRequest $request ModifyDesktopHostNameRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -8800,8 +9635,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You can only change the hostname of a Windows cloud desktop in the workspace of the enterprise Active Directory (AD) account type. After the hostname is changed, the cloud desktop is recreated.
+     * You can only change the hostname of a Windows cloud desktop in the Active Directory (AD) workspace. After the hostname is changed, the cloud desktop is recreated.
      *   *
      * @param ModifyDesktopHostNameRequest $request ModifyDesktopHostNameRequest
      *
@@ -8861,6 +9695,177 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDesktopNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDesktopOversoldGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyDesktopOversoldGroupResponse
+     */
+    public function modifyDesktopOversoldGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->concurrenceCount)) {
+            $query['ConcurrenceCount'] = $request->concurrenceCount;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->oversoldGroupId)) {
+            $query['OversoldGroupId'] = $request->oversoldGroupId;
+        }
+        if (!Utils::isUnset($request->oversoldUserCount)) {
+            $query['OversoldUserCount'] = $request->oversoldUserCount;
+        }
+        if (!Utils::isUnset($request->oversoldWarn)) {
+            $query['OversoldWarn'] = $request->oversoldWarn;
+        }
+        if (!Utils::isUnset($request->policyGroupId)) {
+            $query['PolicyGroupId'] = $request->policyGroupId;
+        }
+        if (!Utils::isUnset($request->stopDuration)) {
+            $query['StopDuration'] = $request->stopDuration;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDesktopOversoldGroup',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDesktopOversoldGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDesktopOversoldGroupRequest $request
+     *
+     * @return ModifyDesktopOversoldGroupResponse
+     */
+    public function modifyDesktopOversoldGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDesktopOversoldGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDesktopOversoldGroupSaleRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyDesktopOversoldGroupSaleResponse
+     */
+    public function modifyDesktopOversoldGroupSaleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->concurrenceCount)) {
+            $query['ConcurrenceCount'] = $request->concurrenceCount;
+        }
+        if (!Utils::isUnset($request->oversoldGroupId)) {
+            $query['OversoldGroupId'] = $request->oversoldGroupId;
+        }
+        if (!Utils::isUnset($request->oversoldUserCount)) {
+            $query['OversoldUserCount'] = $request->oversoldUserCount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDesktopOversoldGroupSale',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDesktopOversoldGroupSaleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDesktopOversoldGroupSaleRequest $request
+     *
+     * @return ModifyDesktopOversoldGroupSaleResponse
+     */
+    public function modifyDesktopOversoldGroupSale($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDesktopOversoldGroupSaleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDesktopOversoldUserGroupRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyDesktopOversoldUserGroupResponse
+     */
+    public function modifyDesktopOversoldUserGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->oversoldGroupId)) {
+            $query['OversoldGroupId'] = $request->oversoldGroupId;
+        }
+        if (!Utils::isUnset($request->policyGroupId)) {
+            $query['PolicyGroupId'] = $request->policyGroupId;
+        }
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDesktopOversoldUserGroup',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDesktopOversoldUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDesktopOversoldUserGroupRequest $request
+     *
+     * @return ModifyDesktopOversoldUserGroupResponse
+     */
+    public function modifyDesktopOversoldUserGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDesktopOversoldUserGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -8950,7 +9955,59 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud desktops whose policy you want to modify must be in the Running state.
+     * @param ModifyDesktopTimerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyDesktopTimerResponse
+     */
+    public function modifyDesktopTimerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->desktopId)) {
+            $query['DesktopId'] = $request->desktopId;
+        }
+        if (!Utils::isUnset($request->desktopTimers)) {
+            $query['DesktopTimers'] = $request->desktopTimers;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->useDesktopTimers)) {
+            $query['UseDesktopTimers'] = $request->useDesktopTimers;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDesktopTimer',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDesktopTimerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDesktopTimerRequest $request
+     *
+     * @return ModifyDesktopTimerResponse
+     */
+    public function modifyDesktopTimer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDesktopTimerWithOptions($request, $runtime);
+    }
+
+    /**
+     * The cloud desktop must be in the Running (Running) state.
      *   *
      * @param ModifyDesktopsPolicyGroupRequest $request ModifyDesktopsPolicyGroupRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -8992,7 +10049,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud desktops whose policy you want to modify must be in the Running state.
+     * The cloud desktop must be in the Running (Running) state.
      *   *
      * @param ModifyDesktopsPolicyGroupRequest $request ModifyDesktopsPolicyGroupRequest
      *
@@ -9086,7 +10143,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud desktop must be in the Running state.
+     * The cloud desktops to which you want to assign users must be in the Running state.
      *   *
      * @param ModifyEntitlementRequest $request ModifyEntitlementRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -9125,7 +10182,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud desktop must be in the Running state.
+     * The cloud desktops to which you want to assign users must be in the Running state.
      *   *
      * @param ModifyEntitlementRequest $request ModifyEntitlementRequest
      *
@@ -9139,8 +10196,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You can call this operation to modify the properties of only custom images in the Available (Available) state.
+     * You can call this operation to modify the attributes of only custom images that are in the Available state.
      *   *
      * @param ModifyImageAttributeRequest $request ModifyImageAttributeRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -9182,8 +10238,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You can call this operation to modify the properties of only custom images in the Available (Available) state.
+     * You can call this operation to modify the attributes of only custom images that are in the Available state.
      *   *
      * @param ModifyImageAttributeRequest $request ModifyImageAttributeRequest
      *
@@ -9197,24 +10252,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ### Security of shared images
-     *   * Elastic Desktop Service (EDS) does not ensure the integrity and security of shared images on cloud desktops. Before you use shared images, make sure that the images come from trusted accounts. You must assume all risks.
-     *   * ### Quotas and billing
-     *   * *   Shared images do not count against the image quotas of the recipient Alibaba Cloud accounts.
-     *   * *   Alibaba Cloud accounts that share images are not charged if the recipient accounts use the shared images to create cloud desktops.
-     *   * *   There are no additional charges for sharing an image.
-     *   * ### Supported sharing behavior
-     *   * *   You can share custom images with other Alibaba Cloud accounts.
-     *   * *   You can share custom images between accounts in the China site (aliyun.com) and the international site (alibabacloud.com).
-     *   * ### Unsupported sharing behavior
-     *   * *   You cannot share images that are shared by other Alibaba Cloud accounts.
-     *   * *   You cannot share encrypted images.
-     *   * *   You cannot share images across regions. If you want to share images across regions, you can call the CopyImage operation to copy the images from the source region to the destination region.
-     *   *
-     * @param ModifyImagePermissionRequest $request ModifyImagePermissionRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param ModifyImagePermissionRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return ModifyImagePermissionResponse ModifyImagePermissionResponse
+     * @return ModifyImagePermissionResponse
      */
     public function modifyImagePermissionWithOptions($request, $runtime)
     {
@@ -9251,23 +10292,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ### Security of shared images
-     *   * Elastic Desktop Service (EDS) does not ensure the integrity and security of shared images on cloud desktops. Before you use shared images, make sure that the images come from trusted accounts. You must assume all risks.
-     *   * ### Quotas and billing
-     *   * *   Shared images do not count against the image quotas of the recipient Alibaba Cloud accounts.
-     *   * *   Alibaba Cloud accounts that share images are not charged if the recipient accounts use the shared images to create cloud desktops.
-     *   * *   There are no additional charges for sharing an image.
-     *   * ### Supported sharing behavior
-     *   * *   You can share custom images with other Alibaba Cloud accounts.
-     *   * *   You can share custom images between accounts in the China site (aliyun.com) and the international site (alibabacloud.com).
-     *   * ### Unsupported sharing behavior
-     *   * *   You cannot share images that are shared by other Alibaba Cloud accounts.
-     *   * *   You cannot share encrypted images.
-     *   * *   You cannot share images across regions. If you want to share images across regions, you can call the CopyImage operation to copy the images from the source region to the destination region.
-     *   *
-     * @param ModifyImagePermissionRequest $request ModifyImagePermissionRequest
+     * @param ModifyImagePermissionRequest $request
      *
-     * @return ModifyImagePermissionResponse ModifyImagePermissionResponse
+     * @return ModifyImagePermissionResponse
      */
     public function modifyImagePermission($request)
     {
@@ -9277,8 +10304,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is accidentally deleted, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](~~62621~~) operation to create a mount target.
+     * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](~~62621~~) operation to create a mount target.
      *   *
      * @param ModifyNASDefaultMountTargetRequest $request ModifyNASDefaultMountTargetRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -9317,8 +10343,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is accidentally deleted, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](~~62621~~) operation to create a mount target.
+     * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](~~62621~~) operation to create a mount target.
      *   *
      * @param ModifyNASDefaultMountTargetRequest $request ModifyNASDefaultMountTargetRequest
      *
@@ -9387,8 +10412,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * If you want to temporarily disable Internet access for a cloud desktop, you can disable the Internet access package. You can restore the package based on your requirements.
+     * If you want to temporarily disable Internet access for a cloud desktop, you can disable the Internet access package. You can restore the package when you require Internet access for the cloud desktop.
      *   *
      * @param ModifyNetworkPackageEnabledRequest $request ModifyNetworkPackageEnabledRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -9427,8 +10451,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * If you want to temporarily disable Internet access for a cloud desktop, you can disable the Internet access package. You can restore the package based on your requirements.
+     * If you want to temporarily disable Internet access for a cloud desktop, you can disable the Internet access package. You can restore the package when you require Internet access for the cloud desktop.
      *   *
      * @param ModifyNetworkPackageEnabledRequest $request ModifyNetworkPackageEnabledRequest
      *
@@ -9601,61 +10624,6 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyOperateVulRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ModifyOperateVulResponse
-     */
-    public function modifyOperateVulWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->operateType)) {
-            $query['OperateType'] = $request->operateType;
-        }
-        if (!Utils::isUnset($request->reason)) {
-            $query['Reason'] = $request->reason;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->vulInfo)) {
-            $query['VulInfo'] = $request->vulInfo;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyOperateVul',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyOperateVulResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ModifyOperateVulRequest $request
-     *
-     * @return ModifyOperateVulResponse
-     */
-    public function modifyOperateVul($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyOperateVulWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyPolicyGroupRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -9665,6 +10633,9 @@ class Ecd extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->adminAccess)) {
+            $query['AdminAccess'] = $request->adminAccess;
+        }
         if (!Utils::isUnset($request->appContentProtection)) {
             $query['AppContentProtection'] = $request->appContentProtection;
         }
@@ -9685,6 +10656,12 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->domainList)) {
             $query['DomainList'] = $request->domainList;
+        }
+        if (!Utils::isUnset($request->domainResolveRule)) {
+            $query['DomainResolveRule'] = $request->domainResolveRule;
+        }
+        if (!Utils::isUnset($request->domainResolveRuleType)) {
+            $query['DomainResolveRuleType'] = $request->domainResolveRuleType;
         }
         if (!Utils::isUnset($request->endUserApplyAdminCoordinate)) {
             $query['EndUserApplyAdminCoordinate'] = $request->endUserApplyAdminCoordinate;
@@ -9800,6 +10777,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->watermarkRowAmount)) {
             $query['WatermarkRowAmount'] = $request->watermarkRowAmount;
         }
+        if (!Utils::isUnset($request->watermarkSecurity)) {
+            $query['WatermarkSecurity'] = $request->watermarkSecurity;
+        }
         if (!Utils::isUnset($request->watermarkTransparency)) {
             $query['WatermarkTransparency'] = $request->watermarkTransparency;
         }
@@ -9840,7 +10820,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can modify permissions for regular users on cloud desktops that are only in the Running state.
+     * You can modify user permissions on cloud desktops that are only in the Running state.
      *   *
      * @param ModifyUserEntitlementRequest $request ModifyUserEntitlementRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -9882,7 +10862,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * You can modify permissions for regular users on cloud desktops that are only in the Running state.
+     * You can modify user permissions on cloud desktops that are only in the Running state.
      *   *
      * @param ModifyUserEntitlementRequest $request ModifyUserEntitlementRequest
      *
@@ -9969,6 +10949,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->fileId)) {
             $query['FileId'] = $request->fileId;
         }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
         if (!Utils::isUnset($request->parentFolderId)) {
             $query['ParentFolderId'] = $request->parentFolderId;
         }
@@ -10003,67 +10986,6 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->moveCdsFileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OperateVulsRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return OperateVulsResponse
-     */
-    public function operateVulsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
-        }
-        if (!Utils::isUnset($request->operateType)) {
-            $query['OperateType'] = $request->operateType;
-        }
-        if (!Utils::isUnset($request->precondition)) {
-            $query['Precondition'] = $request->precondition;
-        }
-        if (!Utils::isUnset($request->reason)) {
-            $query['Reason'] = $request->reason;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->vulName)) {
-            $query['VulName'] = $request->vulName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'OperateVuls',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OperateVulsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param OperateVulsRequest $request
-     *
-     * @return OperateVulsResponse
-     */
-    public function operateVuls($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->operateVulsWithOptions($request, $runtime);
     }
 
     /**
@@ -10118,11 +11040,11 @@ class Ecd extends OpenApiClient
 
     /**
      * Before you change the image of a cloud desktop, take note of the following limits:
-     *   * - You can select the OS of an image during image change. However, this operation is unavailable in the following regions: China (Hong Kong), Australia (Sydney), Singapore (Singapore), and Japan (Tokyo).
-     *   * - Image change between GPU and non-GPU images is not supported. If a cloud desktop is of the Graphics type, you can use only a GPU image. If the cloud desktop is of a non-Graphics type, you can use only a non-GPU image.
+     *   * *   You can select the OS of an image during image change. However, this operation is unavailable in the following regions: China (Hong Kong), Australia (Sydney), Singapore (Singapore), and Japan (Tokyo).
+     *   * *   Image change between GPU and non-GPU images is not supported. If a cloud desktop is of the Graphics type, you can use only a GPU image. If the cloud desktop is of a non-Graphics type, you can use only a non-GPU image.
      *   * After you change the image of the cloud desktop, the system uses the new image to initialize the system disk of the cloud desktop. Take note of the following impacts:
-     *   * - The system deletes data from the original system disk. The snapshots that are created from the original system disk of the cloud desktop become unavailable and are automatically deleted.
-     *   * - If you change the OS of the image, the system deletes data from the original data disk of the cloud desktop. The system also deletes snapshots that are created from the original data disk of the cloud desktop because original snapshots become unavailable. If you do not change the OS of the image, data on the original data disk is retained, and snapshots that are created from the data disk are still available.
+     *   * *   The system deletes data from the original system disk. The snapshots that are created from the original system disk of the cloud desktop become unavailable and are automatically deleted.
+     *   * *   If you change the OS of the image, the system deletes data from the original data disk of the cloud desktop. The system also deletes snapshots that are created from the original data disk of the cloud desktop because original snapshots become unavailable. If you do not change the OS of the image, data on the original data disk is retained, and snapshots that are created from the data disk are still available.
      *   *
      * @param RebuildDesktopsRequest $request RebuildDesktopsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -10138,6 +11060,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->operateType)) {
+            $query['OperateType'] = $request->operateType;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -10162,11 +11087,11 @@ class Ecd extends OpenApiClient
 
     /**
      * Before you change the image of a cloud desktop, take note of the following limits:
-     *   * - You can select the OS of an image during image change. However, this operation is unavailable in the following regions: China (Hong Kong), Australia (Sydney), Singapore (Singapore), and Japan (Tokyo).
-     *   * - Image change between GPU and non-GPU images is not supported. If a cloud desktop is of the Graphics type, you can use only a GPU image. If the cloud desktop is of a non-Graphics type, you can use only a non-GPU image.
+     *   * *   You can select the OS of an image during image change. However, this operation is unavailable in the following regions: China (Hong Kong), Australia (Sydney), Singapore (Singapore), and Japan (Tokyo).
+     *   * *   Image change between GPU and non-GPU images is not supported. If a cloud desktop is of the Graphics type, you can use only a GPU image. If the cloud desktop is of a non-Graphics type, you can use only a non-GPU image.
      *   * After you change the image of the cloud desktop, the system uses the new image to initialize the system disk of the cloud desktop. Take note of the following impacts:
-     *   * - The system deletes data from the original system disk. The snapshots that are created from the original system disk of the cloud desktop become unavailable and are automatically deleted.
-     *   * - If you change the OS of the image, the system deletes data from the original data disk of the cloud desktop. The system also deletes snapshots that are created from the original data disk of the cloud desktop because original snapshots become unavailable. If you do not change the OS of the image, data on the original data disk is retained, and snapshots that are created from the data disk are still available.
+     *   * *   The system deletes data from the original system disk. The snapshots that are created from the original system disk of the cloud desktop become unavailable and are automatically deleted.
+     *   * *   If you change the OS of the image, the system deletes data from the original data disk of the cloud desktop. The system also deletes snapshots that are created from the original data disk of the cloud desktop because original snapshots become unavailable. If you do not change the OS of the image, data on the original data disk is retained, and snapshots that are created from the data disk are still available.
      *   *
      * @param RebuildDesktopsRequest $request RebuildDesktopsRequest
      *
@@ -10202,6 +11127,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileId)) {
             $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->memberListShrink)) {
             $query['MemberList'] = $request->memberListShrink;
@@ -10289,6 +11217,107 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeUserFromDesktopGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveUserFromDesktopOversoldUserGroupRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return RemoveUserFromDesktopOversoldUserGroupResponse
+     */
+    public function removeUserFromDesktopOversoldUserGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->oversoldGroupId)) {
+            $query['OversoldGroupId'] = $request->oversoldGroupId;
+        }
+        if (!Utils::isUnset($request->userDesktopId)) {
+            $query['UserDesktopId'] = $request->userDesktopId;
+        }
+        if (!Utils::isUnset($request->userGroupId)) {
+            $query['UserGroupId'] = $request->userGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveUserFromDesktopOversoldUserGroup',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveUserFromDesktopOversoldUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveUserFromDesktopOversoldUserGroupRequest $request
+     *
+     * @return RemoveUserFromDesktopOversoldUserGroupResponse
+     */
+    public function removeUserFromDesktopOversoldUserGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeUserFromDesktopOversoldUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RenewDesktopOversoldGroupRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RenewDesktopOversoldGroupResponse
+     */
+    public function renewDesktopOversoldGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->oversoldGroupId)) {
+            $query['OversoldGroupId'] = $request->oversoldGroupId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewDesktopOversoldGroup',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenewDesktopOversoldGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RenewDesktopOversoldGroupRequest $request
+     *
+     * @return RenewDesktopOversoldGroupResponse
+     */
+    public function renewDesktopOversoldGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewDesktopOversoldGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -10408,10 +11437,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ResetDesktopsRequest $request
-     * @param RuntimeOptions       $runtime
+     * > You can call this operation to reset only cloud desktops that are managed by a cloud desktop group. You cannot reset an independent cloud desktop.
+     *   *
+     * @param ResetDesktopsRequest $request ResetDesktopsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetDesktopsResponse
+     * @return ResetDesktopsResponse ResetDesktopsResponse
      */
     public function resetDesktopsWithOptions($request, $runtime)
     {
@@ -10454,9 +11485,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ResetDesktopsRequest $request
+     * > You can call this operation to reset only cloud desktops that are managed by a cloud desktop group. You cannot reset an independent cloud desktop.
+     *   *
+     * @param ResetDesktopsRequest $request ResetDesktopsRequest
      *
-     * @return ResetDesktopsResponse
+     * @return ResetDesktopsResponse ResetDesktopsResponse
      */
     public function resetDesktops($request)
     {
@@ -10466,8 +11499,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
+     * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
      *   *
      * @param ResetNASDefaultMountTargetRequest $request ResetNASDefaultMountTargetRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -10503,8 +11535,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
+     * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
      *   *
      * @param ResetNASDefaultMountTargetRequest $request ResetNASDefaultMountTargetRequest
      *
@@ -10631,65 +11662,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * When alerts are handled, the system quarantines the files that contain detected threats to the quarantine panel. You can call this operation to remove quarantined files from the quarantine panel.
+     * You can use the RunCommand operation to run scripts only on Windows cloud desktops.
      *   *
-     * @param RollbackSuspEventQuaraFileRequest $request RollbackSuspEventQuaraFileRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param RunCommandRequest $request RunCommandRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RollbackSuspEventQuaraFileResponse RollbackSuspEventQuaraFileResponse
-     */
-    public function rollbackSuspEventQuaraFileWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
-        }
-        if (!Utils::isUnset($request->quaraFieldId)) {
-            $query['QuaraFieldId'] = $request->quaraFieldId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RollbackSuspEventQuaraFile',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RollbackSuspEventQuaraFileResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * ## Description
-     *   * When alerts are handled, the system quarantines the files that contain detected threats to the quarantine panel. You can call this operation to remove quarantined files from the quarantine panel.
-     *   *
-     * @param RollbackSuspEventQuaraFileRequest $request RollbackSuspEventQuaraFileRequest
-     *
-     * @return RollbackSuspEventQuaraFileResponse RollbackSuspEventQuaraFileResponse
-     */
-    public function rollbackSuspEventQuaraFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->rollbackSuspEventQuaraFileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RunCommandRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return RunCommandResponse
+     * @return RunCommandResponse RunCommandResponse
      */
     public function runCommandWithOptions($request, $runtime)
     {
@@ -10735,9 +11713,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RunCommandRequest $request
+     * You can use the RunCommand operation to run scripts only on Windows cloud desktops.
+     *   *
+     * @param RunCommandRequest $request RunCommandRequest
      *
-     * @return RunCommandResponse
+     * @return RunCommandResponse RunCommandResponse
      */
     public function runCommand($request)
     {
@@ -10961,10 +11941,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetDirectorySsoStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * This operation is supported only for AD directories, not for RAM directories.
+     *   *
+     * @param SetDirectorySsoStatusRequest $request SetDirectorySsoStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDirectorySsoStatusResponse
+     * @return SetDirectorySsoStatusResponse SetDirectorySsoStatusResponse
      */
     public function setDirectorySsoStatusWithOptions($request, $runtime)
     {
@@ -10998,9 +11980,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param SetDirectorySsoStatusRequest $request
+     * This operation is supported only for AD directories, not for RAM directories.
+     *   *
+     * @param SetDirectorySsoStatusRequest $request SetDirectorySsoStatusRequest
      *
-     * @return SetDirectorySsoStatusResponse
+     * @return SetDirectorySsoStatusResponse SetDirectorySsoStatusResponse
      */
     public function setDirectorySsoStatus($request)
     {
@@ -11010,8 +11994,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types. You cannot call this operation for RAM directories.
+     * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
      *   *
      * @param SetIdpMetadataRequest $request SetIdpMetadataRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -11053,8 +12036,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types. You cannot call this operation for RAM directories.
+     * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
      *   *
      * @param SetIdpMetadataRequest $request SetIdpMetadataRequest
      *
@@ -11174,7 +12156,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud desktop to be started must be in the Stopped (Stopped) state.
+     * The cloud desktop that you want to start must be in the Stopped state.
      *   *
      * @param StartDesktopsRequest $request StartDesktopsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -11210,7 +12192,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud desktop to be started must be in the Stopped (Stopped) state.
+     * The cloud desktop that you want to start must be in the Stopped state.
      *   *
      * @param StartDesktopsRequest $request StartDesktopsRequest
      *
@@ -11224,62 +12206,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When you call this operation, you must specify a workspace or a cloud desktop by specifying the OfficeSiteId or DesktopId parameter.
-     *   * > When you specify a workspace, all cloud desktops within the workspace are scanned.
-     *   *
-     * @param StartVirusScanTaskRequest $request StartVirusScanTaskRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
-     *
-     * @return StartVirusScanTaskResponse StartVirusScanTaskResponse
-     */
-    public function startVirusScanTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->desktopId)) {
-            $query['DesktopId'] = $request->desktopId;
-        }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StartVirusScanTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return StartVirusScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * When you call this operation, you must specify a workspace or a cloud desktop by specifying the OfficeSiteId or DesktopId parameter.
-     *   * > When you specify a workspace, all cloud desktops within the workspace are scanned.
-     *   *
-     * @param StartVirusScanTaskRequest $request StartVirusScanTaskRequest
-     *
-     * @return StartVirusScanTaskResponse StartVirusScanTaskResponse
-     */
-    public function startVirusScanTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startVirusScanTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * The cloud desktop must be in the Running state.
+     * The cloud desktops that you want to stop must be in the Running state.
      *   *
      * @param StopDesktopsRequest $request StopDesktopsRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -11318,7 +12245,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * The cloud desktop must be in the Running state.
+     * The cloud desktops that you want to stop must be in the Running state.
      *   *
      * @param StopDesktopsRequest $request StopDesktopsRequest
      *
@@ -11332,7 +12259,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
+     * The ID of the execution.
      *   *
      * @param StopInvocationRequest $request StopInvocationRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -11371,7 +12298,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * When you stop a one-time execution of a command, the command continues to run on the cloud desktops where it has started to run, and will not run on the cloud desktops where it has not started to run.
+     * The ID of the execution.
      *   *
      * @param StopInvocationRequest $request StopInvocationRequest
      *
@@ -11591,10 +12518,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param UploadImageRequest $request
-     * @param RuntimeOptions     $runtime
+     * > You can call this operation to upload custom Windows images.
+     *   *
+     * @param UploadImageRequest $request UploadImageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadImageResponse
+     * @return UploadImageResponse UploadImageResponse
      */
     public function uploadImageWithOptions($request, $runtime)
     {
@@ -11652,9 +12581,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param UploadImageRequest $request
+     * > You can call this operation to upload custom Windows images.
+     *   *
+     * @param UploadImageRequest $request UploadImageRequest
      *
-     * @return UploadImageResponse
+     * @return UploadImageResponse UploadImageResponse
      */
     public function uploadImage($request)
     {
@@ -11716,5 +12647,51 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->verifyCenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param WakeupDesktopsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return WakeupDesktopsResponse
+     */
+    public function wakeupDesktopsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->desktopId)) {
+            $query['DesktopId'] = $request->desktopId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'WakeupDesktops',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return WakeupDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param WakeupDesktopsRequest $request
+     *
+     * @return WakeupDesktopsResponse
+     */
+    public function wakeupDesktops($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->wakeupDesktopsWithOptions($request, $runtime);
     }
 }

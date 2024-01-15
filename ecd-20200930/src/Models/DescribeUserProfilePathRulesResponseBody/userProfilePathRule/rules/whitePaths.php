@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class whitePaths extends Model
 {
     /**
+     * @description The path.
+     *
      * @example games
      *
      * @var string
@@ -16,6 +18,17 @@ class whitePaths extends Model
     public $path;
 
     /**
+     * @description The path type.
+     *
+     * Valid values:
+     *
+     *   file
+     *
+     * <!-- -->
+     *
+     *   folder
+     *
+     * <!-- -->
      * @example folder
      *
      * @var string

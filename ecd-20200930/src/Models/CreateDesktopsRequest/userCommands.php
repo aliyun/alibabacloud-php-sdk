@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class userCommands extends Model
 {
     /**
-     * @description The content of the command.
+     * @description The command content.
      *
      * @example bmV3LWl0ZW0gZDpcdGVzdF91c2VyX2NvbW1hbmRzLnR4dCAtdHlwZSBm****
      *
@@ -20,6 +20,15 @@ class userCommands extends Model
     /**
      * @description The encoding mode of the command content (CommandContent).
      *
+     * Valid values:
+     *
+     *   Base64: encodes the command content in Base64.
+     *
+     * <!-- -->
+     *
+     *   PlainText: does not encode the command content.
+     *
+     * <!-- -->
      * @example Base64
      *
      * @var string
@@ -27,8 +36,21 @@ class userCommands extends Model
     public $contentEncoding;
 
     /**
-     * @description The language type of the command.
+     * @description The command language.
      *
+     * Valid values:
+     *
+     *   RunPowerShellScript: PowerShell command (applicable to Windows cloud desktops).
+     *
+     * <!-- -->
+     *
+     *   RunShellScript: shell command (applicable to Linux cloud desktops).
+     *
+     * <!-- -->
+     *
+     *   RunBatScript: batch command (applicable to Windows cloud desktops).
+     *
+     * <!-- -->
      * @example RunPowerShellScript
      *
      * @var string

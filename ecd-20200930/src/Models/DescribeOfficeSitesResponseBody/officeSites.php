@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class officeSites extends Model
 {
     /**
-     * @description Details of the AD connectors.
+     * @description Details about AD connectors.
      *
      * @var ADConnectors[]
      */
     public $ADConnectors;
 
     /**
-     * @description The hostname of the domain controller. The hostname must comply with the naming conventions for hostnames in Windows.
+     * @description The hostname of the domain controller. The hostname must comply with the naming conventions for Windows hosts.
      *
      * @example beijing-ad01
      *
@@ -27,13 +27,18 @@ class officeSites extends Model
     public $adHostname;
 
     /**
-     * @description The maximum public bandwidth of the Internet access package. Valid values: 0 to 1000.\
+     * @description The maximum public bandwidth value. Valid values: 0 to 1000.\
      * If the value of this parameter is 0, Internet access is disabled.
      * @example 10
      *
      * @var int
      */
     public $bandwidth;
+
+    /**
+     * @var string
+     */
+    public $cenAttachStatus;
 
     /**
      * @description The ID of the Cloud Enterprise Network (CEN) instance.
@@ -54,8 +59,17 @@ class officeSites extends Model
     public $cidrBlock;
 
     /**
-     * @description Indicates whether the workspace is created for cloud desktops on a cloud box.
+     * @description Specifies whether the workspace is a cloud box-based workspace.
      *
+     * Valid values:
+     *
+     *   True: a cloud box-based workspace
+     *
+     * <!-- -->
+     *
+     *   False: an Internet-based workspace
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -81,8 +95,21 @@ class officeSites extends Model
     public $customSecurityGroupId;
 
     /**
-     * @description The method used to connect the Alibaba Cloud Workspace client to cloud desktops.
+     * @description The method that is used to connect an Alibaba Cloud Workspace client to cloud desktops.
      *
+     * Valid values:
+     *
+     *   INTERNET: allows clients to connect to cloud desktops only over the Internet.
+     *
+     * <!-- -->
+     *
+     *   VPC: allows only clients in VPCs to connect to a cloud desktop.
+     *
+     * <!-- -->
+     *
+     *   ANY: connects the client to cloud desktops over the Internet or a VPC.
+     *
+     * <!-- -->
      * @example INTERNET
      *
      * @var string
@@ -115,7 +142,7 @@ class officeSites extends Model
     public $dnsAddress;
 
     /**
-     * @description The username of the DNS account.
+     * @description The username of the Domain Name System (DNS) user.
      *
      * @example testDnsUserName
      *
@@ -151,7 +178,7 @@ class officeSites extends Model
     public $domainUserName;
 
     /**
-     * @description Indicates whether the permissions of the desktop administrator are granted to the user of the cloud desktop.
+     * @description Indicates whether the Local Administrator permissions are granted for users of the cloud desktop.
      *
      * @example true
      *
@@ -160,7 +187,7 @@ class officeSites extends Model
     public $enableAdminAccess;
 
     /**
-     * @description Indicates whether the desktop communication feature is enabled for cloud desktops in the same workspace. If the feature is enabled, cloud desktops in the same workspace can access each other.
+     * @description Indicates whether the cross-desktop access feature is enabled for cloud desktops in the same workspace. If the feature is enabled, cloud desktops in the same workspace can access each other.
      *
      * @example false
      *
@@ -185,14 +212,14 @@ class officeSites extends Model
     public $fileSystemIds;
 
     /**
-     * @description Details of the registration logs.
+     * @description Details about registration logs.
      *
      * @var logs[]
      */
     public $logs;
 
     /**
-     * @description Indicates whether multi-factor authentication (MFA) is enabled.
+     * @description Specifies whether to enable multi-factor authentication (MFA).
      *
      * @example false
      *
@@ -210,7 +237,7 @@ class officeSites extends Model
     public $name;
 
     /**
-     * @description Indicates whether two-factor verification for logons is enabled. This parameter is returned only for workspaces of the convenience account type.\
+     * @description Indicates whether two-step verification for logons is enabled. This parameter is returned only for workspaces of the convenience account type.\
      * If two-factor verification is enabled, the system checks whether security risks exist within the logon account when a convenience user logs on to an Alibaba Cloud Workspace client. If risks are detected, the system sends a verification code to the email address that is associated with the account. Then, the convenience user can log on to the client only after the user enters the correct verification code.
      * @example false
      *
@@ -219,8 +246,17 @@ class officeSites extends Model
     public $needVerifyLoginRisk;
 
     /**
-     * @description Indicates whether trusted device verification is enabled.
+     * @description Specifies whether to enable trusted device verification.
      *
+     * Valid values:
+     *
+     *   true: enables device verification.
+     *
+     * <!-- -->
+     *
+     *   false: disables device verification.
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -237,7 +273,7 @@ class officeSites extends Model
     public $networkPackageId;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -248,6 +284,15 @@ class officeSites extends Model
     /**
      * @description The account type of the workspace.
      *
+     * Valid values:
+     *
+     *   SIMPLE: the convenience account
+     *
+     * <!-- -->
+     *
+     *   AD_CONNECTOR: the enterprise AD account
+     *
+     * <!-- -->
      * @example AD_CONNECTOR
      *
      * @var string
@@ -264,8 +309,17 @@ class officeSites extends Model
     public $ouName;
 
     /**
-     * @description The type of the protocol.
+     * @description The workspace protocol.
      *
+     * Valid values:
+     *
+     *   HDX: the third-party protocol
+     *
+     * <!-- -->
+     *
+     *   ASP: the protocol developed by Alibaba Cloud
+     *
+     * <!-- -->
      * @example ASP
      *
      * @var string
@@ -273,16 +327,22 @@ class officeSites extends Model
     public $protocolType;
 
     /**
+     * @example 47.100.XX.XX
+     *
      * @var string
      */
     public $rdsLicenseAddress;
 
     /**
+     * @example test.com
+     *
      * @var string
      */
     public $rdsLicenseDomainName;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $rdsLicenseStatus;
@@ -308,6 +368,43 @@ class officeSites extends Model
     /**
      * @description The state of the workspace.
      *
+     * Valid values:
+     *
+     *   REGISTERING: The workspace is being registered.
+     *
+     * <!-- -->
+     *
+     *   DEREGISTERING: The workspace is being deregistered.
+     *
+     * <!-- -->
+     *
+     *   REGISTERED: The workspace is registered.
+     *
+     * <!-- -->
+     *
+     *   NEEDCONFIGTRUST: A trust relationship needs to be configured.
+     *
+     * <!-- -->
+     *
+     *   CONFIGTRUSTFAILED: A trust relationship fails to be configured.
+     *
+     * <!-- -->
+     *
+     *   DEREGISTERED: The workspace is deregistered.
+     *
+     * <!-- -->
+     *
+     *   ERROR: The configurations of the workspace are invalid.
+     *
+     * <!-- -->
+     *
+     *   CONFIGTRUSTING: A trust relationship is being configured.
+     *
+     * <!-- -->
+     *
+     *   NEEDCONFIGUSER: Users need to be configured.
+     *
+     * <!-- -->
      * @example REGISTERED
      *
      * @var string
@@ -329,6 +426,20 @@ class officeSites extends Model
      * @var string
      */
     public $subDomainName;
+
+    /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $totalEdsCount;
+
+    /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $totalEdsCountForGroup;
 
     /**
      * @description > This parameter is unavailable.
@@ -358,6 +469,19 @@ class officeSites extends Model
     /**
      * @description The VPC type.
      *
+     * Valid values:
+     *
+     *   Basic
+     *
+     * <!-- -->
+     *
+     *   Customized
+     *
+     * <!-- -->
+     *
+     *   Standard
+     *
+     * <!-- -->
      * @example Basic
      *
      * @var string
@@ -367,6 +491,7 @@ class officeSites extends Model
         'ADConnectors'             => 'ADConnectors',
         'adHostname'               => 'AdHostname',
         'bandwidth'                => 'Bandwidth',
+        'cenAttachStatus'          => 'CenAttachStatus',
         'cenId'                    => 'CenId',
         'cidrBlock'                => 'CidrBlock',
         'cloudBoxOfficeSite'       => 'CloudBoxOfficeSite',
@@ -402,6 +527,8 @@ class officeSites extends Model
         'status'                   => 'Status',
         'subDnsAddress'            => 'SubDnsAddress',
         'subDomainName'            => 'SubDomainName',
+        'totalEdsCount'            => 'TotalEdsCount',
+        'totalEdsCountForGroup'    => 'TotalEdsCountForGroup',
         'trustPassword'            => 'TrustPassword',
         'vSwitchIds'               => 'VSwitchIds',
         'vpcId'                    => 'VpcId',
@@ -429,6 +556,9 @@ class officeSites extends Model
         }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->cenAttachStatus) {
+            $res['CenAttachStatus'] = $this->cenAttachStatus;
         }
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
@@ -541,6 +671,12 @@ class officeSites extends Model
         if (null !== $this->subDomainName) {
             $res['SubDomainName'] = $this->subDomainName;
         }
+        if (null !== $this->totalEdsCount) {
+            $res['TotalEdsCount'] = $this->totalEdsCount;
+        }
+        if (null !== $this->totalEdsCountForGroup) {
+            $res['TotalEdsCountForGroup'] = $this->totalEdsCountForGroup;
+        }
         if (null !== $this->trustPassword) {
             $res['TrustPassword'] = $this->trustPassword;
         }
@@ -579,6 +715,9 @@ class officeSites extends Model
         }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['CenAttachStatus'])) {
+            $model->cenAttachStatus = $map['CenAttachStatus'];
         }
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
@@ -696,6 +835,12 @@ class officeSites extends Model
         }
         if (isset($map['SubDomainName'])) {
             $model->subDomainName = $map['SubDomainName'];
+        }
+        if (isset($map['TotalEdsCount'])) {
+            $model->totalEdsCount = $map['TotalEdsCount'];
+        }
+        if (isset($map['TotalEdsCountForGroup'])) {
+            $model->totalEdsCountForGroup = $map['TotalEdsCountForGroup'];
         }
         if (isset($map['TrustPassword'])) {
             $model->trustPassword = $map['TrustPassword'];

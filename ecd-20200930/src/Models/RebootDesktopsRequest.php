@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RebootDesktopsRequest extends Model
 {
     /**
-     * @description The IDs of the cloud desktops. You can specify 1 to 100 cloud desktop IDs.
+     * @description The cloud desktop ID. You can specify one or more desktop IDs. Valid values of N: 1 to 100.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -18,7 +18,7 @@ class RebootDesktopsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

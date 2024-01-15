@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
-     * @description The display type of the header. You can call the `ModifyCustomizedListHeaders` operation to modify the display type of the header.
-     *
      * @example display
      *
      * @var string
@@ -18,8 +16,6 @@ class headers extends Model
     public $displayType;
 
     /**
-     * @description The key of the header.
-     *
      * @example pay_type
      *
      * @var string
@@ -27,10 +23,6 @@ class headers extends Model
     public $headerKey;
 
     /**
-     * @description The name of the header.
-     *
-     * @example Cloud Desktop ID/Name
-     *
      * @var string
      */
     public $headerName;

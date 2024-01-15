@@ -17,7 +17,7 @@ class DescribeDesktopsResponseBody extends Model
     public $desktops;
 
     /**
-     * @description The token that is used for the next query. If this parameter is empty, all results are returned.
+     * @description The token that is used for the next query. If this parameter is left empty, all results are returned.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *

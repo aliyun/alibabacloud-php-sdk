@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyBundleRequest extends Model
 {
     /**
-     * @description The ID of the desktop template.
+     * @description The desktop template ID.
      *
      * @example b-2g65ljy4291vl****
      *
@@ -36,7 +36,7 @@ class ModifyBundleRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the new image. The new image must meet the following requirements:
+     * @description The new image ID. The new image must meet the following conditions:
      *
      *   The new image must be in the Available state.
      *   The operating system of the new image must be the same as that of the original image.
@@ -50,11 +50,12 @@ class ModifyBundleRequest extends Model
     public $imageId;
 
     /**
-     * @description The language of the operating system. This parameter is available only for system images. Valid values:
+     * @description The language of the OS. This parameter is available only for system images. Valid values:
      *
      *   zh-CN: Simplified Chinese
      *   zh-HK: Traditional Chinese (Hong Kong)
      *   en-US: English
+     *   ja-JP: Japanese
      *
      * @example zh-CN
      *
@@ -63,7 +64,7 @@ class ModifyBundleRequest extends Model
     public $language;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

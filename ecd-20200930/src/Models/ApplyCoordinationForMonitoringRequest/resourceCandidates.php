@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceCandidates extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the current cloud desktop belongs.
+     *
      * @example 130247021517****
      *
      * @var int
@@ -16,6 +18,8 @@ class resourceCandidates extends Model
     public $ownerAliUid;
 
     /**
+     * @description The ID of the current end user.
+     *
      * @example alice
      *
      * @var string
@@ -23,6 +27,8 @@ class resourceCandidates extends Model
     public $ownerEndUserId;
 
     /**
+     * @description The ID of the cloud desktop.
+     *
      * @example ecd-08zhejm3h7ilr****
      *
      * @var string
@@ -30,6 +36,8 @@ class resourceCandidates extends Model
     public $resourceId;
 
     /**
+     * @description The name of the cloud desktop.
+     *
      * @example TestDesktop
      *
      * @var string
@@ -37,6 +45,8 @@ class resourceCandidates extends Model
     public $resourceName;
 
     /**
+     * @description The properties of the cloud desktop.
+     *
      * @example TestProperty
      *
      * @var string
@@ -44,6 +54,8 @@ class resourceCandidates extends Model
     public $resourceProperties;
 
     /**
+     * @description The region where the resource resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +63,13 @@ class resourceCandidates extends Model
     public $resourceRegionId;
 
     /**
+     * @description The resource type.
+     *
+     * Set the value to CLOUD_DESKTOP.
+     *
+     *   The value CLOUD_DESKTOP specifies that the resource is a cloud desktop.
+     *
+     * <!-- -->
      * @example CLOUD_DESKTOP
      *
      * @var string

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageModifiedRecordsResponseBody extends Model
 {
     /**
-     * @description The image change records.
+     * @description The image modification record collection.
      *
      * @var imageModifiedRecords[]
      */
     public $imageModifiedRecords;
 
     /**
-     * @description The token that is used for the next query. If this parameter is left empty, all results are returned.
+     * @description If the NextToken parameter is empty, no next page exists.
      *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6koN7RqHg3d2z8LKmSoe821
      *
@@ -35,7 +35,7 @@ class DescribeImageModifiedRecordsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of image change records.
+     * @description The total number of image modification records.
      *
      * @example 20
      *

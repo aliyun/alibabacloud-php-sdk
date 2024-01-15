@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sessions extends Model
 {
     /**
-     * @description The ID of the user that logged on to the cloud desktop.
+     * @description The ID of the end user that logged on to the cloud desktop.
      *
      * @example 29615820929547****
      *

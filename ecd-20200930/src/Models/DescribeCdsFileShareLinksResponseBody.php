@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdsFileShareLinksResponseBody extends Model
 {
     /**
+     * @description The operation result. A value of success indicates that the operation is successful. If the operation failed, an error message is returned.
+     *
      * @example success
      *
      * @var string
@@ -16,11 +18,15 @@ class DescribeCdsFileShareLinksResponseBody extends Model
     public $code;
 
     /**
+     * @description The data information.
+     *
      * @var CdsFileShareLinkModel[]
      */
     public $data;
 
     /**
+     * @description The error message that is returned. This parameter is not returned if the value of Code is `success`.
+     *
      * @example success
      *
      * @var string
@@ -28,6 +34,8 @@ class DescribeCdsFileShareLinksResponseBody extends Model
     public $message;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6mnFXZiT7NdvGNgkInJ****
      *
      * @var string
@@ -35,6 +43,8 @@ class DescribeCdsFileShareLinksResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *
      * @var string
@@ -42,6 +52,8 @@ class DescribeCdsFileShareLinksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

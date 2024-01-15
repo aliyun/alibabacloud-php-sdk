@@ -9,12 +9,17 @@ use AlibabaCloud\Tea\Model;
 class RenewDesktopsRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment. Valid values:
+     * @description Specifies whether to enable the automatic payment feature.
      *
-     *   true: enables automatic payment. Make sure that you have sufficient balance in your account. Otherwise, abnormal orders are generated.
-     *   false: generates the order with no payment made. You can log on to the EDS console and complete the payment based on the order number.
+     * Valid values:
      *
-     * Default value: true.
+     *   true (default): enables the auto-payment feature.
+     *
+     * <!-- -->
+     *
+     *   false: disables the auto-payment feature. In this case, an order is generated, and no payment is automatically made.
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -22,9 +27,8 @@ class RenewDesktopsRequest extends Model
     public $autoPay;
 
     /**
-     * @description The IDs of cloud desktops.
+     * @description The cloud desktop ID. Only subscription cloud desktops can be renewed.
      *
-     * Only subscription cloud desktops can be renewed by calling this operation.
      * @example ecd-ia2zw38bi6cm7****
      *
      * @var string[]
@@ -32,10 +36,10 @@ class RenewDesktopsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The renewal duration. The valid values of this parameter are determined by the PeriodUnit value.
+     * @description The renewal duration. Valid values of this parameter are determined by the value of the `PeriodUnit` parameter.
      *
-     *   If PeriodUnit is set to Month, the valid values of the Period parameter are 1, 2, 3, and 6.
-     *   If PeriodUnit is set to Year, the valid values of the Period parameter are 1, 2, 3, 4, and 5.
+     *   Valid values if you set the `PeriodUnit` parameter to `Month`: 1, 2, 3, and 6
+     *   Valid values if you set the `PeriodUnit` parameter to `Year`: 1, 2, 3, 4, 5, and 6
      *
      * Default value: 1.
      * @example 1
@@ -45,12 +49,17 @@ class RenewDesktopsRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the renewal duration specified by the Period parameter. Valid values:
+     * @description The unit of the renewal duration that is specified by the Period parameter.
      *
-     *   Month
+     * Valid values:
+     *
+     *   Month (default)
+     *
+     * <!-- -->
+     *
      *   Year
      *
-     * Default value: Month.
+     * <!-- -->
      * @example Month
      *
      * @var string
@@ -67,7 +76,7 @@ class RenewDesktopsRequest extends Model
     public $promotionId;
 
     /**
-     * @description The region ID of the cloud desktop.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) to query the most recent region list.
      *
      * @example cn-hangzhou
      *

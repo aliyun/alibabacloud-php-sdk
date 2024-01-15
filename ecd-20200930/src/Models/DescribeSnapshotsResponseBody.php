@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotsResponseBody extends Model
 {
     /**
-     * @description The token that is used to start the next query. If the value of this parameter is empty, all results are returned.
+     * @description If the NextToken parameter is empty, no next page exists.
      *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
      *
@@ -19,7 +19,7 @@ class DescribeSnapshotsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 51592A88-0F2C-55E6-AD2C-2AD9C10D****
      *
@@ -28,7 +28,7 @@ class DescribeSnapshotsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details of the snapshots.
+     * @description The queried snapshots.
      *
      * @var snapshots[]
      */

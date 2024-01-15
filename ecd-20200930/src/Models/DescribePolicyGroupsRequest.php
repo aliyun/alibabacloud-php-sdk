@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyGroupsRequest extends Model
 {
     /**
+     * @description The number of entries per page.
+     *
+     *   Valid values: 1 to 100
+     *   Default value: 10
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +21,8 @@ class DescribePolicyGroupsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribePolicyGroupsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The policy IDs. You can specify one or more policy IDs.
+     *
      * @example system-all-enabled-policy
      *
      * @var string[]
@@ -30,6 +39,8 @@ class DescribePolicyGroupsRequest extends Model
     public $policyGroupId;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +48,13 @@ class DescribePolicyGroupsRequest extends Model
     public $regionId;
 
     /**
+     * @description The effective scope of the policy. Valid values:
+     *
+     *   GLOBAL: The policy takes effect globally.
+     *   IP: The policy takes effect based on the IP address.
+     *   ALL: The policy takes effect without limits.
+     *
+     * Default value: GLOBAL.
      * @example ALL
      *
      * @var string

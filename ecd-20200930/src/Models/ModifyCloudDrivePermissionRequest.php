@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCloudDrivePermissionRequest extends Model
 {
     /**
+     * @description The ID of the cloud disk in Cloud Drive Service.
+     *
      * @example cn-hangzhou+cds-60911*****
      *
      * @var string
@@ -16,16 +18,22 @@ class ModifyCloudDrivePermissionRequest extends Model
     public $cdsId;
 
     /**
+     * @description The IDs of the users who have the download permissions.
+     *
      * @var string[]
      */
     public $downloadEndUserIds;
 
     /**
+     * @description The IDs of the users who have the upload and download permissions.
+     *
      * @var string[]
      */
     public $downloadUploadEndUserIds;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopNameRequest extends Model
 {
     /**
-     * @description The ID of the cloud desktop.
+     * @description The cloud computer ID.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -21,8 +21,8 @@ class ModifyDesktopNameRequest extends Model
      * @description The new name of the cloud desktop. The name of the cloud desktop must meet the following requirements:
      *
      *   The name must be 1 to 64 characters in length.
-     *   The name must start with a letter and cannot start with `http://` or `https://`.
-     *   The name can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     *   The name must start with a letter but cannot start with `http://` or `https://`.
+     *   It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
      *
      * @example test
      *
@@ -31,7 +31,7 @@ class ModifyDesktopNameRequest extends Model
     public $newDesktopName;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

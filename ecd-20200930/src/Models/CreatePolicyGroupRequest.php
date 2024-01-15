@@ -7,11 +7,17 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupRequest\authorizeAccessPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupRequest\authorizeSecurityPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupRequest\clientType;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupRequest\domainResolveRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupRequest\usbSupplyRedirectRule;
 use AlibabaCloud\Tea\Model;
 
 class CreatePolicyGroupRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $adminAccess;
+
     /**
      * @description Specifies whether to enable the anti-screenshot feature.
      *
@@ -102,6 +108,31 @@ class CreatePolicyGroupRequest extends Model
      * @var string
      */
     public $domainList;
+
+    /**
+     * @description The details of the domain name resolution policy.
+     *
+     * @var domainResolveRule[]
+     */
+    public $domainResolveRule;
+
+    /**
+     * @description The type of the domain name resolution policy.
+     *
+     * Valid values:
+     *
+     *   OFF
+     *
+     * <!-- -->
+     *
+     *   ON
+     *
+     * <!-- -->
+     * @example OFF
+     *
+     * @var string
+     */
+    public $domainResolveRuleType;
 
     /**
      * @description Specifies whether to allow end users to seek assistance from the administrator. Valid values: ON OFF
@@ -228,11 +259,11 @@ class CreatePolicyGroupRequest extends Model
      *
      * Valid values:
      *
-     *   off: Network redirection is disabled. This value is the default value.
+     *   off (default): The network redirection feature is disabled.
      *
      * <!-- -->
      *
-     *   on: Network redirection is enabled.
+     *   on: The network redirection feature is enabled.
      *
      * <!-- -->
      * @example off
@@ -575,6 +606,15 @@ class CreatePolicyGroupRequest extends Model
     public $watermarkRowAmount;
 
     /**
+     * @description The security priority for invisible watermarks. Valid values: on and off.
+     *
+     * @example on
+     *
+     * @var string
+     */
+    public $watermarkSecurity;
+
+    /**
      * @description The transparency of the watermark.
      *
      * Valid values:
@@ -623,6 +663,7 @@ class CreatePolicyGroupRequest extends Model
      */
     public $watermarkType;
     protected $_name = [
+        'adminAccess'                   => 'AdminAccess',
         'appContentProtection'          => 'AppContentProtection',
         'authorizeAccessPolicyRule'     => 'AuthorizeAccessPolicyRule',
         'authorizeSecurityPolicyRule'   => 'AuthorizeSecurityPolicyRule',
@@ -630,6 +671,8 @@ class CreatePolicyGroupRequest extends Model
         'clientType'                    => 'ClientType',
         'clipboard'                     => 'Clipboard',
         'domainList'                    => 'DomainList',
+        'domainResolveRule'             => 'DomainResolveRule',
+        'domainResolveRuleType'         => 'DomainResolveRuleType',
         'endUserApplyAdminCoordinate'   => 'EndUserApplyAdminCoordinate',
         'endUserGroupCoordinate'        => 'EndUserGroupCoordinate',
         'gpuAcceleration'               => 'GpuAcceleration',
@@ -665,6 +708,7 @@ class CreatePolicyGroupRequest extends Model
         'watermarkFontSize'             => 'WatermarkFontSize',
         'watermarkFontStyle'            => 'WatermarkFontStyle',
         'watermarkRowAmount'            => 'WatermarkRowAmount',
+        'watermarkSecurity'             => 'WatermarkSecurity',
         'watermarkTransparency'         => 'WatermarkTransparency',
         'watermarkTransparencyValue'    => 'WatermarkTransparencyValue',
         'watermarkType'                 => 'WatermarkType',
@@ -677,6 +721,9 @@ class CreatePolicyGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->adminAccess) {
+            $res['AdminAccess'] = $this->adminAccess;
+        }
         if (null !== $this->appContentProtection) {
             $res['AppContentProtection'] = $this->appContentProtection;
         }
@@ -715,6 +762,18 @@ class CreatePolicyGroupRequest extends Model
         }
         if (null !== $this->domainList) {
             $res['DomainList'] = $this->domainList;
+        }
+        if (null !== $this->domainResolveRule) {
+            $res['DomainResolveRule'] = [];
+            if (null !== $this->domainResolveRule && \is_array($this->domainResolveRule)) {
+                $n = 0;
+                foreach ($this->domainResolveRule as $item) {
+                    $res['DomainResolveRule'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->domainResolveRuleType) {
+            $res['DomainResolveRuleType'] = $this->domainResolveRuleType;
         }
         if (null !== $this->endUserApplyAdminCoordinate) {
             $res['EndUserApplyAdminCoordinate'] = $this->endUserApplyAdminCoordinate;
@@ -827,6 +886,9 @@ class CreatePolicyGroupRequest extends Model
         if (null !== $this->watermarkRowAmount) {
             $res['WatermarkRowAmount'] = $this->watermarkRowAmount;
         }
+        if (null !== $this->watermarkSecurity) {
+            $res['WatermarkSecurity'] = $this->watermarkSecurity;
+        }
         if (null !== $this->watermarkTransparency) {
             $res['WatermarkTransparency'] = $this->watermarkTransparency;
         }
@@ -848,6 +910,9 @@ class CreatePolicyGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdminAccess'])) {
+            $model->adminAccess = $map['AdminAccess'];
+        }
         if (isset($map['AppContentProtection'])) {
             $model->appContentProtection = $map['AppContentProtection'];
         }
@@ -886,6 +951,18 @@ class CreatePolicyGroupRequest extends Model
         }
         if (isset($map['DomainList'])) {
             $model->domainList = $map['DomainList'];
+        }
+        if (isset($map['DomainResolveRule'])) {
+            if (!empty($map['DomainResolveRule'])) {
+                $model->domainResolveRule = [];
+                $n                        = 0;
+                foreach ($map['DomainResolveRule'] as $item) {
+                    $model->domainResolveRule[$n++] = null !== $item ? domainResolveRule::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['DomainResolveRuleType'])) {
+            $model->domainResolveRuleType = $map['DomainResolveRuleType'];
         }
         if (isset($map['EndUserApplyAdminCoordinate'])) {
             $model->endUserApplyAdminCoordinate = $map['EndUserApplyAdminCoordinate'];
@@ -1001,6 +1078,9 @@ class CreatePolicyGroupRequest extends Model
         }
         if (isset($map['WatermarkRowAmount'])) {
             $model->watermarkRowAmount = $map['WatermarkRowAmount'];
+        }
+        if (isset($map['WatermarkSecurity'])) {
+            $model->watermarkSecurity = $map['WatermarkSecurity'];
         }
         if (isset($map['WatermarkTransparency'])) {
             $model->watermarkTransparency = $map['WatermarkTransparency'];

@@ -27,7 +27,10 @@ class disks extends Model
     public $diskSize;
 
     /**
-     * @description The type of the disk.
+     * @description The disk type. Valid values:
+     *
+     *   SYSTEM: the system disk
+     *   DATA: the data disk
      *
      * @example SYSTEM
      *

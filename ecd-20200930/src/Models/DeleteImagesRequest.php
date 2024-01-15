@@ -9,19 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DeleteImagesRequest extends Model
 {
     /**
+     * @description Specifies whether to delete the associated template.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $deleteCascadedBundle;
 
     /**
-     * @description The IDs of the images that you want to delete.
+     * @description The image IDs. You can specify 1 to 100 image IDs.
      *
      * @var string[]
      */
     public $imageId;
 
     /**
-     * @description The ID of the region where the images to delete are located.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

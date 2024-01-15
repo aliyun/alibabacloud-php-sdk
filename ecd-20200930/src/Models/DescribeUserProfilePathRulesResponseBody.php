@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserProfilePathRulesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A87DBB05-653A-5E4B-B72B-5F4A1E07****
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeUserProfilePathRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The directory blacklist and whitelist.
+     *
      * @var userProfilePathRule
      */
     public $userProfilePathRule;

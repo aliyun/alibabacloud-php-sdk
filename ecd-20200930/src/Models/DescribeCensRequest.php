@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCensRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description Details about CEN instances.
      *
-     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -19,9 +18,9 @@ class DescribeCensRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The maximum number of entries to return on each page.
+     * @description The number of the page to return.
      *
-     * Default value: 50.
+     * Default value: 1.
      * @example 50
      *
      * @var int
@@ -29,7 +28,7 @@ class DescribeCensRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the bandwidth plan that is associated with the CEN instance.
      *
      * @example cn-hangzhou
      *

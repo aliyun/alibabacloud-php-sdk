@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class RenewNetworkPackagesRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically complete the payment. Valid values:
+     * @description Specifies whether to enable automatic payment. Valid values:
      *
-     *   `true`: automatically completes the payment. Make sure that your Alibaba Cloud account has sufficient balance. If your Alibaba Cloud account does not have sufficient balance, abnormal orders are generated.
-     *   `false`: does not complete the payment. In this case, an order is generated, but no payment is made. You can log on to the Elastic Desktop Service (EDS) console and complete the payment based on the order ID on the **Orders** page.
+     *   true: enables automatic payment. Make sure that you have sufficient balance in your account. Otherwise, abnormal orders are generated.
+     *   false: generates the order with no payment made. You can log on to the EDS console and complete the payment based on the order number.
      *
-     * Default value: `true`.
+     * Default value: true.
      * @example true
      *
      * @var bool
@@ -22,20 +22,19 @@ class RenewNetworkPackagesRequest extends Model
     public $autoPay;
 
     /**
-     * @description The ID of the Internet access package. You can specify 1 to 100 IDs of Internet access packages.
+     * @description The IDs of Internet access packages.
      *
      * @var string[]
      */
     public $networkPackageId;
 
     /**
-     * @description The renewal period. Valid values of this parameter are determined by the value of the `PeriodUnit` parameter.
+     * @description The subscription duration if you specify subscription as the new billing method for the cloud desktop. The unit of the value is specified by the `PeriodUnit` parameter. This parameter takes effect only when the `ChargeType` parameter is set to `PrePaid`.
      *
-     *   Valid value when the `PeriodUnit` parameter is set to `Week`: 1
-     *   Valid values when the `PeriodUnit` parameter is set to `Month`: 1, 2, 3, and 6
-     *   Valid values when the `PeriodUnit` parameter is set to `Year`: 1, 2, and 3
+     *   If the `PeriodUnit` parameter is set to `Week`, the valid value of the Period parameter is 1.
+     *   If the `PeriodUnit` parameter is set to `Month`, the valid values of the Period parameter are 1, 2, 3, and 6.
+     *   If the `PeriodUnit` parameter is set to `Year`, the valid values of the Period parameter are 1, 2, 3, 4, and 5.
      *
-     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -43,8 +42,12 @@ class RenewNetworkPackagesRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the renewal period. Default value: Month.
+     * @description The unit of the renewal duration specified by the Period parameter. Valid values:
      *
+     *   Month
+     *   Year
+     *
+     * Default value: Month.
      * @example Month
      *
      * @var string
@@ -52,7 +55,7 @@ class RenewNetworkPackagesRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The ID of the promotion. You can call the `GetResourcePrice` operation to query the promotion ID.
+     * @description The ID of the promotion. You can call the `GetResourcePrice` operation to obtain the ID of the promotion.
      *
      * @example 500038360030606
      *
@@ -61,7 +64,7 @@ class RenewNetworkPackagesRequest extends Model
     public $promotionId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

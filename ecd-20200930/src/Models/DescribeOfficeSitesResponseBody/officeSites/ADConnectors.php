@@ -20,6 +20,27 @@ class ADConnectors extends Model
     /**
      * @description The state of the AD connector.
      *
+     * Valid values:
+     *
+     *   CONNECT_ERROR: A connection error occurs.
+     *
+     * <!-- -->
+     *
+     *   RUNNING: The AD connector is running
+     *
+     * .
+     *
+     *   CONNECTING: The AD connector is being connected.
+     *
+     * <!-- -->
+     *
+     *   EXPIRED: The AD connector expired due to overdue payments.
+     *
+     * <!-- -->
+     *
+     *   CREATING: The consumer group is being created
+     *
+     * .
      * @example RUNNING
      *
      * @var string
@@ -36,8 +57,17 @@ class ADConnectors extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The type of the AD connector.
+     * @description The AD connector type.
      *
+     * Valid values:
+     *
+     *   1: General
+     *
+     * <!-- -->
+     *
+     *   2: Advanced
+     *
+     * <!-- -->
      * @example 1
      *
      * @var string

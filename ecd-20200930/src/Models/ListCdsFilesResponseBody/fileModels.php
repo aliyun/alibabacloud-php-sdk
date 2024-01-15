@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fileModels extends Model
 {
     /**
+     * @description The file category. PDS categorizes files based on their suffixes and MIME types. The following major categories are included: doc, image, audio, and video.
+     *
      * @example image
      *
      * @var string
@@ -16,6 +18,8 @@ class fileModels extends Model
     public $category;
 
     /**
+     * @description The content type of the file.
+     *
      * @example application/json
      *
      * @var string
@@ -23,6 +27,8 @@ class fileModels extends Model
     public $contentType;
 
     /**
+     * @description The time when the file was created.
+     *
      * @example 2022-09-06T07:27:08Z
      *
      * @var string
@@ -30,6 +36,8 @@ class fileModels extends Model
     public $createTime;
 
     /**
+     * @description The file creator.
+     *
      * @example user01
      *
      * @var string
@@ -37,6 +45,8 @@ class fileModels extends Model
     public $creator;
 
     /**
+     * @description The file description.
+     *
      * @example test1
      *
      * @var string
@@ -44,6 +54,8 @@ class fileModels extends Model
     public $description;
 
     /**
+     * @description The URL that is used to download the file. The download URL is valid for only 15 minutes. If the URL is expired, you can call the GetFile operation to obtain the file.
+     *
      * @example https://data.aliyunpds.com/hz22%2F5d5b986facbec311ef844c25954f96821497b383%2F5d5b986f955410dd991646bb87c6b4e899ef****?Expires=xxx&OSSAccessKeyId=xxx&Signature=xxx
      *
      * @var string
@@ -51,6 +63,8 @@ class fileModels extends Model
     public $downloadUrl;
 
     /**
+     * @description The filename extension.
+     *
      * @example pdf
      *
      * @var string
@@ -58,6 +72,8 @@ class fileModels extends Model
     public $fileExtension;
 
     /**
+     * @description The file ID.
+     *
      * @example 637725ff2f63db8470984e6c92c692b87d52****
      *
      * @var string
@@ -65,6 +81,8 @@ class fileModels extends Model
     public $fileId;
 
     /**
+     * @description The file path.
+     *
      * @example isv/1019236948660053/temp/
      *
      * @var string
@@ -72,6 +90,8 @@ class fileModels extends Model
     public $filePath;
 
     /**
+     * @description The file type.
+     *
      * @example file
      *
      * @var string
@@ -79,6 +99,8 @@ class fileModels extends Model
     public $fileType;
 
     /**
+     * @description The MD5 value of the file.
+     *
      * @example 63c83ececb4e6926c51448fc5ecb****
      *
      * @var string
@@ -86,6 +108,8 @@ class fileModels extends Model
     public $md5;
 
     /**
+     * @description The time when the file was last modified.
+     *
      * @example 2022-09-06T07:27:08Z
      *
      * @var string
@@ -93,6 +117,8 @@ class fileModels extends Model
     public $modifiedTime;
 
     /**
+     * @description The user who modified the file.
+     *
      * @example user02
      *
      * @var string
@@ -100,6 +126,8 @@ class fileModels extends Model
     public $modifier;
 
     /**
+     * @description The file name.
+     *
      * @example fvt-appcenterp4qwa
      *
      * @var string
@@ -107,6 +135,8 @@ class fileModels extends Model
     public $name;
 
     /**
+     * @description The time when the file was last opened.
+     *
      * @example 2022-09-06T07:27:08Z
      *
      * @var string
@@ -114,6 +144,8 @@ class fileModels extends Model
     public $openTime;
 
     /**
+     * @description The timestamp that indicates the time when the file was last opened.
+     *
      * @example 168951245231
      *
      * @var int
@@ -121,6 +153,8 @@ class fileModels extends Model
     public $openTimeStamp;
 
     /**
+     * @description The ID of the parent folder.
+     *
      * @example 3343213ff2f63db8470984e6c92c3213dfdw****
      *
      * @var string
@@ -128,6 +162,8 @@ class fileModels extends Model
     public $parentId;
 
     /**
+     * @description The region ID You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -135,6 +171,8 @@ class fileModels extends Model
     public $regionId;
 
     /**
+     * @description The SHA 1 file.
+     *
      * @example EA4942AA8761213890A5C386F88E6464D2C3****
      *
      * @var string
@@ -142,6 +180,8 @@ class fileModels extends Model
     public $sha1;
 
     /**
+     * @description The file size. Unit: bits.
+     *
      * @example 102400
      *
      * @var int
@@ -149,6 +189,8 @@ class fileModels extends Model
     public $size;
 
     /**
+     * @description The URL of the thumbnail.
+     *
      * @example https://data.aliyunpds.com/hz22%2F5d5b986facbec311ef844c25954f96821497b383%2F5d5b986f955410dd991646bb87c6b4e899ef****?Expires=xxx&OSSAccessKeyId=xxx&Signature=xxx
      *
      * @var string

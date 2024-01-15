@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaPendingDesktopsResponseBody;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaPendingDesktopsResponseBody\fotaPendingDesktops\sessions;
 use AlibabaCloud\Tea\Model;
 
 class fotaPendingDesktops extends Model
 {
     /**
-     * @description The image version of the cloud desktop.
+     * @description The current version of the image used by the cloud desktop.
      *
      * @example 0.0.1-D-20220513.143129
      *
@@ -18,7 +19,7 @@ class fotaPendingDesktops extends Model
     public $currentAppVersion;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The cloud desktop ID.
      *
      * @example ecd-bvdtu3jn97o1r****
      *
@@ -27,7 +28,7 @@ class fotaPendingDesktops extends Model
     public $desktopId;
 
     /**
-     * @description The name of the cloud desktop.
+     * @description The cloud desktop name.
      *
      * @example TestDesktop
      *
@@ -36,26 +37,38 @@ class fotaPendingDesktops extends Model
     public $desktopName;
 
     /**
-     * @example To be hidden.
+     * @example To be hidden
      *
      * @var string
      */
     public $fotaProject;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example cn-hangzhou+dir-815419****
      *
      * @var string
      */
     public $officeSiteId;
+
+    /**
+     * @var sessions[]
+     */
+    public $sessions;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
         'currentAppVersion' => 'CurrentAppVersion',
         'desktopId'         => 'DesktopId',
         'desktopName'       => 'DesktopName',
         'fotaProject'       => 'FotaProject',
         'officeSiteId'      => 'OfficeSiteId',
+        'sessions'          => 'Sessions',
+        'status'            => 'Status',
     ];
 
     public function validate()
@@ -79,6 +92,18 @@ class fotaPendingDesktops extends Model
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+        if (null !== $this->sessions) {
+            $res['Sessions'] = [];
+            if (null !== $this->sessions && \is_array($this->sessions)) {
+                $n = 0;
+                foreach ($this->sessions as $item) {
+                    $res['Sessions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -106,6 +131,18 @@ class fotaPendingDesktops extends Model
         }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
+        }
+        if (isset($map['Sessions'])) {
+            if (!empty($map['Sessions'])) {
+                $model->sessions = [];
+                $n               = 0;
+                foreach ($map['Sessions'] as $item) {
+                    $model->sessions[$n++] = null !== $item ? sessions::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

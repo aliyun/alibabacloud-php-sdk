@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class authorizeSecurityPolicyRules extends Model
 {
     /**
+     * @description The IPv4 CIDR block of the security group rule.
+     *
      * @example 47.100.XX.XX/16
      *
      * @var string
@@ -16,6 +18,8 @@ class authorizeSecurityPolicyRules extends Model
     public $cidrIp;
 
     /**
+     * @description The description of the security group rule.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,29 @@ class authorizeSecurityPolicyRules extends Model
     public $description;
 
     /**
+     * @description The protocol type of the security group rule.
+     *
+     * Valid values:
+     *
+     *   tcp: Transmission Control Protocol (TCP)
+     *
+     * <!-- -->
+     *
+     *   udp: User Datagram Protocol (UDP)
+     *
+     * <!-- -->
+     *
+     *   all: all protocols
+     *
+     * <!-- -->
+     *
+     *   gre: Generic Routing Encapsulation (GRE)
+     *
+     * <!-- -->
+     *
+     *   icmp: ICMP (IPv4)
+     *
+     * <!-- -->
      * @example tcp
      *
      * @var string
@@ -30,6 +57,17 @@ class authorizeSecurityPolicyRules extends Model
     public $ipProtocol;
 
     /**
+     * @description The authorization policy of the security group rule.
+     *
+     * Valid values:
+     *
+     *   drop: denies all access requests.
+     *
+     * <!-- -->
+     *
+     *   accept: accepts all access requests.
+     *
+     * <!-- -->
      * @example accept
      *
      * @var string
@@ -37,6 +75,8 @@ class authorizeSecurityPolicyRules extends Model
     public $policy;
 
     /**
+     * @description The port range of the security group rule.
+     *
      * @example 22/22
      *
      * @var string
@@ -44,6 +84,8 @@ class authorizeSecurityPolicyRules extends Model
     public $portRange;
 
     /**
+     * @description The priority of the security group rule. A smaller value indicates a higher priority.
+     *
      * @example 1
      *
      * @var string
@@ -51,6 +93,17 @@ class authorizeSecurityPolicyRules extends Model
     public $priority;
 
     /**
+     * @description The direction of the security group rule.
+     *
+     * Valid values:
+     *
+     *   outflow: outbound
+     *
+     * <!-- -->
+     *
+     *   inflow: inbound
+     *
+     * <!-- -->
      * @example inflow
      *
      * @var string

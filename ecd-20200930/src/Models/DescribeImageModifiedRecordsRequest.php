@@ -18,7 +18,7 @@ class DescribeImageModifiedRecordsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The maximum number of entries to return on each page.
      *
      *   Maximum value: 100.
      *   Default value: 10.
@@ -30,7 +30,7 @@ class DescribeImageModifiedRecordsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the query. Set the value to the NextToken value that is returned from the last call.
+     * @description The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
      *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6l3d+SWeOobbIlDLjwhjkTk
      *

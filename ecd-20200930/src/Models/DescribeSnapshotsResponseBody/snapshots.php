@@ -18,7 +18,7 @@ class snapshots extends Model
     public $creationTime;
 
     /**
-     * @description The user that creates the snapshot.
+     * @description The user that creates the cloud desktop.
      *
      * @example Administrator
      *
@@ -36,7 +36,7 @@ class snapshots extends Model
     public $deletionTime;
 
     /**
-     * @description The description of the snapshot.
+     * @description The snapshot description.
      *
      * @example testDescription
      *
@@ -54,7 +54,7 @@ class snapshots extends Model
     public $desktopId;
 
     /**
-     * @description The name of the cloud desktop.
+     * @description The cloud desktop name.
      *
      * @example test
      *
@@ -63,7 +63,7 @@ class snapshots extends Model
     public $desktopName;
 
     /**
-     * @description The state of the cloud desktop. Valid values:
+     * @description The cloud desktop state. Valid values:
      *
      *   Pending: The cloud desktop is pending.
      *   Starting: The cloud desktop is being started.
@@ -81,7 +81,7 @@ class snapshots extends Model
     public $desktopStatus;
 
     /**
-     * @description The progress of the snapshot creation. Unit: percentage (%).
+     * @description The progress of creating the snapshot. Unit: percentage (%).
      *
      * @example 100%
      *
@@ -90,7 +90,7 @@ class snapshots extends Model
     public $progress;
 
     /**
-     * @description The type of the protocol. Valid values:
+     * @description The protocol. Valid values:
      *
      *   ASP
      *   HDX
@@ -112,7 +112,7 @@ class snapshots extends Model
     public $remainTime;
 
     /**
-     * @description The ID of the snapshot.
+     * @description The snapshot ID.
      *
      * @example s-2zeipxmnhej803x7****
      *
@@ -121,7 +121,7 @@ class snapshots extends Model
     public $snapshotId;
 
     /**
-     * @description The name of the snapshot.
+     * @description The snapshot name.
      *
      * @example testSnapshotName
      *
@@ -130,9 +130,9 @@ class snapshots extends Model
     public $snapshotName;
 
     /**
-     * @description The type of snapshot. Valid values:
+     * @description The snapshot type. Valid values:
      *
-     *   AUTO: auto snapshot
+     *   AUTO: automatic snapshot
      *   USER: manual snapshot
      *
      * @example USER

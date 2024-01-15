@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageAttributeRequest extends Model
 {
     /**
-     * @description The description of the image.
+     * @description The image description. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
      *
      * @example testDescription
      *
@@ -18,7 +18,7 @@ class ModifyImageAttributeRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the image.
+     * @description The image ID.
      *
      * @example m-2g65ljy3ynrdq****
      *
@@ -27,7 +27,7 @@ class ModifyImageAttributeRequest extends Model
     public $imageId;
 
     /**
-     * @description The name of the image.
+     * @description The name of the image. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
      *
      * @example testName
      *
@@ -36,7 +36,7 @@ class ModifyImageAttributeRequest extends Model
     public $name;
 
     /**
-     * @description The region ID of the image.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

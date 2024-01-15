@@ -11,8 +11,8 @@ class ModifyOfficeSiteMfaEnabledRequest extends Model
     /**
      * @description Specifies whether to enable MFA. Valid values:
      *
-     *   true: enables MFA
-     *   false: disables MFA
+     *   true
+     *   false
      *
      * @example true
      *
@@ -21,7 +21,7 @@ class ModifyOfficeSiteMfaEnabledRequest extends Model
     public $mfaEnabled;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -30,7 +30,7 @@ class ModifyOfficeSiteMfaEnabledRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

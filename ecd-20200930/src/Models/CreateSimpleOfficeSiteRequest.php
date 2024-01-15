@@ -125,6 +125,11 @@ class CreateSimpleOfficeSiteRequest extends Model
      * @var string
      */
     public $verifyCode;
+
+    /**
+     * @var string
+     */
+    public $vpcType;
     protected $_name = [
         'bandwidth'            => 'Bandwidth',
         'cenId'                => 'CenId',
@@ -139,6 +144,7 @@ class CreateSimpleOfficeSiteRequest extends Model
         'regionId'             => 'RegionId',
         'vSwitchId'            => 'VSwitchId',
         'verifyCode'           => 'VerifyCode',
+        'vpcType'              => 'VpcType',
     ];
 
     public function validate()
@@ -186,6 +192,9 @@ class CreateSimpleOfficeSiteRequest extends Model
         }
         if (null !== $this->verifyCode) {
             $res['VerifyCode'] = $this->verifyCode;
+        }
+        if (null !== $this->vpcType) {
+            $res['VpcType'] = $this->vpcType;
         }
 
         return $res;
@@ -239,6 +248,9 @@ class CreateSimpleOfficeSiteRequest extends Model
         }
         if (isset($map['VerifyCode'])) {
             $model->verifyCode = $map['VerifyCode'];
+        }
+        if (isset($map['VpcType'])) {
+            $model->vpcType = $map['VpcType'];
         }
 
         return $model;

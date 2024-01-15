@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class imageModifiedRecords extends Model
 {
     /**
-     * @description The ID of the original image.
+     * @description The ID of the image before the change.
      *
      * @example m-8rnz2imrpcfuh****
      *
@@ -18,7 +18,7 @@ class imageModifiedRecords extends Model
     public $imageId;
 
     /**
-     * @description The name of the original image.
+     * @description The name of the image before the change.
      *
      * @example win10-0307
      *
@@ -36,7 +36,7 @@ class imageModifiedRecords extends Model
     public $newImageId;
 
     /**
-     * @description The name of the new image.
+     * @description Add the image name.
      *
      * @example xxxxImageID
      *
@@ -45,7 +45,7 @@ class imageModifiedRecords extends Model
     public $newImageName;
 
     /**
-     * @description The status of the image.
+     * @description The status of the workspace.
      *
      * @example 1
      *
@@ -54,7 +54,7 @@ class imageModifiedRecords extends Model
     public $status;
 
     /**
-     * @description The time when the image was last changed.
+     * @description The last time when the disaster recovery plan was updated.
      *
      * @example 2022-03-03T02:43:44.851Z
      *

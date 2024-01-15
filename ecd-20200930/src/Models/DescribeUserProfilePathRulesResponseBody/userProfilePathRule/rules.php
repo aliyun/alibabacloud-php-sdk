@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The blacklist that is configured.
+     *
      * @var blackPath
      */
     public $blackPath;
 
     /**
+     * @description The directories in the whitelist.
+     *
      * @var whitePaths[]
      */
     public $whitePaths;

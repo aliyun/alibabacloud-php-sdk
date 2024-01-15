@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVirtualMFADevicesResponseBody extends Model
 {
     /**
-     * @description The token that determines the start point of the next query. This parameter is empty if no additional results exist.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.If NextToken is empty, no next page exists.
      *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL23as
      *
@@ -19,7 +19,7 @@ class DescribeVirtualMFADevicesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example FB550AAB-FB36-4A91-93F6-F4374AF65403
      *

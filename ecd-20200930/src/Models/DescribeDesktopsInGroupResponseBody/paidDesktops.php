@@ -9,8 +9,21 @@ use AlibabaCloud\Tea\Model;
 class paidDesktops extends Model
 {
     /**
-     * @description The connection status of the cloud desktop.
+     * @description The connection state.
      *
+     * Valid values:
+     *
+     *   Unknown
+     *
+     * <!-- -->
+     *
+     *   Connected
+     *
+     * <!-- -->
+     *
+     *   Disconnected
+     *
+     * <!-- -->
      * @example Connected
      *
      * @var string
@@ -38,6 +51,39 @@ class paidDesktops extends Model
     /**
      * @description The state of the cloud desktop.
      *
+     * Valid values:
+     *
+     *   Stopped
+     *
+     * <!-- -->
+     *
+     *   Starting
+     *
+     * <!-- -->
+     *
+     *   Rebuilding
+     *
+     * <!-- -->
+     *
+     *   Running
+     *
+     * <!-- -->
+     *
+     *   Stopping
+     *
+     * <!-- -->
+     *
+     *   Expired
+     *
+     * <!-- -->
+     *
+     *   Deleted
+     *
+     * <!-- -->
+     *
+     *   Pending
+     *
+     * <!-- -->
      * @example Running
      *
      * @var string
@@ -47,6 +93,15 @@ class paidDesktops extends Model
     /**
      * @description The disk type.
      *
+     * Valid values:
+     *
+     *   SYSTEM
+     *
+     * <!-- -->
+     *
+     *   DATA:
+     *
+     * <!-- -->
      * @example SYSTEM
      *
      * @var string
@@ -79,7 +134,7 @@ class paidDesktops extends Model
     public $endUserName;
 
     /**
-     * @description The usernames of users that are connected to cloud desktops. If no users are connected, null is returned.
+     * @description The names of users that are connected to cloud desktops. If no users are connected, null is returned.
      *
      * @var string[]
      */
@@ -124,6 +179,15 @@ class paidDesktops extends Model
     /**
      * @description The flag that is used for management.
      *
+     * Valid values:
+     *
+     *   Updating: The configurations of the cloud desktop are being changed.
+     *
+     * <!-- -->
+     *
+     *   NoFlag: No flags are available.
+     *
+     * <!-- -->
      * @example NoFlag
      *
      * @var string
@@ -147,8 +211,17 @@ class paidDesktops extends Model
     public $memberEniIp;
 
     /**
-     * @description The OS type.
+     * @description The OS.
      *
+     * Valid values:
+     *
+     *   Linux
+     *
+     * <!-- -->
+     *
+     *   Windows
+     *
+     * <!-- -->
      * @example Windows
      *
      * @var string
@@ -165,7 +238,7 @@ class paidDesktops extends Model
     public $primaryEniIp;
 
     /**
-     * @description The protocol. Valid values:
+     * @description The protocol type. Valid values:
      *
      *   ASP
      *   HDX

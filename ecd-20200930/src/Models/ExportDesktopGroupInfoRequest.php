@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ExportDesktopGroupInfoRequest extends Model
 {
     /**
-     * @description The billing method of cloud desktops in a desktop group.
+     * @description The billing method of the cloud desktop. Valid values:
      *
+     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription
+     *
+     * Default value: PostPaid.
      * @example PrePaid
      *
      * @var string
@@ -18,7 +22,7 @@ class ExportDesktopGroupInfoRequest extends Model
     public $chargeType;
 
     /**
-     * @description The IDs of the desktop groups. You can specify 1 to 100 desktop groups.
+     * @description The ID of the desktop group. You can set 1 to 100.
      *
      * @var string[]
      */
@@ -34,7 +38,7 @@ class ExportDesktopGroupInfoRequest extends Model
     public $desktopGroupName;
 
     /**
-     * @description The IDs of the users authorized to use the desktop group. You can specify 1 to 100 users.
+     * @description The ID of the user who is authorized to use the desktop group. You can set 1 to 100.
      *
      * @var string[]
      */
@@ -50,7 +54,7 @@ class ExportDesktopGroupInfoRequest extends Model
     public $expiredTime;
 
     /**
-     * @description The language that you want to use.
+     * @description The language of the response.
      *
      * @example zh-CN
      *
@@ -61,9 +65,7 @@ class ExportDesktopGroupInfoRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
-     *   Maximum value: 100.
-     *   Default value: 10.
-     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -71,7 +73,7 @@ class ExportDesktopGroupInfoRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the next query. If this parameter is empty, all results are returned.
+     * @description The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -80,7 +82,7 @@ class ExportDesktopGroupInfoRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the workspace to which the desktop group belongs.
+     * @description The ID of the workspace.
      *
      * @example cn-hangzhou+dir-467671****
      *
@@ -89,7 +91,7 @@ class ExportDesktopGroupInfoRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The ID of policy with which the desktop group is associated.
+     * @description The ID of the policy that is associated with the cloud desktop.
      *
      * @example pg-53iyi2aar0nd6****
      *
@@ -98,7 +100,7 @@ class ExportDesktopGroupInfoRequest extends Model
     public $policyGroupId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

@@ -27,7 +27,7 @@ class ModifyNASDefaultMountTargetRequest extends Model
     public $mountTargetDomain;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

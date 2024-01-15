@@ -10,11 +10,68 @@ use AlibabaCloud\Tea\Model;
 class memberList extends Model
 {
     /**
+     * @description The permission information.
+     *
      * @var cdsIdentity
      */
     public $cdsIdentity;
 
     /**
+     * @description The role ID. You can configure permissions on roles or actions. This parameter is used to specify the permissions on roles, which conflicts with the ActionList parameter. When you configure both the parameters, this parameter shall prevail.
+     *
+     * Valid values:
+     *
+     *   SystemFileEditorWithoutShareLink
+     *
+     * <!-- -->
+     *
+     *   SystemFileUploaderAndDownloaderWithShareLink
+     *
+     * <!-- -->
+     *
+     *   SystemFileDownloader
+     *
+     * <!-- -->
+     *
+     *   SystemFileEditorWithoutDelete
+     *
+     * <!-- -->
+     *
+     *   SystemFileOwner
+     *
+     * <!-- -->
+     *
+     *   SystemFileDownloaderWithShareLink
+     *
+     * <!-- -->
+     *
+     *   SystemFileUploaderAndViewer
+     *
+     * <!-- -->
+     *
+     *   SystemFileViewer
+     *
+     * <!-- -->
+     *
+     *   SystemFileEditor
+     *
+     * <!-- -->
+     *
+     *   SystemFileUploaderWithShareLink
+     *
+     * <!-- -->
+     *
+     *   SystemFileUploader
+     *
+     * <!-- -->
+     *
+     *   SystemFileUploaderAndDownloader
+     *
+     * <!-- -->
+     *
+     *   SystemFileMetaViewer
+     *
+     * <!-- -->
      * @example SystemFileUploaderAndDownloader
      *
      * @var string

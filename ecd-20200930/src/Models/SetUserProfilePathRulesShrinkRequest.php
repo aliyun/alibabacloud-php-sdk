@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetUserProfilePathRulesShrinkRequest extends Model
 {
     /**
+     * @description The desktop group ID.
+     *
      * @example dg-2i8qxpv6t1a03****
      *
      * @var string
@@ -16,6 +18,8 @@ class SetUserProfilePathRulesShrinkRequest extends Model
     public $desktopGroupId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,11 +27,28 @@ class SetUserProfilePathRulesShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The directories that you want to configure in the blacklist and whitelist.
+     *
      * @var string
      */
     public $userProfilePathRuleShrink;
 
     /**
+     * @description The directory type that you want to configure.
+     *
+     * Valid values:
+     *
+     *   Both_Default_DesktopGroup
+     *
+     * <!-- -->
+     *
+     *   DesktopGroup
+     *
+     * <!-- -->
+     *
+     *   Default
+     *
+     * <!-- -->
      * @example DesktopGroup
      *
      * @var string

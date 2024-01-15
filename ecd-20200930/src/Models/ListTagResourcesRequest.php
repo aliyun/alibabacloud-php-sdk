@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -19,7 +19,7 @@ class ListTagResourcesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token used to start the next query.
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -28,7 +28,7 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The region ID of the resource.
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -37,7 +37,7 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource, which is the ID of the cloud desktop. Valid values of N: 1 to 50.
+     * @description The resource IDs, namely the cloud desktop IDs. You can specify 1 to 50 IDs of cloud desktops.
      *
      * @example ecd-ia2zw38bi6cm7****
      *
@@ -46,7 +46,7 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource. Set the value to ALIYUN::GWS::INSTANCE.
+     * @description The resource type. Valid value: ALIYUN::GWS::INSTANCE.
      *
      * @example ALIYUN::GWS::INSTANCE
      *
@@ -55,7 +55,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The list of the resource.
+     * @description The tags.
      *
      * @var tag[]
      */

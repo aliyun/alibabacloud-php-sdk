@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class authorizeAccessPolicyRules extends Model
 {
     /**
+     * @description The CIDR block that you access from the client. The value is an IPv4 CIDR block.
+     *
      * @example 47.100.XX.XX/16
      *
      * @var string
@@ -16,6 +18,8 @@ class authorizeAccessPolicyRules extends Model
     public $cidrIp;
 
     /**
+     * @description The description of the IPv4 CIDR block.
+     *
      * @example test
      *
      * @var string

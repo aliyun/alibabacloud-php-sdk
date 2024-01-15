@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class netRedirectRule extends Model
 {
     /**
+     * @description The content of the rule.
+     *
      * @example *.com
      *
      * @var string
@@ -16,6 +18,22 @@ class netRedirectRule extends Model
     public $domain;
 
     /**
+     * @var string
+     */
+    public $policy;
+
+    /**
+     * @description The rule type.
+     *
+     * Valid values:
+     *
+     *   prc
+     *
+     * <!-- -->
+     *
+     *   domain
+     *
+     * <!-- -->
      * @example domain
      *
      * @var string
@@ -23,6 +41,7 @@ class netRedirectRule extends Model
     public $ruleType;
     protected $_name = [
         'domain'   => 'Domain',
+        'policy'   => 'Policy',
         'ruleType' => 'RuleType',
     ];
 
@@ -35,6 +54,9 @@ class netRedirectRule extends Model
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
         }
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
@@ -53,6 +75,9 @@ class netRedirectRule extends Model
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
         }
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];

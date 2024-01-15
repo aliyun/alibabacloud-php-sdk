@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CompleteCdsFileRequest extends Model
 {
     /**
+     * @description The ID of the cloud disk.
+     *
      * @example cn-shanghai+cds-465878****
      *
      * @var string
@@ -16,6 +18,8 @@ class CompleteCdsFileRequest extends Model
     public $cdsId;
 
     /**
+     * @description The name of the end user.
+     *
      * @example test0
      *
      * @var string
@@ -23,6 +27,8 @@ class CompleteCdsFileRequest extends Model
     public $endUserId;
 
     /**
+     * @description The file ID. An ID is the unique identifier of a file.
+     *
      * @example 635a316c94f40f35f5354da29b2aee88c9d1****
      *
      * @var string
@@ -30,6 +36,13 @@ class CompleteCdsFileRequest extends Model
     public $fileId;
 
     /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +50,8 @@ class CompleteCdsFileRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the file uploading task.
+     *
      * @example 6C48B55A1FAC4E1A9E0579059514****
      *
      * @var string
@@ -46,6 +61,7 @@ class CompleteCdsFileRequest extends Model
         'cdsId'     => 'CdsId',
         'endUserId' => 'EndUserId',
         'fileId'    => 'FileId',
+        'groupId'   => 'GroupId',
         'regionId'  => 'RegionId',
         'uploadId'  => 'UploadId',
     ];
@@ -65,6 +81,9 @@ class CompleteCdsFileRequest extends Model
         }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -92,6 +111,9 @@ class CompleteCdsFileRequest extends Model
         }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

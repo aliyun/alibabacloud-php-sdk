@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class coordinateFlowModels extends Model
 {
     /**
+     * @description The ID of the stream collaboration.
+     *
      * @example co-0sot77uale3****
      *
      * @var string
@@ -16,6 +18,25 @@ class coordinateFlowModels extends Model
     public $coId;
 
     /**
+     * @description The current status of the collaboration task.
+     *
+     * Valid values:
+     *
+     *   COORDINATING
+     *
+     * .
+     *
+     *   TERMINATING
+     *
+     * .
+     *
+     *   TERMINATED
+     *
+     * .
+     *
+     *   PENDING
+     *
+     * .
      * @example PENDING
      *
      * @var string
@@ -23,6 +44,8 @@ class coordinateFlowModels extends Model
     public $coordinateStatus;
 
     /**
+     * @description The ticket that is used to establish the Adaptive Streaming Protocol (ASP)-based connection.
+     *
      * @example 1VDQ0VTUw0KW0Rlc2t0b3BdDQpHV1Rva2VuPTAwTzgwL3liS25zUEVGdkF6eU1Pc1ExeHZWdmk4VEE3NFJvU1V1d0dPYm1BNkNJWklDMHVNQklWcjU2NS80S0ZQekQ4aGFTR0ZHelZqMTFGbkRpWWgvUFF1Zm1xSXNGdFRFNFRWMExJNit3TkU0L2RMb04wNXBBSE5Tc3M4dWFXY3lwWE****
      *
      * @var string
@@ -30,6 +53,21 @@ class coordinateFlowModels extends Model
     public $coordinateTicket;
 
     /**
+     * @description The type of the initiator.
+     *
+     * Valid values:
+     *
+     *   ADMIN_INITIATE_FORCE
+     *
+     * .
+     *
+     *   ADMIN_INITIATE
+     *
+     * .
+     *
+     *   COORDINATOR_INITIATE_FORCE
+     *
+     * .
      * @example COORDINATOR_INITIATE_FORCE
      *
      * @var string
@@ -37,6 +75,8 @@ class coordinateFlowModels extends Model
     public $initiatorType;
 
     /**
+     * @description The ID of the Alibaba Cloud account of the end user.
+     *
      * @example alice
      *
      * @var string
@@ -44,6 +84,8 @@ class coordinateFlowModels extends Model
     public $ownerUserId;
 
     /**
+     * @description The ID of the cloud desktop.
+     *
      * @example ecd-96vi03f9emqnl****
      *
      * @var string
@@ -51,6 +93,8 @@ class coordinateFlowModels extends Model
     public $resourceId;
 
     /**
+     * @description The name of the cloud desktop.
+     *
      * @example TestDesktop
      *
      * @var string

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class usbSupplyRedirectRule extends Model
 {
     /**
+     * @description The rule description.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The device class. If you set `UsbRuleType` to 1, you must specify this parameter. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
+     *
      * @example 0Eh
      *
      * @var string
@@ -21,6 +27,8 @@ class usbSupplyRedirectRule extends Model
     public $deviceClass;
 
     /**
+     * @description The device subclass. This parameter is required if `UsbRuleType` is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
+     *
      * @example xxh
      *
      * @var string
@@ -28,6 +36,8 @@ class usbSupplyRedirectRule extends Model
     public $deviceSubclass;
 
     /**
+     * @description The product ID.
+     *
      * @example 08**
      *
      * @var string
@@ -35,6 +45,17 @@ class usbSupplyRedirectRule extends Model
     public $productId;
 
     /**
+     * @description The USB redirection type.
+     *
+     * Valid values:
+     *
+     *   1: allows USB redirection.
+     *
+     * <!-- -->
+     *
+     *   2: forbids USB redirection.
+     *
+     * <!-- -->
      * @example 1
      *
      * @var int
@@ -42,6 +63,17 @@ class usbSupplyRedirectRule extends Model
     public $usbRedirectType;
 
     /**
+     * @description The type of the USB redirection rule.
+     *
+     * Valid values:
+     *
+     *   1: by device class
+     *
+     * <!-- -->
+     *
+     *   2: by device vendor
+     *
+     * <!-- -->
      * @example 1
      *
      * @var int
@@ -49,6 +81,8 @@ class usbSupplyRedirectRule extends Model
     public $usbRuleType;
 
     /**
+     * @description The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf\_1.pdf).
+     *
      * @example 04**
      *
      * @var string

@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkPackageBandwidthRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment. Valid values:
+     * @description Specifies whether to automatically complete the payment. Valid values:
      *
-     *   `true`: enables automatic payment. Make sure that your Alibaba Cloud account has sufficient balance. If your Alibaba Cloud account does not have sufficient balance, abnormal orders are generated.
-     *   `false`: disables automatic payment. In this case, an order is generated, but no payment is complete. You can log on to the Elastic Desktop Service (EDS) console and complete the payment based on the order ID on the **Orders** page.
+     *   `true`: automatically completes the payment. Make sure that your Alibaba Cloud account has sufficient balance. If your Alibaba Cloud account does not have sufficient balance, abnormal orders are generated.
+     *   `false`: does not complete the payment. In this case, an order is generated, but no payment is made. You can log on to the Elastic Desktop Service (EDS) console and complete the payment based on the order ID on the **Orders** page.
      *
      * Default value: `true`.
      * @example true
@@ -22,7 +22,7 @@ class ModifyNetworkPackageBandwidthRequest extends Model
     public $autoPay;
 
     /**
-     * @description The bandwidth of the Internet access package. Unit: Mbit/s. Valid values: 10 to 1000.
+     * @description The bandwidth of the network packet. Unit: Mbps. Value range: 10 to 1000.
      *
      * @example 10
      *
@@ -40,7 +40,7 @@ class ModifyNetworkPackageBandwidthRequest extends Model
     public $networkPackageId;
 
     /**
-     * @description The ID of the promotion. You can call the `GetResourcePrice` operation to obtain the ID of the promotion.
+     * @description The ID of the promotion. You can call the `GetResourcePrice` operation to query the promotion ID.
      *
      * @example 500033080110596
      *
@@ -49,7 +49,7 @@ class ModifyNetworkPackageBandwidthRequest extends Model
     public $promotionId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

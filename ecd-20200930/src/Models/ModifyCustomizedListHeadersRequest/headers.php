@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
-     * @description The display type of the header.
+     * @description The display type of the header. You can call the `ModifyCustomizedListHeaders` operation to modify the display type of the header.
      *
      * @example display
      *

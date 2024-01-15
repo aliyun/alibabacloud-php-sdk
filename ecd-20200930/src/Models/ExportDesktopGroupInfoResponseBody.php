@@ -18,7 +18,7 @@ class ExportDesktopGroupInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The download address from which you can export desktop groups.
+     * @description The download URL of the exported file that contains the monitoring data of sessions in the desktop group.
      *
      * @example https://cn-hangzhou-servicemanager.oss-cn-hangzhou.aliyuncs.com/A0_DESKTOP/EDS_CloudDesktopGroups_202203********_xBjqdCT***.xlsx?*********
      *

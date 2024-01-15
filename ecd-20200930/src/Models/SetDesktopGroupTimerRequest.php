@@ -54,7 +54,7 @@ class SetDesktopGroupTimerRequest extends Model
     public $resetType;
 
     /**
-     * @description The type of the scheduled task. Valid values:
+     * @description The type of the scheduled task.
      *
      * @example 1
      *

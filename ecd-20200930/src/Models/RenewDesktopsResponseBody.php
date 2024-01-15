@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RenewDesktopsResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 20844399755****
      *
@@ -18,7 +18,7 @@ class RenewDesktopsResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCdsFileShareLinkRequest extends Model
 {
     /**
+     * @description The ID of the cloud disk.
+     *
      * @example cn-shanghai+cds-135515****
      *
      * @var string
@@ -16,11 +18,24 @@ class CreateCdsFileShareLinkRequest extends Model
     public $cdsId;
 
     /**
+     * @description The description of the file sharing task. The description must be 0 to 1,024 characters in length.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether to prohibit the download of the files that are being shared.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * .
+     *
+     *   false
+     *
+     * .
      * @example false
      *
      * @var bool
@@ -28,6 +43,17 @@ class CreateCdsFileShareLinkRequest extends Model
     public $disableDownload;
 
     /**
+     * @description Specifies whether to prohibit the preview of the files that are being shared.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * .
+     *
+     *   false
+     *
+     * .
      * @example false
      *
      * @var bool
@@ -35,6 +61,17 @@ class CreateCdsFileShareLinkRequest extends Model
     public $disablePreview;
 
     /**
+     * @description Specifies whether to prohibit the dump of the files that are being shared.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * .
+     *
+     *   false
+     *
+     * .
      * @example false
      *
      * @var bool
@@ -42,6 +79,8 @@ class CreateCdsFileShareLinkRequest extends Model
     public $disableSave;
 
     /**
+     * @description The limit on the number of times that the shared files can be downloaded. The value of this parameter must be equal to or greater than 0. The value 0 specifies that no limit is imposed on the number of times that the shared files can be downloaded.
+     *
      * @example 100
      *
      * @var int
@@ -49,6 +88,8 @@ class CreateCdsFileShareLinkRequest extends Model
     public $downloadLimit;
 
     /**
+     * @description The ID of the end user.
+     *
      * @example user01
      *
      * @var string
@@ -56,6 +97,8 @@ class CreateCdsFileShareLinkRequest extends Model
     public $endUserId;
 
     /**
+     * @description The time when the file sharing link expires. The value of this parameter follows the RFC 3339 standard. Example: "2020-06-28T11:33:00.000+08:00". If this parameter is set to "", the file sharing link never expires.
+     *
      * @example 2020-06-28T11:33:00.000+08:00
      *
      * @var string
@@ -63,11 +106,20 @@ class CreateCdsFileShareLinkRequest extends Model
     public $expiration;
 
     /**
+     * @description The file IDs.
+     *
      * @var string[]
      */
     public $fileIds;
 
     /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @description The limit on the number of times that the shared files can be previewed. The value of this parameter must be equal to or greater than 0. The value 0 specifies that no limit is imposed on the number of times that the shared files can be previewed.
+     *
      * @example 100
      *
      * @var int
@@ -75,6 +127,8 @@ class CreateCdsFileShareLinkRequest extends Model
     public $previewLimit;
 
     /**
+     * @description The limit on the number of times that the shared files can be dumped. The value of this parameter must be equal to or greater than 0. The value 0 specifies that no limit is imposed on the number of times that the shared files can be dumped.
+     *
      * @example 100
      *
      * @var int
@@ -82,6 +136,8 @@ class CreateCdsFileShareLinkRequest extends Model
     public $saveLimit;
 
     /**
+     * @description The name of the file sharing task. If you leave this parameter empty, the file name that corresponds to the first ID in the file ID list is used. The name must be 0 to 128 characters in length.
+     *
      * @example view.txt
      *
      * @var string
@@ -89,6 +145,8 @@ class CreateCdsFileShareLinkRequest extends Model
     public $shareName;
 
     /**
+     * @description The length of the access code. Valid values: 6 to 8. Unit: bytes. If you leave this parameter empty or set it to null, no access code is required. If you use a token to share files, you do not need to configure this parameter. The access code can contain only visible ASCII characters.
+     *
      * @example 12345678
      *
      * @var string
@@ -104,6 +162,7 @@ class CreateCdsFileShareLinkRequest extends Model
         'endUserId'       => 'EndUserId',
         'expiration'      => 'Expiration',
         'fileIds'         => 'FileIds',
+        'groupId'         => 'GroupId',
         'previewLimit'    => 'PreviewLimit',
         'saveLimit'       => 'SaveLimit',
         'shareName'       => 'ShareName',
@@ -143,6 +202,9 @@ class CreateCdsFileShareLinkRequest extends Model
         }
         if (null !== $this->fileIds) {
             $res['FileIds'] = $this->fileIds;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->previewLimit) {
             $res['PreviewLimit'] = $this->previewLimit;
@@ -196,6 +258,9 @@ class CreateCdsFileShareLinkRequest extends Model
             if (!empty($map['FileIds'])) {
                 $model->fileIds = $map['FileIds'];
             }
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['PreviewLimit'])) {
             $model->previewLimit = $map['PreviewLimit'];

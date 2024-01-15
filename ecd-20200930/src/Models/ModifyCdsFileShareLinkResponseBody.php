@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCdsFileShareLinkResponseBody extends Model
 {
     /**
+     * @description The modification result. The value success indicates that the modification is successful. If the modification failed, an error message is returned.
+     *
      * @example success
      *
      * @var string
@@ -16,11 +18,15 @@ class ModifyCdsFileShareLinkResponseBody extends Model
     public $code;
 
     /**
+     * @description The data information.
+     *
      * @var CdsFileShareLinkModel
      */
     public $data;
 
     /**
+     * @description The error message that is returned. This parameter is not returned if the value of Code is success.
+     *
      * @example success
      *
      * @var string
@@ -28,6 +34,8 @@ class ModifyCdsFileShareLinkResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example F7E4322D-D679-5ACB-A909-490D2F0E****
      *
      * @var string
@@ -35,6 +43,17 @@ class ModifyCdsFileShareLinkResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The request status.
+     *
+     * Valid values:
+     *
+     *   true: The request is successful.
+     *
+     * <!-- -->
+     *
+     *   false: The request fails.
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool

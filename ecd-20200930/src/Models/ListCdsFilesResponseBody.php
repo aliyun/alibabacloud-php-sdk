@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListCdsFilesResponseBody extends Model
 {
     /**
+     * @description The result of the operation. A value of success indicates that the operation is successful. If the operation failed, an error message is returned.
+     *
      * @example success
      *
      * @var string
@@ -17,6 +19,8 @@ class ListCdsFilesResponseBody extends Model
     public $code;
 
     /**
+     * @description The total number of entries.
+     *
      * @example 0
      *
      * @var string
@@ -24,11 +28,15 @@ class ListCdsFilesResponseBody extends Model
     public $count;
 
     /**
+     * @description The files.
+     *
      * @var fileModels[]
      */
     public $fileModels;
 
     /**
+     * @description The error message returned if the request failed. This parameter is empty if the value of Code is success.
+     *
      * @example success
      *
      * @var string
@@ -36,6 +44,8 @@ class ListCdsFilesResponseBody extends Model
     public $message;
 
     /**
+     * @description The token used for the next query. If this parameter is empty, all results have been returned.
+     *
      * @example WyI2MzhmMjA2ZTFmZGZlZGVjZDk3OTRlNzVhZmIwMDFiZmM5NWQ3YTgwIiwibiIsIm4iLDEsLTEsMTY3MDMyNDMzNTAzMSwiNjM4ZjIwNmZjNDFkMzIwOTZmZWU0NGYxODkwY2I5ZjI0Mjg0NzM2****
      *
      * @var string
@@ -43,6 +53,8 @@ class ListCdsFilesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID. An ID is the unique identifier of the request.
+     *
      * @example 40D86754-20FD-53DC-A9B8-25F7FECC****
      *
      * @var string
@@ -50,6 +62,17 @@ class ListCdsFilesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool

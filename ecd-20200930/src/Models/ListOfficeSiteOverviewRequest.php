@@ -20,8 +20,8 @@ class ListOfficeSiteOverviewRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
-     *   Maximum value: 100.
-     *   Default value: 10.
+     *   Valid values: 1 to 100
+     *   Default value: 10
      *
      * @example 10
      *
@@ -48,7 +48,7 @@ class ListOfficeSiteOverviewRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The beginning of the time range that you want to query.
+     * @description The query scope. Default value: 1.
      *
      * @example 1
      *

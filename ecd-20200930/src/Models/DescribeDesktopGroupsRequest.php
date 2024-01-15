@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDesktopGroupsRequest extends Model
 {
     /**
+     * @description The IDs of the desktop templates.
+     *
      * @var string[]
      */
     public $bundleId;
 
     /**
-     * @description The ID of the desktop group.
+     * @description The desktop group ID.
      *
      * @example dg-2i8qxpv6t1a03****
      *
@@ -32,26 +34,28 @@ class DescribeDesktopGroupsRequest extends Model
     public $desktopGroupName;
 
     /**
-     * @description The IDs of the end users who have the permissions on the desktop group.
+     * @description The authorized users.
      *
      * @var string[]
      */
     public $endUserIds;
 
     /**
-     * @description The IDs of the end users that you want to exclude. The end users have the permissions on the desktop group.
+     * @description The authorized users that you want to exclude.
      *
      * @var string[]
      */
     public $excludedEndUserIds;
 
     /**
+     * @description The IDs of the images.
+     *
      * @var string[]
      */
     public $imageId;
 
     /**
-     * @description The maximum number of entries to return on each page. Maximum value: 100. Default value: 10.
+     * @description The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
      *
      * @example 10
      *
@@ -60,7 +64,7 @@ class DescribeDesktopGroupsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. If the NextToken parameter is empty, no next page exists.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -69,7 +73,7 @@ class DescribeDesktopGroupsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The workspace ID of the desktop groups that you want to query.
+     * @description The workspace ID of the desktop group that you want to query.
      *
      * @example cn-hangzhou+dir-467671****
      *
@@ -78,7 +82,7 @@ class DescribeDesktopGroupsRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The type of the desktop group.
+     * @description The desktop group type.
      *
      * Valid values:
      *
@@ -88,7 +92,7 @@ class DescribeDesktopGroupsRequest extends Model
      *
      *   1
      *
-     * .
+     * <!-- -->
      * @example 0
      *
      * @var int
@@ -105,7 +109,7 @@ class DescribeDesktopGroupsRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the validity period of the desktop group.
+     * @description The unit of the duration.
      *
      * Valid values:
      *
@@ -127,7 +131,7 @@ class DescribeDesktopGroupsRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The ID of the policy with which you want to associate the desktop group.
+     * @description The ID of the policy with which the desktop group is associated.
      *
      * @example pg-53iyi2aar0nd6****
      *
@@ -136,7 +140,7 @@ class DescribeDesktopGroupsRequest extends Model
     public $policyGroupId;
 
     /**
-     * @description The type of the protocol. Valid values:
+     * @description The protocol. Valid values:
      *
      *   ASP
      *   HDX
@@ -148,7 +152,7 @@ class DescribeDesktopGroupsRequest extends Model
     public $protocolType;
 
     /**
-     * @description The region ID of the desktop groups that you want to query.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -163,15 +167,15 @@ class DescribeDesktopGroupsRequest extends Model
      *
      *   0
      *
-     * .
+     * <!-- -->
      *
      *   1
      *
-     * .
+     * <!-- -->
      *
      *   2
      *
-     * .
+     * <!-- -->
      * @example 1
      *
      * @var int

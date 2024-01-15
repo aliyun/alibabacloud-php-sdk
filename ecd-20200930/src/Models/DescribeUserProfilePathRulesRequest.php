@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserProfilePathRulesRequest extends Model
 {
     /**
+     * @description The desktop group ID. This parameter is required when you set RuleType parameter to DesktopGroup.
+     *
      * @example dg-2i8qxpv6t1a03****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeUserProfilePathRulesRequest extends Model
     public $desktopGroupId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,17 @@ class DescribeUserProfilePathRulesRequest extends Model
     public $regionId;
 
     /**
+     * @description The rule type that you want to configure for the directory.
+     *
+     * Valid values:
+     *
+     *   DesktopGroup
+     *
+     * <!-- -->
+     *
+     *   Default
+     *
+     * <!-- -->
      * @example DesktopGroup
      *
      * @var string

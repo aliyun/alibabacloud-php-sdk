@@ -74,7 +74,14 @@ class fileSystems extends Model
     public $fileSystemName;
 
     /**
-     * @description The status of the NAS file system.
+     * @description The status of the NAS file system. The possible values include:
+     *
+     *   Pending: The NAS file system is being created.
+     *   Running: The NAS file system is running.
+     *   Stopped: The NAS file system is stopped.
+     *   Deleting: The NAS file system is being deleted.
+     *   Deleted: The NAS file system is deleted.
+     *   Invalid: The NAS file system is invalid.
      *
      * @example Running
      *
@@ -83,7 +90,7 @@ class fileSystems extends Model
     public $fileSystemStatus;
 
     /**
-     * @description The type of the NAS file system. Valid value: `standard`.
+     * @description The type of the NAS file system. Valid value: Universal NAS. This value indicates that the NAS file system is a General-purpose one.
      *
      * @example standard
      *
@@ -110,7 +117,13 @@ class fileSystems extends Model
     public $mountTargetDomain;
 
     /**
-     * @description The status of the mount target.
+     * @description The status of the mount target. The possible values include:
+     *
+     *   Pending: The mount target is being created.
+     *   Active: The mount target is enabled.
+     *   Inactive: The mount target is disabled.
+     *   Deleting: The mount target is being deleted.
+     *   Invalid: The mount target is invalid.
      *
      * @example Active
      *
@@ -137,7 +150,7 @@ class fileSystems extends Model
     public $officeSiteName;
 
     /**
-     * @description Indicates whether the UPM feature is supported.
+     * @description Indicates whether the User Profile Management (UPM) feature is supported.
      *
      * @example false
      *
@@ -155,7 +168,10 @@ class fileSystems extends Model
     public $regionId;
 
     /**
-     * @description The storage type of the NAS file system.
+     * @description The storage type of the NAS file system. Valid values:
+     *
+     *   Capacity
+     *   Performance
      *
      * @example Capacity
      *
@@ -164,7 +180,7 @@ class fileSystems extends Model
     public $storageType;
 
     /**
-     * @description Indicates whether the Server Message Block (SMB) access control list (ACL) feature is enabled.
+     * @description Indicates whether the Server Message Block (SMB) access control list (ACL) feature was enabled.
      *
      * @example false
      *
@@ -173,7 +189,7 @@ class fileSystems extends Model
     public $supportAcl;
 
     /**
-     * @description The zone.
+     * @description The ID of the zone where the NAS file system resides.
      *
      * @example cn-hangzhou-f
      *

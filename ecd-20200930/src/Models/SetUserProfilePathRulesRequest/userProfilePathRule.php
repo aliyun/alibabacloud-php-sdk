@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class userProfilePathRule extends Model
 {
     /**
+     * @description The directory in the blacklist.
+     *
      * @var blackPath
      */
     public $blackPath;
 
     /**
+     * @description The directories that you want to configure in the whitelist.
+     *
      * @var whitePaths[]
      */
     public $whitePaths;

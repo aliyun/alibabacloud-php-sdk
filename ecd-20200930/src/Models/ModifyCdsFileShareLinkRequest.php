@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCdsFileShareLinkRequest extends Model
 {
     /**
+     * @description The ID of the cloud disk.
+     *
      * @example cn-shanghai+cds-135515****
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $cdsId;
 
     /**
+     * @description The description of the file sharing task. The description must be 0 to 1,024 characters in length.
+     *
      * @example testDescription
      *
      * @var string
@@ -23,6 +27,17 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $description;
 
     /**
+     * @description Specifies whether to prohibit the download of the files that are being shared.
+     *
+     * Valid values:
+     *
+     *   false
+     *
+     * <!-- -->
+     *
+     *   true
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -30,6 +45,17 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $disableDownload;
 
     /**
+     * @description Specifies whether to prohibit the preview of the files that are being shared.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -37,6 +63,17 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $disablePreview;
 
     /**
+     * @description Specifies whether to prohibit the dump of the files that are being shared.
+     *
+     * Valid values:
+     *
+     *   false
+     *
+     * <!-- -->
+     *
+     *   true
+     *
+     * <!-- -->
      * @example false
      *
      * @var bool
@@ -44,6 +81,8 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $disableSave;
 
     /**
+     * @description The number of times that the shared files are downloaded. The value of this parameter must be equal to or greater than 0.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +90,8 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $downloadCount;
 
     /**
+     * @description The limit on the number of times that the shared files can be downloaded. The value of this parameter must be equal to or greater than 0. The value 0 specifies that no limit is imposed on the number of times that the shared files can be downloaded.
+     *
      * @example 0
      *
      * @var int
@@ -58,6 +99,8 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $downloadLimit;
 
     /**
+     * @description The time when the file sharing link expires. The value of this parameter follows the RFC 3339 standard. Example: "2020-06-28T11:33:00.000+08:00". If this parameter is set to "", the file sharing link never expires.
+     *
      * @example 2022-07-20T06:30:22.365Z
      *
      * @var string
@@ -65,6 +108,8 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $expiration;
 
     /**
+     * @description The number of times that the shared files are previewed. The value of this parameter must be equal to or greater than 0.
+     *
      * @example 0
      *
      * @var int
@@ -72,6 +117,8 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $previewCount;
 
     /**
+     * @description The limit on the number of times that the shared files can be previewed. The value of this parameter must be equal to or greater than 0. The value 0 specifies that no limit is imposed on the number of times that the shared files can be downloaded.
+     *
      * @example 100
      *
      * @var int
@@ -79,6 +126,8 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $previewLimit;
 
     /**
+     * @description The number of times that the shared files are reported. The value of this parameter must be equal to or greater than 0.
+     *
      * @example 0
      *
      * @var int
@@ -86,6 +135,8 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $reportCount;
 
     /**
+     * @description The number of times that the shared files are dumped. The value of this parameter must be equal to or greater than 0.
+     *
      * @example 0
      *
      * @var int
@@ -93,6 +144,8 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $saveCount;
 
     /**
+     * @description The limit on the number of times that the shared files can be dumped. The value of this parameter must be equal to or greater than 0. The value 0 specifies that no limit is imposed on the number of times that the shared files can be downloaded.
+     *
      * @example 100
      *
      * @var int
@@ -100,6 +153,8 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $saveLimit;
 
     /**
+     * @description The ID of the file sharing task.
+     *
      * @example 7JQX1Fs****
      *
      * @var string
@@ -107,11 +162,16 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $shareId;
 
     /**
+     * @description The name of the file sharing task. If you do not configure this parameter, the sharing task name is the first ID that is returned in the file_id_list value.
+     *
+     * >  The sharing task name must be 0 to 128 characters in length.
      * @var string
      */
     public $shareName;
 
     /**
+     * @description The length of the access code. Valid values: 6 to 8. Unit: bytes. If you leave this parameter empty or set it to null, no access code is required. If you use a token to share files, you do not need to configure this parameter. The access code can contain only visible ASCII characters.
+     *
      * @example 12345678
      *
      * @var string
@@ -119,6 +179,17 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $sharePwd;
 
     /**
+     * @description The sharing status.
+     *
+     * Valid values:
+     *
+     *   disabled: The sharing task is canceled.
+     *
+     * <!-- -->
+     *
+     *   enabled: The sharing task is valid.
+     *
+     * <!-- -->
      * @example enabled
      *
      * @var string
@@ -126,6 +197,8 @@ class ModifyCdsFileShareLinkRequest extends Model
     public $status;
 
     /**
+     * @description The number of times that the videos are previewed in the shared files. The value of this parameter must be equal to or greater than 0.
+     *
      * @example 0
      *
      * @var int

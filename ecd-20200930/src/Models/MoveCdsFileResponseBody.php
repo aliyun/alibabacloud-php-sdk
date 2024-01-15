@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class MoveCdsFileResponseBody extends Model
 {
     /**
+     * @description The result of the modification. A value of success indicates that the modification is successful. If the modification failed, an error message is returned.
+     *
      * @example success
      *
      * @var string
@@ -17,6 +19,8 @@ class MoveCdsFileResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message that is returned. This parameter is not returned if the value of Code is success.
+     *
      * @example success
      *
      * @var string
@@ -24,11 +28,15 @@ class MoveCdsFileResponseBody extends Model
     public $message;
 
     /**
+     * @description The response object when you move a file.
+     *
      * @var moveCdsFileModel
      */
     public $moveCdsFileModel;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
      *
      * @var string
@@ -36,6 +44,17 @@ class MoveCdsFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * Valid values:
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool

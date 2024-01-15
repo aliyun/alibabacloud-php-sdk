@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class usbSupplyRedirectRule extends Model
 {
     /**
+     * @description The description of the rule.
+     *
+     * @example Test rule
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The class of the device. This parameter is required when you set the usbRuleType parameter to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes?spm=a2c63.p38356.0.0.56b84b03GUn4kJ).
+     *
      * @example 0Eh
      *
      * @var string
@@ -21,6 +27,8 @@ class usbSupplyRedirectRule extends Model
     public $deviceClass;
 
     /**
+     * @description The subclass of the device. This parameter is required when you set the usbRuleType parameter to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes?spm=a2c63.p38356.0.0.56b84b03GUn4kJ).
+     *
      * @example xxh
      *
      * @var string
@@ -28,6 +36,8 @@ class usbSupplyRedirectRule extends Model
     public $deviceSubclass;
 
     /**
+     * @description The ID of the service.
+     *
      * @example 08**
      *
      * @var string
@@ -35,6 +45,11 @@ class usbSupplyRedirectRule extends Model
     public $productId;
 
     /**
+     * @description Specifies whether to allow USB redirection. Valid values:
+     *
+     * 1: allowed.
+     * 2: disallowed.
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +57,11 @@ class usbSupplyRedirectRule extends Model
     public $usbRedirectType;
 
     /**
+     * @description The type of the USB redirection rule. Valid values:
+     *
+     * 1: device class.
+     * 2: device vendor.
+     *
      * @example 1
      *
      * @var int
@@ -49,6 +69,8 @@ class usbSupplyRedirectRule extends Model
     public $usbRuleType;
 
     /**
+     * @description The ID of the vendor. For more information, see[ Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf?spm=a2c63.p38356.0.0.56b84b03GUn4kJ&file=vendor_ids032322.pdf_1.pdf).
+     *
      * @example 04**
      *
      * @var string

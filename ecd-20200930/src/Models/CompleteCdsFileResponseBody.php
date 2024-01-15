@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CompleteCdsFileResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 05C2791F-41A7-5E7C-B5E4-1401FD0E****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCloudDrivePermissionResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 9197824D-AD4B-571F-94BB-C2E6D5855AB6
      *
      * @var string

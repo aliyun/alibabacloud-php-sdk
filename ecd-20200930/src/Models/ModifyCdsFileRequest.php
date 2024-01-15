@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCdsFileRequest extends Model
 {
     /**
+     * @description The cloud disk ID.
+     *
      * @example cn-hangzhou+cds-64326*****
      *
      * @var string
@@ -16,6 +18,21 @@ class ModifyCdsFileRequest extends Model
     public $cdsId;
 
     /**
+     * @description The processing mode of files that have the same name.
+     *
+     * Valid values:
+     *
+     *   refuse
+     *
+     * <!-- -->
+     *
+     *   auto_rename
+     *
+     * <!-- -->
+     *
+     *   ignore
+     *
+     * <!-- -->
      * @example ignore
      *
      * @var string
@@ -23,6 +40,8 @@ class ModifyCdsFileRequest extends Model
     public $conflictPolicy;
 
     /**
+     * @description The ID of the end user who uses the cloud disk.
+     *
      * @example user01
      *
      * @var string
@@ -30,6 +49,8 @@ class ModifyCdsFileRequest extends Model
     public $endUserId;
 
     /**
+     * @description The file ID.
+     *
      * @example 6333e553a133ce21e6f747cf948bb9ef95d7****
      *
      * @var string
@@ -37,6 +58,8 @@ class ModifyCdsFileRequest extends Model
     public $fileId;
 
     /**
+     * @description The file name.
+     *
      * @example test.txt
      *
      * @var string
@@ -44,6 +67,17 @@ class ModifyCdsFileRequest extends Model
     public $fileName;
 
     /**
+     * @description The group ID.
+     *
+     * @example cg-i1ruuudp92qpj****
+     *
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @description The region ID. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -55,6 +89,7 @@ class ModifyCdsFileRequest extends Model
         'endUserId'      => 'EndUserId',
         'fileId'         => 'FileId',
         'fileName'       => 'FileName',
+        'groupId'        => 'GroupId',
         'regionId'       => 'RegionId',
     ];
 
@@ -79,6 +114,9 @@ class ModifyCdsFileRequest extends Model
         }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -109,6 +147,9 @@ class ModifyCdsFileRequest extends Model
         }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

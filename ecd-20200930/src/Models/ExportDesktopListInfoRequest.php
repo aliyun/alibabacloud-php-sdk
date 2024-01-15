@@ -23,7 +23,7 @@ class ExportDesktopListInfoRequest extends Model
     public $chargeType;
 
     /**
-     * @description The ID of cloud desktop N. Valid values of N: 1 to 100.
+     * @description The ID of the cloud desktop.
      *
      * @var string[]
      */
@@ -41,14 +41,14 @@ class ExportDesktopListInfoRequest extends Model
     /**
      * @description The status of the cloud desktop. Valid values:
      *
-     *   Pending: The cloud desktop is pending.
-     *   Starting: The cloud desktop is being started.
-     *   Running: The cloud desktop is running.
-     *   Stopping: The cloud desktop is being stopped.
-     *   Rebuilding: The cloud desktop is being rebuilt.
-     *   Stopped: The cloud desktop is stopped.
-     *   Expired: The cloud desktop expired.
-     *   Deleted: The cloud desktop is deleted.
+     *   Pending
+     *   Starting
+     *   Running
+     *   Stopping
+     *   Rebuilding
+     *   Stopped
+     *   Expired
+     *   Deleted
      *
      * @example Running
      *
@@ -57,9 +57,6 @@ class ExportDesktopListInfoRequest extends Model
     public $desktopStatus;
 
     /**
-     * @description The ID of end user N that is assigned the cloud desktop. Valid values of N: 1 to 100.
-     *
-     * > Only one end user can use the cloud desktop at a time.
      * @var string[]
      */
     public $endUserId;
@@ -74,7 +71,7 @@ class ExportDesktopListInfoRequest extends Model
     public $expiredTime;
 
     /**
-     * @description The ID of the desktop group.
+     * @description The ID of the group to which the cloud desktop belongs.
      *
      * @example dg-boyczi8enfyc5***
      *
@@ -83,12 +80,8 @@ class ExportDesktopListInfoRequest extends Model
     public $groupId;
 
     /**
-     * @description The language in which the cloud desktop is displayed in the console UI. You can export the list of cloud desktops in the specified language. Valid values:
+     * @description The language that you want to use.
      *
-     *   `zh-CN`: Simplified Chinese
-     *   `en-GB`: English (United Kingdom)
-     *
-     * Default value: `zh-CN`.
      * @example `zh-CN`
      *
      * @var string
@@ -96,7 +89,7 @@ class ExportDesktopListInfoRequest extends Model
     public $langType;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The maximum number of entries to return on each page.
      *
      * Default value: 10.
      * @example 10
@@ -106,7 +99,7 @@ class ExportDesktopListInfoRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
+     * @description The token that is used for the next query. If this parameter is empty, all results are returned.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -142,14 +135,14 @@ class ExportDesktopListInfoRequest extends Model
     public $regionId;
 
     /**
-     * @description The tags. A tag is a key-value pair that consists of a tag key and a tag value. Tags are used to identify resources. You can use tags to manage cloud desktops by group for easy searching and batch operations. For more information, see [Use tags to manage cloud desktops](~~203781~~).
+     * @description The tags that you want to add to the cloud desktop.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The username of the end user that is using the cloud desktop.
+     * @description The username of the current user of the cloud desktop.
      *
      * @example alice
      *

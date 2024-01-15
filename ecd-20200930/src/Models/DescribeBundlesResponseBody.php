@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeBundlesResponseBody extends Model
 {
     /**
-     * @description Details of the desktop templates.
+     * @description Details about the cloud desktop templates.
      *
      * @var bundles[]
      */
     public $bundles;
 
     /**
-     * @description The token that is used to start the next query. If null is returned, the next query is not required.
+     * @description The token that is used for the next query. If this parameter is empty, all results have been returned.
      *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6lu3PTF6h3zE8egwlYuv8M8
      *

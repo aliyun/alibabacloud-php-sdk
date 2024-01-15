@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StopDesktopsRequest extends Model
 {
     /**
-     * @description The IDs of cloud desktops. You can specify up to 20 cloud desktop IDs.
+     * @description The cloud desktop IDs. You can specify one or more IDs of cloud desktops. Valid values of N: 1 to 20.
      *
      * @example ecd-7w78ozhjcwa3u****
      *
@@ -18,7 +18,7 @@ class StopDesktopsRequest extends Model
     public $desktopId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

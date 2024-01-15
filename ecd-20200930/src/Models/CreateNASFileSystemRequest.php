@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateNASFileSystemRequest extends Model
 {
     /**
-     * @description The description of the NAS file system.
-     *
      * @example testDescription
      *
      * @var string
@@ -18,12 +16,6 @@ class CreateNASFileSystemRequest extends Model
     public $description;
 
     /**
-     * @description Specifies whether to encrypt the data in the NAS file system. You can use keys that are managed by Key Management Service (KMS) to encrypt the data that is stored in a NAS file system. When you read and write the encrypted data, the data is automatically decrypted. Valid values:
-     *
-     *   0: does not encrypt the data in the NAS file system.
-     *   1: encrypts the data in the NAS file system by using NAS-managed keys.
-     *
-     * Default value: 0.
      * @example 0
      *
      * @var string
@@ -38,8 +30,6 @@ class CreateNASFileSystemRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the workspace.
-     *
      * @example cn-hangzhou+dir-363353****
      *
      * @var string
@@ -47,8 +37,6 @@ class CreateNASFileSystemRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The ID of the region.
-     *
      * @example cn-hangzhou
      *
      * @var string
@@ -56,12 +44,6 @@ class CreateNASFileSystemRequest extends Model
     public $regionId;
 
     /**
-     * @description The storage type of the NAS file system. Valid values:
-     *
-     *   Capacity
-     *   Performance
-     *
-     * Default value: Capacity.
      * @example Capacity
      *
      * @var string

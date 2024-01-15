@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to unbind all tags from the resource. This parameter takes effect only when the TagKey.N parameter is not specified. Default value: false.
+     * @description Specifies whether to unbind all tags from the resource. This parameter takes effect only when TagKey.N is not specified. Default value: false.
      *
      * @example false
      *
@@ -18,7 +18,7 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
-     * @description The region ID of the resource.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource, which is the ID of the cloud desktop. Valid values of N: 1 to 50.
+     * @description The resource IDs, namely the cloud desktop IDs. Valid values of N: 1 to 50.
      *
      * @example ecd-ia2zw38bi6cm7****
      *
@@ -36,7 +36,7 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource. Set the value to ALIYUN::GWS::INSTANCE.
+     * @description The resource type. Valid value: ALIYUN::GWS::INSTANCE.
      *
      * @example ALIYUN::GWS::INSTANCE
      *
@@ -45,7 +45,7 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The key of tag N. Valid values of N: 1 to 20.
+     * @description The tag key. You can specify up to 20 tag keys.
      *
      * @example TestKey
      *

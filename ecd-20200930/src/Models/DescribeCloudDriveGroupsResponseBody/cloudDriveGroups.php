@@ -4,10 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveGroupsResponseBody;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveGroupsResponseBody\cloudDriveGroups\adminUserInfos;
 use AlibabaCloud\Tea\Model;
 
 class cloudDriveGroups extends Model
 {
+    /**
+     * @var string
+     */
+    public $adminUserIds;
+
+    /**
+     * @var adminUserInfos[]
+     */
+    public $adminUserInfos;
+
     /**
      * @description The time when the team space was created.
      *
@@ -18,7 +29,7 @@ class cloudDriveGroups extends Model
     public $createTime;
 
     /**
-     * @description The ID of the workspace.
+     * @description The workspace ID.
      *
      * @example cn-hangzhou+dir-959593****
      *
@@ -27,7 +38,7 @@ class cloudDriveGroups extends Model
     public $directoryId;
 
     /**
-     * @description The ID of the team space.
+     * @description The team space ID.
      *
      * @example sh1234
      *
@@ -36,7 +47,7 @@ class cloudDriveGroups extends Model
     public $driveId;
 
     /**
-     * @description The ID of the team.
+     * @description The team ID.
      *
      * @example cg-e70ga4ixp30ur****
      *
@@ -54,7 +65,12 @@ class cloudDriveGroups extends Model
     public $groupName;
 
     /**
-     * @description The status of the team space. Valid values:
+     * @var string
+     */
+    public $orgId;
+
+    /**
+     * @description The team space status. Valid values:
      *
      *   enabled
      *   disabled
@@ -76,7 +92,7 @@ class cloudDriveGroups extends Model
     public $totalSize;
 
     /**
-     * @description The size of the used space. Unit: bytes.
+     * @description The capacity of the used space. Unit: bytes.
      *
      * @example 1024000000
      *
@@ -84,14 +100,17 @@ class cloudDriveGroups extends Model
      */
     public $usedSize;
     protected $_name = [
-        'createTime'  => 'CreateTime',
-        'directoryId' => 'DirectoryId',
-        'driveId'     => 'DriveId',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
-        'status'      => 'Status',
-        'totalSize'   => 'TotalSize',
-        'usedSize'    => 'UsedSize',
+        'adminUserIds'   => 'AdminUserIds',
+        'adminUserInfos' => 'AdminUserInfos',
+        'createTime'     => 'CreateTime',
+        'directoryId'    => 'DirectoryId',
+        'driveId'        => 'DriveId',
+        'groupId'        => 'GroupId',
+        'groupName'      => 'GroupName',
+        'orgId'          => 'OrgId',
+        'status'         => 'Status',
+        'totalSize'      => 'TotalSize',
+        'usedSize'       => 'UsedSize',
     ];
 
     public function validate()
@@ -101,6 +120,18 @@ class cloudDriveGroups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->adminUserIds) {
+            $res['AdminUserIds'] = $this->adminUserIds;
+        }
+        if (null !== $this->adminUserInfos) {
+            $res['AdminUserInfos'] = [];
+            if (null !== $this->adminUserInfos && \is_array($this->adminUserInfos)) {
+                $n = 0;
+                foreach ($this->adminUserInfos as $item) {
+                    $res['AdminUserInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -115,6 +146,9 @@ class cloudDriveGroups extends Model
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->orgId) {
+            $res['OrgId'] = $this->orgId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -137,6 +171,18 @@ class cloudDriveGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdminUserIds'])) {
+            $model->adminUserIds = $map['AdminUserIds'];
+        }
+        if (isset($map['AdminUserInfos'])) {
+            if (!empty($map['AdminUserInfos'])) {
+                $model->adminUserInfos = [];
+                $n                     = 0;
+                foreach ($map['AdminUserInfos'] as $item) {
+                    $model->adminUserInfos[$n++] = null !== $item ? adminUserInfos::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -151,6 +197,9 @@ class cloudDriveGroups extends Model
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['OrgId'])) {
+            $model->orgId = $map['OrgId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

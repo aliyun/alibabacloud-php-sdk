@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cdsIdentity extends Model
 {
     /**
+     * @description The ID of the user.
+     *
      * @example user01
      *
      * @var string
@@ -16,6 +18,17 @@ class cdsIdentity extends Model
     public $id;
 
     /**
+     * @description The type of the user.
+     *
+     * Valid values:
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
      * @example IT_User
      *
      * @var string

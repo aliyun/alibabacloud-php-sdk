@@ -15,6 +15,17 @@ use AlibabaCloud\Tea\Model;
 class describePolicyGroups extends Model
 {
     /**
+     * @var string
+     */
+    public $adminAccess;
+
+    /**
+     * @description Indicates whether the anti-screenshot feature is enabled. Valid values:
+     *
+     *   on: This feature is enabled.
+     *   off: This feature is disabled.
+     *
+     * Default value: off.
      * @example off
      *
      * @var string
@@ -22,16 +33,31 @@ class describePolicyGroups extends Model
     public $appContentProtection;
 
     /**
+     * @description The client CIDR blocks in the whitelist.
+     *
      * @var authorizeAccessPolicyRules[]
      */
     public $authorizeAccessPolicyRules;
 
     /**
+     * @description The security group rules.
+     *
      * @var authorizeSecurityPolicyRules[]
      */
     public $authorizeSecurityPolicyRules;
 
     /**
+     * @description Indicates whether the webcam redirection feature is enabled.
+     *
+     * Valid values:
+     *
+     *   off: The feature is disabled.
+     *
+     * <!-- -->
+     *
+     *   on (default): The feature is enabled.
+     *
+     * <!-- -->
      * @example on
      *
      * @var string
@@ -39,11 +65,28 @@ class describePolicyGroups extends Model
     public $cameraRedirect;
 
     /**
+     * @description The logon methods.
+     *
      * @var clientTypes[]
      */
     public $clientTypes;
 
     /**
+     * @description The permissions on the clipboard.
+     *
+     * Valid values:
+     *
+     *   read: One-way transfer is allowed.
+     *
+     * <!-- -->
+     *
+     *   readwrite: Two-way transfer is allowed.
+     *
+     * <!-- -->
+     *
+     *   off: Two-way transfer is not allowed.
+     *
+     * <!-- -->
      * @example readwrite
      *
      * @var string
@@ -51,6 +94,41 @@ class describePolicyGroups extends Model
     public $clipboard;
 
     /**
+     * @var int
+     */
+    public $cpuDownGradeDuration;
+
+    /**
+     * @var string[]
+     */
+    public $cpuProcessors;
+
+    /**
+     * @var string
+     */
+    public $cpuProtectedMode;
+
+    /**
+     * @var int
+     */
+    public $cpuRateLimit;
+
+    /**
+     * @var int
+     */
+    public $cpuSampleDuration;
+
+    /**
+     * @var int
+     */
+    public $cpuSingleRateLimit;
+
+    /**
+     * @description The access control for domain names. The domain names can contain the wildcard character (\*). Multiple domain names are separated by commas (,). Valid values:
+     *
+     *   off: This feature is disabled.
+     *   on: This feature is enabled.
+     *
      * @example off
      *
      * @var string
@@ -58,11 +136,24 @@ class describePolicyGroups extends Model
     public $domainList;
 
     /**
+     * @description The resolution of domain names.
+     *
      * @var domainResolveRule[]
      */
     public $domainResolveRule;
 
     /**
+     * @description Indicates whether the switch for domain name resolution is turned on.
+     *
+     * Valid values:
+     *
+     *   off
+     *
+     * <!-- -->
+     *
+     *   on
+     *
+     * <!-- -->
      * @example on
      *
      * @var string
@@ -70,6 +161,8 @@ class describePolicyGroups extends Model
     public $domainResolveRuleType;
 
     /**
+     * @description The number of cloud desktops that are associated with the policy.\
+     * This parameter is returned only if PolicyGroupType is set to CUSTOM.
      * @example 1
      *
      * @var int
@@ -77,6 +170,8 @@ class describePolicyGroups extends Model
     public $edsCount;
 
     /**
+     * @description Indicates whether the switch for end users to ask for assistance from the administrator is turned on. Valid values: on off
+     *
      * @example on
      *
      * @var string
@@ -84,6 +179,8 @@ class describePolicyGroups extends Model
     public $endUserApplyAdminCoordinate;
 
     /**
+     * @description The switch for stream collaboration between end users. Valid values: on off
+     *
      * @example on
      *
      * @var string
@@ -91,6 +188,17 @@ class describePolicyGroups extends Model
     public $endUserGroupCoordinate;
 
     /**
+     * @description Indicates whether the image quality policy is enabled for Graphics cloud desktops. If you have high requirements for desktop performance and user experience, we recommend that you enable this feature. For example, you can enable this feature in professional design scenarios.
+     *
+     * Valid values:
+     *
+     *   off: The feature is disabled.
+     *
+     * <!-- -->
+     *
+     *   on: This feature is enabled.
+     *
+     * <!-- -->
      * @example off
      *
      * @var string
@@ -98,6 +206,17 @@ class describePolicyGroups extends Model
     public $gpuAcceleration;
 
     /**
+     * @description The HTML5 client access feature.
+     *
+     * Valid values:
+     *
+     *   off (default)
+     *
+     * <!-- -->
+     *
+     *   on
+     *
+     * <!-- -->
      * @example off
      *
      * @var string
@@ -105,6 +224,25 @@ class describePolicyGroups extends Model
     public $html5Access;
 
     /**
+     * @description The file transfer feature for the HTML5 client.
+     *
+     * Valid values:
+     *
+     *   all: Files can be uploaded and downloaded between your computer and HTML5 clients.
+     *
+     * <!-- -->
+     *
+     *   download: Files on HTML5 clients can be downloaded to your computer.
+     *
+     * <!-- -->
+     *
+     *   upload: Files on your computer can be uploaded to HTML5 clients.
+     *
+     * <!-- -->
+     *
+     *   off (default): File transfer between HTML5 clients and your computer is disabled.
+     *
+     * <!-- -->
      * @example off
      *
      * @var string
@@ -112,6 +250,12 @@ class describePolicyGroups extends Model
     public $html5FileTransfer;
 
     /**
+     * @description The protocol that is used for network communication. Valid values:
+     *
+     *   TCP: Only the TCP protocol is used.
+     *   BOTH: The automatic switchover between the TCP protocol and the UDP protocol is supported.
+     *
+     * Default value: TCP.
      * @example BOTH
      *
      * @var string
@@ -119,6 +263,21 @@ class describePolicyGroups extends Model
     public $internetCommunicationProtocol;
 
     /**
+     * @description The permissions on local disk mapping.
+     *
+     * Valid values:
+     *
+     *   read: read-only
+     *
+     * <!-- -->
+     *
+     *   readwrite: read and write
+     *
+     * <!-- -->
+     *
+     *   off: no permissions
+     *
+     * <!-- -->
      * @example readwrite
      *
      * @var string
@@ -126,6 +285,38 @@ class describePolicyGroups extends Model
     public $localDrive;
 
     /**
+     * @var int
+     */
+    public $memoryDownGradeDuration;
+
+    /**
+     * @var string[]
+     */
+    public $memoryProcessors;
+
+    /**
+     * @var string
+     */
+    public $memoryProtectedMode;
+
+    /**
+     * @var int
+     */
+    public $memoryRateLimit;
+
+    /**
+     * @var int
+     */
+    public $memorySampleDuration;
+
+    /**
+     * @var int
+     */
+    public $memorySingleRateLimit;
+
+    /**
+     * @description The policy name.
+     *
      * @example testPolicyGroupName
      *
      * @var string
@@ -133,6 +324,12 @@ class describePolicyGroups extends Model
     public $name;
 
     /**
+     * @description Indicates whether the network redirection feature is enabled. Valid values:
+     *
+     *   on: This feature is enabled.
+     *   off: The feature is disabled.
+     *
+     * Default value: off.
      * @example off
      *
      * @var string
@@ -140,11 +337,15 @@ class describePolicyGroups extends Model
     public $netRedirect;
 
     /**
+     * @description The network redirection rules.
+     *
      * @var netRedirectRule[]
      */
     public $netRedirectRule;
 
     /**
+     * @description The policy ID.
+     *
      * @example pg-gx2x1dhsmthe9****
      *
      * @var string
@@ -152,6 +353,17 @@ class describePolicyGroups extends Model
     public $policyGroupId;
 
     /**
+     * @description The rule type.
+     *
+     * Valid values:
+     *
+     *   SYSTEM
+     *
+     * <!-- -->
+     *
+     *   CUSTOM
+     *
+     * <!-- -->
      * @example SYSTEM
      *
      * @var string
@@ -159,6 +371,17 @@ class describePolicyGroups extends Model
     public $policyGroupType;
 
     /**
+     * @description The state of the policy.
+     *
+     * Valid values:
+     *
+     *   AVAILABLE
+     *
+     * <!-- -->
+     *
+     *   CREATING
+     *
+     * <!-- -->
      * @example AVAILABLE
      *
      * @var string
@@ -166,6 +389,8 @@ class describePolicyGroups extends Model
     public $policyStatus;
 
     /**
+     * @description Indicates whether user preemption is allowed. The value is fixed to `off`, which indicates that user preemption is not allowed.
+     *
      * @example off
      *
      * @var string
@@ -173,11 +398,24 @@ class describePolicyGroups extends Model
     public $preemptLogin;
 
     /**
+     * @description The names of the users that are allowed to connect to the cloud desktop to which another user is logged on.
+     *
      * @var string[]
      */
     public $preemptLoginUsers;
 
     /**
+     * @description The printer redirection feature.
+     *
+     * Valid values:
+     *
+     *   off
+     *
+     * .
+     *
+     *   on
+     *
+     * .
      * @example on
      *
      * @var string
@@ -185,6 +423,12 @@ class describePolicyGroups extends Model
     public $printerRedirection;
 
     /**
+     * @description Indicates whether the custom screen recording feature is enabled. Valid values:
+     *
+     *   on: This feature is enabled.
+     *   off: This feature is disabled.
+     *
+     * Default value: off.
      * @example off
      *
      * @var string
@@ -192,6 +436,8 @@ class describePolicyGroups extends Model
     public $recordContent;
 
     /**
+     * @description The duration in which the custom screen recording is valid. Default value: 30. Unit: days.
+     *
      * @example 30
      *
      * @var int
@@ -199,6 +445,21 @@ class describePolicyGroups extends Model
     public $recordContentExpires;
 
     /**
+     * @description Indicates whether screen recording is enabled.
+     *
+     * Valid values:
+     *
+     *   ALLTIME: All operations that are performed by end users on cloud desktops are recorded. The recording starts immediately when end users connect to cloud desktops and ends after the end users disconnect from the cloud desktops.
+     *
+     * <!-- -->
+     *
+     *   PERIOD: The operations that are performed by end users on cloud desktops during a specified period of time are recorded. You must specify the start time and the end time of the recording.
+     *
+     * <!-- -->
+     *
+     *   OFF: Screen recording is disabled.
+     *
+     * <!-- -->
      * @example OFF
      *
      * @var string
@@ -206,6 +467,11 @@ class describePolicyGroups extends Model
     public $recording;
 
     /**
+     * @description Indicates whether the sound that is generated on the cloud desktop is recorded during screen recording. Valid values:
+     *
+     *   on: records audio and video data.
+     *   off: records only video data.
+     *
      * @example on
      *
      * @var string
@@ -213,6 +479,8 @@ class describePolicyGroups extends Model
     public $recordingAudio;
 
     /**
+     * @description This parameter is used together with Recording. After the specified period of the recording reaches, a screen recording file is generated.
+     *
      * @example 10
      *
      * @var int
@@ -220,6 +488,8 @@ class describePolicyGroups extends Model
     public $recordingDuration;
 
     /**
+     * @description The time when the screen recording ended. The value is in the HH:MM:SS format. The value of this parameter is valid only if Recording is set to PERIOD.
+     *
      * @example 08:59:00
      *
      * @var string
@@ -227,6 +497,8 @@ class describePolicyGroups extends Model
     public $recordingEndTime;
 
     /**
+     * @description The period in which the screen recording audit is valid. Valid values: 15 to 180. Unit: days.
+     *
      * @example 15
      *
      * @var int
@@ -234,6 +506,13 @@ class describePolicyGroups extends Model
     public $recordingExpires;
 
     /**
+     * @description The frame rate of screen recording. Unit: fps. Valid values:
+     *
+     *   2
+     *   5
+     *   10
+     *   15
+     *
      * @example 5
      *
      * @var int
@@ -241,6 +520,8 @@ class describePolicyGroups extends Model
     public $recordingFps;
 
     /**
+     * @description The time when the screen recording was started. The value is in the HH:MM:SS format. The value of this parameter is valid only if Recording is set to PERIOD.
+     *
      * @example 08:00:00
      *
      * @var string
@@ -248,6 +529,12 @@ class describePolicyGroups extends Model
     public $recordingStartTime;
 
     /**
+     * @description The permissions on the keyboard and mouse to control the cloud desktop during remote assistance. Valid values:
+     *
+     *   fullControl: The keyboard and mouse are fully controlled.
+     *   optionalControl: By default, you do not have the permissions on the keyboard or mouse to control the cloud desktop during remote assistance. You can apply for the permissions.
+     *   disableControl: The keyboard and mouse are not controlled.
+     *
      * @example fullControl
      *
      * @var string
@@ -255,6 +542,11 @@ class describePolicyGroups extends Model
     public $remoteCoordinate;
 
     /**
+     * @description The effective scope of the policy. Valid values:
+     *
+     *   GLOBAL: The policy takes effect globally.
+     *   IP: The policy takes effect based on the IP address.
+     *
      * @example GLOBAL
      *
      * @var string
@@ -262,11 +554,24 @@ class describePolicyGroups extends Model
     public $scope;
 
     /**
+     * @description This parameter is specified if Scope is set to IP.
+     *
      * @var string[]
      */
     public $scopeValue;
 
     /**
+     * @description Indicates whether the USB redirection feature is enabled.
+     *
+     * Valid values:
+     *
+     *   off: The feature is disabled.
+     *
+     * <!-- -->
+     *
+     *   on: This feature is enabled.
+     *
+     * <!-- -->
      * @example on
      *
      * @var string
@@ -274,11 +579,15 @@ class describePolicyGroups extends Model
     public $usbRedirect;
 
     /**
+     * @description The USB redirection rules.
+     *
      * @var usbSupplyRedirectRule[]
      */
     public $usbSupplyRedirectRule;
 
     /**
+     * @description Indicates whether the multimedia redirection feature is enabled. Valid values: on: The feature is enabled. off: The feature is disabled.
+     *
      * @example off
      *
      * @var string
@@ -286,6 +595,25 @@ class describePolicyGroups extends Model
     public $videoRedirect;
 
     /**
+     * @description The image display quality feature.
+     *
+     * Valid values:
+     *
+     *   high
+     *
+     * <!-- -->
+     *
+     *   low
+     *
+     * <!-- -->
+     *
+     *   medium (default)
+     *
+     * <!-- -->
+     *
+     *   lossless
+     *
+     * <!-- -->
      * @example medium
      *
      * @var string
@@ -293,6 +621,17 @@ class describePolicyGroups extends Model
     public $visualQuality;
 
     /**
+     * @description Indicates whether the watermark feature is enabled.
+     *
+     * Valid values:
+     *
+     *   off: The feature is disabled.
+     *
+     * <!-- -->
+     *
+     *   on: This feature is enabled.
+     *
+     * <!-- -->
      * @example on
      *
      * @var string
@@ -300,6 +639,8 @@ class describePolicyGroups extends Model
     public $watermark;
 
     /**
+     * @description The font color of the watermark. Valid values: 0 to 16777215.
+     *
      * @example 0
      *
      * @var int
@@ -307,6 +648,8 @@ class describePolicyGroups extends Model
     public $watermarkColor;
 
     /**
+     * @description This parameter is unavailable for public use.
+     *
      * @example test
      *
      * @var string
@@ -314,6 +657,8 @@ class describePolicyGroups extends Model
     public $watermarkCustomText;
 
     /**
+     * @description The inclination angle of the watermark. Valid values: -10 to -30.
+     *
      * @example -10
      *
      * @var float
@@ -321,6 +666,8 @@ class describePolicyGroups extends Model
     public $watermarkDegree;
 
     /**
+     * @description The font size of the watermark. Valid values: 10 to 20.
+     *
      * @example 10
      *
      * @var int
@@ -328,6 +675,11 @@ class describePolicyGroups extends Model
     public $watermarkFontSize;
 
     /**
+     * @description The font style of the watermark. Valid values:
+     *
+     *   plain
+     *   bold
+     *
      * @example plain
      *
      * @var string
@@ -335,6 +687,8 @@ class describePolicyGroups extends Model
     public $watermarkFontStyle;
 
     /**
+     * @description The number of watermark rows. This parameter is now invalid.
+     *
      * @example 5
      *
      * @var int
@@ -342,6 +696,26 @@ class describePolicyGroups extends Model
     public $watermarkRowAmount;
 
     /**
+     * @var string
+     */
+    public $watermarkSecurity;
+
+    /**
+     * @description The watermark transparency.
+     *
+     * Valid values:
+     *
+     *   LIGHT
+     *
+     * <!-- -->
+     *
+     *   DARK
+     *
+     * <!-- -->
+     *
+     *   MIDDLE
+     *
+     * <!-- -->
      * @example LIGHT
      *
      * @var string
@@ -349,6 +723,8 @@ class describePolicyGroups extends Model
     public $watermarkTransparency;
 
     /**
+     * @description The watermark transparency. A larger value indicates that the watermark is less transparent. Valid values: 10 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -356,18 +732,44 @@ class describePolicyGroups extends Model
     public $watermarkTransparencyValue;
 
     /**
+     * @description The watermark type.
+     *
+     * Valid values:
+     *
+     *   HostName,EndUserId: The watermark is displayed in the following format: Rightmost 15 characters of the cloud desktop ID,Username.
+     *
+     * <!-- -->
+     *
+     *   EndUserId: The username is displayed.
+     *
+     * <!-- -->
+     *
+     *   EndUserId,HostName: The watermark is displayed in the following format: Username,Rightmost 15 characters of the cloud desktop ID.
+     *
+     * <!-- -->
+     *
+     *   HostName: The rightmost 15 characters of the cloud desktop ID are displayed.
+     *
+     * <!-- -->
      * @example EndUserId
      *
      * @var string
      */
     public $watermarkType;
     protected $_name = [
+        'adminAccess'                   => 'AdminAccess',
         'appContentProtection'          => 'AppContentProtection',
         'authorizeAccessPolicyRules'    => 'AuthorizeAccessPolicyRules',
         'authorizeSecurityPolicyRules'  => 'AuthorizeSecurityPolicyRules',
         'cameraRedirect'                => 'CameraRedirect',
         'clientTypes'                   => 'ClientTypes',
         'clipboard'                     => 'Clipboard',
+        'cpuDownGradeDuration'          => 'CpuDownGradeDuration',
+        'cpuProcessors'                 => 'CpuProcessors',
+        'cpuProtectedMode'              => 'CpuProtectedMode',
+        'cpuRateLimit'                  => 'CpuRateLimit',
+        'cpuSampleDuration'             => 'CpuSampleDuration',
+        'cpuSingleRateLimit'            => 'CpuSingleRateLimit',
         'domainList'                    => 'DomainList',
         'domainResolveRule'             => 'DomainResolveRule',
         'domainResolveRuleType'         => 'DomainResolveRuleType',
@@ -379,6 +781,12 @@ class describePolicyGroups extends Model
         'html5FileTransfer'             => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
         'localDrive'                    => 'LocalDrive',
+        'memoryDownGradeDuration'       => 'MemoryDownGradeDuration',
+        'memoryProcessors'              => 'MemoryProcessors',
+        'memoryProtectedMode'           => 'MemoryProtectedMode',
+        'memoryRateLimit'               => 'MemoryRateLimit',
+        'memorySampleDuration'          => 'MemorySampleDuration',
+        'memorySingleRateLimit'         => 'MemorySingleRateLimit',
         'name'                          => 'Name',
         'netRedirect'                   => 'NetRedirect',
         'netRedirectRule'               => 'NetRedirectRule',
@@ -411,6 +819,7 @@ class describePolicyGroups extends Model
         'watermarkFontSize'             => 'WatermarkFontSize',
         'watermarkFontStyle'            => 'WatermarkFontStyle',
         'watermarkRowAmount'            => 'WatermarkRowAmount',
+        'watermarkSecurity'             => 'WatermarkSecurity',
         'watermarkTransparency'         => 'WatermarkTransparency',
         'watermarkTransparencyValue'    => 'WatermarkTransparencyValue',
         'watermarkType'                 => 'WatermarkType',
@@ -423,6 +832,9 @@ class describePolicyGroups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->adminAccess) {
+            $res['AdminAccess'] = $this->adminAccess;
+        }
         if (null !== $this->appContentProtection) {
             $res['AppContentProtection'] = $this->appContentProtection;
         }
@@ -458,6 +870,24 @@ class describePolicyGroups extends Model
         }
         if (null !== $this->clipboard) {
             $res['Clipboard'] = $this->clipboard;
+        }
+        if (null !== $this->cpuDownGradeDuration) {
+            $res['CpuDownGradeDuration'] = $this->cpuDownGradeDuration;
+        }
+        if (null !== $this->cpuProcessors) {
+            $res['CpuProcessors'] = $this->cpuProcessors;
+        }
+        if (null !== $this->cpuProtectedMode) {
+            $res['CpuProtectedMode'] = $this->cpuProtectedMode;
+        }
+        if (null !== $this->cpuRateLimit) {
+            $res['CpuRateLimit'] = $this->cpuRateLimit;
+        }
+        if (null !== $this->cpuSampleDuration) {
+            $res['CpuSampleDuration'] = $this->cpuSampleDuration;
+        }
+        if (null !== $this->cpuSingleRateLimit) {
+            $res['CpuSingleRateLimit'] = $this->cpuSingleRateLimit;
         }
         if (null !== $this->domainList) {
             $res['DomainList'] = $this->domainList;
@@ -497,6 +927,24 @@ class describePolicyGroups extends Model
         }
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
+        }
+        if (null !== $this->memoryDownGradeDuration) {
+            $res['MemoryDownGradeDuration'] = $this->memoryDownGradeDuration;
+        }
+        if (null !== $this->memoryProcessors) {
+            $res['MemoryProcessors'] = $this->memoryProcessors;
+        }
+        if (null !== $this->memoryProtectedMode) {
+            $res['MemoryProtectedMode'] = $this->memoryProtectedMode;
+        }
+        if (null !== $this->memoryRateLimit) {
+            $res['MemoryRateLimit'] = $this->memoryRateLimit;
+        }
+        if (null !== $this->memorySampleDuration) {
+            $res['MemorySampleDuration'] = $this->memorySampleDuration;
+        }
+        if (null !== $this->memorySingleRateLimit) {
+            $res['MemorySingleRateLimit'] = $this->memorySingleRateLimit;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -606,6 +1054,9 @@ class describePolicyGroups extends Model
         if (null !== $this->watermarkRowAmount) {
             $res['WatermarkRowAmount'] = $this->watermarkRowAmount;
         }
+        if (null !== $this->watermarkSecurity) {
+            $res['WatermarkSecurity'] = $this->watermarkSecurity;
+        }
         if (null !== $this->watermarkTransparency) {
             $res['WatermarkTransparency'] = $this->watermarkTransparency;
         }
@@ -627,6 +1078,9 @@ class describePolicyGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdminAccess'])) {
+            $model->adminAccess = $map['AdminAccess'];
+        }
         if (isset($map['AppContentProtection'])) {
             $model->appContentProtection = $map['AppContentProtection'];
         }
@@ -662,6 +1116,26 @@ class describePolicyGroups extends Model
         }
         if (isset($map['Clipboard'])) {
             $model->clipboard = $map['Clipboard'];
+        }
+        if (isset($map['CpuDownGradeDuration'])) {
+            $model->cpuDownGradeDuration = $map['CpuDownGradeDuration'];
+        }
+        if (isset($map['CpuProcessors'])) {
+            if (!empty($map['CpuProcessors'])) {
+                $model->cpuProcessors = $map['CpuProcessors'];
+            }
+        }
+        if (isset($map['CpuProtectedMode'])) {
+            $model->cpuProtectedMode = $map['CpuProtectedMode'];
+        }
+        if (isset($map['CpuRateLimit'])) {
+            $model->cpuRateLimit = $map['CpuRateLimit'];
+        }
+        if (isset($map['CpuSampleDuration'])) {
+            $model->cpuSampleDuration = $map['CpuSampleDuration'];
+        }
+        if (isset($map['CpuSingleRateLimit'])) {
+            $model->cpuSingleRateLimit = $map['CpuSingleRateLimit'];
         }
         if (isset($map['DomainList'])) {
             $model->domainList = $map['DomainList'];
@@ -701,6 +1175,26 @@ class describePolicyGroups extends Model
         }
         if (isset($map['LocalDrive'])) {
             $model->localDrive = $map['LocalDrive'];
+        }
+        if (isset($map['MemoryDownGradeDuration'])) {
+            $model->memoryDownGradeDuration = $map['MemoryDownGradeDuration'];
+        }
+        if (isset($map['MemoryProcessors'])) {
+            if (!empty($map['MemoryProcessors'])) {
+                $model->memoryProcessors = $map['MemoryProcessors'];
+            }
+        }
+        if (isset($map['MemoryProtectedMode'])) {
+            $model->memoryProtectedMode = $map['MemoryProtectedMode'];
+        }
+        if (isset($map['MemoryRateLimit'])) {
+            $model->memoryRateLimit = $map['MemoryRateLimit'];
+        }
+        if (isset($map['MemorySampleDuration'])) {
+            $model->memorySampleDuration = $map['MemorySampleDuration'];
+        }
+        if (isset($map['MemorySingleRateLimit'])) {
+            $model->memorySingleRateLimit = $map['MemorySingleRateLimit'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -813,6 +1307,9 @@ class describePolicyGroups extends Model
         }
         if (isset($map['WatermarkRowAmount'])) {
             $model->watermarkRowAmount = $map['WatermarkRowAmount'];
+        }
+        if (isset($map['WatermarkSecurity'])) {
+            $model->watermarkSecurity = $map['WatermarkSecurity'];
         }
         if (isset($map['WatermarkTransparency'])) {
             $model->watermarkTransparency = $map['WatermarkTransparency'];

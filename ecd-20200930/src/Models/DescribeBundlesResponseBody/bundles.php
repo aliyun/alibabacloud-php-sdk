@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class bundles extends Model
 {
     /**
-     * @description The ID of the desktop template.
+     * @description The ID of the cloud desktop template.
      *
      * @example bundle_ecd_graphics.2xlarge_s15d15_win2019
      *
@@ -20,7 +20,7 @@ class bundles extends Model
     public $bundleId;
 
     /**
-     * @description The name of the desktop template.
+     * @description The name of the cloud desktop template.
      *
      * @example Advanced graphics with Windows 2019
      *
@@ -29,7 +29,10 @@ class bundles extends Model
     public $bundleName;
 
     /**
-     * @description The type of the desktop template.
+     * @description The type of the cloud desktop template. Valid values:
+     *
+     *   SYSTEM: the system template
+     *   CUSTOM: the custom template
      *
      * @example SYSTEM
      *
@@ -38,7 +41,7 @@ class bundles extends Model
     public $bundleType;
 
     /**
-     * @description The time when the desktop template was created.
+     * @description The time when the cloud desktop template was created.
      *
      * @example 2021-09-30T06:09Z
      *
@@ -47,7 +50,7 @@ class bundles extends Model
     public $creationTime;
 
     /**
-     * @description The description of the desktop template.
+     * @description The description of the cloud desktop template.
      *
      * @example test
      *
@@ -56,7 +59,7 @@ class bundles extends Model
     public $description;
 
     /**
-     * @description The desktop type.
+     * @description The type of the cloud desktop.
      *
      * @example ecd.graphics.2xlarge
      *
@@ -65,14 +68,18 @@ class bundles extends Model
     public $desktopType;
 
     /**
-     * @description Details of the desktop type.
+     * @description Details about the cloud desktop type.
      *
      * @var desktopTypeAttribute
      */
     public $desktopTypeAttribute;
 
     /**
-     * @description The family of the desktop type.
+     * @description The family of the cloud desktop type. Valid values:
+     *
+     *   eds.general: General Office
+     *   eds.hf: High Frequency
+     *   eds.graphics: Graphics
      *
      * @example eds.general
      *
@@ -81,7 +88,7 @@ class bundles extends Model
     public $desktopTypeFamily;
 
     /**
-     * @description Details of the disks.
+     * @description Details about the disks.
      *
      * @var disks[]
      */
@@ -106,6 +113,10 @@ class bundles extends Model
     public $imageName;
 
     /**
+     * @description The status of the image.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $imageStatus;
@@ -120,7 +131,7 @@ class bundles extends Model
     public $language;
 
     /**
-     * @description The type of the OS.
+     * @description The OS type.
      *
      * @example Windows
      *
@@ -131,11 +142,11 @@ class bundles extends Model
     /**
      * @description The information about the OS platform. Valid values:
      *
-     *   CentOS
-     *   Ubuntu
-     *   Windows Server 2016
-     *   Windows Server 2019
-     *   UOS
+     * CentOS
+     * Ubuntu
+     * Windows Server 2016
+     * Windows Server 2019
+     * UOS
      *
      * @example Windows Server 2019
      *
@@ -144,7 +155,10 @@ class bundles extends Model
     public $platform;
 
     /**
-     * @description The type of the protocol.
+     * @description The protocol type.
+     *
+     *   HDX
+     *   ASP (Recommend)
      *
      * @example ASP
      *
@@ -153,7 +167,10 @@ class bundles extends Model
     public $protocolType;
 
     /**
-     * @description The type of the session.
+     * @description The session type. Valid values:
+     *
+     *   0: single_session
+     *   1: multiple_session
      *
      * @example 0
      *
@@ -162,7 +179,7 @@ class bundles extends Model
     public $sessionType;
 
     /**
-     * @description The inventory status of the desktop type. This parameter is returned only if you set the `CheckStock` parameter to `True`.
+     * @description The inventory status of the cloud desktop type, which is returned when the CheckStock parameter is set to true.
      *
      * @example Sufficient
      *

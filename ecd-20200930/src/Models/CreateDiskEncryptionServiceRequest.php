@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskEncryptionServiceRequest extends Model
 {
     /**
-     * @description The ID of the region.
-     *
      * @example cn-hangzhou
      *
      * @var string

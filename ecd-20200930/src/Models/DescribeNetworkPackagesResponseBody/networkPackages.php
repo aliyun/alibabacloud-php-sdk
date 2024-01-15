@@ -18,6 +18,11 @@ class networkPackages extends Model
     public $bandwidth;
 
     /**
+     * @var string
+     */
+    public $businessStatus;
+
+    /**
      * @description The time when the Internet access package was created.
      *
      * @example 2021-05-10T02:35:26Z
@@ -154,6 +159,7 @@ class networkPackages extends Model
     public $reservationInternetChargeType;
     protected $_name = [
         'bandwidth'                     => 'Bandwidth',
+        'businessStatus'                => 'BusinessStatus',
         'createTime'                    => 'CreateTime',
         'eipAddresses'                  => 'EipAddresses',
         'expiredTime'                   => 'ExpiredTime',
@@ -178,6 +184,9 @@ class networkPackages extends Model
         $res = [];
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -232,6 +241,9 @@ class networkPackages extends Model
         $model = new self();
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];

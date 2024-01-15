@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListOfficeSiteUsersResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -19,9 +19,8 @@ class ListOfficeSiteUsersResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The usernames of AD users.
+     * @description The request ID.
      *
-     * This parameter is empty if the AD users include only Administrator and Guest.
      * @example 269BDB16-2CD8-4865-84BD-11C40BC21DB0
      *
      * @var string
@@ -29,8 +28,8 @@ class ListOfficeSiteUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The usernames of AD users.
-     *
+     * @description The usernames of AD users.\
+     * If the only Administrator and Guest users exist in the enterprise AD, an empty User array is returned.
      * @var users[]
      */
     public $users;

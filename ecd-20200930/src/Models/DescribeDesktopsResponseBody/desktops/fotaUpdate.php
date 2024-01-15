@@ -36,6 +36,24 @@ class fotaUpdate extends Model
     public $releaseNote;
 
     /**
+     * @description The description of the version that can be upgraded in English.
+     *
+     * @example Release note
+     *
+     * @var string
+     */
+    public $releaseNoteEn;
+
+    /**
+     * @description The description of the version that can be upgraded in Japanese.
+     *
+     * @example リリースノート
+     *
+     * @var string
+     */
+    public $releaseNoteJp;
+
+    /**
      * @description The size of the installation package for the version to which the cloud desktop can be updated. Unit: KB.
      *
      * @example 108815097
@@ -47,6 +65,8 @@ class fotaUpdate extends Model
         'currentAppVersion' => 'CurrentAppVersion',
         'newAppVersion'     => 'NewAppVersion',
         'releaseNote'       => 'ReleaseNote',
+        'releaseNoteEn'     => 'ReleaseNoteEn',
+        'releaseNoteJp'     => 'ReleaseNoteJp',
         'size'              => 'Size',
     ];
 
@@ -65,6 +85,12 @@ class fotaUpdate extends Model
         }
         if (null !== $this->releaseNote) {
             $res['ReleaseNote'] = $this->releaseNote;
+        }
+        if (null !== $this->releaseNoteEn) {
+            $res['ReleaseNoteEn'] = $this->releaseNoteEn;
+        }
+        if (null !== $this->releaseNoteJp) {
+            $res['ReleaseNoteJp'] = $this->releaseNoteJp;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
@@ -89,6 +115,12 @@ class fotaUpdate extends Model
         }
         if (isset($map['ReleaseNote'])) {
             $model->releaseNote = $map['ReleaseNote'];
+        }
+        if (isset($map['ReleaseNoteEn'])) {
+            $model->releaseNoteEn = $map['ReleaseNoteEn'];
+        }
+        if (isset($map['ReleaseNoteJp'])) {
+            $model->releaseNoteJp = $map['ReleaseNoteJp'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];

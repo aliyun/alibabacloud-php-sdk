@@ -9,6 +9,33 @@ use AlibabaCloud\Tea\Model;
 class clientTypes extends Model
 {
     /**
+     * @description The client type.
+     *
+     * Valid values:
+     *
+     *   html5: web client
+     *
+     * <!-- -->
+     *
+     *   linux
+     *
+     * <!-- -->
+     *
+     *   android
+     *
+     * <!-- -->
+     *
+     *   windows
+     *
+     * <!-- -->
+     *
+     *   ios
+     *
+     * <!-- -->
+     *
+     *   macos
+     *
+     * <!-- -->
      * @example windows
      *
      * @var string
@@ -16,6 +43,17 @@ class clientTypes extends Model
     public $clientType;
 
     /**
+     * @description Indicates whether a specific type of client is allowed to connect to the cloud desktop.
+     *
+     * Valid values:
+     *
+     *   OFF
+     *
+     * <!-- -->
+     *
+     *   ON
+     *
+     * <!-- -->
      * @example ON
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account with which the event is associated.
+     * @description The name of the cloud desktop.
      *
      * @example 112259558861****
      *
@@ -18,7 +18,7 @@ class events extends Model
     public $aliUid;
 
     /**
-     * @description The number of bytes that are received.
+     * @description The name of the cloud desktop.
      *
      * @example 8665
      *
@@ -27,7 +27,7 @@ class events extends Model
     public $bytesReceived;
 
     /**
-     * @description The number of bytes that are sent.
+     * @description The information about the regular user that connects to the cloud desktop from the EDS client. The information can be the RAM user ID or Active Directory (AD) username. If you do not specify a value for this parameter, events of all regular users in the specified region are queried.
      *
      * @example 2345
      *
@@ -36,7 +36,7 @@ class events extends Model
     public $bytesSend;
 
     /**
-     * @description The IP address of the client.
+     * @description The IP address of the cloud desktop. If you do not specify a value for this parameter, events of all cloud desktops in the specified region are queried.
      *
      * @example 100.68.*.*
      *
@@ -45,7 +45,7 @@ class events extends Model
     public $clientIp;
 
     /**
-     * @description The OS that the client runs.
+     * @description The ID of the cloud desktop.
      *
      * @example Darwin 17.7.0 x64
      *
@@ -54,7 +54,7 @@ class events extends Model
     public $clientOS;
 
     /**
-     * @description The version of the client.
+     * @description DescribeClientEvents
      *
      * @example 1.0.4 202012021700
      *
@@ -63,8 +63,6 @@ class events extends Model
     public $clientVersion;
 
     /**
-     * @description The ID of the desktop group.
-     *
      * @example dg-kadkdfaf****
      *
      * @var string
@@ -72,8 +70,6 @@ class events extends Model
     public $desktopGroupId;
 
     /**
-     * @description The name of the desktop group.
-     *
      * @example testName
      *
      * @var string
@@ -81,7 +77,7 @@ class events extends Model
     public $desktopGroupName;
 
     /**
-     * @description The ID of the cloud desktop.
+     * @description The name of the desktop group.
      *
      * @example ecd-8fupvkhg0aayu****
      *
@@ -90,7 +86,7 @@ class events extends Model
     public $desktopId;
 
     /**
-     * @description The IP address of the cloud desktop.
+     * @description The name of the workspace.
      *
      * @example 10.10.*.*
      *
@@ -99,8 +95,6 @@ class events extends Model
     public $desktopIp;
 
     /**
-     * @description The name of the cloud desktop.
-     *
      * @example test
      *
      * @var string
@@ -108,7 +102,7 @@ class events extends Model
     public $desktopName;
 
     /**
-     * @description The ID of the directory to which the cloud desktop belongs.
+     * @description The type of the event.
      *
      * @example cn-hangzhou+dir-bh77qa8nmjot4****
      *
@@ -117,7 +111,7 @@ class events extends Model
     public $directoryId;
 
     /**
-     * @description The type of the directory.
+     * @description The type of event.
      *
      * @example RAM
      *
@@ -126,8 +120,9 @@ class events extends Model
     public $directoryType;
 
     /**
-     * @description The information about the regular user that connects to the cloud desktop from the EDS client. The information can be the RAM user ID or AD username.
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
      *
+     * If you do not specify a value for this parameter, the current time is used.
      * @example 28961708130834****
      *
      * @var string
@@ -135,8 +130,17 @@ class events extends Model
     public $endUserId;
 
     /**
-     * @description The ID of the event.
+     * @description The type of event that you want to query. Valid values:
      *
+     *   DESKTOP_CONNECT: The desktop session is established.
+     *   DESKTOP_DISCONNECT: The desktop session is disconnected.
+     *   DESKTOP_REBOOT: The cloud desktop is restarted.
+     *   CLIENT_AD_LOGIN: The AD user logs on to the client.
+     *   GET_CONNECTION_TICKET: The request to connect to the cloud desktop is sent.
+     *   DESKTOP_START: The cloud desktop is started.
+     *   DESKTOP_STOP: The cloud desktop is stopped.
+     *
+     * If you do not specify a value for this parameter, events of all types are queried.
      * @example 5651188b-3070-d1cc-5311-75753d59****
      *
      * @var string
@@ -144,8 +148,9 @@ class events extends Model
     public $eventId;
 
     /**
-     * @description The time when the event occurred.
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
      *
+     * If you do not specify a value for this parameter, all events that occurred before the point in time that you specify for `EndTime` are queried.
      * @example 2020-11-30T06:32:31Z
      *
      * @var string
@@ -153,7 +158,7 @@ class events extends Model
     public $eventTime;
 
     /**
-     * @description The type of the event.
+     * @description The query token. Set the value to the NextToken value that is returned from the last call to the DescribeClientEvents operation.
      *
      * @example DESKTOP_DISCONNECT
      *
@@ -162,7 +167,7 @@ class events extends Model
     public $eventType;
 
     /**
-     * @description The ID of the workspace to which the cloud desktop belongs.
+     * @description The ID of the event.
      *
      * @example cn-hangzhou+dir-bh77qa8nmjot4****
      *
@@ -171,8 +176,6 @@ class events extends Model
     public $officeSiteId;
 
     /**
-     * @description The name of the workspace.
-     *
      * @example test
      *
      * @var string
@@ -180,10 +183,7 @@ class events extends Model
     public $officeSiteName;
 
     /**
-     * @description The account type of the workspace. Valid values:
-     *
-     *   SIMPLE: convenience account
-     *   AD_CONNECTOR: enterprise AD account
+     * @description The ID of the request.
      *
      * @example SIMPLE
      *
@@ -192,7 +192,7 @@ class events extends Model
     public $officeSiteType;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the cloud desktop. If you do not specify a value for this parameter, events of all cloud desktops in the specified region are queried.
      *
      * @example cn-hangzhou
      *
@@ -201,10 +201,7 @@ class events extends Model
     public $regionId;
 
     /**
-     * @description The status of the event. This parameter is returned if you set the EventType parameter to DESKTOP_DISCONNECT or GET_CONNECTION_TICKET. Valid values:
-     *
-     *   200\. The value indicates that the request is successful.
-     *   An error message. The value indicates that the request failed. Example: FailedToGetConnectionTicket.
+     * @description The number of bytes that are sent.
      *
      * @example 200
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
-     * @description The display name of the user.
+     * @description The display name.
      *
      * @example Alice
      *

@@ -49,7 +49,7 @@ class desktops extends Model
     public $chargeType;
 
     /**
-     * @description The connection status of the user.
+     * @description The connection status of the end user.
      *
      * @example Disconnected
      *
@@ -76,7 +76,7 @@ class desktops extends Model
     public $creationTime;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @example null
      *
@@ -85,7 +85,7 @@ class desktops extends Model
     public $dataDiskCategory;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @example null
      *
@@ -94,8 +94,9 @@ class desktops extends Model
     public $dataDiskSize;
 
     /**
-     * @description The ID of the group to which the cloud desktop belongs. Default value: null.
+     * @description The ID of the desktop group. Default value: null.
      *
+     * > This parameter is in invitational preview and is unavailable.
      * @example null
      *
      * @var string
@@ -121,7 +122,7 @@ class desktops extends Model
     public $desktopName;
 
     /**
-     * @description The state of the cloud desktop.
+     * @description The status of the cloud desktop.
      *
      * @example Running
      *
@@ -139,7 +140,7 @@ class desktops extends Model
     public $desktopType;
 
     /**
-     * @description The ID is the same as the workspace ID that is indicated by the value of the OfficeSiteId parameter.
+     * @description The ID of the directory. The ID is the same as the workspace ID that is indicated by the OfficeSiteId parameter.
      *
      * @example cn-hangzhou+dir-363353****
      *
@@ -148,7 +149,7 @@ class desktops extends Model
     public $directoryId;
 
     /**
-     * @description This parameter is in invitational preview and unavailable for general users.
+     * @description This parameter is in invitational preview and is unavailable.
      *
      * @example SIMPLE
      *
@@ -173,7 +174,7 @@ class desktops extends Model
     public $downgradeQuota;
 
     /**
-     * @description The number of times for which the cloud desktop is downgraded.
+     * @description The number of times for which the cloud desktop has been downgraded.
      *
      * @example 0
      *
@@ -182,14 +183,14 @@ class desktops extends Model
     public $downgradedTimes;
 
     /**
-     * @description The IDs of the users that have the permissions to connect to the cloud desktops.
+     * @description The IDs of the end users that have the permissions to connect to the cloud desktops.
      *
      * @var string[]
      */
     public $endUserIds;
 
     /**
-     * @description The time when the subscription cloud desktop expires.
+     * @description The time when the subscription cloud desktop expired.
      *
      * @example 2021-12-31T15:59Z
      *
@@ -232,7 +233,7 @@ class desktops extends Model
     public $gpuDriverVersion;
 
     /**
-     * @description The GPU model.
+     * @description The GPU specifications.
      *
      * @example NVIDIA T4
      *
@@ -241,7 +242,16 @@ class desktops extends Model
     public $gpuSpec;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
+     * @description > This parameter is in invitational preview and is not available for use.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $hibernationBeta;
+
+    /**
+     * @description > This parameter is in invitational preview and is not available for use.
      *
      * @example true
      *
@@ -268,13 +278,20 @@ class desktops extends Model
     public $imageId;
 
     /**
-     * @description The flag that is used for management.
+     * @description The flag that is used to manage the cloud desktops.
      *
      * @example NoFlag
      *
      * @var string
      */
     public $managementFlag;
+
+    /**
+     * @description The flag that is used to manage the cloud desktops.
+     *
+     * @var string[]
+     */
+    public $managementFlags;
 
     /**
      * @description The memory size. Unit: MiB.
@@ -373,7 +390,7 @@ class desktops extends Model
     public $policyGroupId;
 
     /**
-     * @description The IDs of the policies.
+     * @description The policies IDs.
      *
      * @var string[]
      */
@@ -389,7 +406,7 @@ class desktops extends Model
     public $policyGroupName;
 
     /**
-     * @description The names of the policies.
+     * @description The policy names.
      *
      * @var string[]
      */
@@ -414,7 +431,13 @@ class desktops extends Model
     public $protocolType;
 
     /**
-     * @description The type of the session.
+     * @description The session type.
+     *
+     * Valid values:
+     *
+     * **SINGLE_SESSION**
+     *
+     * **MULTIPLE_SESSION**
      *
      * @example SINGLE_SESSION
      *
@@ -423,7 +446,7 @@ class desktops extends Model
     public $sessionType;
 
     /**
-     * @description Details of the desktop sessions that users hold.
+     * @description Details of the desktop sessions that end users hold.
      *
      * @var sessions[]
      */
@@ -466,7 +489,7 @@ class desktops extends Model
     public $supportHibernation;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @example null
      *
@@ -475,7 +498,7 @@ class desktops extends Model
     public $systemDiskCategory;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @example 0
      *
@@ -543,10 +566,12 @@ class desktops extends Model
         'gpuCount'                     => 'GpuCount',
         'gpuDriverVersion'             => 'GpuDriverVersion',
         'gpuSpec'                      => 'GpuSpec',
+        'hibernationBeta'              => 'HibernationBeta',
         'hibernationOptionsConfigured' => 'HibernationOptionsConfigured',
         'hostName'                     => 'HostName',
         'imageId'                      => 'ImageId',
         'managementFlag'               => 'ManagementFlag',
+        'managementFlags'              => 'ManagementFlags',
         'memory'                       => 'Memory',
         'networkInterfaceId'           => 'NetworkInterfaceId',
         'networkInterfaceIp'           => 'NetworkInterfaceIp',
@@ -667,6 +692,9 @@ class desktops extends Model
         if (null !== $this->gpuSpec) {
             $res['GpuSpec'] = $this->gpuSpec;
         }
+        if (null !== $this->hibernationBeta) {
+            $res['HibernationBeta'] = $this->hibernationBeta;
+        }
         if (null !== $this->hibernationOptionsConfigured) {
             $res['HibernationOptionsConfigured'] = $this->hibernationOptionsConfigured;
         }
@@ -678,6 +706,9 @@ class desktops extends Model
         }
         if (null !== $this->managementFlag) {
             $res['ManagementFlag'] = $this->managementFlag;
+        }
+        if (null !== $this->managementFlags) {
+            $res['ManagementFlags'] = $this->managementFlags;
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
@@ -870,6 +901,9 @@ class desktops extends Model
         if (isset($map['GpuSpec'])) {
             $model->gpuSpec = $map['GpuSpec'];
         }
+        if (isset($map['HibernationBeta'])) {
+            $model->hibernationBeta = $map['HibernationBeta'];
+        }
         if (isset($map['HibernationOptionsConfigured'])) {
             $model->hibernationOptionsConfigured = $map['HibernationOptionsConfigured'];
         }
@@ -881,6 +915,11 @@ class desktops extends Model
         }
         if (isset($map['ManagementFlag'])) {
             $model->managementFlag = $map['ManagementFlag'];
+        }
+        if (isset($map['ManagementFlags'])) {
+            if (!empty($map['ManagementFlags'])) {
+                $model->managementFlags = $map['ManagementFlags'];
+            }
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];

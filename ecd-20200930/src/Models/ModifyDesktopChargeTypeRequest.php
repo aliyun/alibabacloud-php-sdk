@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesktopChargeTypeRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment if you specify subscription as the new billing method for the cloud desktop.
+     * @description The IDs of the cloud desktops. You can specify 1 to 20 IDs.
      *
      * @example false
      *
@@ -18,7 +18,7 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $autoPay;
 
     /**
-     * @description The new billing method that you want to use for the desktop group.
+     * @description The ID of the sales promotion.
      *
      * @example PrePaid
      *
@@ -27,7 +27,7 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $chargeType;
 
     /**
-     * @description The IDs of the cloud desktops. You can specify 1 to 20 IDs.
+     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
      *
      * @example ecd-gx2x1dhsmucyy****
      *
@@ -36,11 +36,7 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $desktopId;
 
     /**
-     * @description The subscription duration if you specify subscription as the new billing method for the cloud desktop. The unit of the value is specified by the `PeriodUnit` parameter. This parameter takes effect only when the `ChargeType` parameter is set to `PrePaid`.
-     *
-     *   If the `PeriodUnit` parameter is set to `Week`, the valid value of the Period parameter is 1.
-     *   If the `PeriodUnit` parameter is set to `Month`, the valid values of the Period parameter are 1, 2, 3, and 6.
-     *   If the `PeriodUnit` parameter is set to `Year`, the valid values of the Period parameter are 1, 2, 3, 4, and 5.
+     * @description Specifies whether to enable automatic payment if you specify subscription as the new billing method for the cloud desktop.
      *
      * @example 1
      *
@@ -49,7 +45,7 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the subscription duration if you specify subscription as the new billing method for the cloud desktop.
+     * @description The IDs of the desktop groups. If multiple cloud desktops are created at a time, multiple cloud desktop IDs are returned.
      *
      * @example Month
      *
@@ -58,7 +54,7 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The ID of the sales promotion.
+     * @description The unit of the subscription duration if you specify subscription as the new billing method for the cloud desktop.
      *
      * @example 500038360030606
      *
@@ -67,13 +63,24 @@ class ModifyDesktopChargeTypeRequest extends Model
     public $promotionId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~196646~~) operation to query the most recent region list.
+     * @description The subscription duration if you specify subscription as the new billing method for the cloud desktop. The unit of the value is specified by the `PeriodUnit` parameter. This parameter takes effect only when the `ChargeType` parameter is set to `PrePaid`.
+     *
+     *   If the `PeriodUnit` parameter is set to `Week`, the valid value of the Period parameter is 1.
+     *   If the `PeriodUnit` parameter is set to `Month`, the valid values of the Period parameter are 1, 2, 3, and 6.
+     *   If the `PeriodUnit` parameter is set to `Year`, the valid values of the Period parameter are 1, 2, 3, 4, and 5.
      *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description >  This parameter is in invitational preview and not available to the public.
+     *
+     * @var int
+     */
+    public $useDuration;
     protected $_name = [
         'autoPay'     => 'AutoPay',
         'chargeType'  => 'ChargeType',
@@ -82,6 +89,7 @@ class ModifyDesktopChargeTypeRequest extends Model
         'periodUnit'  => 'PeriodUnit',
         'promotionId' => 'PromotionId',
         'regionId'    => 'RegionId',
+        'useDuration' => 'UseDuration',
     ];
 
     public function validate()
@@ -111,6 +119,9 @@ class ModifyDesktopChargeTypeRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->useDuration) {
+            $res['UseDuration'] = $this->useDuration;
         }
 
         return $res;
@@ -146,6 +157,9 @@ class ModifyDesktopChargeTypeRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['UseDuration'])) {
+            $model->useDuration = $map['UseDuration'];
         }
 
         return $model;
