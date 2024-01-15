@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Dm\V20170622\Models\AddIpfilterRequest;
 use AlibabaCloud\SDK\Dm\V20170622\Models\AddIpfilterResponse;
 use AlibabaCloud\SDK\Dm\V20170622\Models\BatchSendMailRequest;
 use AlibabaCloud\SDK\Dm\V20170622\Models\BatchSendMailResponse;
+use AlibabaCloud\SDK\Dm\V20170622\Models\CheckDomainDnsRequest;
+use AlibabaCloud\SDK\Dm\V20170622\Models\CheckDomainDnsResponse;
 use AlibabaCloud\SDK\Dm\V20170622\Models\CheckDomainRequest;
 use AlibabaCloud\SDK\Dm\V20170622\Models\CheckDomainResponse;
 use AlibabaCloud\SDK\Dm\V20170622\Models\CreateDomainRequest;
@@ -295,6 +297,61 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckDomainDnsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CheckDomainDnsResponse
+     */
+    public function checkDomainDnsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckDomainDns',
+            'version'     => '2017-06-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckDomainDnsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckDomainDnsRequest $request
+     *
+     * @return CheckDomainDnsResponse
+     */
+    public function checkDomainDns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkDomainDnsWithOptions($request, $runtime);
     }
 
     /**
@@ -978,6 +1035,9 @@ class Dm extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->requireRealTimeDnsRecords)) {
+            $query['RequireRealTimeDnsRecords'] = $request->requireRealTimeDnsRecords;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;

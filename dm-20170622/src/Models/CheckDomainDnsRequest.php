@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dm\V20170622\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescDomainRequest extends Model
+class CheckDomainDnsRequest extends Model
 {
     /**
      * @var int
@@ -19,11 +19,6 @@ class DescDomainRequest extends Model
     public $ownerId;
 
     /**
-     * @var bool
-     */
-    public $requireRealTimeDnsRecords;
-
-    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -32,12 +27,17 @@ class DescDomainRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'domainId'                  => 'DomainId',
-        'ownerId'                   => 'OwnerId',
-        'requireRealTimeDnsRecords' => 'RequireRealTimeDnsRecords',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
+        'domainId'             => 'DomainId',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'type'                 => 'Type',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class DescDomainRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->requireRealTimeDnsRecords) {
-            $res['RequireRealTimeDnsRecords'] = $this->requireRealTimeDnsRecords;
-        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -69,7 +69,7 @@ class DescDomainRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescDomainRequest
+     * @return CheckDomainDnsRequest
      */
     public static function fromMap($map = [])
     {
@@ -80,14 +80,14 @@ class DescDomainRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['RequireRealTimeDnsRecords'])) {
-            $model->requireRealTimeDnsRecords = $map['RequireRealTimeDnsRecords'];
-        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

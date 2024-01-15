@@ -49,6 +49,26 @@ class DescDomainResponseBody extends Model
     public $dkimRR;
 
     /**
+     * @var int
+     */
+    public $dmarcAuthStatus;
+
+    /**
+     * @var string
+     */
+    public $dmarcHostRecord;
+
+    /**
+     * @var string
+     */
+    public $dmarcRecord;
+
+    /**
+     * @var string
+     */
+    public $dnsDmarc;
+
+    /**
      * @var string
      */
     public $dnsMx;
@@ -141,6 +161,10 @@ class DescDomainResponseBody extends Model
         'dkimAuthStatus'     => 'DkimAuthStatus',
         'dkimPublicKey'      => 'DkimPublicKey',
         'dkimRR'             => 'DkimRR',
+        'dmarcAuthStatus'    => 'DmarcAuthStatus',
+        'dmarcHostRecord'    => 'DmarcHostRecord',
+        'dmarcRecord'        => 'DmarcRecord',
+        'dnsDmarc'           => 'DnsDmarc',
         'dnsMx'              => 'DnsMx',
         'dnsSpf'             => 'DnsSpf',
         'dnsTxt'             => 'DnsTxt',
@@ -190,6 +214,18 @@ class DescDomainResponseBody extends Model
         }
         if (null !== $this->dkimRR) {
             $res['DkimRR'] = $this->dkimRR;
+        }
+        if (null !== $this->dmarcAuthStatus) {
+            $res['DmarcAuthStatus'] = $this->dmarcAuthStatus;
+        }
+        if (null !== $this->dmarcHostRecord) {
+            $res['DmarcHostRecord'] = $this->dmarcHostRecord;
+        }
+        if (null !== $this->dmarcRecord) {
+            $res['DmarcRecord'] = $this->dmarcRecord;
+        }
+        if (null !== $this->dnsDmarc) {
+            $res['DnsDmarc'] = $this->dnsDmarc;
         }
         if (null !== $this->dnsMx) {
             $res['DnsMx'] = $this->dnsMx;
@@ -277,6 +313,18 @@ class DescDomainResponseBody extends Model
         }
         if (isset($map['DkimRR'])) {
             $model->dkimRR = $map['DkimRR'];
+        }
+        if (isset($map['DmarcAuthStatus'])) {
+            $model->dmarcAuthStatus = $map['DmarcAuthStatus'];
+        }
+        if (isset($map['DmarcHostRecord'])) {
+            $model->dmarcHostRecord = $map['DmarcHostRecord'];
+        }
+        if (isset($map['DmarcRecord'])) {
+            $model->dmarcRecord = $map['DmarcRecord'];
+        }
+        if (isset($map['DnsDmarc'])) {
+            $model->dnsDmarc = $map['DnsDmarc'];
         }
         if (isset($map['DnsMx'])) {
             $model->dnsMx = $map['DnsMx'];
