@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetEngineDefaultAuthRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetEngineDefaultAuthResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceSecurityGroupsRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceSecurityGroupsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsComputeGroupRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsComputeGroupResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsNamespacedQuotaRequest;
@@ -52,6 +54,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateInstanceIpWhiteListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateInstanceIpWhiteListResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateInstanceSecurityGroupsRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateInstanceSecurityGroupsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLdpsComputeGroupRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLdpsComputeGroupResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpgradeLindormInstanceRequest;
@@ -638,6 +642,64 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceIpWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetInstanceSecurityGroupsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetInstanceSecurityGroupsResponse
+     */
+    public function getInstanceSecurityGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInstanceSecurityGroups',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInstanceSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetInstanceSecurityGroupsRequest $request
+     *
+     * @return GetInstanceSecurityGroupsResponse
+     */
+    public function getInstanceSecurityGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceSecurityGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -1698,6 +1760,67 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateInstanceIpWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateInstanceSecurityGroupsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateInstanceSecurityGroupsResponse
+     */
+    public function updateInstanceSecurityGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityGroups)) {
+            $query['SecurityGroups'] = $request->securityGroups;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateInstanceSecurityGroups',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateInstanceSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateInstanceSecurityGroupsRequest $request
+     *
+     * @return UpdateInstanceSecurityGroupsResponse
+     */
+    public function updateInstanceSecurityGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateInstanceSecurityGroupsWithOptions($request, $runtime);
     }
 
     /**
