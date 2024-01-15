@@ -2924,6 +2924,9 @@ class XrEngine extends OpenApiClient
         if (!Utils::isUnset($request->clothingType)) {
             $query['ClothingType'] = $request->clothingType;
         }
+        if (!Utils::isUnset($request->generatePictureNum)) {
+            $query['GeneratePictureNum'] = $request->generatePictureNum;
+        }
         if (!Utils::isUnset($request->jwtToken)) {
             $query['JwtToken'] = $request->jwtToken;
         }

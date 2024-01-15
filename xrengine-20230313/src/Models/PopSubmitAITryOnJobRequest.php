@@ -19,6 +19,11 @@ class PopSubmitAITryOnJobRequest extends Model
     public $clothingType;
 
     /**
+     * @var int
+     */
+    public $generatePictureNum;
+
+    /**
      * @var string
      */
     public $jwtToken;
@@ -43,13 +48,14 @@ class PopSubmitAITryOnJobRequest extends Model
      */
     public $topsId;
     protected $_name = [
-        'bottomsId'    => 'BottomsId',
-        'clothingType' => 'ClothingType',
-        'jwtToken'     => 'JwtToken',
-        'modelId'      => 'ModelId',
-        'shoeType'     => 'ShoeType',
-        'suitId'       => 'SuitId',
-        'topsId'       => 'TopsId',
+        'bottomsId'          => 'BottomsId',
+        'clothingType'       => 'ClothingType',
+        'generatePictureNum' => 'GeneratePictureNum',
+        'jwtToken'           => 'JwtToken',
+        'modelId'            => 'ModelId',
+        'shoeType'           => 'ShoeType',
+        'suitId'             => 'SuitId',
+        'topsId'             => 'TopsId',
     ];
 
     public function validate()
@@ -64,6 +70,9 @@ class PopSubmitAITryOnJobRequest extends Model
         }
         if (null !== $this->clothingType) {
             $res['ClothingType'] = $this->clothingType;
+        }
+        if (null !== $this->generatePictureNum) {
+            $res['GeneratePictureNum'] = $this->generatePictureNum;
         }
         if (null !== $this->jwtToken) {
             $res['JwtToken'] = $this->jwtToken;
@@ -97,6 +106,9 @@ class PopSubmitAITryOnJobRequest extends Model
         }
         if (isset($map['ClothingType'])) {
             $model->clothingType = $map['ClothingType'];
+        }
+        if (isset($map['GeneratePictureNum'])) {
+            $model->generatePictureNum = $map['GeneratePictureNum'];
         }
         if (isset($map['JwtToken'])) {
             $model->jwtToken = $map['JwtToken'];
