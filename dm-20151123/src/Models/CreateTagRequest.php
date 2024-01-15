@@ -24,6 +24,11 @@ class CreateTagRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $tagDescription;
+
+    /**
      * @example vme
      *
      * @var string
@@ -33,6 +38,7 @@ class CreateTagRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'tagDescription'       => 'TagDescription',
         'tagName'              => 'TagName',
     ];
 
@@ -51,6 +57,9 @@ class CreateTagRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tagDescription) {
+            $res['TagDescription'] = $this->tagDescription;
         }
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
@@ -75,6 +84,9 @@ class CreateTagRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['TagDescription'])) {
+            $model->tagDescription = $map['TagDescription'];
         }
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];

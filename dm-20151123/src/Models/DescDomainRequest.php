@@ -21,6 +21,11 @@ class DescDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @var bool
+     */
+    public $requireRealTimeDnsRecords;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -30,10 +35,11 @@ class DescDomainRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'domainId'             => 'DomainId',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'domainId'                  => 'DomainId',
+        'ownerId'                   => 'OwnerId',
+        'requireRealTimeDnsRecords' => 'RequireRealTimeDnsRecords',
+        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
+        'resourceOwnerId'           => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -48,6 +54,9 @@ class DescDomainRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->requireRealTimeDnsRecords) {
+            $res['RequireRealTimeDnsRecords'] = $this->requireRealTimeDnsRecords;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -72,6 +81,9 @@ class DescDomainRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RequireRealTimeDnsRecords'])) {
+            $model->requireRealTimeDnsRecords = $map['RequireRealTimeDnsRecords'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
