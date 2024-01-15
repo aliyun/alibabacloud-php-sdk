@@ -16,12 +16,22 @@ class registrations extends Model
     /**
      * @var string
      */
+    public $createdDate;
+
+    /**
+     * @var string
+     */
     public $detail;
 
     /**
      * @var string
      */
     public $registrationId;
+
+    /**
+     * @var string
+     */
+    public $showPages;
 
     /**
      * @var string
@@ -42,14 +52,22 @@ class registrations extends Model
      * @var string
      */
     public $templateVersion;
+
+    /**
+     * @var string
+     */
+    public $updatedDate;
     protected $_name = [
         'comment'         => 'Comment',
+        'createdDate'     => 'CreatedDate',
         'detail'          => 'Detail',
         'registrationId'  => 'RegistrationId',
+        'showPages'       => 'ShowPages',
         'status'          => 'Status',
         'templateId'      => 'TemplateId',
         'templateName'    => 'TemplateName',
         'templateVersion' => 'TemplateVersion',
+        'updatedDate'     => 'UpdatedDate',
     ];
 
     public function validate()
@@ -62,11 +80,17 @@ class registrations extends Model
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+        if (null !== $this->createdDate) {
+            $res['CreatedDate'] = $this->createdDate;
+        }
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
         }
         if (null !== $this->registrationId) {
             $res['RegistrationId'] = $this->registrationId;
+        }
+        if (null !== $this->showPages) {
+            $res['ShowPages'] = $this->showPages;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -79,6 +103,9 @@ class registrations extends Model
         }
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
+        }
+        if (null !== $this->updatedDate) {
+            $res['UpdatedDate'] = $this->updatedDate;
         }
 
         return $res;
@@ -95,11 +122,17 @@ class registrations extends Model
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+        if (isset($map['CreatedDate'])) {
+            $model->createdDate = $map['CreatedDate'];
+        }
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
         }
         if (isset($map['RegistrationId'])) {
             $model->registrationId = $map['RegistrationId'];
+        }
+        if (isset($map['ShowPages'])) {
+            $model->showPages = $map['ShowPages'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
@@ -112,6 +145,9 @@ class registrations extends Model
         }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
+        }
+        if (isset($map['UpdatedDate'])) {
+            $model->updatedDate = $map['UpdatedDate'];
         }
 
         return $model;
