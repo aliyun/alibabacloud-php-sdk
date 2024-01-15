@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ConsumerGroupHeartBeatRequest extends Model
 {
     /**
+     * @description The IDs of shards whose data is being consumed.
+     *
      * @var int[]
      */
     public $body;
 
     /**
+     * @description The consumer.
+     *
      * @example consumer_1
      *
      * @var string

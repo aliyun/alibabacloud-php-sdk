@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListConfigResponseBody extends Model
 {
     /**
+     * @description The Logtail configurations that are returned on the current page.
+     *
      * @var string[]
      */
     public $configs;
 
     /**
+     * @description The number of Logtail configurations that are returned on the current page.
+     *
      * @example 3
      *
      * @var int
@@ -21,6 +25,8 @@ class ListConfigResponseBody extends Model
     public $count;
 
     /**
+     * @description The total number of Logtail configurations that meet the query conditions.
+     *
      * @example 2
      *
      * @var int

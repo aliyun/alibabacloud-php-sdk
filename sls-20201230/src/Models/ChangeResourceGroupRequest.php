@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-aek2i7nhaxifxey
      *
      * @var string
@@ -16,6 +18,8 @@ class ChangeResourceGroupRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the resource.
+     *
      * @example ali-test-project
      *
      * @var string
@@ -23,6 +27,8 @@ class ChangeResourceGroupRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource. Only PROJECT is supported. Set the value to PROJECT.
+     *
      * @example PROJECT
      *
      * @var string

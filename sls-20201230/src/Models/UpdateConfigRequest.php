@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateConfigRequest extends Model
 {
     /**
+     * @description The body of the request.
+     *
      * @var LogtailConfig
      */
     public $body;

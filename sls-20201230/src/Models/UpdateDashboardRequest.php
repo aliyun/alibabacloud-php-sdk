@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateDashboardRequest extends Model
 {
     /**
+     * @description The attributes of the dashboard.
+     *
      * @var string[]
      */
     public $attribute;
 
     /**
+     * @description The charts on the dashboard.
+     *
      * @var Chart[]
      */
     public $charts;
 
     /**
+     * @description The name of the dashboard.
+     *
      * @example dashboard-1609294922657-434834
      *
      * @var string
@@ -26,6 +32,8 @@ class UpdateDashboardRequest extends Model
     public $dashboardName;
 
     /**
+     * @description The description of the dashboard.
+     *
      * @example test dashboard.
      *
      * @var string
@@ -33,6 +41,8 @@ class UpdateDashboardRequest extends Model
     public $description;
 
     /**
+     * @description The display name of the dashboard.
+     *
      * @example Method pv
      *
      * @var string

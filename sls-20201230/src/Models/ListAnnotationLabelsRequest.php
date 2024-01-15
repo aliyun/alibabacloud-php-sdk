@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAnnotationLabelsRequest extends Model
 {
     /**
+     * @description The line from which the query starts.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class ListAnnotationLabelsRequest extends Model
     public $offset;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 100
      *
      * @var int

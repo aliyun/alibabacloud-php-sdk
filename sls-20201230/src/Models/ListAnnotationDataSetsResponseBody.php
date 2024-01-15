@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListAnnotationDataSetsResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var MLDataSetParam[]
      */
     public $data;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 20
      *
      * @var int

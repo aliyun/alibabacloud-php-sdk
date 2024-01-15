@@ -2,32 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOssExternalStoreRequest\parameter;
+namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class columns extends Model
+class JoinConfiguration extends Model
 {
     /**
-     * @description The name of the field.
-     *
-     * @example test
+     * @example $0.id == $1.id
      *
      * @var string
      */
-    public $name;
+    public $condition;
 
     /**
-     * @description The type of the field.
-     *
-     * @example varchar
+     * @example left_join
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'name' => 'name',
-        'type' => 'type',
+        'condition' => 'condition',
+        'type'      => 'type',
     ];
 
     public function validate()
@@ -37,8 +33,8 @@ class columns extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
+        if (null !== $this->condition) {
+            $res['condition'] = $this->condition;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -50,13 +46,13 @@ class columns extends Model
     /**
      * @param array $map
      *
-     * @return columns
+     * @return JoinConfiguration
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
+        if (isset($map['condition'])) {
+            $model->condition = $map['condition'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

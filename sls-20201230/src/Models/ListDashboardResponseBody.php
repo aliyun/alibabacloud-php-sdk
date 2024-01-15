@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDashboardResponseBody extends Model
 {
     /**
+     * @description The details of the dashboard.
+     *
      * @var dashboardItems[]
      */
     public $dashboardItems;
 
     /**
+     * @description The queried dashboards. Each dashboard in the array is specified by dashboardName.
+     *
      * @var string[]
      */
     public $dashboards;

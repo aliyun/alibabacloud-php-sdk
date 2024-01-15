@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateLogtailPipelineConfigRequest extends Model
 {
     /**
+     * @description The aggregation plug-ins.
+     *
      * @var mixed[][]
      */
     public $aggregators;
 
     /**
+     * @description The name of the configuration.
+     *
      * @example test-config
      *
      * @var string
@@ -21,26 +25,38 @@ class CreateLogtailPipelineConfigRequest extends Model
     public $configName;
 
     /**
+     * @description The data output plug-ins.
+     *
      * @var mixed[][]
      */
     public $flushers;
 
     /**
+     * @description The global configuration.
+     *
      * @var mixed[]
      */
     public $global;
 
     /**
+     * @description The data source plug-ins.
+     *
      * @var mixed[][]
      */
     public $inputs;
 
     /**
+     * @description The sample log.
+     *
+     * @example 2022-06-14 11:13:29.796 | DEBUG    | __main__:<module>:1 - hello world
+     *
      * @var string
      */
     public $logSample;
 
     /**
+     * @description The processing plug-ins.
+     *
      * @var mixed[][]
      */
     public $processors;

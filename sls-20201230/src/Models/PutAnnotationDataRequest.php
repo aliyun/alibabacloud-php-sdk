@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutAnnotationDataRequest extends Model
 {
     /**
+     * @description The unique identifier of the data.
+     *
      * @example 2156d560fc7c01420542df92cd6365ds
      *
      * @var string
@@ -16,11 +18,15 @@ class PutAnnotationDataRequest extends Model
     public $annotationdataId;
 
     /**
+     * @description The data structure of the request.
+     *
      * @var MLDataParam
      */
     public $mlDataParam;
 
     /**
+     * @description The raw log data.
+     *
      * @var string[][]
      */
     public $rawLog;

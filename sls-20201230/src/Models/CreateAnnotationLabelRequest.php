@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAnnotationLabelRequest extends Model
 {
     /**
+     * @description The data structure of the request.
+     *
      * @var MLLabelParam
      */
     public $body;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateAnnotationDataSetRequest extends Model
 {
     /**
+     * @description The data structure of the request.
+     *
      * @var MLDataSetParam
      */
     public $body;
 
     /**
+     * @description The unique identifier of the dataset.
+     *
      * @example cb8cc4eb51a85e823471cdb368fae9be
      *
      * @var string

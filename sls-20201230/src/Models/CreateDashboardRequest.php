@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDashboardRequest extends Model
 {
     /**
+     * @description The data structure of the dashboard.
+     *
      * @var Dashboard
      */
     public $body;

@@ -37,14 +37,14 @@ class parameter extends Model
     public $bucket;
 
     /**
-     * @description The associated fields.
+     * @description The fields that are associated to the external store.
      *
      * @var columns[]
      */
     public $columns;
 
     /**
-     * @description The OSS endpoint.
+     * @description The Object Storage Service (OSS) endpoint.
      *
      * @example oss-cn-hangzhou.aliyuncs.com
      *
@@ -53,7 +53,7 @@ class parameter extends Model
     public $endpoint;
 
     /**
-     * @description The associated objects.
+     * @description The names of the OSS objects that are associated to the external store.
      *
      * @var string[]
      */

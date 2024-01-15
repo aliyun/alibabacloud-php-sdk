@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dashboardItems extends Model
 {
     /**
+     * @description The dashboard ID. The ID must be unique in a project. Fuzzy search is supported. For example, if you enter da, all dashboards whose IDs start with da are queried.
+     *
      * @example dashboard-1609294922657-434834
      *
      * @var string
@@ -16,6 +18,8 @@ class dashboardItems extends Model
     public $dashboardName;
 
     /**
+     * @description The display name of the dashboard.
+     *
      * @example data-ingest
      *
      * @var string

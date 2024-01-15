@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAnnotationLabelRequest extends Model
 {
     /**
+     * @description The data structure of the request.
+     *
      * @var MLLabelParam
      */
     public $body;

@@ -2,32 +2,26 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOssExternalStoreRequest\parameter;
+namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class columns extends Model
+class GroupConfiguration extends Model
 {
     /**
-     * @description The name of the field.
-     *
-     * @example test
-     *
-     * @var string
+     * @var string[]
      */
-    public $name;
+    public $fileds;
 
     /**
-     * @description The type of the field.
-     *
-     * @example varchar
+     * @example custom
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'name' => 'name',
-        'type' => 'type',
+        'fileds' => 'fileds',
+        'type'   => 'type',
     ];
 
     public function validate()
@@ -37,8 +31,8 @@ class columns extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
+        if (null !== $this->fileds) {
+            $res['fileds'] = $this->fileds;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -50,13 +44,15 @@ class columns extends Model
     /**
      * @param array $map
      *
-     * @return columns
+     * @return GroupConfiguration
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
+        if (isset($map['fileds'])) {
+            if (!empty($map['fileds'])) {
+                $model->fileds = $map['fileds'];
+            }
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

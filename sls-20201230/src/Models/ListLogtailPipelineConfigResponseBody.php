@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListLogtailPipelineConfigResponseBody extends Model
 {
     /**
+     * @description The Logtail pipeline configurations that are returned on the current page.
+     *
      * @var string[]
      */
     public $configs;
 
     /**
+     * @description The number of Logtail pipeline configurations that are returned on the current page.
+     *
      * @example 10
      *
      * @var int
@@ -21,6 +25,8 @@ class ListLogtailPipelineConfigResponseBody extends Model
     public $count;
 
     /**
+     * @description The total number of Logtail pipeline configurations in the current project.
+     *
      * @example 20
      *
      * @var int

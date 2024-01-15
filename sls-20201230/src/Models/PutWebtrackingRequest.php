@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class PutWebtrackingRequest extends Model
 {
     /**
+     * @description The logs. Each element is a JSON object that indicates a log.
+     *
+     * >  **Note**: The time in a log that is collected by using the web tracking feature is the time at which Simple Log Service receives the log. You do not need to configure the \__time\_\_ field for each log. If this field exists, it is overwritten by the time at which Simple Log Service receives the log.
      * @var string[][]
      */
     public $logs;
 
     /**
+     * @description The source of the logs.
+     *
      * @example source
      *
      * @var string
@@ -21,11 +26,15 @@ class PutWebtrackingRequest extends Model
     public $source;
 
     /**
+     * @description The tags of the logs.
+     *
      * @var string[]
      */
     public $tags;
 
     /**
+     * @description The topic of the logs.
+     *
      * @example topic
      *
      * @var string

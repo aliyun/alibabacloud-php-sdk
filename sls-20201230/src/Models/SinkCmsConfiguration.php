@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateAnnotationDataSetRequest extends Model
+class SinkCmsConfiguration extends Model
 {
     /**
-     * @description The data structure of the request.
+     * @example true
      *
-     * @var MLDataSetParam
+     * @var bool
      */
-    public $body;
+    public $enabled;
     protected $_name = [
-        'body' => 'body',
+        'enabled' => 'enabled',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class UpdateAnnotationDataSetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->enabled) {
+            $res['enabled'] = $this->enabled;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class UpdateAnnotationDataSetRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateAnnotationDataSetRequest
+     * @return SinkCmsConfiguration
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = MLDataSetParam::fromMap($map['body']);
+        if (isset($map['enabled'])) {
+            $model->enabled = $map['enabled'];
         }
 
         return $model;

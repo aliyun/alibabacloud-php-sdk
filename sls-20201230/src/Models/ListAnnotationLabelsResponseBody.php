@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListAnnotationLabelsResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var MLLabelParam[]
      */
     public $data;
 
     /**
+     * @description The total number of tags that meet the query conditions.
+     *
      * @example 20
      *
      * @var int

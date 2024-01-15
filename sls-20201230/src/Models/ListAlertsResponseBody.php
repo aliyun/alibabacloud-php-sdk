@@ -6,38 +6,26 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListLogStoresResponseBody extends Model
+class ListAlertsResponseBody extends Model
 {
     /**
-     * @description The number of entries returned on the current page.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The Logstores that meet the query conditions.
-     *
-     * @example ["test-1","test-2"]
-     *
-     * @var string[]
+     * @var AlertResp[]
      */
-    public $logstores;
+    public $results;
 
     /**
-     * @description The number of the Logstores that meet the query conditions.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'count'     => 'count',
-        'logstores' => 'logstores',
-        'total'     => 'total',
+        'count'   => 'count',
+        'results' => 'results',
+        'total'   => 'total',
     ];
 
     public function validate()
@@ -50,8 +38,14 @@ class ListLogStoresResponseBody extends Model
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
-        if (null !== $this->logstores) {
-            $res['logstores'] = $this->logstores;
+        if (null !== $this->results) {
+            $res['results'] = [];
+            if (null !== $this->results && \is_array($this->results)) {
+                $n = 0;
+                foreach ($this->results as $item) {
+                    $res['results'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->total) {
             $res['total'] = $this->total;
@@ -63,7 +57,7 @@ class ListLogStoresResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListLogStoresResponseBody
+     * @return ListAlertsResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -71,9 +65,13 @@ class ListLogStoresResponseBody extends Model
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
-        if (isset($map['logstores'])) {
-            if (!empty($map['logstores'])) {
-                $model->logstores = $map['logstores'];
+        if (isset($map['results'])) {
+            if (!empty($map['results'])) {
+                $model->results = [];
+                $n              = 0;
+                foreach ($map['results'] as $item) {
+                    $model->results[$n++] = null !== $item ? AlertResp::fromMap($item) : $item;
+                }
             }
         }
         if (isset($map['total'])) {

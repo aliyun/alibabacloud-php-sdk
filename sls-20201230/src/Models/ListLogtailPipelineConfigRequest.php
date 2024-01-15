@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListLogtailPipelineConfigRequest extends Model
 {
     /**
+     * @description The name of the Logtail pipeline configuration.
+     *
+     * @example logtail-config-sample
+     *
      * @var string
      */
     public $configName;
 
     /**
+     * @description The name of the Logstore.
+     *
      * @example test-logstore
      *
      * @var string
@@ -21,6 +27,8 @@ class ListLogtailPipelineConfigRequest extends Model
     public $logstoreName;
 
     /**
+     * @description The line from which the query starts.
+     *
      * @example 0
      *
      * @var int
@@ -28,6 +36,8 @@ class ListLogtailPipelineConfigRequest extends Model
     public $offset;
 
     /**
+     * @description The number of Logtail pipeline configurations per page.
+     *
      * @example 20
      *
      * @var int

@@ -6,12 +6,10 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateAnnotationDataSetRequest extends Model
+class UpdateAlertRequest extends Model
 {
     /**
-     * @description The data structure of the request.
-     *
-     * @var MLDataSetParam
+     * @var UpdateAlertReq
      */
     public $body;
     protected $_name = [
@@ -35,13 +33,13 @@ class UpdateAnnotationDataSetRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateAnnotationDataSetRequest
+     * @return UpdateAlertRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
-            $model->body = MLDataSetParam::fromMap($map['body']);
+            $model->body = UpdateAlertReq::fromMap($map['body']);
         }
 
         return $model;
