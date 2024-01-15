@@ -23,6 +23,11 @@ class GetConnectionTicketResponseBody extends Model
     public $appInstanceId;
 
     /**
+     * @var string
+     */
+    public $appInstancePersistentId;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
@@ -69,15 +74,16 @@ class GetConnectionTicketResponseBody extends Model
      */
     public $ticket;
     protected $_name = [
-        'appInstanceGroupId' => 'AppInstanceGroupId',
-        'appInstanceId'      => 'AppInstanceId',
-        'bizRegionId'        => 'BizRegionId',
-        'osType'             => 'OsType',
-        'requestId'          => 'RequestId',
-        'taskId'             => 'TaskId',
-        'taskStatus'         => 'TaskStatus',
-        'tenantId'           => 'TenantId',
-        'ticket'             => 'Ticket',
+        'appInstanceGroupId'      => 'AppInstanceGroupId',
+        'appInstanceId'           => 'AppInstanceId',
+        'appInstancePersistentId' => 'AppInstancePersistentId',
+        'bizRegionId'             => 'BizRegionId',
+        'osType'                  => 'OsType',
+        'requestId'               => 'RequestId',
+        'taskId'                  => 'TaskId',
+        'taskStatus'              => 'TaskStatus',
+        'tenantId'                => 'TenantId',
+        'ticket'                  => 'Ticket',
     ];
 
     public function validate()
@@ -92,6 +98,9 @@ class GetConnectionTicketResponseBody extends Model
         }
         if (null !== $this->appInstanceId) {
             $res['AppInstanceId'] = $this->appInstanceId;
+        }
+        if (null !== $this->appInstancePersistentId) {
+            $res['AppInstancePersistentId'] = $this->appInstancePersistentId;
         }
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
@@ -131,6 +140,9 @@ class GetConnectionTicketResponseBody extends Model
         }
         if (isset($map['AppInstanceId'])) {
             $model->appInstanceId = $map['AppInstanceId'];
+        }
+        if (isset($map['AppInstancePersistentId'])) {
+            $model->appInstancePersistentId = $map['AppInstancePersistentId'];
         }
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];

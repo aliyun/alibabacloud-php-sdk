@@ -23,6 +23,11 @@ class UnbindRequest extends Model
     public $appInstanceId;
 
     /**
+     * @var string
+     */
+    public $appInstancePersistentId;
+
+    /**
      * @example alice
      *
      * @var string
@@ -36,10 +41,11 @@ class UnbindRequest extends Model
      */
     public $productType;
     protected $_name = [
-        'appInstanceGroupId' => 'AppInstanceGroupId',
-        'appInstanceId'      => 'AppInstanceId',
-        'endUserId'          => 'EndUserId',
-        'productType'        => 'ProductType',
+        'appInstanceGroupId'      => 'AppInstanceGroupId',
+        'appInstanceId'           => 'AppInstanceId',
+        'appInstancePersistentId' => 'AppInstancePersistentId',
+        'endUserId'               => 'EndUserId',
+        'productType'             => 'ProductType',
     ];
 
     public function validate()
@@ -54,6 +60,9 @@ class UnbindRequest extends Model
         }
         if (null !== $this->appInstanceId) {
             $res['AppInstanceId'] = $this->appInstanceId;
+        }
+        if (null !== $this->appInstancePersistentId) {
+            $res['AppInstancePersistentId'] = $this->appInstancePersistentId;
         }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
@@ -78,6 +87,9 @@ class UnbindRequest extends Model
         }
         if (isset($map['AppInstanceId'])) {
             $model->appInstanceId = $map['AppInstanceId'];
+        }
+        if (isset($map['AppInstancePersistentId'])) {
+            $model->appInstancePersistentId = $map['AppInstancePersistentId'];
         }
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];

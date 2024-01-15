@@ -28,6 +28,11 @@ class ListAppInstanceGroupRequest extends Model
     public $appInstanceGroupName;
 
     /**
+     * @var string
+     */
+    public $bizRegionId;
+
+    /**
      * @example appstreaming.vgpu.4c8g.2g
      *
      * @var string
@@ -56,13 +61,6 @@ class ListAppInstanceGroupRequest extends Model
     public $productType;
 
     /**
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string[]
      */
     public $status;
@@ -70,11 +68,11 @@ class ListAppInstanceGroupRequest extends Model
         'appCenterImageId'     => 'AppCenterImageId',
         'appInstanceGroupId'   => 'AppInstanceGroupId',
         'appInstanceGroupName' => 'AppInstanceGroupName',
+        'bizRegionId'          => 'BizRegionId',
         'nodeInstanceType'     => 'NodeInstanceType',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'productType'          => 'ProductType',
-        'regionId'             => 'RegionId',
         'status'               => 'Status',
     ];
 
@@ -94,6 +92,9 @@ class ListAppInstanceGroupRequest extends Model
         if (null !== $this->appInstanceGroupName) {
             $res['AppInstanceGroupName'] = $this->appInstanceGroupName;
         }
+        if (null !== $this->bizRegionId) {
+            $res['BizRegionId'] = $this->bizRegionId;
+        }
         if (null !== $this->nodeInstanceType) {
             $res['NodeInstanceType'] = $this->nodeInstanceType;
         }
@@ -105,9 +106,6 @@ class ListAppInstanceGroupRequest extends Model
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -133,6 +131,9 @@ class ListAppInstanceGroupRequest extends Model
         if (isset($map['AppInstanceGroupName'])) {
             $model->appInstanceGroupName = $map['AppInstanceGroupName'];
         }
+        if (isset($map['BizRegionId'])) {
+            $model->bizRegionId = $map['BizRegionId'];
+        }
         if (isset($map['NodeInstanceType'])) {
             $model->nodeInstanceType = $map['NodeInstanceType'];
         }
@@ -144,9 +145,6 @@ class ListAppInstanceGroupRequest extends Model
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {

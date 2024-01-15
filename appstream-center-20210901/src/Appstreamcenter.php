@@ -6,21 +6,41 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AccessPageGetAclRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AccessPageGetAclResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AccessPageSetAclRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AccessPageSetAclResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ApproveOtaTaskRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ApproveOtaTaskResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AskSessionPackagePriceRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AskSessionPackagePriceResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AskSessionPackageRenewPriceRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AskSessionPackageRenewPriceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BuySessionPackageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BuySessionPackageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CancelOtaTaskRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CancelOtaTaskResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAccessPageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAccessPageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateProjectRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAccessPageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAccessPageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteProjectRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAccessPageSessionRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAccessPageSessionResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketRequest;
@@ -29,10 +49,14 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetDebugAppInstanceRequest
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetDebugAppInstanceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetOtaTaskByTaskIdRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetOtaTaskByTaskIdResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetProjectPoliciesRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetProjectPoliciesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceRenewPriceRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceRenewPriceResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAccessPagesRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAccessPagesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstancesRequest;
@@ -41,24 +65,38 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodeInstanceTypeReques
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodeInstanceTypeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListOtaTaskRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListOtaTaskResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListProjectsRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListProjectsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionsResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListSessionPackagesRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListSessionPackagesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTenantConfigResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\LogOffAllSessionsInAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\LogOffAllSessionsInAppInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\MigrateSessionPackageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\MigrateSessionPackageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAttributeRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAttributeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAttributeShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyProjectPolicyRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyProjectPolicyResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyTenantConfigRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyTenantConfigResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\PageListAppInstanceGroupUserRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\PageListAppInstanceGroupUserResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RefreshAccessUrlRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RefreshAccessUrlResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewAppInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewSessionPackageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewSessionPackageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnbindRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnbindResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAccessPageStateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAccessPageStateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -72,7 +110,8 @@ class Appstreamcenter extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('appstream-center', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -98,6 +137,104 @@ class Appstreamcenter extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AccessPageGetAclRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AccessPageGetAclResponse
+     */
+    public function accessPageGetAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessPageId)) {
+            $query['AccessPageId'] = $request->accessPageId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AccessPageGetAcl',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AccessPageGetAclResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AccessPageGetAclRequest $request
+     *
+     * @return AccessPageGetAclResponse
+     */
+    public function accessPageGetAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->accessPageGetAclWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AccessPageSetAclRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AccessPageSetAclResponse
+     */
+    public function accessPageSetAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessMode)) {
+            $query['AccessMode'] = $request->accessMode;
+        }
+        if (!Utils::isUnset($request->accessPageId)) {
+            $query['AccessPageId'] = $request->accessPageId;
+        }
+        if (!Utils::isUnset($request->accessPageName)) {
+            $query['AccessPageName'] = $request->accessPageName;
+        }
+        if (!Utils::isUnset($request->effectTime)) {
+            $query['EffectTime'] = $request->effectTime;
+        }
+        if (!Utils::isUnset($request->unit)) {
+            $query['Unit'] = $request->unit;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AccessPageSetAcl',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AccessPageSetAclResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AccessPageSetAclRequest $request
+     *
+     * @return AccessPageSetAclResponse
+     */
+    public function accessPageSetAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->accessPageSetAclWithOptions($request, $runtime);
     }
 
     /**
@@ -156,6 +293,119 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * @param AskSessionPackagePriceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AskSessionPackagePriceResponse
+     */
+    public function askSessionPackagePriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->maxSessions)) {
+            $query['MaxSessions'] = $request->maxSessions;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->sessionPackageType)) {
+            $query['SessionPackageType'] = $request->sessionPackageType;
+        }
+        if (!Utils::isUnset($request->sessionSpec)) {
+            $query['SessionSpec'] = $request->sessionSpec;
+        }
+        if (!Utils::isUnset($request->sessionType)) {
+            $query['SessionType'] = $request->sessionType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AskSessionPackagePrice',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AskSessionPackagePriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AskSessionPackagePriceRequest $request
+     *
+     * @return AskSessionPackagePriceResponse
+     */
+    public function askSessionPackagePrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->askSessionPackagePriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AskSessionPackageRenewPriceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AskSessionPackageRenewPriceResponse
+     */
+    public function askSessionPackageRenewPriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->sessionPackageId)) {
+            $query['SessionPackageId'] = $request->sessionPackageId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AskSessionPackageRenewPrice',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AskSessionPackageRenewPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AskSessionPackageRenewPriceRequest $request
+     *
+     * @return AskSessionPackageRenewPriceResponse
+     */
+    public function askSessionPackageRenewPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->askSessionPackageRenewPriceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AuthorizeInstanceGroupRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -208,6 +458,76 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * @param BuySessionPackageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return BuySessionPackageResponse
+     */
+    public function buySessionPackageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->maxSessions)) {
+            $query['MaxSessions'] = $request->maxSessions;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->sessionPackageName)) {
+            $query['SessionPackageName'] = $request->sessionPackageName;
+        }
+        if (!Utils::isUnset($request->sessionPackageType)) {
+            $query['SessionPackageType'] = $request->sessionPackageType;
+        }
+        if (!Utils::isUnset($request->sessionSpec)) {
+            $query['SessionSpec'] = $request->sessionSpec;
+        }
+        if (!Utils::isUnset($request->sessionType)) {
+            $query['SessionType'] = $request->sessionType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BuySessionPackage',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BuySessionPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BuySessionPackageRequest $request
+     *
+     * @return BuySessionPackageResponse
+     */
+    public function buySessionPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->buySessionPackageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CancelOtaTaskRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -251,6 +571,64 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelOtaTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAccessPageRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAccessPageResponse
+     */
+    public function createAccessPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessPageName)) {
+            $query['AccessPageName'] = $request->accessPageName;
+        }
+        if (!Utils::isUnset($request->cloudEnvId)) {
+            $query['CloudEnvId'] = $request->cloudEnvId;
+        }
+        if (!Utils::isUnset($request->effectTime)) {
+            $query['EffectTime'] = $request->effectTime;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->unit)) {
+            $query['Unit'] = $request->unit;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAccessPage',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAccessPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAccessPageRequest $request
+     *
+     * @return CreateAccessPageResponse
+     */
+    public function createAccessPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAccessPageWithOptions($request, $runtime);
     }
 
     /**
@@ -423,6 +801,128 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * @param CreateProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clipboard)) {
+            $query['Clipboard'] = $request->clipboard;
+        }
+        if (!Utils::isUnset($request->cloudEnvId)) {
+            $query['CloudEnvId'] = $request->cloudEnvId;
+        }
+        if (!Utils::isUnset($request->contentId)) {
+            $query['ContentId'] = $request->contentId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fileTransfer)) {
+            $query['FileTransfer'] = $request->fileTransfer;
+        }
+        if (!Utils::isUnset($request->frameRate)) {
+            $query['FrameRate'] = $request->frameRate;
+        }
+        if (!Utils::isUnset($request->keepAliveDuration)) {
+            $query['KeepAliveDuration'] = $request->keepAliveDuration;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sessionResolutionHeight)) {
+            $query['SessionResolutionHeight'] = $request->sessionResolutionHeight;
+        }
+        if (!Utils::isUnset($request->sessionResolutionWidth)) {
+            $query['SessionResolutionWidth'] = $request->sessionResolutionWidth;
+        }
+        if (!Utils::isUnset($request->sessionSpec)) {
+            $query['SessionSpec'] = $request->sessionSpec;
+        }
+        if (!Utils::isUnset($request->streamingMode)) {
+            $query['StreamingMode'] = $request->streamingMode;
+        }
+        if (!Utils::isUnset($request->terminalResolutionAdaptation)) {
+            $query['TerminalResolutionAdaptation'] = $request->terminalResolutionAdaptation;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProject',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAccessPageRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteAccessPageResponse
+     */
+    public function deleteAccessPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessPageId)) {
+            $query['AccessPageId'] = $request->accessPageId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccessPage',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAccessPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAccessPageRequest $request
+     *
+     * @return DeleteAccessPageResponse
+     */
+    public function deleteAccessPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAccessPageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteAppInstanceGroupRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -518,6 +1018,98 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * @param DeleteProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProject',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteProjectRequest $request
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAccessPageSessionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAccessPageSessionResponse
+     */
+    public function getAccessPageSessionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessPageId)) {
+            $query['AccessPageId'] = $request->accessPageId;
+        }
+        if (!Utils::isUnset($request->accessPageToken)) {
+            $query['AccessPageToken'] = $request->accessPageToken;
+        }
+        if (!Utils::isUnset($request->externalUserId)) {
+            $query['ExternalUserId'] = $request->externalUserId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccessPageSession',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccessPageSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAccessPageSessionRequest $request
+     *
+     * @return GetAccessPageSessionResponse
+     */
+    public function getAccessPageSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccessPageSessionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAppInstanceGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -581,6 +1173,9 @@ class Appstreamcenter extends OpenApiClient
         }
         if (!Utils::isUnset($request->appInstanceId)) {
             $body['AppInstanceId'] = $request->appInstanceId;
+        }
+        if (!Utils::isUnset($request->appInstancePersistentId)) {
+            $body['AppInstancePersistentId'] = $request->appInstancePersistentId;
         }
         if (!Utils::isUnset($request->appStartParam)) {
             $body['AppStartParam'] = $request->appStartParam;
@@ -720,6 +1315,49 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * @param GetProjectPoliciesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetProjectPoliciesResponse
+     */
+    public function getProjectPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetProjectPolicies',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetProjectPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetProjectPoliciesRequest $request
+     *
+     * @return GetProjectPoliciesResponse
+     */
+    public function getProjectPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProjectPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetResourcePriceRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -836,6 +1474,64 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * @param ListAccessPagesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAccessPagesResponse
+     */
+    public function listAccessPagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessPageId)) {
+            $query['AccessPageId'] = $request->accessPageId;
+        }
+        if (!Utils::isUnset($request->accessPageName)) {
+            $query['AccessPageName'] = $request->accessPageName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAccessPages',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAccessPagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAccessPagesRequest $request
+     *
+     * @return ListAccessPagesResponse
+     */
+    public function listAccessPages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAccessPagesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAppInstanceGroupRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -854,6 +1550,9 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($request->appInstanceGroupName)) {
             $query['AppInstanceGroupName'] = $request->appInstanceGroupName;
         }
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $query['BizRegionId'] = $request->bizRegionId;
+        }
         if (!Utils::isUnset($request->nodeInstanceType)) {
             $query['NodeInstanceType'] = $request->nodeInstanceType;
         }
@@ -865,9 +1564,6 @@ class Appstreamcenter extends OpenApiClient
         }
         if (!Utils::isUnset($request->productType)) {
             $query['ProductType'] = $request->productType;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
         }
         $body = [];
         if (!Utils::isUnset($request->status)) {
@@ -1081,6 +1777,64 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * @param ListProjectsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjectsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
+        }
+        if (!Utils::isUnset($request->stateList)) {
+            $query['StateList'] = $request->stateList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjects',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListProjectsRequest $request
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return ListRegionsResponse
@@ -1111,6 +1865,67 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRegionsWithOptions($runtime);
+    }
+
+    /**
+     * @param ListSessionPackagesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListSessionPackagesResponse
+     */
+    public function listSessionPackagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->sessionPackageId)) {
+            $query['SessionPackageId'] = $request->sessionPackageId;
+        }
+        if (!Utils::isUnset($request->sessionPackageName)) {
+            $query['SessionPackageName'] = $request->sessionPackageName;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
+        }
+        if (!Utils::isUnset($request->stateList)) {
+            $query['StateList'] = $request->stateList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSessionPackages',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSessionPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSessionPackagesRequest $request
+     *
+     * @return ListSessionPackagesResponse
+     */
+    public function listSessionPackages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSessionPackagesWithOptions($request, $runtime);
     }
 
     /**
@@ -1190,6 +2005,55 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->logOffAllSessionsInAppInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MigrateSessionPackageRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return MigrateSessionPackageResponse
+     */
+    public function migrateSessionPackageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->destProjectId)) {
+            $body['DestProjectId'] = $request->destProjectId;
+        }
+        if (!Utils::isUnset($request->sessionPackageId)) {
+            $body['SessionPackageId'] = $request->sessionPackageId;
+        }
+        if (!Utils::isUnset($request->sourceProjectId)) {
+            $body['SourceProjectId'] = $request->sourceProjectId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'MigrateSessionPackage',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MigrateSessionPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MigrateSessionPackageRequest $request
+     *
+     * @return MigrateSessionPackageResponse
+     */
+    public function migrateSessionPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->migrateSessionPackageWithOptions($request, $runtime);
     }
 
     /**
@@ -1339,6 +2203,73 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * @param ModifyProjectPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyProjectPolicyResponse
+     */
+    public function modifyProjectPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clipboard)) {
+            $query['Clipboard'] = $request->clipboard;
+        }
+        if (!Utils::isUnset($request->fileTransfer)) {
+            $query['FileTransfer'] = $request->fileTransfer;
+        }
+        if (!Utils::isUnset($request->frameRate)) {
+            $query['FrameRate'] = $request->frameRate;
+        }
+        if (!Utils::isUnset($request->keepAliveDuration)) {
+            $query['KeepAliveDuration'] = $request->keepAliveDuration;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->sessionResolutionHeight)) {
+            $query['SessionResolutionHeight'] = $request->sessionResolutionHeight;
+        }
+        if (!Utils::isUnset($request->sessionResolutionWidth)) {
+            $query['SessionResolutionWidth'] = $request->sessionResolutionWidth;
+        }
+        if (!Utils::isUnset($request->streamingMode)) {
+            $query['StreamingMode'] = $request->streamingMode;
+        }
+        if (!Utils::isUnset($request->terminalResolutionAdaptation)) {
+            $query['TerminalResolutionAdaptation'] = $request->terminalResolutionAdaptation;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyProjectPolicy',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyProjectPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyProjectPolicyRequest $request
+     *
+     * @return ModifyProjectPolicyResponse
+     */
+    public function modifyProjectPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyProjectPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyTenantConfigRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1434,6 +2365,49 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * @param RefreshAccessUrlRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RefreshAccessUrlResponse
+     */
+    public function refreshAccessUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessPageId)) {
+            $query['AccessPageId'] = $request->accessPageId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshAccessUrl',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshAccessUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefreshAccessUrlRequest $request
+     *
+     * @return RefreshAccessUrlResponse
+     */
+    public function refreshAccessUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshAccessUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RenewAppInstanceGroupRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1492,6 +2466,55 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * @param RenewSessionPackageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RenewSessionPackageResponse
+     */
+    public function renewSessionPackageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->sessionPackageId)) {
+            $query['SessionPackageId'] = $request->sessionPackageId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewSessionPackage',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenewSessionPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RenewSessionPackageRequest $request
+     *
+     * @return RenewSessionPackageResponse
+     */
+    public function renewSessionPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewSessionPackageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UnbindRequest  $request
      * @param RuntimeOptions $runtime
      *
@@ -1506,6 +2529,9 @@ class Appstreamcenter extends OpenApiClient
         }
         if (!Utils::isUnset($request->appInstanceId)) {
             $body['AppInstanceId'] = $request->appInstanceId;
+        }
+        if (!Utils::isUnset($request->appInstancePersistentId)) {
+            $body['AppInstancePersistentId'] = $request->appInstancePersistentId;
         }
         if (!Utils::isUnset($request->endUserId)) {
             $body['EndUserId'] = $request->endUserId;
@@ -1541,6 +2567,52 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unbindWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAccessPageStateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateAccessPageStateResponse
+     */
+    public function updateAccessPageStateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessPageId)) {
+            $query['AccessPageId'] = $request->accessPageId;
+        }
+        if (!Utils::isUnset($request->accessPageState)) {
+            $query['AccessPageState'] = $request->accessPageState;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAccessPageState',
+            'version'     => '2021-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAccessPageStateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAccessPageStateRequest $request
+     *
+     * @return UpdateAccessPageStateResponse
+     */
+    public function updateAccessPageState($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAccessPageStateWithOptions($request, $runtime);
     }
 
     /**
