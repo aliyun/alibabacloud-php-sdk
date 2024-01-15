@@ -23,16 +23,22 @@ class data extends Model
     public $asrResult;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $comments;
 
     /**
+     * @example 2019-07-24T19:31Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $errorMessage;
@@ -53,11 +59,15 @@ class data extends Model
     public $resolver;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $reviewResult;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $reviewStatus;
@@ -68,21 +78,29 @@ class data extends Model
     public $reviewer;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $score;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 20201231de3d34ec-40fa-4a55-8d27-76ea*****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $taskName;

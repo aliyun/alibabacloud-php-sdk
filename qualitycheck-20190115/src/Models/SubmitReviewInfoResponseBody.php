@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SubmitReviewInfoResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 95
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 9987D326-83D9-4A42-B9A5-0B27F9B40539
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

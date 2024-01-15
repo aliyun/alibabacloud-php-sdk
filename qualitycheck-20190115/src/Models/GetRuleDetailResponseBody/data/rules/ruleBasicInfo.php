@@ -16,11 +16,15 @@ class ruleBasicInfo extends Model
     public $businessCategories;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $rid;
 
     /**
+     * @example 7&&!8
+     *
      * @var string
      */
     public $ruleLambda;

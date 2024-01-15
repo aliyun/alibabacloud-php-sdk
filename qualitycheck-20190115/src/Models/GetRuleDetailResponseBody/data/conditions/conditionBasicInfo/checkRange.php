@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class checkRange extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $absolute;

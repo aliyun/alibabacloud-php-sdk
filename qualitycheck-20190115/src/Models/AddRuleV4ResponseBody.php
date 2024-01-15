@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddRuleV4ResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class AddRuleV4ResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
@@ -35,11 +41,15 @@ class AddRuleV4ResponseBody extends Model
     public $messages;
 
     /**
+     * @example 106C6CA0-282D-4AF7-85F0-D2D24***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveConfigDataSetResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
@@ -24,6 +28,8 @@ class SaveConfigDataSetResponseBody extends Model
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

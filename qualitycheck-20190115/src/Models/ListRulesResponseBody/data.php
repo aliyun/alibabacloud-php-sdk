@@ -19,6 +19,8 @@ class data extends Model
     public $comments;
 
     /**
+     * @example 2020-04-20T20:10Z
+     *
      * @var string
      */
     public $createTime;
@@ -29,16 +31,22 @@ class data extends Model
     public $name;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $rid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

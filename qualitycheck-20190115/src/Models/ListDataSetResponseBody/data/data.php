@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $autoTranscoding;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $channelId0;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $channelId1;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $channelType;
 
     /**
+     * @example 2019-06-20T17:33Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $createType;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $dataSetType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $isDelete;
 
     /**
+     * @example filesFromLocal/ef7ff45c147a4a5e882c925f9a75ac43
+     *
      * @var string
      */
     public $roleConfigProp;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $roleConfigStatus;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $roleConfigTask;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $setBucketName;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $setDomain;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $setFolderName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $setId;
@@ -89,36 +119,50 @@ class data extends Model
     public $setName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $setNumber;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $setRoleArn;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $setType;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $sourceDataType;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $subDir;
 
     /**
+     * @example 2022-05-10T10:34Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $userGroup;

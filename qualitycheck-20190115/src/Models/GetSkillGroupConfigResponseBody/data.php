@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $allContentQualityCheck;
 
     /**
+     * @example 223
+     *
      * @var string
      */
     public $allRids;
@@ -26,41 +30,57 @@ class data extends Model
     public $allRuleList;
 
     /**
+     * @example 2020-12-01T15:12Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1212
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1321
+     *
      * @var int
      */
     public $modelId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $modelName;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $qualityCheckType;
 
     /**
+     * @example 2332
+     *
      * @var string
      */
     public $rid;
@@ -71,41 +91,57 @@ class data extends Model
     public $ruleList;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $skillGroupFrom;
 
     /**
+     * @example 111
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $skillGroupName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example 2020-12-01T19:28Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $vocabId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $vocabName;

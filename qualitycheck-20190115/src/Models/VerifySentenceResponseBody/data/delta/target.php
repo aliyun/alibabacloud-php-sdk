@@ -15,6 +15,8 @@ class target extends Model
     public $line;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $position;

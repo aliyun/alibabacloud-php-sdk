@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateWarningConfigRequest extends Model
 {
     /**
+     * @description baseMeAgentId
+     *
+     * @var int
+     */
+    public $baseMeAgentId;
+
+    /**
+     * @example {"ridList":[18130],"configName":"0310","channels":[{"type":1,"url":"https://sca.console.aliyun.com/#/warningConfig"}],"configId":29}
+     *
      * @var string
      */
     public $jsonStr;
     protected $_name = [
-        'jsonStr' => 'JsonStr',
+        'baseMeAgentId' => 'BaseMeAgentId',
+        'jsonStr'       => 'JsonStr',
     ];
 
     public function validate()
@@ -23,6 +33,9 @@ class UpdateWarningConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseMeAgentId) {
+            $res['BaseMeAgentId'] = $this->baseMeAgentId;
+        }
         if (null !== $this->jsonStr) {
             $res['JsonStr'] = $this->jsonStr;
         }
@@ -38,6 +51,9 @@ class UpdateWarningConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseMeAgentId'])) {
+            $model->baseMeAgentId = $map['BaseMeAgentId'];
+        }
         if (isset($map['JsonStr'])) {
             $model->jsonStr = $map['JsonStr'];
         }

@@ -108,6 +108,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRulesCountListRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRulesCountListResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4Request;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4Response;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4StrRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4StrResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSkillGroupConfigRequest;
@@ -176,6 +178,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitReviewInfoRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitReviewInfoResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SyncQualityCheckRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SyncQualityCheckResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleV4Request;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleV4Response;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateAsrVocabResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateCheckTypeToSchemeRequest;
@@ -218,6 +222,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataV4Request;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataV4Response;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadRuleResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifyFileRequest;
@@ -273,6 +279,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -316,6 +325,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -358,6 +370,10 @@ class Qualitycheck extends OpenApiClient
     public function addRuleV4WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         $body = [];
         if (!Utils::isUnset($request->isCopy)) {
             $body['IsCopy'] = $request->isCopy;
@@ -366,7 +382,8 @@ class Qualitycheck extends OpenApiClient
             $body['JsonStrForRule'] = $request->jsonStrForRule;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddRuleV4',
@@ -405,6 +422,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -448,6 +468,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -491,6 +514,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -534,6 +560,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -577,6 +606,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -620,6 +652,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -663,6 +698,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -706,6 +744,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -749,6 +790,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -792,6 +836,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -826,15 +873,22 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CreateUserResponse
+     * @param CreateUserRequest $request CreateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -857,9 +911,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return CreateUserResponse
+     * @param CreateUserRequest $request CreateUserRequest
+     *
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUser($request)
     {
@@ -878,6 +936,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -921,6 +982,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -964,6 +1028,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1007,6 +1074,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1050,6 +1120,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1093,6 +1166,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1136,6 +1212,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1179,6 +1258,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1222,6 +1304,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1265,6 +1350,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -1307,6 +1395,10 @@ class Qualitycheck extends OpenApiClient
     public function deleteRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         $body = [];
         if (!Utils::isUnset($request->forceDelete)) {
             $body['ForceDelete'] = $request->forceDelete;
@@ -1318,7 +1410,8 @@ class Qualitycheck extends OpenApiClient
             $body['RuleId'] = $request->ruleId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteRule',
@@ -1356,6 +1449,10 @@ class Qualitycheck extends OpenApiClient
     public function deleteRuleV4WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         $body = [];
         if (!Utils::isUnset($request->forceDelete)) {
             $body['ForceDelete'] = $request->forceDelete;
@@ -1364,7 +1461,8 @@ class Qualitycheck extends OpenApiClient
             $body['RuleId'] = $request->ruleId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteRuleV4',
@@ -1403,6 +1501,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -1446,6 +1547,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1489,6 +1593,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1532,6 +1639,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1575,6 +1685,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1609,15 +1722,22 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DeleteUserResponse
+     * @param DeleteUserRequest $request DeleteUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1640,9 +1760,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DeleteUserResponse
+     * @param DeleteUserRequest $request DeleteUserRequest
+     *
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -1661,6 +1785,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1704,6 +1831,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1747,6 +1877,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1790,6 +1923,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1833,6 +1969,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1876,6 +2015,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1919,6 +2061,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -1962,6 +2107,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2005,6 +2153,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2048,6 +2199,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -2091,6 +2245,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2125,15 +2282,22 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetResultCallbackRequest $request
-     * @param RuntimeOptions           $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetResultCallbackResponse
+     * @param GetResultCallbackRequest $request GetResultCallbackRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetResultCallbackResponse GetResultCallbackResponse
      */
     public function getResultCallbackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2156,9 +2320,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetResultCallbackRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetResultCallbackResponse
+     * @param GetResultCallbackRequest $request GetResultCallbackRequest
+     *
+     * @return GetResultCallbackResponse GetResultCallbackResponse
      */
     public function getResultCallback($request)
     {
@@ -2177,6 +2345,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2220,6 +2391,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2262,12 +2436,17 @@ class Qualitycheck extends OpenApiClient
     public function getRuleByIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         $body = [];
         if (!Utils::isUnset($request->ruleId)) {
             $body['RuleId'] = $request->ruleId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetRuleById',
@@ -2306,6 +2485,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2349,6 +2531,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2426,6 +2611,60 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @deprecated : GetRuleV4Str is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+     *   *
+     * Deprecated
+     *
+     * @param GetRuleV4StrRequest $request GetRuleV4StrRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetRuleV4StrResponse GetRuleV4StrResponse
+     */
+    public function getRuleV4StrWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->isSchemeData)) {
+            $body['IsSchemeData'] = $request->isSchemeData;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRuleV4Str',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRuleV4StrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @deprecated : GetRuleV4Str is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+     *   *
+     * Deprecated
+     *
+     * @param GetRuleV4StrRequest $request GetRuleV4StrRequest
+     *
+     * @return GetRuleV4StrResponse GetRuleV4StrResponse
+     */
+    public function getRuleV4Str($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRuleV4StrWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetRulesCountListRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2434,6 +2673,10 @@ class Qualitycheck extends OpenApiClient
     public function getRulesCountListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         $body = [];
         if (!Utils::isUnset($request->businessName)) {
             $body['BusinessName'] = $request->businessName;
@@ -2511,7 +2754,8 @@ class Qualitycheck extends OpenApiClient
             $body['UpdateUserId'] = $request->updateUserId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetRulesCountList',
@@ -2550,6 +2794,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2593,6 +2840,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2636,6 +2886,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2679,6 +2932,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2722,6 +2978,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2765,6 +3024,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2808,6 +3070,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2851,6 +3116,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2894,6 +3162,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2937,6 +3208,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -2971,10 +3245,14 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListBusinessSpacesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return ListBusinessSpacesResponse
+     * @param ListBusinessSpacesRequest $request ListBusinessSpacesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListBusinessSpacesResponse ListBusinessSpacesResponse
      */
     public function listBusinessSpacesWithOptions($request, $runtime)
     {
@@ -3002,9 +3280,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListBusinessSpacesRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return ListBusinessSpacesResponse
+     * @param ListBusinessSpacesRequest $request ListBusinessSpacesRequest
+     *
+     * @return ListBusinessSpacesResponse ListBusinessSpacesResponse
      */
     public function listBusinessSpaces($request)
     {
@@ -3023,6 +3305,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3066,6 +3351,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3109,6 +3397,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3152,6 +3443,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3195,6 +3489,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3238,6 +3535,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3280,6 +3580,10 @@ class Qualitycheck extends OpenApiClient
     public function listRulesV4WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         $body = [];
         if (!Utils::isUnset($request->businessName)) {
             $body['BusinessName'] = $request->businessName;
@@ -3357,7 +3661,8 @@ class Qualitycheck extends OpenApiClient
             $body['UpdateUserId'] = $request->updateUserId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListRulesV4',
@@ -3396,6 +3701,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -3439,6 +3747,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -3482,6 +3793,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3525,6 +3839,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3568,6 +3885,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3611,6 +3931,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3654,6 +3977,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3697,6 +4023,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3740,6 +4069,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -3783,6 +4115,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -3826,6 +4161,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3869,6 +4207,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3912,6 +4253,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3955,6 +4299,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -3998,6 +4345,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4041,6 +4391,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4075,6 +4428,52 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @param TestRuleV4Request $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return TestRuleV4Response
+     */
+    public function testRuleV4WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->isSchemeData)) {
+            $body['IsSchemeData'] = $request->isSchemeData;
+        }
+        if (!Utils::isUnset($request->testJson)) {
+            $body['TestJson'] = $request->testJson;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TestRuleV4',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TestRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TestRuleV4Request $request
+     *
+     * @return TestRuleV4Response
+     */
+    public function testRuleV4($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->testRuleV4WithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateAsrVocabRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -4084,6 +4483,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4127,6 +4529,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -4170,6 +4575,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4213,6 +4621,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -4256,6 +4667,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4298,6 +4712,10 @@ class Qualitycheck extends OpenApiClient
     public function updateRuleByIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         $body = [];
         if (!Utils::isUnset($request->isCopy)) {
             $body['IsCopy'] = $request->isCopy;
@@ -4312,7 +4730,8 @@ class Qualitycheck extends OpenApiClient
             $body['RuleId'] = $request->ruleId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateRuleById',
@@ -4351,6 +4770,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -4393,6 +4815,10 @@ class Qualitycheck extends OpenApiClient
     public function updateRuleV4WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         $body = [];
         if (!Utils::isUnset($request->jsonStrForRule)) {
             $body['JsonStrForRule'] = $request->jsonStrForRule;
@@ -4401,7 +4827,8 @@ class Qualitycheck extends OpenApiClient
             $body['RuleId'] = $request->ruleId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateRuleV4',
@@ -4440,6 +4867,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['jsonStr'] = $request->jsonStr;
         }
@@ -4483,6 +4913,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4526,6 +4959,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4569,6 +5005,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4612,6 +5051,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4655,6 +5097,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4698,6 +5143,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4741,6 +5189,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4784,6 +5235,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4827,6 +5281,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4870,6 +5327,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4904,15 +5364,22 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadDataRequest $request
-     * @param RuntimeOptions    $runtime
+     * @deprecated : UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead.
+     *   *
+     * Deprecated
      *
-     * @return UploadDataResponse
+     * @param UploadDataRequest $request UploadDataRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UploadDataResponse UploadDataResponse
      */
     public function uploadDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4935,9 +5402,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadDataRequest $request
+     * @deprecated : UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead.
+     *   *
+     * Deprecated
      *
-     * @return UploadDataResponse
+     * @param UploadDataRequest $request UploadDataRequest
+     *
+     * @return UploadDataResponse UploadDataResponse
      */
     public function uploadData($request)
     {
@@ -4956,6 +5427,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -4990,6 +5464,52 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @param UploadDataV4Request $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UploadDataV4Response
+     */
+    public function uploadDataV4WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $body['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+        if (!Utils::isUnset($request->jsonStr)) {
+            $body['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadDataV4',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UploadDataV4Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UploadDataV4Request $request
+     *
+     * @return UploadDataV4Response
+     */
+    public function uploadDataV4($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadDataV4WithOptions($request, $runtime);
+    }
+
+    /**
      * @param UploadRuleRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -4999,6 +5519,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -5042,6 +5565,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }
@@ -5085,6 +5611,9 @@ class Qualitycheck extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->baseMeAgentId)) {
+            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
         if (!Utils::isUnset($request->jsonStr)) {
             $query['JsonStr'] = $request->jsonStr;
         }

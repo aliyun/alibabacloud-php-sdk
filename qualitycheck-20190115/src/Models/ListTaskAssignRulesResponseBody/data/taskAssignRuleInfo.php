@@ -19,51 +19,71 @@ class taskAssignRuleInfo extends Model
     public $agents;
 
     /**
+     * @example XX
+     *
      * @var string
      */
     public $agentsStr;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $assignmentType;
 
     /**
+     * @example 39600
+     *
      * @var int
      */
     public $callTimeEnd;
 
     /**
+     * @example 39600
+     *
      * @var int
      */
     public $callTimeStart;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $callType;
 
     /**
+     * @example 2019-07-12T14:47Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $durationMax;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $durationMin;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $enabled;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
@@ -74,6 +94,8 @@ class taskAssignRuleInfo extends Model
     public $reviewers;
 
     /**
+     * @example 23
+     *
      * @var int
      */
     public $ruleId;
@@ -99,11 +121,15 @@ class taskAssignRuleInfo extends Model
     public $skillGroups;
 
     /**
+     * @example XX
+     *
      * @var string
      */
     public $skillGroupsStr;
 
     /**
+     * @example 2019-07-12T14:47Z
+     *
      * @var string
      */
     public $updateTime;

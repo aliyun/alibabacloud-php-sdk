@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AssignReviewerRequest extends Model
 {
     /**
+     * @description baseMeAgentId
+     *
+     * @var int
+     */
+    public $baseMeAgentId;
+
+    /**
+     * @example {"assignmentList":[{"taskId":"1C21CF1E-2917-4236-A046-20E37B293B69","fileId":"7981b466fd6a4c70a7065da159739a5b"},{"taskId":"0111DDBC-5F10-47E0-B7D4-7175F47D626F","fileId":"1814eeae3cff41e989e31ab547f07561"}],"assignments":[{"reviewer":"255746168704895558"},{"reviewer":"268370362815185444"}]}
+     *
      * @var string
      */
     public $jsonStr;
     protected $_name = [
-        'jsonStr' => 'JsonStr',
+        'baseMeAgentId' => 'BaseMeAgentId',
+        'jsonStr'       => 'JsonStr',
     ];
 
     public function validate()
@@ -23,6 +33,9 @@ class AssignReviewerRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseMeAgentId) {
+            $res['BaseMeAgentId'] = $this->baseMeAgentId;
+        }
         if (null !== $this->jsonStr) {
             $res['JsonStr'] = $this->jsonStr;
         }
@@ -38,6 +51,9 @@ class AssignReviewerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseMeAgentId'])) {
+            $model->baseMeAgentId = $map['BaseMeAgentId'];
+        }
         if (isset($map['JsonStr'])) {
             $model->jsonStr = $map['JsonStr'];
         }

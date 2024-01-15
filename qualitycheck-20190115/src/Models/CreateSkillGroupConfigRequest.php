@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateSkillGroupConfigRequest extends Model
 {
     /**
+     * @description baseMeAgentId
+     *
+     * @var int
+     */
+    public $baseMeAgentId;
+
+    /**
+     * @example {"skillGroupFrom":0,"qualityCheckType":0,"modelId":746,"name":"test","rid":"2493","vocabId":"267","skillGroupList":[{"skillGroupId":"0903","skillGroupName":"0903"}]}
+     *
      * @var string
      */
     public $jsonStr;
     protected $_name = [
-        'jsonStr' => 'JsonStr',
+        'baseMeAgentId' => 'BaseMeAgentId',
+        'jsonStr'       => 'JsonStr',
     ];
 
     public function validate()
@@ -23,6 +33,9 @@ class CreateSkillGroupConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseMeAgentId) {
+            $res['BaseMeAgentId'] = $this->baseMeAgentId;
+        }
         if (null !== $this->jsonStr) {
             $res['JsonStr'] = $this->jsonStr;
         }
@@ -38,6 +51,9 @@ class CreateSkillGroupConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseMeAgentId'])) {
+            $model->baseMeAgentId = $map['BaseMeAgentId'];
+        }
         if (isset($map['JsonStr'])) {
             $model->jsonStr = $map['JsonStr'];
         }

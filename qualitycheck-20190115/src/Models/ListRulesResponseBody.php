@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListRulesResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $count;
@@ -25,26 +29,36 @@ class ListRulesResponseBody extends Model
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 82C91484-B2D5-4D2A-A21F-A6D73F**
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -21,11 +21,15 @@ class ruleHitInfo extends Model
     public $hit;
 
     /**
+     * @example 801
+     *
      * @var string
      */
     public $rid;
 
     /**
+     * @example 88888888
+     *
      * @var string
      */
     public $tid;

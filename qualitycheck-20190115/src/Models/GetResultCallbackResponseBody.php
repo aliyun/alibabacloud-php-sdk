@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetResultCallbackResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 82C91484-B2D5-4D2A-A21F-A6D73F4***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class thesaurusPo extends Model
 {
     /**
+     * @example BVT
+     *
      * @var string
      */
     public $business;
 
     /**
+     * @example 473
+     *
      * @var int
      */
     public $id;

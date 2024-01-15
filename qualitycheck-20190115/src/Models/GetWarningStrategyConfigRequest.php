@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetWarningStrategyConfigRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $baseMeAgentId;
+
+    /**
      * @var string
      */
     public $jsonStr;
     protected $_name = [
-        'jsonStr' => 'JsonStr',
+        'baseMeAgentId' => 'BaseMeAgentId',
+        'jsonStr'       => 'JsonStr',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class GetWarningStrategyConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseMeAgentId) {
+            $res['BaseMeAgentId'] = $this->baseMeAgentId;
+        }
         if (null !== $this->jsonStr) {
             $res['JsonStr'] = $this->jsonStr;
         }
@@ -38,6 +47,9 @@ class GetWarningStrategyConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseMeAgentId'])) {
+            $model->baseMeAgentId = $map['BaseMeAgentId'];
+        }
         if (isset($map['JsonStr'])) {
             $model->jsonStr = $map['JsonStr'];
         }

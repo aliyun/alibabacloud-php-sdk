@@ -21,6 +21,8 @@ class resultInfo extends Model
     public $rules;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $score;

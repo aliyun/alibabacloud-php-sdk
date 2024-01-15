@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class anchor extends Model
 {
     /**
+     * @example 7
+     *
      * @var string
      */
     public $anchorCid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $hitTime;
 
     /**
+     * @example AFTER
+     *
      * @var string
      */
     public $location;

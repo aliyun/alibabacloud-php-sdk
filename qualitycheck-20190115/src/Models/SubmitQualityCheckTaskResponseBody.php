@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SubmitQualityCheckTaskResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example F6C2B68F-2311-4495-82AC-DAE86C9****
+     *
      * @var string
      */
     public $data;
@@ -24,11 +28,15 @@ class SubmitQualityCheckTaskResponseBody extends Model
     public $message;
 
     /**
+     * @example 00A044A2-D59B-4104-96BA-84060AE8345F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class skillGroup extends Model
 {
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $skillId;

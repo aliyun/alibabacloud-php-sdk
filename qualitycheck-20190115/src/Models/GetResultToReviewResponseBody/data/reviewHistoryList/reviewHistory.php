@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class reviewHistory extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $complainResult;
 
     /**
+     * @example 90
+     *
      * @var int
      */
     public $oldScore;
@@ -24,21 +28,29 @@ class reviewHistory extends Model
     public $operatorName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $reviewResult;
 
     /**
+     * @example 95
+     *
      * @var int
      */
     public $score;
 
     /**
+     * @example 2019-10-28 15:21:00
+     *
      * @var string
      */
     public $timeStr;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

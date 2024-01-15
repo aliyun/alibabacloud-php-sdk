@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ruleCountInfo extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $select;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $type;

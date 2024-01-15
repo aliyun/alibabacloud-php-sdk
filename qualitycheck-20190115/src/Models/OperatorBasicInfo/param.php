@@ -200,6 +200,11 @@ class param extends Model
     public $poutputType;
 
     /**
+     * @var string[]
+     */
+    public $pvalues;
+
+    /**
      * @var string
      */
     public $questionThreshold;
@@ -307,6 +312,7 @@ class param extends Model
         'phrase'                => 'Phrase',
         'pkey'                  => 'Pkey',
         'poutputType'           => 'Poutput_type',
+        'pvalues'               => 'Pvalues',
         'questionThreshold'     => 'QuestionThreshold',
         'references'            => 'References',
         'regex'                 => 'Regex',
@@ -443,6 +449,9 @@ class param extends Model
         }
         if (null !== $this->poutputType) {
             $res['Poutput_type'] = $this->poutputType;
+        }
+        if (null !== $this->pvalues) {
+            $res['Pvalues'] = $this->pvalues;
         }
         if (null !== $this->questionThreshold) {
             $res['QuestionThreshold'] = $this->questionThreshold;
@@ -617,6 +626,11 @@ class param extends Model
         }
         if (isset($map['Poutput_type'])) {
             $model->poutputType = $map['Poutput_type'];
+        }
+        if (isset($map['Pvalues'])) {
+            if (!empty($map['Pvalues'])) {
+                $model->pvalues = $map['Pvalues'];
+            }
         }
         if (isset($map['QuestionThreshold'])) {
             $model->questionThreshold = $map['QuestionThreshold'];

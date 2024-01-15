@@ -15,21 +15,29 @@ class manualScoreInfo extends Model
     public $complainHistories;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $complainable;
 
     /**
+     * @example xxx
+     *
      * @var int
      */
     public $scoreId;
 
     /**
+     * @example -10
+     *
      * @var int
      */
     public $scoreNum;
 
     /**
+     * @example xxx
+     *
      * @var int
      */
     public $scoreSubId;

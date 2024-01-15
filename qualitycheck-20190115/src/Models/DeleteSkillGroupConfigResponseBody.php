@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteSkillGroupConfigResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 3CEA0495-341B-4482-9AD9-8191EF4***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

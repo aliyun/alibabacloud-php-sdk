@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class warningRule extends Model
 {
     /**
+     * @example 33452
+     *
      * @var int
      */
     public $rid;

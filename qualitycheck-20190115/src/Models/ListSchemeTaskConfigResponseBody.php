@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListSchemeTaskConfigResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -31,16 +37,22 @@ class ListSchemeTaskConfigResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $lastDataId;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
@@ -51,16 +63,22 @@ class ListSchemeTaskConfigResponseBody extends Model
     public $messages;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 4B0A8DCD-0DDF-5E80-8B9C-0A2F68B3403B
+     *
      * @var string
      */
     public $requestId;
@@ -71,6 +89,8 @@ class ListSchemeTaskConfigResponseBody extends Model
     public $resultCountId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -14,6 +14,8 @@ class wordsParam extends Model
     public $excludes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $extraConfigId;

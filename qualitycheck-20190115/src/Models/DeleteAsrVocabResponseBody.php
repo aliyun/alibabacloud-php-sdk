@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DeleteAsrVocabResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 71b1795ac8634bd8bdf4d3878480c7c2
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 4987D326-83D9-4A42-B9A5-0B27F9B40539
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

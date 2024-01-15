@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class reviewInfo extends Model
 {
     /**
+     * @example 013c68142fec4f0899fa6ee0exxx
+     *
      * @var string
      */
     public $hitId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $reviewResult;
 
     /**
+     * @example 2019-10-12 17:06:00
+     *
      * @var string
      */
     public $reviewTime;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $reviewer;
 
     /**
+     * @example 451
+     *
      * @var int
      */
     public $rid;

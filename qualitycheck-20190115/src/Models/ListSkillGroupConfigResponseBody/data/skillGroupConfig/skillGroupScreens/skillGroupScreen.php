@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class skillGroupScreen extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dataType;
 
     /**
+     * @example customerName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $symbol;

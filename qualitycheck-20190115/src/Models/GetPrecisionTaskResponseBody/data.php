@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1212
+     *
      * @var int
      */
     public $dataSetId;
@@ -20,11 +22,15 @@ class data extends Model
     public $dataSetName;
 
     /**
+     * @example 3423
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 23
+     *
      * @var int
      */
     public $incorrectWords;
@@ -40,31 +46,43 @@ class data extends Model
     public $precisions;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $source;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 7C1DEF5F-2C18-4D36-99C6-8C27*****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example 2020-03-10 20:26:29
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $verifiedCount;

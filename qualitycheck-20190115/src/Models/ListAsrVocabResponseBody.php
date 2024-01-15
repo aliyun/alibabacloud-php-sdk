@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListAsrVocabResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class ListAsrVocabResponseBody extends Model
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 66E1ACB8-17B2-4BE8-8581-954A8EE1324B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resultInfo extends Model
 {
     /**
+     * @example 1343
+     *
      * @var int
      */
     public $rid;

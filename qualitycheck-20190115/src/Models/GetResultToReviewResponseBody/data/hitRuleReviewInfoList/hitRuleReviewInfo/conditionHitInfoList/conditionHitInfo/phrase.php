@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class phrase extends Model
 {
     /**
+     * @example 72000
+     *
      * @var int
      */
     public $begin;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $emotionValue;
 
     /**
+     * @example 80000
+     *
      * @var int
      */
     public $end;
@@ -29,6 +35,8 @@ class phrase extends Model
     public $identity;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $pid;

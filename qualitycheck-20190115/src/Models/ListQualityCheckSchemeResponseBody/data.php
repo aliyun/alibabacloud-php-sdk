@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 2022-05-10T09:34Z
+     *
      * @var string
      */
     public $createTime;
@@ -21,6 +23,8 @@ class data extends Model
     public $createUserName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dataType;
@@ -31,6 +35,8 @@ class data extends Model
     public $description;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
@@ -46,26 +52,36 @@ class data extends Model
     public $schemeCheckTypeList;
 
     /**
+     * @example 112**
+     *
      * @var int
      */
     public $schemeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $templateType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example 2022-05-10T10:34Z
+     *
      * @var string
      */
     public $updateTime;
@@ -76,6 +92,8 @@ class data extends Model
     public $updateUserName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $version;

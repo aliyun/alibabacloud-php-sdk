@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class dialogueParam extends Model
 {
     /**
+     * @example 154,136,155,156,
+     *
      * @var string
      */
     public $dataSetIds;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $dialogueId;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $endIndex;
 
     /**
+     * @example 2020-11-06T00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $role;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $sourceType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $startIndex;
 
     /**
+     * @example 2020-11-05T00:00Z
+     *
      * @var string
      */
     public $startTime;

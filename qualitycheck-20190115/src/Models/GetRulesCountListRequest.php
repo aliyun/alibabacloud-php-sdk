@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class GetRulesCountListRequest extends Model
 {
     /**
+     * @description baseMeAgentId
+     *
+     * @var int
+     */
+    public $baseMeAgentId;
+
+    /**
      * @var string
      */
     public $businessName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $businessRange;
@@ -24,41 +33,57 @@ class GetRulesCountListRequest extends Model
     public $categoryName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $countTotal;
 
     /**
+     * @example 63
+     *
      * @var string
      */
     public $createEmpid;
 
     /**
+     * @example 63
+     *
      * @var int
      */
     public $createUserId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 2022-10-08 23:59:59
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 63
+     *
      * @var string
      */
     public $lastUpdateEmpid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -69,46 +94,64 @@ class GetRulesCountListRequest extends Model
     public $requireInfos;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $rid;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $ruleIdOrRuleName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleScoreSingleType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleType;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $schemeId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $sourceType;
 
     /**
+     * @example 2022-10-07 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
@@ -119,20 +162,27 @@ class GetRulesCountListRequest extends Model
     public $typeName;
 
     /**
+     * @example 2022-10-08 23:59:59
+     *
      * @var string
      */
     public $updateEndTime;
 
     /**
+     * @example 2022-10-07 00:00:00
+     *
      * @var string
      */
     public $updateStartTime;
 
     /**
+     * @example 63
+     *
      * @var int
      */
     public $updateUserId;
     protected $_name = [
+        'baseMeAgentId'       => 'BaseMeAgentId',
         'businessName'        => 'BusinessName',
         'businessRange'       => 'BusinessRange',
         'categoryName'        => 'CategoryName',
@@ -167,6 +217,9 @@ class GetRulesCountListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseMeAgentId) {
+            $res['BaseMeAgentId'] = $this->baseMeAgentId;
+        }
         if (null !== $this->businessName) {
             $res['BusinessName'] = $this->businessName;
         }
@@ -254,6 +307,9 @@ class GetRulesCountListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseMeAgentId'])) {
+            $model->baseMeAgentId = $map['BaseMeAgentId'];
+        }
         if (isset($map['BusinessName'])) {
             $model->businessName = $map['BusinessName'];
         }

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ruleInfo extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $autoReview;
@@ -25,61 +27,85 @@ class ruleInfo extends Model
     public $comments;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $createEmpid;
 
     /**
+     * @example 2016-08-05 10:37:10
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2016-08-05 10:37:10
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $isDelete;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isOnline;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $lastUpdateEmpid;
 
     /**
+     * @example 2019-10-28 14:23:28
+     *
      * @var string
      */
     public $lastUpdateTime;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $rid;
 
     /**
+     * @example a && b
+     *
      * @var string
      */
     public $ruleLambda;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleScoreType;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $scoreId;
@@ -90,6 +116,8 @@ class ruleInfo extends Model
     public $scoreName;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $scoreSubId;
@@ -100,21 +128,29 @@ class ruleInfo extends Model
     public $scoreSubName;
 
     /**
+     * @example 2016-08-05 10:37:10
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $weight;

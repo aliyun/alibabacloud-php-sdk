@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class asrResult extends Model
 {
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $begin;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $emotionValue;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $end;
@@ -29,11 +35,15 @@ class asrResult extends Model
     public $role;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $speechRate;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $words;

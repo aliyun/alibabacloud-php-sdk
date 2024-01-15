@@ -14,76 +14,106 @@ class recording extends Model
     public $business;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $callId;
 
     /**
+     * @example 1563967699000
+     *
      * @var string
      */
     public $callTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $callType;
 
     /**
+     * @example 1888888***
+     *
      * @var string
      */
     public $callee;
 
     /**
+     * @example 0108888****
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $dataSetName;
 
     /**
+     * @example 232
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $durationAudio;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 123123.wav
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $primaryId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $remark1;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $remark2;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $remark3;
 
     /**
+     * @example http://aliyun.com/xxx.wav
+     *
      * @var string
      */
     public $url;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DelThesaurusForApiResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 96138D8D-8D26-4E41-BFF4-77AED1088BBD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateSkillGroupConfigResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 38E7E948-0876-4FEE-B0AA-6*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult;
 
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult\hitResult\conditions;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult\hitResult\hits;
 use AlibabaCloud\Tea\Model;
 
 class hitResult extends Model
 {
+    /**
+     * @var conditions
+     */
+    public $conditions;
+
     /**
      * @var hits
      */
@@ -20,21 +26,29 @@ class hitResult extends Model
     public $name;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $reviewResult;
 
     /**
+     * @example 1276
+     *
      * @var string
      */
     public $rid;
 
     /**
+     * @example 123xx
+     *
      * @var int
      */
     public $schemeId;
 
     /**
+     * @example 11xx
+     *
      * @var int
      */
     public $schemeVersion;
@@ -44,6 +58,7 @@ class hitResult extends Model
      */
     public $type;
     protected $_name = [
+        'conditions'    => 'Conditions',
         'hits'          => 'Hits',
         'name'          => 'Name',
         'reviewResult'  => 'ReviewResult',
@@ -60,6 +75,9 @@ class hitResult extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->conditions) {
+            $res['Conditions'] = null !== $this->conditions ? $this->conditions->toMap() : null;
+        }
         if (null !== $this->hits) {
             $res['Hits'] = null !== $this->hits ? $this->hits->toMap() : null;
         }
@@ -93,6 +111,9 @@ class hitResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Conditions'])) {
+            $model->conditions = conditions::fromMap($map['Conditions']);
+        }
         if (isset($map['Hits'])) {
             $model->hits = hits::fromMap($map['Hits']);
         }

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $checkType;
@@ -19,31 +21,43 @@ class rules extends Model
     public $name;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $rid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleScoreType;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $scoreNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $scoreNumType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $scoreType;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $targetType;

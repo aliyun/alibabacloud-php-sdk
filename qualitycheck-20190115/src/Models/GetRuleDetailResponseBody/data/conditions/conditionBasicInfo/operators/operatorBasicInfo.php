@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class operatorBasicInfo extends Model
 {
     /**
+     * @example 8
+     *
      * @var string
      */
     public $oid;
 
     /**
+     * @example operator demo
+     *
      * @var string
      */
     public $operName;
@@ -25,6 +29,8 @@ class operatorBasicInfo extends Model
     public $param;
 
     /**
+     * @example REGULAR_EXPRESSION
+     *
      * @var string
      */
     public $type;

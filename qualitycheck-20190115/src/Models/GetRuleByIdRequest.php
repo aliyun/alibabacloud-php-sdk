@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetRuleByIdRequest extends Model
 {
     /**
+     * @description baseMeAgentId
+     *
+     * @var int
+     */
+    public $baseMeAgentId;
+
+    /**
+     * @example 53
+     *
      * @var int
      */
     public $ruleId;
     protected $_name = [
-        'ruleId' => 'RuleId',
+        'baseMeAgentId' => 'BaseMeAgentId',
+        'ruleId'        => 'RuleId',
     ];
 
     public function validate()
@@ -23,6 +33,9 @@ class GetRuleByIdRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseMeAgentId) {
+            $res['BaseMeAgentId'] = $this->baseMeAgentId;
+        }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -38,6 +51,9 @@ class GetRuleByIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseMeAgentId'])) {
+            $model->baseMeAgentId = $map['BaseMeAgentId'];
+        }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

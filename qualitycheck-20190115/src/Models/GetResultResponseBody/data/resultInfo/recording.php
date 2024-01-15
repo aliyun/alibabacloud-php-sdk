@@ -14,156 +14,218 @@ class recording extends Model
     public $business;
 
     /**
+     * @example XXXX
+     *
      * @var string
      */
     public $callId;
 
     /**
+     * @example 1563967699000
+     *
      * @var string
      */
     public $callTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $callType;
 
     /**
+     * @example 1888888****
+     *
      * @var string
      */
     public $callee;
 
     /**
+     * @example 0108888****
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @example XXXX
+     *
      * @var string
      */
     public $dataSetName;
 
     /**
+     * @example 32
+     *
      * @var int
      */
     public $dialogueSize;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example XXXXX
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 123456.mkv
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 3437500
+     *
      * @var string
      */
     public $primaryId;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $remark1;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $remark10;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $remark11;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $remark12;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $remark13;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $remark2;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $remark3;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $remark4;
 
     /**
+     * @example 1232
+     *
      * @var int
      */
     public $remark5;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $remark6;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $remark7;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $remark8;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $remark9;
 
     /**
+     * @var int
+     */
+    public $taskConfigId;
+
+    /**
+     * @var string
+     */
+    public $taskConfigName;
+
+    /**
+     * @example http://aliyun.com/audio.wav
+     *
      * @var string
      */
     public $url;
     protected $_name = [
-        'business'     => 'Business',
-        'callId'       => 'CallId',
-        'callTime'     => 'CallTime',
-        'callType'     => 'CallType',
-        'callee'       => 'Callee',
-        'caller'       => 'Caller',
-        'dataSetName'  => 'DataSetName',
-        'dialogueSize' => 'DialogueSize',
-        'duration'     => 'Duration',
-        'id'           => 'Id',
-        'name'         => 'Name',
-        'primaryId'    => 'PrimaryId',
-        'remark1'      => 'Remark1',
-        'remark10'     => 'Remark10',
-        'remark11'     => 'Remark11',
-        'remark12'     => 'Remark12',
-        'remark13'     => 'Remark13',
-        'remark2'      => 'Remark2',
-        'remark3'      => 'Remark3',
-        'remark4'      => 'Remark4',
-        'remark5'      => 'Remark5',
-        'remark6'      => 'Remark6',
-        'remark7'      => 'Remark7',
-        'remark8'      => 'Remark8',
-        'remark9'      => 'Remark9',
-        'url'          => 'Url',
+        'business'       => 'Business',
+        'callId'         => 'CallId',
+        'callTime'       => 'CallTime',
+        'callType'       => 'CallType',
+        'callee'         => 'Callee',
+        'caller'         => 'Caller',
+        'dataSetName'    => 'DataSetName',
+        'dialogueSize'   => 'DialogueSize',
+        'duration'       => 'Duration',
+        'id'             => 'Id',
+        'name'           => 'Name',
+        'primaryId'      => 'PrimaryId',
+        'remark1'        => 'Remark1',
+        'remark10'       => 'Remark10',
+        'remark11'       => 'Remark11',
+        'remark12'       => 'Remark12',
+        'remark13'       => 'Remark13',
+        'remark2'        => 'Remark2',
+        'remark3'        => 'Remark3',
+        'remark4'        => 'Remark4',
+        'remark5'        => 'Remark5',
+        'remark6'        => 'Remark6',
+        'remark7'        => 'Remark7',
+        'remark8'        => 'Remark8',
+        'remark9'        => 'Remark9',
+        'taskConfigId'   => 'TaskConfigId',
+        'taskConfigName' => 'TaskConfigName',
+        'url'            => 'Url',
     ];
 
     public function validate()
@@ -247,6 +309,12 @@ class recording extends Model
         }
         if (null !== $this->remark9) {
             $res['Remark9'] = $this->remark9;
+        }
+        if (null !== $this->taskConfigId) {
+            $res['TaskConfigId'] = $this->taskConfigId;
+        }
+        if (null !== $this->taskConfigName) {
+            $res['TaskConfigName'] = $this->taskConfigName;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -337,6 +405,12 @@ class recording extends Model
         }
         if (isset($map['Remark9'])) {
             $model->remark9 = $map['Remark9'];
+        }
+        if (isset($map['TaskConfigId'])) {
+            $model->taskConfigId = $map['TaskConfigId'];
+        }
+        if (isset($map['TaskConfigName'])) {
+            $model->taskConfigName = $map['TaskConfigName'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];

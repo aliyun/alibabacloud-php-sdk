@@ -26,26 +26,36 @@ class resultInfo extends Model
     public $asrResult;
 
     /**
+     * @example 2021-03-02T14:37Z
+     *
      * @var string
      */
     public $assignmentTime;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $comments;
 
     /**
+     * @example 2019-07-24T19:31Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1602743090
+     *
      * @var string
      */
     public $createTimeLong;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $errorMessage;
@@ -61,6 +71,8 @@ class resultInfo extends Model
     public $hitScore;
 
     /**
+     * @example 4498420@a_z@93EAADF1-01D3-44BD-8AC9-F57F447EFCE8_1614*****
+     *
      * @var string
      */
     public $lastDataId;
@@ -71,36 +83,50 @@ class resultInfo extends Model
     public $recording;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $resolver;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $reviewResult;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $reviewStatus;
 
     /**
+     * @example 2019-07-24T19:31Z
+     *
      * @var string
      */
     public $reviewTime;
 
     /**
+     * @example 1602743090
+     *
      * @var string
      */
     public $reviewTimeLong;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $reviewType;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $reviewer;
@@ -116,21 +142,29 @@ class resultInfo extends Model
     public $schemeNameList;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $score;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example A6BEC8D-9A5B-4BE5-8432-4F635E***
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $taskName;

@@ -13,16 +13,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example https
+     *
      * @var string
      */
     public $audioScheme;
 
     /**
+     * @example sca-ccc-test.oss-cn-beijing.aliyuncs.com/xxxxx
+     *
      * @var string
      */
     public $audioURL;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $comments;
@@ -33,11 +39,15 @@ class data extends Model
     public $dialogues;
 
     /**
+     * @example e790e6c919d84b82b64ee*****
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example xxx.wav
+     *
      * @var string
      */
     public $fileMergeName;
@@ -58,16 +68,22 @@ class data extends Model
     public $reviewHistoryList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 99
+     *
      * @var int
      */
     public $totalScore;
 
     /**
+     * @example 6fa76916-3ce6-45d8-ac64-01b7f31***
+     *
      * @var string
      */
     public $vid;

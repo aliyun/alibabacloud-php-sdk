@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class scoreParam extends Model
 {
     /**
+     * @example 32
+     *
      * @var int
      */
     public $scoreNum;
 
     /**
+     * @example 3422
+     *
      * @var int
      */
     public $scoreSubId;
@@ -24,6 +28,8 @@ class scoreParam extends Model
     public $scoreSubName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $scoreType;

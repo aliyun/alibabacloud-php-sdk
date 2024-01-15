@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UploadAudioDataResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 76DB5D8C-5BD9-42A7-B527-5AF3A5***
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 76DB5D8C-5BD9-42A7-B527-5AF3A5F8***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

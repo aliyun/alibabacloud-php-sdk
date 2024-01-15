@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetBusinessCategoryListResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetBusinessCategoryListResponseBody extends Model
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example A186A419-FDBE-464C-AED4-7121CAC73BF1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $success;

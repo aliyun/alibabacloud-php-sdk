@@ -12,21 +12,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $asrTaskPriority;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $assignType;
 
     /**
+     * @example 1650418039000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $createUser;
@@ -37,21 +45,29 @@ class data extends Model
     public $dataConfig;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $finishRate;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $manualReview;
 
     /**
+     * @example cdae396590b*****ec40f3476e274fc
+     *
      * @var string
      */
     public $modeCustomizationId;
@@ -67,21 +83,29 @@ class data extends Model
     public $name;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $numberExecuting;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $numberFail;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $numberSuccess;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $numberSum;
@@ -97,41 +121,57 @@ class data extends Model
     public $schemeList;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $schemeTaskConfigId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $sourceDataType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example 1650418039000
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $updateUser;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $userGroup;
 
     /**
+     * @example 9f90b3efa2****0a49acec226eafc17
+     *
      * @var string
      */
     public $vocabId;

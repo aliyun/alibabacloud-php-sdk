@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class RestartAsrTaskRequest extends Model
 {
     /**
+     * @description baseMeAgentId
+     *
+     * @var int
+     */
+    public $baseMeAgentId;
+
+    /**
+     * @example {"taskIdList":["F8FE775A-00DC-4988-A308-0B15C238C867"],"vidList":["9ba7466b407c4054bd38b37738cc29a7"]}
+     *
      * @var string
      */
     public $jsonStr;
     protected $_name = [
-        'jsonStr' => 'JsonStr',
+        'baseMeAgentId' => 'BaseMeAgentId',
+        'jsonStr'       => 'JsonStr',
     ];
 
     public function validate()
@@ -23,6 +33,9 @@ class RestartAsrTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseMeAgentId) {
+            $res['BaseMeAgentId'] = $this->baseMeAgentId;
+        }
         if (null !== $this->jsonStr) {
             $res['JsonStr'] = $this->jsonStr;
         }
@@ -38,6 +51,9 @@ class RestartAsrTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseMeAgentId'])) {
+            $model->baseMeAgentId = $map['BaseMeAgentId'];
+        }
         if (isset($map['JsonStr'])) {
             $model->jsonStr = $map['JsonStr'];
         }

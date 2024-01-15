@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1584535485856
+     *
      * @var int
      */
     public $beginTime;
@@ -20,16 +22,22 @@ class data extends Model
     public $rules;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $score;
 
     /**
+     * @example 66E1ACB866E1ACB8
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 20200876-66E1ACB8
+     *
      * @var string
      */
     public $tid;

@@ -20,16 +20,22 @@ class hitResult extends Model
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $reviewResult;
 
     /**
+     * @example 1211
+     *
      * @var string
      */
     public $rid;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $type;

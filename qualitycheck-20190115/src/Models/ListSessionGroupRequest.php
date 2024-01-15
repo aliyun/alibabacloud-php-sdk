@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListSessionGroupRequest extends Model
 {
     /**
+     * @description baseMeAgentId
+     *
+     * @var int
+     */
+    public $baseMeAgentId;
+
+    /**
+     * @example {"isSchemeData":1,"pageNumber":1,"pageSize":10,"callStartTime":"2022-09-17 00:00:00","callEndTime":"2022-09-23 23:59:59","schemeTaskConfigId":368}
+     *
      * @var string
      */
     public $jsonStr;
     protected $_name = [
-        'jsonStr' => 'jsonStr',
+        'baseMeAgentId' => 'BaseMeAgentId',
+        'jsonStr'       => 'jsonStr',
     ];
 
     public function validate()
@@ -23,6 +33,9 @@ class ListSessionGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseMeAgentId) {
+            $res['BaseMeAgentId'] = $this->baseMeAgentId;
+        }
         if (null !== $this->jsonStr) {
             $res['jsonStr'] = $this->jsonStr;
         }
@@ -38,6 +51,9 @@ class ListSessionGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseMeAgentId'])) {
+            $model->baseMeAgentId = $map['BaseMeAgentId'];
+        }
         if (isset($map['jsonStr'])) {
             $model->jsonStr = $map['jsonStr'];
         }

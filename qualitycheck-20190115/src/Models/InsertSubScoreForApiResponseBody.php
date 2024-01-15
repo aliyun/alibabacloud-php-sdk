@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class InsertSubScoreForApiResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class InsertSubScoreForApiResponseBody extends Model
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example D34079C5-AA2F-490E-ADD8-5BFF08AAE207
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

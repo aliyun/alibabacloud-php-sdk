@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class channel extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example oapi.dingtalk.com/robot/send?access_token=c55628f700eb9ad2a3ca
+     *
      * @var string
      */
     public $url;

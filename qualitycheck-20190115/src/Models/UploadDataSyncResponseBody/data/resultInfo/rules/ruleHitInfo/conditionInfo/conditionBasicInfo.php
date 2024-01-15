@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class conditionBasicInfo extends Model
 {
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $conditionInfoCid;

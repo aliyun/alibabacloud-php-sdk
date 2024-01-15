@@ -16,16 +16,22 @@ class data extends Model
     public $conditions;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

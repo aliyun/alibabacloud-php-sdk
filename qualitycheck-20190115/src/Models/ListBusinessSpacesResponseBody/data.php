@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 2951869706989****
+     *
      * @var int
      */
     public $aliUid;
@@ -24,61 +26,85 @@ class data extends Model
     public $businessSpaceName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $currentStatus;
 
     /**
+     * @example 1666583950000
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $loginUserType;
 
     /**
+     * @example scaxxx
+     *
      * @var string
      */
     public $orderInstanceId;
 
     /**
+     * @example Standard
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example AGENT
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @example 1666583950000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 111****
+     *
      * @var int
      */
     public $subAliUid;
 
     /**
+     * @example sca
+     *
      * @var string
      */
     public $xspaceCommodityCode;
 
     /**
+     * @example sca
+     *
      * @var string
      */
     public $xspaceProductCode;

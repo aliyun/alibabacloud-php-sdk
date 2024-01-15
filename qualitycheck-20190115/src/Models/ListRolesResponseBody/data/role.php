@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class role extends Model
 {
     /**
+     * @example 2019-06-20T17:33Z
+     *
      * @var string
      */
     public $createTime;
@@ -19,21 +21,29 @@ class role extends Model
     public $displayName;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 99
+     *
      * @var int
      */
     public $level;
 
     /**
+     * @example AGENT
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 2019-06-20T17:33Z
+     *
      * @var string
      */
     public $updateTime;

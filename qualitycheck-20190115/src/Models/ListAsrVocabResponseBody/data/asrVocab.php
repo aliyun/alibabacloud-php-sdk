@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class asrVocab extends Model
 {
     /**
+     * @example 2019-04-15T14:57Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 18
+     *
      * @var string
      */
     public $id;
@@ -24,11 +28,15 @@ class asrVocab extends Model
     public $name;
 
     /**
+     * @example 2019-04-15T14:57Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @example a01daaaxxxxxxxxx
+     *
      * @var string
      */
     public $vocabularyId;

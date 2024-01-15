@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SubmitPrecisionTaskResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example EA701F66-8CA2-4A79-8E3C-A6F2FA****
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 106C6CA0-282D-4AF7-85F0-D2D24F4CE647
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

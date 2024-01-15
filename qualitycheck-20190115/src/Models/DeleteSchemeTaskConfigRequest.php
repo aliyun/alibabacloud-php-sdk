@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteSchemeTaskConfigRequest extends Model
 {
     /**
+     * @description baseMeAgentId
+     *
+     * @var int
+     */
+    public $baseMeAgentId;
+
+    /**
+     * @example {"schemeId":"329"}
+     *
      * @var string
      */
     public $jsonStr;
     protected $_name = [
-        'jsonStr' => 'jsonStr',
+        'baseMeAgentId' => 'BaseMeAgentId',
+        'jsonStr'       => 'jsonStr',
     ];
 
     public function validate()
@@ -23,6 +33,9 @@ class DeleteSchemeTaskConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseMeAgentId) {
+            $res['BaseMeAgentId'] = $this->baseMeAgentId;
+        }
         if (null !== $this->jsonStr) {
             $res['jsonStr'] = $this->jsonStr;
         }
@@ -38,6 +51,9 @@ class DeleteSchemeTaskConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseMeAgentId'])) {
+            $model->baseMeAgentId = $map['BaseMeAgentId'];
+        }
         if (isset($map['jsonStr'])) {
             $model->jsonStr = $map['jsonStr'];
         }

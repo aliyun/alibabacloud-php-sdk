@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class samplingMode extends Model
 {
     /**
+     * @example 60
+     *
      * @var int
      */
     public $anyNumberOfDraws;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $designated;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dimension;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $numberOfDraws;
 
     /**
+     * @example 0.1
+     *
      * @var float
      */
     public $proportion;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $randomInspectionNumber;

@@ -16,11 +16,15 @@ class conditionBasicInfo extends Model
     public $checkRange;
 
     /**
+     * @example 7
+     *
      * @var string
      */
     public $conditionInfoCid;
 
     /**
+     * @example 7
+     *
      * @var string
      */
     public $operLambda;

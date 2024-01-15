@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class precision extends Model
 {
     /**
+     * @example 2020-03-10 20:26:29
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2321
+     *
      * @var int
      */
     public $modelId;
@@ -24,16 +28,22 @@ class precision extends Model
     public $modelName;
 
     /**
+     * @example 0.98
+     *
      * @var float
      */
     public $precision;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 7C1DEF5F-2C18-4D36-99C6-8C276F781796
+     *
      * @var string
      */
     public $taskId;

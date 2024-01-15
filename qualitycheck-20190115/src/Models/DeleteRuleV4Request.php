@@ -9,17 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteRuleV4Request extends Model
 {
     /**
+     * @description baseMeAgentId
+     *
+     * @var int
+     */
+    public $baseMeAgentId;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $forceDelete;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleId;
     protected $_name = [
-        'forceDelete' => 'ForceDelete',
-        'ruleId'      => 'RuleId',
+        'baseMeAgentId' => 'BaseMeAgentId',
+        'forceDelete'   => 'ForceDelete',
+        'ruleId'        => 'RuleId',
     ];
 
     public function validate()
@@ -29,6 +41,9 @@ class DeleteRuleV4Request extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseMeAgentId) {
+            $res['BaseMeAgentId'] = $this->baseMeAgentId;
+        }
         if (null !== $this->forceDelete) {
             $res['ForceDelete'] = $this->forceDelete;
         }
@@ -47,6 +62,9 @@ class DeleteRuleV4Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseMeAgentId'])) {
+            $model->baseMeAgentId = $map['BaseMeAgentId'];
+        }
         if (isset($map['ForceDelete'])) {
             $model->forceDelete = $map['ForceDelete'];
         }

@@ -15,16 +15,22 @@ class dataConfig extends Model
     public $assignConfigs;
 
     /**
+     * @example []
+     *
      * @var string
      */
     public $dataSets;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $resultParam;

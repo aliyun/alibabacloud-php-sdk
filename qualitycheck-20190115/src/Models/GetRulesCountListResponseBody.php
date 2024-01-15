@@ -16,16 +16,22 @@ class GetRulesCountListResponseBody extends Model
     public $businessType;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -36,11 +42,15 @@ class GetRulesCountListResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
@@ -51,26 +61,36 @@ class GetRulesCountListResponseBody extends Model
     public $messages;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 9987D326-83D9-4A42-B9A5-0B27F9B40539
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $totalCount;

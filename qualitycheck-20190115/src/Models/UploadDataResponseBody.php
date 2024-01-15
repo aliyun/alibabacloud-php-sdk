@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UploadDataResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 6F5934C7-C223-4F0F-BBF3-5B3594***
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 6F5934C7-C223-4F0F-BBF3-5B3594****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

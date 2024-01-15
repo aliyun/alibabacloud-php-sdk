@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class precisionTask extends Model
 {
     /**
+     * @example 2020-03-10 20:26:29
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1212
+     *
      * @var int
      */
     public $dataSetId;
@@ -25,11 +29,15 @@ class precisionTask extends Model
     public $dataSetName;
 
     /**
+     * @example 331311
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 32
+     *
      * @var int
      */
     public $incorrectWords;
@@ -45,31 +53,43 @@ class precisionTask extends Model
     public $precisions;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $source;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 7C1DEF5F-2C18-4D36-99C6-8C276F781796
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 21
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example 2020-03-10 20:26:29
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $verifiedCount;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class samplingModeAgent extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $agentId;
 
     /**
+     * @example zhangsan
+     *
      * @var string
      */
     public $agentName;

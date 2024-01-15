@@ -14,6 +14,8 @@ class schemeList extends Model
     public $name;
 
     /**
+     * @example 158
+     *
      * @var int
      */
     public $schemeId;

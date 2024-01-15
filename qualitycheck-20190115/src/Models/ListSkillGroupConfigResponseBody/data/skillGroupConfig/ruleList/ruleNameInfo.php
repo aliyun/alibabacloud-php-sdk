@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ruleNameInfo extends Model
 {
     /**
+     * @example 2221
+     *
      * @var int
      */
     public $rid;
 
     /**
+     * @example x\"x\"x
+     *
      * @var string
      */
     public $ruleName;

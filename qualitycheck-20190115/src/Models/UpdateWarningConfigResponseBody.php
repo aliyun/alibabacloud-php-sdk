@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateWarningConfigResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class UpdateWarningConfigResponseBody extends Model
     public $message;
 
     /**
+     * @example 106C6CA0-282D-4AF7-85F0-D2D24F4CE647
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetResultToReviewResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetResultToReviewResponseBody extends Model
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 82C91484-B2D5-4D2A-A21F-A6D73F4***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

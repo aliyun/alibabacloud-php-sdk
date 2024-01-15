@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateCheckTypeToSchemeResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
@@ -35,11 +43,15 @@ class UpdateCheckTypeToSchemeResponseBody extends Model
     public $messages;
 
     /**
+     * @example F190ADE9-619A-447D-84E3-7E241A5C428E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

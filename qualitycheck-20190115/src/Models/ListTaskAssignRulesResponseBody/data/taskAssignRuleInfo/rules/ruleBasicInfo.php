@@ -14,6 +14,8 @@ class ruleBasicInfo extends Model
     public $name;
 
     /**
+     * @example 2312
+     *
      * @var string
      */
     public $rid;

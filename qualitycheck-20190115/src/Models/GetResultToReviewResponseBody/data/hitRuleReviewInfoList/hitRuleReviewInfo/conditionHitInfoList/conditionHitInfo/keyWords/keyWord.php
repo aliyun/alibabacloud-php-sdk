@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class keyWord extends Model
 {
     /**
+     * @example 2000
+     *
      * @var string
      */
     public $cid;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $customizeCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $from;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pid;
 
     /**
+     * @example 6fa76916-3ce6-45d8-ac64-01b7f31c7295
+     *
      * @var string
      */
     public $tid;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $to;

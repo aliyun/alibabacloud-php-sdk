@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class modelCustomizationDataSetPo extends Model
 {
     /**
+     * @example 2019-01-08
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example cdae396590bb479a9ec40f3476e274fc
+     *
      * @var string
      */
     public $modeCustomizationId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $modelId;
@@ -29,11 +35,15 @@ class modelCustomizationDataSetPo extends Model
     public $modelName;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $modelStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $taskType;

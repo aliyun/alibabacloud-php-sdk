@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetHitResultResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $count;
@@ -25,26 +29,36 @@ class GetHitResultResponseBody extends Model
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 11BF1110-D917-412F-A9C8-4B0DB31089A5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

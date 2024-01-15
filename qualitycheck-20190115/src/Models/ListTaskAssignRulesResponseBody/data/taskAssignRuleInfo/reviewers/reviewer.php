@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class reviewer extends Model
 {
     /**
+     * @example 2337235457340978
+     *
      * @var string
      */
     public $reviewerId;

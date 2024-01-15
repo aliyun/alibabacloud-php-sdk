@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class hitRuleReviewInfo extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $autoReview;
@@ -22,6 +24,8 @@ class hitRuleReviewInfo extends Model
     public $complainHistories;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $complainable;
@@ -37,6 +41,8 @@ class hitRuleReviewInfo extends Model
     public $reviewInfo;
 
     /**
+     * @example 451
+     *
      * @var int
      */
     public $rid;
@@ -47,21 +53,29 @@ class hitRuleReviewInfo extends Model
     public $ruleName;
 
     /**
+     * @example xxx
+     *
      * @var int
      */
     public $scoreId;
 
     /**
+     * @example -10
+     *
      * @var int
      */
     public $scoreNum;
 
     /**
+     * @example xxx
+     *
      * @var int
      */
     public $scoreSubId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $scoreSubName;

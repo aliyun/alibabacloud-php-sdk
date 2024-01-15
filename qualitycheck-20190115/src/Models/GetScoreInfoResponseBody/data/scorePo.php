@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class scorePo extends Model
 {
     /**
+     * @example 34
+     *
      * @var int
      */
     public $scoreId;

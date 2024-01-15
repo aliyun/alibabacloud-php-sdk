@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class agent extends Model
 {
     /**
+     * @example 12221
+     *
      * @var string
      */
     public $id;

@@ -9,25 +9,41 @@ use AlibabaCloud\Tea\Model;
 class UpdateRuleByIdRequest extends Model
 {
     /**
+     * @description baseMeAgentId
+     *
+     * @var int
+     */
+    public $baseMeAgentId;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $isCopy;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $jsonStrForRule;
 
     /**
+     * @example 1
+     *
      * @var bool
      */
     public $returnRelatedSchemes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleId;
     protected $_name = [
+        'baseMeAgentId'        => 'BaseMeAgentId',
         'isCopy'               => 'IsCopy',
         'jsonStrForRule'       => 'JsonStrForRule',
         'returnRelatedSchemes' => 'ReturnRelatedSchemes',
@@ -41,6 +57,9 @@ class UpdateRuleByIdRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseMeAgentId) {
+            $res['BaseMeAgentId'] = $this->baseMeAgentId;
+        }
         if (null !== $this->isCopy) {
             $res['IsCopy'] = $this->isCopy;
         }
@@ -65,6 +84,9 @@ class UpdateRuleByIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseMeAgentId'])) {
+            $model->baseMeAgentId = $map['BaseMeAgentId'];
+        }
         if (isset($map['IsCopy'])) {
             $model->isCopy = $map['IsCopy'];
         }

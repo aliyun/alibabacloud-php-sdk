@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class dialogue extends Model
 {
     /**
+     * @example 980
+     *
      * @var int
      */
     public $begin;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $beginTime;
@@ -25,16 +29,22 @@ class dialogue extends Model
     public $deltas;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $emotionValue;
 
     /**
+     * @example 3422
+     *
      * @var int
      */
     public $end;
 
     /**
+     * @example 00:00:07
+     *
      * @var string
      */
     public $hourMinSec;
@@ -45,6 +55,8 @@ class dialogue extends Model
     public $identity;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $incorrectWords;
@@ -55,6 +67,8 @@ class dialogue extends Model
     public $role;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $silenceDuration;
@@ -70,6 +84,8 @@ class dialogue extends Model
     public $sourceWords;
 
     /**
+     * @example 332
+     *
      * @var int
      */
     public $speechRate;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListBusinessSpacesRequest extends Model
 {
     /**
+     * @example {}
+     *
      * @var string
      */
     public $jsonStr;

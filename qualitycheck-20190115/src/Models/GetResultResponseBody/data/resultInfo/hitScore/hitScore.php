@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class hitScore extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $scoreId;
@@ -24,6 +28,8 @@ class hitScore extends Model
     public $scoreName;
 
     /**
+     * @example -20
+     *
      * @var string
      */
     public $scoreNumber;

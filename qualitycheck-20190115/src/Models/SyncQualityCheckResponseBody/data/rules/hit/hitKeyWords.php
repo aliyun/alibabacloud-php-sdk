@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class hitKeyWords extends Model
 {
     /**
+     * @example 2312
+     *
      * @var int
      */
     public $cid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $from;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $pid;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $to;

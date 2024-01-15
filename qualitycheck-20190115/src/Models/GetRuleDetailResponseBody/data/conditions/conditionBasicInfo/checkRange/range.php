@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class range extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $from;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $to;

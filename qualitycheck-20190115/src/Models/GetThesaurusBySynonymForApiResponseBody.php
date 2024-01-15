@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetThesaurusBySynonymForApiResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetThesaurusBySynonymForApiResponseBody extends Model
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E098A17A-FD47-4D4A-B59E-BCAFA90CDB9B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

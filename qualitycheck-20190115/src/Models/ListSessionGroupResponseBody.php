@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListSessionGroupResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2228
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -31,16 +37,22 @@ class ListSessionGroupResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $lastDataId;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
@@ -51,16 +63,22 @@ class ListSessionGroupResponseBody extends Model
     public $messages;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example F190ADE9-619A-447D-84E3-7E241A5C428E
+     *
      * @var string
      */
     public $requestId;
@@ -71,6 +89,8 @@ class ListSessionGroupResponseBody extends Model
     public $resultCountId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

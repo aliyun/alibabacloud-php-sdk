@@ -15,6 +15,8 @@ class rules extends Model
     public $hit;
 
     /**
+     * @example 232232
+     *
      * @var string
      */
     public $rid;

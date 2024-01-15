@@ -14,16 +14,22 @@ class complainHistories extends Model
     public $comments;
 
     /**
+     * @example 2020-10-16T11:13Z
+     *
      * @var string
      */
     public $operationTime;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $operationType;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $operator;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class businessCategoryBasicInfo extends Model
 {
     /**
+     * @example 264971810
+     *
      * @var int
      */
     public $bid;
@@ -19,6 +21,8 @@ class businessCategoryBasicInfo extends Model
     public $businessName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $serviceType;

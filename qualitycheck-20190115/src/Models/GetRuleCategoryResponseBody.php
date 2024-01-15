@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetRuleCategoryResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetRuleCategoryResponseBody extends Model
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example F190ADE9-619A-447D-84E3-7E241A5C428E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

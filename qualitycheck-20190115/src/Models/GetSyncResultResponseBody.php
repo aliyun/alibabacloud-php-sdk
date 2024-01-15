@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetSyncResultResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;
@@ -25,31 +29,43 @@ class GetSyncResultResponseBody extends Model
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 76DB5D8C-5BD9-42A7-B527-5AF3A5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $resultCountId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

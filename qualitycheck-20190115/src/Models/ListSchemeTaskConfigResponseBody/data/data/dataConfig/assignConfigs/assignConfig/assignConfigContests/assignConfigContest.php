@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class assignConfigContest extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $dataType;
@@ -20,16 +22,22 @@ class assignConfigContest extends Model
     public $listObject;
 
     /**
+     * @example callStartTime
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $symbol;
 
     /**
+     * @example {\"start\":\"2022-09-01 00:00:00\",\"end\":\"2022-09-30 00:00:00\"}
+     *
      * @var string
      */
     public $value;

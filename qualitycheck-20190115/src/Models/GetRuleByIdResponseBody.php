@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRuleByIdResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class GetRuleByIdResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
@@ -34,11 +40,15 @@ class GetRuleByIdResponseBody extends Model
     public $messages;
 
     /**
+     * @example 3CEA0495-341B-4482-9AD9-8191EF4***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

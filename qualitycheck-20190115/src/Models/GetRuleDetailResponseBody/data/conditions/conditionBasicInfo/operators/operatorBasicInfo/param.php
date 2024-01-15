@@ -20,36 +20,50 @@ class param extends Model
     public $antModelInfo;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $average;
 
     /**
+     * @example DIALOGUE
+     *
      * @var string
      */
     public $beginType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $checkType;
 
     /**
+     * @example gt
+     *
      * @var string
      */
     public $compareOperator;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $contextChatMatch;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $delayTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $differentRole;
@@ -60,46 +74,64 @@ class param extends Model
     public $excludes;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $from;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $fromEnd;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $hitTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $inSentence;
 
     /**
+     * @example 5000
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $keywordExtension;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $keywordMatchSize;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $maxEmotionChangeValue;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $minWordSize;
@@ -115,6 +147,8 @@ class param extends Model
     public $operKeyWords;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $phrase;
@@ -135,11 +169,15 @@ class param extends Model
     public $regex;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $score;
 
     /**
+     * @example 90
+     *
      * @var float
      */
     public $similarityThreshold;
@@ -150,6 +188,8 @@ class param extends Model
     public $similarlySentences;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $target;
@@ -160,11 +200,15 @@ class param extends Model
     public $targetRole;
 
     /**
+     * @example 4
+     *
      * @var float
      */
     public $threshold;
 
     /**
+     * @example 280
+     *
      * @var int
      */
     public $velocityInMint;

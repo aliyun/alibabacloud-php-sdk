@@ -16,56 +16,78 @@ class hotWordsTaskPo extends Model
     public $dialogueParam;
 
     /**
+     * @example 2020-11-30T21:16Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $instanceStatus;
 
     /**
+     * @example 2020-11-30T21:16Z
+     *
      * @var string
      */
     public $lastExecutionTime;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 2020-11-30T21:16Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 221
+     *
      * @var int
      */
     public $taskConfigId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $timeInterval;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $timeUnit;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

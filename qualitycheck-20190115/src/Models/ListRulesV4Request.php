@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListRulesV4Request extends Model
 {
     /**
+     * @description baseMeAgentId
+     *
+     * @var int
+     */
+    public $baseMeAgentId;
+
+    /**
      * @var string
      */
     public $businessName;
@@ -24,41 +31,57 @@ class ListRulesV4Request extends Model
     public $categoryName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $countTotal;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $createEmpid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $createUserId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 2021-11-29 19:11:09
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $lastUpdateEmpid;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -69,46 +92,64 @@ class ListRulesV4Request extends Model
     public $requireInfos;
 
     /**
+     * @example 895EAD5312634F5AA708E3B3FA79662E
+     *
      * @var int
      */
     public $rid;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $ruleIdOrRuleName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleScoreSingleType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ruleType;
 
     /**
+     * @example 1000000090
+     *
      * @var int
      */
     public $schemeId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $sourceType;
 
     /**
+     * @example 2021-11-29 18:11:09
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
@@ -119,20 +160,27 @@ class ListRulesV4Request extends Model
     public $typeName;
 
     /**
+     * @example 2021-11-29 18:11:09
+     *
      * @var string
      */
     public $updateEndTime;
 
     /**
+     * @example 2021-11-29 16:11:09
+     *
      * @var string
      */
     public $updateStartTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $updateUserId;
     protected $_name = [
+        'baseMeAgentId'       => 'BaseMeAgentId',
         'businessName'        => 'BusinessName',
         'businessRange'       => 'BusinessRange',
         'categoryName'        => 'CategoryName',
@@ -167,6 +215,9 @@ class ListRulesV4Request extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseMeAgentId) {
+            $res['BaseMeAgentId'] = $this->baseMeAgentId;
+        }
         if (null !== $this->businessName) {
             $res['BusinessName'] = $this->businessName;
         }
@@ -254,6 +305,9 @@ class ListRulesV4Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseMeAgentId'])) {
+            $model->baseMeAgentId = $map['BaseMeAgentId'];
+        }
         if (isset($map['BusinessName'])) {
             $model->businessName = $map['BusinessName'];
         }

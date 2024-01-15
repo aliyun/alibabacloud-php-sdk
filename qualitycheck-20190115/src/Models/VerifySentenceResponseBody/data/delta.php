@@ -21,6 +21,8 @@ class delta extends Model
     public $target;
 
     /**
+     * @example CHANGE
+     *
      * @var string
      */
     public $type;

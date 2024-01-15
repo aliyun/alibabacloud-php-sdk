@@ -17,6 +17,8 @@ class warningConfigInfo extends Model
     public $channels;
 
     /**
+     * @example 32
+     *
      * @var int
      */
     public $configId;
@@ -27,6 +29,8 @@ class warningConfigInfo extends Model
     public $configName;
 
     /**
+     * @example 2019-10-29T15:30Z
+     *
      * @var string
      */
     public $createTime;
@@ -42,11 +46,15 @@ class warningConfigInfo extends Model
     public $ruleList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 2019-10-29T17:24Z
+     *
      * @var string
      */
     public $updateTime;

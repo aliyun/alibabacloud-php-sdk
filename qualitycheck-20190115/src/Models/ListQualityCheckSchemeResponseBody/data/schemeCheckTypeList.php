@@ -14,21 +14,29 @@ class schemeCheckTypeList extends Model
     public $checkName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $checkType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $enable;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $score;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $targetType;

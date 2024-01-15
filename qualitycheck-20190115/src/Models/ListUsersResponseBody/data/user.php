@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
+     * @example 2951869706989****
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @example 2020-03-11T16:54Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $loginUserType;
 
     /**
+     * @example AGENT
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @example 2020-03-11T16:54Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $userName;

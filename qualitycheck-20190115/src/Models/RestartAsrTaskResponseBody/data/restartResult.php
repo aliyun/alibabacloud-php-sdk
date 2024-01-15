@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class restartResult extends Model
 {
     /**
+     * @example xxx.wav
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

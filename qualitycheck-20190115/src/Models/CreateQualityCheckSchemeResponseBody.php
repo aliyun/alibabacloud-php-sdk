@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityCheckSchemeResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
@@ -35,11 +43,15 @@ class CreateQualityCheckSchemeResponseBody extends Model
     public $messages;
 
     /**
+     * @example 76DB5D8C-5BD9-42A7-B527-5AF3A5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

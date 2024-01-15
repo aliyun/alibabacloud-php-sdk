@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateAsrVocabResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 71b1795ac8634bd8bdf4d3878480c7c2
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 96138D8D-8D26-4E41-BFF4-77AED1088BBD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class skillGroupConfig extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $allContentQualityCheck;
 
     /**
+     * @example 223
+     *
      * @var string
      */
     public $allRids;
@@ -27,41 +31,57 @@ class skillGroupConfig extends Model
     public $allRuleList;
 
     /**
+     * @example 2020-12-01T15:12Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 221
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 211
+     *
      * @var int
      */
     public $modelId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $modelName;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $qualityCheckType;
 
     /**
+     * @example 2221
+     *
      * @var string
      */
     public $rid;
@@ -72,21 +92,29 @@ class skillGroupConfig extends Model
     public $ruleList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $screenSwitch;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $skillGroupFrom;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $skillGroupId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $skillGroupName;
@@ -97,26 +125,36 @@ class skillGroupConfig extends Model
     public $skillGroupScreens;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;
 
     /**
+     * @example 2020-12-01T19:28Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @example 323
+     *
      * @var int
      */
     public $vocabId;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $vocabName;

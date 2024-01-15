@@ -16,11 +16,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $assignStatus;
 
     /**
+     * @example 2022-09-26 10:09:14
+     *
      * @var string
      */
     public $callStartTime;
@@ -51,16 +55,22 @@ class data extends Model
     public $customerServiceNameList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $hitSessionCount;
 
     /**
+     * @example 4498420@a_z@93EAADF1-01D3-44BD-8AC9-F57F447EFCE8_1614*****
+     *
      * @var string
      */
     public $lastDataId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $reviewStatus;
@@ -71,6 +81,8 @@ class data extends Model
     public $reviewerList;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $schemeTaskConfigId;
@@ -81,21 +93,29 @@ class data extends Model
     public $schemeTaskConfigName;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $score;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $sessionCount;
 
     /**
+     * @example SessionGroupA
+     *
      * @var string
      */
     public $sessionGroupId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sessionGroupReviewedOrComplained;

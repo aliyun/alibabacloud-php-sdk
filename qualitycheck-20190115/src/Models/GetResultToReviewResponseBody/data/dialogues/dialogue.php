@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class dialogue extends Model
 {
     /**
+     * @example 72000
+     *
      * @var int
      */
     public $begin;
 
     /**
+     * @example 2019-10-01 11:12:01
+     *
      * @var string
      */
     public $beginTime;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $emotionValue;
 
     /**
+     * @example 80000
+     *
      * @var int
      */
     public $end;
 
     /**
+     * @example 00:08
+     *
      * @var string
      */
     public $hourMinSec;
@@ -44,11 +54,15 @@ class dialogue extends Model
     public $role;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $silenceDuration;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $speechRate;

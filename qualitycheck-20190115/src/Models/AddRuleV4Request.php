@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddRuleV4Request extends Model
 {
     /**
+     * @description baseMeAgentId
+     *
+     * @var int
+     */
+    public $baseMeAgentId;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $isCopy;
@@ -18,6 +27,7 @@ class AddRuleV4Request extends Model
      */
     public $jsonStrForRule;
     protected $_name = [
+        'baseMeAgentId'  => 'BaseMeAgentId',
         'isCopy'         => 'IsCopy',
         'jsonStrForRule' => 'JsonStrForRule',
     ];
@@ -29,6 +39,9 @@ class AddRuleV4Request extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baseMeAgentId) {
+            $res['BaseMeAgentId'] = $this->baseMeAgentId;
+        }
         if (null !== $this->isCopy) {
             $res['IsCopy'] = $this->isCopy;
         }
@@ -47,6 +60,9 @@ class AddRuleV4Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaseMeAgentId'])) {
+            $model->baseMeAgentId = $map['BaseMeAgentId'];
+        }
         if (isset($map['IsCopy'])) {
             $model->isCopy = $map['IsCopy'];
         }
