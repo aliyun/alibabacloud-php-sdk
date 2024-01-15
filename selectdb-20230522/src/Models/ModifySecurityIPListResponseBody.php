@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityIPListResponseBody extends Model
 {
     /**
-     * @example 200
-     *
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var string
      */
     public $DBInstanceName;
@@ -33,13 +26,6 @@ class ModifySecurityIPListResponseBody extends Model
      * @var string
      */
     public $groupTag;
-
-    /**
-     * @example Successful
-     *
-     * @var string
-     */
-    public $message;
 
     /**
      * @example 195F64C2-8F11-532B-A436-FC08A221D756
@@ -63,13 +49,6 @@ class ModifySecurityIPListResponseBody extends Model
     public $securityIPType;
 
     /**
-     * @example true
-     *
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @example 479095561
      *
      * @var int
@@ -83,15 +62,12 @@ class ModifySecurityIPListResponseBody extends Model
      */
     public $whitelistNetType;
     protected $_name = [
-        'code'             => 'Code',
         'DBInstanceName'   => 'DBInstanceName',
         'groupName'        => 'GroupName',
         'groupTag'         => 'GroupTag',
-        'message'          => 'Message',
         'requestId'        => 'RequestId',
         'securityIPList'   => 'SecurityIPList',
         'securityIPType'   => 'SecurityIPType',
-        'success'          => 'Success',
         'taskId'           => 'TaskId',
         'whitelistNetType' => 'WhitelistNetType',
     ];
@@ -103,9 +79,6 @@ class ModifySecurityIPListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
@@ -115,9 +88,6 @@ class ModifySecurityIPListResponseBody extends Model
         if (null !== $this->groupTag) {
             $res['GroupTag'] = $this->groupTag;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -126,9 +96,6 @@ class ModifySecurityIPListResponseBody extends Model
         }
         if (null !== $this->securityIPType) {
             $res['SecurityIPType'] = $this->securityIPType;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -148,9 +115,6 @@ class ModifySecurityIPListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
@@ -160,9 +124,6 @@ class ModifySecurityIPListResponseBody extends Model
         if (isset($map['GroupTag'])) {
             $model->groupTag = $map['GroupTag'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -171,9 +132,6 @@ class ModifySecurityIPListResponseBody extends Model
         }
         if (isset($map['SecurityIPType'])) {
             $model->securityIPType = $map['SecurityIPType'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
