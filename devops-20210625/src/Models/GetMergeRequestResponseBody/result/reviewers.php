@@ -51,6 +51,11 @@ class reviewers extends Model
     public $reviewOpinionStatus;
 
     /**
+     * @var string
+     */
+    public $reviewTime;
+
+    /**
      * @example active
      *
      * @var string
@@ -70,6 +75,7 @@ class reviewers extends Model
         'id'                  => 'id',
         'name'                => 'name',
         'reviewOpinionStatus' => 'reviewOpinionStatus',
+        'reviewTime'          => 'reviewTime',
         'state'               => 'state',
         'username'            => 'username',
     ];
@@ -98,6 +104,9 @@ class reviewers extends Model
         }
         if (null !== $this->reviewOpinionStatus) {
             $res['reviewOpinionStatus'] = $this->reviewOpinionStatus;
+        }
+        if (null !== $this->reviewTime) {
+            $res['reviewTime'] = $this->reviewTime;
         }
         if (null !== $this->state) {
             $res['state'] = $this->state;
@@ -134,6 +143,9 @@ class reviewers extends Model
         }
         if (isset($map['reviewOpinionStatus'])) {
             $model->reviewOpinionStatus = $map['reviewOpinionStatus'];
+        }
+        if (isset($map['reviewTime'])) {
+            $model->reviewTime = $map['reviewTime'];
         }
         if (isset($map['state'])) {
             $model->state = $map['state'];

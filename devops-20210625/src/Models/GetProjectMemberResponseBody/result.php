@@ -23,6 +23,11 @@ class result extends Model
     public $avatarUrl;
 
     /**
+     * @var string
+     */
+    public $email;
+
+    /**
      * @example 2959
      *
      * @var int
@@ -38,6 +43,7 @@ class result extends Model
     protected $_name = [
         'accessLevel' => 'accessLevel',
         'avatarUrl'   => 'avatarUrl',
+        'email'       => 'email',
         'id'          => 'id',
         'name'        => 'name',
     ];
@@ -54,6 +60,9 @@ class result extends Model
         }
         if (null !== $this->avatarUrl) {
             $res['avatarUrl'] = $this->avatarUrl;
+        }
+        if (null !== $this->email) {
+            $res['email'] = $this->email;
         }
         if (null !== $this->id) {
             $res['id'] = $this->id;
@@ -78,6 +87,9 @@ class result extends Model
         }
         if (isset($map['avatarUrl'])) {
             $model->avatarUrl = $map['avatarUrl'];
+        }
+        if (isset($map['email'])) {
+            $model->email = $map['email'];
         }
         if (isset($map['id'])) {
             $model->id = $map['id'];

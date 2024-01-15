@@ -37,6 +37,11 @@ class reviewers extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $reviewTime;
+
+    /**
      * @example active
      *
      * @var string
@@ -57,13 +62,14 @@ class reviewers extends Model
      */
     public $username;
     protected $_name = [
-        'avatarUrl' => 'avatarUrl',
-        'email'     => 'email',
-        'id'        => 'id',
-        'name'      => 'name',
-        'state'     => 'state',
-        'status'    => 'status',
-        'username'  => 'username',
+        'avatarUrl'  => 'avatarUrl',
+        'email'      => 'email',
+        'id'         => 'id',
+        'name'       => 'name',
+        'reviewTime' => 'reviewTime',
+        'state'      => 'state',
+        'status'     => 'status',
+        'username'   => 'username',
     ];
 
     public function validate()
@@ -84,6 +90,9 @@ class reviewers extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->reviewTime) {
+            $res['reviewTime'] = $this->reviewTime;
         }
         if (null !== $this->state) {
             $res['state'] = $this->state;
@@ -117,6 +126,9 @@ class reviewers extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['reviewTime'])) {
+            $model->reviewTime = $map['reviewTime'];
         }
         if (isset($map['state'])) {
             $model->state = $map['state'];

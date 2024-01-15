@@ -185,6 +185,7 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemActivityResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemAttachmentCreatemetaRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemAttachmentCreatemetaResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemCommentListResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemFileResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemRelationsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemRelationsResponse;
@@ -6005,6 +6006,50 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->getWorkitemCommentListWithOptions($organizationId, $workitemId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $workitemIdentifier
+     * @param string         $fileIdentifier
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetWorkitemFileResponse
+     */
+    public function getWorkitemFileWithOptions($organizationId, $workitemIdentifier, $fileIdentifier, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetWorkitemFile',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitem/' . OpenApiUtilClient::getEncodeParam($workitemIdentifier) . '/files/' . OpenApiUtilClient::getEncodeParam($fileIdentifier) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWorkitemFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     * @param string $workitemIdentifier
+     * @param string $fileIdentifier
+     *
+     * @return GetWorkitemFileResponse
+     */
+    public function getWorkitemFile($organizationId, $workitemIdentifier, $fileIdentifier)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkitemFileWithOptions($organizationId, $workitemIdentifier, $fileIdentifier, $headers, $runtime);
     }
 
     /**
