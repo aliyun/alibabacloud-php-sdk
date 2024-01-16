@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateSlrRoleRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
      *
      *   **zh_cn**: Simplified Chinese
@@ -19,8 +24,15 @@ class CreateSlrRoleRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'lang' => 'Lang',
+        'featureType' => 'FeatureType',
+        'lang'        => 'Lang',
+        'sourceIp'    => 'SourceIp',
     ];
 
     public function validate()
@@ -30,8 +42,14 @@ class CreateSlrRoleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -45,8 +63,14 @@ class CreateSlrRoleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

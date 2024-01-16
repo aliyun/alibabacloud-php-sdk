@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataLimitRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The ID of the data asset.
      *
      * You can call the DescribeDataLimits operation to query the IDs of data assets. The value of the Id response parameter indicates the ID of a data asset.
@@ -29,9 +34,16 @@ class DeleteDataLimitRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'id'   => 'Id',
-        'lang' => 'Lang',
+        'featureType' => 'FeatureType',
+        'id'          => 'Id',
+        'lang'        => 'Lang',
+        'sourceIp'    => 'SourceIp',
     ];
 
     public function validate()
@@ -41,11 +53,17 @@ class DeleteDataLimitRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -59,11 +77,17 @@ class DeleteDataLimitRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

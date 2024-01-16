@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskLevelsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The language of the content within the request and response. Valid values:
      *
      *   zh_cn: Chinese (default)
@@ -29,8 +34,9 @@ class DescribeRiskLevelsRequest extends Model
      */
     public $templateId;
     protected $_name = [
-        'lang'       => 'Lang',
-        'templateId' => 'TemplateId',
+        'featureType' => 'FeatureType',
+        'lang'        => 'Lang',
+        'templateId'  => 'TemplateId',
     ];
 
     public function validate()
@@ -40,6 +46,9 @@ class DescribeRiskLevelsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -58,6 +67,9 @@ class DescribeRiskLevelsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

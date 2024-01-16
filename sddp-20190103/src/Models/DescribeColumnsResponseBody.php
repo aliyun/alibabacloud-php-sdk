@@ -19,7 +19,7 @@ class DescribeColumnsResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description An array that consists of data in the column of the table.
+     * @description A list of columns.
      *
      * @var items[]
      */

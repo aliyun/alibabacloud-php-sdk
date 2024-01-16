@@ -16,6 +16,11 @@ class DescribeCategoryTemplateListRequest extends Model
     public $currentPage;
 
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @example zh_cn
      *
      * @var string
@@ -37,6 +42,7 @@ class DescribeCategoryTemplateListRequest extends Model
     public $usageScenario;
     protected $_name = [
         'currentPage'   => 'CurrentPage',
+        'featureType'   => 'FeatureType',
         'lang'          => 'Lang',
         'pageSize'      => 'PageSize',
         'usageScenario' => 'UsageScenario',
@@ -51,6 +57,9 @@ class DescribeCategoryTemplateListRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -75,6 +84,9 @@ class DescribeCategoryTemplateListRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

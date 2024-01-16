@@ -19,7 +19,7 @@ class DescribeOssObjectsResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description An array that consists of the OSS objects.
+     * @description A list of OSS objects.
      *
      * @var items[]
      */

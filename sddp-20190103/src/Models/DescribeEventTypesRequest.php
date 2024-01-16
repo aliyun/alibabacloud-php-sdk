@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventTypesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The language of the content within the request and response. Valid values:
      *
      *   **zh**: Chinese
@@ -54,6 +59,7 @@ class DescribeEventTypesRequest extends Model
      */
     public $status;
     protected $_name = [
+        'featureType'  => 'FeatureType',
         'lang'         => 'Lang',
         'parentTypeId' => 'ParentTypeId',
         'resourceId'   => 'ResourceId',
@@ -67,6 +73,9 @@ class DescribeEventTypesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -91,6 +100,9 @@ class DescribeEventTypesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

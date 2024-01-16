@@ -55,7 +55,7 @@ class ossObjectDetail extends Model
     public $riskLevelName;
 
     /**
-     * @description An array consisting of the sensitive data detection rules that the OSS object hits.
+     * @description A list of the sensitive data detection rules that the OSS object hits.
      *
      * @var ruleList[]
      */

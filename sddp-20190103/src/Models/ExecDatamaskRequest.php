@@ -22,6 +22,11 @@ class ExecDatamaskRequest extends Model
     public $data;
 
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
      *
      *   **zh_cn**: Simplified Chinese
@@ -45,9 +50,10 @@ class ExecDatamaskRequest extends Model
      */
     public $templateId;
     protected $_name = [
-        'data'       => 'Data',
-        'lang'       => 'Lang',
-        'templateId' => 'TemplateId',
+        'data'        => 'Data',
+        'featureType' => 'FeatureType',
+        'lang'        => 'Lang',
+        'templateId'  => 'TemplateId',
     ];
 
     public function validate()
@@ -59,6 +65,9 @@ class ExecDatamaskRequest extends Model
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -80,6 +89,9 @@ class ExecDatamaskRequest extends Model
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

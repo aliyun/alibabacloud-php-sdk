@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataLimitSetRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The language of the content within the request and response. Valid values:
      *
      *   **zh_cn**: Simplified Chinese (default)
@@ -45,6 +50,7 @@ class DescribeDataLimitSetRequest extends Model
      */
     public $resourceType;
     protected $_name = [
+        'featureType'  => 'FeatureType',
         'lang'         => 'Lang',
         'parentId'     => 'ParentId',
         'resourceType' => 'ResourceType',
@@ -57,6 +63,9 @@ class DescribeDataLimitSetRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -78,6 +87,9 @@ class DescribeDataLimitSetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

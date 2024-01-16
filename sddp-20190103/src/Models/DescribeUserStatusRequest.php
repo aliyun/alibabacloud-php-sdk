@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserStatusRequest extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The language of the content within the request and response. Valid values:
      *
      *   **zh_cn**: Simplified Chinese (default)
@@ -20,7 +29,8 @@ class DescribeUserStatusRequest extends Model
      */
     public $lang;
     protected $_name = [
-        'lang' => 'Lang',
+        'featureType' => 'FeatureType',
+        'lang'        => 'Lang',
     ];
 
     public function validate()
@@ -30,6 +40,9 @@ class DescribeUserStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -45,6 +58,9 @@ class DescribeUserStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

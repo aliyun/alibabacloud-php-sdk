@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The beginning of the time range during which data in the column of the table is created. The value is a UNIX timestamp. Unit: milliseconds.
+     * @description The time when the data in the column of the table is created. Unit: milliseconds.
      *
      * @example 1536751124000
      *
@@ -55,6 +55,8 @@ class items extends Model
     public $instanceName;
 
     /**
+     * @description A list of tags for data that hits the recognition model.
+     *
      * @var modelTags[]
      */
     public $modelTags;
@@ -69,9 +71,9 @@ class items extends Model
     public $name;
 
     /**
-     * @description The name of the sensitivity level for data in the column of the table. Valid values:
+     * @description The name of the sensitivity level for asset. Valid values:
      *
-     *   **N/A**: No sensitive data is detected.
+     *   **N/A**: indicates that no sensitive data is detected.
      *   **S1**: indicates the low sensitivity level.
      *   **S2**: indicates the medium sensitivity level.
      *   **S3**: indicates the high sensitivity level.
@@ -84,7 +86,7 @@ class items extends Model
     public $odpsRiskLevelName;
 
     /**
-     * @description The ID of the sensitivity level for data in the column of the table. Valid values:
+     * @description The ID of the sensitivity level of the asset. Valid values:
      *
      *   **1**: N/A
      *   **2**: S1
@@ -146,7 +148,7 @@ class items extends Model
     /**
      * @description The name of the sensitivity level for data in the column of the table. Valid values:
      *
-     *   **N/A**: No sensitive data is detected.
+     *   **N/A**: indicates that no sensitive data is detected.
      *   **S1**: indicates the low sensitivity level.
      *   **S2**: indicates the medium sensitivity level.
      *   **S3**: indicates the high sensitivity level.
@@ -177,9 +179,9 @@ class items extends Model
     public $ruleName;
 
     /**
-     * @description The name of the sensitivity level of the data that hits the sensitive data detection rule. Valid values:
+     * @description The name of the sensitivity level. Valid values:
      *
-     *   **N/A**: No sensitive data is detected.
+     *   **N/A**: indicates that no sensitive data is detected.
      *   **S1**: indicates the low sensitivity level.
      *   **S2**: indicates the medium sensitivity level.
      *   **S3**: indicates the high sensitivity level.
@@ -194,8 +196,8 @@ class items extends Model
     /**
      * @description Indicates whether the column contains sensitive data. Valid values:
      *
-     *   true: the column contains sensitive data.
-     *   false: the column does not contain sensitive data.
+     *   true
+     *   false
      *
      * @example false
      *

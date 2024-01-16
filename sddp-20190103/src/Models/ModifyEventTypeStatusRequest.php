@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyEventTypeStatusRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The language of the content within the request and response. Valid values: **zh** and **en**. The value zh indicates Chinese, and the value en indicates English.
      *
      * @example zh
@@ -27,8 +32,9 @@ class ModifyEventTypeStatusRequest extends Model
      */
     public $subTypeIds;
     protected $_name = [
-        'lang'       => 'Lang',
-        'subTypeIds' => 'SubTypeIds',
+        'featureType' => 'FeatureType',
+        'lang'        => 'Lang',
+        'subTypeIds'  => 'SubTypeIds',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class ModifyEventTypeStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -56,6 +65,9 @@ class ModifyEventTypeStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

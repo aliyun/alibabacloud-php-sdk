@@ -51,6 +51,15 @@ class DescribeRulesRequest extends Model
     public $customType;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The parent group type of the rule.
      *
      * @example 4_1
@@ -204,6 +213,7 @@ class DescribeRulesRequest extends Model
         'contentCategory'   => 'ContentCategory',
         'currentPage'       => 'CurrentPage',
         'customType'        => 'CustomType',
+        'featureType'       => 'FeatureType',
         'groupId'           => 'GroupId',
         'keywordCompatible' => 'KeywordCompatible',
         'lang'              => 'Lang',
@@ -237,6 +247,9 @@ class DescribeRulesRequest extends Model
         }
         if (null !== $this->customType) {
             $res['CustomType'] = $this->customType;
+        }
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -300,6 +313,9 @@ class DescribeRulesRequest extends Model
         }
         if (isset($map['CustomType'])) {
             $model->customType = $map['CustomType'];
+        }
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

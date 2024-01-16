@@ -18,6 +18,15 @@ class DescribeOssObjectsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The code of the file type.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $fileCategoryCode;
+
+    /**
      * @description The ID of the instance to which the OSS object belongs.
      *
      * > You can call the **DescribeInstances** operation to query the instance ID.
@@ -119,6 +128,7 @@ class DescribeOssObjectsRequest extends Model
     public $templateId;
     protected $_name = [
         'currentPage'       => 'CurrentPage',
+        'fileCategoryCode'  => 'FileCategoryCode',
         'instanceId'        => 'InstanceId',
         'lang'              => 'Lang',
         'lastScanTimeEnd'   => 'LastScanTimeEnd',
@@ -140,6 +150,9 @@ class DescribeOssObjectsRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->fileCategoryCode) {
+            $res['FileCategoryCode'] = $this->fileCategoryCode;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -185,6 +198,9 @@ class DescribeOssObjectsRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['FileCategoryCode'])) {
+            $model->fileCategoryCode = $map['FileCategoryCode'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

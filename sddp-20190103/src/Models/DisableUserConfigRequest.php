@@ -18,6 +18,11 @@ class DisableUserConfigRequest extends Model
     public $code;
 
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The language of the content within the request and response. Valid values:
      *
      *   **zh_cn**: Chinese (default)
@@ -29,8 +34,9 @@ class DisableUserConfigRequest extends Model
      */
     public $lang;
     protected $_name = [
-        'code' => 'Code',
-        'lang' => 'Lang',
+        'code'        => 'Code',
+        'featureType' => 'FeatureType',
+        'lang'        => 'Lang',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class DisableUserConfigRequest extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -60,6 +69,9 @@ class DisableUserConfigRequest extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

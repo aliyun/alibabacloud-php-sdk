@@ -83,6 +83,11 @@ class CreateDataLimitRequest extends Model
     public $eventStatus;
 
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
      *
      *   **zh_cn**: Chinese
@@ -193,6 +198,11 @@ class CreateDataLimitRequest extends Model
     public $serviceRegionId;
 
     /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
      * @description The username that is used to access the database.
      *
      * @example yhm
@@ -207,6 +217,7 @@ class CreateDataLimitRequest extends Model
         'enable'                => 'Enable',
         'engineType'            => 'EngineType',
         'eventStatus'           => 'EventStatus',
+        'featureType'           => 'FeatureType',
         'lang'                  => 'Lang',
         'logStoreDay'           => 'LogStoreDay',
         'ocrStatus'             => 'OcrStatus',
@@ -216,6 +227,7 @@ class CreateDataLimitRequest extends Model
         'resourceType'          => 'ResourceType',
         'samplingSize'          => 'SamplingSize',
         'serviceRegionId'       => 'ServiceRegionId',
+        'sourceIp'              => 'SourceIp',
         'userName'              => 'UserName',
     ];
 
@@ -244,6 +256,9 @@ class CreateDataLimitRequest extends Model
         if (null !== $this->eventStatus) {
             $res['EventStatus'] = $this->eventStatus;
         }
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -270,6 +285,9 @@ class CreateDataLimitRequest extends Model
         }
         if (null !== $this->serviceRegionId) {
             $res['ServiceRegionId'] = $this->serviceRegionId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
@@ -304,6 +322,9 @@ class CreateDataLimitRequest extends Model
         if (isset($map['EventStatus'])) {
             $model->eventStatus = $map['EventStatus'];
         }
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
@@ -330,6 +351,9 @@ class CreateDataLimitRequest extends Model
         }
         if (isset($map['ServiceRegionId'])) {
             $model->serviceRegionId = $map['ServiceRegionId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];

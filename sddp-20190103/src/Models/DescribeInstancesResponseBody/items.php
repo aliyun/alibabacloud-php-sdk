@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The point in time when the data asset was created. This value is a UNIX timestamp. Unit: milliseconds.
+     * @description The time when the data asset was created. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1637226782000
      *
@@ -28,7 +28,7 @@ class items extends Model
     public $departName;
 
     /**
-     * @description The unique ID of the data asset.
+     * @description The unique ID of the data asset in DSC.
      *
      * @example 11111
      *
@@ -58,7 +58,7 @@ class items extends Model
     public $labelsec;
 
     /**
-     * @description The point in time when the data asset was last scanned. This value is a UNIX timestamp. Unit: milliseconds.
+     * @description The time when the data asset was last scanned. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1637622793000
      *
@@ -67,6 +67,8 @@ class items extends Model
     public $lastFinishTime;
 
     /**
+     * @description A list of tags.
+     *
      * @var modelTags[]
      */
     public $modelTags;
@@ -99,7 +101,7 @@ class items extends Model
     public $owner;
 
     /**
-     * @description The name of the service to which the data asset belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets from which DSC can scan for sensitive data, see [Supported data assets](~~212906~~).
+     * @description The name of the service to which the data asset belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets that DSC can scan to detect sensitive data, see [Supported data assets](~~212906~~).
      *
      * @example RDS
      *
@@ -129,12 +131,12 @@ class items extends Model
     public $protection;
 
     /**
-     * @description The sensitivity level of the data asset. A higher sensitivity level indicates that the identified data is more sensitive.
+     * @description The ID of the sensitivity level for the data asset. A higher sensitivity level ID indicates that the identified data is more sensitive.
      *
-     *   **1**: No sensitive data is identified.
+     *   **1**: No sensitive data is detected.
      *   **2**: sensitive data at level 1.
      *   **3**: sensitive data at level 2.
-     *   **4**: sensitive data at level 3
+     *   **4**: sensitive data at level 3.
      *   **5**: sensitive data at level 4.
      *   **6**: sensitive data at level 5.
      *   **7**: sensitive data at level 6.
@@ -170,8 +172,8 @@ class items extends Model
     /**
      * @description Indicates whether the data asset contains sensitive data. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -180,7 +182,7 @@ class items extends Model
     public $sensitive;
 
     /**
-     * @description The total number of sensitive data objects in the data asset. For example, if the data asset is an ApsaraDB RDS instance, the value indicates the total number of sensitive tables in all databases of the instance.
+     * @description The number of sensitive data objects in the data asset. For example, if the data asset is an ApsaraDB RDS instance, the value indicates the number of sensitive tables in all databases of the instance.
      *
      * @example 123
      *

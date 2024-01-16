@@ -51,6 +51,11 @@ class DescribeInstanceSourcesRequest extends Model
     public $engineType;
 
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The ID of the instance.
      *
      * @example instance-demo-****
@@ -133,6 +138,7 @@ class DescribeInstanceSourcesRequest extends Model
         'authStatus'      => 'AuthStatus',
         'currentPage'     => 'CurrentPage',
         'engineType'      => 'EngineType',
+        'featureType'     => 'FeatureType',
         'instanceId'      => 'InstanceId',
         'lang'            => 'Lang',
         'pageSize'        => 'PageSize',
@@ -161,6 +167,9 @@ class DescribeInstanceSourcesRequest extends Model
         }
         if (null !== $this->engineType) {
             $res['EngineType'] = $this->engineType;
+        }
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -209,6 +218,9 @@ class DescribeInstanceSourcesRequest extends Model
         }
         if (isset($map['EngineType'])) {
             $model->engineType = $map['EngineType'];
+        }
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

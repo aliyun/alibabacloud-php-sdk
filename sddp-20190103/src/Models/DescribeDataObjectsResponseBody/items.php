@@ -56,6 +56,11 @@ class items extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $objectFileCategory;
+
+    /**
      * @example text type
      *
      * @var string
@@ -116,6 +121,7 @@ class items extends Model
         'lastScanTime'        => 'LastScanTime',
         'modelTags'           => 'ModelTags',
         'name'                => 'Name',
+        'objectFileCategory'  => 'ObjectFileCategory',
         'objectType'          => 'ObjectType',
         'path'                => 'Path',
         'productCode'         => 'ProductCode',
@@ -159,6 +165,9 @@ class items extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->objectFileCategory) {
+            $res['ObjectFileCategory'] = $this->objectFileCategory;
         }
         if (null !== $this->objectType) {
             $res['ObjectType'] = $this->objectType;
@@ -230,6 +239,9 @@ class items extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ObjectFileCategory'])) {
+            $model->objectFileCategory = $map['ObjectFileCategory'];
         }
         if (isset($map['ObjectType'])) {
             $model->objectType = $map['ObjectType'];

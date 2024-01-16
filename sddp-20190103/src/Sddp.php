@@ -162,8 +162,14 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
         if (!Utils::isUnset($request->value)) {
             $query['Value'] = $request->value;
@@ -234,6 +240,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->eventStatus)) {
             $query['EventStatus'] = $request->eventStatus;
         }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -260,6 +269,9 @@ class Sddp extends OpenApiClient
         }
         if (!Utils::isUnset($request->serviceRegionId)) {
             $query['ServiceRegionId'] = $request->serviceRegionId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
         if (!Utils::isUnset($request->userName)) {
             $query['UserName'] = $request->userName;
@@ -341,6 +353,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->ruleType)) {
             $query['RuleType'] = $request->ruleType;
         }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
         if (!Utils::isUnset($request->statExpress)) {
             $query['StatExpress'] = $request->statExpress;
         }
@@ -403,6 +418,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->dataLimitId)) {
             $query['DataLimitId'] = $request->dataLimitId;
         }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->intervalDay)) {
             $query['IntervalDay'] = $request->intervalDay;
         }
@@ -426,6 +444,9 @@ class Sddp extends OpenApiClient
         }
         if (!Utils::isUnset($request->scanRangeContent)) {
             $query['ScanRangeContent'] = $request->scanRangeContent;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
         if (!Utils::isUnset($request->taskName)) {
             $query['TaskName'] = $request->taskName;
@@ -481,8 +502,14 @@ class Sddp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -532,11 +559,17 @@ class Sddp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -582,11 +615,17 @@ class Sddp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -630,6 +669,9 @@ class Sddp extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
@@ -687,6 +729,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -735,8 +780,10 @@ class Sddp extends OpenApiClient
 
     /**
      * You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   * ## [](#)Precautions
+     *   * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
+     *   * ## [](#qps)Limits
+     *   * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeColumnsRequest $request DescribeColumnsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -806,8 +853,10 @@ class Sddp extends OpenApiClient
 
     /**
      * You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
-     *   * # Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   * ## [](#)Precautions
+     *   * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
+     *   * ## [](#qps)Limits
+     *   * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeColumnsRequest $request DescribeColumnsRequest
      *
@@ -1013,6 +1062,9 @@ class Sddp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
@@ -1066,6 +1118,9 @@ class Sddp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -1139,6 +1194,9 @@ class Sddp extends OpenApiClient
         }
         if (!Utils::isUnset($request->engineType)) {
             $query['EngineType'] = $request->engineType;
+        }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
@@ -1351,6 +1409,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
@@ -1408,6 +1469,9 @@ class Sddp extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
         }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
@@ -1469,6 +1533,12 @@ class Sddp extends OpenApiClient
         }
         if (!Utils::isUnset($request->domainId)) {
             $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
+        if (!Utils::isUnset($request->fileCategoryCode)) {
+            $query['FileCategoryCode'] = $request->fileCategoryCode;
         }
         if (!Utils::isUnset($request->fileType)) {
             $query['FileType'] = $request->fileType;
@@ -1635,6 +1705,9 @@ class Sddp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -1736,6 +1809,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->userName)) {
             $query['UserName'] = $request->userName;
         }
+        if (!Utils::isUnset($request->warnLevel)) {
+            $query['WarnLevel'] = $request->warnLevel;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1795,6 +1871,9 @@ class Sddp extends OpenApiClient
         }
         if (!Utils::isUnset($request->engineType)) {
             $query['EngineType'] = $request->engineType;
+        }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
@@ -1933,9 +2012,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of an OSS object. This helps you locate sensitive data detected in OSS.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
+     *   * ## [](#)Precautions
+     *   * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
+     *   * ## [](#qps)Limits
+     *   * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeOssObjectDetailRequest $request DescribeOssObjectDetailRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1971,9 +2052,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of an OSS object. This helps you locate sensitive data detected in OSS.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
+     *   * ## [](#)Precautions
+     *   * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
+     *   * ## [](#qps)Limits
+     *   * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeOssObjectDetailRequest $request DescribeOssObjectDetailRequest
      *
@@ -2044,6 +2127,9 @@ class Sddp extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->fileCategoryCode)) {
+            $query['FileCategoryCode'] = $request->fileCategoryCode;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
@@ -2191,6 +2277,9 @@ class Sddp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -2252,6 +2341,9 @@ class Sddp extends OpenApiClient
         }
         if (!Utils::isUnset($request->customType)) {
             $query['CustomType'] = $request->customType;
+        }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
@@ -2416,6 +2508,9 @@ class Sddp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -2466,6 +2561,9 @@ class Sddp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -2520,6 +2618,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->code)) {
             $query['Code'] = $request->code;
         }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -2569,6 +2670,9 @@ class Sddp extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->data)) {
             $query['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
@@ -2670,6 +2774,9 @@ class Sddp extends OpenApiClient
         }
         if (!Utils::isUnset($request->engineType)) {
             $query['EngineType'] = $request->engineType;
+        }
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
         }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
@@ -2870,6 +2977,9 @@ class Sddp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -2920,6 +3030,9 @@ class Sddp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->featureType)) {
+            $query['FeatureType'] = $request->featureType;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }

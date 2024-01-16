@@ -16,6 +16,11 @@ class DescribeDataObjectColumnDetailV2Request extends Model
     public $currentPage;
 
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @example 13456723343
      *
      * @var string
@@ -51,6 +56,7 @@ class DescribeDataObjectColumnDetailV2Request extends Model
     public $templateId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'featureType' => 'FeatureType',
         'id'          => 'Id',
         'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
@@ -67,6 +73,9 @@ class DescribeDataObjectColumnDetailV2Request extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -97,6 +106,9 @@ class DescribeDataObjectColumnDetailV2Request extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The name of the OSS bucket.
+     * @description The name of the bucket.
      *
      * @example oss-duplicate-***
      *
@@ -19,7 +19,7 @@ class items extends Model
     public $bucketName;
 
     /**
-     * @description The type ID of the OSS object. Valid values include **900001**, **800015**, or **800005**, which indicates the MP4 file, PDF file, or OSS configuration file, respectively.
+     * @description The type of the OSS object. Valid values include **900001**, **800015**, or **800005**, which indicates the MP4 file, PDF file, or OSS configuration file, respectively.
      *
      * @example 900001
      *
@@ -28,13 +28,31 @@ class items extends Model
     public $category;
 
     /**
-     * @description The file type of the OSS object.
+     * @description The name of the file type.
      *
      * @example MP4 file
      *
      * @var string
      */
     public $categoryName;
+
+    /**
+     * @description The code of the file type.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $fileCategoryCode;
+
+    /**
+     * @description The name of the file type.
+     *
+     * @example text file
+     *
+     * @var string
+     */
+    public $fileCategoryName;
 
     /**
      * @description The file ID of the OSS object.
@@ -82,7 +100,7 @@ class items extends Model
     public $regionId;
 
     /**
-     * @description The sensitivity level of the OSS object. Valid values:
+     * @description The ID of the sensitivity level of the OSS object. Valid values:
      *
      *   **1**: N/A, which indicates that no sensitive data is detected.
      *   **2**: S1, which indicates the low sensitivity level.
@@ -115,7 +133,7 @@ class items extends Model
     public $ruleCount;
 
     /**
-     * @description An array that consists of the rules.
+     * @description A list of rules.
      *
      * @var ruleList[]
      */
@@ -139,20 +157,22 @@ class items extends Model
      */
     public $size;
     protected $_name = [
-        'bucketName'     => 'BucketName',
-        'category'       => 'Category',
-        'categoryName'   => 'CategoryName',
-        'fileId'         => 'FileId',
-        'id'             => 'Id',
-        'instanceId'     => 'InstanceId',
-        'name'           => 'Name',
-        'regionId'       => 'RegionId',
-        'riskLevelId'    => 'RiskLevelId',
-        'riskLevelName'  => 'RiskLevelName',
-        'ruleCount'      => 'RuleCount',
-        'ruleList'       => 'RuleList',
-        'sensitiveCount' => 'SensitiveCount',
-        'size'           => 'Size',
+        'bucketName'       => 'BucketName',
+        'category'         => 'Category',
+        'categoryName'     => 'CategoryName',
+        'fileCategoryCode' => 'FileCategoryCode',
+        'fileCategoryName' => 'FileCategoryName',
+        'fileId'           => 'FileId',
+        'id'               => 'Id',
+        'instanceId'       => 'InstanceId',
+        'name'             => 'Name',
+        'regionId'         => 'RegionId',
+        'riskLevelId'      => 'RiskLevelId',
+        'riskLevelName'    => 'RiskLevelName',
+        'ruleCount'        => 'RuleCount',
+        'ruleList'         => 'RuleList',
+        'sensitiveCount'   => 'SensitiveCount',
+        'size'             => 'Size',
     ];
 
     public function validate()
@@ -170,6 +190,12 @@ class items extends Model
         }
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
+        }
+        if (null !== $this->fileCategoryCode) {
+            $res['FileCategoryCode'] = $this->fileCategoryCode;
+        }
+        if (null !== $this->fileCategoryName) {
+            $res['FileCategoryName'] = $this->fileCategoryName;
         }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
@@ -230,6 +256,12 @@ class items extends Model
         }
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
+        }
+        if (isset($map['FileCategoryCode'])) {
+            $model->fileCategoryCode = $map['FileCategoryCode'];
+        }
+        if (isset($map['FileCategoryName'])) {
+            $model->fileCategoryName = $map['FileCategoryName'];
         }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];

@@ -9,11 +9,27 @@ use AlibabaCloud\Tea\Model;
 class modelTags extends Model
 {
     /**
+     * @description The tag ID.
+     *
+     *   **101**: sensitive personal information
+     *   **102**: personal information
+     *   **103**: important information
+     *
+     * @example 101
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The tag name.
+     *
+     *   Sensitive personal information
+     *   Personal information
+     *   Important information
+     *
+     * @example personal sensitive data
+     *
      * @var string
      */
     public $name;

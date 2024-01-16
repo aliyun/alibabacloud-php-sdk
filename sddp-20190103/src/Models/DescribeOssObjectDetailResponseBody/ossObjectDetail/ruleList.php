@@ -28,12 +28,14 @@ class ruleList extends Model
     public $count;
 
     /**
+     * @description A list of tags for data that hits the recognition model.
+     *
      * @var modelTags[]
      */
     public $modelTags;
 
     /**
-     * @description The sensitivity level of the OSS object.
+     * @description The ID of the sensitivity level of the OSS object.
      *
      *   **1**: No sensitive data is detected.
      *   **2**: indicates the low sensitivity level.

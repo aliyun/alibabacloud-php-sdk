@@ -27,7 +27,7 @@ class ruleList extends Model
     public $name;
 
     /**
-     * @description The sensitivity level of the OSS object. Valid values:
+     * @description The ID of the sensitivity level of the OSS object. Valid values:
      *
      *   **1**: N/A, which indicates that no sensitive data is detected.
      *   **2**: S1, which indicates the low sensitivity level.

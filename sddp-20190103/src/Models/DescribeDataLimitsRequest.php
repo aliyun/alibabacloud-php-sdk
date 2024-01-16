@@ -87,6 +87,11 @@ class DescribeDataLimitsRequest extends Model
     public $engineType;
 
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The language of the content within the request and response. Valid values:
      *
      *   **zh**: Chinese
@@ -161,6 +166,7 @@ class DescribeDataLimitsRequest extends Model
         'enable'          => 'Enable',
         'endTime'         => 'EndTime',
         'engineType'      => 'EngineType',
+        'featureType'     => 'FeatureType',
         'lang'            => 'Lang',
         'pageSize'        => 'PageSize',
         'parentId'        => 'ParentId',
@@ -196,6 +202,9 @@ class DescribeDataLimitsRequest extends Model
         }
         if (null !== $this->engineType) {
             $res['EngineType'] = $this->engineType;
+        }
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -247,6 +256,9 @@ class DescribeDataLimitsRequest extends Model
         }
         if (isset($map['EngineType'])) {
             $model->engineType = $map['EngineType'];
+        }
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

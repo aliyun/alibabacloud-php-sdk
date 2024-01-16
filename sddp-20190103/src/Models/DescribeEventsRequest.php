@@ -154,6 +154,11 @@ class DescribeEventsRequest extends Model
      * @var string
      */
     public $userName;
+
+    /**
+     * @var int
+     */
+    public $warnLevel;
     protected $_name = [
         'currentPage'       => 'CurrentPage',
         'dealUserId'        => 'DealUserId',
@@ -170,6 +175,7 @@ class DescribeEventsRequest extends Model
         'typeCode'          => 'TypeCode',
         'userId'            => 'UserId',
         'userName'          => 'UserName',
+        'warnLevel'         => 'WarnLevel',
     ];
 
     public function validate()
@@ -223,6 +229,9 @@ class DescribeEventsRequest extends Model
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
+        }
+        if (null !== $this->warnLevel) {
+            $res['WarnLevel'] = $this->warnLevel;
         }
 
         return $res;
@@ -280,6 +289,9 @@ class DescribeEventsRequest extends Model
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
+        }
+        if (isset($map['WarnLevel'])) {
+            $model->warnLevel = $map['WarnLevel'];
         }
 
         return $model;

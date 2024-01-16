@@ -25,6 +25,16 @@ class DescribeDataObjectsRequest extends Model
     /**
      * @var int
      */
+    public $featureType;
+
+    /**
+     * @var int
+     */
+    public $fileCategoryCode;
+
+    /**
+     * @var int
+     */
     public $fileType;
 
     /**
@@ -102,6 +112,8 @@ class DescribeDataObjectsRequest extends Model
     protected $_name = [
         'currentPage'       => 'CurrentPage',
         'domainId'          => 'DomainId',
+        'featureType'       => 'FeatureType',
+        'fileCategoryCode'  => 'FileCategoryCode',
         'fileType'          => 'FileType',
         'instanceId'        => 'InstanceId',
         'lang'              => 'Lang',
@@ -128,6 +140,12 @@ class DescribeDataObjectsRequest extends Model
         }
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
+        }
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
+        }
+        if (null !== $this->fileCategoryCode) {
+            $res['FileCategoryCode'] = $this->fileCategoryCode;
         }
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
@@ -182,6 +200,12 @@ class DescribeDataObjectsRequest extends Model
         }
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
+        }
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
+        }
+        if (isset($map['FileCategoryCode'])) {
+            $model->fileCategoryCode = $map['FileCategoryCode'];
         }
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];

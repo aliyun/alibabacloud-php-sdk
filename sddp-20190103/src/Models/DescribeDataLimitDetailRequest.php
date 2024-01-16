@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataLimitDetailRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The unique ID of the data asset that you want to query.
      *
      * > You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
@@ -42,6 +47,7 @@ class DescribeDataLimitDetailRequest extends Model
      */
     public $networkType;
     protected $_name = [
+        'featureType' => 'FeatureType',
         'id'          => 'Id',
         'lang'        => 'Lang',
         'networkType' => 'NetworkType',
@@ -54,6 +60,9 @@ class DescribeDataLimitDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -75,6 +84,9 @@ class DescribeDataLimitDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

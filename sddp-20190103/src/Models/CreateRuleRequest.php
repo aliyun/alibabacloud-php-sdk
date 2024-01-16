@@ -128,6 +128,11 @@ class CreateRuleRequest extends Model
     public $ruleType;
 
     /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
      * @description The statistical expression.
      *
      * @example 1
@@ -149,6 +154,15 @@ class CreateRuleRequest extends Model
     public $status;
 
     /**
+     * @description The type of the data asset. Valid values:
+     *
+     *   **0**: all data assets
+     *   **1**: structured data asset
+     *   **2**: unstructured data asset
+     *
+     * > If you set the parameter to 1 or 2, rules that support all data assets and rules that support the queried data asset type are returned.
+     * @example 1
+     *
      * @var int
      */
     public $supportForm;
@@ -186,6 +200,7 @@ class CreateRuleRequest extends Model
         'productId'       => 'ProductId',
         'riskLevelId'     => 'RiskLevelId',
         'ruleType'        => 'RuleType',
+        'sourceIp'        => 'SourceIp',
         'statExpress'     => 'StatExpress',
         'status'          => 'Status',
         'supportForm'     => 'SupportForm',
@@ -232,6 +247,9 @@ class CreateRuleRequest extends Model
         }
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->statExpress) {
             $res['StatExpress'] = $this->statExpress;
@@ -292,6 +310,9 @@ class CreateRuleRequest extends Model
         }
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['StatExpress'])) {
             $model->statExpress = $map['StatExpress'];

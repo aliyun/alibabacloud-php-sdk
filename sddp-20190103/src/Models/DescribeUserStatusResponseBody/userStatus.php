@@ -96,6 +96,10 @@ class userStatus extends Model
     public $instanceNum;
 
     /**
+     * @description The total number of instances.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $instanceTotalCount;
@@ -113,9 +117,22 @@ class userStatus extends Model
     public $labStatus;
 
     /**
+     * @description OSS total storage capacity. Unit: Bytes.
+     *
+     * @example 2048
+     *
      * @var int
      */
     public $ossTotalSize;
+
+    /**
+     * @description Accumulate the number of days to protect user assets.
+     *
+     * @example 2
+     *
+     * @var int
+     */
+    public $protectionDays;
 
     /**
      * @description Indicates whether DSC is purchased. Valid values:
@@ -169,6 +186,18 @@ class userStatus extends Model
     public $trail;
 
     /**
+     * @description Indicates whether the agent audit feature is used. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
+     * @var bool
+     */
+    public $useAgentAudit;
+
+    /**
      * @description The number of instances that are used.
      *
      * @example 125
@@ -197,11 +226,13 @@ class userStatus extends Model
         'instanceTotalCount' => 'InstanceTotalCount',
         'labStatus'          => 'LabStatus',
         'ossTotalSize'       => 'OssTotalSize',
+        'protectionDays'     => 'ProtectionDays',
         'purchased'          => 'Purchased',
         'releaseDays'        => 'ReleaseDays',
         'releaseTime'        => 'ReleaseTime',
         'remainDays'         => 'RemainDays',
         'trail'              => 'Trail',
+        'useAgentAudit'      => 'UseAgentAudit',
         'useInstanceNum'     => 'UseInstanceNum',
         'useOssSize'         => 'UseOssSize',
     ];
@@ -246,6 +277,9 @@ class userStatus extends Model
         if (null !== $this->ossTotalSize) {
             $res['OssTotalSize'] = $this->ossTotalSize;
         }
+        if (null !== $this->protectionDays) {
+            $res['ProtectionDays'] = $this->protectionDays;
+        }
         if (null !== $this->purchased) {
             $res['Purchased'] = $this->purchased;
         }
@@ -260,6 +294,9 @@ class userStatus extends Model
         }
         if (null !== $this->trail) {
             $res['Trail'] = $this->trail;
+        }
+        if (null !== $this->useAgentAudit) {
+            $res['UseAgentAudit'] = $this->useAgentAudit;
         }
         if (null !== $this->useInstanceNum) {
             $res['UseInstanceNum'] = $this->useInstanceNum;
@@ -312,6 +349,9 @@ class userStatus extends Model
         if (isset($map['OssTotalSize'])) {
             $model->ossTotalSize = $map['OssTotalSize'];
         }
+        if (isset($map['ProtectionDays'])) {
+            $model->protectionDays = $map['ProtectionDays'];
+        }
         if (isset($map['Purchased'])) {
             $model->purchased = $map['Purchased'];
         }
@@ -326,6 +366,9 @@ class userStatus extends Model
         }
         if (isset($map['Trail'])) {
             $model->trail = $map['Trail'];
+        }
+        if (isset($map['UseAgentAudit'])) {
+            $model->useAgentAudit = $map['UseAgentAudit'];
         }
         if (isset($map['UseInstanceNum'])) {
             $model->useInstanceNum = $map['UseInstanceNum'];

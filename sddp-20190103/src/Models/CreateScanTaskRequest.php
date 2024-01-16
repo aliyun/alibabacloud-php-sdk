@@ -18,6 +18,11 @@ class CreateScanTaskRequest extends Model
     public $dataLimitId;
 
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The interval between two consecutive custom scan tasks. Unit: days. Valid values: 1 to 2147483648.
      *
      * @example 1
@@ -98,6 +103,11 @@ class CreateScanTaskRequest extends Model
     public $scanRangeContent;
 
     /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
      * @description The name of the scan task.
      *
      * @example scan-test-sample****
@@ -116,6 +126,7 @@ class CreateScanTaskRequest extends Model
     public $taskUserName;
     protected $_name = [
         'dataLimitId'      => 'DataLimitId',
+        'featureType'      => 'FeatureType',
         'intervalDay'      => 'IntervalDay',
         'lang'             => 'Lang',
         'ossScanPath'      => 'OssScanPath',
@@ -124,6 +135,7 @@ class CreateScanTaskRequest extends Model
         'runMinute'        => 'RunMinute',
         'scanRange'        => 'ScanRange',
         'scanRangeContent' => 'ScanRangeContent',
+        'sourceIp'         => 'SourceIp',
         'taskName'         => 'TaskName',
         'taskUserName'     => 'TaskUserName',
     ];
@@ -137,6 +149,9 @@ class CreateScanTaskRequest extends Model
         $res = [];
         if (null !== $this->dataLimitId) {
             $res['DataLimitId'] = $this->dataLimitId;
+        }
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
         }
         if (null !== $this->intervalDay) {
             $res['IntervalDay'] = $this->intervalDay;
@@ -162,6 +177,9 @@ class CreateScanTaskRequest extends Model
         if (null !== $this->scanRangeContent) {
             $res['ScanRangeContent'] = $this->scanRangeContent;
         }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -182,6 +200,9 @@ class CreateScanTaskRequest extends Model
         $model = new self();
         if (isset($map['DataLimitId'])) {
             $model->dataLimitId = $map['DataLimitId'];
+        }
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
         }
         if (isset($map['IntervalDay'])) {
             $model->intervalDay = $map['IntervalDay'];
@@ -206,6 +227,9 @@ class CreateScanTaskRequest extends Model
         }
         if (isset($map['ScanRangeContent'])) {
             $model->scanRangeContent = $map['ScanRangeContent'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];

@@ -121,6 +121,14 @@ class ModifyRuleRequest extends Model
     public $ruleType;
 
     /**
+     * @description The data assets supported by the sensitive data detection rule. Valid values:
+     *
+     *   **0**: all data assets
+     *   **1**: structured data assets
+     *   **2**: unstructured data assets
+     *
+     * @example 1
+     *
      * @var int
      */
     public $supportForm;

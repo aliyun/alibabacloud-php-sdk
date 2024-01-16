@@ -46,6 +46,11 @@ class ModifyDataLimitRequest extends Model
     public $engineType;
 
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The unique ID of the data asset for which you want to modify configuration items.
      *
      * > You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
@@ -191,6 +196,7 @@ class ModifyDataLimitRequest extends Model
         'auditStatus'         => 'AuditStatus',
         'autoScan'            => 'AutoScan',
         'engineType'          => 'EngineType',
+        'featureType'         => 'FeatureType',
         'id'                  => 'Id',
         'lang'                => 'Lang',
         'logStoreDay'         => 'LogStoreDay',
@@ -221,6 +227,9 @@ class ModifyDataLimitRequest extends Model
         }
         if (null !== $this->engineType) {
             $res['EngineType'] = $this->engineType;
+        }
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -281,6 +290,9 @@ class ModifyDataLimitRequest extends Model
         }
         if (isset($map['EngineType'])) {
             $model->engineType = $map['EngineType'];
+        }
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

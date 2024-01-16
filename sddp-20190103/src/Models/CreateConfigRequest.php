@@ -31,6 +31,11 @@ class CreateConfigRequest extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
      *
      *   **zh_cn**: Chinese
@@ -41,6 +46,11 @@ class CreateConfigRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $sourceIp;
 
     /**
      * @description The value of the common configuration item. The meaning of this parameter varies with the value of the Code parameter.
@@ -57,7 +67,9 @@ class CreateConfigRequest extends Model
     protected $_name = [
         'code'        => 'Code',
         'description' => 'Description',
+        'featureType' => 'FeatureType',
         'lang'        => 'Lang',
+        'sourceIp'    => 'SourceIp',
         'value'       => 'Value',
     ];
 
@@ -74,8 +86,14 @@ class CreateConfigRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
@@ -98,8 +116,14 @@ class CreateConfigRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];

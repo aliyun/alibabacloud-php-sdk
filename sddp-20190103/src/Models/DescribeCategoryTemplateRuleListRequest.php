@@ -18,6 +18,11 @@ class DescribeCategoryTemplateRuleListRequest extends Model
     public $currentPage;
 
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
      *
      *   **zh_cn**: Simplified Chinese
@@ -74,6 +79,7 @@ class DescribeCategoryTemplateRuleListRequest extends Model
     public $status;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'featureType' => 'FeatureType',
         'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
         'riskLevelId' => 'RiskLevelId',
@@ -89,6 +95,9 @@ class DescribeCategoryTemplateRuleListRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -116,6 +125,9 @@ class DescribeCategoryTemplateRuleListRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

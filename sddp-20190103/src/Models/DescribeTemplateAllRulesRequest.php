@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeTemplateAllRulesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $featureType;
+
+    /**
      * @example zh_cn
      *
      * @var string
@@ -22,8 +27,9 @@ class DescribeTemplateAllRulesRequest extends Model
      */
     public $templateId;
     protected $_name = [
-        'lang'       => 'Lang',
-        'templateId' => 'TemplateId',
+        'featureType' => 'FeatureType',
+        'lang'        => 'Lang',
+        'templateId'  => 'TemplateId',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class DescribeTemplateAllRulesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->featureType) {
+            $res['FeatureType'] = $this->featureType;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -51,6 +60,9 @@ class DescribeTemplateAllRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeatureType'])) {
+            $model->featureType = $map['FeatureType'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
