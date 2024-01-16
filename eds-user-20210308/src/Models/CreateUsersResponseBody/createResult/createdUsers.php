@@ -36,6 +36,11 @@ class createdUsers extends Model
     public $phone;
 
     /**
+     * @var string
+     */
+    public $realNickName;
+
+    /**
      * @description The remarks of the end user.
      *
      * @example remark1
@@ -44,10 +49,11 @@ class createdUsers extends Model
      */
     public $remark;
     protected $_name = [
-        'email'     => 'Email',
-        'endUserId' => 'EndUserId',
-        'phone'     => 'Phone',
-        'remark'    => 'Remark',
+        'email'        => 'Email',
+        'endUserId'    => 'EndUserId',
+        'phone'        => 'Phone',
+        'realNickName' => 'RealNickName',
+        'remark'       => 'Remark',
     ];
 
     public function validate()
@@ -65,6 +71,9 @@ class createdUsers extends Model
         }
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
+        }
+        if (null !== $this->realNickName) {
+            $res['RealNickName'] = $this->realNickName;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
@@ -89,6 +98,9 @@ class createdUsers extends Model
         }
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
+        }
+        if (isset($map['RealNickName'])) {
+            $model->realNickName = $map['RealNickName'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
