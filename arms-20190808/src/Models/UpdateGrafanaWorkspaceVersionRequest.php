@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class InitEnvironmentRequest extends Model
+class UpdateGrafanaWorkspaceVersionRequest extends Model
 {
     /**
-     * @description Locale, the default is Chinese zh.
-     *
      * @example zh
      *
      * @var string
@@ -18,32 +16,30 @@ class InitEnvironmentRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description Environment ID.
-     *
-     * @example env-xxx
+     * @example 10.0.x
      *
      * @var string
      */
-    public $environmentId;
+    public $grafanaVersion;
 
     /**
+     * @example grafana-cn-4xl3g******
+     *
      * @var string
      */
-    public $managedType;
+    public $grafanaWorkspaceId;
 
     /**
-     * @description The region ID.
-     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'aliyunLang'    => 'AliyunLang',
-        'environmentId' => 'EnvironmentId',
-        'managedType'   => 'ManagedType',
-        'regionId'      => 'RegionId',
+        'aliyunLang'         => 'AliyunLang',
+        'grafanaVersion'     => 'GrafanaVersion',
+        'grafanaWorkspaceId' => 'GrafanaWorkspaceId',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
@@ -56,11 +52,11 @@ class InitEnvironmentRequest extends Model
         if (null !== $this->aliyunLang) {
             $res['AliyunLang'] = $this->aliyunLang;
         }
-        if (null !== $this->environmentId) {
-            $res['EnvironmentId'] = $this->environmentId;
+        if (null !== $this->grafanaVersion) {
+            $res['GrafanaVersion'] = $this->grafanaVersion;
         }
-        if (null !== $this->managedType) {
-            $res['ManagedType'] = $this->managedType;
+        if (null !== $this->grafanaWorkspaceId) {
+            $res['GrafanaWorkspaceId'] = $this->grafanaWorkspaceId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -72,7 +68,7 @@ class InitEnvironmentRequest extends Model
     /**
      * @param array $map
      *
-     * @return InitEnvironmentRequest
+     * @return UpdateGrafanaWorkspaceVersionRequest
      */
     public static function fromMap($map = [])
     {
@@ -80,11 +76,11 @@ class InitEnvironmentRequest extends Model
         if (isset($map['AliyunLang'])) {
             $model->aliyunLang = $map['AliyunLang'];
         }
-        if (isset($map['EnvironmentId'])) {
-            $model->environmentId = $map['EnvironmentId'];
+        if (isset($map['GrafanaVersion'])) {
+            $model->grafanaVersion = $map['GrafanaVersion'];
         }
-        if (isset($map['ManagedType'])) {
-            $model->managedType = $map['ManagedType'];
+        if (isset($map['GrafanaWorkspaceId'])) {
+            $model->grafanaWorkspaceId = $map['GrafanaWorkspaceId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

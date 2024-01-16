@@ -63,6 +63,9 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvPodMonitorRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvPodMonitorResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvServiceMonitorRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateEnvServiceMonitorResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateGrafanaWorkspaceRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateGrafanaWorkspaceResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateGrafanaWorkspaceShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateIntegrationResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateAlertRuleRequest;
@@ -133,6 +136,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEventBridgeIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteEventBridgeIntegrationResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteGrafanaResourceRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteGrafanaResourceResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteGrafanaWorkspaceRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteGrafanaWorkspaceResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteIMRobotRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteIMRobotResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteIntegrationRequest;
@@ -215,6 +220,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetCommercialStatusRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetCommercialStatusResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetExploreUrlRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetExploreUrlResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetGrafanaWorkspaceRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetGrafanaWorkspaceResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetIntegrationStateRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetIntegrationStateResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetManagedPrometheusStatusRequest;
@@ -442,6 +449,10 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvPodMonitorRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvPodMonitorResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvServiceMonitorRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateEnvServiceMonitorResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateGrafanaWorkspaceRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateGrafanaWorkspaceResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateGrafanaWorkspaceVersionRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateGrafanaWorkspaceVersionResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateIntegrationResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateMetricDropRequest;
@@ -2001,6 +2012,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->environmentType)) {
             $query['EnvironmentType'] = $request->environmentType;
         }
+        if (!Utils::isUnset($request->managedType)) {
+            $query['ManagedType'] = $request->managedType;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -2038,6 +2052,78 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEnvironmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateGrafanaWorkspaceRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateGrafanaWorkspaceResponse
+     */
+    public function createGrafanaWorkspaceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateGrafanaWorkspaceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->grafanaVersion)) {
+            $query['GrafanaVersion'] = $request->grafanaVersion;
+        }
+        if (!Utils::isUnset($request->grafanaWorkspaceEdition)) {
+            $query['GrafanaWorkspaceEdition'] = $request->grafanaWorkspaceEdition;
+        }
+        if (!Utils::isUnset($request->grafanaWorkspaceName)) {
+            $query['GrafanaWorkspaceName'] = $request->grafanaWorkspaceName;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGrafanaWorkspace',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateGrafanaWorkspaceRequest $request
+     *
+     * @return CreateGrafanaWorkspaceResponse
+     */
+    public function createGrafanaWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGrafanaWorkspaceWithOptions($request, $runtime);
     }
 
     /**
@@ -4048,6 +4134,52 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param DeleteGrafanaWorkspaceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteGrafanaWorkspaceResponse
+     */
+    public function deleteGrafanaWorkspaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->grafanaWorkspaceId)) {
+            $query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGrafanaWorkspace',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGrafanaWorkspaceRequest $request
+     *
+     * @return DeleteGrafanaWorkspaceResponse
+     */
+    public function deleteGrafanaWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGrafanaWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteIMRobotRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -6006,6 +6138,55 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param GetGrafanaWorkspaceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetGrafanaWorkspaceResponse
+     */
+    public function getGrafanaWorkspaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->grafanaWorkspaceId)) {
+            $query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGrafanaWorkspace',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetGrafanaWorkspaceRequest $request
+     *
+     * @return GetGrafanaWorkspaceResponse
+     */
+    public function getGrafanaWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGrafanaWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetIntegrationStateRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -7265,6 +7446,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->environmentId)) {
             $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->managedType)) {
+            $query['ManagedType'] = $request->managedType;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -11899,6 +12083,113 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateEnvironmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGrafanaWorkspaceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateGrafanaWorkspaceResponse
+     */
+    public function updateGrafanaWorkspaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->grafanaWorkspaceId)) {
+            $query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+        }
+        if (!Utils::isUnset($request->grafanaWorkspaceName)) {
+            $query['GrafanaWorkspaceName'] = $request->grafanaWorkspaceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGrafanaWorkspace',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGrafanaWorkspaceRequest $request
+     *
+     * @return UpdateGrafanaWorkspaceResponse
+     */
+    public function updateGrafanaWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGrafanaWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGrafanaWorkspaceVersionRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateGrafanaWorkspaceVersionResponse
+     */
+    public function updateGrafanaWorkspaceVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->grafanaVersion)) {
+            $query['GrafanaVersion'] = $request->grafanaVersion;
+        }
+        if (!Utils::isUnset($request->grafanaWorkspaceId)) {
+            $query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGrafanaWorkspaceVersion',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGrafanaWorkspaceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGrafanaWorkspaceVersionRequest $request
+     *
+     * @return UpdateGrafanaWorkspaceVersionResponse
+     */
+    public function updateGrafanaWorkspaceVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGrafanaWorkspaceVersionWithOptions($request, $runtime);
     }
 
     /**

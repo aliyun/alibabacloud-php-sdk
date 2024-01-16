@@ -63,6 +63,15 @@ class CreateEnvironmentRequest extends Model
     public $environmentType;
 
     /**
+     * @description type of managed：
+     * - agent-exproter： maanged agent and exporter. default of prometheus for Cloud.
+     * @example none
+     *
+     * @var string
+     */
+    public $managedType;
+
+    /**
      * @description The region ID.
      *
      * @example cn-hangzhou
@@ -92,6 +101,7 @@ class CreateEnvironmentRequest extends Model
         'environmentName'    => 'EnvironmentName',
         'environmentSubType' => 'EnvironmentSubType',
         'environmentType'    => 'EnvironmentType',
+        'managedType'        => 'ManagedType',
         'regionId'           => 'RegionId',
         'resourceGroupId'    => 'ResourceGroupId',
         'tags'               => 'Tags',
@@ -118,6 +128,9 @@ class CreateEnvironmentRequest extends Model
         }
         if (null !== $this->environmentType) {
             $res['EnvironmentType'] = $this->environmentType;
+        }
+        if (null !== $this->managedType) {
+            $res['ManagedType'] = $this->managedType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -160,6 +173,9 @@ class CreateEnvironmentRequest extends Model
         }
         if (isset($map['EnvironmentType'])) {
             $model->environmentType = $map['EnvironmentType'];
+        }
+        if (isset($map['ManagedType'])) {
+            $model->managedType = $map['ManagedType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
