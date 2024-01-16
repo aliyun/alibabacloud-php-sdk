@@ -24,7 +24,7 @@ class CreateTokenResponseBody extends Model
     /**
      * @example 200
      *
-     * @var string
+     * @var int
      */
     public $httpStatusCode;
 
