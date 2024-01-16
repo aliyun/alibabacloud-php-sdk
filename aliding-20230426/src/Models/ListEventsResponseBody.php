@@ -36,11 +36,23 @@ class ListEventsResponseBody extends Model
      * @var string
      */
     public $syncToken;
+
+    /**
+     * @var string
+     */
+    public $vendorRequestId;
+
+    /**
+     * @var string
+     */
+    public $vendorType;
     protected $_name = [
-        'events'    => 'events',
-        'nextToken' => 'nextToken',
-        'requestId' => 'requestId',
-        'syncToken' => 'syncToken',
+        'events'          => 'events',
+        'nextToken'       => 'nextToken',
+        'requestId'       => 'requestId',
+        'syncToken'       => 'syncToken',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType'      => 'vendorType',
     ];
 
     public function validate()
@@ -67,6 +79,12 @@ class ListEventsResponseBody extends Model
         }
         if (null !== $this->syncToken) {
             $res['syncToken'] = $this->syncToken;
+        }
+        if (null !== $this->vendorRequestId) {
+            $res['vendorRequestId'] = $this->vendorRequestId;
+        }
+        if (null !== $this->vendorType) {
+            $res['vendorType'] = $this->vendorType;
         }
 
         return $res;
@@ -97,6 +115,12 @@ class ListEventsResponseBody extends Model
         }
         if (isset($map['syncToken'])) {
             $model->syncToken = $map['syncToken'];
+        }
+        if (isset($map['vendorRequestId'])) {
+            $model->vendorRequestId = $map['vendorRequestId'];
+        }
+        if (isset($map['vendorType'])) {
+            $model->vendorType = $map['vendorType'];
         }
 
         return $model;

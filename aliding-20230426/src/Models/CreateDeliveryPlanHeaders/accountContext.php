@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class accountContext extends Model
 {
     /**
-     * @example 012345
+     * @example ba3a9b612345678d8fedf544ef69d19e
      *
      * @var string
      */
-    public $accountId;
+    public $userToken;
     protected $_name = [
-        'accountId' => 'accountId',
+        'userToken' => 'userToken',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class accountContext extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accountId) {
-            $res['accountId'] = $this->accountId;
+        if (null !== $this->userToken) {
+            $res['userToken'] = $this->userToken;
         }
 
         return $res;
@@ -40,8 +40,8 @@ class accountContext extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['accountId'])) {
-            $model->accountId = $map['accountId'];
+        if (isset($map['userToken'])) {
+            $model->userToken = $map['userToken'];
         }
 
         return $model;
