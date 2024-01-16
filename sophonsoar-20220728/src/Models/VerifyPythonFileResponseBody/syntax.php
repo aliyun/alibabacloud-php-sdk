@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class syntax extends Model
 {
     /**
+     * @description The number that indicates the end column of the error code.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class syntax extends Model
     public $endColumn;
 
     /**
+     * @description The number that indicates the end line of the error code.
+     *
      * @example 5
      *
      * @var int
@@ -23,6 +27,8 @@ class syntax extends Model
     public $endLineNumber;
 
     /**
+     * @description The error message for the error code.
+     *
      * @example undefined name \"ab\"
      *
      * @var string
@@ -30,6 +36,11 @@ class syntax extends Model
     public $message;
 
     /**
+     * @description The severity level of the error code. Valid values:
+     *
+     *   4: moderate
+     *   8: serious
+     *
      * @example 4
      *
      * @var int
@@ -37,6 +48,8 @@ class syntax extends Model
     public $severity;
 
     /**
+     * @description The number that indicates the start column of the error code.
+     *
      * @example 2
      *
      * @var int
@@ -44,6 +57,8 @@ class syntax extends Model
     public $startColumn;
 
     /**
+     * @description The number that indicates the start line of the error code.
+     *
      * @example 2
      *
      * @var int

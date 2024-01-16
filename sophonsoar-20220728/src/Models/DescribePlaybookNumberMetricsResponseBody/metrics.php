@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description The number of enabled playbooks.
+     *
      * @example 50
      *
      * @var int
@@ -16,6 +18,8 @@ class metrics extends Model
     public $startUpNum;
 
     /**
+     * @description The total number of playbooks.
+     *
      * @example 100
      *
      * @var int

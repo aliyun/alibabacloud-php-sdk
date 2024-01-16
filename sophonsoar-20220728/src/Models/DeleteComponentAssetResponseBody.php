@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteComponentAssetResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 39C38A34-8532-5D44-B88A-7263B435C316
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodeSchema extends Model
 {
     /**
+     * @description The action name of the component.
+     *
      * @example formatedata
      *
      * @var string
@@ -16,6 +18,8 @@ class nodeSchema extends Model
     public $actionName;
 
     /**
+     * @description The name of the component.
+     *
      * @example DataFormat
      *
      * @var string
@@ -23,6 +27,8 @@ class nodeSchema extends Model
     public $componentName;
 
     /**
+     * @description The name of the node.
+     *
      * @example DataFormat_1
      *
      * @var string
@@ -30,6 +36,8 @@ class nodeSchema extends Model
     public $nodeName;
 
     /**
+     * @description The output fields.
+     *
      * @var string[]
      */
     public $outputFields;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteComponentAssetRequest extends Model
 {
     /**
+     * @description The ID of the asset.
+     *
+     * >  You can call the [DescribeComponentAssets](~~DescribeComponentAssets~~) operation to query the ID.
      * @example 12x
      *
      * @var int
@@ -16,6 +19,11 @@ class DeleteComponentAssetRequest extends Model
     public $assetId;
 
     /**
+     * @description The language of the content within the request and the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSoarRecordInOutputRequest extends Model
 {
     /**
+     * @description The UUID of the component action.
+     *
+     * >  You can call the [DescribeSoarTaskAndActions](~~DescribeSoarTaskAndActions~~) operation to query the UUIDs of component actions.
      * @example 0531ff66-dd05-4f24-84bf-xxxxxxxx
      *
      * @var string
@@ -16,6 +19,11 @@ class DescribeSoarRecordInOutputRequest extends Model
     public $actionUuid;
 
     /**
+     * @description The language of the content within the request and the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

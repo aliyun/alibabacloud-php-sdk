@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeProcessTasksResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var page
      */
     public $page;
 
     /**
+     * @description The handling tasks.
+     *
      * @var processTasks[]
      */
     public $processTasks;
 
     /**
+     * @description The request ID.
+     *
      * @example E7698CFB-4E1C-5840-8EC9-691B86729E94
      *
      * @var string

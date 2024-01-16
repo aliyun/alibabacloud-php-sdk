@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VerifyPythonFileRequest extends Model
 {
     /**
+     * @description The Python code snippet.
+     *
      * @example import logging
      * return (success,message,data)
      * @var string

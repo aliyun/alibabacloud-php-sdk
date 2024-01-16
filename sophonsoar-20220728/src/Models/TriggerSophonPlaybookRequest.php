@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class TriggerSophonPlaybookRequest extends Model
 {
     /**
+     * @description The name of the command that you want to trigger.
+     *
+     * >  You can call the [DescribeSophonCommands](~~DescribeSophonCommands~~) operation to query the command name.
      * @example waf_process_command
      *
      * @var string
@@ -16,6 +19,8 @@ class TriggerSophonPlaybookRequest extends Model
     public $commandName;
 
     /**
+     * @description The input parameters of the command or playbook that you want to trigger.
+     *
      * @example {
      * }
      * @var string
@@ -23,6 +28,8 @@ class TriggerSophonPlaybookRequest extends Model
     public $inputParams;
 
     /**
+     * @description The custom ID. If you do not specify this parameter when the playbook is triggered, a random ID is generated for fault locating and troubleshooting.
+     *
      * @example f916b93e-e814-459f-9662-xxxxxxxxxx
      *
      * @var string
@@ -30,6 +37,11 @@ class TriggerSophonPlaybookRequest extends Model
     public $sophonTaskId;
 
     /**
+     * @description The task type. Valid values:
+     *
+     *   **command**
+     *   **playbook**
+     *
      * @example playbook
      *
      * @var string
@@ -37,6 +49,9 @@ class TriggerSophonPlaybookRequest extends Model
     public $triggerType;
 
     /**
+     * @description The UUID of the playbook.
+     *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
      * @example f916b93e-e814-459f-9662-xxxxxxxxxx
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePopApiVersionListRequest extends Model
 {
     /**
+     * @description The environment in which the API operation parameters are used. Set the value to **online**.
+     *
      * @example online
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribePopApiVersionListRequest extends Model
     public $env;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,9 @@ class DescribePopApiVersionListRequest extends Model
     public $lang;
 
     /**
+     * @description The POP code of the Alibaba Cloud service.
+     *
+     * >  You can call the [DescribeApiList](~~DescribeApiList~~) operation to query the POP code.
      * @example Sas
      *
      * @var string

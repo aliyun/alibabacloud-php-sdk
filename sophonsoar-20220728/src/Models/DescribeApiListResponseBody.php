@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiListResponseBody extends Model
 {
     /**
+     * @description The information about the service.
+     *
      * @var apiList[]
      */
     public $apiList;
 
     /**
+     * @description The request ID.
+     *
      * @example 4A15D31E-B38B-5F7F-8DC0-1C74408875AA
      *
      * @var string

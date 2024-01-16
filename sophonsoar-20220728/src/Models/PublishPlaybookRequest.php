@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PublishPlaybookRequest extends Model
 {
     /**
+     * @description The description of the released version.
+     *
      * @example This is a waf processing playbook
      *
      * @var string
@@ -16,6 +18,9 @@ class PublishPlaybookRequest extends Model
     public $description;
 
     /**
+     * @description The playbook UUID.
+     *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
      * @example ac343acc-1a61-4084-9a1c-xxxxxxx
      *
      * @var string

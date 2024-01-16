@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeComponentAssetFormRequest extends Model
 {
     /**
+     * @description The component name.
+     *
      * @example python3
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeComponentAssetFormRequest extends Model
     public $componentName;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

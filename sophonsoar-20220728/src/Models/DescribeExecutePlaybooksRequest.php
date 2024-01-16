@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeExecutePlaybooksRequest extends Model
 {
     /**
+     * @description The language of the content within the request and the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,13 @@ class DescribeExecutePlaybooksRequest extends Model
     public $lang;
 
     /**
+     * @description The input parameter type of the playbook.
+     *
+     *   **template-ip**
+     *   **template-file**
+     *   **template-process**
+     *   **custom**
+     *
      * @example custom
      *
      * @var string
@@ -23,6 +35,8 @@ class DescribeExecutePlaybooksRequest extends Model
     public $paramType;
 
     /**
+     * @description The playbook name. Fuzzy search is supported.
+     *
      * @example demo_test
      *
      * @var string
@@ -30,6 +44,9 @@ class DescribeExecutePlaybooksRequest extends Model
     public $playbookName;
 
     /**
+     * @description The playbook UUID.
+     *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
      * @example f916b93e-e814-459f-9662-xxxxxx
      *
      * @var string

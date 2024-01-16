@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class VerifyPlaybookResponseBody extends Model
 {
     /**
+     * @description The result of the verification.
+     *
      * @var checkTaskInfos[]
      */
     public $checkTaskInfos;
 
     /**
+     * @description The request ID.
+     *
      * @example 0DFC9403-54EB-5672-B690-9AA93C9EBB54
      *
      * @var string

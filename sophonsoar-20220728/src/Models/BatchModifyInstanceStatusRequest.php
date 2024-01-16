@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class BatchModifyInstanceStatusRequest extends Model
 {
     /**
+     * @description Specifies whether to start or stop the playbook.
+     *
+     *   **0**: stops the playbook.
+     *   **1**: starts the playbook.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,11 @@ class BatchModifyInstanceStatusRequest extends Model
     public $active;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +33,9 @@ class BatchModifyInstanceStatusRequest extends Model
     public $lang;
 
     /**
+     * @description The playbook UUID. If you want to specify multiple playbooks, separate the playbook UUIDs with commas (,).
+     *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
      * @example 8baa6cff-319e-4ede-97bc-1xxxxxx,s8df2e-s8dfs-xxxx
      *
      * @var string

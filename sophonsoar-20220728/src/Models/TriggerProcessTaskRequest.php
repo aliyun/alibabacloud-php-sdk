@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class TriggerProcessTaskRequest extends Model
 {
     /**
+     * @description The type of the action. Valid values:
+     *
+     *   **remove**: cancels blocking or isolation.
+     *   **retry**: submits the task again.
+     *
      * @example remove
      *
      * @var string
@@ -16,6 +21,9 @@ class TriggerProcessTaskRequest extends Model
     public $actionType;
 
     /**
+     * @description The ID of the handling task.
+     *
+     * >  You can call the [DescribeProcessTasks](~~DescribeProcessTasks~~) operation to query the IDs of handling tasks.
      * @example 15355xxxxxx82894882
      *
      * @var string

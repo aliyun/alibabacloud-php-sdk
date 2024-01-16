@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class VerifyPythonFileResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example F72685FB-A6E6-5A9A-97F7-6DC1056E63CE
      *
      * @var string
@@ -17,6 +19,8 @@ class VerifyPythonFileResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The verification result. If the parameter is left empty, the syntax of the code snippet is correct.
+     *
      * @var syntax[]
      */
     public $syntax;

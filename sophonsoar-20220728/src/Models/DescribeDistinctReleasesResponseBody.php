@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDistinctReleasesResponseBody extends Model
 {
     /**
+     * @description The version information.
+     *
      * @var records[]
      */
     public $records;
 
     /**
+     * @description The request ID.
+     *
      * @example 145CACF6-D276-5197-8549-CB1AD76E2AC8
      *
      * @var string

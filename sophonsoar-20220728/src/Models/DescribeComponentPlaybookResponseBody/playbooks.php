@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class playbooks extends Model
 {
     /**
+     * @description The description of the predefined component.
+     *
      * @example aegis_kill_process
      *
      * @var string
@@ -16,6 +18,8 @@ class playbooks extends Model
     public $description;
 
     /**
+     * @description The name of the predefined component.
+     *
      * @example AegisKillQuara
      *
      * @var string
@@ -23,6 +27,9 @@ class playbooks extends Model
     public $displayName;
 
     /**
+     * @description The input parameter configuration of the playbook. The value is a JSON array.
+     *
+     * >  For more information, see [DescribePlaybookInputOutput](~~DescribePlaybookInputOutput~~).
      * @example [
      * ]
      * @var string

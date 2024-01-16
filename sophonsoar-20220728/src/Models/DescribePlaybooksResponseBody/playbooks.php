@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class playbooks extends Model
 {
     /**
+     * @description The playbook status. Valid values:
+     *
+     *   **1**: The playbook is started.
+     *   **0**: The playbook is stopped.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,8 @@ class playbooks extends Model
     public $active;
 
     /**
+     * @description The display name of the playbook.
+     *
      * @example demo_playbook
      *
      * @var string
@@ -23,6 +30,8 @@ class playbooks extends Model
     public $displayName;
 
     /**
+     * @description The time when the playbook was created. The value is a 13-digit timestamp.
+     *
      * @example 1683526277415
      *
      * @var int
@@ -30,6 +39,8 @@ class playbooks extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the playbook was last run. The value is a 13-digit timestamp.
+     *
      * @example 1683526277415
      *
      * @var int
@@ -37,6 +48,11 @@ class playbooks extends Model
     public $lastRuntime;
 
     /**
+     * @description The type of the playbook. Valid values:
+     *
+     *   **preset**: predefined playbook
+     *   **user**: custom playbook
+     *
      * @example user
      *
      * @var string
@@ -44,6 +60,8 @@ class playbooks extends Model
     public $ownType;
 
     /**
+     * @description The UUID of the playbook.
+     *
      * @example bb5a8640-a14f-44ef-8376-cxxxxx
      *
      * @var string

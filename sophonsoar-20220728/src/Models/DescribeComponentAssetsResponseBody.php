@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeComponentAssetsResponseBody extends Model
 {
     /**
+     * @description The information about the assets.
+     *
      * @var componentAssets[]
      */
     public $componentAssets;
 
     /**
+     * @description The request ID.
+     *
      * @example BFEFB76D-DD0E-5529-BD57-0DAC10B9B30F
      *
      * @var string

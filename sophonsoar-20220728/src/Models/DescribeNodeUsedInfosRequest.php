@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNodeUsedInfosRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeNodeUsedInfosRequest extends Model
     public $lang;
 
     /**
+     * @description The node name of the component.
+     *
      * @example python3_2
      *
      * @var string
@@ -23,6 +30,9 @@ class DescribeNodeUsedInfosRequest extends Model
     public $nodeName;
 
     /**
+     * @description The playbook UUID.
+     *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
      * @example ac343acc-1a61-4084-9a1c-xxxx
      *
      * @var string

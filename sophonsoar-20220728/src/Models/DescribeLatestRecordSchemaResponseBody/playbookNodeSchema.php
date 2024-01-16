@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class playbookNodeSchema extends Model
 {
     /**
+     * @description The structure information.
+     *
      * @var nodeSchema[]
      */
     public $nodeSchema;

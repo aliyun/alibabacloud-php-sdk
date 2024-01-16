@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryTreeDataResponseBody extends Model
 {
     /**
+     * @description The returned information about the playbook. The value is a JSON string.
+     *
      * @example [
      * ]
      * @var string
@@ -16,6 +18,8 @@ class QueryTreeDataResponseBody extends Model
     public $playbooks;
 
     /**
+     * @description The request ID.
+     *
      * @example EF2ECA2D-D8E6-5021-BF5C-19DD6D52C5B2
      *
      * @var string

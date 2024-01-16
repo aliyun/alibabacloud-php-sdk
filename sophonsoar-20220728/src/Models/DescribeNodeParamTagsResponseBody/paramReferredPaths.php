@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class paramReferredPaths extends Model
 {
     /**
+     * @description The name of the upstream node.
+     *
      * @example DataFormat_1
      *
      * @var string
@@ -16,6 +18,8 @@ class paramReferredPaths extends Model
     public $paramName;
 
     /**
+     * @description The paths.
+     *
      * @var string[]
      */
     public $referredPath;

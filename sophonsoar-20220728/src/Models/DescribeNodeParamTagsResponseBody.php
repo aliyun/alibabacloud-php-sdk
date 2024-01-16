@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeNodeParamTagsResponseBody extends Model
 {
     /**
+     * @description The configuration of the recommended path.
+     *
      * @var paramReferredPaths[]
      */
     public $paramReferredPaths;
 
     /**
+     * @description The request ID.
+     *
      * @example 6BE94351-712A-505D-A40A-BC77CC8254A9
      *
      * @var string

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribePlaybookReleasesResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var page
      */
     public $page;
 
     /**
+     * @description The information about the playbook version.
+     *
      * @var records[]
      */
     public $records;
 
     /**
+     * @description The request ID.
+     *
      * @example 3DFBE11C-6EB6-5166-92D6-3397796AFE1E
      *
      * @var string

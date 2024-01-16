@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description The status of the playbook. Valid values:
+     *
+     *   **1**: enabled
+     *   **0**: disabled
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,8 @@ class metrics extends Model
     public $active;
 
     /**
+     * @description The description of the playbook.
+     *
      * @example This is a playbook for waf processing
      *
      * @var string
@@ -23,6 +30,8 @@ class metrics extends Model
     public $description;
 
     /**
+     * @description The name of the playbook.
+     *
      * @example demo name
      *
      * @var string
@@ -30,6 +39,8 @@ class metrics extends Model
     public $displayName;
 
     /**
+     * @description The number of the tasks that are created for the playbook and failed to run.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +48,8 @@ class metrics extends Model
     public $failNum;
 
     /**
+     * @description The time when the playbook was created. The value is a 13-digit timestamp.
+     *
      * @example 1655277397000
      *
      * @var int
@@ -44,6 +57,8 @@ class metrics extends Model
     public $gmtCreate;
 
     /**
+     * @description The number of historical versions of the playbook.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +66,8 @@ class metrics extends Model
     public $historyMd5;
 
     /**
+     * @description The time when the playbook was last run. The value is a 13-digit timestamp.
+     *
      * @example 1683526277415
      *
      * @var int
@@ -58,6 +75,11 @@ class metrics extends Model
     public $lastRuntime;
 
     /**
+     * @description The type of the playbook. Valid values:
+     *
+     *   **preset**: predefined playbook
+     *   **user**: custom playbook
+     *
      * @example user
      *
      * @var string
@@ -65,6 +87,8 @@ class metrics extends Model
     public $ownType;
 
     /**
+     * @description The UUID of the playbook.
+     *
      * @example 0fbc9bdb-9ae3-4ef4-a709-xxxxx
      *
      * @var string
@@ -72,6 +96,8 @@ class metrics extends Model
     public $playbookUuid;
 
     /**
+     * @description The number of the tasks that are created for the playbook and were successfully run.
+     *
      * @example 100
      *
      * @var int

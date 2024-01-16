@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RevertPlaybookReleaseRequest extends Model
 {
     /**
+     * @description Specifies whether to directly publish the new playbook after the rollback.
+     *
+     *   **true** (default)
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,9 @@ class RevertPlaybookReleaseRequest extends Model
     public $isPublish;
 
     /**
+     * @description The version of the playbook that you want to publish.
+     *
+     * >  You can call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation to query the playbook version.
      * @example 3f97b56e-064e-47e7-a309-xxxxxxx
      *
      * @var int
@@ -23,6 +31,9 @@ class RevertPlaybookReleaseRequest extends Model
     public $playReleaseId;
 
     /**
+     * @description The UUID of the playbook.
+     *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
      * @example 185295a1-c987-4b64-8796-xxxxxxxx
      *
      * @var string

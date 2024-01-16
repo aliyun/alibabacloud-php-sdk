@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ModifyComponentAssetRequest extends Model
 {
     /**
+     * @description The configuration of the asset. The value is a JSON object.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $assetConfig;
 
     /**
+     * @description The language of the content within the request and response.
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

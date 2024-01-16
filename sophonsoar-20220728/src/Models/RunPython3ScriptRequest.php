@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunPython3ScriptRequest extends Model
 {
     /**
+     * @description The name of the node in the playbook.
+     *
      * @example python3_3
      *
      * @var string
@@ -16,6 +18,8 @@ class RunPython3ScriptRequest extends Model
     public $nodeName;
 
     /**
+     * @description The input parameters of the Python3 script.
+     *
      * @example {
      * }
      * @var string
@@ -23,6 +27,9 @@ class RunPython3ScriptRequest extends Model
     public $params;
 
     /**
+     * @description The UUID of the playbook.
+     *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the UUIDs of playbooks.
      * @example 8baa6cff-319e-4ede-97bc-xxxxxxx
      *
      * @var string
@@ -30,6 +37,8 @@ class RunPython3ScriptRequest extends Model
     public $playbookUuid;
 
     /**
+     * @description The Python3 script.
+     *
      * @example import logging
      * return (success,message,data)
      * @var string

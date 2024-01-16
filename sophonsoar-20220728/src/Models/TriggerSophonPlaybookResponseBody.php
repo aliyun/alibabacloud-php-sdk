@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class TriggerSophonPlaybookResponseBody extends Model
 {
     /**
+     * @description The details that is returned after the command or playbook is triggered.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 0DFC9403-54EB-5672-B690-9AA93C9EBB54
      *
      * @var string

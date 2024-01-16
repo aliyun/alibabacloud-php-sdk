@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFieldResponseBody extends Model
 {
     /**
+     * @description The configuration content.
+     *
      * @example ["ip","name","hostinfo","md5"]
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeFieldResponseBody extends Model
     public $fields;
 
     /**
+     * @description The name of the global configuration.
+     *
      * @example soar_filed_tags
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeFieldResponseBody extends Model
     public $name;
 
     /**
+     * @description The request ID.
+     *
      * @example BCDE6498-83CC-50A1-8307-3D5A539C42F8
      *
      * @var string

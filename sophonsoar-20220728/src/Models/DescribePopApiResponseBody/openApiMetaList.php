@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class openApiMetaList extends Model
 {
     /**
+     * @description The parameter description.
+     *
      * @example demo parameter
      *
      * @var string
@@ -16,6 +18,8 @@ class openApiMetaList extends Model
     public $description;
 
     /**
+     * @description The example value.
+     *
      * @example 12.xx.xx.xx
      *
      * @var string
@@ -23,6 +27,8 @@ class openApiMetaList extends Model
     public $exampleValue;
 
     /**
+     * @description The parameter name.
+     *
      * @example DescribePopApi
      *
      * @var string
@@ -30,6 +36,11 @@ class openApiMetaList extends Model
     public $name;
 
     /**
+     * @description Indicates whether the parameter is required.
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +48,13 @@ class openApiMetaList extends Model
     public $required;
 
     /**
+     * @description The data type of the parameter field. Valid values:
+     *
+     *   **string**
+     *   **boolean**
+     *   **integer**
+     *   **long**
+     *
      * @example string
      *
      * @var string

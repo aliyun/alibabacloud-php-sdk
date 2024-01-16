@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSoarTaskAndActionsResponseBody extends Model
 {
     /**
+     * @description The execution details of each task.
+     *
      * @var details
      */
     public $details;
 
     /**
+     * @description The request ID.
+     *
      * @example 18017A93-3D5D-503A-8308-914543F1CBA3
      *
      * @var string

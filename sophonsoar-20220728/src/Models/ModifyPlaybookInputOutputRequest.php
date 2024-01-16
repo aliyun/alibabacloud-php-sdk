@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ModifyPlaybookInputOutputRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $exeConfig;
+
+    /**
+     * @description The configuration of the input parameters. The value is a JSON array.
+     *
      * @example [
      * ]
      * @var string
@@ -16,6 +23,11 @@ class ModifyPlaybookInputOutputRequest extends Model
     public $inputParams;
 
     /**
+     * @description The language of the content within the request and response.
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +35,8 @@ class ModifyPlaybookInputOutputRequest extends Model
     public $lang;
 
     /**
+     * @description The configuration of the output parameters. This parameter is unavailable. Leave it empty.
+     *
      * @example []
      *
      * @var string
@@ -30,6 +44,13 @@ class ModifyPlaybookInputOutputRequest extends Model
     public $outputParams;
 
     /**
+     * @description The input parameter type.
+     *
+     *   **template-ip**
+     *   **template-file**
+     *   **template-process**
+     *   **custom**
+     *
      * @example custom
      *
      * @var string
@@ -37,12 +58,16 @@ class ModifyPlaybookInputOutputRequest extends Model
     public $paramType;
 
     /**
+     * @description The UUID of the playbook.
+     *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
      * @example 8baa6cff-319e-4ede-97bc-xxxxxxx
      *
      * @var string
      */
     public $playbookUuid;
     protected $_name = [
+        'exeConfig'    => 'ExeConfig',
         'inputParams'  => 'InputParams',
         'lang'         => 'Lang',
         'outputParams' => 'OutputParams',
@@ -57,6 +82,9 @@ class ModifyPlaybookInputOutputRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->exeConfig) {
+            $res['ExeConfig'] = $this->exeConfig;
+        }
         if (null !== $this->inputParams) {
             $res['InputParams'] = $this->inputParams;
         }
@@ -84,6 +112,9 @@ class ModifyPlaybookInputOutputRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExeConfig'])) {
+            $model->exeConfig = $map['ExeConfig'];
+        }
         if (isset($map['InputParams'])) {
             $model->inputParams = $map['InputParams'];
         }

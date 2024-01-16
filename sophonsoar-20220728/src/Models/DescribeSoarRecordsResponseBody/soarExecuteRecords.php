@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class soarExecuteRecords extends Model
 {
     /**
+     * @description The end of the time range to query. The value is a 13-digit timestamp.
+     *
      * @example 1686294686000
      *
      * @var int
@@ -16,6 +18,8 @@ class soarExecuteRecords extends Model
     public $endTime;
 
     /**
+     * @description The error message of the task. If the task is successful, this field is empty.
+     *
      * @example stime not match
      *
      * @var string
@@ -23,6 +27,8 @@ class soarExecuteRecords extends Model
     public $errorMsg;
 
     /**
+     * @description The request parameters of the task.
+     *
      * @example {
      * }
      * @var string
@@ -30,6 +36,8 @@ class soarExecuteRecords extends Model
     public $rawEventReq;
 
     /**
+     * @description The request ID of the task. The value is unique.
+     *
      * @example ba1ec480-aa90-4bb6-a1a7-9e311ae79321
      *
      * @var string
@@ -37,6 +45,8 @@ class soarExecuteRecords extends Model
     public $requestUuid;
 
     /**
+     * @description The returned information about the playbook. You can define the value in the playbook.
+     *
      * @example Playbook finish
      *
      * @var string
@@ -44,6 +54,8 @@ class soarExecuteRecords extends Model
     public $resultMessage;
 
     /**
+     * @description The beginning of the time range to query. The value is a 13-byte timestamp.
+     *
      * @example 1675823338433
      *
      * @var int
@@ -51,6 +63,12 @@ class soarExecuteRecords extends Model
     public $startTime;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *   **running**
+     *
      * @example success
      *
      * @var string
@@ -58,6 +76,8 @@ class soarExecuteRecords extends Model
     public $status;
 
     /**
+     * @description The name of the task. The value is the same as the playbook UUID.
+     *
      * @example 82848ebc-eaff-4791-acd4-xxxxx
      *
      * @var string
@@ -65,6 +85,11 @@ class soarExecuteRecords extends Model
     public $taskName;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **general**: a common task
+     *   **standard**: a component task
+     *
      * @example standard
      *
      * @var string
@@ -72,6 +97,8 @@ class soarExecuteRecords extends Model
     public $taskType;
 
     /**
+     * @description The MD5 value of the playbook.
+     *
      * @example dea65a3db87fb9bd84bbxxxxx
      *
      * @var string
@@ -79,6 +106,12 @@ class soarExecuteRecords extends Model
     public $taskflowMd5;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **debug**: a debugging task
+     *   **manual**: a manual task
+     *   **siem**: a task that is triggered by an event or alert
+     *
      * @example debug
      *
      * @var string
@@ -86,6 +119,8 @@ class soarExecuteRecords extends Model
     public $triggerType;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to execute the task.
+     *
      * @example 127xxxx4392
      *
      * @var string

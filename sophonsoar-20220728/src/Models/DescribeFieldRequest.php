@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeFieldRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,10 @@ class DescribeFieldRequest extends Model
     public $lang;
 
     /**
+     * @description The key of the global configuration. Valid values:
+     *
+     *   **soar_filed_tags**: queries the input template of the playbook.
+     *
      * @example soar_filed_tags
      *
      * @var string

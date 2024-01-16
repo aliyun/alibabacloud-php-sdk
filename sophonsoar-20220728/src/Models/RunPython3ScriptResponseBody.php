@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunPython3ScriptResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example F210521C-D9BF-5264-8369-83EDDC617DB0
      *
      * @var string
@@ -16,6 +18,8 @@ class RunPython3ScriptResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The execution result of the Python3 script.
+     *
      * @example {
      * }
      * @var string

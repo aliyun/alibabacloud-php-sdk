@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePlaybookResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 6F3CA8A9-B5BB-506A-9182-FFE80A6E0584
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class processTasks extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account that is used to submit the handling task.
+     *
      * @example 123xxxx355
      *
      * @var string
@@ -16,6 +18,8 @@ class processTasks extends Model
     public $creator;
 
     /**
+     * @description The name of the handling entity.
+     *
      * @example 1.1.1.x
      *
      * @var string
@@ -23,6 +27,8 @@ class processTasks extends Model
     public $entityName;
 
     /**
+     * @description The type of the handling entity.
+     *
      * @example ip
      *
      * @var string
@@ -30,6 +36,8 @@ class processTasks extends Model
     public $entityType;
 
     /**
+     * @description The creation time of the handling task. The value is a 13-digit timestamp.
+     *
      * @example 1700031183572
      *
      * @var int
@@ -37,6 +45,8 @@ class processTasks extends Model
     public $gmtCreateMillis;
 
     /**
+     * @description The modification time of the handling task. The value is a 13-digit timestamp.
+     *
      * @example 1700031183572
      *
      * @var int
@@ -44,6 +54,8 @@ class processTasks extends Model
     public $gmtModifiedMillis;
 
     /**
+     * @description The input parameter of the handling task.
+     *
      * @example {"groupuuid":"c6a9b1df-f4ac-4078-bef4-99xxxxxx"}
      *
      * @var string
@@ -51,6 +63,8 @@ class processTasks extends Model
     public $inputParams;
 
     /**
+     * @description The ID of the associated policy.
+     *
      * @example 92af3c79-1754-4646-9366-9ddbd1e45536_xxxx
      *
      * @var string
@@ -58,6 +72,8 @@ class processTasks extends Model
     public $processStrategyUuid;
 
     /**
+     * @description The delivery time of the handling task. The value is a 13-digit timestamp.
+     *
      * @example 1700031183572
      *
      * @var int
@@ -65,6 +81,8 @@ class processTasks extends Model
     public $processTime;
 
     /**
+     * @description The unblocking time of the handling task. The value is a 13-digit timestamp.
+     *
      * @example 1700031183572
      *
      * @var int
@@ -72,6 +90,8 @@ class processTasks extends Model
     public $removeTime;
 
     /**
+     * @description The scenario code of the handling task.
+     *
      * @example event_xxx_whole_process
      *
      * @var string
@@ -79,6 +99,8 @@ class processTasks extends Model
     public $sceneCode;
 
     /**
+     * @description The scenario name of the handling task.
+     *
      * @example waf_whole_process
      *
      * @var string
@@ -86,6 +108,8 @@ class processTasks extends Model
     public $sceneName;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is specified in the handling task.
+     *
      * @example 123xxxxx234
      *
      * @var string
@@ -93,6 +117,8 @@ class processTasks extends Model
     public $scope;
 
     /**
+     * @description The submission source of the handling task.
+     *
      * @example system
      *
      * @var string
@@ -100,6 +126,8 @@ class processTasks extends Model
     public $source;
 
     /**
+     * @description The unique identifier of the handling task.
+     *
      * @example 150xxxxxxxxx95066
      *
      * @var string
@@ -107,6 +135,8 @@ class processTasks extends Model
     public $taskId;
 
     /**
+     * @description The status of the handling task.
+     *
      * @example 11
      *
      * @var int
@@ -114,6 +144,8 @@ class processTasks extends Model
     public $taskStatus;
 
     /**
+     * @description The code of the cloud service that is associated with the handling task.
+     *
      * @example WAF
      *
      * @var string

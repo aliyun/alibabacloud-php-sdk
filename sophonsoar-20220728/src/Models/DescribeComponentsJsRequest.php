@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeComponentsJsRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

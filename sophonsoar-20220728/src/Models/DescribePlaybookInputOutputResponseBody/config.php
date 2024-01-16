@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @var string
+     */
+    public $exeConfig;
+
+    /**
+     * @description The input parameter configuration of the playbook. The value is a JSON array.
+     *
      * @example [
      * ]
      * @var string
@@ -16,6 +23,8 @@ class config extends Model
     public $inputParams;
 
     /**
+     * @description The output parameter configuration. This parameter is unavailable and is always left empty.
+     *
      * @example []
      *
      * @var string
@@ -23,6 +32,13 @@ class config extends Model
     public $outputParams;
 
     /**
+     * @description The input parameter type of the playbook. Valid values:
+     *
+     *   **template-ip**
+     *   **template-file**
+     *   **template-process**
+     *   **custom**
+     *
      * @example custom
      *
      * @var string
@@ -30,12 +46,15 @@ class config extends Model
     public $paramType;
 
     /**
+     * @description The UUID of the playbook.
+     *
      * @example 9030076b-6733-4842-b05a-xxxxxx
      *
      * @var string
      */
     public $playbookUuid;
     protected $_name = [
+        'exeConfig'    => 'ExeConfig',
         'inputParams'  => 'InputParams',
         'outputParams' => 'OutputParams',
         'paramType'    => 'ParamType',
@@ -49,6 +68,9 @@ class config extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->exeConfig) {
+            $res['ExeConfig'] = $this->exeConfig;
+        }
         if (null !== $this->inputParams) {
             $res['InputParams'] = $this->inputParams;
         }
@@ -73,6 +95,9 @@ class config extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExeConfig'])) {
+            $model->exeConfig = $map['ExeConfig'];
+        }
         if (isset($map['InputParams'])) {
             $model->inputParams = $map['InputParams'];
         }

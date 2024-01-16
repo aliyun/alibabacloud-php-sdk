@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiListRequest extends Model
 {
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

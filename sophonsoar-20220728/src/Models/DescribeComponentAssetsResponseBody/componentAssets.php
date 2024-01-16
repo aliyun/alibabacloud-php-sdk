@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class componentAssets extends Model
 {
     /**
+     * @description The UUID of the asset.
+     *
      * @example ff6fe161-93e2-464c-a326-fxxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class componentAssets extends Model
     public $assetUuid;
 
     /**
+     * @description The name of the component to which the asset belongs.
+     *
      * @example pyhton3
      *
      * @var string
@@ -23,6 +27,8 @@ class componentAssets extends Model
     public $componentname;
 
     /**
+     * @description The time when the asset was created. The time is in the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
+     *
      * @example 2023-03-23T14:38Z
      *
      * @var string
@@ -30,6 +36,8 @@ class componentAssets extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the asset was modified. The time is in the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
+     *
      * @example 2023-03-23T14:38Z
      *
      * @var string
@@ -37,6 +45,8 @@ class componentAssets extends Model
     public $gmtModified;
 
     /**
+     * @description The UUID of the asset.
+     *
      * @example 7xx
      *
      * @var int
@@ -44,6 +54,8 @@ class componentAssets extends Model
     public $id;
 
     /**
+     * @description The name of the asset.
+     *
      * @example test asset
      *
      * @var string
@@ -51,6 +63,9 @@ class componentAssets extends Model
     public $name;
 
     /**
+     * @description The configurations of the asset in the JSON string format. DescribeComponentAssetForm
+     *
+     * >  For more information, see [DescribeComponentAssetForm](~~DescribeComponentAssetForm~~).
      * @example [
      * ]
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnumItemsResponseBody extends Model
 {
     /**
+     * @description The information about the enumeration item.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example E7698CFB-4E1C-5840-8EC9-691B86729E94
      *
      * @var string

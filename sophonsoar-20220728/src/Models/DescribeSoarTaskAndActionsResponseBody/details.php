@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
+     * @description The list of component actions during the running of the playbook.
+     *
      * @var actions[]
      */
     public $actions;
 
     /**
+     * @description The end of the time range during which the playbook is run. The value is a 13-digit timestamp.
+     *
      * @example 1699868848767
      *
      * @var int
@@ -22,6 +26,8 @@ class details extends Model
     public $endTime;
 
     /**
+     * @description The error message of the task. If the task is successful, this field is empty.
+     *
      * @example stime not match
      *
      * @var string
@@ -29,6 +35,8 @@ class details extends Model
     public $errorMsg;
 
     /**
+     * @description The request parameters of the task.
+     *
      * @example {
      * }
      * @var string
@@ -36,6 +44,8 @@ class details extends Model
     public $rawEventReq;
 
     /**
+     * @description The request ID of the task. The value is unique.
+     *
      * @example 17f75844-75cc-4174-86da-cec07a690142
      *
      * @var string
@@ -43,6 +53,8 @@ class details extends Model
     public $requestUuid;
 
     /**
+     * @description The flag of the task. For debugging tasks, the value is **DEBUG**. For other tasks, the parameter is left empty.
+     *
      * @example DEBUG
      *
      * @var string
@@ -50,6 +62,8 @@ class details extends Model
     public $resultLevel;
 
     /**
+     * @description The returned information about the playbook. You can define the value in the playbook.
+     *
      * @example deubug playbook finished
      *
      * @var string
@@ -57,6 +71,8 @@ class details extends Model
     public $resultMessage;
 
     /**
+     * @description The beginning of the time range during which the playbook is run. The value is a 13-digit timestamp.
+     *
      * @example 1699868848645
      *
      * @var int
@@ -64,6 +80,12 @@ class details extends Model
     public $startTime;
 
     /**
+     * @description The task status. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *   **running**
+     *
      * @example success
      *
      * @var string
@@ -71,6 +93,8 @@ class details extends Model
     public $status;
 
     /**
+     * @description The MD5 value of the playbook.
+     *
      * @example ed127287-6699-4e4d-b986-9f770879xxx
      *
      * @var string
@@ -78,6 +102,8 @@ class details extends Model
     public $taskFlowMd5;
 
     /**
+     * @description The name of the task. The value is the same as the playbook UUID.
+     *
      * @example 92af3c79-1754-4646-9366-9ddbd1e45536
      *
      * @var string
@@ -85,6 +111,8 @@ class details extends Model
     public $taskName;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the task belongs.
+     *
      * @example 127xxxx4392
      *
      * @var string
@@ -92,6 +120,12 @@ class details extends Model
     public $taskTenantId;
 
     /**
+     * @description The task type. Valid values:
+     *
+     *   **debug**: a debugging task
+     *   **manual**: a manual task
+     *   **siem**: an event-triggered task
+     *
      * @example siem
      *
      * @var string
@@ -99,6 +133,8 @@ class details extends Model
     public $triggerType;
 
     /**
+     * @description The ID of the Alibaba Cloud account that triggers the task.
+     *
      * @example 127xxxx4392
      *
      * @var string

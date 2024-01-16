@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class paramConfig extends Model
 {
     /**
+     * @description The regular expression that is used to check the format of the parameter value. If the parameter is left empty, the check is not performed.
+     *
      * @example [0-9]{4}\.[0-9]{4}\.[0-9]{4}\.[0-9]{4}
      *
      * @var string
@@ -16,6 +18,8 @@ class paramConfig extends Model
     public $checkField;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example ip
      *
      * @var string
@@ -23,6 +27,11 @@ class paramConfig extends Model
     public $field;
 
     /**
+     * @description Indicates whether the parameter is required. Valid values:
+     *
+     *   **true** (default)
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +39,8 @@ class paramConfig extends Model
     public $necessary;
 
     /**
+     * @description The value of the parameter.
+     *
      * @example 12.xx.xx.xx
      *
      * @var string

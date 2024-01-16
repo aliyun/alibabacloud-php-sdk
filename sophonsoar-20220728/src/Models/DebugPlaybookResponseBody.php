@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DebugPlaybookResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 75E56B2C-C8FA-5A2F-AA08-8745E2AC33EF
      *
      * @var string
@@ -16,6 +18,8 @@ class DebugPlaybookResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The UUID of the debugging task. You can use the UUID to query the result and other details of the debugging task.
+     *
      * @example 6d412cfa-0905-4567-8a83-xxxxxx
      *
      * @var string

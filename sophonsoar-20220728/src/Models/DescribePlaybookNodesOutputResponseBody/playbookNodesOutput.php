@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class playbookNodesOutput extends Model
 {
     /**
+     * @description The name of the component node.
+     *
      * @example DataFormat_1
      *
      * @var string
@@ -16,6 +18,8 @@ class playbookNodesOutput extends Model
     public $nodeName;
 
     /**
+     * @description The historical output data of the component node. The value is in the JSON string format. If no data is found, the parameter is left empty.
+     *
      * @example {
      * }
      * @var string

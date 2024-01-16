@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyPlaybookResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 9B584F84-D66A-5525-8E7B-05612A903ABF
      *
      * @var string

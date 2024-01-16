@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnumItemsRequest extends Model
 {
     /**
+     * @description The type of the enumeration item. Valid values:
+     *
+     *   **process**: scenarios
+     *
      * @example process
      *
      * @var string
@@ -16,6 +20,11 @@ class DescribeEnumItemsRequest extends Model
     public $enumType;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh_cn**: Simplified Chinese (default)
+     *   **en_us**: English
+     *
      * @example zh
      *
      * @var string

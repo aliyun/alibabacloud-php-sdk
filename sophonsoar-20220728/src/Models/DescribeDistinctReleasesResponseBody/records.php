@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
+     * @description The version description.
+     *
      * @example demo version
      *
      * @var string
@@ -16,6 +18,8 @@ class records extends Model
     public $description;
 
     /**
+     * @description The MD5 value of the playbook XML configuration.
+     *
      * @example 17cf53049bc8efa941207xxxxx
      *
      * @var string

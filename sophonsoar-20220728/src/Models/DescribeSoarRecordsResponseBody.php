@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSoarRecordsResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var page
      */
     public $page;
 
     /**
+     * @description The request ID.
+     *
      * @example 601C2DAC-6A67-5237-BEE8-5BF1CEE96296
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeSoarRecordsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The execution records.
+     *
      * @var soarExecuteRecords[]
      */
     public $soarExecuteRecords;

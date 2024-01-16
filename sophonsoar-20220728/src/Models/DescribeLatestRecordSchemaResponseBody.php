@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeLatestRecordSchemaResponseBody extends Model
 {
     /**
+     * @description The output structure information of the playbook.
+     *
      * @var playbookNodeSchema
      */
     public $playbookNodeSchema;
 
     /**
+     * @description The request ID.
+     *
      * @example 10B92EE1-4597-593B-A131-7A17D25EF5C9
      *
      * @var string

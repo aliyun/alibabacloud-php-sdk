@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class compareResult extends Model
 {
     /**
+     * @description The description of the comparison result.
+     *
      * @example The first version adds one node compared to the second version
      *
      * @var string
@@ -16,6 +18,11 @@ class compareResult extends Model
     public $description;
 
     /**
+     * @description Indicates whether the second version provides more information than the first version. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class compareResult extends Model
     public $new;
 
     /**
+     * @description Indicates whether the configurations of the two versions are the same. Valid values: **true** and **false**.
+     *
      * @example false
      *
      * @var bool

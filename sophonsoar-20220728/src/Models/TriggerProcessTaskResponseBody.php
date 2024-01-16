@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TriggerProcessTaskResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 58A518BC-E4A8-5BD7-AFEA-366046ED9073
      *
      * @var string

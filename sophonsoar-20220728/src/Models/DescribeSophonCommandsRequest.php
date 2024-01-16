@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSophonCommandsRequest extends Model
 {
     /**
+     * @description The name of the command. Fuzzy match is supported.
+     *
      * @example waf_process
      *
      * @var string

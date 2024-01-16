@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeNodeUsedInfosResponseBody extends Model
 {
     /**
+     * @description The node reference information. The value is in the JSON format and contains the following fields:
+     *
+     *   **action**: the referencing action. This field contains the following information:
+     *
+     *   **name**: the name of the referencing node.
+     *   **inputParams**: the parameter settings of the referencing node.
+     *
      * @example {
      * "referInfos": [
      * "${play_group.datalist.*.ids}"
@@ -18,6 +25,8 @@ class DescribeNodeUsedInfosResponseBody extends Model
     public $nodeUsedInfos;
 
     /**
+     * @description The request ID.
+     *
      * @example 3B10F836-C2B1-54FA-AB59-7591B548FB59
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribePlaybookRequest extends Model
 {
     /**
+     * @description The flag that indicates whether the playbook is of the debugging or published version. Valid values:
+     *
+     *   **1**: playbook of the debugging version
+     *   **0**: playbook of the published version
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,11 @@ class DescribePlaybookRequest extends Model
     public $debugFlag;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +33,9 @@ class DescribePlaybookRequest extends Model
     public $lang;
 
     /**
+     * @description The UUID of the playbook.
+     *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
      * @example 9030076b-6733-4842-b05a-xxxxx
      *
      * @var string
@@ -30,6 +43,8 @@ class DescribePlaybookRequest extends Model
     public $playbookUuid;
 
     /**
+     * @description The MD5 hash value of the playbook.
+     *
      * @example 7a8f608dc64c242632aa578xxxxx
      *
      * @var string

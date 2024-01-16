@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class versionList extends Model
 {
     /**
+     * @description The name of the API operation.
+     *
      * @example DescribePopApiVersionList
      *
      * @var string
@@ -16,6 +18,8 @@ class versionList extends Model
     public $apiName;
 
     /**
+     * @description The POP code of the Alibaba Cloud service.
+     *
      * @example Sas
      *
      * @var string
@@ -23,6 +27,8 @@ class versionList extends Model
     public $popCode;
 
     /**
+     * @description The version number of the API for the Alibaba Cloud service.
+     *
      * @example 2018-12-03
      *
      * @var string

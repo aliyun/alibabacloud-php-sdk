@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PublishPlaybookResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example C513FCEA-D71F-5E50-ADC4-FCF8C5DCF6BF
      *
      * @var string

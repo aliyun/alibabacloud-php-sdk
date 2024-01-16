@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDistinctReleasesRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,9 @@ class DescribeDistinctReleasesRequest extends Model
     public $lang;
 
     /**
+     * @description The playbook UUID.
+     *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
      * @example bc0b8424-535c-4ed5-bd94-xxxxxx
      *
      * @var string
@@ -23,6 +31,8 @@ class DescribeDistinctReleasesRequest extends Model
     public $playbookUuid;
 
     /**
+     * @description The MD5 value of the playbook XML configuration.
+     *
      * @example be0a4ef084dd174abe47xxxxx
      *
      * @var string

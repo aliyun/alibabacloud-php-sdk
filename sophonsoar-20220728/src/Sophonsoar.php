@@ -1755,6 +1755,9 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->exeConfig)) {
+            $body['ExeConfig'] = $request->exeConfig;
+        }
         if (!Utils::isUnset($request->inputParams)) {
             $body['InputParams'] = $request->inputParams;
         }
@@ -2039,10 +2042,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param RunPython3ScriptRequest $request
-     * @param RuntimeOptions          $runtime
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *   *
+     * @param RunPython3ScriptRequest $request RunPython3ScriptRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunPython3ScriptResponse
+     * @return RunPython3ScriptResponse RunPython3ScriptResponse
      */
     public function runPython3ScriptWithOptions($request, $runtime)
     {
@@ -2079,9 +2084,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param RunPython3ScriptRequest $request
+     * Before you call this operation, make sure that you understand the billing method and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *   *
+     * @param RunPython3ScriptRequest $request RunPython3ScriptRequest
      *
-     * @return RunPython3ScriptResponse
+     * @return RunPython3ScriptResponse RunPython3ScriptResponse
      */
     public function runPython3Script($request)
     {
@@ -2091,10 +2098,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param TriggerPlaybookRequest $request
-     * @param RuntimeOptions         $runtime
+     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *   *
+     * @param TriggerPlaybookRequest $request TriggerPlaybookRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return TriggerPlaybookResponse
+     * @return TriggerPlaybookResponse TriggerPlaybookResponse
      */
     public function triggerPlaybookWithOptions($request, $runtime)
     {
@@ -2125,9 +2134,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param TriggerPlaybookRequest $request
+     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *   *
+     * @param TriggerPlaybookRequest $request TriggerPlaybookRequest
      *
-     * @return TriggerPlaybookResponse
+     * @return TriggerPlaybookResponse TriggerPlaybookResponse
      */
     public function triggerPlaybook($request)
     {
@@ -2185,10 +2196,12 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param TriggerSophonPlaybookRequest $request
-     * @param RuntimeOptions               $runtime
+     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *   *
+     * @param TriggerSophonPlaybookRequest $request TriggerSophonPlaybookRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return TriggerSophonPlaybookResponse
+     * @return TriggerSophonPlaybookResponse TriggerSophonPlaybookResponse
      */
     public function triggerSophonPlaybookWithOptions($request, $runtime)
     {
@@ -2228,9 +2241,11 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @param TriggerSophonPlaybookRequest $request
+     * Before you call this operation, make sure that you understand the billing methods and pricing of Security Orchestration Automation Response (SOAR). For more information, see [Pricing](https://www.aliyun.com/price/product#/sas/detail/sas).
+     *   *
+     * @param TriggerSophonPlaybookRequest $request TriggerSophonPlaybookRequest
      *
-     * @return TriggerSophonPlaybookResponse
+     * @return TriggerSophonPlaybookResponse TriggerSophonPlaybookResponse
      */
     public function triggerSophonPlaybook($request)
     {

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePopApiResponseBody extends Model
 {
     /**
+     * @description The name of the API.
+     *
      * @example AddAssetCleanConfig
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribePopApiResponseBody extends Model
     public $apiName;
 
     /**
+     * @description The information about the API.
+     *
      * @var openApiMetaList[]
      */
     public $openApiMetaList;
 
     /**
+     * @description The POP code of the Alibaba Cloud service.
+     *
      * @example Sas
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribePopApiResponseBody extends Model
     public $popCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 1A01B0BA-CFC4-5813-9EB0-A5DA15FA95AE
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribePopApiResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The version of the API.
+     *
      * @example 2019-09-10
      *
      * @var string

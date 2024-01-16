@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeComponentsJsResponseBody extends Model
 {
     /**
+     * @description The configuration of the JavaScript file for the component.
+     *
      * @example [
      * ]
      * @var string
@@ -16,6 +18,8 @@ class DescribeComponentsJsResponseBody extends Model
     public $componentsJs;
 
     /**
+     * @description The request ID.
+     *
      * @example 58A518BC-E4A8-5BD7-AFEA-366046ED9073
      *
      * @var string

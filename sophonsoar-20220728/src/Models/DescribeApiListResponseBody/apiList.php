@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class apiList extends Model
 {
     /**
+     * @description The link to the API references of the Alibaba Cloud service.
+     *
      * @example https://xxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class apiList extends Model
     public $docUrl;
 
     /**
+     * @description The POP code of the Alibaba Cloud service.
+     *
      * @example Sas
      *
      * @var string
@@ -23,6 +27,8 @@ class apiList extends Model
     public $popCode;
 
     /**
+     * @description The name of the Alibaba Cloud service.
+     *
      * @example Cloud Security Center
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescriberPython3ScriptLogsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example D22D8A0C-6E86-57B2-A142-929184122AB1
      *
      * @var string
@@ -16,6 +18,8 @@ class DescriberPython3ScriptLogsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The operational logs of the Python3 script.
+     *
      * @example {
      * }
      * @var string

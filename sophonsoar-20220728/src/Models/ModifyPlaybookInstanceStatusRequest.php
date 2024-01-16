@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyPlaybookInstanceStatusRequest extends Model
 {
     /**
+     * @description The playbook status. Valid values:
+     *
+     *   **1**: starts the playbook.
+     *   **0**: stops the playbook.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,11 @@ class ModifyPlaybookInstanceStatusRequest extends Model
     public $active;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +33,9 @@ class ModifyPlaybookInstanceStatusRequest extends Model
     public $lang;
 
     /**
+     * @description The playbook UUID.
+     *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
      * @example 9fcd3829-80ff-4681-be1e-xxxxxxxx
      *
      * @var string

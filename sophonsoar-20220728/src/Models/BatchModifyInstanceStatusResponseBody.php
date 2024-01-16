@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchModifyInstanceStatusResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 358E012F-B516-599D-9ED0-A1A361CDE615
      *
      * @var string

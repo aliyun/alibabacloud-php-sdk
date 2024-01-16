@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePlaybookMetricsResponseBody extends Model
 {
     /**
+     * @description The details of the playbook.
+     *
      * @var metrics
      */
     public $metrics;
 
     /**
+     * @description The request ID.
+     *
      * @example 567D3D0B-2153-5860-BF9A-F9DEED55FB73
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSoarRecordActionOutputListRequest extends Model
 {
     /**
+     * @description The UUID of the component action.
+     *
+     * >  You can call the [DescribeSoarTaskAndActions](~~DescribeSoarTaskAndActions~~) operation to query the UUID.
      * @example 2202c90d-fa93-4726-bc32-xxxxxx
      *
      * @var string
@@ -16,6 +19,11 @@ class DescribeSoarRecordActionOutputListRequest extends Model
     public $actionUuid;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +31,8 @@ class DescribeSoarRecordActionOutputListRequest extends Model
     public $lang;
 
     /**
+     * @description The page number. Default value: 1. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +40,9 @@ class DescribeSoarRecordActionOutputListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. If you leave this parameter empty, 10 entries are returned on each page.
+     *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 10
      *
      * @var int

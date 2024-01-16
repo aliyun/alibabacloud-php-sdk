@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TriggerPlaybookRequest extends Model
 {
     /**
+     * @description The input parameters of the playbook.
+     *
      * @example {
      * }
      * @var string
@@ -16,6 +18,9 @@ class TriggerPlaybookRequest extends Model
     public $inputParam;
 
     /**
+     * @description The playbook UUID.
+     *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
      * @example 2a687089-d4dd-47d4-9709-xxxxxxxx
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class playbookMetrics extends Model
 {
     /**
+     * @description The playbook description.
+     *
      * @example a demo playbook
      *
      * @var string
@@ -16,6 +18,8 @@ class playbookMetrics extends Model
     public $description;
 
     /**
+     * @description The playbook name.
+     *
      * @example demo_playbook
      *
      * @var string
@@ -23,6 +27,9 @@ class playbookMetrics extends Model
     public $displayName;
 
     /**
+     * @description The configuration of the input parameter. The value is a JSON array.
+     *
+     * >  For more information, see [DescribePlaybookInputOutput](~~DescribePlaybookInputOutput~~).
      * @example [
      * ]
      * @var string
@@ -30,6 +37,13 @@ class playbookMetrics extends Model
     public $paramConfig;
 
     /**
+     * @description The input parameter type of the playbook.
+     *
+     *   **template-ip**
+     *   **template-file**
+     *   **template-process**
+     *   **custom**
+     *
      * @example custom
      *
      * @var string
@@ -37,6 +51,8 @@ class playbookMetrics extends Model
     public $paramType;
 
     /**
+     * @description The playbook UUID.
+     *
      * @example c5c88b5e-97ca-435d-8c20-2xxxxx
      *
      * @var string

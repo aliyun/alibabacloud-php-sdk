@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSoarTaskAndActionsRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response.
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeSoarTaskAndActionsRequest extends Model
     public $lang;
 
     /**
+     * @description The playbook UUID.
+     *
      * @example 1077f2f9-25e8-42d9-bfdf-1528e1313f6d
      *
      * @var string

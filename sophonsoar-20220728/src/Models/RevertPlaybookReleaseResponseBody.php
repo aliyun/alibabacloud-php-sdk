@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RevertPlaybookReleaseResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example B3FED5B9-190A-5952-93A4-24FBF0F0C573
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TriggerPlaybookResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example BD5A8DB6-A42C-532B-BCE8-83E69550CD59
      *
      * @var string
@@ -16,6 +18,8 @@ class TriggerPlaybookResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The running UUID of the playbook. This parameter is used to query the running result of the playbook.
+     *
      * @example 55E63C57-D6C8-5036-A770-5CB10AC807AA
      *
      * @var string

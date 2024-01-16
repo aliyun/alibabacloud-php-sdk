@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The description of the command.
+     *
      * @example This is a action of processing for WAF
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $description;
 
     /**
+     * @description The display name of the command.
+     *
      * @example WAF Process IP
      *
      * @var string
@@ -24,6 +28,8 @@ class data extends Model
     public $displayName;
 
     /**
+     * @description The name of the command.
+     *
      * @example waf_process_ip_v2
      *
      * @var string
@@ -31,6 +37,8 @@ class data extends Model
     public $name;
 
     /**
+     * @description The parameter configurations.
+     *
      * @var paramConfig[]
      */
     public $paramConfig;

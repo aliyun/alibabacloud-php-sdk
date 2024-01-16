@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeComponentListResponseBody extends Model
 {
     /**
+     * @description The information about the components. The value is a JSON array.
+     *
      * @example [
      * ]
      * @var string
@@ -16,6 +18,8 @@ class DescribeComponentListResponseBody extends Model
     public $components;
 
     /**
+     * @description The request ID.
+     *
      * @example B0A255B3-495C-56FB-8B6B-DB073F80388A
      *
      * @var string

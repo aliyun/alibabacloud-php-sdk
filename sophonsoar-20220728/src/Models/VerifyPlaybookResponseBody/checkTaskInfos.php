@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class checkTaskInfos extends Model
 {
     /**
+     * @description The error message returned when the playbook does not pass the check.
+     *
      * @example Node [python3_3] doesn\"t have the asset information
      *
      * @var string
@@ -16,6 +18,8 @@ class checkTaskInfos extends Model
     public $detail;
 
     /**
+     * @description The name of the node in the playbook.
+     *
      * @example python3_3
      *
      * @var string
@@ -23,6 +27,12 @@ class checkTaskInfos extends Model
     public $nodeName;
 
     /**
+     * @description The severity level of the verification information. Valid values:
+     *
+     *   warn: An issue may occur during playbook running.
+     *   error: The playbook cannot be compiled.
+     *   remind: The publishing and running of the playbook are not affected. We recommend that you optimize the playbook format.
+     *
      * @example error
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The key of the enumeration item.
+     *
      * @example system_xxxxx_process_book
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $key;
 
     /**
+     * @description The value of the enumeration item.
+     *
      * @example system_xxxxx_process_book
      *
      * @var string

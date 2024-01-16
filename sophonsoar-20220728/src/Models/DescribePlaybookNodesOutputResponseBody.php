@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePlaybookNodesOutputResponseBody extends Model
 {
     /**
+     * @description The output data of the component node.
+     *
      * @var playbookNodesOutput
      */
     public $playbookNodesOutput;
 
     /**
+     * @description The request ID.
+     *
      * @example A491170C-FE1F-520E-83D4-72ED205B72ED
      *
      * @var string

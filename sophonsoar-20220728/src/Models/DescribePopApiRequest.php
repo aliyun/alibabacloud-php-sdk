@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePopApiRequest extends Model
 {
     /**
+     * @description The operation name of the Alibaba Cloud service.
+     *
      * @example DescribeInstanceInfo
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribePopApiRequest extends Model
     public $apiName;
 
     /**
+     * @description The version number of the API.
+     *
+     * >  You can call the [DescribePopApiVersionList](~~DescribePopApiVersionList~~) operation to query the version number.
      * @example 2021-10-01
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribePopApiRequest extends Model
     public $apiVersion;
 
     /**
+     * @description The environment in which the API operation parameter is used. Set the value to online.
+     *
      * @example online
      *
      * @var string
@@ -30,6 +37,9 @@ class DescribePopApiRequest extends Model
     public $env;
 
     /**
+     * @description The POP code of the Alibaba Cloud service.
+     *
+     * >  You can call the [DescribeApiList](~~DescribeApiList~~) operation to query the POP code.
      * @example Sas
      *
      * @var string

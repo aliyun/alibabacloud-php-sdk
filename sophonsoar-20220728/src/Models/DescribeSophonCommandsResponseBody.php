@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSophonCommandsResponseBody extends Model
 {
     /**
+     * @description The commands.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 1E1EC464-3BD7-518F-9937-BCC12E6855FE
      *
      * @var string

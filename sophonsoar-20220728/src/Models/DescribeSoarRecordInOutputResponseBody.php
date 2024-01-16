@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSoarRecordInOutputResponseBody extends Model
 {
     /**
+     * @description The execution result of the component action.
+     *
      * @example {
      * }
      * @var string
@@ -16,6 +18,8 @@ class DescribeSoarRecordInOutputResponseBody extends Model
     public $inOutputInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 372D8B41-AF8D-573A-9B3F-0924950F241F
      *
      * @var string

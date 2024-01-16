@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ComparePlaybooksResponseBody extends Model
 {
     /**
+     * @description The comparison result.
+     *
      * @var compareResult
      */
     public $compareResult;
 
     /**
+     * @description The request ID.
+     *
      * @example 2EC05B06-BF3C-5F3E-8FE8-3B1FAD76087A
      *
      * @var string

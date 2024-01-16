@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenamePlaybookNodeResponseBody extends Model
 {
     /**
+     * @description The returned new name of the node.
+     *
      * @example waf_process
      *
      * @var string
@@ -16,6 +18,8 @@ class RenamePlaybookNodeResponseBody extends Model
     public $renameResult;
 
     /**
+     * @description The request ID.
+     *
      * @example 1E1EC464-3BD7-518F-9937-BCC12E6855FE
      *
      * @var string

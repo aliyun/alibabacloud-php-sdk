@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePopApiItemListResponseBody extends Model
 {
     /**
+     * @description The names of API operations.
+     *
      * @var string[]
      */
     public $names;
 
     /**
+     * @description The POP code of the Alibaba Cloud service.
+     *
      * @example Sas
      *
      * @var string
@@ -21,6 +25,8 @@ class DescribePopApiItemListResponseBody extends Model
     public $popCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 6336D603-7028-52DE-AD88-E34AA5248355
      *
      * @var string
@@ -28,6 +34,8 @@ class DescribePopApiItemListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int
@@ -35,6 +43,8 @@ class DescribePopApiItemListResponseBody extends Model
     public $total;
 
     /**
+     * @description The version number of the API for the Alibaba Cloud service.
+     *
      * @example 2018-12-03
      *
      * @var string

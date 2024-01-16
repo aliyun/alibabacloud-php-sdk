@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePopApiItemListRequest extends Model
 {
     /**
+     * @description The API operation name of the Alibaba Cloud service. Fuzzy match is supported.
+     *
      * @example DescribePopApiItemList
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribePopApiItemListRequest extends Model
     public $apiName;
 
     /**
+     * @description The version number of the API.
+     *
+     * >  You can call the [DescribePopApiVersionList](~~DescribePopApiVersionList~~) operation to query the version number.
      * @example 2018-12-03
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribePopApiItemListRequest extends Model
     public $apiVersion;
 
     /**
+     * @description The environment in which the API operation parameters are used. Set the value to online.
+     *
      * @example online
      *
      * @var string
@@ -30,6 +37,11 @@ class DescribePopApiItemListRequest extends Model
     public $env;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -37,6 +49,9 @@ class DescribePopApiItemListRequest extends Model
     public $lang;
 
     /**
+     * @description The POP code of the Alibaba Cloud service.
+     *
+     * >  You can call the [DescribeApiList](~~DescribeApiList~~) operation to query the POP code.
      * @example Sas
      *
      * @var string

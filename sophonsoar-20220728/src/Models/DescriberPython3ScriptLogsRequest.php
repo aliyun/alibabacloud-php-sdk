@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescriberPython3ScriptLogsRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,9 @@ class DescriberPython3ScriptLogsRequest extends Model
     public $lang;
 
     /**
+     * @description The UUID that is returned when the Python3 script is run.
+     *
+     * >  You can call the [RunPython3Script](~~RunPython3Script~~) operation to query the UUID.
      * @example 69edc2b4-c95c-424f-9114-xxxxxxx
      *
      * @var string

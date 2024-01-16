@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ComparePlaybooksRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,9 @@ class ComparePlaybooksRequest extends Model
     public $lang;
 
     /**
+     * @description The UUID of the second version.
+     *
+     * >  You can call the [DescribePopApiVersionList](~~DescribePopApiVersionList~~) operation to query the UUIDs of versions.
      * @example sfdf2395-e814-459f-9662-xxxxx
      *
      * @var int
@@ -23,6 +31,9 @@ class ComparePlaybooksRequest extends Model
     public $newPlaybookReleaseId;
 
     /**
+     * @description The UUID of the first version.
+     *
+     * >  You can call the [DescribePopApiVersionList](~~DescribePopApiVersionList~~) operation to query the UUIDs of versions.
      * @example sflk23423-e814-459f-9662-xxxxx
      *
      * @var int
@@ -30,6 +41,9 @@ class ComparePlaybooksRequest extends Model
     public $oldPlaybookReleaseId;
 
     /**
+     * @description The UUID of the playbook.
+     *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
      * @example f916b93e-e814-459f-9662-xxxxx
      *
      * @var string

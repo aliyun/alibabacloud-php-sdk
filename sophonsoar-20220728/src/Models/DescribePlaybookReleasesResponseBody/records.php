@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account that is used to publish the version.
+     *
      * @example 145xxxx985
      *
      * @var string
@@ -16,6 +18,8 @@ class records extends Model
     public $creator;
 
     /**
+     * @description The description of the layer version.
+     *
      * @example This is a new version
      *
      * @var string
@@ -23,6 +27,8 @@ class records extends Model
     public $description;
 
     /**
+     * @description The time when the version was created. The value is a 13-digit timestamp.
+     *
      * @example 1655277397000
      *
      * @var int
@@ -30,6 +36,8 @@ class records extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the version was modified. The value is a 13-digit timestamp.
+     *
      * @example 1691460804000
      *
      * @var int
@@ -37,6 +45,8 @@ class records extends Model
     public $gmtModified;
 
     /**
+     * @description The record ID.
+     *
      * @example 80xxx
      *
      * @var int
@@ -44,6 +54,8 @@ class records extends Model
     public $id;
 
     /**
+     * @description The MD5 value configured for the published version of the playbook.
+     *
      * @example be0a4ef084dd174abe47xxxxx
      *
      * @var string
