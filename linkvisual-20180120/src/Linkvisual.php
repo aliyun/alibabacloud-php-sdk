@@ -66,6 +66,8 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteFaceUserPictureRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteFaceUserPictureResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteFaceUserRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteFaceUserResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteGbDeviceRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteGbDeviceResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteLocalFileUploadJobRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteLocalFileUploadJobResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeletePictureRequest;
@@ -84,6 +86,8 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteTimeTemplateRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteTimeTemplateResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DetectUserFaceByUrlRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DetectUserFaceByUrlResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\EnableGbSubDeviceRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\EnableGbSubDeviceResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\GetPictureSearchJobStatusRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\GetPictureSearchJobStatusResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\PictureSearchPictureRequest;
@@ -140,6 +144,8 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryFaceUserIdByCustomUserIdRe
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryFaceUserIdByCustomUserIdResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryFaceUserRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryFaceUserResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryGbSubDeviceListRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryGbSubDeviceListResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryLiveStreamingRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryLiveStreamingResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryLocalFileUploadJobRequest;
@@ -190,6 +196,8 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryVisionDeviceInfoRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryVisionDeviceInfoResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryVoiceIntercomRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryVoiceIntercomResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\RefreshGbSubDeviceListRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\RefreshGbSubDeviceListResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\RemoveFaceDeviceFromDeviceGroupRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\RemoveFaceDeviceFromDeviceGroupResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\RemoveFaceUserFromUserGroupRequest;
@@ -216,6 +224,8 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateFaceUserGroupAndDeviceGro
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateFaceUserGroupAndDeviceGroupRelationResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateFaceUserRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateFaceUserResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateGbDeviceRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateGbDeviceResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateInstanceInternetProtocolRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdateInstanceInternetProtocolResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\UpdatePictureSearchAppRequest;
@@ -1066,6 +1076,9 @@ class Linkvisual extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
         if (!Utils::isUnset($request->deviceType)) {
             $query['DeviceType'] = $request->deviceType;
         }
@@ -1892,6 +1905,58 @@ class Linkvisual extends OpenApiClient
     }
 
     /**
+     * @param DeleteGbDeviceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteGbDeviceResponse
+     */
+    public function deleteGbDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGbDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGbDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGbDeviceRequest $request
+     *
+     * @return DeleteGbDeviceResponse
+     */
+    public function deleteGbDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGbDeviceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteLocalFileUploadJobRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2336,6 +2401,61 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detectUserFaceByUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableGbSubDeviceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return EnableGbSubDeviceResponse
+     */
+    public function enableGbSubDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->subDeviceId)) {
+            $query['SubDeviceId'] = $request->subDeviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableGbSubDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableGbSubDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableGbSubDeviceRequest $request
+     *
+     * @return EnableGbSubDeviceResponse
+     */
+    public function enableGbSubDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableGbSubDeviceWithOptions($request, $runtime);
     }
 
     /**
@@ -3861,6 +3981,64 @@ class Linkvisual extends OpenApiClient
     }
 
     /**
+     * @param QueryGbSubDeviceListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryGbSubDeviceListResponse
+     */
+    public function queryGbSubDeviceListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pageStart)) {
+            $query['PageStart'] = $request->pageStart;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryGbSubDeviceList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryGbSubDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryGbSubDeviceListRequest $request
+     *
+     * @return QueryGbSubDeviceListResponse
+     */
+    public function queryGbSubDeviceList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryGbSubDeviceListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryLiveStreamingRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -5218,6 +5396,58 @@ class Linkvisual extends OpenApiClient
     }
 
     /**
+     * @param RefreshGbSubDeviceListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RefreshGbSubDeviceListResponse
+     */
+    public function refreshGbSubDeviceListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshGbSubDeviceList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshGbSubDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefreshGbSubDeviceListRequest $request
+     *
+     * @return RefreshGbSubDeviceListResponse
+     */
+    public function refreshGbSubDeviceList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshGbSubDeviceListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RemoveFaceDeviceFromDeviceGroupRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -5918,6 +6148,67 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateFaceUserGroupAndDeviceGroupRelationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGbDeviceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateGbDeviceResponse
+     */
+    public function updateGbDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->gbId)) {
+            $query['GbId'] = $request->gbId;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGbDevice',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGbDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGbDeviceRequest $request
+     *
+     * @return UpdateGbDeviceResponse
+     */
+    public function updateGbDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGbDeviceWithOptions($request, $runtime);
     }
 
     /**
