@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class AddGtmAddressPoolRequest extends Model
 {
     /**
-     * @description The addresses in the address pool.
+     * @description The address pools.
      *
      * @var addr[]
      */
     public $addr;
 
     /**
-     * @description The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
+     * @description The number of consecutive failures.
      *
      * @example 2
      *
@@ -70,26 +70,26 @@ class AddGtmAddressPoolRequest extends Model
     public $minAvailableAddrNum;
 
     /**
-     * @description The extended information, that is, the parameters required for the protocol. Different protocols require different parameters:
+     * @description The extended information. The required parameters vary based on the value of ProtocolType.
      *
-     * HTTP or HTTPS:
+     * When ProtocolType is set to HTTP or HTTPS:
      *
-     *   port: the port to check.
-     *   failureRate: the failure rate.
-     *   code: the status code threshold. If the returned status code is greater than the specified threshold, the application service is deemed abnormal. Valid values: 400 and 500.
-     *   host: the host configuration.
-     *   path: the health check URL.
+     *   port: the port that you want to check
+     *   failureRate: the failure rate
+     *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value. Valid values: 400 and 500.
+     *   host: the host settings
+     *   path: the URL path
      *
-     * PING:
+     * When ProtocolType is set to PING:
      *
-     *   packetNum: the number of ping packets.
-     *   packetLossRate: the loss rate of ping packets.
-     *   failureRate: the failure rate.
+     *   packetNum: the number of ping packets
+     *   packetLossRate: the packet loss rate
+     *   failureRate: the failure rate
      *
-     * TCP:
+     * When ProtocolType is set to TCP:
      *
-     *   port: the port to check.
-     *   failureRate: the failure rate.
+     *   port: the port that you want to check
+     *   failureRate: the failure rate
      *
      * @example {"host":"aliyun.com","port":80}
      *
@@ -110,7 +110,7 @@ class AddGtmAddressPoolRequest extends Model
     public $monitorStatus;
 
     /**
-     * @description The name of the address pool that you want to create.
+     * @description The name of the address pool.
      *
      * @example Alibaba Cloud cluster
      *
@@ -119,11 +119,11 @@ class AddGtmAddressPoolRequest extends Model
     public $name;
 
     /**
-     * @description The protocol used for the health check. Valid values:
+     * @description The health check protocol. Valid values:
      *
      *   HTTP
      *   HTTPS
-     *   PING
+     *   Ping
      *   TCP
      *
      * @example HTTPS
@@ -133,7 +133,7 @@ class AddGtmAddressPoolRequest extends Model
     public $protocolType;
 
     /**
-     * @description The health check timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
+     * @description The timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
      *
      * @example 60
      *

@@ -24,9 +24,9 @@ class UpdateDnsGtmInstanceGlobalConfigRequest extends Model
     public $alertGroup;
 
     /**
-     * @description The type of the CNAME domain name that is used to access the instance. Valid value:
+     * @description The type of the canonical name (CNAME).
      *
-     *   PUBLIC: The CNAME domain name is used to access the instance over the Internet.
+     *   Set the value to PUBLIC.
      *
      * @example public
      *

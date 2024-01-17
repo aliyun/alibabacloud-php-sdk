@@ -18,15 +18,15 @@ class addr extends Model
     public $addr;
 
     /**
-     * @description The source region of the address, in JSON-formatted string.
+     * @description The information about the source region of the address. The value of this parameter is a JSON string. Valid values:
      *
-     *   LineCode: the line code of the source region of the address.
+     *   LineCode: the line code of the source region for the address
      *
      *   lineCodeRectifyType: the rectification type of the line code. Default value: AUTO. Valid values:
      *
-     *   NO_NEED: no need for rectification.
-     *   RECTIFIED: rectified.
-     *   AUTO: automatic rectification.
+     *   NO_NEED: no need for rectification
+     *   RECTIFIED: rectified
+     *   AUTO: automatic rectification
      *
      * @example default
      *
@@ -35,7 +35,7 @@ class addr extends Model
     public $attributeInfo;
 
     /**
-     * @description The weight of the address.
+     * @description The weight of the address pool.
      *
      * @example 1
      *
@@ -44,11 +44,11 @@ class addr extends Model
     public $lbaWeight;
 
     /**
-     * @description The response mode of address resolution. Valid values:
+     * @description The return mode of the addresses: Valid values:
      *
-     *   SMART: smart return.
-     *   ONLINE: always online.
-     *   OFFLINE: always offline.
+     *   SMART: smart return
+     *   ONLINE: always online
+     *   OFFLINE: always offline
      *
      * @example online
      *
@@ -57,7 +57,7 @@ class addr extends Model
     public $mode;
 
     /**
-     * @description The additional information about the address.
+     * @description The remarks.
      *
      * @example test
      *

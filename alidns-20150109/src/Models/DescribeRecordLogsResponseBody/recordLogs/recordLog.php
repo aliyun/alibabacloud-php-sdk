@@ -16,7 +16,7 @@ class recordLog extends Model
     public $action;
 
     /**
-     * @description The time when the operation was performed.
+     * @description The time when you performed the operation.
      *
      * @example 2015-12-12T09:23Z
      *
@@ -25,7 +25,7 @@ class recordLog extends Model
     public $actionTime;
 
     /**
-     * @description The UNIX timestamp representing the time of the operation.
+     * @description The time when you performed the operation. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 134514540000
      *
@@ -43,7 +43,7 @@ class recordLog extends Model
     public $clientIp;
 
     /**
-     * @description The returned operation message.
+     * @description The operation message.
      *
      * @var string
      */

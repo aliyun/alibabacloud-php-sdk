@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class statistic extends Model
 {
     /**
-     * @description The number of queries.
+     * @description The number of DNS requests.
      *
      * @example 838711553
      *
@@ -18,7 +18,7 @@ class statistic extends Model
     public $count;
 
     /**
-     * @description The subdomain name.
+     * @description The subdomain.
      *
      * @example t1.alitest2.com
      *

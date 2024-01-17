@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ispCityNode extends Model
 {
     /**
-     * @description The code of the city where the monitored node is deployed.
+     * @description The city code.
      *
-     * For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
+     * Specify the parameter according to the value of CityCode returned by the DescribeGtmMonitorAvailableConfig operation.
      * @example 503
      *
      * @var string
@@ -19,10 +19,10 @@ class ispCityNode extends Model
     public $cityCode;
 
     /**
-     * @description The code of the Internet service provider (ISP) to which the monitored node belongs. For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
+     * @description The Internet service provider (ISP) node. Specify the parameter according to the value of IspCode returned by the DescribeGtmMonitorAvailableConfig operation.
      *
-     *   If the value of the GroupType parameter is BGP or OVERSEAS, IspCode is optional. The default value is 465.
-     *   If the value of the GroupType parameter is not BGP or OVERSEAS, IspCode is required and is used together with CityCode.
+     *   If the return value of GroupType for the DescribeGtmMonitorAvailableConfig operation is BGP or Overseas, IspCode is not required and is set to 465 by default.
+     *   If the return value of GroupType for the DescribeGtmMonitorAvailableConfig operation is not BGP or Overseas, IspCode is required. When IspCode is specified, CityCode is required.
      *
      * @example 465
      *

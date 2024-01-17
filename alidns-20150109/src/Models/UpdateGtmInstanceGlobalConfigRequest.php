@@ -9,15 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateGtmInstanceGlobalConfigRequest extends Model
 {
     /**
-     * @description The alert group of the GTM instance. Currently, only one alert group is supported.
+     * @description The alert group. Only one alert group is supported.
      *
-     * >  This parameter is required for the first update, but is optional for later updates.
+     * >  This parameter is required only for the first modification.
      * @var string
      */
     public $alertGroup;
 
     /**
-     * @description The CNAME record of a domain name, which must be the primary domain name. When **CnameMode** is **CUSTOM**, this parameter is required for access.
+     * @description If you set **CnameMode** to **CUSTOM**, you must specify the CnameCustomDomainName parameter, which must be set to a primary domain name.
      *
      * @example www.example.com
      *
@@ -26,10 +26,10 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
     public $cnameCustomDomainName;
 
     /**
-     * @description Specifies whether the CNAME record is user-defined or automatically assigned by the system. Valid values:
+     * @description Specifies whether to use a system-assigned canonical name (CNAME) or a custom CNAME to access GTM. Valid values:
      *
-     *   **SYSTEM_ASSIGN**: Assigned by the system
-     *   **CUSTOM**: User-defined
+     *   **SYSTEM_ASSIGN**: system-assigned CNAME
+     *   **CUSTOM**: custom CNAME
      *
      * @example SYSTEM_ASSIGN
      *
@@ -38,7 +38,7 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
     public $cnameMode;
 
     /**
-     * @description The ID of the GTM instance whose configuration you want to modify.
+     * @description The ID of the GTM instance.
      *
      * @example instance1
      *
@@ -49,13 +49,13 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
     /**
      * @description The name of the GTM instance.
      *
-     * >  This parameter is required for the first update, but is not required for later updates.
+     * >  This parameter is required only for the first modification.
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The language used by the user.
+     * @description The language.
      *
      * @example en
      *
@@ -64,13 +64,12 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
     public $lang;
 
     /**
-     * @description The load balancing policy. Valid values:
+     * @description The balancing policy. Valid values:
      *
-     *   **ALL_RR**: Load balancing
+     *   **ALL_RR**: load balancing
+     *   **RATIO**: weighted round-robin
      *
-     *   **RATIO**: Weighted round robin
-     *
-     * > This parameter is required for the first update, but is optional for later updates.
+     * >  This parameter is required only for the first modification.
      * @example RATIO
      *
      * @var string
@@ -78,7 +77,7 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
     public $lbaStrategy;
 
     /**
-     * @description The time when the modification takes effect.
+     * @description The global time-to-live (TTL).
      *
      * @example 60
      *
@@ -89,7 +88,7 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
     /**
      * @description The primary domain name.
      *
-     * >  This parameter is required for the first update, but is optional for later updates.
+     * >  This parameter is required only for the first modification.
      * @example www.example.com
      *
      * @var string

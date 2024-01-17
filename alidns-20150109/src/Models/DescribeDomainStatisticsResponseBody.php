@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainStatisticsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6AEC7A64-3CB1-4C49-8B35-0B901F1E26BF
      *
@@ -19,7 +19,7 @@ class DescribeDomainStatisticsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of query volume records.
+     * @description The DNS requests.
      *
      * @var statistics
      */

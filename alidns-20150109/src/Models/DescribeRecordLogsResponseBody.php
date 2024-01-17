@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordLogsResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeRecordLogsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 2
      *
@@ -28,14 +28,14 @@ class DescribeRecordLogsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The list of the operation logs of the domain name.
+     * @description The operation logs.
      *
      * @var recordLogs
      */
     public $recordLogs;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
@@ -44,7 +44,7 @@ class DescribeRecordLogsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of operation logs.
+     * @description The total number of entries returned.
      *
      * @example 2
      *

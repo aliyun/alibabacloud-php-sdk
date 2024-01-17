@@ -19,7 +19,7 @@ class AddGtmMonitorRequest extends Model
     public $addrPoolId;
 
     /**
-     * @description The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
+     * @description The number of consecutive failures.
      *
      * @example 3
      *
@@ -37,14 +37,14 @@ class AddGtmMonitorRequest extends Model
     public $interval;
 
     /**
-     * @description The monitored nodes.
+     * @description The nodes for monitoring.
      *
      * @var ispCityNode[]
      */
     public $ispCityNode;
 
     /**
-     * @description The language of the values of specific response parameters.
+     * @description The language.
      *
      * @example en
      *
@@ -53,26 +53,26 @@ class AddGtmMonitorRequest extends Model
     public $lang;
 
     /**
-     * @description The extended information, that is, the parameters required for the protocol. Different protocols require different parameters:
+     * @description The extended information. The required parameters vary based on the health check protocol.
      *
-     * HTTP or HTTPS:
+     * HTTP or HTTPS
      *
-     *   port: the port to check.
-     *   failureRate: the failure rate.
-     *   code: the status code threshold. If the returned status code is greater than the specified threshold, the application service is deemed abnormal. Valid values: 400 and 500.
-     *   host: the host configuration.
-     *   path: the health check URL.
+     *   port: the port that you want to check
+     *   failureRate: the failure rate
+     *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value. Valid values: 400 and 500.
+     *   host: the host settings
+     *   path: the URL path
      *
-     * PING:
+     * PING
      *
-     *   packetNum: the number of ping packets.
-     *   packetLossRate: the loss rate of ping packets.
-     *   failureRate: the failure rate.
+     *   packetNum: the number of ping packets
+     *   packetLossRate: the packet loss rate
+     *   failureRate: the failure rate
      *
-     * TCP:
+     * TCP
      *
-     *   port: the port to check.
-     *   failureRate: the failure rate.
+     *   port: the port that you want to check
+     *   failureRate: the failure rate
      *
      * @example {\"code\":200,\"path\":\"/index.htm\",\"host\":\"aliyun.com\"}
      *

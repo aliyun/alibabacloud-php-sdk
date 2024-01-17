@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class statistic extends Model
 {
     /**
-     * @description The number of queries.
+     * @description The number of DNS requests.
      *
      * @example 15292887
      *
@@ -18,7 +18,7 @@ class statistic extends Model
     public $count;
 
     /**
-     * @description The UNIX timestamp representing the collection time.
+     * @description The statistical timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1556640000000
      *

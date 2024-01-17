@@ -36,7 +36,7 @@ class batchResultDetail extends Model
     public $line;
 
     /**
-     * @description The new host record.
+     * @description The new hostname.
      *
      * @example demo-batch-7
      *
@@ -54,7 +54,7 @@ class batchResultDetail extends Model
     public $newValue;
 
     /**
-     * @description The time when the operation was performed.
+     * @description The time when the operation was performed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example 2019-08-22 18:02:58
      *
@@ -63,7 +63,7 @@ class batchResultDetail extends Model
     public $operateDateStr;
 
     /**
-     * @description The priority of an MX-type DNS record.
+     * @description The priority of the mail exchanger (MX) record.
      *
      * @example 10
      *
@@ -73,6 +73,8 @@ class batchResultDetail extends Model
 
     /**
      * @description The cause of the execution failure.
+     *
+     * @example Task lock fail
      *
      * @var string
      */
@@ -97,7 +99,7 @@ class batchResultDetail extends Model
     public $remark;
 
     /**
-     * @description The host record.
+     * @description The hostname.
      *
      * @example www
      *
@@ -108,12 +110,14 @@ class batchResultDetail extends Model
     /**
      * @description The status of the DNS record.
      *
+     * @example stop
+     *
      * @var string
      */
     public $rrStatus;
 
     /**
-     * @description The execution result. Valid values:**true**: The execution succeeded.**false**: The execution failed.
+     * @description The execution result of the batch operation. Valid values: **true**: The operation succeeded. **false**: The operation failed.
      *
      * @example true
      *
@@ -122,7 +126,7 @@ class batchResultDetail extends Model
     public $status;
 
     /**
-     * @description The TTL of the DNS record.
+     * @description The time-to-live (TTL) of the DNS record.
      *
      * @example 600
      *
@@ -140,7 +144,7 @@ class batchResultDetail extends Model
     public $type;
 
     /**
-     * @description The value of the DNS record.
+     * @description The record value.
      *
      * @example 192.0.2.0
      *

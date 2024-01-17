@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class TransferDomainRequest extends Model
 {
     /**
-     * @description The list of domain names. Separate multiple domain names with commas (,). Only domain names registered with Alibaba Cloud are supported.
+     * @description The domain names. Separate multiple domain names with commas (,). Only domain names registered with Alibaba Cloud are supported.
      *
      * @example test1.com,test2.com
      *
@@ -18,7 +18,10 @@ class TransferDomainRequest extends Model
     public $domainNames;
 
     /**
-     * @description The language type.
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example en
      *
@@ -27,7 +30,7 @@ class TransferDomainRequest extends Model
     public $lang;
 
     /**
-     * @description The detailed information.
+     * @description The description of the domain name.
      *
      * @example test domain transfer
      *
@@ -36,7 +39,7 @@ class TransferDomainRequest extends Model
     public $remark;
 
     /**
-     * @description The ID of the user to which domain names were transferred.
+     * @description The destination user ID. The domain names and their Domain Name System (DNS) records are transferred to the destination user ID.
      *
      * @example 12345678
      *

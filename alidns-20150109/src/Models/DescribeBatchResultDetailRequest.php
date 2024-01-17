@@ -13,7 +13,7 @@ class DescribeBatchResultDetailRequest extends Model
      *
      *   **DOMAIN_ADD**: adds domain names in batches.
      *   **DOMAIN_DEL**: deletes domain names in batches.
-     *   **RR_ADD**: adds DNS records in batches.
+     *   **RR_ADD**: adds Domain Name System (DNS) records in batches.
      *   **RR_DEL**: deletes DNS records in batches.
      *
      * @example DOMAIN_ADD
@@ -23,7 +23,7 @@ class DescribeBatchResultDetailRequest extends Model
     public $batchType;
 
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *
@@ -32,7 +32,7 @@ class DescribeBatchResultDetailRequest extends Model
     public $lang;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -41,7 +41,7 @@ class DescribeBatchResultDetailRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * @example 20
      *
@@ -50,6 +50,8 @@ class DescribeBatchResultDetailRequest extends Model
     public $pageSize;
 
     /**
+     * @description The execution result. If you do not specify this parameter, all results are returned.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -57,7 +59,7 @@ class DescribeBatchResultDetailRequest extends Model
     public $status;
 
     /**
-     * @description The ID of the task.
+     * @description The ID of the batch operation task.
      *
      * @example 83618818
      *

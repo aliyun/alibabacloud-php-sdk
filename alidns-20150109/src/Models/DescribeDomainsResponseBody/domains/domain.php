@@ -50,6 +50,11 @@ class domain extends Model
     public $domainId;
 
     /**
+     * @var string
+     */
+    public $domainLoggingSwitchStatus;
+
+    /**
      * @description The domain name.
      *
      * @example abc.com
@@ -176,26 +181,27 @@ class domain extends Model
      */
     public $versionName;
     protected $_name = [
-        'aliDomain'       => 'AliDomain',
-        'createTime'      => 'CreateTime',
-        'createTimestamp' => 'CreateTimestamp',
-        'dnsServers'      => 'DnsServers',
-        'domainId'        => 'DomainId',
-        'domainName'      => 'DomainName',
-        'groupId'         => 'GroupId',
-        'groupName'       => 'GroupName',
-        'instanceEndTime' => 'InstanceEndTime',
-        'instanceExpired' => 'InstanceExpired',
-        'instanceId'      => 'InstanceId',
-        'punyCode'        => 'PunyCode',
-        'recordCount'     => 'RecordCount',
-        'registrantEmail' => 'RegistrantEmail',
-        'remark'          => 'Remark',
-        'resourceGroupId' => 'ResourceGroupId',
-        'starmark'        => 'Starmark',
-        'tags'            => 'Tags',
-        'versionCode'     => 'VersionCode',
-        'versionName'     => 'VersionName',
+        'aliDomain'                 => 'AliDomain',
+        'createTime'                => 'CreateTime',
+        'createTimestamp'           => 'CreateTimestamp',
+        'dnsServers'                => 'DnsServers',
+        'domainId'                  => 'DomainId',
+        'domainLoggingSwitchStatus' => 'DomainLoggingSwitchStatus',
+        'domainName'                => 'DomainName',
+        'groupId'                   => 'GroupId',
+        'groupName'                 => 'GroupName',
+        'instanceEndTime'           => 'InstanceEndTime',
+        'instanceExpired'           => 'InstanceExpired',
+        'instanceId'                => 'InstanceId',
+        'punyCode'                  => 'PunyCode',
+        'recordCount'               => 'RecordCount',
+        'registrantEmail'           => 'RegistrantEmail',
+        'remark'                    => 'Remark',
+        'resourceGroupId'           => 'ResourceGroupId',
+        'starmark'                  => 'Starmark',
+        'tags'                      => 'Tags',
+        'versionCode'               => 'VersionCode',
+        'versionName'               => 'VersionName',
     ];
 
     public function validate()
@@ -219,6 +225,9 @@ class domain extends Model
         }
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
+        }
+        if (null !== $this->domainLoggingSwitchStatus) {
+            $res['DomainLoggingSwitchStatus'] = $this->domainLoggingSwitchStatus;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -291,6 +300,9 @@ class domain extends Model
         }
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
+        }
+        if (isset($map['DomainLoggingSwitchStatus'])) {
+            $model->domainLoggingSwitchStatus = $map['DomainLoggingSwitchStatus'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

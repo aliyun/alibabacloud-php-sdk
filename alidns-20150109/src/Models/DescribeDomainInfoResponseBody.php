@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainInfoResponseBody extends Model
 {
     /**
-     * @description Indicates whether the domain name is an Alibaba Cloud HiChina domain name.
+     * @description Indicates whether the domain name was registered in Alibaba Cloud.
      *
      * @example true
      *
@@ -21,14 +21,14 @@ class DescribeDomainInfoResponseBody extends Model
     public $aliDomain;
 
     /**
-     * @description The available time to live (TTL) values.
+     * @description The available time to live (TTL) values that can be configured for the domain name. Available TTL values are not returned by default. If you want to query such information, set NeedDetailAttributes to true.
      *
      * @var availableTtls
      */
     public $availableTtls;
 
     /**
-     * @description The time when the domain name was added to Alibaba Cloud CDN.
+     * @description The time when the domain name was created.
      *
      * @example 2015-12-12T09:23Z
      *
@@ -37,7 +37,7 @@ class DescribeDomainInfoResponseBody extends Model
     public $createTime;
 
     /**
-     * @description The information about DNS servers.
+     * @description The DNS servers that are used to resolve the domain name.
      *
      * @var dnsServers
      */
@@ -51,6 +51,11 @@ class DescribeDomainInfoResponseBody extends Model
      * @var string
      */
     public $domainId;
+
+    /**
+     * @var string
+     */
+    public $domainLoggingSwitchStatus;
 
     /**
      * @description The domain name.
@@ -89,7 +94,7 @@ class DescribeDomainInfoResponseBody extends Model
     public $inBlackHole;
 
     /**
-     * @description Indicates whether traffic scrubbing was started.
+     * @description Indicates whether traffic scrubbing was in progress.
      *
      * @example false
      *
@@ -107,7 +112,7 @@ class DescribeDomainInfoResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The type of line.
+     * @description The type of the DNS request line.
      *
      * @example region_province
      *
@@ -116,7 +121,7 @@ class DescribeDomainInfoResponseBody extends Model
     public $lineType;
 
     /**
-     * @description The minimum TTL.
+     * @description The minimum TTL value.
      *
      * @example 1
      *
@@ -134,7 +139,7 @@ class DescribeDomainInfoResponseBody extends Model
     public $punyCode;
 
     /**
-     * @description The tree-based lines.
+     * @description The tree-structure DNS request lines.
      *
      * @example {"default":{},"unicom":{},"telecom":{},"mobile":{},"edu":{},"oversea":{},"baidu":{},"biying":{},"google":{}}
      *
@@ -143,14 +148,14 @@ class DescribeDomainInfoResponseBody extends Model
     public $recordLineTreeJson;
 
     /**
-     * @description The information about lines.
+     * @description The DNS request lines.
      *
      * @var recordLines
      */
     public $recordLines;
 
     /**
-     * @description Indicates whether the lines are regional lines.
+     * @description Indicates whether the DNS request lines are regional lines.
      *
      * @example false
      *
@@ -159,7 +164,7 @@ class DescribeDomainInfoResponseBody extends Model
     public $regionLines;
 
     /**
-     * @description The description of the domain name.
+     * @description The description.
      *
      * @example remark
      *
@@ -168,7 +173,7 @@ class DescribeDomainInfoResponseBody extends Model
     public $remark;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
@@ -186,7 +191,7 @@ class DescribeDomainInfoResponseBody extends Model
     public $resourceGroupId;
 
     /**
-     * @description Indicates whether secondary DNS is allowed.
+     * @description Indicates whether secondary DNS is supported.
      *
      * @example true
      *
@@ -195,12 +200,14 @@ class DescribeDomainInfoResponseBody extends Model
     public $slaveDns;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $subDomain;
 
     /**
-     * @description The version of the Alibaba Cloud DNS instance.
+     * @description The version ID of Alibaba Cloud DNS.
      *
      * @example version1
      *
@@ -209,36 +216,37 @@ class DescribeDomainInfoResponseBody extends Model
     public $versionCode;
 
     /**
-     * @description The edition of the Alibaba Cloud DNS instance.
+     * @description The edition of Alibaba Cloud DNS.
      *
      * @var string
      */
     public $versionName;
     protected $_name = [
-        'aliDomain'          => 'AliDomain',
-        'availableTtls'      => 'AvailableTtls',
-        'createTime'         => 'CreateTime',
-        'dnsServers'         => 'DnsServers',
-        'domainId'           => 'DomainId',
-        'domainName'         => 'DomainName',
-        'groupId'            => 'GroupId',
-        'groupName'          => 'GroupName',
-        'inBlackHole'        => 'InBlackHole',
-        'inClean'            => 'InClean',
-        'instanceId'         => 'InstanceId',
-        'lineType'           => 'LineType',
-        'minTtl'             => 'MinTtl',
-        'punyCode'           => 'PunyCode',
-        'recordLineTreeJson' => 'RecordLineTreeJson',
-        'recordLines'        => 'RecordLines',
-        'regionLines'        => 'RegionLines',
-        'remark'             => 'Remark',
-        'requestId'          => 'RequestId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'slaveDns'           => 'SlaveDns',
-        'subDomain'          => 'SubDomain',
-        'versionCode'        => 'VersionCode',
-        'versionName'        => 'VersionName',
+        'aliDomain'                 => 'AliDomain',
+        'availableTtls'             => 'AvailableTtls',
+        'createTime'                => 'CreateTime',
+        'dnsServers'                => 'DnsServers',
+        'domainId'                  => 'DomainId',
+        'domainLoggingSwitchStatus' => 'DomainLoggingSwitchStatus',
+        'domainName'                => 'DomainName',
+        'groupId'                   => 'GroupId',
+        'groupName'                 => 'GroupName',
+        'inBlackHole'               => 'InBlackHole',
+        'inClean'                   => 'InClean',
+        'instanceId'                => 'InstanceId',
+        'lineType'                  => 'LineType',
+        'minTtl'                    => 'MinTtl',
+        'punyCode'                  => 'PunyCode',
+        'recordLineTreeJson'        => 'RecordLineTreeJson',
+        'recordLines'               => 'RecordLines',
+        'regionLines'               => 'RegionLines',
+        'remark'                    => 'Remark',
+        'requestId'                 => 'RequestId',
+        'resourceGroupId'           => 'ResourceGroupId',
+        'slaveDns'                  => 'SlaveDns',
+        'subDomain'                 => 'SubDomain',
+        'versionCode'               => 'VersionCode',
+        'versionName'               => 'VersionName',
     ];
 
     public function validate()
@@ -262,6 +270,9 @@ class DescribeDomainInfoResponseBody extends Model
         }
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
+        }
+        if (null !== $this->domainLoggingSwitchStatus) {
+            $res['DomainLoggingSwitchStatus'] = $this->domainLoggingSwitchStatus;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -346,6 +357,9 @@ class DescribeDomainInfoResponseBody extends Model
         }
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
+        }
+        if (isset($map['DomainLoggingSwitchStatus'])) {
+            $model->domainLoggingSwitchStatus = $map['DomainLoggingSwitchStatus'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

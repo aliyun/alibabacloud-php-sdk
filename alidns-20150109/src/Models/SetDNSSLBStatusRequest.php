@@ -18,7 +18,7 @@ class SetDNSSLBStatusRequest extends Model
     public $domainName;
 
     /**
-     * @description The language of the subdomain.
+     * @description The language.
      *
      * @example en
      *
@@ -27,6 +27,8 @@ class SetDNSSLBStatusRequest extends Model
     public $lang;
 
     /**
+     * @description The DNS resolution line. The line can be the default line, China Telecom, and China Mobile.
+     *
      * @example telecom
      *
      * @var string
@@ -36,7 +38,7 @@ class SetDNSSLBStatusRequest extends Model
     /**
      * @description Specifies whether to enable or disable weighted round-robin. Valid values:
      *
-     *   **true**: enables weighted round-robin. This is the default value.
+     *   **true** (default): enables weighted round-robin.
      *   **false**: disables weighted round-robin.
      *
      * @example true
@@ -46,7 +48,7 @@ class SetDNSSLBStatusRequest extends Model
     public $open;
 
     /**
-     * @description The subdomain for which you want to configure weighted round-robin. Do not set the value to a string such as aliyun.com. Instead, set the value to @.aliyun.com.
+     * @description The subdomain name for which you want to enable weighted round-robin. Set the parameter to @.example.com instead of example.com.
      *
      * @example www.example.com
      *
@@ -55,7 +57,7 @@ class SetDNSSLBStatusRequest extends Model
     public $subDomain;
 
     /**
-     * @description The type of the DNS record. Valid values: A and AAAA. Default value: A.
+     * @description The type of the Domain Name System (DNS) record. Valid values: A and AAAA. Default value: A.
      *
      * @example A
      *
@@ -64,7 +66,7 @@ class SetDNSSLBStatusRequest extends Model
     public $type;
 
     /**
-     * @description The IP address of the client that you use to configure weighted round-robin.
+     * @description The IP address of the client.
      *
      * @example 192.0.2.0
      *

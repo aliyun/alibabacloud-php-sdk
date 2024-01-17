@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeBatchResultDetailResponseBody extends Model
 {
     /**
-     * @description Detailed information about the batch operation result.
+     * @description The detailed results of the batch operation.
      *
      * @var batchResultDetails
      */
     public $batchResultDetails;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeBatchResultDetailResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeBatchResultDetailResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 75446CC1-FC9A-4595-8D96-089D73D7A63D
      *

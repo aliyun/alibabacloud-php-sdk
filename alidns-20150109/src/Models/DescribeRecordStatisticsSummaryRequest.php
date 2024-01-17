@@ -18,14 +18,21 @@ class DescribeRecordStatisticsSummaryRequest extends Model
     public $domainName;
 
     /**
+     * @description The type of the domain name. The parameter value is not case-sensitive. Valid values:
+     *
+     *   PUBLIC (default): hosted public domain name
+     *   CACHE: cache-accelerated domain name
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $domainType;
 
     /**
-     * @description The end of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+     * @description The end date of the query. Specify the start date in the **YYYY-MM-DD** format.
      *
-     * The default value is the day when you perform the operation.
+     * The default value is the day when you query the data.
      * @example 2019-07-04
      *
      * @var string
@@ -42,7 +49,7 @@ class DescribeRecordStatisticsSummaryRequest extends Model
     public $keyword;
 
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *
@@ -51,7 +58,7 @@ class DescribeRecordStatisticsSummaryRequest extends Model
     public $lang;
 
     /**
-     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     * @description The page number. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -60,7 +67,7 @@ class DescribeRecordStatisticsSummaryRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **100**. Minimum value: **1**. Default value: **20**.
+     * @description The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
      *
      * @example 20
      *
@@ -71,8 +78,8 @@ class DescribeRecordStatisticsSummaryRequest extends Model
     /**
      * @description The search mode of the keyword. Valid values:
      *
-     *   **LIKE**: fuzzy match (default).
-     *   **EXACT**: exact match.
+     *   **LIKE** (default): fuzzy search
+     *   **EXACT**: exact search
      *
      * @example EXACT
      *
@@ -81,9 +88,9 @@ class DescribeRecordStatisticsSummaryRequest extends Model
     public $searchMode;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+     * @description The start date of the query. Specify the start date in the **YYYY-MM-DD** format.
      *
-     * You can only query DNS records of the last 90 days.
+     * You can only query the DNS records within the last 90 days.``
      * @example 2019-07-04
      *
      * @var string
@@ -91,7 +98,7 @@ class DescribeRecordStatisticsSummaryRequest extends Model
     public $startDate;
 
     /**
-     * @description The threshold of query volume that can be obtained. You can also obtain data about a domain name with the query volume less than or equal to the threshold. For example, if you set this parameter to 100, you can query domain names with less than 100 queries.
+     * @description The maximum number of DNS requests that you can obtain. You can obtain data about a domain name with DNS request volume less than or equal to the maximum number. For example, if you set this parameter to 100, you can query domain names with less than 100 DNS requests.
      *
      * @example 12
      *

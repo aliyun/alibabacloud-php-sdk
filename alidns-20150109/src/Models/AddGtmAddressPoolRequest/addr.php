@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class addr extends Model
 {
     /**
-     * @description The weight of the address.
+     * @description The weight of the address pool.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class addr extends Model
     public $lbaWeight;
 
     /**
-     * @description The mode of the address. Valid values:
+     * @description The mode of the address pool. Valid values:
      *
      *   **SMART**: smart return
      *   **ONLINE**: always online
@@ -31,7 +31,7 @@ class addr extends Model
     public $mode;
 
     /**
-     * @description The address.
+     * @description The address in the address pool.
      *
      * @example 1.1.1.1
      *

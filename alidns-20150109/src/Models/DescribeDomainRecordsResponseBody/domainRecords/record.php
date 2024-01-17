@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class record extends Model
 {
     /**
+     * @example 1666501957000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
-     * @description The domain name to which the DNS record belongs.
+     * @description The domain name.
      *
      * @example example.com
      *
@@ -23,7 +25,7 @@ class record extends Model
     public $domainName;
 
     /**
-     * @description The line that is used by the DNS record.
+     * @description The resolution line.
      *
      * @example default
      *
@@ -41,7 +43,7 @@ class record extends Model
     public $locked;
 
     /**
-     * @description The priority of the MX record.
+     * @description The priority of the mail exchanger (MX) record.
      *
      * @example 5
      *
@@ -50,7 +52,7 @@ class record extends Model
     public $priority;
 
     /**
-     * @description The RR value.
+     * @description The hostname.
      *
      * @example www
      *
@@ -68,7 +70,7 @@ class record extends Model
     public $recordId;
 
     /**
-     * @description The description of the DNS record.
+     * @description The description.
      *
      * @var string
      */
@@ -84,7 +86,7 @@ class record extends Model
     public $status;
 
     /**
-     * @description The time-to-live (TTL) of the DNS record.
+     * @description The time-to-live (TTL) of the cached data. Unit: seconds.
      *
      * @example 600
      *
@@ -102,6 +104,8 @@ class record extends Model
     public $type;
 
     /**
+     * @example 1676872961000
+     *
      * @var int
      */
     public $updateTimestamp;

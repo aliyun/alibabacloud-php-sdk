@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmInstanceSystemCnameResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
      *
      * @var string

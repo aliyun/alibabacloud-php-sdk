@@ -20,7 +20,7 @@ class DescribeDomainNsResponseBody extends Model
     public $allAliDns;
 
     /**
-     * @description 检测失败原因编码
+     * @description The cause code of the detection failure.
      *
      * @example DnsCheck.Failed
      *
@@ -36,7 +36,7 @@ class DescribeDomainNsResponseBody extends Model
     public $dnsServers;
 
     /**
-     * @description The DNS server names assigned by Alibaba Cloud DNS.
+     * @description The Domain Name System (DNS) server names assigned by Alibaba Cloud DNS.
      *
      * @var expectDnsServers
      */

@@ -18,6 +18,11 @@ class DescribeDomainStatisticsRequest extends Model
     public $domainName;
 
     /**
+     * @description The type of the domain name. Valid values:
+     *
+     *   PUBLIC (default): hosted public domain name
+     *   CACHE: cached public domain name
+     *
      * @example PUBLIC CACHE
      *
      * @var string
@@ -25,9 +30,9 @@ class DescribeDomainStatisticsRequest extends Model
     public $domainType;
 
     /**
-     * @description The end of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+     * @description The end date of the query. Specify the end date in the **YYYY-MM-DD** format.
      *
-     * The default value is the day when you perform the operation.
+     * The default value is the day when you query the data.
      * @example 2019-07-04
      *
      * @var string
@@ -35,7 +40,7 @@ class DescribeDomainStatisticsRequest extends Model
     public $endDate;
 
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *
@@ -44,9 +49,9 @@ class DescribeDomainStatisticsRequest extends Model
     public $lang;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+     * @description The start date of the query. Specify the start date in the **YYYY-MM-DD** format.
      *
-     * You can only query the DNS records of the last 90 days.
+     * You can only query the DNS records within the last 90 days.``
      * @example 2019-07-04
      *
      * @var string

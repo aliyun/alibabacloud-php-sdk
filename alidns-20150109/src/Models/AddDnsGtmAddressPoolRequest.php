@@ -18,7 +18,7 @@ class AddDnsGtmAddressPoolRequest extends Model
     public $addr;
 
     /**
-     * @description The number of consecutive health check failures.
+     * @description The number of consecutive failures.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class AddDnsGtmAddressPoolRequest extends Model
     public $interval;
 
     /**
-     * @description The city nodes to monitor.
+     * @description The nodes for monitoring.
      *
      * @var ispCityNode[]
      */
@@ -73,50 +73,50 @@ class AddDnsGtmAddressPoolRequest extends Model
     public $lbaStrategy;
 
     /**
-     * @description The extended information. The required parameters vary based on the health check protocol.
+     * @description The extended information. The required parameters vary based on the value of ProtocolType.
      *
-     *   HTTP or HTTPS:
+     *   When ProtocolType is set to HTTP or HTTPS:
      *
-     *   port: the check port.
+     *   port: the port that you want to check
      *
-     *   host: the host settings.
+     *   host: the host settings
      *
-     *   path: the URL path.
+     *   path: the URL path
      *
-     *   code: the return code greater than the specified value.
+     *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value.
      *
-     *   failureRate: the failure rate.
+     *   failureRate: the failure rate
      *
-     *   sni: specifies whether to enable server name indication (SNI). This parameter is available only when Health Check Protocol is set to HTTPS. Valid values:
+     *   sni: specifies whether to enable server name indication (SNI). This parameter is available only when ProtocolType is set to HTTPS. Valid values:
      *
      *   true: enables SNI.
      *   other: disables SNI.
      *
-     *   nodeType: The type of the node to monitor when the address pool type is DOMAIN. Valid values:
+     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
      *
      *   IPV4
      *   IPV6
      *
-     *   PING:
+     *   When ProtocolType is set to PING:
      *
-     *   failureRate: the failure rate.
+     *   failureRate: the failure rate
      *
-     *   packetNum: the number of ping packets.
+     *   packetNum: the number of ping packets
      *
-     *   packetLossRate: the loss rate of ping packets.
+     *   packetLossRate: the loss rate of ping packets
      *
-     *   nodeType: the type of the node to monitor when the address pool type is DOMAIN. Valid values:
+     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
      *
      *   IPV4
      *   IPV6
      *
-     *   TCP:
+     *   When ProtocolType is set to TCP:
      *
-     *   port: the check port.
+     *   port: the port that you want to check
      *
-     *   failureRate: the failure rate.
+     *   failureRate: the failure rate
      *
-     *   nodeType: the type of the node to monitor when the address pool type is DOMAIN. Valid values:
+     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
      *
      *   IPV4
      *   IPV6
@@ -163,7 +163,7 @@ class AddDnsGtmAddressPoolRequest extends Model
     public $protocolType;
 
     /**
-     * @description The period of health check timeout. Unit: milliseconds.
+     * @description The timeout period. Unit: milliseconds.
      *
      * @example 1
      *
@@ -174,9 +174,9 @@ class AddDnsGtmAddressPoolRequest extends Model
     /**
      * @description The type of the address pool. Valid values:
      *
-     *   IPV4: IPv4 address.
-     *   IPV6: IPv6 address.
-     *   DOMAIN: domain name.
+     *   IPV4: IPv4 address
+     *   IPV6: IPv6 address
+     *   DOMAIN: domain name
      *
      * @example ipv4
      *

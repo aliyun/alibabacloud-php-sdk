@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmLogsRequest extends Model
 {
     /**
-     * @example 1363453340000
+     * @description The timestamp that specifies the end of the time range to query.
+     *
+     * @example 1363453350000
      *
      * @var int
      */

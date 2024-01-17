@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class alertConfig extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dingtalkNotice;
