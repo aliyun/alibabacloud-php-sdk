@@ -223,6 +223,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteBatchTaskHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteBatchTaskRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteBatchTaskResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteBatchTaskShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecutePlatformTaskHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecutePlatformTaskRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecutePlatformTaskResponse;
@@ -240,6 +244,14 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpAccomplishmentTasksHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpAccomplishmentTasksRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpAccomplishmentTasksResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpAccomplishmentTasksShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpTasksHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpTasksRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpTasksResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpTasksShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponse;
@@ -305,6 +317,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodesResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodesShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodesShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNotifyMeHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNotifyMeRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNotifyMeResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNotifyMeShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOpenUrlHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOpenUrlRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOpenUrlResponse;
@@ -332,6 +348,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetReportUnReadCountRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetReportUnReadCountResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetReportUnReadCountShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetReportUnReadCountShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetResponse;
@@ -346,6 +366,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSubscribedCalendarHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSubscribedCalendarRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSubscribedCalendarResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSubscribedCalendarShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTaskCopiesHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTaskCopiesRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTaskCopiesResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTaskCopiesShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdResponse;
@@ -386,6 +410,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\InviteUsersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InviteUsersResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InviteUsersShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InviteUsersShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListApplicationHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListApplicationRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListApplicationResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListApplicationShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListCalendarsHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListCalendarsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListCalendarsResponse;
@@ -422,6 +450,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTableDataByFormInstanceIdTable
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTableDataByFormInstanceIdTableIdRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTableDataByFormInstanceIdTableIdResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTableDataByFormInstanceIdTableIdShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTeamsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTeamsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTeamsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTeamsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListTeamsShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesResponse;
@@ -526,6 +559,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ReceiverListReportRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ReceiverListReportResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ReceiverListReportShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ReceiverListReportShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RedirectTaskHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RedirectTaskRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RedirectTaskResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RedirectTaskShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveAttendeeHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveAttendeeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RemoveAttendeeResponse;
@@ -545,6 +582,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveFormDataHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveFormDataRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveFormDataResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveFormDataShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveFormRemarkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveFormRemarkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveFormRemarkResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveFormRemarkShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchEmployeeFieldValuesHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchEmployeeFieldValuesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchEmployeeFieldValuesResponse;
@@ -4187,6 +4228,76 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param ExecuteBatchTaskRequest $request
+     * @param ExecuteBatchTaskHeaders $tmpHeader
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExecuteBatchTaskResponse
+     */
+    public function executeBatchTaskWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new ExecuteBatchTaskShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appType)) {
+            $body['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->outResult)) {
+            $body['OutResult'] = $request->outResult;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $body['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->systemToken)) {
+            $body['SystemToken'] = $request->systemToken;
+        }
+        if (!Utils::isUnset($request->taskInformationList)) {
+            $body['TaskInformationList'] = $request->taskInformationList;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteBatchTask',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/yida/executeBatchTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExecuteBatchTaskRequest $request
+     *
+     * @return ExecuteBatchTaskResponse
+     */
+    public function executeBatchTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ExecuteBatchTaskHeaders([]);
+
+        return $this->executeBatchTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param ExecutePlatformTaskRequest $request
      * @param ExecutePlatformTaskHeaders $tmpHeader
      * @param RuntimeOptions             $runtime
@@ -4481,6 +4592,176 @@ class Aliding extends OpenApiClient
         $headers = new GetAllSheetsHeaders([]);
 
         return $this->getAllSheetsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetCorpAccomplishmentTasksRequest $request
+     * @param GetCorpAccomplishmentTasksHeaders $tmpHeader
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetCorpAccomplishmentTasksResponse
+     */
+    public function getCorpAccomplishmentTasksWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new GetCorpAccomplishmentTasksShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appTypes)) {
+            $body['AppTypes'] = $request->appTypes;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->createFromTimeGMT)) {
+            $body['CreateFromTimeGMT'] = $request->createFromTimeGMT;
+        }
+        if (!Utils::isUnset($request->createToTimeGMT)) {
+            $body['CreateToTimeGMT'] = $request->createToTimeGMT;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $body['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->processCodes)) {
+            $body['ProcessCodes'] = $request->processCodes;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $body['Token'] = $request->token;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCorpAccomplishmentTasks',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/yida/getCorpAccomplishmentTasks',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCorpAccomplishmentTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCorpAccomplishmentTasksRequest $request
+     *
+     * @return GetCorpAccomplishmentTasksResponse
+     */
+    public function getCorpAccomplishmentTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetCorpAccomplishmentTasksHeaders([]);
+
+        return $this->getCorpAccomplishmentTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetCorpTasksRequest $request
+     * @param GetCorpTasksHeaders $tmpHeader
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetCorpTasksResponse
+     */
+    public function getCorpTasksWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new GetCorpTasksShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appTypes)) {
+            $body['AppTypes'] = $request->appTypes;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->createFromTimeGMT)) {
+            $body['CreateFromTimeGMT'] = $request->createFromTimeGMT;
+        }
+        if (!Utils::isUnset($request->createToTimeGMT)) {
+            $body['CreateToTimeGMT'] = $request->createToTimeGMT;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $body['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->processCodes)) {
+            $body['ProcessCodes'] = $request->processCodes;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $body['Token'] = $request->token;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCorpTasks',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/yida/getCorpTasks',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCorpTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCorpTasksRequest $request
+     *
+     * @return GetCorpTasksResponse
+     */
+    public function getCorpTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetCorpTasksHeaders([]);
+
+        return $this->getCorpTasksWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5597,6 +5878,97 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param GetNotifyMeRequest $request
+     * @param GetNotifyMeHeaders $tmpHeader
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetNotifyMeResponse
+     */
+    public function getNotifyMeWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new GetNotifyMeShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appTypes)) {
+            $body['AppTypes'] = $request->appTypes;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->createFromTimeGMT)) {
+            $body['CreateFromTimeGMT'] = $request->createFromTimeGMT;
+        }
+        if (!Utils::isUnset($request->createToTimeGMT)) {
+            $body['CreateToTimeGMT'] = $request->createToTimeGMT;
+        }
+        if (!Utils::isUnset($request->instanceCreateFromTimeGMT)) {
+            $body['InstanceCreateFromTimeGMT'] = $request->instanceCreateFromTimeGMT;
+        }
+        if (!Utils::isUnset($request->instanceCreateToTimeGMT)) {
+            $body['InstanceCreateToTimeGMT'] = $request->instanceCreateToTimeGMT;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $body['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->processCodes)) {
+            $body['ProcessCodes'] = $request->processCodes;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $body['Token'] = $request->token;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNotifyMe',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/yida/getNotifyMe',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetNotifyMeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetNotifyMeRequest $request
+     *
+     * @return GetNotifyMeResponse
+     */
+    public function getNotifyMe($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetNotifyMeHeaders([]);
+
+        return $this->getNotifyMeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param GetOpenUrlRequest $request
      * @param GetOpenUrlHeaders $tmpHeader
      * @param RuntimeOptions    $runtime
@@ -6026,6 +6398,76 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param GetRunningTasksRequest $request
+     * @param GetRunningTasksHeaders $tmpHeader
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetRunningTasksResponse
+     */
+    public function getRunningTasksWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new GetRunningTasksShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appType)) {
+            $body['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->processCodes)) {
+            $body['ProcessCodes'] = $request->processCodes;
+        }
+        if (!Utils::isUnset($request->processInstanceId)) {
+            $body['ProcessInstanceId'] = $request->processInstanceId;
+        }
+        if (!Utils::isUnset($request->systemToken)) {
+            $body['SystemToken'] = $request->systemToken;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRunningTasks',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/yida/getRunningTasks',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRunningTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRunningTasksRequest $request
+     *
+     * @return GetRunningTasksResponse
+     */
+    public function getRunningTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetRunningTasksHeaders([]);
+
+        return $this->getRunningTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param GetSheetRequest $tmpReq
      * @param GetSheetHeaders $tmpHeader
      * @param RuntimeOptions  $runtime
@@ -6225,6 +6667,88 @@ class Aliding extends OpenApiClient
         $headers = new GetSubscribedCalendarHeaders([]);
 
         return $this->getSubscribedCalendarWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetTaskCopiesRequest $request
+     * @param GetTaskCopiesHeaders $tmpHeader
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetTaskCopiesResponse
+     */
+    public function getTaskCopiesWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new GetTaskCopiesShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appType)) {
+            $body['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->createFromTimeGMT)) {
+            $body['CreateFromTimeGMT'] = $request->createFromTimeGMT;
+        }
+        if (!Utils::isUnset($request->createToTimeGMT)) {
+            $body['CreateToTimeGMT'] = $request->createToTimeGMT;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $body['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->processCodes)) {
+            $body['ProcessCodes'] = $request->processCodes;
+        }
+        if (!Utils::isUnset($request->systemToken)) {
+            $body['SystemToken'] = $request->systemToken;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTaskCopies',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/yida/getTaskCopies',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTaskCopiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTaskCopiesRequest $request
+     *
+     * @return GetTaskCopiesResponse
+     */
+    public function getTaskCopies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetTaskCopiesHeaders([]);
+
+        return $this->getTaskCopiesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6828,6 +7352,79 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param ListApplicationRequest $request
+     * @param ListApplicationHeaders $tmpHeader
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListApplicationResponse
+     */
+    public function listApplicationWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new ListApplicationShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appFilter)) {
+            $body['AppFilter'] = $request->appFilter;
+        }
+        if (!Utils::isUnset($request->appNameSearchKeyword)) {
+            $body['AppNameSearchKeyword'] = $request->appNameSearchKeyword;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $body['CorpId'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $body['Token'] = $request->token;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApplication',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/yida/listApplication',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListApplicationRequest $request
+     *
+     * @return ListApplicationResponse
+     */
+    public function listApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListApplicationHeaders([]);
+
+        return $this->listApplicationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param ListCalendarsRequest $tmpReq
      * @param ListCalendarsHeaders $tmpHeader
      * @param RuntimeOptions       $runtime
@@ -7417,6 +8014,75 @@ class Aliding extends OpenApiClient
         $headers = new ListTableDataByFormInstanceIdTableIdHeaders([]);
 
         return $this->listTableDataByFormInstanceIdTableIdWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListTeamsRequest $tmpReq
+     * @param ListTeamsHeaders $tmpHeader
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListTeamsResponse
+     */
+    public function listTeamsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListTeamsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new ListTeamsShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTeams',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v2/documents/listTeams',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTeamsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTeamsRequest $request
+     *
+     * @return ListTeamsResponse
+     */
+    public function listTeams($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListTeamsHeaders([]);
+
+        return $this->listTeamsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8930,6 +9596,85 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param RedirectTaskRequest $request
+     * @param RedirectTaskHeaders $tmpHeader
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RedirectTaskResponse
+     */
+    public function redirectTaskWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new RedirectTaskShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appType)) {
+            $body['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->byManager)) {
+            $body['ByManager'] = $request->byManager;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->nowActionExecutorId)) {
+            $body['NowActionExecutorId'] = $request->nowActionExecutorId;
+        }
+        if (!Utils::isUnset($request->processInstanceId)) {
+            $body['ProcessInstanceId'] = $request->processInstanceId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $body['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->systemToken)) {
+            $body['SystemToken'] = $request->systemToken;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RedirectTask',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/yida/redirectTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RedirectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RedirectTaskRequest $request
+     *
+     * @return RedirectTaskResponse
+     */
+    public function redirectTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new RedirectTaskHeaders([]);
+
+        return $this->redirectTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param RemoveAttendeeRequest $tmpReq
      * @param RemoveAttendeeHeaders $tmpHeader
      * @param RuntimeOptions        $runtime
@@ -9210,6 +9955,82 @@ class Aliding extends OpenApiClient
         $headers = new SaveFormDataHeaders([]);
 
         return $this->saveFormDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SaveFormRemarkRequest $request
+     * @param SaveFormRemarkHeaders $tmpHeader
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SaveFormRemarkResponse
+     */
+    public function saveFormRemarkWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new SaveFormRemarkShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appType)) {
+            $body['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->atUserId)) {
+            $body['AtUserId'] = $request->atUserId;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->formInstanceId)) {
+            $body['FormInstanceId'] = $request->formInstanceId;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->replyId)) {
+            $body['ReplyId'] = $request->replyId;
+        }
+        if (!Utils::isUnset($request->systemToken)) {
+            $body['SystemToken'] = $request->systemToken;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveFormRemark',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/yida/saveFormRemark',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveFormRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveFormRemarkRequest $request
+     *
+     * @return SaveFormRemarkResponse
+     */
+    public function saveFormRemark($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SaveFormRemarkHeaders([]);
+
+        return $this->saveFormRemarkWithOptions($request, $headers, $runtime);
     }
 
     /**
