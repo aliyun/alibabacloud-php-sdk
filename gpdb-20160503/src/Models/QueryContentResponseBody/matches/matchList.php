@@ -22,6 +22,11 @@ class matchList extends Model
     public $fileName;
 
     /**
+     * @var string
+     */
+    public $fileURL;
+
+    /**
      * @example doca-1234
      *
      * @var string
@@ -61,6 +66,7 @@ class matchList extends Model
     protected $_name = [
         'content'         => 'Content',
         'fileName'        => 'FileName',
+        'fileURL'         => 'FileURL',
         'id'              => 'Id',
         'loaderMetadata'  => 'LoaderMetadata',
         'metadata'        => 'Metadata',
@@ -81,6 +87,9 @@ class matchList extends Model
         }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->fileURL) {
+            $res['FileURL'] = $this->fileURL;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -117,6 +126,9 @@ class matchList extends Model
         }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+        if (isset($map['FileURL'])) {
+            $model->fileURL = $map['FileURL'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

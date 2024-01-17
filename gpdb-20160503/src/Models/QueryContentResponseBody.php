@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\matches;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\usage;
 use AlibabaCloud\Tea\Model;
 
 class QueryContentResponseBody extends Model
@@ -41,12 +42,18 @@ class QueryContentResponseBody extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var usage
+     */
+    public $usage;
     protected $_name = [
         'embeddingTokens' => 'EmbeddingTokens',
         'matches'         => 'Matches',
         'message'         => 'Message',
         'requestId'       => 'RequestId',
         'status'          => 'Status',
+        'usage'           => 'Usage',
     ];
 
     public function validate()
@@ -70,6 +77,9 @@ class QueryContentResponseBody extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->usage) {
+            $res['Usage'] = null !== $this->usage ? $this->usage->toMap() : null;
         }
 
         return $res;
@@ -97,6 +107,9 @@ class QueryContentResponseBody extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Usage'])) {
+            $model->usage = usage::fromMap($map['Usage']);
         }
 
         return $model;

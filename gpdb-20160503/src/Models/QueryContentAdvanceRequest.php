@@ -5,8 +5,9 @@
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class QueryContentRequest extends Model
+class QueryContentAdvanceRequest extends Model
 {
     /**
      * @example document
@@ -33,9 +34,9 @@ class QueryContentRequest extends Model
     public $fileName;
 
     /**
-     * @var string
+     * @var Stream
      */
-    public $fileUrl;
+    public $fileUrlObject;
 
     /**
      * @example title = \"test\"
@@ -95,7 +96,7 @@ class QueryContentRequest extends Model
         'content'              => 'Content',
         'DBInstanceId'         => 'DBInstanceId',
         'fileName'             => 'FileName',
-        'fileUrl'              => 'FileUrl',
+        'fileUrlObject'        => 'FileUrl',
         'filter'               => 'Filter',
         'metrics'              => 'Metrics',
         'namespace'            => 'Namespace',
@@ -125,8 +126,8 @@ class QueryContentRequest extends Model
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
-        if (null !== $this->fileUrl) {
-            $res['FileUrl'] = $this->fileUrl;
+        if (null !== $this->fileUrlObject) {
+            $res['FileUrl'] = $this->fileUrlObject;
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
@@ -159,7 +160,7 @@ class QueryContentRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryContentRequest
+     * @return QueryContentAdvanceRequest
      */
     public static function fromMap($map = [])
     {
@@ -177,7 +178,7 @@ class QueryContentRequest extends Model
             $model->fileName = $map['FileName'];
         }
         if (isset($map['FileUrl'])) {
-            $model->fileUrl = $map['FileUrl'];
+            $model->fileUrlObject = $map['FileUrl'];
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
