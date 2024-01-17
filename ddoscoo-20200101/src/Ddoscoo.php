@@ -184,6 +184,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortAttackMaxFlowRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortAttackMaxFlowResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortAutoCcStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortAutoCcStatusResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortCcAttackTopIPRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortCcAttackTopIPResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortConnsCountRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortConnsCountResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortConnsListRequest;
@@ -252,6 +254,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebInstanceRelationsReques
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebInstanceRelationsResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebPreciseAccessRuleRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebPreciseAccessRuleResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebReportTopIpRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebReportTopIpResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebRulesRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebRulesResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DetachSceneDefenseObjectRequest;
@@ -5024,6 +5028,58 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * @param DescribePortCcAttackTopIPRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribePortCcAttackTopIPResponse
+     */
+    public function describePortCcAttackTopIPWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePortCcAttackTopIP',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePortCcAttackTopIPResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePortCcAttackTopIPRequest $request
+     *
+     * @return DescribePortCcAttackTopIPResponse
+     */
+    public function describePortCcAttackTopIP($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePortCcAttackTopIPWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribePortConnsCountRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -6724,6 +6780,64 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeWebPreciseAccessRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWebReportTopIpRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeWebReportTopIpResponse
+     */
+    public function describeWebReportTopIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->top)) {
+            $query['Top'] = $request->top;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebReportTopIp',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWebReportTopIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWebReportTopIpRequest $request
+     *
+     * @return DescribeWebReportTopIpResponse
+     */
+    public function describeWebReportTopIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWebReportTopIpWithOptions($request, $runtime);
     }
 
     /**

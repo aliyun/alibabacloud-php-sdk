@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @var string
+     */
+    public $line;
+
+    /**
      * @example 100
      *
      * @var int
@@ -57,6 +62,7 @@ class rules extends Model
      */
     public $valueType;
     protected $_name = [
+        'line'         => 'Line',
         'priority'     => 'Priority',
         'regionId'     => 'RegionId',
         'restoreDelay' => 'RestoreDelay',
@@ -73,6 +79,9 @@ class rules extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->line) {
+            $res['Line'] = $this->line;
+        }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
@@ -106,6 +115,9 @@ class rules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Line'])) {
+            $model->line = $map['Line'];
+        }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }

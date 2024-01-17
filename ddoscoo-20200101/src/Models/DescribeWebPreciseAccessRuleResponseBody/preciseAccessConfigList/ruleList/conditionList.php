@@ -18,6 +18,11 @@ class conditionList extends Model
     public $content;
 
     /**
+     * @var string[]
+     */
+    public $contentList;
+
+    /**
      * @description The match field.
      *
      * @example ip
@@ -46,6 +51,7 @@ class conditionList extends Model
     public $matchMethod;
     protected $_name = [
         'content'     => 'Content',
+        'contentList' => 'ContentList',
         'field'       => 'Field',
         'headerName'  => 'HeaderName',
         'matchMethod' => 'MatchMethod',
@@ -60,6 +66,9 @@ class conditionList extends Model
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->contentList) {
+            $res['ContentList'] = $this->contentList;
         }
         if (null !== $this->field) {
             $res['Field'] = $this->field;
@@ -84,6 +93,11 @@ class conditionList extends Model
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['ContentList'])) {
+            if (!empty($map['ContentList'])) {
+                $model->contentList = $map['ContentList'];
+            }
         }
         if (isset($map['Field'])) {
             $model->field = $map['Field'];

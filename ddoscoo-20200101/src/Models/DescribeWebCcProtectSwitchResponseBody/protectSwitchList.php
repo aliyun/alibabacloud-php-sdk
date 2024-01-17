@@ -82,6 +82,11 @@ class protectSwitchList extends Model
     public $ccEnable;
 
     /**
+     * @var string
+     */
+    public $ccGlobalSwitch;
+
+    /**
      * @description The mode of the Frequency Control policy. Valid values:
      *
      *   **default**: Normal
@@ -134,6 +139,7 @@ class protectSwitchList extends Model
         'blackWhiteListEnable' => 'BlackWhiteListEnable',
         'ccCustomRuleEnable'   => 'CcCustomRuleEnable',
         'ccEnable'             => 'CcEnable',
+        'ccGlobalSwitch'       => 'CcGlobalSwitch',
         'ccTemplate'           => 'CcTemplate',
         'domain'               => 'Domain',
         'preciseRuleEnable'    => 'PreciseRuleEnable',
@@ -164,6 +170,9 @@ class protectSwitchList extends Model
         }
         if (null !== $this->ccEnable) {
             $res['CcEnable'] = $this->ccEnable;
+        }
+        if (null !== $this->ccGlobalSwitch) {
+            $res['CcGlobalSwitch'] = $this->ccGlobalSwitch;
         }
         if (null !== $this->ccTemplate) {
             $res['CcTemplate'] = $this->ccTemplate;
@@ -206,6 +215,9 @@ class protectSwitchList extends Model
         }
         if (isset($map['CcEnable'])) {
             $model->ccEnable = $map['CcEnable'];
+        }
+        if (isset($map['CcGlobalSwitch'])) {
+            $model->ccGlobalSwitch = $map['CcGlobalSwitch'];
         }
         if (isset($map['CcTemplate'])) {
             $model->ccTemplate = $map['CcTemplate'];
