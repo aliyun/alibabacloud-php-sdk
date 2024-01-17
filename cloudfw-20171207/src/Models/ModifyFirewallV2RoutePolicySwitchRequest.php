@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ModifyFirewallV2RoutePolicySwitchRequest extends Model
 {
     /**
+     * @description The instance ID of the virtual private cloud (VPC) firewall.
+     *
+     * @example vfw-tr-5b202e7f0be64611****
+     *
      * @var string
      */
     public $firewallId;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -21,6 +30,11 @@ class ModifyFirewallV2RoutePolicySwitchRequest extends Model
     public $lang;
 
     /**
+     * @description Specifies whether to restore the traffic redirection configurations. Valid values:
+     *
+     *   true: roll back
+     *   false: withdraw
+     *
      * @example false
      *
      * @var string
@@ -28,11 +42,20 @@ class ModifyFirewallV2RoutePolicySwitchRequest extends Model
     public $shouldRecover;
 
     /**
+     * @description The ID of the routing policy.
+     *
+     * @example policy-93684cc5caa44b2e****
+     *
      * @var string
      */
     public $trFirewallRoutePolicyId;
 
     /**
+     * @description The status of the routing policy. Valid values:
+     *
+     *   open: enabled
+     *   close: disabled
+     *
      * @example open
      *
      * @var string

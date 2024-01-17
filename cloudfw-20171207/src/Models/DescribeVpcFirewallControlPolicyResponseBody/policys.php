@@ -12,7 +12,7 @@ class policys extends Model
      * @description The action that Cloud Firewall performs on the traffic. Valid values:
      *
      *   **accept**: allows the traffic.
-     *   **drop**: blocks the traffic.
+     *   **drop**: denies the traffic.
      *   **log**: monitors the traffic.
      *
      * @example accept
@@ -22,7 +22,7 @@ class policys extends Model
     public $aclAction;
 
     /**
-     * @description The unique ID of the access control policy.
+     * @description The UUID of the access control policy.
      *
      * @example 4037fbf7-3e39-4634-92a4-d0155247****
      *
@@ -40,7 +40,7 @@ class policys extends Model
     public $applicationId;
 
     /**
-     * @description The application type in the access control policy. Valid values:
+     * @description The application types supported by the access control policy. We recommend that you specify ApplicationNameList. Valid values:
      *
      *   **HTTP**
      *   **HTTPS**
@@ -64,11 +64,17 @@ class policys extends Model
     public $applicationName;
 
     /**
+     * @description The application types supported by the access control policy.
+     *
      * @var string[]
      */
     public $applicationNameList;
 
     /**
+     * @description The time when the access control policy was created. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1761062400
+     *
      * @var int
      */
     public $createTime;
@@ -101,7 +107,7 @@ class policys extends Model
     public $destPortGroup;
 
     /**
-     * @description An array that consists of the ports in the destination port address book of the access control policy.
+     * @description The ports in the destination port address book of the access control policy.
      *
      * @var string[]
      */
@@ -133,7 +139,7 @@ class policys extends Model
     public $destination;
 
     /**
-     * @description An array that consists of the CIDR blocks in the destination address book of the access control policy.
+     * @description The CIDR blocks in the destination address book of the access control policy.
      *
      * @var string[]
      */
@@ -165,11 +171,20 @@ class policys extends Model
     public $destinationType;
 
     /**
+     * @description The time when the access control policy stops taking effect. The value is a UNIX timestamp. Unit: seconds. The value must be on the hour or on the half hour, and at least 30 minutes later than the value of StartTime.
+     *
+     * >  If RepeatType is set to Permanent, EndTime is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, EndTime must be specified.
+     * @example 1694764800
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The time when the access control policy was last hit. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1579261141
+     *
      * @var int
      */
     public $hitLastTime;
@@ -193,6 +208,10 @@ class policys extends Model
     public $memberUid;
 
     /**
+     * @description The time when the access control policy was modified. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1761062400
+     *
      * @var int
      */
     public $modifyTime;
@@ -222,10 +241,10 @@ class policys extends Model
     public $proto;
 
     /**
-     * @description Indicates whether the access control policy is enabled. By default, an access control policy is enabled after the policy is created. Valid values:
+     * @description Indicates whether the access control policy is enabled. By default, an access control policy is enabled after it is created. Valid values:
      *
-     *   **true**: The access control policy is enabled.
-     *   **false**: The access control policy is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -234,21 +253,51 @@ class policys extends Model
     public $release;
 
     /**
+     * @description The days of a week or of a month on which the access control policy takes effect.
+     *
+     *   If RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is left empty. Example: \[].
+     *   If RepeatType is set to Weekly, RepeatDays must be specified. Example: \[0, 6].
+     *
+     * >  If RepeatType is set to Weekly, the fields in the value of RepeatDays cannot be repeated.
+     *
+     *   If RepeatType is set to `Monthly`, RepeatDays must be specified. Example: \[1, 31].
+     *
+     * >  If RepeatType is set to Monthly, the fields in the value of RepeatDays cannot be repeated.
      * @var int[]
      */
     public $repeatDays;
 
     /**
+     * @description The point in time when the recurrence ends. Example: 23:30. The value must be on the hour or on the half hour, and at least 30 minutes later than the value of RepeatStartTime.
+     *
+     * >  If RepeatType is set to Permanent or None, RepeatEndTime is left empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatEndTime must be specified.
+     * @example 23:30
+     *
      * @var string
      */
     public $repeatEndTime;
 
     /**
+     * @description The point in time when the recurrence starts. Example: 08:00. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the value of RepeatEndTime.
+     *
+     * >  If RepeatType is set to Permanent or None, RepeatStartTime is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter must be specified.
+     * @example 08:00
+     *
      * @var string
      */
     public $repeatStartTime;
 
     /**
+     * @description The recurrence type for the access control policy to take effect. Valid values:
+     *
+     *   **Permanent** (default): The policy always takes effect.
+     *   **None**: The policy takes effect for only once.
+     *   **Daily**: The policy takes effect on a daily basis.
+     *   **Weekly**: The policy takes effect on a weekly basis.
+     *   **Monthly**: The policy takes effect on a monthly basis.
+     *
+     * @example Permanent
+     *
      * @var string
      */
     public $repeatType;
@@ -266,14 +315,14 @@ class policys extends Model
     public $source;
 
     /**
-     * @description An array that consists of the CIDR blocks in the source address book of the access control policy.
+     * @description The CIDR blocks in the source address book of the access control policy.
      *
      * @var string[]
      */
     public $sourceGroupCidrs;
 
     /**
-     * @description The type of the source address in the access control policy. The value is fixed as **ip**. The value indicates an address book that includes one or more CIDR blocks.
+     * @description The type of the source address book in the access control policy. The value is fixed as **ip**. The value indicates an address book that includes one or more CIDR blocks.
      *
      * @example ip
      *
@@ -294,11 +343,20 @@ class policys extends Model
     public $sourceType;
 
     /**
+     * @description The total quota consumed by the returned access control policies, which is the sum of the quota consumed by each policy. The quota that is consumed by an access control policy is calculated by using the following formula: Quota that is consumed by an access control policy = Number of source addresses × Number of destination addresses (number of CIDR blocks or domain names) × Number of applications × Number of port ranges.
+     *
+     * @example 10,000
+     *
      * @var int
      */
     public $spreadCnt;
 
     /**
+     * @description The time when the access control policy starts to take effect. The value is a UNIX timestamp. Unit: seconds. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the value of EndTime.
+     *
+     * >  If RepeatType is set to Permanent, StartTime is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, StartTime must be specified.
+     * @example 1694761200
+     *
      * @var int
      */
     public $startTime;

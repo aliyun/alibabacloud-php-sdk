@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class destCandidateList extends Model
 {
     /**
+     * @example vpc-2ze9epancaw8t4shajuzi
+     *
      * @var string
      */
     public $candidateId;

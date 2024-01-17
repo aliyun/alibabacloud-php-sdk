@@ -160,6 +160,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutEnableAllFwSwitchRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutEnableAllFwSwitchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutEnableFwSwitchRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutEnableFwSwitchResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ReleasePostInstanceRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ReleasePostInstanceResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetVpcFirewallRuleHitCountRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetVpcFirewallRuleHitCountResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -518,7 +520,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to create an access control policy to allow, deny, or monitor traffic that passes through a NAT firewall.
+     * You can call this operation to create a policy that allows, denies, or monitors the traffic that passes through the NAT firewall.
      *   *
      * @param CreateNatFirewallControlPolicyRequest $request CreateNatFirewallControlPolicyRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -620,7 +622,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to create an access control policy to allow, deny, or monitor traffic that passes through a NAT firewall.
+     * You can call this operation to create a policy that allows, denies, or monitors the traffic that passes through the NAT firewall.
      *   *
      * @param CreateNatFirewallControlPolicyRequest $request CreateNatFirewallControlPolicyRequest
      *
@@ -5433,6 +5435,49 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->putEnableFwSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReleasePostInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ReleasePostInstanceResponse
+     */
+    public function releasePostInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleasePostInstance',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReleasePostInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReleasePostInstanceRequest $request
+     *
+     * @return ReleasePostInstanceResponse
+     */
+    public function releasePostInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releasePostInstanceWithOptions($request, $runtime);
     }
 
     /**

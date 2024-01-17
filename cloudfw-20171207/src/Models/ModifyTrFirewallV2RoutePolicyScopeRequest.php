@@ -16,6 +16,8 @@ class ModifyTrFirewallV2RoutePolicyScopeRequest extends Model
     public $destCandidateList;
 
     /**
+     * @example vfw-tr-6520de0253bc4669bbd9
+     *
      * @var string
      */
     public $firewallId;
@@ -33,6 +35,8 @@ class ModifyTrFirewallV2RoutePolicyScopeRequest extends Model
     public $srcCandidateList;
 
     /**
+     * @example policy-4d724d0139df48f18091
+     *
      * @var string
      */
     public $trFirewallRoutePolicyId;

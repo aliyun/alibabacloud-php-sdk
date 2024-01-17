@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class policyAssociationBackupConfigs extends Model
 {
     /**
+     * @description The ID of the traffic redirection instance.
+     *
+     * @example vpc-wz9grb8ng3y7h7lf2****
+     *
      * @var string
      */
     public $candidateId;
 
     /**
+     * @description The name of the traffic redirection instance.
+     *
      * @var string
      */
     public $candidateName;
 
     /**
+     * @description The type of the traffic redirection instance.
+     *
      * @example VPC
      *
      * @var string
@@ -26,11 +34,19 @@ class policyAssociationBackupConfigs extends Model
     public $candidateType;
 
     /**
+     * @description The route table that is used after traffic redirection.
+     *
+     * @example vtb-wz9898grickmh5j09****
+     *
      * @var string
      */
     public $currentRouteTableId;
 
     /**
+     * @description The ID of the route table.
+     *
+     * @example vtb-wz9slp3s7m4qrzvnq****
+     *
      * @var string
      */
     public $originalRouteTableId;

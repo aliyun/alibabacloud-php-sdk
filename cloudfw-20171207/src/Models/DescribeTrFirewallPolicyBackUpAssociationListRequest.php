@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrFirewallPolicyBackUpAssociationListRequest extends Model
 {
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * @example vfw-tr-8b268ce1b26e4c68****
+     *
      * @var string
      */
     public $firewallId;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -21,6 +30,10 @@ class DescribeTrFirewallPolicyBackUpAssociationListRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the routing policy.
+     *
+     * @example policy-5dcafb12ff794a56****
+     *
      * @var string
      */
     public $trFirewallRoutePolicyId;

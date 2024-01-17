@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyFirewallV2RoutePolicySwitchResponseBody extends Model
+class ReleasePostInstanceRequest extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 1F6D4A8D-EC01-5996-A61A-AA3B56490C00
+     * @example cfw_elasticity_public_cn-xxx
      *
      * @var string
      */
-    public $requestId;
+    public $instanceId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class ModifyFirewallV2RoutePolicySwitchResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class ModifyFirewallV2RoutePolicySwitchResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyFirewallV2RoutePolicySwitchResponseBody
+     * @return ReleasePostInstanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

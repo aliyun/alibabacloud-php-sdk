@@ -16,6 +16,8 @@ class ModifyTrFirewallV2RoutePolicyScopeResponseBody extends Model
     public $requestId;
 
     /**
+     * @example policy-4d724d0139df48f18091
+     *
      * @var string
      */
     public $trFirewallRoutePolicyId;

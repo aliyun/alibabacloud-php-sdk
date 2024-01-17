@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrFirewallPolicyBackUpAssociationListResponseBody extends Model
 {
     /**
+     * @description The route tables.
+     *
      * @var policyAssociationBackupConfigs[]
      */
     public $policyAssociationBackupConfigs;
 
     /**
+     * @description The request ID.
+     *
      * @example C264A756-9B48-57E3-B312-716941E146C6
      *
      * @var string
