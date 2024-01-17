@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Avatar\V20220130\Models\ClientAuthRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\ClientAuthResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\ClientStartRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\ClientStartResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\ClientUnbindDeviceRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\ClientUnbindDeviceResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CloseTimedResetOperateRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CloseTimedResetOperateResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\ConfirmAvatar2dTrainRequest;
@@ -273,6 +275,52 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->clientStartWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ClientUnbindDeviceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ClientUnbindDeviceResponse
+     */
+    public function clientUnbindDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ClientUnbindDevice',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ClientUnbindDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ClientUnbindDeviceRequest $request
+     *
+     * @return ClientUnbindDeviceResponse
+     */
+    public function clientUnbindDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->clientUnbindDeviceWithOptions($request, $runtime);
     }
 
     /**
