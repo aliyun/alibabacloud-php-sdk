@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logParams extends Model
 {
     /**
+     * @description The parameter code of the log.
+     *
      * @example region_code
      *
      * @var string
@@ -16,6 +18,8 @@ class logParams extends Model
     public $paraCode;
 
     /**
+     * @description The parameter value of the log.
+     *
      * @example ap-guangzhou
      *
      * @var string

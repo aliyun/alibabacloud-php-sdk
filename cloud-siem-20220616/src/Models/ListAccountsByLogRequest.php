@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListAccountsByLogRequest extends Model
 {
     /**
+     * @description The code that is used for multi-cloud environments.
+     *
+     * Valid values:
+     *
+     *   qcloud
+     *   hcloud
+     *   aliyun
+     *
      * @example hcloud
      *
      * @var string
@@ -16,6 +24,8 @@ class ListAccountsByLogRequest extends Model
     public $cloudCode;
 
     /**
+     * @description The codes of logs. The value is a JSON array.
+     *
      * @example ["cloud_siem_hcloud_waf_alert_log"]
      *
      * @var string[]
@@ -23,6 +33,8 @@ class ListAccountsByLogRequest extends Model
     public $logCodes;
 
     /**
+     * @description The code of the service.
+     *
      * @example qcloud_waf
      *
      * @var string
@@ -30,6 +42,11 @@ class ListAccountsByLogRequest extends Model
     public $prodCode;
 
     /**
+     * @description The data management center of the threat analysis feature. Specify this parameter based on the region where your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions inside China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

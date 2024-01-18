@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
+     * @description Indicates whether the result is inverted. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -18,6 +23,8 @@ class conditions extends Model
     public $isNot;
 
     /**
+     * @description The ID of the rule condition.
+     *
      * @example 1
      *
      * @var int
@@ -25,11 +32,22 @@ class conditions extends Model
     public $itemId;
 
     /**
+     * @description The left operand of the rule condition.
+     *
      * @var left
      */
     public $left;
 
     /**
+     * @description The logical operator of the rule condition. Valid values:
+     *
+     *   `=`: equals to
+     *   `<>`: does not equal to
+     *   `in`: contains
+     *   `not in`: does not contain
+     *   `REGEXP`: matches a regular expression
+     *   `NOT REGEXP`: does not match a regular expression
+     *
      * @example REGEXP
      *
      * @var string
@@ -37,6 +55,8 @@ class conditions extends Model
     public $operator;
 
     /**
+     * @description The right operand of the rule condition.
+     *
      * @var right
      */
     public $right;

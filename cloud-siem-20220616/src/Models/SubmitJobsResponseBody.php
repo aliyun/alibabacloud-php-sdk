@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitJobsResponseBody extends Model
 {
     /**
+     * @description The total number of tasks.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class SubmitJobsResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 6276D891-*****-55B2-87B9-74D413F7****
      *
      * @var string

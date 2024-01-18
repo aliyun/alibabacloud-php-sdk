@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the cloud account.
+     *
      * @example 123xxxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $accountId;
 
     /**
+     * @description The username of the cloud account.
+     *
      * @example sas_tq_account_xxxx
      *
      * @var string
@@ -23,6 +27,12 @@ class data extends Model
     public $accountName;
 
     /**
+     * @description The code of the cloud service provider. Valid values:
+     *
+     *   qcloud: Tencent Cloud
+     *   aliyun: Alibaba Cloud
+     *   hcloud: Huawei Cloud
+     *
      * @example hcloud
      *
      * @var string
@@ -30,6 +40,8 @@ class data extends Model
     public $cloudCode;
 
     /**
+     * @description The ID of the data source. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters.
+     *
      * @example 220ba97c9d1fdb0b9c7e8c7ca328d7ea
      *
      * @var string
@@ -37,6 +49,8 @@ class data extends Model
     public $dataSourceInstanceId;
 
     /**
+     * @description The name of the data source.
+     *
      * @example waf_kafka
      *
      * @var string
@@ -44,6 +58,8 @@ class data extends Model
     public $dataSourceName;
 
     /**
+     * @description The remarks on the data source.
+     *
      * @example waf_kafka
      *
      * @var string
@@ -51,6 +67,12 @@ class data extends Model
     public $dataSourceRemark;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   obs: Huawei Cloud Object Storage Service (OBS)
+     *   wafApi: download API of Tencent Cloud Web Application Firewall (WAF)
+     *   ckafka: Tencent Cloud Kafka (CKafka)
+     *
      * @example obs
      *
      * @var string
@@ -58,6 +80,8 @@ class data extends Model
     public $dataSourceType;
 
     /**
+     * @description The number of logs that are added within the data source.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +89,8 @@ class data extends Model
     public $logCount;
 
     /**
+     * @description The number of existing tasks that are created to add logs within the data source.
+     *
      * @example 0
      *
      * @var int

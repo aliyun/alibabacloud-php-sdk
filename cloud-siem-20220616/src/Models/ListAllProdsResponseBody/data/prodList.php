@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class prodList extends Model
 {
     /**
+     * @description The code of the cloud service provider. Valid values:
+     *
+     *   qcloud: Tencent Cloud
+     *   aliyun: Alibaba Cloud
+     *   hcloud: Huawei Cloud
+     *
      * @example hcloud
      *
      * @var string
@@ -16,6 +22,8 @@ class prodList extends Model
     public $cloudCode;
 
     /**
+     * @description The number of logs within the cloud service that are added to the threat analysis feature.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +31,8 @@ class prodList extends Model
     public $importedLogCount;
 
     /**
+     * @description The time when the logs within the cloud service were last added to the threat analysis feature.
+     *
      * @example 2023-11-23 12:12:12
      *
      * @var string
@@ -30,6 +40,8 @@ class prodList extends Model
     public $modifyTime;
 
     /**
+     * @description The code of the cloud service.
+     *
      * @example sas
      *
      * @var string
@@ -37,6 +49,8 @@ class prodList extends Model
     public $prodCode;
 
     /**
+     * @description The total number of logs within the cloud service.
+     *
      * @example 19
      *
      * @var int

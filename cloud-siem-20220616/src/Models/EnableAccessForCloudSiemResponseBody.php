@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableAccessForCloudSiemResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class EnableAccessForCloudSiemResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 6276D891-*****-55B2-87B9-74D413F7****
      *
      * @var string

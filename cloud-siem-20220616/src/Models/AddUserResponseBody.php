@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddUserResponseBody extends Model
 {
     /**
+     * @description Indicates whether the Alibaba Cloud account is added to the threat analysis feature.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class AddUserResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 6276D891-*****-55B2-87B9-74D413F7****
      *
      * @var string

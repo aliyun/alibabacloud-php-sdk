@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The endpoint of the Simple Log Service project.
+     *
      * @example cn-hangzhou.log.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $endPoint;
 
     /**
+     * @description The name of the region in which the Simple Log Service project resides.
+     *
      * @example hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $localName;
 
     /**
+     * @description The name of the Simple Log Service Logstore.
+     *
      * @example cloud-siem-logstore
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $logStore;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+     *
      * @example 123XXXXXXXXX
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $mainUserId;
 
     /**
+     * @description The name of the Simple Log Service project.
+     *
      * @example cloud-siem-project
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $project;
 
     /**
+     * @description The ID of the region in which the Simple Log Service project resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+     *
      * @example 123XXXXXXXX
      *
      * @var int
@@ -58,6 +72,8 @@ class data extends Model
     public $subUserId;
 
     /**
+     * @description The username of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+     *
      * @example sas_account_xxxx
      *
      * @var string

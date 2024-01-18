@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class dataSourceInstanceLogs extends Model
 {
     /**
+     * @description The code of the log.
+     *
      * @example cloud_siem_waf_xxxxx
      *
      * @var string
@@ -17,6 +19,8 @@ class dataSourceInstanceLogs extends Model
     public $logCode;
 
     /**
+     * @description The ID of the log. The value is obtained after the threat analysis feature calculates the MD5 hash value of a parameter.
+     *
      * @example 220ba97c9d1fdb0b9c7e8c7ca328d7ea
      *
      * @var string
@@ -24,6 +28,8 @@ class dataSourceInstanceLogs extends Model
     public $logInstanceId;
 
     /**
+     * @description The display code of the log.
+     *
      * @example ${siem.prod.cloud_siem_waf_xxxxx}
      *
      * @var string
@@ -31,11 +37,18 @@ class dataSourceInstanceLogs extends Model
     public $logMdsCode;
 
     /**
+     * @description The parameters of the log.
+     *
      * @var logParams[]
      */
     public $logParams;
 
     /**
+     * @description Indicates whether the task for which logs are collected is enabled. Valid values:
+     *
+     *   1: yes
+     *   0: no
+     *
      * @example 1
      *
      * @var int

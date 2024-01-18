@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of logs that are removed. The value 1 indicates that the log is removed, and a value less than or equal to 0 indicates that the log failed to be removed.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $count;
 
     /**
+     * @description The ID of the log. The ID is an MD5 hash value that is calculated by the threat analysis feature based on specific parameters.
+     *
      * @example ef33097c9d1fdb0b9c7e8c7ca320pkl1
      *
      * @var string

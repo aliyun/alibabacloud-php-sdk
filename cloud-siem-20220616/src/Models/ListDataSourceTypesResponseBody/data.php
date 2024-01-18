@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The code of the third-party cloud service.
+     *
      * @example hcloud
      *
      * @var string
@@ -16,6 +18,12 @@ class data extends Model
     public $cloudCode;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   obs: Huawei Cloud Object Storage Service (OBS)
+     *   wafApi: download API of Tencent Cloud Web Application Firewall (WAF)
+     *   ckafka: Tencent Cloud Kafka (CKafka)
+     *
      * @example obs
      *
      * @var string

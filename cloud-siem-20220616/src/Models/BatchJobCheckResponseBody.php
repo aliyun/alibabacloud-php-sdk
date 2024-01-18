@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchJobCheckResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class BatchJobCheckResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example ServerError
      *
      * @var string
@@ -29,6 +35,8 @@ class BatchJobCheckResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The message returned.
+     *
      * @example success
      *
      * @var string
@@ -36,6 +44,8 @@ class BatchJobCheckResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 5B0DFF6D-XXXX
      *
      * @var string
@@ -43,6 +53,11 @@ class BatchJobCheckResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class expression extends Model
 {
     /**
+     * @description The rule conditions.
+     *
      * @var conditions[]
      */
     public $conditions;
 
     /**
+     * @description The logical relationships among the rule conditions.
+     *
      * @example (1&2)|(3&4)
      *
      * @var string

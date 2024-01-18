@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class left extends Model
 {
     /**
+     * @description Indicates whether the left operand is a variable. Valid values:
+     *
+     *   true: variable
+     *   false: constant
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class left extends Model
     public $isVar;
 
     /**
+     * @description The remarks on the left operand.
+     *
      * @example length
      *
      * @var string
@@ -23,11 +30,18 @@ class left extends Model
     public $modifier;
 
     /**
+     * @description The key-value pair information of the remarks.
+     *
      * @var mixed[]
      */
     public $modifierParam;
 
     /**
+     * @description Indicates whether the left operand is a constant. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var string
@@ -35,6 +49,8 @@ class left extends Model
     public $type;
 
     /**
+     * @description The variable of the left operand.
+     *
      * @example ip
      *
      * @var string

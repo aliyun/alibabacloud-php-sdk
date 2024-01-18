@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class productList extends Model
 {
     /**
+     * @description The list of log.
+     *
      * @var logList[]
      */
     public $logList;
 
     /**
+     * @description The code of product.
+     *
      * @example sas
      *
      * @var string

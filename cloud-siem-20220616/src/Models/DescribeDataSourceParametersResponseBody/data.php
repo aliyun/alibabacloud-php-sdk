@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the edit operation is supported. Valid values:
+     *
+     *   0: no
+     *   1: yes
+     *
      * @example wafApi
      *
      * @var int
@@ -17,6 +22,12 @@ class data extends Model
     public $canEditted;
 
     /**
+     * @description The code of the cloud service provider. Valid values:
+     *
+     *   qcloud: Tencent Cloud
+     *   aliyun: Alibaba Cloud
+     *   hcloud: Huawei Cloud
+     *
      * @example hcloud
      *
      * @var string
@@ -24,6 +35,12 @@ class data extends Model
     public $cloudCode;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   obs: Huawei Cloud OBS
+     *   wafApi: download API of Tencent Cloud WAF
+     *   ckafka: Tencent Cloud CKafka
+     *
      * @example obs
      *
      * @var string
@@ -31,6 +48,8 @@ class data extends Model
     public $dataSourceType;
 
     /**
+     * @description The default value of the parameter.
+     *
      * @example wafApi
      *
      * @var string
@@ -38,6 +57,11 @@ class data extends Model
     public $defaultValue;
 
     /**
+     * @description Indicates whether the modification operation is forbidden. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example wafApi
      *
      * @var bool
@@ -45,6 +69,8 @@ class data extends Model
     public $disabled;
 
     /**
+     * @description The method that is used to check the parameter format.
+     *
      * @example email
      *
      * @var string
@@ -52,6 +78,8 @@ class data extends Model
     public $formatCheck;
 
     /**
+     * @description The additional information.
+     *
      * @example obs docment
      *
      * @var string
@@ -59,6 +87,8 @@ class data extends Model
     public $hit;
 
     /**
+     * @description The code of the parameter.
+     *
      * @example region_code
      *
      * @var string
@@ -66,6 +96,11 @@ class data extends Model
     public $paraCode;
 
     /**
+     * @description The parameter level. Valid values:
+     *
+     *   1: data source
+     *   2: log
+     *
      * @example 1
      *
      * @var int
@@ -73,6 +108,8 @@ class data extends Model
     public $paraLevel;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example region local
      *
      * @var string
@@ -80,6 +117,8 @@ class data extends Model
     public $paraName;
 
     /**
+     * @description The data type of the parameter.
+     *
      * @example string
      *
      * @var string
@@ -87,11 +126,18 @@ class data extends Model
     public $paraType;
 
     /**
+     * @description The value of the parameter.
+     *
      * @var paramValue[]
      */
     public $paramValue;
 
     /**
+     * @description Indicates whether the parameter is required. Valid values:
+     *
+     *   1: yes
+     *   0: no
+     *
      * @example string
      *
      * @var int
@@ -99,6 +145,8 @@ class data extends Model
     public $required;
 
     /**
+     * @description The note on the parameter value.
+     *
      * @example obs bucket name
      *
      * @var string

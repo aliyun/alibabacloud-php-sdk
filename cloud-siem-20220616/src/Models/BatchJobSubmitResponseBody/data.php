@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the task configuration.
+     *
      * @example xxxx_folder_xxxx
      *
      * @var string
@@ -17,11 +19,15 @@ class data extends Model
     public $configId;
 
     /**
+     * @description The list of task configure.
+     *
      * @var configList[]
      */
     public $configList;
 
     /**
+     * @description The id of task.
+     *
      * @example BATCH_JOB_XXXXXX
      *
      * @var string
@@ -29,6 +35,8 @@ class data extends Model
     public $submitId;
 
     /**
+     * @description The number of existing tasks that are created to add logs within the data source.
+     *
      * @example 20
      *
      * @var int

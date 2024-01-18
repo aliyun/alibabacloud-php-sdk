@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchJobCheckRequest extends Model
 {
     /**
+     * @description The data management center of the threat analysis feature. Specify this parameter based on the region where your assets reside.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -16,6 +18,8 @@ class BatchJobCheckRequest extends Model
     public $regionId;
 
     /**
+     * @description The id of task.
+     *
      * @example xxxxx_folder_xxxxxx
      *
      * @var string

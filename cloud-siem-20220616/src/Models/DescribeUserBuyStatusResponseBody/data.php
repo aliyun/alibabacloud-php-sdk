@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the logon Alibaba Cloud account can be used to place orders for the threat analysis feature, such as purchase, upgrade, and specifications change orders. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class data extends Model
     public $canBuy;
 
     /**
+     * @description The log storage capacity that is purchased for the threat analysis feature. Unit: GB.
+     *
      * @example 1024
      *
      * @var int
@@ -23,6 +30,8 @@ class data extends Model
     public $capacity;
 
     /**
+     * @description The number of days before the expiration time of the threat analysis feature.
+     *
      * @example 3
      *
      * @var int
@@ -30,6 +39,8 @@ class data extends Model
     public $durationDays;
 
     /**
+     * @description The timestamp when the threat analysis feature expires. Unit: milliseconds.
+     *
      * @example 1669823999000
      *
      * @var int
@@ -37,6 +48,8 @@ class data extends Model
     public $endTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+     *
      * @example 123XXXXXX
      *
      * @var int
@@ -44,6 +57,8 @@ class data extends Model
     public $mainUserId;
 
     /**
+     * @description The username of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+     *
      * @example sas_account_xxx
      *
      * @var string
@@ -51,6 +66,8 @@ class data extends Model
     public $mainUserName;
 
     /**
+     * @description The ID of the management account of the resource directory.
+     *
      * @example 123XXXXXX
      *
      * @var int
@@ -58,6 +75,8 @@ class data extends Model
     public $masterUserId;
 
     /**
+     * @description The display name of the management account of the resource directory.
+     *
      * @example rd_master_xxx
      *
      * @var string
@@ -65,6 +84,8 @@ class data extends Model
     public $masterUserName;
 
     /**
+     * @description The instance ID of Security Center.
+     *
      * @example sas-instance-xxxxx
      *
      * @var string
@@ -72,6 +93,8 @@ class data extends Model
     public $sasInstanceId;
 
     /**
+     * @description The ID of the logon Alibaba Cloud account.
+     *
      * @example 123XXXXXX
      *
      * @var int
@@ -79,6 +102,8 @@ class data extends Model
     public $subUserId;
 
     /**
+     * @description The username of the logon Alibaba Cloud account.
+     *
      * @example sas_account_xxx
      *
      * @var string

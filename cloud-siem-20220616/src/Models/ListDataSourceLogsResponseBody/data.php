@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the cloud account.
+     *
      * @example 123xxxxxxx
      *
      * @var string
@@ -17,6 +19,12 @@ class data extends Model
     public $accountId;
 
     /**
+     * @description The code that is used for multi-cloud environments. Valid values:
+     *
+     *   qcloud: Tencent Cloud
+     *   aliyun: Alibaba Cloud
+     *   hcloud: Huawei Cloud
+     *
      * @example hcloud
      *
      * @var string
@@ -24,6 +32,8 @@ class data extends Model
     public $cloudCode;
 
     /**
+     * @description The ID of the data source. The value is obtained after the threat analysis feature calculates the MD5 hash value of a parameter.
+     *
      * @example 220ba97c9d1fdb0b9c7e8c7ca328d7ea
      *
      * @var string
@@ -31,11 +41,15 @@ class data extends Model
     public $dataSourceInstanceId;
 
     /**
+     * @description The logs of the data source.
+     *
      * @var dataSourceInstanceLogs[]
      */
     public $dataSourceInstanceLogs;
 
     /**
+     * @description The name of the data source.
+     *
      * @example waf kafka
      *
      * @var string
@@ -43,6 +57,8 @@ class data extends Model
     public $dataSourceInstanceName;
 
     /**
+     * @description The remarks of the data source.
+     *
      * @example waf kafka
      *
      * @var string
@@ -50,6 +66,8 @@ class data extends Model
     public $dataSourceInstanceRemark;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 123XXXXXXXX
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListBindDataSourcesRequest extends Model
 {
     /**
+     * @description The ID of the cloud account.
+     *
      * @example 123xxxxxxx
      *
      * @var string
@@ -16,6 +18,14 @@ class ListBindDataSourcesRequest extends Model
     public $accountId;
 
     /**
+     * @description The code of the cloud service provider.
+     *
+     * Valid values:
+     *
+     *   qcloud
+     *   hcloud
+     *   aliyun
+     *
      * @example hcloud
      *
      * @var string
@@ -23,6 +33,11 @@ class ListBindDataSourcesRequest extends Model
     public $cloudCode;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

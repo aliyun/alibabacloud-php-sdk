@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListProjectLogStoresRequest extends Model
 {
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +21,8 @@ class ListProjectLogStoresRequest extends Model
     public $regionId;
 
     /**
+     * @description The log code.
+     *
      * @example cloud_siem_aegis_proc
      *
      * @var string
@@ -23,6 +30,8 @@ class ListProjectLogStoresRequest extends Model
     public $sourceLogCode;
 
     /**
+     * @description The code of the cloud service.
+     *
      * @example sas
      *
      * @var string
@@ -30,6 +39,8 @@ class ListProjectLogStoresRequest extends Model
     public $sourceProdCode;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 123XXXXXXXX
      *
      * @var int

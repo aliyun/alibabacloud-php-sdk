@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourceLogsRequest extends Model
 {
     /**
+     * @description The ID of the cloud account.
+     *
      * @example 123xxxxxx
      *
      * @var string
@@ -16,6 +18,12 @@ class ListDataSourceLogsRequest extends Model
     public $accountId;
 
     /**
+     * @description The code that is used for multi-cloud environments. Valid values:
+     *
+     *   qcloud: Tencent Cloud
+     *   aliyun: Alibaba Cloud
+     *   hcloud: Huawei Cloud
+     *
      * @example hcloud
      *
      * @var string
@@ -23,6 +31,8 @@ class ListDataSourceLogsRequest extends Model
     public $cloudCode;
 
     /**
+     * @description The ID of the data source. The value is obtained after the threat analysis feature calculates the MD5 hash value of a parameter.
+     *
      * @example 220ba97c9d1fdb0b9c7e8c7ca328d7ea
      *
      * @var string
@@ -30,6 +40,11 @@ class ListDataSourceLogsRequest extends Model
     public $dataSourceInstanceId;
 
     /**
+     * @description The data management center of the threat analysis feature. Specify this parameter based on the region where your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions inside China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

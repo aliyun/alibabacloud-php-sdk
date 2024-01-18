@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchJobSubmitRequest extends Model
 {
     /**
+     * @description The detail config of task.
+     *
      * @example {{"autoSubmit":false,"configName":"test_builder","folderConfig":{"folderId":"rd-EUx7Qp","prodConfig":[{"allLogs":false,"allRegions":false,"logConfig":[{"logCode":"cloud_siem_rds_audit_log","logStorePattern":"vpc-test","projectPattern":"vpc-test"}],"prodCode":"rds","regions":["cn-shanghai"]},{"allLogs":true,"allRegions":true,"prodCode":"sas"}],"type":"folder"},"listenRdChange":false,"logConfigs":{"cloud_siem_rds_audit_log":{"logCode":"cloud_siem_rds_audit_log","logStorePattern":"vpc-test","projectPattern":"vpc-test"}}}}
      *
      * @var string
@@ -16,6 +18,11 @@ class BatchJobSubmitRequest extends Model
     public $jsonConfig;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-shanghai
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BindAccountRequest extends Model
 {
     /**
+     * @description The AccessKey ID of the cloud account.
+     *
      * @example ABCXXXXXXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class BindAccountRequest extends Model
     public $accessId;
 
     /**
+     * @description The ID of the cloud account.
+     *
      * @example 123xxxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class BindAccountRequest extends Model
     public $accountId;
 
     /**
+     * @description The username of the cloud account.
+     *
      * @example xxxx
      *
      * @var string
@@ -30,6 +36,13 @@ class BindAccountRequest extends Model
     public $accountName;
 
     /**
+     * @description The code of the cloud service provider.
+     *
+     * Valid values:
+     *
+     *   qcloud
+     *   hcloud
+     *
      * @example hcloud
      *
      * @var string
@@ -37,6 +50,11 @@ class BindAccountRequest extends Model
     public $cloudCode;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

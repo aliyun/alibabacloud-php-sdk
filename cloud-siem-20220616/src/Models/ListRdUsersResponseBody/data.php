@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the account can be used to view the logs and alerts within the account.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,11 @@ class data extends Model
     public $delegatedOrNot;
 
     /**
+     * @description Indicates whether the account is added to the threat analysis feature for centralized management. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class data extends Model
     public $joined;
 
     /**
+     * @description The time when the account was added to the threat analysis feature.
+     *
      * @example 2013-10-01 00:00:00
      *
      * @var string
@@ -30,6 +39,8 @@ class data extends Model
     public $joinedTime;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+     *
      * @example 123XXXXXXXXX
      *
      * @var int
@@ -37,6 +48,8 @@ class data extends Model
     public $mainUserId;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to perform operations supported by the threat analysis feature.
+     *
      * @example 123XXXXXXXX
      *
      * @var int
@@ -44,6 +57,8 @@ class data extends Model
     public $subUserId;
 
     /**
+     * @description The username of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+     *
      * @example sas_account_xxx
      *
      * @var string

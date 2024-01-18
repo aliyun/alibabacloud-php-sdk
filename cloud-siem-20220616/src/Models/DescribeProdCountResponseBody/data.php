@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of Alibaba Cloud services.
+     *
      * @example 19
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $aliyunProdCount;
 
     /**
+     * @description The number of Huawei Cloud services.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $hcloudProdCount;
 
     /**
+     * @description The number of Tencent Cloud services.
+     *
      * @example 2
      *
      * @var int

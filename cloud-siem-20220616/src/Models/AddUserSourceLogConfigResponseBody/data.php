@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The display details of the Logstore.
+     *
      * @example cn-shanghai.siem-project.siem-logstore
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $diplayLine;
 
     /**
+     * @description Indicates whether the details of added logs are returned. Valid values: true false
+     *
      * @example 0
      *
      * @var bool
@@ -23,6 +27,8 @@ class data extends Model
     public $displayed;
 
     /**
+     * @description Indicates whether the logs are added to the threat analysis feature. Valid values: true false
+     *
      * @example 0
      *
      * @var bool
@@ -30,6 +36,8 @@ class data extends Model
     public $imported;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+     *
      * @example 123XXXXXXXXX
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $mainUserId;
 
     /**
+     * @description The log code.
+     *
      * @example cloud_siem_aegis_proc
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $sourceLogCode;
 
     /**
+     * @description The code of the cloud service.
+     *
      * @example sas
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $sourceProdCode;
 
     /**
+     * @description The ID of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+     *
      * @example 123XXXXXXXX
      *
      * @var int
@@ -58,6 +72,8 @@ class data extends Model
     public $subUserId;
 
     /**
+     * @description The username of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+     *
      * @example sas_account_xxx
      *
      * @var string

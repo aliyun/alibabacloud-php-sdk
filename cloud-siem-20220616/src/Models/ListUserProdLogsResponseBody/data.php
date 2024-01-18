@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The display details of the Logstore.
+     *
      * @example cn-shanghai.siem-project.siem-logstore
      *
      * @var string
@@ -16,6 +18,11 @@ class data extends Model
     public $displayLine;
 
     /**
+     * @description Indicates whether the details of the added log are returned. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,11 @@ class data extends Model
     public $displayed;
 
     /**
+     * @description Indicates whether the log is added to the threat analysis feature. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +42,11 @@ class data extends Model
     public $imported;
 
     /**
+     * @description Indicates whether the log is added to the threat analysis feature. Valid values:
+     *
+     *   0: yes
+     *   1: no
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +54,8 @@ class data extends Model
     public $isDeleted;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+     *
      * @example 123XXXXXXXXX
      *
      * @var int
@@ -44,6 +63,8 @@ class data extends Model
     public $mainUserId;
 
     /**
+     * @description The log code.
+     *
      * @example cloud_siem_aegis_proc
      *
      * @var string
@@ -51,6 +72,8 @@ class data extends Model
     public $sourceLogCode;
 
     /**
+     * @description The details of the Logstore. The value is a JSON string.
+     *
      * @example {"project":"wafnew-project-1335759343513432-cn-hangzhou","logStore":"wafnew-logstore","regionCode":"cn-hangzhou","prodCode":"waf"}
      *
      * @var string
@@ -58,6 +81,8 @@ class data extends Model
     public $sourceLogInfo;
 
     /**
+     * @description The code of the cloud service.
+     *
      * @example sas
      *
      * @var string
@@ -65,6 +90,8 @@ class data extends Model
     public $sourceProdCode;
 
     /**
+     * @description The ID of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+     *
      * @example 123XXXXXXXX
      *
      * @var int
@@ -72,6 +99,8 @@ class data extends Model
     public $subUserId;
 
     /**
+     * @description The username of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+     *
      * @example sas_account_xxx
      *
      * @var string

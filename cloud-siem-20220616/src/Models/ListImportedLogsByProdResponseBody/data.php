@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the log is automatically added to the threat analysis feature within newly added accounts. Valid values:
+     *
+     *   1: yes
+     *   0: no
+     *
      * @example 2023-11-23 12:30:00
      *
      * @var int
@@ -16,6 +21,12 @@ class data extends Model
     public $autoImported;
 
     /**
+     * @description The code of the cloud service provider. Valid values:
+     *
+     *   qcloud: Tencent Cloud
+     *   aliyun: Alibaba Cloud
+     *   hcloud: Huawei Cloud
+     *
      * @example hcloud
      *
      * @var string
@@ -23,6 +34,11 @@ class data extends Model
     public $cloudCode;
 
     /**
+     * @description Indicates whether the log is added to the threat analysis feature. Valid values:
+     *
+     *   1: yes
+     *   0: no
+     *
      * @example 2023-11-23 12:30:00
      *
      * @var int
@@ -30,6 +46,8 @@ class data extends Model
     public $imported;
 
     /**
+     * @description The number of users who have added the log.
+     *
      * @example 2
      *
      * @var int
@@ -37,6 +55,8 @@ class data extends Model
     public $importedUserCount;
 
     /**
+     * @description The log code.
+     *
      * @example cloud_siem_waf_xxxxx
      *
      * @var string
@@ -44,6 +64,8 @@ class data extends Model
     public $logCode;
 
     /**
+     * @description The display log code.
+     *
      * @example ${siem.prod. cloud_siem_waf_xxxxx}
      *
      * @var string
@@ -51,6 +73,8 @@ class data extends Model
     public $logMdsCode;
 
     /**
+     * @description The time when the log was last added.
+     *
      * @example 2023-11-23 12:30:00
      *
      * @var string
@@ -58,6 +82,8 @@ class data extends Model
     public $modifyTime;
 
     /**
+     * @description The code of the cloud service to which the log belongs.
+     *
      * @example qcloud_waf
      *
      * @var string
@@ -65,6 +91,8 @@ class data extends Model
     public $prodCode;
 
     /**
+     * @description The total number of users who have the log.
+     *
      * @example 5
      *
      * @var int
@@ -72,6 +100,8 @@ class data extends Model
     public $totalUserCount;
 
     /**
+     * @description The number of users who have not added the log.
+     *
      * @example 3
      *
      * @var int

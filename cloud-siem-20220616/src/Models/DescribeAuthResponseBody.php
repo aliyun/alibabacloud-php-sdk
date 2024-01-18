@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuthResponseBody extends Model
 {
     /**
+     * @description Indicates whether the SIEM system is granted the required permissions. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DescribeAuthResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 4F539347-7D9A-51EA-8ABF-5D5507045C5C
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The AccessKey ID of the cloud account that is added to the threat analysis feature.
+     *
      * @example ABCXXXXXXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $accessId;
 
     /**
+     * @description The MD5 hash value of the AccessKey ID.
+     *
      * @example abcXXXXXXXX
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $accessIdMd5;
 
     /**
+     * @description The ID of the cloud account.
+     *
      * @example 123xxxxxxx
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $accountId;
 
     /**
+     * @description The information about the cloud account to which the AccessKey ID belongs. The value is in the following format: Alibaba Cloud account ID|Alibaba Cloud account username|AccessKey ID.
+     *
      * @example 123xxxxxx|xxxx|ABCXXXXX
      *
      * @var string
@@ -37,6 +45,11 @@ class data extends Model
     public $accountStr;
 
     /**
+     * @description Indicates whether the cloud account to which the AccessKey ID belongs is added to the threat analysis feature. Valid values:
+     *
+     *   0: no
+     *   1: yes
+     *
      * @example 123xxxxxx|xxxx|ABCXXXXX
      *
      * @var int
@@ -44,6 +57,8 @@ class data extends Model
     public $bound;
 
     /**
+     * @description The code of the cloud service provider.
+     *
      * @example hcloud
      *
      * @var string
@@ -51,6 +66,8 @@ class data extends Model
     public $cloudCode;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to add the third-party cloud account.
+     *
      * @example ABCXXXXXXXX
      *
      * @var int

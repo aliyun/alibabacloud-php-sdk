@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The code of the cloud service provider. Valid values:
+     *
+     *   qcloud: Tencent Cloud
+     *   aliyun: Alibaba Cloud
+     *   hcloud: Huawei Cloud
+     *
      * @example hcloud
      *
      * @var string
@@ -16,6 +22,8 @@ class data extends Model
     public $cloudCode;
 
     /**
+     * @description Indicates whether the log is added to the threat analysis feature.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +31,8 @@ class data extends Model
     public $imported;
 
     /**
+     * @description The display log code. The value is based on your console settings.
+     *
      * @example ${siem.xxx.xxxxxxxxx}
      *
      * @var string
@@ -30,6 +40,8 @@ class data extends Model
     public $logMdsCode;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+     *
      * @example 123XXXXXXXXX
      *
      * @var int
@@ -37,6 +49,8 @@ class data extends Model
     public $mainUserId;
 
     /**
+     * @description The log code.
+     *
      * @example cloud_siem_aegis_proc
      *
      * @var string
@@ -44,13 +58,17 @@ class data extends Model
     public $sourceLogCode;
 
     /**
-     * @example 安骑士进程日志
+     * @description The log name.
+     *
+     * @example the process startup log
      *
      * @var string
      */
     public $sourceLogName;
 
     /**
+     * @description The code of the cloud service.
+     *
      * @example sas
      *
      * @var string
@@ -58,6 +76,8 @@ class data extends Model
     public $sourceProdCode;
 
     /**
+     * @description The ID of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+     *
      * @example 123XXXXXXXX
      *
      * @var int
@@ -65,6 +85,8 @@ class data extends Model
     public $subUserId;
 
     /**
+     * @description The username of the Alibaba Cloud account that can be used to perform operations supported by the threat analysis feature.
+     *
      * @example sas_account_xxx
      *
      * @var string

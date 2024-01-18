@@ -57,6 +57,11 @@ class playbookList extends Model
     public $opLevel;
 
     /**
+     * @var mixed[]
+     */
+    public $paramConfig;
+
+    /**
      * @description The opcode configuration.
      *
      * @example {"opCode":"3"}
@@ -82,6 +87,7 @@ class playbookList extends Model
         'name'        => 'Name',
         'opCode'      => 'OpCode',
         'opLevel'     => 'OpLevel',
+        'paramConfig' => 'ParamConfig',
         'taskConfig'  => 'TaskConfig',
         'wafPlaybook' => 'WafPlaybook',
     ];
@@ -107,6 +113,9 @@ class playbookList extends Model
         }
         if (null !== $this->opLevel) {
             $res['OpLevel'] = $this->opLevel;
+        }
+        if (null !== $this->paramConfig) {
+            $res['ParamConfig'] = $this->paramConfig;
         }
         if (null !== $this->taskConfig) {
             $res['TaskConfig'] = $this->taskConfig;
@@ -140,6 +149,11 @@ class playbookList extends Model
         }
         if (isset($map['OpLevel'])) {
             $model->opLevel = $map['OpLevel'];
+        }
+        if (isset($map['ParamConfig'])) {
+            if (!empty($map['ParamConfig'])) {
+                $model->paramConfig = $map['ParamConfig'];
+            }
         }
         if (isset($map['TaskConfig'])) {
             $model->taskConfig = $map['TaskConfig'];

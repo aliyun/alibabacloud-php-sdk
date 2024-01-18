@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserResponseBody extends Model
 {
     /**
+     * @description Indicates whether the Alibaba Cloud account is removed. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DeleteUserResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 6276D891-*****-55B2-87B9-74D413F7****
      *
      * @var string

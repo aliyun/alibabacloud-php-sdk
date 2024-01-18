@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of log collection tasks that are submitted.
+     *
      * @example 10
      *
      * @var int

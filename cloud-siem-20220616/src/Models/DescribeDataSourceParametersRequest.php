@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataSourceParametersRequest extends Model
 {
     /**
+     * @description The code of the cloud service provider.
+     *
+     * Valid values:
+     *
+     *   qcloud
+     *   hcloud
+     *   aliyun
+     *
      * @example hcloud
      *
      * @var string
@@ -16,6 +24,12 @@ class DescribeDataSourceParametersRequest extends Model
     public $cloudCode;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   ckafka: Tencent Cloud Kafka (CKafka)
+     *   obs: Huawei Cloud Object Storage Service (OBS)
+     *   wafApi: download API of Tencent Cloud Web Application Firewall (WAF)
+     *
      * @example obs
      *
      * @var string
@@ -23,6 +37,11 @@ class DescribeDataSourceParametersRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

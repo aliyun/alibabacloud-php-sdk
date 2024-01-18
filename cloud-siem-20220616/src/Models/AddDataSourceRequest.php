@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddDataSourceRequest extends Model
 {
     /**
+     * @description The ID of the cloud account.
+     *
      * @example 123xxxxxxxx
      *
      * @var string
@@ -16,6 +18,14 @@ class AddDataSourceRequest extends Model
     public $accountId;
 
     /**
+     * @description The code of the cloud service provider.
+     *
+     * Valid values:
+     *
+     *   qcloud
+     *   hcloud
+     *   aliyun
+     *
      * @example hcloud
      *
      * @var string
@@ -23,13 +33,17 @@ class AddDataSourceRequest extends Model
     public $cloudCode;
 
     /**
-     * @example XX北京kafka
+     * @description The name of the data source.
+     *
+     * @example beijing_waf_kafka
      *
      * @var string
      */
     public $dataSourceInstanceName;
 
     /**
+     * @description The parameters of the data source. Set this parameter to a JSON array.
+     *
      * @example [{"paraCode":"region_code","paraValue":"ap-guangzhou"}]
      *
      * @var string
@@ -37,13 +51,21 @@ class AddDataSourceRequest extends Model
     public $dataSourceInstanceParams;
 
     /**
-     * @example XX云云防火墙上海实例
+     * @description The remarks on the data source.
+     *
+     * @example waf_alert_log
      *
      * @var string
      */
     public $dataSourceInstanceRemark;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   obs: Huawei Cloud Object Storage Service (OBS)
+     *   wafApi: download API of Tencent Cloud Web Application Firewall (WAF)
+     *   ckafka: Tencent Cloud Kafka (CKafka)
+     *
      * @example obs
      *
      * @var string
@@ -51,6 +73,11 @@ class AddDataSourceRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

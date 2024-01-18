@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the cloud account.
+     *
      * @example 123xxxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $accountId;
 
     /**
+     * @description The name of the cloud account.
+     *
      * @example sas_account_xxx
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $accountName;
 
     /**
+     * @description Indicates whether the account is added. Valid values: -1: yes -0: no
+     *
      * @example 123xxxxxxx
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $imported;
 
     /**
+     * @description The code of the log.
+     *
      * @example cloud_siem_waf_xxxxx
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $logCode;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+     *
      * @example 123XXXXXXXXX
      *
      * @var int
@@ -44,6 +54,8 @@ class data extends Model
     public $mainUserId;
 
     /**
+     * @description The code of the service.
+     *
      * @example qcloud_waf
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $prodCode;
 
     /**
+     * @description The ID of the Alibaba Cloud account for which the threat analysis feature is enabled.
+     *
      * @example 123XXXXXXXX
      *
      * @var int

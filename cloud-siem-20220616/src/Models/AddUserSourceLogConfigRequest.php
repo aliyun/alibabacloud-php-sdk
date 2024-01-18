@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddUserSourceLogConfigRequest extends Model
 {
     /**
+     * @description Specifies whether to add logs or delete added logs. Valid values:
+     *
+     *   \-1: deletes added logs.
+     *   0: adds logs.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,8 @@ class AddUserSourceLogConfigRequest extends Model
     public $deleted;
 
     /**
+     * @description The display details of the Logstore.
+     *
      * @example cn-shanghai.siem-project.siem-logstore
      *
      * @var string
@@ -23,6 +30,11 @@ class AddUserSourceLogConfigRequest extends Model
     public $disPlayLine;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +42,8 @@ class AddUserSourceLogConfigRequest extends Model
     public $regionId;
 
     /**
+     * @description The log code.
+     *
      * @example cloud_siem_aegis_proc
      *
      * @var string
@@ -37,6 +51,8 @@ class AddUserSourceLogConfigRequest extends Model
     public $sourceLogCode;
 
     /**
+     * @description The details of the Logstore that you want to use in the JSON string format.
+     *
      * @example {"project":"wafnew-project-1335759343513432-cn-hangzhou","logStore":"wafnew-logstore","regionCode":"cn-hangzhou","prodCode":"waf"}
      *
      * @var string
@@ -44,6 +60,8 @@ class AddUserSourceLogConfigRequest extends Model
     public $sourceLogInfo;
 
     /**
+     * @description The code of the cloud service.
+     *
      * @example sas
      *
      * @var string
@@ -51,6 +69,8 @@ class AddUserSourceLogConfigRequest extends Model
     public $sourceProdCode;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 123XXXXXX
      *
      * @var int

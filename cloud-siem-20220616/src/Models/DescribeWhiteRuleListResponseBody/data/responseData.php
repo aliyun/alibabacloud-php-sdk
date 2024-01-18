@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class responseData extends Model
 {
     /**
+     * @description The alert name.
+     *
      * @example Try SNMP weak password
      *
      * @var string
@@ -17,6 +19,8 @@ class responseData extends Model
     public $alertName;
 
     /**
+     * @description The ID of the alert name.
+     *
      * @example Try SNMP weak password
      *
      * @var string
@@ -24,6 +28,8 @@ class responseData extends Model
     public $alertNameId;
 
     /**
+     * @description The alert type.
+     *
      * @example scan
      *
      * @var string
@@ -31,6 +37,8 @@ class responseData extends Model
     public $alertType;
 
     /**
+     * @description The ID of the alert type.
+     *
      * @example scan
      *
      * @var string
@@ -38,6 +46,8 @@ class responseData extends Model
     public $alertTypeId;
 
     /**
+     * @description The UUID of the alert.
+     *
      * @example sas_71e24437d2797ce8fc59692905a4****
      *
      * @var string
@@ -45,6 +55,8 @@ class responseData extends Model
     public $alertUuid;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to purchase the threat analysis feature.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -52,6 +64,8 @@ class responseData extends Model
     public $aliuid;
 
     /**
+     * @description The conditions in the rule. The value is a JSON array.
+     *
      * @example [{"conditions":[{"isNot":false,"itemId":0,"left":{"value":"host_uuid.host_name"},"operator":"containsString","right":{"value":"Cloud-MCH"}}]}]
      *
      * @var expression
@@ -59,6 +73,8 @@ class responseData extends Model
     public $expression;
 
     /**
+     * @description The time when the whitelist rule was created.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -66,6 +82,8 @@ class responseData extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the whitelist rule was modified.
+     *
      * @example 2021-01-06 16:37:29
      *
      * @var string
@@ -73,6 +91,8 @@ class responseData extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the whitelist rule.
+     *
      * @example 123456789
      *
      * @var int
@@ -80,6 +100,8 @@ class responseData extends Model
     public $id;
 
     /**
+     * @description The UUID of the event.
+     *
      * @example 85ea4241-798f-4684-a876-65d4f0c3****
      *
      * @var string
@@ -87,6 +109,11 @@ class responseData extends Model
     public $incidentUuid;
 
     /**
+     * @description The status of the whitelist rule. Valid values:
+     *
+     *   1: enabled
+     *   0: disabled
+     *
      * @example 1
      *
      * @var int
@@ -94,6 +121,8 @@ class responseData extends Model
     public $status;
 
     /**
+     * @description The ID of the Alibaba Cloud account that is used to create the whitelist rule.
+     *
      * @example 176555323***
      *
      * @var int

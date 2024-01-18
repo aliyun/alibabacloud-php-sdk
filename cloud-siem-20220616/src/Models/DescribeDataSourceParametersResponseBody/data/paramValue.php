@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class paramValue extends Model
 {
     /**
+     * @description The display value.
+     *
      * @example guangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class paramValue extends Model
     public $label;
 
     /**
+     * @description The actual value.
+     *
      * @example ap-guangzhou
      *
      * @var string

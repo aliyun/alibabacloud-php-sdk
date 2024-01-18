@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class right extends Model
 {
     /**
+     * @description Indicates whether the right operand is a constant or a runtime variable that is obtained from the runtime context. Valid values:
+     *
+     *   true: runtime variable
+     *   false: constant
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,8 @@ class right extends Model
     public $isVar;
 
     /**
+     * @description The remarks on the right operand.
+     *
      * @example length
      *
      * @var string
@@ -23,11 +30,15 @@ class right extends Model
     public $modifier;
 
     /**
+     * @description The key-value pair information of the remarks.
+     *
      * @var mixed[]
      */
     public $modifierParam;
 
     /**
+     * @description The data type of the right operand.
+     *
      * @example String
      *
      * @var string
@@ -35,6 +46,8 @@ class right extends Model
     public $type;
 
     /**
+     * @description The right operand.
+     *
      * @example 12345
      *
      * @var string

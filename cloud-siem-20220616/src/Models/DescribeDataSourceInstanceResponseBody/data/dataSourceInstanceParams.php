@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataSourceInstanceParams extends Model
 {
     /**
+     * @description The code of the parameter.
+     *
      * @example region_code
      *
      * @var string
@@ -16,6 +18,8 @@ class dataSourceInstanceParams extends Model
     public $paraCode;
 
     /**
+     * @description The value of the parameter.
+     *
      * @example ap-guangzhou
      *
      * @var string

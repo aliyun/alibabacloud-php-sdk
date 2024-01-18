@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserBuyStatusResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 81D8EC0C-0804-51AD-8C38-17ED0BC74892
      *
      * @var string

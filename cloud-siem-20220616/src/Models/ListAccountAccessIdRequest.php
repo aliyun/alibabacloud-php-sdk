@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListAccountAccessIdRequest extends Model
 {
     /**
+     * @description The code of the cloud service provider.
+     *
+     * Valid values:
+     *
+     *   qcloud
+     *   hcloud
+     *
      * @example hcloud
      *
      * @var string
@@ -16,6 +23,11 @@ class ListAccountAccessIdRequest extends Model
     public $cloudCode;
 
     /**
+     * @description The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the regions in which your assets reside. Valid values:
+     *
+     *   cn-hangzhou: Your assets reside in regions in China.
+     *   ap-southeast-1: Your assets reside in regions outside China.
+     *
      * @example cn-hangzhou
      *
      * @var string

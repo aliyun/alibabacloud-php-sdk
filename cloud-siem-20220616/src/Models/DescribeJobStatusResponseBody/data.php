@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the task configuration.
+     *
      * @example xxxx_folder_xxxx
      *
      * @var string
@@ -17,11 +19,15 @@ class data extends Model
     public $configId;
 
     /**
+     * @description The list of failed task.
+     *
      * @var errTaskList[]
      */
     public $errTaskList;
 
     /**
+     * @description The number of failed tasks.
+     *
      * @example 8
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $failedCount;
 
     /**
+     * @description The number of scan tasks that are complete.
+     *
      * @example 52
      *
      * @var int
@@ -36,6 +44,8 @@ class data extends Model
     public $finishCount;
 
     /**
+     * @description The ID of the folder.
+     *
      * @example fd-xxxxx
      *
      * @var string
@@ -43,6 +53,8 @@ class data extends Model
     public $folderId;
 
     /**
+     * @description The number of existing tasks that are created to add logs within the data source.
+     *
      * @example 60
      *
      * @var int
@@ -50,6 +62,8 @@ class data extends Model
     public $taskCount;
 
     /**
+     * @description The status of submitted task.
+     *
      * @example finish
      *
      * @var string

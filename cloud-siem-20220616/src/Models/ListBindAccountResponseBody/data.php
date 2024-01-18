@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The AccessKey ID of the cloud account.
+     *
      * @example ABCXXXXXXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $accessId;
 
     /**
+     * @description The ID of the cloud account.
+     *
      * @example 123xxxxxxx
      *
      * @var string
@@ -23,13 +27,17 @@ class data extends Model
     public $accountId;
 
     /**
-     * @example XXXXXXXX
+     * @description The username of the cloud account.
+     *
+     * @example sas_account_xxx
      *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The ID that is generated when the cloud account is added.
+     *
      * @example 123xxxxxxx
      *
      * @var int
@@ -37,6 +45,12 @@ class data extends Model
     public $bindId;
 
     /**
+     * @description The code of the cloud service provider. Valid values:
+     *
+     *   qcloud: Tencent Cloud
+     *   aliyun: Alibaba Cloud
+     *   hcloud: Huawei Cloud
+     *
      * @example hcloud
      *
      * @var string
@@ -44,6 +58,8 @@ class data extends Model
     public $cloudCode;
 
     /**
+     * @description The ID of the account that is used to add the cloud account.
+     *
      * @example 123xxxxxxx
      *
      * @var string
@@ -51,6 +67,8 @@ class data extends Model
     public $createUser;
 
     /**
+     * @description The number of data sources that are added to the threat analysis feature within the cloud account.
+     *
      * @example 2
      *
      * @var int
@@ -58,6 +76,8 @@ class data extends Model
     public $dataSourceCount;
 
     /**
+     * @description The modification time.
+     *
      * @example 2023-11-10 12:20:35
      *
      * @var string

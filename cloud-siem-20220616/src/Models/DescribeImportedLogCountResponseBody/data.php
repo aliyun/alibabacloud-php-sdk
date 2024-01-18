@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of logs that are added.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $importedLogCount;
 
     /**
+     * @description The total number of logs.
+     *
      * @example 59
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $totalLogCount;
 
     /**
+     * @description The number of logs that are not added.
+     *
      * @example 49
      *
      * @var int

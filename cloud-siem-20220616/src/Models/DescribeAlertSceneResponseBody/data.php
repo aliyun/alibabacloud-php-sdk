@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the alert. The value varies based on the display language (Chinese or English) of the Security Center console.
+     *
      * @example login_common_ip
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $alertName;
 
     /**
+     * @description The ID of the alert name.
+     *
      * @example login_common_ip
      *
      * @var string
@@ -24,6 +28,8 @@ class data extends Model
     public $alertNameId;
 
     /**
+     * @description The title of the alert notification. The value varies based on the display language (Chinese or English) of the Security Center console.
+     *
      * @example unusual login-login_common_ip
      *
      * @var string
@@ -31,6 +37,8 @@ class data extends Model
     public $alertTile;
 
     /**
+     * @description The ID of the alert title.
+     *
      * @example unusual login-login_common_ip
      *
      * @var string
@@ -38,6 +46,8 @@ class data extends Model
     public $alertTileId;
 
     /**
+     * @description The type of the alert. The value varies based on the display language (Chinese or English) of the Security Center console.
+     *
      * @example unusual login
      *
      * @var string
@@ -45,6 +55,8 @@ class data extends Model
     public $alertType;
 
     /**
+     * @description The ID of the alert type.
+     *
      * @example unusual login
      *
      * @var string
@@ -52,6 +64,8 @@ class data extends Model
     public $alertTypeId;
 
     /**
+     * @description The information about the entities for which you need to add the alert to the whitelist.
+     *
      * @example [{"Type": "host_uuid","Value": "441862da-a539-4cc0-a00d-473955826881","Values": ["441862da-a539-4cc0-a00d-473955826881"],"Name": "${aliyun.siem.entity.host_uuid}"}]
      *
      * @var targets[]

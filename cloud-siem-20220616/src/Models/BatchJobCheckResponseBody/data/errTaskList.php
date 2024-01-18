@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class errTaskList extends Model
 {
     /**
+     * @description The list of product.
+     *
      * @var productList[]
      */
     public $productList;
 
     /**
+     * @description The account id of aliyun.
+     *
      * @example 123xxxxxx
      *
      * @var int
