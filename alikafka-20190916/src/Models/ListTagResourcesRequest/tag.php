@@ -11,9 +11,8 @@ class tag extends Model
     /**
      * @description The tag key.
      *
-     *   Valid values of N: 1 to 20.
-     *   If this parameter is not configured, all tag keys are matched.
-     *   The tag key can be up to 128 characters in length. The tag value cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+     *   If you leave this parameter empty, the keys of all tags are matched.
+     *   The tag key must be 1 to 128 characters in length and cannot start with acs: or aliyun. The tag key cannot contain http:// or https://.
      *
      * @example FinanceDept
      *
@@ -24,9 +23,8 @@ class tag extends Model
     /**
      * @description The tag value.
      *
-     *   Valid values of N: 1 to 20.
-     *   If the Key parameter is not configured, you cannot configure this parameter. If this parameter is not configured, all tag values are matched.
-     *   The tag value can be 1 to 128 characters in length. The tag value cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+     *   If you do not specify the tag key, you cannot specify the tag value. If you leave this parameter empty, the values of all tags are matched.
+     *   The tag value must be 1 to 128 characters in length and cannot start with acs: or aliyun. The tag value cannot contain http:// or https://.
      *
      * @example FinanceJoshua
      *

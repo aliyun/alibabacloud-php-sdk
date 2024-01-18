@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyInstanceNameResponseBody extends Model
+class UpdateTopicConfigResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the call is successful.
-     *
      * @example 200
      *
      * @var int
@@ -18,8 +16,13 @@ class ModifyInstanceNameResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned message.
+     * @example []
      *
+     * @var string
+     */
+    public $data;
+
+    /**
      * @example operation success.
      *
      * @var string
@@ -27,24 +30,23 @@ class ModifyInstanceNameResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
+     * @description Id of the request
      *
-     * @example 06084011-E093-46F3-A51F-4B19A8AD****
+     * @example 0178A3A7-E87B-5E50-A16F-3E62F534****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
-     *
-     * @example true
+     * @example True
      *
      * @var bool
      */
     public $success;
     protected $_name = [
         'code'      => 'Code',
+        'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
@@ -59,6 +61,9 @@ class ModifyInstanceNameResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -76,13 +81,16 @@ class ModifyInstanceNameResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyInstanceNameResponseBody
+     * @return UpdateTopicConfigResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

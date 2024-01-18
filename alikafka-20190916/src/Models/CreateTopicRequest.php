@@ -116,7 +116,7 @@ class CreateTopicRequest extends Model
     public $replicationFactor;
 
     /**
-     * @description The tags.
+     * @description The tags that you want to add to the topic.
      *
      * @var tag[]
      */

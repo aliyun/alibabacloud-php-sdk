@@ -51,7 +51,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The list of tags that you want to associate with the instances.
+     * @description The tags that you want to add.
      *
      * @var tag[]
      */

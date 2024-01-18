@@ -41,7 +41,7 @@ class instanceVO extends Model
     public $deployType;
 
     /**
-     * @description The disk size of the instance.
+     * @description The disk size of the instance. Unit: GB
      *
      * @example 3600
      *
@@ -50,7 +50,7 @@ class instanceVO extends Model
     public $diskSize;
 
     /**
-     * @description The disk type of the instance. Unit: GB Valid values:
+     * @description The disk type. Valid values:
      *
      *   **0**: ultra disk
      *   **1**: standard SSD
@@ -95,7 +95,7 @@ class instanceVO extends Model
     public $endPoint;
 
     /**
-     * @description The expiration time. Unit: milliseconds.
+     * @description The time when the instance expires. Unit: milliseconds.
      *
      * @example 1893581018000
      *
@@ -202,7 +202,7 @@ class instanceVO extends Model
     /**
      * @description The security group to which the instance belongs.
      *
-     *   If the instance is deployed by using the ApsaraMQ for Kafka console or calling the [StartInstance](~~157786~~) operation without a security group configured, the returned value is empty.
+     *   If the instance is deployed by using the ApsaraMQ for Kafka console or calling the [StartInstance](~~157786~~) operation without a security group configured, no value is returned.
      *   If the instance is deployed by calling the [StartInstance](~~157786~~) operation with a security group configured, the return value is the configured security group.
      *
      * @example sg-bp13wfx7kz9pkow****
@@ -339,7 +339,7 @@ class instanceVO extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the instance belongs.
+     * @description The ID of the virtual private cloud (VPC) in which the instance is deployed.
      *
      * @example vpc-bp1ojac7bv448nifj****
      *
@@ -348,7 +348,7 @@ class instanceVO extends Model
     public $vpcId;
 
     /**
-     * @description The zone ID of the instance.
+     * @description The zone ID.
      *
      * @example zonei
      *

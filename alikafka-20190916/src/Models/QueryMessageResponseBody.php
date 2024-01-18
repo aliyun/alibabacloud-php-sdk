@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\QueryMessageResponseBody\messageList;
 use AlibabaCloud\Tea\Model;
 
-class ModifyInstanceNameResponseBody extends Model
+class QueryMessageResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the call is successful.
-     *
      * @example 200
      *
      * @var int
@@ -18,8 +17,6 @@ class ModifyInstanceNameResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned message.
-     *
      * @example operation success.
      *
      * @var string
@@ -27,27 +24,29 @@ class ModifyInstanceNameResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example 06084011-E093-46F3-A51F-4B19A8AD****
+     * @var messageList[]
+     */
+    public $messageList;
+
+    /**
+     * @example ABA4A7FD-E10F-45C7-9774-A5236015****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
-     *
      * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'code'        => 'Code',
+        'message'     => 'Message',
+        'messageList' => 'MessageList',
+        'requestId'   => 'RequestId',
+        'success'     => 'Success',
     ];
 
     public function validate()
@@ -63,6 +62,15 @@ class ModifyInstanceNameResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->messageList) {
+            $res['MessageList'] = [];
+            if (null !== $this->messageList && \is_array($this->messageList)) {
+                $n = 0;
+                foreach ($this->messageList as $item) {
+                    $res['MessageList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -76,7 +84,7 @@ class ModifyInstanceNameResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyInstanceNameResponseBody
+     * @return QueryMessageResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -86,6 +94,15 @@ class ModifyInstanceNameResponseBody extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['MessageList'])) {
+            if (!empty($map['MessageList'])) {
+                $model->messageList = [];
+                $n                  = 0;
+                foreach ($map['MessageList'] as $item) {
+                    $model->messageList[$n++] = null !== $item ? messageList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

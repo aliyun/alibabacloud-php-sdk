@@ -60,6 +60,8 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyPartitionNumRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyPartitionNumResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyTopicRemarkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyTopicRemarkResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\QueryMessageRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\QueryMessageResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ReleaseInstanceRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ReleaseInstanceResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\StartInstanceRequest;
@@ -75,6 +77,8 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateConsumerOffsetResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateConsumerOffsetShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateInstanceConfigRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateInstanceConfigResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateTopicConfigRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateTopicConfigResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradeInstanceVersionRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradeInstanceVersionResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePostPayOrderRequest;
@@ -1592,6 +1596,46 @@ class Alikafka extends OpenApiClient
     }
 
     /**
+     * @param QueryMessageRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryMessageResponse
+     */
+    public function queryMessageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMessage',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryMessageRequest $request
+     *
+     * @return QueryMessageResponse
+     */
+    public function queryMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMessageWithOptions($request, $runtime);
+    }
+
+    /**
      * You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
      *   *
      * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
@@ -2057,8 +2101,63 @@ class Alikafka extends OpenApiClient
     }
 
     /**
+     * @param UpdateTopicConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateTopicConfigResponse
+     */
+    public function updateTopicConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTopicConfig',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTopicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTopicConfigRequest $request
+     *
+     * @return UpdateTopicConfigResponse
+     */
+    public function updateTopicConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTopicConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * ## **Permissions**
-     *   * A RAM user must be granted the required permissions before the RAM user call the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
+     *   * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
      *   * |API|Action|Resource|
      *   * |---|---|---|
      *   * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
@@ -2103,7 +2202,7 @@ class Alikafka extends OpenApiClient
 
     /**
      * ## **Permissions**
-     *   * A RAM user must be granted the required permissions before the RAM user call the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
+     *   * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
      *   * |API|Action|Resource|
      *   * |---|---|---|
      *   * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|

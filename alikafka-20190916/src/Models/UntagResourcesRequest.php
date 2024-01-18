@@ -50,7 +50,7 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The key of the tag that you want to attach to the specified resource.
+     * @description The tag key.
      *
      * @example FinanceDept
      *

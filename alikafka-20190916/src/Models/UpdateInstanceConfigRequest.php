@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceConfigRequest extends Model
 {
     /**
-     * @description The configuration of the instance that you want to update. The value must be a valid JSON string.
+     * @description The configurations that you want to update for the ApsaraMQ for Kafka instance. The value must be a valid JSON string.
      *
      * @example {"kafka.log.retention.hours":"33"}
      *
