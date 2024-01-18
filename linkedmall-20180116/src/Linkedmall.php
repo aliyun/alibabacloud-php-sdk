@@ -223,6 +223,9 @@ use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInventoryRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInventoryResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInventoryV2Request;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemInventoryV2Response;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemNextCycleRestrictionRequest;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemNextCycleRestrictionResponse;
+use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryItemNextCycleRestrictionShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsRequest;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryLogisticsResponse;
 use AlibabaCloud\SDK\Linkedmall\V20180116\Models\QueryMediaSettleInfoRequest;
@@ -6225,6 +6228,62 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryItemInventoryV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryItemNextCycleRestrictionRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return QueryItemNextCycleRestrictionResponse
+     */
+    public function queryItemNextCycleRestrictionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryItemNextCycleRestrictionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->lmItemId)) {
+            $request->lmItemIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemId, 'LmItemId', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->subBizId)) {
+            $query['SubBizId'] = $request->subBizId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->lmItemIdShrink)) {
+            $body['LmItemId'] = $request->lmItemIdShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryItemNextCycleRestriction',
+            'version'     => '2018-01-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryItemNextCycleRestrictionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryItemNextCycleRestrictionRequest $request
+     *
+     * @return QueryItemNextCycleRestrictionResponse
+     */
+    public function queryItemNextCycleRestriction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryItemNextCycleRestrictionWithOptions($request, $runtime);
     }
 
     /**
