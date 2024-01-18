@@ -25,9 +25,13 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FeedbackDialogueShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchImageTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchImageTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchImageTaskShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateFileUrlByKeyRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateFileUrlByKeyResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateImageTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateImageTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateImageTaskShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateUploadConfigRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateUploadConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointShrinkRequest;
@@ -64,6 +68,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveDataSourceOrderConfigShrinkRe
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveMaterialDocumentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveMaterialDocumentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveMaterialDocumentShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAsyncTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateGeneratedContentRequest;
@@ -548,6 +555,54 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @param GenerateFileUrlByKeyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GenerateFileUrlByKeyResponse
+     */
+    public function generateFileUrlByKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->fileKey)) {
+            $body['FileKey'] = $request->fileKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateFileUrlByKey',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateFileUrlByKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateFileUrlByKeyRequest $request
+     *
+     * @return GenerateFileUrlByKeyResponse
+     */
+    public function generateFileUrlByKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateFileUrlByKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GenerateImageTaskRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
@@ -607,6 +662,57 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateImageTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateUploadConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GenerateUploadConfigResponse
+     */
+    public function generateUploadConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $body['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->parentDir)) {
+            $body['ParentDir'] = $request->parentDir;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateUploadConfig',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateUploadConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateUploadConfigRequest $request
+     *
+     * @return GenerateUploadConfigResponse
+     */
+    public function generateUploadConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateUploadConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -1500,6 +1606,74 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveMaterialDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchNewsRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SearchNewsResponse
+     */
+    public function searchNewsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SearchNewsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->searchSources)) {
+            $request->searchSourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->searchSources, 'SearchSources', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->filterNotNull)) {
+            $body['FilterNotNull'] = $request->filterNotNull;
+        }
+        if (!Utils::isUnset($request->includeContent)) {
+            $body['IncludeContent'] = $request->includeContent;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $body['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $body['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->searchSourcesShrink)) {
+            $body['SearchSources'] = $request->searchSourcesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchNews',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchNewsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchNewsRequest $request
+     *
+     * @return SearchNewsResponse
+     */
+    public function searchNews($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchNewsWithOptions($request, $runtime);
     }
 
     /**
