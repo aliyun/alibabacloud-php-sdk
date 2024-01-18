@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class usage extends Model
 {
     /**
+     * @var int
+     */
+    public $embeddingEntries;
+
+    /**
      * @example 475
      *
      * @var int
      */
     public $embeddingTokens;
     protected $_name = [
-        'embeddingTokens' => 'EmbeddingTokens',
+        'embeddingEntries' => 'EmbeddingEntries',
+        'embeddingTokens'  => 'EmbeddingTokens',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class usage extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->embeddingEntries) {
+            $res['EmbeddingEntries'] = $this->embeddingEntries;
+        }
         if (null !== $this->embeddingTokens) {
             $res['EmbeddingTokens'] = $this->embeddingTokens;
         }
@@ -40,6 +49,9 @@ class usage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EmbeddingEntries'])) {
+            $model->embeddingEntries = $map['EmbeddingEntries'];
+        }
         if (isset($map['EmbeddingTokens'])) {
             $model->embeddingTokens = $map['EmbeddingTokens'];
         }

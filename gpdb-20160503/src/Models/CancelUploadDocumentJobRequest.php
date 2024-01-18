@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CancelUploadDocumentJobRequest extends Model
 {
     /**
+     * @example document
+     *
      * @var string
      */
     public $collection;
 
     /**
+     * @example gp-xxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 231460f8-75dc-405e-a669-0c5204887e91
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example mynamespace
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example testpassword
+     *
      * @var string
      */
     public $namespacePassword;
@@ -39,6 +49,8 @@ class CancelUploadDocumentJobRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
