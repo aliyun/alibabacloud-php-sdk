@@ -1132,6 +1132,9 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->idSpoof)) {
             $query['IdSpoof'] = $request->idSpoof;
         }
+        if (!Utils::isUnset($request->languageConfig)) {
+            $query['LanguageConfig'] = $request->languageConfig;
+        }
         if (!Utils::isUnset($request->merchantBizId)) {
             $query['MerchantBizId'] = $request->merchantBizId;
         }

@@ -78,6 +78,11 @@ class InitializeRequest extends Model
     public $idSpoof;
 
     /**
+     * @var string
+     */
+    public $languageConfig;
+
+    /**
      * @example e0c34a***353888
      *
      * @var string
@@ -172,6 +177,7 @@ class InitializeRequest extends Model
         'flowType'          => 'FlowType',
         'idFaceQuality'     => 'IdFaceQuality',
         'idSpoof'           => 'IdSpoof',
+        'languageConfig'    => 'LanguageConfig',
         'merchantBizId'     => 'MerchantBizId',
         'merchantUserId'    => 'MerchantUserId',
         'metaInfo'          => 'MetaInfo',
@@ -225,6 +231,9 @@ class InitializeRequest extends Model
         }
         if (null !== $this->idSpoof) {
             $res['IdSpoof'] = $this->idSpoof;
+        }
+        if (null !== $this->languageConfig) {
+            $res['LanguageConfig'] = $this->languageConfig;
         }
         if (null !== $this->merchantBizId) {
             $res['MerchantBizId'] = $this->merchantBizId;
@@ -306,6 +315,9 @@ class InitializeRequest extends Model
         }
         if (isset($map['IdSpoof'])) {
             $model->idSpoof = $map['IdSpoof'];
+        }
+        if (isset($map['LanguageConfig'])) {
+            $model->languageConfig = $map['LanguageConfig'];
         }
         if (isset($map['MerchantBizId'])) {
             $model->merchantBizId = $map['MerchantBizId'];
