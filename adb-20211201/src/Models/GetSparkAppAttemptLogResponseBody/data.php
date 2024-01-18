@@ -36,6 +36,11 @@ class data extends Model
     public $logContent;
 
     /**
+     * @var int
+     */
+    public $logSize;
+
+    /**
      * @description The alert message returned for the request, such as task execution failure or insufficient resources. If no alert occurs, null is returned.
      *
      * @example WARNING: log file maybe deleted, please check oss path: oss://TestBucketName/applog/
@@ -47,6 +52,7 @@ class data extends Model
         'appId'       => 'AppId',
         'DBClusterId' => 'DBClusterId',
         'logContent'  => 'LogContent',
+        'logSize'     => 'LogSize',
         'message'     => 'Message',
     ];
 
@@ -65,6 +71,9 @@ class data extends Model
         }
         if (null !== $this->logContent) {
             $res['LogContent'] = $this->logContent;
+        }
+        if (null !== $this->logSize) {
+            $res['LogSize'] = $this->logSize;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -89,6 +98,9 @@ class data extends Model
         }
         if (isset($map['LogContent'])) {
             $model->logContent = $map['LogContent'];
+        }
+        if (isset($map['LogSize'])) {
+            $model->logSize = $map['LogSize'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

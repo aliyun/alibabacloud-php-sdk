@@ -4220,6 +4220,13 @@ class Adb extends OpenApiClient
     public function getSparkAppAttemptLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $body = [];
         if (!Utils::isUnset($request->attemptId)) {
             $body['AttemptId'] = $request->attemptId;
@@ -4228,7 +4235,8 @@ class Adb extends OpenApiClient
             $body['LogLength'] = $request->logLength;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetSparkAppAttemptLog',
@@ -4317,6 +4325,12 @@ class Adb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
         $body = [];
         if (!Utils::isUnset($request->appId)) {

@@ -36,10 +36,26 @@ class GetSparkAppLogRequest extends Model
      * @var int
      */
     public $logLength;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @example 500
+     *
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
         'appId'       => 'AppId',
         'DBClusterId' => 'DBClusterId',
         'logLength'   => 'LogLength',
+        'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
     ];
 
     public function validate()
@@ -57,6 +73,12 @@ class GetSparkAppLogRequest extends Model
         }
         if (null !== $this->logLength) {
             $res['LogLength'] = $this->logLength;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -78,6 +100,12 @@ class GetSparkAppLogRequest extends Model
         }
         if (isset($map['LogLength'])) {
             $model->logLength = $map['LogLength'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

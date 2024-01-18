@@ -26,9 +26,25 @@ class GetSparkAppAttemptLogRequest extends Model
      * @var int
      */
     public $logLength;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @example 500
+     *
+     * @var string
+     */
+    public $pageSize;
     protected $_name = [
-        'attemptId' => 'AttemptId',
-        'logLength' => 'LogLength',
+        'attemptId'  => 'AttemptId',
+        'logLength'  => 'LogLength',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -43,6 +59,12 @@ class GetSparkAppAttemptLogRequest extends Model
         }
         if (null !== $this->logLength) {
             $res['LogLength'] = $this->logLength;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -61,6 +83,12 @@ class GetSparkAppAttemptLogRequest extends Model
         }
         if (isset($map['LogLength'])) {
             $model->logLength = $map['LogLength'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;
