@@ -38,6 +38,11 @@ class data extends Model
     public $appVersion;
 
     /**
+     * @var bool
+     */
+    public $canUpdate;
+
+    /**
      * @description The billing method, such as subscription or pay-as-you-go.
      *
      * @example POSTPAY
@@ -363,6 +368,11 @@ class data extends Model
     public $vSwitchId;
 
     /**
+     * @var string
+     */
+    public $versionCode;
+
+    /**
      * @description The ID of the VPC where the instance resides.
      *
      * @example vpc-bp1v5nbauzh8xxxxxxx
@@ -374,6 +384,7 @@ class data extends Model
         'aclEntryList'         => 'AclEntryList',
         'aclId'                => 'AclId',
         'appVersion'           => 'AppVersion',
+        'canUpdate'            => 'CanUpdate',
         'chargeType'           => 'ChargeType',
         'clusterAliasName'     => 'ClusterAliasName',
         'clusterName'          => 'ClusterName',
@@ -411,6 +422,7 @@ class data extends Model
         'securityGroupType'    => 'SecurityGroupType',
         'tags'                 => 'Tags',
         'vSwitchId'            => 'VSwitchId',
+        'versionCode'          => 'VersionCode',
         'vpcId'                => 'VpcId',
     ];
 
@@ -429,6 +441,9 @@ class data extends Model
         }
         if (null !== $this->appVersion) {
             $res['AppVersion'] = $this->appVersion;
+        }
+        if (null !== $this->canUpdate) {
+            $res['CanUpdate'] = $this->canUpdate;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
@@ -547,6 +562,9 @@ class data extends Model
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+        if (null !== $this->versionCode) {
+            $res['VersionCode'] = $this->versionCode;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -570,6 +588,9 @@ class data extends Model
         }
         if (isset($map['AppVersion'])) {
             $model->appVersion = $map['AppVersion'];
+        }
+        if (isset($map['CanUpdate'])) {
+            $model->canUpdate = $map['CanUpdate'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
@@ -689,6 +710,9 @@ class data extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VersionCode'])) {
+            $model->versionCode = $map['VersionCode'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

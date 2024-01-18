@@ -18,7 +18,7 @@ class result extends Model
     public $appId;
 
     /**
-     * @description The name of the application.
+     * @description The application name.
      *
      * @example finance
      *
@@ -81,7 +81,7 @@ class result extends Model
     public $maxQueueingTimeMs;
 
     /**
-     * @description The statistical dimension. The value 1 indicates the number of accepted requests.
+     * @description The statistical dimension. The value 1 indicates that the number of accepted requests is used for statistics.
      *
      * @example 1
      *
@@ -99,7 +99,7 @@ class result extends Model
     public $namespace;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region in which the instance resides.
      *
      * @example cn-hangzhou
      *
@@ -122,7 +122,7 @@ class result extends Model
     public $resourceType;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
      * @example 2
      *

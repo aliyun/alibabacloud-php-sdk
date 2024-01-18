@@ -28,6 +28,13 @@ class routeServices extends Model
     public $groupName;
 
     /**
+     * @example Health
+     *
+     * @var string
+     */
+    public $healthStatus;
+
+    /**
      * @description The transcoder of the Dubbo protocol.
      *
      * @var httpDubboTranscoder
@@ -98,6 +105,11 @@ class routeServices extends Model
     public $sourceType;
 
     /**
+     * @var string[]
+     */
+    public $unhealthyEndpoints;
+
+    /**
      * @description The version of the service.
      *
      * @example v1
@@ -108,6 +120,7 @@ class routeServices extends Model
     protected $_name = [
         'agreementType'       => 'AgreementType',
         'groupName'           => 'GroupName',
+        'healthStatus'        => 'HealthStatus',
         'httpDubboTranscoder' => 'HttpDubboTranscoder',
         'name'                => 'Name',
         'namespace'           => 'Namespace',
@@ -116,6 +129,7 @@ class routeServices extends Model
         'serviceName'         => 'ServiceName',
         'servicePort'         => 'ServicePort',
         'sourceType'          => 'SourceType',
+        'unhealthyEndpoints'  => 'UnhealthyEndpoints',
         'version'             => 'Version',
     ];
 
@@ -131,6 +145,9 @@ class routeServices extends Model
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->healthStatus) {
+            $res['HealthStatus'] = $this->healthStatus;
         }
         if (null !== $this->httpDubboTranscoder) {
             $res['HttpDubboTranscoder'] = null !== $this->httpDubboTranscoder ? $this->httpDubboTranscoder->toMap() : null;
@@ -156,6 +173,9 @@ class routeServices extends Model
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
+        if (null !== $this->unhealthyEndpoints) {
+            $res['UnhealthyEndpoints'] = $this->unhealthyEndpoints;
+        }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -176,6 +196,9 @@ class routeServices extends Model
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['HealthStatus'])) {
+            $model->healthStatus = $map['HealthStatus'];
         }
         if (isset($map['HttpDubboTranscoder'])) {
             $model->httpDubboTranscoder = httpDubboTranscoder::fromMap($map['HttpDubboTranscoder']);
@@ -200,6 +223,11 @@ class routeServices extends Model
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['UnhealthyEndpoints'])) {
+            if (!empty($map['UnhealthyEndpoints'])) {
+                $model->unhealthyEndpoints = $map['UnhealthyEndpoints'];
+            }
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

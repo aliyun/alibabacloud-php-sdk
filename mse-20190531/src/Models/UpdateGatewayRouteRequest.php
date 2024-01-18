@@ -26,6 +26,13 @@ class UpdateGatewayRouteRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @example a route for xxx
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description The destination service type.
      *
      * @example Mock
@@ -107,6 +114,8 @@ class UpdateGatewayRouteRequest extends Model
      *
      * @example route-web
      *
+     * @deprecated
+     *
      * @var string
      */
     public $name;
@@ -142,6 +151,7 @@ class UpdateGatewayRouteRequest extends Model
     public $services;
     protected $_name = [
         'acceptLanguage'     => 'AcceptLanguage',
+        'description'        => 'Description',
         'destinationType'    => 'DestinationType',
         'directResponseJSON' => 'DirectResponseJSON',
         'domainIdListJSON'   => 'DomainIdListJSON',
@@ -167,6 +177,9 @@ class UpdateGatewayRouteRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
@@ -236,6 +249,9 @@ class UpdateGatewayRouteRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];

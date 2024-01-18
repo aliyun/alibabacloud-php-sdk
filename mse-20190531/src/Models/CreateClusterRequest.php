@@ -22,17 +22,9 @@ class CreateClusterRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The billing method.
+     * @description The billing method. Valid values: PREPAY and POSTPAY.
      *
-     * Valid values:
-     *
-     *   PREPAY
-     *
-     * <!-- -->
-     *
-     *   POSTPAY
-     *
-     * <!-- -->
+     * Ignore this parameter for serverless instances.
      * @example POSTPAY
      *
      * @var string
@@ -55,6 +47,7 @@ class CreateClusterRequest extends Model
      *   `MSE_SC_1_2_60_c`: 1 vCPU and 2 GB of memory
      *   `MSE_SC_2_4_60_c`: 2 vCPUs and 4 GB of memory
      *
+     * Ignore this parameter or set this parameter to `MSE_SC_SERVERLESS`.
      * @example MSE_SC_2_4_60_c
      *
      * @var string
@@ -73,15 +66,20 @@ class CreateClusterRequest extends Model
     /**
      * @description The engine version of the instance. Valid values:
      *
-     * \[Professional version]
+     * \[Professional Edition]
      *
-     *   `NACOS_2_0_0`: Nacos 2.0.0
-     *   `ZooKeeper_3_8_0`: ZooKeeper 3.8.0
+     *   `NACOS_2_0_0`
+     *   `ZooKeeper_3_8_0`
      *
      * \[Developer Edition]
      *
-     *   `NACOS_2_0_0`: Nacos 2.0.0
-     *   `ZooKeeper_3_8_0`: ZooKeeper 3.8.0
+     *   `NACOS_2_0_0`
+     *   `ZooKeeper_3_8_0`
+     *
+     * \[Serverless Edition]
+     *
+     *   `NACOS_2_0_0`
+     *   `ZooKeeper_3_8_0`
      *
      * @example NACOS_2_0_0
      *
@@ -90,10 +88,7 @@ class CreateClusterRequest extends Model
     public $clusterVersion;
 
     /**
-     * @description The network connection type. Valid values:
-     *
-     *   slb
-     *   eni
+     * @description The network connection type. Valid values: `slb` or `single_eni`. For instances of the Developer Edition in some regions, only the value `single_eni` is supported.
      *
      * @example slb
      *
@@ -102,10 +97,7 @@ class CreateClusterRequest extends Model
     public $connectionType;
 
     /**
-     * @description The type of the disk. Valid values:
-     *
-     *   alicloud-disk-ssd
-     *   alicloud-disk-essd-pl1
+     * @description This parameter is obsolete.
      *
      * @example alicloud-disk-ssd
      *
@@ -118,6 +110,15 @@ class CreateClusterRequest extends Model
     /**
      * @description Specifies whether to enable Internet access (Elastic IP Address) if ConnectionType is set to `single_eni`.
      *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @var bool
      */
     public $eipEnabled;
@@ -127,12 +128,13 @@ class CreateClusterRequest extends Model
      *
      * \[Professional Edition]
      *
-     *   The number of nodes in an instance is greater than or equal to 3 and must be an odd number.
+     *   The value must be greater than or equal to 3 and must be an odd number.
      *
      * \[Developer Edition]
      *
-     *   Only one node can be deployed for an instance.
+     *   The value must be 1.
      *
+     * Ignore this parameter.
      * @example 3
      *
      * @var int
@@ -140,7 +142,7 @@ class CreateClusterRequest extends Model
     public $instanceCount;
 
     /**
-     * @description The name of the MSE instance.
+     * @description The custom name of the instance.
      *
      * @example tanshuyingtest001
      *
@@ -152,7 +154,8 @@ class CreateClusterRequest extends Model
      * @description Configure this parameter unless otherwise specified. Valid values:
      *
      *   `mse_pro`: Professional Edition
-     *   `mse_dev`: Developer Edition.
+     *   `mse_dev`: Developer Edition
+     *   `mse_dev`: Serverless Edition
      *
      * @example mse_pro
      *
@@ -173,10 +176,7 @@ class CreateClusterRequest extends Model
     public $netType;
 
     /**
-     * @description The specifications of the internal-facing SLB instance. Valid values:
-     *
-     *   `slb.s1.small`
-     *   `slb.s3.medium`
+     * @description This parameter is obsolete.
      *
      * @example slb.s1.small
      *
@@ -187,8 +187,9 @@ class CreateClusterRequest extends Model
     public $privateSlbSpecification;
 
     /**
-     * @description The public bandwidth. Unit: Mbit/s. This parameter is required.\
-     * Valid values: 0 to 5000. A value of 0 indicates no access to the Internet.
+     * @description This parameter is valid only if the ConnectionType parameter is set to `slb`. The value 0 indicates that the Server Load Balancer (SLB) instance is not connected over the Internet. A value greater than 1 indicates the fixed bandwidth that is used to access the SLB instance over the Internet. Unit: Mbit/s.
+     *
+     * Valid values: 0 to 5000.
      * @example 0
      *
      * @var string
@@ -196,10 +197,7 @@ class CreateClusterRequest extends Model
     public $pubNetworkFlow;
 
     /**
-     * @description The specifications of the Internet-facing Server Load Balancer (SLB) instance. Valid values:
-     *
-     *   `slb.s1.small`
-     *   `slb.s3.medium`
+     * @description This parameter is obsolete.
      *
      * @example slb.s1.small
      *
@@ -243,19 +241,21 @@ class CreateClusterRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The type of the security group to which the instance belongs. This parameter is valid only when the ConnectionType parameter is set to `single_eni`.
+     * @description The type of the security group to which the instance belongs. This parameter is valid only if the ConnectionType parameter is set to `single_eni`.
      *
      * Valid values:
      *
      *   enterprise
      *   normal
      *
+     * @example enterprise
+     *
      * @var string
      */
     public $securityGroupType;
 
     /**
-     * @description The list of the tags that you want to add.
+     * @description The tags to add to the resource. You can specify up to 20 tags.
      *
      * @var tag[]
      */

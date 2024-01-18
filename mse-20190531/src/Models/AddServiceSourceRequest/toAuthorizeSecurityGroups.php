@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class toAuthorizeSecurityGroups extends Model
 {
     /**
+     * @description The description of the authorization record.
+     *
+     * @example rule for xxx
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The authorized port range of the security group. You can select multiple port ranges. Separate each port range with a comma (,).
+     *
+     * @example 8080/8080,9000/10000
+     *
      * @var string
      */
     public $portRange;
 
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-bp1acepclex0vmi1****
+     *
      * @var string
      */
     public $securityGroupId;

@@ -21,6 +21,13 @@ class ListGatewayDomainRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @example example.com
+     *
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @description The unique ID of the gateway.
      *
      * @example gw-c9bc5afd61014165bd58f621b491****
@@ -39,6 +46,7 @@ class ListGatewayDomainRequest extends Model
     public $type;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
+        'domainName'      => 'DomainName',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'type'            => 'Type',
     ];
@@ -52,6 +60,9 @@ class ListGatewayDomainRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
@@ -73,6 +84,9 @@ class ListGatewayDomainRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];

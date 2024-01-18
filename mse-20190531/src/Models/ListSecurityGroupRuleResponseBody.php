@@ -19,7 +19,7 @@ class ListSecurityGroupRuleResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The returned result.
      *
      * @var data[]
      */

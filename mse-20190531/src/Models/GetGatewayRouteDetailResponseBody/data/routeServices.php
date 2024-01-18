@@ -27,6 +27,13 @@ class routeServices extends Model
     public $groupName;
 
     /**
+     * @example Health
+     *
+     * @var string
+     */
+    public $healthStatus;
+
+    /**
      * @description The service name.
      *
      * @example dubbo4
@@ -90,6 +97,11 @@ class routeServices extends Model
     public $sourceType;
 
     /**
+     * @var string[]
+     */
+    public $unhealthyEndpoints;
+
+    /**
      * @description The service version.
      *
      * @example v1
@@ -98,16 +110,18 @@ class routeServices extends Model
      */
     public $version;
     protected $_name = [
-        'agreementType' => 'AgreementType',
-        'groupName'     => 'GroupName',
-        'name'          => 'Name',
-        'namespace'     => 'Namespace',
-        'percent'       => 'Percent',
-        'serviceId'     => 'ServiceId',
-        'serviceName'   => 'ServiceName',
-        'servicePort'   => 'ServicePort',
-        'sourceType'    => 'SourceType',
-        'version'       => 'Version',
+        'agreementType'      => 'AgreementType',
+        'groupName'          => 'GroupName',
+        'healthStatus'       => 'HealthStatus',
+        'name'               => 'Name',
+        'namespace'          => 'Namespace',
+        'percent'            => 'Percent',
+        'serviceId'          => 'ServiceId',
+        'serviceName'        => 'ServiceName',
+        'servicePort'        => 'ServicePort',
+        'sourceType'         => 'SourceType',
+        'unhealthyEndpoints' => 'UnhealthyEndpoints',
+        'version'            => 'Version',
     ];
 
     public function validate()
@@ -122,6 +136,9 @@ class routeServices extends Model
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->healthStatus) {
+            $res['HealthStatus'] = $this->healthStatus;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -144,6 +161,9 @@ class routeServices extends Model
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
+        if (null !== $this->unhealthyEndpoints) {
+            $res['UnhealthyEndpoints'] = $this->unhealthyEndpoints;
+        }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -165,6 +185,9 @@ class routeServices extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+        if (isset($map['HealthStatus'])) {
+            $model->healthStatus = $map['HealthStatus'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -185,6 +208,11 @@ class routeServices extends Model
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['UnhealthyEndpoints'])) {
+            if (!empty($map['UnhealthyEndpoints'])) {
+                $model->unhealthyEndpoints = $map['UnhealthyEndpoints'];
+            }
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

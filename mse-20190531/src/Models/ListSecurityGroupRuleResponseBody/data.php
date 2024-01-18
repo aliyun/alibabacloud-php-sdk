@@ -41,7 +41,7 @@ class data extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The time when the instance was created.
+     * @description The creation time.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -50,7 +50,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the instance configuration was last modified.
+     * @description The last modification time.
      *
      * @example 2022-01-07T10:07:57.000+0000
      *
@@ -59,7 +59,7 @@ class data extends Model
     public $gmtModified;
 
     /**
-     * @description The authorization record ID of the security group.
+     * @description The ID of the security group authorization record.
      *
      * @example 21
      *

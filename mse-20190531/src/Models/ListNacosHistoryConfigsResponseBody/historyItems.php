@@ -61,6 +61,11 @@ class historyItems extends Model
      * @var string
      */
     public $opType;
+
+    /**
+     * @var string
+     */
+    public $srcUser;
     protected $_name = [
         'appName'          => 'AppName',
         'dataId'           => 'DataId',
@@ -68,6 +73,7 @@ class historyItems extends Model
         'id'               => 'Id',
         'lastModifiedTime' => 'LastModifiedTime',
         'opType'           => 'OpType',
+        'srcUser'          => 'SrcUser',
     ];
 
     public function validate()
@@ -94,6 +100,9 @@ class historyItems extends Model
         }
         if (null !== $this->opType) {
             $res['OpType'] = $this->opType;
+        }
+        if (null !== $this->srcUser) {
+            $res['SrcUser'] = $this->srcUser;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class historyItems extends Model
         }
         if (isset($map['OpType'])) {
             $model->opType = $map['OpType'];
+        }
+        if (isset($map['SrcUser'])) {
+            $model->srcUser = $map['SrcUser'];
         }
 
         return $model;

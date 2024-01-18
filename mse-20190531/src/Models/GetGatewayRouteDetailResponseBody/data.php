@@ -54,6 +54,13 @@ class data extends Model
     public $defaultServiceName;
 
     /**
+     * @example a route for xxx
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description The destination service type.
      *
      * @example Single
@@ -293,6 +300,7 @@ class data extends Model
         'cors'               => 'Cors',
         'defaultServiceId'   => 'DefaultServiceId',
         'defaultServiceName' => 'DefaultServiceName',
+        'description'        => 'Description',
         'destinationType'    => 'DestinationType',
         'directResponse'     => 'DirectResponse',
         'domainId'           => 'DomainId',
@@ -341,6 +349,9 @@ class data extends Model
         }
         if (null !== $this->defaultServiceName) {
             $res['DefaultServiceName'] = $this->defaultServiceName;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
@@ -461,6 +472,9 @@ class data extends Model
         }
         if (isset($map['DefaultServiceName'])) {
             $model->defaultServiceName = $map['DefaultServiceName'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];

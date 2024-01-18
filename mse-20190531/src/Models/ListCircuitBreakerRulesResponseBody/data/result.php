@@ -63,7 +63,7 @@ class result extends Model
     public $halfOpenRecoveryStepNum;
 
     /**
-     * @description The maximum response time (RT). Unit: milliseconds. If the RT of a request is greater than the value of this parameter, a slow call is counted. If you set Strategy to 0, you must specify this parameter.
+     * @description The maximum RT. Unit: milliseconds. If the RT of a request is greater than the value of this parameter, a slow call is counted. If you set Strategy to 0, you must specify this parameter.
      *
      * @example 200
      *
@@ -90,7 +90,7 @@ class result extends Model
     public $namespace;
 
     /**
-     * @description The region where the cluster resides.
+     * @description The region in which the instance resides.
      *
      * @example cn-hangzhou
      *

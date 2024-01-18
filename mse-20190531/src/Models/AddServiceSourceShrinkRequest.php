@@ -82,6 +82,8 @@ class AddServiceSourceShrinkRequest extends Model
     public $source;
 
     /**
+     * @description The list of security groups to be authorized. You can specify security groups to allow backend services to access data sources that you create.
+     *
      * @var string
      */
     public $toAuthorizeSecurityGroupsShrink;

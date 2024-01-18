@@ -13,6 +13,8 @@ class filterParams extends Model
      *
      * @example 1
      *
+     * @deprecated
+     *
      * @var int
      */
     public $defaultServiceId;
@@ -63,6 +65,13 @@ class filterParams extends Model
     public $name;
 
     /**
+     * @example /test
+     *
+     * @var string
+     */
+    public $path;
+
+    /**
      * @description The order.
      *
      * @example 1
@@ -86,6 +95,7 @@ class filterParams extends Model
         'gatewayId'        => 'GatewayId',
         'gatewayUniqueId'  => 'GatewayUniqueId',
         'name'             => 'Name',
+        'path'             => 'Path',
         'routeOrder'       => 'RouteOrder',
         'status'           => 'Status',
     ];
@@ -114,6 +124,9 @@ class filterParams extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
         if (null !== $this->routeOrder) {
             $res['RouteOrder'] = $this->routeOrder;
@@ -150,6 +163,9 @@ class filterParams extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
         if (isset($map['RouteOrder'])) {
             $model->routeOrder = $map['RouteOrder'];

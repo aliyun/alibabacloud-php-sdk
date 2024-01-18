@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class namespaceInfos extends Model
 {
     /**
-     * @description The microservice namespace.If you do not specify this parameter, Microservice Governance is not enabled for the namespace.
+     * @description The microservice namespace. If you do not specify this parameter, Microservice Governance is not enabled for the namespace.
      *
      * @example default
      *

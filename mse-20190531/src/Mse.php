@@ -969,6 +969,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
         if (!Utils::isUnset($request->destinationType)) {
             $query['DestinationType'] = $request->destinationType;
         }
@@ -6563,6 +6566,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->clusterAliasName)) {
             $query['ClusterAliasName'] = $request->clusterAliasName;
         }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
         if (!Utils::isUnset($request->pageNum)) {
             $query['PageNum'] = $request->pageNum;
         }
@@ -7126,6 +7132,9 @@ class Mse extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
@@ -7800,6 +7809,9 @@ class Mse extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
@@ -10776,6 +10788,9 @@ class Mse extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->destinationType)) {
             $query['DestinationType'] = $request->destinationType;

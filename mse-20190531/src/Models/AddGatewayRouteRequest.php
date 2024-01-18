@@ -26,6 +26,13 @@ class AddGatewayRouteRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @example a route for xxx
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description The type of the destination service. Valid values:
      *
      *   Single
@@ -167,6 +174,7 @@ class AddGatewayRouteRequest extends Model
     public $services;
     protected $_name = [
         'acceptLanguage'     => 'AcceptLanguage',
+        'description'        => 'Description',
         'destinationType'    => 'DestinationType',
         'directResponseJSON' => 'DirectResponseJSON',
         'domainId'           => 'DomainId',
@@ -194,6 +202,9 @@ class AddGatewayRouteRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
@@ -269,6 +280,9 @@ class AddGatewayRouteRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];

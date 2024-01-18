@@ -21,6 +21,13 @@ class AddGatewayRouteShrinkRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @example a route for xxx
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description The type of the destination service. Valid values:
      *
      *   Single
@@ -162,6 +169,7 @@ class AddGatewayRouteShrinkRequest extends Model
     public $servicesShrink;
     protected $_name = [
         'acceptLanguage'           => 'AcceptLanguage',
+        'description'              => 'Description',
         'destinationType'          => 'DestinationType',
         'directResponseJSONShrink' => 'DirectResponseJSON',
         'domainId'                 => 'DomainId',
@@ -189,6 +197,9 @@ class AddGatewayRouteShrinkRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
@@ -252,6 +263,9 @@ class AddGatewayRouteShrinkRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
