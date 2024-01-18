@@ -30,10 +30,16 @@ class statistic extends Model
      * @var string
      */
     public $domainType;
+
+    /**
+     * @var string
+     */
+    public $resolveAnalysisStatus;
     protected $_name = [
-        'count'      => 'Count',
-        'domainName' => 'DomainName',
-        'domainType' => 'DomainType',
+        'count'                 => 'Count',
+        'domainName'            => 'DomainName',
+        'domainType'            => 'DomainType',
+        'resolveAnalysisStatus' => 'resolveAnalysisStatus',
     ];
 
     public function validate()
@@ -51,6 +57,9 @@ class statistic extends Model
         }
         if (null !== $this->domainType) {
             $res['DomainType'] = $this->domainType;
+        }
+        if (null !== $this->resolveAnalysisStatus) {
+            $res['resolveAnalysisStatus'] = $this->resolveAnalysisStatus;
         }
 
         return $res;
@@ -72,6 +81,9 @@ class statistic extends Model
         }
         if (isset($map['DomainType'])) {
             $model->domainType = $map['DomainType'];
+        }
+        if (isset($map['resolveAnalysisStatus'])) {
+            $model->resolveAnalysisStatus = $map['resolveAnalysisStatus'];
         }
 
         return $model;

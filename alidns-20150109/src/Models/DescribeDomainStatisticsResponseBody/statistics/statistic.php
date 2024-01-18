@@ -18,6 +18,11 @@ class statistic extends Model
     public $count;
 
     /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @description The statistical timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1556640000000
@@ -26,8 +31,9 @@ class statistic extends Model
      */
     public $timestamp;
     protected $_name = [
-        'count'     => 'Count',
-        'timestamp' => 'Timestamp',
+        'count'      => 'Count',
+        'domainName' => 'DomainName',
+        'timestamp'  => 'Timestamp',
     ];
 
     public function validate()
@@ -39,6 +45,9 @@ class statistic extends Model
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
@@ -57,6 +66,9 @@ class statistic extends Model
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
