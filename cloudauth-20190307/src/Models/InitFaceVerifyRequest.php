@@ -160,6 +160,11 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $rarelyCharacters;
+
+    /**
+     * @var string
+     */
     public $readImg;
 
     /**
@@ -223,6 +228,7 @@ class InitFaceVerifyRequest extends Model
         'outerOrderNo'               => 'OuterOrderNo',
         'procedurePriority'          => 'ProcedurePriority',
         'productCode'                => 'ProductCode',
+        'rarelyCharacters'           => 'RarelyCharacters',
         'readImg'                    => 'ReadImg',
         'returnUrl'                  => 'ReturnUrl',
         'sceneId'                    => 'SceneId',
@@ -313,6 +319,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->rarelyCharacters) {
+            $res['RarelyCharacters'] = $this->rarelyCharacters;
         }
         if (null !== $this->readImg) {
             $res['ReadImg'] = $this->readImg;
@@ -421,6 +430,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['RarelyCharacters'])) {
+            $model->rarelyCharacters = $map['RarelyCharacters'];
         }
         if (isset($map['ReadImg'])) {
             $model->readImg = $map['ReadImg'];

@@ -1057,6 +1057,9 @@ class Cloudauth extends OpenApiClient
         if (!Utils::isUnset($request->productCode)) {
             $query['ProductCode'] = $request->productCode;
         }
+        if (!Utils::isUnset($request->rarelyCharacters)) {
+            $query['RarelyCharacters'] = $request->rarelyCharacters;
+        }
         if (!Utils::isUnset($request->readImg)) {
             $query['ReadImg'] = $request->readImg;
         }
