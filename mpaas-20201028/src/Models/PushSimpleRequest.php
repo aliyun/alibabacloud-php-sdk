@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class PushSimpleRequest extends Model
 {
     /**
+     * @var mixed
+     */
+    public $activityContentState;
+
+    /**
+     * @var string
+     */
+    public $activityEvent;
+
+    /**
      * @var string
      */
     public $appId;
@@ -32,6 +42,11 @@ class PushSimpleRequest extends Model
      * @var int
      */
     public $deliveryType;
+
+    /**
+     * @var int
+     */
+    public $dismissalDate;
 
     /**
      * @var int
@@ -138,11 +153,14 @@ class PushSimpleRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'activityContentState' => 'ActivityContentState',
+        'activityEvent'        => 'ActivityEvent',
         'appId'                => 'AppId',
         'channelId'            => 'ChannelId',
         'classification'       => 'Classification',
         'content'              => 'Content',
         'deliveryType'         => 'DeliveryType',
+        'dismissalDate'        => 'DismissalDate',
         'expiredSeconds'       => 'ExpiredSeconds',
         'extendedParams'       => 'ExtendedParams',
         'iconUrls'             => 'IconUrls',
@@ -173,6 +191,12 @@ class PushSimpleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activityContentState) {
+            $res['ActivityContentState'] = $this->activityContentState;
+        }
+        if (null !== $this->activityEvent) {
+            $res['ActivityEvent'] = $this->activityEvent;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -187,6 +211,9 @@ class PushSimpleRequest extends Model
         }
         if (null !== $this->deliveryType) {
             $res['DeliveryType'] = $this->deliveryType;
+        }
+        if (null !== $this->dismissalDate) {
+            $res['DismissalDate'] = $this->dismissalDate;
         }
         if (null !== $this->expiredSeconds) {
             $res['ExpiredSeconds'] = $this->expiredSeconds;
@@ -263,6 +290,12 @@ class PushSimpleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActivityContentState'])) {
+            $model->activityContentState = $map['ActivityContentState'];
+        }
+        if (isset($map['ActivityEvent'])) {
+            $model->activityEvent = $map['ActivityEvent'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
@@ -277,6 +310,9 @@ class PushSimpleRequest extends Model
         }
         if (isset($map['DeliveryType'])) {
             $model->deliveryType = $map['DeliveryType'];
+        }
+        if (isset($map['DismissalDate'])) {
+            $model->dismissalDate = $map['DismissalDate'];
         }
         if (isset($map['ExpiredSeconds'])) {
             $model->expiredSeconds = $map['ExpiredSeconds'];

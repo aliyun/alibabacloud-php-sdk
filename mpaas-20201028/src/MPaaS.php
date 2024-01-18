@@ -5004,6 +5004,12 @@ class MPaaS extends OpenApiClient
             $request->thirdChannelCategoryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->activityContentState)) {
+            $body['ActivityContentState'] = $request->activityContentState;
+        }
+        if (!Utils::isUnset($request->activityEvent)) {
+            $body['ActivityEvent'] = $request->activityEvent;
+        }
         if (!Utils::isUnset($request->appId)) {
             $body['AppId'] = $request->appId;
         }
@@ -5015,6 +5021,9 @@ class MPaaS extends OpenApiClient
         }
         if (!Utils::isUnset($request->deliveryType)) {
             $body['DeliveryType'] = $request->deliveryType;
+        }
+        if (!Utils::isUnset($request->dismissalDate)) {
+            $body['DismissalDate'] = $request->dismissalDate;
         }
         if (!Utils::isUnset($request->expiredSeconds)) {
             $body['ExpiredSeconds'] = $request->expiredSeconds;
@@ -5179,6 +5188,12 @@ class MPaaS extends OpenApiClient
             $request->thirdChannelCategoryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->activityContentState)) {
+            $body['ActivityContentState'] = $request->activityContentState;
+        }
+        if (!Utils::isUnset($request->activityEvent)) {
+            $body['ActivityEvent'] = $request->activityEvent;
+        }
         if (!Utils::isUnset($request->appId)) {
             $body['AppId'] = $request->appId;
         }
@@ -5193,6 +5208,9 @@ class MPaaS extends OpenApiClient
         }
         if (!Utils::isUnset($request->deliveryType)) {
             $body['DeliveryType'] = $request->deliveryType;
+        }
+        if (!Utils::isUnset($request->dismissalDate)) {
+            $body['DismissalDate'] = $request->dismissalDate;
         }
         if (!Utils::isUnset($request->expiredSeconds)) {
             $body['ExpiredSeconds'] = $request->expiredSeconds;
@@ -5302,6 +5320,12 @@ class MPaaS extends OpenApiClient
             $request->thirdChannelCategoryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->activityContentState)) {
+            $body['ActivityContentState'] = $request->activityContentState;
+        }
+        if (!Utils::isUnset($request->activityEvent)) {
+            $body['ActivityEvent'] = $request->activityEvent;
+        }
         if (!Utils::isUnset($request->appId)) {
             $body['AppId'] = $request->appId;
         }
@@ -5313,6 +5337,9 @@ class MPaaS extends OpenApiClient
         }
         if (!Utils::isUnset($request->deliveryType)) {
             $body['DeliveryType'] = $request->deliveryType;
+        }
+        if (!Utils::isUnset($request->dismissalDate)) {
+            $body['DismissalDate'] = $request->dismissalDate;
         }
         if (!Utils::isUnset($request->expiredSeconds)) {
             $body['ExpiredSeconds'] = $request->expiredSeconds;
