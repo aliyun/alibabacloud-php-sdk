@@ -1,3 +1,6 @@
+2024-01-18 Version: 1.0.8
+- Generated php 2017-09-12 for Cbn.
+
 2024-01-04 Version: 1.0.7
 - Generated php 2017-09-12 for Cbn.
 
