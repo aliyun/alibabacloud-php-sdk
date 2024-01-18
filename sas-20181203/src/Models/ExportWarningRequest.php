@@ -30,6 +30,15 @@ class ExportWarningRequest extends Model
     public $exportType;
 
     /**
+     * @description The ID of the server group.
+     * > You can call the[DescribeAllGroups](~~130972~~)operation to query the IDs of server groups.
+     * @example 13007754
+     *
+     * @var int
+     */
+    public $groupId;
+
+    /**
      * @description The export method of the results for the weak password baseline check. Valid values:
      *
      *   **0**: exports the check results after it is masked.
@@ -167,6 +176,7 @@ class ExportWarningRequest extends Model
     protected $_name = [
         'dealed'          => 'Dealed',
         'exportType'      => 'ExportType',
+        'groupId'         => 'GroupId',
         'isCleartextPwd'  => 'IsCleartextPwd',
         'isSummaryExport' => 'IsSummaryExport',
         'lang'            => 'Lang',
@@ -194,6 +204,9 @@ class ExportWarningRequest extends Model
         }
         if (null !== $this->exportType) {
             $res['ExportType'] = $this->exportType;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->isCleartextPwd) {
             $res['IsCleartextPwd'] = $this->isCleartextPwd;
@@ -251,6 +264,9 @@ class ExportWarningRequest extends Model
         }
         if (isset($map['ExportType'])) {
             $model->exportType = $map['ExportType'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['IsCleartextPwd'])) {
             $model->isCleartextPwd = $map['IsCleartextPwd'];

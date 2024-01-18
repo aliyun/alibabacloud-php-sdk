@@ -11,7 +11,7 @@ class QueryIncidentTracingDetailRequest extends Model
     /**
      * @description The ID of the event.
      *
-     * >  You can call the [DescribeCloudSiemEvents](~~DescribeCloudSiemEvents~~) operation to query the IDs of events.
+     * >  You can call the [DescribeCloudSiemEvents](~~2621307~~) operation to query the IDs of events.
      * @example 184892fc5245b3ce8c3316434c94261f
      *
      * @var string

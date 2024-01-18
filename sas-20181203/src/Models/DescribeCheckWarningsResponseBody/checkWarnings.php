@@ -75,6 +75,10 @@ class checkWarnings extends Model
     public $item;
 
     /**
+     * @description The timestamp of the latest processing of the check item risk of the machine. Unit: milliseconds.
+     *
+     * @example 1694692471000
+     *
      * @var int
      */
     public $lastHandleTime;

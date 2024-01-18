@@ -30,6 +30,11 @@ class ModifyTagWithUuidRequest extends Model
     public $tagList;
 
     /**
+     * @var string
+     */
+    public $target;
+
+    /**
      * @example e2737dc3-78f4-4653-a986-dc5fad4b****,c189f0e3-df22-42d5-a73d-02c05667****
      *
      * @var string
@@ -39,6 +44,7 @@ class ModifyTagWithUuidRequest extends Model
         'machineTypes' => 'MachineTypes',
         'tagId'        => 'TagId',
         'tagList'      => 'TagList',
+        'target'       => 'Target',
         'uuidList'     => 'UuidList',
     ];
 
@@ -57,6 +63,9 @@ class ModifyTagWithUuidRequest extends Model
         }
         if (null !== $this->tagList) {
             $res['TagList'] = $this->tagList;
+        }
+        if (null !== $this->target) {
+            $res['Target'] = $this->target;
         }
         if (null !== $this->uuidList) {
             $res['UuidList'] = $this->uuidList;
@@ -81,6 +90,9 @@ class ModifyTagWithUuidRequest extends Model
         }
         if (isset($map['TagList'])) {
             $model->tagList = $map['TagList'];
+        }
+        if (isset($map['Target'])) {
+            $model->target = $map['Target'];
         }
         if (isset($map['UuidList'])) {
             $model->uuidList = $map['UuidList'];

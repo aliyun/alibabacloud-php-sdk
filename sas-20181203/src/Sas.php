@@ -367,6 +367,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedStatisticsDetailRespons
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFieldStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFieldStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFixUsedCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFrontVulPatchListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFrontVulPatchListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedContainerInstancesRequest;
@@ -10815,6 +10816,39 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeFixUsedCountResponse
+     */
+    public function describeFixUsedCountWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeFixUsedCount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFixUsedCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeFixUsedCountResponse
+     */
+    public function describeFixUsedCount()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFixUsedCountWithOptions($runtime);
+    }
+
+    /**
      * @param DescribeFrontVulPatchListRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -19724,6 +19758,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->exportType)) {
             $query['ExportType'] = $request->exportType;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->isCleartextPwd)) {
             $query['IsCleartextPwd'] = $request->isCleartextPwd;
@@ -31008,6 +31045,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->tagList)) {
             $query['TagList'] = $request->tagList;
+        }
+        if (!Utils::isUnset($request->target)) {
+            $query['Target'] = $request->target;
         }
         if (!Utils::isUnset($request->uuidList)) {
             $query['UuidList'] = $request->uuidList;
