@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class InitEnvironmentRequest extends Model
 {
     /**
-     * @description Locale, the default is Chinese zh.
+     * @description The language. Valid values: zh and en. Default value: zh.
      *
      * @example zh
      *
@@ -18,7 +18,7 @@ class InitEnvironmentRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description Environment ID.
+     * @description The ID of the environment instance.
      *
      * @example env-xxx
      *
@@ -27,6 +27,11 @@ class InitEnvironmentRequest extends Model
     public $environmentId;
 
     /**
+     * @description type of managed:
+     *
+     * - agent-exproter: maanged agent and exporter. default of prometheus for Cloud.
+     * @example agent
+     *
      * @var string
      */
     public $managedType;

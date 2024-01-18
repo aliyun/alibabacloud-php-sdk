@@ -19,8 +19,8 @@ class CreateEnvironmentRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description The ID of the resource associated with the environment, such as the ACK cluster ID or VPC ID.
-     * For Cloud type environments, the current field value is RegionId.
+     * @description The ID of the resource bound to the environment, such as the container ID or VPC ID. For a Cloud environment, specify the region ID.
+     *
      * @example c6e9dec475dca4a50a188411d8cbxxx
      *
      * @var string
@@ -64,7 +64,7 @@ class CreateEnvironmentRequest extends Model
 
     /**
      * @description type of managed：
-     * - agent-exproter： maanged agent and exporter. default of prometheus for Cloud.
+     * - agent-exproter: maanged agent and exporter. default of prometheus for Cloud.
      * @example none
      *
      * @var string
@@ -90,7 +90,7 @@ class CreateEnvironmentRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tags to add to the instance.
+     * @description The tags of the instance. You can specify this parameter to manage tags for the instance.
      *
      * @var tags[]
      */
