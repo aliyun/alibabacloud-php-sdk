@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetSchedulerInfoResponseBody extends Model
 {
     /**
-     * @description The response message.
+     * @description The data returned.
      *
      * @example pbs: scheduler setting successfully.
      *
@@ -18,7 +18,7 @@ class SetSchedulerInfoResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example BBC2F93D-003A-49C4-850C-B826EECF****
      *

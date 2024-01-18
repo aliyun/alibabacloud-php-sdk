@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class compute extends Model
 {
     /**
-     * @description The number of compute nodes in the cluster.
+     * @description The software ID of the component.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class compute extends Model
     public $count;
 
     /**
-     * @description The instance type of the compute nodes.
+     * @description The information about the custom component service.
      *
      * @example ecs.n1.tiny
      *

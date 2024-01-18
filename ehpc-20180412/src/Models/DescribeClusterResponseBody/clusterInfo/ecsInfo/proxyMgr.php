@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class proxyMgr extends Model
 {
     /**
-     * @description The number of proxy nodes.
+     * @description Specifies whether to not install the agent.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class proxyMgr extends Model
     public $count;
 
     /**
-     * @description The instance type of the proxy node.
+     * @description The version of the E-HPC cluster.
      *
      * @example ecs.n1.tiny
      *

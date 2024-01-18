@@ -11,14 +11,15 @@ use AlibabaCloud\Tea\Model;
 class pbsInfo extends Model
 {
     /**
+     * @description The information about limits on the queue.
+     *
      * @var aclLimit[]
      */
     public $aclLimit;
 
     /**
-     * @description The retention period of jobs. After the retention period is exceeded, job data is deleted. Unit: days.
-     *
-     * Default value: 14
+     * @description The retention period of jobs. After the retention period is exceeded, job data is deleted. Unit: days.\
+     * Default value: 14.
      * @example 14
      *
      * @var int
@@ -26,6 +27,8 @@ class pbsInfo extends Model
     public $jobHistoryDuration;
 
     /**
+     * @description The information about the nodes that are used by cluster users.
+     *
      * @var resourceLimit[]
      */
     public $resourceLimit;
@@ -33,7 +36,7 @@ class pbsInfo extends Model
     /**
      * @description PbsInfo specifies the number of PBS schedulers that can be configured in the cluster. Valid values of N: 0 to 100.
      *
-     * Default value: 60
+     * Default value: 60.
      * @example 60
      *
      * @var int

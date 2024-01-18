@@ -16,7 +16,7 @@ class hostAliases extends Model
     public $hostnames;
 
     /**
-     * @description The IP address of the host.
+     * @description The IP address.
      *
      * @example 192.0.XX.XX
      *

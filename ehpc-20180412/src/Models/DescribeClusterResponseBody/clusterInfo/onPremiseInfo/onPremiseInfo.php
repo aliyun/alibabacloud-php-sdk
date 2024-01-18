@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class onPremiseInfo extends Model
 {
     /**
-     * @description The hostname of the on-premises management nodes.
+     * @description The parameter that is used to connect to the OpenLDAP server.
      *
      * @example testecs
      *
@@ -18,7 +18,7 @@ class onPremiseInfo extends Model
     public $hostName;
 
     /**
-     * @description The IP address of the on-premises management nodes.
+     * @description The parameter that is used to connect to the Windows AD server.
      *
      * @example 192.168.*.*
      *
@@ -27,12 +27,9 @@ class onPremiseInfo extends Model
     public $IP;
 
     /**
-     * @description The type of on-premises management nodes. Valid values:
+     * @description The domain name of the on-premises E-HPC cluster.
      *
-     *   scheduler
-     *   account
-     *   account, scheduler
-     *
+     * This parameter takes effect only when the AccoutType parameter is set to Idap.
      * @example scheduler
      *
      * @var string

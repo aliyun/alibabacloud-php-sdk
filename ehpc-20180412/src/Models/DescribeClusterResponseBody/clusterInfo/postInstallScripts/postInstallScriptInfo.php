@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class postInstallScriptInfo extends Model
 {
     /**
-     * @description The runtime parameters of the script.
+     * @description The instance type of the proxy node.
      *
      * @example bash file.sh
      *
@@ -18,8 +18,9 @@ class postInstallScriptInfo extends Model
     public $args;
 
     /**
-     * @description The URL used to download the script.
+     * @description The list of proxy nodes on the cloud.
      *
+     * This parameter is returned only when the cluster is deployed across hybrid environments and the hybrid-cloud proxy mode is enabled for the cluster.
      * @example example.com
      *
      * @var string

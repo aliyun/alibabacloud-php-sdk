@@ -33,7 +33,7 @@ class ListServerlessJobsRequest extends Model
     public $jobNames;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -60,10 +60,10 @@ class ListServerlessJobsRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to sort the serverless jobs by the job start time. Valid value:
+     * @description Specifies whether to sort the serverless jobs by the job start time. Valid values:
      *
-     *   Asc: ascending order
-     *   Desc: descending order
+     *   Asc: ascending order.
+     *   Desc: descending order.
      *
      * @example Asc
      *
@@ -72,7 +72,7 @@ class ListServerlessJobsRequest extends Model
     public $startOrder;
 
     /**
-     * @description The status of the serverless job. Valid value:
+     * @description The status of the serverless job. Valid values:
      *
      *   All
      *   Pending
@@ -89,10 +89,10 @@ class ListServerlessJobsRequest extends Model
     public $state;
 
     /**
-     * @description Specifies whether to sort the serverless jobs by the job submission time. Valid value:
+     * @description Specifies whether to sort the serverless jobs by the job submission time. Valid values:
      *
-     *   Asc: ascending order
-     *   Desc: descending order
+     *   Asc: ascending order.
+     *   Desc: descending order.
      *
      * @example asc
      *

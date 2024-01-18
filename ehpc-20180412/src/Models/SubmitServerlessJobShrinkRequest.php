@@ -11,10 +11,7 @@ class SubmitServerlessJobShrinkRequest extends Model
     /**
      * @description The configuration of the array job.
      *
-     * >
-     *
-     *   The index value of an array job is passed to the serverless job container by using the environment variable **EHPC_JOB_ARRAY_INDEX** to allow access to the array job from business programs.
-     *
+     * >  The index value of an array job is passed to the serverless job container by using the environment variable **EHPC_JOB_ARRAY_INDEX** to allow access to the array job from business programs.
      * @var string
      */
     public $arrayPropertiesShrink;
@@ -72,6 +69,7 @@ class SubmitServerlessJobShrinkRequest extends Model
     /**
      * @description The name of the serverless job.
      *
+     * >  The name can contain lowercase letters, digits, and hyphens (-). It cannot start or end with a hyphen.
      * @example testjob
      *
      * @var string
@@ -106,6 +104,8 @@ class SubmitServerlessJobShrinkRequest extends Model
     public $ramRoleName;
 
     /**
+     * @description The retry policy for the serverless job.
+     *
      * @var string
      */
     public $retryStrategyShrink;

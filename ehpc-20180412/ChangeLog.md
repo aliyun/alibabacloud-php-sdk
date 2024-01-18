@@ -1,3 +1,6 @@
+2024-01-18 Version: 3.0.1
+- Generated php 2018-04-12 for EHPC.
+
 2023-09-06 Version: 3.0.0
 - Generated php 2018-04-12 for EHPC.
 

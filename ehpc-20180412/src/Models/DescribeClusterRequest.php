@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterRequest extends Model
 {
     /**
-     * @description The cluster ID. You can call the [ListClusters](~~87116~~) operation to query the list of clusters in a region.
+     * @description The type of the protocol that is used by the file system. Valid values:
+     *
+     *   nfs
+     *   smb
      *
      * @example ehpc-hz-QKKVqO****
      *

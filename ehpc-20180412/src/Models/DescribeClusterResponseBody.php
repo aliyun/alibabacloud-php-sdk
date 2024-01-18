@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterResponseBody extends Model
 {
     /**
-     * @description The cluster information.
+     * @description The ID of the Apsara File Storage NAS file system. NAS file systems cannot be automatically created.
      *
      * @var clusterInfo
      */
     public $clusterInfo;
 
     /**
-     * @description The request ID.
+     * @description The description of the cluster.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *

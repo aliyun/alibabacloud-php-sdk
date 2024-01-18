@@ -36,7 +36,7 @@ class currentState extends Model
     public $finishTime;
 
     /**
-     * @description The message of the event.
+     * @description The message about the event.
      *
      * @example Created container
      *

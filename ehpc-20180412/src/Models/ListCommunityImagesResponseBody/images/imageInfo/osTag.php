@@ -30,7 +30,7 @@ class osTag extends Model
     public $baseOsTag;
 
     /**
-     * @description The tag of the OS image.
+     * @description The operating system tag of the image.
      *
      * @example CentOS_7.2_64
      *
@@ -39,7 +39,7 @@ class osTag extends Model
     public $osTag;
 
     /**
-     * @description The operating system.
+     * @description The OS.
      *
      * @example CentOS
      *

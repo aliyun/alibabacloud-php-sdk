@@ -26,7 +26,7 @@ class volumes extends Model
     public $diskVolumeDiskId;
 
     /**
-     * @description The file system type of the disk volume.
+     * @description The type of the volume.
      *
      * @example xfs
      *
@@ -35,10 +35,10 @@ class volumes extends Model
     public $diskVolumeFsType;
 
     /**
-     * @description The storage media of emptyDir volume N. This parameter is empty by default, which indicates that the node file system is used as the storage media. Valid values:
+     * @description The storage media for the emptyDir volume. This parameter is empty by default, which indicates that the node file system is used as the storage media. Valid values:
      *
      *   Memory: uses memory as the storage media.
-     *   LocalRaid0: forms local disks into RAID 0. This value is applicable only to scenarios in which an elastic container instance that has local disks mounted is created. For more information, see [Create an elastic container instance that has local disks mounted](~~114664~~).
+     *   LocalRaid0: forms local disks into RAID 0. This value is valid only if an elastic container instance that has local disks mounted is created. For more information, see [Create an elastic container instance that has local disks mounted](~~114664~~).
      *
      * @example Memory
      *
@@ -83,7 +83,7 @@ class volumes extends Model
     public $flexVolumeOptions;
 
     /**
-     * @description The path to the NFS volume.
+     * @description The path of the Network File System (NFS) volume.
      *
      * @example /eci
      *
@@ -101,7 +101,7 @@ class volumes extends Model
     public $NFSVolumeReadOnly;
 
     /**
-     * @description The endpoint of the server when you set the Type parameter to NFSVolume.
+     * @description The endpoint of the server if you set Type to NFSVolume.
      *
      * @example 0eafxxxxx-xxxxx.cn-hangzhou.nas.aliyuncs.com
      *

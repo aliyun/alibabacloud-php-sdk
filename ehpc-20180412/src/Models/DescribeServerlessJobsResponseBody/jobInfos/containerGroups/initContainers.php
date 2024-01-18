@@ -61,7 +61,7 @@ class initContainers extends Model
     public $gpu;
 
     /**
-     * @description The image of the container.
+     * @description The image.
      *
      * @example nginx
      *
@@ -70,7 +70,7 @@ class initContainers extends Model
     public $image;
 
     /**
-     * @description The policy for image pulling.
+     * @description The policy to pull images.
      *
      * @example Always
      *

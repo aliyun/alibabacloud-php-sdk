@@ -273,6 +273,8 @@ class clusterInfoSimple extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.You can call the ListResourceGroups operation to query the IDs of resource groups.
+     *
      * @example rg-acfmxazb4ph****
      *
      * @var string

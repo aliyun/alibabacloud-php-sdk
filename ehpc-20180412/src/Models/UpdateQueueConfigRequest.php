@@ -38,6 +38,13 @@ class UpdateQueueConfigRequest extends Model
     public $deploymentSetId;
 
     /**
+     * @description The communication model of the ENI. Valid values:
+     *
+     *   Standard: uses the TCP communication mode.
+     *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with the Elastic RDMA Interface (ERI) enabled.
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $networkInterfaceTrafficMode;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class retryStrategy extends Model
 {
     /**
+     * @description The number of retries for the serverless job. Valid values: 1 to 10.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $attempts;
 
     /**
+     * @description The list of retry rules for the serverless job. You can specify up to 10 rules.
+     *
      * @var evaluateOnExit[]
      */
     public $evaluateOnExit;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class scheduler extends Model
 {
     /**
-     * @description The name of the scheduler. Valid values:
+     * @description The scheduler name. Valid values:
      *
      *   pbs
      *   pbs19
@@ -17,7 +17,7 @@ class scheduler extends Model
      *   slurm19
      *   slurm20
      *
-     * Valid values of N: 0 to 100
+     * Valid values of N: 0 to 100.
      * @example pbs
      *
      * @var string

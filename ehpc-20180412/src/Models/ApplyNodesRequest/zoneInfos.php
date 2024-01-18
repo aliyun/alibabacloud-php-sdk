@@ -18,7 +18,7 @@ class zoneInfos extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the zone to which the cluster belongs. Valid values of N: 1 to 10.
+     * @description The ID of the zone to which the node belongs. Valid values of N: 1 to 10.
      *
      * >  Each zone ID must be unique.
      * @example cn-hangzhou-b

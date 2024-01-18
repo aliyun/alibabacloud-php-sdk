@@ -19,15 +19,12 @@ class ApplyNodesResponseBody extends Model
     public $detail;
 
     /**
-     * @description The ID of the Elastic Compute Service (ECS) instance.
-     *
-     * >  AddNodes is an asynchronous API operation. If a request succeeds, a response is immediately generated before ECS instances are created. Therefore, the value of the parameter is null. You can call the [ListNodes](~~87161~~) operation to query the ID of the ECS instance.
      * @var instanceIds
      */
     public $instanceIds;
 
     /**
-     * @description The ID of the request.
+     * @description The task ID.
      *
      * @example B745C159-3155-4B94-95D0-4B73D4D2****
      *
@@ -36,7 +33,7 @@ class ApplyNodesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of the compute nodes that were created.
+     * @description The number of the compute nodes that are created.
      *
      * @example 10
      *
@@ -45,7 +42,7 @@ class ApplyNodesResponseBody extends Model
     public $satisfiedAmount;
 
     /**
-     * @description The ID of the task.
+     * @description The request ID.
      *
      * @example B745C159-3155-4B94-95D0-4B73D4D2****
      *

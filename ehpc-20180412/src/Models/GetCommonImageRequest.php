@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCommonImageRequest extends Model
 {
     /**
+     * @description The ID of the cluster to which you want to store the image.
+     *
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetCommonImageRequest extends Model
     public $clusterId;
 
     /**
+     * @description The image type.
+     *
      * @example singularity
      *
      * @var string
@@ -23,6 +27,8 @@ class GetCommonImageRequest extends Model
     public $containType;
 
     /**
+     * @description The name of the image that you want to obtain.
+     *
      * @example tensorflow-21.09-tf1-py3.sif
      *
      * @var string
@@ -30,6 +36,8 @@ class GetCommonImageRequest extends Model
     public $imageName;
 
     /**
+     * @description The region ID of the cluster. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

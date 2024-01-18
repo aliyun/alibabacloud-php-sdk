@@ -17,8 +17,14 @@ class InitializeEHPCRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
-        'regionId' => 'RegionId',
+        'regionId'    => 'RegionId',
+        'serviceName' => 'ServiceName',
     ];
 
     public function validate()
@@ -30,6 +36,9 @@ class InitializeEHPCRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
 
         return $res;
@@ -45,6 +54,9 @@ class InitializeEHPCRequest extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;

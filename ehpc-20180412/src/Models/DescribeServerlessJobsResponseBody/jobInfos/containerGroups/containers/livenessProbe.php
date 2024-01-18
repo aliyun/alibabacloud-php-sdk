@@ -18,7 +18,7 @@ class livenessProbe extends Model
     public $execs;
 
     /**
-     * @description The minimum number of consecutive failures that must occur for the probe to be considered failed. Default value: 3.
+     * @description The minimum number of consecutive failures that must occur for the probe to be considered as failed. Default value: 3.
      *
      * @example 3
      *
@@ -34,7 +34,7 @@ class livenessProbe extends Model
     public $httpGet;
 
     /**
-     * @description The number of seconds between the time when the startup of the container ends and the time when the check starts.
+     * @description The number of seconds after the container is started and before a liveness probe is initiated.
      *
      * @example 10
      *
@@ -52,7 +52,7 @@ class livenessProbe extends Model
     public $periodSeconds;
 
     /**
-     * @description The minimum number of consecutive successes for the probe to be considered successful after having failed. Default value: 1. Set the value to 1.
+     * @description The minimum number of consecutive successes that must occur for the check to be considered successful. Default value: 1. Set the value to 1.
      *
      * @example 1
      *
@@ -68,7 +68,7 @@ class livenessProbe extends Model
     public $tcpSocket;
 
     /**
-     * @description The timeout period of a readiness probe. Default value: 1. Minimum value: 1. Unit: seconds.
+     * @description The timeout period of the check. Default value: 1. Minimum value: 1.
      *
      * @example 10
      *

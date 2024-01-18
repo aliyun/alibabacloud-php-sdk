@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddExistedNodesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *
@@ -18,7 +18,7 @@ class AddExistedNodesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *

@@ -34,7 +34,7 @@ class ListNodesNoPagingRequest extends Model
      *   Login: logon node
      *   Compute: compute node
      *
-     * Default value: Compute
+     * Default value: Compute.
      * @example Compute
      *
      * @var string
@@ -47,7 +47,7 @@ class ListNodesNoPagingRequest extends Model
      *   Forward: sorts the nodes in chronological order.
      *   Backward: sorts the nodes in reverse chronological order.
      *
-     * Default value: Forward
+     * Default value: Forward.
      * @example Forward
      *
      * @var string

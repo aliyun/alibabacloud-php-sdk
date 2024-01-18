@@ -108,7 +108,7 @@ class containerGroups extends Model
     public $events;
 
     /**
-     * @description The time when the instance failed to run due to overdue payments. The beginning of the time range to query. Specify the time in the RFC 3339 standard. The time must be in UTC.
+     * @description The time when the instance failed to run due to overdue payments. The time follows the RFC 3339 standard and must be in UTC.
      *
      * @example 2018-08-02T15:00:00Z
      *
@@ -176,7 +176,7 @@ class containerGroups extends Model
     public $ipv6Address;
 
     /**
-     * @description The memory size of the instance. Unit: GiB.
+     * @description The memory size of the elastic container instance. Unit: GiB.
      *
      * @example 4.0
      *
@@ -203,7 +203,7 @@ class containerGroups extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. If you do not specify a resource group when you create an elastic container instance, the system automatically adds the instance to the default resource group in your account.
+     * @description The ID of the resource group to which the cluster belongs. If you do not specify a resource group when you create an elastic container instance, the system automatically adds the instance to the default resource group in your account.
      *
      * @example rg-aekzh43v*****
      *
@@ -216,7 +216,7 @@ class containerGroups extends Model
      *
      *   Always: Always restarts the instance if a container in the instance exits upon termination.
      *   Never: Never restarts the instance if a container in the instance exits upon termination.
-     *   OnFailure: Restarts the instance only if a container in the instance exists upon failure with a status code of non-zero.
+     *   OnFailure: Restarts the instance when the last start failed.
      *
      * @example Never
      *
@@ -225,7 +225,7 @@ class containerGroups extends Model
     public $restartPolicy;
 
     /**
-     * @description The ID of the security group to which the instances belong.
+     * @description The ID of the security group.
      *
      * @example sg-bp12ujq5zpxuyjfo3o8r
      *
@@ -236,7 +236,7 @@ class containerGroups extends Model
     /**
      * @description The maximum hourly price for the preemptible instance.
      *
-     * This parameter is returned only if you set SpotStrategy to SpotWithPriceLimit.
+     * This parameter is returned only if you set the SpotStrategy parameter to SpotWithPriceLimit.
      * @example 0.025
      *
      * @var float
@@ -244,11 +244,11 @@ class containerGroups extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The bidding policy for the instance. Valid values:
+     * @description The bidding policy of the instance. Valid values:
      *
-     *   NoSpot: The node is a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The node is a preemptible instance that has a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The node is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is a preemptible instance that has a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
      *
      * @example NoSpot
      *
@@ -257,7 +257,7 @@ class containerGroups extends Model
     public $spotStrategy;
 
     /**
-     * @description The status of the instance. Valid value:
+     * @description The status of the instance. Valid values:
      *
      *   Pending: The instance is being started.
      *   Running: The instance is running.
@@ -277,7 +277,7 @@ class containerGroups extends Model
     public $status;
 
     /**
-     * @description The time when all containers exited on success. The beginning of the time range to query. Specify the time in the RFC 3339 standard. The time must be in UTC.
+     * @description The time when all containers exited on success. The time follows the RFC 3339 standard and must be in UTC.
      *
      * @example 2019-12-11T04:33:42Z
      *
@@ -345,7 +345,7 @@ class containerGroups extends Model
     public $volumes;
 
     /**
-     * @description The ID of the VPC to which the elastic container instances belong.
+     * @description The ID of the virtual private cloud (VPC) to which the elastic container instance belongs.
      *
      * @example vpc-1vzjjflab6wvjox****
      *

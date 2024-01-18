@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListUsersAsyncResponseBody extends Model
 {
     /**
+     * @description The ID of the asynchronous task.
+     *
      * @example t-sh03egi3mls****
      *
      * @var string
@@ -17,6 +19,8 @@ class ListUsersAsyncResponseBody extends Model
     public $asyncId;
 
     /**
+     * @description The status of the asynchronous task.
+     *
      * @example Success
      *
      * @var string
@@ -24,6 +28,8 @@ class ListUsersAsyncResponseBody extends Model
     public $asyncStatus;
 
     /**
+     * @description The number of the page returned. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +37,8 @@ class ListUsersAsyncResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -38,6 +46,8 @@ class ListUsersAsyncResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 9A05F620-ED46-4A57-95F1-C67D6D3C5DD2
      *
      * @var string
@@ -45,6 +55,8 @@ class ListUsersAsyncResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of users.
+     *
      * @example 1
      *
      * @var int
@@ -52,6 +64,8 @@ class ListUsersAsyncResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The list of users.
+     *
      * @var users
      */
     public $users;

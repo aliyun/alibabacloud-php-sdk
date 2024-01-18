@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListNodesByQueueRequest extends Model
 {
     /**
+     * @description Specifies whether to enable asynchronous query.
+     *
      * @example false
      *
      * @var bool
@@ -16,7 +18,7 @@ class ListNodesByQueueRequest extends Model
     public $async;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the E-HPC cluster.
      *
      * @example ehpc-hz-FYUr32****
      *
@@ -36,7 +38,7 @@ class ListNodesByQueueRequest extends Model
     /**
      * @description The number of entries to return on each page. Valid values: 1 to 50.
      *
-     * Default value: 10
+     * Default value: 10.
      * @example 10
      *
      * @var int

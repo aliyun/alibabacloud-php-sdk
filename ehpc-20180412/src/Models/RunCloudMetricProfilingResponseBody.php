@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RunCloudMetricProfilingResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8442AF35-875B-4FC0-8B7AAFDC339335D5
      *

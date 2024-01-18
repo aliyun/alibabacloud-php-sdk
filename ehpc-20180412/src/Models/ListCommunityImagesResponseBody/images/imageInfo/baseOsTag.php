@@ -21,7 +21,7 @@ class baseOsTag extends Model
     public $architecture;
 
     /**
-     * @description The tag of the OS image.
+     * @description The operating system tag of the image.
      *
      * @example CentOS_7.2_64
      *

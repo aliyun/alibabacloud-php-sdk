@@ -26,7 +26,7 @@ class securityContext extends Model
     public $readOnlyRootFilesystem;
 
     /**
-     * @description The UID that is used to run the entry point of the container process.
+     * @description The user ID (UID) that is used to run the entry point of the container process.
      *
      * @example 1558
      *

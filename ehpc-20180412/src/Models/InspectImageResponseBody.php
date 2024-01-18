@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class InspectImageResponseBody extends Model
 {
     /**
-     * @description The status of the image.
+     * @description The state of the container image.
      *
      * @var imageStatus
      */
     public $imageStatus;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 896D338C-E4F4-41EC-A154-D605E5DE****
      *

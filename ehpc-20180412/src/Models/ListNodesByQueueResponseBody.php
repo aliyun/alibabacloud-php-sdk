@@ -35,7 +35,7 @@ class ListNodesByQueueResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B405FF19-2D5F-4489-A84C-BC15CC1B24BD
      *

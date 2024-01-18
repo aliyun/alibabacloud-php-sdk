@@ -53,6 +53,15 @@ class clusterInfoSimple extends Model
     public $description;
 
     /**
+     * @description The version of E-HPC.
+     *
+     * @example 1.0.0
+     *
+     * @var string
+     */
+    public $ehpcVersion;
+
+    /**
      * @description Indicates whether the cluster uses a plug-in. Valid values:
      *
      *   true
@@ -159,6 +168,7 @@ class clusterInfoSimple extends Model
         'clientVersion' => 'ClientVersion',
         'deployMode'    => 'DeployMode',
         'description'   => 'Description',
+        'ehpcVersion'   => 'EhpcVersion',
         'hasPlugin'     => 'HasPlugin',
         'id'            => 'Id',
         'isComputeEss'  => 'IsComputeEss',
@@ -188,6 +198,9 @@ class clusterInfoSimple extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->ehpcVersion) {
+            $res['EhpcVersion'] = $this->ehpcVersion;
         }
         if (null !== $this->hasPlugin) {
             $res['HasPlugin'] = $this->hasPlugin;
@@ -239,6 +252,9 @@ class clusterInfoSimple extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EhpcVersion'])) {
+            $model->ehpcVersion = $map['EhpcVersion'];
         }
         if (isset($map['HasPlugin'])) {
             $model->hasPlugin = $map['HasPlugin'];

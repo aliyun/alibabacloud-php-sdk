@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userInfo extends Model
 {
     /**
+     * @description The time when the user was created.
+     *
      * @example 2022-09-28T09:05:26.000Z
      *
      * @var string
@@ -16,6 +18,8 @@ class userInfo extends Model
     public $addTime;
 
     /**
+     * @description The user groups.
+     *
      * @example wheel
      *
      * @var string
@@ -23,6 +27,8 @@ class userInfo extends Model
     public $group;
 
     /**
+     * @description The user group ID.
+     *
      * @example 10
      *
      * @var string
@@ -30,6 +36,8 @@ class userInfo extends Model
     public $groupId;
 
     /**
+     * @description The username of the account.
+     *
      * @example testuser
      *
      * @var string
@@ -37,6 +45,8 @@ class userInfo extends Model
     public $name;
 
     /**
+     * @description The user ID.
+     *
      * @example 1000
      *
      * @var string

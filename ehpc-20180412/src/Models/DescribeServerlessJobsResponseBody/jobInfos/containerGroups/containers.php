@@ -31,7 +31,7 @@ class containers extends Model
     public $commands;
 
     /**
-     * @description The number of vCPUs of the container.
+     * @description The number of vCPUs.
      *
      * @example 2.0
      *
@@ -72,7 +72,7 @@ class containers extends Model
     public $image;
 
     /**
-     * @description The policy for image pulling. Valid values:
+     * @description The policy to pull images. Valid values:
      *
      *   Always: Each time instances are created, image pulling is performed.
      *   IfNotPresent: On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
@@ -156,7 +156,7 @@ class containers extends Model
     public $securityContext;
 
     /**
-     * @description Indicates whether the container allocates buffer resources to standard input streams when the container runs. If you do not specify this parameter, an EOF error may occur when standard input streams in the init container are read. Default value: false.
+     * @description Indicates whether the container allocates buffer resources to standard input streams when the container runs. If you do not specify this parameter, an end-of-file (EOF) error may occur when standard input streams in the container are read. Default value: false.
      *
      * @example true
      *
@@ -165,7 +165,7 @@ class containers extends Model
     public $stdin;
 
     /**
-     * @description Indicates whether the container runtime closes the stdin channel after the stdin channel has been opened by a single attach session. If stdin is true, the stdin stream remains open across multiple attach sessions. If StdinOnce is set to true, stdin is opened on container start, remains empty until the first client attaches to stdin, and then is open and receives data until the client disconnects. When the client disconnects, stdin is closed and remains closed until the container is restarted.
+     * @description Indicates whether the container runtime closes the stdin channel after the stdin channel has been opened by a single attach session. If stdin is true, the stdin stream remains open across multiple attach sessions. If StdinOnce is set to true, stdin is opened on container start, but remains empty until the first client attaches to stdin, and then remains open and receives data until the client disconnects. When the client disconnects, stdin is closed and remains closed until the container is restarted.
      *
      * @example true
      *

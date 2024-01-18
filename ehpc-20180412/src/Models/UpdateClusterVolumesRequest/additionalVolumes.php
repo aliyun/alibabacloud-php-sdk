@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class additionalVolumes extends Model
 {
     /**
-     * @description The queue name of the additional mounted file system N.
+     * @description The queue name of the attached mounted file system.
      *
      * @example work
      *
@@ -19,7 +19,7 @@ class additionalVolumes extends Model
     public $jobQueue;
 
     /**
-     * @description The on-premises mount directory for the additional mounted file system N.
+     * @description The on-premises mount directory for the additional mounted file system.
      *
      * @example /ff
      *
@@ -28,7 +28,7 @@ class additionalVolumes extends Model
     public $localDirectory;
 
     /**
-     * @description The storage location of the additional mounted file system N. Valid values:
+     * @description The storage location of the attached mounted file system. Valid values:
      *
      *   OnPremise: The cluster is deployed on a hybrid cloud.
      *   PublicCloud: The cluster is deployed on a public cloud.
@@ -40,7 +40,7 @@ class additionalVolumes extends Model
     public $location;
 
     /**
-     * @description The remote directory to be mounted by the additional mounted file system N.
+     * @description The remote directory to be mounted by the additional mounted file system.
      *
      * @example /test
      *
@@ -56,7 +56,7 @@ class additionalVolumes extends Model
     public $roles;
 
     /**
-     * @description The ID of the additional mounted file system N.
+     * @description The ID of the additional mounted file system.
      *
      * @example extreme-00b88****
      *
@@ -65,6 +65,8 @@ class additionalVolumes extends Model
     public $volumeId;
 
     /**
+     * @description The mount option of the attached mounted file system.
+     *
      * @example -t nfs -o vers=3,nolock,noresvport
      *
      * @var string
@@ -72,7 +74,7 @@ class additionalVolumes extends Model
     public $volumeMountOption;
 
     /**
-     * @description The domain name of the mount target for the additional mounted file system N.
+     * @description The domain name of the mount target for the additional mounted file system.
      *
      * @example 0088****-sihc.cn-hangzhou.extreme.nas.aliyuncs.com
      *
@@ -81,7 +83,7 @@ class additionalVolumes extends Model
     public $volumeMountpoint;
 
     /**
-     * @description The protocol type of the additional mounted file system N. Valid values:
+     * @description The protocol type of the additional mounted file system. Valid values:
      *
      *   NFS
      *   SMB
@@ -93,9 +95,8 @@ class additionalVolumes extends Model
     public $volumeProtocol;
 
     /**
-     * @description The type of the additional mounted file system N. Currently, only NAS is supported.
+     * @description The type of the additional mounted file system. Only NAS is supported.
      *
-     * Valid values of N: 1 to 10.
      * @example NAS
      *
      * @var string

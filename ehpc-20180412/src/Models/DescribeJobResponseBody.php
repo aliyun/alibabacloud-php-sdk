@@ -17,7 +17,7 @@ class DescribeJobResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 9697AD8D-56FA-4C8E-B46C-00AC9***
      *

@@ -73,7 +73,7 @@ class ModifyImageGatewayConfigRequest extends Model
     public $imageExpirationTimeout;
 
     /**
-     * @description The timeout period for pulling images.
+     * @description The timeout period for pulling images. Unit: seconds.
      *
      * @example 300
      *

@@ -11,7 +11,7 @@ class DeleteClusterRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * You can call the [ListClusters](~~87116~~) operation to obtain cluster IDs.
      * @example ehpc-hz-QKKVqO****
      *
      * @var string
@@ -21,7 +21,7 @@ class DeleteClusterRequest extends Model
     /**
      * @description Specifies whether to release Elastic Compute Service (ECS) instances that are created by using Elastic High Performance Computing (E-HPC).
      *
-     * Default value: true
+     * Default value: true.
      * @example true
      *
      * @var string

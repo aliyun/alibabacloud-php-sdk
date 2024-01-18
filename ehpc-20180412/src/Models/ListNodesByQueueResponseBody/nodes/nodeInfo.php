@@ -20,9 +20,9 @@ class nodeInfo extends Model
     public $addTime;
 
     /**
-     * @description The mode in which the node was added. Valid values:
+     * @description The mode in which the node is created. Valid values:
      *
-     *   manual: The node was manually added.
+     *   manual: The node is manually added.
      *   autoscale: The node is automatically added.
      *
      * @example manual
@@ -59,7 +59,7 @@ class nodeInfo extends Model
     public $expiredTime;
 
     /**
-     * @description The name of the node.
+     * @description The node name.
      *
      * @example compute0
      *
@@ -77,7 +77,7 @@ class nodeInfo extends Model
     public $htEnabled;
 
     /**
-     * @description The ID of the ECS instance.
+     * @description The ID of the instance.
      *
      * @example i-bp13p7vlcb1uihfv****
      *
@@ -86,7 +86,7 @@ class nodeInfo extends Model
     public $id;
 
     /**
-     * @description The ID of the image.
+     * @description The image ID.
      *
      * @example centos_7_02_64_20G_alibase_20170818****
      *
@@ -120,8 +120,8 @@ class nodeInfo extends Model
     /**
      * @description The location where the node is deployed. Valid values:
      *
-     *   OnPremise: The node is deployed on a hybrid cloud.
-     *   PublicCloud: The node is deployed on a public cloud.
+     *   OnPremise: The cluster is deployed on a hybrid cloud.
+     *   PublicCloud: The cluster is deployed on a public cloud.
      *
      * @example PublicCloud
      *
@@ -132,10 +132,10 @@ class nodeInfo extends Model
     /**
      * @description The reason why the node is locked. Valid values:
      *
-     *   financial: The node is locked due to overdue payments.
-     *   security: The node is locked due to security reasons.
-     *   recycling: The preemptible node is locked and pending release.
-     *   dedicatedhostfinancial: The node is locked due to the overdue payments of the dedicated host.
+     *   financial: The instance is locked due to overdue payments.
+     *   security: The node is locked for security reasons.
+     *   recycling: The preemptible instance is locked and pending release.
+     *   dedicatedhostfinancial: The ECS instance is locked due to overdue payments of the dedicated host.
      *
      * By default, an empty string is returned.
      * @example financial
@@ -154,7 +154,7 @@ class nodeInfo extends Model
     public $publicIpAddress;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -163,11 +163,11 @@ class nodeInfo extends Model
     public $regionId;
 
     /**
-     * @description The preemption policy for the Elastic Compute Service (ECS) instance. Valid values:
+     * @description The preemption policy of the instance. Valid values:
      *
-     *   NoSpot: applies to regular pay-as-you-go instances.
-     *   SpotWithPriceLimit: The instances of the compute node are preemptible instances. These types of instances have a specified maximum hourly price.
-     *   SpotAsPriceGo: The instances of the compute node are preemptible instances. The price of these instances is based on the current market price.
+     *   NoSpot: The instance is created as a pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
      *
      * @example NoSpot
      *
@@ -190,8 +190,8 @@ class nodeInfo extends Model
      *   uninit: The node is not initialized.
      *   init: The node is being initialized.
      *   ready: The node is ready.
-     *   running: The node is running.
-     *   exception: An exception has occurred on the node.
+     *   running: The cluster is running.
+     *   exception: An exception occurred on the node.
      *   untracking: The node is not added to the cluster.
      *
      * @example untracking
@@ -215,7 +215,7 @@ class nodeInfo extends Model
     public $usedResources;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-bp1e47optm9g58zcu****
      *
@@ -233,7 +233,7 @@ class nodeInfo extends Model
     public $version;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The VPC ID of the node.
      *
      * @example vpc-bp1gnu8br4ay7beb2w****
      *
@@ -242,7 +242,7 @@ class nodeInfo extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID of the node.
      *
      * @example cn-hangzhou-b
      *

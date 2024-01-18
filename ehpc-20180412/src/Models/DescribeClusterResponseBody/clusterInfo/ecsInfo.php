@@ -13,30 +13,33 @@ use AlibabaCloud\Tea\Model;
 class ecsInfo extends Model
 {
     /**
-     * @description The list of compute nodes.
+     * @description The IP address of the on-premises management nodes.
      *
      * @var compute
      */
     public $compute;
 
     /**
-     * @description The list of logon nodes.
+     * @description The deployment mode of the custom component. Valid values:
+     *
+     *   local
+     *   ecs
      *
      * @var login
      */
     public $login;
 
     /**
-     * @description The information of management nodes.
+     * @description The list of on-premises management nodes.
      *
+     * This parameter is returned only when the cluster is deployed across hybrid environments and the hybrid-cloud proxy mode is enabled for the cluster.
      * @var manager
      */
     public $manager;
 
     /**
-     * @description The list of proxy nodes on the cloud.
+     * @description The endpoint of the custom component service.
      *
-     * This parameter is returned only when the cluster is deployed across hybrid environments and the hybrid-cloud proxy mode is enabled for the cluster.
      * @var proxyMgr
      */
     public $proxyMgr;

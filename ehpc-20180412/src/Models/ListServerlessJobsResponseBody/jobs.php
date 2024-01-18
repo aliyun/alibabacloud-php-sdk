@@ -30,7 +30,7 @@ class jobs extends Model
     public $isArrayJob;
 
     /**
-     * @description The ID of the serverless job or subtask (array job).
+     * @description The ID of the serverless job or the subtask (array job).
      *
      * @example 5
      *

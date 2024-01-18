@@ -45,7 +45,7 @@ class events extends Model
     public $message;
 
     /**
-     * @description The name of the object to which the event belongs.
+     * @description The name of the category to which the event belongs.
      *
      * @example test-xxx
      *

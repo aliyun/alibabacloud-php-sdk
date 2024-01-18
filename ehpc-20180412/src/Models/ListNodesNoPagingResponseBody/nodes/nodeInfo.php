@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
-     * @description The name of the node.
+     * @description The node name.
      *
      * @example compute0
      *
@@ -18,7 +18,7 @@ class nodeInfo extends Model
     public $hostName;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example i-bp13p7vlcb1uihfv****
      *
@@ -27,7 +27,7 @@ class nodeInfo extends Model
     public $id;
 
     /**
-     * @description The ID of the image.
+     * @description The image ID.
      *
      * @example centos_7_02_64_20G_alibase_20170818****
      *
@@ -36,7 +36,7 @@ class nodeInfo extends Model
     public $imageId;
 
     /**
-     * @description The instance type of the node.
+     * @description The node type.
      *
      * @example ecs.n1.tiny
      *
@@ -48,7 +48,7 @@ class nodeInfo extends Model
      * @description The status of the node. Valid values:
      *
      *   uninit: The node is being installed.
-     *   exception: An exception has occurred on the node.
+     *   exception: An exception occurred on the node.
      *   running: The node is running.
      *   initing: The node is being initialized.
      *   releasing: The node is being released.

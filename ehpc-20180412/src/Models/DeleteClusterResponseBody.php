@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F1AB6D8D-E185-4D94-859C-7CE7B8B7****
      *
@@ -18,7 +18,7 @@ class DeleteClusterResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example F1AB6D8D-E185-4D94-859C-7CE7B8B7****
      *

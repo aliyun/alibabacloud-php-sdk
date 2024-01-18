@@ -27,7 +27,7 @@ class imageInfo extends Model
     public $description;
 
     /**
-     * @description The ID of the image.
+     * @description The image ID.
      *
      * @example m-bp181x855551ww5yq****
      *
@@ -36,7 +36,7 @@ class imageInfo extends Model
     public $imageId;
 
     /**
-     * @description The name of the image.
+     * @description The image name.
      *
      * @example linux_CentOS7.2_OceanBase_OBD_1ECS-3OB_3.0
      *
@@ -45,7 +45,7 @@ class imageInfo extends Model
     public $imageName;
 
     /**
-     * @description The type of the image. Valid values:
+     * @description The image type. Valid values:
      *
      *   self: custom image
      *   others: shared image
@@ -86,7 +86,7 @@ class imageInfo extends Model
     public $pricingCycle;
 
     /**
-     * @description The Alibaba Cloud Marketplace product code of the image.
+     * @description The product code in Alibaba Cloud Marketplace.
      *
      * @example cmjj028279
      *
@@ -116,12 +116,12 @@ class imageInfo extends Model
     public $skuCode;
 
     /**
-     * @description The status of the image. Valid values:
+     * @description The state of the image. Valid values:
      *
-     *   UnAvailable: The image is unavailable.
-     *   Available: The image is available.
-     *   Creating: The image is being created.
-     *   CreateFailed: The image failed to be created.
+     *   UnAvailable
+     *   Available
+     *   Creating
+     *   CreateFailed
      *
      * @example Available
      *

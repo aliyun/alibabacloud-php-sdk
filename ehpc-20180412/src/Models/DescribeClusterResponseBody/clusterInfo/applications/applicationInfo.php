@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class applicationInfo extends Model
 {
     /**
-     * @description The name of the software.
+     * @description The number of compute nodes in the cluster.
      *
      * @example openmpi
      *
@@ -18,7 +18,7 @@ class applicationInfo extends Model
     public $name;
 
     /**
-     * @description The tag of the software.
+     * @description The instance type of the compute nodes.
      *
      * @example OpenMPI_1.8.7
      *
@@ -27,7 +27,7 @@ class applicationInfo extends Model
     public $tag;
 
     /**
-     * @description The version of the software.
+     * @description The list of logon nodes.
      *
      * @example 1.10
      *

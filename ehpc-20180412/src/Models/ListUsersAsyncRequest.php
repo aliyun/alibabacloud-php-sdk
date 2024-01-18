@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListUsersAsyncRequest extends Model
 {
     /**
+     * @description The ID of the asynchronous task.
+     *
      * @example t-hz02xltxaex1q80
      *
      * @var string
@@ -16,6 +18,8 @@ class ListUsersAsyncRequest extends Model
     public $asyncId;
 
     /**
+     * @description The ID of the E-HPC cluster. You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     *
      * @example ehpc-hz-vu7c2WkVGx
      *
      * @var string
@@ -23,6 +27,8 @@ class ListUsersAsyncRequest extends Model
     public $clusterId;
 
     /**
+     * @description The page number.\
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListUsersAsyncRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.\
+     * Default value: 10.
      * @example 10
      *
      * @var int

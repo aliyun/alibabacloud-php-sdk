@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetSchedulerInfoRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example ehpc-hz-FYUr32****
      *
@@ -19,7 +19,7 @@ class GetSchedulerInfoRequest extends Model
     public $clusterId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID of the cluster.
      *
      * @example cn-hangzhou
      *
@@ -28,6 +28,8 @@ class GetSchedulerInfoRequest extends Model
     public $regionId;
 
     /**
+     * @description The detailed settings of the scheduler.
+     *
      * @var scheduler[]
      */
     public $scheduler;

@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class login extends Model
 {
     /**
-     * @description The number of logon nodes in the cluster.
+     * @description The running status of the custom component. Valid values:
+     *
+     *   running
+     *   stopped
+     *   exception
      *
      * @example 1
      *
@@ -18,7 +22,7 @@ class login extends Model
     public $count;
 
     /**
-     * @description The instance type of the logon nodes.
+     * @description The TCP port number of the custom component.
      *
      * @example ecs.n1.tiny
      *

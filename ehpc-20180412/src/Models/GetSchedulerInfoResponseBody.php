@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetSchedulerInfoResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example BBC2F93D-003A-49C4-850C-B826EECF****
      *

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeJobRequest extends Model
 {
     /**
+     * @description Specifies whether to use an asynchronous link to stop the job.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -16,9 +19,9 @@ class DescribeJobRequest extends Model
     public $async;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the E-HPC cluster.
      *
-     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * You can call the [ListClusters](~~87116~~) operation to obtain the cluster ID.
      * @example ehpc-hz-jeJki6****
      *
      * @var string
@@ -26,9 +29,9 @@ class DescribeJobRequest extends Model
     public $clusterId;
 
     /**
-     * @description The ID of the job.
+     * @description The job ID.
      *
-     * You can call the [ListJobs](~~87251~~) operation to query the job ID.
+     * You can call the [ListJobs](~~87251~~) operation to obtain the job ID.
      * @example 1.scheduler****
      *
      * @var string
