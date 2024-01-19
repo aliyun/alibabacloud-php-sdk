@@ -10,35 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeSourceServersResponseBody extends Model
 {
     /**
-     * @var sourceServers
-     */
-    public $sourceServers;
-
-    /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example 410E6073-66D0-45D3-AB3E-4DC3F5E4****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the migration source.
+     *
+     * @var sourceServers
+     */
+    public $sourceServers;
+
+    /**
+     * @description The total number of migration sources returned.
+     *
+     * @example 1
+     *
      * @var int
      */
-    public $pageNumber;
+    public $totalCount;
     protected $_name = [
-        'sourceServers' => 'SourceServers',
-        'totalCount'    => 'TotalCount',
+        'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'requestId'     => 'RequestId',
-        'pageNumber'    => 'PageNumber',
+        'sourceServers' => 'SourceServers',
+        'totalCount'    => 'TotalCount',
     ];
 
     public function validate()
@@ -48,11 +66,8 @@ class DescribeSourceServersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceServers) {
-            $res['SourceServers'] = null !== $this->sourceServers ? $this->sourceServers->toMap() : null;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -60,8 +75,11 @@ class DescribeSourceServersResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->sourceServers) {
+            $res['SourceServers'] = null !== $this->sourceServers ? $this->sourceServers->toMap() : null;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -75,11 +93,8 @@ class DescribeSourceServersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceServers'])) {
-            $model->sourceServers = sourceServers::fromMap($map['SourceServers']);
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -87,8 +102,11 @@ class DescribeSourceServersResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['SourceServers'])) {
+            $model->sourceServers = sourceServers::fromMap($map['SourceServers']);
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

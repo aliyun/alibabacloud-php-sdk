@@ -9,23 +9,35 @@ use AlibabaCloud\Tea\Model;
 class part extends Model
 {
     /**
-     * @var int
-     */
-    public $sizeBytes;
-
-    /**
+     * @description Indicates whether block replication is enabled for the data disk partition.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $block;
 
     /**
+     * @description The device ID of the data disk partition.
+     *
+     * @example 0_1
+     *
      * @var string
      */
     public $device;
+
+    /**
+     * @description The size of the data disk partition. Unit: bytes.
+     *
+     * @example 21474836480
+     *
+     * @var int
+     */
+    public $sizeBytes;
     protected $_name = [
-        'sizeBytes' => 'SizeBytes',
         'block'     => 'Block',
         'device'    => 'Device',
+        'sizeBytes' => 'SizeBytes',
     ];
 
     public function validate()
@@ -35,14 +47,14 @@ class part extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sizeBytes) {
-            $res['SizeBytes'] = $this->sizeBytes;
-        }
         if (null !== $this->block) {
             $res['Block'] = $this->block;
         }
         if (null !== $this->device) {
             $res['Device'] = $this->device;
+        }
+        if (null !== $this->sizeBytes) {
+            $res['SizeBytes'] = $this->sizeBytes;
         }
 
         return $res;
@@ -56,14 +68,14 @@ class part extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SizeBytes'])) {
-            $model->sizeBytes = $map['SizeBytes'];
-        }
         if (isset($map['Block'])) {
             $model->block = $map['Block'];
         }
         if (isset($map['Device'])) {
             $model->device = $map['Device'];
+        }
+        if (isset($map['SizeBytes'])) {
+            $model->sizeBytes = $map['SizeBytes'];
         }
 
         return $model;

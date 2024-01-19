@@ -15,29 +15,42 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
+     * @description The IDs of N SMC resources. SMC resources include migration sources and jobs. Valid values of N: 1 to 50.
+     *
+     * @example s-bw526m1vi6x20c6g****
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @description The type of the SMC resource. Valid values:
+     *
+     *   sourceserver: migration source.
+     *   replicationjob: migration job.
+     *
+     * @example sourceserver
+     *
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
         'ownerId'              => 'OwnerId',
+        'resourceId'           => 'ResourceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceType'         => 'ResourceType',
-        'resourceId'           => 'ResourceId',
         'tag'                  => 'Tag',
     ];
 
@@ -51,14 +64,14 @@ class TagResourcesRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -84,16 +97,16 @@ class TagResourcesRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['ResourceId'])) {
+            if (!empty($map['ResourceId'])) {
+                $model->resourceId = $map['ResourceId'];
+            }
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['ResourceId'])) {
-            if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
-            }
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

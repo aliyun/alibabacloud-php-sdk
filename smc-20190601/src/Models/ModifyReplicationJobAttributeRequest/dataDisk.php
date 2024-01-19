@@ -10,16 +10,28 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
+     * @description The index of data disk N on the destination ECS instance. Valid values of N: 1 to 16.
+     *
+     * >  You can create a destination data disk only for a source server that has data disks.
+     * @example 1
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @description The information about partitions.
+     *
      * @var part[]
      */
     public $part;
 
     /**
+     * @description The size of the data disk on the destination ECS instance. Unit: GiB. Valid values: 20 to 32768.
+     *
+     * >  The size of a destination data disk must be greater than the size of data in the source data disk. For example, if the source data disk has 500 GiB of storage space and 100 GiB of data, you must set this parameter to a value greater than 100.
+     * @example 100
+     *
      * @var int
      */
     public $size;

@@ -9,6 +9,18 @@ use AlibabaCloud\Tea\Model;
 class DeleteSourceServerRequest extends Model
 {
     /**
+     * @description Specifies whether to forcibly delete the migration source. Valid values:
+     *
+     *   true: forcibly deletes the migration source and the migration job created for the migration source, and releases the intermediate resources of the migration job.
+     *   false: does not delete the migration source if a migration job is created for the migration source.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -19,19 +31,18 @@ class DeleteSourceServerRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The migration source ID.
+     *
+     * @example s-bp17m1vi6x20c6g6****
+     *
      * @var string
      */
     public $sourceId;
-
-    /**
-     * @var bool
-     */
-    public $force;
     protected $_name = [
+        'force'                => 'Force',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'sourceId'             => 'SourceId',
-        'force'                => 'Force',
     ];
 
     public function validate()
@@ -41,6 +52,9 @@ class DeleteSourceServerRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -49,9 +63,6 @@ class DeleteSourceServerRequest extends Model
         }
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
-        }
-        if (null !== $this->force) {
-            $res['Force'] = $this->force;
         }
 
         return $res;
@@ -65,6 +76,9 @@ class DeleteSourceServerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -73,9 +87,6 @@ class DeleteSourceServerRequest extends Model
         }
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
-        }
-        if (isset($map['Force'])) {
-            $model->force = $map['Force'];
         }
 
         return $model;

@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of the tag for the migration job. Valid values of N: 1 to 20.
+     *
+     * The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+     * @example TestKey
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag for the migration job. Valid values of N: 1 to 20.
+     *
+     * The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+     * @example TestValue
+     *
      * @var string
      */
     public $value;

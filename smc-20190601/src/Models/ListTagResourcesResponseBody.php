@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * If NextToken is empty, no next page exists.
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 17743161-66F3-4E7F-B8AE-845FB28B928F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about SMC resources and tags, such as the IDs, types, and tag key-value pairs of the resources.
+     *
      * @var tagResources
      */
     public $tagResources;
