@@ -3579,6 +3579,9 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->from)) {
             $body['from'] = $request->from;
         }
+        if (!Utils::isUnset($request->highlight)) {
+            $body['highlight'] = $request->highlight;
+        }
         if (!Utils::isUnset($request->line)) {
             $body['line'] = $request->line;
         }

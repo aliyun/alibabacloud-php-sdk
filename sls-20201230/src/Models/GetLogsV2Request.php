@@ -28,6 +28,11 @@ class GetLogsV2Request extends Model
     public $from;
 
     /**
+     * @var bool
+     */
+    public $highlight;
+
+    /**
      * @description The maximum number of logs to return for the request. This parameter takes effect only when the query parameter is set to a search statement. Minimum value: 0. Maximum value: 100. Default value: 100.
      *
      * @example 100
@@ -113,17 +118,18 @@ class GetLogsV2Request extends Model
      */
     public $topic;
     protected $_name = [
-        'forward'  => 'forward',
-        'from'     => 'from',
-        'line'     => 'line',
-        'offset'   => 'offset',
-        'powerSql' => 'powerSql',
-        'query'    => 'query',
-        'reverse'  => 'reverse',
-        'session'  => 'session',
-        'shard'    => 'shard',
-        'to'       => 'to',
-        'topic'    => 'topic',
+        'forward'   => 'forward',
+        'from'      => 'from',
+        'highlight' => 'highlight',
+        'line'      => 'line',
+        'offset'    => 'offset',
+        'powerSql'  => 'powerSql',
+        'query'     => 'query',
+        'reverse'   => 'reverse',
+        'session'   => 'session',
+        'shard'     => 'shard',
+        'to'        => 'to',
+        'topic'     => 'topic',
     ];
 
     public function validate()
@@ -138,6 +144,9 @@ class GetLogsV2Request extends Model
         }
         if (null !== $this->from) {
             $res['from'] = $this->from;
+        }
+        if (null !== $this->highlight) {
+            $res['highlight'] = $this->highlight;
         }
         if (null !== $this->line) {
             $res['line'] = $this->line;
@@ -183,6 +192,9 @@ class GetLogsV2Request extends Model
         }
         if (isset($map['from'])) {
             $model->from = $map['from'];
+        }
+        if (isset($map['highlight'])) {
+            $model->highlight = $map['highlight'];
         }
         if (isset($map['line'])) {
             $model->line = $map['line'];

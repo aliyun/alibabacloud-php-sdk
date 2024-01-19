@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2ResponseBody;
 
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2ResponseBody\meta\phraseQueryInfo;
+use AlibabaCloud\SDK\Sls\V20201230\Models\LogContent;
 use AlibabaCloud\Tea\Model;
 
 class meta extends Model
@@ -18,6 +20,11 @@ class meta extends Model
     public $aggQuery;
 
     /**
+     * @var string[]
+     */
+    public $columnTypes;
+
+    /**
      * @description The number of rows that are returned.
      *
      * @example 1
@@ -25,6 +32,16 @@ class meta extends Model
      * @var int
      */
     public $count;
+
+    /**
+     * @var int
+     */
+    public $cpuCores;
+
+    /**
+     * @var float
+     */
+    public $cpuSec;
 
     /**
      * @description The amount of time that is consumed by the request. Unit: milliseconds.
@@ -45,6 +62,11 @@ class meta extends Model
     public $hasSQL;
 
     /**
+     * @var LogContent[][]
+     */
+    public $highlights;
+
+    /**
      * @description Indicates whether the returned result is accurate.
      *
      * @example true
@@ -59,6 +81,21 @@ class meta extends Model
      * @var string[]
      */
     public $keys;
+
+    /**
+     * @var int
+     */
+    public $limited;
+
+    /**
+     * @var int
+     */
+    public $mode;
+
+    /**
+     * @var phraseQueryInfo
+     */
+    public $phraseQueryInfo;
 
     /**
      * @description The number of logs that are processed in the request.
@@ -91,6 +128,11 @@ class meta extends Model
     public $progress;
 
     /**
+     * @var int
+     */
+    public $scanBytes;
+
+    /**
      * @description The type of observable data.
      *
      * @example None
@@ -116,14 +158,22 @@ class meta extends Model
     public $whereQuery;
     protected $_name = [
         'aggQuery'           => 'aggQuery',
+        'columnTypes'        => 'columnTypes',
         'count'              => 'count',
+        'cpuCores'           => 'cpuCores',
+        'cpuSec'             => 'cpuSec',
         'elapsedMillisecond' => 'elapsedMillisecond',
         'hasSQL'             => 'hasSQL',
+        'highlights'         => 'highlights',
         'isAccurate'         => 'isAccurate',
         'keys'               => 'keys',
+        'limited'            => 'limited',
+        'mode'               => 'mode',
+        'phraseQueryInfo'    => 'phraseQueryInfo',
         'processedBytes'     => 'processedBytes',
         'processedRows'      => 'processedRows',
         'progress'           => 'progress',
+        'scanBytes'          => 'scanBytes',
         'telementryType'     => 'telementryType',
         'terms'              => 'terms',
         'whereQuery'         => 'whereQuery',
@@ -139,8 +189,17 @@ class meta extends Model
         if (null !== $this->aggQuery) {
             $res['aggQuery'] = $this->aggQuery;
         }
+        if (null !== $this->columnTypes) {
+            $res['columnTypes'] = $this->columnTypes;
+        }
         if (null !== $this->count) {
             $res['count'] = $this->count;
+        }
+        if (null !== $this->cpuCores) {
+            $res['cpuCores'] = $this->cpuCores;
+        }
+        if (null !== $this->cpuSec) {
+            $res['cpuSec'] = $this->cpuSec;
         }
         if (null !== $this->elapsedMillisecond) {
             $res['elapsedMillisecond'] = $this->elapsedMillisecond;
@@ -148,11 +207,23 @@ class meta extends Model
         if (null !== $this->hasSQL) {
             $res['hasSQL'] = $this->hasSQL;
         }
+        if (null !== $this->highlights) {
+            $res['highlights'] = $this->highlights;
+        }
         if (null !== $this->isAccurate) {
             $res['isAccurate'] = $this->isAccurate;
         }
         if (null !== $this->keys) {
             $res['keys'] = $this->keys;
+        }
+        if (null !== $this->limited) {
+            $res['limited'] = $this->limited;
+        }
+        if (null !== $this->mode) {
+            $res['mode'] = $this->mode;
+        }
+        if (null !== $this->phraseQueryInfo) {
+            $res['phraseQueryInfo'] = null !== $this->phraseQueryInfo ? $this->phraseQueryInfo->toMap() : null;
         }
         if (null !== $this->processedBytes) {
             $res['processedBytes'] = $this->processedBytes;
@@ -162,6 +233,9 @@ class meta extends Model
         }
         if (null !== $this->progress) {
             $res['progress'] = $this->progress;
+        }
+        if (null !== $this->scanBytes) {
+            $res['scanBytes'] = $this->scanBytes;
         }
         if (null !== $this->telementryType) {
             $res['telementryType'] = $this->telementryType;
@@ -187,14 +261,30 @@ class meta extends Model
         if (isset($map['aggQuery'])) {
             $model->aggQuery = $map['aggQuery'];
         }
+        if (isset($map['columnTypes'])) {
+            if (!empty($map['columnTypes'])) {
+                $model->columnTypes = $map['columnTypes'];
+            }
+        }
         if (isset($map['count'])) {
             $model->count = $map['count'];
+        }
+        if (isset($map['cpuCores'])) {
+            $model->cpuCores = $map['cpuCores'];
+        }
+        if (isset($map['cpuSec'])) {
+            $model->cpuSec = $map['cpuSec'];
         }
         if (isset($map['elapsedMillisecond'])) {
             $model->elapsedMillisecond = $map['elapsedMillisecond'];
         }
         if (isset($map['hasSQL'])) {
             $model->hasSQL = $map['hasSQL'];
+        }
+        if (isset($map['highlights'])) {
+            if (!empty($map['highlights'])) {
+                $model->highlights = $map['highlights'];
+            }
         }
         if (isset($map['isAccurate'])) {
             $model->isAccurate = $map['isAccurate'];
@@ -204,6 +294,15 @@ class meta extends Model
                 $model->keys = $map['keys'];
             }
         }
+        if (isset($map['limited'])) {
+            $model->limited = $map['limited'];
+        }
+        if (isset($map['mode'])) {
+            $model->mode = $map['mode'];
+        }
+        if (isset($map['phraseQueryInfo'])) {
+            $model->phraseQueryInfo = phraseQueryInfo::fromMap($map['phraseQueryInfo']);
+        }
         if (isset($map['processedBytes'])) {
             $model->processedBytes = $map['processedBytes'];
         }
@@ -212,6 +311,9 @@ class meta extends Model
         }
         if (isset($map['progress'])) {
             $model->progress = $map['progress'];
+        }
+        if (isset($map['scanBytes'])) {
+            $model->scanBytes = $map['scanBytes'];
         }
         if (isset($map['telementryType'])) {
             $model->telementryType = $map['telementryType'];
