@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectLabelRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectLabelResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchRequest;
@@ -96,6 +98,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePipelineGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePipelineRelationsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePipelineRelationsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePipelineResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProjectLabelRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProjectLabelResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProtectedBranchRequest;
@@ -195,6 +199,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemWorkFlowInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\JoinPipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\JoinPipelineGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\LinkMergeRequestLabelRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\LinkMergeRequestLabelResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationMembersRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationMembersResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationsRequest;
@@ -212,6 +218,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestCommentsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestCommentsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestFilesReadsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestFilesReadsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestLabelsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestLabelsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestPatchSetsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestPatchSetsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestsRequest;
@@ -234,6 +242,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineRunsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelineRunsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelinesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListPipelinesResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectLabelsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectLabelsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectMembersRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectMembersResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectsRequest;
@@ -353,6 +363,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectFieldRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectFieldResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectLabelRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectLabelResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesRequest;
@@ -1504,6 +1516,69 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->createProjectWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateProjectLabelRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateProjectLabelResponse
+     */
+    public function createProjectLabelWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->color)) {
+            $body['color'] = $request->color;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProjectLabel',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/labels',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateProjectLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateProjectLabelRequest $request
+     *
+     * @return CreateProjectLabelResponse
+     */
+    public function createProjectLabel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createProjectLabelWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3350,6 +3425,60 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->deleteProjectWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $labelId
+     * @param DeleteProjectLabelRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteProjectLabelResponse
+     */
+    public function deleteProjectLabelWithOptions($labelId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProjectLabel',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/labels/' . OpenApiUtilClient::getEncodeParam($labelId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteProjectLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $labelId
+     * @param DeleteProjectLabelRequest $request
+     *
+     * @return DeleteProjectLabelResponse
+     */
+    public function deleteProjectLabel($labelId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteProjectLabelWithOptions($labelId, $request, $headers, $runtime);
     }
 
     /**
@@ -6234,6 +6363,66 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param LinkMergeRequestLabelRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return LinkMergeRequestLabelResponse
+     */
+    public function linkMergeRequestLabelWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->localId)) {
+            $query['localId'] = $request->localId;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->labelIds)) {
+            $body['labelIds'] = $request->labelIds;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'LinkMergeRequestLabel',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/merge_requests/link_labels',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return LinkMergeRequestLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param LinkMergeRequestLabelRequest $request
+     *
+     * @return LinkMergeRequestLabelResponse
+     */
+    public function linkMergeRequestLabel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->linkMergeRequestLabelWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param string                        $appName
      * @param ListApplicationMembersRequest $request
      * @param string[]                      $headers
@@ -6757,6 +6946,61 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->listMergeRequestFilesReadsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListMergeRequestLabelsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListMergeRequestLabelsResponse
+     */
+    public function listMergeRequestLabelsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->localId)) {
+            $query['localId'] = $request->localId;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMergeRequestLabels',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/merge_requests/labels',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMergeRequestLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMergeRequestLabelsRequest $request
+     *
+     * @return ListMergeRequestLabelsResponse
+     */
+    public function listMergeRequestLabels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMergeRequestLabelsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7436,6 +7680,76 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->listPipelinesWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListProjectLabelsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListProjectLabelsResponse
+     */
+    public function listProjectLabelsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['orderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        if (!Utils::isUnset($request->search)) {
+            $query['search'] = $request->search;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->withCounts)) {
+            $query['withCounts'] = $request->withCounts;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjectLabels',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/labels',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProjectLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListProjectLabelsRequest $request
+     *
+     * @return ListProjectLabelsResponse
+     */
+    public function listProjectLabels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listProjectLabelsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -11183,6 +11497,71 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->updateProjectFieldWithOptions($organizationId, $identifier, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $labelId
+     * @param UpdateProjectLabelRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateProjectLabelResponse
+     */
+    public function updateProjectLabelWithOptions($labelId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->color)) {
+            $body['color'] = $request->color;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProjectLabel',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/labels/' . OpenApiUtilClient::getEncodeParam($labelId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateProjectLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $labelId
+     * @param UpdateProjectLabelRequest $request
+     *
+     * @return UpdateProjectLabelResponse
+     */
+    public function updateProjectLabel($labelId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateProjectLabelWithOptions($labelId, $request, $headers, $runtime);
     }
 
     /**
