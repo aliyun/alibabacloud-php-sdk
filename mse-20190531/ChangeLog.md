@@ -1,3 +1,6 @@
+2024-01-19 Version: 5.2.8
+- Generated php 2019-05-31 for mse.
+
 2024-01-18 Version: 5.2.7
 - Generated php 2019-05-31 for mse.
 
