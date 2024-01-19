@@ -1151,9 +1151,9 @@ class Cbn extends OpenApiClient
 
     /**
      * ## Limits
-     *   * *   By default, the CreateCenChildInstanceRouteEntryToCen operation is unavailable. To call this operation,[submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *   * *   By default, the CreateCenChildInstanceRouteEntryToCen operation is unavailable. To call this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
      *   * *   You cannot add a route entry to an Enterprise Edition transit router by calling the CreateCenChildInstanceRouteEntryToCen operation.
-     *   * *   By default, the next hop of the route entry is the regional gateway of the Cloud Enterprise Network (CEN) instance. You cannot modify the next hop.
+     *   * *   By default, the next hop of the route entry is the regional gateway of the CEN instance. You cannot modify the next hop.
      *   *
      * @param CreateCenChildInstanceRouteEntryToCenRequest $request CreateCenChildInstanceRouteEntryToCenRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
@@ -1217,9 +1217,9 @@ class Cbn extends OpenApiClient
 
     /**
      * ## Limits
-     *   * *   By default, the CreateCenChildInstanceRouteEntryToCen operation is unavailable. To call this operation,[submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *   * *   By default, the CreateCenChildInstanceRouteEntryToCen operation is unavailable. To call this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
      *   * *   You cannot add a route entry to an Enterprise Edition transit router by calling the CreateCenChildInstanceRouteEntryToCen operation.
-     *   * *   By default, the next hop of the route entry is the regional gateway of the Cloud Enterprise Network (CEN) instance. You cannot modify the next hop.
+     *   * *   By default, the next hop of the route entry is the regional gateway of the CEN instance. You cannot modify the next hop.
      *   *
      * @param CreateCenChildInstanceRouteEntryToCenRequest $request CreateCenChildInstanceRouteEntryToCenRequest
      *
@@ -3597,10 +3597,13 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * @param DeleteTransitRouteTableAggregationRequest $request
-     * @param RuntimeOptions                            $runtime
+     * *   Before you delete an aggregate route, make sure that your network has a redundant route to prevent service interruptions.
+     *   * *   After an aggregate route is deleted, the aggregate route is automatically withdrawn from virtual private clouds (VPCs). Specific routes that fall within the aggregate route are advertised to the VPCs.
+     *   *
+     * @param DeleteTransitRouteTableAggregationRequest $request DeleteTransitRouteTableAggregationRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTransitRouteTableAggregationResponse
+     * @return DeleteTransitRouteTableAggregationResponse DeleteTransitRouteTableAggregationResponse
      */
     public function deleteTransitRouteTableAggregationWithOptions($request, $runtime)
     {
@@ -3649,9 +3652,12 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * @param DeleteTransitRouteTableAggregationRequest $request
+     * *   Before you delete an aggregate route, make sure that your network has a redundant route to prevent service interruptions.
+     *   * *   After an aggregate route is deleted, the aggregate route is automatically withdrawn from virtual private clouds (VPCs). Specific routes that fall within the aggregate route are advertised to the VPCs.
+     *   *
+     * @param DeleteTransitRouteTableAggregationRequest $request DeleteTransitRouteTableAggregationRequest
      *
-     * @return DeleteTransitRouteTableAggregationResponse
+     * @return DeleteTransitRouteTableAggregationResponse DeleteTransitRouteTableAggregationResponse
      */
     public function deleteTransitRouteTableAggregation($request)
     {
@@ -3821,10 +3827,15 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * @param DeleteTransitRouterMulticastDomainRequest $request
-     * @param RuntimeOptions                            $runtime
+     * Before you delete a multicast domain, make sure that the following requirements are met:
+     *   * *   The multicast domain is disassociated from all vSwitches. For more information, see [DisassociateTransitRouterMulticastDomain](~~429774~~).
+     *   * *   All multicast sources and members are removed from the multicast domain. For more information, see [DeregisterTransitRouterMulticastGroupSources](~~429776~~) and [DeregisterTransitRouterMulticastGroupMembers](~~429779~~).
+     *   * *   The multicast domain is not added to other multicast domains as a multicast member. If the multicast domain is added to another multicast domain as a multicast member, you must remove the multicast domain from the other multicast domain. For more information, see [DeregisterTransitRouterMulticastGroupMembers](~~429779~~).
+     *   *
+     * @param DeleteTransitRouterMulticastDomainRequest $request DeleteTransitRouterMulticastDomainRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTransitRouterMulticastDomainResponse
+     * @return DeleteTransitRouterMulticastDomainResponse DeleteTransitRouterMulticastDomainResponse
      */
     public function deleteTransitRouterMulticastDomainWithOptions($request, $runtime)
     {
@@ -3870,9 +3881,14 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * @param DeleteTransitRouterMulticastDomainRequest $request
+     * Before you delete a multicast domain, make sure that the following requirements are met:
+     *   * *   The multicast domain is disassociated from all vSwitches. For more information, see [DisassociateTransitRouterMulticastDomain](~~429774~~).
+     *   * *   All multicast sources and members are removed from the multicast domain. For more information, see [DeregisterTransitRouterMulticastGroupSources](~~429776~~) and [DeregisterTransitRouterMulticastGroupMembers](~~429779~~).
+     *   * *   The multicast domain is not added to other multicast domains as a multicast member. If the multicast domain is added to another multicast domain as a multicast member, you must remove the multicast domain from the other multicast domain. For more information, see [DeregisterTransitRouterMulticastGroupMembers](~~429779~~).
+     *   *
+     * @param DeleteTransitRouterMulticastDomainRequest $request DeleteTransitRouterMulticastDomainRequest
      *
-     * @return DeleteTransitRouterMulticastDomainResponse
+     * @return DeleteTransitRouterMulticastDomainResponse DeleteTransitRouterMulticastDomainResponse
      */
     public function deleteTransitRouterMulticastDomain($request)
     {

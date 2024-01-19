@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteTransitRouterMulticastDomainRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
      * @example 123e4567-e89b-12d3-a456-4266****
      *
      * @var string
@@ -16,6 +19,11 @@ class DeleteTransitRouterMulticastDomainRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request.
+     *
      * @example false
      *
      * @var bool
@@ -43,6 +51,8 @@ class DeleteTransitRouterMulticastDomainRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the multicast domain.
+     *
      * @example tr-mcast-domain-40cwj0rgzgdtam****
      *
      * @var string

@@ -11,7 +11,7 @@ class trafficMatchRules extends Model
     /**
      * @description The destination CIDR block that is used to match packets.
      *
-     * The traffic classification rule matches the packets whose destination IP addresses fall within the specified destination CIDR block. If you do not set this parameter, packets are considered a match regardless of the DSCP value.
+     * The traffic classification rule matches the packets whose destination IP addresses fall within the specified destination CIDR block. If you do not specify this parameter, packets are considered a match regardless of the destination IP address.
      * @example 10.10.10.0/24
      *
      * @var string
@@ -21,7 +21,7 @@ class trafficMatchRules extends Model
     /**
      * @description The destination port range that is used to match packets. Valid values: **-1** and **1** to **65535**.
      *
-     * You can specify at most two ports. Take note of the following rules:
+     * You can specify up to two ports. Take note of the following rules:
      *
      *   If you enter only one port number such as 1, the system matches the packets whose destination port is port 1.
      *   If you enter two port numbers such as 1 and 200, the system matches the packets whose destination ports fall between 1 and 200.
@@ -54,7 +54,7 @@ class trafficMatchRules extends Model
     /**
      * @description The source CIDR block that is used to match packets.
      *
-     * The traffic classification rule matches the packets whose source IP addresses fall within the specified source CIDR block. If you do not set this parameter, packets are considered a match regardless of the source IP address.
+     * The traffic classification rule matches the packets whose source IP addresses fall within the specified source CIDR block. If you do not specify this parameter, packets are considered a match regardless of the source IP address.
      * @example 192.168.10.0/24
      *
      * @var string
@@ -64,10 +64,10 @@ class trafficMatchRules extends Model
     /**
      * @description The source port range that is used to match packets. Valid values: **-1** and **1** to **65535**.
      *
-     * You can specify at most two ports. Take note of the following rules:
+     * You can enter up to two port numbers. Take note of the following rules:
      *
      *   If you enter only one port number such as 1, the system matches the packets whose source port is 1.
-     *   If you enter two port numbers such as 1 and 200, the system matches the packets whose source ports fall between 1 and 200.
+     *   If you enter two port numbers such as 1 and 200, the system matches the packets whose source ports fall within 1 to 200.
      *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, packets are considered a match regardless of the source port.
      *
      * @var int[]
@@ -77,7 +77,7 @@ class trafficMatchRules extends Model
     /**
      * @description The description of the traffic classification rule.
      *
-     * The description must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The description must start with a letter.
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
      * @example desctest
      *
      * @var string
@@ -87,7 +87,7 @@ class trafficMatchRules extends Model
     /**
      * @description The name of the traffic classification rule.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
      * @example nametest
      *
      * @var string

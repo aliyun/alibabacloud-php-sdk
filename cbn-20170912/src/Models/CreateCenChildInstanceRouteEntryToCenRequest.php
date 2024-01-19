@@ -20,7 +20,7 @@ class CreateCenChildInstanceRouteEntryToCenRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account to which the network instance belongs.
      *
-     * > If the network instance belongs to another Alibaba Cloud account, this parameter is required.
+     * >  If the network instance belongs to another Alibaba Cloud account, this parameter is required.
      * @example 1787100000000000
      *
      * @var int
@@ -39,7 +39,7 @@ class CreateCenChildInstanceRouteEntryToCenRequest extends Model
     /**
      * @description The ID of the region where the network instance is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
      * @example ap-southeast-5
      *
      * @var string
@@ -47,7 +47,7 @@ class CreateCenChildInstanceRouteEntryToCenRequest extends Model
     public $childInstanceRegionId;
 
     /**
-     * @description The type of the network instance. Valid values:
+     * @description The type of the attached network instance. Valid values:
      *
      *   **VPC**: a virtual private cloud (VPC)
      *   **VBR**: a virtual border router (VBR)
@@ -59,7 +59,7 @@ class CreateCenChildInstanceRouteEntryToCenRequest extends Model
     public $childInstanceType;
 
     /**
-     * @description The destination CIDR block of the route.
+     * @description The destination CIDR block of the route entry.
      *
      * Specify the value of this parameter in CIDR notation. Example: 192.168.10.0/24.
      * @example 192.168.22.0/24
@@ -89,7 +89,7 @@ class CreateCenChildInstanceRouteEntryToCenRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the route table configured on the network instance.
+     * @description The ID of the route table of the network instance.
      *
      * @example vtb-k1aa8ulqs39f86op8****
      *
