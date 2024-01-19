@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddDesensitizationRuleRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddDesensitizationRuleResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddInstanceRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLhMembersRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLhMembersResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLhMembersShrinkRequest;
@@ -114,6 +116,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteScenarioRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteScenarioResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteStandardGroupRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteStandardGroupResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteTaskFlowEdgesByConditionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteTaskFlowEdgesByConditionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteTaskFlowRequest;
@@ -231,6 +235,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewCheckResultStatu
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewCheckResultStatusResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewOptimizeDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewOptimizeDetailResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStandardGroupRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStandardGroupResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncExecSqlDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncExecSqlDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncJobAnalyzeResultRequest;
@@ -373,6 +379,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDataCorrectExecSQLRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDataCorrectExecSQLResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDesensitizationStrategyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDesensitizationStrategyResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyInstanceRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\MoveTaskFlowToScenarioRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\MoveTaskFlowToScenarioResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OfflineTaskFlowRequest;
@@ -437,6 +445,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateScenarioResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateSLARulesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateSLARulesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateSLARulesShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateStandardGroupRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateStandardGroupResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskConfigRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskConfigResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskContentRequest;
@@ -571,6 +581,130 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addDesensitizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddInstanceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddInstanceResponse
+     */
+    public function addInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataLinkName)) {
+            $query['DataLinkName'] = $request->dataLinkName;
+        }
+        if (!Utils::isUnset($request->databasePassword)) {
+            $query['DatabasePassword'] = $request->databasePassword;
+        }
+        if (!Utils::isUnset($request->databaseUser)) {
+            $query['DatabaseUser'] = $request->databaseUser;
+        }
+        if (!Utils::isUnset($request->dbaId)) {
+            $query['DbaId'] = $request->dbaId;
+        }
+        if (!Utils::isUnset($request->ddlOnline)) {
+            $query['DdlOnline'] = $request->ddlOnline;
+        }
+        if (!Utils::isUnset($request->ecsInstanceId)) {
+            $query['EcsInstanceId'] = $request->ecsInstanceId;
+        }
+        if (!Utils::isUnset($request->ecsRegion)) {
+            $query['EcsRegion'] = $request->ecsRegion;
+        }
+        if (!Utils::isUnset($request->enableSellCommon)) {
+            $query['EnableSellCommon'] = $request->enableSellCommon;
+        }
+        if (!Utils::isUnset($request->enableSellSitd)) {
+            $query['EnableSellSitd'] = $request->enableSellSitd;
+        }
+        if (!Utils::isUnset($request->enableSellStable)) {
+            $query['EnableSellStable'] = $request->enableSellStable;
+        }
+        if (!Utils::isUnset($request->enableSellTrust)) {
+            $query['EnableSellTrust'] = $request->enableSellTrust;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->exportTimeout)) {
+            $query['ExportTimeout'] = $request->exportTimeout;
+        }
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
+        }
+        if (!Utils::isUnset($request->instanceAlias)) {
+            $query['InstanceAlias'] = $request->instanceAlias;
+        }
+        if (!Utils::isUnset($request->instanceSource)) {
+            $query['InstanceSource'] = $request->instanceSource;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->queryTimeout)) {
+            $query['QueryTimeout'] = $request->queryTimeout;
+        }
+        if (!Utils::isUnset($request->safeRule)) {
+            $query['SafeRule'] = $request->safeRule;
+        }
+        if (!Utils::isUnset($request->sid)) {
+            $query['Sid'] = $request->sid;
+        }
+        if (!Utils::isUnset($request->skipTest)) {
+            $query['SkipTest'] = $request->skipTest;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->useDsql)) {
+            $query['UseDsql'] = $request->useDsql;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddInstance',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddInstanceRequest $request
+     *
+     * @return AddInstanceResponse
+     */
+    public function addInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -3175,6 +3309,52 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteScenarioWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteStandardGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteStandardGroupResponse
+     */
+    public function deleteStandardGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStandardGroup',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteStandardGroupRequest $request
+     *
+     * @return DeleteStandardGroupResponse
+     */
+    public function deleteStandardGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStandardGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -5962,6 +6142,52 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSQLReviewOptimizeDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetStandardGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetStandardGroupResponse
+     */
+    public function getStandardGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStandardGroup',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetStandardGroupRequest $request
+     *
+     * @return GetStandardGroupResponse
+     */
+    public function getStandardGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStandardGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -9660,6 +9886,133 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ModifyInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyInstanceResponse
+     */
+    public function modifyInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataLinkName)) {
+            $query['DataLinkName'] = $request->dataLinkName;
+        }
+        if (!Utils::isUnset($request->databasePassword)) {
+            $query['DatabasePassword'] = $request->databasePassword;
+        }
+        if (!Utils::isUnset($request->databaseUser)) {
+            $query['DatabaseUser'] = $request->databaseUser;
+        }
+        if (!Utils::isUnset($request->dbaId)) {
+            $query['DbaId'] = $request->dbaId;
+        }
+        if (!Utils::isUnset($request->ddlOnline)) {
+            $query['DdlOnline'] = $request->ddlOnline;
+        }
+        if (!Utils::isUnset($request->ecsInstanceId)) {
+            $query['EcsInstanceId'] = $request->ecsInstanceId;
+        }
+        if (!Utils::isUnset($request->ecsRegion)) {
+            $query['EcsRegion'] = $request->ecsRegion;
+        }
+        if (!Utils::isUnset($request->enableSellCommon)) {
+            $query['EnableSellCommon'] = $request->enableSellCommon;
+        }
+        if (!Utils::isUnset($request->enableSellSitd)) {
+            $query['EnableSellSitd'] = $request->enableSellSitd;
+        }
+        if (!Utils::isUnset($request->enableSellStable)) {
+            $query['EnableSellStable'] = $request->enableSellStable;
+        }
+        if (!Utils::isUnset($request->enableSellTrust)) {
+            $query['EnableSellTrust'] = $request->enableSellTrust;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->exportTimeout)) {
+            $query['ExportTimeout'] = $request->exportTimeout;
+        }
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
+        }
+        if (!Utils::isUnset($request->instanceAlias)) {
+            $query['InstanceAlias'] = $request->instanceAlias;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceSource)) {
+            $query['InstanceSource'] = $request->instanceSource;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->queryTimeout)) {
+            $query['QueryTimeout'] = $request->queryTimeout;
+        }
+        if (!Utils::isUnset($request->safeRule)) {
+            $query['SafeRule'] = $request->safeRule;
+        }
+        if (!Utils::isUnset($request->sid)) {
+            $query['Sid'] = $request->sid;
+        }
+        if (!Utils::isUnset($request->skipTest)) {
+            $query['SkipTest'] = $request->skipTest;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->useDsql)) {
+            $query['UseDsql'] = $request->useDsql;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstance',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstanceRequest $request
+     *
+     * @return ModifyInstanceResponse
+     */
+    public function modifyInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param MoveTaskFlowToScenarioRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -11441,6 +11794,58 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateScenarioWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateStandardGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateStandardGroupResponse
+     */
+    public function updateStandardGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateStandardGroup',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateStandardGroupRequest $request
+     *
+     * @return UpdateStandardGroupResponse
+     */
+    public function updateStandardGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateStandardGroupWithOptions($request, $runtime);
     }
 
     /**
