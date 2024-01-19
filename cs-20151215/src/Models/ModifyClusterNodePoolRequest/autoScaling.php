@@ -13,6 +13,8 @@ class autoScaling extends Model
      *
      * @example 5
      *
+     * @deprecated
+     *
      * @var int
      */
     public $eipBandwidth;
@@ -25,6 +27,8 @@ class autoScaling extends Model
      *
      * Default value: `PayByBandwidth`.
      * @example PayByBandwidth
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -51,6 +55,8 @@ class autoScaling extends Model
      *
      * Default value: `false`.
      * @example true
+     *
+     * @deprecated
      *
      * @var bool
      */
@@ -84,6 +90,8 @@ class autoScaling extends Model
      *
      * Default value: `cpu`.
      * @example cpu
+     *
+     * @deprecated
      *
      * @var string
      */

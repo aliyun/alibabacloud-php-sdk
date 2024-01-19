@@ -39,6 +39,8 @@ class RemoveNodePoolNodesShrinkRequest extends Model
     /**
      * @description A list of nodes that you want to remove.
      *
+     * @deprecated
+     *
      * @var string
      */
     public $nodesShrink;

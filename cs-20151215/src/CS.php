@@ -769,9 +769,9 @@ class CS extends OpenApiClient
      *   * *   [Create an ACK managed cluster](~~90776~~)
      *   * *   [Create an ACK dedicated cluster](~~197620~~)
      *   * *   [Create an ACK Serverless cluster](~~144246~~)
-     *   * *   [Create an ACK Edge cluster](128204)
+     *   * *   [Create an ACK Edge cluster](~~128204~~)
      *   * *   [Create an ACK Basic cluster that supports sandboxed containers](~~196321~~)
-     *   * *   [Create an ACK Pro cluster that supports sandboxed containers](140623).
+     *   * *   [Create an ACK Pro cluster that supports sandboxed containers](~~140623~~).
      *   *
      * @param CreateClusterRequest $request CreateClusterRequest
      * @param string[]             $headers map
@@ -1077,9 +1077,9 @@ class CS extends OpenApiClient
      *   * *   [Create an ACK managed cluster](~~90776~~)
      *   * *   [Create an ACK dedicated cluster](~~197620~~)
      *   * *   [Create an ACK Serverless cluster](~~144246~~)
-     *   * *   [Create an ACK Edge cluster](128204)
+     *   * *   [Create an ACK Edge cluster](~~128204~~)
      *   * *   [Create an ACK Basic cluster that supports sandboxed containers](~~196321~~)
-     *   * *   [Create an ACK Pro cluster that supports sandboxed containers](140623).
+     *   * *   [Create an ACK Pro cluster that supports sandboxed containers](~~140623~~).
      *   *
      * @param CreateClusterRequest $request CreateClusterRequest
      *

@@ -14,6 +14,8 @@ class autoScaling extends Model
      * The maximum bandwidth of the EIP. Unit: Mbit/s.
      * @example 5
      *
+     * @deprecated
+     *
      * @var int
      */
     public $eipBandwidth;
@@ -28,6 +30,8 @@ class autoScaling extends Model
      *
      * Default value: `PayByBandwidth`.
      * @example PayByBandwidth
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -56,6 +60,8 @@ class autoScaling extends Model
      *
      * Default value: `false`.
      * @example true
+     *
+     * @deprecated
      *
      * @var bool
      */

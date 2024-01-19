@@ -29,6 +29,8 @@ class CreateClusterNodePoolRequest extends Model
      * The number of nodes in the node pool.
      * @example 1
      *
+     * @deprecated
+     *
      * @var int
      */
     public $count;
@@ -37,6 +39,8 @@ class CreateClusterNodePoolRequest extends Model
      * @description This parameter is deprecated.
      *
      * The configuration of the edge node pool.
+     * @deprecated
+     *
      * @var interconnectConfig
      */
     public $interconnectConfig;
@@ -72,6 +76,8 @@ class CreateClusterNodePoolRequest extends Model
      * @description The maximum number of nodes that can be created in the edge node pool. You must specify a value that is equal to or larger than 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster. In most cases, this parameter is set to a value larger than 0 for edge node pools. This parameter is set to 0 for node pools of the ess type or default edge node pools.
      *
      * @example 10
+     *
+     * @deprecated
      *
      * @var int
      */

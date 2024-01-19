@@ -18,6 +18,11 @@ class ModifyClusterNodePoolResponseBody extends Model
     public $nodepoolId;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @description The task ID.
      *
      * @example T-5fd211e924e1d00787000293
@@ -27,6 +32,7 @@ class ModifyClusterNodePoolResponseBody extends Model
     public $taskId;
     protected $_name = [
         'nodepoolId' => 'nodepool_id',
+        'requestId'  => 'request_id',
         'taskId'     => 'task_id',
     ];
 
@@ -39,6 +45,9 @@ class ModifyClusterNodePoolResponseBody extends Model
         $res = [];
         if (null !== $this->nodepoolId) {
             $res['nodepool_id'] = $this->nodepoolId;
+        }
+        if (null !== $this->requestId) {
+            $res['request_id'] = $this->requestId;
         }
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
@@ -57,6 +66,9 @@ class ModifyClusterNodePoolResponseBody extends Model
         $model = new self();
         if (isset($map['nodepool_id'])) {
             $model->nodepoolId = $map['nodepool_id'];
+        }
+        if (isset($map['request_id'])) {
+            $model->requestId = $map['request_id'];
         }
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];

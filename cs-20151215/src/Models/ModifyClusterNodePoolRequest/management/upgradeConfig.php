@@ -17,6 +17,8 @@ class upgradeConfig extends Model
      * Default value: `true`.
      * @example true
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $autoUpgrade;

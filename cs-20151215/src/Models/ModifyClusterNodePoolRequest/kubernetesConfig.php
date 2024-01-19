@@ -72,6 +72,11 @@ class kubernetesConfig extends Model
     public $taints;
 
     /**
+     * @var bool
+     */
+    public $unschedulable;
+
+    /**
      * @description The user-defined data of the node pool. For more information, see [Prepare user data](~~49121~~).
      *
      * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi
@@ -86,6 +91,7 @@ class kubernetesConfig extends Model
         'runtime'        => 'runtime',
         'runtimeVersion' => 'runtime_version',
         'taints'         => 'taints',
+        'unschedulable'  => 'unschedulable',
         'userData'       => 'user_data',
     ];
 
@@ -125,6 +131,9 @@ class kubernetesConfig extends Model
                     $res['taints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->unschedulable) {
+            $res['unschedulable'] = $this->unschedulable;
         }
         if (null !== $this->userData) {
             $res['user_data'] = $this->userData;
@@ -170,6 +179,9 @@ class kubernetesConfig extends Model
                     $model->taints[$n++] = null !== $item ? Taint::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['unschedulable'])) {
+            $model->unschedulable = $map['unschedulable'];
         }
         if (isset($map['user_data'])) {
             $model->userData = $map['user_data'];

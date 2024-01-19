@@ -16,6 +16,8 @@ class upgradeConfig extends Model
      *
      * @example false
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $autoUpgrade;

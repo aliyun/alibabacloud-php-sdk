@@ -298,7 +298,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The cluster IP stack.
      *
-     * @example Optional value：IPv4 (Single stack) or IPv6 (Dual Stack)
+     * @example Optional value: IPv4 (Single stack) or IPv6 (Dual Stack)
      * Default value: IPV4
      * @var string
      */
@@ -694,7 +694,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The container runtime. The default container runtime is Docker. containerd and Sandboxed-Container are also supported.
      *
-     * For more information about how to select a proper container runtime, see [Comparison of Docker, containerd, and Sandboxed-Container](https://help.aliyun.com/document_detail/160313.html).
+     * For more information about how to select a proper container runtime, see [Comparison of Docker, containerd, and Sandboxed-Container](~~160313~~).
      * @var Runtime
      */
     public $runtime;

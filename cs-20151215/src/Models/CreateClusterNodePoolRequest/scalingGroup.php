@@ -279,6 +279,8 @@ class scalingGroup extends Model
      *
      * @example sg-wz9a8g2mt6x5llu0****
      *
+     * @deprecated
+     *
      * @var string
      */
     public $securityGroupId;
