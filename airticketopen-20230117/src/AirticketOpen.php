@@ -1014,9 +1014,9 @@ class AirticketOpen extends OpenApiClient
         if (!Utils::isUnset($tmpReq->flightSegmentParamList)) {
             $request->flightSegmentParamListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->flightSegmentParamList, 'flight_segment_param_list', 'json');
         }
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->flightSegmentParamListShrink)) {
-            $body['flight_segment_param_list'] = $request->flightSegmentParamListShrink;
+            $query['flight_segment_param_list'] = $request->flightSegmentParamListShrink;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -1030,7 +1030,7 @@ class AirticketOpen extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'LuggageDirect',
@@ -1040,7 +1040,7 @@ class AirticketOpen extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'formData',
+            'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 
@@ -1643,9 +1643,9 @@ class AirticketOpen extends OpenApiClient
         if (!Utils::isUnset($tmpReq->flightSegmentParamList)) {
             $request->flightSegmentParamListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->flightSegmentParamList, 'flight_segment_param_list', 'json');
         }
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->flightSegmentParamListShrink)) {
-            $body['flight_segment_param_list'] = $request->flightSegmentParamListShrink;
+            $query['flight_segment_param_list'] = $request->flightSegmentParamListShrink;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -1659,7 +1659,7 @@ class AirticketOpen extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'TransitVisa',
@@ -1669,7 +1669,7 @@ class AirticketOpen extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'formData',
+            'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 
