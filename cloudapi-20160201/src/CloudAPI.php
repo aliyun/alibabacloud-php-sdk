@@ -2161,6 +2161,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -2218,6 +2221,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
@@ -2429,6 +2435,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
