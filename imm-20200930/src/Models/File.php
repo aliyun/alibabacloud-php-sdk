@@ -129,6 +129,11 @@ class File extends Model
     public $EXIF;
 
     /**
+     * @var Element[]
+     */
+    public $elements;
+
+    /**
      * @var int
      */
     public $figureCount;
@@ -212,6 +217,11 @@ class File extends Model
      * @var OCRContents[]
      */
     public $OCRContents;
+
+    /**
+     * @var string
+     */
+    public $OCRTexts;
 
     /**
      * @var string
@@ -312,6 +322,11 @@ class File extends Model
      * @var string
      */
     public $projectName;
+
+    /**
+     * @var string[]
+     */
+    public $semanticTypes;
 
     /**
      * @var string
@@ -417,6 +432,7 @@ class File extends Model
         'duration'                              => 'Duration',
         'ETag'                                  => 'ETag',
         'EXIF'                                  => 'EXIF',
+        'elements'                              => 'Elements',
         'figureCount'                           => 'FigureCount',
         'figures'                               => 'Figures',
         'fileAccessTime'                        => 'FileAccessTime',
@@ -434,6 +450,7 @@ class File extends Model
         'latLong'                               => 'LatLong',
         'mediaType'                             => 'MediaType',
         'OCRContents'                           => 'OCRContents',
+        'OCRTexts'                              => 'OCRTexts',
         'OSSCRC64'                              => 'OSSCRC64',
         'OSSDeleteMarker'                       => 'OSSDeleteMarker',
         'OSSExpiration'                         => 'OSSExpiration',
@@ -454,6 +471,7 @@ class File extends Model
         'produceTime'                           => 'ProduceTime',
         'programCount'                          => 'ProgramCount',
         'projectName'                           => 'ProjectName',
+        'semanticTypes'                         => 'SemanticTypes',
         'serverSideDataEncryption'              => 'ServerSideDataEncryption',
         'serverSideEncryption'                  => 'ServerSideEncryption',
         'serverSideEncryptionCustomerAlgorithm' => 'ServerSideEncryptionCustomerAlgorithm',
@@ -575,6 +593,15 @@ class File extends Model
         if (null !== $this->EXIF) {
             $res['EXIF'] = $this->EXIF;
         }
+        if (null !== $this->elements) {
+            $res['Elements'] = [];
+            if (null !== $this->elements && \is_array($this->elements)) {
+                $n = 0;
+                foreach ($this->elements as $item) {
+                    $res['Elements'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->figureCount) {
             $res['FigureCount'] = $this->figureCount;
         }
@@ -644,6 +671,9 @@ class File extends Model
                 }
             }
         }
+        if (null !== $this->OCRTexts) {
+            $res['OCRTexts'] = $this->OCRTexts;
+        }
         if (null !== $this->OSSCRC64) {
             $res['OSSCRC64'] = $this->OSSCRC64;
         }
@@ -703,6 +733,9 @@ class File extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->semanticTypes) {
+            $res['SemanticTypes'] = $this->semanticTypes;
         }
         if (null !== $this->serverSideDataEncryption) {
             $res['ServerSideDataEncryption'] = $this->serverSideDataEncryption;
@@ -872,6 +905,15 @@ class File extends Model
         if (isset($map['EXIF'])) {
             $model->EXIF = $map['EXIF'];
         }
+        if (isset($map['Elements'])) {
+            if (!empty($map['Elements'])) {
+                $model->elements = [];
+                $n               = 0;
+                foreach ($map['Elements'] as $item) {
+                    $model->elements[$n++] = null !== $item ? Element::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['FigureCount'])) {
             $model->figureCount = $map['FigureCount'];
         }
@@ -941,6 +983,9 @@ class File extends Model
                 }
             }
         }
+        if (isset($map['OCRTexts'])) {
+            $model->OCRTexts = $map['OCRTexts'];
+        }
         if (isset($map['OSSCRC64'])) {
             $model->OSSCRC64 = $map['OSSCRC64'];
         }
@@ -1000,6 +1045,11 @@ class File extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['SemanticTypes'])) {
+            if (!empty($map['SemanticTypes'])) {
+                $model->semanticTypes = $map['SemanticTypes'];
+            }
         }
         if (isset($map['ServerSideDataEncryption'])) {
             $model->serverSideDataEncryption = $map['ServerSideDataEncryption'];

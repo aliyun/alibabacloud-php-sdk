@@ -19,6 +19,11 @@ class Boundary extends Model
     public $left;
 
     /**
+     * @var PointInt64[]
+     */
+    public $polygon;
+
+    /**
      * @var int
      */
     public $top;
@@ -28,10 +33,11 @@ class Boundary extends Model
      */
     public $width;
     protected $_name = [
-        'height' => 'Height',
-        'left'   => 'Left',
-        'top'    => 'Top',
-        'width'  => 'Width',
+        'height'  => 'Height',
+        'left'    => 'Left',
+        'polygon' => 'Polygon',
+        'top'     => 'Top',
+        'width'   => 'Width',
     ];
 
     public function validate()
@@ -46,6 +52,15 @@ class Boundary extends Model
         }
         if (null !== $this->left) {
             $res['Left'] = $this->left;
+        }
+        if (null !== $this->polygon) {
+            $res['Polygon'] = [];
+            if (null !== $this->polygon && \is_array($this->polygon)) {
+                $n = 0;
+                foreach ($this->polygon as $item) {
+                    $res['Polygon'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->top) {
             $res['Top'] = $this->top;
@@ -70,6 +85,15 @@ class Boundary extends Model
         }
         if (isset($map['Left'])) {
             $model->left = $map['Left'];
+        }
+        if (isset($map['Polygon'])) {
+            if (!empty($map['Polygon'])) {
+                $model->polygon = [];
+                $n              = 0;
+                foreach ($map['Polygon'] as $item) {
+                    $model->polygon[$n++] = null !== $item ? PointInt64::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Top'])) {
             $model->top = $map['Top'];

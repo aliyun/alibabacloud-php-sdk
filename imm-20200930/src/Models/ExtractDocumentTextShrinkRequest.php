@@ -21,6 +21,11 @@ class ExtractDocumentTextShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @var string
+     */
+    public $sourceType;
+
+    /**
      * @example oss://test-bucket/test-object
      *
      * @var string
@@ -29,6 +34,7 @@ class ExtractDocumentTextShrinkRequest extends Model
     protected $_name = [
         'credentialConfigShrink' => 'CredentialConfig',
         'projectName'            => 'ProjectName',
+        'sourceType'             => 'SourceType',
         'sourceURI'              => 'SourceURI',
     ];
 
@@ -44,6 +50,9 @@ class ExtractDocumentTextShrinkRequest extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->sourceURI) {
             $res['SourceURI'] = $this->sourceURI;
@@ -65,6 +74,9 @@ class ExtractDocumentTextShrinkRequest extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['SourceURI'])) {
             $model->sourceURI = $map['SourceURI'];

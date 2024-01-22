@@ -3530,6 +3530,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
         }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
         if (!Utils::isUnset($request->sourceURI)) {
             $query['SourceURI'] = $request->sourceURI;
         }
