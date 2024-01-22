@@ -11,7 +11,7 @@ class DescribeCheckWarningDetailRequest extends Model
     /**
      * @description The ID of the check item.
      *
-     * > You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of check items.
+     * >  You can call the [DescribeCheckWarningSummary](~~116179~~) operation to query the IDs of check items.
      * @example 1
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeCheckWarningDetailRequest extends Model
     /**
      * @description The ID of the alert that is triggered by the check item.
      *
-     * >  To query the details about a specified check item, you must provide the ID of the alert that is triggered by the check item. You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to query the IDs of alerts.
+     * >  To query the details of a check item, you must provide the ID of the alert that is triggered by the check item. You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to query the IDs of alerts.
      * @example 98675301
      *
      * @var int
@@ -43,7 +43,7 @@ class DescribeCheckWarningDetailRequest extends Model
     /**
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
-     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the IDs of Alibaba Cloud accounts.
      * @example 1232428423234****
      *
      * @var int
@@ -60,9 +60,9 @@ class DescribeCheckWarningDetailRequest extends Model
     public $sourceIp;
 
     /**
-     * @description The server UUID.
+     * @description The UUID of the server.
      *
-     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the server UUID.
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @example 01aec2da-5b57-4f38-b221-da5a0b2f****
      *
      * @var string

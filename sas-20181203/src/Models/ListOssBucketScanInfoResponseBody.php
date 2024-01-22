@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class ListOssBucketScanInfoResponseBody extends Model
 {
     /**
-     * @description The data that is returned.
+     * @description The data returned.
      *
      * @var data[]
      */

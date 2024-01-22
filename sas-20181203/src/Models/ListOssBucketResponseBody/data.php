@@ -20,7 +20,7 @@ class data extends Model
     /**
      * @description The reason why the bucket cannot be checked.
      *
-     * @example Unsupported Region。
+     * @example Unsupported Region.
      *
      * @var string
      */

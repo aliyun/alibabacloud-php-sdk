@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetCheckSummaryRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $isItemStatistic;
+
+    /**
      * @description The language of the content within the request and response. Valid values:
      *
      *   **zh**: Chinese
@@ -36,6 +41,7 @@ class GetCheckSummaryRequest extends Model
      */
     public $vendors;
     protected $_name = [
+        'isItemStatistic'            => 'IsItemStatistic',
         'lang'                       => 'Lang',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'vendors'                    => 'Vendors',
@@ -48,6 +54,9 @@ class GetCheckSummaryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->isItemStatistic) {
+            $res['IsItemStatistic'] = $this->isItemStatistic;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -69,6 +78,9 @@ class GetCheckSummaryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IsItemStatistic'])) {
+            $model->isItemStatistic = $map['IsItemStatistic'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

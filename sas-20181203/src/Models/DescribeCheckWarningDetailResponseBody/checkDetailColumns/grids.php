@@ -28,8 +28,8 @@ class grids extends Model
 
     /**
      * @description Display type. Value:
-     * - **grid**：Detection grid
-     * - **text**：text
+     * - **grid**: Detection grid
+     * - **text**: text
      * @example text
      *
      * @var string

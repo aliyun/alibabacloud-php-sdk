@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryIncidentTracingJudgeRequest extends Model
 {
     /**
-     * @description The event ID.
+     * @description The ID of the event that you want to query.
      *
+     * >  You can call the [DescribeCloudSiemEvents](~~2621307~~) operation to query the event ID.
      * @example d1d7a612-0dc2-413a-aa8e-9c7c88d8d12a
      *
      * @var string

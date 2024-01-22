@@ -20,7 +20,7 @@ class details extends Model
     /**
      * @description The name of the item.
      *
-     * @example DownloadUrl。
+     * @example DownloadUrl
      *
      * @var string
      */
@@ -29,7 +29,7 @@ class details extends Model
     /**
      * @description The display name of the item.
      *
-     * @example DownloadUrl。
+     * @example DownloadUrl
      *
      * @var string
      */

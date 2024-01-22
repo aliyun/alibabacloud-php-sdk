@@ -18,7 +18,10 @@ class QueryIncidentTracingJudgeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -27,7 +30,7 @@ class QueryIncidentTracingJudgeResponseBody extends Model
     public $success;
 
     /**
-     * @description The result data.
+     * @description The request result.
      *
      * @var int[]
      */

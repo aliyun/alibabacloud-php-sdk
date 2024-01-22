@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListOssBucketResponseBody extends Model
 {
     /**
-     * @description The data that is returned.
+     * @description The data returned.
      *
      * @var data[]
      */

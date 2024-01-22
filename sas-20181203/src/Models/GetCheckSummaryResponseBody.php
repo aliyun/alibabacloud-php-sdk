@@ -4,12 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponseBody\overallItemStatistic;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponseBody\overallStatistic;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponseBody\summarys;
 use AlibabaCloud\Tea\Model;
 
 class GetCheckSummaryResponseBody extends Model
 {
+    /**
+     * @var overallItemStatistic
+     */
+    public $overallItemStatistic;
+
     /**
      * @description overall risk statistics of check items.
      *
@@ -33,9 +39,10 @@ class GetCheckSummaryResponseBody extends Model
      */
     public $summarys;
     protected $_name = [
-        'overallStatistic' => 'OverallStatistic',
-        'requestId'        => 'RequestId',
-        'summarys'         => 'Summarys',
+        'overallItemStatistic' => 'OverallItemStatistic',
+        'overallStatistic'     => 'OverallStatistic',
+        'requestId'            => 'RequestId',
+        'summarys'             => 'Summarys',
     ];
 
     public function validate()
@@ -45,6 +52,9 @@ class GetCheckSummaryResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->overallItemStatistic) {
+            $res['OverallItemStatistic'] = null !== $this->overallItemStatistic ? $this->overallItemStatistic->toMap() : null;
+        }
         if (null !== $this->overallStatistic) {
             $res['OverallStatistic'] = null !== $this->overallStatistic ? $this->overallStatistic->toMap() : null;
         }
@@ -72,6 +82,9 @@ class GetCheckSummaryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OverallItemStatistic'])) {
+            $model->overallItemStatistic = overallItemStatistic::fromMap($map['OverallItemStatistic']);
+        }
         if (isset($map['OverallStatistic'])) {
             $model->overallStatistic = overallStatistic::fromMap($map['OverallStatistic']);
         }

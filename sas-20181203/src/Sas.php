@@ -20749,6 +20749,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->isItemStatistic)) {
+            $query['IsItemStatistic'] = $request->isItemStatistic;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
