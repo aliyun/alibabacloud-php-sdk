@@ -15,6 +15,21 @@ class DescribeClusterBackupListResponseBody extends Model
     public $clusterBackups;
 
     /**
+     * @var int
+     */
+    public $freeSize;
+
+    /**
+     * @var int
+     */
+    public $fullStorageSize;
+
+    /**
+     * @var int
+     */
+    public $logStorageSize;
+
+    /**
      * @example 4
      *
      * @var int
@@ -42,11 +57,14 @@ class DescribeClusterBackupListResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'clusterBackups' => 'ClusterBackups',
-        'maxResults'     => 'MaxResults',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
+        'clusterBackups'  => 'ClusterBackups',
+        'freeSize'        => 'FreeSize',
+        'fullStorageSize' => 'FullStorageSize',
+        'logStorageSize'  => 'LogStorageSize',
+        'maxResults'      => 'MaxResults',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -64,6 +82,15 @@ class DescribeClusterBackupListResponseBody extends Model
                     $res['ClusterBackups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->freeSize) {
+            $res['FreeSize'] = $this->freeSize;
+        }
+        if (null !== $this->fullStorageSize) {
+            $res['FullStorageSize'] = $this->fullStorageSize;
+        }
+        if (null !== $this->logStorageSize) {
+            $res['LogStorageSize'] = $this->logStorageSize;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -97,6 +124,15 @@ class DescribeClusterBackupListResponseBody extends Model
                     $model->clusterBackups[$n++] = null !== $item ? clusterBackups::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['FreeSize'])) {
+            $model->freeSize = $map['FreeSize'];
+        }
+        if (isset($map['FullStorageSize'])) {
+            $model->fullStorageSize = $map['FullStorageSize'];
+        }
+        if (isset($map['LogStorageSize'])) {
+            $model->logStorageSize = $map['LogStorageSize'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

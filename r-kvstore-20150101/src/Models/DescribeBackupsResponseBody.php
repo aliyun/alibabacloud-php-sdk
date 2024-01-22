@@ -23,6 +23,21 @@ class DescribeBackupsResponseBody extends Model
     public $backups;
 
     /**
+     * @var int
+     */
+    public $freeSize;
+
+    /**
+     * @var int
+     */
+    public $fullStorageSize;
+
+    /**
+     * @var int
+     */
+    public $logStorageSize;
+
+    /**
      * @description The page number of the returned page.
      *
      * @example 1
@@ -60,6 +75,9 @@ class DescribeBackupsResponseBody extends Model
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
         'backups'            => 'Backups',
+        'freeSize'           => 'FreeSize',
+        'fullStorageSize'    => 'FullStorageSize',
+        'logStorageSize'     => 'LogStorageSize',
         'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
         'requestId'          => 'RequestId',
@@ -78,6 +96,15 @@ class DescribeBackupsResponseBody extends Model
         }
         if (null !== $this->backups) {
             $res['Backups'] = null !== $this->backups ? $this->backups->toMap() : null;
+        }
+        if (null !== $this->freeSize) {
+            $res['FreeSize'] = $this->freeSize;
+        }
+        if (null !== $this->fullStorageSize) {
+            $res['FullStorageSize'] = $this->fullStorageSize;
+        }
+        if (null !== $this->logStorageSize) {
+            $res['LogStorageSize'] = $this->logStorageSize;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -108,6 +135,15 @@ class DescribeBackupsResponseBody extends Model
         }
         if (isset($map['Backups'])) {
             $model->backups = backups::fromMap($map['Backups']);
+        }
+        if (isset($map['FreeSize'])) {
+            $model->freeSize = $map['FreeSize'];
+        }
+        if (isset($map['FullStorageSize'])) {
+            $model->fullStorageSize = $map['FullStorageSize'];
+        }
+        if (isset($map['LogStorageSize'])) {
+            $model->logStorageSize = $map['LogStorageSize'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
