@@ -166,7 +166,7 @@ class DBInstance extends Model
      *   **eu-central-1c**: Frankfurt Zone C.
      *
      * > *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
-     * > *   This parameter is returned only if you use the Chine site (aliyun.com).
+     * > *   This parameter is returned only if you use the China site (aliyun.com).
      * @example cn-hangzhou-h
      *
      * @var string
@@ -283,7 +283,7 @@ class DBInstance extends Model
      *   **eu-central-1c**: Frankfurt Zone C.
      *
      * > *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
-     * > *   This parameter is returned only if you use the Chine site (aliyun.com).
+     * > *   This parameter is returned only if you use the China site (aliyun.com).
      * @example cn-hangzhou-i
      *
      * @var string

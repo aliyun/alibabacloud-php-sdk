@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description N/A
+     * @description None
      *
      * @example ***
      *
@@ -18,10 +18,10 @@ class items extends Model
     public $allowCancel;
 
     /**
-     * @description Indicates whether the time can be changed. Valid values:
+     * @description Indicates whether the change is allowed.
      *
-     *   **0**: The time cannot be changed.
-     *   **1**: The time can be changed.
+     *   **0**: The change is not allowed.
+     *   **1**: The change is allowed.
      *
      * @example 0
      *
@@ -30,7 +30,7 @@ class items extends Model
     public $allowChange;
 
     /**
-     * @description The change type.
+     * @description The change level of the O\&M task.
      *
      * @example ***
      *
@@ -39,7 +39,7 @@ class items extends Model
     public $changeLevel;
 
     /**
-     * @description N/A
+     * @description None
      *
      * @example ***
      *
@@ -48,7 +48,7 @@ class items extends Model
     public $changeLevelEn;
 
     /**
-     * @description The change type in Chinese.
+     * @description The task type in English.
      *
      * @example ***
      *
@@ -66,7 +66,7 @@ class items extends Model
     public $createdTime;
 
     /**
-     * @description N/A
+     * @description None
      *
      * @example ***
      *
@@ -93,7 +93,7 @@ class items extends Model
     public $dbVersion;
 
     /**
-     * @description The end time of the task.
+     * @description The end time of the O\&M task.
      *
      * @example 1646014421633
      *
@@ -102,7 +102,7 @@ class items extends Model
     public $deadline;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example ***
      *
@@ -111,7 +111,7 @@ class items extends Model
     public $id;
 
     /**
-     * @description N/A
+     * @description None
      *
      * @example ***
      *
@@ -120,7 +120,7 @@ class items extends Model
     public $impactEn;
 
     /**
-     * @description N/A
+     * @description None
      *
      * @example ***
      *
@@ -129,7 +129,7 @@ class items extends Model
     public $impactZh;
 
     /**
-     * @description The description of the task.
+     * @description The description of the instance.
      *
      * @example ***
      *
@@ -138,7 +138,7 @@ class items extends Model
     public $insComment;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example ***
      *
@@ -147,7 +147,7 @@ class items extends Model
     public $insName;
 
     /**
-     * @description The time when the task was modified. The time is displayed in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the O\&M task was modified. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm:ss*z format. The time is displayed in UTC.
      *
      * @example 2022-12-24T09:48:01Z
      *
@@ -174,7 +174,7 @@ class items extends Model
     public $region;
 
     /**
-     * @description The result information. This parameter can be ignored.
+     * @description The result information. The value of this parameter can be ignored.
      *
      * @example ***
      *
@@ -183,7 +183,7 @@ class items extends Model
     public $resultInfo;
 
     /**
-     * @description The start time of the task. The time is displayed in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the O\&M task started to run. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm:ss*z format. The time is displayed in UTC.
      *
      * @example 2022-12-24T06:01:05Z
      *
@@ -192,7 +192,7 @@ class items extends Model
     public $startTime;
 
     /**
-     * @description N/A
+     * @description None
      *
      * @example ***
      *
@@ -201,14 +201,14 @@ class items extends Model
     public $status;
 
     /**
-     * @description The names of the subinstances.
+     * @description The subinstances.
      *
      * @var string[]
      */
     public $subInsNames;
 
     /**
-     * @description The time when the task was interrupted. The time is displayed in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in Coordinated Universal Time (UTC).
+     * @description The point in time when the switchover is performed. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm:ss*z format. The time is displayed in UTC. Service interruptions may occur during switchover.
      *
      * @example 2022-11-24T11:20:00Z
      *
@@ -217,7 +217,7 @@ class items extends Model
     public $switchTime;
 
     /**
-     * @description The type of the task.
+     * @description The task type.
      *
      * @example ***
      *
@@ -226,7 +226,7 @@ class items extends Model
     public $taskType;
 
     /**
-     * @description N/A
+     * @description None
      *
      * @example ***
      *
@@ -235,7 +235,7 @@ class items extends Model
     public $taskTypeEn;
 
     /**
-     * @description The type of the task in Chinese.
+     * @description The task type in Chinese.
      *
      * @example ***
      *

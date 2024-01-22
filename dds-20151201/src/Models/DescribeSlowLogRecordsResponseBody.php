@@ -19,14 +19,14 @@ class DescribeSlowLogRecordsResponseBody extends Model
     public $engine;
 
     /**
-     * @description Details of the slow query logs.
+     * @description An array that consists of the information about each slow query.
      *
      * @var items
      */
     public $items;
 
     /**
-     * @description The page number of the returned page. The value must be an integer that is greater than 0. Default value: **1**.
+     * @description The page number of the returned page. The value is a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
      *
      * @example 1
      *
@@ -44,7 +44,7 @@ class DescribeSlowLogRecordsResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8076C4BA-DDBD-529C-BFF4-D8620C3F****
      *

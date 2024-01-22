@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMongoDBLogConfigResponseBody extends Model
 {
     /**
-     * @description Indicates whether the audit log feature is enabled. Valid values:
+     * @description Indicates whether to enable the audit log feature.
      *
      *   **true**: The audit log feature is enabled.
      *   **false**: The audit log feature is disabled.

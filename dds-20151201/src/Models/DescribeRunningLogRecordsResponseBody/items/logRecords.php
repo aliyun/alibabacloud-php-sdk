@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class logRecords extends Model
 {
     /**
-     * @description The category of the log entry. Valid values:
+     * @description The category of the log entry.
      *
      * @example NETWORK
      *

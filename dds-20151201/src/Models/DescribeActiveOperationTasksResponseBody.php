@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTasksResponseBody extends Model
 {
     /**
-     * @description The list of O\&M tasks.
+     * @description The O\&M tasks.
      *
      * @var items[]
      */

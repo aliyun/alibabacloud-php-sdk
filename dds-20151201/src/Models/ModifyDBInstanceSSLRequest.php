@@ -38,7 +38,7 @@ class ModifyDBInstanceSSLRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The operation on the SSL feature. Valid values: Valid values:
+     * @description The operation on the SSL feature. Valid values:
      *
      *   **Open**: enables SSL encryption.
      *   **Close**: disables SSL encryption.

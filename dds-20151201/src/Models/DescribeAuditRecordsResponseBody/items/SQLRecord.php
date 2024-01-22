@@ -27,7 +27,7 @@ class SQLRecord extends Model
     public $DBName;
 
     /**
-     * @description The time when the statement was executed. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the statement was executed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-03-11T03:30:27Z
      *
@@ -81,7 +81,7 @@ class SQLRecord extends Model
     public $threadID;
 
     /**
-     * @description The execution time of the statement. Unit: microseconds.
+     * @description The duration of the statement execution. Unit: microseconds.
      *
      * @example 700
      *

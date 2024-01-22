@@ -35,7 +35,7 @@ class DescribeClusterBackupsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The maximum number of entries returned.
+     * @description The number of entries to return on each page.
      *
      * @example 30
      *

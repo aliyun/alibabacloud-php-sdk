@@ -37,6 +37,18 @@ class DescribeErrorLogRecordsRequest extends Model
     public $endTime;
 
     /**
+     * @description The logical relationship between multiple keywords. Valid values:
+     *
+     *   **or**
+     *   **and** (default value)
+     *
+     * @example and
+     *
+     * @var string
+     */
+    public $logicalOperator;
+
+    /**
      * @description The ID of the mongos node or shard node whose error logs you want to query in the instance. If the instance is a sharded cluster instance, you must specify this parameter.
      *
      * >  This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
@@ -73,6 +85,15 @@ class DescribeErrorLogRecordsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description The keywords used for query. You can enter up to 10 keywords at a time. If you enter multiple keywords, separate the keywords with spaces.
+     *
+     * @example test test1
+     *
+     * @var string
+     */
+    public $queryKeywords;
 
     /**
      * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
@@ -118,11 +139,13 @@ class DescribeErrorLogRecordsRequest extends Model
         'DBInstanceId'         => 'DBInstanceId',
         'DBName'               => 'DBName',
         'endTime'              => 'EndTime',
+        'logicalOperator'      => 'LogicalOperator',
         'nodeId'               => 'NodeId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'queryKeywords'        => 'QueryKeywords',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -146,6 +169,9 @@ class DescribeErrorLogRecordsRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->logicalOperator) {
+            $res['LogicalOperator'] = $this->logicalOperator;
+        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -160,6 +186,9 @@ class DescribeErrorLogRecordsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->queryKeywords) {
+            $res['QueryKeywords'] = $this->queryKeywords;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -197,6 +226,9 @@ class DescribeErrorLogRecordsRequest extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['LogicalOperator'])) {
+            $model->logicalOperator = $map['LogicalOperator'];
+        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
@@ -211,6 +243,9 @@ class DescribeErrorLogRecordsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['QueryKeywords'])) {
+            $model->queryKeywords = $map['QueryKeywords'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

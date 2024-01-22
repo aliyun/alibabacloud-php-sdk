@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditRecordsRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
      * @example dds-bp12c5b040dc****
@@ -28,7 +28,7 @@ class DescribeAuditRecordsRequest extends Model
     public $database;
 
     /**
-     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * > The end time must be within 24 hours from the start time. Otherwise, the query fails.
      * @example 2019-03-13T13:11:14Z
@@ -38,10 +38,10 @@ class DescribeAuditRecordsRequest extends Model
     public $endTime;
 
     /**
-     * @description The form of the audit log that the operation returns. Default value: File. Valid values:
+     * @description The form of the audit log that the operation returns. Valid values:
      *
-     *   **File** triggers the generation of audit logs. If this parameter is set to File, only common parameters are returned.
-     *   **Stream**: returns data streams.
+     *   **File**: triggers the generation of audit logs. If this parameter is set to File, only common parameters are returned.
+     *   **Stream** (default): returns data streams.
      *
      * @example Stream
      *
@@ -50,9 +50,21 @@ class DescribeAuditRecordsRequest extends Model
     public $form;
 
     /**
-     * @description The ID of the mongos node or shard node whose parameter modification records you want to query in the instance. If the instance is a sharded cluster instance, you must specify this parameter.
+     * @description The logical relationship between multiple keywords. Valid values:
      *
-     * > This parameter is valid only when you specify the **DBInstanceId** parameter to the ID of a sharded cluster instance.
+     *   **or**
+     *   **and** (default value)
+     *
+     * @example and
+     *
+     * @var string
+     */
+    public $logicalOperator;
+
+    /**
+     * @description The ID of the mongos node or shard node in the instance.
+     *
+     * > This parameter takes effect only when you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
      * @example d-bp128a003436****
      *
      * @var string
@@ -82,7 +94,7 @@ class DescribeAuditRecordsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Valid values: any non-zero positive integer. Default value: 1.
+     * @description The page number of the page to return. The valid value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: 1.
      *
      * @example 1
      *
@@ -100,7 +112,7 @@ class DescribeAuditRecordsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The keywords that are used for queries. Separate multiple keywords with spaces. The maximum number of keywords is 10.
+     * @description The keywords used for query. You can enter up to 10 keywords at a time. If you enter multiple keywords, separate the keywords with spaces.
      *
      * @example slow
      *
@@ -119,7 +131,7 @@ class DescribeAuditRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * @example 2019-03-13T12:11:14Z
      *
@@ -128,7 +140,7 @@ class DescribeAuditRecordsRequest extends Model
     public $startTime;
 
     /**
-     * @description The account of the database. If you do not specify this parameter, this operation returns records of all accounts.
+     * @description The user of the database. If you do not specify this parameter, this operation returns records of all users.
      *
      * @example test
      *
@@ -140,6 +152,7 @@ class DescribeAuditRecordsRequest extends Model
         'database'             => 'Database',
         'endTime'              => 'EndTime',
         'form'                 => 'Form',
+        'logicalOperator'      => 'LogicalOperator',
         'nodeId'               => 'NodeId',
         'orderType'            => 'OrderType',
         'ownerAccount'         => 'OwnerAccount',
@@ -171,6 +184,9 @@ class DescribeAuditRecordsRequest extends Model
         }
         if (null !== $this->form) {
             $res['Form'] = $this->form;
+        }
+        if (null !== $this->logicalOperator) {
+            $res['LogicalOperator'] = $this->logicalOperator;
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
@@ -228,6 +244,9 @@ class DescribeAuditRecordsRequest extends Model
         }
         if (isset($map['Form'])) {
             $model->form = $map['Form'];
+        }
+        if (isset($map['LogicalOperator'])) {
+            $model->logicalOperator = $map['LogicalOperator'];
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];

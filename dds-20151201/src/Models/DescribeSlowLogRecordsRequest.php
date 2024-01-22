@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the `NodeId` parameter.
      * @example dds-bp1fc7e65108****
@@ -28,7 +28,7 @@ class DescribeSlowLogRecordsRequest extends Model
     public $DBName;
 
     /**
-     * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * >
      *
@@ -41,6 +41,18 @@ class DescribeSlowLogRecordsRequest extends Model
      * @var string
      */
     public $endTime;
+
+    /**
+     * @description The logical relationship among multiple keywords.
+     *
+     *   **or**
+     *   **and** (default value)
+     *
+     * @example and
+     *
+     * @var string
+     */
+    public $logicalOperator;
 
     /**
      * @description The ID of the shard node.
@@ -75,7 +87,7 @@ class DescribeSlowLogRecordsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value of this parameter must be an integer that is greater than 0. Default value: **1**.
+     * @description The page number of the page to return. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
      *
      * @example 1
      *
@@ -93,7 +105,16 @@ class DescribeSlowLogRecordsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the resource group.
+     * @description The keywords used for query. You can enter up to 10 keywords at a time. If you enter multiple keywords, separate the keywords with spaces.
+     *
+     * @example test test1
+     *
+     * @var string
+     */
+    public $queryKeywords;
+
+    /**
+     * @description The ID of the resource group to which the instances you want to query belong.
      *
      * @example rg-acfmyiu4ekp****
      *
@@ -112,7 +133,7 @@ class DescribeSlowLogRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2021-08-15T14:13Z
      *
@@ -123,12 +144,14 @@ class DescribeSlowLogRecordsRequest extends Model
         'DBInstanceId'         => 'DBInstanceId',
         'DBName'               => 'DBName',
         'endTime'              => 'EndTime',
+        'logicalOperator'      => 'LogicalOperator',
         'nodeId'               => 'NodeId',
         'orderType'            => 'OrderType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'queryKeywords'        => 'QueryKeywords',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -151,6 +174,9 @@ class DescribeSlowLogRecordsRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->logicalOperator) {
+            $res['LogicalOperator'] = $this->logicalOperator;
+        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -168,6 +194,9 @@ class DescribeSlowLogRecordsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->queryKeywords) {
+            $res['QueryKeywords'] = $this->queryKeywords;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -202,6 +231,9 @@ class DescribeSlowLogRecordsRequest extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['LogicalOperator'])) {
+            $model->logicalOperator = $map['LogicalOperator'];
+        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
@@ -219,6 +251,9 @@ class DescribeSlowLogRecordsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['QueryKeywords'])) {
+            $model->queryKeywords = $map['QueryKeywords'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

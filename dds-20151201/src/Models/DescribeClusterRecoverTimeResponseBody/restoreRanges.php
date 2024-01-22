@@ -29,7 +29,7 @@ class restoreRanges extends Model
     /**
      * @description The method used to restore data. Valid values:
      *
-     *   \*\* PointInTime\*\* (default): Data is restored based on point in time
+     *   **PointInTime** (default): Data is restored based on point in time
      *
      * @example PointInTime
      *

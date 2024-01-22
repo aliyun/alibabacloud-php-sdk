@@ -1,3 +1,6 @@
+2024-01-22 Version: 5.0.6
+- Generated php 2015-12-01 for Dds.
+
 2024-01-11 Version: 5.0.5
 - Generated php 2015-12-01 for Dds.
 

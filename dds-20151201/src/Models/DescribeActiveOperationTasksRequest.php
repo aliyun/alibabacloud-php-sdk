@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTasksRequest extends Model
 {
     /**
-     * @description Specifies whether the task can be canceled.
+     * @description Specifies whether the task can be canceled. Valid values: -**0**: The task cannot be canceled. -**1**: The task can be canceled.
      *
      * @example ***
      *
@@ -18,7 +18,7 @@ class DescribeActiveOperationTasksRequest extends Model
     public $allowCancel;
 
     /**
-     * @description Specifies whether the time can be changed. Valid values: -**0**: The time cannot be changed. **1**: The time can be changed.
+     * @description Specifies whether the time can be modified. Valid values: -**0**: The time cannot be modified. -**1**: The time can be modified.
      *
      * @example -1
      *
@@ -27,7 +27,7 @@ class DescribeActiveOperationTasksRequest extends Model
     public $allowChange;
 
     /**
-     * @description The change type.
+     * @description The type of configuration change. Valid values: -**all** (default): All O\&M tasks are returned. -**S0**: O\&M tasks that are executed for exception fixing are returned. -**S1**: O\&M tasks that are executed for regular O\&M are returned.
      *
      * @example ***
      *
@@ -64,7 +64,7 @@ class DescribeActiveOperationTasksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number of the page to return.
      *
      * @example 1
      *
@@ -73,7 +73,7 @@ class DescribeActiveOperationTasksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return per page. Valid values: **30, 50, and 100**. Default value: **30**.
+     * @description The number of entries to return on each page. Valid values: **30, 50, and 100**. Default value: **30**.
      *
      * @example 30
      *
@@ -91,7 +91,7 @@ class DescribeActiveOperationTasksRequest extends Model
     public $productId;
 
     /**
-     * @description The region of the instance.
+     * @description The region of the instance. If you set the Region parameter to all, all tasks created within your Alibaba Cloud account are queried. In this case, you must also set the TaskType parameter to all.
      *
      * @example cn-beijing
      *

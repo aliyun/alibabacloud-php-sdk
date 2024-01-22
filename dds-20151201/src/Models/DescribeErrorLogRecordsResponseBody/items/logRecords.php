@@ -46,7 +46,7 @@ class logRecords extends Model
     public $content;
 
     /**
-     * @description The time when the log entry was generated. The time is in the *yyyy-MM-dd*T*HH:mm:ss***Z format. The time is displayed in UTC.
+     * @description The time when the log entry was generated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-02-26T12:09:34Z
      *

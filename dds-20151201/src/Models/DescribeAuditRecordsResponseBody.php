@@ -35,7 +35,7 @@ class DescribeAuditRecordsResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 3278BEB8-503B-4E46-8F7E-D26E040C9769
      *

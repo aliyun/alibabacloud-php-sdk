@@ -38,6 +38,18 @@ class DescribeRunningLogRecordsRequest extends Model
     public $endTime;
 
     /**
+     * @description The logical relationship among multiple keywords.
+     *
+     *   **or**
+     *   **and** (default value)
+     *
+     * @example and
+     *
+     * @var string
+     */
+    public $logicalOperator;
+
+    /**
      * @description The ID of the mongos node or shard node whose operational logs you want to query in the instance. If the instance is a sharded cluster instance, you must specify this parameter.
      *
      * >  This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
@@ -86,6 +98,15 @@ class DescribeRunningLogRecordsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description The keywords used for query. You can enter up to 10 keywords at a time. If you enter multiple keywords, separate the keywords with spaces.
+     *
+     * @example test test2
+     *
+     * @var string
+     */
+    public $queryKeywords;
 
     /**
      * @description The ID of the resource group.
@@ -140,12 +161,14 @@ class DescribeRunningLogRecordsRequest extends Model
         'DBInstanceId'         => 'DBInstanceId',
         'DBName'               => 'DBName',
         'endTime'              => 'EndTime',
+        'logicalOperator'      => 'LogicalOperator',
         'nodeId'               => 'NodeId',
         'orderType'            => 'OrderType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'queryKeywords'        => 'QueryKeywords',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -170,6 +193,9 @@ class DescribeRunningLogRecordsRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->logicalOperator) {
+            $res['LogicalOperator'] = $this->logicalOperator;
+        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -187,6 +213,9 @@ class DescribeRunningLogRecordsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->queryKeywords) {
+            $res['QueryKeywords'] = $this->queryKeywords;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -227,6 +256,9 @@ class DescribeRunningLogRecordsRequest extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['LogicalOperator'])) {
+            $model->logicalOperator = $map['LogicalOperator'];
+        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
@@ -244,6 +276,9 @@ class DescribeRunningLogRecordsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['QueryKeywords'])) {
+            $model->queryKeywords = $map['QueryKeywords'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

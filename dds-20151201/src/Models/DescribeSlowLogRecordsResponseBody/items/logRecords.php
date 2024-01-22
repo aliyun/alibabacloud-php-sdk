@@ -36,7 +36,7 @@ class logRecords extends Model
     public $docsExamined;
 
     /**
-     * @description The start time of the operation. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The start time of the operation. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-02-25T 01:41:28Z
      *
