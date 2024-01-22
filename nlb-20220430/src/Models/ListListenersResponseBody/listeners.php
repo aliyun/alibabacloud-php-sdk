@@ -13,8 +13,8 @@ class listeners extends Model
     /**
      * @description Indicates whether Application-Layer Protocol Negotiation (ALPN) is enabled. Valid values:
      *
-     *   **true**: enabled
-     *   **false**: disabled
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -37,7 +37,7 @@ class listeners extends Model
     public $alpnPolicy;
 
     /**
-     * @description The list of CA certificates.
+     * @description A list of CA certificates.
      *
      * >  This parameter takes effect only for listeners that use SSL over TCP.
      * @var string[]
@@ -47,8 +47,8 @@ class listeners extends Model
     /**
      * @description Indicates whether mutual authentication is enabled. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -57,7 +57,7 @@ class listeners extends Model
     public $caEnabled;
 
     /**
-     * @description The list of server certificates.
+     * @description The server certificate.
      *
      * >  This parameter takes effect only for listeners that use SSL over TCP.
      * @var string[]
@@ -74,7 +74,7 @@ class listeners extends Model
     public $cps;
 
     /**
-     * @description The last port in the listening port range.
+     * @description The last port in the listener port range.
      *
      * @example 455
      *
@@ -83,7 +83,7 @@ class listeners extends Model
     public $endPort;
 
     /**
-     * @description The timeout period of an idle connection. Unit: seconds. Valid values: **1** to **900**. Default value: **900**.
+     * @description The timeout period of idle connections. Unit: seconds. Valid values: **1** to **900**. Default value: **900**.
      *
      * @example 900
      *
@@ -102,7 +102,7 @@ class listeners extends Model
     public $listenerDescription;
 
     /**
-     * @description The ID of the listener.
+     * @description The listener ID.
      *
      * @example lsn-ga6sjjcll6ou34l1et****
      *
@@ -111,7 +111,7 @@ class listeners extends Model
     public $listenerId;
 
     /**
-     * @description The listening port.
+     * @description The information about the listener port of your server.
      *
      * @example 443
      *
@@ -120,7 +120,7 @@ class listeners extends Model
     public $listenerPort;
 
     /**
-     * @description The listening protocol. Valid values: **TCP**, **UDP**, and **TCPSSL**.
+     * @description The listener protocol. Valid values: **TCP**, **UDP**, and **TCPSSL**.
      *
      * @example TCPSSL
      *
@@ -131,14 +131,14 @@ class listeners extends Model
     /**
      * @description The status of the listener. Valid values:
      *
-     *   **Provisioning**
-     *   **Running**
-     *   **Configuring**
-     *   **Stopping**
-     *   **Stopped**
-     *   **Starting**
-     *   **Deleting**
-     *   **Deleted**
+     *   **Provisioning**: The listener is being created.
+     *   **Running**: The listener is running.
+     *   **Configuring**: The listener is being configured.
+     *   **Stopping**: The listener is being stopped.
+     *   **Stopped**: The listener is stopped.
+     *   **Starting**: The listener is being started.
+     *   **Deleting**: The listener is being deleted.
+     *   **Deleted**: The listener is deleted.
      *
      * @example Running
      *
@@ -147,7 +147,7 @@ class listeners extends Model
     public $listenerStatus;
 
     /**
-     * @description The ID of the NLB instance.
+     * @description The CLB instance ID.
      *
      * @example nlb-83ckzc8d4xlp8o****
      *
@@ -156,9 +156,9 @@ class listeners extends Model
     public $loadBalancerId;
 
     /**
-     * @description The maximum size of a TCP segment. Unit: bytes. Valid values: **0** to **1500**. **0** indicates that the maximum segment size remains unchanged.
+     * @description The size of the largest TCP packet segment. Unit: bytes. Valid values: **0** to **1500**. **0** indicates that the Mss value of TCP packets remains unchanged.
      *
-     * >  This parameter is supported only by listeners that use SSL over TCP.
+     * >  This parameter takes effect only for listeners that use SSL over TCP.
      * @example 200
      *
      * @var int
@@ -166,10 +166,10 @@ class listeners extends Model
     public $mss;
 
     /**
-     * @description Indicates whether the Proxy protocol is used to pass client IP addresses to backend servers. Valid values:
+     * @description Indicates whether the Proxy protocol passes source client IP addresses to backend servers. Valid values:
      *
-     *   **true**: enabled
-     *   **false**: disabled
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -178,12 +178,14 @@ class listeners extends Model
     public $proxyProtocolEnabled;
 
     /**
+     * @description Indicates whether the Proxy protocol passes the VpcId, PrivateLinkEpId, and PrivateLinkEpsId parameters to backend servers.
+     *
      * @var proxyProtocolV2Config
      */
     public $proxyProtocolV2Config;
 
     /**
-     * @description The ID of the region where the NLB instance is deployed.
+     * @description The region ID of the NLB instance.
      *
      * @example cn-hangzhou
      *
@@ -194,8 +196,8 @@ class listeners extends Model
     /**
      * @description Indicates whether fine-grained monitoring is enabled. Valid values:
      *
-     *   **true**: enabled
-     *   **false**: disabled
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -214,7 +216,7 @@ class listeners extends Model
     public $securityPolicyId;
 
     /**
-     * @description The ID of the server group.
+     * @description The server group ID.
      *
      * @example sgp-ppdpc14gdm3x4o****
      *
@@ -223,7 +225,7 @@ class listeners extends Model
     public $serverGroupId;
 
     /**
-     * @description The first port in the listening port range.
+     * @description The first port in the listener port range.
      *
      * @example 233
      *
@@ -232,7 +234,7 @@ class listeners extends Model
     public $startPort;
 
     /**
-     * @description The tag key.
+     * @description A list of tags.
      *
      * @var tags[]
      */

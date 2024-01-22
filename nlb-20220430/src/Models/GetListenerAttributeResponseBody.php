@@ -178,6 +178,8 @@ class GetListenerAttributeResponseBody extends Model
     public $proxyProtocolEnabled;
 
     /**
+     * @description Indicates whether the Proxy protocol passes the VpcId, PrivateLinkEpId, and PrivateLinkEpsId parameters to backend servers.
+     *
      * @var proxyProtocolV2Config
      */
     public $proxyProtocolV2Config;

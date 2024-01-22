@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The key of the tag that you want to remove. You can remove up to 20 tags in each call.
+     * @description The tag key.
      *
      * @example ac-cus-tag-4
      *
@@ -18,7 +18,7 @@ class tags extends Model
     public $tagKey;
 
     /**
-     * @description The value of the tag.
+     * @description The tag value.
      *
      * @example ON
      *

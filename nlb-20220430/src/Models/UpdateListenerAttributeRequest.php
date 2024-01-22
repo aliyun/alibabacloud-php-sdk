@@ -146,6 +146,8 @@ class UpdateListenerAttributeRequest extends Model
     public $proxyProtocolEnabled;
 
     /**
+     * @description Specifies that the Proxy protocol passes the VpcId, PrivateLinkEpId, and PrivateLinkEpsId parameters to backend servers.
+     *
      * @var proxyProtocolV2Config
      */
     public $proxyProtocolV2Config;

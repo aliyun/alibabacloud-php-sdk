@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListListenersResponseBody extends Model
 {
     /**
-     * @description The list of listeners.
+     * @description A list of listeners.
      *
      * @var listeners[]
      */

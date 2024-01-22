@@ -9,16 +9,37 @@ use AlibabaCloud\Tea\Model;
 class proxyProtocolV2Config extends Model
 {
     /**
+     * @description Specifies whether to use the Proxy protocol to pass the Ppv2PrivateLinkEpId parameter to backend servers. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * @example false
+     *
      * @var bool
      */
     public $ppv2PrivateLinkEpIdEnabled;
 
     /**
+     * @description Specifies whether to use the Proxy protocol to pass the PrivateLinkEpsId parameter to backend servers. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * @example false
+     *
      * @var bool
      */
     public $ppv2PrivateLinkEpsIdEnabled;
 
     /**
+     * @description Specifies whether to use the Proxy protocol to pass the VpcId parameter to backend servers. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * @example false
+     *
      * @var bool
      */
     public $ppv2VpcIdEnabled;

@@ -178,6 +178,8 @@ class CreateListenerShrinkRequest extends Model
     public $proxyProtocolEnabled;
 
     /**
+     * @description Specifies that the Proxy protocol passes the VpcId, PrivateLinkEpId, and PrivateLinkEpsId parameters to backend servers.
+     *
      * @var string
      */
     public $proxyProtocolV2ConfigShrink;
