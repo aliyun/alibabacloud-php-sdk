@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHistoryEventsStatResponseBody extends Model
 {
     /**
-     * @description The migration tasks.
+     * @description The event.
      *
      * @var items[]
      */

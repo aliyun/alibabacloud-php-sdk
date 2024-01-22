@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeWhitelistTemplateLinkedInstanceRequest extends Model
 {
     /**
-     * @description 资源组ID，可以为空。
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *

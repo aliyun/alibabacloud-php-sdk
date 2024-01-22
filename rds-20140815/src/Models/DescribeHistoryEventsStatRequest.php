@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHistoryEventsStatRequest extends Model
 {
     /**
-     * @description Archive status.
+     * @description The status of the asset instance. Valid values: **starting**, **running**, **stopping**, and **stopped**.
      *
      * @example starting
      *
@@ -27,7 +27,7 @@ class DescribeHistoryEventsStatRequest extends Model
     public $fromStartTime;
 
     /**
-     * @description The ID of the region where the global active database clusters that you want to query reside. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-beijing
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description product.
+     * @description The cloud service type of the application group. Valid values: **web** and native. The value web indicates a web application. The value **native** indicates a local application.
      *
      * @example web
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $cmsProduct;
 
     /**
-     * @description The type of the database engine.
+     * @description The database engine.
      *
      * @example mysql
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $dbType;
 
     /**
-     * @description Detail impact.
+     * @description The pagination parameter.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $detailImpact;
 
     /**
-     * @description Detail reason.
+     * @description The details of the instance operation.
      *
      * @example xxxx
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $detailReason;
 
     /**
-     * @description The end date of the query.
+     * @description The time when the alert was closed. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm*z format. The time is displayed in UTC.
      *
      * @example 2023-03-06T11:46:01Z
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $endTime;
 
     /**
-     * @description Event category.
+     * @description The system event category. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
      *
      * @example Exception
      *
@@ -63,7 +63,7 @@ class data extends Model
     public $eventCategory;
 
     /**
-     * @description The code of the extension point event.
+     * @description The event code.
      *
      * @example ENT000014
      *
@@ -72,9 +72,8 @@ class data extends Model
     public $eventCode;
 
     /**
-     * @description The output names of the current file.
+     * @description The event details.
      *
-     * This parameter is equivalent to the Output Name parameter under Output in the Dependencies section of the Properties panel in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example xxxxx
      *
      * @var string
@@ -82,7 +81,7 @@ class data extends Model
     public $eventDetail;
 
     /**
-     * @description The ID of the custom event.
+     * @description The event ID.
      *
      * @example 669036
      *
@@ -91,7 +90,7 @@ class data extends Model
     public $eventId;
 
     /**
-     * @description Event impact.
+     * @description The event impact.
      *
      * @example xxxxx
      *
@@ -100,7 +99,7 @@ class data extends Model
     public $eventImpact;
 
     /**
-     * @description Event level.
+     * @description The event level. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
      *
      * @example high
      *
@@ -109,7 +108,7 @@ class data extends Model
     public $eventLevel;
 
     /**
-     * @description The cause of the event.
+     * @description The event source.
      *
      * @example xxxxx
      *
@@ -118,12 +117,12 @@ class data extends Model
     public $eventReason;
 
     /**
-     * @description The status of the exception. Valid values:
+     * @description The status of the alert event. Valid values:
      *
-     *   **1**: pending handling
+     *   **1**: pending
      *   **2**: ignored
      *   **4**: confirmed
-     *   **8**: marked as a false positive
+     *   **8**: marked as false positive
      *   **16**: handling
      *   **32**: handled
      *   **64**: expired
@@ -135,9 +134,7 @@ class data extends Model
     public $eventStatus;
 
     /**
-     * @description The alert type.
-     *
-     *   Set the value to **sensitiveFile**.
+     * @description The event type. Valid values:
      *
      * @example StatusNotification
      *
@@ -146,7 +143,7 @@ class data extends Model
     public $eventType;
 
     /**
-     * @description The time when the instance is created. The time is in the yyyy-MM-dd HH:mm:ss format.
+     * @description The creation time. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm*z format. The time is displayed in UTC.
      *
      * @example 2023-03-17T16:05:40Z
      *
@@ -155,7 +152,7 @@ class data extends Model
     public $gmtCreated;
 
     /**
-     * @description The time when the export task was modified.
+     * @description The update time. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm*z format. The time is displayed in UTC.
      *
      * @example 2022-12-14T09:44:39.000+0000
      *
@@ -164,7 +161,7 @@ class data extends Model
     public $gmtModified;
 
     /**
-     * @description Processing status.
+     * @description The handling status.
      *
      * @example done
      *
@@ -173,7 +170,7 @@ class data extends Model
     public $handleStatus;
 
     /**
-     * @description Is there a lifecycle.
+     * @description Indicates whether the event has a lifecycle.
      *
      * @example false
      *
@@ -182,7 +179,7 @@ class data extends Model
     public $hasLifeCycle;
 
     /**
-     * @description The instance ID. Separate multiple instance IDs with commas (,). You can specify up to 30 instance IDs. This parameter is empty by default, which indicates that you can specify an unlimited number of instance IDs.
+     * @description The instance ID.
      *
      * @example rg-acfmy****
      *
@@ -191,7 +188,7 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example dhimgsearch
      *
@@ -200,7 +197,7 @@ class data extends Model
     public $instanceName;
 
     /**
-     * @description Whether to close.
+     * @description Indicates whether the alert is closed. Valid values: **0**: closed. **1**: not closed.
      *
      * @example 0
      *
@@ -209,9 +206,8 @@ class data extends Model
     public $isClosed;
 
     /**
-     * @description The name of the cloud service in which the system event occurred.
+     * @description The service name.
      *
-     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Product`. The value of the Product parameter indicates the names of all cloud services in which the system events of your Alibaba Cloud account occurred. For more information, see [DescribeSystemEventMetaList](~~114972~~).
      * @example rds
      *
      * @var string
@@ -228,7 +224,7 @@ class data extends Model
     public $regionId;
 
     /**
-     * @description The type of resource. Set the value to INSTANCE.
+     * @description The resource type. The value is fixed as **INSTANCE**.
      *
      * @example INSTANCE
      *
@@ -237,7 +233,7 @@ class data extends Model
     public $resourceType;
 
     /**
-     * @description The type of the source resource.
+     * @description The type of the source data.
      *
      * @example MSE
      *
@@ -246,7 +242,7 @@ class data extends Model
     public $sourceType;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     * @description The start time. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm*z format. The time is displayed in UTC.
      *
      * @example 2022-11-29T07:23Z
      *
@@ -255,7 +251,7 @@ class data extends Model
     public $startTime;
 
     /**
-     * @description The account ID. You can view the ID of the **logon account** by moving the pointer over the profile in the Alibaba Cloud console.
+     * @description The ID of the resource owner.
      *
      * @example 16986832xxxxx
      *

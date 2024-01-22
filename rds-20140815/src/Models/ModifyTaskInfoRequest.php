@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyTaskInfoRequest extends Model
 {
     /**
-     * @description Action params.
+     * @description The action parameter.
      *
      * @example {\"recoverTime\":\"2023-04-12T18:30:00Z\",\"recoverMode\":\"timePoint\"}
      *
@@ -18,7 +18,7 @@ class ModifyTaskInfoRequest extends Model
     public $actionParams;
 
     /**
-     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -42,7 +42,7 @@ class ModifyTaskInfoRequest extends Model
     public $securityToken;
 
     /**
-     * @description Step name.
+     * @description The name of the execution step.
      *
      * @example ha_switch
      *
@@ -51,7 +51,7 @@ class ModifyTaskInfoRequest extends Model
     public $stepName;
 
     /**
-     * @description The name of the operation that generates the task. Valid values:
+     * @description The name of the operation that you can call to execute the task. Valid values:
      *
      *   ImportImage
      *   ExportImage

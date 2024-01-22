@@ -26,7 +26,7 @@ class DescribeSecurityGroupConfigurationResponseBody extends Model
     public $items;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example 87BDAE8C-ACB0-4A26-BBCC-7D1DD31D630D
      *

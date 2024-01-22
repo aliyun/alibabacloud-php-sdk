@@ -18,7 +18,7 @@ class DescribeDBInstancesAsCsvRequest extends Model
     public $cachedAsync;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -41,7 +41,7 @@ class DescribeDBInstancesAsCsvRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The data returned.
+     * @description The details of the data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID
      *
      * @example 4309
      *
@@ -26,7 +26,7 @@ class items extends Model
     public $id;
 
     /**
-     * @description The region of the instance.
+     * @description The region ID.
      *
      * @example cn-beijing
      *
@@ -35,7 +35,7 @@ class items extends Model
     public $region;
 
     /**
-     * @description The instance username.
+     * @description The event source.
      *
      * @example loanBill
      *
@@ -44,7 +44,7 @@ class items extends Model
     public $source;
 
     /**
-     * @description Specversion.
+     * @description The database engine version.
      *
      * @example 8.0
      *
@@ -53,7 +53,7 @@ class items extends Model
     public $specversion;
 
     /**
-     * @description The subject of the certificate, which is in the DN format.
+     * @description The name of the pending event.
      *
      * @example QiTian
      *
@@ -62,7 +62,7 @@ class items extends Model
     public $subject;
 
     /**
-     * @description The time when the log was generated. The time is displayed in UTC.
+     * @description The amount of time that has elapsed from the start time of the query. Unit: seconds.
      *
      * @example 1675232573125
      *
@@ -71,21 +71,8 @@ class items extends Model
     public $time;
 
     /**
-     * @description The notification type.
+     * @description The event type. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
      *
-     * Valid values:
-     *
-     *   Sell
-     *
-     * <!-- -->
-     *
-     *   Operation
-     *
-     * <!-- -->
-     *
-     *   Promotion
-     *
-     * <!-- -->
      * @example host
      *
      * @var string

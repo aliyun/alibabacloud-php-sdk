@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeHistoryTasksStatResponseBody extends Model
 {
     /**
-     * @description The details of the instance.
+     * @description The information about the task.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *

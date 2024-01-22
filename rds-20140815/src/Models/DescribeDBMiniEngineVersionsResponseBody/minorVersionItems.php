@@ -37,6 +37,10 @@ class minorVersionItems extends Model
     public $engineVersion;
 
     /**
+     * @description The expiration time of the minor engine version.
+     *
+     * @example 20231213
+     *
      * @var string
      */
     public $expireDate;
@@ -75,9 +79,9 @@ class minorVersionItems extends Model
     /**
      * @description The RDS edition of the instance that runs the minor engine version. Valid values:
      *
-     *   **Basic**: RDS Basic Edition
-     *   **HighAvailability**: RDS High-availability Edition
-     *   **Finance**: RDS Enterprise Edition
+     *   **Basic**: RDS Basic Edition.
+     *   **HighAvailability**: RDS High-availability Edition.
+     *   **Finance**: RDS Enterprise Edition.
      *
      * @example HighAvailability
      *
@@ -109,8 +113,8 @@ class minorVersionItems extends Model
     /**
      * @description The status of the minor engine version. Valid values:
      *
-     *   **Offline**: Discontinued
-     *   **online**: Available
+     *   **Offline**
+     *   **online**
      *
      * >  If the minor engine version is in the Offline state, the minor engine version is discontinued. In this case, ignore the expiration status. If the minor engine version is in the Online state and the expiration state is expired, the minor engine version expires. If the expiration state is vaild, the minor engine version is still in its lifecycle.
      * @example Online

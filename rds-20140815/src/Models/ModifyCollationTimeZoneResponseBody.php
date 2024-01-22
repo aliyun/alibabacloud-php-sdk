@@ -18,7 +18,7 @@ class ModifyCollationTimeZoneResponseBody extends Model
     public $collation;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -27,7 +27,7 @@ class ModifyCollationTimeZoneResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8EA054AF-DFA7-497D-9F57-790FFC974C0B
      *
@@ -36,7 +36,7 @@ class ModifyCollationTimeZoneResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 114413215
      *
@@ -45,7 +45,7 @@ class ModifyCollationTimeZoneResponseBody extends Model
     public $taskId;
 
     /**
-     * @description The time zone of the instance.
+     * @description The time zone.
      *
      * @example China Standard Time
      *

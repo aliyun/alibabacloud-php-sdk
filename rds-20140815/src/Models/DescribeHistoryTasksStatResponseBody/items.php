@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The status of the migration task. Valid values:
+     * @description The task status. Valid values:
      *
-     *   **NoStart**: The task is not started.
-     *   **Running**:The task is in progress.
-     *   **Success**: The task is successful.
-     *   **Failed**: The task failed.
-     *   **Waiting**: The task is waiting for an incremental backup file to be imported.
+     *   Scheduled
+     *   Running
+     *   Succeed
+     *   Failed
+     *   Cancelling
+     *   Canceled
+     *   Waiting
      *
      * @example Succeed,Waiting
      *
@@ -24,7 +26,7 @@ class items extends Model
     public $status;
 
     /**
-     * @description The total number of tasks that meet these constraints without taking pagination into account.
+     * @description The total number of tasks.
      *
      * @example 20
      *

@@ -10,10 +10,8 @@ class CheckInstanceExistResponseBody extends Model
 {
     /**
      * @description Indicates whether the instance exists. Valid values:
-     *
-     *   **true**: The instance exists.
-     *   **false**: The instance does not exist.
-     *
+     * - **true**: The instance exists.
+     * - **false**: The instance does not exist.
      * @example true
      *
      * @var bool

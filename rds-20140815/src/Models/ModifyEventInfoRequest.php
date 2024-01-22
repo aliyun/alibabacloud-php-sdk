@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyEventInfoRequest extends Model
 {
     /**
-     * @description Action params.
+     * @description The action parameter. Set this value in the JSON string format.
      *
      * @example {\"recoverTime\":\"2023-04-17T14:02:35Z\",\"recoverMode\":\"timePoint\"}
      *
@@ -18,7 +18,7 @@ class ModifyEventInfoRequest extends Model
     public $actionParams;
 
     /**
-     * @description Event action.
+     * @description The event handling action. Set this value to archive or undo.
      *
      * @example archive
      *
@@ -27,7 +27,7 @@ class ModifyEventInfoRequest extends Model
     public $eventAction;
 
     /**
-     * @description The event ID.
+     * @description The event ID. Separate multiple event IDs with commas (,). You can configure up to 20 event IDs.
      *
      * @example 5422964
      *

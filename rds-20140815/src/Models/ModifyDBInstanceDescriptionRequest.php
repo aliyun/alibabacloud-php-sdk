@@ -21,7 +21,7 @@ class ModifyDBInstanceDescriptionRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * @example rm-uf6wjk5xxxxxxxxxx
+     * @example rm-uf6wjk5****
      *
      * @var string
      */

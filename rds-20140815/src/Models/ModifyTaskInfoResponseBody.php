@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyTaskInfoResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code.
      *
      * @example mst.errorcode.success.errormessage
      *
@@ -18,7 +18,7 @@ class ModifyTaskInfoResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description Error taskId.
+     * @description The ID of the failed task. This parameter is returned when a task fails.
      *
      * @example t-83br18hlw11ue610yo
      *

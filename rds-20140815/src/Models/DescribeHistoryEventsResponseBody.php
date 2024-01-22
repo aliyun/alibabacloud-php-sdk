@@ -10,16 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeHistoryEventsResponseBody extends Model
 {
     /**
-     * @description The details of the task execution.
+     * @description The events.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     * @description The page number. Valid values: any non-zero positive integer. Default value: **1**.
      *
-     * Default value: **1**.
      * @example 1
      *
      * @var int
@@ -27,7 +26,7 @@ class DescribeHistoryEventsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
+     * @description The number of entries per page. Default value: 30.
      *
      * @example 30
      *
@@ -36,7 +35,7 @@ class DescribeHistoryEventsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 7A41C147-C8D0-4DAE-A1A2-17EBCD60DFA1
      *
@@ -45,7 +44,7 @@ class DescribeHistoryEventsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of tasks that meet these constraints without taking pagination into account.
+     * @description The total number of entries.
      *
      * @example 10
      *

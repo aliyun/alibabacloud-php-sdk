@@ -23,8 +23,8 @@ class CreateMigrateTaskRequest extends Model
     /**
      * @description The consistency check method for the database. Valid values:
      *
-     *   **SyncExecuteDBCheck**: synchronous database check
-     *   **AsyncExecuteDBCheck**: asynchronous database check
+     *   **SyncExecuteDBCheck**: synchronous database check.
+     *   **AsyncExecuteDBCheck**: asynchronous database check.
      *
      * Default value: **AsyncExecuteDBCheck** (compatible with SQL Server 2008 R2).
      *
@@ -59,7 +59,7 @@ class CreateMigrateTaskRequest extends Model
      *   **True**
      *   **False**
      *
-     * > Set the value to **True** for instances that run SQL Server 2008 R2.
+     * >  Set the value to **True** for instances that run SQL Server 2008 R2.
      * @example True
      *
      * @var string
@@ -67,7 +67,7 @@ class CreateMigrateTaskRequest extends Model
     public $isOnlineDB;
 
     /**
-     * @description The ID of the migration task.
+     * @description The migration task ID.
      *
      *   If you set **BackupMode** to **FULL**, the value of this parameter is empty. The full backup mode is compatible with instance that runs SQL Server 2008 R2.
      *   If you set **BackupMode** to **UPDF**, the value of this parameter is the ID of the required full migration task.
@@ -91,9 +91,7 @@ class CreateMigrateTaskRequest extends Model
     public $OSSUrls;
 
     /**
-     * @description The information about the backup file in the OSS bucket.
-     *
-     * The values consist of three parts that are separated by colons (:):
+     * @description The information about the backup file in the OSS bucket. The values consist of three parts that are separated by colons (:):
      *
      *   OSS endpoint: oss-ap-southeast-1.aliyuncs.com.
      *   Name of the OSS bucket: rdsmssqlsingapore.

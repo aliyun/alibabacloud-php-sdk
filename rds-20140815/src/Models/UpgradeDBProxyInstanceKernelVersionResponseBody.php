@@ -29,7 +29,7 @@ class UpgradeDBProxyInstanceKernelVersionResponseBody extends Model
     /**
      * @description The task ID.
      *
-     * @example 334362871
+     * @example 33436****
      *
      * @var string
      */

@@ -32,7 +32,7 @@ class ReleaseInstanceConnectionRequest extends Model
      *   **0**: virtual private cloud (VPC)
      *   **1**: classic network
      *
-     * @example Classic
+     * @example 0
      *
      * @var string
      */

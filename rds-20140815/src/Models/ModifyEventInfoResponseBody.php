@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyEventInfoResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example mst.errorcode.success.errormessage
      *
@@ -18,7 +18,7 @@ class ModifyEventInfoResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description Error eventId.
+     * @description The error ID.
      *
      * @example 12343
      *
@@ -27,7 +27,7 @@ class ModifyEventInfoResponseBody extends Model
     public $errorEventId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 224DB9F7-3100-4899-AB9C-C938BCCB43E7
      *
@@ -36,7 +36,7 @@ class ModifyEventInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of devices that were created.
+     * @description The number of successful records.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class ModifyEventInfoResponseBody extends Model
     public $successCount;
 
     /**
-     * @description Success eventId.
+     * @description The ID of the successful event.
      *
      * @example 234221
      *

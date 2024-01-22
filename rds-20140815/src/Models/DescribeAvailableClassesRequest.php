@@ -25,10 +25,7 @@ class DescribeAvailableClassesRequest extends Model
      *   **serverless_standard**: RDS High-availability Edition for ApsaraDB RDS for MySQL.
      *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server.
      *
-     **
-     *
-     **Note** If you create a serverless instance, you must specify this parameter.
-     *
+     * > If you create a serverless instance, you must specify this parameter.
      * @example HighAvailability
      *
      * @var string
@@ -111,10 +108,7 @@ class DescribeAvailableClassesRequest extends Model
      *   Valid values if you set Engine to SQLServer: **2016\_std_sl**, **2017\_std_sl**, and **2019\_std_sl**
      *   Valid value if you set Engine to PostgreSQL: **14.0**
      *
-     **
-     *
-     **Note** ApsaraDB RDS for MariaDB does not support serverless instances.
-     *
+     * > ApsaraDB RDS for MariaDB does not support serverless instances.
      * @example 8.0
      *
      * @var string

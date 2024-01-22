@@ -108,6 +108,9 @@ class DescribeDBProxyResponseBody extends Model
     public $DBProxyInstanceType;
 
     /**
+     * @description Connection Persistence State.
+     *
+     * - Unsupported: The instance does not support connection persistence
      * @example Disabled
      *
      * @var string

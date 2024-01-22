@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description Event category.
+     * @description The system event category. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
      *
      * @example Exception
      *
@@ -18,7 +18,7 @@ class items extends Model
     public $eventCategory;
 
     /**
-     * @description The total number of tasks that meet these constraints without taking pagination into account.
+     * @description The total number of entries returned.
      *
      * @example 31
      *

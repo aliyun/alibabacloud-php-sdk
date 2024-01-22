@@ -48,7 +48,7 @@ class DescribePriceShrinkRequest extends Model
     /**
      * @description The ID of the instance for which you want to change the specifications or the instance that you want to renew.
      *
-     * > *   If you want to query the price of an specification change order or a renewal order, you must specify this parameter.
+     * > *   If you want to query the price of a specification change order or a renewal order, you must specify this parameter.
      * > *   If the instance is a read-only instance, you must set this parameter to the ID of its primary instance.
      * @example rm-*****
      *

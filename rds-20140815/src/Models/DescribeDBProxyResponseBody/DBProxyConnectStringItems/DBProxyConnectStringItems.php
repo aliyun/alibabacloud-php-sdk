@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DBProxyConnectStringItems extends Model
 {
     /**
-     * @description The endpoint of the proxy terminal.
+     * @description The database proxy endpoint.
      *
      * @example gos787jog2wk0ye1****-rw4rm.rwlb.rds.aliyuncs.com
      *
@@ -18,7 +18,7 @@ class DBProxyConnectStringItems extends Model
     public $DBProxyConnectString;
 
     /**
-     * @description The network type of the proxy endpoint.
+     * @description The network type of the database proxy endpoint. A database proxy endpoint is formerly referred to as a proxy terminal. Valid values:
      *
      *   OuterString: Internet
      *   InnerString: internal network
@@ -30,7 +30,7 @@ class DBProxyConnectStringItems extends Model
     public $DBProxyConnectStringNetType;
 
     /**
-     * @description The network type of the database proxy.
+     * @description The network type of the database proxy. Valid values:
      *
      *   0: Internet
      *   1: classic network
@@ -43,7 +43,7 @@ class DBProxyConnectStringItems extends Model
     public $DBProxyConnectStringNetWorkType;
 
     /**
-     * @description The port number that is associated with the proxy endpoint.
+     * @description The port that is associated with the database proxy endpoint.
      *
      * @example 3306
      *
@@ -52,7 +52,7 @@ class DBProxyConnectStringItems extends Model
     public $DBProxyConnectStringPort;
 
     /**
-     * @description The ID of the proxy terminal to which the proxy endpoint belongs.
+     * @description The ID of the backend database proxy endpoint.
      *
      * @example 20****
      *
@@ -61,7 +61,7 @@ class DBProxyConnectStringItems extends Model
     public $DBProxyEndpointId;
 
     /**
-     * @description The name of the proxy terminal to which the proxy endpoint belongs.
+     * @description The name of the database proxy endpoint. The name can be replaced by the ID of the database proxy endpoint.
      *
      * @example gos787jog2wk0ye1****
      *
@@ -70,7 +70,7 @@ class DBProxyConnectStringItems extends Model
     public $DBProxyEndpointName;
 
     /**
-     * @description The VPC that is associated with the proxy endpoint.
+     * @description The VPC of the database proxy.
      *
      * @example vpc-uf6oobt****
      *
@@ -79,7 +79,7 @@ class DBProxyConnectStringItems extends Model
     public $DBProxyVpcId;
 
     /**
-     * @description The proxy instance ID.
+     * @description The ID of the database proxy instance.
      *
      * @example rm-bp145737x5****131161274792****
      *
@@ -88,7 +88,7 @@ class DBProxyConnectStringItems extends Model
     public $DBProxyVpcInstanceId;
 
     /**
-     * @description The vSwitch of the proxy service.
+     * @description The vSwitch of the database proxy.
      *
      * @example vsw-uf6l0pic17****
      *

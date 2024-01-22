@@ -35,7 +35,7 @@ class DescribeUpgradeMajorVersionPrecheckTaskResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example D1586777-41B5-5F9E-81E8-93DFDD379024
      *

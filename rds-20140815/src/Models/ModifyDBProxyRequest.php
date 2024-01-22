@@ -73,6 +73,10 @@ class ModifyDBProxyRequest extends Model
     public $ownerId;
 
     /**
+     * @description Whether to enable connection keep. Valid values:
+     *
+     * > - This parameter is supported only for an ApsaraDB RDS for MySQL.
+     * > - When you modify the connection persistence state, the value of **ConfigDBProxyService** is modify.
      * @example Enabled
      *
      * @var string

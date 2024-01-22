@@ -11,7 +11,7 @@ class CheckInstanceExistRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * @example rm-uf6wjk5xxxxxxx
+     * @example rm-uf6wjk5****
      *
      * @var string
      */
