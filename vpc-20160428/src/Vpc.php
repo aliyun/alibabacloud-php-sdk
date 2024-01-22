@@ -6371,6 +6371,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->securityProtectionTypes)) {
+            $query['SecurityProtectionTypes'] = $request->securityProtectionTypes;
+        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
@@ -20410,6 +20413,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityProtectionEnabled)) {
+            $query['SecurityProtectionEnabled'] = $request->securityProtectionEnabled;
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;

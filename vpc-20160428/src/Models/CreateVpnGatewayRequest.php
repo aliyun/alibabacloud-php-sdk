@@ -14,6 +14,7 @@ class CreateVpnGatewayRequest extends Model
      *   **true**
      *   **false** (default)
      *
+     * >  We recommend that you enable automatic payment. If you disable automatic payment, you must manually pay the bill for creating the VPN gateway.
      * @example false
      *
      * @var bool
@@ -145,7 +146,13 @@ class CreateVpnGatewayRequest extends Model
     /**
      * @description The ID of the resource group to which the VPN gateway belongs.
      *
-     * If you change the resource group to which the VPN gateway belongs, the resource group to which the resource belongs will also be changed.
+     *   You can call the [ListResourceGroups](~~158855~~) operation to query resource group IDs.
+     *
+     *   If you do not specify a resource group ID, the VPN gateway belongs to the default resource group.
+     *
+     *   After the VPN gateway is created, the following resources also belong to the resource group and you cannot change the resource group: SSL servers, SSL client certificates, IPsec servers, and IPsec-VPN connections.
+     *
+     * If you move the VPN gateway to a new resource group, the preceding resources are also moved to the new resource group.
      * @example rg-acfmzs372yg****
      *
      * @var string

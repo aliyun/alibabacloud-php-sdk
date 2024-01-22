@@ -129,6 +129,11 @@ class CreatePublicIpAddressPoolRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string[]
+     */
+    public $securityProtectionTypes;
+
+    /**
      * @description The tag of the resource.
      *
      * @var tag[]
@@ -142,20 +147,21 @@ class CreatePublicIpAddressPoolRequest extends Model
      */
     public $zones;
     protected $_name = [
-        'bizType'              => 'BizType',
-        'clientToken'          => 'ClientToken',
-        'description'          => 'Description',
-        'dryRun'               => 'DryRun',
-        'isp'                  => 'Isp',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tag'                  => 'Tag',
-        'zones'                => 'Zones',
+        'bizType'                 => 'BizType',
+        'clientToken'             => 'ClientToken',
+        'description'             => 'Description',
+        'dryRun'                  => 'DryRun',
+        'isp'                     => 'Isp',
+        'name'                    => 'Name',
+        'ownerAccount'            => 'OwnerAccount',
+        'ownerId'                 => 'OwnerId',
+        'regionId'                => 'RegionId',
+        'resourceGroupId'         => 'ResourceGroupId',
+        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
+        'resourceOwnerId'         => 'ResourceOwnerId',
+        'securityProtectionTypes' => 'SecurityProtectionTypes',
+        'tag'                     => 'Tag',
+        'zones'                   => 'Zones',
     ];
 
     public function validate()
@@ -200,6 +206,9 @@ class CreatePublicIpAddressPoolRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->securityProtectionTypes) {
+            $res['SecurityProtectionTypes'] = $this->securityProtectionTypes;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -260,6 +269,11 @@ class CreatePublicIpAddressPoolRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityProtectionTypes'])) {
+            if (!empty($map['SecurityProtectionTypes'])) {
+                $model->securityProtectionTypes = $map['SecurityProtectionTypes'];
+            }
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

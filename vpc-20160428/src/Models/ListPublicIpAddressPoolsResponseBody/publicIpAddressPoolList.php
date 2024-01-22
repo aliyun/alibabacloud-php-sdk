@@ -119,6 +119,11 @@ class publicIpAddressPoolList extends Model
     public $resourceGroupId;
 
     /**
+     * @var string[]
+     */
+    public $securityProtectionTypes;
+
+    /**
      * @description Indicates whether the IP address pool is shared.
      *
      *   Only **Shared** may be returned.
@@ -187,23 +192,24 @@ class publicIpAddressPoolList extends Model
      */
     public $zones;
     protected $_name = [
-        'bizType'               => 'BizType',
-        'creationTime'          => 'CreationTime',
-        'description'           => 'Description',
-        'ipAddressRemaining'    => 'IpAddressRemaining',
-        'isp'                   => 'Isp',
-        'name'                  => 'Name',
-        'ownerId'               => 'OwnerId',
-        'publicIpAddressPoolId' => 'PublicIpAddressPoolId',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'shareType'             => 'ShareType',
-        'status'                => 'Status',
-        'tags'                  => 'Tags',
-        'totalIpNum'            => 'TotalIpNum',
-        'usedIpNum'             => 'UsedIpNum',
-        'userType'              => 'UserType',
-        'zones'                 => 'Zones',
+        'bizType'                 => 'BizType',
+        'creationTime'            => 'CreationTime',
+        'description'             => 'Description',
+        'ipAddressRemaining'      => 'IpAddressRemaining',
+        'isp'                     => 'Isp',
+        'name'                    => 'Name',
+        'ownerId'                 => 'OwnerId',
+        'publicIpAddressPoolId'   => 'PublicIpAddressPoolId',
+        'regionId'                => 'RegionId',
+        'resourceGroupId'         => 'ResourceGroupId',
+        'securityProtectionTypes' => 'SecurityProtectionTypes',
+        'shareType'               => 'ShareType',
+        'status'                  => 'Status',
+        'tags'                    => 'Tags',
+        'totalIpNum'              => 'TotalIpNum',
+        'usedIpNum'               => 'UsedIpNum',
+        'userType'                => 'UserType',
+        'zones'                   => 'Zones',
     ];
 
     public function validate()
@@ -242,6 +248,9 @@ class publicIpAddressPoolList extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->securityProtectionTypes) {
+            $res['SecurityProtectionTypes'] = $this->securityProtectionTypes;
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
@@ -311,6 +320,11 @@ class publicIpAddressPoolList extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SecurityProtectionTypes'])) {
+            if (!empty($map['SecurityProtectionTypes'])) {
+                $model->securityProtectionTypes = $map['SecurityProtectionTypes'];
+            }
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];

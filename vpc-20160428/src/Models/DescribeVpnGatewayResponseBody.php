@@ -303,7 +303,7 @@ class DescribeVpnGatewayResponseBody extends Model
     /**
      * @description The type of the VPN gateway.
      *
-     * Only **Normal** may be returned, which indicates a standard NAT gateway.
+     * Only **Normal** may be returned, which indicates a standard VPN gateway.
      * @example Normal
      *
      * @var string

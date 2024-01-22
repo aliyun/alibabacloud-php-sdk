@@ -149,7 +149,7 @@ class ModifySslVpnServerResponseBody extends Model
     /**
      * @description The ID of the resource group to which the SSL server belongs.
      *
-     * You can call the [ListResourceGroups](~~158855~~) operation to query the resource group information.
+     * The SSL server and the VPN gateway associated with the SSL server belong to the same resource group. You can call the [ListResourceGroups](~~158855~~) operation to query resource groups.
      * @example rg-acfmzs372yg****
      *
      * @var string

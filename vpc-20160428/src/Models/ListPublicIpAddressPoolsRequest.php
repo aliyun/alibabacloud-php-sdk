@@ -122,6 +122,11 @@ class ListPublicIpAddressPoolsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var bool
+     */
+    public $securityProtectionEnabled;
+
+    /**
      * @description The status of the IP address pool. Valid values:
      *
      *   **Created**
@@ -141,20 +146,21 @@ class ListPublicIpAddressPoolsRequest extends Model
      */
     public $tags;
     protected $_name = [
-        'dryRun'                 => 'DryRun',
-        'isp'                    => 'Isp',
-        'maxResults'             => 'MaxResults',
-        'name'                   => 'Name',
-        'nextToken'              => 'NextToken',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'publicIpAddressPoolIds' => 'PublicIpAddressPoolIds',
-        'regionId'               => 'RegionId',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'status'                 => 'Status',
-        'tags'                   => 'Tags',
+        'dryRun'                    => 'DryRun',
+        'isp'                       => 'Isp',
+        'maxResults'                => 'MaxResults',
+        'name'                      => 'Name',
+        'nextToken'                 => 'NextToken',
+        'ownerAccount'              => 'OwnerAccount',
+        'ownerId'                   => 'OwnerId',
+        'publicIpAddressPoolIds'    => 'PublicIpAddressPoolIds',
+        'regionId'                  => 'RegionId',
+        'resourceGroupId'           => 'ResourceGroupId',
+        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
+        'resourceOwnerId'           => 'ResourceOwnerId',
+        'securityProtectionEnabled' => 'SecurityProtectionEnabled',
+        'status'                    => 'Status',
+        'tags'                      => 'Tags',
     ];
 
     public function validate()
@@ -199,6 +205,9 @@ class ListPublicIpAddressPoolsRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->securityProtectionEnabled) {
+            $res['SecurityProtectionEnabled'] = $this->securityProtectionEnabled;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -261,6 +270,9 @@ class ListPublicIpAddressPoolsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityProtectionEnabled'])) {
+            $model->securityProtectionEnabled = $map['SecurityProtectionEnabled'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
