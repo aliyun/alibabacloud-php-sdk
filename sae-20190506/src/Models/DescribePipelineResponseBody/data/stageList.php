@@ -10,26 +10,53 @@ use AlibabaCloud\Tea\Model;
 class stageList extends Model
 {
     /**
+     * @description The execution type of the stage. Valid values:
+     *
+     *   **0**: in sequence.
+     *   **1**: in parallel.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $executorType;
 
     /**
+     * @description The ID of the stage.
+     *
+     * @example c3a55592-4c30-4d84-ac2d-e98c18ec****
+     *
      * @var string
      */
     public $stageId;
 
     /**
+     * @description The name of the stage.
+     *
+     * @example Deploy an application
+     *
      * @var string
      */
     public $stageName;
 
     /**
+     * @description The status of the batch processing stage. Valid values:
+     *
+     *   **0**: The batch is prepared for this processing stage.
+     *   **1**: The task is being executed.
+     *   **2**: successful
+     *   **3**: The processing failed in this stage.
+     *   **6**: The processing stage was terminated.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The list of task statuses.
+     *
      * @var taskList[]
      */
     public $taskList;

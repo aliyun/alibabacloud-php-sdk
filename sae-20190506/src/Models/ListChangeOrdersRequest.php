@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class ListChangeOrdersRequest extends Model
 {
     /**
+     * @description 1
+     *
+     * @example 145341c-9708-4967-b3ec-24933767****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $coStatus;
 
     /**
+     * @description 2
+     *
+     * @example CoCreateApp
+     *
      * @var string
      */
     public $coType;
 
     /**
+     * @description 20
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description CoCreateApp
+     *
+     * @example test
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description test
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

@@ -10,36 +10,74 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespaceListResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: The call was successful.
+     *   **3xx**: The call was redirected.
+     *   **4xx**: The call failed.
+     *   **5xx**: A server error occurred.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The list of namespaces.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The returned error code. Valid values:
+     *
+     *   If the call is successful, the **ErrorCode** parameter is not returned.
+     *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The returned information. Valid values:
+     *
+     *   success: If the call is successful, **success** is returned.
+     *   An error code: If the call fails, an error code is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 30375C38-F4ED-4135-A0AE-5C75DC7F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the namespaces were obtained. Valid values:
+     *
+     *   **true**: The namespaces were obtained.
+     *   **false**: The namespaces failed to be obtained.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The trace ID that is used to query the details of the request.
+     *
+     * @example ac1a0b2215622920113732501e****
+     *
      * @var string
      */
     public $traceId;

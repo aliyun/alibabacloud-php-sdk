@@ -9,17 +9,33 @@ use AlibabaCloud\Tea\Model;
 class UpdateNamespaceVpcRequest extends Model
 {
     /**
+     * @example test
+     *
+     * @var string
+     */
+    public $nameSpaceShortId;
+
+    /**
+     * @description vpc-2ze0i263cnn311nvj\*\*\*\*
+     *
+     * @example cn-beijing:test
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example vpc-2ze0i263cnn311nvj****
+     *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'namespaceId' => 'NamespaceId',
-        'vpcId'       => 'VpcId',
+        'nameSpaceShortId' => 'NameSpaceShortId',
+        'namespaceId'      => 'NamespaceId',
+        'vpcId'            => 'VpcId',
     ];
 
     public function validate()
@@ -29,6 +45,9 @@ class UpdateNamespaceVpcRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nameSpaceShortId) {
+            $res['NameSpaceShortId'] = $this->nameSpaceShortId;
+        }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
@@ -47,6 +66,9 @@ class UpdateNamespaceVpcRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NameSpaceShortId'])) {
+            $model->nameSpaceShortId = $map['NameSpaceShortId'];
+        }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }

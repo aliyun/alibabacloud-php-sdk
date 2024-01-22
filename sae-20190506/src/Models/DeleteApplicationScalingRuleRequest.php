@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteApplicationScalingRuleRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the trace. The ID is used to query the details of a request.
+     *
+     * @example timer-0800-2100
+     *
      * @var string
      */
     public $scalingRuleName;

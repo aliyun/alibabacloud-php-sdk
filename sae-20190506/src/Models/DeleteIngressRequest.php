@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteIngressRequest extends Model
 {
     /**
+     * @description 87
+     *
+     * @example 87
+     *
      * @var int
      */
     public $ingressId;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The type of the SLB instance based on the IP address. Valid values:
+     *
+     *   **internet**: the Internet-facing SLB instance.
+     *   **intranet**: the internal-facing SLB instance.
+     *
      * @var ingressList[]
      */
     public $ingressList;

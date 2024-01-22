@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The real-time resource usage.
+     *
      * @var realTimeRes
      */
     public $realTimeRes;
 
     /**
+     * @description The resource usage of the current month.
+     *
      * @var summary
      */
     public $summary;

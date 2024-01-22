@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespaceListRequest extends Model
 {
     /**
+     * @description true
+     *
+     * @example true
+     *
      * @var bool
      */
     public $containCustom;
 
     /**
+     * @description true
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hybridCloudExclude;

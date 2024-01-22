@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationDescriptionRequest extends Model
 {
     /**
+     * @example newdesc
+     *
      * @var string
      */
     public $appDescription;
 
     /**
+     * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
+     *
      * @var string
      */
     public $appId;

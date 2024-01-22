@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The name of the Log Service configuration.
+     *
      * @var logConfigs[]
      */
     public $logConfigs;
 
     /**
+     * @description The error code.
+     *
+     *   The **ErrorCode** parameter is not returned when the request succeeds.
+     *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalSize;

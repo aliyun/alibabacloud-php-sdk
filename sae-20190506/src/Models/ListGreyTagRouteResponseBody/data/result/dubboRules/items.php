@@ -9,36 +9,74 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The comparison operator. Valid values: **>**, **<**, **>=**, **<=**, **==**, and **! =**.
+     *
+     * @example ==
+     *
      * @var string
      */
     public $cond;
 
     /**
+     * @description The expression that is used to obtain the value of the parameter. The syntax of the expression must follow the standard of the SpEL. Valid values:
+     *
+     * - **Empty**: obtains the value of the parameter.
+     * - **.name**: obtains the name property of the parameter. This expression works the same way as args0.getName().
+     * - **.isEnabled()**: obtains the enabled property of the parameter. This expression works the same way as args0.isEnabled().
+     * - **[0]**: indicates that the value of the parameter is an array and obtains the first value of the array. This expression works the same way as args0[0]. This expression does not start with a period (.).
+     * - **.get(0)**: indicates that the value of the parameter is a list and obtains the first value of the list. This expression works the same way as args0.get(0).
+     * - **.get("key")**: indicates that the value of the parameter is a map and obtains the value of the key in the map. This expression works the same way as args0.get("key").  >  For more information about the expressions that are used to obtain parameter values, see  [Spring Expression Language (SpEL)](https://docs.spring.io/spring-integration/docs/current/reference/html/spel.html).
+     * @example .name
+     *
      * @var string
      */
     public $expr;
 
     /**
+     * @description The index of the parameter. The value 0 indicates the first parameter.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @description This parameter is not returned for Dubbo services.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The operator. Valid values:
+     *
+     * - **rawvalue**: direct comparison.
+     * - **list**: whitelist.
+     * - **mod**: mods 100.
+     * - **deterministic_proportional_steaming_division**: percentage.
+     * @example rawvalue
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description This parameter is not returned for Dubbo services.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The value of the parameter. This value is compared with the value that is obtained based on the **expr** and **index** parameters.
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;

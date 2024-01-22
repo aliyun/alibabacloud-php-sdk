@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class BatchStartApplicationsResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error code.
+     *
+     *   If the request is successful, this parameter is not returned.****
+     *   This parameter is returned only if the request failed.**** For more information, see **Error codes** in this topic.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Indicates whether the specified applications are successfully started. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The returned data.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the trace. It is used to query the details of a request.
+     *
+     * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The ID of the change order.
+     *
+     * @example 0a98a02315955564772843261e****
+     *
      * @var string
      */
     public $traceId;

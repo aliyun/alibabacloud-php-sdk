@@ -10,36 +10,69 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigMapResponseBody extends Model
 {
     /**
+     * @description Indicates whether the details of the ConfigMap instance were obtained. Valid values:
+     *
+     *   **true**: The details were obtained.
+     *   **false**: The details failed to be obtained.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the instance was last modified.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: indicates that the call was successful.
+     *   **3xx**: indicates that the call was redirected.
+     *   **4xx**: indicates that the call failed.
+     *   **5xx**: indicates that a server error occurred.
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The ID of the trace. The ID is used to query the details of a request.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The returned information. Valid values:
+     *
+     *   If the call is successful, **success** is returned.
+     *   If the call fails, an error code is returned.
+     *
+     * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The returned result.
+     *
+     * @example 0a98a02315955564772843261e****
+     *
      * @var string
      */
     public $traceId;

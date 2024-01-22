@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeIngressRequest extends Model
 {
     /**
+     * @description The returned data.
+     *
+     * @example 87
+     *
      * @var int
      */
     public $ingressId;

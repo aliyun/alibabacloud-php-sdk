@@ -11,41 +11,76 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the SSL certificate issued by Alibaba Cloud.
+     *
      * @var internet[]
      */
     public $internet;
 
     /**
+     * @description The ID of the Internet-facing SLB instance.
+     *
+     * @example 59.74.**.**
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @var bool
+     */
+    public $internetSlbExpired;
+
+    /**
+     * @description Configurations of Internet-facing SLB instances.
+     *
+     * @example lb-uf6xc7wybefehnv45****
+     *
      * @var string
      */
     public $internetSlbId;
 
     /**
+     * @description The ID of the SSL certificate issued by Alibaba Cloud.
+     *
      * @var intranet[]
      */
     public $intranet;
 
     /**
+     * @description The error code.
+     *
+     *   The **ErrorCode** parameter is not returned when the request succeeds.
+     *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+     *
+     * @example 192.168.0.0
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @var bool
+     */
+    public $intranetSlbExpired;
+
+    /**
+     * @description The IP address of the internal-facing SLB instance.
+     *
+     * @example lb-uf6xc7wybefehnv45****
+     *
      * @var string
      */
     public $intranetSlbId;
     protected $_name = [
-        'internet'      => 'Internet',
-        'internetIp'    => 'InternetIp',
-        'internetSlbId' => 'InternetSlbId',
-        'intranet'      => 'Intranet',
-        'intranetIp'    => 'IntranetIp',
-        'intranetSlbId' => 'IntranetSlbId',
+        'internet'           => 'Internet',
+        'internetIp'         => 'InternetIp',
+        'internetSlbExpired' => 'InternetSlbExpired',
+        'internetSlbId'      => 'InternetSlbId',
+        'intranet'           => 'Intranet',
+        'intranetIp'         => 'IntranetIp',
+        'intranetSlbExpired' => 'IntranetSlbExpired',
+        'intranetSlbId'      => 'IntranetSlbId',
     ];
 
     public function validate()
@@ -67,6 +102,9 @@ class data extends Model
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
+        if (null !== $this->internetSlbExpired) {
+            $res['InternetSlbExpired'] = $this->internetSlbExpired;
+        }
         if (null !== $this->internetSlbId) {
             $res['InternetSlbId'] = $this->internetSlbId;
         }
@@ -81,6 +119,9 @@ class data extends Model
         }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
+        }
+        if (null !== $this->intranetSlbExpired) {
+            $res['IntranetSlbExpired'] = $this->intranetSlbExpired;
         }
         if (null !== $this->intranetSlbId) {
             $res['IntranetSlbId'] = $this->intranetSlbId;
@@ -109,6 +150,9 @@ class data extends Model
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
+        if (isset($map['InternetSlbExpired'])) {
+            $model->internetSlbExpired = $map['InternetSlbExpired'];
+        }
         if (isset($map['InternetSlbId'])) {
             $model->internetSlbId = $map['InternetSlbId'];
         }
@@ -123,6 +167,9 @@ class data extends Model
         }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
+        }
+        if (isset($map['IntranetSlbExpired'])) {
+            $model->intranetSlbExpired = $map['IntranetSlbExpired'];
         }
         if (isset($map['IntranetSlbId'])) {
             $model->intranetSlbId = $map['IntranetSlbId'];

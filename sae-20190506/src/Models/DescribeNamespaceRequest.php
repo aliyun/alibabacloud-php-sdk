@@ -11,9 +11,19 @@ class DescribeNamespaceRequest extends Model
     /**
      * @var string
      */
+    public $nameSpaceShortId;
+
+    /**
+     * @description The description of the namespace.
+     *
+     * @example cn-beijing:test
+     *
+     * @var string
+     */
     public $namespaceId;
     protected $_name = [
-        'namespaceId' => 'NamespaceId',
+        'nameSpaceShortId' => 'NameSpaceShortId',
+        'namespaceId'      => 'NamespaceId',
     ];
 
     public function validate()
@@ -23,6 +33,9 @@ class DescribeNamespaceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nameSpaceShortId) {
+            $res['NameSpaceShortId'] = $this->nameSpaceShortId;
+        }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
@@ -38,6 +51,9 @@ class DescribeNamespaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NameSpaceShortId'])) {
+            $model->nameSpaceShortId = $map['NameSpaceShortId'];
+        }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }

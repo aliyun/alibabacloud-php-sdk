@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigMapRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $configMapId;

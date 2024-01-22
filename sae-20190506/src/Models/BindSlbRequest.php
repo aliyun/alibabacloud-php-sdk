@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class BindSlbRequest extends Model
 {
     /**
+     * @description 0099b7be-5f5b-4512-a7fc-56049ef1\*\*\*\*
+     *
+     * @example 0099b7be-5f5b-4512-a7fc-56049ef1****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description \[{"port":80,"targetPort":8080,"protocol":"TCP"}]
+     *
+     * @example [{"port":80,"targetPort":8080,"protocol":"TCP"}]
+     *
      * @var string
      */
     public $internet;
 
     /**
+     * @description lb-bp1tg0k6d9nqaw7l1\*\*\*\*
+     *
+     * @example lb-bp1tg0k6d9nqaw7l1****
+     *
      * @var string
      */
     public $internetSlbId;
 
     /**
+     * @description \[{"port":80,"targetPort":8080,"protocol":"TCP"}]
+     *
+     * @example [{"port":80,"targetPort":8080,"protocol":"TCP"}]
+     *
      * @var string
      */
     public $intranet;
 
     /**
+     * @description lb-bp1tg0k6d9nqaw7l1\*\*\*\*
+     *
+     * @example lb-bp1tg0k6d9nqaw7l1****
+     *
      * @var string
      */
     public $intranetSlbId;

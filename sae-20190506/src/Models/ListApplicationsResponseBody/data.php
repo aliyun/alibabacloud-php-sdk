@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The description of the application.
+     *
      * @var applications[]
      */
     public $applications;
 
     /**
+     * @description The number of application instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The tags of the application.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The information about applications.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalSize;

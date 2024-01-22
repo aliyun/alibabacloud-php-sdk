@@ -10,36 +10,69 @@ use AlibabaCloud\Tea\Model;
 class DeleteApplicationResponseBody extends Model
 {
     /**
+     * @description Indicates whether the application is deleted. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the change order that is used to query the task execution status.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: The request is successful.
+     *   **3xx**: A redirection message is returned.
+     *   **4xx**: The request is invalid.
+     *   **5xx**: A server error occurred.
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The trace ID that is used to query details of the request.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The returned message.
+     *
+     *   If the request is successful, **success** is returned.
+     *   If an error occurred, the error code is returned.
+     *
+     * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The returned results.
+     *
+     * @example 0a98a02315955564772843261e****
+     *
      * @var string
      */
     public $traceId;

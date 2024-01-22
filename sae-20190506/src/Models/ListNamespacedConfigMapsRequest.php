@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListNamespacedConfigMapsRequest extends Model
 {
     /**
+     * @description cn-hangzhou
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $namespaceId;

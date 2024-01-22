@@ -10,46 +10,83 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the Dubbo application.
+     *
+     * @example service-consumer
+     *
      * @var string
      */
     public $dubboApplicationName;
 
     /**
+     * @description The name of the application.
+     *
+     * @example cn-zhangjiakou-micro-service-******
+     *
      * @var string
      */
     public $edasAppName;
 
     /**
+     * @description The group to which the service belongs. You can create a custom group.
+     *
+     * @example springCloud
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The metadata. Example: `{side: "provider", port: "18081", preserved: {register: {source: "SPRING_CLOUD"}},…}`.
+     *
+     * @example {side: "provider", port: "18081", preserved: {register: {source: "SPRING_CLOUD"}},…}
+     *
      * @var mixed[]
      */
     public $metadata;
 
     /**
+     * @description The methods.
+     *
      * @var methods[]
      */
     public $methods;
 
     /**
+     * @description The name of the service.
+     *
+     * @example service-provider
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The type of the service. Valid values:
+     *
+     *   **dubbo**
+     *   **springCloud**
+     *
+     * @example springCloud
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @description The name of the Spring Cloud application.
+     *
+     * @example service-provider
+     *
      * @var string
      */
     public $springApplicationName;
 
     /**
+     * @description The version of the service. You can create a custom version.
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $version;

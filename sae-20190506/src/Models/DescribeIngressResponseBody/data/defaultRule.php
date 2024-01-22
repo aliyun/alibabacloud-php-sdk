@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class defaultRule extends Model
 {
     /**
+     * @description The domain name of the application.
+     *
+     * @example 395b60e4-0550-458d-9c54-a265d036****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The container port of the application specified in the forwarding rule.
+     *
+     * @example app1
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $backendProtocol;
 
     /**
+     * @description The name of the application specified in the forwarding rule.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $containerPort;

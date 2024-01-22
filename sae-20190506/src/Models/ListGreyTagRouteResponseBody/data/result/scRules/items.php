@@ -9,36 +9,73 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The comparison operator. Valid values: **>**, **<**, **>=**, **<=**, **==**, and **! =**.
+     *
+     * @example ==
+     *
      * @var string
      */
     public $cond;
 
     /**
+     * @description This parameter is not returned for Spring Cloud applications.
+     *
+     * @example N/A
+     *
      * @var string
      */
     public $expr;
 
     /**
+     * @description This parameter is not returned for Spring Cloud applications.
+     *
+     * @example N/A
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The operator. Valid values:
+     *
+     *   **rawvalue**: direct comparison.
+     *   **list**: whitelist.
+     *   **mod**: mods 100.
+     *   **deterministic_proportional_steaming_division**: percentage.
+     *
+     * @example rawvalue
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description The type of the comparison. Valid values:
+     *
+     *   **param**: parameter
+     *   **cookie**: cookie
+     *   **header**: header
+     *
+     * @example cookie
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The value of the parameter. This value is compared with the value that is obtained based on the **type** and **name** parameters.
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;

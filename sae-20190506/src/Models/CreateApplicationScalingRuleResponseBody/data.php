@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 1616642248938
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 1641882854484
+     *
      * @var int
      */
     public $lastDisableTime;
@@ -31,16 +37,22 @@ class data extends Model
     public $metric;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $scaleRuleEnabled;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $scaleRuleName;
 
     /**
+     * @example timing
+     *
      * @var string
      */
     public $scaleRuleType;
@@ -51,6 +63,8 @@ class data extends Model
     public $timer;
 
     /**
+     * @example 1616642248938
+     *
      * @var int
      */
     public $updateTime;

@@ -11,46 +11,85 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The application ID.
+     *
+     * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The time when the auto scaling policy was created. Unit: milliseconds.
+     *
+     * @example 1616642248938
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The time when the auto scaling policy was last disabled.
+     *
+     * @example 1641882854484
+     *
      * @var int
      */
     public $lastDisableTime;
 
     /**
+     * @description The details of the metric-based auto scaling policy.
+     *
      * @var metric
      */
     public $metric;
 
     /**
+     * @description Specifies whether to enable the auto scaling policy. Valid values:
+     *
+     *   **true**: The auto scaling policy is enabled.
+     *   **false**: The auto scaling policy is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $scaleRuleEnabled;
 
     /**
+     * @description The name of the auto scaling policy.
+     *
+     * @example test
+     *
      * @var string
      */
     public $scaleRuleName;
 
     /**
+     * @description The type of the auto scaling policy. Valid values:
+     *
+     *   **timing**: a scheduled auto scaling policy
+     *   **metric**: a metric-based auto scaling policy
+     *   **mix**: a hybrid auto scaling policy
+     *
+     * @example timing
+     *
      * @var string
      */
     public $scaleRuleType;
 
     /**
+     * @description The details of the scheduled auto scaling policy.
+     *
      * @var timer
      */
     public $timer;
 
     /**
+     * @description The time when the auto scaling policy was updated. Unit: milliseconds.
+     *
+     * @example 1616642248938
+     *
      * @var int
      */
     public $updateTime;

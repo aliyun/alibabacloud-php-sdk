@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The error code.
+     *
+     *   If the request is successful, this parameter is not returned.****
+     *   This parameter is returned only if the request failed.**** For more information, see the "**Error codes**" section in this topic.
+     *
+     * @example 4a815998-b468-4bea-b7d8-59f52a44****
+     *
      * @var string
      */
     public $changeOrderId;

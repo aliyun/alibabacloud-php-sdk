@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeGreyTagRouteRequest extends Model
 {
     /**
+     * @description 1
+     *
+     * @example 1
+     *
      * @var int
      */
     public $greyTagRouteId;

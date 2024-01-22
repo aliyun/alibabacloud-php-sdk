@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class CreateNamespaceResponseBody extends Model
 {
     /**
+     * @description The ID of the trace. It can be used to query the details of a request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The region where the namespace resides.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The returned message.
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description name
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The description of the namespace.
+     *
+     * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information of the namespace.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The ID of the trace. It can be used to query the details of a request.
+     *
+     * @example 0a981dd515966966104121683d****
+     *
      * @var string
      */
     public $traceId;

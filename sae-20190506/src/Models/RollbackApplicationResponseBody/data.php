@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the change process.
+     *
+     * @example 01db03d3-3ee9-48b3-b3d0-dfce2d88****
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @description Specifies whether approval is required when a RAM user performs release. Take note of the following rules:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isNeedApproval;

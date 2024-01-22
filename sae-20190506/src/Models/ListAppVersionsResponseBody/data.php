@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description *   The address of the image. This parameter is returned when the **Type** parameter is set to **image**.
+     *   The download link of the WAR or JAR package. This parameter is returned when the **Type** parameter is set to **upload**.
+     *
+     * @example https://edas-hz.oss-cn-hangzhou.aliyuncs.com/apps/K8s_APP_ID/1d0e7884-60f0-41d2-89dd-ec1f3c69****\/hello-sae.war
+     *
      * @var string
      */
     public $buildPackageUrl;
 
     /**
+     * @description The download link of the WAR or JAR package. This parameter is returned when the **Type** parameter is set to **url**.
+     *
+     * @example 1590124643553
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The error code.
+     *
+     *   The **ErrorCode** parameter is not returned when the request succeeds.
+     *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+     *
+     * @example a0ce266c-d354-423a-9bd6-4083405a****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The time when the application was created.
+     *
+     * @example image
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The ID of the version.
+     *
+     * @example registry-vpc.cn-hangzhou.aliyuncs.com/****\/1362469756373809_shared_repo:42646692-66e7-4a21-b629-897752975cdf_159012464****
+     *
      * @var string
      */
     public $warUrl;

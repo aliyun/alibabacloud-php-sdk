@@ -10,21 +10,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     * - **2xx**: The call was successful.
+     * - **3xx**: The call was redirected.
+     * - **4xx**: The call failed.
+     * - **5xx**: A server error occurred.
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description No request parameters are required.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @var regions
      */
     public $regions;
 
     /**
+     * @description The returned information.
+     *
+     * @example DDE85827-B0B3-4E56-86E8-17C42009****
+     *
      * @var string
      */
     public $requestId;

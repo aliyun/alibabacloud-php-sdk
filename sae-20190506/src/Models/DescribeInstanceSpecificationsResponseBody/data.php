@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The CPU specification of the instance type. Unit: millicore.
+     *
+     * @example 2000
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description Indicates whether the instance type is available. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The ID of the instance type.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The memory size of the instance type. Unit: MB.
+     *
+     * @example 4096
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @description The name of the instance type.
+     *
      * @var string
      */
     public $specInfo;
 
     /**
+     * @description The version number of the instance type.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $version;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeJobStatusRequest extends Model
 {
     /**
+     * @description The ID of the job template.
+     *
+     * @example e1a7a07-abcb-4652-a1d3-2d57f415****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The job ID.
+     *
+     * @example event-b798157b-40a2-4388-b578-71fb897103**-**
+     *
      * @var string
      */
     public $jobId;

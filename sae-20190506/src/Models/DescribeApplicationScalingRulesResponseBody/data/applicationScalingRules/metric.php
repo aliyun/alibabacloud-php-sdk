@@ -13,31 +13,47 @@ use AlibabaCloud\Tea\Model;
 class metric extends Model
 {
     /**
+     * @description The maximum number of instances.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $maxReplicas;
 
     /**
+     * @description The list of metrics that are used to trigger the auto scaling policy.
+     *
      * @var metrics[]
      */
     public $metrics;
 
     /**
+     * @description The execution status of the metric-based auto scaling policy.
+     *
      * @var metricsStatus
      */
     public $metricsStatus;
 
     /**
+     * @description The minimum number of instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minReplicas;
 
     /**
+     * @description Rules that determine the application scale-in.
+     *
      * @var scaleDownRules
      */
     public $scaleDownRules;
 
     /**
+     * @description Rules that determine the application scale-out.
+     *
      * @var scaleUpRules
      */
     public $scaleUpRules;

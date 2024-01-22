@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class parameterDefinitions extends Model
 {
     /**
+     * @description The description of the parameter.
+     *
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example arg0
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the parameter.
+     *
+     * @example java.lang.String
+     *
      * @var string
      */
     public $type;

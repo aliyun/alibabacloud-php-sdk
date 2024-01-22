@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the application that is created.
+     *
+     * @example 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the change order. It can be used to query the task status.
+     *
+     * @example 01db03d3-3ee9-48b3-b3d0-dfce2d88****
+     *
      * @var string
      */
     public $changeOrderId;

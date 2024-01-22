@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned on each page. Valid value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The returned result.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The total number of canary release rules. Valid value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalSize;

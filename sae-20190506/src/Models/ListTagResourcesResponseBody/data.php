@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description A maximum of 50 entries can be returned for a query. If a query generates more than 50 entries, the NextToken parameter is returned with the first 50 entries. You can use the NextToken parameter value to retrieve the subsequent entries that are not returned in the current query result.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The mapping relationships between applications and tags.
+     *
      * @var tagResources[]
      */
     public $tagResources;

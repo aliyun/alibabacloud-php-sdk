@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The returned error code. Valid values:
+     *
+     *   If the call is successful, the **ErrorCode** parameter is not returned.
+     *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+     *
+     * @example 16
+     *
      * @var int
      */
     public $greyTagRouteId;

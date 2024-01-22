@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class realTimeRes extends Model
 {
     /**
+     * @description The CPU usage. Unit: core per minute.
+     *
+     * @example 13
+     *
      * @var float
      */
     public $cpu;
 
     /**
+     * @description The memory usage. Unit: GiB per minute.
+     *
+     * @example 26
+     *
      * @var float
      */
     public $memory;

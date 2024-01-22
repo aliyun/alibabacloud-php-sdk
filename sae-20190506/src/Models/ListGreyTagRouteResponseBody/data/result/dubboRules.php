@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class dubboRules extends Model
 {
     /**
+     * @description The relationship between the conditions in the canary release rule. Valid values:
+     *
+     * - **AND**: The conditions are in the logical AND relation. All conditions must be met at the same time.
+     * - **OR**: The conditions are in the logical OR relation. At least one of the conditions must be met.
+     * @example OR
+     *
      * @var string
      */
     public $condition;
 
     /**
+     * @description The group of the Dubbo service that corresponds to the canary release rule.
+     *
+     * @example DUBBO
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The conditions.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The method name of the Dubbo service.
+     *
+     * @example echo
+     *
      * @var string
      */
     public $methodName;
 
     /**
+     * @description The name of the Dubbo service.
+     *
+     * @example com.alibaba.edas.boot.EchoService
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The version of the Dubbo service.
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $version;

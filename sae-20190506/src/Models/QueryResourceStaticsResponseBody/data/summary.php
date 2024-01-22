@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class summary extends Model
 {
     /**
+     * @description The CPU usage. Unit: core per minute.
+     *
+     * @example 3354
+     *
      * @var float
      */
     public $cpu;
 
     /**
+     * @description The memory usage. Unit: GiB per minute.
+     *
+     * @example 6708
+     *
      * @var float
      */
     public $memory;

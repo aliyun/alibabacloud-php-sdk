@@ -9,51 +9,104 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The command that was run to install the agent.
+     *
+     * @example http://edas-bj.oss-cn-beijing-internal.aliyuncs.com/test/install.sh
+     *
      * @var string
      */
     public $agentInstall;
 
     /**
+     * @description This parameter is no longer valid.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $current;
 
     /**
+     * @description Indicates whether custom namespaces are returned. Valid values:
+     *
+     *   **true**: Custom namespaces are returned.
+     *   **false**: Custom namespaces are not returned.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $custom;
 
     /**
+     * @description Specifies whether hybrid cloud namespaces are excluded. Valid values:
+     *
+     *   **true**: Hybrid cloud namespaces are excluded.
+     *   **false**: Hybrid cloud namespaces are included.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $hybridCloudEnable;
 
     /**
+     * @example test
+     *
+     * @var string
+     */
+    public $nameSpaceShortId;
+
+    /**
+     * @description The ID of the namespace.
+     *
+     * @example cn-beijing:test
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @description The region to which the namespace belongs.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-wz969ngg2e49q5i4****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-2ze559r1z1bpwqxwp****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-2ze0i263cnn311nvj****
+     *
      * @var string
      */
     public $vpcId;
@@ -62,6 +115,7 @@ class data extends Model
         'current'           => 'Current',
         'custom'            => 'Custom',
         'hybridCloudEnable' => 'HybridCloudEnable',
+        'nameSpaceShortId'  => 'NameSpaceShortId',
         'namespaceId'       => 'NamespaceId',
         'namespaceName'     => 'NamespaceName',
         'regionId'          => 'RegionId',
@@ -88,6 +142,9 @@ class data extends Model
         }
         if (null !== $this->hybridCloudEnable) {
             $res['HybridCloudEnable'] = $this->hybridCloudEnable;
+        }
+        if (null !== $this->nameSpaceShortId) {
+            $res['NameSpaceShortId'] = $this->nameSpaceShortId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -130,6 +187,9 @@ class data extends Model
         }
         if (isset($map['HybridCloudEnable'])) {
             $model->hybridCloudEnable = $map['HybridCloudEnable'];
+        }
+        if (isset($map['NameSpaceShortId'])) {
+            $model->nameSpaceShortId = $map['NameSpaceShortId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

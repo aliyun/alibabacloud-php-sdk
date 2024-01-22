@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The auto scaling policies of the application.
+     *
      * @var applicationScalingRules[]
      */
     public $applicationScalingRules;
 
     /**
+     * @description The number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of auto scaling policies.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalSize;

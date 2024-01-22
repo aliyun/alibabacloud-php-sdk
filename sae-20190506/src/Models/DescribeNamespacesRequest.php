@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespacesRequest extends Model
 {
     /**
+     * @description 1
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description 10
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

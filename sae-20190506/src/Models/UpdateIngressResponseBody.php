@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateIngressResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -25,21 +27,29 @@ class UpdateIngressResponseBody extends Model
     public $errorCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 0a98a02315955564772843261e****
+     *
      * @var string
      */
     public $traceId;

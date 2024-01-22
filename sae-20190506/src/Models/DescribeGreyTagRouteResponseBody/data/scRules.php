@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class scRules extends Model
 {
     /**
+     * @description The relationship between the conditions in the canary release rule. Valid values:
+     *
+     *   **AND**: The conditions are in the logical AND relation. All conditions must be met at the same time.
+     *   **OR**: The conditions are in the logical OR relation. At least one of the conditions must be met.
+     *
+     * @example OR
+     *
      * @var string
      */
     public $condition;
 
     /**
+     * @description The conditions.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The path of the canary release rule of the Spring Cloud application.
+     *
+     * @example /path
+     *
      * @var string
      */
     public $path;

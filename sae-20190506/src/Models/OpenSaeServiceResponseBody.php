@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class OpenSaeServiceResponseBody extends Model
 {
     /**
+     * @description The ID of the order.
+     *
+     * @example 20485646575****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 559B4247-C41C-4D9E-B866-B55D378B****
+     *
      * @var string
      */
     public $requestId;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class timer extends Model
 {
     /**
+     * @example 2021-03-25
+     *
      * @var string
      */
     public $beginDate;
 
     /**
+     * @example 2021-04-25
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example * * *
+     *
      * @var string
      */
     public $period;

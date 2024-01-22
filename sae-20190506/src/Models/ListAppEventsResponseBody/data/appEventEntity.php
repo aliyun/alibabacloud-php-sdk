@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class appEventEntity extends Model
 {
     /**
+     * @description The type of the event. Valid values:
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The timestamp of the first occurrence of the event.
+     *
+     * @example 2020-02-19T05:01:28Z
+     *
      * @var string
      */
     public $firstTimestamp;
 
     /**
+     * @description The timestamp of the last occurrence of the event.
+     *
+     * @example 2020-02-19T05:01:28Z
+     *
      * @var string
      */
     public $lastTimestamp;
 
     /**
+     * @description The information about the event.
+     *
+     * @example Created container
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The type of the object.
+     *
+     * @example Pod
+     *
      * @var string
      */
     public $objectKind;
 
     /**
+     * @description The name of the object.
+     *
+     * @example errew-b86bf540-b4dc-47d8-a42f-b4997c14bd8f-5595cbddd6-2****
+     *
      * @var string
      */
     public $objectName;
 
     /**
+     * @description The cause of the event.
+     *
+     * @example Created
+     *
      * @var string
      */
     public $reason;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class RescaleApplicationVerticallyRequest extends Model
 {
     /**
+     * @description The application ID.
+     *
+     * @example 0099b7be-5f5b-4512-a7fc-56049ef1****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The destination CPU specification. Unit: millicore.
+     *
+     * @example 1000
+     *
      * @var string
      */
     public $cpu;
 
     /**
+     * @description The destination memory size. Unit: MB.
+     *
+     * @example 2048
+     *
      * @var string
      */
     public $memory;

@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespaceResourcesRequest extends Model
 {
     /**
+     * @example test
+     *
+     * @var string
+     */
+    public $nameSpaceShortId;
+
+    /**
+     * @description cn-shanghai:test
+     *
+     * @example cn-shanghai:test
+     *
      * @var string
      */
     public $namespaceId;
     protected $_name = [
-        'namespaceId' => 'NamespaceId',
+        'nameSpaceShortId' => 'NameSpaceShortId',
+        'namespaceId'      => 'NamespaceId',
     ];
 
     public function validate()
@@ -23,6 +35,9 @@ class DescribeNamespaceResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nameSpaceShortId) {
+            $res['NameSpaceShortId'] = $this->nameSpaceShortId;
+        }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
@@ -38,6 +53,9 @@ class DescribeNamespaceResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NameSpaceShortId'])) {
+            $model->nameSpaceShortId = $map['NameSpaceShortId'];
+        }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }

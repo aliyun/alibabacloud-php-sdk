@@ -9,41 +9,67 @@ use AlibabaCloud\Tea\Model;
 class ExecJobRequest extends Model
 {
     /**
+     * @example ee1a7a07-abcb-4652-a1d3-2d57f415****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example echo
+     *
      * @var string
      */
     public $command;
 
     /**
+     * @example ["a","b"]
+     *
      * @var string
      */
     public $commandArgs;
 
     /**
+     * @example [{"name":"envtmp","value":"0"}]
+     *
      * @var string
      */
     public $envs;
 
     /**
+     * @example custom
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @example custom-args
+     *
      * @var string
      */
     public $jarStartArgs;
 
     /**
+     * @example -Xms4G -Xmx4G
+     *
      * @var string
      */
     public $jarStartOptions;
 
     /**
+     * @var string
+     */
+    public $replicas;
+
+    /**
+     * @var string
+     */
+    public $time;
+
+    /**
+     * @example CATALINA_OPTS=\"$CATALINA_OPTS $Options\" catalina.sh run
+     *
      * @var string
      */
     public $warStartOptions;
@@ -55,6 +81,8 @@ class ExecJobRequest extends Model
         'eventId'         => 'EventId',
         'jarStartArgs'    => 'JarStartArgs',
         'jarStartOptions' => 'JarStartOptions',
+        'replicas'        => 'Replicas',
+        'time'            => 'Time',
         'warStartOptions' => 'WarStartOptions',
     ];
 
@@ -85,6 +113,12 @@ class ExecJobRequest extends Model
         }
         if (null !== $this->jarStartOptions) {
             $res['JarStartOptions'] = $this->jarStartOptions;
+        }
+        if (null !== $this->replicas) {
+            $res['Replicas'] = $this->replicas;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
         if (null !== $this->warStartOptions) {
             $res['WarStartOptions'] = $this->warStartOptions;
@@ -121,6 +155,12 @@ class ExecJobRequest extends Model
         }
         if (isset($map['JarStartOptions'])) {
             $model->jarStartOptions = $map['JarStartOptions'];
+        }
+        if (isset($map['Replicas'])) {
+            $model->replicas = $map['Replicas'];
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
         if (isset($map['WarStartOptions'])) {
             $model->warStartOptions = $map['WarStartOptions'];

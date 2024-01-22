@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class BatchStartApplicationsRequest extends Model
 {
     /**
+     * @description The returned message.
+     *
+     *   **success** is returned when the request succeeds.
+     *   An error code is returned when the request fails.
+     *
+     * @example ebf491f0-c1a5-45e2-b2c4-710dbe2a****
+     *
      * @var string
      */
     public $appIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $namespaceId;

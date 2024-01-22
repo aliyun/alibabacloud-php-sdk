@@ -10,36 +10,59 @@ use AlibabaCloud\Tea\Model;
 class ListAppServicesPageResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description Indicates whether the microservice list was obtained. Valid values:
+     *
+     *   **true**: The list was obtained.
+     *   **false**: The list failed to be obtained.
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The details of microservices.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the trace. The ID is used to query the details of a request.
+     *
+     * @example 2583E089-99C2-562E-8B7E-73512136****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The page number of the current page.
+     *
+     * @example 0be3e0c816394483660457498e****
+     *
      * @var string
      */
     public $traceId;

@@ -11,59 +11,110 @@ use AlibabaCloud\Tea\Model;
 class applicationScalingRules extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The time when the auto scaling policy was created. Unit: milliseconds.
+     *
+     * @example 1616642248938
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The time when the auto scaling policy was last disabled.
+     *
+     * @example 1641882854484
+     *
      * @var int
      */
     public $lastDisableTime;
 
     /**
+     * @description The details of the metric-based auto scaling policy.
+     *
      * @var metric
      */
     public $metric;
 
     /**
+     * @var int
+     */
+    public $minReadyInstanceRatio;
+
+    /**
+     * @var int
+     */
+    public $minReadyInstances;
+
+    /**
+     * @description Indicates whether the auto scaling policy is enabled. Valid values:
+     *
+     *   **true**: enabled
+     *   **false**: disabled
+     *
+     * @example true
+     *
      * @var bool
      */
     public $scaleRuleEnabled;
 
     /**
+     * @description The name of the auto scaling policy.
+     *
+     * @example test
+     *
      * @var string
      */
     public $scaleRuleName;
 
     /**
+     * @description The type of the auto scaling policy. Valid values:
+     *
+     *   **timing**: the scheduled auto scaling policy.
+     *   **metric**: the metric-based auto scaling policy.
+     *   **mix**: the hybrid auto scaling policy.
+     *
+     * @example timing
+     *
      * @var string
      */
     public $scaleRuleType;
 
     /**
+     * @description The details of the scheduled auto scaling policy.
+     *
      * @var timer
      */
     public $timer;
 
     /**
+     * @description The time when the auto scaling policy was updated. Unit: milliseconds.
+     *
+     * @example 1616642248938
+     *
      * @var int
      */
     public $updateTime;
     protected $_name = [
-        'appId'            => 'AppId',
-        'createTime'       => 'CreateTime',
-        'lastDisableTime'  => 'LastDisableTime',
-        'metric'           => 'Metric',
-        'scaleRuleEnabled' => 'ScaleRuleEnabled',
-        'scaleRuleName'    => 'ScaleRuleName',
-        'scaleRuleType'    => 'ScaleRuleType',
-        'timer'            => 'Timer',
-        'updateTime'       => 'UpdateTime',
+        'appId'                 => 'AppId',
+        'createTime'            => 'CreateTime',
+        'lastDisableTime'       => 'LastDisableTime',
+        'metric'                => 'Metric',
+        'minReadyInstanceRatio' => 'MinReadyInstanceRatio',
+        'minReadyInstances'     => 'MinReadyInstances',
+        'scaleRuleEnabled'      => 'ScaleRuleEnabled',
+        'scaleRuleName'         => 'ScaleRuleName',
+        'scaleRuleType'         => 'ScaleRuleType',
+        'timer'                 => 'Timer',
+        'updateTime'            => 'UpdateTime',
     ];
 
     public function validate()
@@ -84,6 +135,12 @@ class applicationScalingRules extends Model
         }
         if (null !== $this->metric) {
             $res['Metric'] = null !== $this->metric ? $this->metric->toMap() : null;
+        }
+        if (null !== $this->minReadyInstanceRatio) {
+            $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
+        }
+        if (null !== $this->minReadyInstances) {
+            $res['MinReadyInstances'] = $this->minReadyInstances;
         }
         if (null !== $this->scaleRuleEnabled) {
             $res['ScaleRuleEnabled'] = $this->scaleRuleEnabled;
@@ -123,6 +180,12 @@ class applicationScalingRules extends Model
         }
         if (isset($map['Metric'])) {
             $model->metric = metric::fromMap($map['Metric']);
+        }
+        if (isset($map['MinReadyInstanceRatio'])) {
+            $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];
+        }
+        if (isset($map['MinReadyInstances'])) {
+            $model->minReadyInstances = $map['MinReadyInstances'];
         }
         if (isset($map['ScaleRuleEnabled'])) {
             $model->scaleRuleEnabled = $map['ScaleRuleEnabled'];

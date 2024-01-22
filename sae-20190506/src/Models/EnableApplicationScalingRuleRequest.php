@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class EnableApplicationScalingRuleRequest extends Model
 {
     /**
+     * @description The application ID.
+     *
+     * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the auto scaling policy.
+     *
+     * @example timer-0800-2100
+     *
      * @var string
      */
     public $scalingRuleName;

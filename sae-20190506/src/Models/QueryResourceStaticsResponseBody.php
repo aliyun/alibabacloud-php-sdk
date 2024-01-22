@@ -10,36 +10,73 @@ use AlibabaCloud\Tea\Model;
 class QueryResourceStaticsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: indicates that the request was successful.
+     *   **3xx**: indicates that the request was redirected.
+     *   **4xx**: indicates that the request was invalid.
+     *   **5xx**: indicates that a server error occurred.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The resource usage.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
+     * - The **ErrorCode** parameter is not returned when the request succeeds.
+     * - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The returned message.
+     *
+     *   **success** is returned when the request succeeds.
+     *   An error code is returned when the request fails.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7CCF7092-72CA-4431-90D6-C7D98752****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the resource usage of an application was obtained. Valid values:
+     *
+     *   **true**: indicates that the resource usage was obtained.
+     *   **false**: indicates that the resource usage could not be obtained.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The ID of the trace. It can be used to query the details of a request.
+     *
+     * @example ac1a08a015623098794277264e****
+     *
      * @var string
      */
     public $traceId;

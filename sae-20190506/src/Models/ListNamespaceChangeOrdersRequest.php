@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class ListNamespaceChangeOrdersRequest extends Model
 {
     /**
+     * @description 2
+     *
+     * @example 2
+     *
      * @var string
      */
     public $coStatus;
 
     /**
+     * @description CoBatchStartApplication
+     *
+     * @example CoBatchStartApplication
+     *
      * @var string
      */
     public $coType;
 
     /**
+     * @description 1
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description test
+     *
+     * @example test
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description cn-shanghai:test
+     *
+     * @example cn-shanghai:test
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description 20
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

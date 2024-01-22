@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the component is disabled. Valid values:
+     *
+     *   **true**: indicates that the component is disabled.
+     *   **false**: indicates that the component is not disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $disabled;
 
     /**
+     * @description The version of the container, such as Ali-Tomcat, in which a High-speed Service Framework (HSF) application runs.
+     *
+     * @example 3.5.3
+     *
      * @var string
      */
     public $edasContainerVersion;

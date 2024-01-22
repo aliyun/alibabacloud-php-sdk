@@ -9,51 +9,101 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsRequest extends Model
 {
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: indicates that the request was successful.
+     *   **3xx**: indicates that the request was redirected.
+     *   **4xx**: indicates that the request was invalid.
+     *   **5xx**: indicates that a server error occurred.
+     *
+     * @example demo-app
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @var string
+     */
+    public $appSource;
+
+    /**
+     * @description The number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description true
+     *
+     * @example appName
+     *
      * @var string
      */
     public $fieldType;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example demo-app
+     *
      * @var string
      */
     public $fieldValue;
 
     /**
+     * @description 1
+     *
+     * @example cn-beijing:demo
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description runnings
+     *
+     * @example running
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @description Indicates whether the application is being deleted. Valid values:
+     *
+     *   **true**: The application is being deleted.
+     *   **false**: The application is not being deleted.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The returned message.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $reverse;
 
     /**
+     * @description The list of applications.
+     *
+     * @example [{"key":"key","value":"value"}]
+     *
      * @var string
      */
     public $tags;
     protected $_name = [
         'appName'     => 'AppName',
+        'appSource'   => 'AppSource',
         'currentPage' => 'CurrentPage',
         'fieldType'   => 'FieldType',
         'fieldValue'  => 'FieldValue',
@@ -73,6 +123,9 @@ class ListApplicationsRequest extends Model
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->appSource) {
+            $res['AppSource'] = $this->appSource;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -112,6 +165,9 @@ class ListApplicationsRequest extends Model
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['AppSource'])) {
+            $model->appSource = $map['AppSource'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];

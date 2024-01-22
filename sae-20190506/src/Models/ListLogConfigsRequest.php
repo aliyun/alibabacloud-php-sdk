@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ListLogConfigsRequest extends Model
 {
     /**
+     * @description 10
+     *
+     * @example 56f77b65-788d-442a-9885-7f20d91f****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description 1
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

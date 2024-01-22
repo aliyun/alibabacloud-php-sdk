@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the routing rule that you want to delete.
+     *
+     * @example 87
+     *
      * @var int
      */
     public $ingressId;

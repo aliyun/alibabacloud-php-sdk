@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class logConfigs extends Model
 {
     /**
+     * @description The path of logs.
+     *
+     * @example sae-1f240907a6faf58c653f09e81b7e****
+     *
      * @var string
      */
     public $configName;
 
     /**
+     * @description The storage type of logs.
+     *
+     * @example 2019-08-29 17:18:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The name of the Logstore in Log Service.
+     *
+     * @example /root/logs/hsf/hsf.log
+     *
      * @var string
      */
     public $logDir;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example file_log
+     *
      * @var string
      */
     public $logType;
 
     /**
+     * @description The number of the returned page.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The time when the configuration was created.
+     *
+     * @example sae-1f240907a6faf58c653f09e81b7e****
+     *
      * @var string
      */
     public $slsLogStore;
 
     /**
+     * @description The type of the log. Set this value to **file_log**.
+     *
+     * @example sae-56f77b65-788d-442a-9885-7f20d91f****
+     *
      * @var string
      */
     public $slsProject;
 
     /**
+     * @description The ID of the Log Service project.
+     *
+     * @example sls
+     *
      * @var string
      */
     public $storeType;

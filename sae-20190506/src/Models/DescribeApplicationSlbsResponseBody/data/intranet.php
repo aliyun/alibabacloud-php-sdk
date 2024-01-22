@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class intranet extends Model
 {
     /**
+     * @description The supported protocol.
+     *
+     * @example 1513561019707729_16f37aae5f3_-375882821_-169099****
+     *
      * @var string
      */
     public $httpsCertId;
 
     /**
+     * @description The IP address of the Internet-facing SLB instance.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The container port.
+     *
+     * @example TCP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @description The port specified for the SLB listener.
+     *
+     * @example 8080
+     *
      * @var int
      */
     public $targetPort;

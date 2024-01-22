@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeIngressResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The port specified for the SLB listener.
+     *
      * @var data
      */
     public $data;
@@ -25,21 +29,35 @@ class DescribeIngressResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the SLB instance.
+     *
+     * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The name of the routing rule.
+     *
+     * @example 0a981dd515966966104121683d****
+     *
      * @var string
      */
     public $traceId;

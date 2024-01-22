@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class schedules extends Model
 {
     /**
+     * @description The point in time. Format: **Hour:Minute**.
+     *
+     * @example 08:00
+     *
      * @var string
      */
     public $atTime;
 
     /**
+     * @description The maximum number of instances.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxReplicas;
 
     /**
+     * @description The minimum number of instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minReplicas;
 
     /**
+     * @description The expected number of instances.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $targetReplicas;

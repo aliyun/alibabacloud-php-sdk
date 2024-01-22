@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the component is expired. Valid values:
+     *
+     *   **true**: The component is expired.
+     *   **false**: The component is not expired.
+     *
+     * @example Open JDK 8
+     *
      * @var string
      */
     public $componentDescription;
 
     /**
+     * @description The description of the component.
+     *
+     * @example Open JDK 8
+     *
      * @var string
      */
     public $componentKey;
 
     /**
+     * @description The error code.
+     *
+     *   The **ErrorCode** parameter is not returned when the request succeeds.
+     *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @description The ID of the component.
+     *
+     * @example JDK
+     *
      * @var string
      */
     public $type;

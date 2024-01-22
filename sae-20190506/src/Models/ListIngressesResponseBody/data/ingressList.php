@@ -9,31 +9,66 @@ use AlibabaCloud\Tea\Model;
 class ingressList extends Model
 {
     /**
+     * @description The error code.
+     *
+     * - The **ErrorCode** parameter is not returned when the request succeeds.
+     * - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+     * @example 13624*****73809_16f8e549a20_1175189789_12****3210
+     *
      * @var string
      */
     public $certId;
 
     /**
+     * @example 87***35-cn-hangzhou,812***3-cn-hangzhou
+     *
+     * @var string
+     */
+    public $certIds;
+
+    /**
+     * @description The ID of the routing rule.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the list of routing rules was obtained. Valid values:
+     *
+     *   **true**: indicates that the list was obtained.
+     *   **false**: indicates that the list could not be obtained.
+     *
+     * @example 18
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The type of the SLB instance based on the processing capabilities. Valid values:
+     *
+     *   **clb**: the Classic Load Balancer (CLB) instance.
+     *   **alb**: the Application Load Balancer (ALB) instance.
+     *
+     * @example 80
+     *
      * @var string
      */
     public $listenerPort;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
+     * @example clb
+     *
      * @var string
      */
     public $loadBalanceType;
@@ -41,33 +76,76 @@ class ingressList extends Model
     /**
      * @var string
      */
+    public $mseGatewayId;
+
+    /**
+     * @var string
+     */
+    public $mseGatewayPort;
+
+    /**
+     * @var string
+     */
+    public $mseGatewayProtocol;
+
+    /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: indicates that the request was successful.
+     *   **3xx**: indicates that the request was redirected.
+     *   **4xx**: indicates that the request was invalid.
+     *   **5xx**: indicates that a server error occurred.
+     *
+     * @example lb-uf6jt0nu4z6ior943****-80-f5****
+     *
+     * @var string
+     */
     public $name;
 
     /**
+     * @description The name of the routing rule.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example lb-uf62****6d13tq2u5
+     *
      * @var string
      */
     public $slbId;
 
     /**
+     * @description The protocol used to forward requests. Valid values:
+     *
+     *   **HTTP**: used when the application needs to identify the transmitted data.
+     *   **HTTPS**: used when the application requires encrypted data transmission.
+     *
+     * @example internet
+     *
      * @var string
      */
     public $slbType;
     protected $_name = [
-        'certId'           => 'CertId',
-        'description'      => 'Description',
-        'id'               => 'Id',
-        'listenerPort'     => 'ListenerPort',
-        'listenerProtocol' => 'ListenerProtocol',
-        'loadBalanceType'  => 'LoadBalanceType',
-        'name'             => 'Name',
-        'namespaceId'      => 'NamespaceId',
-        'slbId'            => 'SlbId',
-        'slbType'          => 'SlbType',
+        'certId'             => 'CertId',
+        'certIds'            => 'CertIds',
+        'description'        => 'Description',
+        'id'                 => 'Id',
+        'listenerPort'       => 'ListenerPort',
+        'listenerProtocol'   => 'ListenerProtocol',
+        'loadBalanceType'    => 'LoadBalanceType',
+        'mseGatewayId'       => 'MseGatewayId',
+        'mseGatewayPort'     => 'MseGatewayPort',
+        'mseGatewayProtocol' => 'MseGatewayProtocol',
+        'name'               => 'Name',
+        'namespaceId'        => 'NamespaceId',
+        'slbId'              => 'SlbId',
+        'slbType'            => 'SlbType',
     ];
 
     public function validate()
@@ -79,6 +157,9 @@ class ingressList extends Model
         $res = [];
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
+        }
+        if (null !== $this->certIds) {
+            $res['CertIds'] = $this->certIds;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -94,6 +175,15 @@ class ingressList extends Model
         }
         if (null !== $this->loadBalanceType) {
             $res['LoadBalanceType'] = $this->loadBalanceType;
+        }
+        if (null !== $this->mseGatewayId) {
+            $res['MseGatewayId'] = $this->mseGatewayId;
+        }
+        if (null !== $this->mseGatewayPort) {
+            $res['MseGatewayPort'] = $this->mseGatewayPort;
+        }
+        if (null !== $this->mseGatewayProtocol) {
+            $res['MseGatewayProtocol'] = $this->mseGatewayProtocol;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -122,6 +212,9 @@ class ingressList extends Model
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
         }
+        if (isset($map['CertIds'])) {
+            $model->certIds = $map['CertIds'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -136,6 +229,15 @@ class ingressList extends Model
         }
         if (isset($map['LoadBalanceType'])) {
             $model->loadBalanceType = $map['LoadBalanceType'];
+        }
+        if (isset($map['MseGatewayId'])) {
+            $model->mseGatewayId = $map['MseGatewayId'];
+        }
+        if (isset($map['MseGatewayPort'])) {
+            $model->mseGatewayPort = $map['MseGatewayPort'];
+        }
+        if (isset($map['MseGatewayProtocol'])) {
+            $model->mseGatewayProtocol = $map['MseGatewayProtocol'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

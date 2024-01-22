@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationScalingRuleRequest extends Model
 {
     /**
+     * @description a0d2e04c-159d-40a8-b240-d2f2c263\*\*\*\*
+     *
+     * @example a0d2e04c-159d-40a8-b240-d2f2c263****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description test
+     *
+     * @example test
+     *
      * @var string
      */
     public $scalingRuleName;

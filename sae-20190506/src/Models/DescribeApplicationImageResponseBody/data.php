@@ -9,41 +9,67 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description This parameter is reserved.
+     *
      * @var string
      */
     public $crUrl;
 
     /**
+     * @description This parameter is reserved.
+     *
      * @var string
      */
     public $logo;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example demo
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace to which the repository belongs.
+     *
+     * @example demo
+     *
      * @var string
      */
     public $repoNamespace;
 
     /**
+     * @description The type of the repository. Only Container Registry is supported.
+     *
+     * @example ALI_HUB
+     *
      * @var string
      */
     public $repoOriginType;
 
     /**
+     * @description The tag of the image.
+     *
+     * @example latest
+     *
      * @var string
      */
     public $repoTag;
 
     /**
+     * @description This parameter is reserved.
+     *
      * @var string
      */
     public $repoType;

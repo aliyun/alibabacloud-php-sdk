@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ConfirmPipelineBatchRequest extends Model
 {
     /**
+     * @description true
+     *
+     * @example true
+     *
      * @var bool
      */
     public $confirm;
 
     /**
+     * @description e2e-vds-feh-\*\*\*
+     *
+     * @example e2e-vds-feh-***
+     *
      * @var string
      */
     public $pipelineId;

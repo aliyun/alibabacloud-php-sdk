@@ -10,36 +10,66 @@ use AlibabaCloud\Tea\Model;
 class CreateGreyTagRouteResponseBody extends Model
 {
     /**
+     * @description Indicates whether the information of the change order was queried. Valid values:
+     *
+     *   **true**: The information was queried.
+     *   **false**: The information failed to be queried.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the canary release rule. The ID is globally unique.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: The call was successful.
+     *   **3xx**: The call was redirected.
+     *   **4xx**: The call failed.
+     *   **5xx**: A server error occurred.
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The trace ID that is used to query the details of the request.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The returned information.
+     *
+     * @example 9D29CBD0-45D3-410B-9826-52F86F90****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The information about the canary release rule.
+     *
+     * @example 0a98a02315955564772843261e****
+     *
      * @var string
      */
     public $traceId;

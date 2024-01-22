@@ -10,36 +10,69 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationSlbsResponseBody extends Model
 {
     /**
+     * @description Indicates whether the information about the SLB instances that are associated with an application was obtained successfully. Valid values:
+     *
+     *   **true**: indicates that the information was obtained successfully.
+     *   **false**: indicates that the information failed to be obtained.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Configurations of internal-facing SLB instances.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: indicates that the request was successful.
+     *   **3xx**: indicates that the request was redirected.
+     *   **4xx**: indicates that the request was invalid.
+     *   **5xx**: indicates that a server error occurred.
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The ID of the trace. It can be used to query the details of a request.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The returned message.
+     *
+     *   **success** is returned when the request succeeds.
+     *   An error code is returned when the request fails.
+     *
+     * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The returned data.
+     *
+     * @example 0a98a02315955564772843261e****
+     *
      * @var string
      */
     public $traceId;

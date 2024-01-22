@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the canary release rule. The ID is globally unique.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $greyTagRouteId;

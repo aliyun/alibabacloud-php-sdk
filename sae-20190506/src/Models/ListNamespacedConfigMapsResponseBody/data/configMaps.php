@@ -10,41 +10,72 @@ use AlibabaCloud\Tea\Model;
 class configMaps extends Model
 {
     /**
+     * @description The ID of the ConfigMap instance.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $configMapId;
 
     /**
+     * @description The time when the instance was created.
+     *
+     * @example 1593760185111
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The data of ConfigMap key-value pairs. Format:
+     *
+     * k specifies a key and v specifies a value. For more information, see [Manage and use configurations](~~171326~~).
+     * @example {"k1":"v1","k2":"v2"}
+     *
      * @var mixed[]
      */
     public $data;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example test-desc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the ConfigMap instance.
+     *
+     * @example test-name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The application that is associated with the instance.
+     *
      * @var relateApps[]
      */
     public $relateApps;
 
     /**
+     * @description The time when the instance was last modified.
+     *
+     * @example 1593760185111
+     *
      * @var int
      */
     public $updateTime;

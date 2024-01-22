@@ -10,36 +10,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeComponentsResponseBody extends Model
 {
     /**
+     * @description Indicates whether the component version was obtained. Valid values:
+     *
+     *   **true**: indicates that the component version was obtained.
+     *   **false**: indicates that the component version could not be obtained.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The component type.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: indicates that the request was successful.
+     *   **3xx**: indicates that the request was redirected.
+     *   **4xx**: indicates that the request was invalid.
+     *   **5xx**: indicates that a server error occurred.
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The ID of the trace. It is used to query the details of a request.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The returned message.
+     *
+     * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The details of the component.
+     *
+     * @example 0a98a02315955564772843261e****
+     *
      * @var string
      */
     public $traceId;

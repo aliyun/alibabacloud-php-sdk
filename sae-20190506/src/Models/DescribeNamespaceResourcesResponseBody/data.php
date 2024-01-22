@@ -9,91 +9,187 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of applications.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $appCount;
 
     /**
+     * @description The region to which the namespace belongs.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $belongRegion;
 
     /**
+     * @description The description of the namespace.
+     *
+     * @example decs
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the jump server application.
+     *
+     * @example 5ec46468-6b26-4a3c-9f7c-bf88761a****
+     *
      * @var string
      */
     public $jumpServerAppId;
 
     /**
+     * @description The IP address of the jump server.
+     *
+     * @example 120.78.XXX.XX
+     *
      * @var string
      */
     public $jumpServerIp;
 
     /**
+     * @description The ID of the change order.
+     *
+     * @example afedb3c4-63f8-4a3d-aaa3-2c30363f****
+     *
      * @var string
      */
     public $lastChangeOrderId;
 
     /**
+     * @description Indicates whether a change order is being executed in the namespace. Valid values:
+     *
+     *   **true**: indicates that a change order is being executed in the namespace.
+     *   **false**: indicates that no change orders are being executed in the namespace.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $lastChangeOrderRunning;
 
     /**
+     * @description The status of the latest change order. Valid values:
+     *
+     *   **READY**: The change order is ready.
+     *   **RUNNING**: The change order is being executed.
+     *   **SUCCESS**: The change order was executed.
+     *   **FAIL**: The change order could not be executed.
+     *   **ABORT**: The change order was terminated.
+     *   **WAIT_BATCH_CONFIRM**: The change order is pending execution. You must manually confirm the release batch.
+     *   **AUTO_BATCH_WAIT**: The change order is pending execution. SAE will automatically confirm the release batch.
+     *   **SYSTEM_FAIL**: A system exception occurred.
+     *   **WAIT_APPROVAL**: The change order is pending approval.
+     *   **APPROVED**: The change order is approved and is pending execution.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $lastChangeOrderStatus;
 
     /**
+     * @example test
+     *
+     * @var string
+     */
+    public $nameSpaceShortId;
+
+    /**
+     * @description The ID of the namespace.
+     *
+     * @example cn-shangha:test
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @description Indicates whether the notification of a change order is expired. Valid values:
+     *
+     *   **true**: indicates that the notification is expired.
+     *   **false**: indicates that the notification is not expired.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $notificationExpired;
 
     /**
+     * @description The ID of the security group.
+     *
+     * @example sg-wz969ngg2e49q5i4****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The ID of the tenant in the SAE namespace.
+     *
+     * @example 838cad95-973f-48fe-830b-2a8546d7****
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example test@aliyun.com
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-2ze559r1z1bpwqxwp****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The name of the vSwitch.
+     *
+     * @example test
+     *
      * @var string
      */
     public $vSwitchName;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-2ze0i263cnn311nvj****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The name of the VPC.
+     *
+     * @example test
+     *
      * @var string
      */
     public $vpcName;
@@ -106,6 +202,7 @@ class data extends Model
         'lastChangeOrderId'      => 'LastChangeOrderId',
         'lastChangeOrderRunning' => 'LastChangeOrderRunning',
         'lastChangeOrderStatus'  => 'LastChangeOrderStatus',
+        'nameSpaceShortId'       => 'NameSpaceShortId',
         'namespaceId'            => 'NamespaceId',
         'namespaceName'          => 'NamespaceName',
         'notificationExpired'    => 'NotificationExpired',
@@ -148,6 +245,9 @@ class data extends Model
         }
         if (null !== $this->lastChangeOrderStatus) {
             $res['LastChangeOrderStatus'] = $this->lastChangeOrderStatus;
+        }
+        if (null !== $this->nameSpaceShortId) {
+            $res['NameSpaceShortId'] = $this->nameSpaceShortId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -214,6 +314,9 @@ class data extends Model
         }
         if (isset($map['LastChangeOrderStatus'])) {
             $model->lastChangeOrderStatus = $map['LastChangeOrderStatus'];
+        }
+        if (isset($map['NameSpaceShortId'])) {
+            $model->nameSpaceShortId = $map['NameSpaceShortId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

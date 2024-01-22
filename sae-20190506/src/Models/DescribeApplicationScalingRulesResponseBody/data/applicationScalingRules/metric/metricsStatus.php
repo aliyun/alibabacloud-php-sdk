@@ -11,41 +11,69 @@ use AlibabaCloud\Tea\Model;
 class metricsStatus extends Model
 {
     /**
+     * @description The metrics that are used to trigger the auto scaling policy this time.
+     *
      * @var currentMetrics[]
      */
     public $currentMetrics;
 
     /**
+     * @description The current number of instances.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $currentReplicas;
 
     /**
+     * @description The expected number of instances.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $desiredReplicas;
 
     /**
+     * @description The time when the auto scaling policy was last triggered.
+     *
+     * @example 2022-01-11T08:14:32Z
+     *
      * @var string
      */
     public $lastScaleTime;
 
     /**
+     * @description The maximum number of instances.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $maxReplicas;
 
     /**
+     * @description The minimum number of instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minReplicas;
 
     /**
+     * @description The metrics that are used to trigger the auto scaling policy next time.
+     *
      * @var nextScaleMetrics[]
      */
     public $nextScaleMetrics;
 
     /**
+     * @description The duration for which the metric-based auto scaling policy takes effect next time.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $nextScaleTimePeriod;

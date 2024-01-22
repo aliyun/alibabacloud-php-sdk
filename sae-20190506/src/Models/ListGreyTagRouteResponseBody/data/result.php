@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListGreyTagRouteResponseBody\data;
 
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListGreyTagRouteResponseBody\data\result\albRules;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListGreyTagRouteResponseBody\data\result\dubboRules;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListGreyTagRouteResponseBody\data\result\scRules;
 use AlibabaCloud\Tea\Model;
@@ -11,40 +12,70 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var albRules[]
+     */
+    public $albRules;
+
+    /**
+     * @description The timestamp when the canary release rule was created. Unit: milliseconds.
+     *
+     * @example 1619007592013
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The description of the canary release rule.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The canary release rule of the Dubbo service.
+     *
      * @var dubboRules[]
      */
     public $dubboRules;
 
     /**
+     * @description The ID of the canary release rule.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $greyTagRouteId;
 
     /**
+     * @description The name of the canary release rule.
+     *
+     * @example rule-name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The canary release rule of the Spring Cloud application.
+     *
      * @var scRules[]
      */
     public $scRules;
 
     /**
+     * @description The timestamp when the canary release rule was updated. Unit: milliseconds.
+     *
+     * @example 1609434061000
+     *
      * @var int
      */
     public $updateTime;
     protected $_name = [
+        'albRules'       => 'AlbRules',
         'createTime'     => 'CreateTime',
         'description'    => 'Description',
         'dubboRules'     => 'DubboRules',
@@ -61,6 +92,15 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->albRules) {
+            $res['AlbRules'] = [];
+            if (null !== $this->albRules && \is_array($this->albRules)) {
+                $n = 0;
+                foreach ($this->albRules as $item) {
+                    $res['AlbRules'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -106,6 +146,15 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlbRules'])) {
+            if (!empty($map['AlbRules'])) {
+                $model->albRules = [];
+                $n               = 0;
+                foreach ($map['AlbRules'] as $item) {
+                    $model->albRules[$n++] = null !== $item ? albRules::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListIngressesRequest extends Model
 {
     /**
+     * @description The list of routing rules.
+     *
+     * @example bbf3a590-6d13-46fe-8ca9-c947a20b****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The returned data.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $namespaceId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class metric extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $maxReplicas;
@@ -20,6 +22,8 @@ class metric extends Model
     public $metrics;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minReplicas;

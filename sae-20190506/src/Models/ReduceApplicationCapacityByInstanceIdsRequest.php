@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ReduceApplicationCapacityByInstanceIdsRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 0099b7be-5f5b-4512-a7fc-56049ef1****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the instance. Separate multiple instances with commas (,).
+     *
+     * @example b2a8a925-477a-4ed7-b825-d5e22500****
+     *
      * @var string
      */
     public $instanceIds;

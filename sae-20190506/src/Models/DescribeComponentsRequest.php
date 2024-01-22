@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeComponentsRequest extends Model
 {
     /**
+     * @description TOMCAT
+     *
+     * @example d700e680-aa4d-4ec1-afc2-6566b5ff****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example TOMCAT
+     *
      * @var string
      */
     public $type;

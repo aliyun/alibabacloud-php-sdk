@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the deleted ConfigMap instance.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $configMapId;

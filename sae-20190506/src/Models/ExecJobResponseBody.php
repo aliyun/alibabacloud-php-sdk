@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ExecJobResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -25,21 +27,29 @@ class ExecJobResponseBody extends Model
     public $errorCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 67DD9A98-9CCC-5BE8-8C9E-B45E72F4****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 0b87b7e716575071334387401e****
+     *
      * @var string
      */
     public $traceId;

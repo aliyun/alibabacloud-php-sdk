@@ -10,36 +10,71 @@ use AlibabaCloud\Tea\Model;
 class ListNamespaceChangeOrdersResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: indicates that the request was successful.
+     *   **3xx**: indicates that the request was redirected.
+     *   **4xx**: indicates that the request was invalid.
+     *   **5xx**: indicates that a server error occurred.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
+     *   The **ErrorCode** parameter is not returned when the request succeeds.
+     *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0bc3915638507554994370d****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the list of change orders was obtained. Valid values:
+     *
+     *   **true**: indicates that the list was obtained.
+     *   **false**: indicates that the list could not be obtained.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The ID of the trace. It is used to query the details of a request.
+     *
+     * @example 0bc3915638507554994370d****
+     *
      * @var string
      */
     public $traceId;

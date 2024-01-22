@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The group to which the service belongs. You can create a custom group.
+     *
+     * @example hc4fs1****@98314c8790b****
+     *
      * @var string
      */
     public $edasAppId;
 
     /**
+     * @description The total number of instances.
+     *
+     * @example cn-zhangjiakou-micro-service-******
+     *
      * @var string
      */
     public $edasAppName;
 
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: indicates that the call was successful.
+     *   **3xx**: indicates that the call was redirected.
+     *   **4xx**: indicates that the call failed.
+     *   **5xx**: indicates that a server error occurred.
+     *
+     * @example springCloud
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The name of the service.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instanceNum;
 
     /**
+     * @description The returned error code. Valid values:
+     *
+     * - If the call is successful, the **ErrorCode** parameter is not returned.
+     * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+     * @example edas.service.provider
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The ID of the application.
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $version;

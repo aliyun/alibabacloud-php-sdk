@@ -28,8 +28,13 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\CreateGreyTagRouteRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateGreyTagRouteResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateIngressRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateIngressResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateJobRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateJobResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateNamespaceRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateNamespaceResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateSecretRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateSecretResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateSecretShrinkRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteApplicationScalingRuleRequest;
@@ -38,10 +43,16 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteConfigMapRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteConfigMapResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteGreyTagRouteRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteGreyTagRouteResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteHistoryJobRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteHistoryJobResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteIngressRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteIngressResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteJobRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteJobResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteNamespaceRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteNamespaceResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteSecretRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DeleteSecretResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeployApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DeployApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigRequest;
@@ -78,6 +89,10 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeIngressResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeInstanceLogRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeInstanceLogResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeInstanceSpecificationsResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeJobHistoryRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeJobHistoryResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeJobRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeJobResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeJobStatusRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeJobStatusResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeNamespaceListRequest;
@@ -91,12 +106,24 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeNamespacesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribePipelineRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribePipelineResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSecretRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSecretResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DisableApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DisableApplicationScalingRuleResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\EnableApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\EnableApplicationScalingRuleResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ExecJobRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ExecJobResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\GetArmsTopNMetricRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\GetArmsTopNMetricResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\GetAvailabilityMetricRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\GetAvailabilityMetricResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\GetChangeOrderMetricRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\GetChangeOrderMetricResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\GetScaleAppMetricRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\GetScaleAppMetricResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\GetWarningEventMetricRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\GetWarningEventMetricResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAppEventsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAppEventsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsRequest;
@@ -113,6 +140,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\ListGreyTagRouteRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListGreyTagRouteResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListIngressesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListIngressesResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListJobsRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListJobsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListLogConfigsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListLogConfigsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListNamespaceChangeOrdersRequest;
@@ -121,6 +150,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\ListNamespacedConfigMapsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListNamespacedConfigMapsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListPublishedServicesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListPublishedServicesResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListSecretsRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListSecretsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\OpenSaeServiceResponse;
@@ -142,6 +173,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\StartApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\StartApplicationResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\StopApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\StopApplicationResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\SuspendJobRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\SuspendJobResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UnbindSlbRequest;
@@ -162,10 +195,15 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateGreyTagRouteRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateGreyTagRouteResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateIngressRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateIngressResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateJobRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateJobResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceVpcRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceVpcResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateSecretRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateSecretResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateSecretShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -207,19 +245,6 @@ class Sae extends OpenApiClient
 
     /**
      * @param AbortAndRollbackChangeOrderRequest $request
-     *
-     * @return AbortAndRollbackChangeOrderResponse
-     */
-    public function abortAndRollbackChangeOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->abortAndRollbackChangeOrderWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param AbortAndRollbackChangeOrderRequest $request
      * @param string[]                           $headers
      * @param RuntimeOptions                     $runtime
      *
@@ -252,16 +277,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param AbortChangeOrderRequest $request
+     * @param AbortAndRollbackChangeOrderRequest $request
      *
-     * @return AbortChangeOrderResponse
+     * @return AbortAndRollbackChangeOrderResponse
      */
-    public function abortChangeOrder($request)
+    public function abortAndRollbackChangeOrder($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->abortChangeOrderWithOptions($request, $headers, $runtime);
+        return $this->abortAndRollbackChangeOrderWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -298,16 +323,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param BatchStartApplicationsRequest $request
+     * @param AbortChangeOrderRequest $request
      *
-     * @return BatchStartApplicationsResponse
+     * @return AbortChangeOrderResponse
      */
-    public function batchStartApplications($request)
+    public function abortChangeOrder($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->batchStartApplicationsWithOptions($request, $headers, $runtime);
+        return $this->abortChangeOrderWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -347,16 +372,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param BatchStopApplicationsRequest $request
+     * @param BatchStartApplicationsRequest $request
      *
-     * @return BatchStopApplicationsResponse
+     * @return BatchStartApplicationsResponse
      */
-    public function batchStopApplications($request)
+    public function batchStartApplications($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->batchStopApplicationsWithOptions($request, $headers, $runtime);
+        return $this->batchStartApplicationsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -396,16 +421,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param BindSlbRequest $request
+     * @param BatchStopApplicationsRequest $request
      *
-     * @return BindSlbResponse
+     * @return BatchStopApplicationsResponse
      */
-    public function bindSlb($request)
+    public function batchStopApplications($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->bindSlbWithOptions($request, $headers, $runtime);
+        return $this->batchStopApplicationsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -454,16 +479,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ConfirmPipelineBatchRequest $request
+     * @param BindSlbRequest $request
      *
-     * @return ConfirmPipelineBatchResponse
+     * @return BindSlbResponse
      */
-    public function confirmPipelineBatch($request)
+    public function bindSlb($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->confirmPipelineBatchWithOptions($request, $headers, $runtime);
+        return $this->bindSlbWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -503,16 +528,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $request
+     * @param ConfirmPipelineBatchRequest $request
      *
-     * @return CreateApplicationResponse
+     * @return ConfirmPipelineBatchResponse
      */
-    public function createApplication($request)
+    public function confirmPipelineBatch($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createApplicationWithOptions($request, $headers, $runtime);
+        return $this->confirmPipelineBatchWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -535,6 +560,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->appName)) {
             $query['AppName'] = $request->appName;
         }
+        if (!Utils::isUnset($request->appSource)) {
+            $query['AppSource'] = $request->appSource;
+        }
         if (!Utils::isUnset($request->autoConfig)) {
             $query['AutoConfig'] = $request->autoConfig;
         }
@@ -556,8 +584,14 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->edasContainerVersion)) {
             $query['EdasContainerVersion'] = $request->edasContainerVersion;
         }
+        if (!Utils::isUnset($request->enableEbpf)) {
+            $query['EnableEbpf'] = $request->enableEbpf;
+        }
         if (!Utils::isUnset($request->envs)) {
             $query['Envs'] = $request->envs;
+        }
+        if (!Utils::isUnset($request->imagePullSecrets)) {
+            $query['ImagePullSecrets'] = $request->imagePullSecrets;
         }
         if (!Utils::isUnset($request->imageUrl)) {
             $query['ImageUrl'] = $request->imageUrl;
@@ -580,6 +614,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->memory)) {
             $query['Memory'] = $request->memory;
         }
+        if (!Utils::isUnset($request->microRegistration)) {
+            $query['MicroRegistration'] = $request->microRegistration;
+        }
         if (!Utils::isUnset($request->mountDesc)) {
             $query['MountDesc'] = $request->mountDesc;
         }
@@ -588,6 +625,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->nasConfigs)) {
+            $query['NasConfigs'] = $request->nasConfigs;
         }
         if (!Utils::isUnset($request->nasId)) {
             $query['NasId'] = $request->nasId;
@@ -616,11 +656,23 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->programmingLanguage)) {
             $query['ProgrammingLanguage'] = $request->programmingLanguage;
         }
+        if (!Utils::isUnset($request->pvtzDiscoverySvc)) {
+            $query['PvtzDiscoverySvc'] = $request->pvtzDiscoverySvc;
+        }
+        if (!Utils::isUnset($request->python)) {
+            $query['Python'] = $request->python;
+        }
+        if (!Utils::isUnset($request->pythonModules)) {
+            $query['PythonModules'] = $request->pythonModules;
+        }
         if (!Utils::isUnset($request->readiness)) {
             $query['Readiness'] = $request->readiness;
         }
         if (!Utils::isUnset($request->replicas)) {
             $query['Replicas'] = $request->replicas;
+        }
+        if (!Utils::isUnset($request->saeVersion)) {
+            $query['SaeVersion'] = $request->saeVersion;
         }
         if (!Utils::isUnset($request->securityGroupId)) {
             $query['SecurityGroupId'] = $request->securityGroupId;
@@ -668,6 +720,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->ossMountDescs)) {
             $body['OssMountDescs'] = $request->ossMountDescs;
         }
+        if (!Utils::isUnset($request->php)) {
+            $body['Php'] = $request->php;
+        }
         if (!Utils::isUnset($request->phpConfig)) {
             $body['PhpConfig'] = $request->phpConfig;
         }
@@ -692,24 +747,30 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationScalingRuleRequest $request
+     * @param CreateApplicationRequest $request
      *
-     * @return CreateApplicationScalingRuleResponse
+     * @return CreateApplicationResponse
      */
-    public function createApplicationScalingRule($request)
+    public function createApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createApplicationScalingRuleWithOptions($request, $headers, $runtime);
+        return $this->createApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param CreateApplicationScalingRuleRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * The HTTP status code. Take note of the following rules:
+     *   * *   **2xx**: The call was successful.
+     *   * *   **3xx**: The call was redirected.
+     *   * *   **4xx**: The call failed.
+     *   * *   **5xx**: A server error occurred.
+     *   *
+     * @param CreateApplicationScalingRuleRequest $request CreateApplicationScalingRuleRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateApplicationScalingRuleResponse
+     * @return CreateApplicationScalingRuleResponse CreateApplicationScalingRuleResponse
      */
     public function createApplicationScalingRuleWithOptions($request, $headers, $runtime)
     {
@@ -759,16 +820,22 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateConfigMapRequest $request
+     * The HTTP status code. Take note of the following rules:
+     *   * *   **2xx**: The call was successful.
+     *   * *   **3xx**: The call was redirected.
+     *   * *   **4xx**: The call failed.
+     *   * *   **5xx**: A server error occurred.
+     *   *
+     * @param CreateApplicationScalingRuleRequest $request CreateApplicationScalingRuleRequest
      *
-     * @return CreateConfigMapResponse
+     * @return CreateApplicationScalingRuleResponse CreateApplicationScalingRuleResponse
      */
-    public function createConfigMap($request)
+    public function createApplicationScalingRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createConfigMapWithOptions($request, $headers, $runtime);
+        return $this->createApplicationScalingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -816,29 +883,34 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateGreyTagRouteRequest $request
+     * @param CreateConfigMapRequest $request
      *
-     * @return CreateGreyTagRouteResponse
+     * @return CreateConfigMapResponse
      */
-    public function createGreyTagRoute($request)
+    public function createConfigMap($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createGreyTagRouteWithOptions($request, $headers, $runtime);
+        return $this->createConfigMapWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param CreateGreyTagRouteRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * >  You can configure only one canary release rule for each application.
+     *   *
+     * @param CreateGreyTagRouteRequest $request CreateGreyTagRouteRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGreyTagRouteResponse
+     * @return CreateGreyTagRouteResponse CreateGreyTagRouteResponse
      */
     public function createGreyTagRouteWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->albRules)) {
+            $query['AlbRules'] = $request->albRules;
+        }
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
@@ -874,16 +946,18 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateIngressRequest $request
+     * >  You can configure only one canary release rule for each application.
+     *   *
+     * @param CreateGreyTagRouteRequest $request CreateGreyTagRouteRequest
      *
-     * @return CreateIngressResponse
+     * @return CreateGreyTagRouteResponse CreateGreyTagRouteResponse
      */
-    public function createIngress($request)
+    public function createGreyTagRoute($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createIngressWithOptions($request, $headers, $runtime);
+        return $this->createGreyTagRouteWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -899,6 +973,9 @@ class Sae extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->certId)) {
             $query['CertId'] = $request->certId;
+        }
+        if (!Utils::isUnset($request->certIds)) {
+            $query['CertIds'] = $request->certIds;
         }
         if (!Utils::isUnset($request->defaultRule)) {
             $query['DefaultRule'] = $request->defaultRule;
@@ -946,16 +1023,223 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateNamespaceRequest $request
+     * @param CreateIngressRequest $request
      *
-     * @return CreateNamespaceResponse
+     * @return CreateIngressResponse
      */
-    public function createNamespace($request)
+    public function createIngress($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createNamespaceWithOptions($request, $headers, $runtime);
+        return $this->createIngressWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateJobRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateJobResponse
+     */
+    public function createJobWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acrAssumeRoleArn)) {
+            $query['AcrAssumeRoleArn'] = $request->acrAssumeRoleArn;
+        }
+        if (!Utils::isUnset($request->appDescription)) {
+            $query['AppDescription'] = $request->appDescription;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->autoConfig)) {
+            $query['AutoConfig'] = $request->autoConfig;
+        }
+        if (!Utils::isUnset($request->backoffLimit)) {
+            $query['BackoffLimit'] = $request->backoffLimit;
+        }
+        if (!Utils::isUnset($request->command)) {
+            $query['Command'] = $request->command;
+        }
+        if (!Utils::isUnset($request->commandArgs)) {
+            $query['CommandArgs'] = $request->commandArgs;
+        }
+        if (!Utils::isUnset($request->concurrencyPolicy)) {
+            $query['ConcurrencyPolicy'] = $request->concurrencyPolicy;
+        }
+        if (!Utils::isUnset($request->cpu)) {
+            $query['Cpu'] = $request->cpu;
+        }
+        if (!Utils::isUnset($request->customHostAlias)) {
+            $query['CustomHostAlias'] = $request->customHostAlias;
+        }
+        if (!Utils::isUnset($request->edasContainerVersion)) {
+            $query['EdasContainerVersion'] = $request->edasContainerVersion;
+        }
+        if (!Utils::isUnset($request->envs)) {
+            $query['Envs'] = $request->envs;
+        }
+        if (!Utils::isUnset($request->imagePullSecrets)) {
+            $query['ImagePullSecrets'] = $request->imagePullSecrets;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $query['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->jarStartArgs)) {
+            $query['JarStartArgs'] = $request->jarStartArgs;
+        }
+        if (!Utils::isUnset($request->jarStartOptions)) {
+            $query['JarStartOptions'] = $request->jarStartOptions;
+        }
+        if (!Utils::isUnset($request->jdk)) {
+            $query['Jdk'] = $request->jdk;
+        }
+        if (!Utils::isUnset($request->memory)) {
+            $query['Memory'] = $request->memory;
+        }
+        if (!Utils::isUnset($request->mountDesc)) {
+            $query['MountDesc'] = $request->mountDesc;
+        }
+        if (!Utils::isUnset($request->mountHost)) {
+            $query['MountHost'] = $request->mountHost;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->nasId)) {
+            $query['NasId'] = $request->nasId;
+        }
+        if (!Utils::isUnset($request->packageType)) {
+            $query['PackageType'] = $request->packageType;
+        }
+        if (!Utils::isUnset($request->packageUrl)) {
+            $query['PackageUrl'] = $request->packageUrl;
+        }
+        if (!Utils::isUnset($request->packageVersion)) {
+            $query['PackageVersion'] = $request->packageVersion;
+        }
+        if (!Utils::isUnset($request->phpConfigLocation)) {
+            $query['PhpConfigLocation'] = $request->phpConfigLocation;
+        }
+        if (!Utils::isUnset($request->postStart)) {
+            $query['PostStart'] = $request->postStart;
+        }
+        if (!Utils::isUnset($request->preStop)) {
+            $query['PreStop'] = $request->preStop;
+        }
+        if (!Utils::isUnset($request->programmingLanguage)) {
+            $query['ProgrammingLanguage'] = $request->programmingLanguage;
+        }
+        if (!Utils::isUnset($request->python)) {
+            $query['Python'] = $request->python;
+        }
+        if (!Utils::isUnset($request->pythonModules)) {
+            $query['PythonModules'] = $request->pythonModules;
+        }
+        if (!Utils::isUnset($request->refAppId)) {
+            $query['RefAppId'] = $request->refAppId;
+        }
+        if (!Utils::isUnset($request->replicas)) {
+            $query['Replicas'] = $request->replicas;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->slice)) {
+            $query['Slice'] = $request->slice;
+        }
+        if (!Utils::isUnset($request->sliceEnvs)) {
+            $query['SliceEnvs'] = $request->sliceEnvs;
+        }
+        if (!Utils::isUnset($request->slsConfigs)) {
+            $query['SlsConfigs'] = $request->slsConfigs;
+        }
+        if (!Utils::isUnset($request->terminationGracePeriodSeconds)) {
+            $query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->timezone)) {
+            $query['Timezone'] = $request->timezone;
+        }
+        if (!Utils::isUnset($request->tomcatConfig)) {
+            $query['TomcatConfig'] = $request->tomcatConfig;
+        }
+        if (!Utils::isUnset($request->triggerConfig)) {
+            $query['TriggerConfig'] = $request->triggerConfig;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->warStartOptions)) {
+            $query['WarStartOptions'] = $request->warStartOptions;
+        }
+        if (!Utils::isUnset($request->webContainer)) {
+            $query['WebContainer'] = $request->webContainer;
+        }
+        if (!Utils::isUnset($request->workload)) {
+            $query['Workload'] = $request->workload;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->acrInstanceId)) {
+            $body['AcrInstanceId'] = $request->acrInstanceId;
+        }
+        if (!Utils::isUnset($request->configMapMountDesc)) {
+            $body['ConfigMapMountDesc'] = $request->configMapMountDesc;
+        }
+        if (!Utils::isUnset($request->enableImageAccl)) {
+            $body['EnableImageAccl'] = $request->enableImageAccl;
+        }
+        if (!Utils::isUnset($request->ossAkId)) {
+            $body['OssAkId'] = $request->ossAkId;
+        }
+        if (!Utils::isUnset($request->ossAkSecret)) {
+            $body['OssAkSecret'] = $request->ossAkSecret;
+        }
+        if (!Utils::isUnset($request->ossMountDescs)) {
+            $body['OssMountDescs'] = $request->ossMountDescs;
+        }
+        if (!Utils::isUnset($request->phpConfig)) {
+            $body['PhpConfig'] = $request->phpConfig;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateJob',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/job/createJob',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateJobRequest $request
+     *
+     * @return CreateJobResponse
+     */
+    public function createJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createJobWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -969,6 +1253,12 @@ class Sae extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->enableMicroRegistration)) {
+            $query['EnableMicroRegistration'] = $request->enableMicroRegistration;
+        }
+        if (!Utils::isUnset($request->nameSpaceShortId)) {
+            $query['NameSpaceShortId'] = $request->nameSpaceShortId;
+        }
         if (!Utils::isUnset($request->namespaceDescription)) {
             $query['NamespaceDescription'] = $request->namespaceDescription;
         }
@@ -998,16 +1288,76 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationRequest $request
+     * @param CreateNamespaceRequest $request
      *
-     * @return DeleteApplicationResponse
+     * @return CreateNamespaceResponse
      */
-    public function deleteApplication($request)
+    public function createNamespace($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteApplicationWithOptions($request, $headers, $runtime);
+        return $this->createNamespaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateSecretRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateSecretResponse
+     */
+    public function createSecretWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateSecretShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->secretData)) {
+            $request->secretDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->secretData, 'SecretData', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->secretDataShrink)) {
+            $query['SecretData'] = $request->secretDataShrink;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        if (!Utils::isUnset($request->secretType)) {
+            $query['SecretType'] = $request->secretType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSecret',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/secret/secret',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSecretRequest $request
+     *
+     * @return CreateSecretResponse
+     */
+    public function createSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSecretWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1044,16 +1394,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationScalingRuleRequest $request
+     * @param DeleteApplicationRequest $request
      *
-     * @return DeleteApplicationScalingRuleResponse
+     * @return DeleteApplicationResponse
      */
-    public function deleteApplicationScalingRule($request)
+    public function deleteApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteApplicationScalingRuleWithOptions($request, $headers, $runtime);
+        return $this->deleteApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1093,16 +1443,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteConfigMapRequest $request
+     * @param DeleteApplicationScalingRuleRequest $request
      *
-     * @return DeleteConfigMapResponse
+     * @return DeleteApplicationScalingRuleResponse
      */
-    public function deleteConfigMap($request)
+    public function deleteApplicationScalingRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteConfigMapWithOptions($request, $headers, $runtime);
+        return $this->deleteApplicationScalingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1139,16 +1489,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteGreyTagRouteRequest $request
+     * @param DeleteConfigMapRequest $request
      *
-     * @return DeleteGreyTagRouteResponse
+     * @return DeleteConfigMapResponse
      */
-    public function deleteGreyTagRoute($request)
+    public function deleteConfigMap($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteGreyTagRouteWithOptions($request, $headers, $runtime);
+        return $this->deleteConfigMapWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1185,16 +1535,65 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteIngressRequest $request
+     * @param DeleteGreyTagRouteRequest $request
      *
-     * @return DeleteIngressResponse
+     * @return DeleteGreyTagRouteResponse
      */
-    public function deleteIngress($request)
+    public function deleteGreyTagRoute($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteIngressWithOptions($request, $headers, $runtime);
+        return $this->deleteGreyTagRouteWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DeleteHistoryJobRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteHistoryJobResponse
+     */
+    public function deleteHistoryJobWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHistoryJob',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/job/deleteHistoryJob',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteHistoryJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteHistoryJobRequest $request
+     *
+     * @return DeleteHistoryJobResponse
+     */
+    public function deleteHistoryJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteHistoryJobWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1231,16 +1630,62 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteNamespaceRequest $request
+     * @param DeleteIngressRequest $request
      *
-     * @return DeleteNamespaceResponse
+     * @return DeleteIngressResponse
      */
-    public function deleteNamespace($request)
+    public function deleteIngress($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteNamespaceWithOptions($request, $headers, $runtime);
+        return $this->deleteIngressWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DeleteJobRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteJobResponse
+     */
+    public function deleteJobWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteJob',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/job/deleteJob',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteJobRequest $request
+     *
+     * @return DeleteJobResponse
+     */
+    public function deleteJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteJobWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1254,6 +1699,9 @@ class Sae extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->nameSpaceShortId)) {
+            $query['NameSpaceShortId'] = $request->nameSpaceShortId;
+        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -1277,16 +1725,65 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeployApplicationRequest $request
+     * @param DeleteNamespaceRequest $request
      *
-     * @return DeployApplicationResponse
+     * @return DeleteNamespaceResponse
      */
-    public function deployApplication($request)
+    public function deleteNamespace($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deployApplicationWithOptions($request, $headers, $runtime);
+        return $this->deleteNamespaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DeleteSecretRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteSecretResponse
+     */
+    public function deleteSecretWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->secretId)) {
+            $query['SecretId'] = $request->secretId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSecret',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/secret/secret',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSecretRequest $request
+     *
+     * @return DeleteSecretResponse
+     */
+    public function deleteSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteSecretWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1321,8 +1818,14 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->commandArgs)) {
             $query['CommandArgs'] = $request->commandArgs;
         }
+        if (!Utils::isUnset($request->cpu)) {
+            $query['Cpu'] = $request->cpu;
+        }
         if (!Utils::isUnset($request->customHostAlias)) {
             $query['CustomHostAlias'] = $request->customHostAlias;
+        }
+        if (!Utils::isUnset($request->deploy)) {
+            $query['Deploy'] = $request->deploy;
         }
         if (!Utils::isUnset($request->edasContainerVersion)) {
             $query['EdasContainerVersion'] = $request->edasContainerVersion;
@@ -1335,6 +1838,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->envs)) {
             $query['Envs'] = $request->envs;
+        }
+        if (!Utils::isUnset($request->imagePullSecrets)) {
+            $query['ImagePullSecrets'] = $request->imagePullSecrets;
         }
         if (!Utils::isUnset($request->imageUrl)) {
             $query['ImageUrl'] = $request->imageUrl;
@@ -1354,6 +1860,12 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->liveness)) {
             $query['Liveness'] = $request->liveness;
         }
+        if (!Utils::isUnset($request->memory)) {
+            $query['Memory'] = $request->memory;
+        }
+        if (!Utils::isUnset($request->microRegistration)) {
+            $query['MicroRegistration'] = $request->microRegistration;
+        }
         if (!Utils::isUnset($request->minReadyInstanceRatio)) {
             $query['MinReadyInstanceRatio'] = $request->minReadyInstanceRatio;
         }
@@ -1366,8 +1878,14 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->mountHost)) {
             $query['MountHost'] = $request->mountHost;
         }
+        if (!Utils::isUnset($request->nasConfigs)) {
+            $query['NasConfigs'] = $request->nasConfigs;
+        }
         if (!Utils::isUnset($request->nasId)) {
             $query['NasId'] = $request->nasId;
+        }
+        if (!Utils::isUnset($request->packageType)) {
+            $query['PackageType'] = $request->packageType;
         }
         if (!Utils::isUnset($request->packageUrl)) {
             $query['PackageUrl'] = $request->packageUrl;
@@ -1387,8 +1905,23 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->preStop)) {
             $query['PreStop'] = $request->preStop;
         }
+        if (!Utils::isUnset($request->pvtzDiscoverySvc)) {
+            $query['PvtzDiscoverySvc'] = $request->pvtzDiscoverySvc;
+        }
+        if (!Utils::isUnset($request->python)) {
+            $query['Python'] = $request->python;
+        }
+        if (!Utils::isUnset($request->pythonModules)) {
+            $query['PythonModules'] = $request->pythonModules;
+        }
         if (!Utils::isUnset($request->readiness)) {
             $query['Readiness'] = $request->readiness;
+        }
+        if (!Utils::isUnset($request->replicas)) {
+            $query['Replicas'] = $request->replicas;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
         }
         if (!Utils::isUnset($request->slsConfigs)) {
             $query['SlsConfigs'] = $request->slsConfigs;
@@ -1404,6 +1937,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->updateStrategy)) {
             $query['UpdateStrategy'] = $request->updateStrategy;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
         if (!Utils::isUnset($request->warStartOptions)) {
             $query['WarStartOptions'] = $request->warStartOptions;
@@ -1430,6 +1966,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->ossMountDescs)) {
             $body['OssMountDescs'] = $request->ossMountDescs;
         }
+        if (!Utils::isUnset($request->php)) {
+            $body['Php'] = $request->php;
+        }
         if (!Utils::isUnset($request->phpConfig)) {
             $body['PhpConfig'] = $request->phpConfig;
         }
@@ -1454,16 +1993,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppServiceDetailRequest $request
+     * @param DeployApplicationRequest $request
      *
-     * @return DescribeAppServiceDetailResponse
+     * @return DeployApplicationResponse
      */
-    public function describeAppServiceDetail($request)
+    public function deployApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeAppServiceDetailWithOptions($request, $headers, $runtime);
+        return $this->deployApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1512,16 +2051,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationConfigRequest $request
+     * @param DescribeAppServiceDetailRequest $request
      *
-     * @return DescribeApplicationConfigResponse
+     * @return DescribeAppServiceDetailResponse
      */
-    public function describeApplicationConfig($request)
+    public function describeAppServiceDetail($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeApplicationConfigWithOptions($request, $headers, $runtime);
+        return $this->describeAppServiceDetailWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1561,16 +2100,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationGroupsRequest $request
+     * @param DescribeApplicationConfigRequest $request
      *
-     * @return DescribeApplicationGroupsResponse
+     * @return DescribeApplicationConfigResponse
      */
-    public function describeApplicationGroups($request)
+    public function describeApplicationConfig($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeApplicationGroupsWithOptions($request, $headers, $runtime);
+        return $this->describeApplicationConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1613,16 +2152,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationImageRequest $request
+     * @param DescribeApplicationGroupsRequest $request
      *
-     * @return DescribeApplicationImageResponse
+     * @return DescribeApplicationGroupsResponse
      */
-    public function describeApplicationImage($request)
+    public function describeApplicationGroups($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeApplicationImageWithOptions($request, $headers, $runtime);
+        return $this->describeApplicationGroupsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1662,16 +2201,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationInstancesRequest $request
+     * @param DescribeApplicationImageRequest $request
      *
-     * @return DescribeApplicationInstancesResponse
+     * @return DescribeApplicationImageResponse
      */
-    public function describeApplicationInstances($request)
+    public function describeApplicationImage($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeApplicationInstancesWithOptions($request, $headers, $runtime);
+        return $this->describeApplicationImageWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1720,16 +2259,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationScalingRuleRequest $request
+     * @param DescribeApplicationInstancesRequest $request
      *
-     * @return DescribeApplicationScalingRuleResponse
+     * @return DescribeApplicationInstancesResponse
      */
-    public function describeApplicationScalingRule($request)
+    public function describeApplicationInstances($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeApplicationScalingRuleWithOptions($request, $headers, $runtime);
+        return $this->describeApplicationInstancesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1769,16 +2308,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationScalingRulesRequest $request
+     * @param DescribeApplicationScalingRuleRequest $request
      *
-     * @return DescribeApplicationScalingRulesResponse
+     * @return DescribeApplicationScalingRuleResponse
      */
-    public function describeApplicationScalingRules($request)
+    public function describeApplicationScalingRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeApplicationScalingRulesWithOptions($request, $headers, $runtime);
+        return $this->describeApplicationScalingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1815,16 +2354,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationSlbsRequest $request
+     * @param DescribeApplicationScalingRulesRequest $request
      *
-     * @return DescribeApplicationSlbsResponse
+     * @return DescribeApplicationScalingRulesResponse
      */
-    public function describeApplicationSlbs($request)
+    public function describeApplicationScalingRules($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeApplicationSlbsWithOptions($request, $headers, $runtime);
+        return $this->describeApplicationScalingRulesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1861,16 +2400,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationStatusRequest $request
+     * @param DescribeApplicationSlbsRequest $request
      *
-     * @return DescribeApplicationStatusResponse
+     * @return DescribeApplicationSlbsResponse
      */
-    public function describeApplicationStatus($request)
+    public function describeApplicationSlbs($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeApplicationStatusWithOptions($request, $headers, $runtime);
+        return $this->describeApplicationSlbsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1907,16 +2446,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeChangeOrderRequest $request
+     * @param DescribeApplicationStatusRequest $request
      *
-     * @return DescribeChangeOrderResponse
+     * @return DescribeApplicationStatusResponse
      */
-    public function describeChangeOrder($request)
+    public function describeApplicationStatus($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeChangeOrderWithOptions($request, $headers, $runtime);
+        return $this->describeApplicationStatusWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1953,16 +2492,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeComponentsRequest $request
+     * @param DescribeChangeOrderRequest $request
      *
-     * @return DescribeComponentsResponse
+     * @return DescribeChangeOrderResponse
      */
-    public function describeComponents($request)
+    public function describeChangeOrder($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeComponentsWithOptions($request, $headers, $runtime);
+        return $this->describeChangeOrderWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2002,16 +2541,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeConfigMapRequest $request
+     * @param DescribeComponentsRequest $request
      *
-     * @return DescribeConfigMapResponse
+     * @return DescribeComponentsResponse
      */
-    public function describeConfigMap($request)
+    public function describeComponents($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeConfigMapWithOptions($request, $headers, $runtime);
+        return $this->describeComponentsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2048,16 +2587,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeConfigurationPriceRequest $request
+     * @param DescribeConfigMapRequest $request
      *
-     * @return DescribeConfigurationPriceResponse
+     * @return DescribeConfigMapResponse
      */
-    public function describeConfigurationPrice($request)
+    public function describeConfigMap($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeConfigurationPriceWithOptions($request, $headers, $runtime);
+        return $this->describeConfigMapWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2100,14 +2639,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @return DescribeEdasContainersResponse
+     * @param DescribeConfigurationPriceRequest $request
+     *
+     * @return DescribeConfigurationPriceResponse
      */
-    public function describeEdasContainers()
+    public function describeConfigurationPrice($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeEdasContainersWithOptions($headers, $runtime);
+        return $this->describeConfigurationPriceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2137,16 +2678,14 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeGreyTagRouteRequest $request
-     *
-     * @return DescribeGreyTagRouteResponse
+     * @return DescribeEdasContainersResponse
      */
-    public function describeGreyTagRoute($request)
+    public function describeEdasContainers()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeGreyTagRouteWithOptions($request, $headers, $runtime);
+        return $this->describeEdasContainersWithOptions($headers, $runtime);
     }
 
     /**
@@ -2183,16 +2722,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeIngressRequest $request
+     * @param DescribeGreyTagRouteRequest $request
      *
-     * @return DescribeIngressResponse
+     * @return DescribeGreyTagRouteResponse
      */
-    public function describeIngress($request)
+    public function describeGreyTagRoute($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeIngressWithOptions($request, $headers, $runtime);
+        return $this->describeGreyTagRouteWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2229,16 +2768,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceLogRequest $request
+     * @param DescribeIngressRequest $request
      *
-     * @return DescribeInstanceLogResponse
+     * @return DescribeIngressResponse
      */
-    public function describeInstanceLog($request)
+    public function describeIngress($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeInstanceLogWithOptions($request, $headers, $runtime);
+        return $this->describeIngressWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2275,14 +2814,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @return DescribeInstanceSpecificationsResponse
+     * @param DescribeInstanceLogRequest $request
+     *
+     * @return DescribeInstanceLogResponse
      */
-    public function describeInstanceSpecifications()
+    public function describeInstanceLog($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeInstanceSpecificationsWithOptions($headers, $runtime);
+        return $this->describeInstanceLogWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2312,16 +2853,118 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobStatusRequest $request
-     *
-     * @return DescribeJobStatusResponse
+     * @return DescribeInstanceSpecificationsResponse
      */
-    public function describeJobStatus($request)
+    public function describeInstanceSpecifications()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeJobStatusWithOptions($request, $headers, $runtime);
+        return $this->describeInstanceSpecificationsWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param DescribeJobRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DescribeJobResponse
+     */
+    public function describeJobWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeJob',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/job/describeJob',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeJobRequest $request
+     *
+     * @return DescribeJobResponse
+     */
+    public function describeJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeJobWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeJobHistoryRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeJobHistoryResponse
+     */
+    public function describeJobHistoryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeJobHistory',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/job/describeJobHistory',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeJobHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeJobHistoryRequest $request
+     *
+     * @return DescribeJobHistoryResponse
+     */
+    public function describeJobHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeJobHistoryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2361,16 +3004,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespaceRequest $request
+     * @param DescribeJobStatusRequest $request
      *
-     * @return DescribeNamespaceResponse
+     * @return DescribeJobStatusResponse
      */
-    public function describeNamespace($request)
+    public function describeJobStatus($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeNamespaceWithOptions($request, $headers, $runtime);
+        return $this->describeJobStatusWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2384,6 +3027,9 @@ class Sae extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->nameSpaceShortId)) {
+            $query['NameSpaceShortId'] = $request->nameSpaceShortId;
+        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -2407,16 +3053,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespaceListRequest $request
+     * @param DescribeNamespaceRequest $request
      *
-     * @return DescribeNamespaceListResponse
+     * @return DescribeNamespaceResponse
      */
-    public function describeNamespaceList($request)
+    public function describeNamespace($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeNamespaceListWithOptions($request, $headers, $runtime);
+        return $this->describeNamespaceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2456,16 +3102,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespaceResourcesRequest $request
+     * @param DescribeNamespaceListRequest $request
      *
-     * @return DescribeNamespaceResourcesResponse
+     * @return DescribeNamespaceListResponse
      */
-    public function describeNamespaceResources($request)
+    public function describeNamespaceList($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeNamespaceResourcesWithOptions($request, $headers, $runtime);
+        return $this->describeNamespaceListWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2479,6 +3125,9 @@ class Sae extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->nameSpaceShortId)) {
+            $query['NameSpaceShortId'] = $request->nameSpaceShortId;
+        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -2502,16 +3151,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespacesRequest $request
+     * @param DescribeNamespaceResourcesRequest $request
      *
-     * @return DescribeNamespacesResponse
+     * @return DescribeNamespaceResourcesResponse
      */
-    public function describeNamespaces($request)
+    public function describeNamespaceResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeNamespacesWithOptions($request, $headers, $runtime);
+        return $this->describeNamespaceResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2551,16 +3200,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribePipelineRequest $request
+     * @param DescribeNamespacesRequest $request
      *
-     * @return DescribePipelineResponse
+     * @return DescribeNamespacesResponse
      */
-    public function describePipeline($request)
+    public function describeNamespaces($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describePipelineWithOptions($request, $headers, $runtime);
+        return $this->describeNamespacesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2597,14 +3246,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @return DescribeRegionsResponse
+     * @param DescribePipelineRequest $request
+     *
+     * @return DescribePipelineResponse
      */
-    public function describeRegions()
+    public function describePipeline($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeRegionsWithOptions($headers, $runtime);
+        return $this->describePipelineWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2634,16 +3285,63 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DisableApplicationScalingRuleRequest $request
-     *
-     * @return DisableApplicationScalingRuleResponse
+     * @return DescribeRegionsResponse
      */
-    public function disableApplicationScalingRule($request)
+    public function describeRegions()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->disableApplicationScalingRuleWithOptions($request, $headers, $runtime);
+        return $this->describeRegionsWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param DescribeSecretRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeSecretResponse
+     */
+    public function describeSecretWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->secretId)) {
+            $query['SecretId'] = $request->secretId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecret',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/secret/secret',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSecretRequest $request
+     *
+     * @return DescribeSecretResponse
+     */
+    public function describeSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeSecretWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2683,16 +3381,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param EnableApplicationScalingRuleRequest $request
+     * @param DisableApplicationScalingRuleRequest $request
      *
-     * @return EnableApplicationScalingRuleResponse
+     * @return DisableApplicationScalingRuleResponse
      */
-    public function enableApplicationScalingRule($request)
+    public function disableApplicationScalingRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->enableApplicationScalingRuleWithOptions($request, $headers, $runtime);
+        return $this->disableApplicationScalingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2732,16 +3430,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ExecJobRequest $request
+     * @param EnableApplicationScalingRuleRequest $request
      *
-     * @return ExecJobResponse
+     * @return EnableApplicationScalingRuleResponse
      */
-    public function execJob($request)
+    public function enableApplicationScalingRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->execJobWithOptions($request, $headers, $runtime);
+        return $this->enableApplicationScalingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2776,6 +3474,12 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->jarStartOptions)) {
             $query['JarStartOptions'] = $request->jarStartOptions;
         }
+        if (!Utils::isUnset($request->replicas)) {
+            $query['Replicas'] = $request->replicas;
+        }
+        if (!Utils::isUnset($request->time)) {
+            $query['Time'] = $request->time;
+        }
         if (!Utils::isUnset($request->warStartOptions)) {
             $query['WarStartOptions'] = $request->warStartOptions;
         }
@@ -2799,16 +3503,282 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListAppEventsRequest $request
+     * @param ExecJobRequest $request
      *
-     * @return ListAppEventsResponse
+     * @return ExecJobResponse
      */
-    public function listAppEvents($request)
+    public function execJob($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAppEventsWithOptions($request, $headers, $runtime);
+        return $this->execJobWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetArmsTopNMetricRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetArmsTopNMetricResponse
+     */
+    public function getArmsTopNMetricWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetArmsTopNMetric',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/getArmsTopNMetric',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetArmsTopNMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetArmsTopNMetricRequest $request
+     *
+     * @return GetArmsTopNMetricResponse
+     */
+    public function getArmsTopNMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getArmsTopNMetricWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetAvailabilityMetricRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAvailabilityMetricResponse
+     */
+    public function getAvailabilityMetricWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAvailabilityMetric',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/getAvailabilityMetric',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAvailabilityMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAvailabilityMetricRequest $request
+     *
+     * @return GetAvailabilityMetricResponse
+     */
+    public function getAvailabilityMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAvailabilityMetricWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetChangeOrderMetricRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetChangeOrderMetricResponse
+     */
+    public function getChangeOrderMetricWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTime)) {
+            $query['CreateTime'] = $request->createTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetChangeOrderMetric',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/getChangeOrderMetric',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetChangeOrderMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetChangeOrderMetricRequest $request
+     *
+     * @return GetChangeOrderMetricResponse
+     */
+    public function getChangeOrderMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getChangeOrderMetricWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetScaleAppMetricRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetScaleAppMetricResponse
+     */
+    public function getScaleAppMetricWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetScaleAppMetric',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/getScaleAppMetric',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetScaleAppMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetScaleAppMetricRequest $request
+     *
+     * @return GetScaleAppMetricResponse
+     */
+    public function getScaleAppMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getScaleAppMetricWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetWarningEventMetricRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetWarningEventMetricResponse
+     */
+    public function getWarningEventMetricWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWarningEventMetric',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/getWarningEventMetric',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWarningEventMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetWarningEventMetricRequest $request
+     *
+     * @return GetWarningEventMetricResponse
+     */
+    public function getWarningEventMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWarningEventMetricWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2866,16 +3836,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListAppServicesPageRequest $request
+     * @param ListAppEventsRequest $request
      *
-     * @return ListAppServicesPageResponse
+     * @return ListAppEventsResponse
      */
-    public function listAppServicesPage($request)
+    public function listAppEvents($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAppServicesPageWithOptions($request, $headers, $runtime);
+        return $this->listAppEventsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2921,16 +3891,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListAppVersionsRequest $request
+     * @param ListAppServicesPageRequest $request
      *
-     * @return ListAppVersionsResponse
+     * @return ListAppServicesPageResponse
      */
-    public function listAppVersions($request)
+    public function listAppServicesPage($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAppVersionsWithOptions($request, $headers, $runtime);
+        return $this->listAppServicesPageWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2967,16 +3937,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsRequest $request
+     * @param ListAppVersionsRequest $request
      *
-     * @return ListApplicationsResponse
+     * @return ListAppVersionsResponse
      */
-    public function listApplications($request)
+    public function listAppVersions($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listApplicationsWithOptions($request, $headers, $runtime);
+        return $this->listAppVersionsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2992,6 +3962,9 @@ class Sae extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appName)) {
             $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->appSource)) {
+            $query['AppSource'] = $request->appSource;
         }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
@@ -3037,16 +4010,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListChangeOrdersRequest $request
+     * @param ListApplicationsRequest $request
      *
-     * @return ListChangeOrdersResponse
+     * @return ListApplicationsResponse
      */
-    public function listChangeOrders($request)
+    public function listApplications($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listChangeOrdersWithOptions($request, $headers, $runtime);
+        return $this->listApplicationsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3098,16 +4071,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListConsumedServicesRequest $request
+     * @param ListChangeOrdersRequest $request
      *
-     * @return ListConsumedServicesResponse
+     * @return ListChangeOrdersResponse
      */
-    public function listConsumedServices($request)
+    public function listChangeOrders($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listConsumedServicesWithOptions($request, $headers, $runtime);
+        return $this->listChangeOrdersWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3144,24 +4117,26 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListGreyTagRouteRequest $request
+     * @param ListConsumedServicesRequest $request
      *
-     * @return ListGreyTagRouteResponse
+     * @return ListConsumedServicesResponse
      */
-    public function listGreyTagRoute($request)
+    public function listConsumedServices($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listGreyTagRouteWithOptions($request, $headers, $runtime);
+        return $this->listConsumedServicesWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param ListGreyTagRouteRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * >  You can configure only one canary release rule for each application.
+     *   *
+     * @param ListGreyTagRouteRequest $request ListGreyTagRouteRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGreyTagRouteResponse
+     * @return ListGreyTagRouteResponse ListGreyTagRouteResponse
      */
     public function listGreyTagRouteWithOptions($request, $headers, $runtime)
     {
@@ -3190,16 +4165,18 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListIngressesRequest $request
+     * >  You can configure only one canary release rule for each application.
+     *   *
+     * @param ListGreyTagRouteRequest $request ListGreyTagRouteRequest
      *
-     * @return ListIngressesResponse
+     * @return ListGreyTagRouteResponse ListGreyTagRouteResponse
      */
-    public function listIngresses($request)
+    public function listGreyTagRoute($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listIngressesWithOptions($request, $headers, $runtime);
+        return $this->listGreyTagRouteWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3239,16 +4216,89 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListLogConfigsRequest $request
+     * @param ListIngressesRequest $request
      *
-     * @return ListLogConfigsResponse
+     * @return ListIngressesResponse
      */
-    public function listLogConfigs($request)
+    public function listIngresses($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listLogConfigsWithOptions($request, $headers, $runtime);
+        return $this->listIngressesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListJobsRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListJobsResponse
+     */
+    public function listJobsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->fieldType)) {
+            $query['FieldType'] = $request->fieldType;
+        }
+        if (!Utils::isUnset($request->fieldValue)) {
+            $query['FieldValue'] = $request->fieldValue;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->reverse)) {
+            $query['Reverse'] = $request->reverse;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->workload)) {
+            $query['Workload'] = $request->workload;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListJobs',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/job/listJobs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListJobsRequest $request
+     *
+     * @return ListJobsResponse
+     */
+    public function listJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listJobsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3291,16 +4341,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListNamespaceChangeOrdersRequest $request
+     * @param ListLogConfigsRequest $request
      *
-     * @return ListNamespaceChangeOrdersResponse
+     * @return ListLogConfigsResponse
      */
-    public function listNamespaceChangeOrders($request)
+    public function listLogConfigs($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listNamespaceChangeOrdersWithOptions($request, $headers, $runtime);
+        return $this->listLogConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3352,16 +4402,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListNamespacedConfigMapsRequest $request
+     * @param ListNamespaceChangeOrdersRequest $request
      *
-     * @return ListNamespacedConfigMapsResponse
+     * @return ListNamespaceChangeOrdersResponse
      */
-    public function listNamespacedConfigMaps($request)
+    public function listNamespaceChangeOrders($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listNamespacedConfigMapsWithOptions($request, $headers, $runtime);
+        return $this->listNamespaceChangeOrdersWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3398,16 +4448,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListPublishedServicesRequest $request
+     * @param ListNamespacedConfigMapsRequest $request
      *
-     * @return ListPublishedServicesResponse
+     * @return ListNamespacedConfigMapsResponse
      */
-    public function listPublishedServices($request)
+    public function listNamespacedConfigMaps($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPublishedServicesWithOptions($request, $headers, $runtime);
+        return $this->listNamespacedConfigMapsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3444,16 +4494,62 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @param ListPublishedServicesRequest $request
      *
-     * @return ListTagResourcesResponse
+     * @return ListPublishedServicesResponse
      */
-    public function listTagResources($request)
+    public function listPublishedServices($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
+        return $this->listPublishedServicesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListSecretsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListSecretsResponse
+     */
+    public function listSecretsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSecrets',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/secret/secrets',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSecretsRequest $request
+     *
+     * @return ListSecretsResponse
+     */
+    public function listSecrets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSecretsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3502,21 +4598,25 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @return OpenSaeServiceResponse
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
-    public function openSaeService()
+    public function listTagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->openSaeServiceWithOptions($headers, $runtime);
+        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
+     *   *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenSaeServiceResponse
+     * @return OpenSaeServiceResponse OpenSaeServiceResponse
      */
     public function openSaeServiceWithOptions($headers, $runtime)
     {
@@ -3539,16 +4639,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param QueryResourceStaticsRequest $request
-     *
-     * @return QueryResourceStaticsResponse
+     * > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
+     *   *
+     * @return OpenSaeServiceResponse OpenSaeServiceResponse
      */
-    public function queryResourceStatics($request)
+    public function openSaeService()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->queryResourceStaticsWithOptions($request, $headers, $runtime);
+        return $this->openSaeServiceWithOptions($headers, $runtime);
     }
 
     /**
@@ -3585,16 +4685,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ReduceApplicationCapacityByInstanceIdsRequest $request
+     * @param QueryResourceStaticsRequest $request
      *
-     * @return ReduceApplicationCapacityByInstanceIdsResponse
+     * @return QueryResourceStaticsResponse
      */
-    public function reduceApplicationCapacityByInstanceIds($request)
+    public function queryResourceStatics($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->reduceApplicationCapacityByInstanceIdsWithOptions($request, $headers, $runtime);
+        return $this->queryResourceStaticsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3634,16 +4734,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RescaleApplicationRequest $request
+     * @param ReduceApplicationCapacityByInstanceIdsRequest $request
      *
-     * @return RescaleApplicationResponse
+     * @return ReduceApplicationCapacityByInstanceIdsResponse
      */
-    public function rescaleApplication($request)
+    public function reduceApplicationCapacityByInstanceIds($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->rescaleApplicationWithOptions($request, $headers, $runtime);
+        return $this->reduceApplicationCapacityByInstanceIdsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3692,16 +4792,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RescaleApplicationVerticallyRequest $request
+     * @param RescaleApplicationRequest $request
      *
-     * @return RescaleApplicationVerticallyResponse
+     * @return RescaleApplicationResponse
      */
-    public function rescaleApplicationVertically($request)
+    public function rescaleApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->rescaleApplicationVerticallyWithOptions($request, $headers, $runtime);
+        return $this->rescaleApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3744,16 +4844,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RestartApplicationRequest $request
+     * @param RescaleApplicationVerticallyRequest $request
      *
-     * @return RestartApplicationResponse
+     * @return RescaleApplicationVerticallyResponse
      */
-    public function restartApplication($request)
+    public function rescaleApplicationVertically($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->restartApplicationWithOptions($request, $headers, $runtime);
+        return $this->rescaleApplicationVerticallyWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3769,6 +4869,9 @@ class Sae extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->autoEnableApplicationScalingRule)) {
+            $query['AutoEnableApplicationScalingRule'] = $request->autoEnableApplicationScalingRule;
         }
         if (!Utils::isUnset($request->minReadyInstanceRatio)) {
             $query['MinReadyInstanceRatio'] = $request->minReadyInstanceRatio;
@@ -3796,16 +4899,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RestartInstancesRequest $request
+     * @param RestartApplicationRequest $request
      *
-     * @return RestartInstancesResponse
+     * @return RestartApplicationResponse
      */
-    public function restartInstances($request)
+    public function restartApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->restartInstancesWithOptions($request, $headers, $runtime);
+        return $this->restartApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3845,16 +4948,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RollbackApplicationRequest $request
+     * @param RestartInstancesRequest $request
      *
-     * @return RollbackApplicationResponse
+     * @return RestartInstancesResponse
      */
-    public function rollbackApplication($request)
+    public function restartInstances($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->rollbackApplicationWithOptions($request, $headers, $runtime);
+        return $this->restartInstancesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3909,16 +5012,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param StartApplicationRequest $request
+     * @param RollbackApplicationRequest $request
      *
-     * @return StartApplicationResponse
+     * @return RollbackApplicationResponse
      */
-    public function startApplication($request)
+    public function rollbackApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->startApplicationWithOptions($request, $headers, $runtime);
+        return $this->rollbackApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3955,16 +5058,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param StopApplicationRequest $request
+     * @param StartApplicationRequest $request
      *
-     * @return StopApplicationResponse
+     * @return StartApplicationResponse
      */
-    public function stopApplication($request)
+    public function startApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopApplicationWithOptions($request, $headers, $runtime);
+        return $this->startApplicationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4001,16 +5104,65 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @param StopApplicationRequest $request
      *
-     * @return TagResourcesResponse
+     * @return StopApplicationResponse
      */
-    public function tagResources($request)
+    public function stopApplication($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->tagResourcesWithOptions($request, $headers, $runtime);
+        return $this->stopApplicationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SuspendJobRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SuspendJobResponse
+     */
+    public function suspendJobWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->suspend)) {
+            $query['Suspend'] = $request->suspend;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SuspendJob',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/job/suspendJob',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SuspendJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SuspendJobRequest $request
+     *
+     * @return SuspendJobResponse
+     */
+    public function suspendJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->suspendJobWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4056,16 +5208,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UnbindSlbRequest $request
+     * @param TagResourcesRequest $request
      *
-     * @return UnbindSlbResponse
+     * @return TagResourcesResponse
      */
-    public function unbindSlb($request)
+    public function tagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->unbindSlbWithOptions($request, $headers, $runtime);
+        return $this->tagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4108,16 +5260,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @param UnbindSlbRequest $request
      *
-     * @return UntagResourcesResponse
+     * @return UnbindSlbResponse
      */
-    public function untagResources($request)
+    public function unbindSlb($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->untagResourcesWithOptions($request, $headers, $runtime);
+        return $this->unbindSlbWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4166,16 +5318,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateAppSecurityGroupRequest $request
+     * @param UntagResourcesRequest $request
      *
-     * @return UpdateAppSecurityGroupResponse
+     * @return UntagResourcesResponse
      */
-    public function updateAppSecurityGroup($request)
+    public function untagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateAppSecurityGroupWithOptions($request, $headers, $runtime);
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4215,16 +5367,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationDescriptionRequest $request
+     * @param UpdateAppSecurityGroupRequest $request
      *
-     * @return UpdateApplicationDescriptionResponse
+     * @return UpdateAppSecurityGroupResponse
      */
-    public function updateApplicationDescription($request)
+    public function updateAppSecurityGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateApplicationDescriptionWithOptions($request, $headers, $runtime);
+        return $this->updateAppSecurityGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4264,24 +5416,27 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationScalingRuleRequest $request
+     * @param UpdateApplicationDescriptionRequest $request
      *
-     * @return UpdateApplicationScalingRuleResponse
+     * @return UpdateApplicationDescriptionResponse
      */
-    public function updateApplicationScalingRule($request)
+    public function updateApplicationDescription($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateApplicationScalingRuleWithOptions($request, $headers, $runtime);
+        return $this->updateApplicationDescriptionWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param UpdateApplicationScalingRuleRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * ##
+     *   * If you want to configure more than 50 instances for an application, you must submit a [ticket](https://workorder.console.aliyun.com/#/ticket/createIndex) to add your account to the whitelist.
+     *   *
+     * @param UpdateApplicationScalingRuleRequest $request UpdateApplicationScalingRuleRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateApplicationScalingRuleResponse
+     * @return UpdateApplicationScalingRuleResponse UpdateApplicationScalingRuleResponse
      */
     public function updateApplicationScalingRuleWithOptions($request, $headers, $runtime)
     {
@@ -4325,16 +5480,19 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationVswitchesRequest $request
+     * ##
+     *   * If you want to configure more than 50 instances for an application, you must submit a [ticket](https://workorder.console.aliyun.com/#/ticket/createIndex) to add your account to the whitelist.
+     *   *
+     * @param UpdateApplicationScalingRuleRequest $request UpdateApplicationScalingRuleRequest
      *
-     * @return UpdateApplicationVswitchesResponse
+     * @return UpdateApplicationScalingRuleResponse UpdateApplicationScalingRuleResponse
      */
-    public function updateApplicationVswitches($request)
+    public function updateApplicationScalingRule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateApplicationVswitchesWithOptions($request, $headers, $runtime);
+        return $this->updateApplicationScalingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4374,16 +5532,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateConfigMapRequest $request
+     * @param UpdateApplicationVswitchesRequest $request
      *
-     * @return UpdateConfigMapResponse
+     * @return UpdateApplicationVswitchesResponse
      */
-    public function updateConfigMap($request)
+    public function updateApplicationVswitches($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateConfigMapWithOptions($request, $headers, $runtime);
+        return $this->updateApplicationVswitchesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4428,16 +5586,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateGreyTagRouteRequest $request
+     * @param UpdateConfigMapRequest $request
      *
-     * @return UpdateGreyTagRouteResponse
+     * @return UpdateConfigMapResponse
      */
-    public function updateGreyTagRoute($request)
+    public function updateConfigMap($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateGreyTagRouteWithOptions($request, $headers, $runtime);
+        return $this->updateConfigMapWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4451,6 +5609,9 @@ class Sae extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->albRules)) {
+            $query['AlbRules'] = $request->albRules;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
@@ -4483,16 +5644,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateIngressRequest $request
+     * @param UpdateGreyTagRouteRequest $request
      *
-     * @return UpdateIngressResponse
+     * @return UpdateGreyTagRouteResponse
      */
-    public function updateIngress($request)
+    public function updateGreyTagRoute($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateIngressWithOptions($request, $headers, $runtime);
+        return $this->updateGreyTagRouteWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4508,6 +5669,9 @@ class Sae extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->certId)) {
             $query['CertId'] = $request->certId;
+        }
+        if (!Utils::isUnset($request->certIds)) {
+            $query['CertIds'] = $request->certIds;
         }
         if (!Utils::isUnset($request->defaultRule)) {
             $query['DefaultRule'] = $request->defaultRule;
@@ -4552,16 +5716,196 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateNamespaceRequest $request
+     * @param UpdateIngressRequest $request
      *
-     * @return UpdateNamespaceResponse
+     * @return UpdateIngressResponse
      */
-    public function updateNamespace($request)
+    public function updateIngress($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateNamespaceWithOptions($request, $headers, $runtime);
+        return $this->updateIngressWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateJobRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateJobResponse
+     */
+    public function updateJobWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acrAssumeRoleArn)) {
+            $query['AcrAssumeRoleArn'] = $request->acrAssumeRoleArn;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->backoffLimit)) {
+            $query['BackoffLimit'] = $request->backoffLimit;
+        }
+        if (!Utils::isUnset($request->command)) {
+            $query['Command'] = $request->command;
+        }
+        if (!Utils::isUnset($request->commandArgs)) {
+            $query['CommandArgs'] = $request->commandArgs;
+        }
+        if (!Utils::isUnset($request->concurrencyPolicy)) {
+            $query['ConcurrencyPolicy'] = $request->concurrencyPolicy;
+        }
+        if (!Utils::isUnset($request->customHostAlias)) {
+            $query['CustomHostAlias'] = $request->customHostAlias;
+        }
+        if (!Utils::isUnset($request->edasContainerVersion)) {
+            $query['EdasContainerVersion'] = $request->edasContainerVersion;
+        }
+        if (!Utils::isUnset($request->envs)) {
+            $query['Envs'] = $request->envs;
+        }
+        if (!Utils::isUnset($request->imagePullSecrets)) {
+            $query['ImagePullSecrets'] = $request->imagePullSecrets;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $query['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->jarStartArgs)) {
+            $query['JarStartArgs'] = $request->jarStartArgs;
+        }
+        if (!Utils::isUnset($request->jarStartOptions)) {
+            $query['JarStartOptions'] = $request->jarStartOptions;
+        }
+        if (!Utils::isUnset($request->jdk)) {
+            $query['Jdk'] = $request->jdk;
+        }
+        if (!Utils::isUnset($request->mountDesc)) {
+            $query['MountDesc'] = $request->mountDesc;
+        }
+        if (!Utils::isUnset($request->mountHost)) {
+            $query['MountHost'] = $request->mountHost;
+        }
+        if (!Utils::isUnset($request->nasId)) {
+            $query['NasId'] = $request->nasId;
+        }
+        if (!Utils::isUnset($request->packageUrl)) {
+            $query['PackageUrl'] = $request->packageUrl;
+        }
+        if (!Utils::isUnset($request->packageVersion)) {
+            $query['PackageVersion'] = $request->packageVersion;
+        }
+        if (!Utils::isUnset($request->phpConfigLocation)) {
+            $query['PhpConfigLocation'] = $request->phpConfigLocation;
+        }
+        if (!Utils::isUnset($request->postStart)) {
+            $query['PostStart'] = $request->postStart;
+        }
+        if (!Utils::isUnset($request->preStop)) {
+            $query['PreStop'] = $request->preStop;
+        }
+        if (!Utils::isUnset($request->programmingLanguage)) {
+            $query['ProgrammingLanguage'] = $request->programmingLanguage;
+        }
+        if (!Utils::isUnset($request->python)) {
+            $query['Python'] = $request->python;
+        }
+        if (!Utils::isUnset($request->pythonModules)) {
+            $query['PythonModules'] = $request->pythonModules;
+        }
+        if (!Utils::isUnset($request->refAppId)) {
+            $query['RefAppId'] = $request->refAppId;
+        }
+        if (!Utils::isUnset($request->replicas)) {
+            $query['Replicas'] = $request->replicas;
+        }
+        if (!Utils::isUnset($request->slice)) {
+            $query['Slice'] = $request->slice;
+        }
+        if (!Utils::isUnset($request->sliceEnvs)) {
+            $query['SliceEnvs'] = $request->sliceEnvs;
+        }
+        if (!Utils::isUnset($request->slsConfigs)) {
+            $query['SlsConfigs'] = $request->slsConfigs;
+        }
+        if (!Utils::isUnset($request->terminationGracePeriodSeconds)) {
+            $query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->timezone)) {
+            $query['Timezone'] = $request->timezone;
+        }
+        if (!Utils::isUnset($request->tomcatConfig)) {
+            $query['TomcatConfig'] = $request->tomcatConfig;
+        }
+        if (!Utils::isUnset($request->triggerConfig)) {
+            $query['TriggerConfig'] = $request->triggerConfig;
+        }
+        if (!Utils::isUnset($request->warStartOptions)) {
+            $query['WarStartOptions'] = $request->warStartOptions;
+        }
+        if (!Utils::isUnset($request->webContainer)) {
+            $query['WebContainer'] = $request->webContainer;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->acrInstanceId)) {
+            $body['AcrInstanceId'] = $request->acrInstanceId;
+        }
+        if (!Utils::isUnset($request->configMapMountDesc)) {
+            $body['ConfigMapMountDesc'] = $request->configMapMountDesc;
+        }
+        if (!Utils::isUnset($request->enableImageAccl)) {
+            $body['EnableImageAccl'] = $request->enableImageAccl;
+        }
+        if (!Utils::isUnset($request->ossAkId)) {
+            $body['OssAkId'] = $request->ossAkId;
+        }
+        if (!Utils::isUnset($request->ossAkSecret)) {
+            $body['OssAkSecret'] = $request->ossAkSecret;
+        }
+        if (!Utils::isUnset($request->ossMountDescs)) {
+            $body['OssMountDescs'] = $request->ossMountDescs;
+        }
+        if (!Utils::isUnset($request->php)) {
+            $body['Php'] = $request->php;
+        }
+        if (!Utils::isUnset($request->phpConfig)) {
+            $body['PhpConfig'] = $request->phpConfig;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateJob',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/job/updateJob',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateJobRequest $request
+     *
+     * @return UpdateJobResponse
+     */
+    public function updateJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateJobWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4575,6 +5919,12 @@ class Sae extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->enableMicroRegistration)) {
+            $query['EnableMicroRegistration'] = $request->enableMicroRegistration;
+        }
+        if (!Utils::isUnset($request->nameSpaceShortId)) {
+            $query['NameSpaceShortId'] = $request->nameSpaceShortId;
+        }
         if (!Utils::isUnset($request->namespaceDescription)) {
             $query['NamespaceDescription'] = $request->namespaceDescription;
         }
@@ -4604,16 +5954,16 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateNamespaceVpcRequest $request
+     * @param UpdateNamespaceRequest $request
      *
-     * @return UpdateNamespaceVpcResponse
+     * @return UpdateNamespaceResponse
      */
-    public function updateNamespaceVpc($request)
+    public function updateNamespace($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateNamespaceVpcWithOptions($request, $headers, $runtime);
+        return $this->updateNamespaceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4627,6 +5977,9 @@ class Sae extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->nameSpaceShortId)) {
+            $query['NameSpaceShortId'] = $request->nameSpaceShortId;
+        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -4650,5 +6003,75 @@ class Sae extends OpenApiClient
         ]);
 
         return UpdateNamespaceVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateNamespaceVpcRequest $request
+     *
+     * @return UpdateNamespaceVpcResponse
+     */
+    public function updateNamespaceVpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateNamespaceVpcWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateSecretRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateSecretResponse
+     */
+    public function updateSecretWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateSecretShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->secretData)) {
+            $request->secretDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->secretData, 'SecretData', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->secretDataShrink)) {
+            $query['SecretData'] = $request->secretDataShrink;
+        }
+        if (!Utils::isUnset($request->secretId)) {
+            $query['SecretId'] = $request->secretId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSecret',
+            'version'     => '2019-05-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pop/v1/sam/secret/secret',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSecretRequest $request
+     *
+     * @return UpdateSecretResponse
+     */
+    public function updateSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateSecretWithOptions($request, $headers, $runtime);
     }
 }

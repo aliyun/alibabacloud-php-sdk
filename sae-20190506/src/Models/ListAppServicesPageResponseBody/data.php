@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $currentPage;
 
     /**
+     * @description The returned result.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The name of the application.
+     *
+     * @example 9999
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The version of the service. You can create a custom version.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The number of entries returned per page. Valid values: 0 to 9999.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $totalSize;

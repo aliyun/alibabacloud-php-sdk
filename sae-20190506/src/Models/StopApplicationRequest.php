@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class StopApplicationRequest extends Model
 {
     /**
+     * @description The returned message.
+     *
+     *   **success** is returned when the request succeeds.
+     *   An error code is returned when the request fails.
+     *
+     * @example 0099b7be-5f5b-4512-a7fc-56049ef1****
+     *
      * @var string
      */
     public $appId;

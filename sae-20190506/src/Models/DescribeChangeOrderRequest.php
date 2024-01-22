@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeChangeOrderRequest extends Model
 {
     /**
+     * @description 76fa5c0-9ebb-4bb4-b383-1f885447\*\*\*\*
+     *
+     * @example 76fa5c0-9ebb-4bb4-b383-1f885447****
+     *
      * @var string
      */
     public $changeOrderId;

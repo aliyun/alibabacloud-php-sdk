@@ -10,21 +10,37 @@ use AlibabaCloud\Tea\Model;
 class applications extends Model
 {
     /**
+     * @description demo-app
+     *
+     * @example false
+     *
      * @var bool
      */
     public $appDeletingStatus;
 
     /**
+     * @description \[{"key":"key","value":"value"}]
+     *
+     * @example description
+     *
      * @var string
      */
     public $appDescription;
 
     /**
+     * @description The total number of applications.
+     *
+     * @example f7730764-d88f-4b9a-8d8e-cd8efbfe****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the application.
+     *
+     * @example demo-app
+     *
      * @var string
      */
     public $appName;
@@ -32,24 +48,52 @@ class applications extends Model
     /**
      * @var int
      */
+    public $cpu;
+
+    /**
+     * @description The total number of applications.
+     *
+     * @example 2
+     *
+     * @var int
+     */
     public $instances;
 
     /**
+     * @var int
+     */
+    public $mem;
+
+    /**
+     * @description demo-app
+     *
+     * @example cn-beijing:demo
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The number of running instances.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The value of the tag.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $runningInstances;
 
     /**
+     * @description cn-beijing:demo
+     *
      * @var tags[]
      */
     public $tags;
@@ -58,7 +102,9 @@ class applications extends Model
         'appDescription'    => 'AppDescription',
         'appId'             => 'AppId',
         'appName'           => 'AppName',
+        'cpu'               => 'Cpu',
         'instances'         => 'Instances',
+        'mem'               => 'Mem',
         'namespaceId'       => 'NamespaceId',
         'regionId'          => 'RegionId',
         'runningInstances'  => 'RunningInstances',
@@ -84,8 +130,14 @@ class applications extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
+        }
         if (null !== $this->instances) {
             $res['Instances'] = $this->instances;
+        }
+        if (null !== $this->mem) {
+            $res['Mem'] = $this->mem;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -129,8 +181,14 @@ class applications extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
+        }
         if (isset($map['Instances'])) {
             $model->instances = $map['Instances'];
+        }
+        if (isset($map['Mem'])) {
+            $model->mem = $map['Mem'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

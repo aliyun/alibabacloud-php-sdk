@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class BatchStopApplicationsRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ebf491f0-c1a5-45e2-b2c4-710dbe2a****，ebf491f0-c1a5-45e2-b2c4-71025e2a****
+     *
      * @var string
      */
     public $appIds;
 
     /**
+     * @description ebf491f0-c1a5-45e2-b2c4-710dbe2a\*\*\*\*,ebf491f0-c1a5-45e2-b2c4-71025e2a\*\*\*\*
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $namespaceId;

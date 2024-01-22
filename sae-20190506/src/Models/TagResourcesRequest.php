@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description application
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ["d42921c4-5433-4abd-8075-0e536f8b****"]
+     *
      * @var string
      */
     public $resourceIds;
 
     /**
+     * @description \[{"key":"k1","value":"v1"}]
+     *
+     * @example application
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description \["d42921c4-5433-4abd-8075-0e536f8b\*\*\*\*"]
+     *
+     * @example [{"key":"k1","value":"v1"}]
+     *
      * @var string
      */
     public $tags;

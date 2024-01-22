@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationDescriptionResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -19,21 +21,29 @@ class UpdateApplicationDescriptionResponseBody extends Model
     public $errorCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 01CF26C7-00A3-4AA6-BA76-7E95F2A3***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example ac1a0b2215622246421415014e****
+     *
      * @var string
      */
     public $traceId;

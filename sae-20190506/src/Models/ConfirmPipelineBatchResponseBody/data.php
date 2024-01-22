@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the batch.
+     *
+     * @example e2e-vds-feh-***
+     *
      * @var string
      */
     public $pipelineId;

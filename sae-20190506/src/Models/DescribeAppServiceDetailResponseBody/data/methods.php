@@ -10,51 +10,85 @@ use AlibabaCloud\Tea\Model;
 class methods extends Model
 {
     /**
+     * @description The class to which the method belongs.
+     *
+     * @example com.serverless.sae.controller.EchoController
+     *
      * @var string
      */
     public $methodController;
 
     /**
+     * @description The name of the method.
+     *
+     * @example echo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The details of the method.
+     *
+     * @example description
+     *
      * @var string
      */
     public $nameDetail;
 
     /**
+     * @description The definition of the parameter.
+     *
      * @var parameterDefinitions[]
      */
     public $parameterDefinitions;
 
     /**
+     * @description The details of the parameters.
+     *
      * @var string[]
      */
     public $parameterDetails;
 
     /**
+     * @description The types of the parameters.
+     *
      * @var string[]
      */
     public $parameterTypes;
 
     /**
+     * @description The request paths. Format:
+     *
+     * `/path`
      * @var string[]
      */
     public $paths;
 
     /**
+     * @description The request methods. Valid values:
+     *
+     *   **GET**
+     *   **ALL**
+     *
      * @var string[]
      */
     public $requestMethods;
 
     /**
+     * @description The details of the response.
+     *
+     * @example test
+     *
      * @var string
      */
     public $returnDetails;
 
     /**
+     * @description The data format of the response.
+     *
+     * @example java.lang.String
+     *
      * @var string
      */
     public $returnType;

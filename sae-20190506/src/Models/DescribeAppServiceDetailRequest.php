@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppServiceDetailRequest extends Model
 {
     /**
+     * @description 6dcc8c9e-d3da-478a-a066-86dcf820\*\*\*\*
+     *
+     * @example 6dcc8c9e-d3da-478a-a066-86dcf820****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description springCloud
+     *
+     * @example springCloud
+     *
      * @var string
      */
     public $serviceGroup;
 
     /**
+     * @description edas.service.provider
+     *
+     * @example edas.service.provider
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description springCloud
+     *
+     * @example springCloud
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @description 1.0.0
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $serviceVersion;

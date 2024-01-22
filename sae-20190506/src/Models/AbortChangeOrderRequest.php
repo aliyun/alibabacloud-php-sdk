@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AbortChangeOrderRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example be2e1c76-682b-4897-98d3-1d8d6478****
+     *
      * @var string
      */
     public $changeOrderId;

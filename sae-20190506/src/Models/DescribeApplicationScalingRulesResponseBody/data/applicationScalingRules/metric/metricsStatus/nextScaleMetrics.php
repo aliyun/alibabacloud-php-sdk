@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class nextScaleMetrics extends Model
 {
     /**
+     * @description The name of the metric.
+     *
+     *   **cpu**: the CPU utilization.
+     *   **memory**: the memory usage.
+     *   **tcpActiveConn**: the number of active TCP connections.
+     *   **slb_incall_qps**: the QPS of the Internet-facing SLB instance.
+     *   **slb_incall_rt**: the response time of the Internet-facing SLB instance.
+     *
+     * @example cpu
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The metric value as a percentage that triggers the application scale-in next time.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $nextScaleInAverageUtilization;
 
     /**
+     * @description The metric value as a percentage that triggers the application scale-out next time.
+     *
+     * @example 21
+     *
      * @var int
      */
     public $nextScaleOutAverageUtilization;

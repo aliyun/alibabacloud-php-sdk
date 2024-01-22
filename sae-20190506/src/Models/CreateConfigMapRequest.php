@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateConfigMapRequest extends Model
 {
     /**
+     * @example {"env.shell": "/bin/sh"}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example test-desc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description cn-hangzhou
+     *
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $namespaceId;

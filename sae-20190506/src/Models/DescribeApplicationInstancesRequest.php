@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationInstancesRequest extends Model
 {
     /**
+     * @description d700e680-aa4d-4ec1-afc2-6566b5ff\*\*\*\*
+     *
+     * @example d700e680-aa4d-4ec1-afc2-6566b5ff****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description 1
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description b2a8a925-477a-4ed7-b825-d5e22500\*\*\*\*
+     *
+     * @example b2a8a925-477a-4ed7-b825-d5e22500****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description 10
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description true
+     *
+     * @example true
+     *
      * @var bool
      */
     public $reverse;

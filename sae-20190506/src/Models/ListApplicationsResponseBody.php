@@ -10,46 +10,80 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsResponseBody extends Model
 {
     /**
+     * @description Queries applications.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description 20
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The number of the returned page.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example The ID of the request.
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description 20
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description cn-beijing:demo
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example B4D805CA-926D-41B1-8E63-7AD0C1ED****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 1
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description demo-app
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalSize;

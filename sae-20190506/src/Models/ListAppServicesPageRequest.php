@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListAppServicesPageRequest extends Model
 {
     /**
+     * @description 1
+     *
+     * @example 6dcc8c9e-d3da-478a-a066-86dcf820****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The returned information.
+     *
+     * @example 9999
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description 9999
+     *
+     * @example springCloud
+     *
      * @var string
      */
     public $serviceType;

@@ -10,36 +10,68 @@ use AlibabaCloud\Tea\Model;
 class DescribeGreyTagRouteResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     * - **2xx**: The call was successful.
+     * - **3xx**: The call was redirected.
+     * - **4xx**: The call failed.
+     * - **5xx**: A server error occurred.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The information about the canary release rule.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned error code. Valid values:
+     *
+     * - If the call is successful, the **ErrorCode** parameter is not returned.
+     * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The returned information.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9D29CBD0-45D3-410B-9826-52F86F90****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the information of the change order was queried. Valid values:
+     *
+     * - **true**: The information was queried.
+     * - **false**: The information failed to be queried.
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The trace ID that is used to query the details of the request.
+     *
+     * @example 0a98a02315955564772843261e****
+     *
      * @var string
      */
     public $traceId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UnbindSlbRequest extends Model
 {
     /**
+     * @description true
+     *
+     * @example 0099b7be-5f5b-4512-a7fc-56049ef1****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description true
+     *
+     * @example true
+     *
      * @var bool
      */
     public $internet;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $intranet;

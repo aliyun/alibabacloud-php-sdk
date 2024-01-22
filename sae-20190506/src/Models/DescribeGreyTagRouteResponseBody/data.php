@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeGreyTagRouteResponseBody;
 
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeGreyTagRouteResponseBody\data\albRules;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeGreyTagRouteResponseBody\data\dubboRules;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeGreyTagRouteResponseBody\data\scRules;
 use AlibabaCloud\Tea\Model;
@@ -11,45 +12,79 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var albRules[]
+     */
+    public $albRules;
+
+    /**
+     * @description The ID of the application.
+     *
+     * @example 3faaf993-7aed-4bcd-b189-625e6a5a****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The timestamp when the canary release rule was created. Unit: milliseconds.
+     *
+     * @example 1619007592013
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The description of the canary release rule.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The canary release rule of the Dubbo service.
+     *
      * @var dubboRules[]
      */
     public $dubboRules;
 
     /**
+     * @description The ID of the canary release rule. The ID is globally unique.
+     *
+     * @example 16
+     *
      * @var int
      */
     public $greyTagRouteId;
 
     /**
+     * @description The name of the canary release rule.
+     *
+     * @example rule-name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The canary release rule of the Spring Cloud application.
+     *
      * @var scRules[]
      */
     public $scRules;
 
     /**
+     * @description The timestamp when the canary release rule was updated. Unit: milliseconds.
+     *
+     * @example 1609434061000
+     *
      * @var int
      */
     public $updateTime;
     protected $_name = [
+        'albRules'       => 'AlbRules',
         'appId'          => 'AppId',
         'createTime'     => 'CreateTime',
         'description'    => 'Description',
@@ -67,6 +102,15 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->albRules) {
+            $res['AlbRules'] = [];
+            if (null !== $this->albRules && \is_array($this->albRules)) {
+                $n = 0;
+                foreach ($this->albRules as $item) {
+                    $res['AlbRules'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -115,6 +159,15 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlbRules'])) {
+            if (!empty($map['AlbRules'])) {
+                $model->albRules = [];
+                $n               = 0;
+                foreach ($map['AlbRules'] as $item) {
+                    $model->albRules[$n++] = null !== $item ? albRules::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }

@@ -10,31 +10,61 @@ use AlibabaCloud\Tea\Model;
 class ListAppVersionsResponseBody extends Model
 {
     /**
+     * @description Indicates whether the historical versions of the application were obtained. Valid values:
+     *
+     *   **true**: indicates that the historical versions of the application were obtained.
+     *   **false**: indicates that the historical versions of the application could not be obtained.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The deployment method of the application. Valid values:
+     *
+     *   **image**: indicates that the application was deployed by using an image.
+     *   **upload**: indicates that the application was deployed by uploading a WAR or JAR package.
+     *   **url**: indicates that the application was deployed by specifying the URL of a WAR or JAR package.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: indicates that the request was successful.
+     *   **3xx**: indicates that the request was redirected.
+     *   **4xx**: indicates that the request was invalid.
+     *   **5xx**: indicates that a server error occurred.
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The information about the versions.
+     *
+     * @example 01CF26C7-00A3-4AA6-BA76-7E95F2A3****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

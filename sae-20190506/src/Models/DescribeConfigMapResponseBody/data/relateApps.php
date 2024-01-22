@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class relateApps extends Model
 {
     /**
+     * @description The ID of the ConfigMap instance.
+     *
+     * @example f16b4000-9058-4c22-a49d-49a28f0b****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the application.
+     *
+     * @example test-app
+     *
      * @var string
      */
     public $appName;

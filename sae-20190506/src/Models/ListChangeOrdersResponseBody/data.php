@@ -10,21 +10,49 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The status of the change order. Valid values:
+     *
+     *   **0**: The change order is being prepared.
+     *   **1**: The change order is being executed.
+     *   **2**: The change order was executed.
+     *   **3**: The change order could not be executed.
+     *   **6**: The change order was terminated.
+     *   **8**: The execution process is pending. You must manually determine the release batch.
+     *   **9**: The execution process is pending. SAE will automatically determine the release batch.
+     *   **10**: The change order could not be executed due to a system exception.
+     *   **11**: The change order is pending approval.
+     *   **12**: The change order is approved and is pending execution.
+     *
      * @var changeOrderList[]
      */
     public $changeOrderList;
 
     /**
+     * @description The total number of change orders.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The error code.
+     *
+     *   The **ErrorCode** parameter is not returned when the request succeeds.
+     *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The list of change orders.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalSize;

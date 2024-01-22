@@ -10,36 +10,76 @@ use AlibabaCloud\Tea\Model;
 class DescribeJobStatusResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: The call was successful.
+     *   **3xx**: The call was redirected.
+     *   **4xx**: The call failed.
+     *   **5xx**: A server error occurred.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error code returned. Take note of the following rules:
+     *
+     *   **ErrorCode** is not returned if the request succeeds.
+     *   **ErrorCode** is returned if the request fails. For more information, see the "**Error codes**" section in this topic.
+     *
+     * @example Null
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The returned message. Take note of the following rules:
+     *
+     *   If the call is successful, **success** is returned.
+     *   If the call fails, an error code is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 53F15A18-8079-5992-810C-0211A5AE****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The trace ID that is used to query the details of the request.
+     *
+     * @example 0b1639af16575057857241351e****
+     *
      * @var string
      */
     public $traceId;

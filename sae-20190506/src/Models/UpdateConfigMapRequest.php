@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class UpdateConfigMapRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $configMapId;
 
     /**
+     * @example {"env.shell": "/bin/sh"}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example test-desc
+     *
      * @var string
      */
     public $description;

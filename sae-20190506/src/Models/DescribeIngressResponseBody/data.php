@@ -11,66 +11,127 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the application specified in the default rule.
+     *
+     * @example 13623****809_16cad216b32_845_-419427029
+     *
      * @var string
      */
     public $certId;
 
     /**
+     * @example 87***35-cn-hangzhou,812***3-cn-hangzhou
+     *
+     * @var string
+     */
+    public $certIds;
+
+    /**
+     * @description The forwarding rules.
+     *
      * @var defaultRule
      */
     public $defaultRule;
 
     /**
+     * @description The name of the routing rule.
+     *
+     * @example ingress-sae-test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: indicates that the request was successful.
+     *   **3xx**: indicates that the request was redirected.
+     *   **4xx**: indicates that the request was invalid.
+     *   **5xx**: indicates that a server error occurred.
+     *
+     * @example 87
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The default rule.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $listenerPort;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $listenerProtocol;
 
     /**
+     * @description Indicates whether the configurations of the routing rule were queried successfully. Valid values:
+     *
+     *   **true**: indicates that the query was successful.
+     *   **false**: indicates that the query failed.
+     *
+     * @example clb
+     *
      * @var string
      */
     public $loadBalanceType;
 
     /**
+     * @description The ID of the application specified in the default rule.
+     *
+     * @example lb-uf6jt0nu4z6ior943****-80-f5****
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example cn-beijing:sae-test
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The ID of the application specified in the forwarding rule.
+     *
      * @var rules[]
      */
     public $rules;
 
     /**
+     * @description The type of the SLB instance based on the IP address. Valid values:
+     *
+     *   **internet**: the Internet-facing SLB instance.
+     *   **intranet**: the internal-facing SLB instance.
+     *
+     * @example lb-uf62****6d13tq2u5
+     *
      * @var string
      */
     public $slbId;
 
     /**
+     * @description The container port of the application specified in the default rule.
+     *
+     * @example internet
+     *
      * @var string
      */
     public $slbType;
     protected $_name = [
         'certId'           => 'CertId',
+        'certIds'          => 'CertIds',
         'defaultRule'      => 'DefaultRule',
         'description'      => 'Description',
         'id'               => 'Id',
@@ -93,6 +154,9 @@ class data extends Model
         $res = [];
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
+        }
+        if (null !== $this->certIds) {
+            $res['CertIds'] = $this->certIds;
         }
         if (null !== $this->defaultRule) {
             $res['DefaultRule'] = null !== $this->defaultRule ? $this->defaultRule->toMap() : null;
@@ -147,6 +211,9 @@ class data extends Model
         $model = new self();
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
+        }
+        if (isset($map['CertIds'])) {
+            $model->certIds = $map['CertIds'];
         }
         if (isset($map['DefaultRule'])) {
             $model->defaultRule = defaultRule::fromMap($map['DefaultRule']);

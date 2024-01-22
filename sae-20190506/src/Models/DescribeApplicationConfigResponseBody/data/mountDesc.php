@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class mountDesc extends Model
 {
     /**
+     * @description The path on which the NAS file system is mounted.
+     *
+     * @example /tmp
+     *
      * @var string
      */
     public $mountPath;
 
     /**
+     * @description The directory in the NAS file system.
+     *
+     * @example /
+     *
      * @var string
      */
     public $nasPath;

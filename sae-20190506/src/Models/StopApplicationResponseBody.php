@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class StopApplicationResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error code.
+     *
+     *   If the request is successful, this parameter is not returned.****
+     *   This parameter is returned only if the request failed.**** For more information, see **Error codes** in this topic.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Indicates whether the specified application is stopped. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The returned data.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the trace. It can be used to query the details of a request.
+     *
+     * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The ID of the change order.
+     *
+     * @example 0bc3b6e215637275918588187d****
+     *
      * @var string
      */
     public $traceId;

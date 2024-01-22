@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $deleteAll;
 
     /**
+     * @description cn-beijing
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description \["d42921c4-5433-4abd-8075-0e536f8b\*\*\*\*"]
+     *
+     * @example ["d42921c4-5433-4abd-8075-0e536f8b****"]
+     *
      * @var string
      */
     public $resourceIds;
 
     /**
+     * @description application
+     *
+     * @example application
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description \["k1","k2"]
+     *
+     * @example ["k1","k2"]
+     *
      * @var string
      */
     public $tagKeys;
