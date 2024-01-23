@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
      * @var material
      */
     public $material;
@@ -30,10 +35,11 @@ class data extends Model
      */
     public $taskId;
     protected $_name = [
-        'material' => 'Material',
-        'result'   => 'Result',
-        'status'   => 'Status',
-        'taskId'   => 'TaskId',
+        'errorMessage' => 'ErrorMessage',
+        'material'     => 'Material',
+        'result'       => 'Result',
+        'status'       => 'Status',
+        'taskId'       => 'TaskId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->material) {
             $res['Material'] = null !== $this->material ? $this->material->toMap() : null;
         }
@@ -67,6 +76,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['Material'])) {
             $model->material = material::fromMap($map['Material']);
         }
