@@ -12,10 +12,9 @@ class CreateVpcPeerConnectionRequest extends Model
      * @description The ID of the Alibaba Cloud account to which the accepter VPC belongs.
      *
      *   To create a VPC peering connection within your Alibaba Cloud account, enter the ID of your Alibaba Cloud account.
-     *
      *   To create a VPC peering connection between your Alibaba Cloud account and another Alibaba Cloud account, enter the ID of the peer Alibaba Cloud account.
      *
-     * > If the accepter VPC belongs to a Resource Access Management (RAM) user, you must set the value of **AcceptingAliUid** to the ID of the corresponding Alibaba Cloud account.
+     * >  If the accepter is a RAM user, set **AcceptingAliUid** to the ID of the Alibaba Cloud account that created the RAM user.
      * @example 1210123456123456
      *
      * @var int
@@ -44,6 +43,10 @@ class CreateVpcPeerConnectionRequest extends Model
     public $acceptingVpcId;
 
     /**
+     * @description The bandwidth of the VPC peering connection. Unit: Mbit/s. The value must be an integer greater than 0. Before you specify this parameter, make sure that you create an inter-region VPC peering connection.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $bandwidth;
@@ -53,7 +56,7 @@ class CreateVpcPeerConnectionRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
-     * >  If you do not specify this parameter, the system automatically uses the **client token** as the **request ID**. The **request ID** may be different for each request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -73,7 +76,7 @@ class CreateVpcPeerConnectionRequest extends Model
     /**
      * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
      *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
@@ -85,7 +88,7 @@ class CreateVpcPeerConnectionRequest extends Model
     /**
      * @description The name of the VPC peering connection.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain digits, underscores (\_), and hyphens (-). It must start with a letter.
      * @example vpcpeer
      *
      * @var string
@@ -105,7 +108,7 @@ class CreateVpcPeerConnectionRequest extends Model
     /**
      * @description The ID of the resource group.
      *
-     * For more information about resource groups, see [What is a resource group?](~~94475~~)
+     * For more information about resource groups, see [Resource groups](~~94475~~).
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string

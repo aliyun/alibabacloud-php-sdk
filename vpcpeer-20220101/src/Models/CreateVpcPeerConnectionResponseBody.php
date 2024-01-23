@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcPeerConnectionResponseBody extends Model
 {
     /**
-     * @description The ID of the VPC peering connection.
+     * @description The ID of the instance on which the VPC peering connection is created.
      *
      * @example pcc-lnk0m24khwvtkm****
      *
