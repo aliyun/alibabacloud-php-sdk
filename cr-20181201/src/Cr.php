@@ -3577,6 +3577,9 @@ class Cr extends OpenApiClient
         if (!Utils::isUnset($request->moduleName)) {
             $query['ModuleName'] = $request->moduleName;
         }
+        if (!Utils::isUnset($request->summary)) {
+            $query['Summary'] = $request->summary;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

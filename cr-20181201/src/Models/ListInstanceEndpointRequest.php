@@ -28,9 +28,15 @@ class ListInstanceEndpointRequest extends Model
      * @var string
      */
     public $moduleName;
+
+    /**
+     * @var bool
+     */
+    public $summary;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'moduleName' => 'ModuleName',
+        'summary'    => 'Summary',
     ];
 
     public function validate()
@@ -45,6 +51,9 @@ class ListInstanceEndpointRequest extends Model
         }
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
+        }
+        if (null !== $this->summary) {
+            $res['Summary'] = $this->summary;
         }
 
         return $res;
@@ -63,6 +72,9 @@ class ListInstanceEndpointRequest extends Model
         }
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
+        }
+        if (isset($map['Summary'])) {
+            $model->summary = $map['Summary'];
         }
 
         return $model;

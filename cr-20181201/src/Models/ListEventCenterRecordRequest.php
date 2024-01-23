@@ -51,6 +51,16 @@ class ListEventCenterRecordRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $repoName;
+
+    /**
+     * @var string
+     */
+    public $repoNamespaceName;
+
+    /**
      * @description The ID of the event notification rule.
      *
      * @example crecr-n6pbhgjxtla***
@@ -59,11 +69,13 @@ class ListEventCenterRecordRequest extends Model
      */
     public $ruleId;
     protected $_name = [
-        'eventType'  => 'EventType',
-        'instanceId' => 'InstanceId',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'ruleId'     => 'RuleId',
+        'eventType'         => 'EventType',
+        'instanceId'        => 'InstanceId',
+        'pageNo'            => 'PageNo',
+        'pageSize'          => 'PageSize',
+        'repoName'          => 'RepoName',
+        'repoNamespaceName' => 'RepoNamespaceName',
+        'ruleId'            => 'RuleId',
     ];
 
     public function validate()
@@ -84,6 +96,12 @@ class ListEventCenterRecordRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->repoName) {
+            $res['RepoName'] = $this->repoName;
+        }
+        if (null !== $this->repoNamespaceName) {
+            $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
@@ -111,6 +129,12 @@ class ListEventCenterRecordRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RepoName'])) {
+            $model->repoName = $map['RepoName'];
+        }
+        if (isset($map['RepoNamespaceName'])) {
+            $model->repoNamespaceName = $map['RepoNamespaceName'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
