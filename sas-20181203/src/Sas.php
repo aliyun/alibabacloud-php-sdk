@@ -19491,6 +19491,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->exportFileType)) {
+            $query['ExportFileType'] = $request->exportFileType;
+        }
         if (!Utils::isUnset($request->exportType)) {
             $query['ExportType'] = $request->exportType;
         }

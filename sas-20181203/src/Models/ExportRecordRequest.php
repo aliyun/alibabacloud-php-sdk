@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ExportRecordRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $exportFileType;
+
+    /**
      * @description The type of the check result list to export. Valid values:
      *
      *   **assetInstance**: the list of servers displayed on the Host page
@@ -58,9 +63,10 @@ class ExportRecordRequest extends Model
      */
     public $params;
     protected $_name = [
-        'exportType' => 'ExportType',
-        'lang'       => 'Lang',
-        'params'     => 'Params',
+        'exportFileType' => 'ExportFileType',
+        'exportType'     => 'ExportType',
+        'lang'           => 'Lang',
+        'params'         => 'Params',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class ExportRecordRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->exportFileType) {
+            $res['ExportFileType'] = $this->exportFileType;
+        }
         if (null !== $this->exportType) {
             $res['ExportType'] = $this->exportType;
         }
@@ -91,6 +100,9 @@ class ExportRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExportFileType'])) {
+            $model->exportFileType = $map['ExportFileType'];
+        }
         if (isset($map['ExportType'])) {
             $model->exportType = $map['ExportType'];
         }
