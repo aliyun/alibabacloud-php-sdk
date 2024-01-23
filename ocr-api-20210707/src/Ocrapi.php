@@ -1908,6 +1908,9 @@ class Ocrapi extends OpenApiClient
         if (!Utils::isUnset($request->outputTable)) {
             $query['OutputTable'] = $request->outputTable;
         }
+        if (!Utils::isUnset($request->paragraph)) {
+            $query['Paragraph'] = $request->paragraph;
+        }
         if (!Utils::isUnset($request->url)) {
             $query['Url'] = $request->url;
         }

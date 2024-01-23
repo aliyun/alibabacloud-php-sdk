@@ -1,3 +1,6 @@
+2024-01-23 Version: 2.0.4
+- Generated php 2021-07-07 for ocr-api.
+
 2024-01-09 Version: 2.0.3
 - Generated php 2021-07-07 for ocr-api.
 

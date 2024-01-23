@@ -38,6 +38,11 @@ class RecognizeHandwritingRequest extends Model
     public $outputTable;
 
     /**
+     * @var bool
+     */
+    public $paragraph;
+
+    /**
      * @example https://img.alicdn.com/tfs/TB1Wo7eXAvoK1RjSZFDXXXY3pXa-2512-3509.jpg
      *
      * @var string
@@ -53,6 +58,7 @@ class RecognizeHandwritingRequest extends Model
         'needSortPage'   => 'NeedSortPage',
         'outputCharInfo' => 'OutputCharInfo',
         'outputTable'    => 'OutputTable',
+        'paragraph'      => 'Paragraph',
         'url'            => 'Url',
         'body'           => 'body',
     ];
@@ -75,6 +81,9 @@ class RecognizeHandwritingRequest extends Model
         }
         if (null !== $this->outputTable) {
             $res['OutputTable'] = $this->outputTable;
+        }
+        if (null !== $this->paragraph) {
+            $res['Paragraph'] = $this->paragraph;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -105,6 +114,9 @@ class RecognizeHandwritingRequest extends Model
         }
         if (isset($map['OutputTable'])) {
             $model->outputTable = $map['OutputTable'];
+        }
+        if (isset($map['Paragraph'])) {
+            $model->paragraph = $map['Paragraph'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
