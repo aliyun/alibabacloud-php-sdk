@@ -19,7 +19,7 @@ class DBTopologyInfoList extends Model
     public $catalogName;
 
     /**
-     * @description The ID of the logical database.
+     * @description The ID of the database for which the schema design is executed.
      *
      * @example 423532
      *
@@ -28,7 +28,7 @@ class DBTopologyInfoList extends Model
     public $dbId;
 
     /**
-     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     * @description The type of the database engine.
      *
      * @example polardb
      *
@@ -37,18 +37,17 @@ class DBTopologyInfoList extends Model
     public $dbType;
 
     /**
-     * @description The type of the environment to which the logical database belongs. Valid values:
+     * @description The type of the environment to which the database belongs. Valid values:
      *
-     *   **product**: production environment
-     *   **dev**: development environment
-     *   **pre**: pre-release environment
-     *   **test**: test environment
-     *   **sit**: SIT environment
-     *   **uat**: UAT environment
-     *   **pet**: stress testing environment
-     *   **stag**: staging environment
+     *   product: production environment
+     *   dev: development environment
+     *   pre: staging environment
+     *   test: test environment
+     *   sit: SIT environment
+     *   uat: user acceptance testing (UAT) environment
+     *   pet: stress testing environment
+     *   stag: STAG environment
      *
-     * > For more information, see [Change the environment type of an instance](~~163309~~).
      * @example dev
      *
      * @var string
@@ -56,7 +55,7 @@ class DBTopologyInfoList extends Model
     public $envType;
 
     /**
-     * @description The ID of the instance in which the logical database resides.
+     * @description The ID of the instance. The valid value is returned if you call the ListInstances operation. The instance ID is not the ID of the RDS instance.
      *
      * @example 4325325
      *
@@ -65,13 +64,7 @@ class DBTopologyInfoList extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the resource related to the instance. The resource corresponds with the database instance type returned in the InstanceSource parameter.
-     *
-     *   If the value of the InstanceSource parameter is RDS, the ID of an ApsaraDB RDS instance is returned.
-     *   If the value of the InstanceSource parameter is ECS_OWN, the ID of a self-managed database that is hosted on an Elastic Compute Service (ECS) instance is returned.
-     *   If the value of the InstanceSource parameter is PUBLIC_OWN, an empty string is returned.
-     *   If the value of the InstanceSource parameter is VPC_ID, the ID of a self-managed database instance in a virtual private cloud (VPC) that is connected over Express Connect circuits is returned.
-     *   If the value of the InstanceSource parameter is GATEWAY, the ID of a database instance connected by using a database gateway is returned.
+     * @description Instance resource ID.
      *
      * @example rm-xxx
      *
@@ -80,13 +73,12 @@ class DBTopologyInfoList extends Model
     public $instanceResourceId;
 
     /**
-     * @description The type of the database instance. Valid values:
+     * @description The source of the database instance. Valid values:
      *
-     *   **RDS**: an ApsaraDB RDS instance.
-     *   **ECS_OWN**: a self-managed database that is hosted on an ECS instance.
-     *   **PUBLIC_OWN**: a self-managed database instance that is connected over the Internet.
-     *   **VPC_ID**: a self-managed database instance in a VPC that is connected over Express Connect circuits.
-     *   **GATEWAY**: a database instance connected by using a database gateway.
+     *   **PUBLIC_OWN:** a self-managed database instance that is deployed on the Internet
+     *   **RDS:** an ApsaraDB RDS instance
+     *   **ECS_OWN:** a self-managed database that is deployed on an Elastic Compute Service (ECS) instance
+     *   **VPC_IDC:** a self-managed database instance that is deployed in a data center connected over a virtual private cloud (VPC)
      *
      * @example RDS
      *
@@ -114,7 +106,7 @@ class DBTopologyInfoList extends Model
     public $schemaName;
 
     /**
-     * @description The name that is used to search for the database.
+     * @description The name of the saved search.
      *
      * @example db_test
      *
