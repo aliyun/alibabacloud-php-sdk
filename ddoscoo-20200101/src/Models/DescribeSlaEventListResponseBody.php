@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlaEventListResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example CF33B4C3-196E-4015-AADD-5CAD00057B80
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeSlaEventListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The destination rate limit events.
+     *
      * @var slaEvent[]
      */
     public $slaEvent;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 10
      *
      * @var int

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class instanceExtSpecs extends Model
 {
     /**
+     * @description The function plan. Valid values:
+     *
+     *   **0**: Standard
+     *   **1**: Enhanced
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,8 @@ class instanceExtSpecs extends Model
     public $functionVersion;
 
     /**
+     * @description The instance ID
+     *
      * @example ddoscoo-cn-i7m25564****
      *
      * @var string
@@ -23,6 +30,8 @@ class instanceExtSpecs extends Model
     public $instanceId;
 
     /**
+     * @description The clean bandwidth. Unit: Mbit/s.
+     *
      * @example 100
      *
      * @var int
@@ -30,6 +39,14 @@ class instanceExtSpecs extends Model
     public $normalBandwidth;
 
     /**
+     * @description The type of the instance. Valid value:
+     *
+     *   **0**: Anti-DDoS Premium instance of the Insurance mitigation plan
+     *   **1**: Anti-DDoS Premium instance of the Unlimited mitigation plan
+     *   **2**: Anti-DDoS Premium instance of the CMA mitigation plan
+     *   **3**: Anti-DDoS Premium instance of the Secure Chinese Mainland Acceleration (Sec-CMA) plan
+     *   **9**: Anti-DDoS Pro instance of the Profession mitigation plan
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +54,8 @@ class instanceExtSpecs extends Model
     public $productPlan;
 
     /**
+     * @description The Internet service provider (ISP) line resource of the Anti-DDoS Pro instance.
+     *
      * @example coop-line-001
      *
      * @var string

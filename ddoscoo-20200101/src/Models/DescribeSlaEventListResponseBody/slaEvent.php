@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class slaEvent extends Model
 {
     /**
+     * @description The end of the time range. Unit: seconds.
+     *
      * @example 1671886740
      *
      * @var int
@@ -16,6 +18,8 @@ class slaEvent extends Model
     public $endTime;
 
     /**
+     * @description The IP address of the instance.
+     *
      * @example 203.107.XX.XX
      *
      * @var string
@@ -23,6 +27,11 @@ class slaEvent extends Model
     public $ip;
 
     /**
+     * @description The region to which the destination IP address belongs. Valid values:
+     *
+     *   **cn**: a region in the Chinese mainland
+     *   **cn-hongkong**: China (Hong Kong)
+     *
      * @example cn
      *
      * @var string
@@ -30,6 +39,8 @@ class slaEvent extends Model
     public $region;
 
     /**
+     * @description The beginning of the time range. Unit: seconds.
+     *
      * @example 1678080840
      *
      * @var int

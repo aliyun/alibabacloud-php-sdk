@@ -65,6 +65,11 @@ class networkRules extends Model
      * @var string[]
      */
     public $realServers;
+
+    /**
+     * @var string
+     */
+    public $remark;
     protected $_name = [
         'backendPort'  => 'BackendPort',
         'frontendPort' => 'FrontendPort',
@@ -72,6 +77,7 @@ class networkRules extends Model
         'isAutoCreate' => 'IsAutoCreate',
         'protocol'     => 'Protocol',
         'realServers'  => 'RealServers',
+        'remark'       => 'Remark',
     ];
 
     public function validate()
@@ -98,6 +104,9 @@ class networkRules extends Model
         }
         if (null !== $this->realServers) {
             $res['RealServers'] = $this->realServers;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
 
         return $res;
@@ -130,6 +139,9 @@ class networkRules extends Model
             if (!empty($map['RealServers'])) {
                 $model->realServers = $map['RealServers'];
             }
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         return $model;

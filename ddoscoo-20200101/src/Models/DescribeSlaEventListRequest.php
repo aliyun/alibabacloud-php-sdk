@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlaEventListRequest extends Model
 {
     /**
+     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
      * @example 3289457398
      *
      * @var int
@@ -16,6 +19,8 @@ class DescribeSlaEventListRequest extends Model
     public $endTime;
 
     /**
+     * @description The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance.
+     *
      * @example 203.107.XX.XX
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeSlaEventListRequest extends Model
     public $ip;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +37,8 @@ class DescribeSlaEventListRequest extends Model
     public $page;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +46,11 @@ class DescribeSlaEventListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the service Valid values:
+     *
+     *   **cn**: Anti-DDoS Pro
+     *   **cn-hongkong**: Anti-DDoS Premium
+     *
      * @example cn
      *
      * @var string
@@ -44,6 +58,9 @@ class DescribeSlaEventListRequest extends Model
     public $region;
 
     /**
+     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
      * @example 3289457398
      *
      * @var int

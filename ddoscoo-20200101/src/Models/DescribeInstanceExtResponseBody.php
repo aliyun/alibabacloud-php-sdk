@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceExtResponseBody extends Model
 {
     /**
+     * @description The information about the instance.
+     *
      * @var instanceExtSpecs[]
      */
     public $instanceExtSpecs;
 
     /**
+     * @description The request ID.
+     *
      * @example CF33B4C3-196E-4015-AADD-5CAD00057B80
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeInstanceExtResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of queried instances.
+     *
      * @example 10
      *
      * @var int
