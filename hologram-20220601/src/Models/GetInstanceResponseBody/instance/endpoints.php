@@ -80,7 +80,7 @@ class endpoints extends Model
     public $vSwitchId;
 
     /**
-     * @description The VPC ID.
+     * @description The ID of the VPC to which the instance belongs.
      *
      * @example vpc-uf66jjber3hgvwhki3wna
      *
@@ -89,7 +89,7 @@ class endpoints extends Model
     public $vpcId;
 
     /**
-     * @description The ID of VPC to which the instance belongs.
+     * @description The ID of the instance that is deployed in the VPC.
      *
      * @example hgprecn-cn-uqm362o1b001-frontend-st
      *

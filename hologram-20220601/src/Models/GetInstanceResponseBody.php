@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code that is returned if the request failed.
      *
      * @example 404
      *
@@ -19,7 +19,7 @@ class GetInstanceResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The error message.
      *
      * @example Internal server error.
      *
@@ -28,7 +28,7 @@ class GetInstanceResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -37,7 +37,7 @@ class GetInstanceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The details of the instance.
+     * @description The information about the instance.
      *
      * @var instance
      */

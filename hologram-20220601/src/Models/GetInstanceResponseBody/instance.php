@@ -80,7 +80,7 @@ class instance extends Model
     public $commodityCode;
 
     /**
-     * @description The number of compute nodes. In a typical configuration, a node has 16 vCPUs and 32 GB of memory.
+     * @description The number of compute nodes. In a typical configuration, a node has 16 CPU cores and 32 GB of memory.
      *
      * @example 2
      *
@@ -89,7 +89,7 @@ class instance extends Model
     public $computeNodeCount;
 
     /**
-     * @description The number of vCPUs.
+     * @description The number of CPU cores.
      *
      * @example 32
      *
@@ -98,7 +98,7 @@ class instance extends Model
     public $cpu;
 
     /**
-     * @description The creation time.
+     * @description The time when the instance was created.
      *
      * @example 2021-02-03T13:06:06Z
      *
@@ -141,7 +141,7 @@ class instance extends Model
     public $expirationTime;
 
     /**
-     * @description 网关节点数量。
+     * @description The number of gateway nodes.
      *
      * @example 2
      *
@@ -150,8 +150,8 @@ class instance extends Model
     public $gatewayCount;
 
     /**
-     * @description 网关cpu资源。
-     * 单位：core。
+     * @description The number of CPU cores of the gateway. Unit: core.
+     *
      * @example 4
      *
      * @var int
@@ -159,8 +159,8 @@ class instance extends Model
     public $gatewayCpu;
 
     /**
-     * @description 网关内存资源。
-     * 单位：GB。
+     * @description The size of memory resources of the gateway. Unit: GB.
+     *
      * @example 16
      *
      * @var int
@@ -275,9 +275,18 @@ class instance extends Model
     public $memory;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $replicaRole;
 
     /**
      * @description The ID of the resource group.
@@ -291,6 +300,19 @@ class instance extends Model
     /**
      * @description The reason for the suspension.
      *
+     * Valid values:
+     *
+     *   Indebet
+     *
+     * .
+     *
+     *   Manual
+     *
+     * .
+     *
+     *   Overdue
+     *
+     * .
      * @example Manual
      *
      * @var string
@@ -344,6 +366,7 @@ class instance extends Model
         'leaderInstanceId'   => 'LeaderInstanceId',
         'memory'             => 'Memory',
         'regionId'           => 'RegionId',
+        'replicaRole'        => 'ReplicaRole',
         'resourceGroupId'    => 'ResourceGroupId',
         'suspendReason'      => 'SuspendReason',
         'tags'               => 'Tags',
@@ -429,6 +452,9 @@ class instance extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->replicaRole) {
+            $res['ReplicaRole'] = $this->replicaRole;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -534,6 +560,9 @@ class instance extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ReplicaRole'])) {
+            $model->replicaRole = $map['ReplicaRole'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

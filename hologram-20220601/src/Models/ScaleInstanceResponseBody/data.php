@@ -20,6 +20,8 @@ class data extends Model
     /**
      * @description The error details.
      *
+     * @example null
+     *
      * @var string
      */
     public $message;
