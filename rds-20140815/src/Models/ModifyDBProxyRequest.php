@@ -49,7 +49,7 @@ class ModifyDBProxyRequest extends Model
     public $DBProxyInstanceNum;
 
     /**
-     * @description A reserved parameter. You do not need to specify this parameter.
+     * @description This parameter is reserved. You do not need to specify this parameter.
      *
      * @example common
      *

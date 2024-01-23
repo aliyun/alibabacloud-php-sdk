@@ -12365,6 +12365,9 @@ class Rds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->enableDetail)) {
+            $query['EnableDetail'] = $request->enableDetail;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }

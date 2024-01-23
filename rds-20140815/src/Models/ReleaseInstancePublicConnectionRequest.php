@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstancePublicConnectionRequest extends Model
 {
     /**
-     * @description The public endpoint. You can call the DescribeDBInstanceNetInfo to query the public endpoint.
+     * @description The public endpoint. You can call the DescribeDBInstanceNetInfo operation to query the public endpoint.
      *
      * @example rm-uf6wjk5xxxx.mysql.rds.aliyuncs.com
      *

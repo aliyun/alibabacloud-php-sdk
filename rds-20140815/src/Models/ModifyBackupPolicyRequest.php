@@ -14,12 +14,8 @@ class ModifyBackupPolicyRequest extends Model
      *   Valid values when **ArchiveBackupKeepPolicy** is set to **ByMonth**: **1** to **31**.
      *   Valid values when **ArchiveBackupKeepPolicy** is set to **ByWeek**: **1** to **7**.
      *
-     * >
-     *
-     *   You do not need to specify this parameter when **ArchiveBackupKeepPolicy** is set to **KeepAll**.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
-     *
+     * > *   You do not need to specify this parameter when **ArchiveBackupKeepPolicy** is set to **KeepAll**.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
      * @example 1
      *
      * @var int
@@ -60,18 +56,11 @@ class ModifyBackupPolicyRequest extends Model
      *   **240**: A snapshot backup is performed every 240 minutes.
      *   **480**: A snapshot backup is performed every 480 minutes.
      *
-     * >
-     *
-     *   You can configure a backup policy by using this parameter and the **PreferredBackupPeriod** parameter. For example, if you set **PreferredBackupPeriod** to Saturday,Sunday and BackupInterval to \*\*-1\*\*, a snapshot backup is performed on every Saturday and Sunday.
-     *
-     *   If the instance runs PostgreSQL, BackupInterval is supported only when the instance is equipped with cloud disks.
-     *
-     *   If the instance runs SQL Server, BackupInterval is supported only when the snapshot backup feature is enabled for the instance. For more information, see [Enable snapshot backups for an ApsaraDB RDS for SQL Server instance](~~211143~~).
-     *
-     *   If **Category** is set to **Flash**, BackupInterval is invalid.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
-     *
+     * > *   You can configure a backup policy by using this parameter and the **PreferredBackupPeriod** parameter. For example, if you set **PreferredBackupPeriod** to Saturday,Sunday and BackupInterval to \*\*-1\*\*, a snapshot backup is performed on every Saturday and Sunday.
+     * > *   If the instance runs PostgreSQL, BackupInterval is supported only when the instance is equipped with cloud disks.
+     * > *   If the instance runs SQL Server, BackupInterval is supported only when the snapshot backup feature is enabled for the instance. For more information, see [Enable snapshot backups for an ApsaraDB RDS for SQL Server instance](~~211143~~).
+     * > *   If **Category** is set to **Flash**, BackupInterval is invalid.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
      * @example 30
      *
      * @var string
@@ -84,12 +73,8 @@ class ModifyBackupPolicyRequest extends Model
      *   **Enable**: enables the feature.
      *   **Disabled**: disables the feature.
      *
-     * >
-     *
-     *   This parameter must be specified when **BackupPolicyMode** is set to **DataBackupPolicy**.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
-     *
+     * > *   This parameter must be specified when **BackupPolicyMode** is set to **DataBackupPolicy**.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
      * @example Enable
      *
      * @var string
@@ -104,12 +89,8 @@ class ModifyBackupPolicyRequest extends Model
      *
      * Default value: **Physical**.
      *
-     * >
-     *
-     *   This parameter takes effect only on instances that run SQL Server with cloud disks.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
-     *
+     * > *   This parameter takes effect only on instances that run SQL Server with cloud disks.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
      * @example Physical
      *
      * @var string
@@ -134,12 +115,8 @@ class ModifyBackupPolicyRequest extends Model
      *   **1**: secondary instance preferred
      *   **2**: primary instance preferred
      *
-     * >
-     *
-     *   This parameter is suitable only for instances that run SQL Server on RDS Cluster Edition.
-     *
-     *   This parameter takes effect only when **BackupMethod** is set to **Physical**. If **BackupMethod** is set to **Snapshot**, backups are forcefully performed on the primary instance that runs SQL Server on RDS Cluster Edition.
-     *
+     * > *   This parameter is suitable only for instances that run SQL Server on RDS Cluster Edition.
+     * > *   This parameter takes effect only when **BackupMethod** is set to **Physical**. If **BackupMethod** is set to **Snapshot**, backups are forcefully performed on the primary instance that runs SQL Server on RDS Cluster Edition.
      * @example 2
      *
      * @var int
@@ -149,12 +126,8 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The number of days for which you want to retain data backup files. Valid values: **7 to 730**.
      *
-     * >
-     *
-     *   This parameter must be specified when **BackupPolicyMode** is set to **DataBackupPolicy**.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
-     *
+     * > *   This parameter must be specified when **BackupPolicyMode** is set to **DataBackupPolicy**.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
      * @example 7
      *
      * @var string
@@ -205,12 +178,8 @@ class ModifyBackupPolicyRequest extends Model
      *   **True** or **1**: enables the feature.
      *   **False** or **0**: disables the feature.
      *
-     * >
-     *
-     *   This parameter must be specified when **BackupPolicyMode** is set to **LogBackupPolicy**.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**.
-     *
+     * > *   This parameter must be specified when **BackupPolicyMode** is set to **LogBackupPolicy**.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**.
      * @example 1
      *
      * @var string
@@ -223,12 +192,8 @@ class ModifyBackupPolicyRequest extends Model
      *   **false** (default): disables the feature.
      *   **true**: enables the feature.
      *
-     * >
-     *
-     *   This parameter takes effect only on instances that run SQL Server with cloud disks.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
-     *
+     * > *   This parameter takes effect only on instances that run SQL Server with cloud disks.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
      * @example false
      *
      * @var bool
@@ -238,12 +203,8 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description Specifies whether to forcefully delete log backup files from the instance when the storage usage of the instance exceeds 80% or the amount of remaining storage on the instance is less than 5 GB. Valid values: **Enable and Disable**. You can retain the default value.
      *
-     * >
-     *
-     *   This parameter must be specified when **BackupPolicyMode** is set to **LogBackupPolicy**.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**.
-     *
+     * > *   This parameter must be specified when **BackupPolicyMode** is set to **LogBackupPolicy**.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**.
      * @example Enable
      *
      * @var string
@@ -253,12 +214,8 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The number of hours for which you want to retain log backup files on the instance. Valid values: **0 to 168**. The value 0 specifies that log backup files are not retained on the instance. The value 168 is calculated based on the following formula: 7 × 24.
      *
-     * >
-     *
-     *   This parameter must be specified when **BackupPolicyMode** is set to **LogBackupPolicy**.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**.
-     *
+     * > *   This parameter must be specified when **BackupPolicyMode** is set to **LogBackupPolicy**.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**.
      * @example 18
      *
      * @var string
@@ -268,12 +225,8 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The maximum storage usage that is allowed for log backup files on the instance. If the storage usage for log backup files on the instance exceeds the value of this parameter, the system deletes earlier log backup files until the storage usage falls below the value of this parameter. Valid values:**0 to 50**. You can retain the default value.
      *
-     * >
-     *
-     *   This parameter must be specified when **BackupPolicyMode** is set to **LogBackupPolicy**.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**.
-     *
+     * > *   This parameter must be specified when **BackupPolicyMode** is set to **LogBackupPolicy**.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**.
      * @example 30
      *
      * @var string
@@ -286,12 +239,8 @@ class ModifyBackupPolicyRequest extends Model
      *   **LogInterval**: A log backup is performed every 30 minutes.
      *   The default value is the same as the data backup frequency.
      *
-     * >
-     *
-     *   The value **LogInterval** is supported only for instances that run SQL Server.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
-     *
+     * > *   The value **LogInterval** is supported only for instances that run SQL Server.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
      * @example LogInterval
      *
      * @var string
@@ -301,12 +250,8 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The number of binary log files that you want to retain on the instance. Default value: **60**. Valid values: **6** to **100**.
      *
-     * >
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**.
-     *
-     *   If the instance runs MySQL, you can set this parameter to \*\*-1\*\*. The value -1 specifies that no limits are imposed on the number of binary log files retained on the instance.
-     *
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**.
+     * > *   If the instance runs MySQL, you can set this parameter to \*\*-1\*\*. The value -1 specifies that no limits are imposed on the number of binary log files retained on the instance.
      * @example 60
      *
      * @var int
@@ -316,12 +261,8 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The number of days for which the log backup is retained. Valid values: **7 to 730**. The log backup retention period cannot be longer than the data backup retention period.
      *
-     * >
-     *
-     *   If you enable the log backup feature, you can specify the log backup retention period. This parameter is supported for instances that run MySQL and PostgreSQL.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy** or **LogBackupPolicy**.
-     *
+     * > *   If you enable the log backup feature, you can specify the log backup retention period. This parameter is supported for instances that run MySQL and PostgreSQL.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy** or **LogBackupPolicy**.
      * @example 7
      *
      * @var string
@@ -349,14 +290,9 @@ class ModifyBackupPolicyRequest extends Model
      *   **Saturday**
      *   **Sunday**
      *
-     * >
-     *
-     *   You can configure a backup policy by using this parameter and the **BackupInterval** parameter. For example, if you set this parameter to Saturday,Sunday and the **BackupInterval** parameter to 30, a backup is performed every 30 minutes on every Saturday and Sunday.
-     *
-     *   This parameter must be specified when **BackupPolicyMode** is set to **DataBackupPolicy**.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
-     *
+     * > *   You can configure a backup policy by using this parameter and the **BackupInterval** parameter. For example, if you set this parameter to Saturday,Sunday and the **BackupInterval** parameter to 30, a backup is performed every 30 minutes on every Saturday and Sunday.
+     * > *   This parameter must be specified when **BackupPolicyMode** is set to **DataBackupPolicy**.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
      * @example Monday
      *
      * @var string
@@ -366,12 +302,8 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The time at which you want to perform a backup. Specify the time in the ISO 8601 standard in the *HH:mm*Z-*HH:mm*Z format. The time must be in UTC.
      *
-     * >
-     *
-     *   This parameter must be specified when **BackupPolicyMode** is set to **DataBackupPolicy**.
-     *
-     *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
-     *
+     * > *   This parameter must be specified when **BackupPolicyMode** is set to **DataBackupPolicy**.
+     * > *   This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
      * @example 00:00Z-01:00Z
      *
      * @var string

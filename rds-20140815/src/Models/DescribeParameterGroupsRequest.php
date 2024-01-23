@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterGroupsRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableDetail;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -41,6 +46,7 @@ class DescribeParameterGroupsRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'enableDetail'         => 'EnableDetail',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
@@ -55,6 +61,9 @@ class DescribeParameterGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableDetail) {
+            $res['EnableDetail'] = $this->enableDetail;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -82,6 +91,9 @@ class DescribeParameterGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableDetail'])) {
+            $model->enableDetail = $map['EnableDetail'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

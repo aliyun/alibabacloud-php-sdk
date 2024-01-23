@@ -15,12 +15,8 @@ class ModifyDBInstanceTDERequest extends Model
      *   Public endpoint: `oss-<The ID of the region>.aliyuncs.com:<The name of the bucket>:<The name of the certificate file>` (The file name contains the extension.)
      *   Internal endpoint: `oss-<The ID of the region>-internal.aliyuncs.com:<The name of the bucket>:<The name of the certificate file>` (The file name contains the extension.)
      *
-     * >
-     *
-     *   This parameter is available when the instance runs SQL Server 2019 SE or an Enterprise Edition of SQL Server.
-     *
-     *   You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
-     *
+     * > *   This parameter is available when the instance runs SQL Server 2019 SE or an Enterprise Edition of SQL Server.
+     * > *   You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      * @example oss-ap-southeast-1.aliyuncs.com:****:key.cer
      *
      * @var string
@@ -98,12 +94,8 @@ class ModifyDBInstanceTDERequest extends Model
      *   Public endpoint: `oss-<The ID of the region>.aliyuncs.com:<The name of the bucket>:<The name of the file that contains the private key>` (The file name contains the extension.)
      *   Internal endpoint: `oss-<The ID of the region>-internal.aliyuncs.com:<The name of the bucket>:<The name of the file that contains the private key>` (The file name contains the extension.)
      *
-     * >
-     *
-     *   This parameter is available when the instance runs SQL Server 2019 SE or an Enterprise Edition of SQL Server.
-     *
-     *   You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
-     *
+     * > *   This parameter is available when the instance runs SQL Server 2019 SE or an Enterprise Edition of SQL Server.
+     * > *   You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      * @example oss-ap-southeast-1.aliyuncs.com:****:key.pvk
      *
      * @var string
