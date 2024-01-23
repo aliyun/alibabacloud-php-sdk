@@ -35,6 +35,20 @@ class runningData extends Model
     public $concurrency;
 
     /**
+     * @example 引擎租用失败
+     *
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $hasError;
+
+    /**
      * @example false
      *
      * @var bool
@@ -54,6 +68,13 @@ class runningData extends Model
      * @var bool
      */
     public $isDebugging;
+
+    /**
+     * @example DYYPLDKS
+     *
+     * @var string
+     */
+    public $reportId;
 
     /**
      * @var mixed[][]
@@ -106,9 +127,12 @@ class runningData extends Model
         'agentIdList'    => 'AgentIdList',
         'allSampleStat'  => 'AllSampleStat',
         'concurrency'    => 'Concurrency',
+        'errorMessage'   => 'ErrorMessage',
+        'hasError'       => 'HasError',
         'hasReport'      => 'HasReport',
         'holdFor'        => 'HoldFor',
         'isDebugging'    => 'IsDebugging',
+        'reportId'       => 'ReportId',
         'sampleStatList' => 'SampleStatList',
         'sceneId'        => 'SceneId',
         'sceneName'      => 'SceneName',
@@ -137,6 +161,12 @@ class runningData extends Model
         if (null !== $this->concurrency) {
             $res['Concurrency'] = $this->concurrency;
         }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->hasError) {
+            $res['HasError'] = $this->hasError;
+        }
         if (null !== $this->hasReport) {
             $res['HasReport'] = $this->hasReport;
         }
@@ -145,6 +175,9 @@ class runningData extends Model
         }
         if (null !== $this->isDebugging) {
             $res['IsDebugging'] = $this->isDebugging;
+        }
+        if (null !== $this->reportId) {
+            $res['ReportId'] = $this->reportId;
         }
         if (null !== $this->sampleStatList) {
             $res['SampleStatList'] = $this->sampleStatList;
@@ -193,6 +226,12 @@ class runningData extends Model
         if (isset($map['Concurrency'])) {
             $model->concurrency = $map['Concurrency'];
         }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['HasError'])) {
+            $model->hasError = $map['HasError'];
+        }
         if (isset($map['HasReport'])) {
             $model->hasReport = $map['HasReport'];
         }
@@ -201,6 +240,9 @@ class runningData extends Model
         }
         if (isset($map['IsDebugging'])) {
             $model->isDebugging = $map['IsDebugging'];
+        }
+        if (isset($map['ReportId'])) {
+            $model->reportId = $map['ReportId'];
         }
         if (isset($map['SampleStatList'])) {
             if (!empty($map['SampleStatList'])) {

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\PTS\V20201020\Models\SaveOpenJMeterSceneRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\SaveOpenJMeterSceneRequest\openJMeterScene\dnsCacheConfig;
 use AlibabaCloud\SDK\PTS\V20201020\Models\SaveOpenJMeterSceneRequest\openJMeterScene\fileList;
 use AlibabaCloud\SDK\PTS\V20201020\Models\SaveOpenJMeterSceneRequest\openJMeterScene\JMeterProperties;
+use AlibabaCloud\SDK\PTS\V20201020\Models\SaveOpenJMeterSceneRequest\openJMeterScene\regionalCondition;
 use AlibabaCloud\Tea\Model;
 
 class openJMeterScene extends Model
@@ -104,6 +105,11 @@ class openJMeterScene extends Model
     public $regionId;
 
     /**
+     * @var regionalCondition[]
+     */
+    public $regionalCondition;
+
+    /**
      * @example DYYPZIH
      *
      * @var string
@@ -187,6 +193,7 @@ class openJMeterScene extends Model
         'mode'                        => 'Mode',
         'rampUp'                      => 'RampUp',
         'regionId'                    => 'RegionId',
+        'regionalCondition'           => 'RegionalCondition',
         'sceneId'                     => 'SceneId',
         'sceneName'                   => 'SceneName',
         'securityGroupId'             => 'SecurityGroupId',
@@ -259,6 +266,15 @@ class openJMeterScene extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->regionalCondition) {
+            $res['RegionalCondition'] = [];
+            if (null !== $this->regionalCondition && \is_array($this->regionalCondition)) {
+                $n = 0;
+                foreach ($this->regionalCondition as $item) {
+                    $res['RegionalCondition'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
@@ -355,6 +371,15 @@ class openJMeterScene extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RegionalCondition'])) {
+            if (!empty($map['RegionalCondition'])) {
+                $model->regionalCondition = [];
+                $n                        = 0;
+                foreach ($map['RegionalCondition'] as $item) {
+                    $model->regionalCondition[$n++] = null !== $item ? regionalCondition::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];

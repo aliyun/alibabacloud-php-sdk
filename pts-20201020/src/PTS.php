@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\PTS\V20201020\Models\DeletePtsScenesShrinkRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetAllRegionsResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetJMeterLogsRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetJMeterLogsResponse;
+use AlibabaCloud\SDK\PTS\V20201020\Models\GetJMeterReportDetailsRequest;
+use AlibabaCloud\SDK\PTS\V20201020\Models\GetJMeterReportDetailsResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetJMeterSampleMetricsRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetJMeterSampleMetricsResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\GetJMeterSamplingLogsRequest;
@@ -554,6 +556,49 @@ class PTS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getJMeterLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetJMeterReportDetailsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetJMeterReportDetailsResponse
+     */
+    public function getJMeterReportDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJMeterReportDetails',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetJMeterReportDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetJMeterReportDetailsRequest $request
+     *
+     * @return GetJMeterReportDetailsResponse
+     */
+    public function getJMeterReportDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getJMeterReportDetailsWithOptions($request, $runtime);
     }
 
     /**
