@@ -114,6 +114,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrUpdateFormDataHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrUpdateFormDataRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrUpdateFormDataResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrUpdateFormDataShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreatePersonalTodoTaskHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreatePersonalTodoTaskRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreatePersonalTodoTaskResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreatePersonalTodoTaskShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreatePersonalTodoTaskShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportResponse;
@@ -2516,6 +2521,96 @@ class Aliding extends OpenApiClient
         $headers = new CreateOrgHonorTemplateHeaders([]);
 
         return $this->createOrgHonorTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreatePersonalTodoTaskRequest $tmpReq
+     * @param CreatePersonalTodoTaskHeaders $tmpHeader
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreatePersonalTodoTaskResponse
+     */
+    public function createPersonalTodoTaskWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreatePersonalTodoTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new CreatePersonalTodoTaskShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->executorIds)) {
+            $request->executorIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executorIds, 'ExecutorIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notifyConfigs)) {
+            $request->notifyConfigsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notifyConfigs, 'NotifyConfigs', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->participantIds)) {
+            $request->participantIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->participantIds, 'ParticipantIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dueTime)) {
+            $body['DueTime'] = $request->dueTime;
+        }
+        if (!Utils::isUnset($request->executorIdsShrink)) {
+            $body['ExecutorIds'] = $request->executorIdsShrink;
+        }
+        if (!Utils::isUnset($request->notifyConfigsShrink)) {
+            $body['NotifyConfigs'] = $request->notifyConfigsShrink;
+        }
+        if (!Utils::isUnset($request->participantIdsShrink)) {
+            $body['ParticipantIds'] = $request->participantIdsShrink;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $body['Subject'] = $request->subject;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePersonalTodoTask',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/task/createPersonalTodoTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePersonalTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreatePersonalTodoTaskRequest $request
+     *
+     * @return CreatePersonalTodoTaskResponse
+     */
+    public function createPersonalTodoTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreatePersonalTodoTaskHeaders([]);
+
+        return $this->createPersonalTodoTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
