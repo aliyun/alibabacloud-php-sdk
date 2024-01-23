@@ -80,7 +80,7 @@ class resourceShareInvitation extends Model
      *   Expired
      *   AcceptFailed
      *
-     * @example Accepted
+     * @example AcceptFailed
      *
      * @var string
      */

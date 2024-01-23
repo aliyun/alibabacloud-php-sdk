@@ -161,6 +161,9 @@ class ResourceSharing extends OpenApiClient
         if (!Utils::isUnset($request->resources)) {
             $query['Resources'] = $request->resources;
         }
+        if (!Utils::isUnset($request->targetProperties)) {
+            $query['TargetProperties'] = $request->targetProperties;
+        }
         if (!Utils::isUnset($request->targets)) {
             $query['Targets'] = $request->targets;
         }
@@ -355,6 +358,9 @@ class ResourceSharing extends OpenApiClient
         }
         if (!Utils::isUnset($request->resources)) {
             $query['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->targetProperties)) {
+            $query['TargetProperties'] = $request->targetProperties;
         }
         if (!Utils::isUnset($request->targets)) {
             $query['Targets'] = $request->targets;

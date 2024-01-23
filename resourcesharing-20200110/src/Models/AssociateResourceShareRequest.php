@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AssociateResourceShareRequest\resources;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AssociateResourceShareRequest\targetProperties;
 use AlibabaCloud\Tea\Model;
 
 class AssociateResourceShareRequest extends Model
@@ -33,6 +34,11 @@ class AssociateResourceShareRequest extends Model
     public $resources;
 
     /**
+     * @var targetProperties[]
+     */
+    public $targetProperties;
+
+    /**
      * @description The information about the principals.
      *
      * @example 172050525300****
@@ -41,10 +47,11 @@ class AssociateResourceShareRequest extends Model
      */
     public $targets;
     protected $_name = [
-        'permissionNames' => 'PermissionNames',
-        'resourceShareId' => 'ResourceShareId',
-        'resources'       => 'Resources',
-        'targets'         => 'Targets',
+        'permissionNames'  => 'PermissionNames',
+        'resourceShareId'  => 'ResourceShareId',
+        'resources'        => 'Resources',
+        'targetProperties' => 'TargetProperties',
+        'targets'          => 'Targets',
     ];
 
     public function validate()
@@ -66,6 +73,15 @@ class AssociateResourceShareRequest extends Model
                 $n = 0;
                 foreach ($this->resources as $item) {
                     $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->targetProperties) {
+            $res['TargetProperties'] = [];
+            if (null !== $this->targetProperties && \is_array($this->targetProperties)) {
+                $n = 0;
+                foreach ($this->targetProperties as $item) {
+                    $res['TargetProperties'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -98,6 +114,15 @@ class AssociateResourceShareRequest extends Model
                 $n                = 0;
                 foreach ($map['Resources'] as $item) {
                     $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['TargetProperties'])) {
+            if (!empty($map['TargetProperties'])) {
+                $model->targetProperties = [];
+                $n                       = 0;
+                foreach ($map['TargetProperties'] as $item) {
+                    $model->targetProperties[$n++] = null !== $item ? targetProperties::fromMap($item) : $item;
                 }
             }
         }

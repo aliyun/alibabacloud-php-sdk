@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\CreateResourceShareRequest\resources;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\CreateResourceShareRequest\targetProperties;
 use AlibabaCloud\Tea\Model;
 
 class CreateResourceShareRequest extends Model
@@ -46,6 +47,11 @@ class CreateResourceShareRequest extends Model
     public $resources;
 
     /**
+     * @var targetProperties[]
+     */
+    public $targetProperties;
+
+    /**
      * @description The information about the principals.
      *
      * @example 172050525300****
@@ -58,6 +64,7 @@ class CreateResourceShareRequest extends Model
         'permissionNames'      => 'PermissionNames',
         'resourceShareName'    => 'ResourceShareName',
         'resources'            => 'Resources',
+        'targetProperties'     => 'TargetProperties',
         'targets'              => 'Targets',
     ];
 
@@ -83,6 +90,15 @@ class CreateResourceShareRequest extends Model
                 $n = 0;
                 foreach ($this->resources as $item) {
                     $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->targetProperties) {
+            $res['TargetProperties'] = [];
+            if (null !== $this->targetProperties && \is_array($this->targetProperties)) {
+                $n = 0;
+                foreach ($this->targetProperties as $item) {
+                    $res['TargetProperties'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -118,6 +134,15 @@ class CreateResourceShareRequest extends Model
                 $n                = 0;
                 foreach ($map['Resources'] as $item) {
                     $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['TargetProperties'])) {
+            if (!empty($map['TargetProperties'])) {
+                $model->targetProperties = [];
+                $n                       = 0;
+                foreach ($map['TargetProperties'] as $item) {
+                    $model->targetProperties[$n++] = null !== $item ? targetProperties::fromMap($item) : $item;
                 }
             }
         }
