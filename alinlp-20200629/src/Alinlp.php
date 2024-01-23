@@ -126,6 +126,9 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\InsertCustomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\InsertCustomResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\OpenAlinlpServiceResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSConvSearchTokenGeneratedResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSDataProcessingCountRequest;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSDataProcessingCountResponse;
+use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSDataProcessingCountShrinkRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSSearchEnhanceRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSSearchEnhanceResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\PostMSSearchEnhanceShrinkRequest;
@@ -3076,6 +3079,60 @@ class Alinlp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->postMSConvSearchTokenGeneratedWithOptions($runtime);
+    }
+
+    /**
+     * @param PostMSDataProcessingCountRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return PostMSDataProcessingCountResponse
+     */
+    public function postMSDataProcessingCountWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PostMSDataProcessingCountShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dataIds)) {
+            $request->dataIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataIds, 'DataIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dataIdsShrink)) {
+            $body['DataIds'] = $request->dataIdsShrink;
+        }
+        if (!Utils::isUnset($request->dataImportId)) {
+            $body['DataImportId'] = $request->dataImportId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PostMSDataProcessingCount',
+            'version'     => '2020-06-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PostMSDataProcessingCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PostMSDataProcessingCountRequest $request
+     *
+     * @return PostMSDataProcessingCountResponse
+     */
+    public function postMSDataProcessingCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->postMSDataProcessingCountWithOptions($request, $runtime);
     }
 
     /**
