@@ -73,6 +73,76 @@ class containers extends Model
     public $imagePullPolicy;
 
     /**
+     * @var string[]
+     */
+    public $lifecyclePostStartHandlerExecs;
+
+    /**
+     * @var string
+     */
+    public $lifecyclePostStartHandlerHttpGetHost;
+
+    /**
+     * @var string
+     */
+    public $lifecyclePostStartHandlerHttpGetPath;
+
+    /**
+     * @var int
+     */
+    public $lifecyclePostStartHandlerHttpGetPort;
+
+    /**
+     * @var string
+     */
+    public $lifecyclePostStartHandlerHttpGetScheme;
+
+    /**
+     * @var string
+     */
+    public $lifecyclePostStartHandlerTcpSocketHost;
+
+    /**
+     * @var int
+     */
+    public $lifecyclePostStartHandlerTcpSocketPort;
+
+    /**
+     * @var string[]
+     */
+    public $lifecyclePreStopHandlerExecs;
+
+    /**
+     * @var string
+     */
+    public $lifecyclePreStopHandlerHttpGetHost;
+
+    /**
+     * @var string
+     */
+    public $lifecyclePreStopHandlerHttpGetPath;
+
+    /**
+     * @var int
+     */
+    public $lifecyclePreStopHandlerHttpGetPort;
+
+    /**
+     * @var string
+     */
+    public $lifecyclePreStopHandlerHttpGetScheme;
+
+    /**
+     * @var string
+     */
+    public $lifecyclePreStopHandlerTcpSocketHost;
+
+    /**
+     * @var int
+     */
+    public $lifecyclePreStopHandlerTcpSocketPort;
+
+    /**
      * @description The commands that are run in the container when you use the CLI to perform probes.
      *
      * @var string[]
@@ -355,44 +425,58 @@ class containers extends Model
      */
     public $workingDir;
     protected $_name = [
-        'args'                                  => 'Args',
-        'commands'                              => 'Commands',
-        'cpu'                                   => 'Cpu',
-        'environmentVars'                       => 'EnvironmentVars',
-        'gpu'                                   => 'Gpu',
-        'image'                                 => 'Image',
-        'imagePullPolicy'                       => 'ImagePullPolicy',
-        'livenessProbeExecCommands'             => 'LivenessProbeExecCommands',
-        'livenessProbeFailureThreshold'         => 'LivenessProbeFailureThreshold',
-        'livenessProbeHttpGetPath'              => 'LivenessProbeHttpGetPath',
-        'livenessProbeHttpGetPort'              => 'LivenessProbeHttpGetPort',
-        'livenessProbeHttpGetScheme'            => 'LivenessProbeHttpGetScheme',
-        'livenessProbeInitialDelaySeconds'      => 'LivenessProbeInitialDelaySeconds',
-        'livenessProbePeriodSeconds'            => 'LivenessProbePeriodSeconds',
-        'livenessProbeSuccessThreshold'         => 'LivenessProbeSuccessThreshold',
-        'livenessProbeTcpSocketPort'            => 'LivenessProbeTcpSocketPort',
-        'livenessProbeTimeoutSeconds'           => 'LivenessProbeTimeoutSeconds',
-        'memory'                                => 'Memory',
-        'name'                                  => 'Name',
-        'ports'                                 => 'Ports',
-        'readinessProbeExecCommands'            => 'ReadinessProbeExecCommands',
-        'readinessProbeFailureThreshold'        => 'ReadinessProbeFailureThreshold',
-        'readinessProbeHttpGetPath'             => 'ReadinessProbeHttpGetPath',
-        'readinessProbeHttpGetPort'             => 'ReadinessProbeHttpGetPort',
-        'readinessProbeHttpGetScheme'           => 'ReadinessProbeHttpGetScheme',
-        'readinessProbeInitialDelaySeconds'     => 'ReadinessProbeInitialDelaySeconds',
-        'readinessProbePeriodSeconds'           => 'ReadinessProbePeriodSeconds',
-        'readinessProbeSuccessThreshold'        => 'ReadinessProbeSuccessThreshold',
-        'readinessProbeTcpSocketPort'           => 'ReadinessProbeTcpSocketPort',
-        'readinessProbeTimeoutSeconds'          => 'ReadinessProbeTimeoutSeconds',
-        'securityContextCapabilityAdds'         => 'SecurityContextCapabilityAdds',
-        'securityContextReadOnlyRootFilesystem' => 'SecurityContextReadOnlyRootFilesystem',
-        'securityContextRunAsUser'              => 'SecurityContextRunAsUser',
-        'stdin'                                 => 'Stdin',
-        'stdinOnce'                             => 'StdinOnce',
-        'tty'                                   => 'Tty',
-        'volumeMounts'                          => 'VolumeMounts',
-        'workingDir'                            => 'WorkingDir',
+        'args'                                   => 'Args',
+        'commands'                               => 'Commands',
+        'cpu'                                    => 'Cpu',
+        'environmentVars'                        => 'EnvironmentVars',
+        'gpu'                                    => 'Gpu',
+        'image'                                  => 'Image',
+        'imagePullPolicy'                        => 'ImagePullPolicy',
+        'lifecyclePostStartHandlerExecs'         => 'LifecyclePostStartHandlerExecs',
+        'lifecyclePostStartHandlerHttpGetHost'   => 'LifecyclePostStartHandlerHttpGetHost',
+        'lifecyclePostStartHandlerHttpGetPath'   => 'LifecyclePostStartHandlerHttpGetPath',
+        'lifecyclePostStartHandlerHttpGetPort'   => 'LifecyclePostStartHandlerHttpGetPort',
+        'lifecyclePostStartHandlerHttpGetScheme' => 'LifecyclePostStartHandlerHttpGetScheme',
+        'lifecyclePostStartHandlerTcpSocketHost' => 'LifecyclePostStartHandlerTcpSocketHost',
+        'lifecyclePostStartHandlerTcpSocketPort' => 'LifecyclePostStartHandlerTcpSocketPort',
+        'lifecyclePreStopHandlerExecs'           => 'LifecyclePreStopHandlerExecs',
+        'lifecyclePreStopHandlerHttpGetHost'     => 'LifecyclePreStopHandlerHttpGetHost',
+        'lifecyclePreStopHandlerHttpGetPath'     => 'LifecyclePreStopHandlerHttpGetPath',
+        'lifecyclePreStopHandlerHttpGetPort'     => 'LifecyclePreStopHandlerHttpGetPort',
+        'lifecyclePreStopHandlerHttpGetScheme'   => 'LifecyclePreStopHandlerHttpGetScheme',
+        'lifecyclePreStopHandlerTcpSocketHost'   => 'LifecyclePreStopHandlerTcpSocketHost',
+        'lifecyclePreStopHandlerTcpSocketPort'   => 'LifecyclePreStopHandlerTcpSocketPort',
+        'livenessProbeExecCommands'              => 'LivenessProbeExecCommands',
+        'livenessProbeFailureThreshold'          => 'LivenessProbeFailureThreshold',
+        'livenessProbeHttpGetPath'               => 'LivenessProbeHttpGetPath',
+        'livenessProbeHttpGetPort'               => 'LivenessProbeHttpGetPort',
+        'livenessProbeHttpGetScheme'             => 'LivenessProbeHttpGetScheme',
+        'livenessProbeInitialDelaySeconds'       => 'LivenessProbeInitialDelaySeconds',
+        'livenessProbePeriodSeconds'             => 'LivenessProbePeriodSeconds',
+        'livenessProbeSuccessThreshold'          => 'LivenessProbeSuccessThreshold',
+        'livenessProbeTcpSocketPort'             => 'LivenessProbeTcpSocketPort',
+        'livenessProbeTimeoutSeconds'            => 'LivenessProbeTimeoutSeconds',
+        'memory'                                 => 'Memory',
+        'name'                                   => 'Name',
+        'ports'                                  => 'Ports',
+        'readinessProbeExecCommands'             => 'ReadinessProbeExecCommands',
+        'readinessProbeFailureThreshold'         => 'ReadinessProbeFailureThreshold',
+        'readinessProbeHttpGetPath'              => 'ReadinessProbeHttpGetPath',
+        'readinessProbeHttpGetPort'              => 'ReadinessProbeHttpGetPort',
+        'readinessProbeHttpGetScheme'            => 'ReadinessProbeHttpGetScheme',
+        'readinessProbeInitialDelaySeconds'      => 'ReadinessProbeInitialDelaySeconds',
+        'readinessProbePeriodSeconds'            => 'ReadinessProbePeriodSeconds',
+        'readinessProbeSuccessThreshold'         => 'ReadinessProbeSuccessThreshold',
+        'readinessProbeTcpSocketPort'            => 'ReadinessProbeTcpSocketPort',
+        'readinessProbeTimeoutSeconds'           => 'ReadinessProbeTimeoutSeconds',
+        'securityContextCapabilityAdds'          => 'SecurityContextCapabilityAdds',
+        'securityContextReadOnlyRootFilesystem'  => 'SecurityContextReadOnlyRootFilesystem',
+        'securityContextRunAsUser'               => 'SecurityContextRunAsUser',
+        'stdin'                                  => 'Stdin',
+        'stdinOnce'                              => 'StdinOnce',
+        'tty'                                    => 'Tty',
+        'volumeMounts'                           => 'VolumeMounts',
+        'workingDir'                             => 'WorkingDir',
     ];
 
     public function validate()
@@ -428,6 +512,48 @@ class containers extends Model
         }
         if (null !== $this->imagePullPolicy) {
             $res['ImagePullPolicy'] = $this->imagePullPolicy;
+        }
+        if (null !== $this->lifecyclePostStartHandlerExecs) {
+            $res['LifecyclePostStartHandlerExecs'] = $this->lifecyclePostStartHandlerExecs;
+        }
+        if (null !== $this->lifecyclePostStartHandlerHttpGetHost) {
+            $res['LifecyclePostStartHandlerHttpGetHost'] = $this->lifecyclePostStartHandlerHttpGetHost;
+        }
+        if (null !== $this->lifecyclePostStartHandlerHttpGetPath) {
+            $res['LifecyclePostStartHandlerHttpGetPath'] = $this->lifecyclePostStartHandlerHttpGetPath;
+        }
+        if (null !== $this->lifecyclePostStartHandlerHttpGetPort) {
+            $res['LifecyclePostStartHandlerHttpGetPort'] = $this->lifecyclePostStartHandlerHttpGetPort;
+        }
+        if (null !== $this->lifecyclePostStartHandlerHttpGetScheme) {
+            $res['LifecyclePostStartHandlerHttpGetScheme'] = $this->lifecyclePostStartHandlerHttpGetScheme;
+        }
+        if (null !== $this->lifecyclePostStartHandlerTcpSocketHost) {
+            $res['LifecyclePostStartHandlerTcpSocketHost'] = $this->lifecyclePostStartHandlerTcpSocketHost;
+        }
+        if (null !== $this->lifecyclePostStartHandlerTcpSocketPort) {
+            $res['LifecyclePostStartHandlerTcpSocketPort'] = $this->lifecyclePostStartHandlerTcpSocketPort;
+        }
+        if (null !== $this->lifecyclePreStopHandlerExecs) {
+            $res['LifecyclePreStopHandlerExecs'] = $this->lifecyclePreStopHandlerExecs;
+        }
+        if (null !== $this->lifecyclePreStopHandlerHttpGetHost) {
+            $res['LifecyclePreStopHandlerHttpGetHost'] = $this->lifecyclePreStopHandlerHttpGetHost;
+        }
+        if (null !== $this->lifecyclePreStopHandlerHttpGetPath) {
+            $res['LifecyclePreStopHandlerHttpGetPath'] = $this->lifecyclePreStopHandlerHttpGetPath;
+        }
+        if (null !== $this->lifecyclePreStopHandlerHttpGetPort) {
+            $res['LifecyclePreStopHandlerHttpGetPort'] = $this->lifecyclePreStopHandlerHttpGetPort;
+        }
+        if (null !== $this->lifecyclePreStopHandlerHttpGetScheme) {
+            $res['LifecyclePreStopHandlerHttpGetScheme'] = $this->lifecyclePreStopHandlerHttpGetScheme;
+        }
+        if (null !== $this->lifecyclePreStopHandlerTcpSocketHost) {
+            $res['LifecyclePreStopHandlerTcpSocketHost'] = $this->lifecyclePreStopHandlerTcpSocketHost;
+        }
+        if (null !== $this->lifecyclePreStopHandlerTcpSocketPort) {
+            $res['LifecyclePreStopHandlerTcpSocketPort'] = $this->lifecyclePreStopHandlerTcpSocketPort;
         }
         if (null !== $this->livenessProbeExecCommands) {
             $res['LivenessProbeExecCommands'] = $this->livenessProbeExecCommands;
@@ -576,6 +702,52 @@ class containers extends Model
         }
         if (isset($map['ImagePullPolicy'])) {
             $model->imagePullPolicy = $map['ImagePullPolicy'];
+        }
+        if (isset($map['LifecyclePostStartHandlerExecs'])) {
+            if (!empty($map['LifecyclePostStartHandlerExecs'])) {
+                $model->lifecyclePostStartHandlerExecs = $map['LifecyclePostStartHandlerExecs'];
+            }
+        }
+        if (isset($map['LifecyclePostStartHandlerHttpGetHost'])) {
+            $model->lifecyclePostStartHandlerHttpGetHost = $map['LifecyclePostStartHandlerHttpGetHost'];
+        }
+        if (isset($map['LifecyclePostStartHandlerHttpGetPath'])) {
+            $model->lifecyclePostStartHandlerHttpGetPath = $map['LifecyclePostStartHandlerHttpGetPath'];
+        }
+        if (isset($map['LifecyclePostStartHandlerHttpGetPort'])) {
+            $model->lifecyclePostStartHandlerHttpGetPort = $map['LifecyclePostStartHandlerHttpGetPort'];
+        }
+        if (isset($map['LifecyclePostStartHandlerHttpGetScheme'])) {
+            $model->lifecyclePostStartHandlerHttpGetScheme = $map['LifecyclePostStartHandlerHttpGetScheme'];
+        }
+        if (isset($map['LifecyclePostStartHandlerTcpSocketHost'])) {
+            $model->lifecyclePostStartHandlerTcpSocketHost = $map['LifecyclePostStartHandlerTcpSocketHost'];
+        }
+        if (isset($map['LifecyclePostStartHandlerTcpSocketPort'])) {
+            $model->lifecyclePostStartHandlerTcpSocketPort = $map['LifecyclePostStartHandlerTcpSocketPort'];
+        }
+        if (isset($map['LifecyclePreStopHandlerExecs'])) {
+            if (!empty($map['LifecyclePreStopHandlerExecs'])) {
+                $model->lifecyclePreStopHandlerExecs = $map['LifecyclePreStopHandlerExecs'];
+            }
+        }
+        if (isset($map['LifecyclePreStopHandlerHttpGetHost'])) {
+            $model->lifecyclePreStopHandlerHttpGetHost = $map['LifecyclePreStopHandlerHttpGetHost'];
+        }
+        if (isset($map['LifecyclePreStopHandlerHttpGetPath'])) {
+            $model->lifecyclePreStopHandlerHttpGetPath = $map['LifecyclePreStopHandlerHttpGetPath'];
+        }
+        if (isset($map['LifecyclePreStopHandlerHttpGetPort'])) {
+            $model->lifecyclePreStopHandlerHttpGetPort = $map['LifecyclePreStopHandlerHttpGetPort'];
+        }
+        if (isset($map['LifecyclePreStopHandlerHttpGetScheme'])) {
+            $model->lifecyclePreStopHandlerHttpGetScheme = $map['LifecyclePreStopHandlerHttpGetScheme'];
+        }
+        if (isset($map['LifecyclePreStopHandlerTcpSocketHost'])) {
+            $model->lifecyclePreStopHandlerTcpSocketHost = $map['LifecyclePreStopHandlerTcpSocketHost'];
+        }
+        if (isset($map['LifecyclePreStopHandlerTcpSocketPort'])) {
+            $model->lifecyclePreStopHandlerTcpSocketPort = $map['LifecyclePreStopHandlerTcpSocketPort'];
         }
         if (isset($map['LivenessProbeExecCommands'])) {
             if (!empty($map['LivenessProbeExecCommands'])) {

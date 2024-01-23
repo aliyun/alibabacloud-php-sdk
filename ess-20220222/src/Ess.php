@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Ess\V20220222;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ApplyScalingGroupRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ApplyScalingGroupResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\AttachAlbServerGroupsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\AttachAlbServerGroupsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\AttachDBInstancesRequest;
@@ -246,6 +248,55 @@ class Ess extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param ApplyScalingGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ApplyScalingGroupResponse
+     */
+    public function applyScalingGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->format)) {
+            $query['Format'] = $request->format;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyScalingGroup',
+            'version'     => '2022-02-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ApplyScalingGroupRequest $request
+     *
+     * @return ApplyScalingGroupResponse
+     */
+    public function applyScalingGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyScalingGroupWithOptions($request, $runtime);
     }
 
     /**
