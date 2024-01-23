@@ -143,6 +143,11 @@ class environments extends Model
     public $latestReleaseCreateTime;
 
     /**
+     * @var string
+     */
+    public $managedType;
+
+    /**
      * @description Prometheus ID.
      *
      * @example 124769812
@@ -218,6 +223,7 @@ class environments extends Model
         'grafanaFolderTitle'      => 'GrafanaFolderTitle',
         'grafanaFolderUid'        => 'GrafanaFolderUid',
         'latestReleaseCreateTime' => 'LatestReleaseCreateTime',
+        'managedType'             => 'ManagedType',
         'prometheusId'            => 'PrometheusId',
         'prometheusInstanceId'    => 'PrometheusInstanceId',
         'regionId'                => 'RegionId',
@@ -290,6 +296,9 @@ class environments extends Model
         }
         if (null !== $this->latestReleaseCreateTime) {
             $res['LatestReleaseCreateTime'] = $this->latestReleaseCreateTime;
+        }
+        if (null !== $this->managedType) {
+            $res['ManagedType'] = $this->managedType;
         }
         if (null !== $this->prometheusId) {
             $res['PrometheusId'] = $this->prometheusId;
@@ -386,6 +395,9 @@ class environments extends Model
         }
         if (isset($map['LatestReleaseCreateTime'])) {
             $model->latestReleaseCreateTime = $map['LatestReleaseCreateTime'];
+        }
+        if (isset($map['ManagedType'])) {
+            $model->managedType = $map['ManagedType'];
         }
         if (isset($map['PrometheusId'])) {
             $model->prometheusId = $map['PrometheusId'];

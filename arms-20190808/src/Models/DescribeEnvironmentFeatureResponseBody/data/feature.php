@@ -70,6 +70,11 @@ class feature extends Model
     public $latestVersion;
 
     /**
+     * @var bool
+     */
+    public $managed;
+
+    /**
      * @description Name of Feature.
      *
      * @example metric-agent
@@ -103,6 +108,7 @@ class feature extends Model
         'icon'          => 'Icon',
         'language'      => 'Language',
         'latestVersion' => 'LatestVersion',
+        'managed'       => 'Managed',
         'name'          => 'Name',
         'status'        => 'Status',
         'version'       => 'Version',
@@ -135,6 +141,9 @@ class feature extends Model
         }
         if (null !== $this->latestVersion) {
             $res['LatestVersion'] = $this->latestVersion;
+        }
+        if (null !== $this->managed) {
+            $res['Managed'] = $this->managed;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -177,6 +186,9 @@ class feature extends Model
         }
         if (isset($map['LatestVersion'])) {
             $model->latestVersion = $map['LatestVersion'];
+        }
+        if (isset($map['Managed'])) {
+            $model->managed = $map['Managed'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -98,6 +98,11 @@ class releases extends Model
     public $language;
 
     /**
+     * @var bool
+     */
+    public $managed;
+
+    /**
      * @description The ID of the region.
      *
      * @example cn-heyuan
@@ -179,6 +184,7 @@ class releases extends Model
         'haveConfig'     => 'HaveConfig',
         'installUserId'  => 'InstallUserId',
         'language'       => 'Language',
+        'managed'        => 'Managed',
         'regionId'       => 'RegionId',
         'releaseId'      => 'ReleaseId',
         'releaseName'    => 'ReleaseName',
@@ -231,6 +237,9 @@ class releases extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->managed) {
+            $res['Managed'] = $this->managed;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -303,6 +312,9 @@ class releases extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['Managed'])) {
+            $model->managed = $map['Managed'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

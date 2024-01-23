@@ -52,6 +52,11 @@ class data extends Model
     public $latestVersion;
 
     /**
+     * @var bool
+     */
+    public $managed;
+
+    /**
      * @example metric-agent
      *
      * @var string
@@ -79,6 +84,7 @@ class data extends Model
         'icon'          => 'Icon',
         'language'      => 'Language',
         'latestVersion' => 'LatestVersion',
+        'managed'       => 'Managed',
         'name'          => 'Name',
         'status'        => 'Status',
         'version'       => 'Version',
@@ -111,6 +117,9 @@ class data extends Model
         }
         if (null !== $this->latestVersion) {
             $res['LatestVersion'] = $this->latestVersion;
+        }
+        if (null !== $this->managed) {
+            $res['Managed'] = $this->managed;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -153,6 +162,9 @@ class data extends Model
         }
         if (isset($map['LatestVersion'])) {
             $model->latestVersion = $map['LatestVersion'];
+        }
+        if (isset($map['Managed'])) {
+            $model->managed = $map['Managed'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

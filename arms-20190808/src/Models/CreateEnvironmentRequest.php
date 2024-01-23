@@ -63,7 +63,7 @@ class CreateEnvironmentRequest extends Model
     public $environmentType;
 
     /**
-     * @description type of managed：
+     * @description type of managed:
      * - agent-exproter: maanged agent and exporter. default of prometheus for Cloud.
      * @example none
      *

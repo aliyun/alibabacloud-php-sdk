@@ -28,7 +28,6 @@ class InitEnvironmentRequest extends Model
 
     /**
      * @description type of managed:
-     *
      * - agent-exproter: maanged agent and exporter. default of prometheus for Cloud.
      * @example agent
      *
