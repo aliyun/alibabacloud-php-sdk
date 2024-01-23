@@ -7081,6 +7081,9 @@ class Devops extends OpenApiClient
         if (!Utils::isUnset($request->groupIds)) {
             $query['groupIds'] = $request->groupIds;
         }
+        if (!Utils::isUnset($request->labelIds)) {
+            $query['labelIds'] = $request->labelIds;
+        }
         if (!Utils::isUnset($request->orderBy)) {
             $query['orderBy'] = $request->orderBy;
         }

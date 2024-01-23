@@ -37,6 +37,11 @@ class ListMergeRequestsRequest extends Model
     public $groupIds;
 
     /**
+     * @var string
+     */
+    public $labelIds;
+
+    /**
      * @example updated_at
      *
      * @var string
@@ -103,6 +108,7 @@ class ListMergeRequestsRequest extends Model
         'authorIds'      => 'authorIds',
         'filter'         => 'filter',
         'groupIds'       => 'groupIds',
+        'labelIds'       => 'labelIds',
         'orderBy'        => 'orderBy',
         'organizationId' => 'organizationId',
         'page'           => 'page',
@@ -132,6 +138,9 @@ class ListMergeRequestsRequest extends Model
         }
         if (null !== $this->groupIds) {
             $res['groupIds'] = $this->groupIds;
+        }
+        if (null !== $this->labelIds) {
+            $res['labelIds'] = $this->labelIds;
         }
         if (null !== $this->orderBy) {
             $res['orderBy'] = $this->orderBy;
@@ -183,6 +192,9 @@ class ListMergeRequestsRequest extends Model
         }
         if (isset($map['groupIds'])) {
             $model->groupIds = $map['groupIds'];
+        }
+        if (isset($map['labelIds'])) {
+            $model->labelIds = $map['labelIds'];
         }
         if (isset($map['orderBy'])) {
             $model->orderBy = $map['orderBy'];

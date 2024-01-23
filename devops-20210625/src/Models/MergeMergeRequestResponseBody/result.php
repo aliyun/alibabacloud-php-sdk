@@ -9,13 +9,37 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var string
+     */
+    public $bizId;
+
+    /**
+     * @var int
+     */
+    public $localId;
+
+    /**
+     * @var string
+     */
+    public $mergedRevision;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+
+    /**
      * @example true
      *
      * @var bool
      */
     public $result;
     protected $_name = [
-        'result' => 'result',
+        'bizId'          => 'bizId',
+        'localId'        => 'localId',
+        'mergedRevision' => 'mergedRevision',
+        'projectId'      => 'projectId',
+        'result'         => 'result',
     ];
 
     public function validate()
@@ -25,6 +49,18 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['bizId'] = $this->bizId;
+        }
+        if (null !== $this->localId) {
+            $res['localId'] = $this->localId;
+        }
+        if (null !== $this->mergedRevision) {
+            $res['mergedRevision'] = $this->mergedRevision;
+        }
+        if (null !== $this->projectId) {
+            $res['projectId'] = $this->projectId;
+        }
         if (null !== $this->result) {
             $res['result'] = $this->result;
         }
@@ -40,6 +76,18 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bizId'])) {
+            $model->bizId = $map['bizId'];
+        }
+        if (isset($map['localId'])) {
+            $model->localId = $map['localId'];
+        }
+        if (isset($map['mergedRevision'])) {
+            $model->mergedRevision = $map['mergedRevision'];
+        }
+        if (isset($map['projectId'])) {
+            $model->projectId = $map['projectId'];
+        }
         if (isset($map['result'])) {
             $model->result = $map['result'];
         }

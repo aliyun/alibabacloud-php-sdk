@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestsResponseBody;
 
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestsResponseBody\result\author;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestsResponseBody\result\labels;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestsResponseBody\result\reviewers;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestsResponseBody\result\subscribers;
 use AlibabaCloud\Tea\Model;
@@ -55,6 +56,11 @@ class result extends Model
      * @var int
      */
     public $iid;
+
+    /**
+     * @var labels[]
+     */
+    public $labels;
 
     /**
      * @example 2
@@ -202,6 +208,7 @@ class result extends Model
         'detailUrl'                 => 'detailUrl',
         'id'                        => 'id',
         'iid'                       => 'iid',
+        'labels'                    => 'labels',
         'localId'                   => 'localId',
         'mrBizId'                   => 'mrBizId',
         'nameWithNamespace'         => 'nameWithNamespace',
@@ -252,6 +259,15 @@ class result extends Model
         }
         if (null !== $this->iid) {
             $res['iid'] = $this->iid;
+        }
+        if (null !== $this->labels) {
+            $res['labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['labels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->localId) {
             $res['localId'] = $this->localId;
@@ -360,6 +376,15 @@ class result extends Model
         }
         if (isset($map['iid'])) {
             $model->iid = $map['iid'];
+        }
+        if (isset($map['labels'])) {
+            if (!empty($map['labels'])) {
+                $model->labels = [];
+                $n             = 0;
+                foreach ($map['labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['localId'])) {
             $model->localId = $map['localId'];
