@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resultObject extends Model
 {
     /**
+     * @example 123456^1234567
+     *
      * @var string
      */
     public $bizId;

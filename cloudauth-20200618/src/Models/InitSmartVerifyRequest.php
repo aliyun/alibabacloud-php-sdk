@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class InitSmartVerifyRequest extends Model
 {
     /**
+     * @example NMjvQanQgplBSaEI0sL86WnQplB
+     *
      * @var string
      */
     public $callbackToken;
 
     /**
+     * @example https://www.aliyun.com
+     *
      * @var string
      */
     public $callbackUrl;
@@ -24,11 +28,15 @@ class InitSmartVerifyRequest extends Model
     public $certName;
 
     /**
+     * @example 330103xxxxxxxxxxxx
+     *
      * @var string
      */
     public $certNo;
 
     /**
+     * @example IDENTITY_CARD
+     *
      * @var string
      */
     public $certType;
@@ -59,21 +67,29 @@ class InitSmartVerifyRequest extends Model
     public $idNo;
 
     /**
+     * @example 114.xxx.xxx.xxx
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example {"zimVer":"3.0.0","appVersion": "1","bioMetaInfo": "4.1.0:11501568,0","appName": "com.aliyun.antcloudauth","deviceType":"ios","osVersion": "iOS 10.3.2","apdidToken": "","deviceModel": "iPhone9,1"}
+     *
      * @var string
      */
     public $metaInfo;
 
     /**
+     * @example 130xxxxxxxx
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example ACCOUNT_SAFE
+     *
      * @var string
      */
     public $mode;
@@ -94,16 +110,22 @@ class InitSmartVerifyRequest extends Model
     public $ossObjectName;
 
     /**
+     * @example e0c34a77f5ac40a5aa5e6ed20c35xxxx
+     *
      * @var string
      */
     public $outerOrderNo;
 
     /**
+     * @example 100000xxxx
+     *
      * @var int
      */
     public $sceneId;
 
     /**
+     * @example 12345xxxx
+     *
      * @var string
      */
     public $userId;

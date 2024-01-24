@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example qwer^xxxxxxxx
+     *
      * @var string
      */
     public $bizId;
@@ -19,6 +21,8 @@ class items extends Model
     public $content;
 
     /**
+     * @example DELIVERED
+     *
      * @var string
      */
     public $errorCode;
@@ -29,26 +33,36 @@ class items extends Model
     public $errorMessage;
 
     /**
+     * @example 1500000xxxx
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example qwertyuiopasdfghjklzxcvbnmqxxxx
+     *
      * @var string
      */
     public $outerOrderNo;
 
     /**
+     * @example 2021-04-28 12:00:00
+     *
      * @var string
      */
     public $receiveDate;
 
     /**
+     * @example 2021-04-28 12:00:00
+     *
      * @var string
      */
     public $sendDate;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $sendStatus;
@@ -59,16 +73,22 @@ class items extends Model
     public $signName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $smsSize;
 
     /**
+     * @example 2021-04-28 12:00:00
+     *
      * @var string
      */
     public $taskDate;
 
     /**
+     * @example SMS_0000
+     *
      * @var string
      */
     public $templateCode;

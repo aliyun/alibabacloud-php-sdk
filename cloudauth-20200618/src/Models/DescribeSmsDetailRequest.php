@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeSmsDetailRequest extends Model
 {
     /**
+     * @example qwer^xxxxx
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example SP_UNKNOWN_ERROR
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example 150000xxxx
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example qwertyuiopasdfghjklzxcvbnmqxxxx
+     *
      * @var string
      */
     public $outerOrderNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 20210428
+     *
      * @var string
      */
     public $sendDate;
 
     /**
+     * @example FAILED
+     *
      * @var string
      */
     public $sendStatus;
@@ -54,6 +70,8 @@ class DescribeSmsDetailRequest extends Model
     public $signName;
 
     /**
+     * @example SMS_0000
+     *
      * @var string
      */
     public $templateCode;

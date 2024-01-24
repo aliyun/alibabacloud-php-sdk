@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSmsDetailResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -25,26 +29,36 @@ class DescribeSmsDetailResponseBody extends Model
     public $items;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 5A6229C0-E156-48E4-B6EC-0F528BDF60D2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalItem;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPage;

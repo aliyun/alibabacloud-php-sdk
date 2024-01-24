@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SendSmsRequest extends Model
 {
     /**
+     * @example 861500000****
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example abcdefghfdfsdffafdaqwertyuioxxxx
+     *
      * @var string
      */
     public $outerOrderNo;
@@ -24,6 +28,8 @@ class SendSmsRequest extends Model
     public $signName;
 
     /**
+     * @example SMS_0000
+     *
      * @var string
      */
     public $templateCode;

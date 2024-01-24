@@ -54,7 +54,7 @@ class VerifyBankElementAdvanceRequest extends Model
      */
     public $sceneId;
     protected $_name = [
-        'bankCardFileObject' => 'BankCardFileObject',
+        'bankCardFileObject' => 'BankCardFile',
         'bankCardNo'         => 'BankCardNo',
         'bankCardUrl'        => 'BankCardUrl',
         'idName'             => 'IdName',
@@ -67,14 +67,13 @@ class VerifyBankElementAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('bankCardFileObject', $this->bankCardFileObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->bankCardFileObject) {
-            $res['BankCardFileObject'] = $this->bankCardFileObject;
+            $res['BankCardFile'] = $this->bankCardFileObject;
         }
         if (null !== $this->bankCardNo) {
             $res['BankCardNo'] = $this->bankCardNo;
@@ -112,8 +111,8 @@ class VerifyBankElementAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BankCardFileObject'])) {
-            $model->bankCardFileObject = $map['BankCardFileObject'];
+        if (isset($map['BankCardFile'])) {
+            $model->bankCardFileObject = $map['BankCardFile'];
         }
         if (isset($map['BankCardNo'])) {
             $model->bankCardNo = $map['BankCardNo'];

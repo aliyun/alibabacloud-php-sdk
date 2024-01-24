@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class resultObject extends Model
 {
     /**
+     * @example {"riskInfo": { "score": 35,"tags": "rm0114"} }
+     *
      * @var string
      */
     public $materialInfo;
 
     /**
+     * @example T
+     *
      * @var string
      */
     public $passed;
 
     /**
+     * @example 80.2
+     *
      * @var float
      */
     public $passedScore;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $subCode;

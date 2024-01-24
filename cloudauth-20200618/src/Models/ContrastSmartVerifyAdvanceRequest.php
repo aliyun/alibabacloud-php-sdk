@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class ContrastSmartVerifyAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $facePicFileObject;
-
-    /**
      * @var string
      */
     public $certName;
@@ -28,6 +23,11 @@ class ContrastSmartVerifyAdvanceRequest extends Model
      * @var string
      */
     public $certType;
+
+    /**
+     * @var Stream
+     */
+    public $facePicFileObject;
 
     /**
      * @var string
@@ -69,10 +69,10 @@ class ContrastSmartVerifyAdvanceRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'facePicFileObject' => 'FacePicFileObject',
         'certName'          => 'CertName',
         'certNo'            => 'CertNo',
         'certType'          => 'CertType',
+        'facePicFileObject' => 'FacePicFile',
         'facePicString'     => 'FacePicString',
         'facePicUrl'        => 'FacePicUrl',
         'ip'                => 'Ip',
@@ -85,15 +85,11 @@ class ContrastSmartVerifyAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('facePicFileObject', $this->facePicFileObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->facePicFileObject) {
-            $res['FacePicFileObject'] = $this->facePicFileObject;
-        }
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
         }
@@ -102,6 +98,9 @@ class ContrastSmartVerifyAdvanceRequest extends Model
         }
         if (null !== $this->certType) {
             $res['CertType'] = $this->certType;
+        }
+        if (null !== $this->facePicFileObject) {
+            $res['FacePicFile'] = $this->facePicFileObject;
         }
         if (null !== $this->facePicString) {
             $res['FacePicString'] = $this->facePicString;
@@ -139,9 +138,6 @@ class ContrastSmartVerifyAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FacePicFileObject'])) {
-            $model->facePicFileObject = $map['FacePicFileObject'];
-        }
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
         }
@@ -150,6 +146,9 @@ class ContrastSmartVerifyAdvanceRequest extends Model
         }
         if (isset($map['CertType'])) {
             $model->certType = $map['CertType'];
+        }
+        if (isset($map['FacePicFile'])) {
+            $model->facePicFileObject = $map['FacePicFile'];
         }
         if (isset($map['FacePicString'])) {
             $model->facePicString = $map['FacePicString'];

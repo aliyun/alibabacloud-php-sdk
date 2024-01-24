@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSmartVerifyRequest extends Model
 {
     /**
+     * @example 91707dc296d469ad38e4c5efa6a0xxxx
+     *
      * @var string
      */
     public $certifyId;
@@ -19,6 +21,8 @@ class DescribeSmartVerifyRequest extends Model
     public $pictureReturnType;
 
     /**
+     * @example 100000xxxx
+     *
      * @var int
      */
     public $sceneId;

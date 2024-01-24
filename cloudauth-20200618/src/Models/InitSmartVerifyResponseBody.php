@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class InitSmartVerifyResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0F591A7A-98B7-58D8-B9AC-3D71703AEE57
+     *
      * @var string
      */
     public $requestId;

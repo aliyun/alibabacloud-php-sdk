@@ -54,7 +54,7 @@ class ElementSmartVerifyAdvanceRequest extends Model
      */
     public $sceneId;
     protected $_name = [
-        'certFileObject'        => 'CertFileObject',
+        'certFileObject'        => 'CertFile',
         'certName'              => 'CertName',
         'certNationalEmblemUrl' => 'CertNationalEmblemUrl',
         'certNo'                => 'CertNo',
@@ -67,14 +67,13 @@ class ElementSmartVerifyAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('certFileObject', $this->certFileObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->certFileObject) {
-            $res['CertFileObject'] = $this->certFileObject;
+            $res['CertFile'] = $this->certFileObject;
         }
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
@@ -112,8 +111,8 @@ class ElementSmartVerifyAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertFileObject'])) {
-            $model->certFileObject = $map['CertFileObject'];
+        if (isset($map['CertFile'])) {
+            $model->certFileObject = $map['CertFile'];
         }
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];

@@ -30,9 +30,9 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -197,28 +197,28 @@ class Cloudauth extends OpenApiClient
         OpenApiUtilClient::convert($request, $contrastSmartVerifyReq);
         if (!Utils::isUnset($request->facePicFileObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->facePicFileObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $contrastSmartVerifyReq->facePicFile = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $contrastSmartVerifyReq->facePicFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->contrastSmartVerifyWithOptions($contrastSmartVerifyReq, $runtime);
@@ -461,28 +461,28 @@ class Cloudauth extends OpenApiClient
         OpenApiUtilClient::convert($request, $elementSmartVerifyReq);
         if (!Utils::isUnset($request->certFileObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->certFileObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $elementSmartVerifyReq->certFile = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $elementSmartVerifyReq->certFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->elementSmartVerifyWithOptions($elementSmartVerifyReq, $runtime);
@@ -761,28 +761,28 @@ class Cloudauth extends OpenApiClient
         OpenApiUtilClient::convert($request, $verifyBankElementReq);
         if (!Utils::isUnset($request->bankCardFileObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->bankCardFileObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $verifyBankElementReq->bankCardFile = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $verifyBankElementReq->bankCardFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->verifyBankElementWithOptions($verifyBankElementReq, $runtime);
