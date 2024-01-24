@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableDBClusterServerlessRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example pc-***************
      *
      * @var string

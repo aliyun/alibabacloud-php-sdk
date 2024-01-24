@@ -76,6 +76,10 @@ class DescribeMetaListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region in which the instance resides. You can call the [DescribeDBClusterAttribute](~~2319132~~) operation to query the region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionCode;

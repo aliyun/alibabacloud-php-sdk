@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterRequest extends Model
 {
     /**
+     * @description Enable storage compression function. The value of this parameter is ON.
+     *
+     * @example ON
+     *
      * @var string
      */
     public $compressStorage;
 
     /**
+     * @description The cluster ID.
+     *
+     * >  You can call the DescribeDBClusters operation to query information about all PolarDB clusters that are deployed in a specified region, such as cluster IDs.
      * @example pc-*************
      *
      * @var string
@@ -21,6 +28,11 @@ class ModifyDBClusterRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The method used to replicate data across zones. Valid values:
+     *
+     *   **AsyncSync**: the asynchronous mode.
+     *   **SemiSync**: the semi-synchronous mode.
+     *
      * @example AsynSync
      *
      * @var string
@@ -28,6 +40,16 @@ class ModifyDBClusterRequest extends Model
     public $dataSyncMode;
 
     /**
+     * @description The fault scenario that you want to simulate for the cluster.
+     *
+     *   Set the value to **0**. The value 0 indicates the scenario in which the primary zone of the cluster fails.
+     *
+     * >
+     *
+     *   This parameter takes effect only when you set the `StandbyHAMode` parameter to 0.
+     *
+     *   If you set this parameter to 0, all compute nodes deployed in the primary zone are unavailable. In this case, the switchover degrades the cluster performance.
+     *
      * @example 0
      *
      * @var string
@@ -55,6 +77,12 @@ class ModifyDBClusterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to enable the cross-zone automatic switchover mode. Valid values:
+     *
+     *   **ON**: Enable the cross-zone automatic switchover mode.
+     *   **OFF**: Disable the cross-zone automatic switchover mode.
+     *   **0**: Enable the customer drill mode.
+     *
      * @example ON
      *
      * @var string
@@ -62,11 +90,23 @@ class ModifyDBClusterRequest extends Model
     public $standbyHAMode;
 
     /**
+     * @description Specifies whether to enable automatic storage scaling for the cluster of Standard Edition. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $storageAutoScale;
 
     /**
+     * @description The maximum storage capacity of the cluster of Standard Edition in automatic scaling. Unit: GB.
+     *
+     * >  The maximum value of this parameter is 32000.
+     * @example 800
+     *
      * @var int
      */
     public $storageUpperBound;

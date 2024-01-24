@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableDBClusterServerlessResponseBody extends Model
 {
     /**
+     * @description The ID of the serverless cluster.
+     *
      * @example pc-****************
      *
      * @var string
@@ -16,6 +18,8 @@ class DisableDBClusterServerlessResponseBody extends Model
     public $DBClusterId;
 
     /**
+     * @description The request ID.
+     *
      * @example CD3FA5F3-FAF3-44CA-AFFF-BAF869******
      *
      * @var string

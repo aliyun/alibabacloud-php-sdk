@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vSwitchs extends Model
 {
     /**
+     * @description The number of available IP addresses in the vSwitch.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class vSwitchs extends Model
     public $availableIpAddressCount;
 
     /**
+     * @description The IPv4 CIDR block of the vSwitch.
+     *
      * @example 172.16.0.0/24
      *
      * @var string
@@ -23,6 +27,8 @@ class vSwitchs extends Model
     public $cidrBlock;
 
     /**
+     * @description The descriptions of the vSwitch.
+     *
      * @example VSwitchDescription
      *
      * @var string
@@ -30,6 +36,11 @@ class vSwitchs extends Model
     public $description;
 
     /**
+     * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +48,8 @@ class vSwitchs extends Model
     public $isDefault;
 
     /**
+     * @description The zone to which the NAT gateway belongs.
+     *
      * @example cn-hangzhou-b
      *
      * @var string
@@ -44,6 +57,11 @@ class vSwitchs extends Model
     public $izNo;
 
     /**
+     * @description The status of the vSwitch. Valid values:
+     *
+     *   **Pending**: The vSwitch is being configured.
+     *   **Available**: The vSwitch is available.
+     *
      * @example Available
      *
      * @var string
@@ -51,6 +69,8 @@ class vSwitchs extends Model
     public $status;
 
     /**
+     * @description The vSwitch ID.
+     *
      * @example vsw-25bcdxs7pv1****
      *
      * @var string
@@ -58,6 +78,8 @@ class vSwitchs extends Model
     public $vSwitchId;
 
     /**
+     * @description The name of the vSwitch.
+     *
      * @example vSwitch
      *
      * @var string

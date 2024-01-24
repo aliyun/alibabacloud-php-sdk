@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesRequest extends Model
 {
     /**
+     * @description The dedicated cluster ID.
+     *
+     * >  You must specify at least one of the **VpcId** and **DedicatedHostGroupId** parameters.
      * @example dhg-4n****
      *
      * @var string
@@ -26,6 +29,8 @@ class DescribeVSwitchesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +38,8 @@ class DescribeVSwitchesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return per page. Maximum value: 50. Default value: 50.
+     *
      * @example 50
      *
      * @var int
@@ -40,6 +47,8 @@ class DescribeVSwitchesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region where the vSwitch belongs.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -47,6 +56,8 @@ class DescribeVSwitchesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the vSwitch belongs.
+     *
      * @example rg-bp67acfmxazb4ph****
      *
      * @var string
@@ -69,6 +80,9 @@ class DescribeVSwitchesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the virtual private type (VPC) to which the vSwitch belongs.
+     *
+     * >  You must specify at least one of the **VpcId** and **DedicatedHostGroupId** parameters.
      * @example vpc-25cdvfeq58pl****
      *
      * @var string
@@ -76,6 +90,8 @@ class DescribeVSwitchesRequest extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the zone to which the vSwitch belongs.
+     *
      * @example cn-hangzhou-d
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableDBClusterServerlessRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example pc-**************
      *
      * @var string
@@ -36,6 +38,8 @@ class EnableDBClusterServerlessRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The maximum number of stable AP read-only nodes. Valid values: 0 to 7.
+     *
      * @example 1
      *
      * @var string
@@ -43,6 +47,8 @@ class EnableDBClusterServerlessRequest extends Model
     public $scaleApRoNumMax;
 
     /**
+     * @description The minimum number of stable AP read-only nodes. Valid values: 0 to 7.
+     *
      * @example 1
      *
      * @var string
@@ -50,6 +56,8 @@ class EnableDBClusterServerlessRequest extends Model
     public $scaleApRoNumMin;
 
     /**
+     * @description The maximum number of PCUs per node for scaling. Valid values: 1 to 8 PCUs.
+     *
      * @example 2
      *
      * @var string
@@ -57,6 +65,8 @@ class EnableDBClusterServerlessRequest extends Model
     public $scaleMax;
 
     /**
+     * @description The minimum number of PolarDB capacity units (PCUs) per node for scaling. Valid values: 1 to 8 PCUs.
+     *
      * @example 1
      *
      * @var string
@@ -64,6 +74,8 @@ class EnableDBClusterServerlessRequest extends Model
     public $scaleMin;
 
     /**
+     * @description The maximum number of read-only nodes for scaling. Valid values: 0 to 7.
+     *
      * @example 2
      *
      * @var string
@@ -71,6 +83,8 @@ class EnableDBClusterServerlessRequest extends Model
     public $scaleRoNumMax;
 
     /**
+     * @description The minimum number of read-only nodes for scaling. Valid values: 0 to 7.
+     *
      * @example 1
      *
      * @var string

@@ -137,6 +137,11 @@ class DBClusters extends Model
     public $role;
 
     /**
+     * @var string
+     */
+    public $serverlessType;
+
+    /**
      * @description The storage space that is occupied by the cluster. Unit: bytes.
      *
      * @example 3012558848
@@ -158,6 +163,7 @@ class DBClusters extends Model
         'regionId'             => 'RegionId',
         'replicaLag'           => 'ReplicaLag',
         'role'                 => 'Role',
+        'serverlessType'       => 'ServerlessType',
         'storageUsed'          => 'StorageUsed',
     ];
 
@@ -212,6 +218,9 @@ class DBClusters extends Model
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
+        }
+        if (null !== $this->serverlessType) {
+            $res['ServerlessType'] = $this->serverlessType;
         }
         if (null !== $this->storageUsed) {
             $res['StorageUsed'] = $this->storageUsed;
@@ -272,6 +281,9 @@ class DBClusters extends Model
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
+        }
+        if (isset($map['ServerlessType'])) {
+            $model->serverlessType = $map['ServerlessType'];
         }
         if (isset($map['StorageUsed'])) {
             $model->storageUsed = $map['StorageUsed'];

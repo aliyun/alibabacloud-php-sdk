@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeVSwitchesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeVSwitchesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 9A572171-4E27-40D1-BD36-D26C9E71E29E
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeVSwitchesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of returned entries.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeVSwitchesResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The details of the vSwitch.
+     *
      * @var vSwitchs[]
      */
     public $vSwitchs;
