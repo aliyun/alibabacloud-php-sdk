@@ -16,6 +16,13 @@ class ListEcsSpecsRequest extends Model
     public $acceleratorType;
 
     /**
+     * @example ecs.g6.large,ecs.g6.xlarge
+     *
+     * @var string
+     */
+    public $instanceTypes;
+
+    /**
      * @example desc
      *
      * @var string
@@ -37,6 +44,13 @@ class ListEcsSpecsRequest extends Model
     public $pageSize;
 
     /**
+     * @example ECS
+     *
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @example Gpu
      *
      * @var string
@@ -44,9 +58,11 @@ class ListEcsSpecsRequest extends Model
     public $sortBy;
     protected $_name = [
         'acceleratorType' => 'AcceleratorType',
+        'instanceTypes'   => 'InstanceTypes',
         'order'           => 'Order',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'resourceType'    => 'ResourceType',
         'sortBy'          => 'SortBy',
     ];
 
@@ -60,6 +76,9 @@ class ListEcsSpecsRequest extends Model
         if (null !== $this->acceleratorType) {
             $res['AcceleratorType'] = $this->acceleratorType;
         }
+        if (null !== $this->instanceTypes) {
+            $res['InstanceTypes'] = $this->instanceTypes;
+        }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
@@ -68,6 +87,9 @@ class ListEcsSpecsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -87,6 +109,9 @@ class ListEcsSpecsRequest extends Model
         if (isset($map['AcceleratorType'])) {
             $model->acceleratorType = $map['AcceleratorType'];
         }
+        if (isset($map['InstanceTypes'])) {
+            $model->instanceTypes = $map['InstanceTypes'];
+        }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
@@ -95,6 +120,9 @@ class ListEcsSpecsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];

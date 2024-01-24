@@ -56,6 +56,13 @@ class EcsSpec extends Model
      * @var int
      */
     public $memory;
+
+    /**
+     * @example ECS
+     *
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
         'acceleratorType' => 'AcceleratorType',
         'cpu'             => 'Cpu',
@@ -64,6 +71,7 @@ class EcsSpec extends Model
         'instanceType'    => 'InstanceType',
         'isAvailable'     => 'IsAvailable',
         'memory'          => 'Memory',
+        'resourceType'    => 'ResourceType',
     ];
 
     public function validate()
@@ -93,6 +101,9 @@ class EcsSpec extends Model
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -126,6 +137,9 @@ class EcsSpec extends Model
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

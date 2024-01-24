@@ -175,6 +175,13 @@ class GetJobResponseBody extends Model
     public $resourceLevel;
 
     /**
+     * @example ECS
+     *
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @example 0/10
      *
      * @var string
@@ -275,6 +282,7 @@ class GetJobResponseBody extends Model
         'requestId'        => 'RequestId',
         'resourceId'       => 'ResourceId',
         'resourceLevel'    => 'ResourceLevel',
+        'resourceType'     => 'ResourceType',
         'restartTimes'     => 'RestartTimes',
         'settings'         => 'Settings',
         'status'           => 'Status',
@@ -388,6 +396,9 @@ class GetJobResponseBody extends Model
         }
         if (null !== $this->resourceLevel) {
             $res['ResourceLevel'] = $this->resourceLevel;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->restartTimes) {
             $res['RestartTimes'] = $this->restartTimes;
@@ -535,6 +546,9 @@ class GetJobResponseBody extends Model
         }
         if (isset($map['ResourceLevel'])) {
             $model->resourceLevel = $map['ResourceLevel'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['RestartTimes'])) {
             $model->restartTimes = $map['RestartTimes'];

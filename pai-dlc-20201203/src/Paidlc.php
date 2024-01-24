@@ -976,6 +976,9 @@ class Paidlc extends OpenApiClient
         if (!Utils::isUnset($request->acceleratorType)) {
             $query['AcceleratorType'] = $request->acceleratorType;
         }
+        if (!Utils::isUnset($request->instanceTypes)) {
+            $query['InstanceTypes'] = $request->instanceTypes;
+        }
         if (!Utils::isUnset($request->order)) {
             $query['Order'] = $request->order;
         }
@@ -984,6 +987,9 @@ class Paidlc extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
@@ -1137,6 +1143,9 @@ class Paidlc extends OpenApiClient
         }
         if (!Utils::isUnset($request->userIdForFilter)) {
             $query['UserIdForFilter'] = $request->userIdForFilter;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
         }
         if (!Utils::isUnset($request->workspaceId)) {
             $query['WorkspaceId'] = $request->workspaceId;

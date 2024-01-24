@@ -131,6 +131,11 @@ class ListJobsRequest extends Model
     public $userIdForFilter;
 
     /**
+     * @var string
+     */
+    public $username;
+
+    /**
      * @example 1****
      *
      * @var string
@@ -155,6 +160,7 @@ class ListJobsRequest extends Model
         'status'            => 'Status',
         'tags'              => 'Tags',
         'userIdForFilter'   => 'UserIdForFilter',
+        'username'          => 'Username',
         'workspaceId'       => 'WorkspaceId',
     ];
 
@@ -218,6 +224,9 @@ class ListJobsRequest extends Model
         }
         if (null !== $this->userIdForFilter) {
             $res['UserIdForFilter'] = $this->userIdForFilter;
+        }
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -287,6 +296,9 @@ class ListJobsRequest extends Model
         }
         if (isset($map['UserIdForFilter'])) {
             $model->userIdForFilter = $map['UserIdForFilter'];
+        }
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];

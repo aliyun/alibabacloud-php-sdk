@@ -157,6 +157,13 @@ class JobItem extends Model
     public $resourceName;
 
     /**
+     * @example ECS
+     *
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @var JobSettings
      */
     public $settings;
@@ -188,6 +195,13 @@ class JobItem extends Model
     public $thirdpartyLibs;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $useOversoldResource;
+
+    /**
      * @example python /root/code/mnist.py
      *
      * @var string
@@ -200,6 +214,13 @@ class JobItem extends Model
      * @var string
      */
     public $userId;
+
+    /**
+     * @example pai-dlc-role
+     *
+     * @var string
+     */
+    public $username;
 
     /**
      * @example 268
@@ -215,37 +236,40 @@ class JobItem extends Model
      */
     public $workspaceName;
     protected $_name = [
-        'codeSource'       => 'CodeSource',
-        'dataSources'      => 'DataSources',
-        'displayName'      => 'DisplayName',
-        'duration'         => 'Duration',
-        'enabledDebugger'  => 'EnabledDebugger',
-        'envs'             => 'Envs',
-        'gmtCreateTime'    => 'GmtCreateTime',
-        'gmtFailedTime'    => 'GmtFailedTime',
-        'gmtFinishTime'    => 'GmtFinishTime',
-        'gmtRunningTime'   => 'GmtRunningTime',
-        'gmtStoppedTime'   => 'GmtStoppedTime',
-        'gmtSubmittedTime' => 'GmtSubmittedTime',
-        'gmtSuccessedTime' => 'GmtSuccessedTime',
-        'jobId'            => 'JobId',
-        'jobSpecs'         => 'JobSpecs',
-        'jobType'          => 'JobType',
-        'priority'         => 'Priority',
-        'reasonCode'       => 'ReasonCode',
-        'reasonMessage'    => 'ReasonMessage',
-        'resourceId'       => 'ResourceId',
-        'resourceLevel'    => 'ResourceLevel',
-        'resourceName'     => 'ResourceName',
-        'settings'         => 'Settings',
-        'status'           => 'Status',
-        'subStatus'        => 'SubStatus',
-        'thirdpartyLibDir' => 'ThirdpartyLibDir',
-        'thirdpartyLibs'   => 'ThirdpartyLibs',
-        'userCommand'      => 'UserCommand',
-        'userId'           => 'UserId',
-        'workspaceId'      => 'WorkspaceId',
-        'workspaceName'    => 'WorkspaceName',
+        'codeSource'          => 'CodeSource',
+        'dataSources'         => 'DataSources',
+        'displayName'         => 'DisplayName',
+        'duration'            => 'Duration',
+        'enabledDebugger'     => 'EnabledDebugger',
+        'envs'                => 'Envs',
+        'gmtCreateTime'       => 'GmtCreateTime',
+        'gmtFailedTime'       => 'GmtFailedTime',
+        'gmtFinishTime'       => 'GmtFinishTime',
+        'gmtRunningTime'      => 'GmtRunningTime',
+        'gmtStoppedTime'      => 'GmtStoppedTime',
+        'gmtSubmittedTime'    => 'GmtSubmittedTime',
+        'gmtSuccessedTime'    => 'GmtSuccessedTime',
+        'jobId'               => 'JobId',
+        'jobSpecs'            => 'JobSpecs',
+        'jobType'             => 'JobType',
+        'priority'            => 'Priority',
+        'reasonCode'          => 'ReasonCode',
+        'reasonMessage'       => 'ReasonMessage',
+        'resourceId'          => 'ResourceId',
+        'resourceLevel'       => 'ResourceLevel',
+        'resourceName'        => 'ResourceName',
+        'resourceType'        => 'ResourceType',
+        'settings'            => 'Settings',
+        'status'              => 'Status',
+        'subStatus'           => 'SubStatus',
+        'thirdpartyLibDir'    => 'ThirdpartyLibDir',
+        'thirdpartyLibs'      => 'ThirdpartyLibs',
+        'useOversoldResource' => 'UseOversoldResource',
+        'userCommand'         => 'UserCommand',
+        'userId'              => 'UserId',
+        'username'            => 'Username',
+        'workspaceId'         => 'WorkspaceId',
+        'workspaceName'       => 'WorkspaceName',
     ];
 
     public function validate()
@@ -333,6 +357,9 @@ class JobItem extends Model
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
         if (null !== $this->settings) {
             $res['Settings'] = null !== $this->settings ? $this->settings->toMap() : null;
         }
@@ -348,11 +375,17 @@ class JobItem extends Model
         if (null !== $this->thirdpartyLibs) {
             $res['ThirdpartyLibs'] = $this->thirdpartyLibs;
         }
+        if (null !== $this->useOversoldResource) {
+            $res['UseOversoldResource'] = $this->useOversoldResource;
+        }
         if (null !== $this->userCommand) {
             $res['UserCommand'] = $this->userCommand;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -450,6 +483,9 @@ class JobItem extends Model
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
         if (isset($map['Settings'])) {
             $model->settings = JobSettings::fromMap($map['Settings']);
         }
@@ -467,11 +503,17 @@ class JobItem extends Model
                 $model->thirdpartyLibs = $map['ThirdpartyLibs'];
             }
         }
+        if (isset($map['UseOversoldResource'])) {
+            $model->useOversoldResource = $map['UseOversoldResource'];
+        }
         if (isset($map['UserCommand'])) {
             $model->userCommand = $map['UserCommand'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
