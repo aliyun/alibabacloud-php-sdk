@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class RefreshDrdsAtomUrlResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example B12FC174-D5CE-4A6E-83C1-0F8F86******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the connection after refresh was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

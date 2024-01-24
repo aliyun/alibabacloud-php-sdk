@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class extendedMapping extends Model
 {
     /**
+     * @description The name of the source physical database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $srcDb;
 
     /**
+     * @description The ID of the ApsaraDB RDS instance to which the source physical database belongs.
+     *
+     * @example rm-bp1t1mk5a5bdj****
+     *
      * @var string
      */
     public $srcInstanceId;

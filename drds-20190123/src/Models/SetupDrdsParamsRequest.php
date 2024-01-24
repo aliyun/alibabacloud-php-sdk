@@ -15,16 +15,31 @@ class SetupDrdsParamsRequest extends Model
     public $data;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance for which you want to configure parameters.
+     *
+     * @example drdsjiii1b49****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The resource for which you want to configure parameters. Valid values:
+     *
+     *   **INSTANCE**: Configure parameters for the instance.
+     *   **DB**: Configure parameters for the databases of the instance.
+     *
+     * @example DB
+     *
      * @var string
      */
     public $paramLevel;
 
     /**
+     * @description The ID of the region in which the PolarDB-X 1.0 instance is located.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

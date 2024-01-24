@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstanceVersionRequest extends Model
 {
     /**
+     * @description The ID of the PolarDB-X 1.0 instance whose version you want to query.
+     *
+     * @example drdshbga1138****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

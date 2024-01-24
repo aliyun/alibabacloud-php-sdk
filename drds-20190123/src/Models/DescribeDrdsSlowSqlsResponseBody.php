@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsSlowSqlsResponseBody extends Model
 {
     /**
+     * @description Indicates the details of the slow SQL query.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description Indicates the page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description Indicates the number of entries returned on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Indicates the ID of the request.
+     *
+     * @example 509BDE17-505A-4B3B-854D-30D3F0******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description Indicates the total number of entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;

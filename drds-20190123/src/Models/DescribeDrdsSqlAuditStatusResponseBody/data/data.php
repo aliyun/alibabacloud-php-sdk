@@ -9,36 +9,67 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description Indicates whether the complete report of the SQL audit is supported. Valid values: true and false.
+     *
+     * @example true
+     *
      * @var string
      */
     public $detailed;
 
     /**
+     * @description Indicates whether the SQL audit feature is enabled for the database. Valid values: true and false.
+     *
+     * @example true
+     *
      * @var string
      */
     public $enabled;
 
     /**
+     * @description The UID of the external delivery.
+     *
+     * > This parameter is returned only if external log delivery is enabled.
+     * @example 111
+     *
      * @var int
      */
     public $extraAliUid;
 
     /**
+     * @description The Log Service Logstore from which logs are delivered.
+     *
+     * > This parameter is returned only if external log delivery is enabled.
+     * @example test
+     *
      * @var string
      */
     public $extraSlsLogStore;
 
     /**
+     * @description The Log Service project from which logs are delivered.
+     *
+     * > This parameter is returned only if external log delivery is enabled.
+     * @example test
+     *
      * @var string
      */
     public $extraSlsProject;
 
     /**
+     * @description Indicates whether external log delivery is enabled. Valid values: true and false.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $extraWriteEnabled;

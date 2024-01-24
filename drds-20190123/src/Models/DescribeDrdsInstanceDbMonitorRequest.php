@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstanceDbMonitorRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the Distributed Relational Database Service (DRDS) instance.
+     *
+     * @example drds*************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The end time. Specify the time in the UNIX timestamp format. The time must be in UTC. Unit: ms.
+     *
+     * @example 1603166400000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The performance monitoring metrics. You can specify one or more metrics for a query at a time. Separate multiple metric parameters with commas (,).
+     *
+     * >  For more information about the details of performance monitoring metrics, see [Database monitoring](~~186704~~).
+     * @example qps
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The start time. Specify the time in the UNIX timestamp format. The time must be in UTC. Unit: ms.
+     *
+     * @example 1603162800000
+     *
      * @var int
      */
     public $startTime;

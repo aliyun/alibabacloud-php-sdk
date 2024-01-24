@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RemoveDrdsDbRequest extends Model
 {
     /**
+     * @description The name of the database you want to back up.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the DRDS instance to which the destination database belongs.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;

@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The backup method. Valid values:
+     *
+     *   **Logic **: logical backup
+     *   **phy**: physical backup
+     *
+     * @example phy
+     *
      * @var string
      */
     public $menuName;
 
     /**
+     * @description Indicates whether backup recovery is supported.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $support;

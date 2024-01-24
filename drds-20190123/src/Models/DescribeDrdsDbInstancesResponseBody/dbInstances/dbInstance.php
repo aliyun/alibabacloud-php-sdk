@@ -10,76 +10,159 @@ use AlibabaCloud\Tea\Model;
 class dbInstance extends Model
 {
     /**
+     * @description Indicates the endpoint that is used to connect to an ApsaraDB RDS for MySQL instance that is used to store the data of the specified database.
+     *
+     * @example rm-bp1t1mk5a5b******.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectUrl;
 
     /**
+     * @description Indicates the ID of the ApsaraDB RDS for MySQL instance that is used to store the data of the specified database.
+     *
+     * @example rm-bp1t1mk5a5bdj****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description Indicates the state of the ApsaraDB RDS for MySQL instance that is used to store the data of the specified database. Valid values:
+     *
+     *   **0**: The ApsaraDB RDS for MySQL instance is being created.
+     *   **1**: The ApsaraDB RDS for MySQL instance is running.
+     *   **3**: The ApsaraDB RDS for MySQL instance is being deleted.
+     *   **5**: The ApsaraDB RDS for MySQL instance is being restarted.
+     *   **6**: The ApsaraDB RDS for MySQL instance is being upgraded or downgraded.
+     *   **7**: The ApsaraDB RDS for MySQL instance is being backed up.
+     *   **8**: The network type of the ApsaraDB RDS for MySQL instance is being changed.
+     *   **9**: The ApsaraDB RDS for MySQL instance is being migrated.
+     *   **11**: The data of the ApsaraDB RDS for MySQL instance is being migrated.
+     *   **12**: A disaster-recovery instance is being generated.
+     *   **13**: Data is being imported to the ApsaraDB RDS for MySQL instance.
+     *   **14**: Data is being imported to the ApsaraDB RDS for MySQL instance from an another ApsaraDB RDS for MySQL instance.
+     *   **15**: A failover is being performed.
+     *   **16**: A temporary instance is being created.
+     *   **17**: A network is being created for the ApsaraDB RDS for MySQL instance.
+     *   **18**: The ApsaraDB RDS for MySQL instance is being cloned.
+     *   **19**: The link is being changed.
+     *   **20**: The read-only instances of the ApsaraDB RDS for MySQL instance are being migrated.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @description Indicates the type of the ApsaraDB RDS for MySQL instance that is used to store the data of the specified database. The value is set to RDS.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $dbInstType;
 
     /**
+     * @description Indicates the ID of a resource.
+     *
+     * @example dm-hbgau1zp****
+     *
      * @var string
      */
     public $dmInstanceId;
 
     /**
+     * @description Indicates the engine of the ApsaraDB RDS for MySQL instance that is used to store the data of the specified database.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description Indicates the engine version of the ApsaraDB RDS for MySQL instance that is used to store the data of the specified database.
+     *
+     * @example 5.7
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description Indicates the point in time when the ApsaraDB RDS for MySQL instance that is used to store the data of the specified database expires.
+     *
+     * @example 1237486127634
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description Indicates the network type of the ApsaraDB RDS for MySQL instance.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description Indicates the billing method of the ApsaraDB RDS for MySQL instance that is used to store the data of the specified database. Valid values:
+     *
+     *   **drdsPre**: The instance uses the subscription billing method.
+     *   **drdsPost**: The instance uses the pay-as-you-go billing method.
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description Indicates the port that is used to connect to the ApsaraDB RDS for MySQL instance that is used to store the data of the specified database.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description Indicates whether the ApsaraDB RDS for MySQL instance that is used to store the data of the specified database is a primary instance or a read-only instance.
+     *
+     *   **Primary**: The instance is a primary instance.
+     *   **Readonly**: The instance is a read-only instance.
+     *
+     * @example Primary
+     *
      * @var string
      */
     public $rdsInstType;
 
     /**
+     * @description Indicates information about the read-only instances of the ApsaraDB RDS for MySQL instance that is used to store the data of the specified database.
+     *
      * @var readOnlyInstances
      */
     public $readOnlyInstances;
 
     /**
+     * @description Indicates the read weight of the read-only instance.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $readWeight;
 
     /**
+     * @description Indicates the number of remaining days before a subscription instance expires.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $remainDays;

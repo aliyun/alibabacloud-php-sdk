@@ -9,91 +9,183 @@ use AlibabaCloud\Tea\Model;
 class backupPolicyDO extends Model
 {
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $backupAppName;
 
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $backupDbName;
 
     /**
+     * @description The backup level. Valid values:
+     *
+     *   **db**: database backup
+     *   **instance**: instance backup
+     *
+     * @example instance
+     *
      * @var string
      */
     public $backupLevel;
 
     /**
+     * @description Indicates whether the log backup feature is enabled. Valid values:
+     *
+     *   **1**: The log backup feature is enabled.
+     *   **0**: The log backup feature is disabled.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $backupLog;
 
     /**
+     * @description The backup mode. Valid values:
+     *
+     *   **logic**: logical backup
+     *   **phy**: fast backup
+     *
+     * @example phy
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description The type of the backup policy. Valid values:
+     *
+     *   **DataBackupPolicy**: a data backup policy
+     *   **LogBackupPolicy**: a log backup policy
+     *
+     * @example DataBackupPolicy
+     *
      * @var string
      */
     public $backupPolicyMode;
 
     /**
+     * @description The retention period of backup files. Unit: days.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $backupRetentionPeriod;
 
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @description The retention period of data backup files. Unit: days.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $dataBackupRetentionPeriod;
 
     /**
+     * @description No value is returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @description No value is returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @description No value is returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $highSpaceUsageProtection;
 
     /**
+     * @description No value is returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $localLogRetentionHours;
 
     /**
+     * @description No value is returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $localLogRetentionSpace;
 
     /**
+     * @description The retention period of log backup files. Unit: days.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $logBackupRetentionPeriod;
 
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $nextBackupActuallyTime;
 
     /**
+     * @description The backup cycle. You can specify multiple backup cycles. Separate multiple backup cycles with commas (,). Valid values:
+     *
+     *   **0**: every Monday
+     *   **1**: every Tuesday
+     *   **2**: every Wednesday
+     *   **3**: every Thursday
+     *   **4**: every Friday
+     *   **5**: every Saturday
+     *   **6**: every Sunday
+     *
+     * @example 1,4
+     *
      * @var string
      */
     public $preferredBackupPeriod;
 
     /**
+     * @description The time range in which a backup is performed. The time is displayed in UTC.
+     *
+     * @example 22:00:00-23:00:00
+     *
      * @var string
      */
     public $preferredBackupTime;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RemoveDrdsInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;

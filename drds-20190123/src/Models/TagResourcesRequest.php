@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The ID of the region in which the resource is located.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -20,6 +24,10 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The resource type. Set the value to INSTANCE.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;

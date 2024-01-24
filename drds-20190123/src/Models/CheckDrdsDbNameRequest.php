@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CheckDrdsDbNameRequest extends Model
 {
     /**
+     * @description DRDS database name
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description DRDS instance ID
+     *
+     * @example drds********
+     *
      * @var string
      */
     public $drdsInstanceId;

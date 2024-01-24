@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDBIpWhiteListResponseBody extends Model
 {
     /**
+     * @description The IP address whitelist.
+     *
      * @var ipWhiteList
      */
     public $ipWhiteList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 017453B9-0001-4745-87BF-DD612D850ED0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

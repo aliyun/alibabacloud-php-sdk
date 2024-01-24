@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDBClusterResponseBody extends Model
 {
     /**
+     * @description The details of each PolarDB cluster.
+     *
      * @var dbInstance
      */
     public $dbInstance;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 60A77FD6-0DE4-4A34-B6FB-9C2673******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

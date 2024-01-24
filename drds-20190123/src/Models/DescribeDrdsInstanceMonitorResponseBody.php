@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstanceMonitorResponseBody extends Model
 {
     /**
+     * @description The result set of the query.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2F7F8080-9132-4279-85D0-B7E5C4
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RestartDrdsInstanceRequest extends Model
 {
     /**
+     * @description The ID of a DRDS instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;

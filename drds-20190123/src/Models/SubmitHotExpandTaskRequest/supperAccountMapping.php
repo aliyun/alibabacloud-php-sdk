@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class supperAccountMapping extends Model
 {
     /**
+     * @description The ID of the ApsaraDB RDS instance that has the privileged account.
+     *
+     * @example rm-bp1t1mk5a5bdj****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The name of the privileged account of the ApsaraDB RDS instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $supperAccount;
 
     /**
+     * @description The password of the privileged account of the ApsaraDB RDS instance.
+     *
+     * @example 11111111
+     *
      * @var string
      */
     public $supperPassword;

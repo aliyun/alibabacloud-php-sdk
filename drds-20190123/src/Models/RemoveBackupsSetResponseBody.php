@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class RemoveBackupsSetResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 70FED5BE-4DDC-4556-AD35-5A6D27******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether SQL audit was disabled for the DRDS database.
+     *
+     * @example success
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

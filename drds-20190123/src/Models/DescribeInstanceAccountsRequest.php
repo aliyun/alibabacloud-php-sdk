@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAccountsRequest extends Model
 {
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds*********
+     *
      * @var string
      */
     public $drdsInstanceId;

@@ -11,71 +11,129 @@ use AlibabaCloud\Tea\Model;
 class dbInstance extends Model
 {
     /**
+     * @description The ID of the PolarDB cluster.
+     *
+     * @example pc-*****************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The status of the PolarDB instance.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @description The information about the nodes in the PolarDB Cluster.
+     *
      * @var DBNodes
      */
     public $DBNodes;
 
     /**
+     * @description The type of storage used by the DRDS database.
+     *
+     * @example POLARDB
+     *
      * @var string
      */
     public $dbInstType;
 
     /**
+     * @description The endpoint of the PolarDB read /write splitting endpoint
+     *
      * @var endpoints
      */
     public $endpoints;
 
     /**
+     * @description The type of the DRDS database storage engine.
+     *
+     * @example POLARDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The version of the DRDS database storage engine.
+     *
+     * @example 8.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The time when the PolarDB cluster expires.
+     *
+     * @example 2019-09-27 11:22:33
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The network type of the PolarDB cluster.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The billing method of the PolarDB cluster.
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The PolarDB access port.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The type of RDS instance. PolarDB cluster does not support this parameter.
+     *
+     * @example ignore
+     *
      * @var string
      */
     public $rdsInstType;
 
     /**
+     * @description This parameter specifies the Read mode when the database storage type is PolarDB.
+     *
+     * Valid values:
+     *
+     *   **DEFAULT**: the default mode (that is, all read traffic is sent to the PolarDB read /write node).
+     *   **CUSTOM**: Custom mode (you can customize the ratio of traffic sent to read /write nodes and read-only nodes).
+     *   **BALANCE**: read balancing mode (the read traffic is automatically distributed by the read load module of the PolarDB cluster, which can also be understood as the read traffic being evenly distributed to each node).
+     *
+     * @example CUSTOM
+     *
      * @var string
      */
     public $readMode;
 
     /**
+     * @description The number of days remaining on the PolarDB for MySQL instance.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $remainDays;

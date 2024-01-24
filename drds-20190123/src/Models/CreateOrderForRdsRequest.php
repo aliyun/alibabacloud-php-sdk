@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderForRdsRequest extends Model
 {
     /**
+     * @description The JSON string that contains the order details. For more information, see [CreateDBInstance](~~26228~~).
+     *
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

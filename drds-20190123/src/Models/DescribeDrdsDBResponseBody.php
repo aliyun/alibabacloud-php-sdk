@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDBResponseBody extends Model
 {
     /**
+     * @description Indicates the details about the database.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Indicates the ID of the request.
+     *
+     * @example 58FB0EC7-CF71-4E48-92FB-CF070D******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

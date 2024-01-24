@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsShardingDbsRequest extends Model
 {
     /**
+     * @description The name of the database whose shards you want to query.
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The matching pattern of the database name.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbNamePattern;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance whose database shards you want to query.
+     *
+     * @example drdshbgaf3c63qbo
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of database shards returned on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

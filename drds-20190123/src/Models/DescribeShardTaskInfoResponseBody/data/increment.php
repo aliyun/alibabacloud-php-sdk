@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class increment extends Model
 {
     /**
+     * @description Indicates the latency of the incremental data synchronization.
+     *
+     * @example 1568617906
+     *
      * @var int
      */
     public $delay;
 
     /**
+     * @description Indicates the start time when the incremental data synchronization is performed.
+     *
+     * @example 2019-09-16 15:12:53
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description Indicates the number of transactions processed by the database per second.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $tps;

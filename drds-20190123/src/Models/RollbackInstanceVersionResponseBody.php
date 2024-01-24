@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RollbackInstanceVersionResponseBody extends Model
 {
     /**
+     * @description Indicates whether the instance version was rolled back.
+     *
+     * @example true
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DSSDF-SEWE-*****
+     *
      * @var string
      */
     public $requestId;

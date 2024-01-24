@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceAccountResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example FF13E47D-4E38-4A5A-BA68-4E610EVF56DC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DisableSqlAuditRequest extends Model
 {
     /**
+     * @description The name of the database for which you want to disable the SQL audit feature.
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds***********
+     *
      * @var string
      */
     public $drdsInstanceId;

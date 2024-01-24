@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class ValidateShardTaskRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds23ds****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region where the PolarDB-X 1.0 instance is created.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the table or table shard on which you want to perform the task.
+     *
+     * @example buyer
+     *
      * @var string
      */
     public $sourceTableName;
 
     /**
+     * @description The name of the table or table shard on which you perform the task.
+     *
+     * @example buyer_new
+     *
      * @var string
      */
     public $targetTableName;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **SINGLE_TO_SHARD**: converts a single table to a table shard.
+     *   **SHARD_TO_SINGLE**: converts a table shard to a single table.
+     *   **SHARD_TO_SHARD**: converts a table shard to another table shard.
+     *
+     * @example SINGLE_TO_SHARD
+     *
      * @var string
      */
     public $taskType;

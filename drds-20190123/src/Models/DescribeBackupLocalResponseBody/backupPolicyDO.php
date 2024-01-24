@@ -9,91 +9,166 @@ use AlibabaCloud\Tea\Model;
 class backupPolicyDO extends Model
 {
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $backupAppName;
 
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $backupDbName;
 
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $backupLevel;
 
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $backupLog;
 
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $backupPolicyMode;
 
     /**
+     * @description No value is returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $backupRetentionPeriod;
 
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @description No value is returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $dataBackupRetentionPeriod;
 
     /**
+     * @description No value is returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @description No value is returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @description Indicates whether the feature is enabled to forcibly delete binary log files if the used storage space of the instance exceeds 90% of the total storage space or the remaining storage space is less than 5 GB. Valid values:
+     *
+     *   1: The feature is enabled.
+     *   0: The feature is disabled.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $highSpaceUsageProtection;
 
     /**
+     * @description The number of hours for which log backup files are retained on the instance. Valid values: 0 to 168. Default value: **18**. The value **0** indicates that log backup files are not retained.
+     *
+     * @example 18
+     *
      * @var int
      */
     public $localLogRetentionHours;
 
     /**
+     * @description The maximum storage usage that is allowed for local log files. Valid values: 0 to 50. Default value: 30.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $localLogRetentionSpace;
 
     /**
+     * @description No value is returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $logBackupRetentionPeriod;
 
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $nextBackupActuallyTime;
 
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $preferredBackupPeriod;
 
     /**
+     * @description No value is returned.
+     *
+     * @example null
+     *
      * @var string
      */
     public $preferredBackupTime;

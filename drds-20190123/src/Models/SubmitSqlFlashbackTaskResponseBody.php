@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class SubmitSqlFlashbackTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example DSSDF-SEWE-*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the database creation failure records were removed from the DRDS instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The ID of the replication task.
+     *
+     * @example 1111
+     *
      * @var int
      */
     public $taskId;

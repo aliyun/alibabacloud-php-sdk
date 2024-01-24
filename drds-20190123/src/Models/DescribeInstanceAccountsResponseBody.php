@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAccountsResponseBody extends Model
 {
     /**
+     * @description Indicates the information about the instance accounts.
+     *
      * @var instanceAccounts
      */
     public $instanceAccounts;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E2E4056D-57EB-4353-8355-2E6284******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

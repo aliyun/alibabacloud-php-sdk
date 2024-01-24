@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDbInstanceRequest extends Model
 {
     /**
+     * @description The ID of the custom ApsaraDB RDS for MySQL instance that you want to query.
+     *
+     * @example rm-bp1t1mk5a5bdj****
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The name of the PolarDB-X 1.0 instance.
+     *
+     * @example drdshbga1138****
+     *
      * @var string
      */
     public $drdsInstanceId;

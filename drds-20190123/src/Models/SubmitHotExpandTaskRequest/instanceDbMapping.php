@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class instanceDbMapping extends Model
 {
     /**
+     * @description The name of the hot-spot database.
+     *
+     * @example hot_test_****_****
+     *
      * @var string
      */
     public $dbList;
 
     /**
+     * @description The name of the ApsaraDB RDS instance to which the hot-spot database belongs.
+     *
+     * @example rm-bp1t1mk5a5bdj****
+     *
      * @var string
      */
     public $instanceName;

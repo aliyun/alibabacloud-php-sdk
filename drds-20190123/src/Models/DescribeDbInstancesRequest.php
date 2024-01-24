@@ -9,26 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeDbInstancesRequest extends Model
 {
     /**
+     * @description Storage layer type. Valid values: **POLARDB** or **RDS**.
+     *
+     * @example POLARDB
+     *
      * @var string
      */
     public $dbInstType;
 
     /**
+     * @description The ID of a DRDS instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description The ID of the storage or cluster.
+     *
+     * @example pc-***************
+     *
      * @var string
      */
     public $search;
@@ -37,6 +66,7 @@ class DescribeDbInstancesRequest extends Model
         'drdsInstanceId' => 'DrdsInstanceId',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
+        'regionId'       => 'RegionId',
         'search'         => 'Search',
     ];
 
@@ -58,6 +88,9 @@ class DescribeDbInstancesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->search) {
             $res['Search'] = $this->search;
@@ -85,6 +118,9 @@ class DescribeDbInstancesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Search'])) {
             $model->search = $map['Search'];

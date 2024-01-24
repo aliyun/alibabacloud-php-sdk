@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the monitoring metric.
+     *
+     * @example qps
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The unit of the monitoring metric.
+     *
+     * @example qps
+     *
      * @var string
      */
     public $unit;
 
     /**
+     * @description The details about the value of monitoring data.
+     *
      * @var values[]
      */
     public $values;

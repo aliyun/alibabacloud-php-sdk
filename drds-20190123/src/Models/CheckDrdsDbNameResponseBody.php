@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CheckDrdsDbNameResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CF38538C-68BD-4278-B58F-EDE96F******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the DRDS database name is valid. Valid values: true: The database name is valid. false: the database name is invalid.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @description Indicates whether the call is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

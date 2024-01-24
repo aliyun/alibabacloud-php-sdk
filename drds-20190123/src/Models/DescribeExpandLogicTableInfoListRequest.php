@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeExpandLogicTableInfoListRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example drds_flashback
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;

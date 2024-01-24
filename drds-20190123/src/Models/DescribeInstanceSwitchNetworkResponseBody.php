@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSwitchNetworkResponseBody extends Model
 {
     /**
+     * @description Indicates the ID of the request.
+     *
+     * @example 03E12FE3-1638-483E-A9B6-1A9120SER56T
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description Indicates the information about the virtual private cloud (VPC) in which the instance is deployed.
+     *
      * @var vpcInfos
      */
     public $vpcInfos;

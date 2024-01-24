@@ -11,31 +11,56 @@ use AlibabaCloud\Tea\Model;
 class CreateDrdsDBRequest extends Model
 {
     /**
+     * @description The name of the account that has permissions to access all databases on the ApsaraDB RDS for MySQL instance.
+     *
+     * This parameter is required only when the Type parameter is set to VERTICAL.
+     * @example drds_sample_account
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The type of the storage instances that are used by the PolarDB-X 1.0 database. Set the value to RDS.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $dbInstType;
 
     /**
+     * @description Specifies whether the required ApsaraDB RDS for MySQL instance is being created.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dbInstanceIsCreating;
 
     /**
+     * @description The name of the PolarDB-X 1.0 database you want to create.
+     *
+     * @example testdb
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance on which you want to create the database.
+     *
+     * @example drdshbgal154****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The encoding method that is used by the database.
+     *
+     * @example utf8
+     *
      * @var string
      */
     public $encode;
@@ -46,11 +71,17 @@ class CreateDrdsDBRequest extends Model
     public $instDbName;
 
     /**
+     * @description The password that is used to log on to the database.
+     *
+     * @example drds_sample_password
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example ["drds_sample_rds_id1", "drds_sample_rds_id2"]
+     *
      * @var string[]
      */
     public $rdsInstance;
@@ -61,6 +92,13 @@ class CreateDrdsDBRequest extends Model
     public $rdsSuperAccount;
 
     /**
+     * @description The partitioning mode of the database. Valid values:
+     *
+     *   **HORIZONTAL**: The database is horizontally partitioned (sharded).
+     *   **VERTICAL**: The database is vertically partitioned.
+     *
+     * @example HORIZONTAL
+     *
      * @var string
      */
     public $type;

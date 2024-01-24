@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class SubmitSmoothExpandPreCheckTaskResponseBody extends Model
 {
     /**
+     * @description Indicates whether the precheck task was submitted.
+     *
+     * @example scucess
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DSSDF-SEWE-23ERW
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 2321
+     *
      * @var int
      */
     public $taskId;

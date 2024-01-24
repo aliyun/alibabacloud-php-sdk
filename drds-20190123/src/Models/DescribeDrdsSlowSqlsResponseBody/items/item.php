@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description Indicates the IP address of the execution machine.
+     *
+     * @example 10.0.***.***
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description Indicates the response time. Unit: ms.
+     *
+     * @example 1568267711
+     *
      * @var int
      */
     public $responseTime;
 
     /**
+     * @description Indicates the name of the database.
+     *
+     * @example user
+     *
      * @var string
      */
     public $schema;
 
     /**
+     * @description Indicates the time when the slow SQL query was sent. Unit: ms.
+     *
+     * @example 1568267711
+     *
      * @var int
      */
     public $sendTime;
 
     /**
+     * @description Indicates the content of the slow SQL query.
+     *
+     * @example SELECT   count(1) from   payment_order where   order_status = \"08\";
+     *
      * @var string
      */
     public $sql;

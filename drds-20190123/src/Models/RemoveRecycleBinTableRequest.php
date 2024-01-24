@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class RemoveRecycleBinTableRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the logical table.
+     *
+     * @example test
+     *
      * @var string
      */
     public $tableName;

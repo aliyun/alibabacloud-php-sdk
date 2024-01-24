@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the databases on which hot-spot scale-out is performed.
+     *
      * @var list_
      */
     public $list;
 
     /**
+     * @description The random number.
+     *
+     * @example jzhz
+     *
      * @var string
      */
     public $randomCode;

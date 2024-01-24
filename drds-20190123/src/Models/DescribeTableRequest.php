@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeTableRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example drds_flashback
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds*********
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region where the PolarDB-X 1.0 instance is created.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the table.
+     *
+     * @example employee_split
+     *
      * @var string
      */
     public $tableName;

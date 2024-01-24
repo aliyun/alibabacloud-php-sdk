@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpgradeHiStoreInstanceRequest extends Model
 {
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drdssad23sdfc
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the column-oriented storage instance.
+     *
+     * @example hi-sesex2e
+     *
      * @var string
      */
     public $historeInstanceId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

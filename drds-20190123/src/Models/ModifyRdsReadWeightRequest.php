@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ModifyRdsReadWeightRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The names of the ApsaraDB RDS for MySQL instances. Separate the names with commas (,).
+     *
+     * @example rm-****************,rm-****************
+     *
      * @var string
      */
     public $instanceNames;
 
     /**
+     * @description The weights of the ApsaraDB RDS for MySQL instances. Separate the weights with commas (,).
+     *
+     * @example 14,86
+     *
      * @var string
      */
     public $weights;

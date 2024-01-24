@@ -9,56 +9,96 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description Indicates the name of the database.
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description Indicates whether a restart is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $needRestart;
 
     /**
+     * @description Indicates the default value of a parameter.
+     *
+     * @example 1000
+     *
      * @var string
      */
     public $paramDefaultValue;
 
     /**
+     * @description Indicates the description of the parameter.
+     *
      * @var string
      */
     public $paramDesc;
 
     /**
+     * @description Indicates the name of the parameter.
+     *
+     * @example SLOW_SQL_TIME
+     *
      * @var string
      */
     public $paramEnglishName;
 
     /**
+     * @description Indicates the parameter level.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $paramLevel;
 
     /**
+     * @description Indicates the name of the parameter.
+     *
      * @var string
      */
     public $paramName;
 
     /**
+     * @description Indicates the value range of the parameter.
+     *
+     * @example [1000-900000]
+     *
      * @var string
      */
     public $paramRanges;
 
     /**
+     * @description Indicates the type of the parameter.
+     *
+     * @example CONFIG
+     *
      * @var string
      */
     public $paramType;
 
     /**
+     * @description Indicates the value of the parameter.
+     *
+     * @example 1000
+     *
      * @var string
      */
     public $paramValue;
 
     /**
+     * @description Indicates the name of the variable.
+     *
+     * @example slowSqlTime
+     *
      * @var string
      */
     public $paramVariableName;

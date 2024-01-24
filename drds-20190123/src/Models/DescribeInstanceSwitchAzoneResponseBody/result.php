@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the source azoneId.
+     *
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $originAzoneId;
 
     /**
+     * @description regionId.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Indicates whether the job can be switched.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $switchAble;
 
     /**
+     * @description Target azones.
+     *
      * @var targetAzones
      */
     public $targetAzones;

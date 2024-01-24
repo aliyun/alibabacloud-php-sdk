@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of the tag configured for the instances you want to query.
+     *
+     * @example acs:newretail:domain
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag configured for the instances you want to query.
+     *
+     * @example NEW_RETAIL
+     *
      * @var string
      */
     public $value;

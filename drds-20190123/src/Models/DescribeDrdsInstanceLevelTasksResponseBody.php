@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstanceLevelTasksResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 2F7F8080-9132-4279-85D0-B7E5C4305162
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The list of returned unfinished tasks.
+     *
      * @var tasks
      */
     public $tasks;

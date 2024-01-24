@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeSqlFlashbakTaskResponseBody extends Model
 {
     /**
+     * @description Indicates the ID of the request.
+     *
+     * @example 5D64DE59-44A1-E541-E0CB-B7E5C4305162
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates the information about flashback tasks.
+     *
      * @var sqlFlashbackTasks
      */
     public $sqlFlashbackTasks;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

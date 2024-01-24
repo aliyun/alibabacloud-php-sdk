@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsSqlAuditStatusResponseBody extends Model
 {
     /**
+     * @description The returned data set.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DC3ABA3E-0F8A-4596-9104-F5155C******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

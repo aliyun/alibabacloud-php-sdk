@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the table was created.
+     *
+     * @example 2019-09-16 14:42:06
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The original name of the table.
+     *
+     * @example BIN_T4AG3CY5WWXPKHITCHJY
+     *
      * @var string
      */
     public $originalTableName;
 
     /**
+     * @description The name of the table.
+     *
+     * @example test
+     *
      * @var string
      */
     public $tableName;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeSqlFlashbakTaskRequest extends Model
 {
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds****c6vxxyzd
+     *
      * @var string
      */
     public $drdsInstanceId;

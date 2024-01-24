@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDbRdsNameListRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drdsxxxxxxxxxxx
+     *
      * @var string
      */
     public $drdsInstanceId;

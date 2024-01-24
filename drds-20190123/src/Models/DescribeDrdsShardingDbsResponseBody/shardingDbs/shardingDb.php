@@ -9,66 +9,118 @@ use AlibabaCloud\Tea\Model;
 class shardingDb extends Model
 {
     /**
+     * @description The timeout period for a transaction to wait for the release of the data lock.
+     *
+     * @example 5000
+     *
      * @var int
      */
     public $blockingTimeout;
 
     /**
+     * @description The URL that is used to access the Apsara RDS for MySQL instance.
+     *
+     * @example 100.100.64.100:11569
+     *
      * @var string
      */
     public $connectUrl;
 
     /**
+     * @description The properties of the connection string.
+     *
+     * @example connectTimeout=3000;autoReconnect=true;failOverReadOnly=false;socketTimeout=900000;rewriteBatchedStatements=true;characterEncoding=utf8
+     *
      * @var string
      */
     public $connectionProperties;
 
     /**
+     * @description The ID of the Apsara RDS for MySQL instance that is used as the storage of the database shard.
+     *
+     * @example rm-bp1hjzn0yv5j2****
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @description The status of the database.
+     *
+     * @example running
+     *
      * @var string
      */
     public $dbStatus;
 
     /**
+     * @description The engine of the database.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The name of group on which the database shard is stored.
+     *
+     * @example TEMP1_1568171495522SABE_KUP4_0000
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The timeout period of an idle connection.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $idleTimeOut;
 
     /**
+     * @description The maximum size of the connection pool.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $maxPoolSize;
 
     /**
+     * @description The minimum size of the connection pool.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $minPoolSize;
 
     /**
+     * @description The size of cache for the returned results.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $preparedStatementCacheSize;
 
     /**
+     * @description The name of the database shard.
+     *
+     * @example temp1_zhk1_0000
+     *
      * @var string
      */
     public $shardingDbName;
 
     /**
+     * @description The username that is used to connect to the ApsaraDB RDS for MySQL instance.
+     *
+     * @example pg284mi8
+     *
      * @var string
      */
     public $userName;

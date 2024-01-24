@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdsSuperAccountInstancesResponseBody extends Model
 {
     /**
+     * @description The privileged accounts.
+     *
      * @var dbInstances
      */
     public $dbInstances;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5D64DE5944A1E541E0******
+     *
      * @var string
      */
     public $requestId;

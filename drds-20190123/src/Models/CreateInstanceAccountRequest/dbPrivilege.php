@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class dbPrivilege extends Model
 {
     /**
+     * @description The name of the database that you want to manage by using the account to create.
+     *
+     * @example test123
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The permissions that you want to grant to the account to manage the database.
+     *
+     * @example DDL
+     *
      * @var string
      */
     public $privilege;

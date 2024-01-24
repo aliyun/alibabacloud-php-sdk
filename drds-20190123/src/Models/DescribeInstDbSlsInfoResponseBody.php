@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstDbSlsInfoResponseBody extends Model
 {
     /**
+     * @description The details of the SQL audit.
+     *
      * @var auditInfo
      */
     public $auditInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DC3ABA3E-0F8A-4596-9104-F5155C******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

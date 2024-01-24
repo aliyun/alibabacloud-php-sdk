@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupTimesResponseBody extends Model
 {
     /**
+     * @description Indicates the ID of the request.
+     *
+     * @example 4780A19F-5ECB-4C56-AD20-966A3FF9DE5R
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates the information about the time range within which the data of the instance can be restored to a point in time.
+     *
      * @var restoreTime
      */
     public $restoreTime;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

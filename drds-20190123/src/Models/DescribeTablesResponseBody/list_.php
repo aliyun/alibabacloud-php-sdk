@@ -9,41 +9,79 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description Indicates whether full table scanning is allowed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $allowFullTableScan;
 
     /**
+     * @description Indicates whether the table is a replicated table.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $broadcast;
 
     /**
+     * @description The type of the PolarDB-X 1.0 instance. Valid values:
+     *
+     *   0: The instance is a dedicated instance.
+     *   1: The instance is a shard instance.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $dbInstType;
 
     /**
+     * @description Indicates whether the table is locked.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isLocked;
 
     /**
+     * @description Indicates whether the table is sharded.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isShard;
 
     /**
+     * @description The shard key of the table.
+     *
+     * @example null
+     *
      * @var string
      */
     public $shardKey;
 
     /**
+     * @description Indicates whether sharding tasks are performed on the table. Valid values:
+     *
+     *   0: No sharding task is performed on the table.
+     *   1: Sharding tasks are performed on the table.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The name of the table.
+     *
+     * @example test
+     *
      * @var string
      */
     public $table;

@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class mapping extends Model
 {
     /**
+     * @description The shard key used to split the database to which the associated table belongs.
+     *
+     * @example platform
+     *
      * @var string
      */
     public $dbShardColumn;
 
     /**
+     * @description The name of the hot-spot database.
+     *
+     * @example hot_test_****_****
+     *
      * @var string
      */
     public $hotDbName;
 
     /**
+     * @description The name of the hot-spot table. The name must be prefixed with the name of a logical table.
+     *
+     * @example test_table_*****
+     *
      * @var string
      */
     public $hotTableName;
 
     /**
+     * @description The name of the logical table on which you want to perform hot-spot scale-out.
+     *
+     * @example test_table
+     *
      * @var string
      */
     public $logicTable;
 
     /**
+     * @description The value of the shard key used to split a database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $shardDbValue;
 
     /**
+     * @description The value of the shard key used to split a table.
+     *
+     * @example test
+     *
      * @var string
      */
     public $shardTbValue;
 
     /**
+     * @description The shard key used to split an associated table.
+     *
+     * @example platform
+     *
      * @var string
      */
     public $tbShardColumn;

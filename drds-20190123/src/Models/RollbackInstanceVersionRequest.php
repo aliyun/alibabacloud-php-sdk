@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RollbackInstanceVersionRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

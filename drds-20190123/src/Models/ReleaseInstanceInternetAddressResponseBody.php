@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceInternetAddressResponseBody extends Model
 {
     /**
+     * @description The result returned by the current API.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FD17CD3C-3355-49E8-9231-FE2DB0******
+     *
      * @var string
      */
     public $requestId;

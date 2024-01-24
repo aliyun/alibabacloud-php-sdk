@@ -10,76 +10,141 @@ use AlibabaCloud\Tea\Model;
 class dbInstance extends Model
 {
     /**
+     * @description The URL used to connect to the custom ApsaraDB RDS for MySQL instance.
+     *
+     * @example rm-***************.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectUrl;
 
     /**
+     * @description The ID of the ApsaraDB RDS for MySQL instance.
+     *
+     * @example rm-***************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The state of the instance.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @description The role of the instance. Valid values:
+     *
+     *   **Primary**: The instance is a primary instance.
+     *   **ReadOnly**: The instance is a read-only instance.
+     *
+     * @example Primary
+     *
      * @var string
      */
     public $dbInstType;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example dm-*************
+     *
      * @var string
      */
     public $dmInstanceId;
 
     /**
+     * @description The engine of the database that is run on the instance. Valid value: **MySQL**.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The engine version of the database that is run on the instance. Valid values: **5.7**.
+     *
+     * @example 5.7
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The time when the custom ApsaraDB RDS for MySQL instance expires. The value of this parameter is a UNIX timestamp. Unit: seconds.
+     *
+     * >  This parameter is returned only when the custom ApsaraDB RDS for MySQL instance is a subscription instance.
+     * @example 12341434315
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The type of the network. Valid values: **VPC**.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The billing method of the custom ApsaraDB RDS for MySQL instance. Valid values:
+     *
+     *   **Prepaid**: subscription
+     *   **Postaid**: pay-as-you-go
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The port used to connect to the custom ApsaraDB RDS for MySQL instance.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The type of the instance.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $rdsInstType;
 
     /**
+     * @description The list of read-only ApsaraDB RDS for MySQL instances.
+     *
      * @var readOnlyInstances
      */
     public $readOnlyInstances;
 
     /**
+     * @description The read ratio of the instance.
+     *
+     * @example 70
+     *
      * @var int
      */
     public $readWeight;
 
     /**
+     * @description The number of remaining days before the instance expires.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $remainDays;

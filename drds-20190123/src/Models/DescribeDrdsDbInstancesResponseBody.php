@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDbInstancesResponseBody extends Model
 {
     /**
+     * @description Indicates information about the ApsaraDB RDS for MySQL instances that are used to store the data of the specified database.
+     *
      * @var dbInstances
      */
     public $dbInstances;
 
     /**
+     * @description Indicates the page number of the returned page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description Indicates the number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description Indicates the ID of the request.
+     *
+     * @example 2F7F8080-9132-4279-85D0-B7E5C4305162
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description Indicates the number of primary ApsaraDB RDS for MySQL instances.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $total;

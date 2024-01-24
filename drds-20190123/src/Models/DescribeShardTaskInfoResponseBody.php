@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeShardTaskInfoResponseBody extends Model
 {
     /**
+     * @description Indicates the data that is returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Indicates the unique ID of the request. If the request fails, provide this ID for technical support to troubleshoot the failure.
+     *
+     * @example 5D64DE5944A1E541E0CB908A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

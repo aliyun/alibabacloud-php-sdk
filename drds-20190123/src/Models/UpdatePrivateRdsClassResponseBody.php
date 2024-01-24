@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdatePrivateRdsClassResponseBody extends Model
 {
     /**
+     * @description The ID of the order.
+     *
+     * @example {     "orderId": "209136011******"   }
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 57D86AB4-8703-4DF4-BAB6-F7DE44******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

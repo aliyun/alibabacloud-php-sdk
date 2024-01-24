@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyDrdsIpWhiteListResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 933A1EC2-8260-4D4F-A56A-73BA27******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

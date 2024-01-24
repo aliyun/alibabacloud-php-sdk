@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class SetupTableRequest extends Model
 {
     /**
+     * @description Specifies whether to enable full table scan.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allowFullTableScan;
 
     /**
+     * @description The name of the database in which the table resides.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the DRDS instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region where the streaming domain resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example test
+     *
      * @var string[]
      */
     public $tableName;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class logTimeRange extends Model
 {
     /**
+     * @description The start time of the query time range.
+     *
+     * @example 1568267711
+     *
      * @var int
      */
     public $supportLatestTime;
 
     /**
+     * @description The end time of the task.
+     *
+     * @example 1568367711
+     *
      * @var int
      */
     public $supportOldestTime;

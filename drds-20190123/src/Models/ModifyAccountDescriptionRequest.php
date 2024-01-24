@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountDescriptionRequest extends Model
 {
     /**
+     * @description The name of the member account.
+     *
+     * @example test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The description of the account.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the ApsaraDB RDS for PostgreSQL instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;

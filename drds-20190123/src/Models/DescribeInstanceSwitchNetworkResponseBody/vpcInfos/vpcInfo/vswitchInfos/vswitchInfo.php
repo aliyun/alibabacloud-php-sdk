@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class vswitchInfo extends Model
 {
     /**
+     * @description Indicates the ID of the zone in which the instance is deployed.
+     *
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $azoneId;
 
     /**
+     * @description Indicates whether you can change the network type of the instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $drdsSupported;
 
     /**
+     * @description Indicates the ID of the VPC.
+     *
+     * @example vpc_id
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description Indicates the ID of the vSwitch.
+     *
+     * @example vswitch_id
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
+     * @description Indicates the name of the vSwitch.
+     *
+     * @example vswitch_name
+     *
      * @var string
      */
     public $vswitchName;

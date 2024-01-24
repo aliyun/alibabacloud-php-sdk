@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetDrdsDbRdsRelationInfoRequest extends Model
 {
     /**
+     * @description The name of the DRDS database.
+     *
+     * @example testDb
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the DRDS instance.
+     *
+     * @example drdshbga948vbpd2
+     *
      * @var string
      */
     public $drdsInstanceId;

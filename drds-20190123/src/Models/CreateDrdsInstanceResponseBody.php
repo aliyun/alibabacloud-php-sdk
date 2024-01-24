@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class CreateDrdsInstanceResponseBody extends Model
 {
     /**
+     * @description Indicates the details of the result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Indicates the ID of the request.
+     *
+     * @example D99D4644-A70D-49A3-B8B4-767ACC50SE2R
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

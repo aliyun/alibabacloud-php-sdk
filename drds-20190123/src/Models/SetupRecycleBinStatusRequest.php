@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class SetupRecycleBinStatusRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies the status of the table recycle bin. Valid values:
+     *
+     *   enable: The table recycle bin is enabled.
+     *   disable: The table recycle bin is disabled.
+     *
+     * @example enable
+     *
      * @var string
      */
     public $statusAction;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDBClusterRequest extends Model
 {
     /**
+     * @description The ID of the PolarDB cluster.
+     *
+     * @example pc-*****************
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @description The name of the DRDS database.
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of a DRDS instance.
+     *
+     * @example drds*********
+     *
      * @var string
      */
     public $drdsInstanceId;

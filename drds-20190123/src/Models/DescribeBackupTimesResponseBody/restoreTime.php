@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class restoreTime extends Model
 {
     /**
+     * @description Indicates the end time. The time is in the UNIX timestamp format. The time is in UTC. Unit: ms.
+     *
+     * @example 1568636922671
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description Indicates the start time. The time is in the UNIX timestamp format. The time must be in UTC. Unit: ms.
+     *
+     * @example 1568632853000
+     *
      * @var string
      */
     public $startTime;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The current version of the instance.
+     *
+     * @example 5.3.12-15682777
+     *
      * @var string
      */
     public $instanceVersion;
 
     /**
+     * @description The latest version of the instance.
+     *
+     * @example 5.4.12-16315258
+     *
      * @var string
      */
     public $newestVersion;

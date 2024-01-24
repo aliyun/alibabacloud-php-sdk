@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class SubmitHotExpandPreCheckTaskResponseBody extends Model
 {
     /**
+     * @description The result of the task.
+     *
+     * @example scucess
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FE104D26-AC19-49B5-AC67-947F69*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 11111
+     *
      * @var int
      */
     public $taskId;

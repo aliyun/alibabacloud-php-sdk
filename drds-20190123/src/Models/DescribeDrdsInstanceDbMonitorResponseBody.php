@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstanceDbMonitorResponseBody extends Model
 {
     /**
+     * @description The list of monitoring data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2F7F8080-9132-4279-85D0-B7E5C4******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

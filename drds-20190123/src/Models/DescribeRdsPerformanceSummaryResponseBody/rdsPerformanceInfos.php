@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class rdsPerformanceInfos extends Model
 {
     /**
+     * @description The number of active sessions of the RDS instance.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $activeSessions;
 
     /**
+     * @description The CPU utilization of an RDS instance.
+     *
+     * @example 0.26
+     *
      * @var float
      */
     public $cpu;
 
     /**
+     * @description The IOPS of the RDS instance.
+     *
+     * @example 17.62
+     *
      * @var float
      */
     public $iops;
 
     /**
+     * @description The ID of an RDS instance.
+     *
+     * @example rm-**************
+     *
      * @var string
      */
     public $rdsId;
 
     /**
+     * @description The disk usage of apsaradb for RDS. Unit: MB.
+     *
+     * @example 4145144777
+     *
      * @var int
      */
     public $spaceUsage;
 
     /**
+     * @description The total number of current RDS sessions.
+     *
+     * @example 162
+     *
      * @var int
      */
     public $totalSessions;

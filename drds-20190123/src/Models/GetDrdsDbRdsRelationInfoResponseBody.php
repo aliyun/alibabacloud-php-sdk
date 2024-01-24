@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class GetDrdsDbRdsRelationInfoResponseBody extends Model
 {
     /**
+     * @description The structure information about the storage instances of the DRDS database. Each entry corresponds to a primary storage instance.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 82FD0D9B-9A65-40D3-B1D9-8851B1D4AF75
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

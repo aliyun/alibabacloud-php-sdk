@@ -13,41 +13,65 @@ use AlibabaCloud\Tea\Model;
 class SubmitHotExpandTaskRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example drdshbga1138****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The information about the database on which you want to perform hot-spot scale-out.
+     *
      * @var extendedMapping[]
      */
     public $extendedMapping;
 
     /**
+     * @description The information about the instance to which the hot-spot database belongs.
+     *
      * @var instanceDbMapping[]
      */
     public $instanceDbMapping;
 
     /**
+     * @description The information about the hot-spot database.
+     *
      * @var mapping[]
      */
     public $mapping;
 
     /**
+     * @description The information about the privileged account.
+     *
      * @var supperAccountMapping[]
      */
     public $supperAccountMapping;
 
     /**
+     * @description The description of the task.
+     *
+     * @example test
+     *
      * @var string
      */
     public $taskDesc;
 
     /**
+     * @description The name of the task.
+     *
+     * @example test
+     *
      * @var string
      */
     public $taskName;

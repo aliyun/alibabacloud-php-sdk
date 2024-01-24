@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class RestartDrdsInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example A3140FC7-B78B-4D8E-B0C8-926D28******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the database creation failure records were removed from the PolarDB-X instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $taskId;

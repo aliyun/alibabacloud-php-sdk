@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreOrderRequest extends Model
 {
     /**
+     * @description The name of the database involved in the backup.
+     *
+     * @example drds_flashback
+     *
      * @var string
      */
     public $backupDbNames;
 
     /**
+     * @description The ID of the backup set.
+     *
+     * @example 1918df27-4563-11e9-8403-af4fbe******
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The level of the backup. Valid values:
+     *
+     *   **DB**: The database Level
+     *   **instance **: instance level
+     *
+     * @example db
+     *
      * @var string
      */
     public $backupLevel;
 
     /**
+     * @description The backup mode. Valid values: **logic** or **phy**.
+     *
+     * @example phy
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description The ID of the instance for which to modify the backup policy.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The preferred backup time.
+     *
+     * @example 2019-09-16 15:12:53
+     *
      * @var string
      */
     public $preferredBackupTime;

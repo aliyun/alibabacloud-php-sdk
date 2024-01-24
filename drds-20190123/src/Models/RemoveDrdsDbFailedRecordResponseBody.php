@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class RemoveDrdsDbFailedRecordResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D98BC610-5A91-453A-BC44-5873EF******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the database creation failure records were deleted from the DRDS instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

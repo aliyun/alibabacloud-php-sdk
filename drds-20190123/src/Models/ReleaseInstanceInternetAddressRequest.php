@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceInternetAddressRequest extends Model
 {
     /**
+     * @description The ID of the DRDS instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The region where the instance is located.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;

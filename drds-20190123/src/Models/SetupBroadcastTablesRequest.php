@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class SetupBroadcastTablesRequest extends Model
 {
     /**
+     * @description Specifies whether to activate a broadcast table for the database.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $active;
 
     /**
+     * @description The name of the database for which you want to configure a broadcast table.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region in which the PolarDB-X 1.0 instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the table.
+     *
+     * @example test
+     *
      * @var string[]
      */
     public $tableName;

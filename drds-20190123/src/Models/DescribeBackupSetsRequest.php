@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupSetsRequest extends Model
 {
     /**
+     * @description The ID of the DRDS instance.
+     *
+     * @example drds***********
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The end of the query time which is in timestamp format (measured in millisecond) .
+     *
+     * >  The end time must be later than the start time.
+     * @example 1591326000000
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The beginning of the query time which is in timestamp format (measured in millisecond).
+     *
+     * @example 1591327800000
+     *
      * @var string
      */
     public $startTime;

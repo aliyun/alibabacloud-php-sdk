@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class auditInfo extends Model
 {
     /**
+     * @description The name of the LogStore.
+     *
+     * @example test
+     *
      * @var string
      */
     public $logStore;
 
     /**
+     * @description The name of the Log Service project.
+     *
+     * @example test
+     *
      * @var string
      */
     public $project;

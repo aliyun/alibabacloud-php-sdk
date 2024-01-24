@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeRDSPerformanceRequest extends Model
 {
     /**
+     * @description The type of the database engine.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $dbInstType;
 
     /**
+     * @description The ID of the Distributed Relational Database Service (DRDS) instance.
+     *
+     * @example drds*********
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The end time of the query. Specify the time in the UNIX timestamp format. The time must be in UTC. Unit: ms.
+     *
+     * @example 1603209690000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The performance monitoring metrics. You can specify one or more metrics for a query at a time. Separate multiple metric parameters with commas (,).
+     *
+     * >  For more information about the details of performance monitoring metrics, see [Storage monitoring](~~186705~~).
+     * @example MySQL_MemCpuUsage
+     *
      * @var string
      */
     public $keys;
 
     /**
+     * @description The ID of the storage-layer ApsaraDB RDS for MySQL instance.
+     *
+     * @example rm-************
+     *
      * @var string
      */
     public $rdsInstanceId;
 
     /**
+     * @description The start time of the query. Specify the time in the UNIX timestamp format. The time must be in UTC. Unit: ms.
+     *
+     * @example 1603123290000
+     *
      * @var int
      */
     public $startTime;

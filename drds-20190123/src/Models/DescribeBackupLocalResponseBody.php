@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupLocalResponseBody extends Model
 {
     /**
+     * @description The information about the backup policy.
+     *
      * @var backupPolicyDO
      */
     public $backupPolicyDO;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FDC9CFD5-306D-4A23-9D8C-057274C6****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

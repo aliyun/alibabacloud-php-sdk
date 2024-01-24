@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsRdsInstancesResponseBody extends Model
 {
     /**
+     * @description The information about the custom ApsaraDB RDS for MySQL instances at the storage layer.
+     *
      * @var dbInstances
      */
     public $dbInstances;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 123DB16B-02F2-45F7-A571-843991******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

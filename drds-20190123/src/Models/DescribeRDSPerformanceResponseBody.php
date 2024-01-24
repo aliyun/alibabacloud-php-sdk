@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeRDSPerformanceResponseBody extends Model
 {
     /**
+     * @description The result set of the query.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DB53EC68-463C-4187-8D2B-C2AD8C******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdsSuperAccountInstancesRequest extends Model
 {
     /**
+     * @description The type of the ApsaraDB RDS for MySQL instances. Default value: **RDS**.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $dbInstType;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @example [\"rm-*****************\",\"rm-*****************\"]
+     *
      * @var string[]
      */
     public $rdsInstance;

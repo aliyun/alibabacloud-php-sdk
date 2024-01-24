@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example drdshbga71nn****
+     *
      * @var string
      */
     public $drdsInstanceId;

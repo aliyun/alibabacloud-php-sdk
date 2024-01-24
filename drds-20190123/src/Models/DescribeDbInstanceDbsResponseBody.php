@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeDbInstanceDbsResponseBody extends Model
 {
     /**
+     * @description Indicates the information about the storage-layer databases.
+     *
      * @var databases
      */
     public $databases;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E9F3D991-08DE-4B74-BE0E-06B809******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description Indicates the total number of storage-layer databases.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $total;

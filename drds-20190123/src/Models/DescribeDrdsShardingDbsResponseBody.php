@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsShardingDbsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of database shards returned per page.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 509BDE17-505A-4B3B-854D-30D3F092502F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of returned database shards.
+     *
      * @var shardingDbs
      */
     public $shardingDbs;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The number of returned database shards.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $total;

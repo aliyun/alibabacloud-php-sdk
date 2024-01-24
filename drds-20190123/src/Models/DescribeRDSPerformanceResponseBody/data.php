@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the monitoring metric.
+     *
+     * @example cpuusage
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The name of the node.
+     *
+     * >  This parameter is returned only when the storage type of the database is PolarDB for MySQL. If the storage type of the database is ApsaraDB RDS for MySQL, this parameter is not returned.
+     * @example pi-*************
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description The number of nodes.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $nodeNum;
 
     /**
+     * @description The unit of the monitoring metric.
+     *
+     * @example %
+     *
      * @var string
      */
     public $unit;
 
     /**
+     * @description The details of the monitoring metric data.
+     *
      * @var values[]
      */
     public $values;

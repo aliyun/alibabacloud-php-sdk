@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the storage instance.
+     *
+     * @example rm-bp16ad920ndxxxx02
+     *
      * @var string
      */
     public $rdsInstanceId;
 
     /**
+     * @description The IDs of the read-only storage instances.
+     *
      * @var string[]
      */
     public $readOnlyInstanceInfo;
 
     /**
+     * @description The ID of the storage instance that is in use. If the specified instance in the request is a primary DRDS instance, the value of this parameter is the ID of the primary storage instance. If the specified instance in the request is a read-only DRDS instance, the value of this parameter is the ID of the secondary storage instance.
+     *
+     * @example rm-bp1l8xi1dd9xxxxbj
+     *
      * @var string
      */
     public $usedInstanceId;
 
     /**
+     * @description The type of the storage instance that is in use.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $usedInstanceType;

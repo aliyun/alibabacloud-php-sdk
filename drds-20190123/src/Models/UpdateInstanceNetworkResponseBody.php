@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceNetworkResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example DSSDF-SEWE-*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

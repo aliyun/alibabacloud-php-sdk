@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CheckSqlAuditEnableStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example FF13E47D-4E38-4A5A-BA68-32A554******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the SQL audit feature. Valid values:
+     *
+     *   enabled: The SQL audit feature is enabled.
+     *   disabled: The SQL audit feature is disabled.
+     *
+     * @example enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

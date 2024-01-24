@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsTasksRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example drdsxxxxxxxxxxxx
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The type of tasks.
+     *
+     * @example test
+     *
      * @var string
      */
     public $taskType;

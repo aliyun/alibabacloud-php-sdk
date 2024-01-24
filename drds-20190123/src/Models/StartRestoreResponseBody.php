@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class StartRestoreResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 721C71DD-D3D0-4327-BFDD-678326******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether SQL audit was disabled for the DRDS database.
+     *
+     * @example success
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

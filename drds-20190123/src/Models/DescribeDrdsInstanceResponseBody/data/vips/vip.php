@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class vip extends Model
 {
     /**
+     * @description The domain name that is mapped to the VIP.
+     *
+     * @example drdssen1243as.drds.aliyuncs.com
+     *
      * @var string
      */
     public $dns;
 
     /**
+     * @description The number of remaining days before the VIP expires.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $expireDays;
 
     /**
+     * @description The ports that are opened on the VIP.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The type of the VIP. Valid values: intranet and internet.
+     *
+     * @example intranet
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-bp**********
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-bp***********
+     *
      * @var string
      */
     public $vswitchId;

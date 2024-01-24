@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @description Indicates the content of a task.
+     *
+     * @example upgrade_instance
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description Indicates the ID of the task.
+     *
+     * @example 64148
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Indicates the state of the task.
+     *
+     * @example FAILED
+     *
      * @var string
      */
     public $state;

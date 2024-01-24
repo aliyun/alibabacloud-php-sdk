@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SubmitHotExpandTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0B6B7BDC-575D-4A77-A4F8-24B7EFERV45Y
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdsCommodityResponseBody extends Model
 {
     /**
+     * @description Indicates the returned result.
+     *
+     * @example test
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description Indicates the ID of the request.
+     *
+     * @example DC3ABA3E-0F8A-4596-9104-F5155C34315B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

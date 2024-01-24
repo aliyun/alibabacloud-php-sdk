@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance that you want to query.
+     *
+     * @example drdshbga1138****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region in which the instance is created.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

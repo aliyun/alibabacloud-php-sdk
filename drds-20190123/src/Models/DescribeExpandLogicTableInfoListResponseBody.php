@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeExpandLogicTableInfoListResponseBody extends Model
 {
     /**
+     * @description Indicates the result that is returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0B6B7BDC-575D-4A77-A4F8-24B7EF******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

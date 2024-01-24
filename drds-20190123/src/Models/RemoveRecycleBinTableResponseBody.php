@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class RemoveRecycleBinTableResponseBody extends Model
 {
     /**
+     * @description Indicates whether the table in the recycle bin is deleted.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A3140FC7-B78B-4D8E-B0C8-926D28******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

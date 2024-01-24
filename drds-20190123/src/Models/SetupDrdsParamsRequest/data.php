@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the parameter that you want to configure for a database.
+     *
+     * @example test_db
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The valid values of the parameter.
+     *
+     * @example [true|false]
+     *
      * @var string
      */
     public $paramRanges;
 
     /**
+     * @description The type of the parameter that you want to configure. Valid values:
+     *
+     *   **ATOM**: the configuration item in the layer-3 data source.
+     *   **CONFIG**: the configuration item in ConfigServer.
+     *   **DIAMOND**: the configuration item in Diamond.
+     *
+     * @example ATOM
+     *
      * @var string
      */
     public $paramType;
 
     /**
+     * @description The value of parameter that you want to configure.
+     *
+     * @example true
+     *
      * @var string
      */
     public $paramValue;
 
     /**
+     * @description The name of the parameter that you want to configure.
+     *
+     * @example FORBID_EXECUTE_DML_ALL
+     *
      * @var string
      */
     public $paramVariableName;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSwitchAzoneRequest extends Model
 {
     /**
+     * @description The ID of the DRDS instance.
+     *
+     * @example drdsxxxxxxxxxxxx
+     *
      * @var string
      */
     public $drdsInstanceId;

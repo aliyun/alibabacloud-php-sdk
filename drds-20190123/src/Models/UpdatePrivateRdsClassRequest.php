@@ -9,31 +9,60 @@ use AlibabaCloud\Tea\Model;
 class UpdatePrivateRdsClassRequest extends Model
 {
     /**
+     * @description Specifies whether to use vouchers to offset the purchase fees. Valid values: **true** and **false**. Default value: false.
+     *
+     * > If you downgrade the specifications of an instance after you use the vouchers, the vouchers used for the purchase cannot be refunded.
+     * @example true
+     *
      * @var bool
      */
     public $autoUseCoupon;
 
     /**
+     * @description The ID of the custom ApsaraDB RDS instance at the storage layer.
+     *
+     * > You can call the [DescribeDrdsRdsInstances](~~xxxx~~) operation to query the details of all ApsaraDB RDS instances at the storage layer of a PolarDB-X 1.0 instance, including the IDs of the ApsaraDB RDS instances.
+     * @example rm-***************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * > You can call the [DescribeDrdsInstances](~~139284~~) operation to query the details of all PolarDB-X 1.0 instances within an Alibaba Cloud account, including the IDs of the instances.
+     * @example drds*************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description This parameter is discontinued.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $prePayDuration;
 
     /**
+     * @description The new instance type of the custom ApsaraDB RDS instance at the storage layer.
+     *
+     * > You can call the [DescribeAvailableClasses](~~196546~~) operation to view the specifications that are supported for a custom ApsaraDB RDS instance. The specifications include the instance type and the storage capacity.
+     * @example rds.mysql.c1.xlarge
+     *
      * @var string
      */
     public $rdsClass;
 
     /**
+     * @description The new storage capacity of the custom ApsaraDB RDS instance at the storage layer.
+     *
+     * > You can call the [DescribeAvailableClasses](~~196546~~) operation to view the specifications that are supported for a custom ApsaraDB RDS instance. The specifications include the instance type and the storage capacity.
+     * @example 50
+     *
      * @var string
      */
     public $storage;

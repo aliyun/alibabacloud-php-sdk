@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ValidateShardTaskResponseBody extends Model
 {
     /**
+     * @description Indicates the check results.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description Indicates the ID of the request.
+     *
+     * @example 0B6B7BDC-575D-4A77-A4F8-24B7EFAS45FG
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

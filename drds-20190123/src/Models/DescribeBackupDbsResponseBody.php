@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupDbsResponseBody extends Model
 {
     /**
+     * @description The details about a database.
+     *
      * @var dbNames
      */
     public $dbNames;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 842DFA7F-B09B-42A2-B115-E684AE******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

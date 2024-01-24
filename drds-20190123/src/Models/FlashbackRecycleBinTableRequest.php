@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class FlashbackRecycleBinTableRequest extends Model
 {
     /**
+     * @description The name of the database to which the table belongs.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the instance to which the table belongs.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the logical table to be restored.
+     *
+     * @example test
+     *
      * @var string
      */
     public $tableName;

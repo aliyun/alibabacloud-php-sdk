@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates the ID of the instance.
+     *
      * @var drdsInstanceIdList
      */
     public $drdsInstanceIdList;
 
     /**
+     * @description Indicates the ID of the order.
+     *
+     * @example 111111111111111
+     *
      * @var int
      */
     public $orderId;

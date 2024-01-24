@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDBsResponseBody extends Model
 {
     /**
+     * @description The list of returned databases.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of databases returned on each page.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 006B7D19-8CDB-4AA6-AAE7-23C107GS3W2T
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The number of returned databases.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $total;

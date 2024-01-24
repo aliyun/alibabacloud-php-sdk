@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstanceLevelTasksRequest extends Model
 {
     /**
+     * @description The ID of the PolarDB-X 1.0 instance of which the unfinished tasks you want to query.
+     *
+     * @example drdssen12****
+     *
      * @var string
      */
     public $drdsInstanceId;

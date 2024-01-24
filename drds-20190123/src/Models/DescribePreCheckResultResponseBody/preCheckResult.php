@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class preCheckResult extends Model
 {
     /**
+     * @description Indicates the name of the precheck task.
+     *
      * @var string
      */
     public $preCheckName;
 
     /**
+     * @description Indicates the state of the precheck task.
+     *
+     * @example FAIL
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description Indicates the details about the subtasks of the precheck task.
+     *
      * @var subCheckItems[]
      */
     public $subCheckItems;

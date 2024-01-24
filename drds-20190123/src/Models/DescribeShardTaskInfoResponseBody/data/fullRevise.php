@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class fullRevise extends Model
 {
     /**
+     * @description Indicates the number of remaining days before the tasks expire.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $expired;
 
     /**
+     * @description Indicates the progress of the tasks.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @description Indicates the start time when the tasks are performed.
+     *
+     * @example 2019-09-16 15:12:53
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description Indicates the number of tasks.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $total;
 
     /**
+     * @description Indicates the number of transactions processed by the database per second.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $tps;

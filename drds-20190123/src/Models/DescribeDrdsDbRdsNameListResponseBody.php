@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDbRdsNameListResponseBody extends Model
 {
     /**
+     * @description Indicates the instances that are used to store the data of a database.
+     *
      * @var instanceNameList
      */
     public $instanceNameList;
 
     /**
+     * @description Indicates the ID of the request.
+     *
+     * @example 7E6FA2BF-05F2-44DD-95C0-D1B5B8xxxxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

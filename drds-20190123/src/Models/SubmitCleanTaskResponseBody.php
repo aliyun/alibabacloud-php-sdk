@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SubmitCleanTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example DSSDF-SEWE-*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class restoreOrderDO extends Model
 {
     /**
+     * @description The information of the restored order.
+     *
      * @var drdsOrderDOList
      */
     public $drdsOrderDOList;
 
     /**
+     * @description The ID of the restored apsaradb for PolarDB cluster.
+     *
      * @var polarOrderDOList
      */
     public $polarOrderDOList;
 
     /**
+     * @description The information of the restored RDS order.
+     *
      * @var rdsOrderDOList
      */
     public $rdsOrderDOList;

@@ -9,31 +9,65 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description Indicates whether a table is a broadcast table.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $broadcast;
 
     /**
+     * @description Indicates the type of the broadcast table. Valid values:
+     *
+     *   **1**: multi-write mode
+     *   **2**: synchronous mode
+     *
+     * @example 1
+     *
      * @var string
      */
     public $broadcastType;
 
     /**
+     * @description Indicates the storage type of the database. Valid values:
+     *
+     *   **0**: RDS
+     *   **4**: PolarDB
+     *
+     * @example 0
+     *
      * @var int
      */
     public $dbInstType;
 
     /**
+     * @description Indicates whether the broadcast table was sharded.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isShard;
 
     /**
+     * @description Indicates the activation state of the broadcast table. Valid values:
+     *
+     *   **1**: The broadcast table is activated.
+     *   **2**: The broadcast table is being activated.
+     *   **3**: An exception occurs when the broadcast table is being activated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description Indicates the name of the table.
+     *
+     * @example nation
+     *
      * @var string
      */
     public $table;

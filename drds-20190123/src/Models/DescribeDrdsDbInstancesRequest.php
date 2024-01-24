@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDbInstancesRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example dbname
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drdshbga1138****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

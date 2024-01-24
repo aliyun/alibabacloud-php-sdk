@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ModifyDrdsIpWhiteListRequest extends Model
 {
     /**
+     * @description The name of the DRDS database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the Message Queue for Apache Kafka instance.
+     *
+     * @example drds****c6vxxyzd
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The attribute of the IP address whitelist group.
+     *
      * @var string
      */
     public $groupAttribute;
 
     /**
+     * @description The name of the IP address whitelist group.
+     *
+     * @example drds_******
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The modified whitelist. Separate multiple IP addresses with commas (,).
+     *
+     * @example 127.***.***.***,10.***.***.***
+     *
      * @var string
      */
     public $ipWhiteList;
 
     /**
+     * @description Specifies the mode. Valid values:
+     *
+     *   `True`: append modifications
+     *   `False`: overwrite modification
+     *
+     * @example false
+     *
      * @var bool
      */
     public $mode;

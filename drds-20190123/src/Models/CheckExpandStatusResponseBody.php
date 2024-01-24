@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class CheckExpandStatusResponseBody extends Model
 {
     /**
+     * @description The result of the verification.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7CDBA7D5-8D62-4D24-9C65-510D62******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

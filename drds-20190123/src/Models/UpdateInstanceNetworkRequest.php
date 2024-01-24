@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceNetworkRequest extends Model
 {
     /**
+     * @description Specifies the retention period of the classic network endpoint. Unit: days.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $classicExpiredDays;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds******
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description Specifies whether to retain the classic network endpoint.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $retainClassic;
 
     /**
+     * @description The network type of the PolarDB-X 1.0 instance. Valid values:
+     *
+     *   vpc: Virtual Private Cloud (VPC)
+     *   classic: classic network
+     *
+     * @example classic
+     *
      * @var string
      */
     public $srcInstanceNetworkType;

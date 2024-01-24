@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class SubmitSmoothExpandPreCheckRequest extends Model
 {
     /**
+     * @description The type of the database. Valid values:
+     *
+     *   RDS
+     *   POLARDB
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $dbInstType;
 
     /**
+     * @description The name of the PolarDB-X database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds*******
+     *
      * @var string
      */
     public $drdsInstanceId;

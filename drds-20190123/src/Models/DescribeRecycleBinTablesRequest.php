@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecycleBinTablesRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example drds***********
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

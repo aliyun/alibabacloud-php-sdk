@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class drdsOrderDOList extends Model
 {
     /**
+     * @description The ID of the zone for which to query resources.
+     *
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $azoneId;
 
     /**
+     * @description The instance type of the instance.
+     *
+     * @example 4C8G * 2
+     *
      * @var string
      */
     public $instSpec;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **Classic **: Classic Network
+     *   **vpc**: VPC
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $network;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the vSwitch in the VPC.
+     *
+     * @example vsw-*******************
+     *
      * @var string
      */
     public $VSwtichId;
 
     /**
+     * @description The ID of the VPC network.
+     *
+     * @example vpc-*******************
+     *
      * @var string
      */
     public $vpcId;

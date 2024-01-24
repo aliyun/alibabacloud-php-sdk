@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class PutStartBackupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5D64DE5944A1E541E0******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the backup task was submitted.
+     *
+     * @example success
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

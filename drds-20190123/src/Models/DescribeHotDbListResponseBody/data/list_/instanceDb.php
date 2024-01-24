@@ -15,6 +15,10 @@ class instanceDb extends Model
     public $hotDbList;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example instanceName
+     *
      * @var string
      */
     public $instanceName;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstDbLogInfoResponseBody extends Model
 {
     /**
+     * @description The time range for log query.
+     *
      * @var logTimeRange
      */
     public $logTimeRange;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A5438952-70EE-4FA5-87A9-080DB0ASD45F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

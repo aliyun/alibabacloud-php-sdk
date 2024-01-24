@@ -9,23 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDBIpWhiteListRequest extends Model
 {
     /**
+     * @description The database name.
+     *
+     * @example test_db
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The instance ID.
+     *
+     * @example drds********
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The name of the whitelist group.
+     *
+     * @example group1
+     *
      * @var string
      */
     public $groupName;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'dbName'         => 'DbName',
         'drdsInstanceId' => 'DrdsInstanceId',
         'groupName'      => 'GroupName',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -43,6 +61,9 @@ class DescribeDrdsDBIpWhiteListRequest extends Model
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +85,9 @@ class DescribeDrdsDBIpWhiteListRequest extends Model
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description Indicates the name of a check item.
+     *
+     * @example same_schema
+     *
      * @var string
      */
     public $item;
 
     /**
+     * @description Indicates the result of the check item. Valid values:
+     *
+     *   **0**: indicates the task is valid.
+     *   **1**: indicates the task is invalid.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $result;

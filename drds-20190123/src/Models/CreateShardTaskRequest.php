@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class CreateShardTaskRequest extends Model
 {
     /**
+     * @description The name of the DRDS database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the DRDS instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region where the resource group resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the source table.
+     *
+     * @example test_tb1
+     *
      * @var string
      */
     public $sourceTableName;
 
     /**
+     * @description The name of the destination table.
+     *
+     * @example test_tb2
+     *
      * @var string
      */
     public $targetTableName;
 
     /**
+     * @description The type of the task. Valid values:`  SHARD_TO_SINGLE `,`  SINGLE_TO_SHARD `,`  SHARD_TO_SHARD `.
+     *
+     * @example SINGLE_TO_SHARD
+     *
      * @var string
      */
     public $taskType;

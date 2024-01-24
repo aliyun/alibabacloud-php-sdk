@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class EnableSqlFlashbackMatchSwitchResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 463A5F0F-12AD-4544-A902-B2B983******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether SqlFlashbackMatchSwitch is enabled or not.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was sent successfully or not.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

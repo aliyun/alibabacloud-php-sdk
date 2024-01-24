@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description Specify the token that is used to display the returned tags on multiple pages.
+     *
+     * @example 6ab4640a-479b-41d0-ad3c-c6e888bc3d8f
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region in which the resource is located.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -25,6 +33,10 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The resource type. Set the value to INSTANCE.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;

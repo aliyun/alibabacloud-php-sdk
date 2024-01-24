@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupDbsRequest extends Model
 {
     /**
+     * @description Query by backup set ID
+     *
+     * @example 201908367
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The ID of a DRDS instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description Query by restoration time.
+     *
+     * @example 1568632541236
+     *
      * @var string
      */
     public $preferredRestoreTime;

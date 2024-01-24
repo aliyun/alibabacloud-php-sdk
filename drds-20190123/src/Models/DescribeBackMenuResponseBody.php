@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackMenuResponseBody extends Model
 {
     /**
+     * @description The backup information list.
+     *
      * @var list_
      */
     public $list;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 60C21BE4-EDFE-454C-95ED-3A5C74******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

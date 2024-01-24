@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class EnableInstanceIpv6AddressResponseBody extends Model
 {
     /**
+     * @description The result of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7E9F7F16-05B5-42DA-94D6-E36402******
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class endpoint extends Model
 {
     /**
+     * @description The ID of the PolarDB connection address.
+     *
+     * @example pe-*****************
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The ID list of the nodes in the PolarDB connection string. Separate multiple nodes with commas (,).
+     *
+     * @example pi-*****************,pi-*****************
+     *
      * @var string
      */
     public $nodeIds;
 
     /**
+     * @description The read ratio of this connection address managed by the DRDS database.
+     *
+     * @example 85
+     *
      * @var int
      */
     public $readWeight;

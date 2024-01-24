@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountDescriptionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 2F93CCD5-806F-4470-BBC7-20476A******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was sent successfully or not.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

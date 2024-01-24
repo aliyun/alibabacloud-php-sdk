@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RemoveDrdsDbFailedRecordRequest extends Model
 {
     /**
+     * @description The name of the DRDS database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the ApsaraDB RDS for PostgreSQL instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;

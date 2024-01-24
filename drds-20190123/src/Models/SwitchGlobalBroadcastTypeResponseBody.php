@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class SwitchGlobalBroadcastTypeResponseBody extends Model
 {
     /**
+     * @description Indicates whether the mode of broadcast tables was switched from the multi-write mode to the asynchronous link mode.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DSSDF-SEWE-*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

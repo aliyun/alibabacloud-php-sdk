@@ -10,41 +10,73 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstancesRequest extends Model
 {
     /**
+     * @description The description of the instances.
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether the instances that you want to query expire.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @description Specifies whether hybrid queries are supported.
+     *
+     * @example FALSE
+     *
      * @var bool
      */
     public $mix;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of instances returned on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The version of the service.
+     *
+     * @example V1
+     *
      * @var string
      */
     public $productVersion;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instances you want to query belong. The value of this parameter can be NULL.
+     *
+     * @example NULL
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -55,6 +87,13 @@ class DescribeDrdsInstancesRequest extends Model
     public $tag;
 
     /**
+     * @description The type of the instances that you want to query. Valid values:
+     *
+     *   **0**: shared instances
+     *   **1**: dedicated instances
+     *
+     * @example 1
+     *
      * @var string
      */
     public $type;

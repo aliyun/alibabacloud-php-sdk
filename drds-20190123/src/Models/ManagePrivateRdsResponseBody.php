@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ManagePrivateRdsResponseBody extends Model
 {
     /**
+     * @description The parameter result set returned for the operation that is called for the custom ApsaraDB RDS instance.
+     *
+     * @example {"requestId":"E63C810A-4A13-47B6-BA67-C0E23A******"}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0237BCD2-2C7A-4F86-A766-657AF6******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

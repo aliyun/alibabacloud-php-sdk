@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates the database sharding key.
+     *
+     * @example id
+     *
      * @var string
      */
     public $shardDbKey;
 
     /**
+     * @description Indicates the table sharding key.
+     *
+     * @example address
+     *
      * @var string
      */
     public $shardTbKey;
 
     /**
+     * @description Indicates the name of the table.
+     *
+     * @example employee_split2
+     *
      * @var string
      */
     public $tableName;

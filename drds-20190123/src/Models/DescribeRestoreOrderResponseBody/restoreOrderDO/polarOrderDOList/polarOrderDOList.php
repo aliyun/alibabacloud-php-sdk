@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class polarOrderDOList extends Model
 {
     /**
+     * @description The zone ID of the node.
+     *
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $azoneId;
 
     /**
+     * @description The capacity of disk.
+     *
+     * @example 10240
+     *
      * @var string
      */
     public $dbInstanceStorage;
 
     /**
+     * @description The storage engine of PolarDB.
+     *
+     * @example POLARDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The type of the instance.
+     *
+     * @example polar.mysql.x4.large
+     *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **Classic**: Classic Network
+     *   **vpc**: VPC
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $network;
 
     /**
+     * @description The number of streams that were returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $num;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The version of the operating system.
+     *
+     * @example 5.6
+     *
      * @var string
      */
     public $version;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeShardTaskInfoRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example jjjjjj_ppppp
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds*********
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the table that you want to convert or shard.
+     *
+     * @example a1
+     *
      * @var string
      */
     public $sourceTableName;
 
     /**
+     * @description The name of the table that is generated after you convert or shard the table.
+     *
+     * @example a2
+     *
      * @var string
      */
     public $targetTableName;

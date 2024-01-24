@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class subCheckItems extends Model
 {
     /**
+     * @description Indicates the error code that is returned by a subtask.
+     *
+     * @example 1004
+     *
      * @var string
      */
     public $errorMsgCode;
 
     /**
+     * @description Indicates an error message.
+     *
      * @var string[]
      */
     public $errorMsgParams;
 
     /**
+     * @description Indicates the name of the subtask.
+     *
      * @var string
      */
     public $preCheckItemName;
 
     /**
+     * @description Indicates the state of the subtask.
+     *
      * @var string
      */
     public $state;

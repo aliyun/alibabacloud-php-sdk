@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeHotDbListRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example drds**********
+     *
      * @var string
      */
     public $drdsInstanceId;

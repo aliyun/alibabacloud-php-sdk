@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DisableSqlAuditResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example E273749A-9A33-44CF-ABE7-0CB19C******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The return result.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

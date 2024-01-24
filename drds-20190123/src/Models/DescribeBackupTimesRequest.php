@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupTimesRequest extends Model
 {
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drdshbga71nn****
+     *
      * @var string
      */
     public $drdsInstanceId;

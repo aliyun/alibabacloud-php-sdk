@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class values extends Model
 {
     /**
+     * @description The point in time when the value of the metric was collected. The value is in the UNIX timestamp format. The timestamp is displayed in UTC. Unit: ms.
+     *
+     * @example 1603163400000
+     *
      * @var int
      */
     public $date;
 
     /**
+     * @description The value of the metric.
+     *
+     * @example 1.40
+     *
      * @var string
      */
     public $value;

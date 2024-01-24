@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceInternetAddressResponseBody extends Model
 {
     /**
+     * @description The error code returned when the activity fails.
+     *
+     * >  This parameter appears only when an error occurs during the API call.
+     * @example 404
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description Indicates whether the public IP address was created.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1DF6052F-15E2-4E69-9628-D6BCC3******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

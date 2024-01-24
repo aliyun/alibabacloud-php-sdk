@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class EnableInstanceIpv6AddressRequest extends Model
 {
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

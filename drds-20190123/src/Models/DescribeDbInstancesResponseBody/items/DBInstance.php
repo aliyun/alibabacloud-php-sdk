@@ -10,51 +10,98 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
+     * @description The description of the storage instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @description The ID of the storage instance.
+     *
+     * @example rm-****************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description Storage layer instance status. Valid values:
+     *
+     *   **0**: creating
+     *   **1**: In use
+     *   **3**: Deleting
+     *   **5**: restarting
+     *   **6**: upgrading /Downgrading
+     *   **7**: Recovering
+     *   **8**: switching the Internet and intranet
+     *
+     * @example 0
+     *
      * @var int
      */
     public $DBInstanceStatus;
 
     /**
+     * @description The storage layer instance type.
+     *
+     * @example Primary
+     *
      * @var string
      */
     public $DBInstanceType;
 
     /**
+     * @description The engine of the storage instance.
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The version of the engine for the storage instance.
+     *
+     * @example 5.7
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The network type of the storage layer. Valid values:
+     *
+     *   **VPC**: VPC
+     *   **CLASSIC **: Classic Network
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @description The details about a read-only storage instance.
+     *
      * @var readOnlyDBInstanceId
      */
     public $readOnlyDBInstanceId;
 
     /**
+     * @description The ID of the region where the storage instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the zone where the storage instance resides.
+     *
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zoneId;

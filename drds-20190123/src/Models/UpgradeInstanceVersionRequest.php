@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpgradeInstanceVersionRequest extends Model
 {
     /**
+     * @description The ID of the PolarDB-X 1.0 instance that you want to upgrade.
+     *
+     * @example drdshbgaen89****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The version number of the PolarDB-X 1.0 instance. You can leave this parameter unspecified.
+     *
+     * @example t-drds-server-5.4.12-16348095.noarch.rpm
+     *
      * @var string
      */
     public $rpm;

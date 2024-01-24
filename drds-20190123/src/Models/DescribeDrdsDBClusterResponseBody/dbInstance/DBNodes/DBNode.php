@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DBNode extends Model
 {
     /**
+     * @description The ID of the node in the apsaradb for PolarDB cluster.
+     *
+     * @example pi-***************
+     *
      * @var string
      */
     public $DBNodeId;
 
     /**
+     * @description The role of a node in the apsaradb for PolarDB cluster. Valid values:
+     *
+     *   **Reader**
+     *   **Writer**
+     *
+     * @example Reader
+     *
      * @var string
      */
     public $DBNodeRole;
 
     /**
+     * @description The status of the nodes in the PolarDB cluster.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBNodeStatus;
 
     /**
+     * @description The ID of the zone where the node of the PolarDB cluster resides.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

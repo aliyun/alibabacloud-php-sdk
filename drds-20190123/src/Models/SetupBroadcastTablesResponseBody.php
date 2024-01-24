@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class SetupBroadcastTablesResponseBody extends Model
 {
     /**
+     * @description Indicates whether the broadcast table is configured.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A3140FC7-B78B-4D8E-B0C8-926D28******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,36 +9,73 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates the time when the database was created. The value is in the UNIX timestamp format. Unit: ms.
+     *
+     * @example 1602050276000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description Indicates the storage type of the database.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $dbInstType;
 
     /**
+     * @description Indicates the name of the database.
+     *
+     * @example db_test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description Indicates the type of the instance in which the database is deployed. Valid values:
+     *
+     *   **MASTER**: The instance is a primary instance.
+     *   **SLAVE**: The instance is a read-only instance.
+     *
+     * @example MASTER
+     *
      * @var string
      */
     public $instRole;
 
     /**
+     * @description Indicates the database sharding method.
+     *
+     *   **HORIZONTAL**: The database is horizontally sharded.
+     *   **VERTICAL**: The database is vertically sharded.
+     *
+     * @example HORIZONTAL
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description Indicates the schema name of the database.
+     *
+     * @example db_test*******************
+     *
      * @var string
      */
     public $schema;
 
     /**
+     * @description Indicates the state of the database. Valid values:
+     *
+     *   **TO_BE_INIT**: The database is being created.
+     *   **NORMAL**: The database is running.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;

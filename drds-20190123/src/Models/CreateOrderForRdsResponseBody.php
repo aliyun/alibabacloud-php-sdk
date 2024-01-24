@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderForRdsResponseBody extends Model
 {
     /**
+     * @description The ID of the purchased RDS instance.
+     *
+     * @example [rm-***********]
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9819BC51-D33D-4EB1-B80F-A89A20******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

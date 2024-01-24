@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class EnableSqlAuditRequest extends Model
 {
     /**
+     * @description The name of the database for which you want to enable the SQL audit feature.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds***********
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description Specifies whether to backtrack historical SQL statements for auditing.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isRecall;
 
     /**
+     * @description The timestamp that indicates when the backtracking ends. Unit: milliseconds.
+     *
+     * > The end time of the backtracking must be later than the start time of the backtracking.
+     * @example 1568875132000
+     *
      * @var string
      */
     public $recallEndTimestamp;
 
     /**
+     * @description The timestamp that indicates when the backtracking starts. Unit: milliseconds.
+     *
+     * @example 1568875132000
+     *
      * @var string
      */
     public $recallStartTimestamp;

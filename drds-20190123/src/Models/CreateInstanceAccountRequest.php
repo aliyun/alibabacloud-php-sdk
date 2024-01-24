@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceAccountRequest extends Model
 {
     /**
+     * @description The username of the account you want to create.
+     *
+     * @example drds_sample_account
+     *
      * @var string
      */
     public $accountName;
@@ -20,11 +24,19 @@ class CreateInstanceAccountRequest extends Model
     public $dbPrivilege;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance for which you want to create the account.
+     *
+     * @example drdsjiii1b49****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The password of the account you want to create.
+     *
+     * @example drds_sample_password
+     *
      * @var string
      */
     public $password;

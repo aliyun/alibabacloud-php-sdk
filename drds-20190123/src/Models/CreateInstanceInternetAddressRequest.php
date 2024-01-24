@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceInternetAddressRequest extends Model
 {
     /**
+     * @description The ID of the DRDS instance.
+     *
+     * @example drds****************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region to which the DRDS instance belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

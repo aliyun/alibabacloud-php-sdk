@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountPrivilegeRequest extends Model
 {
     /**
+     * @description The username of the account that you want to modify.
+     *
+     * @example account_sec
+     *
      * @var string
      */
     public $accountName;
@@ -20,11 +24,19 @@ class ModifyAccountPrivilegeRequest extends Model
     public $dbPrivilege;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drdshbgaen89****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region in which the PolarDB-X 1.0 instance is located.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

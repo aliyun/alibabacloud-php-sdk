@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceGroupAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 91C7CAB5-3B2E-4FB6-893C-0162C0******
+     *
      * @var string
      */
     public $requestId;

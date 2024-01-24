@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsSlowSqlsRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example test_db
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds***************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The start time of the SQL query. Specify the time in the UNIX timestamp format. The time must be in UTC. Unit: ms.
+     *
+     * @example 1568267711000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The SQL execution time. Unit: ms.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $exeTime;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The end time of the SQL query. Specify the time in the UNIX timestamp format. The time must be in UTC. Unit: ms.
+     *
+     * @example 1568269711000
+     *
      * @var int
      */
     public $startTime;

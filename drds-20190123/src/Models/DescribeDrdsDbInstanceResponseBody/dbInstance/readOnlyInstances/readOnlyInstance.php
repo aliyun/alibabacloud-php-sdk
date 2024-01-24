@@ -9,76 +9,136 @@ use AlibabaCloud\Tea\Model;
 class readOnlyInstance extends Model
 {
     /**
+     * @description The URL used to connect to the read-only instance.
+     *
+     * @example rm-bp1ub71ct9skc3yxx.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectUrl;
 
     /**
+     * @description The ID of the read-only instance.
+     *
+     * @example rm-bp1ub71ct9skc****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The state of the read-only instance.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @description The role of the read-only instance.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $dbInstType;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example dm-*************
+     *
      * @var string
      */
     public $dmInstanceId;
 
     /**
+     * @description The engine of the database that is run on the read-only instance.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The engine version of the database that is run on the read-only instance.
+     *
+     * @example 5.7
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The timestamp that indicates when the read-only instance expires.
+     *
+     * @example 1823487328173
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The network type of the read-only instance.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The billing method of the read-only instance.
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The port used to connect to the read-only instance.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The type of the ApsaraDB RDS for MySQL instance.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $rdsInstType;
 
     /**
+     * @description The read ratio of the read-only instance.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $readWeight;
 
     /**
+     * @description The number of remaining days before the read-only instance expires.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $remainDays;
 
     /**
+     * @description This parameter is unavailable for read-only instances.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $versionAction;

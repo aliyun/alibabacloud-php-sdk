@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeTableListByTypeRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The name of the database.
+     *
+     * @example drds_flash****
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drdshbga76p6****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The field that you specify for your query.
+     *
+     * @example drdshbga76p61861
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of tables. Valid values:
+     *
+     * @example SINGLE
+     *
      * @var string
      */
     public $tableType;

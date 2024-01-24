@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class vpcInfo extends Model
 {
     /**
+     * @description Indicates the ID of the region in which the instance is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Indicates the ID of the VPC.
+     *
+     * @example vpc_id
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description Indicates the name of the VPC.
+     *
+     * @example vpc_name
+     *
      * @var string
      */
     public $vpcName;
 
     /**
+     * @description Indicates information about the vSwitch to which the instance is connected.
+     *
      * @var vswitchInfos
      */
     public $vswitchInfos;

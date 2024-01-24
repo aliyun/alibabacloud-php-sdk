@@ -11,129 +11,252 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The commodity code of the service.
+     *
+     * @example drdsPost
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description The timestamp that indicates when the instance is created.
+     *
+     * @example 1568620311000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example drdssen12****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The timestamp that indicates when the instance expires.
+     *
+     * @example 4724323200000
+     *
      * @var int
      */
     public $expireDate;
 
     /**
+     * @description The role of the instance. Valid values:
+     *
+     *   MASTER: The instance is a primary instance.
+     *   SLAVE: The instance is a read-only instance to analyze complex queries.
+     *   SLAVE_FLOW: The instance is a read-only instance for high-concurrency scenarios.
+     *
+     * @example MASTER
+     *
      * @var string
      */
     public $instRole;
 
     /**
+     * @description The instance series.
+     *
+     * @example drds.sn2.4c16g
+     *
      * @var string
      */
     public $instanceSeries;
 
     /**
+     * @description The specification of the instance.
+     *
+     * @example drds.sn2.4c16g.8C32G
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @description The tag of the instance. Valid values:
+     *
+     *   **NORMAL**: The instance is a standard instance.
+     *   **HA**: The instance is a high-availability (HA) instance.
+     *   **VPC**: The instance is a VPC-based instance.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The machine type of the instance. Valid value: ecs.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $machineType;
 
     /**
+     * @description The ID of the primary instance.
+     *
+     * @example drdssen12****
+     *
      * @var string
      */
     public $masterInstanceId;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **CLASSIC**
+     *   **VPC**
+     *
+     * @example CLASSIC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The ID of the purchased instance.
+     *
+     * @example drdssen12****
+     *
      * @var string
      */
     public $orderInstanceId;
 
     /**
+     * @description The version of the service.
+     *
+     * @example V1
+     *
      * @var string
      */
     public $productVersion;
 
     /**
+     * @description The IDs of read-only instances that are associated with the instance.
+     *
      * @var readOnlyDBInstanceIds
      */
     public $readOnlyDBInstanceIds;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example rg-aek2ljh3ye4****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of the instance.
+     *
+     * @example RUN
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of the instance. Valid values:
+     *
+     *   **PUBLIC**: The returned instance is a shared instance.
+     *   **PRIVATE**: The returned instance is a dedicated instance.
+     *
+     * @example PRIVATE
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The version of the instance.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $version;
 
     /**
+     * @description Indicates whether the version of the instance can be upgraded.
+     *
+     * @example Upgradable
+     *
      * @var string
      */
     public $versionAction;
 
     /**
+     * @description The list of returned virtual IP addresses (VIPs).
+     *
      * @var vips
      */
     public $vips;
 
     /**
+     * @description The ID of the instance that is deployed in the VPC.
+     *
+     * @example drdssen12****
+     *
      * @var string
      */
     public $vpcCloudInstanceId;
 
     /**
+     * @description The ID of the VPC to which the instance belongs.
+     *
+     * @example vpc-bp**********
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone in which the resource is located.
+     *
+     * @example vsw-bpxxxxxxxxxxxxx96
+     *
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @description The edition of the instance. Valid values:
+     *
+     *   **starter**: Starter Edition
+     *   **enterprise**: Enterprise Edition
+     *   **standard**: Standard Edition
+     *
+     * @example enterprise
+     *
+     * @var string
+     */
+    public $series;
     protected $_name = [
         'commodityCode'         => 'CommodityCode',
         'createTime'            => 'CreateTime',
@@ -160,6 +283,7 @@ class instance extends Model
         'vpcCloudInstanceId'    => 'VpcCloudInstanceId',
         'vpcId'                 => 'VpcId',
         'zoneId'                => 'ZoneId',
+        'series'                => 'series',
     ];
 
     public function validate()
@@ -243,6 +367,9 @@ class instance extends Model
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->series) {
+            $res['series'] = $this->series;
         }
 
         return $res;
@@ -330,6 +457,9 @@ class instance extends Model
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['series'])) {
+            $model->series = $map['series'];
         }
 
         return $model;

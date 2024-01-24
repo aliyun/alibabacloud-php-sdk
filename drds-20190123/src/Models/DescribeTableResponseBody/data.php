@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates the details about the table schema.
+     *
      * @var list_[]
      */
     public $list;

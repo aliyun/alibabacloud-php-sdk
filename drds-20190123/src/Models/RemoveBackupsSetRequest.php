@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RemoveBackupsSetRequest extends Model
 {
     /**
+     * @description The ID of the backup set. You can call the [DescribeBackupSets](~~139331~~) interface to query the ID of a backup set.
+     *
+     * @example ba30d5c4-a6dc-11ea-bd40-************
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The ID of the DRDS instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;

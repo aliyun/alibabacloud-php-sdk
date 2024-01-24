@@ -11,131 +11,240 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The commodity code of the instance.
+     *
+     * @example drdsPost
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description The timestamp that indicates when the instance is created.
+     *
+     * @example 1568620311000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example drdssen1243as
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The timestamp that indicates when the instance expires.
+     *
+     * @example 4724323200000
+     *
      * @var int
      */
     public $expireDate;
 
     /**
+     * @description The role of the instance. Valid values:
+     *
+     *   **MASTER**: The instance is a primary instance.
+     *   **SLAVE**: The instance is a read-only instance to analyze complex queries
+     *   **SLAVE_FLOW**: The instance is a read-only instance for high-concurrency scenarios
+     *
+     * @example MASTER
+     *
      * @var string
      */
     public $instRole;
 
     /**
+     * @description The instance series of the instance.
+     *
+     * @example drds.sn2.4c16g
+     *
      * @var string
      */
     public $instanceSeries;
 
     /**
+     * @description The specification of the instance.
+     *
+     * @example drds.sn2.4c16g.8C32G
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @description The tag of the instance. Valid values:
+     *
+     *   **NORMAL**: The instance is a standard instance.
+     *   **HA**: The instance is a high-availability (HA) instance.
+     *   **VPC**: The instance is a VPC-based instance.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The machine type of the instance. The value of this parameter is **ecs**.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $machineType;
 
     /**
+     * @description The ID of the primary instance.
+     *
+     * >  This parameter is returned only when the instance is a primary instance.
+     * @example drdssen1243as
+     *
      * @var string
      */
     public $masterInstanceId;
 
     /**
+     * @description The MySQL version that is supported by the instance.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $mysqlVersion;
 
     /**
+     * @description The network type of the instance. Valid values: CLASSIC and VPC.
+     *
+     * @example CLASSIC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The ID of the purchased instance.
+     *
+     * @example drdssen12****
+     *
      * @var string
      */
     public $orderInstanceId;
 
     /**
+     * @description The version of .
+     *
+     * @example 5.3.*
+     *
      * @var string
      */
     public $productVersion;
 
     /**
+     * @description The details about each read-only instance that is associated with the instance.
+     *
      * @var readOnlyDBInstanceIds
      */
     public $readOnlyDBInstanceIds;
 
     /**
+     * @description The ID of the region in which the instance is created.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs. The value of this parameter can be null.
+     *
+     * @example NULL
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The state of the instance.
+     *
+     * @example RUN
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of the instance used for storage.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $storageType;
 
     /**
+     * @description The type of the instance. Valid values: PRIVATE and PUBLIC. The value of PRIVATE indicates that the instance is a dedicated instance. The value of PUBLIC indicates that the instance is a shared instance.
+     *
+     * @example PRIVATE
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The version of the instance. The value of this parameter is 0.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $version;
 
     /**
+     * @description Indicates whether the version of the instance can be upgraded.
+     *
+     * @example Upgradeable
+     *
      * @var string
      */
     public $versionAction;
 
     /**
+     * @description The list of returned virtual IP addresses (VIPs).
+     *
      * @var vips
      */
     public $vips;
 
     /**
+     * @description The ID of the instance that is deployed in the VPC.
+     *
+     * @example drdssen12****
+     *
      * @var string
      */
     public $vpcCloudInstanceId;
 
     /**
+     * @description The ID of the zone in which the instance is located.
+     *
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $zoneId;

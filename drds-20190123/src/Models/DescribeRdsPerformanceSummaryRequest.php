@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdsPerformanceSummaryRequest extends Model
 {
     /**
+     * @description The ID of a DRDS instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @example rm-*****************
+     *
      * @var string[]
      */
     public $rdsInstanceId;
 
     /**
+     * @description The ID of the region where the streaming domain resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

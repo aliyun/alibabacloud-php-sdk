@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceGroupAttributeRequest extends Model
 {
     /**
+     * @description The ID of the instance that you want to transfer.
+     *
+     * >  You can call the [DescribeDrdsInstances](~~139284~~) operation to view the details of the instances under the account, including the instance IDs.
+     * @example drds***********
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the resource group that you want to specify.
+     *
+     * >  You can call the [ListResourceGroups](~~158855~~) operation to view the details of the resource groups, including the resource group IDs.
+     * @example rg-***************
+     *
      * @var string
      */
     public $newResourceGroupId;
 
     /**
+     * @description The ID of the region where the instance you want to transfer is located.
+     *
+     * >  You can call the [DescribeDrdsInstances](~~139284~~) operation to view the details of the instances under the account, including the region IDs.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

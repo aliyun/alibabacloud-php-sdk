@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example DSSDF-SEWE-*****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the database creation failure records were removed from the DRDS instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

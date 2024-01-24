@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the metric.
+     *
+     * @example cpu
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The number of nodes.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $nodeNum;
 
     /**
+     * @description The unit of the metric value.
+     *
+     * @example %
+     *
      * @var string
      */
     public $unit;
 
     /**
+     * @description The details of the monitoring data of the metric.
+     *
      * @var values[]
      */
     public $values;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdsPerformanceSummaryResponseBody extends Model
 {
     /**
+     * @description A collection of objects.
+     *
      * @var rdsPerformanceInfos[]
      */
     public $rdsPerformanceInfos;
 
     /**
+     * @description The request ID.
+     *
+     * @example B6876277-ECFD-4658-AC1E-A7FAD8******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the API request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

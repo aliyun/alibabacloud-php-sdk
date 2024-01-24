@@ -60,8 +60,6 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDBRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDBResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDBsRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDBsResponse;
-use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDbTasksRequest;
-use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsDbTasksResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsInstanceDbMonitorRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsInstanceDbMonitorResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsInstanceLevelTasksRequest;
@@ -118,8 +116,6 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeShardTaskInfoRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeShardTaskInfoResponse;
-use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeShardTaskListRequest;
-use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeShardTaskListResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeSqlFlashbakTaskRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeSqlFlashbakTaskResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeTableListByTypeRequest;
@@ -363,11 +359,17 @@ class Drds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->changeVSwitch)) {
+            $query['ChangeVSwitch'] = $request->changeVSwitch;
+        }
         if (!Utils::isUnset($request->drdsInstanceId)) {
             $query['DrdsInstanceId'] = $request->drdsInstanceId;
         }
         if (!Utils::isUnset($request->drdsRegionId)) {
             $query['DrdsRegionId'] = $request->drdsRegionId;
+        }
+        if (!Utils::isUnset($request->newVSwitch)) {
+            $query['NewVSwitch'] = $request->newVSwitch;
         }
         if (!Utils::isUnset($request->originAzoneId)) {
             $query['OriginAzoneId'] = $request->originAzoneId;
@@ -809,10 +811,12 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateOrderForRdsRequest $request
-     * @param RuntimeOptions           $runtime
+     * Before you call this operation, make sure that you understand the billing methods and pricing of PolarDB-X 1.0. For more information, visit the [pricing page](https://www.aliyun.com/price/product#/rds/detail).
+     *   *
+     * @param CreateOrderForRdsRequest $request CreateOrderForRdsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrderForRdsResponse
+     * @return CreateOrderForRdsResponse CreateOrderForRdsResponse
      */
     public function createOrderForRdsWithOptions($request, $runtime)
     {
@@ -843,9 +847,11 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateOrderForRdsRequest $request
+     * Before you call this operation, make sure that you understand the billing methods and pricing of PolarDB-X 1.0. For more information, visit the [pricing page](https://www.aliyun.com/price/product#/rds/detail).
+     *   *
+     * @param CreateOrderForRdsRequest $request CreateOrderForRdsRequest
      *
-     * @return CreateOrderForRdsResponse
+     * @return CreateOrderForRdsResponse CreateOrderForRdsResponse
      */
     public function createOrderForRds($request)
     {
@@ -1317,6 +1323,9 @@ class Drds extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->search)) {
             $query['Search'] = $request->search;
         }
@@ -1463,6 +1472,9 @@ class Drds extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupName)) {
             $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1691,55 +1703,6 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDrdsDbRdsNameListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDrdsDbTasksRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeDrdsDbTasksResponse
-     */
-    public function describeDrdsDbTasksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDrdsDbTasks',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDrdsDbTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDrdsDbTasksRequest $request
-     *
-     * @return DescribeDrdsDbTasksResponse
-     */
-    public function describeDrdsDbTasks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDrdsDbTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -2637,10 +2600,12 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceSwitchNetworkRequest $request
-     * @param RuntimeOptions                       $runtime
+     * ****
+     *   *
+     * @param DescribeInstanceSwitchNetworkRequest $request DescribeInstanceSwitchNetworkRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceSwitchNetworkResponse
+     * @return DescribeInstanceSwitchNetworkResponse DescribeInstanceSwitchNetworkResponse
      */
     public function describeInstanceSwitchNetworkWithOptions($request, $runtime)
     {
@@ -2668,9 +2633,11 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceSwitchNetworkRequest $request
+     * ****
+     *   *
+     * @param DescribeInstanceSwitchNetworkRequest $request DescribeInstanceSwitchNetworkRequest
      *
-     * @return DescribeInstanceSwitchNetworkResponse
+     * @return DescribeInstanceSwitchNetworkResponse DescribeInstanceSwitchNetworkResponse
      */
     public function describeInstanceSwitchNetwork($request)
     {
@@ -3142,67 +3109,6 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeShardTaskInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeShardTaskListRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeShardTaskListResponse
-     */
-    public function describeShardTaskListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
-        }
-        if (!Utils::isUnset($request->drdsInstanceId)) {
-            $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->query)) {
-            $query['Query'] = $request->query;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeShardTaskList',
-            'version'     => '2019-01-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeShardTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeShardTaskListRequest $request
-     *
-     * @return DescribeShardTaskListResponse
-     */
-    public function describeShardTaskList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeShardTaskListWithOptions($request, $runtime);
     }
 
     /**
@@ -4415,10 +4321,13 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RemoveDrdsInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * > *   You can call this operation to release an instance that is charged based on only the pay-as-you-go billing method.
+     *   * >*   If the specifications of the instance are being changed, or one or more databases exist in the instance, you cannot call this operation to release the instance.
+     *   *
+     * @param RemoveDrdsInstanceRequest $request RemoveDrdsInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveDrdsInstanceResponse
+     * @return RemoveDrdsInstanceResponse RemoveDrdsInstanceResponse
      */
     public function removeDrdsInstanceWithOptions($request, $runtime)
     {
@@ -4446,9 +4355,12 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RemoveDrdsInstanceRequest $request
+     * > *   You can call this operation to release an instance that is charged based on only the pay-as-you-go billing method.
+     *   * >*   If the specifications of the instance are being changed, or one or more databases exist in the instance, you cannot call this operation to release the instance.
+     *   *
+     * @param RemoveDrdsInstanceRequest $request RemoveDrdsInstanceRequest
      *
-     * @return RemoveDrdsInstanceResponse
+     * @return RemoveDrdsInstanceResponse RemoveDrdsInstanceResponse
      */
     public function removeDrdsInstance($request)
     {

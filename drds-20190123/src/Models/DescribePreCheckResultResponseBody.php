@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribePreCheckResultResponseBody extends Model
 {
     /**
+     * @description Indicates the result of the precheck task.
+     *
      * @var preCheckResult
      */
     public $preCheckResult;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EED1A59A-CFEA-5CF8-BB4A-090E75B3D05E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountPrivilegeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 73559800-3c8c-11ec-bd40-99cfcff3fe1e
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

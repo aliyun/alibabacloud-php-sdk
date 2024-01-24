@@ -14,56 +14,88 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates the number of remaining days before the tasks to shard tables or convert tables expire.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $expired;
 
     /**
+     * @description Indicates information about full migration tasks.
+     *
      * @var full
      */
     public $full;
 
     /**
+     * @description Indicates information about full check tasks.
+     *
      * @var fullCheck
      */
     public $fullCheck;
 
     /**
+     * @description Indicates information about full correction tasks.
+     *
      * @var fullRevise
      */
     public $fullRevise;
 
     /**
+     * @description Indicates information about incremental data synchronization.
+     *
      * @var increment
      */
     public $increment;
 
     /**
+     * @description Indicates the incremental data synchronization progress.
+     *
+     * @example 70
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description Indicates check tasks.
+     *
      * @var review
      */
     public $review;
 
     /**
+     * @description Indicates the name of the table that you convert or shard.
+     *
+     * @example a1
+     *
      * @var string
      */
     public $sourceTableName;
 
     /**
+     * @description Indicates the current stage of the task.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $stage;
 
     /**
+     * @description Indicates the state of the tasks to shard tables or convert tables.
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Indicates the name of the table after you convert or shard the table.
+     *
+     * @example a2
+     *
      * @var string
      */
     public $targetTableName;

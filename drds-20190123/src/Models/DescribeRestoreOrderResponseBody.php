@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreOrderResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0AD2DE5D-B86B-40B5-9678-487D37******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned data object.
+     *
      * @var restoreOrderDO
      */
     public $restoreOrderDO;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

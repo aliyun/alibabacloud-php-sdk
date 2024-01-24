@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class dbPrivilege extends Model
 {
     /**
+     * @description Indicates the name of a database.
+     *
+     * @example test_rds3
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description Indicates the permissions that an account is granted on the database. Valid values:
+     *
+     *   **R**: The account is granted the permissions that are required to read the data of the database.
+     *   **W**: The account is granted the permissions that are required to write data to the database.
+     *   **DDL**: The account is granted the permissions that are required to perform DDL operations on the database.
+     *   **DML**: The account is granted the permissions that are required to perform DML operations on the database.
+     *
+     * @example R
+     *
      * @var string
      */
     public $privilege;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether scale-out operations can be performed on the database.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isActive;
 
     /**
+     * @description The additional information.
+     *
+     * @example success
+     *
      * @var string
      */
     public $msg;

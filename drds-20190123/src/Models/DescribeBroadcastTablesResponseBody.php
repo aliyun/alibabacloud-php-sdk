@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeBroadcastTablesResponseBody extends Model
 {
     /**
+     * @description Indicates whether the database is sharded.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isShard;
 
     /**
+     * @description Indicates information about broadcast tables.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description Indicates the page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description Indicates the number of entries returned per page.
+     *
+     * @example 40
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Indicates the ID of the request.
+     *
+     * @example 86E420ED-43F2-4788-A58C-921849******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description Indicates the total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $total;

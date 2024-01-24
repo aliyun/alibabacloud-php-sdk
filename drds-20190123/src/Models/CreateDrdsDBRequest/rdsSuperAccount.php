@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class rdsSuperAccount extends Model
 {
     /**
+     * @description The account name of the super administrator that is used to connect to the ApsaraDB RDS for MySQL instance.
+     *
+     * @example drds_sample_rds_super_account
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The ID of ApsaraDB RDS instance.
+     *
+     * @example drds_sample_rds_id
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @description The password of the super administrator account that is used to connect to the ApsaraDB RDS instance.
+     *
+     * @example drds_sample_rds_super_password
+     *
      * @var string
      */
     public $password;

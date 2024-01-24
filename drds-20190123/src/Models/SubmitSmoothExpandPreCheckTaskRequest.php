@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SubmitSmoothExpandPreCheckTaskRequest extends Model
 {
     /**
+     * @description The name of the PolarDB-X 1.0 database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds823s4esd
+     *
      * @var string
      */
     public $drdsInstanceId;

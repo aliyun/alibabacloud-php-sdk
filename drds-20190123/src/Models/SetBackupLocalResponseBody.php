@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class SetBackupLocalResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6F70CE62-5077-4B7B-95BC-4DAC45614DBE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

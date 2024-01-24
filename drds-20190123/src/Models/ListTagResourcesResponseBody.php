@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description The token that is used to display the returned tags on multiple pages.
+     *
+     * @example 6ab4640a-479b-41d0-ad3c-c6e888bc3d8f
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 58CE1CB0-F0F4-4BA3-B876-135DC47DF52F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The list of returned tags.
+     *
      * @var tagResources
      */
     public $tagResources;

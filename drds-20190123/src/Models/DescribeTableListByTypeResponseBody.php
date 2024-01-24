@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeTableListByTypeResponseBody extends Model
 {
     /**
+     * @description Indicates the information about tables.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description Indicates the page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description Indicates the number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Indicates the unique ID of the request. If the request fails, provide this ID for technical support to troubleshoot the failure.
+     *
+     * @example B360F47B-59E3-4D1C-BA03-6BFB1C993F88
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description Indicates the total number of returned tables.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;

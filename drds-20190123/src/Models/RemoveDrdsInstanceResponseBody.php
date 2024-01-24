@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RemoveDrdsInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example A3140FC7-B78B-4D8E-B0C8-926D28******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

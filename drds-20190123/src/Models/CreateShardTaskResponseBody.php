@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateShardTaskResponseBody extends Model
 {
     /**
+     * @description Task creation result
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F8997D95-94AD-416A-AE70-E24D08******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of the operation.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

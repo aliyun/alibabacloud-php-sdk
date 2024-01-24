@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ModifyPolarDbReadWeightRequest extends Model
 {
     /**
+     * @description Polar cluster ID.
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The node list in the destination apsaradb for PolarDB cluster. The nodes in each cluster are separated with commas (,) and colons (:).
+     *
+     * @example pi-****************,pi-****************:pi-****************
+     *
      * @var string
      */
     public $dbNodeIds;
 
     /**
+     * @description The ID of a DRDS instance.
+     *
+     * @example drds************
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The weight of the PolarDB cluster. Separate multiple weights with commas (,).
+     *
+     * @example 14,86
+     *
      * @var string
      */
     public $weights;

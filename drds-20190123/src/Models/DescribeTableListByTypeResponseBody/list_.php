@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description Indicates the property of a table.
+     *
+     * @example single
+     *
      * @var string
      */
     public $property;
 
     /**
+     * @description Indicates the name of the table.
+     *
+     * @example employee_split
+     *
      * @var string
      */
     public $tableName;

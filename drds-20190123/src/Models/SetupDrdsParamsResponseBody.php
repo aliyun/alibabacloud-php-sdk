@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class SetupDrdsParamsResponseBody extends Model
 {
     /**
+     * @description The returned results.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9B2F3840-5C98-475C-B269-2D5C3A31797C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

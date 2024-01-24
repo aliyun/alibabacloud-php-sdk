@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RemoveInstanceAccountRequest extends Model
 {
     /**
+     * @description The name of the member account.
+     *
+     * @example test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The ID of the DRDS instance.
+     *
+     * @example drds***********
+     *
      * @var string
      */
     public $drdsInstanceId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribePreCheckResultRequest extends Model
 {
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drdshbga76p6****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the precheck task.
+     *
+     * @example 4561
+     *
      * @var string
      */
     public $taskId;

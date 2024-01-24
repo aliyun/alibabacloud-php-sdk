@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecycleBinTablesResponseBody extends Model
 {
     /**
+     * @description The data object returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5D64DE5944A1E541E0CB908A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

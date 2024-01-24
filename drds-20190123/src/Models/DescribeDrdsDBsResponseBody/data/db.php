@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class db extends Model
 {
     /**
+     * @description The time when the database is created. The value of this parameter is a UNIX timestamp. Unit: ms.
+     *
+     * @example 1563773824000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The type of the database. Valid values: **RDS** and **POLARDB**.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $dbInstType;
 
     /**
+     * @description The name of the database.
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The partitioning mode of the database. Valid values:
+     *
+     *   **HORIZONTAL**: The database is horizontally partitioned.
+     *   **VERTICAL**: The database is vertically partitioned.
+     *
+     * @example HORIZONTAL
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The schema ID that is assigned to the partitioned database.
+     *
+     * @example drds_test_1563773871118kxqd
+     *
      * @var string
      */
     public $schema;
 
     /**
+     * @description The state of the database.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;

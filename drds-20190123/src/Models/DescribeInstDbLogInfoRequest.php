@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstDbLogInfoRequest extends Model
 {
     /**
+     * @description The name of the DRDS database.
+     *
+     * @example drds_test
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The ID of the DRDS instance.
+     *
+     * @example drds*********
+     *
      * @var string
      */
     public $drdsInstanceId;

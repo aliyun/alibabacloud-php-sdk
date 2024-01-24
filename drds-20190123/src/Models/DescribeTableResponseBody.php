@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeTableResponseBody extends Model
 {
     /**
+     * @description Indicates the returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Indicates the unique ID of the request. If the request fails, provide this ID for technical support to troubleshoot the failure.
+     *
+     * @example B5644ABB-559A-4A1C-83F2-9E7209******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

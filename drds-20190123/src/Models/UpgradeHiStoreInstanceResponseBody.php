@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpgradeHiStoreInstanceResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request was successful. A value of true indicates that the request was successful. An error message was returned if the request failed.
+     *
+     * @example true
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DSSDF-SEWE-23ERW
+     *
      * @var string
      */
     public $requestId;

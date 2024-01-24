@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSwitchAzoneResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example DSSDF-SEWE-23ERW
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of the operation.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

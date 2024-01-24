@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdsCommodityRequest extends Model
 {
     /**
+     * @description The commodity code of the service.
+     *
+     * @example drdsPost
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drds***********
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The type of the order.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $orderType;

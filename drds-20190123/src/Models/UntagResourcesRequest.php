@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to delete all tags of the resource.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example drds********
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. Set the value to INSTANCE.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example color
+     *
      * @var string[]
      */
     public $tagKey;

@@ -10,56 +10,113 @@ use AlibabaCloud\Tea\Model;
 class backupSet extends Model
 {
     /**
+     * @description Backup Recovery duration.
+     *
+     * @example 2020-06-05 11:31:38
+     *
      * @var string
      */
     public $backupConsitentTime;
 
     /**
+     * @description The list of backup databases.
+     *
      * @var backupDbs
      */
     public $backupDbs;
 
     /**
+     * @description The end of the backup time which is in timestamp format (measured in millisecond).
+     *
+     * >  0 indicates not finished.
+     * @example 1591327899000
+     *
      * @var int
      */
     public $backupEndTime;
 
     /**
+     * @description The level of the backup. Valid values:
+     *
+     *   db: The database level.
+     *   instance: the instance level.
+     *
+     * @example instance
+     *
      * @var string
      */
     public $backupLevel;
 
     /**
+     * @description The backup method. Valid values:
+     *
+     *   logic: the logical backup.
+     *   phy: fast backup
+     *
+     * @example logic
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description The beginning of the backup time which is in timestamp format (measured in millisecond).
+     *
+     * @example 1591327754000
+     *
      * @var int
      */
     public $backupStartTime;
 
     /**
+     * @description The size of the backup set. Unit: MB.
+     *
+     * @example 93.24
+     *
      * @var string
      */
     public $backupTotalSize;
 
     /**
+     * @description The type of the backup. Valid values:
+     *
+     *   manual: indicates a manual backup.
+     *   auto: indicates an automatic backup.
+     *
+     * @example manual
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @description Indicates whether the backup set can be restored. Valid values:
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableRecovery;
 
     /**
+     * @description The ID of the data backup file you want to use.
+     *
+     * @example ba30d5c4-a6dc-11ea-bd40-************
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The status of the backup instance. Valid values:
+     *
+     *   \-1: Failed
+     *   0: Not started
+     *   1: The storage instance is running.
+     *   2: Success
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;

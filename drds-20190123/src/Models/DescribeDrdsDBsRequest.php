@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDBsRequest extends Model
 {
     /**
+     * @description The ID of the PolarDB-X 1.0 instance.
+     *
+     * @example drdshbga1138****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description The number of the page to return. The value of this parameter must be an integer that is greater than 0. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of databases to return on each page. Valid values: **30**, **50**, and **100**.
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region in which the PolarDB-X 1.0 instance is created.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

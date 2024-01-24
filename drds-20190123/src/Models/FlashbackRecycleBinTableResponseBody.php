@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class FlashbackRecycleBinTableResponseBody extends Model
 {
     /**
+     * @description Indicates whether the deleted logical table is restored.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 463A5F0F-12AD-4544-A902-B2B983******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

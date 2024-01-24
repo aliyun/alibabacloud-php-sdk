@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackMenuRequest extends Model
 {
     /**
+     * @description The ID of the DRDS instance.
+     *
+     * @example drds***********
+     *
      * @var string
      */
     public $drdsInstanceId;

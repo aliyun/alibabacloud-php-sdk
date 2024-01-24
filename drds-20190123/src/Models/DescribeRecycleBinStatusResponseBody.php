@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecycleBinStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ACB5258F-25AF-4D7C-8FAA-B6FE60******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the table recycle bin. Valid values:
+     *
+     *   disable: The table recycle bin is enabled.
+     *   enable: The table recycle bin is disabled.
+     *
+     * @example disable
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The result of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
