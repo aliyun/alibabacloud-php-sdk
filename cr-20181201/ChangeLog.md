@@ -1,3 +1,6 @@
+2024-01-24 Version: 1.3.2
+- Generated php 2018-12-01 for cr.
+
 2024-01-23 Version: 1.3.1
 - Generated php 2018-12-01 for cr.
 

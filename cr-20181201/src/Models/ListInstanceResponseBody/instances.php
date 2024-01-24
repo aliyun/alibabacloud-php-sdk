@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\ListInstanceResponseBody;
 
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListInstanceResponseBody\instances\tags;
 use AlibabaCloud\Tea\Model;
 
 class instances extends Model
@@ -88,6 +89,11 @@ class instances extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'createTime'            => 'CreateTime',
         'instanceId'            => 'InstanceId',
@@ -98,6 +104,7 @@ class instances extends Model
         'modifiedTime'          => 'ModifiedTime',
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
+        'tags'                  => 'Tags',
     ];
 
     public function validate()
@@ -133,6 +140,15 @@ class instances extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -172,6 +188,15 @@ class instances extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
