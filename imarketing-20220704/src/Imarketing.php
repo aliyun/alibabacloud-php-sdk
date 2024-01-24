@@ -44,6 +44,8 @@ use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryAuditResultRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryAuditResultResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryBenefitGrantResultRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryBenefitGrantResultResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryFinanceUserInfoRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryFinanceUserInfoResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryOrderRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryOrderResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ReportImpressionRequest;
@@ -1036,6 +1038,52 @@ class Imarketing extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryBenefitGrantResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryFinanceUserInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryFinanceUserInfoResponse
+     */
+    public function queryFinanceUserInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->activityId)) {
+            $body['ActivityId'] = $request->activityId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryFinanceUserInfo',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryFinanceUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryFinanceUserInfoRequest $request
+     *
+     * @return QueryFinanceUserInfoResponse
+     */
+    public function queryFinanceUserInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryFinanceUserInfoWithOptions($request, $runtime);
     }
 
     /**
