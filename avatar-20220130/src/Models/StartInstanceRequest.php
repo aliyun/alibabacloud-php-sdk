@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Avatar\V20220130\Models;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StartInstanceRequest\app;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StartInstanceRequest\channel;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StartInstanceRequest\commandRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\StartInstanceRequest\textRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StartInstanceRequest\user;
 use AlibabaCloud\Tea\Model;
 
@@ -40,6 +41,11 @@ class StartInstanceRequest extends Model
     public $tenantId;
 
     /**
+     * @var textRequest
+     */
+    public $textRequest;
+
+    /**
      * @var user
      */
     public $user;
@@ -49,6 +55,7 @@ class StartInstanceRequest extends Model
         'channel'        => 'Channel',
         'commandRequest' => 'CommandRequest',
         'tenantId'       => 'TenantId',
+        'textRequest'    => 'TextRequest',
         'user'           => 'User',
     ];
 
@@ -73,6 +80,9 @@ class StartInstanceRequest extends Model
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+        if (null !== $this->textRequest) {
+            $res['TextRequest'] = null !== $this->textRequest ? $this->textRequest->toMap() : null;
         }
         if (null !== $this->user) {
             $res['User'] = null !== $this->user ? $this->user->toMap() : null;
@@ -103,6 +113,9 @@ class StartInstanceRequest extends Model
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+        if (isset($map['TextRequest'])) {
+            $model->textRequest = textRequest::fromMap($map['TextRequest']);
         }
         if (isset($map['User'])) {
             $model->user = user::fromMap($map['User']);

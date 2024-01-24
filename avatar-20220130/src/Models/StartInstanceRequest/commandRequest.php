@@ -12,8 +12,20 @@ class commandRequest extends Model
      * @var bool
      */
     public $alphaSwitch;
+
+    /**
+     * @var string
+     */
+    public $backGroundImageUrl;
+
+    /**
+     * @var int
+     */
+    public $locate;
     protected $_name = [
-        'alphaSwitch' => 'AlphaSwitch',
+        'alphaSwitch'        => 'AlphaSwitch',
+        'backGroundImageUrl' => 'BackGroundImageUrl',
+        'locate'             => 'Locate',
     ];
 
     public function validate()
@@ -25,6 +37,12 @@ class commandRequest extends Model
         $res = [];
         if (null !== $this->alphaSwitch) {
             $res['AlphaSwitch'] = $this->alphaSwitch;
+        }
+        if (null !== $this->backGroundImageUrl) {
+            $res['BackGroundImageUrl'] = $this->backGroundImageUrl;
+        }
+        if (null !== $this->locate) {
+            $res['Locate'] = $this->locate;
         }
 
         return $res;
@@ -40,6 +58,12 @@ class commandRequest extends Model
         $model = new self();
         if (isset($map['AlphaSwitch'])) {
             $model->alphaSwitch = $map['AlphaSwitch'];
+        }
+        if (isset($map['BackGroundImageUrl'])) {
+            $model->backGroundImageUrl = $map['BackGroundImageUrl'];
+        }
+        if (isset($map['Locate'])) {
+            $model->locate = $map['Locate'];
         }
 
         return $model;

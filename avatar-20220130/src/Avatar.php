@@ -1289,6 +1289,9 @@ class Avatar extends OpenApiClient
         if (!Utils::isUnset($tmpReq->commandRequest)) {
             $request->commandRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commandRequest, 'CommandRequest', 'json');
         }
+        if (!Utils::isUnset($tmpReq->textRequest)) {
+            $request->textRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->textRequest, 'TextRequest', 'json');
+        }
         if (!Utils::isUnset($tmpReq->user)) {
             $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
         }
@@ -1307,6 +1310,9 @@ class Avatar extends OpenApiClient
         }
         if (!Utils::isUnset($request->tenantId)) {
             $query['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->textRequestShrink)) {
+            $query['TextRequest'] = $request->textRequestShrink;
         }
         if (!Utils::isUnset($request->userShrink)) {
             $query['User'] = $request->userShrink;
