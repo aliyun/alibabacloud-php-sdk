@@ -105,9 +105,6 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->idFaceQuality)) {
             $query['IdFaceQuality'] = $request->idFaceQuality;
         }
-        if (!Utils::isUnset($request->idOcrPictureBase64)) {
-            $query['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
-        }
         if (!Utils::isUnset($request->idOcrPictureUrl)) {
             $query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
         }
@@ -126,8 +123,13 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->spoof)) {
             $query['Spoof'] = $request->spoof;
         }
+        $body = [];
+        if (!Utils::isUnset($request->idOcrPictureBase64)) {
+            $body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CardOcr',

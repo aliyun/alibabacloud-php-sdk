@@ -23,8 +23,6 @@ class CardOcrRequest extends Model
     public $idFaceQuality;
 
     /**
-     * @example dsjisaj***oekwodsm
-     *
      * @var string
      */
     public $idOcrPictureBase64;
