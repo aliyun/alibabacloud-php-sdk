@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteExchangeRequest extends Model
 {
     /**
+     * @description The name of the exchange that you want to delete.
+     *
      * @example DemoExchange
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteExchangeRequest extends Model
     public $exchangeName;
 
     /**
+     * @description The ID of the ApsaraMQ for RabbitMQ instance whose exchange you want to delete.
+     *
      * @example amqp-cn-v0h1kb9nu***
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteExchangeRequest extends Model
     public $instanceId;
 
     /**
+     * @description The vhost to which the exchange that you want to delete belongs.
+     *
      * @example test
      *
      * @var string

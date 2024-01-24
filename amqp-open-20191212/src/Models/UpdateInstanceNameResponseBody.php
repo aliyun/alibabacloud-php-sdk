@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceNameResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateInstanceNameResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @example true
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateInstanceNameResponseBody extends Model
     public $data;
 
     /**
+     * @description The error message that is returned when an error occurs during the update of the instance name.
+     *
      * @example InstanceNotExist
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateInstanceNameResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 6DC68EC9-0E76-5435-B8C0-FF9492B4****
      *
      * @var string
@@ -37,6 +45,8 @@ class UpdateInstanceNameResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned message that indicates the request is successful.
+     *
      * @example true
      *
      * @var bool

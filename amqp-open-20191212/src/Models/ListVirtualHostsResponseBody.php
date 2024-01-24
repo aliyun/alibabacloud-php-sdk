@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListVirtualHostsResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example EF4DB019-DA4A-4CE3-B220-223BBC93F***
      *
      * @var string

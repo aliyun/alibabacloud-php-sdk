@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListBindingsRequest extends Model
 {
     /**
+     * @description The ID of the ApsaraMQ for RabbitMQ instance.
+     *
      * @example 1880770869023***
      *
      * @var string
@@ -16,6 +18,10 @@ class ListBindingsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The maximum number of entries to return. Valid values:
+     *
+     **1 to 100**
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +29,8 @@ class ListBindingsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that marks the end position of the previous returned page. To obtain the next batch of data, call the operation again by using the value of NextToken returned by the previous request. If you call this operation for the first time or want to query all results, set NextToken to an empty string.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -30,6 +38,8 @@ class ListBindingsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The vhost name.
+     *
      * @example Test
      *
      * @var string

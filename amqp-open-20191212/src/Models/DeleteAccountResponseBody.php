@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccountResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteAccountResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class DeleteAccountResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success
      *
      * @var string
@@ -30,6 +36,8 @@ class DeleteAccountResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 021788F6-E50C-4BD6-9F80-66B0A19A6***
      *
      * @var string
@@ -37,6 +45,8 @@ class DeleteAccountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

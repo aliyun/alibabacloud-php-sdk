@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class queues extends Model
 {
     /**
+     * @description The attributes.
+     *
      * @example test
      *
      * @var mixed[]
@@ -16,6 +18,8 @@ class queues extends Model
     public $attributes;
 
     /**
+     * @description Indicates whether the queue was automatically deleted.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class queues extends Model
     public $autoDeleteState;
 
     /**
+     * @description The time when the queue was created.
+     *
      * @example 1580887085240
      *
      * @var int
@@ -30,6 +36,8 @@ class queues extends Model
     public $createTime;
 
     /**
+     * @description Indicates whether the queue is an exclusive queue.
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +45,8 @@ class queues extends Model
     public $exclusiveState;
 
     /**
+     * @description The time when messages in the queue were last consumed.
+     *
      * @example 1680887085240
      *
      * @var int
@@ -44,6 +54,8 @@ class queues extends Model
     public $lastConsumeTime;
 
     /**
+     * @description The queue name.
+     *
      * @example QueueTest
      *
      * @var string
@@ -51,6 +63,8 @@ class queues extends Model
     public $name;
 
     /**
+     * @description The ID of the ApsaraMQ for RabbitMQ instance to which the queue belongs.
+     *
      * @example 1880770869023***
      *
      * @var string
@@ -58,6 +72,8 @@ class queues extends Model
     public $ownerId;
 
     /**
+     * @description The vhost name.
+     *
      * @example test
      *
      * @var string

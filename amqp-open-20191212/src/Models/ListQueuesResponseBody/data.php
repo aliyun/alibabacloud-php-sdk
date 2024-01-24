@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The maximum number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class data extends Model
     public $maxResults;
 
     /**
+     * @description The token that marks the end of the current returned page. If this parameter is empty, all data is retrieved.
+     *
      * @example caebacccb2be03f84eb48b699f0a****
      *
      * @var string
@@ -24,7 +28,7 @@ class data extends Model
     public $nextToken;
 
     /**
-     * @description Queue。
+     * @description The queues.
      *
      * @var queues[]
      */

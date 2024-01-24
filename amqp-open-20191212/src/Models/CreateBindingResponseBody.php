@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateBindingResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 09768C14-E51C-4F4A-8077-30810032C***
      *
      * @var string

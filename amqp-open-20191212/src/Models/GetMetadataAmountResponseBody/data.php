@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of created exchanges on the ApsaraMQ for RabbitMQ instance.
+     *
      * @example 7
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $currentExchanges;
 
     /**
+     * @description The number of created queues on the ApsaraMQ for RabbitMQ instance.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $currentQueues;
 
     /**
+     * @description The number of created vhosts on the ApsaraMQ for RabbitMQ instance.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $currentVirtualHosts;
 
     /**
+     * @description The maximum number of exchanges that can be created on the ApsaraMQ for RabbitMQ instance.
+     *
      * @example 20
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $maxExchanges;
 
     /**
+     * @description The maximum number of queues that can be created on the ApsaraMQ for RabbitMQ instance.
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +54,8 @@ class data extends Model
     public $maxQueues;
 
     /**
+     * @description The maximum number of vhosts that can be created on the ApsaraMQ for RabbitMQ instance.
+     *
      * @example 10
      *
      * @var int

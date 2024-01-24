@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListQueueUpStreamBindingsResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 8BFB1C9D-08A2-4859-A47C-403C9EFA2***
      *
      * @var string

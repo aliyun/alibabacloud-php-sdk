@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVirtualHostRequest extends Model
 {
     /**
+     * @description The ID of the ApsaraMQ for RabbitMQ instance to which the vhost you want to delete belongs.
+     *
      * @example amqp-cn-v0h1kb9nu***
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteVirtualHostRequest extends Model
     public $instanceId;
 
     /**
+     * @description The name of the vhost that you want to delete.
+     *
      * @example test
      *
      * @var string

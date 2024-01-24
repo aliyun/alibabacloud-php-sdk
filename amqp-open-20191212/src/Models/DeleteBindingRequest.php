@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBindingRequest extends Model
 {
     /**
+     * @description The binding key.
+     *
      * @example .test.
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteBindingRequest extends Model
     public $bindingKey;
 
     /**
+     * @description The type of the object that you want to unbind from the source exchange. Valid values:
+     *
+     *   **QUEUE**
+     *   **EXCHANGE**
+     *
      * @example QUEUE
      *
      * @var string
@@ -23,6 +30,8 @@ class DeleteBindingRequest extends Model
     public $bindingType;
 
     /**
+     * @description The name of the object that you want to unbind from the source exchange.
+     *
      * @example DemoQueue
      *
      * @var string
@@ -30,6 +39,8 @@ class DeleteBindingRequest extends Model
     public $destinationName;
 
     /**
+     * @description The instance ID.
+     *
      * @example amqp-cn-v0h1kb9nu***
      *
      * @var string
@@ -37,6 +48,8 @@ class DeleteBindingRequest extends Model
     public $instanceId;
 
     /**
+     * @description The name of the source exchange.
+     *
      * @example NormalEX
      *
      * @var string
@@ -44,6 +57,8 @@ class DeleteBindingRequest extends Model
     public $sourceExchange;
 
     /**
+     * @description The vhost name.
+     *
      * @example test
      *
      * @var string

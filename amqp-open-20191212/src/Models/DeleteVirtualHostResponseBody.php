@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVirtualHostResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 4311050D-BD63-48F9-822B-947A75A1***
      *
      * @var string

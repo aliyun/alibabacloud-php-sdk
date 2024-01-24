@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DataValue extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID or Resource Access Management (RAM) user to which the AccessKey pair that is used to create the static username and password belongs.
+     *
      * @example 1565*******973901
      *
      * @var int
@@ -16,6 +18,8 @@ class DataValue extends Model
     public $masterUid;
 
     /**
+     * @description The ID of the ApsaraMQ for RabbitMQ instance.
+     *
      * @example amqp-cn-uqm******03
      *
      * @var string
@@ -23,6 +27,8 @@ class DataValue extends Model
     public $cInstanceId;
 
     /**
+     * @description The AccessKey ID that is used to create the static username and password.
+     *
      * @example LTAI5***********eRZtEJ6vfo
      *
      * @var string
@@ -30,6 +36,8 @@ class DataValue extends Model
     public $accessKey;
 
     /**
+     * @description The static username.
+     *
      * @example MjphbXFwLWNuLXVxbTJ6cjc2djAwMzpMVEFJNX*******ZNMWVSWnRFSjZ2Zm8=
      *
      * @var string
@@ -37,6 +45,8 @@ class DataValue extends Model
     public $userName;
 
     /**
+     * @description The static password.
+     *
      * @example OUYwQzM2QjZBRkUxNDRFM***************MzZCNzdDQzoxNjcxNDMwMzkyODI1
      *
      * @var string
@@ -44,6 +54,8 @@ class DataValue extends Model
     public $password;
 
     /**
+     * @description The timestamp that indicates when the static username and password were deleted. Unit: milliseconds.
+     *
      * @example 1671175303522
      *
      * @var int
@@ -51,6 +63,8 @@ class DataValue extends Model
     public $deleted;
 
     /**
+     * @description The timestamp that indicates when the static username and password were created. Unit: milliseconds.
+     *
      * @example 1671175303522
      *
      * @var int

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDownStreamBindingsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request is successful.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class ListDownStreamBindingsResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success
      *
      * @var string
@@ -29,6 +35,8 @@ class ListDownStreamBindingsResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 9C1E0502-0790-4FDB-8C96-6D5C8D9B7***
      *
      * @var string
@@ -36,6 +44,8 @@ class ListDownStreamBindingsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

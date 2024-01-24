@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetMetadataAmountResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example B75ACF23-2BEB-44AC-A0B6-AE14EDCA***
      *
      * @var string

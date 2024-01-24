@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceNameRequest extends Model
 {
     /**
+     * @description The ID of the ApsaraMQ for RabbitMQ instance for which you want to update the name.
+     *
      * @example amqp-cn-zvp2ajsj****
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateInstanceNameRequest extends Model
     public $instanceId;
 
     /**
+     * @description The new name of the instance. No limits are imposed on the value. We recommend that you set this parameter to a maximum of 64 characters in length.
+     *
      * @example amqp-cn-ZVp2ajsj****
      *
      * @var string

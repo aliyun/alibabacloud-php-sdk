@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description AccessKey ID。
+     * @description The AccessKey ID that is used to create the password.
      *
      * @example LTAI5***********eRZtEJ6vfo
      *
@@ -18,6 +18,8 @@ class data extends Model
     public $accessKey;
 
     /**
+     * @description The timestamp that indicates when the password was created. Unit: milliseconds.
+     *
      * @example 1671175303522
      *
      * @var int
@@ -25,6 +27,8 @@ class data extends Model
     public $createTimeStamp;
 
     /**
+     * @description The ID of the ApsaraMQ for RabbitMQ instance.
+     *
      * @example amqp-cn-*********
      *
      * @var string
@@ -32,6 +36,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The Alibaba Cloud account ID or RAM user to which the AccessKey pair that is used to create the static username and password belongs.
+     *
      * @example 15657*********01
      *
      * @var int
@@ -39,6 +45,8 @@ class data extends Model
     public $masterUId;
 
     /**
+     * @description The created static password.
+     *
      * @example NEMxQTYzNjdDRTVDNDI1NUU5NjE3**************1MzNGODoxNjcxMTc1MzEzNTIy
      *
      * @var string
@@ -46,6 +54,8 @@ class data extends Model
     public $password;
 
     /**
+     * @description The created static username.
+     *
      * @example MjphbXFwLWNuLXVxbTJ6cjc2djAwMzpMVEFJNX*******ZNMWVSWnRFSjZ2Zm8=
      *
      * @var string

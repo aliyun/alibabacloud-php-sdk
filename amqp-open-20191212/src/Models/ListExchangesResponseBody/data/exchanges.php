@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class exchanges extends Model
 {
     /**
+     * @description The attributes. This parameter is unavailable in the current version.
+     *
      * @example test
      *
      * @var mixed[]
@@ -16,6 +18,8 @@ class exchanges extends Model
     public $attributes;
 
     /**
+     * @description Indicates whether the exchange was automatically deleted.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class exchanges extends Model
     public $autoDeleteState;
 
     /**
+     * @description The timestamp that indicates when the exchange was created. Unit: milliseconds.
+     *
      * @example 1580886216000
      *
      * @var int
@@ -30,6 +36,8 @@ class exchanges extends Model
     public $createTime;
 
     /**
+     * @description The exchange type.
+     *
      * @example DIRECT
      *
      * @var string
@@ -37,6 +45,8 @@ class exchanges extends Model
     public $exchangeType;
 
     /**
+     * @description The exchange name.
+     *
      * @example amq.direct
      *
      * @var string
@@ -44,6 +54,8 @@ class exchanges extends Model
     public $name;
 
     /**
+     * @description The vhost name.
+     *
      * @example test
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAccountsRequest extends Model
 {
     /**
+     * @description The ID of the ApsaraMQ for RabbitMQ instance for which you want to query the static username and password.
+     *
      * @example amqp-cn-20p****04
      *
      * @var string

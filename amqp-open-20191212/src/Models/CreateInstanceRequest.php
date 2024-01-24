@@ -30,6 +30,11 @@ class CreateInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
      * @example professional
      *
      * @var string
@@ -86,6 +91,16 @@ class CreateInstanceRequest extends Model
     public $queueCapacity;
 
     /**
+     * @var string
+     */
+    public $renewStatus;
+
+    /**
+     * @var string
+     */
+    public $renewalDurationUnit;
+
+    /**
      * @example 7
      *
      * @var int
@@ -113,21 +128,24 @@ class CreateInstanceRequest extends Model
      */
     public $tracingStorageTime;
     protected $_name = [
-        'autoRenew'          => 'AutoRenew',
-        'autoRenewPeriod'    => 'AutoRenewPeriod',
-        'clientToken'        => 'ClientToken',
-        'instanceType'       => 'InstanceType',
-        'maxConnections'     => 'MaxConnections',
-        'maxEipTps'          => 'MaxEipTps',
-        'maxPrivateTps'      => 'MaxPrivateTps',
-        'paymentType'        => 'PaymentType',
-        'period'             => 'Period',
-        'periodCycle'        => 'PeriodCycle',
-        'queueCapacity'      => 'QueueCapacity',
-        'storageSize'        => 'StorageSize',
-        'supportEip'         => 'SupportEip',
-        'supportTracing'     => 'SupportTracing',
-        'tracingStorageTime' => 'TracingStorageTime',
+        'autoRenew'           => 'AutoRenew',
+        'autoRenewPeriod'     => 'AutoRenewPeriod',
+        'clientToken'         => 'ClientToken',
+        'instanceName'        => 'InstanceName',
+        'instanceType'        => 'InstanceType',
+        'maxConnections'      => 'MaxConnections',
+        'maxEipTps'           => 'MaxEipTps',
+        'maxPrivateTps'       => 'MaxPrivateTps',
+        'paymentType'         => 'PaymentType',
+        'period'              => 'Period',
+        'periodCycle'         => 'PeriodCycle',
+        'queueCapacity'       => 'QueueCapacity',
+        'renewStatus'         => 'RenewStatus',
+        'renewalDurationUnit' => 'RenewalDurationUnit',
+        'storageSize'         => 'StorageSize',
+        'supportEip'          => 'SupportEip',
+        'supportTracing'      => 'SupportTracing',
+        'tracingStorageTime'  => 'TracingStorageTime',
     ];
 
     public function validate()
@@ -145,6 +163,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -169,6 +190,12 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->queueCapacity) {
             $res['QueueCapacity'] = $this->queueCapacity;
+        }
+        if (null !== $this->renewStatus) {
+            $res['RenewStatus'] = $this->renewStatus;
+        }
+        if (null !== $this->renewalDurationUnit) {
+            $res['RenewalDurationUnit'] = $this->renewalDurationUnit;
         }
         if (null !== $this->storageSize) {
             $res['StorageSize'] = $this->storageSize;
@@ -203,6 +230,9 @@ class CreateInstanceRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
@@ -226,6 +256,12 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['QueueCapacity'])) {
             $model->queueCapacity = $map['QueueCapacity'];
+        }
+        if (isset($map['RenewStatus'])) {
+            $model->renewStatus = $map['RenewStatus'];
+        }
+        if (isset($map['RenewalDurationUnit'])) {
+            $model->renewalDurationUnit = $map['RenewalDurationUnit'];
         }
         if (isset($map['StorageSize'])) {
             $model->storageSize = $map['StorageSize'];

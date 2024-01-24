@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class CreateAccountResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example operation success
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateAccountResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 92385FD2-624A-48C9-8FB5-753F2AFA***
      *
      * @var string
@@ -36,6 +44,8 @@ class CreateAccountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful.
+     *
      * @example true
      *
      * @var bool

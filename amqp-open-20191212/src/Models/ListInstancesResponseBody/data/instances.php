@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description Indicates whether the instance is automatically renewed.
+     *
      * @example false
      *
      * @var bool
@@ -17,6 +19,8 @@ class instances extends Model
     public $autoRenewInstance;
 
     /**
+     * @description The endpoint that is used to access the instance over the classic network. This parameter is no longer available.
+     *
      * @example amqp-cn-st21x7kv****.not-support
      *
      * @var string
@@ -24,6 +28,8 @@ class instances extends Model
     public $classicEndpoint;
 
     /**
+     * @description The timestamp that indicates when the instance expires. Unit: milliseconds.
+     *
      * @example 1651507200000
      *
      * @var int
@@ -31,6 +37,8 @@ class instances extends Model
     public $expireTime;
 
     /**
+     * @description The instance ID
+     *
      * @example amqp-cn-st21x7kv****
      *
      * @var string
@@ -38,6 +46,8 @@ class instances extends Model
     public $instanceId;
 
     /**
+     * @description The instance name.
+     *
      * @example amqp-cn-st21x7kv****
      *
      * @var string
@@ -45,6 +55,12 @@ class instances extends Model
     public $instanceName;
 
     /**
+     * @description The instance type.
+     *
+     *   PROFESSIONAL: Professional Edition
+     *   ENTERPRISE: Enterprise Edition
+     *   VIP: Enterprise Platinum Edition
+     *
      * @example professional
      *
      * @var string
@@ -52,6 +68,8 @@ class instances extends Model
     public $instanceType;
 
     /**
+     * @description The maximum number of Internet-based transactions per second (TPS) for the instance.
+     *
      * @example 24832
      *
      * @var int
@@ -59,6 +77,8 @@ class instances extends Model
     public $maxEipTps;
 
     /**
+     * @description The maximum number of queues on the instance.
+     *
      * @example 50
      *
      * @var int
@@ -66,6 +86,8 @@ class instances extends Model
     public $maxQueue;
 
     /**
+     * @description The maximum number of VPC-based TPS for the instance.
+     *
      * @example 5000
      *
      * @var int
@@ -73,6 +95,8 @@ class instances extends Model
     public $maxTps;
 
     /**
+     * @description The maximum number of vhosts on the instance.
+     *
      * @example 50
      *
      * @var int
@@ -80,6 +104,8 @@ class instances extends Model
     public $maxVhost;
 
     /**
+     * @description The timestamp that indicates when the order was created. Unit: milliseconds.
+     *
      * @example 1572441939000
      *
      * @var int
@@ -87,6 +113,11 @@ class instances extends Model
     public $orderCreateTime;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   PrePaid: the subscription billing method.
+     *   POST_PAID: the pay-as-you-go billing method.
+     *
      * @example PRE_PAID
      *
      * @var string
@@ -94,6 +125,8 @@ class instances extends Model
     public $orderType;
 
     /**
+     * @description The virtual private cloud (VPC) endpoint of the instance.
+     *
      * @example amqp-cn-st21x7kv****.mq-amqp.cn-hangzhou-a.aliyuncs.com
      *
      * @var string
@@ -101,6 +134,8 @@ class instances extends Model
     public $privateEndpoint;
 
     /**
+     * @description The public endpoint of the instance.
+     *
      * @example amqp-cn-st21x7kv****.mq-amqp.cn-hangzhou-a.aliyuncs.com
      *
      * @var string
@@ -108,6 +143,13 @@ class instances extends Model
     public $publicEndpoint;
 
     /**
+     * @description The instance status. Valid values:
+     *
+     *   DEPLOYING: The instance is being deployed.
+     *   EXPIRED: The instance is expired.
+     *   SERVING: The instance is running.
+     *   RELEASED: The instance is released.
+     *
      * @example SERVING
      *
      * @var string
@@ -115,6 +157,9 @@ class instances extends Model
     public $status;
 
     /**
+     * @description The disk size. Unit: GB.
+     *
+     * >  For Professional Edition instances and Enterprise Edition instances, this parameter is unavailable and \*\*-1\*\* is returned.
      * @example 200
      *
      * @var int
@@ -122,6 +167,8 @@ class instances extends Model
     public $storageSize;
 
     /**
+     * @description Indicates whether the instance supports elastic IP addresses (EIPs).
+     *
      * @example true
      *
      * @var bool
@@ -129,6 +176,8 @@ class instances extends Model
     public $supportEIP;
 
     /**
+     * @description 标签列表。
+     *
      * @var tags[]
      */
     public $tags;

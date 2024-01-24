@@ -92,10 +92,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
@@ -138,9 +139,10 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
+     * *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -290,6 +292,9 @@ class Amqpopen extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
         if (!Utils::isUnset($request->instanceType)) {
             $query['InstanceType'] = $request->instanceType;
         }
@@ -313,6 +318,12 @@ class Amqpopen extends OpenApiClient
         }
         if (!Utils::isUnset($request->queueCapacity)) {
             $query['QueueCapacity'] = $request->queueCapacity;
+        }
+        if (!Utils::isUnset($request->renewStatus)) {
+            $query['RenewStatus'] = $request->renewStatus;
+        }
+        if (!Utils::isUnset($request->renewalDurationUnit)) {
+            $query['RenewalDurationUnit'] = $request->renewalDurationUnit;
         }
         if (!Utils::isUnset($request->storageSize)) {
             $query['StorageSize'] = $request->storageSize;
@@ -580,10 +591,14 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteExchangeRequest $request
-     * @param RuntimeOptions        $runtime
+     * ## [](#)Usage notes
+     *   * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
+     *   * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+     *   *
+     * @param DeleteExchangeRequest $request DeleteExchangeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteExchangeResponse
+     * @return DeleteExchangeResponse DeleteExchangeResponse
      */
     public function deleteExchangeWithOptions($request, $runtime)
     {
@@ -617,9 +632,13 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteExchangeRequest $request
+     * ## [](#)Usage notes
+     *   * *   You cannot delete exchanges of the **headers** and **x-jms-topic** types.
+     *   * *   You cannot delete built-in exchanges in a vhost. These exchanges are amq.direct, amq.topic, and amq.fanout.
+     *   *
+     * @param DeleteExchangeRequest $request DeleteExchangeRequest
      *
-     * @return DeleteExchangeResponse
+     * @return DeleteExchangeResponse DeleteExchangeResponse
      */
     public function deleteExchange($request)
     {
@@ -678,10 +697,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteVirtualHostRequest $request
-     * @param RuntimeOptions           $runtime
+     * Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+     *   *
+     * @param DeleteVirtualHostRequest $request DeleteVirtualHostRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVirtualHostResponse
+     * @return DeleteVirtualHostResponse DeleteVirtualHostResponse
      */
     public function deleteVirtualHostWithOptions($request, $runtime)
     {
@@ -712,9 +733,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteVirtualHostRequest $request
+     * Before you delete a vhost, make sure that all exchanges and queues in the vhost are deleted.
+     *   *
+     * @param DeleteVirtualHostRequest $request DeleteVirtualHostRequest
      *
-     * @return DeleteVirtualHostResponse
+     * @return DeleteVirtualHostResponse DeleteVirtualHostResponse
      */
     public function deleteVirtualHost($request)
     {
@@ -1007,10 +1030,12 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListQueueConsumersRequest $request
-     * @param RuntimeOptions            $runtime
+     * ApsaraMQ for RabbitMQ allows you to query only online consumers.
+     *   *
+     * @param ListQueueConsumersRequest $request ListQueueConsumersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQueueConsumersResponse
+     * @return ListQueueConsumersResponse ListQueueConsumersResponse
      */
     public function listQueueConsumersWithOptions($request, $runtime)
     {
@@ -1035,9 +1060,11 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * @param ListQueueConsumersRequest $request
+     * ApsaraMQ for RabbitMQ allows you to query only online consumers.
+     *   *
+     * @param ListQueueConsumersRequest $request ListQueueConsumersRequest
      *
-     * @return ListQueueConsumersResponse
+     * @return ListQueueConsumersResponse ListQueueConsumersResponse
      */
     public function listQueueConsumers($request)
     {

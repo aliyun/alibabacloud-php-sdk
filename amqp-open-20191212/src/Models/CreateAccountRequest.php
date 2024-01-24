@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountRequest extends Model
 {
     /**
+     * @description The AccessKey ID of your Alibaba Cloud account or RAM user. For information about how to obtain an AccessKey pair, see [Create an AccessKey pair](~~116401~~).
+     *
+     * >  If you use the pair of static username and password that is created by using the Accesskey pair of a RAM user to access ApsaraMQ for RabbitMQ to send and receive messages, make sure that the RAM user is granted the required permissions. For more information, see [RAM policies](~~146559~~).
      * @example LTAI5t8be*******tEJ6vfo
      *
      * @var string
@@ -16,6 +19,9 @@ class CreateAccountRequest extends Model
     public $accountAccessKey;
 
     /**
+     * @description The timestamp that indicates when the password is created. Unit: milliseconds.
+     *
+     * >  This timestamp is specified by you and is used to generate a static password. The timestamp is not the timestamp that indicates when the system generates the password.
      * @example 1671175303522
      *
      * @var int
@@ -23,6 +29,8 @@ class CreateAccountRequest extends Model
     public $createTimestamp;
 
     /**
+     * @description The ID of the instance for which you want to create a pair of static username and password.
+     *
      * @example amqp-cn-*********
      *
      * @var string
@@ -30,6 +38,9 @@ class CreateAccountRequest extends Model
     public $instanceId;
 
     /**
+     * @description The AccessKey secret signature. The system generates a static password based on the signature in the request, the AccessKey secret signature, and the username.
+     *
+     * The system uses the HMAC-SHA1 algorithm to generate the AccessKey secret signature based on the timestamp that indicates when the username is created and the AccessKey ID. For more information, see the **"Sample code on how to generate a signature"** section of this topic.
      * @example 4c1a6367ce4c4255e9617326f9133ac6359533f6
      *
      * @var string
@@ -37,6 +48,9 @@ class CreateAccountRequest extends Model
     public $secretSign;
 
     /**
+     * @description The signature. The system generates a static password based on the signature in the request, the AccessKey secret signature, and the username.
+     *
+     * The system uses the HMAC-SHA1 algorithm to generate the signature based on the timestamp that indicates when the username is created and the AccessKey ID. For more information, see the **"Sample code on how to generate a signature"** section of this topic.
      * @example 22c2d7d1769cb53c5a6d9213248e2de524c4f799
      *
      * @var string
@@ -44,6 +58,9 @@ class CreateAccountRequest extends Model
     public $signature;
 
     /**
+     * @description The static username that you want to create.
+     *
+     * The value of this parameter is a Base64-encoded string that is generated based on the instance ID and AccessKey ID. For more information, see the "**Sample code on how to generate a username**" section of this topic.
      * @example MjphbXFwLWNuLXp***********************Q4YmVNbVZNMWVSWnRFSjZ2Zm8=
      *
      * @var string

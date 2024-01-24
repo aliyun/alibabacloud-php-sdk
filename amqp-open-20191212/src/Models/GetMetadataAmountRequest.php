@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMetadataAmountRequest extends Model
 {
     /**
+     * @description The ID of the ApsaraMQ for RabbitMQ instance.
+     *
      * @example amqp-cn-v0h1kb9n***
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualHostRequest extends Model
 {
     /**
+     * @description The ID of the ApsaraMQ for RabbitMQ instance.
+     *
      * @example amqp-cn-v0h1kb9n***
      *
      * @var string
@@ -16,6 +18,12 @@ class CreateVirtualHostRequest extends Model
     public $instanceId;
 
     /**
+     * @description The name of the vhost that you want to create. Valid values:
+     *
+     *   The name can contain letters, digits, hyphens (-), underscores (\_), periods (.), number signs (#), forward slash (/), and at signs (@).
+     *   The name must be 1 to 255 characters in length.
+     *   After the vhost is created, you cannot change its name. If you want to change the name of a vhost, delete the vhost and create another vhost.
+     *
      * @example Demo
      *
      * @var string

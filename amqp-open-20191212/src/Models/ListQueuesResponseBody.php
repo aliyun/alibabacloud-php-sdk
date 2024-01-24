@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListQueuesResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example CE811989-9F02-42CE-97A6-2239CB5C2***
      *
      * @var string

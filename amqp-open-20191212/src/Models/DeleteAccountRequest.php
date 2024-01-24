@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccountRequest extends Model
 {
     /**
+     * @description The timestamp that indicates when the pair of static username and password that you want to delete was created. Unit: milliseconds.
+     *
+     * You can call the [ListAccounts](~~472730~~) operation to view the timestamp.
      * @example 1671175303522
      *
      * @var int
@@ -16,6 +19,8 @@ class DeleteAccountRequest extends Model
     public $createTimestamp;
 
     /**
+     * @description The pair of username and password that you want to delete.
+     *
      * @example MjphbXFwLWNuLXVxbTJ5cjc3djAwMzpMVEFJNXQ4YmVNbVZNMWVSWnRFSjZ2Zm1=
      *
      * @var string
