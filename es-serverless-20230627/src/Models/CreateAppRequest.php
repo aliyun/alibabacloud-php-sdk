@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Esserverless\V20230627\Models;
 
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\authentication;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\network;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\privateNetwork;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\quotaInfo;
 use AlibabaCloud\Tea\Model;
 
@@ -47,6 +48,11 @@ class CreateAppRequest extends Model
     public $network;
 
     /**
+     * @var privateNetwork[]
+     */
+    public $privateNetwork;
+
+    /**
      * @var quotaInfo
      */
     public $quotaInfo;
@@ -75,6 +81,7 @@ class CreateAppRequest extends Model
         'chargeType'     => 'chargeType',
         'description'    => 'description',
         'network'        => 'network',
+        'privateNetwork' => 'privateNetwork',
         'quotaInfo'      => 'quotaInfo',
         'regionId'       => 'regionId',
         'version'        => 'version',
@@ -106,6 +113,15 @@ class CreateAppRequest extends Model
                 $n = 0;
                 foreach ($this->network as $item) {
                     $res['network'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->privateNetwork) {
+            $res['privateNetwork'] = [];
+            if (null !== $this->privateNetwork && \is_array($this->privateNetwork)) {
+                $n = 0;
+                foreach ($this->privateNetwork as $item) {
+                    $res['privateNetwork'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -151,6 +167,15 @@ class CreateAppRequest extends Model
                 $n              = 0;
                 foreach ($map['network'] as $item) {
                     $model->network[$n++] = null !== $item ? network::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['privateNetwork'])) {
+            if (!empty($map['privateNetwork'])) {
+                $model->privateNetwork = [];
+                $n                     = 0;
+                foreach ($map['privateNetwork'] as $item) {
+                    $model->privateNetwork[$n++] = null !== $item ? privateNetwork::fromMap($item) : $item;
                 }
             }
         }

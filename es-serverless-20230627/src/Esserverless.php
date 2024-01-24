@@ -87,6 +87,9 @@ class Esserverless extends OpenApiClient
         if (!Utils::isUnset($request->network)) {
             $body['network'] = $request->network;
         }
+        if (!Utils::isUnset($request->privateNetwork)) {
+            $body['privateNetwork'] = $request->privateNetwork;
+        }
         if (!Utils::isUnset($request->quotaInfo)) {
             $body['quotaInfo'] = $request->quotaInfo;
         }
@@ -375,14 +378,26 @@ class Esserverless extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->applyReason)) {
+            $body['applyReason'] = $request->applyReason;
+        }
         if (!Utils::isUnset($request->authentication)) {
             $body['authentication'] = $request->authentication;
+        }
+        if (!Utils::isUnset($request->contactInfo)) {
+            $body['contactInfo'] = $request->contactInfo;
         }
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
+        if (!Utils::isUnset($request->limiterInfo)) {
+            $body['limiterInfo'] = $request->limiterInfo;
+        }
         if (!Utils::isUnset($request->network)) {
             $body['network'] = $request->network;
+        }
+        if (!Utils::isUnset($request->privateNetwork)) {
+            $body['privateNetwork'] = $request->privateNetwork;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
