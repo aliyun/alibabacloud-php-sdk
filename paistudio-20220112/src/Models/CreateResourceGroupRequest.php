@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateResourceGroupRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateResourceGroupRequest extends Model
@@ -29,6 +30,11 @@ class CreateResourceGroupRequest extends Model
     public $resourceType;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var UserVpc
      */
     public $userVpc;
@@ -37,6 +43,7 @@ class CreateResourceGroupRequest extends Model
         'description'               => 'Description',
         'name'                      => 'Name',
         'resourceType'              => 'ResourceType',
+        'tag'                       => 'Tag',
         'userVpc'                   => 'UserVpc',
     ];
 
@@ -58,6 +65,15 @@ class CreateResourceGroupRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->userVpc) {
             $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toMap() : null;
@@ -85,6 +101,15 @@ class CreateResourceGroupRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UserVpc'])) {
             $model->userVpc = UserVpc::fromMap($map['UserVpc']);

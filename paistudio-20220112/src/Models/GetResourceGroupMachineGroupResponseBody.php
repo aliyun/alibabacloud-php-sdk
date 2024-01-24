@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupMachineGroupResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
 class GetResourceGroupMachineGroupResponseBody extends Model
@@ -71,6 +72,11 @@ class GetResourceGroupMachineGroupResponseBody extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $paymentDuration;
 
     /**
@@ -102,6 +108,11 @@ class GetResourceGroupMachineGroupResponseBody extends Model
      * @var string[]
      */
     public $supportedDrivers;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'cpu'                 => 'Cpu',
         'defaultDriver'       => 'DefaultDriver',
@@ -115,6 +126,7 @@ class GetResourceGroupMachineGroupResponseBody extends Model
         'gpuType'             => 'GpuType',
         'machineGroupID'      => 'MachineGroupID',
         'memory'              => 'Memory',
+        'name'                => 'Name',
         'paymentDuration'     => 'PaymentDuration',
         'paymentDurationUnit' => 'PaymentDurationUnit',
         'paymentType'         => 'PaymentType',
@@ -122,6 +134,7 @@ class GetResourceGroupMachineGroupResponseBody extends Model
         'resourceGroupID'     => 'ResourceGroupID',
         'status'              => 'Status',
         'supportedDrivers'    => 'SupportedDrivers',
+        'tags'                => 'Tags',
     ];
 
     public function validate()
@@ -167,6 +180,9 @@ class GetResourceGroupMachineGroupResponseBody extends Model
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->paymentDuration) {
             $res['PaymentDuration'] = $this->paymentDuration;
         }
@@ -187,6 +203,15 @@ class GetResourceGroupMachineGroupResponseBody extends Model
         }
         if (null !== $this->supportedDrivers) {
             $res['SupportedDrivers'] = $this->supportedDrivers;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -236,6 +261,9 @@ class GetResourceGroupMachineGroupResponseBody extends Model
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['PaymentDuration'])) {
             $model->paymentDuration = $map['PaymentDuration'];
         }
@@ -257,6 +285,15 @@ class GetResourceGroupMachineGroupResponseBody extends Model
         if (isset($map['SupportedDrivers'])) {
             if (!empty($map['SupportedDrivers'])) {
                 $model->supportedDrivers = $map['SupportedDrivers'];
+            }
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
             }
         }
 

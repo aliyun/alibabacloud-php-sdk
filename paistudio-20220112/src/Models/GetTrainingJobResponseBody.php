@@ -14,6 +14,7 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\lates
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\outputChannels;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\outputModel;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\scheduler;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\settings;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\statusTransitions;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\userVpc;
 use AlibabaCloud\Tea\Model;
@@ -131,6 +132,11 @@ class GetTrainingJobResponseBody extends Model
     public $scheduler;
 
     /**
+     * @var settings
+     */
+    public $settings;
+
+    /**
      * @var string
      */
     public $status;
@@ -197,6 +203,7 @@ class GetTrainingJobResponseBody extends Model
         'requestId'              => 'RequestId',
         'roleArn'                => 'RoleArn',
         'scheduler'              => 'Scheduler',
+        'settings'               => 'Settings',
         'status'                 => 'Status',
         'statusTransitions'      => 'StatusTransitions',
         'trainingJobDescription' => 'TrainingJobDescription',
@@ -316,6 +323,9 @@ class GetTrainingJobResponseBody extends Model
         }
         if (null !== $this->scheduler) {
             $res['Scheduler'] = null !== $this->scheduler ? $this->scheduler->toMap() : null;
+        }
+        if (null !== $this->settings) {
+            $res['Settings'] = null !== $this->settings ? $this->settings->toMap() : null;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -463,6 +473,9 @@ class GetTrainingJobResponseBody extends Model
         }
         if (isset($map['Scheduler'])) {
             $model->scheduler = scheduler::fromMap($map['Scheduler']);
+        }
+        if (isset($map['Settings'])) {
+            $model->settings = settings::fromMap($map['Settings']);
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

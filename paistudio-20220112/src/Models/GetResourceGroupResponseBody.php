@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
 class GetResourceGroupResponseBody extends Model
@@ -22,6 +23,11 @@ class GetResourceGroupResponseBody extends Model
      * @var string
      */
     public $creatorID;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -59,6 +65,11 @@ class GetResourceGroupResponseBody extends Model
     public $supportRDMA;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var UserVpc
      */
     public $userVpc;
@@ -71,6 +82,7 @@ class GetResourceGroupResponseBody extends Model
         'clusterID'                 => 'ClusterID',
         'computingResourceProvider' => 'ComputingResourceProvider',
         'creatorID'                 => 'CreatorID',
+        'description'               => 'Description',
         'gmtCreatedTime'            => 'GmtCreatedTime',
         'gmtModifiedTime'           => 'GmtModifiedTime',
         'name'                      => 'Name',
@@ -78,6 +90,7 @@ class GetResourceGroupResponseBody extends Model
         'resourceType'              => 'ResourceType',
         'status'                    => 'Status',
         'supportRDMA'               => 'SupportRDMA',
+        'tags'                      => 'Tags',
         'userVpc'                   => 'UserVpc',
         'workspaceID'               => 'WorkspaceID',
     ];
@@ -97,6 +110,9 @@ class GetResourceGroupResponseBody extends Model
         }
         if (null !== $this->creatorID) {
             $res['CreatorID'] = $this->creatorID;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->gmtCreatedTime) {
             $res['GmtCreatedTime'] = $this->gmtCreatedTime;
@@ -118,6 +134,15 @@ class GetResourceGroupResponseBody extends Model
         }
         if (null !== $this->supportRDMA) {
             $res['SupportRDMA'] = $this->supportRDMA;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->userVpc) {
             $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toMap() : null;
@@ -146,6 +171,9 @@ class GetResourceGroupResponseBody extends Model
         if (isset($map['CreatorID'])) {
             $model->creatorID = $map['CreatorID'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['GmtCreatedTime'])) {
             $model->gmtCreatedTime = $map['GmtCreatedTime'];
         }
@@ -166,6 +194,15 @@ class GetResourceGroupResponseBody extends Model
         }
         if (isset($map['SupportRDMA'])) {
             $model->supportRDMA = $map['SupportRDMA'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UserVpc'])) {
             $model->userVpc = UserVpc::fromMap($map['UserVpc']);

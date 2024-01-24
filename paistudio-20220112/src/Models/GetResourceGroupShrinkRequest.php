@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class GetResourceGroupRequest extends Model
+class GetResourceGroupShrinkRequest extends Model
 {
     /**
      * @var bool
@@ -15,12 +14,12 @@ class GetResourceGroupRequest extends Model
     public $isAIWorkspaceDataEnabled;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $tagShrink;
     protected $_name = [
         'isAIWorkspaceDataEnabled' => 'IsAIWorkspaceDataEnabled',
-        'tag'                      => 'Tag',
+        'tagShrink'                => 'Tag',
     ];
 
     public function validate()
@@ -33,14 +32,8 @@ class GetResourceGroupRequest extends Model
         if (null !== $this->isAIWorkspaceDataEnabled) {
             $res['IsAIWorkspaceDataEnabled'] = $this->isAIWorkspaceDataEnabled;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
 
         return $res;
@@ -49,7 +42,7 @@ class GetResourceGroupRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetResourceGroupRequest
+     * @return GetResourceGroupShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -58,13 +51,7 @@ class GetResourceGroupRequest extends Model
             $model->isAIWorkspaceDataEnabled = $map['IsAIWorkspaceDataEnabled'];
         }
         if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
+            $model->tagShrink = $map['Tag'];
         }
 
         return $model;

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceGroupRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var bool
      */
     public $unbind;
@@ -18,8 +28,10 @@ class UpdateResourceGroupRequest extends Model
      */
     public $userVpc;
     protected $_name = [
-        'unbind'  => 'Unbind',
-        'userVpc' => 'UserVpc',
+        'description' => 'Description',
+        'name'        => 'Name',
+        'unbind'      => 'Unbind',
+        'userVpc'     => 'UserVpc',
     ];
 
     public function validate()
@@ -29,6 +41,12 @@ class UpdateResourceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->unbind) {
             $res['Unbind'] = $this->unbind;
         }
@@ -47,6 +65,12 @@ class UpdateResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Unbind'])) {
             $model->unbind = $map['Unbind'];
         }

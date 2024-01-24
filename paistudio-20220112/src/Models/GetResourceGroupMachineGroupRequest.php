@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupRequest\tag;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupMachineGroupRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class GetResourceGroupRequest extends Model
+class GetResourceGroupMachineGroupRequest extends Model
 {
-    /**
-     * @var bool
-     */
-    public $isAIWorkspaceDataEnabled;
-
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'isAIWorkspaceDataEnabled' => 'IsAIWorkspaceDataEnabled',
-        'tag'                      => 'Tag',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -30,9 +24,6 @@ class GetResourceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isAIWorkspaceDataEnabled) {
-            $res['IsAIWorkspaceDataEnabled'] = $this->isAIWorkspaceDataEnabled;
-        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -49,14 +40,11 @@ class GetResourceGroupRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetResourceGroupRequest
+     * @return GetResourceGroupMachineGroupRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsAIWorkspaceDataEnabled'])) {
-            $model->isAIWorkspaceDataEnabled = $map['IsAIWorkspaceDataEnabled'];
-        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];

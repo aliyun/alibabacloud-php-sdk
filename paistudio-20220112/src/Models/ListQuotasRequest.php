@@ -16,6 +16,11 @@ class ListQuotasRequest extends Model
     public $labels;
 
     /**
+     * @var string
+     */
+    public $layoutMode;
+
+    /**
      * @example desc
      *
      * @var string
@@ -86,6 +91,7 @@ class ListQuotasRequest extends Model
     public $workspaceIds;
     protected $_name = [
         'labels'        => 'Labels',
+        'layoutMode'    => 'LayoutMode',
         'order'         => 'Order',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
@@ -107,6 +113,9 @@ class ListQuotasRequest extends Model
         $res = [];
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+        if (null !== $this->layoutMode) {
+            $res['LayoutMode'] = $this->layoutMode;
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
@@ -152,6 +161,9 @@ class ListQuotasRequest extends Model
         $model = new self();
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
+        }
+        if (isset($map['LayoutMode'])) {
+            $model->layoutMode = $map['LayoutMode'];
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];

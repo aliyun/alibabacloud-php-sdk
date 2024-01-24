@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\inputCh
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\labels;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\outputChannels;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\scheduler;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\settings;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\userVpc;
 use AlibabaCloud\Tea\Model;
 
@@ -76,6 +77,11 @@ class CreateTrainingJobRequest extends Model
     public $scheduler;
 
     /**
+     * @var settings
+     */
+    public $settings;
+
+    /**
      * @var string
      */
     public $trainingJobDescription;
@@ -107,6 +113,7 @@ class CreateTrainingJobRequest extends Model
         'outputChannels'         => 'OutputChannels',
         'roleArn'                => 'RoleArn',
         'scheduler'              => 'Scheduler',
+        'settings'               => 'Settings',
         'trainingJobDescription' => 'TrainingJobDescription',
         'trainingJobName'        => 'TrainingJobName',
         'userVpc'                => 'UserVpc',
@@ -179,6 +186,9 @@ class CreateTrainingJobRequest extends Model
         }
         if (null !== $this->scheduler) {
             $res['Scheduler'] = null !== $this->scheduler ? $this->scheduler->toMap() : null;
+        }
+        if (null !== $this->settings) {
+            $res['Settings'] = null !== $this->settings ? $this->settings->toMap() : null;
         }
         if (null !== $this->trainingJobDescription) {
             $res['TrainingJobDescription'] = $this->trainingJobDescription;
@@ -263,6 +273,9 @@ class CreateTrainingJobRequest extends Model
         }
         if (isset($map['Scheduler'])) {
             $model->scheduler = scheduler::fromMap($map['Scheduler']);
+        }
+        if (isset($map['Settings'])) {
+            $model->settings = settings::fromMap($map['Settings']);
         }
         if (isset($map['TrainingJobDescription'])) {
             $model->trainingJobDescription = $map['TrainingJobDescription'];

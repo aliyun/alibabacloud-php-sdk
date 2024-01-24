@@ -27,11 +27,14 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetMachineGroupResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetNodeMetricsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetNodeMetricsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetQuotaResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupMachineGroupRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupMachineGroupResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupMachineGroupShrinkRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupRequestRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupRequestResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupShrinkRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupTotalRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupTotalResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponse;
@@ -331,6 +334,9 @@ class PaiStudio extends OpenApiClient
         if (!Utils::isUnset($request->resourceType)) {
             $body['ResourceType'] = $request->resourceType;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->userVpc)) {
             $body['UserVpc'] = $request->userVpc;
         }
@@ -412,6 +418,9 @@ class PaiStudio extends OpenApiClient
         }
         if (!Utils::isUnset($request->scheduler)) {
             $body['Scheduler'] = $request->scheduler;
+        }
+        if (!Utils::isUnset($request->settings)) {
+            $body['Settings'] = $request->settings;
         }
         if (!Utils::isUnset($request->trainingJobDescription)) {
             $body['TrainingJobDescription'] = $request->trainingJobDescription;
@@ -845,18 +854,26 @@ class PaiStudio extends OpenApiClient
 
     /**
      * @param string                  $ResourceGroupID
-     * @param GetResourceGroupRequest $request
+     * @param GetResourceGroupRequest $tmpReq
      * @param string[]                $headers
      * @param RuntimeOptions          $runtime
      *
      * @return GetResourceGroupResponse
      */
-    public function getResourceGroupWithOptions($ResourceGroupID, $request, $headers, $runtime)
+    public function getResourceGroupWithOptions($ResourceGroupID, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GetResourceGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->isAIWorkspaceDataEnabled)) {
             $query['IsAIWorkspaceDataEnabled'] = $request->isAIWorkspaceDataEnabled;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -892,17 +909,29 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param string         $MachineGroupID
-     * @param string         $ResourceGroupID
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                              $MachineGroupID
+     * @param string                              $ResourceGroupID
+     * @param GetResourceGroupMachineGroupRequest $tmpReq
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
      *
      * @return GetResourceGroupMachineGroupResponse
      */
-    public function getResourceGroupMachineGroupWithOptions($MachineGroupID, $ResourceGroupID, $headers, $runtime)
+    public function getResourceGroupMachineGroupWithOptions($MachineGroupID, $ResourceGroupID, $tmpReq, $headers, $runtime)
     {
+        Utils::validateModel($tmpReq);
+        $request = new GetResourceGroupMachineGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResourceGroupMachineGroup',
@@ -920,17 +949,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @param string $MachineGroupID
-     * @param string $ResourceGroupID
+     * @param string                              $MachineGroupID
+     * @param string                              $ResourceGroupID
+     * @param GetResourceGroupMachineGroupRequest $request
      *
      * @return GetResourceGroupMachineGroupResponse
      */
-    public function getResourceGroupMachineGroup($MachineGroupID, $ResourceGroupID)
+    public function getResourceGroupMachineGroup($MachineGroupID, $ResourceGroupID, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getResourceGroupMachineGroupWithOptions($MachineGroupID, $ResourceGroupID, $headers, $runtime);
+        return $this->getResourceGroupMachineGroupWithOptions($MachineGroupID, $ResourceGroupID, $request, $headers, $runtime);
     }
 
     /**
@@ -1259,6 +1289,9 @@ class PaiStudio extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->labels)) {
             $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->layoutMode)) {
+            $query['LayoutMode'] = $request->layoutMode;
         }
         if (!Utils::isUnset($request->order)) {
             $query['Order'] = $request->order;
@@ -1949,6 +1982,12 @@ class PaiStudio extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         if (!Utils::isUnset($request->unbind)) {
             $body['Unbind'] = $request->unbind;
         }
