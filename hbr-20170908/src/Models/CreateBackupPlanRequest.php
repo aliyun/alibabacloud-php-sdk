@@ -28,7 +28,7 @@ class CreateBackupPlanRequest extends Model
     public $bucket;
 
     /**
-     * @description 增量文件同步列表的配置。（仅同步需要）
+     * @description The configurations of the incremental file synchronization. This parameter is required for data synchronization only.
      *
      * @example {"dataSourceId": "ds-123456789", "path": "/changelist"}
      *

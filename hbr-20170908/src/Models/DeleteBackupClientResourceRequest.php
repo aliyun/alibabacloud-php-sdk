@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackupClientResourceRequest extends Model
 {
     /**
-     * @description The IDs of HBR clients. You can specify a maximum of 100 client IDs.
+     * @description The IDs of HBR clients. The value can be a JSON array that consists of up to 100 client IDs. Separate the IDs with commas (,).
      *
-     * @example ["c-*********************"]
+     * @example ["c-0007kyu045r0********", "c-000b6818umvo********"]
      *
      * @var mixed[]
      */

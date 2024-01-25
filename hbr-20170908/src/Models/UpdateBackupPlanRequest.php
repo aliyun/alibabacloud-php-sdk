@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateBackupPlanRequest extends Model
 {
     /**
+     * @description The configurations of the incremental file synchronization. This parameter is required for data synchronization only.
+     *
      * @example {"dataSourceId": "ds-123456789", "path": "/changelist"}
      *
      * @var string

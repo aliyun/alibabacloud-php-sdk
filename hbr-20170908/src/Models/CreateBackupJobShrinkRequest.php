@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateBackupJobRequest extends Model
+class CreateBackupJobShrinkRequest extends Model
 {
     /**
      * @description The backup type. Valid values:
@@ -78,9 +78,9 @@ class CreateBackupJobRequest extends Model
     public $crossAccountUserId;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $detail;
+    public $detailShrink;
 
     /**
      * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**. This parameter specifies the paths to the files that are excluded from the backup job. The value must be 1 to 255 characters in length.
@@ -191,7 +191,7 @@ class CreateBackupJobRequest extends Model
         'crossAccountRoleName' => 'CrossAccountRoleName',
         'crossAccountType'     => 'CrossAccountType',
         'crossAccountUserId'   => 'CrossAccountUserId',
-        'detail'               => 'Detail',
+        'detailShrink'         => 'Detail',
         'exclude'              => 'Exclude',
         'include'              => 'Include',
         'initiatedByAck'       => 'InitiatedByAck',
@@ -232,8 +232,8 @@ class CreateBackupJobRequest extends Model
         if (null !== $this->crossAccountUserId) {
             $res['CrossAccountUserId'] = $this->crossAccountUserId;
         }
-        if (null !== $this->detail) {
-            $res['Detail'] = $this->detail;
+        if (null !== $this->detailShrink) {
+            $res['Detail'] = $this->detailShrink;
         }
         if (null !== $this->exclude) {
             $res['Exclude'] = $this->exclude;
@@ -272,7 +272,7 @@ class CreateBackupJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateBackupJobRequest
+     * @return CreateBackupJobShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -299,7 +299,7 @@ class CreateBackupJobRequest extends Model
             $model->crossAccountUserId = $map['CrossAccountUserId'];
         }
         if (isset($map['Detail'])) {
-            $model->detail = $map['Detail'];
+            $model->detailShrink = $map['Detail'];
         }
         if (isset($map['Exclude'])) {
             $model->exclude = $map['Exclude'];

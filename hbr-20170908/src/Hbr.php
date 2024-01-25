@@ -20,6 +20,7 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\CheckRoleRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CheckRoleResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateBackupJobRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateBackupJobResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateBackupJobShrinkRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateBackupPlanRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateBackupPlanResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateBackupPlanShrinkRequest;
@@ -563,14 +564,19 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupJobRequest $request
+     * @param CreateBackupJobRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
      * @return CreateBackupJobResponse
      */
-    public function createBackupJobWithOptions($request, $runtime)
+    public function createBackupJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateBackupJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->detail)) {
+            $request->detailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->detail, 'Detail', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->backupType)) {
             $query['BackupType'] = $request->backupType;
@@ -592,6 +598,9 @@ class Hbr extends OpenApiClient
         }
         if (!Utils::isUnset($request->crossAccountUserId)) {
             $query['CrossAccountUserId'] = $request->crossAccountUserId;
+        }
+        if (!Utils::isUnset($request->detailShrink)) {
+            $query['Detail'] = $request->detailShrink;
         }
         if (!Utils::isUnset($request->exclude)) {
             $query['Exclude'] = $request->exclude;
