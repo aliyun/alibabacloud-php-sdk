@@ -2,28 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ImageSearch\V20190325\Models\AddImageResponseBody;
+namespace AlibabaCloud\SDK\ImageSearch\V20190325\Models\SearchImageResponseBody\picInfo;
 
 use AlibabaCloud\Tea\Model;
 
-class picInfo extends Model
+class multiRegion extends Model
 {
     /**
-     * @example 88888888
-     *
-     * @var int
-     */
-    public $categoryId;
-
-    /**
-     * @example 94,691,206,650
-     *
      * @var string
      */
     public $region;
     protected $_name = [
-        'categoryId' => 'CategoryId',
-        'region'     => 'Region',
+        'region' => 'Region',
     ];
 
     public function validate()
@@ -33,9 +23,6 @@ class picInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
-        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -46,14 +33,11 @@ class picInfo extends Model
     /**
      * @param array $map
      *
-     * @return picInfo
+     * @return multiRegion
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
-        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

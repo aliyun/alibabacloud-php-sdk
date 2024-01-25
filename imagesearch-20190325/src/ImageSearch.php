@@ -15,6 +15,7 @@ use AlibabaCloud\SDK\ImageSearch\V20190325\Models\SearchImageResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class ImageSearch extends OpenApiClient
@@ -52,6 +53,66 @@ class ImageSearch extends OpenApiClient
 
     /**
      * @param AddImageRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return AddImageResponse
+     */
+    public function addImageWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $body['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->crop)) {
+            $body['Crop'] = $request->crop;
+        }
+        if (!Utils::isUnset($request->customContent)) {
+            $body['CustomContent'] = $request->customContent;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->intAttr)) {
+            $body['IntAttr'] = $request->intAttr;
+        }
+        if (!Utils::isUnset($request->picContent)) {
+            $body['PicContent'] = $request->picContent;
+        }
+        if (!Utils::isUnset($request->picName)) {
+            $body['PicName'] = $request->picName;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $body['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $body['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->strAttr)) {
+            $body['StrAttr'] = $request->strAttr;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddImage',
+            'version'     => '2019-03-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/add',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddImageRequest $request
      *
      * @return AddImageResponse
      */
@@ -64,52 +125,42 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param AddImageRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @param DeleteImageRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return AddImageResponse
+     * @return DeleteImageResponse
      */
-    public function addImageWithOptions($request, $headers, $runtime)
+    public function deleteImageWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            @$body['CategoryId'] = $request->categoryId;
-        }
-        if (!Utils::isUnset($request->crop)) {
-            @$body['Crop'] = $request->crop;
-        }
-        if (!Utils::isUnset($request->customContent)) {
-            @$body['CustomContent'] = $request->customContent;
-        }
         if (!Utils::isUnset($request->instanceName)) {
-            @$body['InstanceName'] = $request->instanceName;
-        }
-        if (!Utils::isUnset($request->intAttr)) {
-            @$body['IntAttr'] = $request->intAttr;
-        }
-        if (!Utils::isUnset($request->picContent)) {
-            @$body['PicContent'] = $request->picContent;
+            $body['InstanceName'] = $request->instanceName;
         }
         if (!Utils::isUnset($request->picName)) {
-            @$body['PicName'] = $request->picName;
+            $body['PicName'] = $request->picName;
         }
         if (!Utils::isUnset($request->productId)) {
-            @$body['ProductId'] = $request->productId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            @$body['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->strAttr)) {
-            @$body['StrAttr'] = $request->strAttr;
+            $body['ProductId'] = $request->productId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteImage',
+            'version'     => '2019-03-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddImageResponse::fromMap($this->doROARequestWithForm('AddImage', '2019-03-25', 'HTTPS', 'POST', 'AK', '/v2/image/add', 'json', $req, $runtime));
+        return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -126,31 +177,66 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * @param DeleteImageRequest $request
+     * @param SearchImageRequest $request
      * @param string[]           $headers
      * @param RuntimeOptions     $runtime
      *
-     * @return DeleteImageResponse
+     * @return SearchImageResponse
      */
-    public function deleteImageWithOptions($request, $headers, $runtime)
+    public function searchImageWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $body['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->crop)) {
+            $body['Crop'] = $request->crop;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $body['Filter'] = $request->filter;
+        }
         if (!Utils::isUnset($request->instanceName)) {
-            @$body['InstanceName'] = $request->instanceName;
+            $body['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->num)) {
+            $body['Num'] = $request->num;
+        }
+        if (!Utils::isUnset($request->picContent)) {
+            $body['PicContent'] = $request->picContent;
         }
         if (!Utils::isUnset($request->picName)) {
-            @$body['PicName'] = $request->picName;
+            $body['PicName'] = $request->picName;
         }
         if (!Utils::isUnset($request->productId)) {
-            @$body['ProductId'] = $request->productId;
+            $body['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $body['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $body['Start'] = $request->start;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'SearchImage',
+            'version'     => '2019-03-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/search',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteImageResponse::fromMap($this->doROARequestWithForm('DeleteImage', '2019-03-25', 'HTTPS', 'POST', 'AK', '/v2/image/delete', 'json', $req, $runtime));
+        return SearchImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -164,57 +250,5 @@ class ImageSearch extends OpenApiClient
         $headers = [];
 
         return $this->searchImageWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param SearchImageRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SearchImageResponse
-     */
-    public function searchImageWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            @$body['CategoryId'] = $request->categoryId;
-        }
-        if (!Utils::isUnset($request->crop)) {
-            @$body['Crop'] = $request->crop;
-        }
-        if (!Utils::isUnset($request->filter)) {
-            @$body['Filter'] = $request->filter;
-        }
-        if (!Utils::isUnset($request->instanceName)) {
-            @$body['InstanceName'] = $request->instanceName;
-        }
-        if (!Utils::isUnset($request->num)) {
-            @$body['Num'] = $request->num;
-        }
-        if (!Utils::isUnset($request->picContent)) {
-            @$body['PicContent'] = $request->picContent;
-        }
-        if (!Utils::isUnset($request->picName)) {
-            @$body['PicName'] = $request->picName;
-        }
-        if (!Utils::isUnset($request->productId)) {
-            @$body['ProductId'] = $request->productId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            @$body['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->start)) {
-            @$body['Start'] = $request->start;
-        }
-        if (!Utils::isUnset($request->type)) {
-            @$body['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-
-        return SearchImageResponse::fromMap($this->doROARequestWithForm('SearchImage', '2019-03-25', 'HTTPS', 'POST', 'AK', '/v2/image/search', 'json', $req, $runtime));
     }
 }

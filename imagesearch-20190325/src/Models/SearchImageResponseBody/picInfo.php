@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ImageSearch\V20190325\Models\SearchImageResponseBody;
 
 use AlibabaCloud\SDK\ImageSearch\V20190325\Models\SearchImageResponseBody\picInfo\allCategories;
+use AlibabaCloud\SDK\ImageSearch\V20190325\Models\SearchImageResponseBody\picInfo\multiRegion;
 use AlibabaCloud\Tea\Model;
 
 class picInfo extends Model
@@ -15,17 +16,27 @@ class picInfo extends Model
     public $allCategories;
 
     /**
+     * @example 88888888
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @var multiRegion[]
+     */
+    public $multiRegion;
+
+    /**
+     * @example 94,691,206,650
+     *
      * @var string
      */
     public $region;
     protected $_name = [
         'allCategories' => 'AllCategories',
         'categoryId'    => 'CategoryId',
+        'multiRegion'   => 'MultiRegion',
         'region'        => 'Region',
     ];
 
@@ -47,6 +58,15 @@ class picInfo extends Model
         }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
+        }
+        if (null !== $this->multiRegion) {
+            $res['MultiRegion'] = [];
+            if (null !== $this->multiRegion && \is_array($this->multiRegion)) {
+                $n = 0;
+                foreach ($this->multiRegion as $item) {
+                    $res['MultiRegion'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -74,6 +94,15 @@ class picInfo extends Model
         }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
+        }
+        if (isset($map['MultiRegion'])) {
+            if (!empty($map['MultiRegion'])) {
+                $model->multiRegion = [];
+                $n                  = 0;
+                foreach ($map['MultiRegion'] as $item) {
+                    $model->multiRegion[$n++] = null !== $item ? multiRegion::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class AddImageRequest extends Model
 {
     /**
+     * @example 88888888
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $crop;
 
     /**
+     * @example {\"merchant_id\":\"46-718f-da04-4099b2f144ae\",\"category_ids\":[\"1234\"],\"image_index\":0,\"updated\":5678}
+     *
      * @var string
      */
     public $customContent;
 
     /**
+     * @example demoinstance1
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $intAttr;
 
     /**
+     * @example AAAANSUhEUgAAAPcAAAEVCAYAAAA8d3NuAAAAAXNSR0IArs......RK5CYII=
+     *
      * @var string
      */
     public $picContent;
 
     /**
+     * @example 2092061_1.jpg
+     *
      * @var string
      */
     public $picName;
 
     /**
+     * @example 2092061_1
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @example 280,486,232,351
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example ss
+     *
      * @var string
      */
     public $strAttr;

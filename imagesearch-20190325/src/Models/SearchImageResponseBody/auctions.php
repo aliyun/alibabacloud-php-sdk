@@ -9,36 +9,55 @@ use AlibabaCloud\Tea\Model;
 class auctions extends Model
 {
     /**
+     * @example 8888888
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example zidingyi
+     *
      * @var string
      */
     public $customContent;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $intAttr;
 
     /**
+     * @example 2092061_1.jpg
+     *
      * @var string
      */
     public $picName;
 
     /**
+     * @example 2092061_1
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @var float
+     */
+    public $score;
+
+    /**
+     * @example 5.37633353624177e+24;0
+     *
      * @var string
      */
     public $sortExprValues;
 
     /**
+     * @example ss
+     *
      * @var string
      */
     public $strAttr;
@@ -48,6 +67,7 @@ class auctions extends Model
         'intAttr'        => 'IntAttr',
         'picName'        => 'PicName',
         'productId'      => 'ProductId',
+        'score'          => 'Score',
         'sortExprValues' => 'SortExprValues',
         'strAttr'        => 'StrAttr',
     ];
@@ -73,6 +93,9 @@ class auctions extends Model
         }
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
         if (null !== $this->sortExprValues) {
             $res['SortExprValues'] = $this->sortExprValues;
@@ -106,6 +129,9 @@ class auctions extends Model
         }
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
         if (isset($map['SortExprValues'])) {
             $model->sortExprValues = $map['SortExprValues'];

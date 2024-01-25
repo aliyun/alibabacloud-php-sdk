@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class SearchImageRequest extends Model
 {
     /**
+     * @example 88888888
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $crop;
 
     /**
+     * @example (int_attr >= 100000000 AND int_attr < 200000000 AND int_attr=100000252 AND str_attr=\"87\")
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @example phimagesearch
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $num;
 
     /**
+     * @example iVBORw0KGgoAAAANSUhEUgAAAV8AAADwAQMAAACdRvVNAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURQAAAKd6PdoAAAABdFJOUyR85Ty3AAAAIUlEQVRo3u3BAQ0AAADCoPdPbQ8HFAAAAAAAAAAAAADPBiowAAGR02EbAAAAAElFTkSuQmCC
+     *
      * @var string
      */
     public $picContent;
 
     /**
+     * @example goods-23312-1
+     *
      * @var string
      */
     public $picName;
 
     /**
+     * @example pro-goods-25376
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @example 32,282,43,256
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $start;
 
     /**
+     * @example SearchByPic
+     *
      * @var string
      */
     public $type;
