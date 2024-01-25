@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The instance ID of the domain name.
+     *
      * @example S20190N1DAI4****
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $domainInstanceId;
 
     /**
+     * @description The domain name that has valid registry lock information.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $domainName;
 
     /**
+     * @description The expiration time.
+     *
      * @example 2030-07-10 17:37:36
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $expireDate;
 
     /**
+     * @description The creation time.
+     *
      * @example 2020-02-19 16:38:07
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the domain name was last modified.
+     *
      * @example 2022-02-19 16:40:38
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The instance ID of the domain name for which the registry lock is enabled.
+     *
      * @example S2021591IQ28****
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $lockInstanceId;
 
     /**
+     * @description The ID of the product to which the domain name with the registry lock enabled belongs.
+     *
      * @example 1807**
      *
      * @var string
@@ -58,6 +72,8 @@ class data extends Model
     public $lockProductId;
 
     /**
+     * @description The status of the registry lock.
+     *
      * @example 2
      *
      * @var string
@@ -65,6 +81,8 @@ class data extends Model
     public $serverLockStatus;
 
     /**
+     * @description The start time.
+     *
      * @example 2021-07-10 17:37:36
      *
      * @var string
@@ -72,6 +90,8 @@ class data extends Model
     public $startDate;
 
     /**
+     * @description The user ID.
+     *
      * @example 121000000****
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListServerLockResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class ListServerLockResponseBody extends Model
     public $currentPageNum;
 
     /**
+     * @description The response parameters.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description Indicates whether the current page is followed by a page.
+     *
      * @example false
      *
      * @var bool
@@ -29,6 +35,8 @@ class ListServerLockResponseBody extends Model
     public $nextPage;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 5
      *
      * @var int
@@ -36,6 +44,8 @@ class ListServerLockResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description Indicates whether the current page is preceded by a page.
+     *
      * @example false
      *
      * @var bool
@@ -43,6 +53,8 @@ class ListServerLockResponseBody extends Model
     public $prePage;
 
     /**
+     * @description The request ID.
+     *
      * @example 9DFCF6F8-243C-****-8035-4B12FEFD7D48
      *
      * @var string
@@ -50,6 +62,8 @@ class ListServerLockResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int
@@ -57,6 +71,8 @@ class ListServerLockResponseBody extends Model
     public $totalItemNum;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 1
      *
      * @var int

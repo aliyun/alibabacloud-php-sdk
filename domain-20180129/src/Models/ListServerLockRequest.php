@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListServerLockRequest extends Model
 {
     /**
+     * @description The start of the time range to query.
+     *
      * @example 2021-07-10 17:37:36
      *
      * @var int
@@ -16,6 +18,8 @@ class ListServerLockRequest extends Model
     public $beginStartDate;
 
     /**
+     * @description The domain name for which you want to query the enabled registry lock.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +27,8 @@ class ListServerLockRequest extends Model
     public $domainName;
 
     /**
+     * @description The end of the expiration time.
+     *
      * @example 2021-07-10 17:37:36
      *
      * @var int
@@ -30,6 +36,8 @@ class ListServerLockRequest extends Model
     public $endExpireDate;
 
     /**
+     * @description The end of the time range to query.
+     *
      * @example 2020-07-10 17:37:36
      *
      * @var int
@@ -37,6 +45,12 @@ class ListServerLockRequest extends Model
     public $endStartDate;
 
     /**
+     * @description The language of the error message to return if the request fails. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -44,6 +58,8 @@ class ListServerLockRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the product to which the domain name with the registry lock enabled belongs.
+     *
      * @example 1807**
      *
      * @var string
@@ -51,16 +67,30 @@ class ListServerLockRequest extends Model
     public $lockProductId;
 
     /**
+     * @description The field that you use to sort the query results.
+     *
+     * Valid values:
+     *
+     *   EXPIRE_DATE
+     *
+     * @example EXPIRE_DATE
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @description The order of the information based on which you want to sort the domain names, such as the registration date and expiration date. Valid values: ASC and DESC. The value ASC specifies the ascending order. The value DESC specifies the descending order. If this parameter is not configured, the default value DESC is used.
+     *
+     * @example DESC
+     *
      * @var string
      */
     public $orderByType;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -68,6 +98,8 @@ class ListServerLockRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -75,6 +107,12 @@ class ListServerLockRequest extends Model
     public $pageSize;
 
     /**
+     * @description The status of the registry lock. Valid values:
+     *
+     *   1: The registry lock is not enabled.
+     *   2: The registry lock is enabled.
+     *   3: The registry lock is disabled.
+     *
      * @example 1
      *
      * @var int
@@ -82,6 +120,8 @@ class ListServerLockRequest extends Model
     public $serverLockStatus;
 
     /**
+     * @description The start of the expiration time.
+     *
      * @example 2020-07-10 17:37:36
      *
      * @var int
@@ -89,6 +129,8 @@ class ListServerLockRequest extends Model
     public $startExpireDate;
 
     /**
+     * @description The IP address of the client. For example, you can set the value to **127.0.0.1**.
+     *
      * @example 127.0.0.1
      *
      * @var string
