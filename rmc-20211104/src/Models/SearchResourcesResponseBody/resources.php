@@ -10,51 +10,90 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 151266687691****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The time when the resource was created.
+     *
+     * >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
+     * @example 2021-06-30T09:20:08Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The IP addresses.
+     *
+     * >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
      * @var string[]
      */
     public $ipAddresses;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example vtb-bp11lbh452fr8940s****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The name of the resource.
+     *
+     * @example group1
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The type of the resource.
+     *
+     * @example ACS::VPC::RouteTable
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The zone ID.
+     *
+     * >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
+     * @example cn-hangzhou-k
+     *
      * @var string
      */
     public $zoneId;

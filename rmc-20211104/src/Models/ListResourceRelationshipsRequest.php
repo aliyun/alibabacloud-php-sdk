@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class ListResourceRelationshipsRequest extends Model
 {
     /**
+     * @description The maximum number of entries to return on each page.
+     *
+     * Default value: 20.
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to initiate the next request.
+     *
+     * If the total number of entries returned for the current request exceeds the value of the `MaxResults` parameter, the entries are truncated. In this case, you can use the token to initiate another request and obtain the remaining entries.
+     * @example eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The region ID of the resource whose associated resources you want to query.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $sourceRegionId;
 
     /**
+     * @description The IDs of the resource whose associated resources you want to query.
+     *
+     * You can specify a maximum of 10 resource IDs.
      * @var string[]
      */
     public $sourceResourceId;
 
     /**
+     * @description The type of the resource whose associated resources you want to query.
+     *
+     * @example ACS::ECS::Instance
+     *
      * @var string
      */
     public $sourceResourceType;
 
     /**
+     * @description The types of the associated resources that you want to query.
+     *
+     * You can specify a maximum of 10 resource types.
      * @var string[]
      */
     public $targetResourceType;

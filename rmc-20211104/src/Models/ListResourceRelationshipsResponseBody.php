@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListResourceRelationshipsResponseBody extends Model
 {
     /**
+     * @description The maximum number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to initiate the next request.
+     *
+     * @example eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 97765772-7E65-5D5E-BBB7-0CAF4D6260AA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information of the associated resources.
+     *
      * @var resourceRelationships[]
      */
     public $resourceRelationships;

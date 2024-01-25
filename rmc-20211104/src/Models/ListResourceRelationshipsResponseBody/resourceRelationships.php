@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class resourceRelationships extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 154035569884****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The region ID of the specified resource.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $sourceRegionId;
 
     /**
+     * @description The ID of the specified resource.
+     *
+     * @example i-uf6imlgyr1nudhud****
+     *
      * @var string
      */
     public $sourceResourceId;
 
     /**
+     * @description The type of the specified resource.
+     *
+     * @example ACS::ECS::Instance
+     *
      * @var string
      */
     public $sourceResourceType;
 
     /**
+     * @description The region ID of the associated resource.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $targetRegionId;
 
     /**
+     * @description The ID of the associated resource.
+     *
+     * @example vpc-uf6gvyids4utxhxe1****
+     *
      * @var string
      */
     public $targetResourceId;
 
     /**
+     * @description The type of the associated resource.
+     *
+     * @example ACS::VPC::VPC
+     *
      * @var string
      */
     public $targetResourceType;

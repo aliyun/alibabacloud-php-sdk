@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The key of the filter condition. Valid values:
+     *
+     *   ResourceType: resource type
+     *   RegionId: region ID
+     *   ResourceId: resource ID
+     *   ResourceGroupId: resource group ID
+     *   ResourceName: resource name
+     *
+     * @example RegionId
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The matching method. Set the value to Equals. This value indicates that resources that match the filter conditions are queried.
+     *
+     * @example Equals
+     *
      * @var string
      */
     public $matchType;
 
     /**
+     * @description The values of the filter condition.
+     *
      * @var string[]
      */
     public $value;

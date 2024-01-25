@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
+     * @description The key of the filter condition.
+     *
+     * @example RegionId
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The matching method.
+     *
+     * @example Equals
+     *
      * @var string
      */
     public $matchType;
 
     /**
+     * @description The values of the filter condition.
+     *
      * @var string[]
      */
     public $values;
