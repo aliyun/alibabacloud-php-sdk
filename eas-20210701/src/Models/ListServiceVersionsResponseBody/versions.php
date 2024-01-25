@@ -37,6 +37,11 @@ class versions extends Model
     public $message;
 
     /**
+     * @var string
+     */
+    public $serviceConfig;
+
+    /**
      * @example true
      *
      * @var string
@@ -47,6 +52,7 @@ class versions extends Model
         'imageAvailable'  => 'ImageAvailable',
         'imageId'         => 'ImageId',
         'message'         => 'Message',
+        'serviceConfig'   => 'ServiceConfig',
         'serviceRunnable' => 'ServiceRunnable',
     ];
 
@@ -68,6 +74,9 @@ class versions extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->serviceConfig) {
+            $res['ServiceConfig'] = $this->serviceConfig;
         }
         if (null !== $this->serviceRunnable) {
             $res['ServiceRunnable'] = $this->serviceRunnable;
@@ -95,6 +104,9 @@ class versions extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['ServiceConfig'])) {
+            $model->serviceConfig = $map['ServiceConfig'];
         }
         if (isset($map['ServiceRunnable'])) {
             $model->serviceRunnable = $map['ServiceRunnable'];

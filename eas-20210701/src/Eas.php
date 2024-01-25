@@ -2812,6 +2812,9 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->parentServiceUid)) {
             $query['ParentServiceUid'] = $request->parentServiceUid;
         }
+        if (!Utils::isUnset($request->quotaId)) {
+            $query['QuotaId'] = $request->quotaId;
+        }
         if (!Utils::isUnset($request->resourceName)) {
             $query['ResourceName'] = $request->resourceName;
         }

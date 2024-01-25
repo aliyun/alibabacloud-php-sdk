@@ -60,6 +60,11 @@ class ListServicesRequest extends Model
     public $parentServiceUid;
 
     /**
+     * @var string
+     */
+    public $quotaId;
+
+    /**
      * @description 服务所属的资源组名称或ID。
      *
      * @example eas-r-hd0qwy8cxxxx
@@ -119,6 +124,7 @@ class ListServicesRequest extends Model
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
         'parentServiceUid' => 'ParentServiceUid',
+        'quotaId'          => 'QuotaId',
         'resourceName'     => 'ResourceName',
         'serviceName'      => 'ServiceName',
         'serviceStatus'    => 'ServiceStatus',
@@ -155,6 +161,9 @@ class ListServicesRequest extends Model
         }
         if (null !== $this->parentServiceUid) {
             $res['ParentServiceUid'] = $this->parentServiceUid;
+        }
+        if (null !== $this->quotaId) {
+            $res['QuotaId'] = $this->quotaId;
         }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
@@ -209,6 +218,9 @@ class ListServicesRequest extends Model
         }
         if (isset($map['ParentServiceUid'])) {
             $model->parentServiceUid = $map['ParentServiceUid'];
+        }
+        if (isset($map['QuotaId'])) {
+            $model->quotaId = $map['QuotaId'];
         }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];

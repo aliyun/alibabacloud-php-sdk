@@ -61,7 +61,7 @@ class UpdateAppServiceRequest extends Model
      *
      * @example 1
      *
-     * @var string
+     * @var int
      */
     public $replicas;
 

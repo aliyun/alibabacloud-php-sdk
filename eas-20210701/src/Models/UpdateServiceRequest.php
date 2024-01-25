@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceRequest extends Model
 {
     /**
+     * @description The type of the service update. Valid values: merge and replace. By default, merge is used if you do not specify this parameter.
+     *
+     *   merge: If the JSON string configured for the existing service is `{"a":"b"}` and the JSON string specified in the body parameter is `{"c":"d"}`, the JSON string is `{"a":"b","c":"d"}` after the service update.
+     *   replace: If the JSON string configured for the existing service is `{"a":"b"}` and the JSON string specified in the body parameter is `{"c":"d"}`, the JSON string is `{"c":"d"}` after the service update.
+     *
+     * @example merge
+     *
      * @var string
      */
     public $updateType;
