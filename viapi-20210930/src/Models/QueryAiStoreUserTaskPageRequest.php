@@ -11,17 +11,17 @@ class QueryAiStoreUserTaskPageRequest extends Model
     /**
      * @var string
      */
-    public $product;
-
-    /**
-     * @var string
-     */
     public $apiName;
 
     /**
      * @var string
      */
-    public $status;
+    public $bucketName;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var int
@@ -36,20 +36,20 @@ class QueryAiStoreUserTaskPageRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $product;
 
     /**
      * @var string
      */
-    public $bucketName;
+    public $status;
     protected $_name = [
-        'product'    => 'Product',
         'apiName'    => 'ApiName',
-        'status'     => 'Status',
+        'bucketName' => 'BucketName',
+        'name'       => 'Name',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
-        'name'       => 'Name',
-        'bucketName' => 'BucketName',
+        'product'    => 'Product',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -59,14 +59,14 @@ class QueryAiStoreUserTaskPageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
-        }
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->bucketName) {
+            $res['BucketName'] = $this->bucketName;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
@@ -74,11 +74,11 @@ class QueryAiStoreUserTaskPageRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
         }
-        if (null !== $this->bucketName) {
-            $res['BucketName'] = $this->bucketName;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -92,14 +92,14 @@ class QueryAiStoreUserTaskPageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
-        }
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['BucketName'])) {
+            $model->bucketName = $map['BucketName'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
@@ -107,11 +107,11 @@ class QueryAiStoreUserTaskPageRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
         }
-        if (isset($map['BucketName'])) {
-            $model->bucketName = $map['BucketName'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

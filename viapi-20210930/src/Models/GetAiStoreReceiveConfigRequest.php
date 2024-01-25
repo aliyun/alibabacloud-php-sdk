@@ -11,15 +11,15 @@ class GetAiStoreReceiveConfigRequest extends Model
     /**
      * @var string
      */
-    public $product;
+    public $apiName;
 
     /**
      * @var string
      */
-    public $apiName;
+    public $product;
     protected $_name = [
-        'product' => 'Product',
         'apiName' => 'ApiName',
+        'product' => 'Product',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetAiStoreReceiveConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
-        }
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
+        }
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetAiStoreReceiveConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
-        }
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
+        }
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
         }
 
         return $model;

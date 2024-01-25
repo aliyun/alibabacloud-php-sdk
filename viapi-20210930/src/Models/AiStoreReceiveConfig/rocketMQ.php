@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Viapi\V20210930\Models\AiStoreReceiveConfig;
 
 use AlibabaCloud\Tea\Model;
 
-class eventBridge extends Model
+class rocketMQ extends Model
 {
     /**
      * @var string
      */
-    public $eventBus;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $eventRule;
+    public $topicName;
     protected $_name = [
-        'eventBus'  => 'EventBus',
-        'eventRule' => 'EventRule',
+        'instanceId' => 'InstanceId',
+        'topicName'  => 'TopicName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class eventBridge extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eventBus) {
-            $res['EventBus'] = $this->eventBus;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->eventRule) {
-            $res['EventRule'] = $this->eventRule;
+        if (null !== $this->topicName) {
+            $res['TopicName'] = $this->topicName;
         }
 
         return $res;
@@ -42,16 +42,16 @@ class eventBridge extends Model
     /**
      * @param array $map
      *
-     * @return eventBridge
+     * @return rocketMQ
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EventBus'])) {
-            $model->eventBus = $map['EventBus'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['EventRule'])) {
-            $model->eventRule = $map['EventRule'];
+        if (isset($map['TopicName'])) {
+            $model->topicName = $map['TopicName'];
         }
 
         return $model;

@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Viapi\V20210930\Models\AiStoreReceiveConfig;
 
 use AlibabaCloud\Tea\Model;
 
-class mns extends Model
+class https extends Model
 {
     /**
      * @var string
      */
-    public $queue;
+    public $url;
     protected $_name = [
-        'queue' => 'Queue',
+        'url' => 'Url',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class mns extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->queue) {
-            $res['Queue'] = $this->queue;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class mns extends Model
     /**
      * @param array $map
      *
-     * @return mns
+     * @return https
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Queue'])) {
-            $model->queue = $map['Queue'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

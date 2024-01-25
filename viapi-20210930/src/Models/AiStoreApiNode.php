@@ -9,29 +9,23 @@ use AlibabaCloud\Tea\Model;
 class AiStoreApiNode extends Model
 {
     /**
-     * @description 产品名称
-     *
+     * @var AiStoreUserTask[]
+     */
+    public $apis;
+
+    /**
      * @var string
      */
     public $product;
 
     /**
-     * @description 产品描述
-     *
      * @var string
      */
     public $productDesc;
-
-    /**
-     * @description API列表
-     *
-     * @var AiStoreUserTask[]
-     */
-    public $apis;
     protected $_name = [
+        'apis'        => 'Apis',
         'product'     => 'Product',
         'productDesc' => 'ProductDesc',
-        'apis'        => 'Apis',
     ];
 
     public function validate()
@@ -41,12 +35,6 @@ class AiStoreApiNode extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
-        }
-        if (null !== $this->productDesc) {
-            $res['ProductDesc'] = $this->productDesc;
-        }
         if (null !== $this->apis) {
             $res['Apis'] = [];
             if (null !== $this->apis && \is_array($this->apis)) {
@@ -55,6 +43,12 @@ class AiStoreApiNode extends Model
                     $res['Apis'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
+        }
+        if (null !== $this->productDesc) {
+            $res['ProductDesc'] = $this->productDesc;
         }
 
         return $res;
@@ -68,12 +62,6 @@ class AiStoreApiNode extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
-        }
-        if (isset($map['ProductDesc'])) {
-            $model->productDesc = $map['ProductDesc'];
-        }
         if (isset($map['Apis'])) {
             if (!empty($map['Apis'])) {
                 $model->apis = [];
@@ -82,6 +70,12 @@ class AiStoreApiNode extends Model
                     $model->apis[$n++] = null !== $item ? AiStoreUserTask::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
+        }
+        if (isset($map['ProductDesc'])) {
+            $model->productDesc = $map['ProductDesc'];
         }
 
         return $model;

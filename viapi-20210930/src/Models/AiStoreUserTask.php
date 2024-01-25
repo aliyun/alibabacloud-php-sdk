@@ -9,157 +9,125 @@ use AlibabaCloud\Tea\Model;
 class AiStoreUserTask extends Model
 {
     /**
-     * @description ID
-     *
-     * @var int
-     */
-    public $id;
-
-    /**
-     * @description 创建时间
-     *
-     * @var string
-     */
-    public $gmtCreate;
-
-    /**
-     * @description 修改时间
-     *
-     * @var string
-     */
-    public $gmtModified;
-
-    /**
-     * @description 地域
-     *
-     * @var string
-     */
-    public $region;
-
-    /**
-     * @description 地域描述
-     *
-     * @var string
-     */
-    public $regionDesc;
-
-    /**
-     * @description 任务名称
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @description 产品名称
-     *
-     * @var string
-     */
-    public $product;
-
-    /**
-     * @description 产品描述
-     *
-     * @var string
-     */
-    public $productDesc;
-
-    /**
-     * @description API名称
-     *
-     * @var string
-     */
-    public $apiName;
-
-    /**
-     * @description API描述
-     *
      * @var string
      */
     public $apiDesc;
 
     /**
-     * @description API版本
-     *
      * @var string
      */
-    public $version;
+    public $apiName;
 
     /**
-     * @description 参数信息
-     *
-     * @var string
-     */
-    public $paramInfo;
-
-    /**
-     * @description bucket名称
-     *
-     * @var string
-     */
-    public $bucketName;
-
-    /**
-     * @description bucketKey前缀
-     *
      * @var string
      */
     public $bucketKeyPrefix;
 
     /**
-     * @description 备注
-     *
      * @var string
      */
-    public $remark;
+    public $bucketName;
 
     /**
-     * @description 接收消息配置
-     *
      * @var string
      */
-    public $receiveConfig;
+    public $disableTime;
 
     /**
-     * @description 状态
-     *
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @description 启用时间
-     *
      * @var string
      */
     public $enableTime;
 
     /**
-     * @description 停用时间
-     *
      * @var string
      */
-    public $disableTime;
+    public $gmtCreate;
+
+    /**
+     * @var string
+     */
+    public $gmtModified;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $paramInfo;
+
+    /**
+     * @var string
+     */
+    public $product;
+
+    /**
+     * @var string
+     */
+    public $productDesc;
+
+    /**
+     * @var string
+     */
+    public $receiveConfig;
+
+    /**
+     * @var string
+     */
+    public $region;
+
+    /**
+     * @var string
+     */
+    public $regionDesc;
+
+    /**
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $taskVersion;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'id'              => 'Id',
+        'apiDesc'         => 'ApiDesc',
+        'apiName'         => 'ApiName',
+        'bucketKeyPrefix' => 'BucketKeyPrefix',
+        'bucketName'      => 'BucketName',
+        'disableTime'     => 'DisableTime',
+        'enableTime'      => 'EnableTime',
         'gmtCreate'       => 'GmtCreate',
         'gmtModified'     => 'GmtModified',
-        'region'          => 'Region',
-        'regionDesc'      => 'RegionDesc',
+        'id'              => 'Id',
         'name'            => 'Name',
+        'paramInfo'       => 'ParamInfo',
         'product'         => 'Product',
         'productDesc'     => 'ProductDesc',
-        'apiName'         => 'ApiName',
-        'apiDesc'         => 'ApiDesc',
-        'version'         => 'Version',
-        'paramInfo'       => 'ParamInfo',
-        'bucketName'      => 'BucketName',
-        'bucketKeyPrefix' => 'BucketKeyPrefix',
-        'remark'          => 'Remark',
         'receiveConfig'   => 'ReceiveConfig',
+        'region'          => 'Region',
+        'regionDesc'      => 'RegionDesc',
+        'remark'          => 'Remark',
         'status'          => 'Status',
-        'enableTime'      => 'EnableTime',
-        'disableTime'     => 'DisableTime',
+        'taskVersion'     => 'TaskVersion',
+        'version'         => 'Version',
     ];
 
     public function validate()
@@ -169,8 +137,23 @@ class AiStoreUserTask extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->apiDesc) {
+            $res['ApiDesc'] = $this->apiDesc;
+        }
+        if (null !== $this->apiName) {
+            $res['ApiName'] = $this->apiName;
+        }
+        if (null !== $this->bucketKeyPrefix) {
+            $res['BucketKeyPrefix'] = $this->bucketKeyPrefix;
+        }
+        if (null !== $this->bucketName) {
+            $res['BucketName'] = $this->bucketName;
+        }
+        if (null !== $this->disableTime) {
+            $res['DisableTime'] = $this->disableTime;
+        }
+        if (null !== $this->enableTime) {
+            $res['EnableTime'] = $this->enableTime;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -178,14 +161,14 @@ class AiStoreUserTask extends Model
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
-        if (null !== $this->regionDesc) {
-            $res['RegionDesc'] = $this->regionDesc;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->paramInfo) {
+            $res['ParamInfo'] = $this->paramInfo;
         }
         if (null !== $this->product) {
             $res['Product'] = $this->product;
@@ -193,38 +176,26 @@ class AiStoreUserTask extends Model
         if (null !== $this->productDesc) {
             $res['ProductDesc'] = $this->productDesc;
         }
-        if (null !== $this->apiName) {
-            $res['ApiName'] = $this->apiName;
+        if (null !== $this->receiveConfig) {
+            $res['ReceiveConfig'] = $this->receiveConfig;
         }
-        if (null !== $this->apiDesc) {
-            $res['ApiDesc'] = $this->apiDesc;
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->paramInfo) {
-            $res['ParamInfo'] = $this->paramInfo;
-        }
-        if (null !== $this->bucketName) {
-            $res['BucketName'] = $this->bucketName;
-        }
-        if (null !== $this->bucketKeyPrefix) {
-            $res['BucketKeyPrefix'] = $this->bucketKeyPrefix;
+        if (null !== $this->regionDesc) {
+            $res['RegionDesc'] = $this->regionDesc;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
-        if (null !== $this->receiveConfig) {
-            $res['ReceiveConfig'] = $this->receiveConfig;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->enableTime) {
-            $res['EnableTime'] = $this->enableTime;
+        if (null !== $this->taskVersion) {
+            $res['TaskVersion'] = $this->taskVersion;
         }
-        if (null !== $this->disableTime) {
-            $res['DisableTime'] = $this->disableTime;
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -238,8 +209,23 @@ class AiStoreUserTask extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['ApiDesc'])) {
+            $model->apiDesc = $map['ApiDesc'];
+        }
+        if (isset($map['ApiName'])) {
+            $model->apiName = $map['ApiName'];
+        }
+        if (isset($map['BucketKeyPrefix'])) {
+            $model->bucketKeyPrefix = $map['BucketKeyPrefix'];
+        }
+        if (isset($map['BucketName'])) {
+            $model->bucketName = $map['BucketName'];
+        }
+        if (isset($map['DisableTime'])) {
+            $model->disableTime = $map['DisableTime'];
+        }
+        if (isset($map['EnableTime'])) {
+            $model->enableTime = $map['EnableTime'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
@@ -247,14 +233,14 @@ class AiStoreUserTask extends Model
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
-        if (isset($map['RegionDesc'])) {
-            $model->regionDesc = $map['RegionDesc'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ParamInfo'])) {
+            $model->paramInfo = $map['ParamInfo'];
         }
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
@@ -262,38 +248,26 @@ class AiStoreUserTask extends Model
         if (isset($map['ProductDesc'])) {
             $model->productDesc = $map['ProductDesc'];
         }
-        if (isset($map['ApiName'])) {
-            $model->apiName = $map['ApiName'];
+        if (isset($map['ReceiveConfig'])) {
+            $model->receiveConfig = $map['ReceiveConfig'];
         }
-        if (isset($map['ApiDesc'])) {
-            $model->apiDesc = $map['ApiDesc'];
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['ParamInfo'])) {
-            $model->paramInfo = $map['ParamInfo'];
-        }
-        if (isset($map['BucketName'])) {
-            $model->bucketName = $map['BucketName'];
-        }
-        if (isset($map['BucketKeyPrefix'])) {
-            $model->bucketKeyPrefix = $map['BucketKeyPrefix'];
+        if (isset($map['RegionDesc'])) {
+            $model->regionDesc = $map['RegionDesc'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
-        if (isset($map['ReceiveConfig'])) {
-            $model->receiveConfig = $map['ReceiveConfig'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['EnableTime'])) {
-            $model->enableTime = $map['EnableTime'];
+        if (isset($map['TaskVersion'])) {
+            $model->taskVersion = $map['TaskVersion'];
         }
-        if (isset($map['DisableTime'])) {
-            $model->disableTime = $map['DisableTime'];
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteAiStoreUserTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $aistoreVersion;
+
+    /**
      * @var int
      */
     public $id;
     protected $_name = [
-        'id' => 'Id',
+        'aistoreVersion' => 'AistoreVersion',
+        'id'             => 'Id',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class DeleteAiStoreUserTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aistoreVersion) {
+            $res['AistoreVersion'] = $this->aistoreVersion;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -38,6 +47,9 @@ class DeleteAiStoreUserTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AistoreVersion'])) {
+            $model->aistoreVersion = $map['AistoreVersion'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Viapi\V20210930\Models\AiStoreReceiveConfig;
 
 use AlibabaCloud\Tea\Model;
 
-class eventBridge extends Model
+class dingTalk extends Model
 {
     /**
      * @var string
      */
-    public $eventBus;
+    public $address;
 
     /**
      * @var string
      */
-    public $eventRule;
+    public $secret;
     protected $_name = [
-        'eventBus'  => 'EventBus',
-        'eventRule' => 'EventRule',
+        'address' => 'Address',
+        'secret'  => 'Secret',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class eventBridge extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eventBus) {
-            $res['EventBus'] = $this->eventBus;
+        if (null !== $this->address) {
+            $res['Address'] = $this->address;
         }
-        if (null !== $this->eventRule) {
-            $res['EventRule'] = $this->eventRule;
+        if (null !== $this->secret) {
+            $res['Secret'] = $this->secret;
         }
 
         return $res;
@@ -42,16 +42,16 @@ class eventBridge extends Model
     /**
      * @param array $map
      *
-     * @return eventBridge
+     * @return dingTalk
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EventBus'])) {
-            $model->eventBus = $map['EventBus'];
+        if (isset($map['Address'])) {
+            $model->address = $map['Address'];
         }
-        if (isset($map['EventRule'])) {
-            $model->eventRule = $map['EventRule'];
+        if (isset($map['Secret'])) {
+            $model->secret = $map['Secret'];
         }
 
         return $model;

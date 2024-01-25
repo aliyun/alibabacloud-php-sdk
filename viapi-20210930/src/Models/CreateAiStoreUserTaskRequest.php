@@ -11,12 +11,12 @@ class CreateAiStoreUserTaskRequest extends Model
     /**
      * @var string
      */
-    public $product;
+    public $apiName;
 
     /**
      * @var string
      */
-    public $apiName;
+    public $bucketKeyPrefix;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class CreateAiStoreUserTaskRequest extends Model
     /**
      * @var string
      */
-    public $bucketKeyPrefix;
+    public $createConfig;
 
     /**
      * @var string
@@ -41,7 +41,7 @@ class CreateAiStoreUserTaskRequest extends Model
     /**
      * @var string
      */
-    public $remark;
+    public $product;
 
     /**
      * @var string
@@ -51,16 +51,22 @@ class CreateAiStoreUserTaskRequest extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
-        'product'         => 'Product',
         'apiName'         => 'ApiName',
-        'bucketName'      => 'BucketName',
         'bucketKeyPrefix' => 'BucketKeyPrefix',
+        'bucketName'      => 'BucketName',
+        'createConfig'    => 'CreateConfig',
         'name'            => 'Name',
         'paramInfo'       => 'ParamInfo',
-        'remark'          => 'Remark',
+        'product'         => 'Product',
         'receiveConfig'   => 'ReceiveConfig',
+        'remark'          => 'Remark',
         'status'          => 'Status',
     ];
 
@@ -71,17 +77,17 @@ class CreateAiStoreUserTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
-        }
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
+        }
+        if (null !== $this->bucketKeyPrefix) {
+            $res['BucketKeyPrefix'] = $this->bucketKeyPrefix;
         }
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
-        if (null !== $this->bucketKeyPrefix) {
-            $res['BucketKeyPrefix'] = $this->bucketKeyPrefix;
+        if (null !== $this->createConfig) {
+            $res['CreateConfig'] = $this->createConfig;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -89,11 +95,14 @@ class CreateAiStoreUserTaskRequest extends Model
         if (null !== $this->paramInfo) {
             $res['ParamInfo'] = $this->paramInfo;
         }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
         }
         if (null !== $this->receiveConfig) {
             $res['ReceiveConfig'] = $this->receiveConfig;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -110,17 +119,17 @@ class CreateAiStoreUserTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
-        }
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
+        }
+        if (isset($map['BucketKeyPrefix'])) {
+            $model->bucketKeyPrefix = $map['BucketKeyPrefix'];
         }
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
-        if (isset($map['BucketKeyPrefix'])) {
-            $model->bucketKeyPrefix = $map['BucketKeyPrefix'];
+        if (isset($map['CreateConfig'])) {
+            $model->createConfig = $map['CreateConfig'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -128,11 +137,14 @@ class CreateAiStoreUserTaskRequest extends Model
         if (isset($map['ParamInfo'])) {
             $model->paramInfo = $map['ParamInfo'];
         }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
         }
         if (isset($map['ReceiveConfig'])) {
             $model->receiveConfig = $map['ReceiveConfig'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

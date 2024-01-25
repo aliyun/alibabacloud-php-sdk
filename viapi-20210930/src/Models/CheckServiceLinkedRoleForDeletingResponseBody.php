@@ -10,24 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CheckServiceLinkedRoleForDeletingResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
     public $deletable;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var roleUsages[]
      */
     public $roleUsages;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'deletable'  => 'Deletable',
+        'requestId'  => 'RequestId',
         'roleUsages' => 'RoleUsages',
     ];
 
@@ -38,11 +36,11 @@ class CheckServiceLinkedRoleForDeletingResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->deletable) {
             $res['Deletable'] = $this->deletable;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->roleUsages) {
             $res['RoleUsages'] = [];
@@ -65,11 +63,11 @@ class CheckServiceLinkedRoleForDeletingResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Deletable'])) {
             $model->deletable = $map['Deletable'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RoleUsages'])) {
             if (!empty($map['RoleUsages'])) {

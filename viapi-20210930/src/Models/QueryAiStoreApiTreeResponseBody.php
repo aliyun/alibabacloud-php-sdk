@@ -9,19 +9,17 @@ use AlibabaCloud\Tea\Model;
 class QueryAiStoreApiTreeResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var AiStoreApiNode[]
      */
     public $data;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'data'      => 'Data',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -31,9 +29,6 @@ class QueryAiStoreApiTreeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->data) {
             $res['Data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -42,6 +37,9 @@ class QueryAiStoreApiTreeResponseBody extends Model
                     $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -55,9 +53,6 @@ class QueryAiStoreApiTreeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
@@ -66,6 +61,9 @@ class QueryAiStoreApiTreeResponseBody extends Model
                     $model->data[$n++] = null !== $item ? AiStoreApiNode::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
