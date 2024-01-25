@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListPrivateAccessTagsRequest extends Model
 {
     /**
+     * @description The ID of the internal access application. You can obtain the application ID by calling the following operations:
+     *
+     *   [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): queries all internal access applications.
+     *   [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): creates an internal access application.
+     *
      * @example pa-application-e12860ef6c48****
      *
      * @var string
@@ -16,6 +21,8 @@ class ListPrivateAccessTagsRequest extends Model
     public $applicationId;
 
     /**
+     * @description The page number. Valid values: 1 to 10000.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +30,8 @@ class ListPrivateAccessTagsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the internal access tag. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
+     *
      * @example tag_name
      *
      * @var string
@@ -30,6 +39,8 @@ class ListPrivateAccessTagsRequest extends Model
     public $name;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 1000.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +48,11 @@ class ListPrivateAccessTagsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the internal access policy. You can obtain the policy ID by calling the following operations:
+     *
+     *   [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): queries all internal access policies.
+     *   [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): creates an internal access policy.
+     *
      * @example pa-policy-54a7838a48bf****
      *
      * @var string
@@ -44,11 +60,17 @@ class ListPrivateAccessTagsRequest extends Model
     public $policyId;
 
     /**
+     * @description Specifies whether to enable the simple query mode. A value of true specifies that policy IDs are not queried.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $simpleMode;
 
     /**
+     * @description The IDs of internal access tags. You can specify up to 100 tag IDs.
+     *
      * @var string[]
      */
     public $tagIds;

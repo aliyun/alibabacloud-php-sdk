@@ -66,6 +66,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessTagRequest
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForUserGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListPopTrafficStatisticsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListPopTrafficStatisticsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationsForDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationsForDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationsRequest;
@@ -359,6 +361,9 @@ class Csas extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->deviceAttributeId)) {
+            $body['DeviceAttributeId'] = $request->deviceAttributeId;
         }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
@@ -1497,6 +1502,46 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param ListPopTrafficStatisticsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListPopTrafficStatisticsResponse
+     */
+    public function listPopTrafficStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPopTrafficStatistics',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPopTrafficStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPopTrafficStatisticsRequest $request
+     *
+     * @return ListPopTrafficStatisticsResponse
+     */
+    public function listPopTrafficStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPopTrafficStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListPrivateAccessApplicationsRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -2270,6 +2315,9 @@ class Csas extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->deviceAttributeId)) {
+            $body['DeviceAttributeId'] = $request->deviceAttributeId;
         }
         if (!Utils::isUnset($request->modifyType)) {
             $body['ModifyType'] = $request->modifyType;

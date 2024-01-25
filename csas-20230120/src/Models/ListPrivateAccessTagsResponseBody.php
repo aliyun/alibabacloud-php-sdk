@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListPrivateAccessTagsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 54C1D236-CDB9-586C-B44D-AFDCEA195545
      *
      * @var string
@@ -17,11 +19,15 @@ class ListPrivateAccessTagsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The internal access tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The total number of internal access tags.
+     *
      * @example 1
      *
      * @var int

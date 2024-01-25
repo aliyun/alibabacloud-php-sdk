@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The IDs of the internal access applications.
+     *
      * @var string[]
      */
     public $applicationIds;
 
     /**
+     * @description The time when the internal access tag was created.
+     *
      * @example 2022-10-10 11:39:34
      *
      * @var string
@@ -21,11 +25,15 @@ class tags extends Model
     public $createTime;
 
     /**
+     * @description The description of the internal access tag.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the internal access tag.
+     *
      * @example tag_name
      *
      * @var string
@@ -33,11 +41,15 @@ class tags extends Model
     public $name;
 
     /**
+     * @description The IDs of the internal access policies.
+     *
      * @var string[]
      */
     public $policyIds;
 
     /**
+     * @description The ID of the internal access tag.
+     *
      * @example tag-d3f64e8bdd4a****
      *
      * @var string
@@ -45,6 +57,11 @@ class tags extends Model
     public $tagId;
 
     /**
+     * @description The type of the internal access tag. Valid values:
+     *
+     *   **Default**
+     *   **Custom**
+     *
      * @example Default
      *
      * @var string

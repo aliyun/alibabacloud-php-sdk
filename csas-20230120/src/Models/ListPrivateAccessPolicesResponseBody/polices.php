@@ -39,6 +39,11 @@ class polices extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $deviceAttributeId;
+
+    /**
      * @example private_access_policy_name
      *
      * @var string
@@ -95,6 +100,7 @@ class polices extends Model
         'createTime'           => 'CreateTime',
         'customUserAttributes' => 'CustomUserAttributes',
         'description'          => 'Description',
+        'deviceAttributeId'    => 'DeviceAttributeId',
         'name'                 => 'Name',
         'policyAction'         => 'PolicyAction',
         'policyId'             => 'PolicyId',
@@ -132,6 +138,9 @@ class polices extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->deviceAttributeId) {
+            $res['DeviceAttributeId'] = $this->deviceAttributeId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -191,6 +200,9 @@ class polices extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DeviceAttributeId'])) {
+            $model->deviceAttributeId = $map['DeviceAttributeId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

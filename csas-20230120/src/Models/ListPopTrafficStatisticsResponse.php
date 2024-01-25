@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteUserGroupResponse extends Model
+class ListPopTrafficStatisticsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DeleteUserGroupResponse extends Model
     public $statusCode;
 
     /**
-     * @var DeleteUserGroupResponseBody
+     * @var ListPopTrafficStatisticsResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class DeleteUserGroupResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteUserGroupResponse
+     * @return ListPopTrafficStatisticsResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class DeleteUserGroupResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DeleteUserGroupResponseBody::fromMap($map['body']);
+            $model->body = ListPopTrafficStatisticsResponseBody::fromMap($map['body']);
         }
 
         return $model;

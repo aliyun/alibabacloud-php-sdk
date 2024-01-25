@@ -32,6 +32,11 @@ class UpdatePrivateAccessPolicyRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $deviceAttributeId;
+
+    /**
      * @example Cover
      *
      * @var string
@@ -92,6 +97,7 @@ class UpdatePrivateAccessPolicyRequest extends Model
         'applicationType'      => 'ApplicationType',
         'customUserAttributes' => 'CustomUserAttributes',
         'description'          => 'Description',
+        'deviceAttributeId'    => 'DeviceAttributeId',
         'modifyType'           => 'ModifyType',
         'policyAction'         => 'PolicyAction',
         'policyId'             => 'PolicyId',
@@ -126,6 +132,9 @@ class UpdatePrivateAccessPolicyRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->deviceAttributeId) {
+            $res['DeviceAttributeId'] = $this->deviceAttributeId;
         }
         if (null !== $this->modifyType) {
             $res['ModifyType'] = $this->modifyType;
@@ -182,6 +191,9 @@ class UpdatePrivateAccessPolicyRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DeviceAttributeId'])) {
+            $model->deviceAttributeId = $map['DeviceAttributeId'];
         }
         if (isset($map['ModifyType'])) {
             $model->modifyType = $map['ModifyType'];

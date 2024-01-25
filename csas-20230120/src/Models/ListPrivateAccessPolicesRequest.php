@@ -16,6 +16,11 @@ class ListPrivateAccessPolicesRequest extends Model
     public $applicationId;
 
     /**
+     * @var string
+     */
+    public $applicationName;
+
+    /**
      * @example 1
      *
      * @var int
@@ -63,6 +68,11 @@ class ListPrivateAccessPolicesRequest extends Model
     public $tagId;
 
     /**
+     * @var string
+     */
+    public $tagName;
+
+    /**
      * @description 用户组ID。取值来源：
      * - [CreateUserGroup](~~CreateUserGroup~~)：创建用户组。
      * @example usergroup-6f1ef2fc56b6****
@@ -71,15 +81,17 @@ class ListPrivateAccessPolicesRequest extends Model
      */
     public $userGroupId;
     protected $_name = [
-        'applicationId' => 'ApplicationId',
-        'currentPage'   => 'CurrentPage',
-        'name'          => 'Name',
-        'pageSize'      => 'PageSize',
-        'policyAction'  => 'PolicyAction',
-        'policyIds'     => 'PolicyIds',
-        'status'        => 'Status',
-        'tagId'         => 'TagId',
-        'userGroupId'   => 'UserGroupId',
+        'applicationId'   => 'ApplicationId',
+        'applicationName' => 'ApplicationName',
+        'currentPage'     => 'CurrentPage',
+        'name'            => 'Name',
+        'pageSize'        => 'PageSize',
+        'policyAction'    => 'PolicyAction',
+        'policyIds'       => 'PolicyIds',
+        'status'          => 'Status',
+        'tagId'           => 'TagId',
+        'tagName'         => 'TagName',
+        'userGroupId'     => 'UserGroupId',
     ];
 
     public function validate()
@@ -91,6 +103,9 @@ class ListPrivateAccessPolicesRequest extends Model
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+        if (null !== $this->applicationName) {
+            $res['ApplicationName'] = $this->applicationName;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -113,6 +128,9 @@ class ListPrivateAccessPolicesRequest extends Model
         if (null !== $this->tagId) {
             $res['TagId'] = $this->tagId;
         }
+        if (null !== $this->tagName) {
+            $res['TagName'] = $this->tagName;
+        }
         if (null !== $this->userGroupId) {
             $res['UserGroupId'] = $this->userGroupId;
         }
@@ -130,6 +148,9 @@ class ListPrivateAccessPolicesRequest extends Model
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+        if (isset($map['ApplicationName'])) {
+            $model->applicationName = $map['ApplicationName'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
@@ -153,6 +174,9 @@ class ListPrivateAccessPolicesRequest extends Model
         }
         if (isset($map['TagId'])) {
             $model->tagId = $map['TagId'];
+        }
+        if (isset($map['TagName'])) {
+            $model->tagName = $map['TagName'];
         }
         if (isset($map['UserGroupId'])) {
             $model->userGroupId = $map['UserGroupId'];
