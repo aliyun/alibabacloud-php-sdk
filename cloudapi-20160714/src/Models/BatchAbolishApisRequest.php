@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchAbolishApisRequest extends Model
 {
     /**
+     * @description The APIs that you want to operate.
+     *
      * @var api[]
      */
     public $api;

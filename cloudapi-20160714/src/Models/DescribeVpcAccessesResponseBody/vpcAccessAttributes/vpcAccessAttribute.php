@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class vpcAccessAttribute extends Model
 {
     /**
+     * @description The time when the authorization was created.
+     *
      * @example 2017-01-30T04:10:19Z
      *
      * @var string
@@ -17,11 +19,17 @@ class vpcAccessAttribute extends Model
     public $createdTime;
 
     /**
+     * @description The description of the VPC access authorization.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the Elastic Compute Service (ECS) or Server Load Balancer (SLB) instance in the VPC.
+     *
      * @example i-uf6bzcg1pr4oh5jjmxxx
      *
      * @var string
@@ -29,6 +37,8 @@ class vpcAccessAttribute extends Model
     public $instanceId;
 
     /**
+     * @description The name of the authorization.
+     *
      * @example test
      *
      * @var string
@@ -36,6 +46,8 @@ class vpcAccessAttribute extends Model
     public $name;
 
     /**
+     * @description The port number that corresponds to the instance.
+     *
      * @example 80
      *
      * @var int
@@ -43,6 +55,8 @@ class vpcAccessAttribute extends Model
     public $port;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -50,11 +64,15 @@ class vpcAccessAttribute extends Model
     public $regionId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The ID of the VPC access authorization.
+     *
      * @example vpc-*****ssds24
      *
      * @var string
@@ -62,6 +80,8 @@ class vpcAccessAttribute extends Model
     public $vpcAccessId;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-uf657qec7lx42paw3qxxx
      *
      * @var string
@@ -69,6 +89,8 @@ class vpcAccessAttribute extends Model
     public $vpcId;
 
     /**
+     * @description The host of the backend service.
+     *
      * @example hos-a***.fh-**nc.com
      *
      * @var string

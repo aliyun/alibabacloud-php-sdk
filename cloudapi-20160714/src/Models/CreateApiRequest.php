@@ -213,6 +213,8 @@ class CreateApiRequest extends Model
     public $systemParameters;
 
     /**
+     * @description The list of tags.
+     *
      * @var tag[]
      */
     public $tag;

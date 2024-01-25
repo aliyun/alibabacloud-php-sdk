@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDomainWebSocketStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 61A16D46-EC04-5288-8A18-811B0F536CC2
      *
      * @var string

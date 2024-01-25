@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeMarketRemainsQuotaResponseBody extends Model
 {
     /**
+     * @description The remaining quota.
+     *
      * @example 1000
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeMarketRemainsQuotaResponseBody extends Model
     public $remainsQuota;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E7FE7172-AA75-5880-B6F7-C00893E9BC06
      *
      * @var string

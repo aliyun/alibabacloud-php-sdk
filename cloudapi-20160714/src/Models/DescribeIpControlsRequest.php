@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpControlsRequest extends Model
 {
     /**
+     * @description The ID of the ACL. The ID is unique.
+     *
      * @example 7ea91319a34d48a09b5c9c871d9768b1
      *
      * @var string
@@ -16,14 +18,19 @@ class DescribeIpControlsRequest extends Model
     public $ipControlId;
 
     /**
-     * @example The ID of the ACL. The ID is unique.
+     * @description The name of the ACL.
+     *
+     * @example ACL test
      *
      * @var string
      */
     public $ipControlName;
 
     /**
-     * @description The name of the ACL.
+     * @description The type of the ACL. Valid values:
+     *
+     *   **ALLOW**: a whitelist
+     *   **REFUSE**: a blacklist
      *
      * @example ALLOW
      *
@@ -32,7 +39,7 @@ class DescribeIpControlsRequest extends Model
     public $ipControlType;
 
     /**
-     * @description ACLtest
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -41,10 +48,7 @@ class DescribeIpControlsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The type of the ACL. Valid values:
-     *
-     *   **ALLOW**: an IP address whitelist
-     *   **REFUSE**: an IP address blacklist
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
      *
      * @example 10
      *

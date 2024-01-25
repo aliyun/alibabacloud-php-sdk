@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisByBackendRequest extends Model
 {
     /**
+     * @description The ID of the backend service.
+     *
      * @example 4ac69b7a17524781b275ed4c5eb25c54
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeApisByBackendRequest extends Model
     public $backendId;
 
     /**
+     * @description The number of the current page.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeApisByBackendRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -35,6 +41,13 @@ class DescribeApisByBackendRequest extends Model
     public $securityToken;
 
     /**
+     * @description The environment to which the API is published. Valid values:
+     *
+     *   **RELEASE**
+     *   **PRE**
+     *   **TEST**
+     *
+     * If you do not specify this parameter, APIs in the draft state are returned.
      * @example PRE
      *
      * @var string

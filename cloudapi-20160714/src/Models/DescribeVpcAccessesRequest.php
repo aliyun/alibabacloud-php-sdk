@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcAccessesRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example 10.199.26.***
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeVpcAccessesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The name of the authorization. The name must be unique.
+     *
      * @example wuying-edm-svc
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeVpcAccessesRequest extends Model
     public $name;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +37,8 @@ class DescribeVpcAccessesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeVpcAccessesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The service port.
+     *
      * @example 8080
      *
      * @var string
@@ -50,11 +60,15 @@ class DescribeVpcAccessesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The tag of objects that match the rule. You can specify multiple tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the VPC authorization.
+     *
      * @example vpc-*****ssds24
      *
      * @var string
@@ -62,6 +76,8 @@ class DescribeVpcAccessesRequest extends Model
     public $vpcAccessId;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-uf657qec7lx42paw3qxxx
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class successApi extends Model
 {
     /**
+     * @description The ID of the API.
+     *
      * @example 92af1abffc2443eaa2b815fdbd9c13f1
      *
      * @var string
@@ -16,6 +18,8 @@ class successApi extends Model
     public $apiId;
 
     /**
+     * @description Indicates that the operation is CREATE or MODIFY.
+     *
      * @example CREATE
      *
      * @var string
@@ -23,6 +27,8 @@ class successApi extends Model
     public $apiOperation;
 
     /**
+     * @description The HTTP method configured when you created the API.
+     *
      * @example POST
      *
      * @var string
@@ -30,6 +36,8 @@ class successApi extends Model
     public $httpMethod;
 
     /**
+     * @description The request path configured when you created the API.
+     *
      * @example /st1
      *
      * @var string

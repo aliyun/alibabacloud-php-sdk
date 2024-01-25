@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeMarketRemainsQuotaRequest extends Model
 {
     /**
+     * @description The custom domain name.
+     *
      * @example *.demo.com
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppSecurityResponseBody extends Model
 {
     /**
+     * @description The AppCode of the app.
+     *
      * @example 3aaf905a0a1f4f0eabc6d891dfa08afc
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAppSecurityResponseBody extends Model
     public $appCode;
 
     /**
+     * @description The key of the app.
+     *
      * @example 60030986
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeAppSecurityResponseBody extends Model
     public $appKey;
 
     /**
+     * @description The password of the app.
+     *
      * @example c1ae97aaa7e45f21d10824bc44678fee
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeAppSecurityResponseBody extends Model
     public $appSecret;
 
     /**
+     * @description The creation time (UTC) of the key, which is the same as the app creation time.
+     *
      * @example 2016-07-31T04:10:19Z
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeAppSecurityResponseBody extends Model
     public $createdTime;
 
     /**
+     * @description The modification time (UTC) of the key.
+     *
      * @example 2016-07-31T04:10:19Z
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeAppSecurityResponseBody extends Model
     public $modifiedTime;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
      *
      * @var string

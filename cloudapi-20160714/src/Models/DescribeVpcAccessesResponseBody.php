@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcAccessesResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeVpcAccessesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeVpcAccessesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 8883AC74-259D-4C0B-99FC-0B7F9A588B2F
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeVpcAccessesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeVpcAccessesResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The information about the VPC access authorization. The information is an array consisting of VpcAccessAttribute data.
+     *
      * @var vpcAccessAttributes
      */
     public $vpcAccessAttributes;

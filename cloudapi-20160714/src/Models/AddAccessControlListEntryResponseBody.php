@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddAccessControlListEntryResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example CEB6EC62-B6C7-5082-A45A-45A204724AC2
      *
      * @var string

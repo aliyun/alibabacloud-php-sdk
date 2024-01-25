@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deployedResult extends Model
 {
     /**
+     * @description The ID of the API.
+     *
      * @example 0433c1cd84724923b7a4f9ca1cfc249c
      *
      * @var string
@@ -16,6 +18,8 @@ class deployedResult extends Model
     public $apiUid;
 
     /**
+     * @description The deployment status of the API.
+     *
      * @example OVER
      *
      * @var string
@@ -23,6 +27,8 @@ class deployedResult extends Model
     public $deployedStatus;
 
     /**
+     * @description The error message.
+     *
      * @example Success. Request Success.
      *
      * @var string
@@ -30,6 +36,8 @@ class deployedResult extends Model
     public $errorMsg;
 
     /**
+     * @description The ID of the API group.
+     *
      * @example e8da6f6346184da9a30d0dc1888b1f3b
      *
      * @var string
@@ -37,6 +45,11 @@ class deployedResult extends Model
     public $groupId;
 
     /**
+     * @description The runtime environment of the API. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
+     *
      * @example RELEASE
      *
      * @var string

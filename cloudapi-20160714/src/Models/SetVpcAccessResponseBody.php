@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetVpcAccessResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
      *
      * @var string
@@ -16,6 +18,10 @@ class SetVpcAccessResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the VPC access authorization.
+     *
+     * @example 4c68e061860f441ab72af7404137440e
+     *
      * @var string
      */
     public $vpcAccessId;

@@ -46,6 +46,8 @@ class CreateModelRequest extends Model
     public $schema;
 
     /**
+     * @description The object tags that match the lifecycle rule. You can specify multiple tags.
+     *
      * @var tag[]
      */
     public $tag;

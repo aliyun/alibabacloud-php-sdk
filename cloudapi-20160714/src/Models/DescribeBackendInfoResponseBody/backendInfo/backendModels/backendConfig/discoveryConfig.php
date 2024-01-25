@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig;
 
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\discoveryConfig\nacosConfig;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\discoveryConfig\zookeeperConfig;
 use AlibabaCloud\Tea\Model;
 
 class discoveryConfig extends Model
@@ -24,9 +25,15 @@ class discoveryConfig extends Model
      * @var string
      */
     public $rcType;
+
+    /**
+     * @var zookeeperConfig
+     */
+    public $zookeeperConfig;
     protected $_name = [
-        'nacosConfig' => 'NacosConfig',
-        'rcType'      => 'RcType',
+        'nacosConfig'     => 'NacosConfig',
+        'rcType'          => 'RcType',
+        'zookeeperConfig' => 'ZookeeperConfig',
     ];
 
     public function validate()
@@ -41,6 +48,9 @@ class discoveryConfig extends Model
         }
         if (null !== $this->rcType) {
             $res['RcType'] = $this->rcType;
+        }
+        if (null !== $this->zookeeperConfig) {
+            $res['ZookeeperConfig'] = null !== $this->zookeeperConfig ? $this->zookeeperConfig->toMap() : null;
         }
 
         return $res;
@@ -59,6 +69,9 @@ class discoveryConfig extends Model
         }
         if (isset($map['RcType'])) {
             $model->rcType = $map['RcType'];
+        }
+        if (isset($map['ZookeeperConfig'])) {
+            $model->zookeeperConfig = zookeeperConfig::fromMap($map['ZookeeperConfig']);
         }
 
         return $model;

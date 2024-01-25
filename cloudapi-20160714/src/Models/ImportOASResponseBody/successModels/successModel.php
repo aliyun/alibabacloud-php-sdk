@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class successModel extends Model
 {
     /**
+     * @description The ID of the API group.
+     *
      * @example feaccf67040643bcbdedb253e59eb527
      *
      * @var string
@@ -16,6 +18,8 @@ class successModel extends Model
     public $groupId;
 
     /**
+     * @description The name of the model.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class successModel extends Model
     public $modelName;
 
     /**
+     * @description The operation of the model. Valid values: CREATE and MODIFY.
+     *
      * @example CREATE
      *
      * @var string
@@ -30,6 +36,8 @@ class successModel extends Model
     public $modelOperation;
 
     /**
+     * @description The UID of the model.
+     *
      * @example 1r4efwee19614cc68c6b0b484bc9c5dbs
      *
      * @var string

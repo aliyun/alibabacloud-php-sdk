@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceSpecRequest extends Model
 {
     /**
+     * @description Specifies whether payment is automatically made during renewal. Valid values:
+     *
+     *   **True**: Automatic payment is enabled. Make sure that your Alibaba Cloud account has adequate balance.
+     *   **False**: Automatic payment is disabled. You have to manually pay in the console. Log on to the console. In the upper-right corner, choose **Expenses > User Center**. In the left-side navigation pane, click **Orders**. On the page that appears, find your order and complete the payment.
+     *
+     * Default value: **False**.
      * @example true
      *
      * @var bool
@@ -16,6 +22,8 @@ class ModifyInstanceSpecRequest extends Model
     public $autoPay;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example apigateway-cn-v6419k43xxxxx
      *
      * @var string
@@ -23,6 +31,8 @@ class ModifyInstanceSpecRequest extends Model
     public $instanceId;
 
     /**
+     * @description The specifications of the instance.
+     *
      * @example api.s1.small
      *
      * @var string
@@ -30,6 +40,12 @@ class ModifyInstanceSpecRequest extends Model
     public $instanceSpec;
 
     /**
+     * @description Specifies whether to upgrade or downgrade the instance. Valid values:
+     *
+     *   **UPGRADE**
+     *   **DOWNGRADE**
+     *
+     * Default value: **UPGRADE**.
      * @example UPGRADE
      *
      * @var string
@@ -37,6 +53,8 @@ class ModifyInstanceSpecRequest extends Model
     public $modifyAction;
 
     /**
+     * @description Specifies whether to skip the Waiting for Traffic Switchover state. During the upgrade or downgrade, a new outbound IP address may be added to the API Gateway instance. The Waiting for Traffic Switchover state is used to remind users of adding the new outbound IP address to the whitelist. If you set the SkipWaitSwitch parameter to true, the instance does not enter the Waiting for Traffic Switchover state when a new outbound IP address is available. Instead, the system sends internal messages to the user.
+     *
      * @example false
      *
      * @var bool
@@ -44,6 +62,8 @@ class ModifyInstanceSpecRequest extends Model
     public $skipWaitSwitch;
 
     /**
+     * @description The password.
+     *
      * @example b5845042-2f2f-4e96-bd5c-36c6e5c2a68c
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class acl extends Model
 {
     /**
+     * @description The ID of the access control policy.
+     *
      * @example acl-3nsohdozz0ru8fi5onwz1
      *
      * @var string
@@ -16,6 +18,8 @@ class acl extends Model
     public $aclId;
 
     /**
+     * @description The name of the access control policy.
+     *
      * @example testAcl
      *
      * @var string
@@ -23,6 +27,11 @@ class acl extends Model
     public $aclName;
 
     /**
+     * @description 访问控制策略组的IP版本。
+     * - **IPv4**。
+     * - **IPv6**。
+     * @example ipv4
+     *
      * @var string
      */
     public $addressIPVersion;

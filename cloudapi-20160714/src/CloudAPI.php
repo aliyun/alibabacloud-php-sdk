@@ -308,6 +308,9 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyDatasetItemRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyDatasetItemResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyDatasetRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyDatasetResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceAttributeRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceAttributeResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceAttributeShrinkRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceSpecRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceSpecResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyIntranetDomainPolicyRequest;
@@ -5006,10 +5009,12 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppSecurityRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   This operation is intended for API callers.
+     *   *
+     * @param DescribeAppSecurityRequest $request DescribeAppSecurityRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAppSecurityResponse
+     * @return DescribeAppSecurityResponse DescribeAppSecurityResponse
      */
     public function describeAppSecurityWithOptions($request, $runtime)
     {
@@ -5043,9 +5048,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppSecurityRequest $request
+     * *   This operation is intended for API callers.
+     *   *
+     * @param DescribeAppSecurityRequest $request DescribeAppSecurityRequest
      *
-     * @return DescribeAppSecurityResponse
+     * @return DescribeAppSecurityResponse DescribeAppSecurityResponse
      */
     public function describeAppSecurity($request)
     {
@@ -6724,9 +6731,9 @@ class CloudAPI extends OpenApiClient
 
     /**
      * *   This operation is intended for API providers.
-     *   * *   This operation is used to query the ACLs in a Region. Region is a system parameter.
+     *   * *   This operation is used to query the ACLs in a region. Region is a system parameter.
      *   * *   You can filter the query results by ACL ID, name, or type.
-     *   * *   This operation cannot be used to query specific policies. If you want to query specific policies, use the DescribeIpControlPolicyItems operation.
+     *   * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~DescribeIpControlPolicyItems~~) operation.
      *   *
      * @param DescribeIpControlsRequest $request DescribeIpControlsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -6775,9 +6782,9 @@ class CloudAPI extends OpenApiClient
 
     /**
      * *   This operation is intended for API providers.
-     *   * *   This operation is used to query the ACLs in a Region. Region is a system parameter.
+     *   * *   This operation is used to query the ACLs in a region. Region is a system parameter.
      *   * *   You can filter the query results by ACL ID, name, or type.
-     *   * *   This operation cannot be used to query specific policies. If you want to query specific policies, use the DescribeIpControlPolicyItems operation.
+     *   * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~DescribeIpControlPolicyItems~~) operation.
      *   *
      * @param DescribeIpControlsRequest $request DescribeIpControlsRequest
      *
@@ -9318,6 +9325,87 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @param ModifyInstanceAttributeRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyInstanceAttributeResponse
+     */
+    public function modifyInstanceAttributeWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyInstanceAttributeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->toConnectVpcIpBlock)) {
+            $request->toConnectVpcIpBlockShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->toConnectVpcIpBlock, 'ToConnectVpcIpBlock', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->deleteVpcIpBlock)) {
+            $query['DeleteVpcIpBlock'] = $request->deleteVpcIpBlock;
+        }
+        if (!Utils::isUnset($request->egressIpv6Enable)) {
+            $query['EgressIpv6Enable'] = $request->egressIpv6Enable;
+        }
+        if (!Utils::isUnset($request->httpsPolicy)) {
+            $query['HttpsPolicy'] = $request->httpsPolicy;
+        }
+        if (!Utils::isUnset($request->IPV6Enabled)) {
+            $query['IPV6Enabled'] = $request->IPV6Enabled;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->intranetSegments)) {
+            $query['IntranetSegments'] = $request->intranetSegments;
+        }
+        if (!Utils::isUnset($request->maintainEndTime)) {
+            $query['MaintainEndTime'] = $request->maintainEndTime;
+        }
+        if (!Utils::isUnset($request->maintainStartTime)) {
+            $query['MaintainStartTime'] = $request->maintainStartTime;
+        }
+        if (!Utils::isUnset($request->toConnectVpcIpBlockShrink)) {
+            $query['ToConnectVpcIpBlock'] = $request->toConnectVpcIpBlockShrink;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->vpcSlbIntranetEnable)) {
+            $query['VpcSlbIntranetEnable'] = $request->vpcSlbIntranetEnable;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceAttribute',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstanceAttributeRequest $request
+     *
+     * @return ModifyInstanceAttributeResponse
+     */
+    public function modifyInstanceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyInstanceSpecRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -11616,10 +11704,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @param SetVpcAccessRequest $request
-     * @param RuntimeOptions      $runtime
+     * * This operation is intended for API providers.
+     *   * * This operation is used to authorize API Gateway to access your VPC instance.
+     *   *
+     * @param SetVpcAccessRequest $request SetVpcAccessRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetVpcAccessResponse
+     * @return SetVpcAccessResponse SetVpcAccessResponse
      */
     public function setVpcAccessWithOptions($request, $runtime)
     {
@@ -11668,9 +11759,12 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @param SetVpcAccessRequest $request
+     * * This operation is intended for API providers.
+     *   * * This operation is used to authorize API Gateway to access your VPC instance.
+     *   *
+     * @param SetVpcAccessRequest $request SetVpcAccessRequest
      *
-     * @return SetVpcAccessResponse
+     * @return SetVpcAccessResponse SetVpcAccessResponse
      */
     public function setVpcAccess($request)
     {
