@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class GetJMeterReportDetailsResponseBody extends Model
 {
     /**
+     * @example 4001
+     *
      * @var string
      */
     public $code;
@@ -32,6 +34,8 @@ class GetJMeterReportDetailsResponseBody extends Model
     public $dynamicCtx;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -47,6 +51,8 @@ class GetJMeterReportDetailsResponseBody extends Model
     public $reportOverView;
 
     /**
+     * @example A8E16480-15C1-555A-922F-B736A005E52D
+     *
      * @var string
      */
     public $requestId;
@@ -62,6 +68,8 @@ class GetJMeterReportDetailsResponseBody extends Model
     public $sceneMetrics;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

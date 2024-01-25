@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class sceneMetrics extends Model
 {
     /**
+     * @example 717
+     *
      * @var int
      */
     public $allCount;
 
     /**
+     * @example 23
+     *
      * @var float
      */
     public $avgRt;
 
     /**
+     * @example 78
+     *
      * @var float
      */
     public $avgTps;
 
     /**
+     * @example 34
+     *
      * @var int
      */
     public $failCountReq;
 
     /**
+     * @example 35
+     *
      * @var float
      */
     public $seg90Rt;
 
     /**
+     * @example 56
+     *
      * @var float
      */
     public $seg99Rt;
 
     /**
+     * @example 0.99
+     *
      * @var float
      */
     public $successRateReq;

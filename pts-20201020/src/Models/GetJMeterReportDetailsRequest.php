@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetJMeterReportDetailsRequest extends Model
 {
     /**
+     * @example KS2YE3J2
+     *
      * @var string
      */
     public $reportId;
