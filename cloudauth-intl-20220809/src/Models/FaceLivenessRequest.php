@@ -16,8 +16,6 @@ class FaceLivenessRequest extends Model
     public $crop;
 
     /**
-     * @example dsjisaj***oekwodsm
-     *
      * @var string
      */
     public $facePictureBase64;

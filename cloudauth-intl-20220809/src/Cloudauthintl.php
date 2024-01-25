@@ -936,9 +936,6 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->crop)) {
             $query['Crop'] = $request->crop;
         }
-        if (!Utils::isUnset($request->facePictureBase64)) {
-            $query['FacePictureBase64'] = $request->facePictureBase64;
-        }
         if (!Utils::isUnset($request->facePictureUrl)) {
             $query['FacePictureUrl'] = $request->facePictureUrl;
         }
@@ -957,8 +954,13 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->productCode)) {
             $query['ProductCode'] = $request->productCode;
         }
+        $body = [];
+        if (!Utils::isUnset($request->facePictureBase64)) {
+            $body['FacePictureBase64'] = $request->facePictureBase64;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'FaceLiveness',
