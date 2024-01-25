@@ -18,7 +18,7 @@ class tagResources extends Model
     public $resourceId;
 
     /**
-     * @description The resource type. Set the value to **ANYCASTEIPADDRESS**.
+     * @description The resource type. Only **ANYCASTEIPADDRESS** may be returned.
      *
      * @example ANYCASTEIPADDRESS
      *
@@ -27,7 +27,7 @@ class tagResources extends Model
     public $resourceType;
 
     /**
-     * @description The tag key.
+     * @description The key of tag N.
      *
      * @example FinanceDept
      *
@@ -36,7 +36,7 @@ class tagResources extends Model
     public $tagKey;
 
     /**
-     * @description The tag value.
+     * @description The value of tag N.
      *
      * @example FinanceJoshua
      *

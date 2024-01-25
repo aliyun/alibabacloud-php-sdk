@@ -18,7 +18,7 @@ class UntagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the operation is successful. Valid values:
      *
      **true**
      *

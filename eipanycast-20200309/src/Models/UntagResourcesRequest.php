@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description The ID of the resource.
+     * @description The resource ID. You can specify up to 20 resource IDs.
      *
      * @var string[]
      */
@@ -25,8 +25,9 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tag keys of the resource.
+     * @description The key of the tag that you want to remove. You can specify at most 20 tag keys. The tag key cannot be an empty string.
      *
+     * A tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain `http://` or `https://`.
      * @var string[]
      */
     public $tagKey;

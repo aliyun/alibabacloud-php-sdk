@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page. Valid values:**1** to **50**. Default value: **50**.
+     * @description The number of entries per page. Valid values: **1** to **50**. Default value: **50**.
      *
      * @example 50
      *
@@ -21,8 +21,8 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
-     *   If a next query is to be sent, set the value to the value of **NextToken** that is returned in the last call.
+     *   If this is your first query or no next queries are to be sent, ignore this parameter.
+     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -31,7 +31,7 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource IDs.
      *
      * @var string[]
      */
@@ -47,7 +47,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags
+     * @description The tag information.
      *
      * @var tag[]
      */

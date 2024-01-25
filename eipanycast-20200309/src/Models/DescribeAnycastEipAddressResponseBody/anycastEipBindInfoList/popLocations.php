@@ -11,7 +11,7 @@ class popLocations extends Model
     /**
      * @description The information about the access points in associated access areas when you associate an Anycast EIP with a cloud resource.
      *
-     * If this is your first time associating an Anycast EIP with a cloud resource, the system returns information about access points in all access areas.
+     * If this is your first time associating an Anycast EIP with an endpoint, the system returns information about access points in all access areas.
      * @example us-west-1-pop
      *
      * @var string

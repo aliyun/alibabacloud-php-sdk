@@ -18,7 +18,7 @@ class UnassociateAnycastEipAddressRequest extends Model
     public $anycastId;
 
     /**
-     * @description The ID of the cloud resource from which you want to disassociate the Anycast EIP.
+     * @description The ID of the endpoint from which you want to disassociate the Anycast EIP.
      *
      * @example lb-2zebb08phyczzawe****
      *
@@ -27,7 +27,7 @@ class UnassociateAnycastEipAddressRequest extends Model
     public $bindInstanceId;
 
     /**
-     * @description The region where the cloud resource is deployed.
+     * @description The region where the endpoint is deployed.
      *
      * @example us-west-1
      *
@@ -36,10 +36,10 @@ class UnassociateAnycastEipAddressRequest extends Model
     public $bindInstanceRegionId;
 
     /**
-     * @description The type of cloud resource from which you want to disassociate the Anycast EIP. Valid values:
+     * @description The type of endpoint from which you want to disassociate the Anycast EIP. Valid values:
      *
      *   **SlbInstance**: an internal-facing Server Load Balancer (SLB) instance that is deployed in a virtual private cloud (VPC)
-     *   **NetworkInterface**: an elastic network interface (ENI)
+     *   **NetworkInterface**: elastic network interface (ENI)
      *
      * @example SlbInstance
      *
@@ -50,9 +50,9 @@ class UnassociateAnycastEipAddressRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
-     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -60,10 +60,10 @@ class UnassociateAnycastEipAddressRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to only precheck the request. Valid values:
+     * @description Specifies whether to perform a dry run, without performing the actual request. Valid values:
      *
-     *   **true**: prechecks the request without disassociating the Anycast EIP. The system checks the required parameters, request syntax, and limits. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the API request. If the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -74,7 +74,7 @@ class UnassociateAnycastEipAddressRequest extends Model
     /**
      * @description The secondary private IP address of the ENI from which you want to disassociate the Anycast EIP.
      *
-     * This parameter is valid only when you set **BindInstanceType** to **NetworkInterface**. If you do not set this parameter, the primary private IP address of the ENI is returned.
+     * This parameter is valid only when you set **BindInstanceType** to **NetworkInterface**. If you do not specify this parameter, the primary private IP address of the ENI is used.
      * @example 192.168.XX.XX
      *
      * @var string

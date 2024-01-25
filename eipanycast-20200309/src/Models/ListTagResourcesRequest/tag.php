@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of tag N to add to the resource. You can specify up to 20 tag keys. It cannot be an empty string.
+     * @description The key of tag N. You can specify up to 20 tag keys. The tag key cannot be an empty string.
      *
-     * The key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+     * The tag key can be a up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
      *
-     * >  Specify at least one of **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**).
+     * > You must specify **ResourceId.N** or **Tag.N** (**Tag.N.Key** or **Tag.N.Value**).
      * @example FinanceDept
      *
      * @var string
@@ -21,11 +21,11 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of tag N to add to the resource. You can specify up to 20 tag values. It can be an empty string.
+     * @description The value of tag N. You can specify up to 20 tag values. The tag value can be an empty string.
      *
-     * The value can be up to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The value must start with a letter but cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
+     * It can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
      *
-     * >  Specify at least one of **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**).
+     * > You must specify **ResourceId.N** or **Tag.N** (**Tag.N.Key** or **Tag.N.Value**).
      * @example FinanceJoshua
      *
      * @var string

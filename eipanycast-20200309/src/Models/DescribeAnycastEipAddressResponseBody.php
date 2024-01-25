@@ -20,7 +20,7 @@ class DescribeAnycastEipAddressResponseBody extends Model
     public $aliUid;
 
     /**
-     * @description The information about the cloud resource with which the Anycast EIP is associated.
+     * @description The information about the endpoint with which the Anycast EIP is associated.
      *
      * @var anycastEipBindInfoList[]
      */
@@ -66,7 +66,7 @@ class DescribeAnycastEipAddressResponseBody extends Model
     public $businessStatus;
 
     /**
-     * @description The time when the Anycast EIP was created.
+     * @description The point in time at which the Anycast EIP was created.
      *
      * The time follows the ISO8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
      * @example 2021-04-23T01:37:38Z
@@ -132,12 +132,16 @@ class DescribeAnycastEipAddressResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example rg-acfmzssisocarfy
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The area from which you can use the Anycast EIP to access the backend server over the Internet.
+     * @description The access area of the Anycast EIP.
      *
      * Only **international** may be returned, which indicates the areas outside the Chinese mainland.
      * @example international
@@ -147,7 +151,7 @@ class DescribeAnycastEipAddressResponseBody extends Model
     public $serviceLocation;
 
     /**
-     * @description The status of the Anycast EIP. Valid values:
+     * @description The status of the Anycast EIP.
      *
      *   **Associating**
      *   **Unassociating**
@@ -164,7 +168,7 @@ class DescribeAnycastEipAddressResponseBody extends Model
     public $status;
 
     /**
-     * @description The tag information.
+     * @description The information about the tags.
      *
      * @var tags[]
      */

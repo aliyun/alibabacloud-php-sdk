@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeAnycastServerRegionsResponseBody extends Model
 {
     /**
-     * @description The list of regions where you can associate Anycast EIPs with backend servers.
+     * @description The list of regions where you can associate Anycast EIPs with endpoints.
      *
      * @var anycastServerRegionList[]
      */
     public $anycastServerRegionList;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of returned entries.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeAnycastServerRegionsResponseBody extends Model
     public $count;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *

@@ -11,7 +11,7 @@ class DescribeAnycastPopLocationsRequest extends Model
     /**
      * @description The access area of the Anycast elastic IP address (EIP).
      *
-     * Set the value to **international**, which specifies the regions outside the Chinese mainland.
+     * Set the value to **international**, which specifies the areas outside the Chinese mainland.
      * @example international
      *
      * @var string

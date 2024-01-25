@@ -18,7 +18,7 @@ class AllocateAnycastEipAddressResponseBody extends Model
     public $anycastId;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 1422000****
      *
@@ -27,7 +27,7 @@ class AllocateAnycastEipAddressResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example FBDB18D8-E91E-4978-8D6C-6E2E3EE10133
      *

@@ -12,8 +12,8 @@ class anycastEipBindInfoList extends Model
     /**
      * @description The association mode. Valid values:
      *
-     *   **Default**: the default mode. In this mode, associated cloud resources are set as default origin servers.
-     *   **Normal**: the standard mode. In this mode, associated cloud resources are set as standard origin servers.
+     *   **Default**: the default mode. In this mode, the associated endpoint serves as the default origin server.
+     *   **Normal**: the standard mode. In this mode, the associated endpoint serves as a standard origin server.
      *
      * @example Default
      *
@@ -22,7 +22,7 @@ class anycastEipBindInfoList extends Model
     public $associationMode;
 
     /**
-     * @description The ID of the cloud resource with which the Anycast EIP is associated.
+     * @description The ID of the endpoint with which the Anycast EIP is associated.
      *
      * @example lb-2zebb08phyczzawe****
      *
@@ -31,7 +31,7 @@ class anycastEipBindInfoList extends Model
     public $bindInstanceId;
 
     /**
-     * @description The ID of the region in which the cloud resource is deployed.
+     * @description The ID of the region in which the endpoint is deployed.
      *
      * @example us-west-1
      *
@@ -40,10 +40,10 @@ class anycastEipBindInfoList extends Model
     public $bindInstanceRegionId;
 
     /**
-     * @description The type of cloud resource with which the Anycast EIP is associated. Valid values:
+     * @description The type of endpoint with which the Anycast EIP is associated. Valid values:
      *
-     *   **SlbInstance**: an internal-facing Server Load Balancer (SLB) instance that is deployed in a virtual private cloud (VPC)
-     *   **NetworkInterface**: an elastic network interface (ENI)
+     *   **SlbInstance**: a CLB instance in a VPC.
+     *   **NetworkInterface**: an elastic network interface (ENI).
      *
      * @example SlbInstance
      *
@@ -54,7 +54,7 @@ class anycastEipBindInfoList extends Model
     /**
      * @description The time when the Anycast EIP was associated.
      *
-     * The time follows the ISO8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     * The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
      * @example 2021-04-23T02:37:38Z
      *
      * @var string
@@ -64,7 +64,7 @@ class anycastEipBindInfoList extends Model
     /**
      * @description The information about the access points in associated access areas when you associate an Anycast EIP with a cloud resource.
      *
-     * If this is your first time associating an Anycast EIP with a cloud resource, the system returns information about access points in all access areas.
+     * If this is your first time associating an Anycast EIP with an endpoint, the system returns information about access points in all access areas.
      * @var popLocations[]
      */
     public $popLocations;
@@ -80,7 +80,7 @@ class anycastEipBindInfoList extends Model
     public $privateIpAddress;
 
     /**
-     * @description The status of the cloud resource. Valid values:
+     * @description The status of the endpoint. Valid values:
      *
      *   **BINDING**
      *   **BINDED**

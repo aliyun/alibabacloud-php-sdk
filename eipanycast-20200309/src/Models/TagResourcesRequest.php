@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The list of resource IDs.
+     * @description The resource ID. You can specify at most 20 IDs.
      *
      * @var string[]
      */
@@ -26,7 +26,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags.
+     * @description The tag information.
      *
      * @var tag[]
      */

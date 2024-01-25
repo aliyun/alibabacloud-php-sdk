@@ -11,7 +11,7 @@ class DescribeAnycastEipAddressRequest extends Model
     /**
      * @description The ID of the Anycast EIP.
      *
-     * >  You must specify at least one of **Ip** and **AnycastId**.
+     * > You must specify **Ip** or **AnycastId**.
      * @example aeip-bp1ix34fralt4ykf3****
      *
      * @var string
@@ -19,7 +19,7 @@ class DescribeAnycastEipAddressRequest extends Model
     public $anycastId;
 
     /**
-     * @description The ID of the cloud resource with which the Anycast EIP is associated.
+     * @description The ID of the endpoint with which the Anycast EIP is associated.
      *
      * @example lb-2zebb08phyczzawe****
      *
@@ -30,7 +30,7 @@ class DescribeAnycastEipAddressRequest extends Model
     /**
      * @description The IP address of the Anycast EIP.
      *
-     * >  You must specify at least one of **Ip** and **AnycastId**.
+     * > You must specify **Ip** or **AnycastId**.
      * @example 139.95.XX.XX
      *
      * @var string
