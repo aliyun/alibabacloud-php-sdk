@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class ListRunsRequest extends Model
 {
     /**
+     * @example MyApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example 4.1.4.1-v1.0
+     *
      * @var string
      */
     public $appRevision;
 
     /**
+     * @example S001
+     *
      * @var string
      */
     public $entityName;
 
     /**
+     * @example sample
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $getTotal;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isReversed;
 
     /**
+     * @example env=test
+     *
      * @var string
      */
     public $labelSelector;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example MTIzNDU2P1dvcmtzcGFjZT93cy1mMDE4OTgxNGU1ZTkK
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example createtime
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example run-13BeYuxc0fxO24uA75UppTiMRoQ
+     *
      * @var string
      */
     public $search;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example sub-13BeXWnGvrOl3MC124tazcJVKaV
+     *
      * @var string
      */
     public $submissionId;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;

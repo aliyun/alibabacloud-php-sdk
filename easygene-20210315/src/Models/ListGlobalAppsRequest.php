@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListGlobalAppsRequest extends Model
 {
     /**
+     * @example OpenAccess
+     *
      * @var string
      */
     public $appScope;
 
     /**
+     * @example 群体变异
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isReversed;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example 0f2cc944-67db-4fb1-bb10-f136cda74bda
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example AppName, LastModified, Used
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example 群体变异
+     *
      * @var string
      */
     public $search;
 
     /**
+     * @example Sentieon
+     *
      * @var string
      */
     public $toolkit;

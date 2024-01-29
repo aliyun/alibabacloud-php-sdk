@@ -102,6 +102,8 @@ use AlibabaCloud\SDK\EasyGene\V20210315\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\ResumeSubmissionRequest;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\ResumeSubmissionResponse;
+use AlibabaCloud\SDK\EasyGene\V20210315\Models\TagAppRequest;
+use AlibabaCloud\SDK\EasyGene\V20210315\Models\TagAppResponse;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\UpdateEntityItemsRequest;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\UpdateEntityItemsResponse;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\UpdateEntityItemsShrinkRequest;
@@ -340,6 +342,9 @@ class EasyGene extends OpenApiClient
         if (!Utils::isUnset($request->revisionComment)) {
             $query['RevisionComment'] = $request->revisionComment;
         }
+        if (!Utils::isUnset($request->revisionTag)) {
+            $query['RevisionTag'] = $request->revisionTag;
+        }
         if (!Utils::isUnset($request->workspace)) {
             $query['Workspace'] = $request->workspace;
         }
@@ -491,6 +496,9 @@ class EasyGene extends OpenApiClient
         if (!Utils::isUnset($request->outputFolder)) {
             $query['OutputFolder'] = $request->outputFolder;
         }
+        if (!Utils::isUnset($request->revisionTag)) {
+            $query['RevisionTag'] = $request->revisionTag;
+        }
         if (!Utils::isUnset($request->role)) {
             $query['Role'] = $request->role;
         }
@@ -578,6 +586,9 @@ class EasyGene extends OpenApiClient
         if (!Utils::isUnset($request->revision)) {
             $query['Revision'] = $request->revision;
         }
+        if (!Utils::isUnset($request->revisionTag)) {
+            $query['RevisionTag'] = $request->revisionTag;
+        }
         if (!Utils::isUnset($request->workspace)) {
             $query['Workspace'] = $request->workspace;
         }
@@ -643,6 +654,9 @@ class EasyGene extends OpenApiClient
         }
         if (!Utils::isUnset($request->labels)) {
             $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->revisionTag)) {
+            $query['RevisionTag'] = $request->revisionTag;
         }
         if (!Utils::isUnset($request->rootEntity)) {
             $query['RootEntity'] = $request->rootEntity;
@@ -1105,6 +1119,9 @@ class EasyGene extends OpenApiClient
         }
         if (!Utils::isUnset($request->revision)) {
             $query['Revision'] = $request->revision;
+        }
+        if (!Utils::isUnset($request->revisionTag)) {
+            $query['RevisionTag'] = $request->revisionTag;
         }
         if (!Utils::isUnset($request->workspace)) {
             $query['Workspace'] = $request->workspace;
@@ -2340,10 +2357,66 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param UpdateEntityRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @param TagAppRequest  $request
+     * @param RuntimeOptions $runtime
      *
-     * @return UpdateEntityResponse
+     * @return TagAppResponse
+     */
+    public function tagAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->appRevision)) {
+            $query['AppRevision'] = $request->appRevision;
+        }
+        if (!Utils::isUnset($request->revisionTag)) {
+            $query['RevisionTag'] = $request->revisionTag;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagApp',
+            'version'     => '2021-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagAppRequest $request
+     *
+     * @return TagAppResponse
+     */
+    public function tagApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @deprecated
+     *   *
+     * Deprecated
+     *
+     * @param UpdateEntityRequest $tmpReq  UpdateEntityRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateEntityResponse UpdateEntityResponse
      */
     public function updateEntityWithOptions($tmpReq, $runtime)
     {
@@ -2384,9 +2457,13 @@ class EasyGene extends OpenApiClient
     }
 
     /**
-     * @param UpdateEntityRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return UpdateEntityResponse
+     * @param UpdateEntityRequest $request UpdateEntityRequest
+     *
+     * @return UpdateEntityResponse UpdateEntityResponse
      */
     public function updateEntity($request)
     {

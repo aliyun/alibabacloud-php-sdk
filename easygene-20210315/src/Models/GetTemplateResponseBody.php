@@ -11,26 +11,36 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateResponseBody extends Model
 {
     /**
+     * @example MyApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $appRevision;
 
     /**
+     * @example 2021-06-10T13:30:20.414557061Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example test template
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
@@ -46,6 +56,8 @@ class GetTemplateResponseBody extends Model
     public $labels;
 
     /**
+     * @example 2021-06-10T13:30:20.405878292Z
+     *
      * @var string
      */
     public $lastModifiedTime;
@@ -56,26 +68,43 @@ class GetTemplateResponseBody extends Model
     public $outputsExpression;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example produceVersion
+     *
+     * @var string
+     */
+    public $revisionTag;
+
+    /**
+     * @example test-entity
+     *
      * @var string
      */
     public $rootEntity;
 
     /**
+     * @example EasyGene
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example test-template
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;
@@ -90,6 +119,7 @@ class GetTemplateResponseBody extends Model
         'lastModifiedTime'  => 'LastModifiedTime',
         'outputsExpression' => 'OutputsExpression',
         'requestId'         => 'RequestId',
+        'revisionTag'       => 'RevisionTag',
         'rootEntity'        => 'RootEntity',
         'source'            => 'Source',
         'templateName'      => 'TemplateName',
@@ -144,6 +174,9 @@ class GetTemplateResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->revisionTag) {
+            $res['RevisionTag'] = $this->revisionTag;
         }
         if (null !== $this->rootEntity) {
             $res['RootEntity'] = $this->rootEntity;
@@ -210,6 +243,9 @@ class GetTemplateResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RevisionTag'])) {
+            $model->revisionTag = $map['RevisionTag'];
         }
         if (isset($map['RootEntity'])) {
             $model->rootEntity = $map['RootEntity'];

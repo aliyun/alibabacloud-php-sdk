@@ -14,31 +14,43 @@ class inputsExpression extends Model
     public $help;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $required;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $stepOrder;
 
     /**
+     * @example Task1
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @example fastq1
+     *
      * @var string
      */
     public $variableName;
 
     /**
+     * @example String
+     *
      * @var string
      */
     public $variableType;
 
     /**
+     * @example read_1.fastq.gz
+     *
      * @var string
      */
     public $variableValue;

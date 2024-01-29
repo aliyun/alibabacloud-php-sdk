@@ -14,6 +14,8 @@ class outputsExpression extends Model
     public $help;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $required;
@@ -24,21 +26,29 @@ class outputsExpression extends Model
     public $stepOrder;
 
     /**
+     * @example Task1
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @example Bam
+     *
      * @var string
      */
     public $variableName;
 
     /**
+     * @example String
+     *
      * @var string
      */
     public $variableType;
 
     /**
+     * @example out.bam
+     *
      * @var string
      */
     public $variableValue;

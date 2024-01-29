@@ -9,23 +9,37 @@ use AlibabaCloud\Tea\Model;
 class revisions extends Model
 {
     /**
+     * @example 2021-06-16T15:09:14.378297+08:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $revision;
 
     /**
+     * @example Example revision comment
+     *
      * @var string
      */
     public $revisionComment;
+
+    /**
+     * @example ProduceVersion
+     *
+     * @var string
+     */
+    public $revisionTag;
     protected $_name = [
         'createTime'      => 'CreateTime',
         'revision'        => 'Revision',
         'revisionComment' => 'RevisionComment',
+        'revisionTag'     => 'RevisionTag',
     ];
 
     public function validate()
@@ -43,6 +57,9 @@ class revisions extends Model
         }
         if (null !== $this->revisionComment) {
             $res['RevisionComment'] = $this->revisionComment;
+        }
+        if (null !== $this->revisionTag) {
+            $res['RevisionTag'] = $this->revisionTag;
         }
 
         return $res;
@@ -64,6 +81,9 @@ class revisions extends Model
         }
         if (isset($map['RevisionComment'])) {
             $model->revisionComment = $map['RevisionComment'];
+        }
+        if (isset($map['RevisionTag'])) {
+            $model->revisionTag = $map['RevisionTag'];
         }
 
         return $model;

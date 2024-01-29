@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateShrinkRequest extends Model
 {
     /**
+     * @example This is a test template
+     *
      * @var string
      */
     public $description;
@@ -19,6 +21,8 @@ class UpdateTemplateShrinkRequest extends Model
     public $inputsExpressionShrink;
 
     /**
+     * @example {"key": "value"}
+     *
      * @var string
      */
     public $labels;
@@ -29,16 +33,22 @@ class UpdateTemplateShrinkRequest extends Model
     public $outputsExpressionShrink;
 
     /**
+     * @example test-entity
+     *
      * @var string
      */
     public $rootEntity;
 
     /**
+     * @example test-template
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkspaceRequest extends Model
 {
     /**
+     * @example TestToken
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example This is a test workspace
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $jobLifecycle;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $labels;
 
     /**
+     * @example TestRole
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example oss://gstor-default-workspace-cn-shanghai-bae3193d/
+     *
      * @var string
      */
     public $storage;
 
     /**
+     * @example TestWorkspace
+     *
      * @var string
      */
     public $workspace;

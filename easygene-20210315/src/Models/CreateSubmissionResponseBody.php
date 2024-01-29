@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateSubmissionResponseBody extends Model
 {
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example sub-13BeXWnGvrOl3MC124tazcJVKaV
+     *
      * @var string
      */
     public $submissionId;
 
     /**
+     * @example TestWorkspace
+     *
      * @var string
      */
     public $workspace;

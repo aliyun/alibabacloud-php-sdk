@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetWorkspaceResponseBody extends Model
 {
     /**
+     * @example my-bucket
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @example 2021-06-16T15:09:14.378297+08:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example This is a test workspace
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $jobLifecycle;
@@ -39,36 +49,50 @@ class GetWorkspaceResponseBody extends Model
     public $labels;
 
     /**
+     * @example 2021-06-16T15:09:14.378297+08:00
+     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example TestRole
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example oss://my-bucket/my-path/
+     *
      * @var string
      */
     public $storage;
 
     /**
+     * @example TestWorkspace
+     *
      * @var string
      */
     public $workspace;

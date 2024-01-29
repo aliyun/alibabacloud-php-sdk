@@ -11,21 +11,29 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateRequest extends Model
 {
     /**
+     * @example MyApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example 4.1.4.1-v1.0
+     *
      * @var string
      */
     public $appRevision;
 
     /**
+     * @example GFjZT93cy1mMDE4OTgxNGU1ZTkK
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example This is a test template
+     *
      * @var string
      */
     public $description;
@@ -36,6 +44,8 @@ class CreateTemplateRequest extends Model
     public $inputsExpression;
 
     /**
+     * @example {"key1": "value1"}
+     *
      * @var string
      */
     public $labels;
@@ -46,16 +56,29 @@ class CreateTemplateRequest extends Model
     public $outputsExpression;
 
     /**
+     * @example ProduceVersion
+     *
+     * @var string
+     */
+    public $revisionTag;
+
+    /**
+     * @example TestEntity
+     *
      * @var string
      */
     public $rootEntity;
 
     /**
+     * @example test-template
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;
@@ -67,6 +90,7 @@ class CreateTemplateRequest extends Model
         'inputsExpression'  => 'InputsExpression',
         'labels'            => 'Labels',
         'outputsExpression' => 'OutputsExpression',
+        'revisionTag'       => 'RevisionTag',
         'rootEntity'        => 'RootEntity',
         'templateName'      => 'TemplateName',
         'workspace'         => 'Workspace',
@@ -111,6 +135,9 @@ class CreateTemplateRequest extends Model
                     $res['OutputsExpression'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->revisionTag) {
+            $res['RevisionTag'] = $this->revisionTag;
         }
         if (null !== $this->rootEntity) {
             $res['RootEntity'] = $this->rootEntity;
@@ -165,6 +192,9 @@ class CreateTemplateRequest extends Model
                     $model->outputsExpression[$n++] = null !== $item ? outputsExpression::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RevisionTag'])) {
+            $model->revisionTag = $map['RevisionTag'];
         }
         if (isset($map['RootEntity'])) {
             $model->rootEntity = $map['RootEntity'];

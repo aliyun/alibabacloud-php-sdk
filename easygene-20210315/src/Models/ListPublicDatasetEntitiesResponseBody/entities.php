@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class entities extends Model
 {
     /**
+     * @example sample
+     *
      * @var string
      */
     public $entityType;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class inputsExpression extends Model
 {
     /**
+     * @example test help
+     *
      * @var string
      */
     public $help;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $required;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $stepOrder;
 
     /**
+     * @example Task1
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @example fastq1
+     *
      * @var string
      */
     public $variableName;
 
     /**
+     * @example File
+     *
      * @var string
      */
     public $variableType;
 
     /**
+     * @example oss://bucket/file1.fastq
+     *
      * @var string
      */
     public $variableValue;

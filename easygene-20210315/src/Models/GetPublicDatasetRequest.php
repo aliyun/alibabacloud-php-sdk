@@ -14,6 +14,8 @@ class GetPublicDatasetRequest extends Model
     public $attributes;
 
     /**
+     * @example 西蒙斯基因组多样性计划
+     *
      * @var string
      */
     public $datasetName;

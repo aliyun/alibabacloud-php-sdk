@@ -9,51 +9,73 @@ use AlibabaCloud\Tea\Model;
 class ListAppsRequest extends Model
 {
     /**
+     * @example App
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isReversed;
 
     /**
+     * @example env=test
+     *
      * @var string
      */
     public $labelSelector;
 
     /**
+     * @example WDL
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description Next Token
+     *
+     * @example TestToken
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example createtime
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example Public
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example TestName
+     *
      * @var string
      */
     public $search;
 
     /**
+     * @example TestWorkspace
+     *
      * @var string
      */
     public $workspace;

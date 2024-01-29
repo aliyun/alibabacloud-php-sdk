@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateRequest extends Model
 {
     /**
+     * @example This is a test template
+     *
      * @var string
      */
     public $description;
@@ -21,6 +23,8 @@ class UpdateTemplateRequest extends Model
     public $inputsExpression;
 
     /**
+     * @example {"key": "value"}
+     *
      * @var string
      */
     public $labels;
@@ -31,16 +35,22 @@ class UpdateTemplateRequest extends Model
     public $outputsExpression;
 
     /**
+     * @example test-entity
+     *
      * @var string
      */
     public $rootEntity;
 
     /**
+     * @example test-template
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;

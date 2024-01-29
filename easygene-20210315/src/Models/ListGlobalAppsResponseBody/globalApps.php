@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class globalApps extends Model
 {
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $appDefaultVersion;
 
     /**
+     * @example This is app description.
+     *
      * @var string
      */
     public $appDescription;
 
     /**
+     * @example 实际使用时，计算该应用消耗的资源费用。
+     *
      * @var string
      */
     public $appFee;
 
     /**
+     * @example joint-calling
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example OpenAccess
+     *
      * @var string
      */
     public $appScope;
@@ -39,6 +49,8 @@ class globalApps extends Model
     public $categories;
 
     /**
+     * @example yyyy/MM/dd HH:mm:ss
+     *
      * @var string
      */
     public $lastModified;
@@ -49,16 +61,22 @@ class globalApps extends Model
     public $locations;
 
     /**
+     * @example sentieon
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $pinned;
 
     /**
+     * @example Sentieon
+     *
      * @var string
      */
     public $toolkit;

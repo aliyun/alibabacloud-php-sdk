@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteAppRequest extends Model
 {
     /**
+     * @example TestApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $revision;
 
     /**
+     * @example TestWorkspace
+     *
      * @var string
      */
     public $workspace;

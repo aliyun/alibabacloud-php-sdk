@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkspaceRequest extends Model
 {
     /**
+     * @example This is a test workspace
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $jobLifecycle;
 
     /**
+     * @example {"env":"test"}
+     *
      * @var string
      */
     public $labels;
 
     /**
+     * @example MyTestRamRole
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example MyTestWorkspace
+     *
      * @var string
      */
     public $workspace;

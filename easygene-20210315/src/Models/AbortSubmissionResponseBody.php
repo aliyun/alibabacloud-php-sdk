@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AbortSubmissionResponseBody extends Model
 {
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $requestId;

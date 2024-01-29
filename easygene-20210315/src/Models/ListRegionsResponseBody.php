@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListRegionsResponseBody extends Model
 {
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
@@ -20,6 +22,8 @@ class ListRegionsResponseBody extends Model
     public $regions;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;

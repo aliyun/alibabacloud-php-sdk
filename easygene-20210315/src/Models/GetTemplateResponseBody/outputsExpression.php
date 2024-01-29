@@ -14,31 +14,43 @@ class outputsExpression extends Model
     public $help;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $required;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $stepOrder;
 
     /**
+     * @example jobname
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @example fastq1
+     *
      * @var string
      */
     public $variableName;
 
     /**
+     * @example string
+     *
      * @var string
      */
     public $variableType;
 
     /**
+     * @example abc_1.fastq.gz
+     *
      * @var string
      */
     public $variableValue;

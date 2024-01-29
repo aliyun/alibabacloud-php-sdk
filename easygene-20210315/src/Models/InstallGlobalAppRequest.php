@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class InstallGlobalAppRequest extends Model
 {
     /**
+     * @example joint-calling
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example joint-calling
+     *
      * @var string
      */
     public $installedAppName;
 
     /**
+     * @example sentieon
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @example EasyGene
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example default-workspace
+     *
      * @var string
      */
     public $workspace;

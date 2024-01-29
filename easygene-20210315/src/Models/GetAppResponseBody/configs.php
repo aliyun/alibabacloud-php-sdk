@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @example {     "wgs.apply_bqsr.cpu": 4,     "wgs.apply_bqsr.disks": "local-disk 250 cloud_ssd",     "wgs.apply_bqsr.gatk_Launcher": "/usr/local/bin/gatk-4.1.4.1/gatk",     "wgs.apply_bqsr.java_opts": "\"-XX:GCTimeLimit=50 -XX:GCHeapFreeLimit=10 -Xms3000m -Djava.io.tmpdir=/mnt\"",     "wgs.apply_bqsr.memory": "8G"}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example ./config/example.json
+     *
      * @var string
      */
     public $path;

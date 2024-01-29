@@ -15,26 +15,36 @@ class ListEntityItemsResponseBody extends Model
     public $entityItems;
 
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example MTIzNDU2P1dvcmtzcGFjZT93cy1mMDE4OTgxNGU1ZTkK
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

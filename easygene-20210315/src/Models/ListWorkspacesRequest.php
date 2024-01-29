@@ -9,31 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ListWorkspacesRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isReversed;
 
     /**
+     * @example env=test
+     *
      * @var string
      */
     public $labelSelector;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description NextToken
+     *
+     * @example TestToken
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example createtime
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example TestName
+     *
      * @var string
      */
     public $search;

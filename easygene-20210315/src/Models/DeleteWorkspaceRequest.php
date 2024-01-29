@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteWorkspaceRequest extends Model
 {
     /**
+     * @example MyTestWorkspace
+     *
      * @var string
      */
     public $workspace;

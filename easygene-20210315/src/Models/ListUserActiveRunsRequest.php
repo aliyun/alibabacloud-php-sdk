@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListUserActiveRunsRequest extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $maxResults;

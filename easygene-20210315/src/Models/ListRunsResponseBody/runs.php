@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class runs extends Model
 {
     /**
+     * @example MyApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $appRevision;
 
     /**
+     * @example 2021-06-10T13:30:20.414557061Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $defaultRuntime;
 
     /**
+     * @example 2021-06-10T13:38:20.414557061Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example s1
+     *
      * @var string
      */
     public $entityName;
 
     /**
+     * @example sample
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example oss://my-bucket/my-execdir/
+     *
      * @var string
      */
     public $executeDirectory;
@@ -55,6 +71,8 @@ class runs extends Model
     public $executeOptions;
 
     /**
+     * @example {     "workflow1.task1.param1": "helloooo.txt",     "workflow1.task1.param2": "abc",     "workflow1.task2.param1": "new_helloooo.txt",     "workflow1.task2.param2": "def" }
+     *
      * @var string
      */
     public $inputs;
@@ -65,41 +83,57 @@ class runs extends Model
     public $labels;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example run-13BeYuxc0fxO24uA75UppTiMRoQ
+     *
      * @var string
      */
     public $runId;
 
     /**
+     * @example test-run
+     *
      * @var string
      */
     public $runName;
 
     /**
+     * @example EasyGene
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example 2021-06-10T13:31:20.414557061Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example sub-13BeXWnGvrOl3MC124tazcJVKaV
+     *
      * @var string
      */
     public $submissionId;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;

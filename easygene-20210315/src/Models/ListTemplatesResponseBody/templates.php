@@ -11,21 +11,29 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
+     * @example my-app
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $appRevision;
 
     /**
+     * @example 2021-06-10T13:30:20.414557061Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example This is a test template
+     *
      * @var string
      */
     public $description;
@@ -41,6 +49,8 @@ class templates extends Model
     public $labels;
 
     /**
+     * @example 2021-06-10T13:30:20.414557061Z
+     *
      * @var string
      */
     public $lastModifiedTime;
@@ -51,16 +61,29 @@ class templates extends Model
     public $outputsExpression;
 
     /**
+     * @example ProduceVersion
+     *
+     * @var string
+     */
+    public $revisionTag;
+
+    /**
+     * @example test-entity
+     *
      * @var string
      */
     public $rootEntity;
 
     /**
+     * @example test-template
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;
@@ -73,6 +96,7 @@ class templates extends Model
         'labels'            => 'Labels',
         'lastModifiedTime'  => 'LastModifiedTime',
         'outputsExpression' => 'OutputsExpression',
+        'revisionTag'       => 'RevisionTag',
         'rootEntity'        => 'RootEntity',
         'templateName'      => 'TemplateName',
         'workspace'         => 'Workspace',
@@ -120,6 +144,9 @@ class templates extends Model
                     $res['OutputsExpression'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->revisionTag) {
+            $res['RevisionTag'] = $this->revisionTag;
         }
         if (null !== $this->rootEntity) {
             $res['RootEntity'] = $this->rootEntity;
@@ -177,6 +204,9 @@ class templates extends Model
                     $model->outputsExpression[$n++] = null !== $item ? outputsExpression::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RevisionTag'])) {
+            $model->revisionTag = $map['RevisionTag'];
         }
         if (isset($map['RootEntity'])) {
             $model->rootEntity = $map['RootEntity'];

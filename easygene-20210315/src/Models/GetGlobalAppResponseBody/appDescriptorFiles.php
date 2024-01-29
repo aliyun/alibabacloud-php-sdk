@@ -19,11 +19,15 @@ class appDescriptorFiles extends Model
     public $content;
 
     /**
+     * @example PRIMARY_DESCRIPTOR（主WDL） SECONDARY_DESCRIPTOR（依赖WDL）  CONFIG（推荐的输入参数）  CONTAINERFILE（镜像制作文件）  DATA（输入参数中引用的参考文件）  OTHER（其他）
+     *
      * @var string
      */
     public $fileType;
 
     /**
+     * @example ./main.wdl
+     *
      * @var string
      */
     public $path;

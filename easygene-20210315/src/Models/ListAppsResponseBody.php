@@ -15,26 +15,38 @@ class ListAppsResponseBody extends Model
     public $apps;
 
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description Next Token
+     *
+     * @example TestToken
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

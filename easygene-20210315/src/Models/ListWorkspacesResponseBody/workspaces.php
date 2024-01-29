@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class workspaces extends Model
 {
     /**
+     * @example my-bucket
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @example 2021-06-16T15:09:14.378297+08:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example This is a test workspace
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $jobLifecycle;
@@ -34,31 +42,45 @@ class workspaces extends Model
     public $labels;
 
     /**
+     * @example 2021-06-16T15:09:14.378297+08:00
+     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description RAM Role
+     *
+     * @example TestRole
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example oss://my-bucket/my-path/
+     *
      * @var string
      */
     public $storage;
 
     /**
+     * @example TestWorkspace
+     *
      * @var string
      */
     public $workspace;

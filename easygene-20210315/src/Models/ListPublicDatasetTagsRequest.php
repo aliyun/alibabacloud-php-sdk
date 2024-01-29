@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListPublicDatasetTagsRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isReversed;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example 0f2cc944-67db-4fb1-bb10-f136cda74bda
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example LastModified
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example 遗传多样性
+     *
      * @var string
      */
     public $search;

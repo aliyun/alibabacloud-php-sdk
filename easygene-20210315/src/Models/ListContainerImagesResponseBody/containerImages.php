@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class containerImages extends Model
 {
     /**
+     * @example a suite of programs for interacting with high-throughput sequencing data.
+     *
      * @var string
      */
     public $containerImageDescription;
 
     /**
+     * @example samtools
+     *
      * @var string
      */
     public $containerImageName;
 
     /**
+     * @example samtools
+     *
      * @var string
      */
     public $containerImageNamespace;
@@ -29,16 +35,22 @@ class containerImages extends Model
     public $containerImageVersions;
 
     /**
+     * @example registry-vpc.cn-shenzhen.aliyuncs.com
+     *
      * @var string
      */
     public $containerRegistry;
 
     /**
+     * @example yyyy/MM/dd HH:mm:ss
+     *
      * @var string
      */
     public $lastModified;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $location;

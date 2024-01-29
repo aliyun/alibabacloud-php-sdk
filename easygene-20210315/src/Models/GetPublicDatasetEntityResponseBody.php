@@ -14,26 +14,36 @@ class GetPublicDatasetEntityResponseBody extends Model
     public $attributes;
 
     /**
+     * @example 西蒙斯基因组多样性计划
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example sample
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

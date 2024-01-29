@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteSubmissionRequest extends Model
 {
     /**
+     * @example sub-13BeXWnGvrOl3MC124tazcJVKaV
+     *
      * @var string
      */
     public $submissionId;
 
     /**
+     * @example TestWorkspace
+     *
      * @var string
      */
     public $workspace;

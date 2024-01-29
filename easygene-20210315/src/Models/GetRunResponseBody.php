@@ -10,51 +10,71 @@ use AlibabaCloud\Tea\Model;
 class GetRunResponseBody extends Model
 {
     /**
+     * @example Sentieon
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $appRevision;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $calls;
 
     /**
+     * @example 2021-06-10T13:30:20.414557061Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $defaultRuntime;
 
     /**
+     * @example test run
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2021-06-10T13:36:20.405878292Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example s1
+     *
      * @var string
      */
     public $entityName;
 
     /**
+     * @example sample
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example oss://my-bucket/exec/
+     *
      * @var string
      */
     public $executeDirectory;
@@ -65,16 +85,22 @@ class GetRunResponseBody extends Model
     public $executeOptions;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $failures;
 
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example {     "workflow1.task1.param1": "helloooo.txt",     "workflow1.task1.param2": "abc",     "workflow1.task2.param1": "new_helloooo.txt",     "workflow1.task2.param2": "def" }
+     *
      * @var string
      */
     public $inputs;
@@ -85,61 +111,85 @@ class GetRunResponseBody extends Model
     public $labels;
 
     /**
+     * @example oss://my-bucket/output/
+     *
      * @var string
      */
     public $outputFolder;
 
     /**
+     * @example {         "workflow1.bam": "oss://my-bucket/test.bam",         "workflow1.vcf": "oss://my-bucket/test.vcf"     }
+     *
      * @var string
      */
     public $outputs;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example run-13BeYuxc0fxO24uA75UppTiMRoQ
+     *
      * @var string
      */
     public $runId;
 
     /**
+     * @example test-run
+     *
      * @var string
      */
     public $runName;
 
     /**
+     * @example EasyGene
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example 2021-06-10T13:30:24.414557061Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example sub-13BeXWnGvrOl3MC124tazcJVKaV
+     *
      * @var string
      */
     public $submissionId;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $timing;
 
     /**
+     * @example 13579222
+     *
      * @var string
      */
     public $user;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;

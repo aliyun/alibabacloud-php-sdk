@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class outputsExpression extends Model
 {
     /**
+     * @example help test
+     *
      * @var string
      */
     public $help;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $required;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $stepOrder;
 
     /**
+     * @example task1
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $variableName;
 
     /**
+     * @example File
+     *
      * @var string
      */
     public $variableType;
 
     /**
+     * @example oss://bucket/test.vcf
+     *
      * @var string
      */
     public $variableValue;

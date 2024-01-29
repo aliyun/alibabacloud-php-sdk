@@ -14,11 +14,15 @@ class DeleteEntityItemsRequest extends Model
     public $entityNames;
 
     /**
+     * @example sample
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;

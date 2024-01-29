@@ -14,6 +14,8 @@ class entityItems extends Model
     public $entityData;
 
     /**
+     * @example sample
+     *
      * @var string
      */
     public $entityName;

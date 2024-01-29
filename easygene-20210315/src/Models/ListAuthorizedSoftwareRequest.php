@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListAuthorizedSoftwareRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isReversed;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example 0f2cc944-67db-4fb1-bb10-f136cda74bda
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example LastModified
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example Sentieon
+     *
      * @var string
      */
     public $search;

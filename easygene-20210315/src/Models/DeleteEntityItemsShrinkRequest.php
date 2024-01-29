@@ -14,11 +14,15 @@ class DeleteEntityItemsShrinkRequest extends Model
     public $entityNamesShrink;
 
     /**
+     * @example sample
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;

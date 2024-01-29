@@ -15,11 +15,15 @@ class UpdateEntityRequest extends Model
     public $entityItems;
 
     /**
+     * @example sample
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;

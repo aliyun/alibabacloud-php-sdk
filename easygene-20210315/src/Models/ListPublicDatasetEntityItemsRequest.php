@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ListPublicDatasetEntityItemsRequest extends Model
 {
     /**
+     * @example 西蒙斯基因组多样性计划
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example sample
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isReversed;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example 0f2cc944-67db-4fb1-bb10-f136cda74bda
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example LastModified
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example s1
+     *
      * @var string
      */
     public $search;

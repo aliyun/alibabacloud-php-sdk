@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class submission extends Model
 {
     /**
+     * @example 2021-06-16T15:09:14.378297+08:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2021-06-16T15:09:14.378297+08:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example TestEntityType
+     *
      * @var string
      */
     public $entityType;
@@ -30,21 +36,29 @@ class submission extends Model
     public $runStats;
 
     /**
+     * @example 2021-06-16T15:09:14.378297+08:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Succeeded
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example sub-13BeXWnGvrOl3MC124tazcJVKaV
+     *
      * @var string
      */
     public $submissionId;
 
     /**
+     * @example TestWorkspace
+     *
      * @var string
      */
     public $workspace;

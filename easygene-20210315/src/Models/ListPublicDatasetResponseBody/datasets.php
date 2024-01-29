@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class datasets extends Model
 {
     /**
+     * @example This is description about dataset.
+     *
      * @var string
      */
     public $about;
 
     /**
+     * @example This are access requirements.
+     *
      * @var string
      */
     public $accessRequirements;
 
     /**
+     * @example This is copyright.
+     *
      * @var string
      */
     public $copyright;
 
     /**
+     * @example This are access requirements
+     *
      * @var string
      */
     public $datasetDescription;
@@ -34,11 +42,15 @@ class datasets extends Model
     public $datasetId;
 
     /**
+     * @example 西蒙斯基因组多样性计划
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example yyyy/MM/dd HH:mm:ss
+     *
      * @var string
      */
     public $lastModified;
@@ -54,6 +66,8 @@ class datasets extends Model
     public $tags;
 
     /**
+     * @example 源站更新后及时同步
+     *
      * @var string
      */
     public $updateFrequency;

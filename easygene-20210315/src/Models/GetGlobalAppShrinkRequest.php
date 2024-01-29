@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetGlobalAppShrinkRequest extends Model
 {
     /**
+     * @example joint-calling
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $appVersion;
 
     /**
+     * @example AppVersion, AppDescriptorFiles, DescriptorType, DAG, Document, Comment, Alias, NamespaceName, AppScope, AppName, AppDescription, RegionIds, Categories, Toolkit, AppVersions, AppDefaultVersion, AppFee, LastModified, Pinned, Contact, Links, AppType
+     *
      * @var string
      */
     public $attributesShrink;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example sentieon
+     *
      * @var string
      */
     public $namespaceName;

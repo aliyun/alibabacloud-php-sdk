@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class runStats extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $aborted;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $aborting;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $failed;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pending;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $running;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $submitted;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $succeeded;

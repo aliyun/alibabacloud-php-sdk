@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateShrinkRequest extends Model
 {
     /**
+     * @example MyApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example 4.1.4.1-v1.0
+     *
      * @var string
      */
     public $appRevision;
 
     /**
+     * @example GFjZT93cy1mMDE4OTgxNGU1ZTkK
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example This is a test template
+     *
      * @var string
      */
     public $description;
@@ -34,6 +42,8 @@ class CreateTemplateShrinkRequest extends Model
     public $inputsExpressionShrink;
 
     /**
+     * @example {"key1": "value1"}
+     *
      * @var string
      */
     public $labels;
@@ -44,16 +54,29 @@ class CreateTemplateShrinkRequest extends Model
     public $outputsExpressionShrink;
 
     /**
+     * @example ProduceVersion
+     *
+     * @var string
+     */
+    public $revisionTag;
+
+    /**
+     * @example TestEntity
+     *
      * @var string
      */
     public $rootEntity;
 
     /**
+     * @example test-template
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;
@@ -65,6 +88,7 @@ class CreateTemplateShrinkRequest extends Model
         'inputsExpressionShrink'  => 'InputsExpression',
         'labels'                  => 'Labels',
         'outputsExpressionShrink' => 'OutputsExpression',
+        'revisionTag'             => 'RevisionTag',
         'rootEntity'              => 'RootEntity',
         'templateName'            => 'TemplateName',
         'workspace'               => 'Workspace',
@@ -97,6 +121,9 @@ class CreateTemplateShrinkRequest extends Model
         }
         if (null !== $this->outputsExpressionShrink) {
             $res['OutputsExpression'] = $this->outputsExpressionShrink;
+        }
+        if (null !== $this->revisionTag) {
+            $res['RevisionTag'] = $this->revisionTag;
         }
         if (null !== $this->rootEntity) {
             $res['RootEntity'] = $this->rootEntity;
@@ -139,6 +166,9 @@ class CreateTemplateShrinkRequest extends Model
         }
         if (isset($map['OutputsExpression'])) {
             $model->outputsExpressionShrink = $map['OutputsExpression'];
+        }
+        if (isset($map['RevisionTag'])) {
+            $model->revisionTag = $map['RevisionTag'];
         }
         if (isset($map['RootEntity'])) {
             $model->rootEntity = $map['RootEntity'];

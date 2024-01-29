@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListEntitiesRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isReversed;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example MTIzNDU2P1dvcmtzcGFjZT93cy1mMDE4OTgxNGU1ZTkK
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example createtime
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;

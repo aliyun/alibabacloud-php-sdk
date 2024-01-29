@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class softwares extends Model
 {
     /**
+     * @example https://help.aliyun.com/document_detail/257750.html
+     *
      * @var string
      */
     public $helpLink;
 
     /**
+     * @example yyyy/MM/dd HH:mm:ss
+     *
      * @var string
      */
     public $lastModified;
@@ -29,31 +33,43 @@ class softwares extends Model
     public $promotion;
 
     /**
+     * @example 201911
+     *
      * @var string
      */
     public $softwareDefaultVersion;
 
     /**
+     * @example NGS数据二级分析软件，提供基于CPU的加速方案，可替代BWA，GATK，HaplotypeCaller，Mutect和Mutect2等分析流程。包括DNASeq，DNAScope，TNScope等工具
+     *
      * @var string
      */
     public $softwareDescription;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i2/O1CN01mmZovA1UJfeKQAYvF_!!6000000002497-2-tps-256-256.png
+     *
      * @var string
      */
     public $softwareIcon;
 
     /**
+     * @example 0.15
+     *
      * @var float
      */
     public $softwareLicenseFee;
 
     /**
+     * @example Sentieon加速软件
+     *
      * @var string
      */
     public $softwareLongName;
 
     /**
+     * @example sentieon
+     *
      * @var string
      */
     public $softwareName;

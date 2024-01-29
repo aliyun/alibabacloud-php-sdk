@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class GetPublicDatasetResponseBody extends Model
 {
     /**
+     * @example This is description about dataset.
+     *
      * @var string
      */
     public $about;
 
     /**
+     * @example This are dataset access requirements.
+     *
      * @var string
      */
     public $accessRequirements;
 
     /**
+     * @example This is dataset copyright.
+     *
      * @var string
      */
     public $copyright;
 
     /**
+     * @example This is dataset description.
+     *
      * @var string
      */
     public $datasetDescription;
 
     /**
+     * @example 西蒙斯基因组多样性计划
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example yyyy/MM/dd HH:mm:ss
+     *
      * @var string
      */
     public $lastModified;
@@ -49,6 +63,8 @@ class GetPublicDatasetResponseBody extends Model
     public $locations;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;
@@ -59,6 +75,8 @@ class GetPublicDatasetResponseBody extends Model
     public $tags;
 
     /**
+     * @example 源站更新后及时同步
+     *
      * @var string
      */
     public $updateFrequency;

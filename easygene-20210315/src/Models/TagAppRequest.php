@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\EasyGene\V20210315\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetAppRequest extends Model
+class TagAppRequest extends Model
 {
     /**
      * @example TestApp
@@ -16,14 +16,14 @@ class GetAppRequest extends Model
     public $appName;
 
     /**
-     * @example 0
+     * @example 1
      *
      * @var string
      */
-    public $revision;
+    public $appRevision;
 
     /**
-     * @example TestTag
+     * @example ProduceVersion
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class GetAppRequest extends Model
     public $workspace;
     protected $_name = [
         'appName'     => 'AppName',
-        'revision'    => 'Revision',
+        'appRevision' => 'AppRevision',
         'revisionTag' => 'RevisionTag',
         'workspace'   => 'Workspace',
     ];
@@ -52,8 +52,8 @@ class GetAppRequest extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-        if (null !== $this->revision) {
-            $res['Revision'] = $this->revision;
+        if (null !== $this->appRevision) {
+            $res['AppRevision'] = $this->appRevision;
         }
         if (null !== $this->revisionTag) {
             $res['RevisionTag'] = $this->revisionTag;
@@ -68,7 +68,7 @@ class GetAppRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetAppRequest
+     * @return TagAppRequest
      */
     public static function fromMap($map = [])
     {
@@ -76,8 +76,8 @@ class GetAppRequest extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-        if (isset($map['Revision'])) {
-            $model->revision = $map['Revision'];
+        if (isset($map['AppRevision'])) {
+            $model->appRevision = $map['AppRevision'];
         }
         if (isset($map['RevisionTag'])) {
             $model->revisionTag = $map['RevisionTag'];

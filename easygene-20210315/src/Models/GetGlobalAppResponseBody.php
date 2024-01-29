@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class GetGlobalAppResponseBody extends Model
 {
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $appDefaultVersion;
 
     /**
+     * @example This is app description.
+     *
      * @var string
      */
     public $appDescription;
@@ -26,31 +30,43 @@ class GetGlobalAppResponseBody extends Model
     public $appDescriptorFiles;
 
     /**
+     * @example WDL / CWL
+     *
      * @var string
      */
     public $appDescriptorType;
 
     /**
+     * @example 实际使用时，计算该应用消耗的资源费用
+     *
      * @var string
      */
     public $appFee;
 
     /**
+     * @example joint-calling
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example OpenAccess / Protected
+     *
      * @var string
      */
     public $appScope;
 
     /**
+     * @example workflow
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @example 1.2a-3
+     *
      * @var string
      */
     public $appVersion;
@@ -66,31 +82,43 @@ class GetGlobalAppResponseBody extends Model
     public $categories;
 
     /**
+     * @example 初始版本
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example support@sentieon.com
+     *
      * @var string
      */
     public $contact;
 
     /**
+     * @example DAG
+     *
      * @var string
      */
     public $DAG;
 
     /**
+     * @example The app details.
+     *
      * @var string
      */
     public $document;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example yyyy/MM/dd HH:mm:ss
+     *
      * @var string
      */
     public $lastModified;
@@ -106,21 +134,29 @@ class GetGlobalAppResponseBody extends Model
     public $locations;
 
     /**
+     * @example sentieon
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $pinned;
 
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Sentieon
+     *
      * @var string
      */
     public $toolkit;

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class CreateAppRequest extends Model
 {
     /**
+     * @example TestApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example App
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @example TestToken
+     *
      * @var string
      */
     public $clientToken;
@@ -31,6 +37,8 @@ class CreateAppRequest extends Model
     public $configs;
 
     /**
+     * @example import "./task/echo.wdl" as echo workflow wf_echo {   call echo.echo }
+     *
      * @var string
      */
     public $definition;
@@ -41,41 +49,64 @@ class CreateAppRequest extends Model
     public $dependencies;
 
     /**
+     * @example This is a test app
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example Example documentation content
+     *
      * @var string
      */
     public $documentation;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $labels;
 
     /**
+     * @example WDL
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $languageVersion;
 
     /**
+     * @example main.wdl
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example Example revision comment
+     *
      * @var string
      */
     public $revisionComment;
 
     /**
+     * @example ProduceVersion
+     *
+     * @var string
+     */
+    public $revisionTag;
+
+    /**
+     * @example TestWorkspace
+     *
      * @var string
      */
     public $workspace;
@@ -93,6 +124,7 @@ class CreateAppRequest extends Model
         'languageVersion' => 'LanguageVersion',
         'path'            => 'Path',
         'revisionComment' => 'RevisionComment',
+        'revisionTag'     => 'RevisionTag',
         'workspace'       => 'Workspace',
     ];
 
@@ -153,6 +185,9 @@ class CreateAppRequest extends Model
         }
         if (null !== $this->revisionComment) {
             $res['RevisionComment'] = $this->revisionComment;
+        }
+        if (null !== $this->revisionTag) {
+            $res['RevisionTag'] = $this->revisionTag;
         }
         if (null !== $this->workspace) {
             $res['Workspace'] = $this->workspace;
@@ -219,6 +254,9 @@ class CreateAppRequest extends Model
         }
         if (isset($map['RevisionComment'])) {
             $model->revisionComment = $map['RevisionComment'];
+        }
+        if (isset($map['RevisionTag'])) {
+            $model->revisionTag = $map['RevisionTag'];
         }
         if (isset($map['Workspace'])) {
             $model->workspace = $map['Workspace'];

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateSubmissionShrinkRequest extends Model
 {
     /**
+     * @example TestApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example TestToken
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $defaultRuntime;
@@ -29,41 +35,64 @@ class CreateSubmissionShrinkRequest extends Model
     public $entityNamesShrink;
 
     /**
+     * @example TestEntityType
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example oss://my-bucket/my-exe-dir/
+     *
      * @var string
      */
     public $executeDirectory;
 
     /**
+     * @example { 	        "CallCaching": false, 	        "DeleteIntermediateResults": true, 	        "FailureMode": "NoNewCalls"         }
+     *
      * @var string
      */
     public $executeOptions;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $inputs;
 
     /**
+     * @example oss://my-bucket/my-output-dir/
+     *
      * @var string
      */
     public $outputFolder;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $outputs;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $revision;
 
     /**
+     * @example ProduceVersion
+     *
+     * @var string
+     */
+    public $revisionTag;
+
+    /**
+     * @example TestWorkspace
+     *
      * @var string
      */
     public $workspace;
@@ -79,6 +108,7 @@ class CreateSubmissionShrinkRequest extends Model
         'outputFolder'      => 'OutputFolder',
         'outputs'           => 'Outputs',
         'revision'          => 'Revision',
+        'revisionTag'       => 'RevisionTag',
         'workspace'         => 'Workspace',
     ];
 
@@ -121,6 +151,9 @@ class CreateSubmissionShrinkRequest extends Model
         }
         if (null !== $this->revision) {
             $res['Revision'] = $this->revision;
+        }
+        if (null !== $this->revisionTag) {
+            $res['RevisionTag'] = $this->revisionTag;
         }
         if (null !== $this->workspace) {
             $res['Workspace'] = $this->workspace;
@@ -169,6 +202,9 @@ class CreateSubmissionShrinkRequest extends Model
         }
         if (isset($map['Revision'])) {
             $model->revision = $map['Revision'];
+        }
+        if (isset($map['RevisionTag'])) {
+            $model->revisionTag = $map['RevisionTag'];
         }
         if (isset($map['Workspace'])) {
             $model->workspace = $map['Workspace'];

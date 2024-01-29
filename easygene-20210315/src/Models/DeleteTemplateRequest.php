@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteTemplateRequest extends Model
 {
     /**
+     * @example test-template
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;

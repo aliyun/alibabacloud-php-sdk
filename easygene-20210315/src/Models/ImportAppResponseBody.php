@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ImportAppResponseBody extends Model
 {
     /**
+     * @example InstalledApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example TestWorkspace
+     *
      * @var string
      */
     public $workspace;

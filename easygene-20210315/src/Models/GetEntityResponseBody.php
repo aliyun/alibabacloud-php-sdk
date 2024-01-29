@@ -14,26 +14,36 @@ class GetEntityResponseBody extends Model
     public $attributes;
 
     /**
+     * @example sample
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateRunResponseBody extends Model
 {
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example run-13BeYuxc0fxO24uA75UppTiMRoQ
+     *
      * @var string
      */
     public $runId;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;

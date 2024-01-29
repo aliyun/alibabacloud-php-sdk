@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\EasyGene\V20210315\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateTemplateResponse extends Model
+class TagAppResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateTemplateResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreateTemplateResponseBody
+     * @var TagAppResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class CreateTemplateResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateTemplateResponse
+     * @return TagAppResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class CreateTemplateResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateTemplateResponseBody::fromMap($map['body']);
+            $model->body = TagAppResponseBody::fromMap($map['body']);
         }
 
         return $model;

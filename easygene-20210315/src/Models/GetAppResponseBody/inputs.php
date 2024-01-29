@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class inputs extends Model
 {
     /**
+     * @example help information
+     *
      * @var string
      */
     public $help;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $required;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $stepOrder;
 
     /**
+     * @example TestTaskName
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @example TestVariableName
+     *
      * @var string
      */
     public $variableName;
 
     /**
+     * @example TestVariableType
+     *
      * @var string
      */
     public $variableType;
 
     /**
+     * @example TestVariableValue
+     *
      * @var string
      */
     public $variableValue;

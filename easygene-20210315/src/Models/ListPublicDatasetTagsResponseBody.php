@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListPublicDatasetTagsResponseBody extends Model
 {
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example ba6d88e2-a6f2-4d2c-a2ae-68b76b078445
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;
@@ -34,6 +42,8 @@ class ListPublicDatasetTagsResponseBody extends Model
     public $tags;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteRunRequest extends Model
 {
     /**
+     * @example run-13BeYuxc0fxO24uA75UppTiMRoQ
+     *
      * @var string
      */
     public $runId;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;

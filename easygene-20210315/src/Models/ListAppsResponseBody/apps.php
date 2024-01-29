@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class apps extends Model
 {
     /**
+     * @example v1
+     *
      * @var string
      */
     public $appDefaultVersion;
 
     /**
+     * @example TestApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example App
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @example 2021-06-10T13:30:20.414557061Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example This is a test app
+     *
      * @var string
      */
     public $description;
@@ -39,21 +49,29 @@ class apps extends Model
     public $labels;
 
     /**
+     * @example WDL
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example Public
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example EasyGene
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example TestWorkspace
+     *
      * @var string
      */
     public $workspace;

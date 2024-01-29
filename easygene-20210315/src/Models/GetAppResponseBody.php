@@ -14,11 +14,15 @@ use AlibabaCloud\Tea\Model;
 class GetAppResponseBody extends Model
 {
     /**
+     * @example MyTestApp
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example App
+     *
      * @var string
      */
     public $appType;
@@ -29,11 +33,15 @@ class GetAppResponseBody extends Model
     public $configs;
 
     /**
+     * @example 2021-06-16T15:09:14.378297+08:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example WDL content
+     *
      * @var string
      */
     public $definition;
@@ -44,16 +52,22 @@ class GetAppResponseBody extends Model
     public $dependencies;
 
     /**
+     * @example This is a test app
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example example documentation content
+     *
      * @var string
      */
     public $documentation;
 
     /**
+     * @example easygene.cn-beijing.aliyuncs.com
+     *
      * @var string
      */
     public $hostId;
@@ -69,16 +83,22 @@ class GetAppResponseBody extends Model
     public $labels;
 
     /**
+     * @example WDL
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $languageVersion;
 
     /**
+     * @example 2021-06-16T15:09:14.378297+08:00
+     *
      * @var string
      */
     public $lastModifiedTime;
@@ -89,24 +109,39 @@ class GetAppResponseBody extends Model
     public $outputs;
 
     /**
+     * @example main.wdl
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example DA980AD0-158F-44F3-847D-5EAB96C0EB6B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $revision;
 
     /**
+     * @example Example revision comment
+     *
      * @var string
      */
     public $revisionComment;
+
+    /**
+     * @example TestTag
+     *
+     * @var string
+     */
+    public $revisionTag;
 
     /**
      * @var revisions[]
@@ -114,26 +149,36 @@ class GetAppResponseBody extends Model
     public $revisions;
 
     /**
+     * @example Public
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example EasyGene
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example Example url
+     *
      * @var string
      */
     public $URL;
 
     /**
+     * @example MyTestWorkflow
+     *
      * @var string
      */
     public $workflowName;
 
     /**
+     * @example TestWorkspace
+     *
      * @var string
      */
     public $workspace;
@@ -157,6 +202,7 @@ class GetAppResponseBody extends Model
         'requestId'        => 'RequestId',
         'revision'         => 'Revision',
         'revisionComment'  => 'RevisionComment',
+        'revisionTag'      => 'RevisionTag',
         'revisions'        => 'Revisions',
         'scope'            => 'Scope',
         'source'           => 'Source',
@@ -252,6 +298,9 @@ class GetAppResponseBody extends Model
         }
         if (null !== $this->revisionComment) {
             $res['RevisionComment'] = $this->revisionComment;
+        }
+        if (null !== $this->revisionTag) {
+            $res['RevisionTag'] = $this->revisionTag;
         }
         if (null !== $this->revisions) {
             $res['Revisions'] = [];
@@ -369,6 +418,9 @@ class GetAppResponseBody extends Model
         }
         if (isset($map['RevisionComment'])) {
             $model->revisionComment = $map['RevisionComment'];
+        }
+        if (isset($map['RevisionTag'])) {
+            $model->revisionTag = $map['RevisionTag'];
         }
         if (isset($map['Revisions'])) {
             if (!empty($map['Revisions'])) {

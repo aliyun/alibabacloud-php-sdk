@@ -14,11 +14,15 @@ class UpdateEntityItemsShrinkRequest extends Model
     public $entityItemsShrink;
 
     /**
+     * @example sample
+     *
      * @var string
      */
     public $entityType;
 
     /**
+     * @example test-workspace
+     *
      * @var string
      */
     public $workspace;
