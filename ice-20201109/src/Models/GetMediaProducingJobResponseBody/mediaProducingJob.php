@@ -93,6 +93,11 @@ class mediaProducingJob extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $subJobMaterials;
+
+    /**
      * @example ****6e76134d739cc3e85d3e****
      *
      * @var string
@@ -118,22 +123,23 @@ class mediaProducingJob extends Model
      */
     public $vodMediaId;
     protected $_name = [
-        'clipsParam'   => 'ClipsParam',
-        'code'         => 'Code',
-        'completeTime' => 'CompleteTime',
-        'createTime'   => 'CreateTime',
-        'duration'     => 'Duration',
-        'jobId'        => 'JobId',
-        'mediaId'      => 'MediaId',
-        'mediaURL'     => 'MediaURL',
-        'message'      => 'Message',
-        'modifiedTime' => 'ModifiedTime',
-        'projectId'    => 'ProjectId',
-        'status'       => 'Status',
-        'templateId'   => 'TemplateId',
-        'timeline'     => 'Timeline',
-        'userData'     => 'UserData',
-        'vodMediaId'   => 'VodMediaId',
+        'clipsParam'      => 'ClipsParam',
+        'code'            => 'Code',
+        'completeTime'    => 'CompleteTime',
+        'createTime'      => 'CreateTime',
+        'duration'        => 'Duration',
+        'jobId'           => 'JobId',
+        'mediaId'         => 'MediaId',
+        'mediaURL'        => 'MediaURL',
+        'message'         => 'Message',
+        'modifiedTime'    => 'ModifiedTime',
+        'projectId'       => 'ProjectId',
+        'status'          => 'Status',
+        'subJobMaterials' => 'SubJobMaterials',
+        'templateId'      => 'TemplateId',
+        'timeline'        => 'Timeline',
+        'userData'        => 'UserData',
+        'vodMediaId'      => 'VodMediaId',
     ];
 
     public function validate()
@@ -178,6 +184,9 @@ class mediaProducingJob extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->subJobMaterials) {
+            $res['SubJobMaterials'] = $this->subJobMaterials;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -238,6 +247,9 @@ class mediaProducingJob extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['SubJobMaterials'])) {
+            $model->subJobMaterials = $map['SubJobMaterials'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

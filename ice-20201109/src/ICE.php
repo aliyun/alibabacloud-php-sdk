@@ -122,6 +122,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarTrainingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarTrainingJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetBatchMediaProducingJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetBatchMediaProducingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetContentAnalyzeConfigResponse;
@@ -314,6 +316,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAvatarTrainingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAvatarTrainingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAvatarVideoJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAvatarVideoJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitBatchMediaProducingJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitBatchMediaProducingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCustomizedVoiceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobRequest;
@@ -3298,6 +3302,49 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param GetBatchMediaProducingJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetBatchMediaProducingJobResponse
+     */
+    public function getBatchMediaProducingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBatchMediaProducingJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBatchMediaProducingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetBatchMediaProducingJobRequest $request
+     *
+     * @return GetBatchMediaProducingJobResponse
+     */
+    public function getBatchMediaProducingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBatchMediaProducingJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetCategoriesRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -6155,6 +6202,9 @@ class ICE extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->businessType)) {
+            $query['BusinessType'] = $request->businessType;
+        }
         if (!Utils::isUnset($request->includeFileBasicInfo)) {
             $query['IncludeFileBasicInfo'] = $request->includeFileBasicInfo;
         }
@@ -8141,6 +8191,63 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitAvatarVideoJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitBatchMediaProducingJobRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SubmitBatchMediaProducingJobResponse
+     */
+    public function submitBatchMediaProducingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->outputConfig)) {
+            $query['OutputConfig'] = $request->outputConfig;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->editingConfig)) {
+            $body['EditingConfig'] = $request->editingConfig;
+        }
+        if (!Utils::isUnset($request->inputConfig)) {
+            $body['InputConfig'] = $request->inputConfig;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitBatchMediaProducingJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitBatchMediaProducingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitBatchMediaProducingJobRequest $request
+     *
+     * @return SubmitBatchMediaProducingJobResponse
+     */
+    public function submitBatchMediaProducingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitBatchMediaProducingJobWithOptions($request, $runtime);
     }
 
     /**

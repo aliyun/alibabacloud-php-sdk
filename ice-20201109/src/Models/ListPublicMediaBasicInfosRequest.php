@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListPublicMediaBasicInfosRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessType;
+
+    /**
      * @example true
      *
      * @var bool
@@ -50,6 +55,7 @@ class ListPublicMediaBasicInfosRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'businessType'         => 'BusinessType',
         'includeFileBasicInfo' => 'IncludeFileBasicInfo',
         'maxResults'           => 'MaxResults',
         'mediaTagId'           => 'MediaTagId',
@@ -65,6 +71,9 @@ class ListPublicMediaBasicInfosRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->businessType) {
+            $res['BusinessType'] = $this->businessType;
+        }
         if (null !== $this->includeFileBasicInfo) {
             $res['IncludeFileBasicInfo'] = $this->includeFileBasicInfo;
         }
@@ -95,6 +104,9 @@ class ListPublicMediaBasicInfosRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessType'])) {
+            $model->businessType = $map['BusinessType'];
+        }
         if (isset($map['IncludeFileBasicInfo'])) {
             $model->includeFileBasicInfo = $map['IncludeFileBasicInfo'];
         }
