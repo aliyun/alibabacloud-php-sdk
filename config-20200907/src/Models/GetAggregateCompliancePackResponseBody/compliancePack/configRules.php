@@ -33,7 +33,7 @@ class configRules extends Model
     public $configRuleParameters;
 
     /**
-     * @description The description of the rule.
+     * @description The rule description.
      *
      * @var string
      */
@@ -58,7 +58,7 @@ class configRules extends Model
     public $resourceTypesScope;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
      *   1: high
      *   2: medium

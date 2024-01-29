@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The types of the integrated events. Separate multiple event types with commas (,). Valid values:
+     *
+     *   ConfigurationItemChangeNotification: resource change event
+     *   NonCompliantNotification: non-compliance event
+     *
+     * @example NonCompliantNotification
+     *
      * @var string
      */
     public $integratedTypes;
@@ -29,6 +36,8 @@ class data extends Model
     /**
      * @description The name of the cloud service.
      *
+     * @example cms
+     *
      * @var string
      */
     public $serviceName;
@@ -39,7 +48,7 @@ class data extends Model
      *   1: The cloud service is integrated.
      *   0: The cloud service is not integrated.
      *
-     * @example 1
+     * @example true
      *
      * @var bool
      */

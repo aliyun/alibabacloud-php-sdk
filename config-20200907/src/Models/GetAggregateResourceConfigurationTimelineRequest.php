@@ -58,7 +58,6 @@ class GetAggregateResourceConfigurationTimelineRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account to which the resource in the account group belongs.
      *
-     * > You can use either the ResourceAccountId or ResourceOwnerId parameter. We recommend that you use the ResourceAccountId parameter.
      * @example 100931896542****
      *
      * @var int

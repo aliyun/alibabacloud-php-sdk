@@ -21,6 +21,13 @@ class GetIntegratedServiceStatusResponseBody extends Model
     public $data;
 
     /**
+     * @description The types of the integrated events. Separate multiple event types with commas (,). Valid values:
+     *
+     *   ConfigurationItemChangeNotification: resource change event
+     *   NonCompliantNotification: non-compliance event
+     *
+     * @example NonCompliantNotification
+     *
      * @var string
      */
     public $integratedTypes;

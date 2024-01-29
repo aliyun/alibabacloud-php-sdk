@@ -1120,6 +1120,9 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->folderId)) {
+            $body['FolderId'] = $request->folderId;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1326,10 +1329,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * ### Limits
-     *   * You can use an ordinary account to create up to 200 rules.
-     *   * ### Usage notes
-     *   * This topic provides an example on how to create a managed rule named required-tags. The returned result indicates that the rule is created and the ID of the rule is `cr-5772ba41209e007b****`.
+     * ## Limits
+     *   * You can use a common account to create up to 200 rules.
      *   *
      * @param CreateConfigRuleRequest $tmpReq  CreateConfigRuleRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1415,10 +1416,8 @@ class Config extends OpenApiClient
     }
 
     /**
-     * ### Limits
-     *   * You can use an ordinary account to create up to 200 rules.
-     *   * ### Usage notes
-     *   * This topic provides an example on how to create a managed rule named required-tags. The returned result indicates that the rule is created and the ID of the rule is `cr-5772ba41209e007b****`.
+     * ## Limits
+     *   * You can use a common account to create up to 200 rules.
      *   *
      * @param CreateConfigRuleRequest $request CreateConfigRuleRequest
      *
@@ -3654,8 +3653,11 @@ class Config extends OpenApiClient
     public function getAggregatorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3663,7 +3665,7 @@ class Config extends OpenApiClient
             'version'     => '2020-09-07',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',

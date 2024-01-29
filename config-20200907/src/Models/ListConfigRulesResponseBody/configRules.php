@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class configRules extends Model
 {
     /**
-     * @description The types of resources evaluated by the rule. Separate multiple resource types with commas (,).
+     * @description The rule list.
      *
      * @var configRuleList[]
      */

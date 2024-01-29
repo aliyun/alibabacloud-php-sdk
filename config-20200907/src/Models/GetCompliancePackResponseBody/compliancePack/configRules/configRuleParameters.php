@@ -29,8 +29,8 @@ class configRuleParameters extends Model
     /**
      * @description Indicates whether the input parameter is required. Valid values:
      *
-     *   true: The input parameter is required.
-     *   false: The input parameter is optional.
+     *   true
+     *   false
      *
      * @example true
      *

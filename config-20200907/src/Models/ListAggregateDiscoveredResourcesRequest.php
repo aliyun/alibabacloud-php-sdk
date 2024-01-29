@@ -46,6 +46,8 @@ class ListAggregateDiscoveredResourcesRequest extends Model
     public $regions;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resources in the account group belong.
+     *
      * @example 100931896542****
      *
      * @var int

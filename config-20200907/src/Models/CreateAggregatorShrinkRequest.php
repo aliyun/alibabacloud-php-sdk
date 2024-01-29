@@ -53,12 +53,18 @@ class CreateAggregatorShrinkRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $folderId;
     protected $_name = [
         'aggregatorAccountsShrink' => 'AggregatorAccounts',
         'aggregatorName'           => 'AggregatorName',
         'aggregatorType'           => 'AggregatorType',
         'clientToken'              => 'ClientToken',
         'description'              => 'Description',
+        'folderId'                 => 'FolderId',
     ];
 
     public function validate()
@@ -82,6 +88,9 @@ class CreateAggregatorShrinkRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->folderId) {
+            $res['FolderId'] = $this->folderId;
         }
 
         return $res;
@@ -109,6 +118,9 @@ class CreateAggregatorShrinkRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['FolderId'])) {
+            $model->folderId = $map['FolderId'];
         }
 
         return $model;

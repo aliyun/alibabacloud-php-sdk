@@ -16,7 +16,7 @@ class compliances extends Model
      *   NOT_APPLICABLE: The rule does not apply to the resource.
      *   INSUFFICIENT_DATA: No data is available.
      *
-     * @example ACS::ECS::Instance
+     * @example COMPLIANT
      *
      * @var string
      */

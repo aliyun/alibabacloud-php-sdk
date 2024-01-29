@@ -83,6 +83,11 @@ class aggregators extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $folderId;
     protected $_name = [
         'accountId'                 => 'AccountId',
         'aggregatorAccountCount'    => 'AggregatorAccountCount',
@@ -92,6 +97,7 @@ class aggregators extends Model
         'aggregatorStatus'          => 'AggregatorStatus',
         'aggregatorType'            => 'AggregatorType',
         'description'               => 'Description',
+        'folderId'                  => 'FolderId',
     ];
 
     public function validate()
@@ -124,6 +130,9 @@ class aggregators extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->folderId) {
+            $res['FolderId'] = $this->folderId;
         }
 
         return $res;
@@ -160,6 +169,9 @@ class aggregators extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['FolderId'])) {
+            $model->folderId = $map['FolderId'];
         }
 
         return $model;
