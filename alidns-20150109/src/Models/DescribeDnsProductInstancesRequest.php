@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsProductInstancesRequest extends Model
 {
     /**
+     * @description The Sorting direction. Values:
+     * **DESC**: Descending (if not specified, the default is descending order)
+     * **ASC**: Ascending
+     *
      * @example DESC
      *
      * @var string
@@ -16,6 +20,11 @@ class DescribeDnsProductInstancesRequest extends Model
     public $direction;
 
     /**
+     * @description The type of the domain name. Valid values:
+     *
+     *   PUBLIC (default): hosted public domain name
+     *   CACHE: cached public domain name
+     *
      * @example PUBLIC
      *
      * @var string
@@ -23,7 +32,10 @@ class DescribeDnsProductInstancesRequest extends Model
     public $domainType;
 
     /**
-     * @description The version code of the Alibaba Cloud DNS instance.
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** : Chinese
+     *   **en** (default) : English
      *
      * @example en
      *
@@ -32,6 +44,10 @@ class DescribeDnsProductInstancesRequest extends Model
     public $lang;
 
     /**
+     * @description The Sorting parameter. Values:
+     * createDate: Sort by creation time (if not specified, the default is to sort by creation time)
+     * expireDate: Sort by expiration time
+     *
      * @example createDate
      *
      * @var string
@@ -39,7 +55,7 @@ class DescribeDnsProductInstancesRequest extends Model
     public $orderBy;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -48,7 +64,7 @@ class DescribeDnsProductInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
      *
      * @example 20
      *
@@ -57,7 +73,7 @@ class DescribeDnsProductInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The total number of domain names.
+     * @description The IP address of the client.
      *
      * @example 192.0.2.0
      *
@@ -66,7 +82,7 @@ class DescribeDnsProductInstancesRequest extends Model
     public $userClientIp;
 
     /**
-     * @description The page number of the returned page.
+     * @description The version code of the Alibaba Cloud DNS instance.
      *
      * @example version1
      *

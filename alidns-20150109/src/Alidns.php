@@ -364,7 +364,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to AddCustomLine.
+     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
      *   *
      * @param AddCustomLineRequest $request AddCustomLineRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -406,7 +407,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to AddCustomLine.
+     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
      *   *
      * @param AddCustomLineRequest $request AddCustomLineRequest
      *
@@ -3128,7 +3130,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * The number of the page to return. Pages start from page **1**. Default value: **1**.
+     * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
      *   *
      * @param DescribeDnsProductInstancesRequest $request DescribeDnsProductInstancesRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -3182,7 +3184,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * The number of the page to return. Pages start from page **1**. Default value: **1**.
+     * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
      *   *
      * @param DescribeDnsProductInstancesRequest $request DescribeDnsProductInstancesRequest
      *

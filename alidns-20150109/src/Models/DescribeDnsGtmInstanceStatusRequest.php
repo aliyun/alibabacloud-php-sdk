@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmInstanceStatusRequest extends Model
 {
     /**
-     * @description The number of unavailable addresses.
+     * @description The ID of the instance.
      *
      * @example instance1
      *
@@ -18,7 +18,7 @@ class DescribeDnsGtmInstanceStatusRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the instance.
+     * @description The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
      *
      * @example en
      *

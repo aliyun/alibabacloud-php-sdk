@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags. Default value: false. This parameter is valid only when TagKey is left empty. Valid values: true and false.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -23,7 +27,7 @@ class UntagResourcesRequest extends Model
     public $lang;
 
     /**
-     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+     * @description The resource ID.
      *
      * @example The type of the resource.
      *
@@ -32,7 +36,7 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description Resource Type
+     * @description The resource type.
      *
      * @example DOMAIN
      *
@@ -41,10 +45,7 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description Specifies whether to remove all tags from the specified resource. Default value: false. This parameter takes effect only when the TagKey.N parameter is not specified. Valid values:
-     *
-     *   true
-     *   false
+     * @description The tags added to the resource.
      *
      * @example The domain name.
      *
