@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class resourceGroup extends Model
 {
     /**
-     * @description The unique identifier of the resource group.
+     * @description The ID of the Alibaba Cloud account to which the resource group belongs.
      *
      * @example 151266687691****
      *
@@ -19,7 +19,7 @@ class resourceGroup extends Model
     public $accountId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The time when the resource group was created. The time is displayed in UTC.
      *
      * @example 2021-06-05T14:39:13+08:00
      *
@@ -28,10 +28,7 @@ class resourceGroup extends Model
     public $createDate;
 
     /**
-     * @description The status of the resource group. Valid values:
-     *
-     *   Creating: The resource group is being created.
-     *   OK: The resource group is created.
+     * @description The display name of the resource group.
      *
      * @example my-project
      *
@@ -40,6 +37,8 @@ class resourceGroup extends Model
     public $displayName;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-9gLOoK****
      *
      * @var string
@@ -47,7 +46,7 @@ class resourceGroup extends Model
     public $id;
 
     /**
-     * @description The time when the resource group was created. The time is displayed in UTC.
+     * @description The unique identifier of the resource group.
      *
      * @example my-project
      *
@@ -56,17 +55,17 @@ class resourceGroup extends Model
     public $name;
 
     /**
-     * @description The status of the resource group. Valid values:
-     *
-     *   Creating: The resource group is being created.
-     *   OK: The resource group is created.
+     * @description The status of the resource group in all regions.
      *
      * @var regionStatuses
      */
     public $regionStatuses;
 
     /**
-     * @description The status of the resource group in all regions.
+     * @description The status of the resource group. Valid values:
+     *
+     *   Creating: The resource group is being created.
+     *   OK: The resource group is created.
      *
      * @example Creating
      *

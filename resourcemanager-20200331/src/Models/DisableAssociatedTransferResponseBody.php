@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableAssociatedTransferResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 7CE0AE54-6F27-5522-A429-4C5EE8FD40C8
      *
      * @var string

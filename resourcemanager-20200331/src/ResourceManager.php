@@ -1054,7 +1054,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * For more information about common request parameters, see [Common parameters](~~159973~~).
+     * >  A maximum of 30 resource groups can be created within an Alibaba Cloud account.
      *   *
      * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1093,7 +1093,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * For more information about common request parameters, see [Common parameters](~~159973~~).
+     * >  A maximum of 30 resource groups can be created within an Alibaba Cloud account.
      *   *
      * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
      *
@@ -4711,15 +4711,20 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param UpdateAssociatedTransferSettingRequest $request
-     * @param RuntimeOptions                         $runtime
+     * For information about the resources that support the Transfer Associated Resources feature, see [Use the Transfer Associated Resources feature](~~2639129~~).
+     *   *
+     * @param UpdateAssociatedTransferSettingRequest $request UpdateAssociatedTransferSettingRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAssociatedTransferSettingResponse
+     * @return UpdateAssociatedTransferSettingResponse UpdateAssociatedTransferSettingResponse
      */
     public function updateAssociatedTransferSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->enableExistingResourcesTransfer)) {
+            $query['EnableExistingResourcesTransfer'] = $request->enableExistingResourcesTransfer;
+        }
         if (!Utils::isUnset($request->ruleSettings)) {
             $query['RuleSettings'] = $request->ruleSettings;
         }
@@ -4742,9 +4747,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param UpdateAssociatedTransferSettingRequest $request
+     * For information about the resources that support the Transfer Associated Resources feature, see [Use the Transfer Associated Resources feature](~~2639129~~).
+     *   *
+     * @param UpdateAssociatedTransferSettingRequest $request UpdateAssociatedTransferSettingRequest
      *
-     * @return UpdateAssociatedTransferSettingResponse
+     * @return UpdateAssociatedTransferSettingResponse UpdateAssociatedTransferSettingResponse
      */
     public function updateAssociatedTransferSetting($request)
     {

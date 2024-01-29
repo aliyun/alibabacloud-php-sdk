@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class regionStatus extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account to which the resource group belongs.
+     * @description The region ID.
      *
      * @example cn-qingdao
      *
@@ -18,7 +18,10 @@ class regionStatus extends Model
     public $regionId;
 
     /**
-     * @description The region ID.
+     * @description The status of the resource group. Valid values:
+     *
+     *   Creating: The resource group is being created.
+     *   OK: The resource group is created.
      *
      * @example Creating
      *

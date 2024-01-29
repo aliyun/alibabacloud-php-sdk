@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ruleSettings extends Model
 {
     /**
+     * @description The type of the associated resource.
+     *
+     * You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](~~94479~~).
      * @example disk
      *
      * @var string
@@ -16,6 +19,9 @@ class ruleSettings extends Model
     public $associatedResourceType;
 
     /**
+     * @description The service code of the associated resource.
+     *
+     * You can obtain the service code from the **Service code** column in [Services that work with Resource Group](~~94479~~).
      * @example ecs
      *
      * @var string
@@ -23,6 +29,9 @@ class ruleSettings extends Model
     public $associatedService;
 
     /**
+     * @description The type of the primary resource.
+     *
+     * You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](~~94479~~).
      * @example instance
      *
      * @var string
@@ -30,6 +39,9 @@ class ruleSettings extends Model
     public $masterResourceType;
 
     /**
+     * @description The service code of the primary resource.
+     *
+     * You can obtain the service code from the **Service code** column in [Services that work with Resource Group](~~94479~~).
      * @example ecs
      *
      * @var string
@@ -37,6 +49,9 @@ class ruleSettings extends Model
     public $masterService;
 
     /**
+     * @description The status of the Transfer Associated Resources feature. Valid values:
+     *
+     * - Disable: disabled
      * @example Enable
      *
      * @var string

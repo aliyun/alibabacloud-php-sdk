@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ruleSettings extends Model
 {
     /**
+     * @description The type of the associated resource.
+     *
      * @example disk
      *
      * @var string
@@ -16,6 +18,8 @@ class ruleSettings extends Model
     public $associatedResourceType;
 
     /**
+     * @description The service code of the associated resource.
+     *
      * @example ecs
      *
      * @var string
@@ -23,6 +27,8 @@ class ruleSettings extends Model
     public $associatedService;
 
     /**
+     * @description The type of the primary resource.
+     *
      * @example instance
      *
      * @var string
@@ -30,6 +36,8 @@ class ruleSettings extends Model
     public $masterResourceType;
 
     /**
+     * @description The service code of the primary resource.
+     *
      * @example ecs
      *
      * @var string
@@ -37,6 +45,9 @@ class ruleSettings extends Model
     public $masterService;
 
     /**
+     * @description The status of the Transfer Associated Resources feature. Valid values:
+     *
+     * - Disable: disabled
      * @example Enable
      *
      * @var string

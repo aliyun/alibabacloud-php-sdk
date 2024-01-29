@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListAssociatedTransferSettingResponseBody extends Model
 {
     /**
+     * @description The settings of the Transfer Associated Resources feature.
+     *
      * @var associatedTransferSetting
      */
     public $associatedTransferSetting;
 
     /**
+     * @description The request ID.
+     *
      * @example 7556FD65-45D2-5C45-9FC9-A7DE831C775C
      *
      * @var string

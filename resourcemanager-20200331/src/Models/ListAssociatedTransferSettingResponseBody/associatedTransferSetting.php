@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class associatedTransferSetting extends Model
 {
     /**
+     * @description The settings of the Transfer Associated Resources feature.
+     *
      * @example 121998723923****
      *
      * @var string
@@ -17,20 +19,31 @@ class associatedTransferSetting extends Model
     public $accountId;
 
     /**
+     * @var string
+     */
+    public $enableExistingResourcesTransfer;
+
+    /**
+     * @description The settings of the transfer rules.
+     *
      * @var ruleSettings[]
      */
     public $ruleSettings;
 
     /**
+     * @description The status of the Transfer Associated Resources feature. Valid values:
+     *
+     * - Disable: disabled
      * @example Enable
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'accountId'    => 'AccountId',
-        'ruleSettings' => 'RuleSettings',
-        'status'       => 'Status',
+        'accountId'                       => 'AccountId',
+        'enableExistingResourcesTransfer' => 'EnableExistingResourcesTransfer',
+        'ruleSettings'                    => 'RuleSettings',
+        'status'                          => 'Status',
     ];
 
     public function validate()
@@ -42,6 +55,9 @@ class associatedTransferSetting extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+        if (null !== $this->enableExistingResourcesTransfer) {
+            $res['EnableExistingResourcesTransfer'] = $this->enableExistingResourcesTransfer;
         }
         if (null !== $this->ruleSettings) {
             $res['RuleSettings'] = [];
@@ -69,6 +85,9 @@ class associatedTransferSetting extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+        if (isset($map['EnableExistingResourcesTransfer'])) {
+            $model->enableExistingResourcesTransfer = $map['EnableExistingResourcesTransfer'];
         }
         if (isset($map['RuleSettings'])) {
             if (!empty($map['RuleSettings'])) {

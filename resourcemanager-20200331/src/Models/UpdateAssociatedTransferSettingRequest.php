@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateAssociatedTransferSettingRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $enableExistingResourcesTransfer;
+
+    /**
+     * @description The settings of the transfer rules.
+     *
      * @var ruleSettings[]
      */
     public $ruleSettings;
     protected $_name = [
-        'ruleSettings' => 'RuleSettings',
+        'enableExistingResourcesTransfer' => 'EnableExistingResourcesTransfer',
+        'ruleSettings'                    => 'RuleSettings',
     ];
 
     public function validate()
@@ -24,6 +32,9 @@ class UpdateAssociatedTransferSettingRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableExistingResourcesTransfer) {
+            $res['EnableExistingResourcesTransfer'] = $this->enableExistingResourcesTransfer;
+        }
         if (null !== $this->ruleSettings) {
             $res['RuleSettings'] = [];
             if (null !== $this->ruleSettings && \is_array($this->ruleSettings)) {
@@ -45,6 +56,9 @@ class UpdateAssociatedTransferSettingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableExistingResourcesTransfer'])) {
+            $model->enableExistingResourcesTransfer = $map['EnableExistingResourcesTransfer'];
+        }
         if (isset($map['RuleSettings'])) {
             if (!empty($map['RuleSettings'])) {
                 $model->ruleSettings = [];

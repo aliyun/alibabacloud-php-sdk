@@ -10,15 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example my-project
-     *
-     * @var string
-     */
-    public $displayName;
-
-    /**
      * @description The display name of the resource group.
      *
      * The name must be 1 to 50 characters in length.
@@ -26,9 +17,21 @@ class CreateResourceGroupRequest extends Model
      *
      * @var string
      */
+    public $displayName;
+
+    /**
+     * @description The unique identifier of the resource group.
+     *
+     * The identifier must be 3 to 50 characters in length and can contain letters, digits, and hyphens (-). The identifier must start with a letter.
+     * @example my-project
+     *
+     * @var string
+     */
     public $name;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
