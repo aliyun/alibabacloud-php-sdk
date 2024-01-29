@@ -7075,6 +7075,12 @@ class Devops extends OpenApiClient
         if (!Utils::isUnset($request->authorIds)) {
             $query['authorIds'] = $request->authorIds;
         }
+        if (!Utils::isUnset($request->createdAfter)) {
+            $query['createdAfter'] = $request->createdAfter;
+        }
+        if (!Utils::isUnset($request->createdBefore)) {
+            $query['createdBefore'] = $request->createdBefore;
+        }
         if (!Utils::isUnset($request->filter)) {
             $query['filter'] = $request->filter;
         }

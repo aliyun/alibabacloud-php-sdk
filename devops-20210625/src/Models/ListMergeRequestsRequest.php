@@ -23,6 +23,16 @@ class ListMergeRequestsRequest extends Model
     public $authorIds;
 
     /**
+     * @var string
+     */
+    public $createdAfter;
+
+    /**
+     * @var string
+     */
+    public $createdBefore;
+
+    /**
      * @example new
      *
      * @var string
@@ -106,6 +116,8 @@ class ListMergeRequestsRequest extends Model
     protected $_name = [
         'accessToken'    => 'accessToken',
         'authorIds'      => 'authorIds',
+        'createdAfter'   => 'createdAfter',
+        'createdBefore'  => 'createdBefore',
         'filter'         => 'filter',
         'groupIds'       => 'groupIds',
         'labelIds'       => 'labelIds',
@@ -132,6 +144,12 @@ class ListMergeRequestsRequest extends Model
         }
         if (null !== $this->authorIds) {
             $res['authorIds'] = $this->authorIds;
+        }
+        if (null !== $this->createdAfter) {
+            $res['createdAfter'] = $this->createdAfter;
+        }
+        if (null !== $this->createdBefore) {
+            $res['createdBefore'] = $this->createdBefore;
         }
         if (null !== $this->filter) {
             $res['filter'] = $this->filter;
@@ -186,6 +204,12 @@ class ListMergeRequestsRequest extends Model
         }
         if (isset($map['authorIds'])) {
             $model->authorIds = $map['authorIds'];
+        }
+        if (isset($map['createdAfter'])) {
+            $model->createdAfter = $map['createdAfter'];
+        }
+        if (isset($map['createdBefore'])) {
+            $model->createdBefore = $map['createdBefore'];
         }
         if (isset($map['filter'])) {
             $model->filter = $map['filter'];

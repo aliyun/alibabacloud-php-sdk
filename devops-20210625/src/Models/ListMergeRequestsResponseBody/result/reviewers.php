@@ -23,6 +23,16 @@ class reviewers extends Model
     public $email;
 
     /**
+     * @var bool
+     */
+    public $hasCommented;
+
+    /**
+     * @var bool
+     */
+    public $hasReviewed;
+
+    /**
      * @example 43127
      *
      * @var int
@@ -35,6 +45,11 @@ class reviewers extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $reviewOpinionStatus;
 
     /**
      * @var string
@@ -62,14 +77,17 @@ class reviewers extends Model
      */
     public $username;
     protected $_name = [
-        'avatarUrl'  => 'avatarUrl',
-        'email'      => 'email',
-        'id'         => 'id',
-        'name'       => 'name',
-        'reviewTime' => 'reviewTime',
-        'state'      => 'state',
-        'status'     => 'status',
-        'username'   => 'username',
+        'avatarUrl'           => 'avatarUrl',
+        'email'               => 'email',
+        'hasCommented'        => 'hasCommented',
+        'hasReviewed'         => 'hasReviewed',
+        'id'                  => 'id',
+        'name'                => 'name',
+        'reviewOpinionStatus' => 'reviewOpinionStatus',
+        'reviewTime'          => 'reviewTime',
+        'state'               => 'state',
+        'status'              => 'status',
+        'username'            => 'username',
     ];
 
     public function validate()
@@ -85,11 +103,20 @@ class reviewers extends Model
         if (null !== $this->email) {
             $res['email'] = $this->email;
         }
+        if (null !== $this->hasCommented) {
+            $res['hasCommented'] = $this->hasCommented;
+        }
+        if (null !== $this->hasReviewed) {
+            $res['hasReviewed'] = $this->hasReviewed;
+        }
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->reviewOpinionStatus) {
+            $res['reviewOpinionStatus'] = $this->reviewOpinionStatus;
         }
         if (null !== $this->reviewTime) {
             $res['reviewTime'] = $this->reviewTime;
@@ -121,11 +148,20 @@ class reviewers extends Model
         if (isset($map['email'])) {
             $model->email = $map['email'];
         }
+        if (isset($map['hasCommented'])) {
+            $model->hasCommented = $map['hasCommented'];
+        }
+        if (isset($map['hasReviewed'])) {
+            $model->hasReviewed = $map['hasReviewed'];
+        }
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['reviewOpinionStatus'])) {
+            $model->reviewOpinionStatus = $map['reviewOpinionStatus'];
         }
         if (isset($map['reviewTime'])) {
             $model->reviewTime = $map['reviewTime'];

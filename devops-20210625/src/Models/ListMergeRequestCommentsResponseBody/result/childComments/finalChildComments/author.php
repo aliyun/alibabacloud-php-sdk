@@ -30,6 +30,11 @@ class author extends Model
     public $email;
 
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @example codeup
      *
      * @var string
@@ -53,6 +58,7 @@ class author extends Model
         'aliyunPk'  => 'aliyunPk',
         'avatarUrl' => 'avatarUrl',
         'email'     => 'email',
+        'id'        => 'id',
         'name'      => 'name',
         'state'     => 'state',
         'username'  => 'username',
@@ -73,6 +79,9 @@ class author extends Model
         }
         if (null !== $this->email) {
             $res['email'] = $this->email;
+        }
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
@@ -103,6 +112,9 @@ class author extends Model
         }
         if (isset($map['email'])) {
             $model->email = $map['email'];
+        }
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];

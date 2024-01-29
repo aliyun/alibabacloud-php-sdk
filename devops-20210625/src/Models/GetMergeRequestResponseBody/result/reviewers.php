@@ -23,6 +23,11 @@ class reviewers extends Model
     public $email;
 
     /**
+     * @var bool
+     */
+    public $hasCommented;
+
+    /**
      * @example false
      *
      * @var bool
@@ -71,6 +76,7 @@ class reviewers extends Model
     protected $_name = [
         'avatarUrl'           => 'avatarUrl',
         'email'               => 'email',
+        'hasCommented'        => 'hasCommented',
         'hasReviewed'         => 'hasReviewed',
         'id'                  => 'id',
         'name'                => 'name',
@@ -92,6 +98,9 @@ class reviewers extends Model
         }
         if (null !== $this->email) {
             $res['email'] = $this->email;
+        }
+        if (null !== $this->hasCommented) {
+            $res['hasCommented'] = $this->hasCommented;
         }
         if (null !== $this->hasReviewed) {
             $res['hasReviewed'] = $this->hasReviewed;
@@ -131,6 +140,9 @@ class reviewers extends Model
         }
         if (isset($map['email'])) {
             $model->email = $map['email'];
+        }
+        if (isset($map['hasCommented'])) {
+            $model->hasCommented = $map['hasCommented'];
         }
         if (isset($map['hasReviewed'])) {
             $model->hasReviewed = $map['hasReviewed'];

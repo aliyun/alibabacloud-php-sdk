@@ -70,6 +70,11 @@ class result extends Model
     public $localId;
 
     /**
+     * @var string
+     */
+    public $mergedRevision;
+
+    /**
      * @example bca90244c4b749e0b109df52ac0eb570
      *
      * @var string
@@ -210,6 +215,7 @@ class result extends Model
         'iid'                       => 'iid',
         'labels'                    => 'labels',
         'localId'                   => 'localId',
+        'mergedRevision'            => 'mergedRevision',
         'mrBizId'                   => 'mrBizId',
         'nameWithNamespace'         => 'nameWithNamespace',
         'newMergeRequestIdentifier' => 'newMergeRequestIdentifier',
@@ -271,6 +277,9 @@ class result extends Model
         }
         if (null !== $this->localId) {
             $res['localId'] = $this->localId;
+        }
+        if (null !== $this->mergedRevision) {
+            $res['mergedRevision'] = $this->mergedRevision;
         }
         if (null !== $this->mrBizId) {
             $res['mrBizId'] = $this->mrBizId;
@@ -388,6 +397,9 @@ class result extends Model
         }
         if (isset($map['localId'])) {
             $model->localId = $map['localId'];
+        }
+        if (isset($map['mergedRevision'])) {
+            $model->mergedRevision = $map['mergedRevision'];
         }
         if (isset($map['mrBizId'])) {
             $model->mrBizId = $map['mrBizId'];
