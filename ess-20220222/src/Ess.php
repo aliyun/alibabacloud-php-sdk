@@ -1375,6 +1375,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->creditSpecification)) {
             $query['CreditSpecification'] = $request->creditSpecification;
         }
+        if (!Utils::isUnset($request->customPriorities)) {
+            $query['CustomPriorities'] = $request->customPriorities;
+        }
         if (!Utils::isUnset($request->dataDisks)) {
             $query['DataDisks'] = $request->dataDisks;
         }
@@ -5048,6 +5051,9 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->creditSpecification)) {
             $query['CreditSpecification'] = $request->creditSpecification;
+        }
+        if (!Utils::isUnset($request->customPriorities)) {
+            $query['CustomPriorities'] = $request->customPriorities;
         }
         if (!Utils::isUnset($request->dataDisks)) {
             $query['DataDisks'] = $request->dataDisks;

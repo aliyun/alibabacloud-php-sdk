@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody;
 
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\customPriorities;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\dataDisks;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\instancePatternInfos;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\schedulerOptions;
@@ -55,6 +56,11 @@ class scalingConfigurations extends Model
      * @var string
      */
     public $creditSpecification;
+
+    /**
+     * @var customPriorities[]
+     */
+    public $customPriorities;
 
     /**
      * @description Details of the data disks.
@@ -625,6 +631,7 @@ class scalingConfigurations extends Model
         'cpu'                              => 'Cpu',
         'creationTime'                     => 'CreationTime',
         'creditSpecification'              => 'CreditSpecification',
+        'customPriorities'                 => 'CustomPriorities',
         'dataDisks'                        => 'DataDisks',
         'dedicatedHostId'                  => 'DedicatedHostId',
         'deletionProtection'               => 'DeletionProtection',
@@ -706,6 +713,15 @@ class scalingConfigurations extends Model
         }
         if (null !== $this->creditSpecification) {
             $res['CreditSpecification'] = $this->creditSpecification;
+        }
+        if (null !== $this->customPriorities) {
+            $res['CustomPriorities'] = [];
+            if (null !== $this->customPriorities && \is_array($this->customPriorities)) {
+                $n = 0;
+                foreach ($this->customPriorities as $item) {
+                    $res['CustomPriorities'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->dataDisks) {
             $res['DataDisks'] = [];
@@ -937,6 +953,15 @@ class scalingConfigurations extends Model
         }
         if (isset($map['CreditSpecification'])) {
             $model->creditSpecification = $map['CreditSpecification'];
+        }
+        if (isset($map['CustomPriorities'])) {
+            if (!empty($map['CustomPriorities'])) {
+                $model->customPriorities = [];
+                $n                       = 0;
+                foreach ($map['CustomPriorities'] as $item) {
+                    $model->customPriorities[$n++] = null !== $item ? customPriorities::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['DataDisks'])) {
             if (!empty($map['DataDisks'])) {
