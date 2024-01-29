@@ -178,6 +178,11 @@ class ModifyInstanceSpecRequest extends Model
     public $shardCount;
 
     /**
+     * @var int
+     */
+    public $slaveReadOnlyCount;
+
+    /**
      * @description The source of the operation. This parameter is used only for internal maintenance. You do not need to specify this parameter.
      *
      * @example SDK
@@ -205,6 +210,7 @@ class ModifyInstanceSpecRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
         'shardCount'           => 'ShardCount',
+        'slaveReadOnlyCount'   => 'SlaveReadOnlyCount',
         'sourceBiz'            => 'SourceBiz',
     ];
 
@@ -271,6 +277,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (null !== $this->shardCount) {
             $res['ShardCount'] = $this->shardCount;
+        }
+        if (null !== $this->slaveReadOnlyCount) {
+            $res['SlaveReadOnlyCount'] = $this->slaveReadOnlyCount;
         }
         if (null !== $this->sourceBiz) {
             $res['SourceBiz'] = $this->sourceBiz;
@@ -343,6 +352,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (isset($map['ShardCount'])) {
             $model->shardCount = $map['ShardCount'];
+        }
+        if (isset($map['SlaveReadOnlyCount'])) {
+            $model->slaveReadOnlyCount = $map['SlaveReadOnlyCount'];
         }
         if (isset($map['SourceBiz'])) {
             $model->sourceBiz = $map['SourceBiz'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnlockDBInstanceWriteRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

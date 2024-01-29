@@ -93,6 +93,10 @@ class CreateTairInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description 集群备份集ID。
+     *
+     * @example cb-hyxdof5x9kqbtust
+     *
      * @var string
      */
     public $clusterBackupId;
@@ -194,7 +198,7 @@ class CreateTairInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description 参数模板ID，根据新创建的参数模板参数创建实例，不可重复。
+     * @description The ID of the parameter template. The instance is created based on the parameters in the parameter template. The ID must be unique.
      *
      * @example g-50npzjcqb1ua6q6j****
      *
@@ -327,6 +331,11 @@ class CreateTairInstanceRequest extends Model
     public $shardType;
 
     /**
+     * @var int
+     */
+    public $slaveReadOnlyCount;
+
+    /**
      * @description The ID of the source instance.
      *
      * > If you want to create an instance based on the backup set of an existing instance, set this parameter to the ID of the source instance and the **BackupId** parameter to the backup set that you want to use.
@@ -424,6 +433,7 @@ class CreateTairInstanceRequest extends Model
         'securityToken'          => 'SecurityToken',
         'shardCount'             => 'ShardCount',
         'shardType'              => 'ShardType',
+        'slaveReadOnlyCount'     => 'SlaveReadOnlyCount',
         'srcDBInstanceId'        => 'SrcDBInstanceId',
         'storage'                => 'Storage',
         'storageType'            => 'StorageType',
@@ -538,6 +548,9 @@ class CreateTairInstanceRequest extends Model
         }
         if (null !== $this->shardType) {
             $res['ShardType'] = $this->shardType;
+        }
+        if (null !== $this->slaveReadOnlyCount) {
+            $res['SlaveReadOnlyCount'] = $this->slaveReadOnlyCount;
         }
         if (null !== $this->srcDBInstanceId) {
             $res['SrcDBInstanceId'] = $this->srcDBInstanceId;
@@ -676,6 +689,9 @@ class CreateTairInstanceRequest extends Model
         }
         if (isset($map['ShardType'])) {
             $model->shardType = $map['ShardType'];
+        }
+        if (isset($map['SlaveReadOnlyCount'])) {
+            $model->slaveReadOnlyCount = $map['SlaveReadOnlyCount'];
         }
         if (isset($map['SrcDBInstanceId'])) {
             $model->srcDBInstanceId = $map['SrcDBInstanceId'];

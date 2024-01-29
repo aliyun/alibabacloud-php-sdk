@@ -18,6 +18,8 @@ class DescribeBackupsRequest extends Model
     public $backupId;
 
     /**
+     * @example 10001
+     *
      * @var int
      */
     public $backupJobId;

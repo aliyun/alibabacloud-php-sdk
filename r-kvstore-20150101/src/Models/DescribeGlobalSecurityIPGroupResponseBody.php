@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalSecurityIPGroupResponseBody extends Model
 {
     /**
-     * @description 1
+     * @description The information about the IP whitelist template.
      *
      * @var globalSecurityIPGroup[]
      */

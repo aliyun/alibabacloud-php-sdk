@@ -101,6 +101,10 @@ class CreateInstanceRequest extends Model
     public $chargeType;
 
     /**
+     * @description Backup files ID of cluster instance.
+     *
+     * @example cb-hyxdof5x9kqbtust
+     *
      * @var string
      */
     public $clusterBackupId;

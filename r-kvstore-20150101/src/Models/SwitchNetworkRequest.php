@@ -76,7 +76,7 @@ class SwitchNetworkRequest extends Model
     public $targetNetworkType;
 
     /**
-     * @description The ID of the vSwitch that belongs to the VPC to which you want to switch. You can call the [DescribeVpcs](~~DescribeVpcs~~) operation to query vSwitch IDs.
+     * @description The ID of the vSwitch that belongs to the VPC to which you want to switch. You can call the [DescribeVpcs](~~35739~~) operation to query vSwitch IDs.
      *
      * >  The vSwitch and the ApsaraDB for Redis instance must belong to the same zone.
      * @example vsw-bp1e7clcw529l773d****
@@ -86,7 +86,7 @@ class SwitchNetworkRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC to which you want to switch. You can call the [DescribeVpcs](~~DescribeVpcs~~) operation to query VPC IDs.
+     * @description The ID of the VPC to which you want to switch. You can call the [DescribeVpcs](~~35739~~) operation to query VPC IDs.
      *
      * > *   The VPC and the ApsaraDB for Redis instance must be deployed in the same region.
      * > *   After you set this parameter, you must also set the **VSwitchId** parameter.

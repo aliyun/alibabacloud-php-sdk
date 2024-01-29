@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnlockDBInstanceWriteResponseBody extends Model
 {
     /**
+     * @description The name of the instance.
+     *
      * @example r-2ev03avw0r0552***
      *
      * @var string
@@ -16,6 +18,8 @@ class UnlockDBInstanceWriteResponseBody extends Model
     public $DBInstanceName;
 
     /**
+     * @description The request ID.
+     *
      * @example 5D622714-AEDD-4609-9167-F5DDD3D1****
      *
      * @var string
@@ -23,6 +27,8 @@ class UnlockDBInstanceWriteResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example 10****
      *
      * @var int
