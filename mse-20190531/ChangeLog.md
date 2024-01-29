@@ -1,3 +1,7 @@
+2024-01-29 Version: 5.2.10
+- Update API GetGatewayRouteDetailupdate response param.
+
+
 2024-01-25 Version: 5.2.9
 - Generated php 2019-05-31 for mse.
 

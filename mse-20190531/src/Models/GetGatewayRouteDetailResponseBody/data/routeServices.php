@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data\routeServices\httpDubboTranscoder;
 use AlibabaCloud\Tea\Model;
 
 class routeServices extends Model
@@ -32,6 +33,11 @@ class routeServices extends Model
      * @var string
      */
     public $healthStatus;
+
+    /**
+     * @var httpDubboTranscoder
+     */
+    public $httpDubboTranscoder;
 
     /**
      * @description The service name.
@@ -110,18 +116,19 @@ class routeServices extends Model
      */
     public $version;
     protected $_name = [
-        'agreementType'      => 'AgreementType',
-        'groupName'          => 'GroupName',
-        'healthStatus'       => 'HealthStatus',
-        'name'               => 'Name',
-        'namespace'          => 'Namespace',
-        'percent'            => 'Percent',
-        'serviceId'          => 'ServiceId',
-        'serviceName'        => 'ServiceName',
-        'servicePort'        => 'ServicePort',
-        'sourceType'         => 'SourceType',
-        'unhealthyEndpoints' => 'UnhealthyEndpoints',
-        'version'            => 'Version',
+        'agreementType'       => 'AgreementType',
+        'groupName'           => 'GroupName',
+        'healthStatus'        => 'HealthStatus',
+        'httpDubboTranscoder' => 'HttpDubboTranscoder',
+        'name'                => 'Name',
+        'namespace'           => 'Namespace',
+        'percent'             => 'Percent',
+        'serviceId'           => 'ServiceId',
+        'serviceName'         => 'ServiceName',
+        'servicePort'         => 'ServicePort',
+        'sourceType'          => 'SourceType',
+        'unhealthyEndpoints'  => 'UnhealthyEndpoints',
+        'version'             => 'Version',
     ];
 
     public function validate()
@@ -139,6 +146,9 @@ class routeServices extends Model
         }
         if (null !== $this->healthStatus) {
             $res['HealthStatus'] = $this->healthStatus;
+        }
+        if (null !== $this->httpDubboTranscoder) {
+            $res['HttpDubboTranscoder'] = null !== $this->httpDubboTranscoder ? $this->httpDubboTranscoder->toMap() : null;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -187,6 +197,9 @@ class routeServices extends Model
         }
         if (isset($map['HealthStatus'])) {
             $model->healthStatus = $map['HealthStatus'];
+        }
+        if (isset($map['HttpDubboTranscoder'])) {
+            $model->httpDubboTranscoder = httpDubboTranscoder::fromMap($map['HttpDubboTranscoder']);
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
