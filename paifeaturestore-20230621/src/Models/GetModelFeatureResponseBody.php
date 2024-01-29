@@ -11,6 +11,13 @@ use AlibabaCloud\Tea\Model;
 class GetModelFeatureResponseBody extends Model
 {
     /**
+     * @example from feature_store_py.fs_client import FeatureStoreClient\nfrom feature_store_py.fs_project import FeatureStoreProject\nfrom feature_store_py.fs_datasource import LabelInput, MaxComputeDataSource, TrainingSetOutput\nfrom feature_store_py.fs_features import FeatureSelector\nfrom feature_store_py.fs_config import LabelInputConfig, PartitionConfig, FeatureViewConfig\nfrom feature_store_py.fs_config import TrainSetOutputConfig, EASDeployConfig\nimport datetime\nimport sys\n\ncur_day = args[\"dt\"]\nprint(\"cur_day = \", cur_day)\noffset = datetime.timedelta(days=-1)\npre_day = (datetime.datetime.strptime(cur_day, \"%Y%m%d\") + offset).strftime(\"%Y%m%d\")\nprint(\"pre_day = \", pre_day)\n\n\naccess_key_id = o.account.access_id\naccess_key_secret = o.account.secret_access_key\nfs = FeatureStoreClient(access_key_id=access_key_id, access_key_secret=access_key_secret, region=\"cn-beijing\")\ncur_project_name = \"p1\"\nproject = fs.get_project(cur_project_name)\n\nlabel_partitions = PartitionConfig(name = \"ds\", value = cur_day)\nlabel_input_config = LabelInputConfig(partition_config=label_partitions)\n\nfeature_view_1_partitions = PartitionConfig(name = \"ds\", value = pre_day)\nfeature_view_1_config = FeatureViewConfig(name = \"user_fea\",\npartition_config=feature_view_1_partitions)\n\nfeature_view_2_partitions = PartitionConfig(name = \"ds\", value = pre_day)\nfeature_view_2_config = FeatureViewConfig(name = \"seq_fea\",\npartition_config=feature_view_2_partitions)\n\nfeature_view_3_partitions = PartitionConfig(name = \"ds\", value = pre_day)\nfeature_view_3_config = FeatureViewConfig(name = \"item_fea\",\npartition_config=feature_view_3_partitions)\n\nfeature_view_config_list = [feature_view_1_config,feature_view_2_config,feature_view_3_config]\ntrain_set_partitions = PartitionConfig(name = \"ds\", value = cur_day)\ntrain_set_output_config = TrainSetOutputConfig(partition_config=train_set_partitions)\n\n\nmodel_name = \"rank_v1\"\ncur_model = project.get_model(model_name)\ntask = cur_model.export_train_set(label_input_config, feature_view_config_list, train_set_output_config)\ntask.wait()\nprint(\"task_summary = \", task.task_summary)\n
+     *
+     * @var string
+     */
+    public $exportTrainingSetTableScript;
+
+    /**
      * @var features[]
      */
     public $features;
@@ -97,19 +104,20 @@ class GetModelFeatureResponseBody extends Model
      */
     public $trainingSetTable;
     protected $_name = [
-        'features'           => 'Features',
-        'gmtCreateTime'      => 'GmtCreateTime',
-        'gmtModifiedTime'    => 'GmtModifiedTime',
-        'labelTableId'       => 'LabelTableId',
-        'labelTableName'     => 'LabelTableName',
-        'name'               => 'Name',
-        'owner'              => 'Owner',
-        'projectId'          => 'ProjectId',
-        'projectName'        => 'ProjectName',
-        'relations'          => 'Relations',
-        'requestId'          => 'RequestId',
-        'trainingSetFGTable' => 'TrainingSetFGTable',
-        'trainingSetTable'   => 'TrainingSetTable',
+        'exportTrainingSetTableScript' => 'ExportTrainingSetTableScript',
+        'features'                     => 'Features',
+        'gmtCreateTime'                => 'GmtCreateTime',
+        'gmtModifiedTime'              => 'GmtModifiedTime',
+        'labelTableId'                 => 'LabelTableId',
+        'labelTableName'               => 'LabelTableName',
+        'name'                         => 'Name',
+        'owner'                        => 'Owner',
+        'projectId'                    => 'ProjectId',
+        'projectName'                  => 'ProjectName',
+        'relations'                    => 'Relations',
+        'requestId'                    => 'RequestId',
+        'trainingSetFGTable'           => 'TrainingSetFGTable',
+        'trainingSetTable'             => 'TrainingSetTable',
     ];
 
     public function validate()
@@ -119,6 +127,9 @@ class GetModelFeatureResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->exportTrainingSetTableScript) {
+            $res['ExportTrainingSetTableScript'] = $this->exportTrainingSetTableScript;
+        }
         if (null !== $this->features) {
             $res['Features'] = [];
             if (null !== $this->features && \is_array($this->features)) {
@@ -176,6 +187,9 @@ class GetModelFeatureResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExportTrainingSetTableScript'])) {
+            $model->exportTrainingSetTableScript = $map['ExportTrainingSetTableScript'];
+        }
         if (isset($map['Features'])) {
             if (!empty($map['Features'])) {
                 $model->features = [];

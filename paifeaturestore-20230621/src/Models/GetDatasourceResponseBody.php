@@ -23,6 +23,20 @@ class GetDatasourceResponseBody extends Model
     public $datasourceId;
 
     /**
+     * @example 2023-07-04T11:26:09.036+08:00
+     *
+     * @var string
+     */
+    public $gmtCreateTime;
+
+    /**
+     * @example 2023-07-04T11:26:09.036+08:00
+     *
+     * @var string
+     */
+    public $gmtModifiedTime;
+
+    /**
      * @example datasource1
      *
      * @var string
@@ -57,13 +71,15 @@ class GetDatasourceResponseBody extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'config'       => 'Config',
-        'datasourceId' => 'DatasourceId',
-        'name'         => 'Name',
-        'requestId'    => 'RequestId',
-        'type'         => 'Type',
-        'uri'          => 'Uri',
-        'workspaceId'  => 'WorkspaceId',
+        'config'          => 'Config',
+        'datasourceId'    => 'DatasourceId',
+        'gmtCreateTime'   => 'GmtCreateTime',
+        'gmtModifiedTime' => 'GmtModifiedTime',
+        'name'            => 'Name',
+        'requestId'       => 'RequestId',
+        'type'            => 'Type',
+        'uri'             => 'Uri',
+        'workspaceId'     => 'WorkspaceId',
     ];
 
     public function validate()
@@ -78,6 +94,12 @@ class GetDatasourceResponseBody extends Model
         }
         if (null !== $this->datasourceId) {
             $res['DatasourceId'] = $this->datasourceId;
+        }
+        if (null !== $this->gmtCreateTime) {
+            $res['GmtCreateTime'] = $this->gmtCreateTime;
+        }
+        if (null !== $this->gmtModifiedTime) {
+            $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -111,6 +133,12 @@ class GetDatasourceResponseBody extends Model
         }
         if (isset($map['DatasourceId'])) {
             $model->datasourceId = $map['DatasourceId'];
+        }
+        if (isset($map['GmtCreateTime'])) {
+            $model->gmtCreateTime = $map['GmtCreateTime'];
+        }
+        if (isset($map['GmtModifiedTime'])) {
+            $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

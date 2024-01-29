@@ -99,6 +99,13 @@ class GetFeatureViewResponseBody extends Model
     public $projectName;
 
     /**
+     * @example from feature_store_py.fs_client import FeatureStoreClient\nimport datetime\nfrom feature_store_py.fs_datasource import MaxComputeDataSource\nimport sys\n\ncur_day = args[\"dt\"]\nprint(\"cur_day = \", cur_day)\n\naccess_key_id = o.account.access_id\naccess_key_secret = o.account.secret_access_key\nfs = FeatureStoreClient(access_key_id=access_key_id, access_key_secret=access_key_secret, region=\"cn-beijing\")\ncur_project_name = \"p1\"\nproject = fs.get_project(cur_project_name)\n\nfeature_view_name = \"user_fea\"\nbatch_feature_view = project.get_feature_view(feature_view_name)\ntask = batch_feature_view.publish_table(partitions={\"ds\":cur_day}, mode=\"Overwrite\")\ntask.wait()\ntask.print_summary()\n
+     *
+     * @var string
+     */
+    public $publishTableScript;
+
+    /**
      * @example 4
      *
      * @var string
@@ -172,6 +179,7 @@ class GetFeatureViewResponseBody extends Model
         'owner'                  => 'Owner',
         'projectId'              => 'ProjectId',
         'projectName'            => 'ProjectName',
+        'publishTableScript'     => 'PublishTableScript',
         'registerDatasourceId'   => 'RegisterDatasourceId',
         'registerDatasourceName' => 'RegisterDatasourceName',
         'registerTable'          => 'RegisterTable',
@@ -234,6 +242,9 @@ class GetFeatureViewResponseBody extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->publishTableScript) {
+            $res['PublishTableScript'] = $this->publishTableScript;
         }
         if (null !== $this->registerDatasourceId) {
             $res['RegisterDatasourceId'] = $this->registerDatasourceId;
@@ -318,6 +329,9 @@ class GetFeatureViewResponseBody extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['PublishTableScript'])) {
+            $model->publishTableScript = $map['PublishTableScript'];
         }
         if (isset($map['RegisterDatasourceId'])) {
             $model->registerDatasourceId = $map['RegisterDatasourceId'];
