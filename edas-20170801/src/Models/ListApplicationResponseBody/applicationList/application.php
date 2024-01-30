@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class application extends Model
 {
     /**
-     * @description The application ID.
+     * @description The ID of the application.
      *
      * @example 00ee517d-dd7d-4d4e-****-************
      *
@@ -41,7 +41,7 @@ class application extends Model
     public $buildPackageId;
 
     /**
-     * @description The cluster ID.
+     * @description The ID of the cluster.
      *
      * @example c37aec2a-bcca-4ec1-****-************
      *
@@ -117,6 +117,8 @@ class application extends Model
     public $name;
 
     /**
+     * @description The ID of the microservices namespace.
+     *
      * @example cn-hangzhou:test
      *
      * @var string
@@ -133,7 +135,7 @@ class application extends Model
     public $port;
 
     /**
-     * @description The region ID.
+     * @description The region ID of the application.
      *
      * @example cn-beijing:docTes
      *

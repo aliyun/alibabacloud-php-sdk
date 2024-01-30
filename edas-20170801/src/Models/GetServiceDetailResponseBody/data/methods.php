@@ -19,7 +19,7 @@ class methods extends Model
     public $methodController;
 
     /**
-     * @description The name.
+     * @description The name of the service.
      *
      * @example feign2
      *
@@ -37,7 +37,7 @@ class methods extends Model
     public $nameDetail;
 
     /**
-     * @description The definition of the parameter.
+     * @description The parameter definitions.
      *
      * @example [{"description":"","name":"arg0","type":"java.lang.String"}]
      *
@@ -46,7 +46,7 @@ class methods extends Model
     public $parameterDefinitions;
 
     /**
-     * @description The details of the parameters.
+     * @description The parameter details.
      *
      * @example {}
      *
@@ -55,7 +55,7 @@ class methods extends Model
     public $parameterDetails;
 
     /**
-     * @description The name of the parameter.
+     * @description The parameter names.
      *
      * @example test
      *
@@ -64,7 +64,7 @@ class methods extends Model
     public $parameterNames;
 
     /**
-     * @description The data type of the parameter.
+     * @description The parameter types.
      *
      * @example ["java.lang.String"]
      *
@@ -73,7 +73,7 @@ class methods extends Model
     public $parameterTypes;
 
     /**
-     * @description The method path.
+     * @description The method paths.
      *
      * @example ["/consumer-echo/feign/{str}"]
      *
@@ -82,7 +82,7 @@ class methods extends Model
     public $paths;
 
     /**
-     * @description The request method.
+     * @description The request methods.
      *
      * @example GET
      *
@@ -98,7 +98,7 @@ class methods extends Model
     public $returnDefinition;
 
     /**
-     * @description The details of the response.
+     * @description The response details.
      *
      * @example test
      *
@@ -107,7 +107,7 @@ class methods extends Model
     public $returnDetails;
 
     /**
-     * @description The data format of the response.
+     * @description The type of the response.
      *
      * @example java.lang.String
      *

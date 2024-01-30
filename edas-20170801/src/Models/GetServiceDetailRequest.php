@@ -57,7 +57,7 @@ class GetServiceDetailRequest extends Model
     public $origin;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID of the service.
      *
      * @example cn-hangzhou
      *

@@ -18,7 +18,7 @@ class returnDefinition extends Model
     public $id;
 
     /**
-     * @description The type.
+     * @description The type of the response.
      *
      * @example foo
      *

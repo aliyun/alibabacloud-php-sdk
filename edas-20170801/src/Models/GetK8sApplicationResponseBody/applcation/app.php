@@ -99,7 +99,7 @@ class app extends Model
     public $deployType;
 
     /**
-     * @description The type of the application. Valid values:
+     * @description The application type. Valid values:
      *
      *   General: native Java application
      *   Pandora: Pandora application
@@ -121,7 +121,7 @@ class app extends Model
     public $edasContainerVersion;
 
     /**
-     * @description 应用是否开启了推空保护。
+     * @description Indicates whether the Empty List Protection feature is enabled for the application.
      *
      * @example true
      *
@@ -130,7 +130,7 @@ class app extends Model
     public $enableEmptyPushReject;
 
     /**
-     * @description 应用是否开启了无损上线。
+     * @description Indicates whether the Graceful Release feature is enabled for the application.
      *
      * @example true
      *
@@ -144,6 +144,20 @@ class app extends Model
      * @var envList
      */
     public $envList;
+
+    /**
+     * @description The feature annotations. Possible values:
+     *
+     *   base.combination.edas: enables EDAS integrated management solution.
+     *   base.combination.arms: enables ARMS monitoring.
+     *   base.combination.mse: enables MSE microservices governance.
+     *   base.combination.none: enables lifecycle management.
+     *
+     * @example base.combination.edas
+     *
+     * @var string
+     */
+    public $featureAnnotations;
 
     /**
      * @description The number of application instances.
@@ -209,7 +223,7 @@ class app extends Model
     public $limitMem;
 
     /**
-     * @description 应用是否启用了无损滚动发布模式配置通过就绪检查前完成服务注册。
+     * @description Indicates whether the Graceful Rolling Release and Configure Complete Service Registration before Readiness Probing feature is enabled for the application.
      *
      * @example true
      *
@@ -218,7 +232,7 @@ class app extends Model
     public $losslessRuleAligned;
 
     /**
-     * @description 应用配置的服务延迟注册时长，单位：秒。
+     * @description The delay of service registration. Unit: seconds.
      *
      * @example 120
      *
@@ -227,7 +241,7 @@ class app extends Model
     public $losslessRuleDelayTime;
 
     /**
-     * @description 应用设置的服务预热曲线。
+     * @description The number of prefetching curves.
      *
      * @example 2
      *
@@ -236,7 +250,7 @@ class app extends Model
     public $losslessRuleFuncType;
 
     /**
-     * @description 应用是否启用了无损滚动发布模式配置通过就绪检查前完成服务预热。
+     * @description Indicates whether the Graceful Rolling Release and Configure Complete Service Prefetching before Readiness Probing feature is enabled for the application.
      *
      * @example true
      *
@@ -245,7 +259,7 @@ class app extends Model
     public $losslessRuleRelated;
 
     /**
-     * @description 应用设置的服务预热时长，单位：秒。
+     * @description The service prefetching duration. Unit: seconds.
      *
      * @example 120
      *
@@ -312,6 +326,15 @@ class app extends Model
      * @var string
      */
     public $tomcatVersion;
+
+    /**
+     * @description The workload type. Valid values: Deployment and StatefulSet. If you do not specify this parameter, Deployment is used.
+     *
+     * @example Deployment
+     *
+     * @var string
+     */
+    public $workloadType;
     protected $_name = [
         'annotations'             => 'Annotations',
         'appId'                   => 'AppId',
@@ -328,6 +351,7 @@ class app extends Model
         'enableEmptyPushReject'   => 'EnableEmptyPushReject',
         'enableLosslessRule'      => 'EnableLosslessRule',
         'envList'                 => 'EnvList',
+        'featureAnnotations'      => 'FeatureAnnotations',
         'instances'               => 'Instances',
         'instancesBeforeScaling'  => 'InstancesBeforeScaling',
         'k8sNamespace'            => 'K8sNamespace',
@@ -346,6 +370,7 @@ class app extends Model
         'requestMem'              => 'RequestMem',
         'slbInfo'                 => 'SlbInfo',
         'tomcatVersion'           => 'TomcatVersion',
+        'workloadType'            => 'WorkloadType',
     ];
 
     public function validate()
@@ -400,6 +425,9 @@ class app extends Model
         if (null !== $this->envList) {
             $res['EnvList'] = null !== $this->envList ? $this->envList->toMap() : null;
         }
+        if (null !== $this->featureAnnotations) {
+            $res['FeatureAnnotations'] = $this->featureAnnotations;
+        }
         if (null !== $this->instances) {
             $res['Instances'] = $this->instances;
         }
@@ -453,6 +481,9 @@ class app extends Model
         }
         if (null !== $this->tomcatVersion) {
             $res['TomcatVersion'] = $this->tomcatVersion;
+        }
+        if (null !== $this->workloadType) {
+            $res['WorkloadType'] = $this->workloadType;
         }
 
         return $res;
@@ -511,6 +542,9 @@ class app extends Model
         if (isset($map['EnvList'])) {
             $model->envList = envList::fromMap($map['EnvList']);
         }
+        if (isset($map['FeatureAnnotations'])) {
+            $model->featureAnnotations = $map['FeatureAnnotations'];
+        }
         if (isset($map['Instances'])) {
             $model->instances = $map['Instances'];
         }
@@ -564,6 +598,9 @@ class app extends Model
         }
         if (isset($map['TomcatVersion'])) {
             $model->tomcatVersion = $map['TomcatVersion'];
+        }
+        if (isset($map['WorkloadType'])) {
+            $model->workloadType = $map['WorkloadType'];
         }
 
         return $model;

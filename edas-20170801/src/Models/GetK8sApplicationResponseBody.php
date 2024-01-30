@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetK8sApplicationResponseBody extends Model
 {
     /**
-     * @description The details of the application.
+     * @description The information about the application.
      *
      * @var applcation
      */

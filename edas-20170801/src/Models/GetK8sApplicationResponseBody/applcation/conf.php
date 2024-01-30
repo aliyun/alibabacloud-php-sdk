@@ -168,7 +168,7 @@ class conf extends Model
     public $tolerations;
 
     /**
-     * @description 使用自定义OpenJDK运行时，配置的基础镜像地址。
+     * @description The URL of the base image. If you use a custom Java Development Kit (JDK) runtime, you must specify this parameter.
      *
      * @example openjdk:8u302
      *

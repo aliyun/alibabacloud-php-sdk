@@ -28,7 +28,7 @@ class data extends Model
     public $edasAppName;
 
     /**
-     * @description The group to which the service belongs.
+     * @description The group.
      *
      * @example dubbo
      *

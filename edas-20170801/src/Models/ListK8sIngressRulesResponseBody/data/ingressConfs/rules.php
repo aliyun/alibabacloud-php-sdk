@@ -12,8 +12,8 @@ class rules extends Model
     /**
      * @description Indicates whether TLS is enabled. Valid values:
      *
-     *   true: TLS is enabled.
-     *   false: TLS is disabled.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -31,14 +31,14 @@ class rules extends Model
     public $host;
 
     /**
-     * @description The list of paths to be accessed.
+     * @description The paths to be accessed.
      *
      * @var paths[]
      */
     public $paths;
 
     /**
-     * @description The name of the Secret that stores the information about the Transport Layer Security (TLS) certificate.
+     * @description The name of the Secret that stores the Transport Layer Security (TLS) certificate.
      *
      * @example my-secret
      *

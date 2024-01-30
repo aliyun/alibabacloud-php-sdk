@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetServiceDetailResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class GetServiceDetailResponseBody extends Model
     public $code;
 
     /**
-     * @description The data that is returned.
+     * @description The data structure.
      *
      * @var data
      */
@@ -35,7 +35,7 @@ class GetServiceDetailResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the call was successful.
      *
      * @example true
      *

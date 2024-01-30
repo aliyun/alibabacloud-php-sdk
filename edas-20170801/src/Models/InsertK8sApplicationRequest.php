@@ -130,6 +130,11 @@ class InsertK8sApplicationRequest extends Model
     public $customAffinity;
 
     /**
+     * @var string
+     */
+    public $customAgentVersion;
+
+    /**
      * @description The custom tolerances.
      *
      * @example demo
@@ -256,6 +261,11 @@ class InsertK8sApplicationRequest extends Model
     /**
      * @var string
      */
+    public $featureConfig;
+
+    /**
+     * @var string
+     */
     public $imagePlatforms;
 
     /**
@@ -268,6 +278,8 @@ class InsertK8sApplicationRequest extends Model
     public $imageUrl;
 
     /**
+     * @example [
+     * ]
      * @var string
      */
     public $initContainers;
@@ -702,6 +714,8 @@ class InsertK8sApplicationRequest extends Model
     public $serviceConfigs;
 
     /**
+     * @example [{"yamlEncoded":"Y29tbWFuZDoKICAtIHRhaWwKICAtICctZicKICAtIC9kZXYvbnVsbAppbWFnZTogJ2J1c3lib3g6bGF0ZXN0JwpuYW1lOiBidXN5Ym94Cg=="}]
+     *
      * @var string
      */
     public $sidecars;
@@ -728,6 +742,8 @@ class InsertK8sApplicationRequest extends Model
     public $slsConfigs;
 
     /**
+     * @example {"failureThreshold": 3,"initialDelaySeconds": 5,"successThreshold": 1,"timeoutSeconds": 1,"tcpSocket":{"host":"", "port":8080}}
+     *
      * @var string
      */
     public $startup;
@@ -746,6 +762,8 @@ class InsertK8sApplicationRequest extends Model
     public $storageType;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $terminateGracePeriod;
@@ -780,6 +798,8 @@ class InsertK8sApplicationRequest extends Model
     public $useBodyEncoding;
 
     /**
+     * @example openjdk:8u302
+     *
      * @var string
      */
     public $userBaseImageUrl;
@@ -829,6 +849,8 @@ class InsertK8sApplicationRequest extends Model
     public $webContainerConfig;
 
     /**
+     * @example Deployment
+     *
      * @var string
      */
     public $workloadType;
@@ -846,6 +868,7 @@ class InsertK8sApplicationRequest extends Model
         'containerRegistryId'      => 'ContainerRegistryId',
         'csClusterId'              => 'CsClusterId',
         'customAffinity'           => 'CustomAffinity',
+        'customAgentVersion'       => 'CustomAgentVersion',
         'customTolerations'        => 'CustomTolerations',
         'deployAcrossNodes'        => 'DeployAcrossNodes',
         'deployAcrossZones'        => 'DeployAcrossZones',
@@ -857,6 +880,7 @@ class InsertK8sApplicationRequest extends Model
         'enableLosslessRule'       => 'EnableLosslessRule',
         'envFroms'                 => 'EnvFroms',
         'envs'                     => 'Envs',
+        'featureConfig'            => 'FeatureConfig',
         'imagePlatforms'           => 'ImagePlatforms',
         'imageUrl'                 => 'ImageUrl',
         'initContainers'           => 'InitContainers',
@@ -964,6 +988,9 @@ class InsertK8sApplicationRequest extends Model
         if (null !== $this->customAffinity) {
             $res['CustomAffinity'] = $this->customAffinity;
         }
+        if (null !== $this->customAgentVersion) {
+            $res['CustomAgentVersion'] = $this->customAgentVersion;
+        }
         if (null !== $this->customTolerations) {
             $res['CustomTolerations'] = $this->customTolerations;
         }
@@ -996,6 +1023,9 @@ class InsertK8sApplicationRequest extends Model
         }
         if (null !== $this->envs) {
             $res['Envs'] = $this->envs;
+        }
+        if (null !== $this->featureConfig) {
+            $res['FeatureConfig'] = $this->featureConfig;
         }
         if (null !== $this->imagePlatforms) {
             $res['ImagePlatforms'] = $this->imagePlatforms;
@@ -1225,6 +1255,9 @@ class InsertK8sApplicationRequest extends Model
         if (isset($map['CustomAffinity'])) {
             $model->customAffinity = $map['CustomAffinity'];
         }
+        if (isset($map['CustomAgentVersion'])) {
+            $model->customAgentVersion = $map['CustomAgentVersion'];
+        }
         if (isset($map['CustomTolerations'])) {
             $model->customTolerations = $map['CustomTolerations'];
         }
@@ -1257,6 +1290,9 @@ class InsertK8sApplicationRequest extends Model
         }
         if (isset($map['Envs'])) {
             $model->envs = $map['Envs'];
+        }
+        if (isset($map['FeatureConfig'])) {
+            $model->featureConfig = $map['FeatureConfig'];
         }
         if (isset($map['ImagePlatforms'])) {
             $model->imagePlatforms = $map['ImagePlatforms'];

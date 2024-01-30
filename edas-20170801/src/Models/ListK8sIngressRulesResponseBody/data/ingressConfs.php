@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ingressConfs extends Model
 {
     /**
-     * @description The ID of the Application Load Balancer (ALB) instance.
+     * @description The ID of the ALB instance.
      *
      * @example alb-5sde0tq62r********
      *
@@ -55,7 +55,7 @@ class ingressConfs extends Model
     public $endpoint;
 
     /**
-     * @description The type of the Ingress. Valid values:
+     * @description The Ingress type. Valid values:
      *
      *   **NginxIngress**: NGINX Ingress controller
      *   **AlbIngress**: ALB Ingress controller
@@ -68,7 +68,7 @@ class ingressConfs extends Model
     public $ingressType;
 
     /**
-     * @description The labels.
+     * @description The tags.
      *
      * @example {"test-label": "test-labels"}
      *
@@ -77,7 +77,7 @@ class ingressConfs extends Model
     public $labels;
 
     /**
-     * @description The ID of the Microservices Engine (MSE) gateway.
+     * @description The ID of the MSE gateway.
      *
      * @example gw-xxxxxxxx
      *
@@ -95,7 +95,7 @@ class ingressConfs extends Model
     public $mseGatewayName;
 
     /**
-     * @description The name of the Ingress.
+     * @description The Ingress name.
      *
      * @example my-ingress
      *
@@ -131,17 +131,17 @@ class ingressConfs extends Model
     public $officalRequestUrl;
 
     /**
-     * @description The list of routing rules.
+     * @description The routing rules.
      *
      * @var rules[]
      */
     public $rules;
 
     /**
-     * @description Indicates whether SSL redirect is enabled. Valid values:
+     * @description Indicates whether SSL redirection is enabled. Valid values:
      *
-     *   true: SSL redirect is enabled.
-     *   false: SSL redirect is disabled.
+     *   true
+     *   false
      *
      * @example true
      *

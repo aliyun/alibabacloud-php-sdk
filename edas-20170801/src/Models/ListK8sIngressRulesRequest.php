@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListK8sIngressRulesRequest extends Model
 {
     /**
-     * @description The ID of the Kubernetes cluster.
+     * @description The cluster ID.
      *
      * @example 5b2b4ab4-efbc-4a81-9c45-xxxxxxxxxxxxx
      *

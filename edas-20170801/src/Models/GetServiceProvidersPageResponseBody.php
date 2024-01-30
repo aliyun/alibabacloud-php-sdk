@@ -19,7 +19,7 @@ class GetServiceProvidersPageResponseBody extends Model
     public $code;
 
     /**
-     * @description The data that is returned.
+     * @description The data structure.
      *
      * @var data
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The remarks of the service provider.
+     *
      * @example 172.178.XX.XX
      *
      * @var string

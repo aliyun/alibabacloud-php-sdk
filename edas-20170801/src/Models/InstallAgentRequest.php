@@ -18,7 +18,7 @@ class InstallAgentRequest extends Model
     public $clusterId;
 
     /**
-     * @description This parameter is deprecated.
+     * @description This parameter is discontinued.
      *
      * @example true
      *

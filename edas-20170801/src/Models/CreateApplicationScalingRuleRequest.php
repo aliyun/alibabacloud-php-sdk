@@ -18,7 +18,7 @@ class CreateApplicationScalingRuleRequest extends Model
     public $appId;
 
     /**
-     * @description 配置自定义弹性行为，具体数据结构参考样例。
+     * @description Configure custom elastic behavior, refer to the example for specific data structure.
      *
      * @example {
      * }

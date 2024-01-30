@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
-     * @description The ID of the component.
+     * @description The component ID.
      *
      * @example 5
      *
@@ -27,7 +27,7 @@ class components extends Model
     public $componentKey;
 
     /**
-     * @description The type of the component. Valid values:
+     * @description The component type. Valid values:
      *
      * @example JDK
      *

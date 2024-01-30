@@ -19,7 +19,7 @@ class ListK8sIngressRulesResponseBody extends Model
     public $code;
 
     /**
-     * @description The data that is returned.
+     * @description The response data.
      *
      * @var data[]
      */

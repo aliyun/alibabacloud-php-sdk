@@ -38,6 +38,8 @@ class ListApplicationRequest extends Model
     public $clusterId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -61,6 +63,8 @@ class ListApplicationRequest extends Model
     public $logicalRegionIdFilter;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

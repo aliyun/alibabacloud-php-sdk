@@ -28,14 +28,14 @@ class paths extends Model
     public $appName;
 
     /**
-     * @description The configuration of the backend service.
+     * @description The configurations of the backend Service.
      *
      * @var backend
      */
     public $backend;
 
     /**
-     * @description The collection rate that is set based on the trace query feature. You can add a TraceID to a gateway to use the trace query feature of EDAS.
+     * @description The collection rate that is set based on the trace query feature. You can add a trace ID to a gateway to use the trace query feature of EDAS.
      *
      * @example 100
      *
@@ -53,6 +53,12 @@ class paths extends Model
     public $path;
 
     /**
+     * @description The path type that determines how a path is matched.
+     *
+     *   ImplementationSpecific (default)
+     *   Exact
+     *   Prefix
+     *
      * @example ImplementationSpecific
      *
      * @var string
@@ -60,12 +66,12 @@ class paths extends Model
     public $pathType;
 
     /**
-     * @description The status of the Ingress. Valid values:
+     * @description The state of the Ingress. Valid values:
      *
-     *   **Normal**: The Ingress works properly.
-     *   **ServiceNotFound**: The backend service does not exist.
-     *   **InvalidServicePort**: The service port is invalid.
-     *   **NotManagedService**: The service is not managed by EDAS.
+     *   **Normal**: The Ingress works as expected.
+     *   **ServiceNotFound**: The backend Service does not exist.
+     *   **InvalidServicePort**: The Service port is invalid.
+     *   **NotManagedService**: The Service is not managed by EDAS.
      *   **Unknown**: An unknown error occurred.
      *
      * @example Normal

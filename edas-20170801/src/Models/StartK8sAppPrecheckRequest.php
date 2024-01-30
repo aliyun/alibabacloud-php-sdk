@@ -45,6 +45,16 @@ class StartK8sAppPrecheckRequest extends Model
     public $clusterId;
 
     /**
+     * @description The ID of the application component. You can call the ListComponents operation to query application components. This parameter must be specified when the application runs in Apache Tomcat or in a standard Java application runtime environment. The Apache Tomcat application runtime environment is applicable to Dubbo applications that are deployed by using WAR packages. A standard Java application runtime environment is applicable to Spring Boot or Spring Cloud applications that are deployed by using JAR packages.
+     *
+     * Valid values for regular application component IDs:
+     *
+     *   4: Apache Tomcat 7.0.91
+     *   5: OpenJDK 1.8.x
+     *   6: OpenJDK 1.7.x
+     *   7: Apache Tomcat 8.5.42
+     *
+     * This parameter is available only for Java SDK 2.57.3 or later, or Python SDK 2.57.3 or later. Assume that you use an SDK that is not provided by Enterprise Distributed Application Service (EDAS), such as aliyun-python-sdk-core, aliyun-java-sdk-core, and Alibaba Cloud CLI. In this case, you can directly specify this parameter.
      * @example 7
      *
      * @var string
@@ -80,16 +90,15 @@ class StartK8sAppPrecheckRequest extends Model
     /**
      * @description The Kubernetes environment variables that are configured in EnvFrom mode. A ConfigMap or Secret is mounted to a directory. Each key corresponds to a file in the directory, and the content of the file is the value of the key.
      *
-     * The following parameters are included in the configuration:
+     * The following parameters are included in the configuration of the EnvFroms parameter:
      *
-     *   configMapRef: the ConfigMap that is referenced. The following parameter is contained:
+     *   configMapRef: the ConfigMap that is referenced. The following parameter is included:
      *
-     *   name: the name of the ConfigMap.
+     * name: the name of the ConfigMap.
      *
-     *   secretRef: the Secret that is referenced. The following parameter is contained:
+     *   secretRef: the Secret that is referenced. The following parameter is included:
      *
-     *   name: the name of the Secret.
-     *
+     * name: the name of the Secret.
      * @example [{"name":"appname","valueFrom":{"configMapKeyRef":{"name":"appconf","key":"name"}}}]
      *
      * @var string
@@ -213,6 +222,8 @@ class StartK8sAppPrecheckRequest extends Model
     public $pvcMountDescs;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

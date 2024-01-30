@@ -2426,6 +2426,9 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->customAffinity)) {
             $query['CustomAffinity'] = $request->customAffinity;
         }
+        if (!Utils::isUnset($request->customAgentVersion)) {
+            $query['CustomAgentVersion'] = $request->customAgentVersion;
+        }
         if (!Utils::isUnset($request->customTolerations)) {
             $query['CustomTolerations'] = $request->customTolerations;
         }
@@ -4341,6 +4344,9 @@ class Edas extends OpenApiClient
         if (!Utils::isUnset($request->customAffinity)) {
             $query['CustomAffinity'] = $request->customAffinity;
         }
+        if (!Utils::isUnset($request->customAgentVersion)) {
+            $query['CustomAgentVersion'] = $request->customAgentVersion;
+        }
         if (!Utils::isUnset($request->customTolerations)) {
             $query['CustomTolerations'] = $request->customTolerations;
         }
@@ -4373,6 +4379,9 @@ class Edas extends OpenApiClient
         }
         if (!Utils::isUnset($request->envs)) {
             $query['Envs'] = $request->envs;
+        }
+        if (!Utils::isUnset($request->featureConfig)) {
+            $query['FeatureConfig'] = $request->featureConfig;
         }
         if (!Utils::isUnset($request->imagePlatforms)) {
             $query['ImagePlatforms'] = $request->imagePlatforms;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationResponseBody extends Model
 {
     /**
-     * @description The applications that are queried.
+     * @description The information about applications.
      *
      * @var applicationList
      */

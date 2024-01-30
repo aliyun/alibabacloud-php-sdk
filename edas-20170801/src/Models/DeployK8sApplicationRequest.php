@@ -136,6 +136,11 @@ class DeployK8sApplicationRequest extends Model
     public $customAffinity;
 
     /**
+     * @var string
+     */
+    public $customAgentVersion;
+
+    /**
      * @description The scheduling tolerance configuration of the pod. This parameter takes effect only if both the DeployAcrossNodes and DeployAcrossZones parameters are set to false.
      *
      * @example [{"key":"edas-taint-key2","operator":"Exists","effect":"NoExecute","tolerationSeconds":50},{"key":"edas-taint-key","operator":"Equal","value":"edas-taint-value","effect":"PreferNoSchedule"}]
@@ -710,6 +715,7 @@ class DeployK8sApplicationRequest extends Model
         'cpuLimit'                 => 'CpuLimit',
         'cpuRequest'               => 'CpuRequest',
         'customAffinity'           => 'CustomAffinity',
+        'customAgentVersion'       => 'CustomAgentVersion',
         'customTolerations'        => 'CustomTolerations',
         'deployAcrossNodes'        => 'DeployAcrossNodes',
         'deployAcrossZones'        => 'DeployAcrossZones',
@@ -811,6 +817,9 @@ class DeployK8sApplicationRequest extends Model
         }
         if (null !== $this->customAffinity) {
             $res['CustomAffinity'] = $this->customAffinity;
+        }
+        if (null !== $this->customAgentVersion) {
+            $res['CustomAgentVersion'] = $this->customAgentVersion;
         }
         if (null !== $this->customTolerations) {
             $res['CustomTolerations'] = $this->customTolerations;
@@ -1024,6 +1033,9 @@ class DeployK8sApplicationRequest extends Model
         }
         if (isset($map['CustomAffinity'])) {
             $model->customAffinity = $map['CustomAffinity'];
+        }
+        if (isset($map['CustomAgentVersion'])) {
+            $model->customAgentVersion = $map['CustomAgentVersion'];
         }
         if (isset($map['CustomTolerations'])) {
             $model->customTolerations = $map['CustomTolerations'];
