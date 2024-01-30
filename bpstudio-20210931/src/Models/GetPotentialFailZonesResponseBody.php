@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListFoCreatedAppsResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ListFoCreatedAppsResponseBody extends Model
+class GetPotentialFailZonesResponseBody extends Model
 {
     /**
      * @example 200
@@ -17,21 +16,19 @@ class ListFoCreatedAppsResponseBody extends Model
     public $code;
 
     /**
-     * @var data[]
+     * @var string[]
      */
     public $data;
 
     /**
-     * @example Cannot find region according to your domain.
+     * @example The specified ResourceIds are not found in our records.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
-     *
-     * @example 40F63F07-3AB6-53B3-8825-0580C130E3EA
+     * @example BFB7F5C8-FE7A-06CA-9F87-ABBF6B848F0C
      *
      * @var string
      */
@@ -54,13 +51,7 @@ class ListFoCreatedAppsResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Data'] = $this->data;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -75,7 +66,7 @@ class ListFoCreatedAppsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListFoCreatedAppsResponseBody
+     * @return GetPotentialFailZonesResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -85,11 +76,7 @@ class ListFoCreatedAppsResponseBody extends Model
         }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
+                $model->data = $map['Data'];
             }
         }
         if (isset($map['Message'])) {

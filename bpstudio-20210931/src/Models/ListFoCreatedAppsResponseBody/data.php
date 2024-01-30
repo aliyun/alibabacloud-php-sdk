@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example EQ4W772D0VJ33IV1
-     *
      * @var string
      */
-    public $appId;
+    public $applicationId;
 
     /**
      * @example https://api.aliyun.com/troubleshoot?q=ServiceUnavailable&product=BPStudio&requestId=4CDA03A3-C652-1408-8ABD-7E652A7CBFB6
@@ -34,10 +32,10 @@ class data extends Model
      */
     public $title;
     protected $_name = [
-        'appId'     => 'AppId',
-        'reportUrl' => 'ReportUrl',
-        'status'    => 'Status',
-        'title'     => 'Title',
+        'applicationId' => 'ApplicationId',
+        'reportUrl'     => 'ReportUrl',
+        'status'        => 'Status',
+        'title'         => 'Title',
     ];
 
     public function validate()
@@ -47,8 +45,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->applicationId) {
+            $res['ApplicationId'] = $this->applicationId;
         }
         if (null !== $this->reportUrl) {
             $res['ReportUrl'] = $this->reportUrl;
@@ -71,8 +69,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['ApplicationId'])) {
+            $model->applicationId = $map['ApplicationId'];
         }
         if (isset($map['ReportUrl'])) {
             $model->reportUrl = $map['ReportUrl'];

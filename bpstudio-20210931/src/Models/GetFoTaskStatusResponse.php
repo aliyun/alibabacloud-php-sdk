@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListTemplateResponse extends Model
+class GetFoTaskStatusResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListTemplateResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListTemplateResponseBody
+     * @var GetFoTaskStatusResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class ListTemplateResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListTemplateResponse
+     * @return GetFoTaskStatusResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class ListTemplateResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListTemplateResponseBody::fromMap($map['body']);
+            $model->body = GetFoTaskStatusResponseBody::fromMap($map['body']);
         }
 
         return $model;

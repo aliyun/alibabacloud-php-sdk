@@ -54,6 +54,11 @@ class ListApplicationRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $resourceId;
+
+    /**
      * @description The status of the applications to be returned.
      *
      * @example The following values are "success" and "release".
@@ -61,13 +66,20 @@ class ListApplicationRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $templateId;
     protected $_name = [
         'keyword'         => 'Keyword',
         'maxResults'      => 'MaxResults',
         'nextToken'       => 'NextToken',
         'orderType'       => 'OrderType',
         'resourceGroupId' => 'ResourceGroupId',
+        'resourceId'      => 'ResourceId',
         'status'          => 'Status',
+        'templateId'      => 'TemplateId',
     ];
 
     public function validate()
@@ -92,8 +104,14 @@ class ListApplicationRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -122,8 +140,14 @@ class ListApplicationRequest extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

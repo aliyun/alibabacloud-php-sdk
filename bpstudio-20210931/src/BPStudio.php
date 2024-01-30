@@ -6,6 +6,10 @@ namespace AlibabaCloud\SDK\BPStudio\V20210931;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\AppFailBackRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\AppFailBackResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\AppFailOverRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\AppFailOverResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\CreateApplicationRequest;
@@ -22,10 +26,16 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetExecuteOperationResultRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetExecuteOperationResultResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetFoTaskStatusRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetFoTaskStatusResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetPotentialFailZonesRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetPotentialFailZonesResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTemplateRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTokenRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTokenResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\InitAppFailOverRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\InitAppFailOverResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListApplicationRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListApplicationResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListFoCreatedAppsResponse;
@@ -80,6 +90,95 @@ class BPStudio extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AppFailBackRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AppFailBackResponse
+     */
+    public function appFailBackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AppFailBack',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AppFailBackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AppFailBackRequest $request
+     *
+     * @return AppFailBackResponse
+     */
+    public function appFailBack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->appFailBackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AppFailOverRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AppFailOverResponse
+     */
+    public function appFailOverWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->failZone)) {
+            $body['FailZone'] = $request->failZone;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AppFailOver',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AppFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AppFailOverRequest $request
+     *
+     * @return AppFailOverResponse
+     */
+    public function appFailOver($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->appFailOverWithOptions($request, $runtime);
     }
 
     /**
@@ -457,6 +556,95 @@ class BPStudio extends OpenApiClient
     }
 
     /**
+     * @param GetFoTaskStatusRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetFoTaskStatusResponse
+     */
+    public function getFoTaskStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFoTaskStatus',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFoTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetFoTaskStatusRequest $request
+     *
+     * @return GetFoTaskStatusResponse
+     */
+    public function getFoTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFoTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPotentialFailZonesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetPotentialFailZonesResponse
+     */
+    public function getPotentialFailZonesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->isPlanId)) {
+            $body['IsPlanId'] = $request->isPlanId;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $body['ObjectId'] = $request->objectId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPotentialFailZones',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPotentialFailZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPotentialFailZonesRequest $request
+     *
+     * @return GetPotentialFailZonesResponse
+     */
+    public function getPotentialFailZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPotentialFailZonesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetTemplateRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -559,6 +747,49 @@ class BPStudio extends OpenApiClient
     }
 
     /**
+     * @param InitAppFailOverRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return InitAppFailOverResponse
+     */
+    public function initAppFailOverWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $body['ApplicationId'] = $request->applicationId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'InitAppFailOver',
+            'version'     => '2021-09-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InitAppFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InitAppFailOverRequest $request
+     *
+     * @return InitAppFailOverResponse
+     */
+    public function initAppFailOver($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initAppFailOverWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListApplicationRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -583,8 +814,14 @@ class BPStudio extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupId)) {
             $body['ResourceGroupId'] = $request->resourceGroupId;
         }
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
+        }
         if (!Utils::isUnset($request->status)) {
             $body['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
