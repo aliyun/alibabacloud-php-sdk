@@ -5826,6 +5826,9 @@ class Rkvstore extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->backupRetentionPeriod)) {
+            $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+        }
         if (!Utils::isUnset($request->enableBackupLog)) {
             $query['EnableBackupLog'] = $request->enableBackupLog;
         }
@@ -7580,6 +7583,9 @@ class Rkvstore extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->autoPay)) {
             $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
         if (!Utils::isUnset($request->businessInfo)) {
             $query['BusinessInfo'] = $request->businessInfo;

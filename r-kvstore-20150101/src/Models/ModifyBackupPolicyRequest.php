@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $backupRetentionPeriod;
+
+    /**
      * @description Enables or disables the data flashback feature for the instance. Valid values:
      *
      *   **1**: enables the data flashback feature. You must also enable AOF persistence by setting `appendonly` to `yes` in the parameter settings of the instance. Then, you can use the data flashback feature.
@@ -86,6 +91,7 @@ class ModifyBackupPolicyRequest extends Model
      */
     public $securityToken;
     protected $_name = [
+        'backupRetentionPeriod' => 'BackupRetentionPeriod',
         'enableBackupLog'       => 'EnableBackupLog',
         'instanceId'            => 'InstanceId',
         'ownerAccount'          => 'OwnerAccount',
@@ -104,6 +110,9 @@ class ModifyBackupPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupRetentionPeriod) {
+            $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
+        }
         if (null !== $this->enableBackupLog) {
             $res['EnableBackupLog'] = $this->enableBackupLog;
         }
@@ -143,6 +152,9 @@ class ModifyBackupPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupRetentionPeriod'])) {
+            $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
+        }
         if (isset($map['EnableBackupLog'])) {
             $model->enableBackupLog = $map['EnableBackupLog'];
         }

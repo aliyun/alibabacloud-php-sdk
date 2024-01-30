@@ -22,6 +22,11 @@ class RenewInstanceRequest extends Model
     public $autoPay;
 
     /**
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
      * @description The ID of the promotional event or business information.
      *
      * @example 000000000
@@ -121,6 +126,7 @@ class RenewInstanceRequest extends Model
     public $securityToken;
     protected $_name = [
         'autoPay'              => 'AutoPay',
+        'autoRenew'            => 'AutoRenew',
         'businessInfo'         => 'BusinessInfo',
         'capacity'             => 'Capacity',
         'clientToken'          => 'ClientToken',
@@ -145,6 +151,9 @@ class RenewInstanceRequest extends Model
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
         }
         if (null !== $this->businessInfo) {
             $res['BusinessInfo'] = $this->businessInfo;
@@ -199,6 +208,9 @@ class RenewInstanceRequest extends Model
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
         }
         if (isset($map['BusinessInfo'])) {
             $model->businessInfo = $map['BusinessInfo'];
