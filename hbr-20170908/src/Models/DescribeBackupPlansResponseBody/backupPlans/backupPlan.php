@@ -237,6 +237,11 @@ class backupPlan extends Model
     public $keepLatestSnapshots;
 
     /**
+     * @var string
+     */
+    public $latestExecuteJobId;
+
+    /**
      * @description This parameter is valid only if **SourceType** is set to **ECS_FILE**. This parameter indicates whether Windows Volume Shadow Copy Service (VSS) is used to define a source path.
      *
      * @example {"UseVSS":false}
@@ -398,6 +403,7 @@ class backupPlan extends Model
         'instanceId'           => 'InstanceId',
         'instanceName'         => 'InstanceName',
         'keepLatestSnapshots'  => 'KeepLatestSnapshots',
+        'latestExecuteJobId'   => 'LatestExecuteJobId',
         'options'              => 'Options',
         'otsDetail'            => 'OtsDetail',
         'paths'                => 'Paths',
@@ -493,6 +499,9 @@ class backupPlan extends Model
         }
         if (null !== $this->keepLatestSnapshots) {
             $res['KeepLatestSnapshots'] = $this->keepLatestSnapshots;
+        }
+        if (null !== $this->latestExecuteJobId) {
+            $res['LatestExecuteJobId'] = $this->latestExecuteJobId;
         }
         if (null !== $this->options) {
             $res['Options'] = $this->options;
@@ -622,6 +631,9 @@ class backupPlan extends Model
         }
         if (isset($map['KeepLatestSnapshots'])) {
             $model->keepLatestSnapshots = $map['KeepLatestSnapshots'];
+        }
+        if (isset($map['LatestExecuteJobId'])) {
+            $model->latestExecuteJobId = $map['LatestExecuteJobId'];
         }
         if (isset($map['Options'])) {
             $model->options = $map['Options'];

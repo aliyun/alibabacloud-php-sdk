@@ -22,6 +22,8 @@ class DescribeVaultReplicationRegionsRequest extends Model
      *
      * @example v-00030j3c******sn
      *
+     * @deprecated
+     *
      * @var string
      */
     public $vaultId;

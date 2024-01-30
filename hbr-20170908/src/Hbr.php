@@ -721,6 +721,9 @@ class Hbr extends OpenApiClient
         if (!Utils::isUnset($request->detailShrink)) {
             $query['Detail'] = $request->detailShrink;
         }
+        if (!Utils::isUnset($request->disabled)) {
+            $query['Disabled'] = $request->disabled;
+        }
         if (!Utils::isUnset($request->fileSystemId)) {
             $query['FileSystemId'] = $request->fileSystemId;
         }
@@ -1691,6 +1694,9 @@ class Hbr extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->planId)) {
             $query['PlanId'] = $request->planId;
+        }
+        if (!Utils::isUnset($request->requireNoRunningJobs)) {
+            $query['RequireNoRunningJobs'] = $request->requireNoRunningJobs;
         }
         if (!Utils::isUnset($request->sourceType)) {
             $query['SourceType'] = $request->sourceType;

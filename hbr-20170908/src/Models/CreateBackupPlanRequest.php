@@ -111,6 +111,11 @@ class CreateBackupPlanRequest extends Model
     public $detail;
 
     /**
+     * @var bool
+     */
+    public $disabled;
+
+    /**
      * @description This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that are excluded from the backup job. The value can be up to 255 characters in length.
      *
      * @example ["/var", "/proc"]
@@ -297,6 +302,7 @@ class CreateBackupPlanRequest extends Model
         'destDataSourceId'     => 'DestDataSourceId',
         'destSourceType'       => 'DestSourceType',
         'detail'               => 'Detail',
+        'disabled'             => 'Disabled',
         'exclude'              => 'Exclude',
         'fileSystemId'         => 'FileSystemId',
         'include'              => 'Include',
@@ -356,6 +362,9 @@ class CreateBackupPlanRequest extends Model
         }
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
+        }
+        if (null !== $this->disabled) {
+            $res['Disabled'] = $this->disabled;
         }
         if (null !== $this->exclude) {
             $res['Exclude'] = $this->exclude;
@@ -461,6 +470,9 @@ class CreateBackupPlanRequest extends Model
         }
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
+        }
+        if (isset($map['Disabled'])) {
+            $model->disabled = $map['Disabled'];
         }
         if (isset($map['Exclude'])) {
             $model->exclude = $map['Exclude'];

@@ -18,6 +18,11 @@ class DeleteBackupPlanRequest extends Model
     public $planId;
 
     /**
+     * @var bool
+     */
+    public $requireNoRunningJobs;
+
+    /**
      * @description The type of the data source. Valid values:
      *
      *   **ECS_FILE**: Elastic Compute Service (ECS) files
@@ -41,9 +46,10 @@ class DeleteBackupPlanRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'planId'     => 'PlanId',
-        'sourceType' => 'SourceType',
-        'vaultId'    => 'VaultId',
+        'planId'               => 'PlanId',
+        'requireNoRunningJobs' => 'RequireNoRunningJobs',
+        'sourceType'           => 'SourceType',
+        'vaultId'              => 'VaultId',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class DeleteBackupPlanRequest extends Model
         $res = [];
         if (null !== $this->planId) {
             $res['PlanId'] = $this->planId;
+        }
+        if (null !== $this->requireNoRunningJobs) {
+            $res['RequireNoRunningJobs'] = $this->requireNoRunningJobs;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -76,6 +85,9 @@ class DeleteBackupPlanRequest extends Model
         $model = new self();
         if (isset($map['PlanId'])) {
             $model->planId = $map['PlanId'];
+        }
+        if (isset($map['RequireNoRunningJobs'])) {
+            $model->requireNoRunningJobs = $map['RequireNoRunningJobs'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
