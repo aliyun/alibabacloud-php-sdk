@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\EasyGene\V20210315\Models\DeleteAppResponse;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\DeleteEntityItemsRequest;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\DeleteEntityItemsResponse;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\DeleteEntityItemsShrinkRequest;
+use AlibabaCloud\SDK\EasyGene\V20210315\Models\DeleteEntityRequest;
+use AlibabaCloud\SDK\EasyGene\V20210315\Models\DeleteEntityResponse;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\DeleteRunRequest;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\DeleteRunResponse;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\DeleteSubmissionRequest;
@@ -813,6 +815,52 @@ class EasyGene extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteEntityRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteEntityResponse
+     */
+    public function deleteEntityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEntity',
+            'version'     => '2021-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEntityRequest $request
+     *
+     * @return DeleteEntityResponse
+     */
+    public function deleteEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEntityWithOptions($request, $runtime);
     }
 
     /**
