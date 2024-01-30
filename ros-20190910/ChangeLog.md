@@ -1,3 +1,7 @@
+2024-01-30 Version: 2.3.6
+- Update API DeleteStackInstancesupdate DeploymentTargets param.
+
+
 2024-01-12 Version: 2.3.5
 - Generated php 2019-09-10 for ROS.
 
