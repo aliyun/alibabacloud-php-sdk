@@ -38,7 +38,7 @@ class CreatePrometheusInstanceRequest extends Model
 
     /**
      * @description Types include:
-     * - flink: Prometheus for FLink
+     * - flink: Prometheus for Flink
      * @example remote-write
      *
      * @var string

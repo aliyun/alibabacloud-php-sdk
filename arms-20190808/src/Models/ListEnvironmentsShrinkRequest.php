@@ -18,6 +18,11 @@ class ListEnvironmentsShrinkRequest extends Model
     public $addonName;
 
     /**
+     * @var string
+     */
+    public $bindResourceId;
+
+    /**
      * @description Environment type, AddonName or EnvironmentType must be at least one.
      *
      * @example CS
@@ -52,6 +57,7 @@ class ListEnvironmentsShrinkRequest extends Model
     public $tagShrink;
     protected $_name = [
         'addonName'       => 'AddonName',
+        'bindResourceId'  => 'BindResourceId',
         'environmentType' => 'EnvironmentType',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -67,6 +73,9 @@ class ListEnvironmentsShrinkRequest extends Model
         $res = [];
         if (null !== $this->addonName) {
             $res['AddonName'] = $this->addonName;
+        }
+        if (null !== $this->bindResourceId) {
+            $res['BindResourceId'] = $this->bindResourceId;
         }
         if (null !== $this->environmentType) {
             $res['EnvironmentType'] = $this->environmentType;
@@ -94,6 +103,9 @@ class ListEnvironmentsShrinkRequest extends Model
         $model = new self();
         if (isset($map['AddonName'])) {
             $model->addonName = $map['AddonName'];
+        }
+        if (isset($map['BindResourceId'])) {
+            $model->bindResourceId = $map['BindResourceId'];
         }
         if (isset($map['EnvironmentType'])) {
             $model->environmentType = $map['EnvironmentType'];

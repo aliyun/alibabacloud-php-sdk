@@ -42,12 +42,18 @@ class CreateIntegrationRequest extends Model
      * @var int
      */
     public $recoverTime;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'autoRecover'            => 'AutoRecover',
         'description'            => 'Description',
         'integrationName'        => 'IntegrationName',
         'integrationProductType' => 'IntegrationProductType',
         'recoverTime'            => 'RecoverTime',
+        'regionId'               => 'RegionId',
     ];
 
     public function validate()
@@ -71,6 +77,9 @@ class CreateIntegrationRequest extends Model
         }
         if (null !== $this->recoverTime) {
             $res['RecoverTime'] = $this->recoverTime;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -98,6 +107,9 @@ class CreateIntegrationRequest extends Model
         }
         if (isset($map['RecoverTime'])) {
             $model->recoverTime = $map['RecoverTime'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

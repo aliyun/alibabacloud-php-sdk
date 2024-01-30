@@ -303,6 +303,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ListDispatchRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListDispatchRuleResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvCustomJobsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvCustomJobsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentDashboardsRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentDashboardsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentFeaturesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentFeaturesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentsRequest;
@@ -657,10 +659,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddIntegrationRequest $request
-     * @param RuntimeOptions        $runtime
+     * @deprecated : AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
+     *   *
+     * Deprecated
      *
-     * @return AddIntegrationResponse
+     * @param AddIntegrationRequest $request AddIntegrationRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddIntegrationResponse AddIntegrationResponse
      */
     public function addIntegrationWithOptions($request, $runtime)
     {
@@ -694,9 +700,13 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddIntegrationRequest $request
+     * @deprecated : AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
+     *   *
+     * Deprecated
      *
-     * @return AddIntegrationResponse
+     * @param AddIntegrationRequest $request AddIntegrationRequest
+     *
+     * @return AddIntegrationResponse AddIntegrationResponse
      */
     public function addIntegration($request)
     {
@@ -2135,6 +2145,10 @@ class ARMS extends OpenApiClient
     public function createIntegrationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->autoRecover)) {
             $body['AutoRecover'] = $request->autoRecover;
@@ -2152,7 +2166,8 @@ class ARMS extends OpenApiClient
             $body['RecoverTime'] = $request->recoverTime;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateIntegration',
@@ -4223,10 +4238,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteIntegrationRequest $request
-     * @param RuntimeOptions           $runtime
+     * @deprecated : DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
+     *   *
+     * Deprecated
      *
-     * @return DeleteIntegrationResponse
+     * @param DeleteIntegrationRequest $request DeleteIntegrationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteIntegrationResponse DeleteIntegrationResponse
      */
     public function deleteIntegrationWithOptions($request, $runtime)
     {
@@ -4260,9 +4279,13 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteIntegrationRequest $request
+     * @deprecated : DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
+     *   *
+     * Deprecated
      *
-     * @return DeleteIntegrationResponse
+     * @param DeleteIntegrationRequest $request DeleteIntegrationRequest
+     *
+     * @return DeleteIntegrationResponse DeleteIntegrationResponse
      */
     public function deleteIntegration($request)
     {
@@ -6187,10 +6210,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetIntegrationStateRequest $request
-     * @param RuntimeOptions             $runtime
+     * @deprecated : GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead.
+     *   *
+     * Deprecated
      *
-     * @return GetIntegrationStateResponse
+     * @param GetIntegrationStateRequest $request GetIntegrationStateRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetIntegrationStateResponse GetIntegrationStateResponse
      */
     public function getIntegrationStateWithOptions($request, $runtime)
     {
@@ -6224,9 +6251,13 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetIntegrationStateRequest $request
+     * @deprecated : GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead.
+     *   *
+     * Deprecated
      *
-     * @return GetIntegrationStateResponse
+     * @param GetIntegrationStateRequest $request GetIntegrationStateRequest
+     *
+     * @return GetIntegrationStateResponse GetIntegrationStateResponse
      */
     public function getIntegrationState($request)
     {
@@ -8393,6 +8424,58 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param ListEnvironmentDashboardsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListEnvironmentDashboardsResponse
+     */
+    public function listEnvironmentDashboardsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addonName)) {
+            $query['AddonName'] = $request->addonName;
+        }
+        if (!Utils::isUnset($request->environmentId)) {
+            $query['EnvironmentId'] = $request->environmentId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $query['Scene'] = $request->scene;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEnvironmentDashboards',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEnvironmentDashboardsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListEnvironmentDashboardsRequest $request
+     *
+     * @return ListEnvironmentDashboardsResponse
+     */
+    public function listEnvironmentDashboards($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnvironmentDashboardsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListEnvironmentFeaturesRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -8455,6 +8538,9 @@ class ARMS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->addonName)) {
             $query['AddonName'] = $request->addonName;
+        }
+        if (!Utils::isUnset($request->bindResourceId)) {
+            $query['BindResourceId'] = $request->bindResourceId;
         }
         if (!Utils::isUnset($request->environmentType)) {
             $query['EnvironmentType'] = $request->environmentType;

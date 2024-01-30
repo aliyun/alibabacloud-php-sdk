@@ -149,6 +149,11 @@ class data extends Model
     public $grafanaFolderUrl;
 
     /**
+     * @var string
+     */
+    public $managedType;
+
+    /**
      * @description The ID of the Prometheus instance.
      *
      * @example xxxxyyyyyzzzzz
@@ -224,6 +229,7 @@ class data extends Model
         'grafanaFolderTitle'        => 'GrafanaFolderTitle',
         'grafanaFolderUid'          => 'GrafanaFolderUid',
         'grafanaFolderUrl'          => 'GrafanaFolderUrl',
+        'managedType'               => 'ManagedType',
         'prometheusInstanceId'      => 'PrometheusInstanceId',
         'prometheusInstanceName'    => 'PrometheusInstanceName',
         'regionId'                  => 'RegionId',
@@ -284,6 +290,9 @@ class data extends Model
         }
         if (null !== $this->grafanaFolderUrl) {
             $res['GrafanaFolderUrl'] = $this->grafanaFolderUrl;
+        }
+        if (null !== $this->managedType) {
+            $res['ManagedType'] = $this->managedType;
         }
         if (null !== $this->prometheusInstanceId) {
             $res['PrometheusInstanceId'] = $this->prometheusInstanceId;
@@ -368,6 +377,9 @@ class data extends Model
         }
         if (isset($map['GrafanaFolderUrl'])) {
             $model->grafanaFolderUrl = $map['GrafanaFolderUrl'];
+        }
+        if (isset($map['ManagedType'])) {
+            $model->managedType = $map['ManagedType'];
         }
         if (isset($map['PrometheusInstanceId'])) {
             $model->prometheusInstanceId = $map['PrometheusInstanceId'];
