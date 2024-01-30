@@ -1,3 +1,10 @@
+2024-01-30 Version: 1.10.4
+- Update API FlightItineraryScanQueryupdate response param.
+- Update API FlightOrderQueryupdate response param.
+- Update API IeHotelBillSettlementQueryupdate category param.
+- Update API TrainTicketScanQueryupdate response param.
+
+
 2024-01-03 Version: 1.10.3
 - Generated php 2022-05-20 for btripOpen.
 

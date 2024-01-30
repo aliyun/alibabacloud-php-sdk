@@ -11,6 +11,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $applyId;
+
+    /**
+     * @var string
+     */
     public $arrStation;
 
     /**
@@ -139,6 +144,7 @@ class items extends Model
      */
     public $trainNo;
     protected $_name = [
+        'applyId'      => 'apply_id',
         'arrStation'   => 'arr_station',
         'billDate'     => 'bill_date',
         'coachName'    => 'coach_name',
@@ -169,6 +175,9 @@ class items extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applyId) {
+            $res['apply_id'] = $this->applyId;
+        }
         if (null !== $this->arrStation) {
             $res['arr_station'] = $this->arrStation;
         }
@@ -244,6 +253,9 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apply_id'])) {
+            $model->applyId = $map['apply_id'];
+        }
         if (isset($map['arr_station'])) {
             $model->arrStation = $map['arr_station'];
         }

@@ -19,6 +19,11 @@ class items extends Model
     public $agentCode;
 
     /**
+     * @var string
+     */
+    public $applyId;
+
+    /**
      * @example 2022-12-01
      *
      * @var string
@@ -176,6 +181,7 @@ class items extends Model
     public $validationCode;
     protected $_name = [
         'agentCode'      => 'agent_code',
+        'applyId'        => 'apply_id',
         'billDate'       => 'bill_date',
         'build'          => 'build',
         'costCenter'     => 'cost_center',
@@ -210,6 +216,9 @@ class items extends Model
         $res = [];
         if (null !== $this->agentCode) {
             $res['agent_code'] = $this->agentCode;
+        }
+        if (null !== $this->applyId) {
+            $res['apply_id'] = $this->applyId;
         }
         if (null !== $this->billDate) {
             $res['bill_date'] = $this->billDate;
@@ -300,6 +309,9 @@ class items extends Model
         $model = new self();
         if (isset($map['agent_code'])) {
             $model->agentCode = $map['agent_code'];
+        }
+        if (isset($map['apply_id'])) {
+            $model->applyId = $map['apply_id'];
         }
         if (isset($map['bill_date'])) {
             $model->billDate = $map['bill_date'];

@@ -14,6 +14,16 @@ class flightChangeTicketInfoList extends Model
     public $applyId;
 
     /**
+     * @var string
+     */
+    public $arrAirport;
+
+    /**
+     * @var string
+     */
+    public $arrCity;
+
+    /**
      * @example 2022-07-20T10:40Z
      *
      * @var string
@@ -68,11 +78,26 @@ class flightChangeTicketInfoList extends Model
     public $changeType;
 
     /**
+     * @var string
+     */
+    public $depAirport;
+
+    /**
+     * @var string
+     */
+    public $depCity;
+
+    /**
      * @example 2022-07-20T10:40Z
      *
      * @var string
      */
     public $depTime;
+
+    /**
+     * @var string
+     */
+    public $discount;
 
     /**
      * @example 2022-07-20T10:40Z
@@ -101,6 +126,11 @@ class flightChangeTicketInfoList extends Model
     public $outApplyId;
 
     /**
+     * @var string
+     */
+    public $stopCity;
+
+    /**
      * @example 000-123123
      *
      * @var string
@@ -125,6 +155,8 @@ class flightChangeTicketInfoList extends Model
     public $upgradeFee;
     protected $_name = [
         'applyId'          => 'apply_id',
+        'arrAirport'       => 'arr_airport',
+        'arrCity'          => 'arr_city',
         'arrTime'          => 'arr_time',
         'changeCabin'      => 'change_cabin',
         'changeCabinLevel' => 'change_cabin_level',
@@ -133,11 +165,15 @@ class flightChangeTicketInfoList extends Model
         'changeOrderId'    => 'change_order_id',
         'changeReason'     => 'change_reason',
         'changeType'       => 'change_type',
+        'depAirport'       => 'dep_airport',
+        'depCity'          => 'dep_city',
         'depTime'          => 'dep_time',
+        'discount'         => 'discount',
         'gmtCreate'        => 'gmt_create',
         'gmtModify'        => 'gmt_modify',
         'originTicketNo'   => 'origin_ticket_no',
         'outApplyId'       => 'out_apply_id',
+        'stopCity'         => 'stop_city',
         'ticketNo'         => 'ticket_no',
         'ticketStatus'     => 'ticket_status',
         'ticketStatusCode' => 'ticket_status_code',
@@ -153,6 +189,12 @@ class flightChangeTicketInfoList extends Model
         $res = [];
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
+        }
+        if (null !== $this->arrAirport) {
+            $res['arr_airport'] = $this->arrAirport;
+        }
+        if (null !== $this->arrCity) {
+            $res['arr_city'] = $this->arrCity;
         }
         if (null !== $this->arrTime) {
             $res['arr_time'] = $this->arrTime;
@@ -178,8 +220,17 @@ class flightChangeTicketInfoList extends Model
         if (null !== $this->changeType) {
             $res['change_type'] = $this->changeType;
         }
+        if (null !== $this->depAirport) {
+            $res['dep_airport'] = $this->depAirport;
+        }
+        if (null !== $this->depCity) {
+            $res['dep_city'] = $this->depCity;
+        }
         if (null !== $this->depTime) {
             $res['dep_time'] = $this->depTime;
+        }
+        if (null !== $this->discount) {
+            $res['discount'] = $this->discount;
         }
         if (null !== $this->gmtCreate) {
             $res['gmt_create'] = $this->gmtCreate;
@@ -192,6 +243,9 @@ class flightChangeTicketInfoList extends Model
         }
         if (null !== $this->outApplyId) {
             $res['out_apply_id'] = $this->outApplyId;
+        }
+        if (null !== $this->stopCity) {
+            $res['stop_city'] = $this->stopCity;
         }
         if (null !== $this->ticketNo) {
             $res['ticket_no'] = $this->ticketNo;
@@ -220,6 +274,12 @@ class flightChangeTicketInfoList extends Model
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];
         }
+        if (isset($map['arr_airport'])) {
+            $model->arrAirport = $map['arr_airport'];
+        }
+        if (isset($map['arr_city'])) {
+            $model->arrCity = $map['arr_city'];
+        }
         if (isset($map['arr_time'])) {
             $model->arrTime = $map['arr_time'];
         }
@@ -244,8 +304,17 @@ class flightChangeTicketInfoList extends Model
         if (isset($map['change_type'])) {
             $model->changeType = $map['change_type'];
         }
+        if (isset($map['dep_airport'])) {
+            $model->depAirport = $map['dep_airport'];
+        }
+        if (isset($map['dep_city'])) {
+            $model->depCity = $map['dep_city'];
+        }
         if (isset($map['dep_time'])) {
             $model->depTime = $map['dep_time'];
+        }
+        if (isset($map['discount'])) {
+            $model->discount = $map['discount'];
         }
         if (isset($map['gmt_create'])) {
             $model->gmtCreate = $map['gmt_create'];
@@ -258,6 +327,9 @@ class flightChangeTicketInfoList extends Model
         }
         if (isset($map['out_apply_id'])) {
             $model->outApplyId = $map['out_apply_id'];
+        }
+        if (isset($map['stop_city'])) {
+            $model->stopCity = $map['stop_city'];
         }
         if (isset($map['ticket_no'])) {
             $model->ticketNo = $map['ticket_no'];

@@ -14,6 +14,31 @@ class flightRefundTicketInfoList extends Model
     public $applyId;
 
     /**
+     * @var string
+     */
+    public $arrAirport;
+
+    /**
+     * @var string
+     */
+    public $arrCity;
+
+    /**
+     * @var string
+     */
+    public $depAirport;
+
+    /**
+     * @var string
+     */
+    public $depCity;
+
+    /**
+     * @var string
+     */
+    public $flightNo;
+
+    /**
      * @example 2022-07-20T10:40Z
      *
      * @var string
@@ -66,6 +91,11 @@ class flightRefundTicketInfoList extends Model
     public $ticketNo;
     protected $_name = [
         'applyId'         => 'apply_id',
+        'arrAirport'      => 'arr_airport',
+        'arrCity'         => 'arr_city',
+        'depAirport'      => 'dep_airport',
+        'depCity'         => 'dep_city',
+        'flightNo'        => 'flight_no',
         'gmtCreate'       => 'gmt_create',
         'gmtModify'       => 'gmt_modify',
         'outApplyId'      => 'out_apply_id',
@@ -85,6 +115,21 @@ class flightRefundTicketInfoList extends Model
         $res = [];
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
+        }
+        if (null !== $this->arrAirport) {
+            $res['arr_airport'] = $this->arrAirport;
+        }
+        if (null !== $this->arrCity) {
+            $res['arr_city'] = $this->arrCity;
+        }
+        if (null !== $this->depAirport) {
+            $res['dep_airport'] = $this->depAirport;
+        }
+        if (null !== $this->depCity) {
+            $res['dep_city'] = $this->depCity;
+        }
+        if (null !== $this->flightNo) {
+            $res['flight_no'] = $this->flightNo;
         }
         if (null !== $this->gmtCreate) {
             $res['gmt_create'] = $this->gmtCreate;
@@ -124,6 +169,21 @@ class flightRefundTicketInfoList extends Model
         $model = new self();
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];
+        }
+        if (isset($map['arr_airport'])) {
+            $model->arrAirport = $map['arr_airport'];
+        }
+        if (isset($map['arr_city'])) {
+            $model->arrCity = $map['arr_city'];
+        }
+        if (isset($map['dep_airport'])) {
+            $model->depAirport = $map['dep_airport'];
+        }
+        if (isset($map['dep_city'])) {
+            $model->depCity = $map['dep_city'];
+        }
+        if (isset($map['flight_no'])) {
+            $model->flightNo = $map['flight_no'];
         }
         if (isset($map['gmt_create'])) {
             $model->gmtCreate = $map['gmt_create'];
