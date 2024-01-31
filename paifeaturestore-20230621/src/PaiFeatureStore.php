@@ -22,6 +22,7 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateLabelTableRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateLabelTableResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateModelFeatureRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateModelFeatureResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateModelFeatureTrainingSetFGTableResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateServiceIdentityRoleRequest;
@@ -32,6 +33,8 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteFeatureViewResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteLabelTableResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteModelFeatureResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ExportModelFeatureTrainingSetFGTableRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ExportModelFeatureTrainingSetFGTableResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ExportModelFeatureTrainingSetTableRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ExportModelFeatureTrainingSetTableResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetDatasourceResponse;
@@ -40,6 +43,8 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetFeatureEntityResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetFeatureViewResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetLabelTableResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetModelFeatureFGFeatureResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetModelFeatureFGInfoResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetModelFeatureResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetProjectFeatureEntityHotIdsResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetProjectFeatureEntityResponse;
@@ -65,6 +70,8 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListLabelTablesRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListLabelTablesResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListLabelTablesShrinkRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeatureAvailableFeaturesRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeatureAvailableFeaturesResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeaturesRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeaturesResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeaturesShrinkRequest;
@@ -85,6 +92,10 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateDatasourceRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateDatasourceResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateLabelTableRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateLabelTableResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureFGFeatureRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureFGFeatureResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureFGInfoRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureFGInfoResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateProjectRequest;
@@ -597,6 +608,48 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @param string         $InstanceId
+     * @param string         $ModelFeatureId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CreateModelFeatureTrainingSetFGTableResponse
+     */
+    public function createModelFeatureTrainingSetFGTableWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'CreateModelFeatureTrainingSetFGTable',
+            'version'     => '2023-06-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/trainingsetfgtable',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateModelFeatureTrainingSetFGTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $InstanceId
+     * @param string $ModelFeatureId
+     *
+     * @return CreateModelFeatureTrainingSetFGTableResponse
+     */
+    public function createModelFeatureTrainingSetFGTable($InstanceId, $ModelFeatureId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createModelFeatureTrainingSetFGTableWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime);
+    }
+
+    /**
      * @param string               $InstanceId
      * @param CreateProjectRequest $request
      * @param string[]             $headers
@@ -958,6 +1011,56 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @param string                                      $InstanceId
+     * @param string                                      $ModelFeatureId
+     * @param ExportModelFeatureTrainingSetFGTableRequest $request
+     * @param string[]                                    $headers
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ExportModelFeatureTrainingSetFGTableResponse
+     */
+    public function exportModelFeatureTrainingSetFGTableWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->trainingSetFgConfig)) {
+            $body['TrainingSetFgConfig'] = $request->trainingSetFgConfig;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportModelFeatureTrainingSetFGTable',
+            'version'     => '2023-06-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/action/exporttrainingsetfgtable',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportModelFeatureTrainingSetFGTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                                      $InstanceId
+     * @param string                                      $ModelFeatureId
+     * @param ExportModelFeatureTrainingSetFGTableRequest $request
+     *
+     * @return ExportModelFeatureTrainingSetFGTableResponse
+     */
+    public function exportModelFeatureTrainingSetFGTable($InstanceId, $ModelFeatureId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportModelFeatureTrainingSetFGTableWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string                                    $InstanceId
      * @param string                                    $ModelFeatureId
      * @param ExportModelFeatureTrainingSetTableRequest $request
@@ -1305,6 +1408,90 @@ class PaiFeatureStore extends OpenApiClient
         $headers = [];
 
         return $this->getModelFeatureWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $InstanceId
+     * @param string         $ModelFeatureId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetModelFeatureFGFeatureResponse
+     */
+    public function getModelFeatureFGFeatureWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetModelFeatureFGFeature',
+            'version'     => '2023-06-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/fgfeature',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetModelFeatureFGFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $InstanceId
+     * @param string $ModelFeatureId
+     *
+     * @return GetModelFeatureFGFeatureResponse
+     */
+    public function getModelFeatureFGFeature($InstanceId, $ModelFeatureId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getModelFeatureFGFeatureWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $InstanceId
+     * @param string         $ModelFeatureId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetModelFeatureFGInfoResponse
+     */
+    public function getModelFeatureFGInfoWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetModelFeatureFGInfo',
+            'version'     => '2023-06-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/fginfo',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetModelFeatureFGInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $InstanceId
+     * @param string $ModelFeatureId
+     *
+     * @return GetModelFeatureFGInfoResponse
+     */
+    public function getModelFeatureFGInfo($InstanceId, $ModelFeatureId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getModelFeatureFGInfoWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime);
     }
 
     /**
@@ -2101,6 +2288,56 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
+     * @param string                                   $InstanceId
+     * @param string                                   $ModelFeatureId
+     * @param ListModelFeatureAvailableFeaturesRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListModelFeatureAvailableFeaturesResponse
+     */
+    public function listModelFeatureAvailableFeaturesWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->featureName)) {
+            $query['FeatureName'] = $request->featureName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListModelFeatureAvailableFeatures',
+            'version'     => '2023-06-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/availablefeatures',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListModelFeatureAvailableFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                                   $InstanceId
+     * @param string                                   $ModelFeatureId
+     * @param ListModelFeatureAvailableFeaturesRequest $request
+     *
+     * @return ListModelFeatureAvailableFeaturesResponse
+     */
+    public function listModelFeatureAvailableFeatures($InstanceId, $ModelFeatureId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listModelFeatureAvailableFeaturesWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string                   $InstanceId
      * @param ListModelFeaturesRequest $tmpReq
      * @param string[]                 $headers
@@ -2729,6 +2966,115 @@ class PaiFeatureStore extends OpenApiClient
         $headers = [];
 
         return $this->updateModelFeatureWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                             $InstanceId
+     * @param string                             $ModelFeatureId
+     * @param UpdateModelFeatureFGFeatureRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateModelFeatureFGFeatureResponse
+     */
+    public function updateModelFeatureFGFeatureWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->lookupFeatures)) {
+            $body['LookupFeatures'] = $request->lookupFeatures;
+        }
+        if (!Utils::isUnset($request->rawFeatures)) {
+            $body['RawFeatures'] = $request->rawFeatures;
+        }
+        if (!Utils::isUnset($request->reserves)) {
+            $body['Reserves'] = $request->reserves;
+        }
+        if (!Utils::isUnset($request->sequenceFeatures)) {
+            $body['SequenceFeatures'] = $request->sequenceFeatures;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateModelFeatureFGFeature',
+            'version'     => '2023-06-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/fgfeature',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateModelFeatureFGFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                             $InstanceId
+     * @param string                             $ModelFeatureId
+     * @param UpdateModelFeatureFGFeatureRequest $request
+     *
+     * @return UpdateModelFeatureFGFeatureResponse
+     */
+    public function updateModelFeatureFGFeature($InstanceId, $ModelFeatureId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateModelFeatureFGFeatureWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                          $InstanceId
+     * @param string                          $ModelFeatureId
+     * @param UpdateModelFeatureFGInfoRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateModelFeatureFGInfoResponse
+     */
+    public function updateModelFeatureFGInfoWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateModelFeatureFGInfo',
+            'version'     => '2023-06-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/fginfo',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateModelFeatureFGInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                          $InstanceId
+     * @param string                          $ModelFeatureId
+     * @param UpdateModelFeatureFGInfoRequest $request
+     *
+     * @return UpdateModelFeatureFGInfoResponse
+     */
+    public function updateModelFeatureFGInfo($InstanceId, $ModelFeatureId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateModelFeatureFGInfoWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime);
     }
 
     /**
