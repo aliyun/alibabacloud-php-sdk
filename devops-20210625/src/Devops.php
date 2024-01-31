@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateAppMembersRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateAppMembersResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCheckRunRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCheckRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommitStatusRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommitStatusResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateDeployKeyRequest;
@@ -133,6 +135,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetBranchInfoRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetBranchInfoResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetCheckRunRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetCheckRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCodeupOrganizationRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCodeupOrganizationResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCompareDetailRequest;
@@ -205,6 +209,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationMembersRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationMembersResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListApplicationsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListCheckRunsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListCheckRunsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListCommitStatusesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListCommitStatusesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListFlowTagGroupsResponse;
@@ -339,6 +345,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateApplicationRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateApplicationResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateAppMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateAppMemberResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateCheckRunRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateCheckRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFileRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFileResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFlowTagGroupRequest;
@@ -846,6 +854,90 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->createBranchWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateCheckRunRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateCheckRunResponse
+     */
+    public function createCheckRunWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->annotations)) {
+            $body['annotations'] = $request->annotations;
+        }
+        if (!Utils::isUnset($request->completedAt)) {
+            $body['completedAt'] = $request->completedAt;
+        }
+        if (!Utils::isUnset($request->conclusion)) {
+            $body['conclusion'] = $request->conclusion;
+        }
+        if (!Utils::isUnset($request->detailsUrl)) {
+            $body['detailsUrl'] = $request->detailsUrl;
+        }
+        if (!Utils::isUnset($request->externalId)) {
+            $body['externalId'] = $request->externalId;
+        }
+        if (!Utils::isUnset($request->headSha)) {
+            $body['headSha'] = $request->headSha;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->output)) {
+            $body['output'] = $request->output;
+        }
+        if (!Utils::isUnset($request->startedAt)) {
+            $body['startedAt'] = $request->startedAt;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCheckRun',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/check_runs/create_check_run',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCheckRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCheckRunRequest $request
+     *
+     * @return CreateCheckRunResponse
+     */
+    public function createCheckRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createCheckRunWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4346,6 +4438,61 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param GetCheckRunRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetCheckRunResponse
+     */
+    public function getCheckRunWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->checkRunId)) {
+            $query['checkRunId'] = $request->checkRunId;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCheckRun',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/check_runs/get_check_run',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCheckRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCheckRunRequest $request
+     *
+     * @return GetCheckRunResponse
+     */
+    public function getCheckRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCheckRunWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param string                       $identity
      * @param GetCodeupOrganizationRequest $request
      * @param string[]                     $headers
@@ -6529,6 +6676,67 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->listApplicationsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListCheckRunsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListCheckRunsResponse
+     */
+    public function listCheckRunsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ref)) {
+            $query['ref'] = $request->ref;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCheckRuns',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/check_runs/list_check_runs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCheckRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCheckRunsRequest $request
+     *
+     * @return ListCheckRunsResponse
+     */
+    public function listCheckRuns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listCheckRunsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10784,6 +10992,90 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->updateApplicationWithOptions($appName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateCheckRunRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateCheckRunResponse
+     */
+    public function updateCheckRunWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->checkRunId)) {
+            $query['checkRunId'] = $request->checkRunId;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryIdentity)) {
+            $query['repositoryIdentity'] = $request->repositoryIdentity;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->annotations)) {
+            $body['annotations'] = $request->annotations;
+        }
+        if (!Utils::isUnset($request->completedAt)) {
+            $body['completedAt'] = $request->completedAt;
+        }
+        if (!Utils::isUnset($request->conclusion)) {
+            $body['conclusion'] = $request->conclusion;
+        }
+        if (!Utils::isUnset($request->detailsUrl)) {
+            $body['detailsUrl'] = $request->detailsUrl;
+        }
+        if (!Utils::isUnset($request->externalId)) {
+            $body['externalId'] = $request->externalId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->output)) {
+            $body['output'] = $request->output;
+        }
+        if (!Utils::isUnset($request->startedAt)) {
+            $body['startedAt'] = $request->startedAt;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCheckRun',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/check_runs/update_check_run',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCheckRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCheckRunRequest $request
+     *
+     * @return UpdateCheckRunResponse
+     */
+    public function updateCheckRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateCheckRunWithOptions($request, $headers, $runtime);
     }
 
     /**
