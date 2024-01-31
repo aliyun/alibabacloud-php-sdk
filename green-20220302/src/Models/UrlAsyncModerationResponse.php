@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Green\V20220302\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeFileModerationResultResponse extends Model
+class UrlAsyncModerationResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeFileModerationResultResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeFileModerationResultResponseBody
+     * @var UrlAsyncModerationResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class DescribeFileModerationResultResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeFileModerationResultResponse
+     * @return UrlAsyncModerationResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class DescribeFileModerationResultResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeFileModerationResultResponseBody::fromMap($map['body']);
+            $model->body = UrlAsyncModerationResponseBody::fromMap($map['body']);
         }
 
         return $model;

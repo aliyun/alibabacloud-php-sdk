@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageModerationResultRespons
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageResultExtRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageResultExtResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeUploadTokenResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\DescribeUrlModerationResultRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\DescribeUrlModerationResultResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\FileModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\FileModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageAsyncModerationRequest;
@@ -23,6 +25,8 @@ use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\UrlAsyncModerationRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\UrlAsyncModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationCancelRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationCancelResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationRequest;
@@ -263,6 +267,49 @@ class Green extends OpenApiClient
     }
 
     /**
+     * @param DescribeUrlModerationResultRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeUrlModerationResultResponse
+     */
+    public function describeUrlModerationResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->reqId)) {
+            $body['ReqId'] = $request->reqId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUrlModerationResult',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUrlModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUrlModerationResultRequest $request
+     *
+     * @return DescribeUrlModerationResultResponse
+     */
+    public function describeUrlModerationResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUrlModerationResultWithOptions($request, $runtime);
+    }
+
+    /**
      * @param FileModerationRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -490,6 +537,52 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->textModerationPlusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UrlAsyncModerationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UrlAsyncModerationResponse
+     */
+    public function urlAsyncModerationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->service)) {
+            $query['Service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $query['ServiceParameters'] = $request->serviceParameters;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UrlAsyncModeration',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UrlAsyncModerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UrlAsyncModerationRequest $request
+     *
+     * @return UrlAsyncModerationResponse
+     */
+    public function urlAsyncModeration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->urlAsyncModerationWithOptions($request, $runtime);
     }
 
     /**
