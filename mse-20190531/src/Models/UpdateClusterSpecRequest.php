@@ -21,6 +21,11 @@ class UpdateClusterSpecRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @description The ID of the cluster.
      *
      * @example mse-09k1q11****
@@ -64,13 +69,20 @@ class UpdateClusterSpecRequest extends Model
      * @var string
      */
     public $mseVersion;
+
+    /**
+     * @var int
+     */
+    public $pubNetworkFlow;
     protected $_name = [
         'acceptLanguage'       => 'AcceptLanguage',
+        'autoPay'              => 'AutoPay',
         'clusterId'            => 'ClusterId',
         'clusterSpecification' => 'ClusterSpecification',
         'instanceCount'        => 'InstanceCount',
         'instanceId'           => 'InstanceId',
         'mseVersion'           => 'MseVersion',
+        'pubNetworkFlow'       => 'PubNetworkFlow',
     ];
 
     public function validate()
@@ -82,6 +94,9 @@ class UpdateClusterSpecRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
@@ -98,6 +113,9 @@ class UpdateClusterSpecRequest extends Model
         if (null !== $this->mseVersion) {
             $res['MseVersion'] = $this->mseVersion;
         }
+        if (null !== $this->pubNetworkFlow) {
+            $res['PubNetworkFlow'] = $this->pubNetworkFlow;
+        }
 
         return $res;
     }
@@ -113,6 +131,9 @@ class UpdateClusterSpecRequest extends Model
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -127,6 +148,9 @@ class UpdateClusterSpecRequest extends Model
         }
         if (isset($map['MseVersion'])) {
             $model->mseVersion = $map['MseVersion'];
+        }
+        if (isset($map['PubNetworkFlow'])) {
+            $model->pubNetworkFlow = $map['PubNetworkFlow'];
         }
 
         return $model;

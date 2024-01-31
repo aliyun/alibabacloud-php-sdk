@@ -10051,6 +10051,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
@@ -10065,6 +10068,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->mseVersion)) {
             $query['MseVersion'] = $request->mseVersion;
+        }
+        if (!Utils::isUnset($request->pubNetworkFlow)) {
+            $query['PubNetworkFlow'] = $request->pubNetworkFlow;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
