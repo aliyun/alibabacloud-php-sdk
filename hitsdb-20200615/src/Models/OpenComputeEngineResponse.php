@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetInstanceIpWhiteListResponse extends Model
+class OpenComputeEngineResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetInstanceIpWhiteListResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetInstanceIpWhiteListResponseBody
+     * @var OpenComputeEngineResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class GetInstanceIpWhiteListResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetInstanceIpWhiteListResponse
+     * @return OpenComputeEngineResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class GetInstanceIpWhiteListResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetInstanceIpWhiteListResponseBody::fromMap($map['body']);
+            $model->body = OpenComputeEngineResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -6,17 +6,19 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SwitchLSQLV3MySQLServiceResponseBody extends Model
+class GetClientSourceIpResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 1556DCB0-043A-4444-8BD9-CF4A68E7EE64
-     *
+     * @var string
+     */
+    public $clientIp;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'clientIp'  => 'ClientIp',
         'requestId' => 'RequestId',
     ];
 
@@ -27,6 +29,9 @@ class SwitchLSQLV3MySQLServiceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientIp) {
+            $res['ClientIp'] = $this->clientIp;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +42,14 @@ class SwitchLSQLV3MySQLServiceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SwitchLSQLV3MySQLServiceResponseBody
+     * @return GetClientSourceIpResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientIp'])) {
+            $model->clientIp = $map['ClientIp'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

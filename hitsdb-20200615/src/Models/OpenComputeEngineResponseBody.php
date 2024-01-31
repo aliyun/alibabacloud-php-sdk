@@ -6,13 +6,9 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SwitchLSQLV3MySQLServiceResponseBody extends Model
+class OpenComputeEngineResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 1556DCB0-043A-4444-8BD9-CF4A68E7EE64
-     *
      * @var string
      */
     public $requestId;
@@ -37,7 +33,7 @@ class SwitchLSQLV3MySQLServiceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SwitchLSQLV3MySQLServiceResponseBody
+     * @return OpenComputeEngineResponseBody
      */
     public static function fromMap($map = [])
     {

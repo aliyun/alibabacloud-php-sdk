@@ -6,28 +6,22 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SwitchLSQLV3MySQLServiceRequest extends Model
+class OpenComputeEngineRequest extends Model
 {
     /**
-     * @description The type of the operation. Valid value:
-     *
-     *   1: enables the MySQL compatibility feature.
-     *   0: disables the MySQL compatibility feature.
-     *
-     * @example 1
-     *
-     * @var int
+     * @var string
      */
-    public $actionType;
+    public $cpuLimit;
 
     /**
-     * @description The cluster ID.
-     *
-     * @example ld-bp1o3y0yme2i2****
-     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $memoryLimit;
 
     /**
      * @var string
@@ -54,8 +48,9 @@ class SwitchLSQLV3MySQLServiceRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'actionType'           => 'ActionType',
+        'cpuLimit'             => 'CpuLimit',
         'instanceId'           => 'InstanceId',
+        'memoryLimit'          => 'MemoryLimit',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -70,11 +65,14 @@ class SwitchLSQLV3MySQLServiceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->actionType) {
-            $res['ActionType'] = $this->actionType;
+        if (null !== $this->cpuLimit) {
+            $res['CpuLimit'] = $this->cpuLimit;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->memoryLimit) {
+            $res['MemoryLimit'] = $this->memoryLimit;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -98,16 +96,19 @@ class SwitchLSQLV3MySQLServiceRequest extends Model
     /**
      * @param array $map
      *
-     * @return SwitchLSQLV3MySQLServiceRequest
+     * @return OpenComputeEngineRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ActionType'])) {
-            $model->actionType = $map['ActionType'];
+        if (isset($map['CpuLimit'])) {
+            $model->cpuLimit = $map['CpuLimit'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MemoryLimit'])) {
+            $model->memoryLimit = $map['MemoryLimit'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

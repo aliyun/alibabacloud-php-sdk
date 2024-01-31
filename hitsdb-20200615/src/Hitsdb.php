@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DeleteLdpsComputeGroupRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DeleteLdpsComputeGroupResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetClientSourceIpRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetClientSourceIpResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetEngineDefaultAuthRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetEngineDefaultAuthResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListRequest;
@@ -40,6 +42,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyInstancePayTypeRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyInstancePayTypeResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\OpenComputeEngineRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\OpenComputeEngineResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\RenewLindormInstanceRequest;
@@ -523,6 +527,67 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetClientSourceIpRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetClientSourceIpResponse
+     */
+    public function getClientSourceIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetClientSourceIp',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClientSourceIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetClientSourceIpRequest $request
+     *
+     * @return GetClientSourceIpResponse
+     */
+    public function getClientSourceIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClientSourceIpWithOptions($request, $runtime);
     }
 
     /**
@@ -1303,6 +1368,70 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * @param OpenComputeEngineRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return OpenComputeEngineResponse
+     */
+    public function openComputeEngineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cpuLimit)) {
+            $query['CpuLimit'] = $request->cpuLimit;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->memoryLimit)) {
+            $query['MemoryLimit'] = $request->memoryLimit;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenComputeEngine',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OpenComputeEngineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OpenComputeEngineRequest $request
+     *
+     * @return OpenComputeEngineResponse
+     */
+    public function openComputeEngine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openComputeEngineWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReleaseLindormInstanceRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1501,10 +1630,15 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param SwitchLSQLV3MySQLServiceRequest $request
-     * @param RuntimeOptions                  $runtime
+     * Prerequisites
+     *   * *   The LindormTable version of your instance is 2.6.0 or later.
+     *   * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
+     *   * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
+     *   *
+     * @param SwitchLSQLV3MySQLServiceRequest $request SwitchLSQLV3MySQLServiceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchLSQLV3MySQLServiceResponse
+     * @return SwitchLSQLV3MySQLServiceResponse SwitchLSQLV3MySQLServiceResponse
      */
     public function switchLSQLV3MySQLServiceWithOptions($request, $runtime)
     {
@@ -1550,9 +1684,14 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param SwitchLSQLV3MySQLServiceRequest $request
+     * Prerequisites
+     *   * *   The LindormTable version of your instance is 2.6.0 or later.
+     *   * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
+     *   * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
+     *   *
+     * @param SwitchLSQLV3MySQLServiceRequest $request SwitchLSQLV3MySQLServiceRequest
      *
-     * @return SwitchLSQLV3MySQLServiceResponse
+     * @return SwitchLSQLV3MySQLServiceResponse SwitchLSQLV3MySQLServiceResponse
      */
     public function switchLSQLV3MySQLService($request)
     {
