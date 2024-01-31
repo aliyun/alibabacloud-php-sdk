@@ -36,6 +36,11 @@ class order extends Model
     public $discountAmount;
 
     /**
+     * @var string
+     */
+    public $optionalPromotions;
+
+    /**
      * @description The original price of the order.
      *
      * @example 322.4
@@ -43,6 +48,11 @@ class order extends Model
      * @var string
      */
     public $originalAmount;
+
+    /**
+     * @var string
+     */
+    public $promDetailList;
 
     /**
      * @description The rules of the order.
@@ -69,13 +79,15 @@ class order extends Model
      */
     public $tradeAmount;
     protected $_name = [
-        'coupons'          => 'Coupons',
-        'currency'         => 'Currency',
-        'discountAmount'   => 'DiscountAmount',
-        'originalAmount'   => 'OriginalAmount',
-        'ruleIds'          => 'RuleIds',
-        'showDiscountInfo' => 'ShowDiscountInfo',
-        'tradeAmount'      => 'TradeAmount',
+        'coupons'            => 'Coupons',
+        'currency'           => 'Currency',
+        'discountAmount'     => 'DiscountAmount',
+        'optionalPromotions' => 'OptionalPromotions',
+        'originalAmount'     => 'OriginalAmount',
+        'promDetailList'     => 'PromDetailList',
+        'ruleIds'            => 'RuleIds',
+        'showDiscountInfo'   => 'ShowDiscountInfo',
+        'tradeAmount'        => 'TradeAmount',
     ];
 
     public function validate()
@@ -94,8 +106,14 @@ class order extends Model
         if (null !== $this->discountAmount) {
             $res['DiscountAmount'] = $this->discountAmount;
         }
+        if (null !== $this->optionalPromotions) {
+            $res['OptionalPromotions'] = $this->optionalPromotions;
+        }
         if (null !== $this->originalAmount) {
             $res['OriginalAmount'] = $this->originalAmount;
+        }
+        if (null !== $this->promDetailList) {
+            $res['PromDetailList'] = $this->promDetailList;
         }
         if (null !== $this->ruleIds) {
             $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toMap() : null;
@@ -127,8 +145,14 @@ class order extends Model
         if (isset($map['DiscountAmount'])) {
             $model->discountAmount = $map['DiscountAmount'];
         }
+        if (isset($map['OptionalPromotions'])) {
+            $model->optionalPromotions = $map['OptionalPromotions'];
+        }
         if (isset($map['OriginalAmount'])) {
             $model->originalAmount = $map['OriginalAmount'];
+        }
+        if (isset($map['PromDetailList'])) {
+            $model->promDetailList = $map['PromDetailList'];
         }
         if (isset($map['RuleIds'])) {
             $model->ruleIds = ruleIds::fromMap($map['RuleIds']);

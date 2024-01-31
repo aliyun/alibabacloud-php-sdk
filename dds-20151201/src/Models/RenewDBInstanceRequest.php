@@ -22,6 +22,11 @@ class RenewDBInstanceRequest extends Model
     public $autoPay;
 
     /**
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
      * @description The business information.
      *
      * @example {“ActivityId":"000000000"}
@@ -87,6 +92,7 @@ class RenewDBInstanceRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'autoPay'              => 'AutoPay',
+        'autoRenew'            => 'AutoRenew',
         'businessInfo'         => 'BusinessInfo',
         'clientToken'          => 'ClientToken',
         'couponNo'             => 'CouponNo',
@@ -107,6 +113,9 @@ class RenewDBInstanceRequest extends Model
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
         }
         if (null !== $this->businessInfo) {
             $res['BusinessInfo'] = $this->businessInfo;
@@ -149,6 +158,9 @@ class RenewDBInstanceRequest extends Model
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
         }
         if (isset($map['BusinessInfo'])) {
             $model->businessInfo = $map['BusinessInfo'];

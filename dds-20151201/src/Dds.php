@@ -7092,6 +7092,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->autoPay)) {
             $query['AutoPay'] = $request->autoPay;
         }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
         if (!Utils::isUnset($request->businessInfo)) {
             $query['BusinessInfo'] = $request->businessInfo;
         }
