@@ -45,11 +45,6 @@ class app extends Model
     public $createTime;
 
     /**
-     * @var string
-     */
-    public $region;
-
-    /**
      * @var serviceAreas
      */
     public $serviceAreas;
@@ -60,15 +55,20 @@ class app extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'appId'        => 'AppId',
         'appName'      => 'AppName',
         'appType'      => 'AppType',
         'billType'     => 'BillType',
         'createTime'   => 'CreateTime',
-        'region'       => 'Region',
         'serviceAreas' => 'ServiceAreas',
         'status'       => 'Status',
+        'version'      => 'Version',
     ];
 
     public function validate()
@@ -93,14 +93,14 @@ class app extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
         if (null !== $this->serviceAreas) {
             $res['ServiceAreas'] = null !== $this->serviceAreas ? $this->serviceAreas->toMap() : null;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -129,14 +129,14 @@ class app extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
         if (isset($map['ServiceAreas'])) {
             $model->serviceAreas = serviceAreas::fromMap($map['ServiceAreas']);
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;
