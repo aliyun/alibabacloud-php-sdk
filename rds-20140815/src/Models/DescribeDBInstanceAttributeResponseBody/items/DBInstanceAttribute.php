@@ -99,6 +99,8 @@ class DBInstanceAttribute extends Model
     public $category;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $coldDataEnabled;
@@ -428,6 +430,8 @@ class DBInstanceAttribute extends Model
     public $instructionSetArch;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $ioAccelerationEnabled;
@@ -536,6 +540,7 @@ class DBInstanceAttribute extends Model
      *
      *   **Postpaid**: pay-as-you-go
      *   **Prepaid**: subscription
+     *   **SERVERLESS**: Serverless
      *
      * @example Postpaid
      *

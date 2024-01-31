@@ -11,7 +11,7 @@ class ModifyDatabaseConfigRequest extends Model
     /**
      * @description The instance ID.
      *
-     * @example rm-t4nnu1my39qr8642q
+     * @example rm-t4nnu1my39qr8****
      *
      * @var string
      */

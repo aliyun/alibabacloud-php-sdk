@@ -147,6 +147,11 @@ class DescribeBackupPolicyResponseBody extends Model
     public $enableIncrementDataBackup;
 
     /**
+     * @var bool
+     */
+    public $enablePitrProtection;
+
+    /**
      * @description Indicates whether the log backup deletion feature is enabled. If the disk usage exceeds 80% or the remaining disk space is less than 5 GB on the instance, this feature deletes binary log files. Valid values:
      *
      *   **Disable**
@@ -206,6 +211,11 @@ class DescribeBackupPolicyResponseBody extends Model
      * @var int
      */
     public $logBackupRetentionPeriod;
+
+    /**
+     * @var int
+     */
+    public $pitrRetentionPeriod;
 
     /**
      * @description The cycle based on which you want to perform a backup. Separate multiple values with commas (,). Valid values:
@@ -310,12 +320,14 @@ class DescribeBackupPolicyResponseBody extends Model
         'compressType'                  => 'CompressType',
         'enableBackupLog'               => 'EnableBackupLog',
         'enableIncrementDataBackup'     => 'EnableIncrementDataBackup',
+        'enablePitrProtection'          => 'EnablePitrProtection',
         'highSpaceUsageProtection'      => 'HighSpaceUsageProtection',
         'localLogRetentionHours'        => 'LocalLogRetentionHours',
         'localLogRetentionSpace'        => 'LocalLogRetentionSpace',
         'logBackupFrequency'            => 'LogBackupFrequency',
         'logBackupLocalRetentionNumber' => 'LogBackupLocalRetentionNumber',
         'logBackupRetentionPeriod'      => 'LogBackupRetentionPeriod',
+        'pitrRetentionPeriod'           => 'PitrRetentionPeriod',
         'preferredBackupPeriod'         => 'PreferredBackupPeriod',
         'preferredBackupTime'           => 'PreferredBackupTime',
         'preferredNextBackupTime'       => 'PreferredNextBackupTime',
@@ -369,6 +381,9 @@ class DescribeBackupPolicyResponseBody extends Model
         if (null !== $this->enableIncrementDataBackup) {
             $res['EnableIncrementDataBackup'] = $this->enableIncrementDataBackup;
         }
+        if (null !== $this->enablePitrProtection) {
+            $res['EnablePitrProtection'] = $this->enablePitrProtection;
+        }
         if (null !== $this->highSpaceUsageProtection) {
             $res['HighSpaceUsageProtection'] = $this->highSpaceUsageProtection;
         }
@@ -386,6 +401,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (null !== $this->logBackupRetentionPeriod) {
             $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
+        }
+        if (null !== $this->pitrRetentionPeriod) {
+            $res['PitrRetentionPeriod'] = $this->pitrRetentionPeriod;
         }
         if (null !== $this->preferredBackupPeriod) {
             $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
@@ -459,6 +477,9 @@ class DescribeBackupPolicyResponseBody extends Model
         if (isset($map['EnableIncrementDataBackup'])) {
             $model->enableIncrementDataBackup = $map['EnableIncrementDataBackup'];
         }
+        if (isset($map['EnablePitrProtection'])) {
+            $model->enablePitrProtection = $map['EnablePitrProtection'];
+        }
         if (isset($map['HighSpaceUsageProtection'])) {
             $model->highSpaceUsageProtection = $map['HighSpaceUsageProtection'];
         }
@@ -476,6 +497,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (isset($map['LogBackupRetentionPeriod'])) {
             $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];
+        }
+        if (isset($map['PitrRetentionPeriod'])) {
+            $model->pitrRetentionPeriod = $map['PitrRetentionPeriod'];
         }
         if (isset($map['PreferredBackupPeriod'])) {
             $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
