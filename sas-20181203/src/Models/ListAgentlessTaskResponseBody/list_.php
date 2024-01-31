@@ -45,6 +45,11 @@ class list_ extends Model
     public $intranetIp;
 
     /**
+     * @var int
+     */
+    public $measureSpace;
+
+    /**
      * @description The progress of the task.
      *
      * @example 60
@@ -52,6 +57,21 @@ class list_ extends Model
      * @var int
      */
     public $progress;
+
+    /**
+     * @var string
+     */
+    public $progressByProject;
+
+    /**
+     * @var string
+     */
+    public $reportDownloadUrl;
+
+    /**
+     * @var string
+     */
+    public $reportStatus;
 
     /**
      * @description The result of the detection.
@@ -133,19 +153,23 @@ class list_ extends Model
      */
     public $uuid;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'progress'     => 'Progress',
-        'result'       => 'Result',
-        'startTime'    => 'StartTime',
-        'status'       => 'Status',
-        'targetName'   => 'TargetName',
-        'targetType'   => 'TargetType',
-        'taskId'       => 'TaskId',
-        'taskName'     => 'TaskName',
-        'uuid'         => 'Uuid',
+        'endTime'           => 'EndTime',
+        'instanceName'      => 'InstanceName',
+        'internetIp'        => 'InternetIp',
+        'intranetIp'        => 'IntranetIp',
+        'measureSpace'      => 'MeasureSpace',
+        'progress'          => 'Progress',
+        'progressByProject' => 'ProgressByProject',
+        'reportDownloadUrl' => 'ReportDownloadUrl',
+        'reportStatus'      => 'ReportStatus',
+        'result'            => 'Result',
+        'startTime'         => 'StartTime',
+        'status'            => 'Status',
+        'targetName'        => 'TargetName',
+        'targetType'        => 'TargetType',
+        'taskId'            => 'TaskId',
+        'taskName'          => 'TaskName',
+        'uuid'              => 'Uuid',
     ];
 
     public function validate()
@@ -167,8 +191,20 @@ class list_ extends Model
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
+        if (null !== $this->measureSpace) {
+            $res['MeasureSpace'] = $this->measureSpace;
+        }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
+        }
+        if (null !== $this->progressByProject) {
+            $res['ProgressByProject'] = $this->progressByProject;
+        }
+        if (null !== $this->reportDownloadUrl) {
+            $res['ReportDownloadUrl'] = $this->reportDownloadUrl;
+        }
+        if (null !== $this->reportStatus) {
+            $res['ReportStatus'] = $this->reportStatus;
         }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
@@ -218,8 +254,20 @@ class list_ extends Model
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
+        if (isset($map['MeasureSpace'])) {
+            $model->measureSpace = $map['MeasureSpace'];
+        }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
+        }
+        if (isset($map['ProgressByProject'])) {
+            $model->progressByProject = $map['ProgressByProject'];
+        }
+        if (isset($map['ReportDownloadUrl'])) {
+            $model->reportDownloadUrl = $map['ReportDownloadUrl'];
+        }
+        if (isset($map['ReportStatus'])) {
+            $model->reportStatus = $map['ReportStatus'];
         }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];

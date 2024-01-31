@@ -1,3 +1,10 @@
+2024-01-31 Version: 2.27.0
+- Support API DeleteVulAutoRepairConfig.
+- Update API DescribeSuspEventDetailupdate Lang param.
+- Update API DescribeSuspEventsupdate Lang param.
+- Update API ListAgentlessTaskupdate response param.
+
+
 2024-01-23 Version: 2.26.0
 - Generated php 2018-12-03 for Sas.
 

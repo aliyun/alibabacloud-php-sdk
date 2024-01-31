@@ -220,6 +220,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteUniBackupPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteUniBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVpcHoneyPotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVulAutoRepairConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVulAutoRepairConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVulWhitelistRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVulWhitelistResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAccessKeyLeakDetailRequest;
@@ -6844,6 +6846,55 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVpcHoneyPotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteVulAutoRepairConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteVulAutoRepairConfigResponse
+     */
+    public function deleteVulAutoRepairConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->configIdList)) {
+            $query['ConfigIdList'] = $request->configIdList;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVulAutoRepairConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteVulAutoRepairConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVulAutoRepairConfigRequest $request
+     *
+     * @return DeleteVulAutoRepairConfigResponse
+     */
+    public function deleteVulAutoRepairConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVulAutoRepairConfigWithOptions($request, $runtime);
     }
 
     /**
