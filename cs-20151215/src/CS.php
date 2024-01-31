@@ -1831,7 +1831,7 @@ class CS extends OpenApiClient
             'action'      => 'DeleteTrigger',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/%5Bcluster_id%5D/triggers/%5BId%5D',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/triggers/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
