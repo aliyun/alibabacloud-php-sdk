@@ -9,29 +9,51 @@ use AlibabaCloud\Tea\Model;
 class ContinueDeployServiceInstanceRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @var string
+     * @example false
+     *
+     * @var bool
      */
-    public $serviceInstanceId;
+    public $dryRun;
 
     /**
+     * @var string[]
+     */
+    public $option;
+
+    /**
+     * @example {"NodeCount": 3, "SystemDiskSize": 40, "InstancePassword": "******"}
+     *
+     * @var string
+     */
+    public $parameters;
+
+    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example si-0e6fca6a51a54420****
+     *
      * @var string
      */
-    public $parameters;
+    public $serviceInstanceId;
     protected $_name = [
         'clientToken'       => 'ClientToken',
-        'serviceInstanceId' => 'ServiceInstanceId',
-        'regionId'          => 'RegionId',
+        'dryRun'            => 'DryRun',
+        'option'            => 'Option',
         'parameters'        => 'Parameters',
+        'regionId'          => 'RegionId',
+        'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
     public function validate()
@@ -44,14 +66,20 @@ class ContinueDeployServiceInstanceRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->serviceInstanceId) {
-            $res['ServiceInstanceId'] = $this->serviceInstanceId;
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->option) {
+            $res['Option'] = $this->option;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+        if (null !== $this->serviceInstanceId) {
+            $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
 
         return $res;
@@ -68,14 +96,22 @@ class ContinueDeployServiceInstanceRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['ServiceInstanceId'])) {
-            $model->serviceInstanceId = $map['ServiceInstanceId'];
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['Option'])) {
+            if (!empty($map['Option'])) {
+                $model->option = $map['Option'];
+            }
+        }
+        if (isset($map['Parameters'])) {
+            $model->parameters = $map['Parameters'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
+        if (isset($map['ServiceInstanceId'])) {
+            $model->serviceInstanceId = $map['ServiceInstanceId'];
         }
 
         return $model;

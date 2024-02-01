@@ -9,29 +9,48 @@ use AlibabaCloud\Tea\Model;
 class operationMetadata extends Model
 {
     /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
+     * @example 2022-01-28T06:48:56Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example ```json
+     * "username": "admin",
+     * "password": "******",
+     * "vncPassword": "******"
+     * ```
+     * @var string
+     */
+    public $extraInfo;
+
+    /**
+     * @example {   "RegionId": "cn-hangzhou",   "Type": "ResourceIds",   "ResourceIds": {     "ALIYUN::ECS::INSTANCE": ["i-xxx", "i-yyy"],     "ALIYUN::RDS::INSTANCE": ["rm-xxx", "rm-yyy"],     "ALIYUN::VPC::VPC": ["vpc-xxx", "vpc-yyy"],     "ALIYUN::SLB::INSTANCE": ["lb-xxx", "lb-yyy"]   } }
+     *
      * @var string
      */
     public $resources;
 
     /**
+     * @example si-d6ab3a63ccbb4b17****
+     *
      * @var string
      */
     public $serviceInstanceId;
+
+    /**
+     * @example 2021-12-29T06:48:56Z
+     *
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'startTime'         => 'StartTime',
         'endTime'           => 'EndTime',
+        'extraInfo'         => 'ExtraInfo',
         'resources'         => 'Resources',
         'serviceInstanceId' => 'ServiceInstanceId',
+        'startTime'         => 'StartTime',
     ];
 
     public function validate()
@@ -41,17 +60,20 @@ class operationMetadata extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
         }
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
         }
         if (null !== $this->serviceInstanceId) {
             $res['ServiceInstanceId'] = $this->serviceInstanceId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -65,17 +87,20 @@ class operationMetadata extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
         }
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];
         }
         if (isset($map['ServiceInstanceId'])) {
             $model->serviceInstanceId = $map['ServiceInstanceId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

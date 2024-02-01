@@ -9,35 +9,61 @@ use AlibabaCloud\Tea\Model;
 class serviceInstancesLogs extends Model
 {
     /**
+     * @example Start creating service instance
+     *
      * @var string
      */
-    public $timestamp;
+    public $content;
 
     /**
+     * @example serviceInstance
+     *
      * @var string
      */
-    public $serviceInstanceId;
+    public $logType;
 
     /**
+     * @example si-5c6525c0589545c3****
+     *
+     * @var string
+     */
+    public $resourceId;
+
+    /**
+     * @example ROS.Stack
+     *
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @example ros
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example Creating
+     *
      * @var string
      */
-    public $phase;
+    public $status;
 
     /**
+     * @example 2021-05-21T00:00:00Z
+     *
      * @var string
      */
-    public $content;
+    public $timestamp;
     protected $_name = [
-        'timestamp'         => 'Timestamp',
-        'serviceInstanceId' => 'ServiceInstanceId',
-        'source'            => 'Source',
-        'phase'             => 'Phase',
-        'content'           => 'Content',
+        'content'      => 'Content',
+        'logType'      => 'LogType',
+        'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'source'       => 'Source',
+        'status'       => 'Status',
+        'timestamp'    => 'Timestamp',
     ];
 
     public function validate()
@@ -47,20 +73,26 @@ class serviceInstancesLogs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timestamp) {
-            $res['Timestamp'] = $this->timestamp;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
-        if (null !== $this->serviceInstanceId) {
-            $res['ServiceInstanceId'] = $this->serviceInstanceId;
+        if (null !== $this->logType) {
+            $res['LogType'] = $this->logType;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
-        if (null !== $this->phase) {
-            $res['Phase'] = $this->phase;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->timestamp) {
+            $res['Timestamp'] = $this->timestamp;
         }
 
         return $res;
@@ -74,20 +106,26 @@ class serviceInstancesLogs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Timestamp'])) {
-            $model->timestamp = $map['Timestamp'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
-        if (isset($map['ServiceInstanceId'])) {
-            $model->serviceInstanceId = $map['ServiceInstanceId'];
+        if (isset($map['LogType'])) {
+            $model->logType = $map['LogType'];
+        }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
-        if (isset($map['Phase'])) {
-            $model->phase = $map['Phase'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['Timestamp'])) {
+            $model->timestamp = $map['Timestamp'];
         }
 
         return $model;

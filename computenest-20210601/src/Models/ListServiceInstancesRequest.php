@@ -5,41 +5,55 @@
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesRequest\filter;
-use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesRequest\requestTags;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListServiceInstancesRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $maxResults;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
     /**
      * @var filter[]
      */
     public $filter;
 
     /**
-     * @var requestTags[]
+     * @example 20
+     *
+     * @var int
      */
-    public $requestTags;
+    public $maxResults;
+
+    /**
+     * @example BBBAAfu+XtuBE55iRLHEYYuojI4=
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @example rg-bp67acfmxazb4p****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'filter'      => 'Filter',
-        'requestTags' => 'RequestTags',
+        'filter'          => 'Filter',
+        'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
@@ -49,15 +63,6 @@ class ListServiceInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->filter) {
             $res['Filter'] = [];
             if (null !== $this->filter && \is_array($this->filter)) {
@@ -67,12 +72,24 @@ class ListServiceInstancesRequest extends Model
                 }
             }
         }
-        if (null !== $this->requestTags) {
-            $res['RequestTags'] = [];
-            if (null !== $this->requestTags && \is_array($this->requestTags)) {
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
                 $n = 0;
-                foreach ($this->requestTags as $item) {
-                    $res['RequestTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -88,15 +105,6 @@ class ListServiceInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
@@ -106,12 +114,24 @@ class ListServiceInstancesRequest extends Model
                 }
             }
         }
-        if (isset($map['RequestTags'])) {
-            if (!empty($map['RequestTags'])) {
-                $model->requestTags = [];
-                $n                  = 0;
-                foreach ($map['RequestTags'] as $item) {
-                    $model->requestTags[$n++] = null !== $item ? requestTags::fromMap($item) : $item;
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
         }

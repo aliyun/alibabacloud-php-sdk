@@ -1,3 +1,7 @@
+2024-02-01 Version: 1.1.3
+- Update API CreateServiceInstanceadd BusinessInfo param.
+
+
 2021-09-22 Version: 1.1.2
 - ListServiceInstance support RequestTag parameter.
 - CreateServiceInstance support RequestTag parameter.

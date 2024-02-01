@@ -10,28 +10,34 @@ use AlibabaCloud\Tea\Model;
 class ListServiceInstanceLogsResponseBody extends Model
 {
     /**
+     * @example 20
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @example AAAAAfu+XtuBE55iRLHEYYuojI4=
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 51945B04-6AA6-410D-93BA-236E0248B104
+     *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $maxResults;
 
     /**
      * @var serviceInstancesLogs[]
      */
     public $serviceInstancesLogs;
     protected $_name = [
+        'maxResults'           => 'MaxResults',
         'nextToken'            => 'NextToken',
         'requestId'            => 'RequestId',
-        'maxResults'           => 'MaxResults',
         'serviceInstancesLogs' => 'ServiceInstancesLogs',
     ];
 
@@ -42,14 +48,14 @@ class ListServiceInstanceLogsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->serviceInstancesLogs) {
             $res['ServiceInstancesLogs'] = [];
@@ -72,14 +78,14 @@ class ListServiceInstanceLogsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['ServiceInstancesLogs'])) {
             if (!empty($map['ServiceInstancesLogs'])) {

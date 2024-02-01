@@ -10,35 +10,43 @@ use AlibabaCloud\Tea\Model;
 class ListServiceInstancesResponseBody extends Model
 {
     /**
+     * @example 20
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @example AAAAAfu+XtuBE55iRLHEYYuojI4=
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example E50287CB-AABF-4877-92C0-289B339A1546
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $maxResults;
-
-    /**
      * @var serviceInstances[]
      */
     public $serviceInstances;
+
+    /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
+        'maxResults'       => 'MaxResults',
         'nextToken'        => 'NextToken',
         'requestId'        => 'RequestId',
-        'totalCount'       => 'TotalCount',
-        'maxResults'       => 'MaxResults',
         'serviceInstances' => 'ServiceInstances',
+        'totalCount'       => 'TotalCount',
     ];
 
     public function validate()
@@ -48,17 +56,14 @@ class ListServiceInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->serviceInstances) {
             $res['ServiceInstances'] = [];
@@ -68,6 +73,9 @@ class ListServiceInstancesResponseBody extends Model
                     $res['ServiceInstances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,17 +89,14 @@ class ListServiceInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['ServiceInstances'])) {
             if (!empty($map['ServiceInstances'])) {
@@ -101,6 +106,9 @@ class ListServiceInstancesResponseBody extends Model
                     $model->serviceInstances[$n++] = null !== $item ? serviceInstances::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;
