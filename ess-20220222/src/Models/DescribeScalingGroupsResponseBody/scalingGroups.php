@@ -121,6 +121,11 @@ class scalingGroups extends Model
     public $healthCheckType;
 
     /**
+     * @var string[]
+     */
+    public $healthCheckTypes;
+
+    /**
      * @example 0
      *
      * @var int
@@ -412,6 +417,7 @@ class scalingGroups extends Model
         'groupDeletionProtection'             => 'GroupDeletionProtection',
         'groupType'                           => 'GroupType',
         'healthCheckType'                     => 'HealthCheckType',
+        'healthCheckTypes'                    => 'HealthCheckTypes',
         'initCapacity'                        => 'InitCapacity',
         'isElasticStrengthInAlarm'            => 'IsElasticStrengthInAlarm',
         'launchTemplateId'                    => 'LaunchTemplateId',
@@ -516,6 +522,9 @@ class scalingGroups extends Model
         }
         if (null !== $this->healthCheckType) {
             $res['HealthCheckType'] = $this->healthCheckType;
+        }
+        if (null !== $this->healthCheckTypes) {
+            $res['HealthCheckTypes'] = $this->healthCheckTypes;
         }
         if (null !== $this->initCapacity) {
             $res['InitCapacity'] = $this->initCapacity;
@@ -740,6 +749,11 @@ class scalingGroups extends Model
         }
         if (isset($map['HealthCheckType'])) {
             $model->healthCheckType = $map['HealthCheckType'];
+        }
+        if (isset($map['HealthCheckTypes'])) {
+            if (!empty($map['HealthCheckTypes'])) {
+                $model->healthCheckTypes = $map['HealthCheckTypes'];
+            }
         }
         if (isset($map['InitCapacity'])) {
             $model->initCapacity = $map['InitCapacity'];

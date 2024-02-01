@@ -157,6 +157,11 @@ class CreateScalingGroupRequest extends Model
     public $healthCheckType;
 
     /**
+     * @var string[]
+     */
+    public $healthCheckTypes;
+
+    /**
      * @description The ID of the existing ECS instance that provides instance configurations for Auto Scaling to create a scaling configuration.
      *
      * @example i-28wt4****
@@ -455,6 +460,7 @@ class CreateScalingGroupRequest extends Model
         'groupDeletionProtection'             => 'GroupDeletionProtection',
         'groupType'                           => 'GroupType',
         'healthCheckType'                     => 'HealthCheckType',
+        'healthCheckTypes'                    => 'HealthCheckTypes',
         'instanceId'                          => 'InstanceId',
         'launchTemplateId'                    => 'LaunchTemplateId',
         'launchTemplateOverrides'             => 'LaunchTemplateOverrides',
@@ -538,6 +544,9 @@ class CreateScalingGroupRequest extends Model
         }
         if (null !== $this->healthCheckType) {
             $res['HealthCheckType'] = $this->healthCheckType;
+        }
+        if (null !== $this->healthCheckTypes) {
+            $res['HealthCheckTypes'] = $this->healthCheckTypes;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -721,6 +730,11 @@ class CreateScalingGroupRequest extends Model
         }
         if (isset($map['HealthCheckType'])) {
             $model->healthCheckType = $map['HealthCheckType'];
+        }
+        if (isset($map['HealthCheckTypes'])) {
+            if (!empty($map['HealthCheckTypes'])) {
+                $model->healthCheckTypes = $map['HealthCheckTypes'];
+            }
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

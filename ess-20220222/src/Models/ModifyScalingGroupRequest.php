@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyScalingGroupRequest extends Model
 {
     /**
-     * @description The health check mode of the scaling group. Valid values:
-     *
-     *   NONE: Auto Scaling does not perform health checks on instances in the scaling group.
-     *   ECS: Auto Scaling performs health checks on ECS instances in the scaling group.
+     * @description The ID of the active scaling configuration in the scaling group.
      *
      * @example asc-bp17pelvl720x5ub****
      *
@@ -22,10 +19,10 @@ class ModifyScalingGroupRequest extends Model
     public $activeScalingConfigurationId;
 
     /**
-     * @description The allocation policy of preemptible instances. You can use this parameter to individually specify the allocation policy of preemptible instances. This parameter takes effect only when you set the `MultiAZPolicy` parameter to `COMPOSABLE`. Valid values:
+     * @description The allocation policy. Auto Scaling selects instance types based on the allocation policy to create the required number of instances. The policy can be applied to pay-as-you-go instances and preemptible instances at the same time. This parameter takes effect only when you set the MultiAZPolicy parameter to COMPOSABLE. Valid values:
      *
-     *   priority: Auto Scaling selects instance types based on the specified order to create the required number of preemptible instances.
-     *   lowestPrice: Auto Scaling selects instance types that have the lowest unit price of vCPUs to create the required number of preemptible instances.
+     *   priority: Auto Scaling selects instance types based on the specified order to create the required number of instances.
+     *   lowestPrice: Auto Scaling selects instance types that have the lowest unit price of vCPUs to create the required number of instances.
      *
      * Default value: priority.
      * @example priority
@@ -35,12 +32,12 @@ class ModifyScalingGroupRequest extends Model
     public $allocationStrategy;
 
     /**
-     * @description The allocation policy. Auto Scaling selects instance types based on the allocation policy to create the required number of instances. The policy can be applied to pay-as-you-go instances and preemptible instances at the same time. This parameter takes effect only when you set the MultiAZPolicy parameter to COMPOSABLE. Valid values:
+     * @description Specifies whether to evenly distribute instances in the scaling group across zones. This parameter takes effect only when you set the `MultiAZPolicy` parameter to `COMPOSABLE`. Valid values:
      *
-     *   priority: Auto Scaling selects instance types based on the specified order to create the required number of instances.
-     *   lowestPrice: Auto Scaling selects instance types that have the lowest unit price of vCPUs to create the required number of instances.
+     *   true
+     *   false
      *
-     * Default value: priority.
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -48,9 +45,11 @@ class ModifyScalingGroupRequest extends Model
     public $azBalance;
 
     /**
-     * @description The number of instance types that you specify. Auto Scaling creates preemptible instances of multiple instance types that are provided at the lowest price. Valid values: 0 to 10.
+     * @description Specifies whether to automatically create pay-as-you-go instances to meet the requirements on the number of ECS instances in the scaling group when the number of preemptible instances cannot be reached due to reasons such as costs and insufficient resources. This parameter takes effect only if you set the MultiAZPolicy parameter in the CreateScalingGroup operation to COST_OPTIMIZED. Valid values:
      *
-     * If you set the `MultiAZPolicy` parameter to `COMPOSABLE` Policy, the default value is 2.
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -58,7 +57,7 @@ class ModifyScalingGroupRequest extends Model
     public $compensateWithOnDemand;
 
     /**
-     * @description The ID of the request.
+     * @description The ARN of the custom scaling policy (Function). This parameter takes effect only when you specify CustomPolicy as the first step of the instance removal policy.
      *
      * @example acs:fc:cn-zhangjiakou:16145688****:services/ess_custom_terminate_policy.LATEST/functions/ess_custom_terminate_policy_name
      *
@@ -67,11 +66,7 @@ class ModifyScalingGroupRequest extends Model
     public $customPolicyARN;
 
     /**
-     * @description The policy that is used to remove ECS instances from the scaling group. Valid values:
-     *
-     *   OldestInstance: removes ECS instances that are added at the earliest point in time to the scaling group.
-     *   NewestInstance: removes ECS instances that are most recently added to the scaling group.
-     *   OldestScalingConfiguration: removes ECS instances that are created based on the earliest scaling configuration.
+     * @description The default cooldown time of the scaling group. This parameter takes effect only for scaling groups that have simple scaling rules. Valid values: 0 to 86400. Unit: seconds. During the cooldown time, Auto Scaling executes only scaling activities that are triggered by event-triggered tasks associated with CloudMonitor.
      *
      * @example 600
      *
@@ -80,10 +75,7 @@ class ModifyScalingGroupRequest extends Model
     public $defaultCooldown;
 
     /**
-     * @description Specifies whether to enable deletion protection for the scaling group. Valid values:
-     *
-     *   true: enables deletion protection for the scaling group. This way, the scaling group cannot be deleted.
-     *   false: disables deletion protection for the scaling group.
+     * @description The expected number of ECS instances in the scaling group. Auto Scaling automatically maintains the specified expected number of ECS instances. The expected number cannot be greater than the value of the MaxSize parameter and cannot be less than the value of the MinSize parameter.
      *
      * @example 5
      *
@@ -92,20 +84,20 @@ class ModifyScalingGroupRequest extends Model
     public $desiredCapacity;
 
     /**
+     * @description 伸缩组是否关闭期望实例数功能。取值范围：
+     *
+     * > 只有伸缩组当前无伸缩活动时，才能将该参数设置为true（即关闭伸缩组的期望实例数功能），关闭伸缩组的期望实例数功能时伸缩组当前的DesiredCapacity属性也会被清空，但伸缩组中当前的实例数量不发生变化。
+     * @example false
+     *
      * @var bool
      */
     public $disableDesiredCapacity;
 
     /**
-     * @description The scaling policy for the multi-zone scaling group that contains ECS instances. Valid values:
+     * @description Specifies whether to enable deletion protection for the scaling group. Valid values:
      *
-     *   PRIORITY: ECS instances are scaled based on the vSwitch priority. The first vSwitch specified by using the VSwitchIds parameter has the highest priority. Auto Scaling preferentially scales instances in the zone where the vSwitch that has the highest priority resides. If the scaling fails, Auto Scaling scales instances in the zone where the vSwitch that has the next highest priority resides.
-     *   COST_OPTIMIZED: During a scale-out activity, Auto Scaling preferentially creates ECS instances of the instance type that has the lowest unit price of vCPU. During a scale-in activity, Auto Scaling preferentially removes ECS instances of the instance types that have the highest unit price of vCPU. Auto Scaling preferentially creates preemptible instances when preemptible instance types are specified in the scaling configuration. You can use the `CompensateWithOnDemand` parameter to specify whether to automatically create pay-as-you-go instances when Auto Scaling fails to create preemptible instances.
-     *
-     * > The `COST_OPTIMIZED` setting takes effect only when multiple instance types are specified or at least one instance type is specified for preemptible instances.
-     *
-     *   BALANCE: ECS instances are evenly distributed across zones that are specified in the scaling group. If ECS instances are unevenly distributed among zones due to insufficient resources, you can call the RebalanceInstance operation to evenly distribute the instances among the zones.
-     *   COMPOSABLE: You can flexibly combine the preceding policies based on your business requirements.
+     *   true: enables deletion protection for the scaling group. This way, the scaling group cannot be deleted.
+     *   false: disables deletion protection for the scaling group.
      *
      * @example true
      *
@@ -114,7 +106,10 @@ class ModifyScalingGroupRequest extends Model
     public $groupDeletionProtection;
 
     /**
-     * @description The ID of the launch template that is used by Auto Scaling to create instances.
+     * @description The health check mode of the scaling group. Valid values:
+     *
+     *   NONE: Auto Scaling does not perform health checks on instances in the scaling group.
+     *   ECS: Auto Scaling performs health checks on ECS instances in the scaling group.
      *
      * @example ECS
      *
@@ -123,11 +118,12 @@ class ModifyScalingGroupRequest extends Model
     public $healthCheckType;
 
     /**
-     * @description The version number of the launch template. Valid values:
-     *
-     *   A fixed template version number.
-     *   Default: The default template version is always used.
-     *   Latest: The latest template version is always used.
+     * @var string[]
+     */
+    public $healthCheckTypes;
+
+    /**
+     * @description The ID of the launch template that is used by Auto Scaling to create instances.
      *
      * @example lt-m5e3ofjr1zn1aw7****
      *
@@ -143,9 +139,12 @@ class ModifyScalingGroupRequest extends Model
     public $launchTemplateOverrides;
 
     /**
-     * @description The minimum number of pay-as-you-go instances that must be included in the scaling group. Valid values: 0 to 1000. If the number of pay-as-you-go instances is less than the value of this parameter, Auto Scaling preferentially creates pay-as-you-go instances.
+     * @description The version number of the launch template. Valid values:
      *
-     * If you set the `MultiAZPolicy` parameter to `COMPOSABLE` Policy, the default value is 0.
+     *   A fixed template version number.
+     *   Default: The default template version is always used.
+     *   Latest: The latest template version is always used.
+     *
      * @example Default
      *
      * @var string
@@ -153,12 +152,9 @@ class ModifyScalingGroupRequest extends Model
     public $launchTemplateVersion;
 
     /**
-     * @description Specifies whether to evenly distribute instances in the scaling group across zones. This parameter takes effect only when you set the `MultiAZPolicy` parameter to `COMPOSABLE`. Valid values:
+     * @description The maximum life span of the instance in the scaling group. Unit: seconds.
      *
-     *   true
-     *   false
-     *
-     * Default value: false.
+     * > You cannot specify this parameter for scaling groups that manage elastic container instances or scaling groups whose ScalingPolicy is set to recycle.
      * @example null
      *
      * @var int
@@ -166,8 +162,11 @@ class ModifyScalingGroupRequest extends Model
     public $maxInstanceLifetime;
 
     /**
-     * @description The default cooldown time of the scaling group. This parameter takes effect only for scaling groups that have simple scaling rules. Valid values: 0 to 86400. Unit: seconds. During the cooldown time, Auto Scaling executes only scaling activities that are triggered by event-triggered tasks associated with CloudMonitor.
+     * @description The maximum number of ECS instances in the scaling group. When the number of ECS instances in the scaling group is greater than the value of the MaxSize parameter, Auto Scaling automatically removes ECS instances from the scaling group until the number of instances is equal to the value of the MaxSize parameter.
      *
+     * The value range of the MaxSize parameter varies based on the instance quota. You can go to [Quota Center](https://quotas.console.aliyun.com/products/ess/quotas) to check the quota of **instances that can be included in a scaling group**.
+     *
+     * For example, if the quota of instances that can be included in a scaling group is 2000, the valid values of the MaxSize parameter range from 0 to 2000.
      * @example 99
      *
      * @var int
@@ -175,11 +174,9 @@ class ModifyScalingGroupRequest extends Model
     public $maxSize;
 
     /**
-     * @description The maximum number of ECS instances in the scaling group. When the number of ECS instances in the scaling group is greater than the value of the MaxSize parameter, Auto Scaling automatically removes ECS instances from the scaling group until the number of instances is equal to the value of the MaxSize parameter.
+     * @description The minimum number of ECS instances in the scaling group. When the number of ECS instances in the scaling group is less than the value of the MinSize parameter, Auto Scaling automatically creates ECS instances and adds the instances to the scaling group until the number of instances is equal to the value of the MinSize parameter.
      *
-     * The value range of the MaxSize parameter varies based on the instance quota. You can go to [Quota Center](https://quotas.console.aliyun.com/products/ess/quotas) to check the quota of **instances that can be included in a scaling group**.
-     *
-     * For example, if the quota of instances that can be included in a scaling group is 2000, the valid values of the MaxSize parameter range from 0 to 2000.
+     * > The value of the MinSize parameter must be less than or equal to the value of the MaxSize parameter.
      * @example 1
      *
      * @var int
@@ -187,9 +184,16 @@ class ModifyScalingGroupRequest extends Model
     public $minSize;
 
     /**
-     * @description The IDs of vSwitches.
+     * @description The scaling policy for the multi-zone scaling group that contains ECS instances. Valid values:
      *
-     * The vSwitches can reside in different zones. The vSwitches are sorted in ascending order. The first vSwitch specified by using the VSwitchIds parameter has the highest priority. If Auto Scaling fails to create ECS instances in the zone where the vSwitch that has the highest priority resides, Auto Scaling creates ECS instances in the zone where the vSwitch that has the next highest priority resides.
+     *   PRIORITY: ECS instances are scaled based on the vSwitch priority. The first vSwitch specified by using the VSwitchIds parameter has the highest priority. Auto Scaling preferentially scales instances in the zone where the vSwitch that has the highest priority resides. If the scaling fails, Auto Scaling scales instances in the zone where the vSwitch that has the next highest priority resides.
+     *   COST_OPTIMIZED: During a scale-out activity, Auto Scaling preferentially creates ECS instances of the instance type that has the lowest unit price of vCPU. During a scale-in activity, Auto Scaling preferentially removes ECS instances of the instance types that have the highest unit price of vCPU. Auto Scaling preferentially creates preemptible instances when preemptible instance types are specified in the scaling configuration. You can use the `CompensateWithOnDemand` parameter to specify whether to automatically create pay-as-you-go instances when Auto Scaling fails to create preemptible instances.
+     *
+     * > The `COST_OPTIMIZED` setting takes effect only when multiple instance types are specified or at least one instance type is specified for preemptible instances.
+     *
+     *   BALANCE: ECS instances are evenly distributed across zones that are specified in the scaling group. If ECS instances are unevenly distributed among zones due to insufficient resources, you can call the RebalanceInstance operation to evenly distribute the instances among the zones.
+     *   COMPOSABLE: You can flexibly combine the preceding policies based on your business requirements.
+     *
      * @example PRIORITY
      *
      * @var string
@@ -197,9 +201,9 @@ class ModifyScalingGroupRequest extends Model
     public $multiAZPolicy;
 
     /**
-     * @description The expected percentage of pay-as-you-go instances in the excess instances when the minimum number of pay-as-you-go instances reaches the requirement. Valid values: 0 to 100.
+     * @description The minimum number of pay-as-you-go instances that must be included in the scaling group. Valid values: 0 to 1000. If the number of pay-as-you-go instances is less than the value of this parameter, Auto Scaling preferentially creates pay-as-you-go instances.
      *
-     * If you set the `MultiAZPolicy` parameter to `COMPOSABLE` Policy, the default value is 100.
+     * If you set the `MultiAZPolicy` parameter to `COMPOSABLE` Policy, the default value is 0.
      * @example 30
      *
      * @var int
@@ -207,8 +211,9 @@ class ModifyScalingGroupRequest extends Model
     public $onDemandBaseCapacity;
 
     /**
-     * @description Specifies whether to supplement preemptible instances. If this parameter is set to true, Auto Scaling creates an instance to replace a preemptible instance when Auto Scaling receives the system message that the preemptible instance is to be reclaimed.
+     * @description The expected percentage of pay-as-you-go instances in the excess instances when the minimum number of pay-as-you-go instances reaches the requirement. Valid values: 0 to 100.
      *
+     * If you set the `MultiAZPolicy` parameter to `COMPOSABLE` Policy, the default value is 100.
      * @example 20
      *
      * @var int
@@ -247,7 +252,7 @@ class ModifyScalingGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The name of the scaling group. The name of each scaling group must be unique in a region. The name must be 2 to 64 characters in length and can contain letters, digits, underscores (\_), hyphens (-), and periods (.). The name must start with a letter or a digit.
+     * @description The ID of the scaling group that you want to modify.
      *
      * @example asg-bp1ffogfdauy0jw0****
      *
@@ -256,9 +261,8 @@ class ModifyScalingGroupRequest extends Model
     public $scalingGroupId;
 
     /**
-     * @description The minimum number of ECS instances in the scaling group. When the number of ECS instances in the scaling group is less than the value of the MinSize parameter, Auto Scaling automatically creates ECS instances and adds the instances to the scaling group until the number of instances is equal to the value of the MinSize parameter.
+     * @description The name of the scaling group. The name of each scaling group must be unique in a region. The name must be 2 to 64 characters in length and can contain letters, digits, underscores (\_), hyphens (-), and periods (.). The name must start with a letter or a digit.
      *
-     * > The value of the MinSize parameter must be less than or equal to the value of the MaxSize parameter.
      * @example scalinggroup****
      *
      * @var string
@@ -266,8 +270,12 @@ class ModifyScalingGroupRequest extends Model
     public $scalingGroupName;
 
     /**
-     * @description The ARN of the custom scaling policy (Function). This parameter takes effect only when you specify CustomPolicy as the first step of the instance removal policy.
+     * @description The allocation policy of preemptible instances. You can use this parameter to individually specify the allocation policy of preemptible instances. This parameter takes effect only when you set the `MultiAZPolicy` parameter to `COMPOSABLE`. Valid values:
      *
+     *   priority: Auto Scaling selects instance types based on the specified order to create the required number of preemptible instances.
+     *   lowestPrice: Auto Scaling selects instance types that have the lowest unit price of vCPUs to create the required number of preemptible instances.
+     *
+     * Default value: priority.
      * @example lowestPrice
      *
      * @var string
@@ -275,8 +283,9 @@ class ModifyScalingGroupRequest extends Model
     public $spotAllocationStrategy;
 
     /**
-     * @description The expected number of ECS instances in the scaling group. Auto Scaling automatically maintains the specified expected number of ECS instances. The expected number cannot be greater than the value of the MaxSize parameter and cannot be less than the value of the MinSize parameter.
+     * @description The number of instance types that you specify. Auto Scaling creates preemptible instances of multiple instance types that are provided at the lowest price. Valid values: 0 to 10.
      *
+     * If you set the `MultiAZPolicy` parameter to `COMPOSABLE` Policy, the default value is 2.
      * @example 5
      *
      * @var int
@@ -284,10 +293,7 @@ class ModifyScalingGroupRequest extends Model
     public $spotInstancePools;
 
     /**
-     * @description Specifies whether to automatically create pay-as-you-go instances to meet the requirements on the number of ECS instances in the scaling group when the number of preemptible instances cannot be reached due to reasons such as costs and insufficient resources. This parameter takes effect only if you set the MultiAZPolicy parameter in the CreateScalingGroup operation to COST_OPTIMIZED. Valid values:
-     *
-     *   true
-     *   false
+     * @description Specifies whether to supplement preemptible instances. If this parameter is set to true, Auto Scaling creates an instance to replace a preemptible instance when Auto Scaling receives the system message that the preemptible instance is to be reclaimed.
      *
      * @example true
      *
@@ -313,6 +319,7 @@ class ModifyScalingGroupRequest extends Model
         'disableDesiredCapacity'              => 'DisableDesiredCapacity',
         'groupDeletionProtection'             => 'GroupDeletionProtection',
         'healthCheckType'                     => 'HealthCheckType',
+        'healthCheckTypes'                    => 'HealthCheckTypes',
         'launchTemplateId'                    => 'LaunchTemplateId',
         'launchTemplateOverrides'             => 'LaunchTemplateOverrides',
         'launchTemplateVersion'               => 'LaunchTemplateVersion',
@@ -371,6 +378,9 @@ class ModifyScalingGroupRequest extends Model
         }
         if (null !== $this->healthCheckType) {
             $res['HealthCheckType'] = $this->healthCheckType;
+        }
+        if (null !== $this->healthCheckTypes) {
+            $res['HealthCheckTypes'] = $this->healthCheckTypes;
         }
         if (null !== $this->launchTemplateId) {
             $res['LaunchTemplateId'] = $this->launchTemplateId;
@@ -479,6 +489,11 @@ class ModifyScalingGroupRequest extends Model
         }
         if (isset($map['HealthCheckType'])) {
             $model->healthCheckType = $map['HealthCheckType'];
+        }
+        if (isset($map['HealthCheckTypes'])) {
+            if (!empty($map['HealthCheckTypes'])) {
+                $model->healthCheckTypes = $map['HealthCheckTypes'];
+            }
         }
         if (isset($map['LaunchTemplateId'])) {
             $model->launchTemplateId = $map['LaunchTemplateId'];

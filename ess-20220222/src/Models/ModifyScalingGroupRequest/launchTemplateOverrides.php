@@ -9,6 +9,25 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateOverrides extends Model
 {
     /**
+     * @description The instance type. The instance type that you specify by using the InstanceType parameter overwrites the instance type that is specified in the launch template.
+     *
+     * You can use the InstanceType parameter to specify only instance types that are available for purchase.
+     * @example ecs.c5.xlarge
+     *
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @description 本参数用于指定实例启动模板覆盖规格（即`LaunchTemplateOverride.N.InstanceType`）的竞价价格上限。您可以指定N个该参数，扩展启动模板支持N个实例规格。N的取值范围：1~10。
+     * >仅当`LaunchTemplateId`参数指定了启动模板时，该参数才生效。
+     * @example 0.025
+     *
+     * @var float
+     */
+    public $spotPriceLimit;
+
+    /**
      * @description The weight of the instance type. The weight specifies the capacity of a single instance of the specified instance type in the scaling group. If you want Auto Scaling to scale instances in the scaling group based on the weighted capacity of instances, you must specify the WeightedCapacity parameter after you specify the InstanceType parameter.
      *
      * Example:
@@ -18,23 +37,6 @@ class launchTemplateOverrides extends Model
      *   Capacity of ecs.c5.xlarge: 4
      *
      * Valid values of the WeightedCapacity parameter: 1 to 500.
-     * @example ecs.c5.xlarge
-     *
-     * @var string
-     */
-    public $instanceType;
-
-    /**
-     * @example 0.025
-     *
-     * @var float
-     */
-    public $spotPriceLimit;
-
-    /**
-     * @description The maximum life span of the instance in the scaling group. Unit: seconds.
-     *
-     * > You cannot specify this parameter for scaling groups that manage elastic container instances or scaling groups whose ScalingPolicy is set to recycle.
      * @example 4
      *
      * @var int

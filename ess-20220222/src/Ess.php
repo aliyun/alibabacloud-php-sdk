@@ -1638,6 +1638,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->healthCheckType)) {
             $query['HealthCheckType'] = $request->healthCheckType;
         }
+        if (!Utils::isUnset($request->healthCheckTypes)) {
+            $query['HealthCheckTypes'] = $request->healthCheckTypes;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -5229,10 +5232,23 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @param ModifyScalingGroupRequest $request
-     * @param RuntimeOptions            $runtime
+     * *   You cannot call this operation to modify the settings of the following parameters:
+     *   *     *   RegionId
+     *   *     *   LoadBalancerId
+     *   * > If you want to change the CLB instances that are associated with your scaling group, call the AttachLoadBalancers and DetachLoadBalancers operations.
+     *   *     *   DBInstanceId.
+     *   *     **
+     *   *     **Note**If you want to change the ApsaraDB RDS instances that are associated with your scaling group, call the AttachDBInstances and DetachDBInstances operations.
+     *   * *   You can modify only scaling groups that are in the Active or Inactive state.
+     *   * *   If you enable a new scaling configuration, Elastic Compute Service (ECS) instances that are created based on the previous scaling configuration still run as expected in the scaling group.
+     *   * *   If the total number of instances in the scaling group is greater than the allowed maximum number after you change the value of the MaxSize parameter, Auto Scaling automatically removes instances from the scaling group to ensure that the number of instances is within the new range.
+     *   * *   If the total number of instances in the scaling group is less than the allowed minimum number after you change the value of the MinSize parameter, Auto Scaling automatically adds instances to the scaling group to ensure that the number of instances is within the new range.
+     *   * *   If the total number of instances in the scaling group does not match the expected number of instances after you change the value of the DesiredCapacity parameter, Auto Scaling automatically adds instances to or removes instances from the scaling group to ensure that the number of instances matches the value of the DesiredCapacity parameter.
+     *   *
+     * @param ModifyScalingGroupRequest $request ModifyScalingGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyScalingGroupResponse
+     * @return ModifyScalingGroupResponse ModifyScalingGroupResponse
      */
     public function modifyScalingGroupWithOptions($request, $runtime)
     {
@@ -5267,6 +5283,9 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->healthCheckType)) {
             $query['HealthCheckType'] = $request->healthCheckType;
+        }
+        if (!Utils::isUnset($request->healthCheckTypes)) {
+            $query['HealthCheckTypes'] = $request->healthCheckTypes;
         }
         if (!Utils::isUnset($request->launchTemplateId)) {
             $query['LaunchTemplateId'] = $request->launchTemplateId;
@@ -5347,9 +5366,22 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @param ModifyScalingGroupRequest $request
+     * *   You cannot call this operation to modify the settings of the following parameters:
+     *   *     *   RegionId
+     *   *     *   LoadBalancerId
+     *   * > If you want to change the CLB instances that are associated with your scaling group, call the AttachLoadBalancers and DetachLoadBalancers operations.
+     *   *     *   DBInstanceId.
+     *   *     **
+     *   *     **Note**If you want to change the ApsaraDB RDS instances that are associated with your scaling group, call the AttachDBInstances and DetachDBInstances operations.
+     *   * *   You can modify only scaling groups that are in the Active or Inactive state.
+     *   * *   If you enable a new scaling configuration, Elastic Compute Service (ECS) instances that are created based on the previous scaling configuration still run as expected in the scaling group.
+     *   * *   If the total number of instances in the scaling group is greater than the allowed maximum number after you change the value of the MaxSize parameter, Auto Scaling automatically removes instances from the scaling group to ensure that the number of instances is within the new range.
+     *   * *   If the total number of instances in the scaling group is less than the allowed minimum number after you change the value of the MinSize parameter, Auto Scaling automatically adds instances to the scaling group to ensure that the number of instances is within the new range.
+     *   * *   If the total number of instances in the scaling group does not match the expected number of instances after you change the value of the DesiredCapacity parameter, Auto Scaling automatically adds instances to or removes instances from the scaling group to ensure that the number of instances matches the value of the DesiredCapacity parameter.
+     *   *
+     * @param ModifyScalingGroupRequest $request ModifyScalingGroupRequest
      *
-     * @return ModifyScalingGroupResponse
+     * @return ModifyScalingGroupResponse ModifyScalingGroupResponse
      */
     public function modifyScalingGroup($request)
     {
