@@ -60,7 +60,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $tittle;
+    public $title;
     protected $_name = [
         'createdAt'    => 'createdAt',
         'expireTime'   => 'expireTime',
@@ -69,7 +69,7 @@ class result extends Model
         'keyScope'     => 'keyScope',
         'lastUsedTime' => 'lastUsedTime',
         'publicKey'    => 'publicKey',
-        'tittle'       => 'tittle',
+        'title'        => 'title',
     ];
 
     public function validate()
@@ -100,8 +100,8 @@ class result extends Model
         if (null !== $this->publicKey) {
             $res['publicKey'] = $this->publicKey;
         }
-        if (null !== $this->tittle) {
-            $res['tittle'] = $this->tittle;
+        if (null !== $this->title) {
+            $res['title'] = $this->title;
         }
 
         return $res;
@@ -136,8 +136,8 @@ class result extends Model
         if (isset($map['publicKey'])) {
             $model->publicKey = $map['publicKey'];
         }
-        if (isset($map['tittle'])) {
-            $model->tittle = $map['tittle'];
+        if (isset($map['title'])) {
+            $model->title = $map['title'];
         }
 
         return $model;
