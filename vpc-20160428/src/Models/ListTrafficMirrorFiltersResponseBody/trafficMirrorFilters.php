@@ -21,21 +21,21 @@ class trafficMirrorFilters extends Model
     public $creationTime;
 
     /**
-     * @description The details about the outbound rules.
+     * @description The information about the outbound rules.
      *
      * @var egressRules[]
      */
     public $egressRules;
 
     /**
-     * @description The details about the inbound rules.
+     * @description The information about the inbound rules.
      *
      * @var ingressRules[]
      */
     public $ingressRules;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the traffic mirror session belongs.
      *
      * @example rg-bp67acfmxazb4ph****
      *
@@ -44,7 +44,7 @@ class trafficMirrorFilters extends Model
     public $resourceGroupId;
 
     /**
-     * @description The list of tags.
+     * @description The tag list.
      *
      * @var tags[]
      */
@@ -60,7 +60,7 @@ class trafficMirrorFilters extends Model
     public $trafficMirrorFilterDescription;
 
     /**
-     * @description The ID of the traffic mirror filter.
+     * @description The ID of the filter.
      *
      * @example tmf-j6cmls82xnc86vtpe****
      *
@@ -69,7 +69,7 @@ class trafficMirrorFilters extends Model
     public $trafficMirrorFilterId;
 
     /**
-     * @description The name of the filter.
+     * @description The filter name.
      *
      * @example abc
      *

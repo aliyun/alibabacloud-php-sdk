@@ -20,7 +20,7 @@ class ipv6Address extends Model
     public $allocationTime;
 
     /**
-     * @description The ID of the instance that is assigned the IPv6 address.
+     * @description The ID of the instance associated with the IPv6 address.
      *
      * @example i-2ze72wuqj4y3jl4f****
      *
@@ -29,7 +29,7 @@ class ipv6Address extends Model
     public $associatedInstanceId;
 
     /**
-     * @description The type of the instance that is assigned the IPv6 address.
+     * @description The type of instance associated with the IPv6 address.
      *
      * @example EcsInstance
      *
@@ -38,7 +38,7 @@ class ipv6Address extends Model
     public $associatedInstanceType;
 
     /**
-     * @description The IPv6 address of the instance.
+     * @description The IPv6 address.
      *
      * @example 2408:XXXX:153:3921:851c:c435:7b12:1c5f
      *
@@ -47,6 +47,10 @@ class ipv6Address extends Model
     public $ipv6Address;
 
     /**
+     * @description The description of the IPv6 address.
+     *
+     * @example test
+     *
      * @var string
      */
     public $ipv6AddressDescription;
@@ -79,14 +83,14 @@ class ipv6Address extends Model
     public $ipv6GatewayId;
 
     /**
-     * @description The information about the Internet bandwidth of the IPv6 address.
+     * @description The Internet bandwidth of the IPv6 address.
      *
      * @var ipv6InternetBandwidth
      */
     public $ipv6InternetBandwidth;
 
     /**
-     * @description The service provider of the IPv6 address. Valid values:
+     * @description The ISP of the IPv6 address.
      *
      *   **BGP** (default)
      *   **ChinaMobile**
@@ -100,7 +104,7 @@ class ipv6Address extends Model
     public $ipv6Isp;
 
     /**
-     * @description The type of communication supported by the IPv6 address. Valid values:
+     * @description The type of connection supported by the IPv6 address. Valid values:
      *
      *   **Private**
      *   **Public**
@@ -112,11 +116,7 @@ class ipv6Address extends Model
     public $networkType;
 
     /**
-     * @description The maximum bandwidth value of the IPv6 address.
-     *
-     *   If the IPv6 address is associated with an EIP bandwidth plan, the value of **RealBandwidth** is the maximum bandwidth value of the EIP bandwidth plan.
-     *   If the IPv6 address is not associated with an EIP bandwidth plan, the value of **RealBandwidth** is the maximum bandwidth value of the Internet bandwidth of the IPv6 address.
-     *   If the IPv6 address is not associated with an EIP bandwidth plan or an Internet bandwidth plan, the values of **RealBandwidth** and **Bandwidth** are both 0.
+     * @description The peak bandwidth of the IPv6 address.
      *
      * @example 5
      *
@@ -125,12 +125,16 @@ class ipv6Address extends Model
     public $realBandwidth;
 
     /**
+     * @description The ID of the resource group to which the IPv6 gateway belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The status of the IPv6 address. Valid values:
+     * @description The status of the IPv6 address.
      *
      *   **Pending**
      *   **Available**
@@ -142,6 +146,8 @@ class ipv6Address extends Model
     public $status;
 
     /**
+     * @description The tag list.
+     *
      * @var tags
      */
     public $tags;

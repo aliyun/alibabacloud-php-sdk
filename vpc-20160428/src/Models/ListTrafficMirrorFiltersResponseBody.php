@@ -58,7 +58,7 @@ class ListTrafficMirrorFiltersResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The details about the filters.
+     * @description The information about the filters.
      *
      * @var trafficMirrorFilters[]
      */

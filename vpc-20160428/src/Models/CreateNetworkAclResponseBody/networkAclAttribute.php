@@ -30,14 +30,14 @@ class networkAclAttribute extends Model
     public $description;
 
     /**
-     * @description The details about the outbound rule.
+     * @description The outbound rules.
      *
      * @var egressAclEntries
      */
     public $egressAclEntries;
 
     /**
-     * @description The details about the inbound rule.
+     * @description The inbound rules.
      *
      * @var ingressAclEntries
      */
@@ -71,7 +71,7 @@ class networkAclAttribute extends Model
     public $regionId;
 
     /**
-     * @description The details about the resource that is associated with the network ACL.
+     * @description The information about the associated resources.
      *
      * @var resources
      */
@@ -80,8 +80,8 @@ class networkAclAttribute extends Model
     /**
      * @description The status of the network ACL. Valid values:
      *
-     *   **Available**: The network ACL is available.
-     *   **Modifying**: The network ACL is being configured.
+     *   **Available**
+     *   **Modifying**
      *
      * @example Modifying
      *

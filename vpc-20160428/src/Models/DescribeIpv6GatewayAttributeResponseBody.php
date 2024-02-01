@@ -50,6 +50,11 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
     public $expiredTime;
 
     /**
+     * @description The ID of the gateway route table associated with the IPv6 gateway.
+     *
+     * >  This parameter is available only when the IPv6 gateway is associated with a gateway route table.
+     * @example vtb-5ts0ohchwkp3dydt2****
+     *
      * @var string
      */
     public $gatewayRouteTableId;

@@ -18,7 +18,7 @@ class resource extends Model
     public $resourceId;
 
     /**
-     * @description The type of the associated resource.
+     * @description The type of resource with which you want to associate the network ACL.
      *
      * @example VSwitch
      *
@@ -29,9 +29,10 @@ class resource extends Model
     /**
      * @description The association status of the resource. Valid values:
      *
-     * - **BINDED**: associated
-     * - **BINDING**: being associated
-     * - **UNBINDING**: disassociated
+     *   **BINDED**
+     *   **BINDING**
+     *   **UNBINDING**
+     *
      * @example BINDED
      *
      * @var string

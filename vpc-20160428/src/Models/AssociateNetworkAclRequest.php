@@ -22,6 +22,10 @@ class AssociateNetworkAclRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;

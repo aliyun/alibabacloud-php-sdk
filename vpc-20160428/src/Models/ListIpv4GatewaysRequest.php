@@ -89,6 +89,8 @@ class ListIpv4GatewaysRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags of the resource.
+     *
      * @var tags[]
      */
     public $tags;

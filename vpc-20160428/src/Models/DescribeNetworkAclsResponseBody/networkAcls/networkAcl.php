@@ -38,7 +38,7 @@ class networkAcl extends Model
     public $egressAclEntries;
 
     /**
-     * @description The inbound rules.
+     * @description The configurations of the inbound rules.
      *
      * @var ingressAclEntries
      */
@@ -100,7 +100,7 @@ class networkAcl extends Model
     public $status;
 
     /**
-     * @description The tag list.
+     * @description The information about the tags.
      *
      * @var tags
      */

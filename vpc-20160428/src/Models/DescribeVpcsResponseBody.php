@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcsResponseBody extends Model
 {
     /**
-     * @description The number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeVpcsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class DescribeVpcsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C6532AA8-D0F7-497F-A8EE-094126D441F5
      *
@@ -46,7 +46,7 @@ class DescribeVpcsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The details of the VPCs.
+     * @description The details about the VPC.
      *
      * @var vpcs
      */

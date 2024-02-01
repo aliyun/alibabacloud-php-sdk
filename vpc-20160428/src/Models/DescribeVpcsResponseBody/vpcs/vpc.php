@@ -16,9 +16,7 @@ use AlibabaCloud\Tea\Model;
 class vpc extends Model
 {
     /**
-     * @description The status of the Cloud Enterprise Network (CEN) instance to which the VPC is attached.
-     *
-     **Attached** is returned only if the VPC is attached to a CEN instance.
+     * @description The status of the Cloud Enterprise Network (CEN) instance to which the VPC is attached. **Attached** is returned only if the VPC is attached to a CEN instance.
      *
      * @example Attached
      *
@@ -65,10 +63,10 @@ class vpc extends Model
     /**
      * @description The status of the DHCP options set. Valid values:
      *
-     *   **Available**: available
-     *   **InUse**: in use
-     *   **Deleted**: deleted
-     *   **Pending**: being configured
+     *   **Available**
+     *   **InUse**
+     *   **Deleted**
+     *   **Pending**
      *
      * @example Available
      *
@@ -86,7 +84,7 @@ class vpc extends Model
     public $ipv6CidrBlock;
 
     /**
-     * @description The IPv6 CIDR blocks of the VPC.
+     * @description The IPv6 CIDR block of the VPC.
      *
      * @var ipv6CidrBlocks
      */
@@ -95,8 +93,8 @@ class vpc extends Model
     /**
      * @description Indicates whether the VPC is the default VPC in the region. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -105,7 +103,7 @@ class vpc extends Model
     public $isDefault;
 
     /**
-     * @description The IDs of the NAT gateways.
+     * @description The ID of the Internet NAT gateway.
      *
      * @var natGatewayIds
      */
@@ -139,14 +137,14 @@ class vpc extends Model
     public $resourceGroupId;
 
     /**
-     * @description The IDs of the route tables.
+     * @description The information about the route table.
      *
      * @var routerTableIds
      */
     public $routerTableIds;
 
     /**
-     * @description The secondary CIDR blocks of the VPC.
+     * @description The information about the secondary CIDR block.
      *
      * @var secondaryCidrBlocks
      */
@@ -155,8 +153,8 @@ class vpc extends Model
     /**
      * @description The status of the VPC. Valid values:
      *
-     *   **Pending**: being configured
-     *   **Available**: available
+     *   **Pending**
+     *   **Available**
      *
      * @example Available
      *
@@ -190,13 +188,13 @@ class vpc extends Model
     /**
      * @description The vSwitches in the VPC.
      *
-     * You can query up to 300 vSwitches in the VPC. The information about the latest vSwitches is returned. If you want to query the information about all vSwitches in a VPC, call the [DescribeVSwitches](/help/en/virtual-private-cloud/latest/describevswitches) operation.
+     * You can query up to 300 vSwitches in the VPC. The information about the latest vSwitches is returned. If you want to query the information about all vSwitches in a VPC, call the [DescribeVSwitches](~~35748~~) operation.
      * @var vSwitchIds
      */
     public $vSwitchIds;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
      * @example vpc-bp1qpo0kug3a20qqe****
      *

@@ -71,6 +71,8 @@ class DeleteTrafficMirrorFilterRulesRequest extends Model
     public $trafficMirrorFilterId;
 
     /**
+     * @description The ID of the inbound or outbound rule.
+     *
      * @example tmr-j6cbmubn323k7jlq3****
      *
      * @var string[]

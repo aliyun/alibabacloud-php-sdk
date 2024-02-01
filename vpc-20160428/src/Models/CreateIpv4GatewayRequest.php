@@ -93,6 +93,8 @@ class CreateIpv4GatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags of the resource.
+     *
      * @var tag[]
      */
     public $tag;

@@ -81,14 +81,14 @@ class networkAclAttribute extends Model
     public $regionId;
 
     /**
-     * @description The details about the resource that is associated with the network ACL.
+     * @description The resources that are associated with the network ACL.
      *
      * @var resources
      */
     public $resources;
 
     /**
-     * @description The status of the associated resource. Valid values:
+     * @description The association status of the resource. Valid values:
      *
      *   **Available**
      *   **Modifying**
@@ -100,14 +100,14 @@ class networkAclAttribute extends Model
     public $status;
 
     /**
-     * @description The tag list.
+     * @description The information about the tags.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) with which the network ACL is associated.
+     * @description The ID of the VPC to which the network ACL belongs.
      *
      * @example vpc-a2d33rfpl72k5defr****
      *

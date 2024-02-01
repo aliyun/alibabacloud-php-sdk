@@ -40,7 +40,7 @@ class DeleteIpv6EgressOnlyRuleRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the IPv6 gateway.
+     * @description The region ID of the IPv6 gateway. You can call the [DescribeRegions](~~448570~~) operation to query the most recent region list.
      *
      * @example cn-huhehaote
      *

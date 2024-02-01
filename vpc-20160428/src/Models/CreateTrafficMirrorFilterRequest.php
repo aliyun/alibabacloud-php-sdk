@@ -36,11 +36,15 @@ class CreateTrafficMirrorFilterRequest extends Model
     public $dryRun;
 
     /**
+     * @description The list of outbound rules.
+     *
      * @var egressRules[]
      */
     public $egressRules;
 
     /**
+     * @description The list of inbound rules.
+     *
      * @var ingressRules[]
      */
     public $ingressRules;
@@ -85,7 +89,7 @@ class CreateTrafficMirrorFilterRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags.
+     * @description The tag of the resource.
      *
      * @var tag[]
      */

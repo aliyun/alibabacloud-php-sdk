@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAclAttributesResponseBody extends Model
 {
     /**
-     * @description The details about the network ACL.
+     * @description The details of the network ACLs.
      *
      * @var networkAclAttribute
      */
     public $networkAclAttribute;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F5905F9C-0161-4E72-9CB1-1F3F3CF6268A
      *

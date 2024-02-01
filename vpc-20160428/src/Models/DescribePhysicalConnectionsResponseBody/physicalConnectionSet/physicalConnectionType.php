@@ -276,6 +276,11 @@ class physicalConnectionType extends Model
     public $productType;
 
     /**
+     * @var string
+     */
+    public $qosId;
+
+    /**
      * @description The ID of the redundant Express Connect circuit.
      *
      * @example pc-119mfjzm****
@@ -425,6 +430,7 @@ class physicalConnectionType extends Model
         'portNumber'                     => 'PortNumber',
         'portType'                       => 'PortType',
         'productType'                    => 'ProductType',
+        'qosId'                          => 'QosId',
         'redundantPhysicalConnectionId'  => 'RedundantPhysicalConnectionId',
         'reservationActiveTime'          => 'ReservationActiveTime',
         'reservationInternetChargeType'  => 'ReservationInternetChargeType',
@@ -520,6 +526,9 @@ class physicalConnectionType extends Model
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
+        }
+        if (null !== $this->qosId) {
+            $res['QosId'] = $this->qosId;
         }
         if (null !== $this->redundantPhysicalConnectionId) {
             $res['RedundantPhysicalConnectionId'] = $this->redundantPhysicalConnectionId;
@@ -643,6 +652,9 @@ class physicalConnectionType extends Model
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
+        }
+        if (isset($map['QosId'])) {
+            $model->qosId = $map['QosId'];
         }
         if (isset($map['RedundantPhysicalConnectionId'])) {
             $model->redundantPhysicalConnectionId = $map['RedundantPhysicalConnectionId'];

@@ -71,11 +71,15 @@ class ListTrafficMirrorFiltersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag list.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The ID of the traffic mirror filter. The maximum value of **N** is **100**, which specifies that you can query up to 100 filters at a time.
+     *
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string[]

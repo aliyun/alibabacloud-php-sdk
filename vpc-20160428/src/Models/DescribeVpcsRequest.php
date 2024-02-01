@@ -19,9 +19,9 @@ class DescribeVpcsRequest extends Model
     public $dhcpOptionsSetId;
 
     /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   **true**: checks the request but does not query VPCs. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user is authorized, and whether the required parameters are set. If the request fails to pass the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **true**: performs only a dry run. The system prechecks whether your AccessKey pair is valid, whether the RAM user is authorized, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
      *   **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and VPCs are queried.
      *
      * @example false
@@ -33,8 +33,8 @@ class DescribeVpcsRequest extends Model
     /**
      * @description Specifies whether to query the default VPC in the specified region. Valid values:
      *
-     *   **true** (default): yes
-     *   **false**: no
+     *   **true** (default)
+     *   **false**
      *
      * @example false
      *
@@ -62,7 +62,7 @@ class DescribeVpcsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return per page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -100,12 +100,14 @@ class DescribeVpcsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags of the resource.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
      * You can specify up to 20 VPC IDs. Separate multiple IDs with commas (,).
      * @example vpc-bp1b1xjllp3ve5yze****

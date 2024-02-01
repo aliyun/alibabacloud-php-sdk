@@ -71,6 +71,8 @@ class RemoveSourcesFromTrafficMirrorSessionRequest extends Model
     public $trafficMirrorSessionId;
 
     /**
+     * @description The ID of the traffic mirror source to be deleted. Maximum value of N: 10.
+     *
      * @example eni-j6c8znm5l1yt4sox****
      *
      * @var string[]

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6AddressesResponseBody extends Model
 {
     /**
-     * @description The details about the IPv6 addresses.
+     * @description The details of the IPv6 address.
      *
      * @var ipv6Addresses
      */

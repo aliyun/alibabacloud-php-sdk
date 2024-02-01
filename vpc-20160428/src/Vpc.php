@@ -2790,7 +2790,7 @@ class Vpc extends OpenApiClient
      * ## [](#)
      *   * *   Take note of the following limits:
      *   *     *   Each VPC can contain up to five secondary IPv4 CIDR blocks.
-     *   *     *   Each VPC can contain up to three secondary IPv6 CIDR blocks.
+     *   *     *   Each VPC can contain up to five secondary IPv6 CIDR blocks.
      *   * *   You cannot repeatedly call the **AssociateVpcCidrBlock** operation to add secondary CIDR blocks to a VPC within the specified period of time.
      *   *
      * @param AssociateVpcCidrBlockRequest $request AssociateVpcCidrBlockRequest
@@ -2860,7 +2860,7 @@ class Vpc extends OpenApiClient
      * ## [](#)
      *   * *   Take note of the following limits:
      *   *     *   Each VPC can contain up to five secondary IPv4 CIDR blocks.
-     *   *     *   Each VPC can contain up to three secondary IPv6 CIDR blocks.
+     *   *     *   Each VPC can contain up to five secondary IPv6 CIDR blocks.
      *   * *   You cannot repeatedly call the **AssociateVpcCidrBlock** operation to add secondary CIDR blocks to a VPC within the specified period of time.
      *   *
      * @param AssociateVpcCidrBlockRequest $request AssociateVpcCidrBlockRequest
@@ -6635,10 +6635,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **CreateRouteTable** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of a custom route table:
+     * *   **CreateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the operation in the background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of the task.
      *   *     *   If the custom route table is in the **Creating** state, the custom route table is being created.
      *   *     *   If the custom route table is in the **Created** state, the custom route table is created.
-     *   * *   You cannot repeatedly call the **CreateRouteTable** operation to create a custom route table within the specified period of time.
+     *   * *   You cannot repeatedly call the **CreateRouteTable** operation within the specified period of time.
      *   *
      * @param CreateRouteTableRequest $request CreateRouteTableRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -6704,10 +6704,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **CreateRouteTable** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of a custom route table:
+     * *   **CreateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the operation in the background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of the task.
      *   *     *   If the custom route table is in the **Creating** state, the custom route table is being created.
      *   *     *   If the custom route table is in the **Created** state, the custom route table is created.
-     *   * *   You cannot repeatedly call the **CreateRouteTable** operation to create a custom route table within the specified period of time.
+     *   * *   You cannot repeatedly call the **CreateRouteTable** operation within the specified period of time.
      *   *
      * @param CreateRouteTableRequest $request CreateRouteTableRequest
      *
@@ -7130,7 +7130,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateTrafficMirrorFilter** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of a filter.
+     * **CreateTrafficMirrorFilter** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of the task.
      *   * *   If the filter is in the **Creating** state, the filter is being created.
      *   * *   If the filter is in the **Created** state, the filter is created.
      *   *
@@ -7201,7 +7201,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateTrafficMirrorFilter** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of a filter.
+     * **CreateTrafficMirrorFilter** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of the task.
      *   * *   If the filter is in the **Creating** state, the filter is being created.
      *   * *   If the filter is in the **Created** state, the filter is created.
      *   *
@@ -7217,10 +7217,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **CreateTrafficMirrorFilterRules** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of an inbound or outbound rule:
-     *   *     *   If the rule is in the **Creating** state, the rule is being created.
-     *   *     *   If the rule is in the **Created** state, the rule is created.
-     *   * *   You cannot repeatedly call the **CreateTrafficMirrorFilterRules** operation to create an inbound or outbound rule for a traffic mirroring filter.
+     * *   **CreateTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](~~261353~~) to query the status of the task.
+     *   *     *   If the inbound or outbound rule is in the **Creating** state, the rule is being created.
+     *   *     *   If the inbound or outbound rule is in the **Created** state, the rule is created.
+     *   * *   You cannot call **CreateTrafficMirrorFilterRules** within the specified period of time.
      *   *
      * @param CreateTrafficMirrorFilterRulesRequest $request CreateTrafficMirrorFilterRulesRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -7280,10 +7280,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **CreateTrafficMirrorFilterRules** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of an inbound or outbound rule:
-     *   *     *   If the rule is in the **Creating** state, the rule is being created.
-     *   *     *   If the rule is in the **Created** state, the rule is created.
-     *   * *   You cannot repeatedly call the **CreateTrafficMirrorFilterRules** operation to create an inbound or outbound rule for a traffic mirroring filter.
+     * *   **CreateTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](~~261353~~) to query the status of the task.
+     *   *     *   If the inbound or outbound rule is in the **Creating** state, the rule is being created.
+     *   *     *   If the inbound or outbound rule is in the **Created** state, the rule is created.
+     *   * *   You cannot call **CreateTrafficMirrorFilterRules** within the specified period of time.
      *   *
      * @param CreateTrafficMirrorFilterRulesRequest $request CreateTrafficMirrorFilterRulesRequest
      *
@@ -7297,9 +7297,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateTrafficMirrorSession** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of a traffic mirror session:
-     *   * *   If the traffic mirror session is in the **Creating** state, the traffic mirror session is being created.
-     *   * *   If the traffic mirror session is in the **Created** state, the traffic mirror session is created.
+     * **CreateTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorSessions](~~261367~~) to query the status of the task.
+     *   * *   If the traffic mirror session is in the **Creating** state, it is being created.
+     *   * *   If the traffic mirror session is in the **Created** state, it is created.
      *   *
      * @param CreateTrafficMirrorSessionRequest $request CreateTrafficMirrorSessionRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -7386,9 +7386,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * **CreateTrafficMirrorSession** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of a traffic mirror session:
-     *   * *   If the traffic mirror session is in the **Creating** state, the traffic mirror session is being created.
-     *   * *   If the traffic mirror session is in the **Created** state, the traffic mirror session is created.
+     * **CreateTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorSessions](~~261367~~) to query the status of the task.
+     *   * *   If the traffic mirror session is in the **Creating** state, it is being created.
+     *   * *   If the traffic mirror session is in the **Created** state, it is created.
      *   *
      * @param CreateTrafficMirrorSessionRequest $request CreateTrafficMirrorSessionRequest
      *
@@ -10153,7 +10153,7 @@ class Vpc extends OpenApiClient
      * *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query the status of the task.
      *   *     *   If the egress-only rule is in the **Deleting** state, the egress-only rule is being deleted.
      *   *     *   If you cannot query the egress-only rule, the egress-only rule is deleted.
-     *   * *   You cannot call the **DeleteIpv6EgressOnlyRule** operation to delete an egress-only rule within the specified period of time.
+     *   * *   You cannot call the **DeleteIpv6EgressOnlyRule** within the specified period of time.
      *   *
      * @param DeleteIpv6EgressOnlyRuleRequest $request DeleteIpv6EgressOnlyRuleRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -10210,7 +10210,7 @@ class Vpc extends OpenApiClient
      * *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query the status of the task.
      *   *     *   If the egress-only rule is in the **Deleting** state, the egress-only rule is being deleted.
      *   *     *   If you cannot query the egress-only rule, the egress-only rule is deleted.
-     *   * *   You cannot call the **DeleteIpv6EgressOnlyRule** operation to delete an egress-only rule within the specified period of time.
+     *   * *   You cannot call the **DeleteIpv6EgressOnlyRule** within the specified period of time.
      *   *
      * @param DeleteIpv6EgressOnlyRuleRequest $request DeleteIpv6EgressOnlyRuleRequest
      *
@@ -10297,7 +10297,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot call the **DeleteIpv6InternetBandwidth** operation to delete the same Internet bandwidth at the same time.
+     * You cannot call the **DeleteIpv6InternetBandwidth** operation within the specified period of time.
      *   *
      * @param DeleteIpv6InternetBandwidthRequest $request DeleteIpv6InternetBandwidthRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -10351,7 +10351,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * You cannot call the **DeleteIpv6InternetBandwidth** operation to delete the same Internet bandwidth at the same time.
+     * You cannot call the **DeleteIpv6InternetBandwidth** operation within the specified period of time.
      *   *
      * @param DeleteIpv6InternetBandwidthRequest $request DeleteIpv6InternetBandwidthRequest
      *
@@ -11489,10 +11489,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **DeleteTrafficMirrorFilterRules** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of an inbound or outbound rule:
-     *   *     *   If the rule is in the **Deleting** state, the rule is being deleted.
+     * *   **DeleteTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](~~261353~~) to query the status of the task.
+     *   *     *   If the inbound or outbound rule is in the **Deleting** state, the rule is being deleted.
      *   *     *   If you cannot query the rule, the rule is deleted.
-     *   * *   You cannot repeatedly call the **DeleteTrafficMirrorFilterRules** operation to delete an inbound or outbound rule within the specified period of time.
+     *   * *   You cannot repeatedly call **DeleteTrafficMirrorFilterRules** within the specified period of time.
      *   *
      * @param DeleteTrafficMirrorFilterRulesRequest $request DeleteTrafficMirrorFilterRulesRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -11549,10 +11549,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **DeleteTrafficMirrorFilterRules** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of an inbound or outbound rule:
-     *   *     *   If the rule is in the **Deleting** state, the rule is being deleted.
+     * *   **DeleteTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](~~261353~~) to query the status of the task.
+     *   *     *   If the inbound or outbound rule is in the **Deleting** state, the rule is being deleted.
      *   *     *   If you cannot query the rule, the rule is deleted.
-     *   * *   You cannot repeatedly call the **DeleteTrafficMirrorFilterRules** operation to delete an inbound or outbound rule within the specified period of time.
+     *   * *   You cannot repeatedly call **DeleteTrafficMirrorFilterRules** within the specified period of time.
      *   *
      * @param DeleteTrafficMirrorFilterRulesRequest $request DeleteTrafficMirrorFilterRulesRequest
      *
@@ -26181,10 +26181,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **RemoveSourcesFromTrafficMirrorSession** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of a traffic mirror session:
+     * *   **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
      *   *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being deleted.
      *   *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is deleted.
-     *   * *   You cannot repeatedly call the **RemoveSourcesFromTrafficMirrorSession** operation to delete a traffic mirror source from a traffic mirror session within the specified period of time.
+     *   * *   You cannot repeatedly call **RemoveSourcesFromTrafficMirrorSession** within the specified period of time.
      *   *
      * @param RemoveSourcesFromTrafficMirrorSessionRequest $request RemoveSourcesFromTrafficMirrorSessionRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
@@ -26241,10 +26241,10 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * *   The **RemoveSourcesFromTrafficMirrorSession** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of a traffic mirror session:
+     * *   **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
      *   *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being deleted.
      *   *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is deleted.
-     *   * *   You cannot repeatedly call the **RemoveSourcesFromTrafficMirrorSession** operation to delete a traffic mirror source from a traffic mirror session within the specified period of time.
+     *   * *   You cannot repeatedly call **RemoveSourcesFromTrafficMirrorSession** within the specified period of time.
      *   *
      * @param RemoveSourcesFromTrafficMirrorSessionRequest $request RemoveSourcesFromTrafficMirrorSessionRequest
      *

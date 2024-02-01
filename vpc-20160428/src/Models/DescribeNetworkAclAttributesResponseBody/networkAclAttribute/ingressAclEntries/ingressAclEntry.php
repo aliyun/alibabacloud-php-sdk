@@ -18,11 +18,25 @@ class ingressAclEntry extends Model
     public $description;
 
     /**
+     * @description The type of the inbound rule.
+     *
+     * - **custom**
+     *
+     * - **system**
+     * @example custom
+     *
      * @var string
      */
     public $entryType;
 
     /**
+     * @description The IP version. Valid values:
+     *
+     *   **IPv4**
+     *   **IPv6**
+     *
+     * @example IPv4
+     *
      * @var string
      */
     public $ipVersion;
@@ -48,8 +62,8 @@ class ingressAclEntry extends Model
     /**
      * @description The action to be performed on network traffic that matches the rule. Valid values:
      *
-     *   **accept**: allows network traffic.
-     *   **drop**: blocks network traffic.
+     *   **accept**
+     *   **drop**
      *
      * @example accept
      *
@@ -60,8 +74,8 @@ class ingressAclEntry extends Model
     /**
      * @description The destination port range of the inbound traffic.
      *
-     *   If **Protocol** of the inbound rule is set to **all**, **icmp**, or **gre**, the port range is **-1/-1**, which indicates all ports.
-     *   If **Protocol** of the inbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**, which indicates port 1 to port 200, or port 80. Valid values for a port: **1** to **65535**.
+     *   If the **protocol** of the inbound rule is set to **all**, **icmp**, or **gre**, the port range is -1/-1, which specifies all ports.
+     *   If the **protocol** of the inbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid ports: **1** to **65535**.
      *
      * @example -1/-1
      *
@@ -70,13 +84,13 @@ class ingressAclEntry extends Model
     public $port;
 
     /**
-     * @description The protocol. Valid values:
+     * @description The protocol type. Valid values:
      *
-     *   **icmp**: ICMP
-     *   **gre**: GRE
-     *   **tcp**: TCP
-     *   **udp**: UDP
-     *   **all**: all protocols
+     *   **icmp**
+     *   **gre**
+     *   **tcp**
+     *   **udp**
+     *   **all**
      *
      * @example all
      *

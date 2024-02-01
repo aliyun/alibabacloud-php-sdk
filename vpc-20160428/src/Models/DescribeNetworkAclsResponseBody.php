@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAclsResponseBody extends Model
 {
     /**
-     * @description The details about the network ACL.
+     * @description The details of the network ACLs.
      *
      * @var networkAcls
      */
     public $networkAcls;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeNetworkAclsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeNetworkAclsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
      *
@@ -44,7 +44,7 @@ class DescribeNetworkAclsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of entries returned.
      *
      * @example 2
      *

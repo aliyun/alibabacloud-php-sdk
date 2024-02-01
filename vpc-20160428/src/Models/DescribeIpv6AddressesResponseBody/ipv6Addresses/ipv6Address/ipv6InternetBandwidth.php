@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ipv6InternetBandwidth extends Model
 {
     /**
-     * @description The exclusive Internet bandwidth of the IPv6 address. Unit: Mbit/s.
+     * @description The dedicated Internet bandwidth of the IPv6 address. Unit: Mbit/s.
      *
      * @example 5
      *
@@ -31,10 +31,10 @@ class ipv6InternetBandwidth extends Model
     public $businessStatus;
 
     /**
-     * @description Indicates whether renewal data is included.
+     * @description Indicates whether renewal data is included. Valid values:
      *
      *   **false**
-     *   **true** This parameter returns **true** only if **IncludeReservationData** is set to **true** and some orders have not taken effect.
+     *   **true** **true** is returned only when **IncludeReservationData** is set to **true** and some orders have not taken effect.
      *
      * @example false
      *
@@ -43,7 +43,7 @@ class ipv6InternetBandwidth extends Model
     public $hasReservationData;
 
     /**
-     * @description The billing method of the Internet bandwidth of the IPv6 address.
+     * @description The billing method of the Internet bandwidth of the IPv6 address. Valid values:
      *
      * Only **PostPaid** may be returned, which indicates the pay-as-you-go billing method.
      * @example PostPaid
@@ -55,7 +55,7 @@ class ipv6InternetBandwidth extends Model
     /**
      * @description The billing method of the Internet bandwidth of the IPv6 address. Valid values:
      *
-     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayByTraffic**
      *   **PayByBandwidth**: pay-by-bandwidth
      *
      * @example PayByTraffic
@@ -65,7 +65,7 @@ class ipv6InternetBandwidth extends Model
     public $internetChargeType;
 
     /**
-     * @description The instance ID of the Internet bandwidth of the IPv6 address.
+     * @description The Internet bandwidth ID of the IPv6 address.
      *
      * @example ipv6bw-hp3b35oq1fj50kbv****
      *
@@ -74,7 +74,7 @@ class ipv6InternetBandwidth extends Model
     public $ipv6InternetBandwidthId;
 
     /**
-     * @description The time when the renewal took effect. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description The time when the renewal took effect. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2021-05-23T16:00:00Z
      *
@@ -94,7 +94,7 @@ class ipv6InternetBandwidth extends Model
     /**
      * @description The metering method that is used after the renewal takes effect.
      *
-     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayByTraffic**
      *   **PayByBandwidth**: pay-by-bandwidth
      *
      * @example PayByTraffic

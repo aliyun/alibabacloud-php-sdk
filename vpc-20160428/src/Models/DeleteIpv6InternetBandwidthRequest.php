@@ -11,7 +11,7 @@ class DeleteIpv6InternetBandwidthRequest extends Model
     /**
      * @description The ID of the IPv6 address.
      *
-     * >  You must set one of the **Ipv6AddressId** and **Ipv6InternetBandwidthId** parameters.
+     * >  You must specify one of **Ipv6AddressId** and **Ipv6InternetBandwidthId**.
      * @example ipv6-2zen5j4axcp5l5qyy****
      *
      * @var string
@@ -19,9 +19,8 @@ class DeleteIpv6InternetBandwidthRequest extends Model
     public $ipv6AddressId;
 
     /**
-     * @description The ID of the Internet bandwidth that you purchase for the IPv6 gateway.
+     * @description The instance ID of the Internet bandwidth of the IPv6 address.
      *
-     * >  You must set one of the **Ipv6AddressId** and **Ipv6InternetBandwidthId** parameters.
      * @example ipv6bw-uf6hcyzu65v98v3du****
      *
      * @var string
@@ -39,9 +38,9 @@ class DeleteIpv6InternetBandwidthRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the IPv6 gateway is deployed.
+     * @description The region ID of the IPv6 gateway.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-huhehaote
      *
      * @var string

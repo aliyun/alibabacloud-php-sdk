@@ -84,7 +84,7 @@ class CreateRouteTableRequest extends Model
     public $routeTableName;
 
     /**
-     * @description The tags.
+     * @description The tags of the resource.
      *
      * @var tag[]
      */

@@ -71,6 +71,8 @@ class GetDhcpOptionsSetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxazb4ph****
      *
      * @var string
@@ -92,6 +94,8 @@ class GetDhcpOptionsSetResponseBody extends Model
     public $status;
 
     /**
+     * @description The tag list.
+     *
      * @var tags[]
      */
     public $tags;

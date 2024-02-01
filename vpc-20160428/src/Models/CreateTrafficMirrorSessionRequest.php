@@ -56,8 +56,9 @@ class CreateTrafficMirrorSessionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The maximum transmission unit (MTU). Default value: **1500**.
+     * @description The maximum transmission unit.
      *
+     * Valid values: **64 to 9600**. Default value: **1500**.
      * @example 1500
      *
      * @var int
@@ -103,6 +104,8 @@ class CreateTrafficMirrorSessionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag of the resource.
+     *
      * @var tag[]
      */
     public $tag;
@@ -137,6 +140,8 @@ class CreateTrafficMirrorSessionRequest extends Model
     public $trafficMirrorSessionName;
 
     /**
+     * @description The ID of the traffic mirror source. You can specify only an elastic network interface (ENI) as the traffic mirror source. The default value of **N** is **1**, which indicates that you can add only one traffic mirror source to a traffic mirror session.
+     *
      * @example eni-j6c2fp57q8rr47rp****
      *
      * @var string[]

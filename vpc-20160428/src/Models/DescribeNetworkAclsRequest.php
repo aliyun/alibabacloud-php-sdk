@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAclsRequest extends Model
 {
     /**
-     * @description The client token that you want to use to ensure the idempotence of the request.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -51,7 +51,7 @@ class DescribeNetworkAclsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -60,7 +60,7 @@ class DescribeNetworkAclsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -100,7 +100,7 @@ class DescribeNetworkAclsRequest extends Model
     /**
      * @description The type of the associated instance. Set the value to **VSwitch**.
      *
-     * This parameter is valid only if **ResourceType** and **ResourceId** are both set.
+     * This parameter is valid only if **ResourceType** and **ResourceId** are both specified.
      * @example VSwitch
      *
      * @var string
@@ -108,12 +108,14 @@ class DescribeNetworkAclsRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag list.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the network ACL belongs.
+     * @description The ID of the VPC to which the network ACL belongs.
      *
      * @example vpc-m5ebpc2xh64mqm27e****
      *

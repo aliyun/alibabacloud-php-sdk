@@ -27,11 +27,12 @@ class resource extends Model
     public $resourceType;
 
     /**
-     * @description The status of the associated resource. Valid values:
+     * @description The association status of the resource. Valid values:
      *
-     * - **BINDED**: The resource is associated with the network ACL.
-     * - **BINDING**: The resource is being associated with the network ACL.
-     * - **UNBINDING**: The resource is disassociated from the network ACL.
+     *   **BINDED**
+     *   **BINDING**
+     *   **UNBINDING**
+     *
      * @example BINDED
      *
      * @var string

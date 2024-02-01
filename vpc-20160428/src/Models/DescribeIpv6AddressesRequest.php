@@ -19,9 +19,10 @@ class DescribeIpv6AddressesRequest extends Model
     public $associatedInstanceId;
 
     /**
-     * @description The type of the instance that is assigned the IPv6 address.
+     * @description The type of instance associated with the IPv6 address. Valid values:
      *
-     * Set the value to **EcsInstance**, which specifies an Elastic Compute Service (ECS) instance in a virtual private cloud (VPC). This is the default value.
+     **EcsInstance**: Elastic Compute Service (ECS) instance in a virtual private cloud (VPC).
+     *
      * @example EcsInstance
      *
      * @var string
@@ -127,6 +128,10 @@ class DescribeIpv6AddressesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the IPv6 gateway belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -142,6 +147,8 @@ class DescribeIpv6AddressesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag list.
+     *
      * @var tag[]
      */
     public $tag;

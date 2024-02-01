@@ -45,10 +45,11 @@ class egressAclEntry extends Model
     public $networkAclEntryName;
 
     /**
-     * @description The action that is performed on network traffic that matches the rule. Valid values:
+     * @description The action to be performed on network traffic that matches the rule. Valid values:
      *
-     * - **accept**: allows the network traffic.
-     * - **drop**: blocks the network traffic.
+     *   **accept**
+     *   **drop**
+     *
      * @example accept
      *
      * @var string
@@ -56,10 +57,11 @@ class egressAclEntry extends Model
     public $policy;
 
     /**
-     * @description The destination port range of the outbound rule.
+     * @description The destination port range of the outbound traffic.
      *
-     * - If **Protocol** of the outbound rule is set to **all**, **icmp**, or **gre**, the port range is **-1/-1**, which indicates all ports.
-     * - If **Protocol** of the outbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1** to **65535**.
+     *   If the **protocol** of the outbound rule is set to **all**, **icmp**, or **gre**, the port range is -1/-1, which specified all ports.
+     *   If the **protocol** of the outbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid values for a port: **1** to **65535**.
+     *
      * @example -1/-1
      *
      * @var string
@@ -67,13 +69,14 @@ class egressAclEntry extends Model
     public $port;
 
     /**
-     * @description The protocol type. Valid values:
+     * @description The protocol. Valid values:
      *
-     * - **icmp**: ICMP
-     * - **gre**: GRE
-     * - **tcp**: TCP
-     * - **udp**: UDP
-     * - **all**: all protocols
+     *   **icmp**
+     *   **gre**
+     *   **tcp**
+     *   **udp**
+     *   **all**
+     *
      * @example all
      *
      * @var string
