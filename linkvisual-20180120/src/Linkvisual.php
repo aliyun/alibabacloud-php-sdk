@@ -50,6 +50,10 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRecordPlanRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRecordPlanResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRtmpDeviceRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateRtmpDeviceResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateStreamPushJobRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateStreamPushJobResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateStreamSnapshotJobRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateStreamSnapshotJobResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateTimeTemplateRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\CreateTimeTemplateResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteEventRecordPlanDeviceRequest;
@@ -82,6 +86,10 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteRtmpDeviceRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteRtmpDeviceResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteRtmpKeyRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteRtmpKeyResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteStreamPushJobRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteStreamPushJobResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteStreamSnapshotJobRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteStreamSnapshotJobResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteTimeTemplateRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DeleteTimeTemplateResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\DetectUserFaceByUrlRequest;
@@ -188,6 +196,12 @@ use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordUrlRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRecordUrlResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRtmpKeyRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryRtmpKeyResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryStreamPushJobListRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryStreamPushJobListResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryStreamPushJobRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryStreamPushJobResponse;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryStreamSnapshotJobRequest;
+use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryStreamSnapshotJobResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryTimeTemplateDetailRequest;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryTimeTemplateDetailResponse;
 use AlibabaCloud\SDK\Linkvisual\V20180120\Models\QueryTimeTemplateRequest;
@@ -1525,6 +1539,125 @@ class Linkvisual extends OpenApiClient
     }
 
     /**
+     * @param CreateStreamPushJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateStreamPushJobResponse
+     */
+    public function createStreamPushJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->pushUrl)) {
+            $query['PushUrl'] = $request->pushUrl;
+        }
+        if (!Utils::isUnset($request->streamType)) {
+            $query['StreamType'] = $request->streamType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStreamPushJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateStreamPushJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateStreamPushJobRequest $request
+     *
+     * @return CreateStreamPushJobResponse
+     */
+    public function createStreamPushJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStreamPushJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateStreamSnapshotJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateStreamSnapshotJobResponse
+     */
+    public function createStreamSnapshotJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->snapshotInterval)) {
+            $query['SnapshotInterval'] = $request->snapshotInterval;
+        }
+        if (!Utils::isUnset($request->streamType)) {
+            $query['StreamType'] = $request->streamType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStreamSnapshotJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateStreamSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateStreamSnapshotJobRequest $request
+     *
+     * @return CreateStreamSnapshotJobResponse
+     */
+    public function createStreamSnapshotJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStreamSnapshotJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateTimeTemplateRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2315,6 +2448,116 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRtmpKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteStreamPushJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteStreamPushJobResponse
+     */
+    public function deleteStreamPushJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStreamPushJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteStreamPushJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteStreamPushJobRequest $request
+     *
+     * @return DeleteStreamPushJobResponse
+     */
+    public function deleteStreamPushJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStreamPushJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteStreamSnapshotJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteStreamSnapshotJobResponse
+     */
+    public function deleteStreamSnapshotJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->streamType)) {
+            $query['StreamType'] = $request->streamType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStreamSnapshotJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteStreamSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteStreamSnapshotJobRequest $request
+     *
+     * @return DeleteStreamSnapshotJobResponse
+     */
+    public function deleteStreamSnapshotJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStreamSnapshotJobWithOptions($request, $runtime);
     }
 
     /**
@@ -5197,6 +5440,174 @@ class Linkvisual extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryRtmpKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryStreamPushJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryStreamPushJobResponse
+     */
+    public function queryStreamPushJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryStreamPushJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryStreamPushJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryStreamPushJobRequest $request
+     *
+     * @return QueryStreamPushJobResponse
+     */
+    public function queryStreamPushJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryStreamPushJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryStreamPushJobListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryStreamPushJobListResponse
+     */
+    public function queryStreamPushJobListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryStreamPushJobList',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryStreamPushJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryStreamPushJobListRequest $request
+     *
+     * @return QueryStreamPushJobListResponse
+     */
+    public function queryStreamPushJobList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryStreamPushJobListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryStreamSnapshotJobRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryStreamSnapshotJobResponse
+     */
+    public function queryStreamSnapshotJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryStreamSnapshotJob',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryStreamSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryStreamSnapshotJobRequest $request
+     *
+     * @return QueryStreamSnapshotJobResponse
+     */
+    public function queryStreamSnapshotJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryStreamSnapshotJobWithOptions($request, $runtime);
     }
 
     /**
