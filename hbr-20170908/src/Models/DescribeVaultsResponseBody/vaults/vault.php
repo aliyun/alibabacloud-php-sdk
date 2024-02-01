@@ -165,6 +165,11 @@ class vault extends Model
     public $replicationSourceVaultId;
 
     /**
+     * @var string
+     */
+    public $replicationTargetRegionId;
+
+    /**
      * @example rg-*********************
      *
      * @var string
@@ -300,6 +305,7 @@ class vault extends Model
         'replicationSourceRegionId' => 'ReplicationSourceRegionId',
         'replicationSourceVault'    => 'ReplicationSourceVault',
         'replicationSourceVaultId'  => 'ReplicationSourceVaultId',
+        'replicationTargetRegionId' => 'ReplicationTargetRegionId',
         'resourceGroupId'           => 'ResourceGroupId',
         'retention'                 => 'Retention',
         'searchEnabled'             => 'SearchEnabled',
@@ -394,6 +400,9 @@ class vault extends Model
         }
         if (null !== $this->replicationSourceVaultId) {
             $res['ReplicationSourceVaultId'] = $this->replicationSourceVaultId;
+        }
+        if (null !== $this->replicationTargetRegionId) {
+            $res['ReplicationTargetRegionId'] = $this->replicationTargetRegionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -526,6 +535,9 @@ class vault extends Model
         }
         if (isset($map['ReplicationSourceVaultId'])) {
             $model->replicationSourceVaultId = $map['ReplicationSourceVaultId'];
+        }
+        if (isset($map['ReplicationTargetRegionId'])) {
+            $model->replicationTargetRegionId = $map['ReplicationTargetRegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
