@@ -91,6 +91,10 @@ class activationList extends Model
     public $registeredCount;
 
     /**
+     * @description The ID of the resource group to which the activation code belongs.
+     *
+     * @example rg-123******
+     *
      * @var string
      */
     public $resourceGroupId;

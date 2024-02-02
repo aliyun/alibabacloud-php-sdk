@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UnassignPrivateIpAddressesRequest extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable for general users.
+     * @description IPv4 prefix N. Valid values of N: 1 to 10.
      *
      * @var string[]
      */
     public $ipv4Prefix;
 
     /**
-     * @description The secondary private IP addresses to unassign.
+     * @description The ID of the ENI.
      *
      * @example eni-bp67acfmxazb4ph****
      *
@@ -35,7 +35,7 @@ class UnassignPrivateIpAddressesRequest extends Model
     public $ownerId;
 
     /**
-     * @description Secondary private IP address N to unassign Valid values of N: 1 to 10.
+     * @description Secondary private IP address N to unassign. Valid values of N: 1 to 32.
      *
      * @example 192.168.**.**
      *
@@ -44,7 +44,7 @@ class UnassignPrivateIpAddressesRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The ID of the ENI.
+     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

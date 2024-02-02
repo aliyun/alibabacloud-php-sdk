@@ -112,6 +112,25 @@ class DescribeInvocationsRequest extends Model
     public $invokeStatus;
 
     /**
+     * @description The maximum number of entries per page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example AAAAAdDWBF2
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -216,6 +235,8 @@ class DescribeInvocationsRequest extends Model
         'instanceId'           => 'InstanceId',
         'invokeId'             => 'InvokeId',
         'invokeStatus'         => 'InvokeStatus',
+        'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -259,6 +280,12 @@ class DescribeInvocationsRequest extends Model
         }
         if (null !== $this->invokeStatus) {
             $res['InvokeStatus'] = $this->invokeStatus;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -334,6 +361,12 @@ class DescribeInvocationsRequest extends Model
         }
         if (isset($map['InvokeStatus'])) {
             $model->invokeStatus = $map['InvokeStatus'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

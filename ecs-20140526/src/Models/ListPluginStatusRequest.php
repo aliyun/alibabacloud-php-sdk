@@ -9,28 +9,47 @@ use AlibabaCloud\Tea\Model;
 class ListPluginStatusRequest extends Model
 {
     /**
-     * @description The instance IDs. You can specify up to 50 instance IDs in a request. Valid values of N: 1 to 50.
+     * @description The ID of the instance.
      *
      * @var string[]
      */
     public $instanceId;
 
     /**
+     * @description The maximum number of entries per page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @description The name of the Cloud Assistant plug-in. The name supports all character sets and must be 1 to 255 characters in length.
      *
-     *   If this parameter is not specified, the states of all Cloud Assistant plug-ins that are installed on the specified ECS instances are queried.
+     *   If this parameter is not specified, the status of all Cloud Assistant plug-ins that are installed on the specified instances are queried.
      *
      **
      *
-     **Note**If this parameter is not specified, only a single instance ID can be specified.
+     **Note** If this parameter is not specified, only a single instance ID can be specified.
      *
-     *   If this parameter is specified, the state of the specified Cloud Assistant plug-in is queried.
+     *   If this parameter is specified, the status of the specified Cloud Assistant plug-in is queried.
      *
      * @example testPluginName
      *
      * @var string
      */
     public $name;
+
+    /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example AAAAAdDWBF2
+     *
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var string
@@ -43,7 +62,7 @@ class ListPluginStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      *   Pages start from page 1.
      *   Default value: 1.
@@ -55,7 +74,7 @@ class ListPluginStatusRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      *   Valid values: 1 to 50.
      *   Default value: 10.
@@ -67,7 +86,7 @@ class ListPluginStatusRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -86,7 +105,9 @@ class ListPluginStatusRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'instanceId'           => 'InstanceId',
+        'maxResults'           => 'MaxResults',
         'name'                 => 'Name',
+        'nextToken'            => 'NextToken',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -106,8 +127,14 @@ class ListPluginStatusRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -147,8 +174,14 @@ class ListPluginStatusRequest extends Model
                 $model->instanceId = $map['InstanceId'];
             }
         }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

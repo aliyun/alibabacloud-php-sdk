@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag key of each snapshot in the snapshot-consistent group. The default values of Key and Value contain the details of the instance to which the snapshot belongs.
+     * @description The tag key of the snapshot. The default values of Key and Value contain snapshot source information.
      *
      * @example acs:ecs:createFrom
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The tag value of each snapshot in the snapshot- consistent group. The default values of Key and Value contain the details of the instance to which the snapshot belongs.
+     * @description The tag value of the snapshot. The default values of Key and Value contain snapshot source information.
      *
      * @example i-bp11qm0o3dk4iuc****
      *

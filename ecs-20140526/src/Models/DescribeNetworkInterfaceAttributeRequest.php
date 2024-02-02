@@ -10,9 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkInterfaceAttributeRequest extends Model
 {
     /**
-     * @description The attributes of the ENI.
+     * @description The attribute of the ENI. Valid values:
      *
-     * @example test
+     * >This parameter is in invitational preview and is not publicly available.
+     * @example attachment
      *
      * @var string
      */
@@ -57,7 +58,7 @@ class DescribeNetworkInterfaceAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description >  This parameter is unavailable.
      *
      * @var tag[]
      */

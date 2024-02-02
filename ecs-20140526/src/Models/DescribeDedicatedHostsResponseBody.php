@@ -35,7 +35,7 @@ class DescribeDedicatedHostsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example 7654525A-9964-4ABB-8BCD-98F8835E809A
      *

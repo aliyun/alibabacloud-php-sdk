@@ -19,21 +19,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkInterfaceAttributeResponseBody extends Model
 {
     /**
-     * @description The elastic IP address (EIP) that is associated with the secondary private IP address of the ENI.
+     * @description Details about the elastic IP address (EIP) that is associated with the secondary private IP address of the ENI.
      *
      * @var associatedPublicIp
      */
     public $associatedPublicIp;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and unavailable for general users.
      *
      * @var attachment
      */
     public $attachment;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and unavailable for general users.
      *
      * @var bondInterfaceSpecification
      */
@@ -49,6 +49,11 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $creationTime;
 
     /**
+     * @description Specifies whether to retain the ENI when the associated instance is released. Valid values:
+     *
+     * - false
+     * @example true
+     *
      * @var bool
      */
     public $deleteOnRelease;
@@ -65,7 +70,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     /**
      * @description The ID of the instance to which the ENI is attached.
      *
-     * > If the ENI is managed and controlled by other Alibaba Cloud services, no instance ID is returned.
+     * >  If the ENI is managed and controlled by other Alibaba Cloud services, no instance ID is returned.
      * @example i-bp1e2l6djkndyuli****
      *
      * @var string
@@ -73,14 +78,14 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The IPv4 address prefixes of the ENI.
+     * @description >  This parameter is in invitational preview and unavailable for general users.
      *
      * @var ipv4PrefixSets
      */
     public $ipv4PrefixSets;
 
     /**
-     * @description The IPv6 address prefixes of the ENI.
+     * @description >  This parameter is in invitational preview and unavailable for general users.
      *
      * @var ipv6PrefixSets
      */
@@ -121,12 +126,12 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $networkInterfaceName;
 
     /**
-     * @description The communication mode of the ENI. Valid values:
+     * @description The communication model of the ENI. Valid values:
      *
      *   Standard: The TCP communication mode is used.
-     *   HighPerformance: Elastic RDMA Interface (ERI) is enabled and the remote direct memory access (RDMA) communication mode is used.
+     *   HighPerformance: The Elastic RDMA Interface (ERI) is enabled and the remote direct memory access (RDMA) communication mode is used.
      *
-     * > This parameter can have a value of HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance that resides in Beijing Zone K.
+     * >  This parameter can have a value of HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance that resides in Beijing Zone K.
      * @example Standard
      *
      * @var string
@@ -152,7 +157,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $privateIpAddress;
 
     /**
-     * @description Details about the private IP addresses.
+     * @description The private IP addresses of the ENI.
      *
      * @var privateIpSets
      */
@@ -182,7 +187,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $queueNumber;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and unavailable for general users.
      *
      * @example 22
      *
@@ -200,9 +205,9 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     * @description The ID of the resource group to which the instance belongs. If this parameter is specified to query ENIs, up to 1,000 ENIs that belong to the specified resource group can be displayed in the response.
      *
-     * > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * >  ENIs in the default resource group are displayed in the response regardless of how this parameter is set.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -235,7 +240,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $serviceManaged;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and unavailable for general users.
      *
      * @var slaveInterfaceSpecification
      */
@@ -258,11 +263,16 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $status;
 
     /**
-     * @description The tags of the ENI.
+     * @description The tag value of the ENI.
      *
      * @var tags
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $tcpOptionAddressEnabled;
 
     /**
      * @description The type of the ENI. Valid values:
@@ -295,7 +305,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID of the ENI.
      *
      * @example cn-hangzhou-g
      *
@@ -330,6 +340,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         'slaveInterfaceSpecification' => 'SlaveInterfaceSpecification',
         'status'                      => 'Status',
         'tags'                        => 'Tags',
+        'tcpOptionAddressEnabled'     => 'TcpOptionAddressEnabled',
         'type'                        => 'Type',
         'vSwitchId'                   => 'VSwitchId',
         'vpcId'                       => 'VpcId',
@@ -423,6 +434,9 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->tcpOptionAddressEnabled) {
+            $res['TcpOptionAddressEnabled'] = $this->tcpOptionAddressEnabled;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -528,6 +542,9 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['TcpOptionAddressEnabled'])) {
+            $model->tcpOptionAddressEnabled = $map['TcpOptionAddressEnabled'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

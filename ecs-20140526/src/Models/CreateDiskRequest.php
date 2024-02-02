@@ -47,7 +47,7 @@ class CreateDiskRequest extends Model
     /**
      * @description The description of the disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
-     * This parameter is left empty by default.
+     * This parameter is empty by default.
      * @example testDescription
      *
      * @var string
@@ -57,10 +57,10 @@ class CreateDiskRequest extends Model
     /**
      * @description The category of the disk. Valid values:
      *
-     *   cloud: basic disk
-     *   cloud_efficiency: ultra disk
-     *   cloud_ssd: standard SSD
-     *   cloud_essd: ESSD
+     *   cloud: basic disk.
+     *   cloud_efficiency: ultra disk.
+     *   cloud_ssd: standard SSD.
+     *   cloud_essd: ESSD.
      *
      * Default value: cloud.
      * @example cloud_ssd
@@ -70,9 +70,9 @@ class CreateDiskRequest extends Model
     public $diskCategory;
 
     /**
-     * @description The disk name. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the disk. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
-     * This parameter is left empty by default.
+     * This parameter is empty by default.
      * @example testDiskName
      *
      * @var string
@@ -107,7 +107,7 @@ class CreateDiskRequest extends Model
      *   After you specify the instance ID, ResourceGroupId, Tag.N.Key, Tag.N.Value, ClientToken, and KMSKeyId are ignored.
      *   You cannot specify ZoneId and InstanceId at the same time.
      *
-     * This parameter is empty by default. This indicates that a pay-as-you-go disk is created. The RegionId and ZoneId parameters specify where the disk resides.
+     * This parameter is empty by default. This indicates that a pay-as-you-go disk is created. RegionId and ZoneId specify where the disk resides.
      * @example i-bp18pnlg1ds9rky4****
      *
      * @var string
@@ -201,23 +201,23 @@ class CreateDiskRequest extends Model
     /**
      * @description The size of the disk. Unit: GiB. This parameter is required. Valid values:
      *
-     *   Valid values when DiskCategory is set to cloud: 5 to 2,000
+     *   Valid values when DiskCategory is set to cloud: 5 to 2,000.
      *
-     *   Valid values when DiskCategory is set to cloud_efficiency: 20 to 32,768
+     *   Valid values when DiskCategory is set to cloud_efficiency: 20 to 32,768.
      *
-     *   Valid values when DiskCategory is set to cloud_ssd: 20 to 32,768
+     *   Valid values when DiskCategory is set to cloud_ssd: 20 to 32,768.
      *
      *   Valid values when DiskCategory is set to cloud_essd: depends on the `PerformanceLevel` value.
      *
-     *   Valid values when PerformanceLevel is set to PL0: 40 to 32,768
-     *   Valid values when PerformanceLevel is set to PL1: 20 to 32,768
-     *   Valid values when PerformanceLevel is set to PL2: 461 to 32,768
-     *   Valid values when PerformanceLevel is set to PL3: 1,261 to 32,768
+     *   Valid values when PerformanceLevel is set to PL0: 40 to 32,768.
+     *   Valid values when PerformanceLevel is set to PL1: 20 to 32,768.
+     *   Valid values when PerformanceLevel is set to PL2: 461 to 32,768.
+     *   Valid values when PerformanceLevel is set to PL3: 1,261 to 32,768.
      *
-     * If the `SnapshotId` parameter is specified, the following limits apply to the `SnapshotId` and `Size` parameters:
+     * If `SnapshotId` is specified, the following limits apply to `SnapshotId` and `Size`:
      *
-     *   If the size of the snapshot specified by the `SnapshotId` parameter is greater than the specified `Size` value, the size of the created disk is equal to the specified snapshot size.
-     *   If the size of the snapshot specified by the `SnapshotId` parameter is smaller than the specified `Size` value, the size of the created disk is equal to the specified `Size` value.
+     *   If the size of the snapshot specified by `SnapshotId` is greater than the specified `Size` value, the size of the created disk is equal to the specified snapshot size.
+     *   If the size of the snapshot specified by `SnapshotId` is smaller than the specified `Size` value, the size of the created disk is equal to the specified `Size` value.
      *
      * @example 2000
      *
@@ -226,12 +226,12 @@ class CreateDiskRequest extends Model
     public $size;
 
     /**
-     * @description The ID of the snapshot that you want to use to create the disk. Snapshots that were created on or before July 15, 2013 cannot be used to create disks.
+     * @description The ID of the snapshot used to create the disk. Snapshots that were created on or before July 15, 2013 cannot be used to create disks.
      *
-     * The following limits apply to the `SnapshotId` and `Size` parameters:
+     * The following limits apply to `SnapshotId` and `Size`:
      *
-     *   If the size of the snapshot specified by the `SnapshotId` parameter is greater than the specified `Size` value, the size of the created disk is equal to the specified snapshot size.
-     *   If the size of the snapshot specified by the `SnapshotId` parameter is smaller than the specified `Size` value, the size of the created disk is equal to the specified `Size` value.
+     *   If the size of the snapshot specified by `SnapshotId` is greater than the specified `Size` value, the size of the created disk is equal to the specified snapshot size.
+     *   If the size of the snapshot specified by `SnapshotId` is smaller than the specified `Size` value, the size of the created disk is equal to the specified `Size` value.
      *
      * @example s-bp67acfmxazb4p****
      *
@@ -240,9 +240,9 @@ class CreateDiskRequest extends Model
     public $snapshotId;
 
     /**
-     * @description The ID of the dedicated block storage cluster. To create a disk in a specific dedicated block storage cluster, specify this parameter. For more information about dedicated block storage clusters, see [What is Dedicated Block Storage Cluster?](~~208883~~)
+     * @description The ID of the dedicated block storage cluster. To create a disk in a specific dedicated block storage cluster, specify this parameter.
      *
-     * > You cannot specify storage set-related parameters (`StorageSetId` and `StorageSetPartitionNumber`) and the dedicated block storage cluster-related parameter (`StorageClusterId`) at the same time.
+     * > You cannot specify storage set-related parameters (`StorageSetId` and `StorageSetPartitionNumber`) and the dedicated block storage cluster-related parameter (`StorageClusterId`) at the same time. Otherwise, the operation cannot be called.
      * @example dbsc-j5e1sf2vaf5he8m2****
      *
      * @var string
@@ -252,7 +252,7 @@ class CreateDiskRequest extends Model
     /**
      * @description The ID of the storage set.
      *
-     * > You cannot specify storage set-related parameters (`StorageSetId` and `StorageSetPartitionNumber`) and the dedicated block storage cluster-related parameter (`StorageClusterId`) at the same time.
+     * > You cannot specify storage set-related parameters (`StorageSetId` and `StorageSetPartitionNumber`) and the dedicated block storage cluster-related parameter (`StorageClusterId`) at the same time. Otherwise, the operation cannot be called.
      * @example ss-bp67acfmxazb4p****
      *
      * @var string
@@ -260,7 +260,7 @@ class CreateDiskRequest extends Model
     public $storageSetId;
 
     /**
-     * @description The number of partitions in the storage set. The value must be greater than or equal to 2 but cannot exceed the quota obtained by calling the [DescribeAccountAttributes](~~73772~~) operation.
+     * @description The number of partitions in the storage set. The value must be greater than or equal to 2 but cannot exceed the quota obtained by calling the [DescribeAccountAttributes](~~73772~~)operation.
      *
      * Default value: 2.
      * @example 3
@@ -279,7 +279,7 @@ class CreateDiskRequest extends Model
     /**
      * @description The ID of the zone in which to create the pay-as-you-go disk.
      *
-     *   If you do not specify InstanceId, you must specify ZoneId.
+     *   If InstanceId is not specified, ZoneId is required.
      *   You cannot specify ZoneId and InstanceId at the same time.
      *
      * @example cn-hangzhou-g

@@ -19,7 +19,7 @@ class feeOfInstance extends Model
     public $currency;
 
     /**
-     * @description The charged amount.
+     * @description The cost value.
      *
      * @example 0
      *

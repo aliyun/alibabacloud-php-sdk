@@ -10,14 +10,23 @@ use AlibabaCloud\Tea\Model;
 class ListPluginStatusResponseBody extends Model
 {
     /**
-     * @description The states of the Cloud Assistant plug-ins on the ECS instances.
+     * @description The states of Cloud Assistant plug-ins on the instances.
      *
      * @var instancePluginStatusSet
      */
     public $instancePluginStatusSet;
 
     /**
-     * @description The page number of the returned page.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
+     * @example AAAAAdDWBF2
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +35,7 @@ class ListPluginStatusResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -53,6 +62,7 @@ class ListPluginStatusResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'instancePluginStatusSet' => 'InstancePluginStatusSet',
+        'nextToken'               => 'NextToken',
         'pageNumber'              => 'PageNumber',
         'pageSize'                => 'PageSize',
         'requestId'               => 'RequestId',
@@ -68,6 +78,9 @@ class ListPluginStatusResponseBody extends Model
         $res = [];
         if (null !== $this->instancePluginStatusSet) {
             $res['InstancePluginStatusSet'] = null !== $this->instancePluginStatusSet ? $this->instancePluginStatusSet->toMap() : null;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -95,6 +108,9 @@ class ListPluginStatusResponseBody extends Model
         $model = new self();
         if (isset($map['InstancePluginStatusSet'])) {
             $model->instancePluginStatusSet = instancePluginStatusSet::fromMap($map['InstancePluginStatusSet']);
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

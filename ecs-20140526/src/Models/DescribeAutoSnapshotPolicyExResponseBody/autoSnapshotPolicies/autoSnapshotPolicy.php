@@ -140,6 +140,11 @@ class autoSnapshotPolicy extends Model
     public $timePoints;
 
     /**
+     * @var string
+     */
+    public $type;
+
+    /**
      * @description The ID of the resource group.
      *
      * @example 2
@@ -162,6 +167,7 @@ class autoSnapshotPolicy extends Model
         'tags'                         => 'Tags',
         'targetCopyRegions'            => 'TargetCopyRegions',
         'timePoints'                   => 'TimePoints',
+        'type'                         => 'Type',
         'volumeNums'                   => 'VolumeNums',
     ];
 
@@ -213,6 +219,9 @@ class autoSnapshotPolicy extends Model
         }
         if (null !== $this->timePoints) {
             $res['TimePoints'] = $this->timePoints;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->volumeNums) {
             $res['VolumeNums'] = $this->volumeNums;
@@ -270,6 +279,9 @@ class autoSnapshotPolicy extends Model
         }
         if (isset($map['TimePoints'])) {
             $model->timePoints = $map['TimePoints'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['VolumeNums'])) {
             $model->volumeNums = $map['VolumeNums'];

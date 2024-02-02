@@ -40,6 +40,11 @@ class networkInterfaceSet extends Model
     public $creationTime;
 
     /**
+     * @description Specifies whether to retain the ENI when the associated instance is released. Valid values:
+     *
+     * - false
+     * @example true
+     *
      * @var bool
      */
     public $deleteOnRelease;
@@ -114,10 +119,10 @@ class networkInterfaceSet extends Model
     /**
      * @description The communication mode of the ENI. Valid values:
      *
-     *   Standard: the TCP communication mode is used.
-     *   HighPerformance: enables the Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
+     *   Standard: uses the TCP communication mode.
+     *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
      *
-     * > You can set this parameter to HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance that resides in Beijing Zone K.
+     * > The parameter can have a value of HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance that resides in Beijing Zone K.
      * @example Standard
      *
      * @var string

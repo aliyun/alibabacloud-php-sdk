@@ -29,7 +29,7 @@ class permissions extends Model
     public $destCidrIp;
 
     /**
-     * @description The transport layer protocol of security group rule N. The values of this parameter are case-insensitive. Valid values:
+     * @description The transport layer protocol of security group rule N. The value of this parameter is case-insensitive. Valid values:
      *
      *   TCP
      *   UDP
@@ -48,7 +48,7 @@ class permissions extends Model
     /**
      * @description The destination IPv6 CIDR block for security group rule N. CIDR blocks and IPv6 addresses are supported.
      *
-     * > This parameter takes effect only if the destinations are ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify this parameter and `DestCidrIp` at the same time.
+     * > This parameter is valid only when the source is ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and the `DestCidrIp` parameter.
      * @example 2001:250:6000::***
      *
      * @var string
@@ -68,8 +68,8 @@ class permissions extends Model
     /**
      * @description The network interface controller (NIC) type of security group rule N when the security group is in the classic network. Valid values:
      *
-     *   internet: public NIC
-     *   intranet: internal NIC
+     *   internet: public NIC.
+     *   intranet: internal NIC.
      *
      * Valid values of N: 1 to 100.
      * @example intranet
@@ -81,8 +81,8 @@ class permissions extends Model
     /**
      * @description The action of security group rule N that determines whether to allow inbound access. Valid values:
      *
-     *   accept: allows inbound access.
-     *   drop: denies inbound access and does not return responses. In this case, the request times out or the connection cannot be established.
+     *   accept: allows access.
+     *   drop: denies access and returns no responses. In this case, the request times out or the connection cannot be established.
      *
      * Valid values of N: 1 to 100.
      * @example accept
@@ -94,10 +94,10 @@ class permissions extends Model
     /**
      * @description The range of destination ports that correspond to the transport layer protocol for security group rule N. Valid values:
      *
-     *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+     *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \<Start port number>/\<End port number>. Example: 1/200.
      *   If you set IpProtocol to ICMP, the port number range is -1/-1.
-     *   If you set Permissions.N.IpProtocol to GRE, the port number range is -1/-1.
-     *   If you set Permissions.N.IpProtocol to ALL, the port number range is -1/-1.
+     *   If you set IpProtocol to GRE, the port number range is -1/-1.
+     *   If you set IpProtocol to ALL, the port number range is -1/-1.
      *
      * Valid values of N: 1 to 100.
      * @example 80/80
@@ -127,16 +127,16 @@ class permissions extends Model
     public $sourceCidrIp;
 
     /**
-     * @description The ID of the source security group that you want to reference in the security group rule.
+     * @description The ID of the source security group to be referenced in security group rule N.
      *
-     *   Specify at least one of the following parameters: `SourceGroupId`, `SourceCidrIp`, `Ipv6SourceCidrIp`, and `SourcePrefixListId`.
-     *   If you specify `SourceGroupId` but do not specify `SourceCidrIp` or `Ipv6SourceCidrIp`, you must set `NicType` to `intranet`.
-     *   If you specify `SourceGroupId` and `SourceCidrIp`, `SourceCidrIp` takes precedence.
+     *   At least one of `SourceGroupId`, `SourceCidrIp`, `Ipv6SourceCidrIp`, and `SourcePrefixListId` must be specified.
+     *   If `SourceGroupId` is specified but `SourceCidrIp` or `Ipv6SourceCidrIp` is not specified, `NicType` must be set to `intranet`.
+     *   If both `SourceGroupId` and `SourceCidrIp` are specified, `SourceCidrIp` takes precedence.
      *
      * Take note of the following items:
      *
-     *   You cannot reference security groups as destinations or sources in the rules of advanced security groups.
-     *   You can reference up to 20 security groups as destinations or sources in the rules of each basic security group.
+     *   For advanced security groups, security groups cannot be used as authorization objects.
+     *   For each basic security group, up to 20 security groups can be used as authorization objects.
      *
      * @example sg-bp67acfmxazb4p****
      *
@@ -145,10 +145,10 @@ class permissions extends Model
     public $sourceGroupId;
 
     /**
-     * @description The Alibaba Cloud account that manages the source security group when you configure a security group rule across accounts.
+     * @description The Alibaba Cloud account that manages the source security group when you set a security group rule across accounts.
      *
      *   If you do not specify `SourceGroupOwnerAccount` and `SourceGroupOwnerId`, access permissions are configured for another security group managed by your account.
-     *   If you specify `SourceCidrIp`, `SourceGroupOwnerAccount` is ignored.
+     *   If you specify `SourceCidrIp`, `SourceGroupOwnerAccount` becomes invalid.
      *
      * Valid values of N: 1 to 100.
      * @example test@aliyun.com
@@ -158,10 +158,10 @@ class permissions extends Model
     public $sourceGroupOwnerAccount;
 
     /**
-     * @description The ID of the Alibaba Cloud account that manages the source security group when you configure a security group rule across accounts.
+     * @description The ID of the Alibaba Cloud account that manages the source security group when you set security group rule N across accounts.
      *
      *   If you do not specify `SourceGroupOwnerAccount` and `SourceGroupOwnerId`, access permissions are configured for another security group managed by your account.
-     *   If you specify `SourceCidrIp`, `SourceGroupOwnerAccount` becomes invalid.
+     *   If you specify `SourceCidrIp`, `SourceGroupOwnerAccount` is ignored.
      *
      * Valid values of N: 1 to 100.
      * @example 1234567890
@@ -173,10 +173,10 @@ class permissions extends Model
     /**
      * @description The range of source ports that correspond to the transport layer protocol for security group rule N. Valid values:
      *
-     *   If you set Permissions.N.IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-     *   If you set Permissions.N.IpProtocol to ICMP, the port number range is -1/-1.
-     *   If you set Permissions.N.IpProtocol to GRE, the port number range is -1/-1.
-     *   If you set Permissions.N.IpProtocol to ALL, the port number range is -1/-1.
+     *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \<Start port number>/\<End port number>. Example: 1/200.
+     *   If you set IpProtocol to ICMP, the port number range is -1/-1.
+     *   If you set IpProtocol to GRE, the port number range is -1/-1.
+     *   If you set IpProtocol to ALL, the port number range is -1/-1.
      *
      * Valid values of N: 1 to 100.
      * @example 7000/8000
@@ -186,12 +186,12 @@ class permissions extends Model
     public $sourcePortRange;
 
     /**
-     * @description The ID of the source prefix list that you want to reference in the security group rule. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
+     * @description The ID of the source prefix list to which you want to control access. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
      *
      * Take note of the following items:
      *
-     *   If the network type of a security group is classic network, you cannot reference prefix lists in the security group rules. For information about the limits on security groups and prefix lists, see the "Security group limits" section of the [Limits](~~25412#SecurityGroupQuota1~~) topic.
-     *   If you specify the `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId` parameter, this parameter is ignored.
+     *   If a security group is in the classic network, you cannot reference prefix lists in the security group rules. For information about the limits on security groups and prefix lists, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+     *   If you specify `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId`, this parameter is ignored.
      *
      * @example pl-x1j1k5ykzqlixdcy****
      *

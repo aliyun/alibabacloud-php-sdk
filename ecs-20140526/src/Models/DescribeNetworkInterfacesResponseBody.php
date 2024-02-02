@@ -17,7 +17,7 @@ class DescribeNetworkInterfacesResponseBody extends Model
     public $networkInterfaceSets;
 
     /**
-     * @description The returned pagination token which can be used in the next request to retrieve a new page of results.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example AAAAAdDWBF2****
      *

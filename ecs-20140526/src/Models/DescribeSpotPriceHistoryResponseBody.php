@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpotPriceHistoryResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The instance type of the preemptible instance.
      *
      * @example CNY
      *
@@ -19,9 +19,8 @@ class DescribeSpotPriceHistoryResponseBody extends Model
     public $currency;
 
     /**
-     * @description The currency unit of the price.
+     * @description The network type of the preemptible instance.
      *
-     * Alibaba Cloud International site (alibabacloud.com): USD.
      * @example 1000
      *
      * @var int
@@ -29,9 +28,8 @@ class DescribeSpotPriceHistoryResponseBody extends Model
     public $nextOffset;
 
     /**
-     * @description The line from which the next query starts.
+     * @description The instance type of the preemptible instance.
      *
-     * Default value: 0.
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -39,7 +37,7 @@ class DescribeSpotPriceHistoryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The start line of the next page. It is the value of the `Offset` request parameter.
+     * @description The zone ID of the preemptible instance.
      *
      * @var spotPrices
      */

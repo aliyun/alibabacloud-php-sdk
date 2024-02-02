@@ -17,6 +17,15 @@ class DescribeSendFileResultsResponseBody extends Model
     public $invocations;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
+     * @example AAAAAdDWBF2
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The page number.
      *
      * @example 1
@@ -53,6 +62,7 @@ class DescribeSendFileResultsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'invocations' => 'Invocations',
+        'nextToken'   => 'NextToken',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
         'requestId'   => 'RequestId',
@@ -68,6 +78,9 @@ class DescribeSendFileResultsResponseBody extends Model
         $res = [];
         if (null !== $this->invocations) {
             $res['Invocations'] = null !== $this->invocations ? $this->invocations->toMap() : null;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -95,6 +108,9 @@ class DescribeSendFileResultsResponseBody extends Model
         $model = new self();
         if (isset($map['Invocations'])) {
             $model->invocations = invocations::fromMap($map['Invocations']);
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

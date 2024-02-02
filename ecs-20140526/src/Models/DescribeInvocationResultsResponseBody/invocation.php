@@ -10,21 +10,24 @@ use AlibabaCloud\Tea\Model;
 class invocation extends Model
 {
     /**
-     * @description The tags to use for query.
+     * @description The execution results.
      *
      * @var invocationResults
      */
     public $invocationResults;
 
     /**
-     * @description The execution state of the command. Valid values:
+     * @description The query token returned in this call.
      *
-     *   Running
-     *   Finished
-     *   Failed
-     *   Stopped
+     * @example AAAAAdDWBF2
      *
-     * > To ensure compatibility, we recommend that you use the `InvocationStatus` parameter instead of the InvokeRecordStatus parameter.
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -32,7 +35,7 @@ class invocation extends Model
     public $pageNumber;
 
     /**
-     * @description The information about the tag.
+     * @description The number of entries per page.
      *
      * @example 1
      *
@@ -41,12 +44,8 @@ class invocation extends Model
     public $pageSize;
 
     /**
-     * @description Specifies whether to return the results of historical scheduled executions. Valid values:
+     * @description The total number of the commands.
      *
-     *   true: returns the results of historical scheduled executions. When this parameter is set to true, the `InvokeId` parameter must be set to the ID of a scheduled execution.
-     *   false: does not return the results of historical scheduled executions.
-     *
-     * Default value: false.
      * @example 1
      *
      * @var int
@@ -54,6 +53,7 @@ class invocation extends Model
     public $totalCount;
     protected $_name = [
         'invocationResults' => 'InvocationResults',
+        'nextToken'         => 'NextToken',
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
         'totalCount'        => 'TotalCount',
@@ -68,6 +68,9 @@ class invocation extends Model
         $res = [];
         if (null !== $this->invocationResults) {
             $res['InvocationResults'] = null !== $this->invocationResults ? $this->invocationResults->toMap() : null;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -92,6 +95,9 @@ class invocation extends Model
         $model = new self();
         if (isset($map['InvocationResults'])) {
             $model->invocationResults = invocationResults::fromMap($map['InvocationResults']);
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

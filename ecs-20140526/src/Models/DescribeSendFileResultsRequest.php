@@ -38,6 +38,16 @@ class DescribeSendFileResultsRequest extends Model
     public $invokeId;
 
     /**
+     * @description The maximum number of entries per page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @description The name of the file whose sending records you want to query.
      *
      * @example test.txt
@@ -45,6 +55,15 @@ class DescribeSendFileResultsRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example AAAAAdDWBF2
+     *
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var string
@@ -114,7 +133,9 @@ class DescribeSendFileResultsRequest extends Model
         'instanceId'           => 'InstanceId',
         'invocationStatus'     => 'InvocationStatus',
         'invokeId'             => 'InvokeId',
+        'maxResults'           => 'MaxResults',
         'name'                 => 'Name',
+        'nextToken'            => 'NextToken',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -142,8 +163,14 @@ class DescribeSendFileResultsRequest extends Model
         if (null !== $this->invokeId) {
             $res['InvokeId'] = $this->invokeId;
         }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -199,8 +226,14 @@ class DescribeSendFileResultsRequest extends Model
         if (isset($map['InvokeId'])) {
             $model->invokeId = $map['InvokeId'];
         }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

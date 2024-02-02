@@ -29,7 +29,7 @@ class DescribeSnapshotGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details of the snapshot-consistent groups.
+     * @description The snapshot-consistent groups.
      *
      * @var snapshotGroups
      */

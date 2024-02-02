@@ -23,6 +23,8 @@ class RevokeSecurityGroupRequest extends Model
      *
      * @example This is description.
      *
+     * @deprecated
+     *
      * @var string
      */
     public $description;
@@ -31,6 +33,8 @@ class RevokeSecurityGroupRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.DestCidrIp` to specify the destination IPv4 CIDR block.
      *
      * @example 10.0.0.0/8
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -41,6 +45,8 @@ class RevokeSecurityGroupRequest extends Model
      *
      * @example ALL
      *
+     * @deprecated
+     *
      * @var string
      */
     public $ipProtocol;
@@ -49,6 +55,8 @@ class RevokeSecurityGroupRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.Ipv6DestCidrIp` to specify the destination IPv6 CIDR block.
      *
      * @example 2001:db8:1233:1a00::***
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -59,6 +67,8 @@ class RevokeSecurityGroupRequest extends Model
      *
      * @example 2001:db8:1234:1a00::***
      *
+     * @deprecated
+     *
      * @var string
      */
     public $ipv6SourceCidrIp;
@@ -67,6 +77,8 @@ class RevokeSecurityGroupRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.NicType` to specify the NIC type.
      *
      * @example intranet
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -94,6 +106,8 @@ class RevokeSecurityGroupRequest extends Model
      *
      * @example accept
      *
+     * @deprecated
+     *
      * @var string
      */
     public $policy;
@@ -103,6 +117,8 @@ class RevokeSecurityGroupRequest extends Model
      *
      * @example 1/200
      *
+     * @deprecated
+     *
      * @var string
      */
     public $portRange;
@@ -111,6 +127,8 @@ class RevokeSecurityGroupRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.Priority` to specify the priority of the rule.
      *
      * @example 1
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -156,6 +174,8 @@ class RevokeSecurityGroupRequest extends Model
      *
      * @example 10.0.0.0/8
      *
+     * @deprecated
+     *
      * @var string
      */
     public $sourceCidrIp;
@@ -164,6 +184,8 @@ class RevokeSecurityGroupRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.SourceGroupId` to specify the ID of the source security group.
      *
      * @example sg-bp67acfmxa123b****
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -174,6 +196,8 @@ class RevokeSecurityGroupRequest extends Model
      *
      * @example Test@aliyun.com
      *
+     * @deprecated
+     *
      * @var string
      */
     public $sourceGroupOwnerAccount;
@@ -182,6 +206,8 @@ class RevokeSecurityGroupRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.SourceGroupOwnerId` to specify the ID of the Alibaba Cloud account that manages the source security group.
      *
      * @example 12345678910
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -192,6 +218,8 @@ class RevokeSecurityGroupRequest extends Model
      *
      * @example 80/80
      *
+     * @deprecated
+     *
      * @var string
      */
     public $sourcePortRange;
@@ -200,6 +228,8 @@ class RevokeSecurityGroupRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.SourcePrefixListId` to specify the ID of the source prefix list.
      *
      * @example pl-x1j1k5ykzqlixdcy****
+     *
+     * @deprecated
      *
      * @var string
      */

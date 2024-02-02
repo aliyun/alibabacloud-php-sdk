@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ImportSnapshotResponse extends Model
+class CreateSavingsPlanResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ImportSnapshotResponse extends Model
     public $statusCode;
 
     /**
-     * @var ImportSnapshotResponseBody
+     * @var CreateSavingsPlanResponseBody
      */
     public $body;
     protected $_name = [
@@ -30,9 +30,6 @@ class ImportSnapshotResponse extends Model
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
-        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
@@ -54,7 +51,7 @@ class ImportSnapshotResponse extends Model
     /**
      * @param array $map
      *
-     * @return ImportSnapshotResponse
+     * @return CreateSavingsPlanResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +63,7 @@ class ImportSnapshotResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ImportSnapshotResponseBody::fromMap($map['body']);
+            $model->body = CreateSavingsPlanResponseBody::fromMap($map['body']);
         }
 
         return $model;

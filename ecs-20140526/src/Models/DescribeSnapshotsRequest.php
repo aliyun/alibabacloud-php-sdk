@@ -16,17 +16,17 @@ class DescribeSnapshotsRequest extends Model
     public $filter;
 
     /**
-     * @description The type of the snapshot. Valid values:
+     * @description The category of the snapshot. Valid values:
      *
      *   Standard: normal snapshot
      *   Flash: local snapshot
      *
-     * The local snapshot feature is replaced by the instant access feature. When you configure this parameter, take note of the following items:
+     * The local snapshot feature is replaced by the instant access feature. When you specify this parameter, take note of the following items:
      *
      *   If you have used local snapshots before December 14, 2020, you can use this parameter.
      *   If you have not used local snapshots before December 14, 2020, you cannot use this parameter.
      *
-     * > This parameter will be deprecated in the future. We recommend that you use other parameters to ensure future compatibility.
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example Standard
      *
      * @var string
@@ -82,7 +82,7 @@ class DescribeSnapshotsRequest extends Model
     public $KMSKeyId;
 
     /**
-     * @description The maximum number of entries per page. Maximum value: 1 to 100.
+     * @description The maximum number of entries per page. Valid values: 1 to 100.
      *
      * Default value: 10.
      * @example 10
@@ -111,7 +111,7 @@ class DescribeSnapshotsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Pages start from page 1.
+     * @description The page number. Page starts from page 1.
      *
      * Default value: 1.
      * @example 1
@@ -202,10 +202,10 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @description The type of the source disk. Valid values:
      *
-     *   System: system disk
+     *   system: system disk
      *   data: data disk
      *
-     * > The value of this parameter is case-insensitive.
+     * >  The value of this parameter is not case-sensitive.
      * @example Data
      *
      * @var string
@@ -227,7 +227,7 @@ class DescribeSnapshotsRequest extends Model
     public $status;
 
     /**
-     * @description The tags.
+     * @description The tags of the snapshot.
      *
      * @var tag[]
      */

@@ -29,7 +29,7 @@ class snapshotGroup extends Model
     public $description;
 
     /**
-     * @description The ID of the instance to which the snapshot-consistent group belongs. This parameter has a value only when all disk snapshots in the snapshot-consistent group belong to the same instance. If disk snapshots in the snapshot-consistent group belong to different instances, you can use parameters starting with `Snapshots.Snapshot.Tags.` in the response to view the ID of the instance to which each snapshot in the snapshot-consistent group belongs.
+     * @description The ID of the instance to which the snapshot-consistent group belongs. This parameter has a value only when all snapshots in the snapshot-consistent group belong to the same instance. If snapshots in the snapshot-consistent group belong to different instances, you can check the response parameters that start with `Snapshots.Snapshot.Tags.` for the ID of the instance to which each snapshot in the snapshot-consistent group belongs.
      *
      * @example i-j6ca469urv8ei629****
      *
@@ -47,7 +47,7 @@ class snapshotGroup extends Model
     public $name;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description >  This parameter is not publicly available.
      *
      * @example null
      *
@@ -74,7 +74,7 @@ class snapshotGroup extends Model
     public $snapshotGroupId;
 
     /**
-     * @description Details of the snapshots in the snapshot-consistent group.
+     * @description The snapshots in the snapshot-consistent group.
      *
      * @var snapshots
      */
@@ -83,9 +83,9 @@ class snapshotGroup extends Model
     /**
      * @description The state of the snapshot-consistent group. Valid values:
      *
-     *   progressing: The snapshot-consistent group is being created.
-     *   accomplished: The snapshot-consistent group is created.
-     *   failed: The snapshot-consistent group fails to be created.
+     *   progressing: The snapshot-consistent group was being created.
+     *   accomplished: The snapshot-consistent group was created.
+     *   failed: The snapshot-consistent group failed to be created.
      *
      * @example accomplished
      *

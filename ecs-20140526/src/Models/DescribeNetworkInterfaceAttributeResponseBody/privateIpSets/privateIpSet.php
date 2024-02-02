@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class privateIpSet extends Model
 {
     /**
-     * @description The EIP that is associated with the secondary private IP address of the ENI.
+     * @description Details about the EIP that is associated with the secondary private IP address of the ENI.
      *
      * @var associatedPublicIp
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommandsRequest extends Model
 {
     /**
-     * @description The command ID.
+     * @description The ID of the command.
      *
      * @example c-hz01272yr52****
      *
@@ -19,7 +19,7 @@ class DescribeCommandsRequest extends Model
     public $commandId;
 
     /**
-     * @description The encoding mode of the `CommandContent` and `Output` response parameters. Valid values:
+     * @description The encoding mode of the `CommandContent` and `Output` values in the response. Valid values:
      *
      *   PlainText: returns the original command content and command output.
      *   Base64: returns the Base64-encoded command content and command output.
@@ -32,7 +32,7 @@ class DescribeCommandsRequest extends Model
     public $contentEncoding;
 
     /**
-     * @description > This parameter is deprecated and does not take effect.
+     * @description The description of the common command. This parameter takes effect and fuzzy search is supported by default only when `Provider` is specified.
      *
      * @example testDescription
      *
@@ -41,7 +41,7 @@ class DescribeCommandsRequest extends Model
     public $description;
 
     /**
-     * @description Specifies whether to query only the latest version of common commands if common commands are queried. This parameter does not affect the query for private commands. Valid values:
+     * @description Specifies whether to query only the latest version of common commands when common commands are queried. This parameter does not affect the query for private commands.
      *
      *   true: queries only the latest version of common commands.
      *   false: queries all versions of common commands.
@@ -54,13 +54,32 @@ class DescribeCommandsRequest extends Model
     public $latest;
 
     /**
-     * @description The command name. Partial command names are not supported.
+     * @description The maximum number of entries per page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @description The name of the command. If you specify `Provider`, fuzzy search is supported by default.
      *
      * @example testName
      *
      * @var string
      */
     public $name;
+
+    /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example AAAAAdDWBF2
+     *
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var string
@@ -120,6 +139,10 @@ class DescribeCommandsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the command belongs.
+     *
+     * @example rg-123******
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -135,18 +158,18 @@ class DescribeCommandsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags of the command.
+     * @description The list of tags.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The command type. Valid values:
+     * @description The type of the command. Valid values:
      *
-     *   RunBatScript: batch command, applicable to Windows instances.
-     *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
-     *   RunShellScript: shell command, applicable to Linux instances.
+     *   RunBatScript: batch command, applicable to Windows instances
+     *   RunPowerShellScript: PowerShell command, applicable to Windows instances
+     *   RunShellScript: shell command, applicable to Linux instances
      *
      * @example RunShellScript
      *
@@ -158,7 +181,9 @@ class DescribeCommandsRequest extends Model
         'contentEncoding'      => 'ContentEncoding',
         'description'          => 'Description',
         'latest'               => 'Latest',
+        'maxResults'           => 'MaxResults',
         'name'                 => 'Name',
+        'nextToken'            => 'NextToken',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -191,8 +216,14 @@ class DescribeCommandsRequest extends Model
         if (null !== $this->latest) {
             $res['Latest'] = $this->latest;
         }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -257,8 +288,14 @@ class DescribeCommandsRequest extends Model
         if (isset($map['Latest'])) {
             $model->latest = $map['Latest'];
         }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

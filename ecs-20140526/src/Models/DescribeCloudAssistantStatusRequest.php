@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudAssistantStatusRequest extends Model
 {
     /**
-     * @description The IDs of instances.
+     * @description The instance ID.
      *
      * @example i-bp1iudwa5b1tqa****
      *
@@ -18,10 +18,30 @@ class DescribeCloudAssistantStatusRequest extends Model
     public $instanceId;
 
     /**
+     * @description The maximum number of entries per page. If you specify InstanceId, this parameter does not take effect.
+     *
+     * Default value: 10.
+     * @example 10
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example AAAAAdDWBF2
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The operating system type of the instance. Valid values:
      *
      *   Windows
      *   Linux
+     *   FreeBSD
      *
      * @example Windows
      *
@@ -60,7 +80,7 @@ class DescribeCloudAssistantStatusRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call [DescribeRegions](~~25609~~) to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -79,6 +99,8 @@ class DescribeCloudAssistantStatusRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'instanceId'           => 'InstanceId',
+        'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
         'OSType'               => 'OSType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -98,6 +120,12 @@ class DescribeCloudAssistantStatusRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
@@ -139,6 +167,12 @@ class DescribeCloudAssistantStatusRequest extends Model
             if (!empty($map['InstanceId'])) {
                 $model->instanceId = $map['InstanceId'];
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];

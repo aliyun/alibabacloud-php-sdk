@@ -11,7 +11,7 @@ class ModifyInstanceChargeTypeRequest extends Model
     /**
      * @description Specifies whether to automatically complete the payment. Valid values:
      *
-     *   true: The payment is automatically completed. Make sure that you have a sufficient balance in your account. Otherwise, your order becomes invalid and is canceled.
+     *   true: The payment is automatically completed. Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and is canceled.
      *   false: An order is generated but no payment is made.
      *
      * > If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.
@@ -22,7 +22,7 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $autoPay;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -31,10 +31,10 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to perform only a dry run. Valid values: Valid values:
+     * @description Specifies whether to perform only a dry run. Valid Values:
      *
-     *   true: performs only a dry run. The system checks the request for potential issues, including the AccessKey pair, the permissions of the RAM user, and the required parameters. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   false: performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *   true: performs only a dry run. The system checks whether your AccessKey pair is valid, whether Resource Access Management (RAM) users are granted permissions, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * Default value: false.
      * @example false
@@ -56,8 +56,8 @@ class ModifyInstanceChargeTypeRequest extends Model
     /**
      * @description The new billing method. Valid values:
      *
-     *   PrePaid: the subscription billing method
-     *   PostPaid: the pay-as-you-go billing method
+     *   PrePaid
+     *   PostPaid
      *
      * Default value: PrePaid.
      * @example PrePaid
@@ -67,7 +67,7 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance ID. The value can be a JSON array that consists of up to 20 instance IDs. Separate the instance IDs with commas (,).
+     * @description The instance IDs. The value can be a JSON array that consists of up to 20 instance IDs. Separate the instance IDs with commas (,).
      *
      * @example ["i-bp67acfmxazb4p****","i-bp67acfmxazb4d****"]
      *
@@ -96,7 +96,7 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The renewal duration of the subscription instance. If the instance is hosted on a dedicated host, the renewal duration of the instance cannot exceed the subscription duration of the dedicated host.
+     * @description The renewal duration of the subscription instance. If the instance is hosted on a dedicated host, the renewal duration of the instance cannot exceed the subscription duration of the dedicated host. Valid values:
      *
      * Valid values when `PeriodUnit` is set to Month: `1, 2, 3, 4, 5, 6, 7, 8, 9, and 12`.
      * @example 1
@@ -106,7 +106,7 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the renewal duration specified by `Period`. Valid value:
+     * @description The unit of the renewal duration specified by `Period`. Valid values:
      *
      * Default value: Month.
      * @example Month

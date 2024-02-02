@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDemandsRequest extends Model
 {
     /**
-     * @description The ID of the filing ticket. If this parameter is specified, other optional request parameters are ignored.
+     * @description The ID of the demand. If this parameter is specified, other optional request parameters are ignored.
      *
      * @example ed-bp11n21kq00sl71p****
      *
@@ -19,14 +19,14 @@ class DescribeDemandsRequest extends Model
     public $demandId;
 
     /**
-     * @description The status of the filing ticket or resource consumption. Valid values:
+     * @description The status of the demand or filed resources. Valid values:
      *
-     *   Creating: The filing ticket is being created.
+     *   Creating: The demand is being created.
      *   Active: The filed resources are being supplied.
-     *   Expired: The filing ticket expires.
+     *   Expired: The demand has expired.
      *   Finished: The filed resources are consumed.
-     *   Refused: The filing request is denied. To view the reason for denial, see the `Comment` parameter in the response.
-     *   Cancelled: The filing request is canceled.
+     *   Refused: The demand is rejected. To view the reason for rejection, see the `Comment` parameter in the response.
+     *   Cancelled: The demand is canceled.
      *
      * @example Active
      *
@@ -35,10 +35,10 @@ class DescribeDemandsRequest extends Model
     public $demandStatus;
 
     /**
-     * @description The source of the filed instance. Default value: System. Valid values:
+     * @description The source of the instance. Valid values:
      *
      *   Custom: filed on your own.
-     *   System: filed by Alibaba Cloud.
+     *   System (default): filed by Alibaba Cloud.
      *
      * @example Custom
      *
@@ -47,10 +47,10 @@ class DescribeDemandsRequest extends Model
     public $demandType;
 
     /**
-     * @description Specifies whether to perform a dry run. Default value: false. Valid values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values: Valid values:
      *
-     *   true: performs a dry run. The system checks whether your AccessKey pair is valid, whether RAM users are granted required permissions, and whether the required parameters are set. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-     *   false: performs a dry run and sends the request . If the request passes the dry run, a 2XX HTTP status code is returned and the operation is performed.
+     *   true: performs only a dry run. The system checks whether your AccessKey pair is valid, whether RAM users are granted required permissions, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+     *   false (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -61,8 +61,8 @@ class DescribeDemandsRequest extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   PostPaid: pay-as-you-go
-     *   PrePaid: subscription
+     *   PostPaid: pay-as-you-go.
+     *   PrePaid: subscription.
      *
      * @example PostPaid
      *
@@ -71,7 +71,7 @@ class DescribeDemandsRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance type of the filed instance.
+     * @description The instance type of the instance.
      *
      * @example ecs.g6.xlarge
      *
@@ -80,7 +80,7 @@ class DescribeDemandsRequest extends Model
     public $instanceType;
 
     /**
-     * @description The instance family of the filed instance.
+     * @description The instance family of the instance.
      *
      * @example ecs.g6
      *
@@ -99,7 +99,7 @@ class DescribeDemandsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number of the page to return. Pages start from page 1.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: 1.
      * @example 1
@@ -109,7 +109,7 @@ class DescribeDemandsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100.
+     * @description The number of entries per page. Maximum value: 100.
      *
      * Default value: 10.
      * @example 10
@@ -119,7 +119,7 @@ class DescribeDemandsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region for which to query resources. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the resource. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -138,14 +138,14 @@ class DescribeDemandsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The list of tags.
+     * @description The tags.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The ID of the zone for which to query resources. You can call the [DescribeZones](~~25610~~) operation to query the most recent list of zones.
+     * @description The zone ID of the resource. You can call the [DescribeZones](~~25610~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou-g
      *

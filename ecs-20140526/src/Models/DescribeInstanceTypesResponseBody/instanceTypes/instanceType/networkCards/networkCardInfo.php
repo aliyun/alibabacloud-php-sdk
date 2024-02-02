@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class networkCardInfo extends Model
 {
     /**
-     * @description The index of the NIC.
+     * @description The index of the network card.
      *
      * @example 1
      *

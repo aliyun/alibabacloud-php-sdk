@@ -4,10 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCapacityReservationsResponseBody\capacityReservationSet\capacityReservationItem\allocatedResources;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCapacityReservationsResponseBody\capacityReservationSet\capacityReservationItem\allocatedResources\allocatedResource\capacityReservationUsages;
 use AlibabaCloud\Tea\Model;
 
 class allocatedResource extends Model
 {
+    /**
+     * @var int
+     */
+    public $availableAmount;
+
+    /**
+     * @var capacityReservationUsages
+     */
+    public $capacityReservationUsages;
+
     /**
      * @description The instance type.
      *
@@ -44,10 +55,12 @@ class allocatedResource extends Model
      */
     public $zoneId;
     protected $_name = [
-        'instanceType' => 'InstanceType',
-        'totalAmount'  => 'TotalAmount',
-        'usedAmount'   => 'UsedAmount',
-        'zoneId'       => 'zoneId',
+        'availableAmount'           => 'AvailableAmount',
+        'capacityReservationUsages' => 'CapacityReservationUsages',
+        'instanceType'              => 'InstanceType',
+        'totalAmount'               => 'TotalAmount',
+        'usedAmount'                => 'UsedAmount',
+        'zoneId'                    => 'zoneId',
     ];
 
     public function validate()
@@ -57,6 +70,12 @@ class allocatedResource extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->availableAmount) {
+            $res['AvailableAmount'] = $this->availableAmount;
+        }
+        if (null !== $this->capacityReservationUsages) {
+            $res['CapacityReservationUsages'] = null !== $this->capacityReservationUsages ? $this->capacityReservationUsages->toMap() : null;
+        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -81,6 +100,12 @@ class allocatedResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvailableAmount'])) {
+            $model->availableAmount = $map['AvailableAmount'];
+        }
+        if (isset($map['CapacityReservationUsages'])) {
+            $model->capacityReservationUsages = capacityReservationUsages::fromMap($map['CapacityReservationUsages']);
+        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }

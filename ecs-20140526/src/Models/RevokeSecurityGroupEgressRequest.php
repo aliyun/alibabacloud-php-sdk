@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class RevokeSecurityGroupEgressRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -19,90 +19,110 @@ class RevokeSecurityGroupEgressRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.Description` to specify the description of security group rule N.
+     * @description This parameter is no longer used. Use `Permissions.N.Description` to specify the description of security group rule N.
      *
      * @example This is description.
+     *
+     * @deprecated
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.DestCidrIp` to specify the destination IPv4 CIDR block.
+     * @description This parameter is no longer used. Use `Permissions.N.DestCidrIp` to specify the destination IPv4 CIDR block.
      *
      * @example 10.0.0.0/8
+     *
+     * @deprecated
      *
      * @var string
      */
     public $destCidrIp;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.DestGroupId` to specify the ID of the destination security group.
+     * @description This parameter is no longer used. Use `Permissions.N.DestGroupId` to specify the ID of the destination security group.
      *
      * @example sg-bp67acfmxa123b****
+     *
+     * @deprecated
      *
      * @var string
      */
     public $destGroupId;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.DestGroupOwnerAccount` to specify the Alibaba Cloud account that manages the destination security group.
+     * @description This parameter is no longer used. Use `Permissions.N.DestGroupOwnerAccount` to specify the Alibaba Cloud account that manages the destination security group.
      *
      * @example Test@aliyun.com
+     *
+     * @deprecated
      *
      * @var string
      */
     public $destGroupOwnerAccount;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.DestGroupOwnerId` to specify the ID of the Alibaba Cloud account that manages the destination security group.
+     * @description This parameter is no longer used. Use `Permissions.N.DestGroupOwnerId` to specify the ID of the Alibaba Cloud account that manages the destination security group.
      *
      * @example 12345678910
+     *
+     * @deprecated
      *
      * @var int
      */
     public $destGroupOwnerId;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.DestPrefixListId` to specify the ID of the destination prefix list.
+     * @description This parameter is no longer used. Use `Permissions.N.DestPrefixListId` to specify the ID of the destination prefix list.
      *
      * @example pl-x1j1k5ykzqlixdcy****
+     *
+     * @deprecated
      *
      * @var string
      */
     public $destPrefixListId;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the transport layer protocol.
+     * @description This parameter is no longer used. Use `Permissions.N.IpProtocol` to specify the transport layer protocol.
      *
      * @example TCP
+     *
+     * @deprecated
      *
      * @var string
      */
     public $ipProtocol;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.Ipv6DestCidrIp` to specify the destination IPv6 CIDR block.
+     * @description This parameter is no longer used. Use `Permissions.N.Ipv6DestCidrIp` to specify the destination IPv6 CIDR block.
      *
      * @example 2001:db8:1233:1a00::***
+     *
+     * @deprecated
      *
      * @var string
      */
     public $ipv6DestCidrIp;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.Ipv6SourceCidrIp` to specify the source IPv6 CIDR block.
+     * @description This parameter is no longer used. Use `Permissions.N.Ipv6SourceCidrIp` to specify the source IPv6 CIDR block.
      *
      * @example 2001:db8:1234:1a00::***
+     *
+     * @deprecated
      *
      * @var string
      */
     public $ipv6SourceCidrIp;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.NicType` to specify the NIC type.
+     * @description This parameter is no longer used. Use `Permissions.N.NicType` to specify the network interface type.
      *
      * @example intranet
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -119,34 +139,40 @@ class RevokeSecurityGroupEgressRequest extends Model
     public $ownerId;
 
     /**
-     * @description The security group rules. Valid values of N: 1 to 100.
+     * @description Security group rule N. Valid values of N: 1 to 100.
      *
      * @var permissions[]
      */
     public $permissions;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.Policy` to specify whether to allow outbound access.
+     * @description This parameter is no longer used. Use `Permissions.N.Policy` to specify whether to allow outbound access.
      *
      * @example accept
+     *
+     * @deprecated
      *
      * @var string
      */
     public $policy;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.PortRange` to specify the range of destination ports.
+     * @description This parameter is no longer used. Use `Permissions.N.PortRange` to specify the range of destination ports.
      *
      * @example 22/22
+     *
+     * @deprecated
      *
      * @var string
      */
     public $portRange;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.Priority` to specify the priority of the rule.
+     * @description This parameter is no longer used. Use `Permissions.N.Priority` to specify the rule priority.
      *
      * @example 1
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -181,25 +207,29 @@ class RevokeSecurityGroupEgressRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of the security group rules. Valid values of N: 1 to 100.
+     * @description The ID of security group rule N. Valid values of N: 1 to 100.
      *
      * @var string[]
      */
     public $securityGroupRuleId;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.SourceCidrIp` to specify the source IPv4 CIDR block.
+     * @description This parameter is no longer used. Use `Permissions.N.SourceCidrIp` to specify the source IPv4 CIDR block.
      *
      * @example 10.0.0.0/8
+     *
+     * @deprecated
      *
      * @var string
      */
     public $sourceCidrIp;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.SourcePortRange` to specify the range of source ports.
+     * @description This parameter is no longer used. Use `Permissions.N.SourcePortRange` to specify the range of source ports.
      *
      * @example 22/22
+     *
+     * @deprecated
      *
      * @var string
      */

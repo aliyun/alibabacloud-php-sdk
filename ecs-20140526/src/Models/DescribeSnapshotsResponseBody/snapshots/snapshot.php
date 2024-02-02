@@ -10,14 +10,21 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
+     * @description Indicates whether the snapshot can be used to create or roll back disks. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $available;
 
     /**
-     * @description The type of the snapshot.
+     * @description The category of the snapshot.
      *
-     * >  This parameter will be deprecated in the future. We recommend that you use `InstantAccess` to ensure future compatibility.
+     * >  This parameter will be removed in the future. We recommend that you use the `InstantAccess` parameter to ensure future compatibility.
      * @example standard
      *
      * @var string
@@ -43,7 +50,7 @@ class snapshot extends Model
     public $description;
 
     /**
-     * @description Indicates whether the snapshot was encrypted.
+     * @description Indicates whether the snapshot is encrypted.
      *
      * @example false
      *
@@ -52,10 +59,10 @@ class snapshot extends Model
     public $encrypted;
 
     /**
-     * @description Indicates whether the instant access feature is enabled. Valid values:
+     * @description Indicates whether the instant access feature was enabled. Valid values:
      *
-     *   true. This feature can be enabled only for enhanced SSDs (ESSDs).
-     *   false. The snapshot is a normal snapshot for which the instant access feature is disabled.
+     *   true: The instant access feature was enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
+     *   false: The instant access feature was disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
      *
      * @example false
      *
@@ -64,9 +71,9 @@ class snapshot extends Model
     public $instantAccess;
 
     /**
-     * @description The validity period of the instant access feature. The instant access feature is automatically disabled when the specified period expires.
+     * @description Indicates the validity period of the instant access feature. When the specified period expires, the instant access feature is automatically disabled.
      *
-     * By default, the value of this parameter is the same as the value of the `RetentionDays` parameter.
+     * By default, the value of this parameter is the same as that of `RetentionDays`.
      * @example 30
      *
      * @var int
@@ -74,7 +81,7 @@ class snapshot extends Model
     public $instantAccessRetentionDays;
 
     /**
-     * @description The ID of the KMS key used for the data disk.
+     * @description The ID of the Key Management Service (KMS) key used for the data disk.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
@@ -92,7 +99,7 @@ class snapshot extends Model
     public $lastModifiedTime;
 
     /**
-     * @description The product number inherited from Alibaba Cloud Marketplace.
+     * @description The product code of the Alibaba Cloud Marketplace image.
      *
      * @example jxsc000****
      *
@@ -101,7 +108,7 @@ class snapshot extends Model
     public $productCode;
 
     /**
-     * @description The progress of the snapshot creation task in percentage.
+     * @description The progress of the snapshot creation task. Unit: percent (%).
      *
      * @example 100%
      *
@@ -110,7 +117,12 @@ class snapshot extends Model
     public $progress;
 
     /**
-     * @description The remaining time that is required to create the snapshot. Unit: seconds.
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description The remaining time required to create the snapshot. Unit: seconds.
      *
      * @example 38
      *
@@ -119,7 +131,7 @@ class snapshot extends Model
     public $remainTime;
 
     /**
-     * @description The resource group ID.
+     * @description The resource group ID to which the snapshot belongs.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -128,7 +140,7 @@ class snapshot extends Model
     public $resourceGroupId;
 
     /**
-     * @description The retention period of the automatic snapshot. Unit: day.
+     * @description The retention period of the automatic snapshot. Unit: days.
      *
      * @example 30
      *
@@ -137,7 +149,7 @@ class snapshot extends Model
     public $retentionDays;
 
     /**
-     * @description The snapshot ID.
+     * @description The ID of the snapshot.
      *
      * @example s-bp67acfmxazb4p****
      *
@@ -146,7 +158,7 @@ class snapshot extends Model
     public $snapshotId;
 
     /**
-     * @description The display name of the snapshot. This parameter is returned only if a snapshot display name was specified when the snapshot was created.
+     * @description The name of the snapshot. This parameter is returned only if a snapshot name was specified when the snapshot was created.
      *
      * @example testSnapshotName
      *
@@ -164,11 +176,11 @@ class snapshot extends Model
     public $snapshotSN;
 
     /**
-     * @description The type of the snapshot. Valid values:
+     * @description The type of snapshot. Valid values:
      *
-     *   auto or timer: automatic snapshot
-     *   user: manual snapshot
-     *   all: all snapshot types
+     *   auto or timer: automatic snapshot.
+     *   user: manually created snapshot.
+     *   all: all snapshot types.
      *
      * @example all
      *
@@ -177,7 +189,7 @@ class snapshot extends Model
     public $snapshotType;
 
     /**
-     * @description The source disk ID. This parameter is retained even after the source disk is released.
+     * @description The ID of the source disk. This parameter is retained even after the source disk is released.
      *
      * @example d-bp67acfmxazb4ph****
      *
@@ -216,7 +228,7 @@ class snapshot extends Model
     public $sourceRegionId;
 
     /**
-     * @description The source snapshot ID.
+     * @description The ID of the source snapshot.
      *
      * @example s-bp67acfmxazb4p****
      *
@@ -225,9 +237,9 @@ class snapshot extends Model
     public $sourceSnapshotId;
 
     /**
-     * @description The type of the source disk.
+     * @description The category of the source disk.
      *
-     * > This parameter will be deprecated in the future. We recommend that you use other parameters to ensure future compatibility.
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example disk
      *
      * @var string
@@ -235,7 +247,7 @@ class snapshot extends Model
     public $sourceStorageType;
 
     /**
-     * @description The status of the snapshot. Valid values:
+     * @description The state of the snapshot. Valid values:
      *
      *   progressing
      *   accomplished
@@ -248,14 +260,14 @@ class snapshot extends Model
     public $status;
 
     /**
-     * @description The tags.
+     * @description The tags of the snapshot.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description Indicates whether the snapshot has been used to create custom images or disks. Valid values:
+     * @description Indicates whether the snapshot has been used to create images or disks. Valid values:
      *
      *   image
      *   disk
@@ -279,6 +291,7 @@ class snapshot extends Model
         'lastModifiedTime'           => 'LastModifiedTime',
         'productCode'                => 'ProductCode',
         'progress'                   => 'Progress',
+        'regionId'                   => 'RegionId',
         'remainTime'                 => 'RemainTime',
         'resourceGroupId'            => 'ResourceGroupId',
         'retentionDays'              => 'RetentionDays',
@@ -336,6 +349,9 @@ class snapshot extends Model
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->remainTime) {
             $res['RemainTime'] = $this->remainTime;
@@ -429,6 +445,9 @@ class snapshot extends Model
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RemainTime'])) {
             $model->remainTime = $map['RemainTime'];

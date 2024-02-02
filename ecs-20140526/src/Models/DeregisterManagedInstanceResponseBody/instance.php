@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
-     * @description The ID of the managed instance.
+     * @description The activation code ID.
      *
      * @example 4ECEEE12-56F1-4FBC-9AB1-890F7494****
      *
@@ -18,7 +18,7 @@ class instance extends Model
     public $activationId;
 
     /**
-     * @description The internal IP address of the managed instance.
+     * @description The version number of Cloud Assistant Agent.
      *
      * @example 2.2.0.102
      *
@@ -27,7 +27,7 @@ class instance extends Model
     public $agentVersion;
 
     /**
-     * @description The public IP address of the managed instance.
+     * @description The hostname of the managed instance.
      *
      * @example test-Hostname
      *
@@ -36,7 +36,7 @@ class instance extends Model
     public $hostname;
 
     /**
-     * @description The hostname of the managed instance.
+     * @description The managed instance ID.
      *
      * @example mi-hz01axdfas****
      *
@@ -45,7 +45,7 @@ class instance extends Model
     public $instanceId;
 
     /**
-     * @description The time when the managed instance was registered.
+     * @description The name of the managed instance.
      *
      * @example test-InstanceName-001
      *
@@ -54,7 +54,7 @@ class instance extends Model
     public $instanceName;
 
     /**
-     * @description The time when the Cloud Assistant task was last executed.
+     * @description The public IP address of the managed instance.
      *
      * @example 47.8.**.**
      *
@@ -63,7 +63,7 @@ class instance extends Model
     public $internetIp;
 
     /**
-     * @description The ID of the activation code.
+     * @description The internal IP address of the managed instance.
      *
      * @example 10.0.**.**
      *
@@ -72,6 +72,8 @@ class instance extends Model
     public $intranetIp;
 
     /**
+     * @description The number of times that Cloud Assistant tasks were executed on the managed instance.
+     *
      * @example 2
      *
      * @var int
@@ -79,7 +81,7 @@ class instance extends Model
     public $invocationCount;
 
     /**
-     * @description Details of the managed instance.
+     * @description The time when the Cloud Assistant task was last executed.
      *
      * @example 2021-01-20T09:00:40Z
      *
@@ -88,6 +90,8 @@ class instance extends Model
     public $lastInvokedTime;
 
     /**
+     * @description The machine code of the managed instance.
+     *
      * @example e03231b37ab14e53b5795ad625fc****
      *
      * @var string
@@ -95,7 +99,7 @@ class instance extends Model
     public $machineId;
 
     /**
-     * @description The name of the managed instance.
+     * @description The operating system type of the managed instance.
      *
      * @example linux
      *
@@ -104,7 +108,7 @@ class instance extends Model
     public $osType;
 
     /**
-     * @description The operating system type of the managed instance.
+     * @description The version information about the operating system.
      *
      * @example Linux_#38~18.04.1-Ubuntu SMP Wed Jan 6 18:26:30 UTC 2021_x86_64
      *
@@ -113,13 +117,22 @@ class instance extends Model
     public $osVersion;
 
     /**
-     * @description The version number of the Cloud Assistant client.
+     * @description The time when the managed instance was registered.
      *
      * @example 2021-01-20T08:57:56Z
      *
      * @var string
      */
     public $registrationTime;
+
+    /**
+     * @description The ID of the resource group to which the managed instance belongs.
+     *
+     * @example rg-123******
+     *
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'activationId'     => 'ActivationId',
         'agentVersion'     => 'AgentVersion',
@@ -134,6 +147,7 @@ class instance extends Model
         'osType'           => 'OsType',
         'osVersion'        => 'OsVersion',
         'registrationTime' => 'RegistrationTime',
+        'resourceGroupId'  => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -181,6 +195,9 @@ class instance extends Model
         }
         if (null !== $this->registrationTime) {
             $res['RegistrationTime'] = $this->registrationTime;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -232,6 +249,9 @@ class instance extends Model
         }
         if (isset($map['RegistrationTime'])) {
             $model->registrationTime = $map['RegistrationTime'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

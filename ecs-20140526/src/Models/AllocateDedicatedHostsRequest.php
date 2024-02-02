@@ -97,7 +97,7 @@ class AllocateDedicatedHostsRequest extends Model
     public $chargeType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate a client token. Make sure that a unique client token is used for each request. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -125,7 +125,7 @@ class AllocateDedicatedHostsRequest extends Model
     public $dedicatedHostClusterId;
 
     /**
-     * @description The name of the dedicated host. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the dedicated host. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example myDDH
      *
@@ -207,7 +207,7 @@ class AllocateDedicatedHostsRequest extends Model
     public $quantity;
 
     /**
-     * @description The region ID of the dedicated host. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region in which to create the dedicated host. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -235,7 +235,7 @@ class AllocateDedicatedHostsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags of the command.
+     * @description The tags to add to the dedicated host.
      *
      * @var tag[]
      */

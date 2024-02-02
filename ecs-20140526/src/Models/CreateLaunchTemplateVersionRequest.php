@@ -31,6 +31,13 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $autoReleaseTime;
 
     /**
+     * @description The performance mode of the burstable instance. Valid values:
+     *
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Burstable instances](~~59977~~).
+     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Burstable instances](~~59977~~).
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $creditSpecification;

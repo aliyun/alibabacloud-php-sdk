@@ -18,7 +18,7 @@ class networkAttributes extends Model
     public $slbUdpTimeout;
 
     /**
-     * @description The timeout period of the UDP session that is established between a user and an Alibaba Cloud service on the dedicated host. Unit: seconds. Valid value: 60.
+     * @description The timeout period of the UDP session that was established between a user and an Alibaba Cloud service on the dedicated host. Unit: seconds. Valid value: 60.
      *
      * @example 60
      *

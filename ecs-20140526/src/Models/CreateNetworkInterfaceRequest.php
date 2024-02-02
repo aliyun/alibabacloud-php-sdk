@@ -28,6 +28,11 @@ class CreateNetworkInterfaceRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to retain the ENI when the associated instance is released. Valid values:
+     *
+     * - false
+     * @example true
+     *
      * @var bool
      */
     public $deleteOnRelease;
@@ -206,8 +211,13 @@ class CreateNetworkInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var int
+     */
+    public $rxQueueSize;
+
+    /**
      * @description The number of private IP addresses to be automatically created by ECS.
-     *
+     * Valid values: 1 to 49.
      * @example 1
      *
      * @var int
@@ -242,6 +252,11 @@ class CreateNetworkInterfaceRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var int
+     */
+    public $txQueueSize;
 
     /**
      * @description The ID of the vSwitch with which to associate the ENI. Private IP addresses are assigned to the ENI from within the CIDR block of the vSwitch.
@@ -284,10 +299,12 @@ class CreateNetworkInterfaceRequest extends Model
         'resourceGroupId'                => 'ResourceGroupId',
         'resourceOwnerAccount'           => 'ResourceOwnerAccount',
         'resourceOwnerId'                => 'ResourceOwnerId',
+        'rxQueueSize'                    => 'RxQueueSize',
         'secondaryPrivateIpAddressCount' => 'SecondaryPrivateIpAddressCount',
         'securityGroupId'                => 'SecurityGroupId',
         'securityGroupIds'               => 'SecurityGroupIds',
         'tag'                            => 'Tag',
+        'txQueueSize'                    => 'TxQueueSize',
         'vSwitchId'                      => 'VSwitchId',
         'visible'                        => 'Visible',
     ];
@@ -368,6 +385,9 @@ class CreateNetworkInterfaceRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->rxQueueSize) {
+            $res['RxQueueSize'] = $this->rxQueueSize;
+        }
         if (null !== $this->secondaryPrivateIpAddressCount) {
             $res['SecondaryPrivateIpAddressCount'] = $this->secondaryPrivateIpAddressCount;
         }
@@ -385,6 +405,9 @@ class CreateNetworkInterfaceRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->txQueueSize) {
+            $res['TxQueueSize'] = $this->txQueueSize;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -481,6 +504,9 @@ class CreateNetworkInterfaceRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+        if (isset($map['RxQueueSize'])) {
+            $model->rxQueueSize = $map['RxQueueSize'];
+        }
         if (isset($map['SecondaryPrivateIpAddressCount'])) {
             $model->secondaryPrivateIpAddressCount = $map['SecondaryPrivateIpAddressCount'];
         }
@@ -500,6 +526,9 @@ class CreateNetworkInterfaceRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TxQueueSize'])) {
+            $model->txQueueSize = $map['TxQueueSize'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

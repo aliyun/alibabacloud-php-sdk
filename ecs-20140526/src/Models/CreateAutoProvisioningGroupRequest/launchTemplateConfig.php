@@ -44,11 +44,11 @@ class launchTemplateConfig extends Model
     public $excludedInstanceTypes;
 
     /**
-     * @description The instance family level in the intelligent configuration mode. This parameter is used to filter the available instance types that meet the specified criteria. Valid values:
+     * @description The instance family level of the instance type in extended configuration N. This parameter is used to filter instance types. Valid values:
      *
-     *   EntryLevel: shared instance type. Instances of this level are the most cost-effective but may not provide stable computing performance. Instances of this level are suitable for business scenarios in which the CPU utilization is low. For more information, see [Shared instance families](~~108489~~).
-     *   EnterpriseLevel: enterprise level. Instances of this level provide stable performance and dedicated resources, and are suitable for scenarios in which high stability is required. For more information, see [Overview of instance families](~~25378~~).
-     *   CreditEntryLevel: This value is available only for burstable instances. CPU credits are used to ensure computing performance. Instances of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [What are burstable instances?](~~59977~~).
+     *   EntryLevel: entry level (shared instance types) Instance types of this level are the most cost-effective but may not provide stable computing performance. Instance types of this level are suitable for scenarios in which CPU utilization is low. For more information, see [Shared instance families](~~108489~~).
+     *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources and are suitable for scenarios that require high stability. For more information, see [Overview of instance families](~~25378~~).
+     *   CreditEntryLevel: credit entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview of burstable instances](~~59977~~).
      *
      * Valid values of N: 1 to 10.
      * @example EnterpriseLevel
@@ -58,7 +58,7 @@ class launchTemplateConfig extends Model
     public $instanceFamilyLevel;
 
     /**
-     * @description The instance type in extended configuration N. Valid values of N: 1 to 20. For more information about the valid values of this parameter, see [Instance families](~~25378~~).
+     * @description The instance type in extended configuration N. Valid values of N: 1 to 20. For more information about the valid values of this parameter, see [Overview of instance families](~~25378~~).
      *
      * @example ecs.g5.large
      *
@@ -69,10 +69,7 @@ class launchTemplateConfig extends Model
     /**
      * @description The maximum price of preemptible instances in extended configuration N.
      *
-     **
-     *
-     **If you specify the **`LaunchTemplateConfig` parameter, you must also specify the `LaunchTemplateConfig.N.MaxPrice` parameter.
-     *
+     * >  If you specify one or more other `LaunchTemplateConfig.N.*` parameters, you must also specify `LaunchTemplateConfig.N.MaxPrice`.
      * @example 3
      *
      * @var float
@@ -80,7 +77,7 @@ class launchTemplateConfig extends Model
     public $maxPrice;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to general users.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example false
      *
@@ -96,7 +93,7 @@ class launchTemplateConfig extends Model
     public $memories;
 
     /**
-     * @description The priority of the extended configuration. A value of 0 indicates the highest priority. Valid values: 0 to ∞.
+     * @description The priority of extended configuration N. A value of 0 indicates the highest priority. Valid values: 0 to ∞.
      *
      * @example 1
      *
@@ -107,7 +104,7 @@ class launchTemplateConfig extends Model
     /**
      * @description The ID of the vSwitch in extended configuration N. The zone of the ECS instances created from the extended configuration is determined by the vSwitch.
      *
-     * > If you specify the `LaunchTemplateConfig` parameter, you must also specify the `LaunchTemplateConfig.N.VSwitchId` parameter.
+     * >  If you specify one or more other `LaunchTemplateConfig.N.*` parameters, you must also specify `LaunchTemplateConfig.N.VSwitchId`.
      * @example vsw-sn5bsitu4lfzgc5o7****
      *
      * @var string
@@ -115,9 +112,9 @@ class launchTemplateConfig extends Model
     public $vSwitchId;
 
     /**
-     * @description The weight of the instance type specified in the extended configuration. A greater weight indicates that a single instance has more computing power and fewer instances are required. The value must be greater than 0.
+     * @description The weight of the instance type in extended configuration N. A greater weight indicates that a single instance has more computing power and fewer instances are required. The value must be greater than 0.
      *
-     * The weight is calculated based on the computing power of the instance type and the minimum computing power of a single instance in the cluster to be created by the auto provisioning group. For example, assume that the minimum computing power of a single instance is 8 vCPUs and 60 GiB of memory.
+     * The weight is calculated based on the computing power of the specified instance type and the minimum computing power of a single instance in the cluster to be created by the auto provisioning group. For example, assume that the minimum computing power of a single instance is 8 vCPUs and 60 GiB of memory.
      *
      *   For an instance type with 8 vCPUs and 60 GiB of memory, you can set the weight to 1.
      *   For an instance type with 16 vCPUs and 120 GiB of memory, you can set the weight to 2.

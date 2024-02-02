@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class eventType extends Model
 {
     /**
-     * @description The code of the event type.
+     * @description The code of the system event type.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class eventType extends Model
     public $code;
 
     /**
-     * @description The name of the event type.
+     * @description The name of the system event type.
      *
      * @example SystemMaintenance.Reboot
      *

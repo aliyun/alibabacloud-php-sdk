@@ -46,7 +46,7 @@ class DescribeSnapshotsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details about the snapshots.
+     * @description The information about the snapshots.
      *
      * @var snapshots
      */

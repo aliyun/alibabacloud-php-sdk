@@ -37,14 +37,14 @@ class launchResult extends Model
     public $errorMsg;
 
     /**
-     * @description The IDs of created instances.
+     * @description The IDs of instances created.
      *
      * @var instanceIds
      */
     public $instanceIds;
 
     /**
-     * @description The instance type.
+     * @description The instance type of the instance.
      *
      * @example ecs.g5.large
      *

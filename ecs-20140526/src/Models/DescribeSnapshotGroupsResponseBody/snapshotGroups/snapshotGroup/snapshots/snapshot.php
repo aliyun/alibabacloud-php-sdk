@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
+     * @description Indicates whether the snapshot can be used to create or roll back disks. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $available;
@@ -18,7 +25,7 @@ class snapshot extends Model
      * @description Indicates whether the instant access feature was enabled. Valid values:
      *
      *   true: The instant access feature was enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
-     *   false: The instant access feature was disabled. The snapshot is a normal snapshot for which the instant access feature was disabled.
+     *   false: The instant access feature was disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
      *
      * @example true
      *
@@ -27,7 +34,7 @@ class snapshot extends Model
     public $instantAccess;
 
     /**
-     * @description The retention period of the instant access feature. After the retention period ends, the snapshot is automatically released.
+     * @description The validity period of the instant access feature. When the period expires, the instant access snapshot is automatically released.
      *
      * @example 3
      *
@@ -75,7 +82,7 @@ class snapshot extends Model
     public $sourceDiskType;
 
     /**
-     * @description The tags of the snapshots in the snapshot-consistent group. The default value contains the details of the instance to which the snapshot belongs.
+     * @description The tags of the snapshot. The default values contain snapshot source information.
      *
      * @var tags
      */

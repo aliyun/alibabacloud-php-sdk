@@ -139,6 +139,15 @@ class instances extends Model
     public $registrationTime;
 
     /**
+     * @description The ID of the resource group to which the managed instance belongs.
+     *
+     * @example rg-123******
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The tags of the managed instance.
      *
      * @var tags[]
@@ -159,6 +168,7 @@ class instances extends Model
         'osType'           => 'OsType',
         'osVersion'        => 'OsVersion',
         'registrationTime' => 'RegistrationTime',
+        'resourceGroupId'  => 'ResourceGroupId',
         'tags'             => 'Tags',
     ];
 
@@ -210,6 +220,9 @@ class instances extends Model
         }
         if (null !== $this->registrationTime) {
             $res['RegistrationTime'] = $this->registrationTime;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -273,6 +286,9 @@ class instances extends Model
         }
         if (isset($map['RegistrationTime'])) {
             $model->registrationTime = $map['RegistrationTime'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {

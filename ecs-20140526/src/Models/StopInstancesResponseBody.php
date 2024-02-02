@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class StopInstancesResponseBody extends Model
 {
     /**
-     * @description The error code that is returned for the operation on the ECS instance. When a value of 200 is returned, the operation is successful. For more information, see the "Error codes" section in this topic.
+     * @description Details about the responses returned for the instances, which contain the status of each instance before and after the operation is called and the operation results.
      *
      * @var instanceResponses
      */
     public $instanceResponses;
 
     /**
-     * @description Details about the responses returned for the instances, which contain the state of each instance before and after the operation is called, and the results of the operation.
+     * @description The request ID.
      *
      * @example 1C488B66-B819-4D14-8711-C4EAAA13AC01
      *

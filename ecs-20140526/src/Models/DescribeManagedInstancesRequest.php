@@ -46,6 +46,25 @@ class DescribeManagedInstancesRequest extends Model
     public $instanceName;
 
     /**
+     * @description The maximum number of entries per page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example AAAAAdDWBF2****
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The operating system type of the managed instance. Valid values:
      *
      *   windows
@@ -98,6 +117,15 @@ class DescribeManagedInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the managed instance belongs.
+     *
+     * @example rg-123******
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -118,12 +146,15 @@ class DescribeManagedInstancesRequest extends Model
         'instanceId'           => 'InstanceId',
         'instanceIp'           => 'InstanceIp',
         'instanceName'         => 'InstanceName',
+        'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
         'osType'               => 'OsType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'tag'                  => 'Tag',
@@ -148,6 +179,12 @@ class DescribeManagedInstancesRequest extends Model
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
         }
@@ -165,6 +202,9 @@ class DescribeManagedInstancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -207,6 +247,12 @@ class DescribeManagedInstancesRequest extends Model
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
         }
@@ -224,6 +270,9 @@ class DescribeManagedInstancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

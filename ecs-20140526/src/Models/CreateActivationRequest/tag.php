@@ -21,7 +21,7 @@ class tag extends Model
     /**
      * @description The value of tag N to add to the activation code. Valid values of N: 1 to 20. The tag value can be an empty string.
      *
-     * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+     * It can be up to 128 characters in length and cannot contain `http://` or `https://`.
      * @example TestValue
      *
      * @var string

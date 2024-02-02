@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class networkInterface extends Model
 {
     /**
+     * @description Specifies whether to release ENI N when the instance is released. Valid values:
+     *
+     * Example: true.
+     * @example true
+     *
      * @var bool
      */
     public $deleteOnRelease;
@@ -72,9 +77,9 @@ class networkInterface extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description 网卡指定的物理网卡索引。
+     * @description The network interface controller (NIC) index specified for an ENI.
      *
-     * - NetworkInterface.N.InstanceType取值为Secondary或者空值，对于支持物理网卡的实例规格，此参数可以依据实例规格设置。更多信息，请参见[实例规格族](~~25378~~)。
+     * - If NetworkInterface.N.InstanceType is set to Secondary or left empty, specify this parameter based on the instance type of the instance that supports NICs. For more information, see [Overview of instance families](~~25378~~).
      * @example 0
      *
      * @var int
@@ -82,6 +87,12 @@ class networkInterface extends Model
     public $networkCardIndex;
 
     /**
+     * @description The ID of ENI N.
+     *
+     * > Note This parameter takes effect only for secondary ENIs.
+     * Example: eni-bp1gn106np8jhxhj****.
+     * @example eni-bp1gn106np8jhxhj****
+     *
      * @var string
      */
     public $networkInterfaceId;
@@ -164,6 +175,11 @@ class networkInterface extends Model
     public $queuePairNumber;
 
     /**
+     * @var int
+     */
+    public $rxQueueSize;
+
+    /**
      * @description The ID of the security group to which to assign secondary ENI N.
      *
      * Take note of the following items:
@@ -196,6 +212,11 @@ class networkInterface extends Model
     public $securityGroupIds;
 
     /**
+     * @var int
+     */
+    public $txQueueSize;
+
+    /**
      * @description The ID of the vSwitch to which to connect to ENI N.
      *
      * Take note of the following items:
@@ -222,8 +243,10 @@ class networkInterface extends Model
         'primaryIpAddress'            => 'PrimaryIpAddress',
         'queueNumber'                 => 'QueueNumber',
         'queuePairNumber'             => 'QueuePairNumber',
+        'rxQueueSize'                 => 'RxQueueSize',
         'securityGroupId'             => 'SecurityGroupId',
         'securityGroupIds'            => 'SecurityGroupIds',
+        'txQueueSize'                 => 'TxQueueSize',
         'vSwitchId'                   => 'VSwitchId',
     ];
 
@@ -270,11 +293,17 @@ class networkInterface extends Model
         if (null !== $this->queuePairNumber) {
             $res['QueuePairNumber'] = $this->queuePairNumber;
         }
+        if (null !== $this->rxQueueSize) {
+            $res['RxQueueSize'] = $this->rxQueueSize;
+        }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
+        }
+        if (null !== $this->txQueueSize) {
+            $res['TxQueueSize'] = $this->txQueueSize;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -329,6 +358,9 @@ class networkInterface extends Model
         if (isset($map['QueuePairNumber'])) {
             $model->queuePairNumber = $map['QueuePairNumber'];
         }
+        if (isset($map['RxQueueSize'])) {
+            $model->rxQueueSize = $map['RxQueueSize'];
+        }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
@@ -336,6 +368,9 @@ class networkInterface extends Model
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
             }
+        }
+        if (isset($map['TxQueueSize'])) {
+            $model->txQueueSize = $map['TxQueueSize'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

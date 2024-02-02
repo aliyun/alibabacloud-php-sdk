@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class eventCycleStatus extends Model
 {
     /**
-     * @description The code of the event state.
+     * @description The code of the system event state.
      *
      * @example 24
      *
@@ -18,7 +18,7 @@ class eventCycleStatus extends Model
     public $code;
 
     /**
-     * @description The name of the event state.
+     * @description The name of the system event state.
      *
      * @example Scheduled
      *

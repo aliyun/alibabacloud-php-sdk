@@ -42,7 +42,7 @@ class dedicatedHost extends Model
      *   on: The dedicated host was added to the resource pool for automatic deployment.
      *   off: The dedicated host was not added to the resource pool for automatic deployment.
      *
-     * For more information about automatic deployment, see the "[Automatic deployment](~~118938~~)" section in the Functions and features topic.
+     * For more information about automatic deployment, see the "Automatic deployment" section in [Functions and features](~~118938~~).
      * @example on
      *
      * @var string
@@ -50,7 +50,7 @@ class dedicatedHost extends Model
     public $autoPlacement;
 
     /**
-     * @description The automatic release time of the dedicated host. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
+     * @description The automatic release time of the instance. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
      *
      * @example 2017-01-01T12:00Z
      *
@@ -129,7 +129,7 @@ class dedicatedHost extends Model
     public $dedicatedHostName;
 
     /**
-     * @description The ID of the dedicated host owner.
+     * @description 专有宿主机所有者的用户ID。
      *
      * @example 100************7
      *
@@ -259,11 +259,11 @@ class dedicatedHost extends Model
     public $sockets;
 
     /**
-     * @description The service state of the dedicated host. Valid values:
+     * @description The state of the dedicated host. Valid values:
      *
      *   Available: The dedicated host is running normally.
      *   UnderAssessment: The dedicated host is available but has potential risks that may cause the ECS instances on the dedicated host to fail.
-     *   PermanentFailure: The dedicated host encounters permanent failures and is unavailable.
+     *   PermanentFailure: The dedicated host has permanent failures and is unavailable.
      *
      * @example Available
      *
@@ -272,21 +272,21 @@ class dedicatedHost extends Model
     public $status;
 
     /**
-     * @description The custom ECS instance families supported by the dedicated host.
+     * @description The custom ECS instance families that are supported by the dedicated host.
      *
      * @var supportedCustomInstanceTypeFamilies
      */
     public $supportedCustomInstanceTypeFamilies;
 
     /**
-     * @description The ECS instance families supported by the dedicated host.
+     * @description The ECS instance families that are supported by the dedicated host.
      *
      * @var supportedInstanceTypeFamilies
      */
     public $supportedInstanceTypeFamilies;
 
     /**
-     * @description The ECS instance types supported by the dedicated host.
+     * @description The ECS instance types that are supported by the dedicated host.
      *
      * @var supportedInstanceTypesList
      */

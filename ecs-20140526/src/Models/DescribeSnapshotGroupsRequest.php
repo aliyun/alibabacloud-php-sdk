@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotGroupsRequest extends Model
 {
     /**
-     * @description This parameter is unavailable.
+     * @description This parameter is not publicly available.
      *
      * @example hide
      *
@@ -28,7 +28,7 @@ class DescribeSnapshotGroupsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 10

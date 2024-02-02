@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvocationResultsRequest extends Model
 {
     /**
-     * @description The execution results.
+     * @description The ID of the command.
      *
      * @example c-hz0jdfwcsr****
      *
@@ -19,9 +19,12 @@ class DescribeInvocationResultsRequest extends Model
     public $commandId;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The encoding method of the `Output` response parameter. Valid values:
      *
-     * Default value: 10.
+     *   PlainText: returns the original command content and command output.
+     *   Base64: returns the Base64-encoded command content and command output.
+     *
+     * Default value: Base64.
      * @example PlainText
      *
      * @var string
@@ -29,8 +32,12 @@ class DescribeInvocationResultsRequest extends Model
     public $contentEncoding;
 
     /**
-     * @description The information about the tag.
+     * @description Specifies whether to return the results of historical scheduled executions. Valid values:
      *
+     *   true: returns the results of historical scheduled executions. When this parameter is set to true, the `InvokeId` parameter must be set to the ID of a scheduled command task.
+     *   false: does not return the results of historical scheduled executions.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -38,7 +45,7 @@ class DescribeInvocationResultsRequest extends Model
     public $includeHistory;
 
     /**
-     * @description The page number of the returned page.
+     * @description The ID of the instance.
      *
      * @example i-bp1i7gg30r52z2em****
      *
@@ -47,7 +54,7 @@ class DescribeInvocationResultsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the command execution.
+     * @description The ID of the command task. You can call the [DescribeInvocations](~~64840~~) operation to query the IDs of all command tasks.
      *
      * @example t-hz0jdfwd9f****
      *
@@ -56,14 +63,38 @@ class DescribeInvocationResultsRequest extends Model
     public $invokeId;
 
     /**
-     * @description The page number of the page to return.
+     * @description The execution state of the command task. Valid values:
      *
-     * Default value: 1.
+     *   Running
+     *   Finished
+     *   Failed
+     *   Stopped
+     *
+     * > To ensure compatibility, we recommend that you use `InvocationStatus` instead of InvokeRecordStatus.
      * @example Running
      *
      * @var string
      */
     public $invokeRecordStatus;
+
+    /**
+     * @description The maximum number of entries per page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example AAAAAdDWBF2
+     *
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var string
@@ -76,8 +107,9 @@ class DescribeInvocationResultsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the command.
+     * @description The page number.
      *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -85,8 +117,9 @@ class DescribeInvocationResultsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the container.
+     * @description The number of entries per page.
      *
+     * Default value: 10.
      * @example 1
      *
      * @var int
@@ -94,7 +127,7 @@ class DescribeInvocationResultsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The region ID of the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -103,7 +136,7 @@ class DescribeInvocationResultsRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the user who ran the command on the instance.
+     * @description The ID of the resource group. After you set this parameter, command execution results in the specified resource group are queried.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -122,25 +155,7 @@ class DescribeInvocationResultsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The error code returned when the command cannot be sent or run. Valid values:
-     *
-     *   If this parameter is empty, the command is run normally.
-     *   InstanceNotExists: The specified instance does not exist is released.
-     *   InstanceReleased: The instance was released while the command was being run on the instance.
-     *   InstanceNotRunning: The instance is not in the Running state while the command is being run.
-     *   CommandNotApplicable: The command is not applicable to the specified instance.
-     *   AccountNotExists: The specified account does not exist.
-     *   DirectoryNotExists: The specified directory does not exist.
-     *   BadCronExpression: The cron expression used to specify the execution time is invalid.
-     *   ClientNotRunning: The Cloud Assistant client is not running.
-     *   ClientNotResponse: The Cloud Assistant client is not responding.
-     *   ClientIsUpgrading: The Cloud Assistant client is being upgraded.
-     *   ClientNeedUpgrade: The Cloud Assistant client needs to be upgraded.
-     *   DeliveryTimeout: The request to send the command timed out.
-     *   ExecutionTimeout: The command execution timed out.
-     *   ExecutionException: An exception occurred while the command was being run.
-     *   ExecutionInterrupted: The execution was interrupted.
-     *   ExitCodeNonzero: The command execution is complete, but the exit code is not 0.
+     * @description The tags of the command task.
      *
      * @var tag[]
      */
@@ -152,6 +167,8 @@ class DescribeInvocationResultsRequest extends Model
         'instanceId'           => 'InstanceId',
         'invokeId'             => 'InvokeId',
         'invokeRecordStatus'   => 'InvokeRecordStatus',
+        'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -187,6 +204,12 @@ class DescribeInvocationResultsRequest extends Model
         }
         if (null !== $this->invokeRecordStatus) {
             $res['InvokeRecordStatus'] = $this->invokeRecordStatus;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -250,6 +273,12 @@ class DescribeInvocationResultsRequest extends Model
         }
         if (isset($map['InvokeRecordStatus'])) {
             $model->invokeRecordStatus = $map['InvokeRecordStatus'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

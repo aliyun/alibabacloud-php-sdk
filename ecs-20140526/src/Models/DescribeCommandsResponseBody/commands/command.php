@@ -23,6 +23,9 @@ class command extends Model
     /**
      * @description The Base64-encoded command content.
      *
+     *   If you set ContentEncoding to PlainText, the original command content is returned.
+     *   If you set ContentEncoding to Base64, the Base64-encoded command content is returned.
+     *
      * @example Y2QgL3Jvb3Q=
      *
      * @var string
@@ -30,7 +33,7 @@ class command extends Model
     public $commandContent;
 
     /**
-     * @description The command ID.
+     * @description The ID of the command.
      *
      * @example c-hz01272yr52****
      *
@@ -48,7 +51,7 @@ class command extends Model
     public $creationTime;
 
     /**
-     * @description The command description.
+     * @description The description of the command.
      *
      * @example testDescription
      *
@@ -57,7 +60,7 @@ class command extends Model
     public $description;
 
     /**
-     * @description Indicates whether the custom parameter feature was enabled for the command.
+     * @description Indicates whether the custom parameter feature is enabled for the command.
      *
      * @example true
      *
@@ -75,7 +78,7 @@ class command extends Model
     public $invokeTimes;
 
     /**
-     * @description Indicates whether the common command is of the latest version. If multiple common commands from the same provider (`Provider`) belong to the same category and share the same name, these commands are different versions of the same command. This parameter is not returned for the Cloud Assistant commands that you created.
+     * @description Indicates whether the common command is of the latest version. If multiple common commands from the same provider (`Provider`) belong to the same category and have the same name, these commands are different versions of the same command. This parameter is not returned for the Cloud Assistant commands that you created.
      *
      * @example true
      *
@@ -84,7 +87,7 @@ class command extends Model
     public $latest;
 
     /**
-     * @description The command name.
+     * @description The name of the command.
      *
      * @example testName
      *
@@ -100,7 +103,7 @@ class command extends Model
     public $parameterDefinitions;
 
     /**
-     * @description The custom parameter names that are parsed from the command content specified when the command was being created. If the custom parameter feature is not enabled, an empty list is returned.
+     * @description The list of custom parameter names that are parsed from the command content specified when the command was being created. If the custom parameter feature is disabled, an empty list is returned.
      *
      * @var parameterNames
      */
@@ -116,6 +119,10 @@ class command extends Model
     public $provider;
 
     /**
+     * @description The ID of the resource group to which the command belongs.
+     *
+     * @example rg-123******
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -128,7 +135,7 @@ class command extends Model
     public $tags;
 
     /**
-     * @description The timeout period.
+     * @description The timeout period. Unit: seconds.
      *
      * @example 3600
      *
@@ -137,7 +144,7 @@ class command extends Model
     public $timeout;
 
     /**
-     * @description The command type.
+     * @description The type of the command.
      *
      * @example RunShellScript
      *
@@ -146,7 +153,7 @@ class command extends Model
     public $type;
 
     /**
-     * @description The version of the common command. If multiple common commands from the same provider (`Provider`) belong to the same category and share the same name, these commands are different versions of the same command. This parameter is not returned for the Cloud Assistant commands that you created.
+     * @description The version of the common command. If multiple common commands from the same provider (`Provider`) belong to the same category and have the same name, these commands are different versions of the same command. This parameter is not returned for the Cloud Assistant commands that you created.
      *
      * @example 1
      *
@@ -155,7 +162,7 @@ class command extends Model
     public $version;
 
     /**
-     * @description The working directory of the command.
+     * @description The execution path of the command.
      *
      * @example /home/
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class remoteConnectionOptions extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is not publicly available.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example hide
      *
@@ -18,7 +18,7 @@ class remoteConnectionOptions extends Model
     public $password;
 
     /**
-     * @description > This parameter is in invitational preview and is not publicly available.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example hide
      *

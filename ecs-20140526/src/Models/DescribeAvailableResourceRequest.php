@@ -174,12 +174,9 @@ class DescribeAvailableResourceRequest extends Model
     public $scope;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     * @description The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
      *
-     *   The following protection periods are available in invitational preview: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, submit a ticket.
-     *   If this parameter is set to 0, no protection period is configured for the preemptible instance.
-     *
-     * Default value: 1.
+     * >If you set SpotStrategy to SpotWithPriceLimit or SpotAsPriceGo, this parameter takes effect.
      * @example 1
      *
      * @var int

@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudAssistantStatusResponseBody extends Model
 {
     /**
-     * @description The installation states of Cloud Assistant Agent on the instances.
+     * @description Details about the installation status of Cloud Assistant Agent on the instances.
      *
      * @var instanceCloudAssistantStatusSet
      */
     public $instanceCloudAssistantStatusSet;
+
+    /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
+     * @example AAAAAdDWBF2
+     *
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @description The page number.
@@ -44,7 +53,7 @@ class DescribeCloudAssistantStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of queried instances.
+     * @description The total number of instances.
      *
      * @example 1
      *
@@ -53,6 +62,7 @@ class DescribeCloudAssistantStatusResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'instanceCloudAssistantStatusSet' => 'InstanceCloudAssistantStatusSet',
+        'nextToken'                       => 'NextToken',
         'pageNumber'                      => 'PageNumber',
         'pageSize'                        => 'PageSize',
         'requestId'                       => 'RequestId',
@@ -68,6 +78,9 @@ class DescribeCloudAssistantStatusResponseBody extends Model
         $res = [];
         if (null !== $this->instanceCloudAssistantStatusSet) {
             $res['InstanceCloudAssistantStatusSet'] = null !== $this->instanceCloudAssistantStatusSet ? $this->instanceCloudAssistantStatusSet->toMap() : null;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -95,6 +108,9 @@ class DescribeCloudAssistantStatusResponseBody extends Model
         $model = new self();
         if (isset($map['InstanceCloudAssistantStatusSet'])) {
             $model->instanceCloudAssistantStatusSet = instanceCloudAssistantStatusSet::fromMap($map['InstanceCloudAssistantStatusSet']);
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

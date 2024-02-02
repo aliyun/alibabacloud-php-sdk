@@ -507,6 +507,16 @@ class instance extends Model
     public $spotDuration;
 
     /**
+     * @description The interruption mode of the preemptible instance when the system initiates a preemptible instance interruption operation. Valid values:
+     *
+     * - Stop: stops the instance in economical mode.
+     * @example Terminate
+     *
+     * @var string
+     */
+    public $spotInterruptionBehavior;
+
+    /**
      * @description The maximum hourly price of the instance. It can be accurate to three decimal places. This parameter is valid only when the SpotStrategy parameter is set to SpotWithPriceLimit.
      *
      * @example 0.98
@@ -646,6 +656,7 @@ class instance extends Model
         'securityGroupIds'           => 'SecurityGroupIds',
         'serialNumber'               => 'SerialNumber',
         'spotDuration'               => 'SpotDuration',
+        'spotInterruptionBehavior'   => 'SpotInterruptionBehavior',
         'spotPriceLimit'             => 'SpotPriceLimit',
         'spotStrategy'               => 'SpotStrategy',
         'startTime'                  => 'StartTime',
@@ -825,6 +836,9 @@ class instance extends Model
         }
         if (null !== $this->spotDuration) {
             $res['SpotDuration'] = $this->spotDuration;
+        }
+        if (null !== $this->spotInterruptionBehavior) {
+            $res['SpotInterruptionBehavior'] = $this->spotInterruptionBehavior;
         }
         if (null !== $this->spotPriceLimit) {
             $res['SpotPriceLimit'] = $this->spotPriceLimit;
@@ -1026,6 +1040,9 @@ class instance extends Model
         }
         if (isset($map['SpotDuration'])) {
             $model->spotDuration = $map['SpotDuration'];
+        }
+        if (isset($map['SpotInterruptionBehavior'])) {
+            $model->spotInterruptionBehavior = $map['SpotInterruptionBehavior'];
         }
         if (isset($map['SpotPriceLimit'])) {
             $model->spotPriceLimit = $map['SpotPriceLimit'];

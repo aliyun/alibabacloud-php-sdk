@@ -17,6 +17,15 @@ class DescribeCommandsResponseBody extends Model
     public $commands;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
+     * @example AAAAAdDWBF2
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The page number.
      *
      * @example 1
@@ -35,7 +44,7 @@ class DescribeCommandsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
@@ -53,6 +62,7 @@ class DescribeCommandsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'commands'   => 'Commands',
+        'nextToken'  => 'NextToken',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
@@ -68,6 +78,9 @@ class DescribeCommandsResponseBody extends Model
         $res = [];
         if (null !== $this->commands) {
             $res['Commands'] = null !== $this->commands ? $this->commands->toMap() : null;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -95,6 +108,9 @@ class DescribeCommandsResponseBody extends Model
         $model = new self();
         if (isset($map['Commands'])) {
             $model->commands = commands::fromMap($map['Commands']);
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

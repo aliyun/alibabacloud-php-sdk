@@ -440,6 +440,16 @@ class disk extends Model
     public $throughput;
 
     /**
+     * @var int
+     */
+    public $throughputRead;
+
+    /**
+     * @var int
+     */
+    public $throughputWrite;
+
+    /**
      * @description The disk type. Valid values:
      *
      *   system: system disk
@@ -504,6 +514,8 @@ class disk extends Model
         'storageSetPartitionNumber'     => 'StorageSetPartitionNumber',
         'tags'                          => 'Tags',
         'throughput'                    => 'Throughput',
+        'throughputRead'                => 'ThroughputRead',
+        'throughputWrite'               => 'ThroughputWrite',
         'type'                          => 'Type',
         'zoneId'                        => 'ZoneId',
     ];
@@ -646,6 +658,12 @@ class disk extends Model
         }
         if (null !== $this->throughput) {
             $res['Throughput'] = $this->throughput;
+        }
+        if (null !== $this->throughputRead) {
+            $res['ThroughputRead'] = $this->throughputRead;
+        }
+        if (null !== $this->throughputWrite) {
+            $res['ThroughputWrite'] = $this->throughputWrite;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -796,6 +814,12 @@ class disk extends Model
         }
         if (isset($map['Throughput'])) {
             $model->throughput = $map['Throughput'];
+        }
+        if (isset($map['ThroughputRead'])) {
+            $model->throughputRead = $map['ThroughputRead'];
+        }
+        if (isset($map['ThroughputWrite'])) {
+            $model->throughputWrite = $map['ThroughputWrite'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

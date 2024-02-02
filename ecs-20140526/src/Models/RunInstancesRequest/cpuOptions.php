@@ -39,10 +39,21 @@ class cpuOptions extends Model
      * @var int
      */
     public $threadsPerCore;
+
+    /**
+     * @description The CPU topology type of the instance. Valid values:
+     *
+     * >This parameter is supported only for specific instance families. For more information about the supported instance families, see [View and modify the CPU topology](~~2636059~~).
+     * @example DiscreteCoreToHTMapping
+     *
+     * @var string
+     */
+    public $topologyType;
     protected $_name = [
         'core'           => 'Core',
         'numa'           => 'Numa',
         'threadsPerCore' => 'ThreadsPerCore',
+        'topologyType'   => 'TopologyType',
     ];
 
     public function validate()
@@ -60,6 +71,9 @@ class cpuOptions extends Model
         }
         if (null !== $this->threadsPerCore) {
             $res['ThreadsPerCore'] = $this->threadsPerCore;
+        }
+        if (null !== $this->topologyType) {
+            $res['TopologyType'] = $this->topologyType;
         }
 
         return $res;
@@ -81,6 +95,9 @@ class cpuOptions extends Model
         }
         if (isset($map['ThreadsPerCore'])) {
             $model->threadsPerCore = $map['ThreadsPerCore'];
+        }
+        if (isset($map['TopologyType'])) {
+            $model->topologyType = $map['TopologyType'];
         }
 
         return $model;

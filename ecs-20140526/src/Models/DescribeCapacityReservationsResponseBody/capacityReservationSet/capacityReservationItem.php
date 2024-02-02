@@ -18,6 +18,11 @@ class capacityReservationItem extends Model
     public $allocatedResources;
 
     /**
+     * @var string
+     */
+    public $capacityReservationOwnerId;
+
+    /**
      * @description The description of the capacity reservation.
      *
      * @example This is description.
@@ -190,6 +195,7 @@ class capacityReservationItem extends Model
     public $timeSlot;
     protected $_name = [
         'allocatedResources'              => 'AllocatedResources',
+        'capacityReservationOwnerId'      => 'CapacityReservationOwnerId',
         'description'                     => 'Description',
         'endTime'                         => 'EndTime',
         'endTimeType'                     => 'EndTimeType',
@@ -218,6 +224,9 @@ class capacityReservationItem extends Model
         $res = [];
         if (null !== $this->allocatedResources) {
             $res['AllocatedResources'] = null !== $this->allocatedResources ? $this->allocatedResources->toMap() : null;
+        }
+        if (null !== $this->capacityReservationOwnerId) {
+            $res['CapacityReservationOwnerId'] = $this->capacityReservationOwnerId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -284,6 +293,9 @@ class capacityReservationItem extends Model
         $model = new self();
         if (isset($map['AllocatedResources'])) {
             $model->allocatedResources = allocatedResources::fromMap($map['AllocatedResources']);
+        }
+        if (isset($map['CapacityReservationOwnerId'])) {
+            $model->capacityReservationOwnerId = $map['CapacityReservationOwnerId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

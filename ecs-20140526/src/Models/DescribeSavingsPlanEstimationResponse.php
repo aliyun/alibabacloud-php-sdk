@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeInstanceVncPasswdResponse extends Model
+class DescribeSavingsPlanEstimationResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeInstanceVncPasswdResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeInstanceVncPasswdResponseBody
+     * @var DescribeSavingsPlanEstimationResponseBody
      */
     public $body;
     protected $_name = [
@@ -30,9 +30,6 @@ class DescribeInstanceVncPasswdResponse extends Model
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
-        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
@@ -54,7 +51,7 @@ class DescribeInstanceVncPasswdResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeInstanceVncPasswdResponse
+     * @return DescribeSavingsPlanEstimationResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +63,7 @@ class DescribeInstanceVncPasswdResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeInstanceVncPasswdResponseBody::fromMap($map['body']);
+            $model->body = DescribeSavingsPlanEstimationResponseBody::fromMap($map['body']);
         }
 
         return $model;

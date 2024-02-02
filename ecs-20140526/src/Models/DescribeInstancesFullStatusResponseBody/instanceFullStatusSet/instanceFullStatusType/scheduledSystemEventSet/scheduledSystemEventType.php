@@ -12,14 +12,14 @@ use AlibabaCloud\Tea\Model;
 class scheduledSystemEventType extends Model
 {
     /**
-     * @description The state of the event.
+     * @description The state of the system event.
      *
      * @var eventCycleStatus
      */
     public $eventCycleStatus;
 
     /**
-     * @description The ID of the event.
+     * @description The ID of the system event.
      *
      * @example e-bp1hygp5b04o56l0****
      *
@@ -28,7 +28,7 @@ class scheduledSystemEventType extends Model
     public $eventId;
 
     /**
-     * @description The time when the event was published. The time is displayed in UTC.
+     * @description The time when the system event was published. The time is displayed in UTC.
      *
      * @example 2017-11-30T06:32:31Z
      *
@@ -37,7 +37,7 @@ class scheduledSystemEventType extends Model
     public $eventPublishTime;
 
     /**
-     * @description The type of the event.
+     * @description The type of the system event.
      *
      * @var eventType
      */
@@ -51,7 +51,7 @@ class scheduledSystemEventType extends Model
     public $extendedAttribute;
 
     /**
-     * @description The impact level of the event.
+     * @description The impact level of the system event.
      *
      * @example 100
      *
@@ -60,7 +60,7 @@ class scheduledSystemEventType extends Model
     public $impactLevel;
 
     /**
-     * @description The scheduled time when to execute the O\&M task related to the event. The time is displayed in UTC.
+     * @description The scheduled O\&M time of the system event. The time is displayed in UTC.
      *
      * @example 2017-12-07T00:00:00Z
      *
@@ -69,7 +69,7 @@ class scheduledSystemEventType extends Model
     public $notBefore;
 
     /**
-     * @description The reason why the event was scheduled.
+     * @description The reason why the system event was scheduled.
      *
      * @example A simulated event.
      *

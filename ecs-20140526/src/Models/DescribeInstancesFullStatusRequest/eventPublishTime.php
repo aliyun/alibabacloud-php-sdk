@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class eventPublishTime extends Model
 {
     /**
-     * @description The end of the period during which system events are published. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The end of the time range during which system events are published. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2017-12-07T00:00:00Z
      *
@@ -18,7 +18,7 @@ class eventPublishTime extends Model
     public $end;
 
     /**
-     * @description The beginning of the period during which system events are published. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The beginning of the time range during which system events are published. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2017-11-30T00:00:00Z
      *

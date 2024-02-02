@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ipv4PrefixSet extends Model
 {
     /**
-     * @description The IPv4 address prefix.
+     * @description >  This parameter is in invitational preview and unavailable for general users.
      *
-     * @example 47.122.*.*\/24
+     * @example 192.168.**.0/28
      *
      * @var string
      */

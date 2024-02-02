@@ -80,20 +80,22 @@ class DescribeNetworkInterfacesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description >This parameter is no longer used. We recommend that you specify the MaxResults or NextToken parameter for a paged query.
      *
-     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters to perform a paged query.
      * @example 1
+     *
+     * @deprecated
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description >This parameter is no longer used. We recommend that you specify the MaxResults or NextToken parameter for a paged query.
      *
-     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
      * @example 100
+     *
+     * @deprecated
      *
      * @var int
      */

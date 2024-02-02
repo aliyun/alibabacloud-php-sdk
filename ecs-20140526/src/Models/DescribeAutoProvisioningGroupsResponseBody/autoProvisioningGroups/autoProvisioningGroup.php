@@ -115,6 +115,11 @@ class autoProvisioningGroup extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The policy related to preemptible instances.
      *
      * @var spotOptions
@@ -210,6 +215,7 @@ class autoProvisioningGroup extends Model
         'maxSpotPrice'                     => 'MaxSpotPrice',
         'payAsYouGoOptions'                => 'PayAsYouGoOptions',
         'regionId'                         => 'RegionId',
+        'resourceGroupId'                  => 'ResourceGroupId',
         'spotOptions'                      => 'SpotOptions',
         'state'                            => 'State',
         'status'                           => 'Status',
@@ -259,6 +265,9 @@ class autoProvisioningGroup extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->spotOptions) {
             $res['SpotOptions'] = null !== $this->spotOptions ? $this->spotOptions->toMap() : null;
@@ -328,6 +337,9 @@ class autoProvisioningGroup extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SpotOptions'])) {
             $model->spotOptions = spotOptions::fromMap($map['SpotOptions']);

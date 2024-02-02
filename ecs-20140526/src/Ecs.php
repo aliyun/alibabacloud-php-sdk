@@ -122,6 +122,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateRouteEntryRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateRouteEntryResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateRouterInterfaceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateRouterInterfaceResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSavingsPlanRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSavingsPlanResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSecurityGroupRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSecurityGroupResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSimulatedSystemEventsRequest;
@@ -332,8 +334,6 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypeFamiliesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypeFamiliesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponse;
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceVncPasswdRequest;
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceVncPasswdResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceVncUrlRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceVncUrlResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInvocationResultsRequest;
@@ -388,6 +388,10 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRouterInterfacesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRouterInterfacesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRouteTablesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRouteTablesResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSavingsPlanEstimationRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSavingsPlanEstimationResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSavingsPlanPriceRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSavingsPlanPriceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupAttributeResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupReferencesRequest;
@@ -472,8 +476,6 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ImportImageRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ImportImageResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ImportKeyPairRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ImportKeyPairResponse;
-use AlibabaCloud\SDK\Ecs\V20140526\Models\ImportSnapshotRequest;
-use AlibabaCloud\SDK\Ecs\V20140526\Models\ImportSnapshotResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\InstallCloudAssistantRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\InstallCloudAssistantResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\InvokeCommandRequest;
@@ -565,6 +567,9 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceVncPasswdRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceVncPasswdResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceVpcAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceVpcAttributeResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInvocationAttributeRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInvocationAttributeResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInvocationAttributeShrinkRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyLaunchTemplateDefaultVersionRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyLaunchTemplateDefaultVersionResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyManagedInstanceRequest;
@@ -2118,18 +2123,17 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * In security group-related API documents, outbound traffic refers to the traffic that is sent by the source device and received at the destination device.
-     *   * When you call this operation, take note of the following items:
-     *   * *   The total number of inbound and outbound security group rules in each security group cannot exceed 200. For more information, see the "Security group limits" section of the [Limits](~~25412#SecurityGroupQuota1~~) topic.
-     *   * *   The valid value of Priority ranges from 1 to 100. A smaller value specifies a higher priority.
-     *   * *   If several security group rules have the same priority, drop rules take precedence.
+     * Take note of the following items:
+     *   * *   The total number of outbound and inbound rules in each security group cannot exceed 200. For more information, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+     *   * *   The valid values of Priority range from 1 to 100. A smaller value indicates a higher priority.
+     *   * *   When multiple security group rules have the same priority, drop rules take precedence.
      *   * *   The source can be a CIDR block that is specified by SourceCidrIp, Ipv6SourceCidrIp, or SourcePrefixListId. The source can also be Elastic Compute Service (ECS) instances in a security group that is specified by SourceGroupId.
      *   * *   You cannot reference security groups as sources or destinations in the rules of advanced security groups.
      *   * *   You can reference up to 20 security groups as sources or destinations in the rules of each basic security group.
      *   * *   If the specified security group rule already exists in the security group, the call is successful but no security group rule is created.
-     *   * *   The `Permissions.N` prefix is added to specific parameters to generate new parameters. Original parameters and corresponding parameters prefixed with Permissions.N cannot be specified together. We recommend that you use parameters prefixed with `Permissions.N`.
+     *   * *   Parameters and their `Permissions.N`-prefixed counterparts cannot be specified at the same time. We recommend that you use the `Permissions.N`-prefixed parameters.
      *   * *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-     *   *     *   Parameters used to determine an inbound security group rule that controls access from a specific CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourceCidrIp. For a security group of the Virtual Private Cloud (VPC) type, you must set the NicType parameter to intranet. For a security group of the classic network type, you can set the NicType parameter to either internet or intranet. Sample request:
+     *   *     *   Parameters used to specify an inbound security group rule that controls access from a specific CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourceCidrIp. For a security group of the Virtual Private Cloud (VPC) type, you must set NicType to intranet. For a security group of the classic network type, you can set NicType to either internet or intranet. Sample request:
      *   *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
      *   *             &SecurityGroupId=sg-bp67acfmxazb4p****
      *   *             &Permissions.1.SourceCidrIp=10.0.0.0/8
@@ -2138,7 +2142,7 @@ class Ecs extends OpenApiClient
      *   *             &Permissions.1.NicType=intranet
      *   *             &Permissions.1.Policy=Accept
      *   *             &<Common request parameters>
-     *   *     *   Parameters used to determine an inbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceGroupOwnerAccount, and SourceGroupId. In this case, you must set the NicType parameter to intranet. To manage access between security groups in the classic network, you can allow or deny access from another security group within the same region to your security group. The security group that is allowed to access your security group can belong to your Alibaba Cloud account or another Alibaba Cloud account that is specified by SourceGroupOwnerAccount. To manage access between security groups in VPCs, you can allow or deny access from another security group within the same VPC to your security group. Sample request:
+     *   *     *   Parameters used to determine an inbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceGroupOwnerAccount, and SourceGroupId. In this case, you must set NicType to intranet. For mutual access between security groups in the classic network, you can allow or deny another security group within the same region access to your security group. The security group that is allowed access to your security group can belong to your own Alibaba Cloud account or another Alibaba Cloud account specified by SourceGroupOwnerAccount. For mutual access between security groups in VPCs, you can allow or deny another security group within the same VPC access to your security group. Sample request:
      *   *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
      *   *             &SecurityGroupId=sg-bp67acfmxazb4p****
      *   *             &Permissions.1.SourceGroupId=sg-1651FBB**
@@ -2148,7 +2152,7 @@ class Ecs extends OpenApiClient
      *   *             &Permissions.1.NicType=intranet
      *   *             &Permissions.1.Policy=Drop
      *   *             &<Common request parameters>
-     *   *     *   Parameters used to determine an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourcePrefixListId. If you specify this group of parameters, prefix lists support only security groups in VPCs. You must set NicType to intranet. Sample request:
+     *   *     *   Parameters used to determine an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourcePrefixListId. In this case, prefix lists support only security groups in VPCs. NicType must be set to intranet. Sample request:
      *   *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
      *   *             &SecurityGroupId=sg-bp67acfmxazb4p****
      *   *             &Permissions.1.SourcePrefixListId=pl-x1j1k5ykzqlixdcy****
@@ -2158,7 +2162,7 @@ class Ecs extends OpenApiClient
      *   *             &Permissions.1.NicType=intranet
      *   *             &Permissions.1.Policy=Drop
      *   *             &<Common request parameters>
-     *   * *   For examples on how to configure security group rules, see [Security groups for different use cases](~~25475~~) and [Security group quintuple rules](~~97439~~).
+     *   * *   For information about examples on security group rule settings, see [Security groups for different use cases](~~25475~~) and [Security group quintuple rules](~~97439~~).
      *   *
      * @param AuthorizeSecurityGroupRequest $request AuthorizeSecurityGroupRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2269,18 +2273,17 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * In security group-related API documents, outbound traffic refers to the traffic that is sent by the source device and received at the destination device.
-     *   * When you call this operation, take note of the following items:
-     *   * *   The total number of inbound and outbound security group rules in each security group cannot exceed 200. For more information, see the "Security group limits" section of the [Limits](~~25412#SecurityGroupQuota1~~) topic.
-     *   * *   The valid value of Priority ranges from 1 to 100. A smaller value specifies a higher priority.
-     *   * *   If several security group rules have the same priority, drop rules take precedence.
+     * Take note of the following items:
+     *   * *   The total number of outbound and inbound rules in each security group cannot exceed 200. For more information, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+     *   * *   The valid values of Priority range from 1 to 100. A smaller value indicates a higher priority.
+     *   * *   When multiple security group rules have the same priority, drop rules take precedence.
      *   * *   The source can be a CIDR block that is specified by SourceCidrIp, Ipv6SourceCidrIp, or SourcePrefixListId. The source can also be Elastic Compute Service (ECS) instances in a security group that is specified by SourceGroupId.
      *   * *   You cannot reference security groups as sources or destinations in the rules of advanced security groups.
      *   * *   You can reference up to 20 security groups as sources or destinations in the rules of each basic security group.
      *   * *   If the specified security group rule already exists in the security group, the call is successful but no security group rule is created.
-     *   * *   The `Permissions.N` prefix is added to specific parameters to generate new parameters. Original parameters and corresponding parameters prefixed with Permissions.N cannot be specified together. We recommend that you use parameters prefixed with `Permissions.N`.
+     *   * *   Parameters and their `Permissions.N`-prefixed counterparts cannot be specified at the same time. We recommend that you use the `Permissions.N`-prefixed parameters.
      *   * *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-     *   *     *   Parameters used to determine an inbound security group rule that controls access from a specific CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourceCidrIp. For a security group of the Virtual Private Cloud (VPC) type, you must set the NicType parameter to intranet. For a security group of the classic network type, you can set the NicType parameter to either internet or intranet. Sample request:
+     *   *     *   Parameters used to specify an inbound security group rule that controls access from a specific CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourceCidrIp. For a security group of the Virtual Private Cloud (VPC) type, you must set NicType to intranet. For a security group of the classic network type, you can set NicType to either internet or intranet. Sample request:
      *   *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
      *   *             &SecurityGroupId=sg-bp67acfmxazb4p****
      *   *             &Permissions.1.SourceCidrIp=10.0.0.0/8
@@ -2289,7 +2292,7 @@ class Ecs extends OpenApiClient
      *   *             &Permissions.1.NicType=intranet
      *   *             &Permissions.1.Policy=Accept
      *   *             &<Common request parameters>
-     *   *     *   Parameters used to determine an inbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceGroupOwnerAccount, and SourceGroupId. In this case, you must set the NicType parameter to intranet. To manage access between security groups in the classic network, you can allow or deny access from another security group within the same region to your security group. The security group that is allowed to access your security group can belong to your Alibaba Cloud account or another Alibaba Cloud account that is specified by SourceGroupOwnerAccount. To manage access between security groups in VPCs, you can allow or deny access from another security group within the same VPC to your security group. Sample request:
+     *   *     *   Parameters used to determine an inbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceGroupOwnerAccount, and SourceGroupId. In this case, you must set NicType to intranet. For mutual access between security groups in the classic network, you can allow or deny another security group within the same region access to your security group. The security group that is allowed access to your security group can belong to your own Alibaba Cloud account or another Alibaba Cloud account specified by SourceGroupOwnerAccount. For mutual access between security groups in VPCs, you can allow or deny another security group within the same VPC access to your security group. Sample request:
      *   *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
      *   *             &SecurityGroupId=sg-bp67acfmxazb4p****
      *   *             &Permissions.1.SourceGroupId=sg-1651FBB**
@@ -2299,7 +2302,7 @@ class Ecs extends OpenApiClient
      *   *             &Permissions.1.NicType=intranet
      *   *             &Permissions.1.Policy=Drop
      *   *             &<Common request parameters>
-     *   *     *   Parameters used to determine an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourcePrefixListId. If you specify this group of parameters, prefix lists support only security groups in VPCs. You must set NicType to intranet. Sample request:
+     *   *     *   Parameters used to determine an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourcePrefixListId. In this case, prefix lists support only security groups in VPCs. NicType must be set to intranet. Sample request:
      *   *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
      *   *             &SecurityGroupId=sg-bp67acfmxazb4p****
      *   *             &Permissions.1.SourcePrefixListId=pl-x1j1k5ykzqlixdcy****
@@ -2309,7 +2312,7 @@ class Ecs extends OpenApiClient
      *   *             &Permissions.1.NicType=intranet
      *   *             &Permissions.1.Policy=Drop
      *   *             &<Common request parameters>
-     *   * *   For examples on how to configure security group rules, see [Security groups for different use cases](~~25475~~) and [Security group quintuple rules](~~97439~~).
+     *   * *   For information about examples on security group rule settings, see [Security groups for different use cases](~~25475~~) and [Security group quintuple rules](~~97439~~).
      *   *
      * @param AuthorizeSecurityGroupRequest $request AuthorizeSecurityGroupRequest
      *
@@ -3234,19 +3237,19 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use a variety of online services provided by Alibaba Cloud in the managed instance, such as Cloud Assistant, Operation Orchestration Service (OOS), and Apsara Devops.
-     *   * A server that is not provided by Alibaba Cloud can be registered as an Alibaba Cloud managed instance only when the server can access the Internet and runs an operating system of one of the following versions:
-     *   * *   Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
-     *   * *   CentOS 6, CentOS 7, CentOS 8, and later
-     *   * *   Debian 8, Debian 9, Debian 10, and later
-     *   * *   Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
-     *   * *   CoreOS
-     *   * *   OpenSUSE
-     *   * *   Red Hat 5, Red Hat 6, Red Hat 7, and later
-     *   * *   SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
-     *   * *   Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
+     * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use various online services of Alibaba Cloud, such as Cloud Assistant, CloudOps Orchestration Service (OOS), and Apsara Devops, on the managed instance.
+     *   * If a server is not provided by Alibaba Cloud, you can register the server as an Alibaba Cloud managed instance only if the server has Internet connectivity and runs an operating system of one of the following versions:
+     *   * - Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
+     *   * - CentOS 6, CentOS 7, CentOS 8, and later
+     *   * - Debian 8, Debian 9, Debian 10, and later
+     *   * - Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
+     *   * - CoreOS
+     *   * - OpenSUSE
+     *   * - Red Hat 5, Red Hat 6, Red Hat 7, and later
+     *   * - SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
+     *   * - Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
      *   * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can proceed to create more activation codes.
-     *   * > To view the usage of activation codes, click **Activation Code** on the **Manage Instances** tab of the **Cloud Assistant** page in the Elastic Compute Service (ECS) console.
+     *   * >To query the usage of activation codes, go to the Cloud Assistant page in the Elastic Compute Service (ECS) console, click the Manage Instances tab, and then click Register Instance.
      *   *
      * @param CreateActivationRequest $request CreateActivationRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -3315,19 +3318,19 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use a variety of online services provided by Alibaba Cloud in the managed instance, such as Cloud Assistant, Operation Orchestration Service (OOS), and Apsara Devops.
-     *   * A server that is not provided by Alibaba Cloud can be registered as an Alibaba Cloud managed instance only when the server can access the Internet and runs an operating system of one of the following versions:
-     *   * *   Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
-     *   * *   CentOS 6, CentOS 7, CentOS 8, and later
-     *   * *   Debian 8, Debian 9, Debian 10, and later
-     *   * *   Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
-     *   * *   CoreOS
-     *   * *   OpenSUSE
-     *   * *   Red Hat 5, Red Hat 6, Red Hat 7, and later
-     *   * *   SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
-     *   * *   Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
+     * After you use an activation code to register a server that is not provided by Alibaba Cloud as an Alibaba Cloud managed instance, you can use various online services of Alibaba Cloud, such as Cloud Assistant, CloudOps Orchestration Service (OOS), and Apsara Devops, on the managed instance.
+     *   * If a server is not provided by Alibaba Cloud, you can register the server as an Alibaba Cloud managed instance only if the server has Internet connectivity and runs an operating system of one of the following versions:
+     *   * - Alibaba Cloud Linux 2, Alibaba Cloud Linux 3, and later
+     *   * - CentOS 6, CentOS 7, CentOS 8, and later
+     *   * - Debian 8, Debian 9, Debian 10, and later
+     *   * - Ubuntu 12, Ubuntu 14, Ubuntu 16, Ubuntu 18, and later
+     *   * - CoreOS
+     *   * - OpenSUSE
+     *   * - Red Hat 5, Red Hat 6, Red Hat 7, and later
+     *   * - SUSE Linux Enterprise Server (SLES) 11, SLES 12, SLES 15, and later
+     *   * - Windows Server 2012, Windows Server 2016, Windows Server 2019, and later
      *   * You can have up to 5,000 activation codes per Alibaba Cloud region. When the number of activation codes exceeds 1,000, the usage of the activation codes must be greater than 50% before you can proceed to create more activation codes.
-     *   * > To view the usage of activation codes, click **Activation Code** on the **Manage Instances** tab of the **Cloud Assistant** page in the Elastic Compute Service (ECS) console.
+     *   * >To query the usage of activation codes, go to the Cloud Assistant page in the Elastic Compute Service (ECS) console, click the Manage Instances tab, and then click Register Instance.
      *   *
      * @param CreateActivationRequest $request CreateActivationRequest
      *
@@ -3341,10 +3344,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   Auto Provisioning is a service that allows quick deployment of an instance cluster that consists of preemptible and pay-as-you-go instances. Auto Provisioning supports push-button deployment of instance clusters across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
-     *   * *   Auto Provisioning uses auto provisioning groups to schedule and maintain computing resources. You can use auto provisioning groups to obtain a steady supply of computing resources. This helps reduce the impact on computing capacity when preemptible instances are reclaimed.
-     *   * *   Auto Provisioning is provided free-of-charge. However, you are charged for instance resources that are created in auto provisioning groups. For more information about the billing, see [Overview](~~52088~~) and [Pay-as-you-go](~~40653~~).
-     *   * *   If you specify both the `LaunchTemplate*` and `LaunchConfiguration.*` parameters, the LaunchTemplate\\* parameter takes precedence.
+     * ## Usage notes
+     *   * *   Auto Provisioning is a service that allows quick deployment of an instance cluster that consists of preemptible and pay-as-you-go instances. Auto Provisioning supports push-button deployment of instance clusters across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
+     *   * *   Auto Provisioning uses auto provisioning groups to schedule and maintain computing resources. You can use auto provisioning groups to obtain a steady supply of computing resources. This helps reduce the impact on compute capacity when preemptible instances are reclaimed.
+     *   * *   Auto Provisioning is provided free-of-charge. However, you are charged for instance resources that are created in auto provisioning groups. For more information about the billing, see [Overview of preemptible instances](~~52088~~) and [Pay-as-you-go](~~40653~~).
+     *   * *   When you specify both a launch template (`LaunchTemplateId`) and extended configurations (`LaunchConfiguration.*` parameters), LaunchTemplateId takes precedence.
      *   *
      * @param CreateAutoProvisioningGroupRequest $request CreateAutoProvisioningGroupRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -3470,10 +3474,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   Auto Provisioning is a service that allows quick deployment of an instance cluster that consists of preemptible and pay-as-you-go instances. Auto Provisioning supports push-button deployment of instance clusters across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
-     *   * *   Auto Provisioning uses auto provisioning groups to schedule and maintain computing resources. You can use auto provisioning groups to obtain a steady supply of computing resources. This helps reduce the impact on computing capacity when preemptible instances are reclaimed.
-     *   * *   Auto Provisioning is provided free-of-charge. However, you are charged for instance resources that are created in auto provisioning groups. For more information about the billing, see [Overview](~~52088~~) and [Pay-as-you-go](~~40653~~).
-     *   * *   If you specify both the `LaunchTemplate*` and `LaunchConfiguration.*` parameters, the LaunchTemplate\\* parameter takes precedence.
+     * ## Usage notes
+     *   * *   Auto Provisioning is a service that allows quick deployment of an instance cluster that consists of preemptible and pay-as-you-go instances. Auto Provisioning supports push-button deployment of instance clusters across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
+     *   * *   Auto Provisioning uses auto provisioning groups to schedule and maintain computing resources. You can use auto provisioning groups to obtain a steady supply of computing resources. This helps reduce the impact on compute capacity when preemptible instances are reclaimed.
+     *   * *   Auto Provisioning is provided free-of-charge. However, you are charged for instance resources that are created in auto provisioning groups. For more information about the billing, see [Overview of preemptible instances](~~52088~~) and [Pay-as-you-go](~~40653~~).
+     *   * *   When you specify both a launch template (`LaunchTemplateId`) and extended configurations (`LaunchConfiguration.*` parameters), LaunchTemplateId takes precedence.
      *   *
      * @param CreateAutoProvisioningGroupRequest $request CreateAutoProvisioningGroupRequest
      *
@@ -3686,7 +3691,19 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * The ID of the region in which to create the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * *   You can create commands of the following types:
+     *   *     *   RunBatScript: batch commands. These commands are applicable to Windows instances.
+     *   *     *   RunPowerShellScript: PowerShell commands. These commands are applicable to Windows instances.
+     *   *     *   RunShellScript: shell commands. These commands are applicable to Linux instances.
+     *   * *   You can specify the TimeOut parameter to set the maximum timeout period for executions of a command on Elastic Compute Service (ECS) instances. If an execution times out, the Cloud Assistant client forcefully terminates the command process by canceling the process ID (PID) of the command. For more information, see [Install the Cloud Assistant client](~~64921~~).
+     *   *     *   When the one-time execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+     *   *     *   For a scheduled task, take note of the following items:
+     *   *         *   The timeout period takes effect on each execution of the command.
+     *   *         *   When a scheduled execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+     *   *         *   The timeout of one execution does not affect the subsequent executions of the command.
+     *   * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region.
+     *   * *   You can use the WorkingDir parameter to specify the execution directory of a Cloud Assistant command. For Linux instances, the default execution directory of a command is the home directory of the root user, which is `/root`. For Windows instances, the default execution directory of a command is the directory where the Cloud Assistant client process resides, such as `C:\\Windows\\System32`.
+     *   * *   You can enable the custom parameter feature for a Cloud Assistant command by setting EnableParameter to true when you create the command. When you configure the CommandContent parameter, you can define custom parameters in the {{parameter}} format. Then, when the [InvokeCommand](~~64841~~) operation is called, the key-value pairs of custom parameters are passed in. For example, assume that the command content is `echo {{name}}`. You can use the Parameters parameter to pass in the `<name, Jack>` key-value pair when the InvokeCommand operation is called. The name key of the custom parameter is automatically replaced by the paired Jack value to generate a new command. Therefore, the `echo Jack` command is actually run.
      *   *
      * @param CreateCommandRequest $request CreateCommandRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -3764,7 +3781,19 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * The ID of the region in which to create the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * *   You can create commands of the following types:
+     *   *     *   RunBatScript: batch commands. These commands are applicable to Windows instances.
+     *   *     *   RunPowerShellScript: PowerShell commands. These commands are applicable to Windows instances.
+     *   *     *   RunShellScript: shell commands. These commands are applicable to Linux instances.
+     *   * *   You can specify the TimeOut parameter to set the maximum timeout period for executions of a command on Elastic Compute Service (ECS) instances. If an execution times out, the Cloud Assistant client forcefully terminates the command process by canceling the process ID (PID) of the command. For more information, see [Install the Cloud Assistant client](~~64921~~).
+     *   *     *   When the one-time execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+     *   *     *   For a scheduled task, take note of the following items:
+     *   *         *   The timeout period takes effect on each execution of the command.
+     *   *         *   When a scheduled execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+     *   *         *   The timeout of one execution does not affect the subsequent executions of the command.
+     *   * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region.
+     *   * *   You can use the WorkingDir parameter to specify the execution directory of a Cloud Assistant command. For Linux instances, the default execution directory of a command is the home directory of the root user, which is `/root`. For Windows instances, the default execution directory of a command is the directory where the Cloud Assistant client process resides, such as `C:\\Windows\\System32`.
+     *   * *   You can enable the custom parameter feature for a Cloud Assistant command by setting EnableParameter to true when you create the command. When you configure the CommandContent parameter, you can define custom parameters in the {{parameter}} format. Then, when the [InvokeCommand](~~64841~~) operation is called, the key-value pairs of custom parameters are passed in. For example, assume that the command content is `echo {{name}}`. You can use the Parameters parameter to pass in the `<name, Jack>` key-value pair when the InvokeCommand operation is called. The name key of the custom parameter is automatically replaced by the paired Jack value to generate a new command. Therefore, the `echo Jack` command is actually run.
      *   *
      * @param CreateCommandRequest $request CreateCommandRequest
      *
@@ -3851,10 +3880,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * You can call this operation to file a demand for an ECS instance type. Alibaba Cloud provides the requested resources based on your demand.
+     * @deprecated : CreateDemand is deprecated, please use Ecs::2014-05-26::CreateCapacityReservation instead.
+     *   * You can call this operation to file a demand for an ECS instance type. Alibaba Cloud provides the requested resources based on your demand.
      *   * You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type.
      *   * > This operation is in internal preview and has not been officially released. We recommend that you do not call this operation.
      *   *
+     * Deprecated
+     *
      * @param CreateDemandRequest $request CreateDemandRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -3931,10 +3963,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * You can call this operation to file a demand for an ECS instance type. Alibaba Cloud provides the requested resources based on your demand.
+     * @deprecated : CreateDemand is deprecated, please use Ecs::2014-05-26::CreateCapacityReservation instead.
+     *   * You can call this operation to file a demand for an ECS instance type. Alibaba Cloud provides the requested resources based on your demand.
      *   * You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type.
      *   * > This operation is in internal preview and has not been officially released. We recommend that you do not call this operation.
      *   *
+     * Deprecated
+     *
      * @param CreateDemandRequest $request CreateDemandRequest
      *
      * @return CreateDemandResponse CreateDemandResponse
@@ -4136,10 +4171,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   When you create a disk, you can enable the multi-attach (`MultiAttach`) feature for the disk. We recommend that you familiarize yourself with the multi-attach feature and its limits before you enable it. For more information, see [NVMe protocol](~~256487~~) and [Use the multi-attach feature](~~262105~~).
-     *   * *   The disk can be a basic disk, an ultra disk, a standard SSD, or an enhanced SSD (ESSD).
-     *   * *   When you create disks, you may be charged for the resources used. We recommend that you get familiar with the Elastic Compute Service (ECS) billing methods before you create a disk. For more information, see [Billing overview](~~25398~~).
-     *   * *   By default, `DeleteAutoSnapshot` is set to `true` when a disk is created. This indicates that when the disk is released, the automatic snapshots of the disk are also deleted. You can call the [ModifyDiskAttribute](~~25517~~) operation to modify the parameter.
+     * *   When you create a disk, you can enable the multi-attach (`MultiAttach`) feature for the disk. Before you enable the multi-attach feature, we recommend that you familiarize yourself with the multi-attach feature and its limits. For more information, see [NVMe protocol](~~256487~~) and [Use the multi-attach feature](~~262105~~).
+     *   * *   You can create a basic disk, an ultra disk, a standard SSD, or an enhanced SSD (ESSD).
+     *   * *   When you create disks, you may be charged for the resources used. We recommend that you familiarize yourself with the Elastic Compute Service (ECS) billing methods before you proceed. For more information, see [Billing overview](~~25398~~).
+     *   * *   By default, `DeleteAutoSnapshot` is set to `true` when a disk is created. This indicates that when the disk is released, the automatic snapshots of the disk are also deleted. You can call the [ModifyDiskAttribute](~~25517~~) operation to modify the parameter value.
      *   * *   If you do not configure the performance level when you create an ESSD, the performance level for the ESSD is PL1 by default. You can call the [ModifyDiskSpec](~~123780~~) operation to modify the performance level of the ESSD.
      *   * *   By default, for a disk that is created by calling this operation, the `Portable` attribute is set to `true` and the billing method is pay-as-you-go.
      *   *
@@ -4252,10 +4287,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   When you create a disk, you can enable the multi-attach (`MultiAttach`) feature for the disk. We recommend that you familiarize yourself with the multi-attach feature and its limits before you enable it. For more information, see [NVMe protocol](~~256487~~) and [Use the multi-attach feature](~~262105~~).
-     *   * *   The disk can be a basic disk, an ultra disk, a standard SSD, or an enhanced SSD (ESSD).
-     *   * *   When you create disks, you may be charged for the resources used. We recommend that you get familiar with the Elastic Compute Service (ECS) billing methods before you create a disk. For more information, see [Billing overview](~~25398~~).
-     *   * *   By default, `DeleteAutoSnapshot` is set to `true` when a disk is created. This indicates that when the disk is released, the automatic snapshots of the disk are also deleted. You can call the [ModifyDiskAttribute](~~25517~~) operation to modify the parameter.
+     * *   When you create a disk, you can enable the multi-attach (`MultiAttach`) feature for the disk. Before you enable the multi-attach feature, we recommend that you familiarize yourself with the multi-attach feature and its limits. For more information, see [NVMe protocol](~~256487~~) and [Use the multi-attach feature](~~262105~~).
+     *   * *   You can create a basic disk, an ultra disk, a standard SSD, or an enhanced SSD (ESSD).
+     *   * *   When you create disks, you may be charged for the resources used. We recommend that you familiarize yourself with the Elastic Compute Service (ECS) billing methods before you proceed. For more information, see [Billing overview](~~25398~~).
+     *   * *   By default, `DeleteAutoSnapshot` is set to `true` when a disk is created. This indicates that when the disk is released, the automatic snapshots of the disk are also deleted. You can call the [ModifyDiskAttribute](~~25517~~) operation to modify the parameter value.
      *   * *   If you do not configure the performance level when you create an ESSD, the performance level for the ESSD is PL1 by default. You can call the [ModifyDiskSpec](~~123780~~) operation to modify the performance level of the ESSD.
      *   * *   By default, for a disk that is created by calling this operation, the `Portable` attribute is set to `true` and the billing method is pay-as-you-go.
      *   *
@@ -4274,7 +4309,7 @@ class Ecs extends OpenApiClient
      * Elasticity Assurance provides a new way to purchase and use resources with flexibility and assurance. It offers assured resource reservations for pay-as-you-go Elastic Compute Service (ECS) instances. For more information, see [Overview of Elasticity Assurance](~~193630~~).
      *   * *   Elasticity assurances are not refundable after purchase.
      *   * *   Elasticity assurances are applicable to only pay-as-you-go ECS instances.
-     *   * *   Elasticity assurances only support unlimited mode. Therefore, you must set `AssuranceTimes` to `Unlimited`. Elasticity assurances in unlimited mode can be applied an unlimited number of times within their effective period and take effect immediately after they are purchased.
+     *   * *   Elasticity assurances support only the unlimited mode. Therefore, you can set `AssuranceTimes` only to `Unlimited`. Elasticity assurances in unlimited mode can be applied an unlimited number of times within their effective period and take effect immediately after they are purchased.
      *   *
      * @param CreateElasticityAssuranceRequest $request CreateElasticityAssuranceRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -4361,7 +4396,7 @@ class Ecs extends OpenApiClient
      * Elasticity Assurance provides a new way to purchase and use resources with flexibility and assurance. It offers assured resource reservations for pay-as-you-go Elastic Compute Service (ECS) instances. For more information, see [Overview of Elasticity Assurance](~~193630~~).
      *   * *   Elasticity assurances are not refundable after purchase.
      *   * *   Elasticity assurances are applicable to only pay-as-you-go ECS instances.
-     *   * *   Elasticity assurances only support unlimited mode. Therefore, you must set `AssuranceTimes` to `Unlimited`. Elasticity assurances in unlimited mode can be applied an unlimited number of times within their effective period and take effect immediately after they are purchased.
+     *   * *   Elasticity assurances support only the unlimited mode. Therefore, you can set `AssuranceTimes` only to `Unlimited`. Elasticity assurances in unlimited mode can be applied an unlimited number of times within their effective period and take effect immediately after they are purchased.
      *   *
      * @param CreateElasticityAssuranceRequest $request CreateElasticityAssuranceRequest
      *
@@ -5784,6 +5819,7 @@ class Ecs extends OpenApiClient
      *   * *   If NetworkInterfaceId is empty in the response, no ENI is created. Call the operation again to create an ENI.
      *   * *   An ENI can be attached only to a single instance that resides in a virtual private cloud (VPC).
      *   * *   When an ENI is detached from an instance and attached to another instance, the attributes of the ENI remain unchanged and network traffic is redirected to the new instance.
+     *   * *   When you call this operation to create an ENI, you can assign up to 49 secondary private IP addresses to the ENI.
      *   * *   If you want to assign IPv6 addresses when you create an ENI, make sure that IPv6 has been enabled for the vSwitch with which to associate the ENI. For more information, see [What is an IPv6 gateway?](~~98896~~)
      *   * *   A quota is imposed on the number of ENIs that can be created per Alibaba Cloud region per account. You can view the quota in the ECS console. For more information, see [View and increase resource quotas](~~184115~~).
      *   * **For information about examples on how to call this operation, see **[Create an ENI](~~471552~~).
@@ -5869,6 +5905,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->rxQueueSize)) {
+            $query['RxQueueSize'] = $request->rxQueueSize;
+        }
         if (!Utils::isUnset($request->secondaryPrivateIpAddressCount)) {
             $query['SecondaryPrivateIpAddressCount'] = $request->secondaryPrivateIpAddressCount;
         }
@@ -5880,6 +5919,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->txQueueSize)) {
+            $query['TxQueueSize'] = $request->txQueueSize;
         }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
@@ -5912,6 +5954,7 @@ class Ecs extends OpenApiClient
      *   * *   If NetworkInterfaceId is empty in the response, no ENI is created. Call the operation again to create an ENI.
      *   * *   An ENI can be attached only to a single instance that resides in a virtual private cloud (VPC).
      *   * *   When an ENI is detached from an instance and attached to another instance, the attributes of the ENI remain unchanged and network traffic is redirected to the new instance.
+     *   * *   When you call this operation to create an ENI, you can assign up to 49 secondary private IP addresses to the ENI.
      *   * *   If you want to assign IPv6 addresses when you create an ENI, make sure that IPv6 has been enabled for the vSwitch with which to associate the ENI. For more information, see [What is an IPv6 gateway?](~~98896~~)
      *   * *   A quota is imposed on the number of ENIs that can be created per Alibaba Cloud region per account. You can view the quota in the ECS console. For more information, see [View and increase resource quotas](~~184115~~).
      *   * **For information about examples on how to call this operation, see **[Create an ENI](~~471552~~).
@@ -6387,6 +6430,73 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param CreateSavingsPlanRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateSavingsPlanResponse
+     */
+    public function createSavingsPlanWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->committedAmount)) {
+            $query['CommittedAmount'] = $request->committedAmount;
+        }
+        if (!Utils::isUnset($request->instanceTypeFamily)) {
+            $query['InstanceTypeFamily'] = $request->instanceTypeFamily;
+        }
+        if (!Utils::isUnset($request->offeringType)) {
+            $query['OfferingType'] = $request->offeringType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->planType)) {
+            $query['PlanType'] = $request->planType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSavingsPlan',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSavingsPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSavingsPlanRequest $request
+     *
+     * @return CreateSavingsPlanResponse
+     */
+    public function createSavingsPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSavingsPlanWithOptions($request, $runtime);
+    }
+
+    /**
      * When you call this operation, take note of the following items:
      *   * *   You can create up to 100 security groups in a single Alibaba Cloud region.
      *   * *   To create a security group of the Virtual Private Cloud (VPC) type, you must specify the VpcId parameter.
@@ -6647,8 +6757,8 @@ class Ecs extends OpenApiClient
      * You can specify `InstanceId` to create a snapshot-consistent group for the specified cloud disks of an instance. You can also specify `DiskId.N` to create a snapshot-consistent group for multiple cloud disks that are attached to multiple instances within the same zone.
      *   * > You cannot specify both `DiskId.N` and `ExcludeDiskId.N` in the same request. If `InstanceId` is set, you can use `DiskId.N` to specify only cloud disks attached to the instance specified by InstanceId. You cannot use DiskId.N to specify cloud disks attached to multiple instances.
      *   * When you call this operation, take note of the following items:
-     *   * *   The cloud disk for which you want to create a snapshot must be in the **In Use**or **Unattached** (`Available`) state.``
-     *   *     *   If the cloud disk is in the **In Use** state, the instance to which the cloud disk is attached must be in the **Running**or **Stopped** state.``````
+     *   * *   The cloud disk for which you want to create a snapshot must be in the **In Use** or **Unattached** (`Available`) state.``
+     *   *     *   If the cloud disk is in the **In Use** state, the instance to which the cloud disk is attached must be in the **Running** or **Stopped** state.``````
      *   *     *   If the cloud disk is in the **Unattached** (`Available`) state, make sure that the cloud disk has been attached to an ECS instance. Snapshots cannot be created for cloud disks that have never been attached to an ECS instance.
      *   * *   The snapshot-consistent group feature can be used to create snapshots only for enhanced SSDs (ESSDs).
      *   * *   A snapshot-consistent group can contain snapshots of up to 16 cloud disks (including the system disk and data disks) whose total disk size does not exceed 32 TiB.
@@ -6732,8 +6842,8 @@ class Ecs extends OpenApiClient
      * You can specify `InstanceId` to create a snapshot-consistent group for the specified cloud disks of an instance. You can also specify `DiskId.N` to create a snapshot-consistent group for multiple cloud disks that are attached to multiple instances within the same zone.
      *   * > You cannot specify both `DiskId.N` and `ExcludeDiskId.N` in the same request. If `InstanceId` is set, you can use `DiskId.N` to specify only cloud disks attached to the instance specified by InstanceId. You cannot use DiskId.N to specify cloud disks attached to multiple instances.
      *   * When you call this operation, take note of the following items:
-     *   * *   The cloud disk for which you want to create a snapshot must be in the **In Use**or **Unattached** (`Available`) state.``
-     *   *     *   If the cloud disk is in the **In Use** state, the instance to which the cloud disk is attached must be in the **Running**or **Stopped** state.``````
+     *   * *   The cloud disk for which you want to create a snapshot must be in the **In Use** or **Unattached** (`Available`) state.``
+     *   *     *   If the cloud disk is in the **In Use** state, the instance to which the cloud disk is attached must be in the **Running** or **Stopped** state.``````
      *   *     *   If the cloud disk is in the **Unattached** (`Available`) state, make sure that the cloud disk has been attached to an ECS instance. Snapshots cannot be created for cloud disks that have never been attached to an ECS instance.
      *   * *   The snapshot-consistent group feature can be used to create snapshots only for enhanced SSDs (ESSDs).
      *   * *   A snapshot-consistent group can contain snapshots of up to 16 cloud disks (including the system disk and data disks) whose total disk size does not exceed 32 TiB.
@@ -7520,8 +7630,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * >  This operation is in internal preview and has not been officially released. We recommend that you avoid using this operation.
+     * @deprecated : DeleteDemand is deprecated, please use Ecs::2014-05-26::ReleaseCapacityReservation instead.
+     *   * >  This operation is in internal preview and has not been officially released. We recommend that you avoid using this operation.
      *   *
+     * Deprecated
+     *
      * @param DeleteDemandRequest $request DeleteDemandRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -7574,8 +7687,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * >  This operation is in internal preview and has not been officially released. We recommend that you avoid using this operation.
+     * @deprecated : DeleteDemand is deprecated, please use Ecs::2014-05-26::ReleaseCapacityReservation instead.
+     *   * >  This operation is in internal preview and has not been officially released. We recommend that you avoid using this operation.
      *   *
+     * Deprecated
+     *
      * @param DeleteDemandRequest $request DeleteDemandRequest
      *
      * @return DeleteDemandResponse DeleteDemandResponse
@@ -8222,6 +8338,9 @@ class Ecs extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->force)) {
             $query['Force'] = $request->force;
         }
@@ -9059,7 +9178,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you delete a security group, make sure that the security group does not contain instances and is not referenced by other security groups. Otherwise, the DeleteSecurityGroup request fails. You can call the [DescribeSecurityGroupReferences](~~57320~~) operation to query the reference details of the security group.
+     * - Before you delete a security group, make sure that the security group does not contain instances and is not referenced by other security groups. Otherwise, the DeleteSecurityGroup request fails. You can call the [DescribeSecurityGroupReferences](~~57320~~) operation to query the reference details of the security group.
+     *   * - If the error code InvalidOperation.DeletionProtection is returned when you call the DeleteSecurityGroup operation to delete a security group or if a deletion protection-related message appears when you delete a security group in the console, the deletion protection feature is enabled for the security group. When you create a Container Service for Kubernetes (ACK) cluster, the deletion protection feature is enabled for an associated security group to prevent accidental deletion. You cannot manually disable the deletion protection feature for the security group. The deletion protection feature can be automatically disabled only after the ACK cluster is deleted. For more information, see [Disable deletion protection for a security group](~~353191~~).
      *   *
      * @param DeleteSecurityGroupRequest $request DeleteSecurityGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -9107,7 +9227,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you delete a security group, make sure that the security group does not contain instances and is not referenced by other security groups. Otherwise, the DeleteSecurityGroup request fails. You can call the [DescribeSecurityGroupReferences](~~57320~~) operation to query the reference details of the security group.
+     * - Before you delete a security group, make sure that the security group does not contain instances and is not referenced by other security groups. Otherwise, the DeleteSecurityGroup request fails. You can call the [DescribeSecurityGroupReferences](~~57320~~) operation to query the reference details of the security group.
+     *   * - If the error code InvalidOperation.DeletionProtection is returned when you call the DeleteSecurityGroup operation to delete a security group or if a deletion protection-related message appears when you delete a security group in the console, the deletion protection feature is enabled for the security group. When you create a Container Service for Kubernetes (ACK) cluster, the deletion protection feature is enabled for an associated security group to prevent accidental deletion. You cannot manually disable the deletion protection feature for the security group. The deletion protection feature can be automatically disabled only after the ACK cluster is deleted. For more information, see [Disable deletion protection for a security group](~~353191~~).
      *   *
      * @param DeleteSecurityGroupRequest $request DeleteSecurityGroupRequest
      *
@@ -9450,7 +9571,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : DeleteVpc is deprecated, please use Vpc::2016-04-28::DeleteVpc instead.
      *   *
      * Deprecated
      *
@@ -9500,7 +9621,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : DeleteVpc is deprecated, please use Vpc::2016-04-28::DeleteVpc instead.
      *   *
      * Deprecated
      *
@@ -9713,10 +9834,14 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param DescribeActivationsRequest $request
-     * @param RuntimeOptions             $runtime
+     * You can use one of the following methods to check the responses:
+     *   * - Method 1: When you call the DescribeActivations operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeActivations operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in this call.
+     *   * - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     *   *
+     * @param DescribeActivationsRequest $request DescribeActivationsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeActivationsResponse
+     * @return DescribeActivationsResponse DescribeActivationsResponse
      */
     public function describeActivationsWithOptions($request, $runtime)
     {
@@ -9727,6 +9852,12 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceName)) {
             $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -9777,9 +9908,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param DescribeActivationsRequest $request
+     * You can use one of the following methods to check the responses:
+     *   * - Method 1: When you call the DescribeActivations operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeActivations operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in this call.
+     *   * - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     *   *
+     * @param DescribeActivationsRequest $request DescribeActivationsRequest
      *
-     * @return DescribeActivationsResponse
+     * @return DescribeActivationsResponse DescribeActivationsResponse
      */
     public function describeActivations($request)
     {
@@ -9955,6 +10090,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -10552,10 +10690,15 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudAssistantStatusRequest $request
-     * @param RuntimeOptions                      $runtime
+     * - Before you run commands on or send files to instances, especially new instances, we recommend that you query the status of Cloud Assistant on the instances by calling this operation and checking the return value of CloudAssistantStatus. Run commands on or send files to the instances only when the return value is true.
+     *   * - You can use one of the following methods to check the responses:
+     *   *   - Method 1: When you call the DescribeCloudAssistantStatus operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeCloudAssistantStatus operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     *   *   - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     *   *
+     * @param DescribeCloudAssistantStatusRequest $request DescribeCloudAssistantStatusRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCloudAssistantStatusResponse
+     * @return DescribeCloudAssistantStatusResponse DescribeCloudAssistantStatusResponse
      */
     public function describeCloudAssistantStatusWithOptions($request, $runtime)
     {
@@ -10563,6 +10706,12 @@ class Ecs extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->OSType)) {
             $query['OSType'] = $request->OSType;
@@ -10610,9 +10759,14 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudAssistantStatusRequest $request
+     * - Before you run commands on or send files to instances, especially new instances, we recommend that you query the status of Cloud Assistant on the instances by calling this operation and checking the return value of CloudAssistantStatus. Run commands on or send files to the instances only when the return value is true.
+     *   * - You can use one of the following methods to check the responses:
+     *   *   - Method 1: When you call the DescribeCloudAssistantStatus operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeCloudAssistantStatus operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     *   *   - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     *   *
+     * @param DescribeCloudAssistantStatusRequest $request DescribeCloudAssistantStatusRequest
      *
-     * @return DescribeCloudAssistantStatusResponse
+     * @return DescribeCloudAssistantStatusResponse DescribeCloudAssistantStatusResponse
      */
     public function describeCloudAssistantStatus($request)
     {
@@ -10685,7 +10839,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * If you specify only `Action` and `RegionId` to call this operation, all the available commands (`CommandId`) that you created in the specified region are queried by default.
+     * If you specify only the `Action` and `RegionId` parameters, all the available commands (`CommandId`) that you created in the specified region are queried by default.
+     *   * You can use one of the following methods to check the responses:
+     *   * - Method 1: During a paged query, when you call the DescribeCommands operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCommands operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     *   * - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
      *   *
      * @param DescribeCommandsRequest $request DescribeCommandsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -10708,8 +10865,14 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->latest)) {
             $query['Latest'] = $request->latest;
         }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -10766,7 +10929,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * If you specify only `Action` and `RegionId` to call this operation, all the available commands (`CommandId`) that you created in the specified region are queried by default.
+     * If you specify only the `Action` and `RegionId` parameters, all the available commands (`CommandId`) that you created in the specified region are queried by default.
+     *   * You can use one of the following methods to check the responses:
+     *   * - Method 1: During a paged query, when you call the DescribeCommands operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCommands operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     *   * - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
      *   *
      * @param DescribeCommandsRequest $request DescribeCommandsRequest
      *
@@ -10985,9 +11151,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You can use one of the following methods to query the details of dedicated hosts:
-     *   * *   Specify `DedicatedHostIds` to query the details of dedicated hosts.
+     * You can use one of the following methods to query the information about dedicated hosts:
+     *   * *   Specify `DedicatedHostIds` to query the details of specified dedicated hosts.
      *   * *   Specify `DedicatedHostClusterId` to query the details of the dedicated hosts in a dedicated host cluster.
      *   *
      * @param DescribeDedicatedHostsRequest $request DescribeDedicatedHostsRequest
@@ -11069,9 +11234,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You can use one of the following methods to query the details of dedicated hosts:
-     *   * *   Specify `DedicatedHostIds` to query the details of dedicated hosts.
+     * You can use one of the following methods to query the information about dedicated hosts:
+     *   * *   Specify `DedicatedHostIds` to query the details of specified dedicated hosts.
      *   * *   Specify `DedicatedHostClusterId` to query the details of the dedicated hosts in a dedicated host cluster.
      *   *
      * @param DescribeDedicatedHostsRequest $request DescribeDedicatedHostsRequest
@@ -11086,10 +11250,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of resources you filed with Alibaba Cloud, including the types, delivery status, and consumption details of the resources.
-     *   * By default, the filing tickets of I/O optimized VPC-type instances are queried.
-     *   * For information about how to create (CreateDemand), modify (ModifyDemand), and delete (DeleteDemand) filing tickets on ECS resources, contact your account manager.
+     * @deprecated : DescribeDemands is deprecated, please use Ecs::2014-05-26::DescribeCapacityReservations instead.
+     *   * You can call this operation to query the details of resources that you filed with Alibaba Cloud, including the types, delivery status, and consumption details of the resources.
+     *   * By default, the demands for I/O optimized instances of the Virtual Private Cloud (VPC) type are queried.
+     *   * For information about how to create (CreateDemand), modify (ModifyDemand), and delete (DeleteDemand) demands for ECS resources, contact your account manager.
      *   *
+     * Deprecated
+     *
      * @param DescribeDemandsRequest $request DescribeDemandsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -11169,10 +11336,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of resources you filed with Alibaba Cloud, including the types, delivery status, and consumption details of the resources.
-     *   * By default, the filing tickets of I/O optimized VPC-type instances are queried.
-     *   * For information about how to create (CreateDemand), modify (ModifyDemand), and delete (DeleteDemand) filing tickets on ECS resources, contact your account manager.
+     * @deprecated : DescribeDemands is deprecated, please use Ecs::2014-05-26::DescribeCapacityReservations instead.
+     *   * You can call this operation to query the details of resources that you filed with Alibaba Cloud, including the types, delivery status, and consumption details of the resources.
+     *   * By default, the demands for I/O optimized instances of the Virtual Private Cloud (VPC) type are queried.
+     *   * For information about how to create (CreateDemand), modify (ModifyDemand), and delete (DeleteDemand) demands for ECS resources, contact your account manager.
      *   *
+     * Deprecated
+     *
      * @param DescribeDemandsRequest $request DescribeDemandsRequest
      *
      * @return DescribeDemandsResponse DescribeDemandsResponse
@@ -12207,7 +12377,7 @@ class Ecs extends OpenApiClient
 
     /**
      * The monitoring data includes traffic sent and received over the internal network, the number of packets sent and received by the secondary ENI, and the number of dropped packets sent and received by the secondary ENI. Specific information may be missing from the returned monitoring data. This is because the system cannot obtain the relevant information. For example, if the instance to which the secondary ENI is bound is in the Stopped state, or if the secondary ENI is not bound to an instance and is in the Available state, the monitoring data of the secondary ENI cannot be obtained. When you call this operation, take note of the following items:
-     *   * *   Up to 400 monitoring data entries can be returned at a time. If the value that is calculated by using the following formula is greater than 400: (EndTime − StartTime)/Period, an error is returned.
+     *   * *   Up to 400 monitoring data entries can be returned at a time. If the value that is calculated by using the following formula is greater than 400: (EndTime - StartTime)/Period, an error is returned.
      *   * *   Only the monitoring data within the last 30 days can be queried. If the value of StartTime is more than 30 days earlier than the time when you call this operation, an error is returned.
      *   *
      * @param DescribeEniMonitorDataRequest $request DescribeEniMonitorDataRequest
@@ -12269,7 +12439,7 @@ class Ecs extends OpenApiClient
 
     /**
      * The monitoring data includes traffic sent and received over the internal network, the number of packets sent and received by the secondary ENI, and the number of dropped packets sent and received by the secondary ENI. Specific information may be missing from the returned monitoring data. This is because the system cannot obtain the relevant information. For example, if the instance to which the secondary ENI is bound is in the Stopped state, or if the secondary ENI is not bound to an instance and is in the Available state, the monitoring data of the secondary ENI cannot be obtained. When you call this operation, take note of the following items:
-     *   * *   Up to 400 monitoring data entries can be returned at a time. If the value that is calculated by using the following formula is greater than 400: (EndTime − StartTime)/Period, an error is returned.
+     *   * *   Up to 400 monitoring data entries can be returned at a time. If the value that is calculated by using the following formula is greater than 400: (EndTime - StartTime)/Period, an error is returned.
      *   * *   Only the monitoring data within the last 30 days can be queried. If the value of StartTime is more than 30 days earlier than the time when you call this operation, an error is returned.
      *   *
      * @param DescribeEniMonitorDataRequest $request DescribeEniMonitorDataRequest
@@ -13531,7 +13701,7 @@ class Ecs extends OpenApiClient
 
     /**
      * Take note of the following items:
-     *   * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value that is calculated by using the following formula is greater than 400: `(EndTime − StartTime)/Period`.
+     *   * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value that is calculated by using the following formula is greater than 400: `(EndTime - StartTime)/Period`.
      *   * *   You can query the monitoring data of the last 30 days. If the value of the `StartTime` parameter is more than 30 days earlier than the current time, an error is returned.
      *   * *   In some scenarios, such as when the instance is in the Stopped state, the system cannot obtain the relevant information and a portion may be missing from the returned monitoring data.
      *   *
@@ -13588,7 +13758,7 @@ class Ecs extends OpenApiClient
 
     /**
      * Take note of the following items:
-     *   * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value that is calculated by using the following formula is greater than 400: `(EndTime − StartTime)/Period`.
+     *   * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value that is calculated by using the following formula is greater than 400: `(EndTime - StartTime)/Period`.
      *   * *   You can query the monitoring data of the last 30 days. If the value of the `StartTime` parameter is more than 30 days earlier than the current time, an error is returned.
      *   * *   In some scenarios, such as when the instance is in the Stopped state, the system cannot obtain the relevant information and a portion may be missing from the returned monitoring data.
      *   *
@@ -13867,12 +14037,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
+     * ## Usage notes
      *   * Before you call this operation, take note of the following items:
-     *   * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results. For information about the best practices for using DescribeInstanceTypes, see [Compare the specifications of instance types](https://help.aliyun.com/practice_detail/461278) .
-     *   * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to the return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
-     *   * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specific region, call the [DescribeAvailableResource](~~66186~~) operation.
-     *   * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex.htm).
+     *   * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results.
+     *   * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to this return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
+     *   * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specified region, call the [DescribeAvailableResource](~~66186~~) operation.
+     *   * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
      *   *
      * @param DescribeInstanceTypesRequest $request DescribeInstanceTypesRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -14025,12 +14195,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * ## Description
+     * ## Usage notes
      *   * Before you call this operation, take note of the following items:
-     *   * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results. For information about the best practices for using DescribeInstanceTypes, see [Compare the specifications of instance types](https://help.aliyun.com/practice_detail/461278) .
-     *   * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to the return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
-     *   * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specific region, call the [DescribeAvailableResource](~~66186~~) operation.
-     *   * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex.htm).
+     *   * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results.
+     *   * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to this return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
+     *   * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specified region, call the [DescribeAvailableResource](~~66186~~) operation.
+     *   * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
      *   *
      * @param DescribeInstanceTypesRequest $request DescribeInstanceTypesRequest
      *
@@ -14041,72 +14211,6 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceTypesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param DescribeInstanceVncPasswdRequest $request DescribeInstanceVncPasswdRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeInstanceVncPasswdResponse DescribeInstanceVncPasswdResponse
-     */
-    public function describeInstanceVncPasswdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeInstanceVncPasswd',
-            'version'     => '2014-05-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeInstanceVncPasswdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param DescribeInstanceVncPasswdRequest $request DescribeInstanceVncPasswdRequest
-     *
-     * @return DescribeInstanceVncPasswdResponse DescribeInstanceVncPasswdResponse
-     */
-    public function describeInstanceVncPasswd($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeInstanceVncPasswdWithOptions($request, $runtime);
     }
 
     /**
@@ -14393,7 +14497,7 @@ class Ecs extends OpenApiClient
 
     /**
      * The response includes instance states and instance system events that are in the Scheduled state.
-     *   * If a period is specified, events are queried based on the specified period.
+     *   * You can specify a period of time to query events that occurred within the period of time.
      *   *
      * @param DescribeInstancesFullStatusRequest $request DescribeInstancesFullStatusRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -14472,7 +14576,7 @@ class Ecs extends OpenApiClient
 
     /**
      * The response includes instance states and instance system events that are in the Scheduled state.
-     *   * If a period is specified, events are queried based on the specified period.
+     *   * You can specify a period of time to query events that occurred within the period of time.
      *   *
      * @param DescribeInstancesFullStatusRequest $request DescribeInstancesFullStatusRequest
      *
@@ -14486,9 +14590,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * The number of times that the command is run on the instance.
-     *   * *   If the command is set to run only once on the instance, the value is 0 or 1.
-     *   * *   If the command is set to run on a schedule on the instance, the value is the number of times that the command is run.
+     * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the actual execution results.
+     *   * *   You can query information about command executions within the last four weeks. Up to 100,000 pieces of execution information can be retained.
+     *   *     - Method 1: During a paged query, when you call the DescribeInvocationResults operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInvocationResults operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     *   *     - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
      *   *
      * @param DescribeInvocationResultsRequest $request DescribeInvocationResultsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -14516,6 +14621,12 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->invokeRecordStatus)) {
             $query['InvokeRecordStatus'] = $request->invokeRecordStatus;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -14566,9 +14677,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * The number of times that the command is run on the instance.
-     *   * *   If the command is set to run only once on the instance, the value is 0 or 1.
-     *   * *   If the command is set to run on a schedule on the instance, the value is the number of times that the command is run.
+     * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the actual execution results.
+     *   * *   You can query information about command executions within the last four weeks. Up to 100,000 pieces of execution information can be retained.
+     *   *     - Method 1: During a paged query, when you call the DescribeInvocationResults operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInvocationResults operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     *   *     - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
      *   *
      * @param DescribeInvocationResultsRequest $request DescribeInvocationResultsRequest
      *
@@ -14582,8 +14694,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   After you run a command, the command may not succeed or return the expected result. You can call this operation to query the execution result.
-     *   * *   You can query information about command executions within the last four weeks. A maximum of 100,000 entries of execution information can be retained.
+     * - After you run a command, the command may not succeed or return the expected result. You can call this operation to query the execution result.
+     *   * - You can query information about command executions within the last four weeks. A maximum of 100,000 entries of execution information can be retained.
+     *   *   - Method 1: During a paged query, when you call the DescribeInvocations operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInvocations operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     *   *   - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
      *   *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -14617,6 +14731,12 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->invokeStatus)) {
             $query['InvokeStatus'] = $request->invokeStatus;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -14673,8 +14793,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   After you run a command, the command may not succeed or return the expected result. You can call this operation to query the execution result.
-     *   * *   You can query information about command executions within the last four weeks. A maximum of 100,000 entries of execution information can be retained.
+     * - After you run a command, the command may not succeed or return the expected result. You can call this operation to query the execution result.
+     *   * - You can query information about command executions within the last four weeks. A maximum of 100,000 entries of execution information can be retained.
+     *   *   - Method 1: During a paged query, when you call the DescribeInvocations operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInvocations operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     *   *   - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
      *   *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      *
@@ -14697,6 +14819,9 @@ class Ecs extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->includePublicKey)) {
+            $query['IncludePublicKey'] = $request->includePublicKey;
+        }
         if (!Utils::isUnset($request->keyPairFingerPrint)) {
             $query['KeyPairFingerPrint'] = $request->keyPairFingerPrint;
         }
@@ -14982,10 +15107,14 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param DescribeManagedInstancesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can use one of the following methods to check the responses:
+     *   * - Method 1: When you call the DescribeInstances operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in the call.
+     *   * - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     *   *
+     * @param DescribeManagedInstancesRequest $request DescribeManagedInstancesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeManagedInstancesResponse
+     * @return DescribeManagedInstancesResponse DescribeManagedInstancesResponse
      */
     public function describeManagedInstancesWithOptions($request, $runtime)
     {
@@ -15002,6 +15131,12 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceName)) {
             $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->osType)) {
             $query['OsType'] = $request->osType;
@@ -15023,6 +15158,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -15052,9 +15190,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param DescribeManagedInstancesRequest $request
+     * You can use one of the following methods to check the responses:
+     *   * - Method 1: When you call the DescribeInstances operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in the call.
+     *   * - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     *   *
+     * @param DescribeManagedInstancesRequest $request DescribeManagedInstancesRequest
      *
-     * @return DescribeManagedInstancesResponse
+     * @return DescribeManagedInstancesResponse DescribeManagedInstancesResponse
      */
     public function describeManagedInstances($request)
     {
@@ -15139,10 +15281,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param DescribeNetworkInterfaceAttributeRequest $request
-     * @param RuntimeOptions                           $runtime
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=DescribeNetworkInterfaceAttribute\\&type=RPC\\&version=2014-05-26).
+     *   *
+     * @param DescribeNetworkInterfaceAttributeRequest $request DescribeNetworkInterfaceAttributeRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNetworkInterfaceAttributeResponse
+     * @return DescribeNetworkInterfaceAttributeResponse DescribeNetworkInterfaceAttributeResponse
      */
     public function describeNetworkInterfaceAttributeWithOptions($request, $runtime)
     {
@@ -15194,9 +15339,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @param DescribeNetworkInterfaceAttributeRequest $request
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=DescribeNetworkInterfaceAttribute\\&type=RPC\\&version=2014-05-26).
+     *   *
+     * @param DescribeNetworkInterfaceAttributeRequest $request DescribeNetworkInterfaceAttributeRequest
      *
-     * @return DescribeNetworkInterfaceAttributeResponse
+     * @return DescribeNetworkInterfaceAttributeResponse DescribeNetworkInterfaceAttributeResponse
      */
     public function describeNetworkInterfaceAttribute($request)
     {
@@ -15276,8 +15424,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * The `DescribeNetworkInterfaces` operation supports paged queries. During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to limit the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you perform the next request, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *   * > You must specify `MaxResults` or `NextToken` for the system to return results based on the preceding pagination mechanism. Otherwise, the system paginates the results based on the `PageNumber` and `PageSize` parameters.
+     * You can call the `DescribeNetworkInterfaces` operation for paged query by specifying the `MaxResults` or `NextToken` parameter. During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeNetworkInterfaces operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *   *
      * @param DescribeNetworkInterfacesRequest $request DescribeNetworkInterfacesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -15382,8 +15529,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * The `DescribeNetworkInterfaces` operation supports paged queries. During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to limit the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you perform the next request, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *   * > You must specify `MaxResults` or `NextToken` for the system to return results based on the preceding pagination mechanism. Otherwise, the system paginates the results based on the `PageNumber` and `PageSize` parameters.
+     * You can call the `DescribeNetworkInterfaces` operation for paged query by specifying the `MaxResults` or `NextToken` parameter. During a paged query, when you call the DescribeNetworkInterfaces operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeNetworkInterfaces operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *   *
      * @param DescribeNetworkInterfacesRequest $request DescribeNetworkInterfacesRequest
      *
@@ -16615,6 +16761,128 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param DescribeSavingsPlanEstimationRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeSavingsPlanEstimationResponse
+     */
+    public function describeSavingsPlanEstimationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->offeringType)) {
+            $query['OfferingType'] = $request->offeringType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->planType)) {
+            $query['PlanType'] = $request->planType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSavingsPlanEstimation',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSavingsPlanEstimationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSavingsPlanEstimationRequest $request
+     *
+     * @return DescribeSavingsPlanEstimationResponse
+     */
+    public function describeSavingsPlanEstimation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSavingsPlanEstimationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSavingsPlanPriceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeSavingsPlanPriceResponse
+     */
+    public function describeSavingsPlanPriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->committedAmount)) {
+            $query['CommittedAmount'] = $request->committedAmount;
+        }
+        if (!Utils::isUnset($request->instanceTypeFamily)) {
+            $query['InstanceTypeFamily'] = $request->instanceTypeFamily;
+        }
+        if (!Utils::isUnset($request->offeringType)) {
+            $query['OfferingType'] = $request->offeringType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->planType)) {
+            $query['PlanType'] = $request->planType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSavingsPlanPrice',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSavingsPlanPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSavingsPlanPriceRequest $request
+     *
+     * @return DescribeSavingsPlanPriceResponse
+     */
+    public function describeSavingsPlanPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSavingsPlanPriceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSecurityGroupAttributeRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -16815,6 +17083,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->securityGroupType)) {
             $query['SecurityGroupType'] = $request->securityGroupType;
         }
+        if (!Utils::isUnset($request->serviceManaged)) {
+            $query['ServiceManaged'] = $request->serviceManaged;
+        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
@@ -16860,6 +17131,9 @@ class Ecs extends OpenApiClient
      * ## Usage notes
      *   * *   When you send a file, the file may fail to be sent to specified Elastic Compute Service (ECS) instances. You can call this operation to check the file sending results.
      *   * *   You can call this operation to query the file sending records within the last six weeks.
+     *   * - You can use one of the following methods to check the responses:
+     *   *   - Method 1: During a paged query, when you call the DescribeSendFileResults operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeSendFileResults operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     *   *   - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
      *   *
      * @param DescribeSendFileResultsRequest $request DescribeSendFileResultsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -16879,8 +17153,14 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->invokeId)) {
             $query['InvokeId'] = $request->invokeId;
         }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -16934,6 +17214,9 @@ class Ecs extends OpenApiClient
      * ## Usage notes
      *   * *   When you send a file, the file may fail to be sent to specified Elastic Compute Service (ECS) instances. You can call this operation to check the file sending results.
      *   * *   You can call this operation to query the file sending records within the last six weeks.
+     *   * - You can use one of the following methods to check the responses:
+     *   *   - Method 1: During a paged query, when you call the DescribeSendFileResults operation to retrieve the first page of results, set MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeSendFileResults operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
+     *   *   - Method 2: Use PageSize to specify the number of entries to return on each page and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
      *   *
      * @param DescribeSendFileResultsRequest $request DescribeSendFileResultsRequest
      *
@@ -16947,7 +17230,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * You can specify multiple request parameters such as `InstanceId`, `SnapshotGroupId.N`, and `Status.N` to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+     * ## [](#)Usage notes
+     *   * You can specify multiple request parameters to be queried, such as `InstanceId`, `SnapshotGroupId.N`, and `Status.N`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
      *   *
      * @param DescribeSnapshotGroupsRequest $request DescribeSnapshotGroupsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -17019,7 +17303,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * You can specify multiple request parameters such as `InstanceId`, `SnapshotGroupId.N`, and `Status.N` to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+     * ## [](#)Usage notes
+     *   * You can specify multiple request parameters to be queried, such as `InstanceId`, `SnapshotGroupId.N`, and `Status.N`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
      *   *
      * @param DescribeSnapshotGroupsRequest $request DescribeSnapshotGroupsRequest
      *
@@ -18482,7 +18767,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : DescribeVpcs is deprecated, please use Vpc::2016-04-28::DescribeVpcs instead.
      *   *
      * Deprecated
      *
@@ -18541,7 +18826,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : DescribeVpcs is deprecated, please use Vpc::2016-04-28::DescribeVpcs instead.
      *   *
      * Deprecated
      *
@@ -19304,6 +19589,7 @@ class Ecs extends OpenApiClient
     /**
      * Before you export a custom image, complete the following operations:
      *   * *   Understand the prerequisites and precautions. For more information, see [Export images](~~58181~~).
+     *   * *   The Image Format parameter is available only for the following regions: India (Mumbai), Japan (Tokyo), Australia (Sydney), Indonesia (Jakarta), Germany (Frankfurt), UAE (Dubai), US (Virginia), UK (London), Singapore, US (Silicon Valley), and Malaysia (Kuala Lumpur). By default, custom images are exported in the RAW format in regions where the Image Format parameter is unavailable.
      *   * *   Use Resource Access Management (RAM) to grant Elastic Compute Service (ECS) the permissions to write data to OSS. To complete the authorization, perform the following operations:
      *   *     1.  Create a role named `AliyunECSImageExportDefaultRole`, and attach the following policy to the role:
      *   *         ```json
@@ -19404,6 +19690,7 @@ class Ecs extends OpenApiClient
     /**
      * Before you export a custom image, complete the following operations:
      *   * *   Understand the prerequisites and precautions. For more information, see [Export images](~~58181~~).
+     *   * *   The Image Format parameter is available only for the following regions: India (Mumbai), Japan (Tokyo), Australia (Sydney), Indonesia (Jakarta), Germany (Frankfurt), UAE (Dubai), US (Virginia), UK (London), Singapore, US (Silicon Valley), and Malaysia (Kuala Lumpur). By default, custom images are exported in the RAW format in regions where the Image Format parameter is unavailable.
      *   * *   Use Resource Access Management (RAM) to grant Elastic Compute Service (ECS) the permissions to write data to OSS. To complete the authorization, perform the following operations:
      *   *     1.  Create a role named `AliyunECSImageExportDefaultRole`, and attach the following policy to the role:
      *   *         ```json
@@ -19715,7 +20002,7 @@ class Ecs extends OpenApiClient
      *   *         *   The image supports the growpart command. To support this command, you must install the `cloud-utils-growpart` package. Package installation methods vary based on operating systems. For more information, see [Resize partitions and file systems of Linux system disks](~~111738~~).
      *   *         *   The image supports the resize2fs command. To support this command, you must install the `e2fsprogs` package. By default, the package is installed on the operating system. If the package is not installed, you must install it.
      *   *         *   The latest version of Alibaba Cloud cloud-init is installed on the operating system. If the installed version of cloud-init is 19.1, make sure that the minor version is 19.1.3 or later. If the installed version of cloud-init is 0.7.6a as in some early versions of operating systems, make sure that the minor version is 0.7.6a15 or later. For more information, see [Install cloud-init](~~57803~~).
-     *   * *   If the image that you want to import uses the ARM64 architecture, you must configure the real-time clock (RTC) to use the Coordinated Universal Time (UTC) time standard. For more information, see [Linux time and time zones](https://icms.alibaba-inc.com/content/ecs/image?l=1\\&m=4656\\&n=3385033).
+     *   * *   If the image that you want to import uses the ARM64 architecture, you must configure the real-time clock (RTC) to use the Coordinated Universal Time (UTC) time standard. For more information, see [Linux time and time zones](~~405080~~).
      *   *
      * @param ImportImageRequest $request ImportImageRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -19842,7 +20129,7 @@ class Ecs extends OpenApiClient
      *   *         *   The image supports the growpart command. To support this command, you must install the `cloud-utils-growpart` package. Package installation methods vary based on operating systems. For more information, see [Resize partitions and file systems of Linux system disks](~~111738~~).
      *   *         *   The image supports the resize2fs command. To support this command, you must install the `e2fsprogs` package. By default, the package is installed on the operating system. If the package is not installed, you must install it.
      *   *         *   The latest version of Alibaba Cloud cloud-init is installed on the operating system. If the installed version of cloud-init is 19.1, make sure that the minor version is 19.1.3 or later. If the installed version of cloud-init is 0.7.6a as in some early versions of operating systems, make sure that the minor version is 0.7.6a15 or later. For more information, see [Install cloud-init](~~57803~~).
-     *   * *   If the image that you want to import uses the ARM64 architecture, you must configure the real-time clock (RTC) to use the Coordinated Universal Time (UTC) time standard. For more information, see [Linux time and time zones](https://icms.alibaba-inc.com/content/ecs/image?l=1\\&m=4656\\&n=3385033).
+     *   * *   If the image that you want to import uses the ARM64 architecture, you must configure the real-time clock (RTC) to use the Coordinated Universal Time (UTC) time standard. For more information, see [Linux time and time zones](~~405080~~).
      *   *
      * @param ImportImageRequest $request ImportImageRequest
      *
@@ -19952,78 +20239,6 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param ImportSnapshotRequest $request ImportSnapshotRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ImportSnapshotResponse ImportSnapshotResponse
-     */
-    public function importSnapshotWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ossBucket)) {
-            $query['OssBucket'] = $request->ossBucket;
-        }
-        if (!Utils::isUnset($request->ossObject)) {
-            $query['OssObject'] = $request->ossObject;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
-        }
-        if (!Utils::isUnset($request->snapshotName)) {
-            $query['SnapshotName'] = $request->snapshotName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ImportSnapshot',
-            'version'     => '2014-05-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ImportSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param ImportSnapshotRequest $request ImportSnapshotRequest
-     *
-     * @return ImportSnapshotResponse ImportSnapshotResponse
-     */
-    public function importSnapshot($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->importSnapshotWithOptions($request, $runtime);
-    }
-
-    /**
      * The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *   *
      * @param InstallCloudAssistantRequest $request InstallCloudAssistantRequest
@@ -20089,20 +20304,21 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   The ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If you specify multiple ECS instances and one of the instances does not meet the requirements for running the command, the call fails. Specify instances that meet the requirements and call the InvokeCommand operation again.
-     *   *     *   The network type is Virtual Private Cloud (VPC). For more information, see [What is a VPC?](~~34217~~)
-     *   *     *   The instances are in the `Running` state.
-     *   *     *   The Cloud Assistant client is installed on the instances. For more information, see [Install the Cloud Assistant client](~~64921~~).
-     *   *     *   Before you run PowerShell commands, make sure that the instances have the PowerShell module configured.
-     *   * *   If `Timed` is set to false, the command is run only once.
-     *   * *   If `Timed` is set to true, the command is run on a schedule.
-     *   *     *   The schedule is specified by the `Frequency` parameter. The results of each execution of a command do not affect the next execution of the command.
-     *   *     *   If you want to specify a schedule by using a cron expression, you can specify a time zone based on your requirements. If you do not specify a time zone, the schedule is based on the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For more information, see [Configure the NTP service and time zone for Linux instances](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
-     *   *     To ensure that scheduled tasks can run as expected, make sure that the version of the Cloud Assistant client is not earlier than the following ones. A scheduled task can run a command at a specified interval, only once at a specified point in time, or at designated points in time based on a cron expression with a specified year or time zone. If the `ClientNeedUpgrade` error code is returned, you must upgrade the Cloud Assistant client to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
-     *   *           - Linux: 2.2.3.282
-     *   *           - Windows: 2.1.3.282
-     *   * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on the Cloud Assistant client. If an execution fails, no execution information is generated.
-     *   * *   If you enable the custom parameter feature by setting EnableParameter to true when you create a command, you must configure custom parameters in the `Parameters` when you run the command.
+     * ## Usage notes
+     *   * *   ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If multiple ECS instances are specified and one of the instances does not meet the requirements for running the command, the call fails. You must specify instances that meet the requirements and call the InvokeCommand operation again.
+     *   *     *   The instances are in the Running (`Running`) state. You can call the [DescribeInstances](~~25506~~) operation to query instance states.
+     *   *     *   Cloud Assistant Agent is installed on the instances. For more information, see [Install Cloud Assistant Agent](~~64921~~).
+     *   *     *   Before you run PowerShell commands on the instances, make sure that the instances have the PowerShell module configured.
+     *   * *   The command can run only once on the instances.
+     *   * *   The command can run multiple times on the instances based on a schedule.
+     *   *     *   The schedule is specified by the Frequency parameter. The results of each execution of a command do not affect the next execution of the command.
+     *   *     *   If you want to specify a schedule by using a cron expression, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For more information about time zones, see [Configure the NTP service for ECS instances that run CentOS 6](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+     *   *         To ensure that scheduled tasks can run as expected, make sure that the version of Cloud Assistant Agent is not earlier than the following ones. You can configure a command to run at a fixed interval based on a rate expression, run only once at a specified time, or run at designated times based on a cron expression. If the ClientNeedUpgrade error code is returned, you must upgrade Cloud Assistant Agent to the latest version. For more information, see [Update or disable updates for Cloud Assistant Agent](~~134383~~).
+     *   *     *   Linux: 2.2.3.282
+     *   *     *   Windows: 2.1.3.282
+     *   * *   Commands may fail to run due to instance status exceptions, network exceptions, or exceptions on Cloud Assistant Agent. If a command fails to run, no execution information is generated. For more information, see [Check execution results and troubleshoot common issues](~~87029~~).
+     *   * *   If you enable the custom parameter feature when you create the command, you must specify custom parameters (`Parameters`) to run the command.
+     *   * *   Before you run a command on instances, especially new instances, we recommend that you call the [DescribeCloudAssistantStatus](~~87346~~) operation to query the state of Cloud Assistant Agent installed on the instances and make sure that the return value of CloudAssistantStatus is true.
      *   *
      * @param InvokeCommandRequest $tmpReq  InvokeCommandRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -20163,6 +20379,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->resourceTag)) {
+            $query['ResourceTag'] = $request->resourceTag;
+        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
@@ -20197,20 +20416,21 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * *   The ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If you specify multiple ECS instances and one of the instances does not meet the requirements for running the command, the call fails. Specify instances that meet the requirements and call the InvokeCommand operation again.
-     *   *     *   The network type is Virtual Private Cloud (VPC). For more information, see [What is a VPC?](~~34217~~)
-     *   *     *   The instances are in the `Running` state.
-     *   *     *   The Cloud Assistant client is installed on the instances. For more information, see [Install the Cloud Assistant client](~~64921~~).
-     *   *     *   Before you run PowerShell commands, make sure that the instances have the PowerShell module configured.
-     *   * *   If `Timed` is set to false, the command is run only once.
-     *   * *   If `Timed` is set to true, the command is run on a schedule.
-     *   *     *   The schedule is specified by the `Frequency` parameter. The results of each execution of a command do not affect the next execution of the command.
-     *   *     *   If you want to specify a schedule by using a cron expression, you can specify a time zone based on your requirements. If you do not specify a time zone, the schedule is based on the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For more information, see [Configure the NTP service and time zone for Linux instances](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
-     *   *     To ensure that scheduled tasks can run as expected, make sure that the version of the Cloud Assistant client is not earlier than the following ones. A scheduled task can run a command at a specified interval, only once at a specified point in time, or at designated points in time based on a cron expression with a specified year or time zone. If the `ClientNeedUpgrade` error code is returned, you must upgrade the Cloud Assistant client to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
-     *   *           - Linux: 2.2.3.282
-     *   *           - Windows: 2.1.3.282
-     *   * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on the Cloud Assistant client. If an execution fails, no execution information is generated.
-     *   * *   If you enable the custom parameter feature by setting EnableParameter to true when you create a command, you must configure custom parameters in the `Parameters` when you run the command.
+     * ## Usage notes
+     *   * *   ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If multiple ECS instances are specified and one of the instances does not meet the requirements for running the command, the call fails. You must specify instances that meet the requirements and call the InvokeCommand operation again.
+     *   *     *   The instances are in the Running (`Running`) state. You can call the [DescribeInstances](~~25506~~) operation to query instance states.
+     *   *     *   Cloud Assistant Agent is installed on the instances. For more information, see [Install Cloud Assistant Agent](~~64921~~).
+     *   *     *   Before you run PowerShell commands on the instances, make sure that the instances have the PowerShell module configured.
+     *   * *   The command can run only once on the instances.
+     *   * *   The command can run multiple times on the instances based on a schedule.
+     *   *     *   The schedule is specified by the Frequency parameter. The results of each execution of a command do not affect the next execution of the command.
+     *   *     *   If you want to specify a schedule by using a cron expression, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For more information about time zones, see [Configure the NTP service for ECS instances that run CentOS 6](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+     *   *         To ensure that scheduled tasks can run as expected, make sure that the version of Cloud Assistant Agent is not earlier than the following ones. You can configure a command to run at a fixed interval based on a rate expression, run only once at a specified time, or run at designated times based on a cron expression. If the ClientNeedUpgrade error code is returned, you must upgrade Cloud Assistant Agent to the latest version. For more information, see [Update or disable updates for Cloud Assistant Agent](~~134383~~).
+     *   *     *   Linux: 2.2.3.282
+     *   *     *   Windows: 2.1.3.282
+     *   * *   Commands may fail to run due to instance status exceptions, network exceptions, or exceptions on Cloud Assistant Agent. If a command fails to run, no execution information is generated. For more information, see [Check execution results and troubleshoot common issues](~~87029~~).
+     *   * *   If you enable the custom parameter feature when you create the command, you must specify custom parameters (`Parameters`) to run the command.
+     *   * *   Before you run a command on instances, especially new instances, we recommend that you call the [DescribeCloudAssistantStatus](~~87346~~) operation to query the state of Cloud Assistant Agent installed on the instances and make sure that the return value of CloudAssistantStatus is true.
      *   *
      * @param InvokeCommandRequest $request InvokeCommandRequest
      *
@@ -20297,8 +20517,7 @@ class Ecs extends OpenApiClient
      *   * Take note of the following items:
      *   * *   Before you add an instance to a security group, the instance must be in the **Stopped** or **Running** state.
      *   * *   An instance can be added to up to five security groups.
-     *   * *
-     *   * You can increase this number to 16 by [submitting a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *   * *   You can increase this number to 16 by [submitting a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
      *   * *   A basic security group can contain up to 2,000 instances. An advanced security group can contain up to 65,536 instances.
      *   * *   The security group and the instance must reside in the same region.
      *   * *   The security group and the instance must be of the same network type. If the network type is virtual private cloud (VPC), the security group and the instance must be in the same VPC.
@@ -20361,8 +20580,7 @@ class Ecs extends OpenApiClient
      *   * Take note of the following items:
      *   * *   Before you add an instance to a security group, the instance must be in the **Stopped** or **Running** state.
      *   * *   An instance can be added to up to five security groups.
-     *   * *
-     *   * You can increase this number to 16 by [submitting a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *   * *   You can increase this number to 16 by [submitting a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
      *   * *   A basic security group can contain up to 2,000 instances. An advanced security group can contain up to 65,536 instances.
      *   * *   The security group and the instance must reside in the same region.
      *   * *   The security group and the instance must be of the same network type. If the network type is virtual private cloud (VPC), the security group and the instance must be in the same VPC.
@@ -20456,9 +20674,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation to query the states of Cloud Assistant plug-ins on ECS instances, make sure that the versions of the Cloud Assistant client installed on the instances are not earlier than the following ones:
-     *   * *   2.2.3.344 for Linux instances
-     *   * *   2.1.3.344 for Windows instances.
+     * ## Usage notes
+     *   * - Before you call this operation to query the status of Cloud Assistant plug-ins on ECS instances, make sure that the versions of Cloud Assistant Agent on the instances are not earlier than the following ones:
+     *   *   *   2.2.3.344 for Linux instances
+     *   *   *   2.1.3.344 for Windows instances
+     *   * - You can use one of the following methods to check the responses:
+     *   *   - Method 1: When you call the ListPluginStatus operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the ListPluginStatus operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in this call.
+     *   *   - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
      *   *
      * @param ListPluginStatusRequest $request ListPluginStatusRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -20472,8 +20694,14 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -20518,9 +20746,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation to query the states of Cloud Assistant plug-ins on ECS instances, make sure that the versions of the Cloud Assistant client installed on the instances are not earlier than the following ones:
-     *   * *   2.2.3.344 for Linux instances
-     *   * *   2.1.3.344 for Windows instances.
+     * ## Usage notes
+     *   * - Before you call this operation to query the status of Cloud Assistant plug-ins on ECS instances, make sure that the versions of Cloud Assistant Agent on the instances are not earlier than the following ones:
+     *   *   *   2.2.3.344 for Linux instances
+     *   *   *   2.1.3.344 for Windows instances
+     *   * - You can use one of the following methods to check the responses:
+     *   *   - Method 1: When you call the ListPluginStatus operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the ListPluginStatus operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in this call.
+     *   *   - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
      *   *
      * @param ListPluginStatusRequest $request ListPluginStatusRequest
      *
@@ -21479,9 +21711,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the demand information of instance types. Alibaba Cloud provides the requested resources based on your demand. You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type. Parameters except `DemandName` and `DemandDescription` can be modified only for demands that are in the Rejected state.
+     * @deprecated : ModifyDemand is deprecated, please use Ecs::2014-05-26::ModifyCapacityReservation instead.
+     *   * You can call this operation to modify the demand information of instance types. Alibaba Cloud provides the requested resources based on your demand. You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type. Parameters except `DemandName` and `DemandDescription` can be modified only for demands that are in the Rejected state.
      *   * > This operation is in invitational preview and is not publicly available.
      *   *
+     * Deprecated
+     *
      * @param ModifyDemandRequest $request ModifyDemandRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -21561,9 +21796,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the demand information of instance types. Alibaba Cloud provides the requested resources based on your demand. You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type. Parameters except `DemandName` and `DemandDescription` can be modified only for demands that are in the Rejected state.
+     * @deprecated : ModifyDemand is deprecated, please use Ecs::2014-05-26::ModifyCapacityReservation instead.
+     *   * You can call this operation to modify the demand information of instance types. Alibaba Cloud provides the requested resources based on your demand. You can file demands only for I/O optimized instance types and instances of the virtual private cloud (VPC) type. Parameters except `DemandName` and `DemandDescription` can be modified only for demands that are in the Rejected state.
      *   * > This operation is in invitational preview and is not publicly available.
      *   *
+     * Deprecated
+     *
      * @param ModifyDemandRequest $request ModifyDemandRequest
      *
      * @return ModifyDemandResponse ModifyDemandResponse
@@ -22710,23 +22948,30 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * If the response contains `{"OperationLocks": {"LockReason" : "security"}}`, the instance is locked for security reasons. No operations are allowed on the instance.
+     * If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons. No operations are allowed on the instance.
      *   * Take note of the following items:
-     *   * *   Modify the hostname (`HostName`): After you modify the hostname, you need to restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new hostname to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new hostname does not take effect if you restart the instance from within the operating system.
+     *   * *   Modify the hostname (`HostName`): After you modify the hostname, restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new hostname to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new hostname does not take effect if you restart the instance from within the operating system.
      *   * *   Reset the password (`Password`):
-     *   *     *   The instance must not be in the **Starting** state.``
-     *   *     *   After you reset the password, you need to restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new password to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new password does not take effect if you restart the instance from within the operating system.
+     *   *     *   The instance cannot be in the **Starting** (`Starting`) state.
+     *   *     *   After you reset the password, restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new password to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new password does not take effect if you restart the instance from within the operating system.
      *   * *   Modify user data (`UserData`):
-     *   *     *   The instance must be in the **Stopped** state.``
-     *   *     *   The instance must support user data. For more information, see [Prepare user data](~~49121~~).
-     *   * *   Change the security group (`SecurityGroupIds.N`):
-     *   *     *   You can move an instance to a security group of a different type. If you want to move an instance to a security group of a different type, you must be familiar with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
-     *   *     *   Security groups of instances that reside in the classic network cannot be changed. For more information, see the description of `SecurityGroupIds.N`.
+     *   *     *   The instance must be in the **Stopped** (`Stopped`) state.
+     *   *     *   The instance must meet the limits for user data. For more information, see [Prepare user data](~~49121~~).
+     *   * > After you restart the instance, the new user data is displayed but not run as scripts.
+     *   * *   Change the security groups (`SecurityGroupIds.N`):
+     *   *     *   You can move an instance to a security group of a different type.
+     *   *         If you want to move an instance to a security group of a different type, you must familiarize yourself with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
+     *   *     *   Security groups of instances in the classic network cannot be changed.
+     *   *         For more information, see the description of `SecurityGroupIds.N`.
      *   * *   Modify the number of queues supported by the primary elastic network interface (ENI) (`NetworkInterfaceQueueNumber`):
-     *   *     *   The instance must be in the `Stopped` state.
-     *   *     *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI. The maximum number of queues vary with the instance type.
-     *   *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To obtain the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation. The results are returned in the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` parameters.
-     *   *     *   If you set this parameter to -1, the value is reset to the default value for the instance type. To obtain the default number of queues supported by the primary ENI for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `PrimaryEniQueueNumber` parameter.
+     *   *     *   The instance must be in the Stopped (`Stopped`) state.
+     *   *     *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI. The maximum number of queues varies based on the instance type.
+     *   *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To obtain the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values.
+     *   *     *   If you set this parameter to -1, the value is reset to the default value for the instance type. To obtain the default number of queues supported by the primary ENI for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `PrimaryEniQueueNumber` value.
+     *   * *   Enable or disable the Jumbo Frame feature ([EnableJumboFrame](~~200512~~)):
+     *   *     *   The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
+     *   *     *   The instance must reside in a virtual private cloud (VPC).
+     *   *     *   After the Jumbo Frame feature is enabled, the MTU value of the instance is set to 8500. After the Jumbo Frame feature is disabled, the MTU value of the instance is set to 1500.
      *   *
      * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -22788,6 +23033,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->userData)) {
             $query['UserData'] = $request->userData;
         }
+        if (!Utils::isUnset($request->cpuOptions)) {
+            $query['CpuOptions'] = $request->cpuOptions;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -22807,23 +23055,30 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * If the response contains `{"OperationLocks": {"LockReason" : "security"}}`, the instance is locked for security reasons. No operations are allowed on the instance.
+     * If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons. No operations are allowed on the instance.
      *   * Take note of the following items:
-     *   * *   Modify the hostname (`HostName`): After you modify the hostname, you need to restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new hostname to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new hostname does not take effect if you restart the instance from within the operating system.
+     *   * *   Modify the hostname (`HostName`): After you modify the hostname, restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new hostname to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new hostname does not take effect if you restart the instance from within the operating system.
      *   * *   Reset the password (`Password`):
-     *   *     *   The instance must not be in the **Starting** state.``
-     *   *     *   After you reset the password, you need to restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new password to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new password does not take effect if you restart the instance from within the operating system.
+     *   *     *   The instance cannot be in the **Starting** (`Starting`) state.
+     *   *     *   After you reset the password, restart the instance in the ECS console or by calling the [RebootInstance](~~25502~~) operation for the new password to take effect. For information about how to restart an instance in the ECS console, see [Restart instances](~~25440~~). The new password does not take effect if you restart the instance from within the operating system.
      *   * *   Modify user data (`UserData`):
-     *   *     *   The instance must be in the **Stopped** state.``
-     *   *     *   The instance must support user data. For more information, see [Prepare user data](~~49121~~).
-     *   * *   Change the security group (`SecurityGroupIds.N`):
-     *   *     *   You can move an instance to a security group of a different type. If you want to move an instance to a security group of a different type, you must be familiar with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
-     *   *     *   Security groups of instances that reside in the classic network cannot be changed. For more information, see the description of `SecurityGroupIds.N`.
+     *   *     *   The instance must be in the **Stopped** (`Stopped`) state.
+     *   *     *   The instance must meet the limits for user data. For more information, see [Prepare user data](~~49121~~).
+     *   * > After you restart the instance, the new user data is displayed but not run as scripts.
+     *   * *   Change the security groups (`SecurityGroupIds.N`):
+     *   *     *   You can move an instance to a security group of a different type.
+     *   *         If you want to move an instance to a security group of a different type, you must familiarize yourself with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
+     *   *     *   Security groups of instances in the classic network cannot be changed.
+     *   *         For more information, see the description of `SecurityGroupIds.N`.
      *   * *   Modify the number of queues supported by the primary elastic network interface (ENI) (`NetworkInterfaceQueueNumber`):
-     *   *     *   The instance must be in the `Stopped` state.
-     *   *     *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI. The maximum number of queues vary with the instance type.
-     *   *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To obtain the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation. The results are returned in the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` parameters.
-     *   *     *   If you set this parameter to -1, the value is reset to the default value for the instance type. To obtain the default number of queues supported by the primary ENI for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `PrimaryEniQueueNumber` parameter.
+     *   *     *   The instance must be in the Stopped (`Stopped`) state.
+     *   *     *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI. The maximum number of queues varies based on the instance type.
+     *   *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To obtain the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values.
+     *   *     *   If you set this parameter to -1, the value is reset to the default value for the instance type. To obtain the default number of queues supported by the primary ENI for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `PrimaryEniQueueNumber` value.
+     *   * *   Enable or disable the Jumbo Frame feature ([EnableJumboFrame](~~200512~~)):
+     *   *     *   The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
+     *   *     *   The instance must reside in a virtual private cloud (VPC).
+     *   *     *   After the Jumbo Frame feature is enabled, the MTU value of the instance is set to 8500. After the Jumbo Frame feature is disabled, the MTU value of the instance is set to 1500.
      *   *
      * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      *
@@ -22976,14 +23231,14 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you are familiar with the billing methods and pricing of ECS. For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
-     *   * When you call this operation, take note of the following items:
-     *   * *   The instances must be in the `Running` or `Stopped` state, and you have no overdue payments for the instances.********
-     *   * *   After you change the billing method, outstanding payments, if any, are automatically completed. Make sure that you have sufficient balance in your account. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
+     * Before you call this operation, make sure that you are familiar with the billing methods and pricing of Elastic Compute Service (ECS). For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
+     *   * Take note of the following items:
+     *   * *   The instances must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state, and you cannot have overdue payments for them.
+     *   * *   After you change the billing method, outstanding payments are automatically completed. Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
      *   * *   **Change the billing method from subscription to pay-as-you-go**:
-     *   *     *   Your ECS usage determines whether you can change the billing method of your instance from subscription to pay-as-you-go.
+     *   *     *   Your ECS usage determines whether the billing method of an instance can be changed from subscription to pay-as-you-go.
      *   *     *   After you change the billing method of an instance from subscription to pay-as-you-go, the new billing method remains in effect for the remaining lifecycle of the instance. The price difference is refunded to the payment account that you used. Vouchers that have been redeemed are not refundable.
-     *   *     *   **Refund rule**: You have a quota for the total refund amount each month, and the unused balance of this quota is not carried over to the next month. If you use up the refund quota of the current month, you can change the billing method in the next month. The refund amount incurred after you change the billing method is calculated based on the following formula: **Number of vCPUs × (Number of remaining days × 24 ± Number of remaining or elapsed hours)**.
+     *   *     *   **Refund rule**: You have a quota for the total refund amount each month, and unused balance of this quota is not carried forward into the next month. After you use up the refund quota of the current month, you can change the billing method only in the next month. The refund amount incurred when you change the billing method is calculated based on the following formula: **Number of vCPUs × (Number of remaining days × 24 ± Number of remaining or elapsed hours)**.
      *   * *   **Change the billing method from pay-as-you-go to subscription**:
      *   *     *   You can change the billing method of all data disks that are attached to an instance from pay-as-you-go to subscription.
      *   *     *   This operation cannot be called for a pay-as-you-go instance that has an automatic release time set.
@@ -23058,14 +23313,14 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you are familiar with the billing methods and pricing of ECS. For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
-     *   * When you call this operation, take note of the following items:
-     *   * *   The instances must be in the `Running` or `Stopped` state, and you have no overdue payments for the instances.********
-     *   * *   After you change the billing method, outstanding payments, if any, are automatically completed. Make sure that you have sufficient balance in your account. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
+     * Before you call this operation, make sure that you are familiar with the billing methods and pricing of Elastic Compute Service (ECS). For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
+     *   * Take note of the following items:
+     *   * *   The instances must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state, and you cannot have overdue payments for them.
+     *   * *   After you change the billing method, outstanding payments are automatically completed. Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com/) to pay for the order.
      *   * *   **Change the billing method from subscription to pay-as-you-go**:
-     *   *     *   Your ECS usage determines whether you can change the billing method of your instance from subscription to pay-as-you-go.
+     *   *     *   Your ECS usage determines whether the billing method of an instance can be changed from subscription to pay-as-you-go.
      *   *     *   After you change the billing method of an instance from subscription to pay-as-you-go, the new billing method remains in effect for the remaining lifecycle of the instance. The price difference is refunded to the payment account that you used. Vouchers that have been redeemed are not refundable.
-     *   *     *   **Refund rule**: You have a quota for the total refund amount each month, and the unused balance of this quota is not carried over to the next month. If you use up the refund quota of the current month, you can change the billing method in the next month. The refund amount incurred after you change the billing method is calculated based on the following formula: **Number of vCPUs × (Number of remaining days × 24 ± Number of remaining or elapsed hours)**.
+     *   *     *   **Refund rule**: You have a quota for the total refund amount each month, and unused balance of this quota is not carried forward into the next month. After you use up the refund quota of the current month, you can change the billing method only in the next month. The refund amount incurred when you change the billing method is calculated based on the following formula: **Number of vCPUs × (Number of remaining days × 24 ± Number of remaining or elapsed hours)**.
      *   * *   **Change the billing method from pay-as-you-go to subscription**:
      *   *     *   You can change the billing method of all data disks that are attached to an instance from pay-as-you-go to subscription.
      *   *     *   This operation cannot be called for a pay-as-you-go instance that has an automatic release time set.
@@ -23082,12 +23337,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * When you call this operation for an ECS instance, take note of the following items:
-     *   * *   The ECS instance must be in the **Stopped** state. The instance is automatically restarted after it is migrated.
+     * Take note of the following items:
+     *   * *   The instance must be in the **Stopped** (Stopped) state. The instance is automatically restarted after it is migrated.
      *   * *   The network type of the instance must be Virtual Private Cloud (VPC).
      *   * *   The instance and the destination dedicated host to which to migrate the instance must belong to the same account and reside in the same region and zone.
      *   * *   A pay-as-you-go instance can be migrated to a subscription dedicated host. A subscription instance can be migrated only between subscription dedicated hosts. The expiration date of the subscription instance cannot be later than that of the destination dedicated host.
-     *   * *   You can migrate only pay-as-you-go instances from a shared host to a dedicated host. You cannot migrate subscription or preemptible instances from a shared host to a dedicated host.
+     *   * *   You can migrate only pay-as-you-go instances from a shared host to a dedicated host. You cannot migrate subscription instances or preemptible instances from a shared host to a dedicated host.
      *   * *   You can redeploy an instance to a specific dedicated host cluster.
      *   *
      * @param ModifyInstanceDeploymentRequest $request ModifyInstanceDeploymentRequest
@@ -23166,12 +23421,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * When you call this operation for an ECS instance, take note of the following items:
-     *   * *   The ECS instance must be in the **Stopped** state. The instance is automatically restarted after it is migrated.
+     * Take note of the following items:
+     *   * *   The instance must be in the **Stopped** (Stopped) state. The instance is automatically restarted after it is migrated.
      *   * *   The network type of the instance must be Virtual Private Cloud (VPC).
      *   * *   The instance and the destination dedicated host to which to migrate the instance must belong to the same account and reside in the same region and zone.
      *   * *   A pay-as-you-go instance can be migrated to a subscription dedicated host. A subscription instance can be migrated only between subscription dedicated hosts. The expiration date of the subscription instance cannot be later than that of the destination dedicated host.
-     *   * *   You can migrate only pay-as-you-go instances from a shared host to a dedicated host. You cannot migrate subscription or preemptible instances from a shared host to a dedicated host.
+     *   * *   You can migrate only pay-as-you-go instances from a shared host to a dedicated host. You cannot migrate subscription instances or preemptible instances from a shared host to a dedicated host.
      *   * *   You can redeploy an instance to a specific dedicated host cluster.
      *   *
      * @param ModifyInstanceDeploymentRequest $request ModifyInstanceDeploymentRequest
@@ -23333,7 +23588,7 @@ class Ecs extends OpenApiClient
      *   *     *   Within a single region, the sum of actual peak bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
      *   *     *   Within a single region, the sum of actual peak bandwidths of all ECS instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
      *   * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a subscription (PrePaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, a public IP address is automatically assigned to the instance.
-     *   * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a pay-as-you-go (PostPaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, no public IP address is assigned to the instance. You must call the [AllocatePublicIpAddress](~~25544~~) operation to assign a public IP address to the instance.
+     *   * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a pay-as-you-go (PostPaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, no public IP address is assigned to the instance. You must set `AllocatePublicIp` to true or call the [AllocatePublicIpAddress](~~25544~~) operation to assign a public IP address to the instance.
      *   * *   An instance in the classic network must be in the Stopped state before you can upgrade its outbound public bandwidth (InternetMaxBandwidthOut) from 0 Mbit/s.
      *   * *   After the bandwidth is upgraded, AutoPay is set to true by default and the payment is automatically made. Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and must be canceled. If your account balance is insufficient, you can set AutoPay to false. In this case, when you call the ModifyInstanceNetworkSpec operation, an unpaid order is generated. Then, you can log on to the ECS console to pay for the order.
      *   * *   The price difference is refunded to the payment account that you used. Vouchers or coupons that have been redeemed cannot be returned.
@@ -23413,7 +23668,7 @@ class Ecs extends OpenApiClient
      *   *     *   Within a single region, the sum of actual peak bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
      *   *     *   Within a single region, the sum of actual peak bandwidths of all ECS instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
      *   * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a subscription (PrePaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, a public IP address is automatically assigned to the instance.
-     *   * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a pay-as-you-go (PostPaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, no public IP address is assigned to the instance. You must call the [AllocatePublicIpAddress](~~25544~~) operation to assign a public IP address to the instance.
+     *   * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a pay-as-you-go (PostPaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, no public IP address is assigned to the instance. You must set `AllocatePublicIp` to true or call the [AllocatePublicIpAddress](~~25544~~) operation to assign a public IP address to the instance.
      *   * *   An instance in the classic network must be in the Stopped state before you can upgrade its outbound public bandwidth (InternetMaxBandwidthOut) from 0 Mbit/s.
      *   * *   After the bandwidth is upgraded, AutoPay is set to true by default and the payment is automatically made. Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and must be canceled. If your account balance is insufficient, you can set AutoPay to false. In this case, when you call the ModifyInstanceNetworkSpec operation, an unpaid order is generated. Then, you can log on to the ECS console to pay for the order.
      *   * *   The price difference is refunded to the payment account that you used. Vouchers or coupons that have been redeemed cannot be returned.
@@ -23430,15 +23685,15 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * For information about how to use the SDK for Python to change resource configurations, see [Query available resources for configuration changes](~~109517~~).
-     *   * When you call this operation, take note of the following items:
+     * For information about how to use ECS SDK for Python to change resource configurations, see [Query available resources for configuration changes](~~109517~~).
+     *   * Take note of the following items:
      *   * *   Make sure that you have no overdue payments in your account.
-     *   * *   You can adjust the public bandwidth of an instance only when the instance is in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
+     *   * *   You can modify the public bandwidth of an instance only when the instance is in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
      *   * *   Before you change the instance type of a pay-as-you-go instance, you can call the [DescribeResourcesModification](~~66187~~) operation to query the instance types to which you can change.
      *   * *   You can change the instance type of an instance only when the instance is in the **Stopped** (`Stopped`) state.
-     *   * *   You can change only the instance type or only the public bandwidth of an instance at a time. The instance type and the public bandwidth of an instance cannot be changed together.
-     *   * *   From November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to the throttling policy of your account. To increase the maximum bandwidth value, submit a ticket. The following throttling policies apply:
-     *   *     *   Within a single region, the sum of actual peak bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
+     *   * *   The instance type and the public bandwidth of an instance cannot be changed together.
+     *   * *   As of November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to the throttling policy specified for your account. To increase the maximum bandwidth value, submit a ticket. The following throttling policies apply:
+     *   *     *   Within a single region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
      *   *     *   Within a single region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
      *   *
      * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
@@ -23461,6 +23716,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->disk)) {
             $query['Disk'] = $request->disk;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
@@ -23514,15 +23772,15 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * For information about how to use the SDK for Python to change resource configurations, see [Query available resources for configuration changes](~~109517~~).
-     *   * When you call this operation, take note of the following items:
+     * For information about how to use ECS SDK for Python to change resource configurations, see [Query available resources for configuration changes](~~109517~~).
+     *   * Take note of the following items:
      *   * *   Make sure that you have no overdue payments in your account.
-     *   * *   You can adjust the public bandwidth of an instance only when the instance is in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
+     *   * *   You can modify the public bandwidth of an instance only when the instance is in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
      *   * *   Before you change the instance type of a pay-as-you-go instance, you can call the [DescribeResourcesModification](~~66187~~) operation to query the instance types to which you can change.
      *   * *   You can change the instance type of an instance only when the instance is in the **Stopped** (`Stopped`) state.
-     *   * *   You can change only the instance type or only the public bandwidth of an instance at a time. The instance type and the public bandwidth of an instance cannot be changed together.
-     *   * *   From November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to the throttling policy of your account. To increase the maximum bandwidth value, submit a ticket. The following throttling policies apply:
-     *   *     *   Within a single region, the sum of actual peak bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
+     *   * *   The instance type and the public bandwidth of an instance cannot be changed together.
+     *   * *   As of November 27, 2020, the maximum bandwidth value available for you to create ECS instances or to change ECS instance configurations is subject to the throttling policy specified for your account. To increase the maximum bandwidth value, submit a ticket. The following throttling policies apply:
+     *   *     *   Within a single region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
      *   *     *   Within a single region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
      *   *
      * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
@@ -23731,6 +23989,90 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param ModifyInvocationAttributeRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyInvocationAttributeResponse
+     */
+    public function modifyInvocationAttributeWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyInvocationAttributeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->commandContent)) {
+            $query['CommandContent'] = $request->commandContent;
+        }
+        if (!Utils::isUnset($request->contentEncoding)) {
+            $query['ContentEncoding'] = $request->contentEncoding;
+        }
+        if (!Utils::isUnset($request->enableParameter)) {
+            $query['EnableParameter'] = $request->enableParameter;
+        }
+        if (!Utils::isUnset($request->frequency)) {
+            $query['Frequency'] = $request->frequency;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->invokeId)) {
+            $query['InvokeId'] = $request->invokeId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInvocationAttribute',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInvocationAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInvocationAttributeRequest $request
+     *
+     * @return ModifyInvocationAttributeResponse
+     */
+    public function modifyInvocationAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInvocationAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * ## Debugging
      *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=ModifyLaunchTemplateDefaultVersion\\&type=RPC\\&version=2014-05-26).
      *   *
@@ -23913,8 +24255,14 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->rxQueueSize)) {
+            $query['RxQueueSize'] = $request->rxQueueSize;
+        }
         if (!Utils::isUnset($request->securityGroupId)) {
             $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->txQueueSize)) {
+            $query['TxQueueSize'] = $request->txQueueSize;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -27578,27 +27926,26 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * In the security group-related API documents, outbound traffic is sent by the source and received by the destination.
-     *   * When you call this operation, you can use one of the following groups of parameters to specify the security group rules that you want to delete:
-     *   * *   The parameter used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules. - If the ID of a specified security group rule does not exist, an error is reported. - You cannot specify the parameters that are no longer available and the Permissions.N-prefixed counterparts of the parameters at the same time. - Sample request:
+     * When you call this operation, you can use one of the following groups of parameters to specify the security group rules that you want to delete:
+     *   * *   Parameters used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules. - If the security group rule ID that you specify does not exist, an error is reported. - You cannot specify the parameters that are no longer available and the Permissions.N-prefixed counterparts of the parameters at the same time. - Sample request:
      *   *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
      *   *         &SecurityGroupId=sg-bp67acfmxazb4p****
      *   *         &SecurityGroupRuleId.1=sgr-bpdfmk****
      *   *         &SecurityGroupRuleId.2=sgr-bpdfmg****
      *   *         &<Common request parameters>
-     *   * *   Parameters prefixed with Permissions.N.
-     *   *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroupEgress is successful but no security group rule is deleted.
-     *   *     *   You cannot specify the SecurityGroupRuleId parameter or parameters that are not prefixed with Permissions.N.
-     *   *     *   You can delete a specific outbound security group rule by specifying one of the following groups of parameters. However, you cannot delete the security group rule if you specify only one of the parameters in a group.
-     *   *         *   Parameters used to delete an outbound security group rule that controls access from a specified CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestCidrIp.
+     *   * *   Parameters that are prefixed with Permissions.N.
+     *   *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroupEgress is successful but no security group rules are deleted.
+     *   *     *   The SecurityGroupRuleId.N parameter and parameters that are not prefixed with Permissions.N cannot be specified.
+     *   *     *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
+     *   *         *   Parameters used to determine an outbound security group rule that controls access to a specified CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, DestCidrIp, and SourceCidrIp (optional). Sample request:
      *   *             ```
      *   *             ```
      *   *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress \\&SecurityGroupId=sg-bp67acfmxazb4ph\\*\\*\\* \\&Permissions.1.IpProtocol=TCP \\&Permissions.1.DestCidrIp=10.0.0.0/8 \\&Permissions.1.PortRange=-22/22 \\&Permissions.1.NicType=intranet \\&Permissions.1.Policy=accept &\\<Common request parameters> \\`\\`\\`
-     *   *         *   Parameters used to delete an outbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestGroupId.
+     *   *         *   Parameters used to determine an outbound security group rule that controls access to another security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestGroupId. Sample request:
      *   *             ```
      *   *             ```
      *   *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress \\&SecurityGroupId=sg-bp67acfmxazb4ph\\*\\*\\* \\&Permissions.1.DestGroupId=sg-bp67acfmxa123b\\*\\*\\*\\* \\&Permissions.1.IpProtocol=TCP \\&Permissions.1.PortRange=22/22 \\&Permissions.1.NicType=intranet \\&Permissions.1.Policy=accept &\\<Common request parameters> \\`\\`\\`
-     *   *         *   Parameters used to delete an outbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestPrefixListId.
+     *   *         *   Parameters used to determine an outbound security group rule that controls access to a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestPrefixListId. Sample request:
      *   *             ```
      *   *             ```
      *   *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress \\&SecurityGroupId=sg-bp67acfmxazb4ph\\*\\*\\* \\&Permissions.1.IpProtocol=TCP \\&Permissions.1.DestPrefixListId=pl-x1j1k5ykzqlixdcy\\*\\*\\*\\* \\&Permissions.1.PortRange=-22/22 \\&Permissions.1.NicType=intranet \\&Permissions.1.Policy=accept &\\<Common request parameters> \\`\\`\\`.
@@ -27715,27 +28062,26 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * In the security group-related API documents, outbound traffic is sent by the source and received by the destination.
-     *   * When you call this operation, you can use one of the following groups of parameters to specify the security group rules that you want to delete:
-     *   * *   The parameter used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules. - If the ID of a specified security group rule does not exist, an error is reported. - You cannot specify the parameters that are no longer available and the Permissions.N-prefixed counterparts of the parameters at the same time. - Sample request:
+     * When you call this operation, you can use one of the following groups of parameters to specify the security group rules that you want to delete:
+     *   * *   Parameters used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules. - If the security group rule ID that you specify does not exist, an error is reported. - You cannot specify the parameters that are no longer available and the Permissions.N-prefixed counterparts of the parameters at the same time. - Sample request:
      *   *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
      *   *         &SecurityGroupId=sg-bp67acfmxazb4p****
      *   *         &SecurityGroupRuleId.1=sgr-bpdfmk****
      *   *         &SecurityGroupRuleId.2=sgr-bpdfmg****
      *   *         &<Common request parameters>
-     *   * *   Parameters prefixed with Permissions.N.
-     *   *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroupEgress is successful but no security group rule is deleted.
-     *   *     *   You cannot specify the SecurityGroupRuleId parameter or parameters that are not prefixed with Permissions.N.
-     *   *     *   You can delete a specific outbound security group rule by specifying one of the following groups of parameters. However, you cannot delete the security group rule if you specify only one of the parameters in a group.
-     *   *         *   Parameters used to delete an outbound security group rule that controls access from a specified CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestCidrIp.
+     *   * *   Parameters that are prefixed with Permissions.N.
+     *   *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroupEgress is successful but no security group rules are deleted.
+     *   *     *   The SecurityGroupRuleId.N parameter and parameters that are not prefixed with Permissions.N cannot be specified.
+     *   *     *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
+     *   *         *   Parameters used to determine an outbound security group rule that controls access to a specified CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, DestCidrIp, and SourceCidrIp (optional). Sample request:
      *   *             ```
      *   *             ```
      *   *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress \\&SecurityGroupId=sg-bp67acfmxazb4ph\\*\\*\\* \\&Permissions.1.IpProtocol=TCP \\&Permissions.1.DestCidrIp=10.0.0.0/8 \\&Permissions.1.PortRange=-22/22 \\&Permissions.1.NicType=intranet \\&Permissions.1.Policy=accept &\\<Common request parameters> \\`\\`\\`
-     *   *         *   Parameters used to delete an outbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestGroupId.
+     *   *         *   Parameters used to determine an outbound security group rule that controls access to another security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestGroupId. Sample request:
      *   *             ```
      *   *             ```
      *   *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress \\&SecurityGroupId=sg-bp67acfmxazb4ph\\*\\*\\* \\&Permissions.1.DestGroupId=sg-bp67acfmxa123b\\*\\*\\*\\* \\&Permissions.1.IpProtocol=TCP \\&Permissions.1.PortRange=22/22 \\&Permissions.1.NicType=intranet \\&Permissions.1.Policy=accept &\\<Common request parameters> \\`\\`\\`
-     *   *         *   Parameters used to delete an outbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestPrefixListId.
+     *   *         *   Parameters used to determine an outbound security group rule that controls access to a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestPrefixListId. Sample request:
      *   *             ```
      *   *             ```
      *   *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress \\&SecurityGroupId=sg-bp67acfmxazb4ph\\*\\*\\* \\&Permissions.1.IpProtocol=TCP \\&Permissions.1.DestPrefixListId=pl-x1j1k5ykzqlixdcy\\*\\*\\*\\* \\&Permissions.1.PortRange=-22/22 \\&Permissions.1.NicType=intranet \\&Permissions.1.Policy=accept &\\<Common request parameters> \\`\\`\\`.
@@ -27752,7 +28098,23 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * /home/.
+     * ## Usage notes
+     *   * Unlike the [CreateCommand](~~64844~~) and [InvokeCommand](~~64841~~) operations, RunCommand can be used to create and run a command in a single request.
+     *   * Take note of the following items:
+     *   * *   The instances on which you want to run a command must be in the Running (`Running`) state. You can call the [DescribeInstances](~~25506~~) operation to query the status of instances.
+     *   * *   [Cloud Assistant Agent](~~64921~~) is pre-installed on the instances.
+     *   * *   Before you run a PowerShell command on a Windows instance, make sure that the PowerShell module is installed on the instance.
+     *   * *   When you use a cron expression to specify a schedule, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For information about time zones, see [Configure the NTP service for ECS instances that run CentOS 6](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+     *   * *   You can set `Timeout` to specify the timeout period for executions of the command on ECS instances. If an execution times out, Cloud Assistant Agent forcefully terminates the command process.
+     *   *     *   When the one-time execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+     *   *     *   For a scheduled task, the timeout period takes effect on each execution of the command. The timeout of one execution does not affect the subsequent executions of the command. When a scheduled execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+     *   *         To ensure that scheduled tasks can run as expected, make sure that the version of Cloud Assistant Agent is not earlier than the following ones. A scheduled task can run a command at a specified interval, only once at a specified time, or at designated times based on a cron expression with a specified year or time zone. If the `ClientNeedUpgrade` error code is returned, you must upgrade Cloud Assistant Agent to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
+     *   *         *   Linux: 2.2.3.282.
+     *   *         *   Windows: 2.1.3.282.
+     *   * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on Cloud Assistant Agent. If a command execution fails, no execution information is generated. For more information, see [Check execution results and troubleshoot common issues](~~87029~~).
+     *   * *   When `EnableParameter` is set to true, the custom parameter feature is enabled. When you specify `CommandContent`, you can specify custom parameters in the `{{parameter}}` format. Then, when the command is run, the key-value pairs of the custom parameters are passed in.
+     *   * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region based on your ECS usage. You can perform operations that are described in the [View and increase resource quotas](~~184115~~) topic or call the [DescribeAccountAttribute](~~73772~~) operation to query resource quotas.
+     *   * *   Before you run a command on instances, especially new instances, we recommend that you call the [DescribeCloudAssistantStatus](~~87346~~) operation to query the status of Cloud Assistant Agent on the instances, and then run the command when the value of CloudAssistantStatus in the response is true for the instances.
      *   *
      * @param RunCommandRequest $tmpReq  RunCommandRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -27828,6 +28190,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->resourceTag)) {
+            $query['ResourceTag'] = $request->resourceTag;
+        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
@@ -27868,7 +28233,23 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * /home/.
+     * ## Usage notes
+     *   * Unlike the [CreateCommand](~~64844~~) and [InvokeCommand](~~64841~~) operations, RunCommand can be used to create and run a command in a single request.
+     *   * Take note of the following items:
+     *   * *   The instances on which you want to run a command must be in the Running (`Running`) state. You can call the [DescribeInstances](~~25506~~) operation to query the status of instances.
+     *   * *   [Cloud Assistant Agent](~~64921~~) is pre-installed on the instances.
+     *   * *   Before you run a PowerShell command on a Windows instance, make sure that the PowerShell module is installed on the instance.
+     *   * *   When you use a cron expression to specify a schedule, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instance meets your business requirements. For information about time zones, see [Configure the NTP service for ECS instances that run CentOS 6](~~92803~~) or [Configure the NTP service for Windows instances](~~51890~~).
+     *   * *   You can set `Timeout` to specify the timeout period for executions of the command on ECS instances. If an execution times out, Cloud Assistant Agent forcefully terminates the command process.
+     *   *     *   When the one-time execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+     *   *     *   For a scheduled task, the timeout period takes effect on each execution of the command. The timeout of one execution does not affect the subsequent executions of the command. When a scheduled execution of a command times out, the execution state ([InvokeRecordStatus](~~64845~~)) of the command becomes Failed.
+     *   *         To ensure that scheduled tasks can run as expected, make sure that the version of Cloud Assistant Agent is not earlier than the following ones. A scheduled task can run a command at a specified interval, only once at a specified time, or at designated times based on a cron expression with a specified year or time zone. If the `ClientNeedUpgrade` error code is returned, you must upgrade Cloud Assistant Agent to the latest version. For more information, see [Update or disable updates for the Cloud Assistant client](~~134383~~).
+     *   *         *   Linux: 2.2.3.282.
+     *   *         *   Windows: 2.1.3.282.
+     *   * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on Cloud Assistant Agent. If a command execution fails, no execution information is generated. For more information, see [Check execution results and troubleshoot common issues](~~87029~~).
+     *   * *   When `EnableParameter` is set to true, the custom parameter feature is enabled. When you specify `CommandContent`, you can specify custom parameters in the `{{parameter}}` format. Then, when the command is run, the key-value pairs of the custom parameters are passed in.
+     *   * *   You can retain up to 500 to 10,000 Cloud Assistant commands in each region based on your ECS usage. You can perform operations that are described in the [View and increase resource quotas](~~184115~~) topic or call the [DescribeAccountAttribute](~~73772~~) operation to query resource quotas.
+     *   * *   Before you run a command on instances, especially new instances, we recommend that you call the [DescribeCloudAssistantStatus](~~87346~~) operation to query the status of Cloud Assistant Agent on the instances, and then run the command when the value of CloudAssistantStatus in the response is true for the instances.
      *   *
      * @param RunCommandRequest $request RunCommandRequest
      *
@@ -27883,7 +28264,7 @@ class Ecs extends OpenApiClient
 
     /**
      * * **Preparations**:
-     *   *     * The real-name verification is complete. For more information, see [Real-name verification](~~48263~~).
+     *   *     * The real-name verification is complete.
      *   *     * Cost estimation: Learn about the billing methods of ECS resources. For more information, see [Billing overview](~~25398~~).
      *   *     * Instance type selection: Call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of instance types, or see [Best practices for instance type selection](~~58291~~) to learn about how to select instance types.
      *   *     * Query for available resources: Call the [DescribeAvailableResource](~~66186~~) operation to query available resources in a specific region or zone.
@@ -27902,7 +28283,7 @@ class Ecs extends OpenApiClient
      *   *     * We recommend that you use auto provisioning groups in the following scenarios: Resources are insufficient to create more than 100 instances at a time, you want to quickly create instances regardless of resource configurations such as instance types or zones, or you want to create instances to consume a specific total number of vCPUs regardless of the number of the instances. You can call the [CreateAutoProvisioningGroup](~~122738~~) operation to create an auto provisioning group to deploy an instance cluster across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
      *   *     * You can call the `RunInstances` operation to batch create instances. To better manage and search for these instances, we recommend that you specify tags for the instances by using the `Tag.N.Key` and `Tag.N.Value` parameters. You can also append incremental suffixes (`UniqueSuffix`) to the hostname (`HostName`) and to the instance name (`InstanceName`).
      *   *     * A launch template contains parameters required to create an instance so that you do not have to specify these parameters every time you create instances. You can call the [CreateLaunchTemplate](~~74686~~) operation to create a launch template. Then, in your request to call the `RunInstances` operation, you can specify the `LaunchTemplateId` and `LaunchTemplateVersion` parameters to use the launch template.
-     *   *     * When you create an instance in the [ECS console](https://ecs.console.aliyun.com/), you can view the best practices for calling the `RunInstances` operation. In the Preview step, click View Open API in the Configurations Selected section. In the dialog box that appears, the left-side **API Workflow** section shows the operations and request parameters that are related to the `RunInstances` operation. The right-side section shows SDK examples for the **Java** and **Python** programming languages.
+     *   *     * When you create an instance in the [OpenAPI Explorer](https://api.alibabacloud.com/api/Ecs), you can view the best practices for calling the `RunInstances` operation. In the Preview step, click View OpenAPI in the Configurations Selected section. In the dialog box that appears, the left-side **API Workflow** section shows the operations and request parameters that are related to the `RunInstances` operation. The right-side section shows SDK examples for the **Java** and **Python** programming languages.
      *   *
      * @param RunInstancesRequest $request RunInstancesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -28164,7 +28545,7 @@ class Ecs extends OpenApiClient
 
     /**
      * * **Preparations**:
-     *   *     * The real-name verification is complete. For more information, see [Real-name verification](~~48263~~).
+     *   *     * The real-name verification is complete.
      *   *     * Cost estimation: Learn about the billing methods of ECS resources. For more information, see [Billing overview](~~25398~~).
      *   *     * Instance type selection: Call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of instance types, or see [Best practices for instance type selection](~~58291~~) to learn about how to select instance types.
      *   *     * Query for available resources: Call the [DescribeAvailableResource](~~66186~~) operation to query available resources in a specific region or zone.
@@ -28183,7 +28564,7 @@ class Ecs extends OpenApiClient
      *   *     * We recommend that you use auto provisioning groups in the following scenarios: Resources are insufficient to create more than 100 instances at a time, you want to quickly create instances regardless of resource configurations such as instance types or zones, or you want to create instances to consume a specific total number of vCPUs regardless of the number of the instances. You can call the [CreateAutoProvisioningGroup](~~122738~~) operation to create an auto provisioning group to deploy an instance cluster across different billing methods, instance families, and zones. For more information, see [Use auto provisioning group-related API operations to create multiple ECS instances at the same time](~~200772~~).
      *   *     * You can call the `RunInstances` operation to batch create instances. To better manage and search for these instances, we recommend that you specify tags for the instances by using the `Tag.N.Key` and `Tag.N.Value` parameters. You can also append incremental suffixes (`UniqueSuffix`) to the hostname (`HostName`) and to the instance name (`InstanceName`).
      *   *     * A launch template contains parameters required to create an instance so that you do not have to specify these parameters every time you create instances. You can call the [CreateLaunchTemplate](~~74686~~) operation to create a launch template. Then, in your request to call the `RunInstances` operation, you can specify the `LaunchTemplateId` and `LaunchTemplateVersion` parameters to use the launch template.
-     *   *     * When you create an instance in the [ECS console](https://ecs.console.aliyun.com/), you can view the best practices for calling the `RunInstances` operation. In the Preview step, click View Open API in the Configurations Selected section. In the dialog box that appears, the left-side **API Workflow** section shows the operations and request parameters that are related to the `RunInstances` operation. The right-side section shows SDK examples for the **Java** and **Python** programming languages.
+     *   *     * When you create an instance in the [OpenAPI Explorer](https://api.alibabacloud.com/api/Ecs), you can view the best practices for calling the `RunInstances` operation. In the Preview step, click View OpenAPI in the Configurations Selected section. In the dialog box that appears, the left-side **API Workflow** section shows the operations and request parameters that are related to the `RunInstances` operation. The right-side section shows SDK examples for the **Java** and **Python** programming languages.
      *   *
      * @param RunInstancesRequest $request RunInstancesRequest
      *
@@ -28760,11 +29141,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Specifies whether to perform only a dry run, without performing the actual request. Valid Values:
-     *   * *   true: performs a dry run, but the request is not made. The system checks the request for potential issues, including required parameters, request syntax, and instance status. If the request passes the dry run, `DRYRUN.SUCCESS` is returned. Otherwise, an error message is returned.
-     *   * > If you set `BatchOptimization` to `SuccessFirst` and `DryRun` to true, only `DRYRUN.SUCCESS` is returned regardless of whether the request passes the dry run.
-     *   * *   false: performs a dry run and sends the request. If the request passes the dry run, the operation is performed.
-     *   * Default value: false.
+     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons. No operations are allowed on the instance.
+     *   * *   After you enable the economical mode for a pay-as-you-go instance that resided in a virtual private cloud (VPC), you can set `StoppedMode` to KeepCharging. Then, the pay-as-you-go instance continues to be billed after it is stopped. The instance type resources and public IP address are reserved for the instance.
+     *   * *   Batch operations are supported. You can use `BatchOptimization` to specify the batch operation mode.
      *   *
      * @param StopInstancesRequest $request StopInstancesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -28824,11 +29203,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Specifies whether to perform only a dry run, without performing the actual request. Valid Values:
-     *   * *   true: performs a dry run, but the request is not made. The system checks the request for potential issues, including required parameters, request syntax, and instance status. If the request passes the dry run, `DRYRUN.SUCCESS` is returned. Otherwise, an error message is returned.
-     *   * > If you set `BatchOptimization` to `SuccessFirst` and `DryRun` to true, only `DRYRUN.SUCCESS` is returned regardless of whether the request passes the dry run.
-     *   * *   false: performs a dry run and sends the request. If the request passes the dry run, the operation is performed.
-     *   * Default value: false.
+     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons. No operations are allowed on the instance.
+     *   * *   After you enable the economical mode for a pay-as-you-go instance that resided in a virtual private cloud (VPC), you can set `StoppedMode` to KeepCharging. Then, the pay-as-you-go instance continues to be billed after it is stopped. The instance type resources and public IP address are reserved for the instance.
+     *   * *   Batch operations are supported. You can use `BatchOptimization` to specify the batch operation mode.
      *   *
      * @param StopInstancesRequest $request StopInstancesRequest
      *
@@ -29197,7 +29574,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * ## Usage notes
+     *   * - The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **Bound** (InUse) state.
+     *   * - If the ENI is a primary ENI, the Elastic Compute Service (ECS) instance to which the ENI is attached must be in the **Running** (Running) or **Stopped** (Stopped) state.
      *   *
      * @param UnassignPrivateIpAddressesRequest $request UnassignPrivateIpAddressesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -29254,7 +29633,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * ## Usage notes
+     *   * - The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **Bound** (InUse) state.
+     *   * - If the ENI is a primary ENI, the Elastic Compute Service (ECS) instance to which the ENI is attached must be in the **Running** (Running) or **Stopped** (Stopped) state.
      *   *
      * @param UnassignPrivateIpAddressesRequest $request UnassignPrivateIpAddressesRequest
      *

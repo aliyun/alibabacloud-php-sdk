@@ -17,6 +17,15 @@ class DescribeManagedInstancesResponseBody extends Model
     public $instances;
 
     /**
+     * @description The query token returned in the call.
+     *
+     * @example AAAAAdDWBF2
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The page number.
      *
      * @example 1
@@ -53,6 +62,7 @@ class DescribeManagedInstancesResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'instances'  => 'Instances',
+        'nextToken'  => 'NextToken',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
@@ -74,6 +84,9 @@ class DescribeManagedInstancesResponseBody extends Model
                     $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -107,6 +120,9 @@ class DescribeManagedInstancesResponseBody extends Model
                     $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

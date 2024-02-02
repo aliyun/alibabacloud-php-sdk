@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description Specifies whether to forcefully release the instance in the `Running` state. Valid values:****
      *
      *   true: forcefully releases the instance in the `Running` state.**** This operation is equivalent to performing a hard shut-down. Cache data that is not written to persistent storage will be lost.
@@ -60,6 +65,7 @@ class DeleteInstanceRequest extends Model
      */
     public $terminateSubscription;
     protected $_name = [
+        'dryRun'                => 'DryRun',
         'force'                 => 'Force',
         'instanceId'            => 'InstanceId',
         'ownerAccount'          => 'OwnerAccount',
@@ -76,6 +82,9 @@ class DeleteInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
@@ -109,6 +118,9 @@ class DeleteInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }

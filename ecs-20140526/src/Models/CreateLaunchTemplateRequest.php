@@ -32,6 +32,13 @@ class CreateLaunchTemplateRequest extends Model
     public $autoReleaseTime;
 
     /**
+     * @description The performance mode of the burstable instance. Valid values:
+     *
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Burstable instances](~~59977~~).
+     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Burstable instances](~~59977~~).
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $creditSpecification;
@@ -351,12 +358,9 @@ class CreateLaunchTemplateRequest extends Model
     public $securityGroupIds;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     * @description The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
      *
-     *   The following protection periods are available in invitational preview: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, submit a ticket.
-     *   A value of 0 indicates that no protection period is configured for the preemptible instance.
-     *
-     * Default value: 1.
+     * >If you set SpotStrategy to SpotWithPriceLimit or SpotAsPriceGo, this parameter takes effect.
      * @example 1
      *
      * @var int

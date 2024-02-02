@@ -23,6 +23,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      *
      * @example This is description.
      *
+     * @deprecated
+     *
      * @var string
      */
     public $description;
@@ -31,6 +33,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.DestCidrIp` to specify the destination IPv4 CIDR block.
      *
      * @example 10.0.0.0/8
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -41,6 +45,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      *
      * @example sg-bp67acfmxazb4p****
      *
+     * @deprecated
+     *
      * @var string
      */
     public $destGroupId;
@@ -49,6 +55,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.DestGroupOwnerAccount` to specify the Alibaba Cloud account that manages the destination security group.
      *
      * @example Test@aliyun.com
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -59,6 +67,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      *
      * @example 12345678910
      *
+     * @deprecated
+     *
      * @var int
      */
     public $destGroupOwnerId;
@@ -67,6 +77,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.DestPrefixListId` to specify the ID of the destination prefix list.
      *
      * @example pl-x1j1k5ykzqlixdcy****
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -77,6 +89,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      *
      * @example ALL
      *
+     * @deprecated
+     *
      * @var string
      */
     public $ipProtocol;
@@ -85,6 +99,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.Ipv6DestCidrIp` to specify the destination IPv6 CIDR block.
      *
      * @example 2001:db8:1233:1a00::***
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -95,6 +111,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      *
      * @example 2001:db8:1234:1a00::***
      *
+     * @deprecated
+     *
      * @var string
      */
     public $ipv6SourceCidrIp;
@@ -103,6 +121,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.NicType` to specify the NIC type.
      *
      * @example intranet
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -130,6 +150,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      *
      * @example accept
      *
+     * @deprecated
+     *
      * @var string
      */
     public $policy;
@@ -139,6 +161,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      *
      * @example 80/80
      *
+     * @deprecated
+     *
      * @var string
      */
     public $portRange;
@@ -147,6 +171,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.Priority` to specify the rule priority.
      *
      * @example 1
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -185,6 +211,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      *
      * @example 10.0.0.0/8
      *
+     * @deprecated
+     *
      * @var string
      */
     public $sourceCidrIp;
@@ -193,6 +221,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      * @description This parameter is deprecated. Use `Permissions.N.SourcePortRange` to specify the range of source ports.
      *
      * @example 80/80
+     *
+     * @deprecated
      *
      * @var string
      */

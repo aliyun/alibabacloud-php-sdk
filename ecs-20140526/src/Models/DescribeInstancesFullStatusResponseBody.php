@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesFullStatusResponseBody extends Model
 {
     /**
-     * @description Details about the full status information of instances.
+     * @description The full status information of the instances.
      *
      * @var instanceFullStatusSet
      */
     public $instanceFullStatusSet;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeInstancesFullStatusResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 1
      *

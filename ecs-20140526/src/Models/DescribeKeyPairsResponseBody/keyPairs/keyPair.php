@@ -10,16 +10,16 @@ use AlibabaCloud\Tea\Model;
 class keyPair extends Model
 {
     /**
-     * @description The number of entries returned per page.
+     * @description The time when the key pair was created.
      *
-     * @example 2019-12-04T13:35:00Z
+     * @example 2023-09-04T08:33Z
      *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description Queries one or more key pairs.
+     * @description The fingerprint of the key pair.
      *
      * @example ABC1234567
      *
@@ -28,7 +28,7 @@ class keyPair extends Model
     public $keyPairFingerPrint;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the key pair.
      *
      * @example testKeyPairName
      *
@@ -37,6 +37,13 @@ class keyPair extends Model
     public $keyPairName;
 
     /**
+     * @var string
+     */
+    public $publicKey;
+
+    /**
+     * @description The ID of the resource group.
+     *
      * @example rg-amnhr7u7c7hj****
      *
      * @var string
@@ -44,6 +51,8 @@ class keyPair extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags of the key pair.
+     *
      * @var tags
      */
     public $tags;
@@ -51,6 +60,7 @@ class keyPair extends Model
         'creationTime'       => 'CreationTime',
         'keyPairFingerPrint' => 'KeyPairFingerPrint',
         'keyPairName'        => 'KeyPairName',
+        'publicKey'          => 'PublicKey',
         'resourceGroupId'    => 'ResourceGroupId',
         'tags'               => 'Tags',
     ];
@@ -70,6 +80,9 @@ class keyPair extends Model
         }
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
+        }
+        if (null !== $this->publicKey) {
+            $res['PublicKey'] = $this->publicKey;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -97,6 +110,9 @@ class keyPair extends Model
         }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
+        }
+        if (isset($map['PublicKey'])) {
+            $model->publicKey = $map['PublicKey'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

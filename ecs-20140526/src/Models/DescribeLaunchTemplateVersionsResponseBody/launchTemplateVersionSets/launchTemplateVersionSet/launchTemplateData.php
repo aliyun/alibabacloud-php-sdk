@@ -28,6 +28,13 @@ class launchTemplateData extends Model
     public $autoReleaseTime;
 
     /**
+     * @description The performance mode of the burstable instance. Valid values:
+     *
+     *   Standard: standard mode. For more information, see the "Standard mode" section in [Overview](~~59977#section-svb-w9d-dju~~).
+     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in [Overview](~~59977#section-svb-w9d-dju~~).
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $creditSpecification;
@@ -284,13 +291,9 @@ class launchTemplateData extends Model
     public $securityGroupIds;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     * @description The protection period of the preemptible instance. Unit: hours. Valid values:
      *
-     * Take note of the following items:
-     *
-     *   The following protection periods are in invitational preview: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, submit a ticket.
-     *   A value of 0 indicates that no protection period is configured for the preemptible instance.
-     *
+     * >This parameter was returned when the SpotStrategy parameter was set to SpotWithPriceLimit or SpotAsPriceGo.
      * @example 1
      *
      * @var int

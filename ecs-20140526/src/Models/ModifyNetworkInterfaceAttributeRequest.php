@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkInterfaceAttributeRequest extends Model
 {
     /**
+     * @description Specifies whether to retain the ENI when the associated instance is released. Valid values:
+     *
+     * - false
+     * @example true
+     *
      * @var bool
      */
     public $deleteOnRelease;
@@ -85,12 +90,22 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var int
+     */
+    public $rxQueueSize;
+
+    /**
      * @description The ID of security group N to which the secondary ENI finally belongs. If a security group to which the ENI has belonged is in the ID list, that security group is removed from the list. Valid values of N: 1, 2, 3, 4, and 5.
      *
      * > After you change the security group, the change takes effect after a short delay.
      * @var string[]
      */
     public $securityGroupId;
+
+    /**
+     * @var int
+     */
+    public $txQueueSize;
     protected $_name = [
         'deleteOnRelease'      => 'DeleteOnRelease',
         'description'          => 'Description',
@@ -102,7 +117,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'rxQueueSize'          => 'RxQueueSize',
         'securityGroupId'      => 'SecurityGroupId',
+        'txQueueSize'          => 'TxQueueSize',
     ];
 
     public function validate()
@@ -142,8 +159,14 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->rxQueueSize) {
+            $res['RxQueueSize'] = $this->rxQueueSize;
+        }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->txQueueSize) {
+            $res['TxQueueSize'] = $this->txQueueSize;
         }
 
         return $res;
@@ -187,10 +210,16 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+        if (isset($map['RxQueueSize'])) {
+            $model->rxQueueSize = $map['RxQueueSize'];
+        }
         if (isset($map['SecurityGroupId'])) {
             if (!empty($map['SecurityGroupId'])) {
                 $model->securityGroupId = $map['SecurityGroupId'];
             }
+        }
+        if (isset($map['TxQueueSize'])) {
+            $model->txQueueSize = $map['TxQueueSize'];
         }
 
         return $model;

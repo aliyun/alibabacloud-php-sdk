@@ -21,7 +21,7 @@ class DescribeInstancesFullStatusRequest extends Model
     public $notBefore;
 
     /**
-     * @description The IDs of the event. You can specify up to 100 event IDs in a single request.
+     * @description The IDs of the system events. You can specify up to 100 event IDs in a single request.
      *
      * @example e-bp1hygp5b04o56l0****
      *
@@ -30,7 +30,7 @@ class DescribeInstancesFullStatusRequest extends Model
     public $eventId;
 
     /**
-     * @description The type of the system event. This parameter is valid only when the InstanceEventType.N parameter is not specified. Valid values:
+     * @description The type of the system event. This parameter is valid only when InstanceEventType.N is not specified. Valid values:
      *
      *   SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
      *   SystemFailure.Reboot: The instance is restarted due to a system failure.
@@ -92,7 +92,7 @@ class DescribeInstancesFullStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be a positive integer.
+     * @description The page number. The value must be a positive integer.
      *
      * Default value: 1.
      * @example 1
@@ -102,7 +102,7 @@ class DescribeInstancesFullStatusRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     * @description The number of entries per page. Valid values: 1 to 100.
      *
      * Default value: 10.
      * @example 10
@@ -112,7 +112,7 @@ class DescribeInstancesFullStatusRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -133,9 +133,9 @@ class DescribeInstancesFullStatusRequest extends Model
     /**
      * @description The lifecycle state of the instance. Valid values:
      *
-     *   Starting
-     *   Running
-     *   Stopped
+     *   Starting: The instance is being started.
+     *   Running: The instance is running.
+     *   Stopped: The instance is stopped.
      *
      * @example Running
      *

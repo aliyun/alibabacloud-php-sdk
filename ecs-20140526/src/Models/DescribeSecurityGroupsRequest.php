@@ -171,6 +171,11 @@ class DescribeSecurityGroupsRequest extends Model
     public $securityGroupType;
 
     /**
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
      * @description The tags to add to the security groups.
      *
      * @var tag[]
@@ -204,6 +209,7 @@ class DescribeSecurityGroupsRequest extends Model
         'securityGroupIds'     => 'SecurityGroupIds',
         'securityGroupName'    => 'SecurityGroupName',
         'securityGroupType'    => 'SecurityGroupType',
+        'serviceManaged'       => 'ServiceManaged',
         'tag'                  => 'Tag',
         'vpcId'                => 'VpcId',
     ];
@@ -268,6 +274,9 @@ class DescribeSecurityGroupsRequest extends Model
         }
         if (null !== $this->securityGroupType) {
             $res['SecurityGroupType'] = $this->securityGroupType;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -346,6 +355,9 @@ class DescribeSecurityGroupsRequest extends Model
         }
         if (isset($map['SecurityGroupType'])) {
             $model->securityGroupType = $map['SecurityGroupType'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

@@ -9,19 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandwidthLimitationRequest extends Model
 {
     /**
-     * @description The preemption policy for the preemptible or pay-as-you-go instance. Valid values:
+     * @description The billing method of the instance. For more information, see [Billing overview](~~25398~~). Valid values:
      *
-     *   NoSpot: The instance is a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance with user-defined maximum hourly prices.
-     *   SpotAsPriceGo: The system automatically offers a bid, which is not higher than the pay-as-you-go price for the same instance type.
+     *   PrePaid: subscription
+     *   PostPaid: pay-as-you-go
      *
-     * >  This parameter takes effect only when the InstanceChargeType parameter is set to PostPaid.
-     * @example The instance type. For more information about the values, see [Instance families](~~25378~~).
+     * Default value: PostPaid.
+     * @example PostPaid
      *
-     * >  This parameter is required.
      * @var string
      */
     public $instanceChargeType;
+
+    /**
+     * @description The instance type. For information about the values, see [Instance families](~~25378~~).
+     *
+     * @example ecs.g5.large
+     *
+     * @var string
+     */
+    public $instanceType;
 
     /**
      * @description Specifies the operation for which to query the maximum public bandwidth. Valid values:
@@ -31,15 +38,6 @@ class DescribeBandwidthLimitationRequest extends Model
      *   Create: creates an ECS instance.
      *
      * Default value: Create.
-     * @example ecs.g5.large
-     *
-     * @var string
-     */
-    public $instanceType;
-
-    /**
-     * @description 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @example Upgrade
      *
      * @var string
@@ -57,7 +55,7 @@ class DescribeBandwidthLimitationRequest extends Model
     public $ownerId;
 
     /**
-     * @description PrePaid
+     * @description The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -66,8 +64,9 @@ class DescribeBandwidthLimitationRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the resource.
      *
+     * >  This parameter is required when the OperationType parameter is set to Upgrade or Downgrade.
      * @example i-bp67acfmxazb4ph***
      *
      * @var string
@@ -85,9 +84,13 @@ class DescribeBandwidthLimitationRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the resource.
+     * @description The bidding policy for the pay-as-you-go instance. Valid values:
      *
-     * >  This parameter is required when the OperationType parameter is set to Upgrade or Downgrade.
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is a preemptible instance with user-defined maximum hourly prices.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+     *
+     * >  The SpotStrategy parameter takes effect only when the InstanceChargeType parameter is set to PostPaid.
      * @example NoSpot
      *
      * @var string

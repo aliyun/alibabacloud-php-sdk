@@ -21,7 +21,7 @@ class parameterDefinition extends Model
     /**
      * @description The description of the custom parameter.
      *
-     * @example Download path of Cloud Assistant Agent installation package
+     * @example Download path of the Cloud Assistant Agent installation package.
      *
      * @var string
      */
@@ -37,14 +37,14 @@ class parameterDefinition extends Model
     public $parameterName;
 
     /**
-     * @description The valid values of the custom enumeration parameter.
+     * @description The valid values of the custom parameter of the enumeration type.
      *
      * @var possibleValues
      */
     public $possibleValues;
 
     /**
-     * @description Indicates whether the custom parameter is required. Valid values:
+     * @description Indicates whether the custom parameter is required.
      *
      *   true
      *   false

@@ -28,6 +28,25 @@ class DescribeActivationsRequest extends Model
     public $instanceName;
 
     /**
+     * @description The maximum number of entries per page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example AAAAAdDWBF2****
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -68,6 +87,10 @@ class DescribeActivationsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the activation code belongs.
+     *
+     * @example rg-123******
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -91,6 +114,8 @@ class DescribeActivationsRequest extends Model
     protected $_name = [
         'activationId'         => 'ActivationId',
         'instanceName'         => 'InstanceName',
+        'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -114,6 +139,12 @@ class DescribeActivationsRequest extends Model
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -165,6 +196,12 @@ class DescribeActivationsRequest extends Model
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

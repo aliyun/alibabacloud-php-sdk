@@ -69,7 +69,7 @@ class systemDisk extends Model
     public $size;
 
     /**
-     * @description The ID of the dedicated block storage cluster. If you want to use a disk in a dedicated block storage cluster as the system disk when you create the instance, you must specify this parameter. For more information about dedicated block storage clusters, see [What is Dedicated Block Storage Cluster?](~~208883~~)
+     * @description The ID of the dedicated block storage cluster. If you want to use a disk in a dedicated block storage cluster as the system disk when you create the instance, you must specify this parameter.
      *
      * @example dbsc-j5e1sf2vaf5he8m2****
      *

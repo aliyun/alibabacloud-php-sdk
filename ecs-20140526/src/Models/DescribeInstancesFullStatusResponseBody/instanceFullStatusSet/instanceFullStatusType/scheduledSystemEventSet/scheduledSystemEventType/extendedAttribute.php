@@ -28,7 +28,7 @@ class extendedAttribute extends Model
     public $diskId;
 
     /**
-     * @description Details about the inactive cloud disks or local disks that have been released and must be cleared.
+     * @description The inactive cloud disks or local disks that have been released and must be cleared.
      *
      * @var inactiveDisks
      */

@@ -34,7 +34,8 @@ class systemDisk extends Model
      *
      *   cloud: basic disk
      *   cloud_efficiency: ultra disk
-     *   cloud_ssd: standard SSD.
+     *   cloud_ssd: standard SSD
+     *   cloud_auto: ESSD AutoPL disk
      *   cloud_essd: enhanced SSD (ESSD). You can use the `SystemDisk.PerformanceLevel` parameter to set the performance level of the ESSD to use as the system disk.
      *
      * For non-I/O optimized instances of a retired instance type, the default value is cloud. For other types of instances, the default value is cloud_efficiency.

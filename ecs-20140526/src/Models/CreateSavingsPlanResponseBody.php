@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeInstanceVncPasswdResponseBody extends Model
+class CreateSavingsPlanResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $orderId;
+
     /**
      * @var string
      */
@@ -16,10 +21,11 @@ class DescribeInstanceVncPasswdResponseBody extends Model
     /**
      * @var string
      */
-    public $vncPasswd;
+    public $savingsPlanId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'vncPasswd' => 'VncPasswd',
+        'orderId'       => 'OrderId',
+        'requestId'     => 'RequestId',
+        'savingsPlanId' => 'SavingsPlanId',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class DescribeInstanceVncPasswdResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->vncPasswd) {
-            $res['VncPasswd'] = $this->vncPasswd;
+        if (null !== $this->savingsPlanId) {
+            $res['SavingsPlanId'] = $this->savingsPlanId;
         }
 
         return $res;
@@ -42,16 +51,19 @@ class DescribeInstanceVncPasswdResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeInstanceVncPasswdResponseBody
+     * @return CreateSavingsPlanResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['VncPasswd'])) {
-            $model->vncPasswd = $map['VncPasswd'];
+        if (isset($map['SavingsPlanId'])) {
+            $model->savingsPlanId = $map['SavingsPlanId'];
         }
 
         return $model;

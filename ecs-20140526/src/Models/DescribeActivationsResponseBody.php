@@ -17,6 +17,15 @@ class DescribeActivationsResponseBody extends Model
     public $activationList;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
+     * @example AAAAAdDWBF2****
+     *
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The page number.
      *
      * @example 1
@@ -53,6 +62,7 @@ class DescribeActivationsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'activationList' => 'ActivationList',
+        'nextToken'      => 'NextToken',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
         'requestId'      => 'RequestId',
@@ -74,6 +84,9 @@ class DescribeActivationsResponseBody extends Model
                     $res['ActivationList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -107,6 +120,9 @@ class DescribeActivationsResponseBody extends Model
                     $model->activationList[$n++] = null !== $item ? activationList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

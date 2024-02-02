@@ -135,7 +135,7 @@ class systemDisk extends Model
     public $provisionedIops;
 
     /**
-     * @description The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as system disks when you create instances, you must specify this parameter. For more information about dedicated block storage clusters, see [What is Dedicated Block Storage Cluster?](~~208883~~)
+     * @description The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as system disks when you create instances, you must specify this parameter.
      *
      * @example dbsc-j5e1sf2vaf5he8m2****
      *

@@ -18,7 +18,7 @@ class supplyInfo extends Model
     public $amount;
 
     /**
-     * @description The ID of the private pool that corresponds to the demand.
+     * @description 需求单对应的私有池ID。
      *
      * @example crp-bp1fv8sbhelbzjwx****
      *
@@ -27,7 +27,7 @@ class supplyInfo extends Model
     public $privatePoolId;
 
     /**
-     * @description The end time when the filed resources are delivered and available. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The end of the time range during which the filed resources are delivered and available. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-03-03T15:00:00Z
      *
@@ -36,7 +36,7 @@ class supplyInfo extends Model
     public $supplyEndTime;
 
     /**
-     * @description The start time when the filed resources are delivered and available. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The beginning of the time range during which the filed resources are delivered and available. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-03-01T14:00:00Z
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class demand extends Model
 {
     /**
-     * @description The number of instances available for the filed resources.
+     * @description The number of available instances.
      *
      * @example 10
      *
@@ -19,7 +19,7 @@ class demand extends Model
     public $availableAmount;
 
     /**
-     * @description The feedback on the denied request for filing resources.
+     * @description The feedback on the rejected demands.
      *
      * @example test-for-comment
      *
@@ -28,7 +28,7 @@ class demand extends Model
     public $comment;
 
     /**
-     * @description The number of instances to be delivered in the filed resources.
+     * @description The number of instances to be delivered.
      *
      * @example 20
      *
@@ -37,7 +37,7 @@ class demand extends Model
     public $deliveringAmount;
 
     /**
-     * @description The description of the filing ticket.
+     * @description The description of the demand.
      *
      * @example test-DemandDescription
      *
@@ -46,7 +46,7 @@ class demand extends Model
     public $demandDescription;
 
     /**
-     * @description The ID of the filing ticket.
+     * @description The ID of the demand.
      *
      * @example ed-bp11n21kq00sl71p****
      *
@@ -55,7 +55,7 @@ class demand extends Model
     public $demandId;
 
     /**
-     * @description The name of the filing ticket.
+     * @description The name of the demand.
      *
      * @example k8s-node-demand
      *
@@ -64,14 +64,14 @@ class demand extends Model
     public $demandName;
 
     /**
-     * @description The status of the filing ticket or resource consumption. Valid values:
+     * @description The status of the demand or filed resources. Valid values:
      *
-     *   Creating: The filing ticket is being created.
+     *   Creating: The demand is being created.
      *   Active: The filed resources are being supplied.
-     *   Expired: The filing ticket expires.
+     *   Expired: The demand has expired.
      *   Finished: The filed resources are consumed.
-     *   Refused: The filing request is denied. For reasons why the request is denied, see the `Comment` parameter in the response.
-     *   Cancelled: The filing request is canceled. After the filing request is canceled, the delivery status of the resources becomes invalid.
+     *   Refused: The demand is rejected. To view the reason for rejection, see the `Comment` parameter.
+     *   Cancelled: The demand is canceled. After the demand is canceled, the delivery status of the resources becomes invalid.
      *
      * @example Active
      *
@@ -80,7 +80,7 @@ class demand extends Model
     public $demandStatus;
 
     /**
-     * @description The time when the filing ticket was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the demand was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-02-26T12:00:00Z
      *
@@ -100,8 +100,8 @@ class demand extends Model
     /**
      * @description The billing method of the filed resources. Valid values:
      *
-     *   Prepaid: subscription
-     *   Postpaid: pay-as-you-go
+     *   Prepaid: subscription.
+     *   Postpaid: pay-as-you-go.
      *
      * @example Prepaid
      *
@@ -160,7 +160,7 @@ class demand extends Model
     public $startTime;
 
     /**
-     * @description Details about the delivery status of the filed resources.
+     * @description The delivery status of the filed resources.
      *
      * @var supplyInfos
      */

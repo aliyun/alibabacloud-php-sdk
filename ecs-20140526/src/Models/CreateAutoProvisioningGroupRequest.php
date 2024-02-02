@@ -18,7 +18,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $launchConfiguration;
 
     /**
-     * @description The name of the auto provisioning group. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
+     * @description The name of the auto provisioning group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example apg-test
      *
@@ -29,9 +29,9 @@ class CreateAutoProvisioningGroupRequest extends Model
     /**
      * @description The delivery type of the auto provisioning group. Valid values:
      *
-     *   request: one-time asynchronous delivery. The auto provisioning group attempts to asynchronously deliver an instance cluster that meets the target capacity only once when it is started. The group does not retry the operation regardless of whether all the instances are delivered.
-     *   instant: one-time synchronous delivery. The auto provisioning group attempts to synchronously deliver an instance cluster that meets the target capacity only once when it is started. The list of delivered instances and the causes of delivery failures are returned in the response.
-     *   maintain: continuous delivery. The auto provisioning group attempts to deliver an instance cluster that meets the target capacity, and monitors the real-time capacity when it is started. If the target capacity of the auto provisioning group is not reached, the auto provisioning group continues to create instances until the target capacity is reached.
+     *   request: one-time asynchronous delivery. When the auto provisioning group is started, it attempts to asynchronously deliver an instance cluster that meets the target capacity only once. The group does not retry the operation regardless of whether all the instances are delivered.
+     *   instant: one-time synchronous delivery. When the auto provisioning group is started, it attempts to synchronously deliver an instance cluster that meets the target capacity only once. The list of delivered instances and the causes of delivery failures are returned in the response.
+     *   maintain: continuous delivery. When the auto provisioning group is started, it attempts to deliver an instance cluster that meets the target capacity, and monitors the real-time capacity. If the target capacity of the auto provisioning group is not reached, the auto provisioning group continues to create instances until the target capacity is reached.
      *
      * Default value: maintain.
      * @example maintain
@@ -41,7 +41,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $autoProvisioningGroupType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
@@ -57,7 +57,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $dataDiskConfig;
 
     /**
-     * @description The type of supplemental instances. If the sum of the values of the `PayAsYouGoTargetCapacity` and `SpotTargetCapacity` parameters is smaller than the value of the `TotalTargetCapacity` parameter, the auto provisioning group creates instances of the specified type to meet the capacity requirements. Valid values:
+     * @description The type of supplemental instances. When the sum of the `PayAsYouGoTargetCapacity` and `SpotTargetCapacity` values is smaller than the `TotalTargetCapacity` value, the auto provisioning group creates instances of the specified type to meet the total target capacity. Valid values:
      *
      *   PayAsYouGo: pay-as-you-go instances
      *   Spot: preemptible instances.
@@ -92,7 +92,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $excessCapacityTerminationPolicy;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable for general users.
+     * @description >This parameter is in invitational preview and is not publicly available.
      *
      * @example false
      *
@@ -108,7 +108,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $launchTemplateConfig;
 
     /**
-     * @description The ID of the launch template associated with the auto provisioning group. You can call the [DescribeLaunchTemplates](~~73759~~) operation to query available launch templates. If both the LaunchTemplateId and `LaunchConfiguration.*` parameters are specified, the LaunchTemplateId parameter takes precedence.
+     * @description The ID of the launch template associated with the auto provisioning group. You can call the [DescribeLaunchTemplates](~~73759~~) operation to query available launch templates. When both LaunchTemplateId and `LaunchConfiguration.*` parameters are specified, LaunchTemplateId takes precedence.
      *
      * @example lt-bp1fgzds4bdogu03****
      *
@@ -129,7 +129,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     /**
      * @description The maximum price of preemptible instances in the auto provisioning group.
      *
-     * > If the `MaxSpotPrice` and `LaunchTemplateConfig.N.MaxPrice` parameters are both specified, the lower price is used.
+     * >  When both `MaxSpotPrice` and `LaunchTemplateConfig.N.MaxPrice` are specified, the smaller one of the two parameter values is used.
      * @example 2
      *
      * @var float
@@ -137,14 +137,9 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $maxSpotPrice;
 
     /**
-     * @description The minimum target capacity of the auto provisioning group. The value must be a positive integer.
+     * @description The minimum target capacity of the auto provisioning group. The value must be a positive integer. When you specify this parameter, take note of the following items:
      *
-     * When you specify this parameter, take note of the following items:
-     *
-     *   This parameter takes effect only when `AutoProvisioningGroupType` is set to instant.
-     *   If the number of instances that can be created in the current region is smaller than the value of this parameter, the operation cannot be called and no instances are created.
-     *   If the number of instances that can be created in the current region is greater than the value of this parameter, instances can be created based on the specified parameters.
-     *
+     * - If the number of instances that can be created in the current region is greater than the value of this parameter, instances can be created based on the specified parameters.
      * @example 20
      *
      * @var string
@@ -164,8 +159,8 @@ class CreateAutoProvisioningGroupRequest extends Model
     /**
      * @description The policy for creating pay-as-you-go instances. Valid values:
      *
-     *   lowest-price: cost optimization policy. The auto provisioning group attempts to create instances of the lowest-priced instance type.
-     *   prioritized: priority-based policy. The auto provisioning group attempts to create instances based on the priority specified by the `LaunchTemplateConfig.N.Priority` parameter.
+     *   lowest-price: cost optimization policy. The auto provisioning group selects the lowest-priced instance type to create instances.
+     *   prioritized: priority-based policy. The auto provisioning group creates instances based on the priority specified by `LaunchTemplateConfig.N.Priority`.
      *
      * Default value: lowest-price.
      * @example prioritized
@@ -214,9 +209,9 @@ class CreateAutoProvisioningGroupRequest extends Model
     /**
      * @description The policy for creating preemptible instances. Valid values:
      *
-     *   lowest-price: cost optimization policy. The auto provisioning group attempts to create instances of the lowest-priced instance type.
-     *   diversified: balanced distribution policy. The auto provisioning group attempts to create instances in zones that are specified in extended configurations and then evenly distribute the instances across the zones.
-     *   capacity-optimized: capacity-optimized distribution policy. The auto provisioning group attempts to create instances that are of the optimal instance types across the optimal zones based on resource availability.
+     *   lowest-price: cost optimization policy. The auto provisioning group selects the lowest-priced instance type to create instances.
+     *   diversified: balanced distribution policy. The auto provisioning group creates instances in zones that are specified in extended configurations and then evenly distributes the instances across the zones.
+     *   capacity-optimized: capacity-optimized distribution policy. The auto provisioning group creates instances of the optimal instance types across the optimal zones based on resource availability.
      *
      * Default value: lowest-price.
      * @example diversified
@@ -239,9 +234,9 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $spotInstanceInterruptionBehavior;
 
     /**
-     * @description The number of preemptible instances of the lowest-priced instance type to be created by the auto provisioning group. This parameter takes effect when the `SpotAllocationStrategy` parameter is set to `lowest-price`.
+     * @description The number of preemptible instances of the lowest-priced instance type to be created by the auto provisioning group. This parameter takes effect when `SpotAllocationStrategy` is set to `lowest-price`.
      *
-     * The value of SpotInstancePoolsToUseCount must be smaller than the N value specified in `LaunchTemplateConfig.N.*` parameters.
+     * The value must be smaller than the N value specified in `LaunchTemplateConfig.N`.
      * @example 2
      *
      * @var int
@@ -265,10 +260,10 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $systemDiskConfig;
 
     /**
-     * @description Specifies whether to release instances in the auto provisioning group after the auto provisioning group is deleted. Valid values:
+     * @description Specifies whether to release instances in the auto provisioning group when the auto provisioning group is deleted. Valid values:
      *
-     *   true: releases instances in the auto provisioning group.
-     *   false: retains instances in the auto provisioning group.
+     *   true: releases the instances.
+     *   false: retains the instances.
      *
      * Default value: false.
      * @example true
@@ -278,10 +273,10 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $terminateInstances;
 
     /**
-     * @description Specifies whether to release instances in the auto provisioning group after the auto provisioning group expires. Valid values:
+     * @description Specifies whether to release instances in the auto provisioning group when the group expires. Valid values:
      *
-     *   true: releases instances in the auto provisioning group.
-     *   false: only removes instances from the auto provisioning group but does not release them.
+     *   true: releases the instances.
+     *   false: only removes the instances from the auto provisioning group but does not release them.
      *
      * Default value: false.
      * @example true
@@ -293,7 +288,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     /**
      * @description The total target capacity of the auto provisioning group. The value must be a positive integer.
      *
-     * The total target capacity of the auto provisioning group must be greater than or equal to the sum of the target capacity of pay-as-you-go instances specified by the `PayAsYouGoTargetCapacity` parameter and the target capacity of preemptible instances specified by the `SpotTargetCapacity` parameter.
+     * The total target capacity of the auto provisioning group must be greater than or equal to the sum of the target capacity of pay-as-you-go instances specified by `PayAsYouGoTargetCapacity` and the target capacity of preemptible instances specified by `SpotTargetCapacity`.
      * @example 60
      *
      * @var string
@@ -301,7 +296,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $totalTargetCapacity;
 
     /**
-     * @description The time at which to start the auto provisioning group. The period of time between this point in time and the point in time specified by the `ValidUntil` parameter is the effective time period of the auto provisioning group.
+     * @description The time at which to start the auto provisioning group. The period of time between this point in time and the point in time specified by `ValidUntil` is the validity period of the auto provisioning group.
      *
      * By default, an auto provisioning group is started immediately after it is created.
      * @example 2019-04-01T15:10:20Z
@@ -311,7 +306,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $validFrom;
 
     /**
-     * @description The expiration time of the auto provisioning group. The period of time between this point in time and the point in time specified by the `ValidFrom` parameter is the effective time period of the auto provisioning group.
+     * @description The time at which the auto provisioning group expires. The period of time between this point in time and the point in time specified by `ValidFrom` is the validity period of the auto provisioning group.
      *
      * Default value: 2099-12-31T23:59:59Z.
      * @example 2019-06-01T15:10:20Z

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class slaveInterfaceSpecification extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and unavailable for general users.
      *
      * @example null
      *
@@ -18,7 +18,7 @@ class slaveInterfaceSpecification extends Model
     public $bondNetworkInterfaceId;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and unavailable for general users.
      *
      * @example null
      *
@@ -27,7 +27,7 @@ class slaveInterfaceSpecification extends Model
     public $slaveNetworkInterfaceId;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and unavailable for general users.
      *
      * @example null
      *
