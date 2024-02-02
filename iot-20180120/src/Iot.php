@@ -798,6 +798,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\UnbindRoleFromEdgeInstanceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UnbindRoleFromEdgeInstanceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UnbindSceneRuleFromEdgeInstanceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UnbindSceneRuleFromEdgeInstanceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UnsubscribeTopicRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\UnsubscribeTopicResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateConsumerGroupResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateDestinationRequest;
@@ -23951,6 +23953,58 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unbindSceneRuleFromEdgeInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnsubscribeTopicRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UnsubscribeTopicResponse
+     */
+    public function unsubscribeTopicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnsubscribeTopic',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnsubscribeTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnsubscribeTopicRequest $request
+     *
+     * @return UnsubscribeTopicResponse
+     */
+    public function unsubscribeTopic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unsubscribeTopicWithOptions($request, $runtime);
     }
 
     /**
