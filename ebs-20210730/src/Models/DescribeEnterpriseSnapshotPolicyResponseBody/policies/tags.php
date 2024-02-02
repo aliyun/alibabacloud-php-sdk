@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The key of a tag.
+     * @description The key of the tag of the enterprise-level snapshot policy.
      *
      * @example key
      *
@@ -18,7 +18,7 @@ class tags extends Model
     public $tagKey;
 
     /**
-     * @description The value of a tag.
+     * @description The value of the tag of the enterprise-level snapshot policy.
      *
      * @example value
      *

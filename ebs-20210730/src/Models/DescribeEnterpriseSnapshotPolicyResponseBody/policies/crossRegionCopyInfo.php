@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class crossRegionCopyInfo extends Model
 {
     /**
-     * @description Whether cross-region replication is enabled. The range of values:
+     * @description Indicates whether the cross-region replication feature is enabled.
      *
-     * - false
      * @example true
      *
      * @var bool
@@ -20,7 +19,7 @@ class crossRegionCopyInfo extends Model
     public $enabled;
 
     /**
-     * @description Destination region information.
+     * @description The destination regions that store snapshot copies.
      *
      * @var regions[]
      */

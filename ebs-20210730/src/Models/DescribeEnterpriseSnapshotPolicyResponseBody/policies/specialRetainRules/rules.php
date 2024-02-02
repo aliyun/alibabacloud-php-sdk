@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @description The periodic unit for specially retained snapshots. If configured to WEEKS, it provides special retention for the first snapshot of each week. The retention period is determined by TimeUnit and TimeInterval. The range of values are:
-     * - YEARS
+     * @description The unit of the special retention period.
+     *
      * @example WEEKS
      *
      * @var string
@@ -18,7 +18,7 @@ class rules extends Model
     public $specialPeriodUnit;
 
     /**
-     * @description Retention Time Value. The range of values is greater than 1.
+     * @description The value of the retention period.
      *
      * @example 1
      *
@@ -27,9 +27,8 @@ class rules extends Model
     public $timeInterval;
 
     /**
-     * @description Retention time unit for special snapshots. The range of values:
+     * @description The unit of the retention period.
      *
-     * - WEEKS
      * @example WEEKS
      *
      * @var string

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StartDiskMonitorResponse extends Model
+class QueryDedicatedBlockStorageClusterInventoryDataResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class StartDiskMonitorResponse extends Model
     public $statusCode;
 
     /**
-     * @var StartDiskMonitorResponseBody
+     * @var QueryDedicatedBlockStorageClusterInventoryDataResponseBody
      */
     public $body;
     protected $_name = [
@@ -30,9 +30,6 @@ class StartDiskMonitorResponse extends Model
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
-        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
@@ -54,7 +51,7 @@ class StartDiskMonitorResponse extends Model
     /**
      * @param array $map
      *
-     * @return StartDiskMonitorResponse
+     * @return QueryDedicatedBlockStorageClusterInventoryDataResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +63,7 @@ class StartDiskMonitorResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = StartDiskMonitorResponseBody::fromMap($map['body']);
+            $model->body = QueryDedicatedBlockStorageClusterInventoryDataResponseBody::fromMap($map['body']);
         }
 
         return $model;

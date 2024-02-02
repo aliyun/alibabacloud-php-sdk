@@ -72,15 +72,14 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\QueryDedicatedBlockStorageClusterInventoryDataRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\QueryDedicatedBlockStorageClusterInventoryDataResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\RemoveDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\RemoveDiskReplicaPairResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ReprotectDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ReprotectDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ReprotectDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ReprotectDiskReplicaPairResponse;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskMonitorRequest;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskMonitorResponse;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskMonitorShrinkRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartDiskReplicaPairRequest;
@@ -89,9 +88,6 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\StartPairDrillRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartPairDrillResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartReplicaGroupDrillRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StartReplicaGroupDrillResponse;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskMonitorRequest;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskMonitorResponse;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskMonitorShrinkRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\StopDiskReplicaPairRequest;
@@ -496,10 +492,10 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * Dedicated block storage clusters are physically isolated from public block storage clusters. The owner of each dedicated block storage cluster has exclusive access to all resources in the cluster. For more information, see [Overview](~~208883~~).
+     * Dedicated block storage clusters are physically isolated from public block storage clusters. The owner of each dedicated block storage cluster has exclusive access to all resources in the cluster.
      *   * Disks created in a dedicated block storage cluster can be attached only to Elastic Compute Service (ECS) instances that reside in the same zone as the cluster. Before you create a dedicated block storage cluster, decide the regions and zones in which to deploy your cloud resources.
      *   * Dedicated block storage clusters are classified into basic and performance types. When you create a dedicated block storage cluster, select a cluster type based on your business requirements.
-     *   * You are charged for creating dedicated block storage clusters. For more information, see [~~208884~~](~~208884~~).
+     *   * You are charged for creating dedicated block storage clusters.
      *   *
      * @param CreateDedicatedBlockStorageClusterRequest $request CreateDedicatedBlockStorageClusterRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -559,10 +555,10 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * Dedicated block storage clusters are physically isolated from public block storage clusters. The owner of each dedicated block storage cluster has exclusive access to all resources in the cluster. For more information, see [Overview](~~208883~~).
+     * Dedicated block storage clusters are physically isolated from public block storage clusters. The owner of each dedicated block storage cluster has exclusive access to all resources in the cluster.
      *   * Disks created in a dedicated block storage cluster can be attached only to Elastic Compute Service (ECS) instances that reside in the same zone as the cluster. Before you create a dedicated block storage cluster, decide the regions and zones in which to deploy your cloud resources.
      *   * Dedicated block storage clusters are classified into basic and performance types. When you create a dedicated block storage cluster, select a cluster type based on your business requirements.
-     *   * You are charged for creating dedicated block storage clusters. For more information, see [~~208884~~](~~208884~~).
+     *   * You are charged for creating dedicated block storage clusters.
      *   *
      * @param CreateDedicatedBlockStorageClusterRequest $request CreateDedicatedBlockStorageClusterRequest
      *
@@ -2311,6 +2307,70 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
+     *   *
+     * @param QueryDedicatedBlockStorageClusterInventoryDataRequest $request QueryDedicatedBlockStorageClusterInventoryDataRequest
+     * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryDedicatedBlockStorageClusterInventoryDataResponse QueryDedicatedBlockStorageClusterInventoryDataResponse
+     */
+    public function queryDedicatedBlockStorageClusterInventoryDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dbscId)) {
+            $body['DbscId'] = $request->dbscId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $body['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDedicatedBlockStorageClusterInventoryData',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDedicatedBlockStorageClusterInventoryDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
+     *   *
+     * @param QueryDedicatedBlockStorageClusterInventoryDataRequest $request QueryDedicatedBlockStorageClusterInventoryDataRequest
+     *
+     * @return QueryDedicatedBlockStorageClusterInventoryDataResponse QueryDedicatedBlockStorageClusterInventoryDataResponse
+     */
+    public function queryDedicatedBlockStorageClusterInventoryData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDedicatedBlockStorageClusterInventoryDataWithOptions($request, $runtime);
+    }
+
+    /**
      * ## [](#)Usage notes
      *   * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](~~314563~~).
      *   * *   The replication pair-consistent group from which you want to remove a replication pair must be in the **Created** (`created`), **Stopped** (`stopped`), or **Invalid** (`invalid`) state.
@@ -2500,65 +2560,6 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->reprotectDiskReplicaPairWithOptions($request, $runtime);
-    }
-
-    /**
-     * ## Usage notes
-     *   * *   CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *   * *   CloudLens for EBS can be used to monitor the performance of enhanced SSDs (ESSDs), standard SSDs, and ultra disks. After you enable CloudLens for EBS, you can enable the data collection feature to obtain the near real-time monitoring data. For more information, see [Enable near real-time monitoring for disks](~~354196~~).
-     *   *
-     * @param StartDiskMonitorRequest $tmpReq  StartDiskMonitorRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
-     *
-     * @return StartDiskMonitorResponse StartDiskMonitorResponse
-     */
-    public function startDiskMonitorWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new StartDiskMonitorShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->diskIds)) {
-            $request->diskIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->diskIds, 'DiskIds', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->diskIdsShrink)) {
-            $query['DiskIds'] = $request->diskIdsShrink;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StartDiskMonitor',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return StartDiskMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * ## Usage notes
-     *   * *   CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *   * *   CloudLens for EBS can be used to monitor the performance of enhanced SSDs (ESSDs), standard SSDs, and ultra disks. After you enable CloudLens for EBS, you can enable the data collection feature to obtain the near real-time monitoring data. For more information, see [Enable near real-time monitoring for disks](~~354196~~).
-     *   *
-     * @param StartDiskMonitorRequest $request StartDiskMonitorRequest
-     *
-     * @return StartDiskMonitorResponse StartDiskMonitorResponse
-     */
-    public function startDiskMonitor($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startDiskMonitorWithOptions($request, $runtime);
     }
 
     /**
@@ -2791,63 +2792,6 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startReplicaGroupDrillWithOptions($request, $runtime);
-    }
-
-    /**
-     * ## Usage notes
-     *   * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *   *
-     * @param StopDiskMonitorRequest $tmpReq  StopDiskMonitorRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
-     *
-     * @return StopDiskMonitorResponse StopDiskMonitorResponse
-     */
-    public function stopDiskMonitorWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new StopDiskMonitorShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->diskIds)) {
-            $request->diskIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->diskIds, 'DiskIds', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->diskIdsShrink)) {
-            $query['DiskIds'] = $request->diskIdsShrink;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StopDiskMonitor',
-            'version'     => '2021-07-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return StopDiskMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * ## Usage notes
-     *   * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *   *
-     * @param StopDiskMonitorRequest $request StopDiskMonitorRequest
-     *
-     * @return StopDiskMonitorResponse StopDiskMonitorResponse
-     */
-    public function stopDiskMonitor($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->stopDiskMonitorWithOptions($request, $runtime);
     }
 
     /**

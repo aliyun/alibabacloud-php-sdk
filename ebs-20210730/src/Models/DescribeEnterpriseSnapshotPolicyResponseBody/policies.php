@@ -15,7 +15,7 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
-     * @description Creation Time.
+     * @description The time when the enterprise-level snapshot policy was created.
      *
      * @example 2023-06-24T06:03:35Z
      *
@@ -24,14 +24,14 @@ class policies extends Model
     public $createTime;
 
     /**
-     * @description Snapshot replication destination information.
+     * @description The replication rule of snapshots in the enterprise-level snapshot policy.
      *
      * @var crossRegionCopyInfo
      */
     public $crossRegionCopyInfo;
 
     /**
-     * @description The description of the policy.
+     * @description The description of the enterprise-level snapshot policy.
      *
      * @example xxx
      *
@@ -40,14 +40,15 @@ class policies extends Model
     public $desc;
 
     /**
+     * @description The list of disks.
+     *
      * @var string[]
      */
     public $diskIds;
 
     /**
-     * @description Indicates whether it is an ECS snapshot policy，The range of values:
+     * @description Indicates whether snapshots are managed.
      *
-     * - false
      * @example false
      *
      * @var bool
@@ -55,7 +56,7 @@ class policies extends Model
     public $managedForEcs;
 
     /**
-     * @description The name of the policy.
+     * @description The name of the enterprise-level snapshot policy.
      *
      * @example xxx
      *
@@ -64,7 +65,7 @@ class policies extends Model
     public $name;
 
     /**
-     * @description The id of the policy.
+     * @description The ID of the enterprise-level snapshot policy.
      *
      * @example esp-xxx
      *
@@ -73,7 +74,7 @@ class policies extends Model
     public $policyId;
 
     /**
-     * @description The resource group
+     * @description the resource group
      *
      * @example rg-xxx
      *
@@ -82,30 +83,29 @@ class policies extends Model
     public $resourceGroupId;
 
     /**
-     * @description The snapshot retention rule.
+     * @description The retention rule of the enterprise-level snapshot policy.
      *
      * @var retainRule
      */
     public $retainRule;
 
     /**
-     * @description The rule for scheduling.
+     * @description The scheduling rule of the enterprise-level snapshot policy.
      *
      * @var schedule
      */
     public $schedule;
 
     /**
-     * @description The special snapshot retention rules.
+     * @description The special retention rules of the enterprise-level snapshot policy.
      *
      * @var specialRetainRules
      */
     public $specialRetainRules;
 
     /**
-     * @description The status of the policy. Valid values:
+     * @description The status of the enterprise-level snapshot policy.
      *
-     * - DISABLED: Disable policy execution.
      * @example DISABLED
      *
      * @var string
@@ -113,21 +113,21 @@ class policies extends Model
     public $state;
 
     /**
-     * @description Advanced snapshot features.
+     * @description The storage rule of snapshots in the enterprise-level snapshot policy.
      *
      * @var storageRule
      */
     public $storageRule;
 
     /**
-     * @description The list of tags.
+     * @description the pair tags
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description Number of bound targets.
+     * @description The number of objects that are associated with the enterprise-level snapshot policy.
      *
      * @example 10
      *
@@ -136,7 +136,7 @@ class policies extends Model
     public $targetCount;
 
     /**
-     * @description The target type.
+     * @description The type of the enterprise-level snapshot policy.
      *
      * @example DISK
      *

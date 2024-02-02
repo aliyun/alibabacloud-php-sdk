@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class retainRule extends Model
 {
     /**
-     * @description Maximum number of retained snapshots.
+     * @description The maximum number of snapshots that can be retained.
      *
      * @example 10
      *
@@ -18,7 +18,7 @@ class retainRule extends Model
     public $number;
 
     /**
-     * @description The time interval , valid value greater than 1.
+     * @description The value of the retention period of snapshots.
      *
      * @example 14
      *
@@ -27,9 +27,8 @@ class retainRule extends Model
     public $timeInterval;
 
     /**
-     * @description The unit of time, valid values:
+     * @description The unit of the retention period of snapshots.
      *
-     * - WEEKS
      * @example DAYS
      *
      * @var string

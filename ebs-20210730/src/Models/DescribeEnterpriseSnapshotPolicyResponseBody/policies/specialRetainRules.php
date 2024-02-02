@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class specialRetainRules extends Model
 {
     /**
-     * @description Indicates whether the special retention is enabled.
-     *
-     *   true: enable
-     *   false: disable
+     * @description Indicates whether the special retention period is enabled.
      *
      * @example true
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnterpriseSnapshotPolicyResponseBody extends Model
 {
     /**
-     * @description The query token returned in this call.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
      *
      * @example AAAAAdDWBF2
      *
@@ -37,14 +37,14 @@ class DescribeEnterpriseSnapshotPolicyResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The list of policies.
+     * @description The returned enterprise-level snapshot policies.
      *
      * @var policies[]
      */
     public $policies;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 5CA35A83-8D8A-5B67-BAA0-2E124F194DA4
      *

@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class schedule extends Model
 {
     /**
-     * @description The time when the policy will to be scheduled. Valid values: Set the parameter in a cron expression.
+     * @description The cron expression of the enterprise-level snapshot policy.
      *
-     * For example, you can use 0 0 4 1/1 * ? to specify 04:00:00 (UTC+8) on the first day of each month.
      * @example 1 1 1 *\/1 * ?
      *
      * @var string

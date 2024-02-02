@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnterpriseSnapshotPolicyRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure idempotence ](~~25693~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -20,14 +19,15 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $clientToken;
 
     /**
+     * @description The list of disks.
+     *
      * @var string[]
      */
     public $diskIds;
 
     /**
-     * @description The maximum number of entries to be returned. You can use this parameter together with NextToken.
+     * @description The maximum number of entries per page.
      *
-     * Default value: 10.
      * @example 100
      *
      * @var int
@@ -35,10 +35,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
-     *
-     *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
-     *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example xxx
      *
@@ -47,7 +44,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $nextToken;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 1
      *
@@ -56,7 +53,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -65,14 +62,14 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $pageSize;
 
     /**
-     * @description The list of policies.
+     * @description The IDs of enterprise-level snapshot policies.
      *
      * @var string[]
      */
     public $policyIds;
 
     /**
-     * @description The region ID . You can call the [DescribeRegions](~~354276~~) operation to query the most recent list of regions in which snapshot policy is supported.
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -81,7 +78,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the policy belongs.
+     * @description The ID of the resource group to which the enterprise-level snapshot policy belongs.
      *
      * @example xxx
      *
@@ -90,7 +87,7 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The list of tags.
+     * @description The tags of the enterprise-level snapshot policies. Valid values of N: 1 to 20.
      *
      * @var tag[]
      */
