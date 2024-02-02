@@ -36,6 +36,8 @@ use AlibabaCloud\SDK\XrEngine\V20230313\Models\LivePortraitFaceDetectRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\LivePortraitFaceDetectResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\LocateRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\LocateResponse;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\LoginHuggingFaceRequest;
+use AlibabaCloud\SDK\XrEngine\V20230313\Models\LoginHuggingFaceResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\LoginModelScopeRequest;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\LoginModelScopeResponse;
 use AlibabaCloud\SDK\XrEngine\V20230313\Models\MotionShopVideoDetectRequest;
@@ -1031,6 +1033,52 @@ class XrEngine extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->locateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param LoginHuggingFaceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return LoginHuggingFaceResponse
+     */
+    public function loginHuggingFaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->token)) {
+            $body['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'LoginHuggingFace',
+            'version'     => '2023-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return LoginHuggingFaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param LoginHuggingFaceRequest $request
+     *
+     * @return LoginHuggingFaceResponse
+     */
+    public function loginHuggingFace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->loginHuggingFaceWithOptions($request, $runtime);
     }
 
     /**

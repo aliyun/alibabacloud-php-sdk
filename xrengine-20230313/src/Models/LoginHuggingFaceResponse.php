@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\XrEngine\V20230313\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PopCreatePakRenderProjectResponse extends Model
+class LoginHuggingFaceResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class PopCreatePakRenderProjectResponse extends Model
     public $statusCode;
 
     /**
-     * @var PopCreatePakRenderProjectResponseBody
+     * @var LoginHuggingFaceResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class PopCreatePakRenderProjectResponse extends Model
     /**
      * @param array $map
      *
-     * @return PopCreatePakRenderProjectResponse
+     * @return LoginHuggingFaceResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class PopCreatePakRenderProjectResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = PopCreatePakRenderProjectResponseBody::fromMap($map['body']);
+            $model->body = LoginHuggingFaceResponseBody::fromMap($map['body']);
         }
 
         return $model;
