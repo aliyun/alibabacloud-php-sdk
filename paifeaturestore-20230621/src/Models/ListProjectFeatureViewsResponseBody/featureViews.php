@@ -27,10 +27,16 @@ class featureViews extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'featureViewId' => 'FeatureViewId',
         'features'      => 'Features',
         'name'          => 'Name',
+        'type'          => 'Type',
     ];
 
     public function validate()
@@ -54,6 +60,9 @@ class featureViews extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -81,6 +90,9 @@ class featureViews extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
