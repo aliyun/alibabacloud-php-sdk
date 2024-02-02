@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example job-25920271311543****
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @example False
+     *
      * @var string
      */
     public $exists;
 
     /**
+     * @example Progressing
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example Standard
+     *
      * @var string
      */
     public $storageType;

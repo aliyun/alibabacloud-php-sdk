@@ -6,24 +6,26 @@ namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RestoreArchivedRecordingsRequest extends Model
+class ChangeVisibilityRequest extends Model
 {
     /**
-     * @example [\"job-216750038017142784\"]
-     *
-     * @var string
-     */
-    public $contactIds;
-
-    /**
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $invisible;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'contactIds' => 'ContactIds',
         'instanceId' => 'InstanceId',
+        'invisible'  => 'Invisible',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -33,11 +35,14 @@ class RestoreArchivedRecordingsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->contactIds) {
-            $res['ContactIds'] = $this->contactIds;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->invisible) {
+            $res['Invisible'] = $this->invisible;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -46,16 +51,19 @@ class RestoreArchivedRecordingsRequest extends Model
     /**
      * @param array $map
      *
-     * @return RestoreArchivedRecordingsRequest
+     * @return ChangeVisibilityRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ContactIds'])) {
-            $model->contactIds = $map['ContactIds'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Invisible'])) {
+            $model->invisible = $map['Invisible'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

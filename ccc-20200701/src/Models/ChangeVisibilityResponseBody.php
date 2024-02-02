@@ -4,40 +4,37 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\SDK\CCC\V20200701\Models\RestoreArchivedRecordingsResponseBody\data;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeVisibilityResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class RestoreArchivedRecordingsResponseBody extends Model
+class ChangeVisibilityResponseBody extends Model
 {
     /**
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @var data[]
+     * @var data
      */
     public $data;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example Instance 0 does not exist.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example F8066648-5D95-55AB-ACD3-2F4AD3BEA715
-     *
+     * @var string[]
+     */
+    public $params;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -46,6 +43,7 @@ class RestoreArchivedRecordingsResponseBody extends Model
         'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
+        'params'         => 'Params',
         'requestId'      => 'RequestId',
     ];
 
@@ -60,19 +58,16 @@ class RestoreArchivedRecordingsResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -84,7 +79,7 @@ class RestoreArchivedRecordingsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RestoreArchivedRecordingsResponseBody
+     * @return ChangeVisibilityResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -93,19 +88,18 @@ class RestoreArchivedRecordingsResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Params'])) {
+            if (!empty($map['Params'])) {
+                $model->params = $map['Params'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -51,6 +51,11 @@ class channelContexts extends Model
     public $jobId;
 
     /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
      * @example 1318888****
      *
      * @var string
@@ -94,6 +99,7 @@ class channelContexts extends Model
         'channelState'     => 'ChannelState',
         'destination'      => 'Destination',
         'jobId'            => 'JobId',
+        'mediaType'        => 'MediaType',
         'originator'       => 'Originator',
         'releaseInitiator' => 'ReleaseInitiator',
         'releaseReason'    => 'ReleaseReason',
@@ -126,6 +132,9 @@ class channelContexts extends Model
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
         }
         if (null !== $this->originator) {
             $res['Originator'] = $this->originator;
@@ -174,6 +183,9 @@ class channelContexts extends Model
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
         }
         if (isset($map['Originator'])) {
             $model->originator = $map['Originator'];

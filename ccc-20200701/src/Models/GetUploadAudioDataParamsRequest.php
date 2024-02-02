@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetUploadAudioDataParamsRequest extends Model
 {
     /**
+     * @example job-38860977107324****
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $instanceId;

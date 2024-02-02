@@ -75,6 +75,11 @@ class channelContexts extends Model
     public $releaseReason;
 
     /**
+     * @var string
+     */
+    public $skillGroupId;
+
+    /**
      * @example 1609253212511
      *
      * @var int
@@ -105,6 +110,7 @@ class channelContexts extends Model
         'originator'       => 'Originator',
         'releaseInitiator' => 'ReleaseInitiator',
         'releaseReason'    => 'ReleaseReason',
+        'skillGroupId'     => 'SkillGroupId',
         'timestamp'        => 'Timestamp',
         'userExtension'    => 'UserExtension',
         'userId'           => 'UserId',
@@ -146,6 +152,9 @@ class channelContexts extends Model
         }
         if (null !== $this->releaseReason) {
             $res['ReleaseReason'] = $this->releaseReason;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
@@ -197,6 +206,9 @@ class channelContexts extends Model
         }
         if (isset($map['ReleaseReason'])) {
             $model->releaseReason = $map['ReleaseReason'];
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];

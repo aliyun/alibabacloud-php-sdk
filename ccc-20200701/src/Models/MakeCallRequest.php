@@ -44,6 +44,11 @@ class MakeCallRequest extends Model
     public $maskedCallee;
 
     /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
      * @example tags
      *
      * @var string
@@ -69,6 +74,7 @@ class MakeCallRequest extends Model
         'deviceId'       => 'DeviceId',
         'instanceId'     => 'InstanceId',
         'maskedCallee'   => 'MaskedCallee',
+        'mediaType'      => 'MediaType',
         'tags'           => 'Tags',
         'timeoutSeconds' => 'TimeoutSeconds',
         'userId'         => 'UserId',
@@ -95,6 +101,9 @@ class MakeCallRequest extends Model
         }
         if (null !== $this->maskedCallee) {
             $res['MaskedCallee'] = $this->maskedCallee;
+        }
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -131,6 +140,9 @@ class MakeCallRequest extends Model
         }
         if (isset($map['MaskedCallee'])) {
             $model->maskedCallee = $map['MaskedCallee'];
+        }
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];

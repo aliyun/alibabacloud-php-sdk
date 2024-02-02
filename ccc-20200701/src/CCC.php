@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\BridgeRtcCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\BridgeRtcCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CancelAttendedTransferRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CancelAttendedTransferResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeVisibilityRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeVisibilityResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeWorkModeRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeWorkModeResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CoachCallRequest;
@@ -1251,6 +1253,55 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelAttendedTransferWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChangeVisibilityRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ChangeVisibilityResponse
+     */
+    public function changeVisibilityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->invisible)) {
+            $query['Invisible'] = $request->invisible;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeVisibility',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeVisibilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeVisibilityRequest $request
+     *
+     * @return ChangeVisibilityResponse
+     */
+    public function changeVisibility($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeVisibilityWithOptions($request, $runtime);
     }
 
     /**
@@ -4275,10 +4326,14 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListAgentStatesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @deprecated : ListAgentStates is deprecated, please use CCC::2020-07-01::ListRealtimeAgentStates instead.
+     *   *
+     * Deprecated
      *
-     * @return ListAgentStatesResponse
+     * @param ListAgentStatesRequest $request ListAgentStatesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAgentStatesResponse ListAgentStatesResponse
      */
     public function listAgentStatesWithOptions($request, $runtime)
     {
@@ -4324,9 +4379,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListAgentStatesRequest $request
+     * @deprecated : ListAgentStates is deprecated, please use CCC::2020-07-01::ListRealtimeAgentStates instead.
+     *   *
+     * Deprecated
      *
-     * @return ListAgentStatesResponse
+     * @param ListAgentStatesRequest $request ListAgentStatesRequest
+     *
+     * @return ListAgentStatesResponse ListAgentStatesResponse
      */
     public function listAgentStates($request)
     {
@@ -4336,10 +4395,14 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListAgentSummaryReportsSinceMidnightRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @deprecated : ListAgentSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalAgentReport instead.
+     *   *
+     * Deprecated
      *
-     * @return ListAgentSummaryReportsSinceMidnightResponse
+     * @param ListAgentSummaryReportsSinceMidnightRequest $request ListAgentSummaryReportsSinceMidnightRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAgentSummaryReportsSinceMidnightResponse ListAgentSummaryReportsSinceMidnightResponse
      */
     public function listAgentSummaryReportsSinceMidnightWithOptions($request, $runtime)
     {
@@ -4364,9 +4427,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListAgentSummaryReportsSinceMidnightRequest $request
+     * @deprecated : ListAgentSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalAgentReport instead.
+     *   *
+     * Deprecated
      *
-     * @return ListAgentSummaryReportsSinceMidnightResponse
+     * @param ListAgentSummaryReportsSinceMidnightRequest $request ListAgentSummaryReportsSinceMidnightRequest
+     *
+     * @return ListAgentSummaryReportsSinceMidnightResponse ListAgentSummaryReportsSinceMidnightResponse
      */
     public function listAgentSummaryReportsSinceMidnight($request)
     {
@@ -6544,10 +6611,14 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListSkillGroupStatesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @deprecated : ListSkillGroupStates is deprecated, please use CCC::2020-07-01::ListRealtimeSkillGroupStates instead.
+     *   *
+     * Deprecated
      *
-     * @return ListSkillGroupStatesResponse
+     * @param ListSkillGroupStatesRequest $request ListSkillGroupStatesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListSkillGroupStatesResponse ListSkillGroupStatesResponse
      */
     public function listSkillGroupStatesWithOptions($request, $runtime)
     {
@@ -6572,9 +6643,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListSkillGroupStatesRequest $request
+     * @deprecated : ListSkillGroupStates is deprecated, please use CCC::2020-07-01::ListRealtimeSkillGroupStates instead.
+     *   *
+     * Deprecated
      *
-     * @return ListSkillGroupStatesResponse
+     * @param ListSkillGroupStatesRequest $request ListSkillGroupStatesRequest
+     *
+     * @return ListSkillGroupStatesResponse ListSkillGroupStatesResponse
      */
     public function listSkillGroupStates($request)
     {
@@ -6584,10 +6659,14 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListSkillGroupSummaryReportsSinceMidnightRequest $request
-     * @param RuntimeOptions                                   $runtime
+     * @deprecated : ListSkillGroupSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalSkillGroupReport instead.
+     *   *
+     * Deprecated
      *
-     * @return ListSkillGroupSummaryReportsSinceMidnightResponse
+     * @param ListSkillGroupSummaryReportsSinceMidnightRequest $request ListSkillGroupSummaryReportsSinceMidnightRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListSkillGroupSummaryReportsSinceMidnightResponse ListSkillGroupSummaryReportsSinceMidnightResponse
      */
     public function listSkillGroupSummaryReportsSinceMidnightWithOptions($request, $runtime)
     {
@@ -6612,9 +6691,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListSkillGroupSummaryReportsSinceMidnightRequest $request
+     * @deprecated : ListSkillGroupSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalSkillGroupReport instead.
+     *   *
+     * Deprecated
      *
-     * @return ListSkillGroupSummaryReportsSinceMidnightResponse
+     * @param ListSkillGroupSummaryReportsSinceMidnightRequest $request ListSkillGroupSummaryReportsSinceMidnightRequest
+     *
+     * @return ListSkillGroupSummaryReportsSinceMidnightResponse ListSkillGroupSummaryReportsSinceMidnightResponse
      */
     public function listSkillGroupSummaryReportsSinceMidnight($request)
     {
@@ -6986,6 +7069,9 @@ class CCC extends OpenApiClient
         }
         if (!Utils::isUnset($request->maskedCallee)) {
             $query['MaskedCallee'] = $request->maskedCallee;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
         }
         if (!Utils::isUnset($request->tags)) {
             $query['Tags'] = $request->tags;
