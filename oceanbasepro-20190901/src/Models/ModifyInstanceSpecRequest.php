@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceSpecRequest extends Model
 {
     /**
+     * @description The size of the storage space, in GB. The required storage space varies based on the cluster specifications:
+     * - 62C400G: 800 GB to 10 TB. The preceding minimum storage space sizes are the default storage space sizes of the corresponding cluster specification plans.
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class ModifyInstanceSpecRequest extends Model
     public $diskSize;
 
     /**
+     * @description Disk type.
+     *
      * @example cloud_essd_pl1
      *
      * @var string
@@ -23,11 +27,17 @@ class ModifyInstanceSpecRequest extends Model
     public $diskType;
 
     /**
+     * @description Specifies whether to perform only a dry run for the request. Default value: false. Valid values:
+     * - false: If the DryRun parameter is set to false, no dry run is performed and the DryRunResult parameter returns false.
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description The specifications of the cluster. You can specify one of the following four plans:
+     * - 62C400GB: indicates 62 CPU cores and 400 GB of memory.
      * @example 14C70GB
      *
      * @var string
@@ -35,6 +45,8 @@ class ModifyInstanceSpecRequest extends Model
     public $instanceClass;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob3h8ytroxxxxx
      *
      * @var string

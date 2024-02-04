@@ -9,12 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The result of the dry-run request.
+     *
+     * If the DryRun parameter is set to false, no dry run is performed and the DryRunResult parameter returns false.
+     * @example true
+     *
      * @var bool
      */
     public $dryRunResult;
 
     /**
-     * @description 订单ID。该参数只有创建包年包月ECS实例（请求参数InstanceChargeType=PrePaid）时有返回值。
+     * @description Instance ID.
      *
      * @example i-bp67acfmxazb4p****
      *
@@ -23,8 +28,8 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description 资源组ID
-     *
+     * @description Order ID. The ID of the order that you have placed.
+     * This parameter returns a value after you create a pre-paid or post-paid cluster.
      * @example 1234567890
      *
      * @var string
@@ -32,6 +37,8 @@ class data extends Model
     public $orderId;
 
     /**
+     * @description Resource group ID.
+     *
      * @example rg-***************
      *
      * @var string

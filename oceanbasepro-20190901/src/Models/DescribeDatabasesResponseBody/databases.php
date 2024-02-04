@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class databases extends Model
 {
     /**
+     * @description The collation.
+     *
      * @example utf8mb4_general_ci
      *
      * @var string
@@ -18,8 +20,8 @@ class databases extends Model
     public $collation;
 
     /**
-     * @description Specifies whether to return the information of tables in the database.
-     * Default value: false.
+     * @description The time when the database was created.
+     *
      * @example 2022-02-21 15:41:06
      *
      * @var string
@@ -27,6 +29,8 @@ class databases extends Model
     public $createTime;
 
     /**
+     * @description The actual data size, in GB.
+     *
      * @example 5.67 GB
      *
      * @var float
@@ -34,8 +38,8 @@ class databases extends Model
     public $dataSize;
 
     /**
-     * @description The number of the page to return.
-     * - Default value: 1
+     * @description The name of the database.
+     *
      * @example sms_pre
      *
      * @var string
@@ -43,7 +47,7 @@ class databases extends Model
     public $databaseName;
 
     /**
-     * @description The return result of the request.
+     * @description The database type.
      *
      * @example mysql
      *
@@ -52,7 +56,7 @@ class databases extends Model
     public $dbType;
 
     /**
-     * @description The name of the database.
+     * @description The description of the database.
      *
      * @example test db
      *
@@ -61,8 +65,8 @@ class databases extends Model
     public $description;
 
     /**
-     * @description The status of the database. Valid values:
-     * - DELETING: The database is being deleted.
+     * @description The encoding standard of the database. Encoding standards such as utf8mb4 and GBK are supported.
+     *
      * @example utf8mb4
      *
      * @var string
@@ -70,6 +74,8 @@ class databases extends Model
     public $encoding;
 
     /**
+     * @description The ID of the cluster.
+     *
      * @example obsdh2f****
      *
      * @var string
@@ -77,6 +83,8 @@ class databases extends Model
     public $instanceId;
 
     /**
+     * @description The storage space required, in GB.
+     *
      * @example 0.00 GB
      *
      * @var float
@@ -84,8 +92,8 @@ class databases extends Model
     public $requiredSize;
 
     /**
-     * @description The list of databases in the tenant.
-     *
+     * @description The status of the database. Valid values:
+     * - DELETING: The database is being deleted.
      * @example ONLINE
      *
      * @var string
@@ -93,11 +101,15 @@ class databases extends Model
     public $status;
 
     /**
+     * @description The information about the database tables.
+     *
      * @var tables[]
      */
     public $tables;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example t33h8y08k****
      *
      * @var string
@@ -105,6 +117,8 @@ class databases extends Model
     public $tenantId;
 
     /**
+     * @description Tenant name.
+     *
      * @example tenantABC
      *
      * @var string
@@ -112,7 +126,7 @@ class databases extends Model
     public $tenantName;
 
     /**
-     * @description The name of the database table.
+     * @description The accounts that have privileges on the database.
      *
      * @var users[]
      */

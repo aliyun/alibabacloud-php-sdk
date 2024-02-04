@@ -45,8 +45,8 @@ class CreateInstanceRequest extends Model
     public $diskSize;
 
     /**
-     * @description The return result of the request.
-     *
+     * @description The type of the storage disk where the cluster is deployed. This parameter takes effect only for Standard Cluster Edition (Cloud Disk).
+     * - cloud_essd_pl0: ESSD PL0. Default value: cloud_essd_pl1.
      * @example cloud_essd_pl1
      *
      * @var string
@@ -54,6 +54,10 @@ class CreateInstanceRequest extends Model
     public $diskType;
 
     /**
+     * @description Specifies whether to perform only a dry run for the request. Default value: false. Valid values:
+     * - false: The actual request is sent and no dry run is performed. The instance is created if the requirements are met. By default, the DryRunResult parameter returns false if you set DryRun to false.
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -77,6 +81,10 @@ class CreateInstanceRequest extends Model
     public $instanceName;
 
     /**
+     * @description Specifies whether to enable the control group feature.
+     * - false
+     * @example true
+     *
      * @var string
      */
     public $isolationOptimization;
@@ -109,6 +117,8 @@ class CreateInstanceRequest extends Model
     public $periodUnit;
 
     /**
+     * @description Primary instance ID.
+     *
      * @example ob3h8ytroxxxxx
      *
      * @var string
@@ -116,6 +126,8 @@ class CreateInstanceRequest extends Model
     public $primaryInstance;
 
     /**
+     * @description Primary instance region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -123,7 +135,9 @@ class CreateInstanceRequest extends Model
     public $primaryRegion;
 
     /**
-     * @example 3
+     * @description The number of full-featured replicas.
+     * - An ApsaraDB for OceanBase instance deployed in a single zone supports 3F, 2F1A, or 2F1L, depending on the version.
+     * @example 3F
      *
      * @var string
      */

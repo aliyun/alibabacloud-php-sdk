@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableMemResourceRequest extends Model
 {
     /**
-     * @description The available memory size.
+     * @description The number of CPU cores.
      *
      * @example 14
      *
@@ -18,7 +18,7 @@ class DescribeAvailableMemResourceRequest extends Model
     public $cpuNum;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the OceanBase cluster.
      *
      * @example ob317v4uif****
      *
@@ -36,8 +36,8 @@ class DescribeAvailableMemResourceRequest extends Model
     public $tenantId;
 
     /**
-     * @description The number of resource units in the tenant.
-     *
+     * @description The number of resource distribution nodes in the tenant.
+     * The number is determined by the deployment mode of the cluster. If the cluster is deployed in 2-2-2 mode, the maximum number of resource distribution nodes is 2.
      * @example 2
      *
      * @var int

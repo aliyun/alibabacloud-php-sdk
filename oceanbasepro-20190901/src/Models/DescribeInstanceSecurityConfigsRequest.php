@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSecurityConfigsRequest extends Model
 {
     /**
+     * @description The unique identifier of the check.
+     *
      * @example xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeInstanceSecurityConfigsRequest extends Model
     public $checkId;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string

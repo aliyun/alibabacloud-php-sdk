@@ -72,6 +72,11 @@ class data extends Model
     public $avgCpuTime;
 
     /**
+     * @var float
+     */
+    public $avgDbTime;
+
+    /**
      * @description Average syntax parsing time (in milliseconds) during the execution period.
      *
      * @example 0.0
@@ -549,6 +554,11 @@ class data extends Model
     public $strongConsistencyPercentage;
 
     /**
+     * @var float
+     */
+    public $sumDbTime;
+
+    /**
      * @description Total response time (in milliseconds) during the execution period.
      *
      * @example 11452126.36
@@ -618,6 +628,7 @@ class data extends Model
         'avgBloomFilterCacheHit'      => 'AvgBloomFilterCacheHit',
         'avgConcurrencyWaitTime'      => 'AvgConcurrencyWaitTime',
         'avgCpuTime'                  => 'AvgCpuTime',
+        'avgDbTime'                   => 'AvgDbTime',
         'avgDecodeTime'               => 'AvgDecodeTime',
         'avgDiskReads'                => 'AvgDiskReads',
         'avgElapsedTime'              => 'AvgElapsedTime',
@@ -671,6 +682,7 @@ class data extends Model
         'SQLId'                       => 'SQLId',
         'server'                      => 'Server',
         'strongConsistencyPercentage' => 'StrongConsistencyPercentage',
+        'sumDbTime'                   => 'SumDbTime',
         'sumElapsedTime'              => 'SumElapsedTime',
         'sumLogicalReads'             => 'SumLogicalReads',
         'sumWaitTime'                 => 'SumWaitTime',
@@ -707,6 +719,9 @@ class data extends Model
         }
         if (null !== $this->avgCpuTime) {
             $res['AvgCpuTime'] = $this->avgCpuTime;
+        }
+        if (null !== $this->avgDbTime) {
+            $res['AvgDbTime'] = $this->avgDbTime;
         }
         if (null !== $this->avgDecodeTime) {
             $res['AvgDecodeTime'] = $this->avgDecodeTime;
@@ -867,6 +882,9 @@ class data extends Model
         if (null !== $this->strongConsistencyPercentage) {
             $res['StrongConsistencyPercentage'] = $this->strongConsistencyPercentage;
         }
+        if (null !== $this->sumDbTime) {
+            $res['SumDbTime'] = $this->sumDbTime;
+        }
         if (null !== $this->sumElapsedTime) {
             $res['SumElapsedTime'] = $this->sumElapsedTime;
         }
@@ -920,6 +938,9 @@ class data extends Model
         }
         if (isset($map['AvgCpuTime'])) {
             $model->avgCpuTime = $map['AvgCpuTime'];
+        }
+        if (isset($map['AvgDbTime'])) {
+            $model->avgDbTime = $map['AvgDbTime'];
         }
         if (isset($map['AvgDecodeTime'])) {
             $model->avgDecodeTime = $map['AvgDecodeTime'];
@@ -1079,6 +1100,9 @@ class data extends Model
         }
         if (isset($map['StrongConsistencyPercentage'])) {
             $model->strongConsistencyPercentage = $map['StrongConsistencyPercentage'];
+        }
+        if (isset($map['SumDbTime'])) {
+            $model->sumDbTime = $map['SumDbTime'];
         }
         if (isset($map['SumElapsedTime'])) {
             $model->sumElapsedTime = $map['SumElapsedTime'];

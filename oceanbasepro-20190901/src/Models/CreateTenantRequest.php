@@ -46,6 +46,10 @@ class CreateTenantRequest extends Model
     public $instanceId;
 
     /**
+     * @description The size of the log disk allocated to the tenant, in GB.
+     *
+     * @example 128
+     *
      * @var int
      */
     public $logDisk;
@@ -70,6 +74,8 @@ class CreateTenantRequest extends Model
     public $primaryZone;
 
     /**
+     * @description Specifies to create a read-only zone. Separate the names of multiple zones with commas (,).
+     * ><notice><br>At present, this parameter is unavailable.></notice>
      * @example cn-shanghai-g-ro,cn-shanghai-h-ro
      *
      * @var string

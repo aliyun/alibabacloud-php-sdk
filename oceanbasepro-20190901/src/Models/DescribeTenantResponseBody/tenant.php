@@ -127,6 +127,11 @@ class tenant extends Model
     public $enableParallelQuery;
 
     /**
+     * @var bool
+     */
+    public $enableReadOnlyReplica;
+
+    /**
      * @example false
      *
      * @var bool
@@ -307,6 +312,7 @@ class tenant extends Model
         'enableClogService'            => 'EnableClogService',
         'enableInternetAddressService' => 'EnableInternetAddressService',
         'enableParallelQuery'          => 'EnableParallelQuery',
+        'enableReadOnlyReplica'        => 'EnableReadOnlyReplica',
         'enableReadWriteSplit'         => 'EnableReadWriteSplit',
         'instanceType'                 => 'InstanceType',
         'masterIntranetAddressZone'    => 'MasterIntranetAddressZone',
@@ -375,6 +381,9 @@ class tenant extends Model
         }
         if (null !== $this->enableParallelQuery) {
             $res['EnableParallelQuery'] = $this->enableParallelQuery;
+        }
+        if (null !== $this->enableReadOnlyReplica) {
+            $res['EnableReadOnlyReplica'] = $this->enableReadOnlyReplica;
         }
         if (null !== $this->enableReadWriteSplit) {
             $res['EnableReadWriteSplit'] = $this->enableReadWriteSplit;
@@ -497,6 +506,9 @@ class tenant extends Model
         }
         if (isset($map['EnableParallelQuery'])) {
             $model->enableParallelQuery = $map['EnableParallelQuery'];
+        }
+        if (isset($map['EnableReadOnlyReplica'])) {
+            $model->enableReadOnlyReplica = $map['EnableReadOnlyReplica'];
         }
         if (isset($map['EnableReadWriteSplit'])) {
             $model->enableReadWriteSplit = $map['EnableReadWriteSplit'];

@@ -31,6 +31,16 @@ class sqlList extends Model
     /**
      * @var float
      */
+    public $avgLogicalReads;
+
+    /**
+     * @var float
+     */
+    public $avgRetryCount;
+
+    /**
+     * @var float
+     */
     public $cpuTime;
 
     /**
@@ -89,6 +99,11 @@ class sqlList extends Model
     public $sumElapsedTime;
 
     /**
+     * @var float
+     */
+    public $sumRetryCount;
+
+    /**
      * @var string
      */
     public $userName;
@@ -97,6 +112,8 @@ class sqlList extends Model
         'avgDbTime'        => 'AvgDbTime',
         'avgElapsedTime'   => 'AvgElapsedTime',
         'avgGetPlanTime'   => 'AvgGetPlanTime',
+        'avgLogicalReads'  => 'AvgLogicalReads',
+        'avgRetryCount'    => 'AvgRetryCount',
         'cpuTime'          => 'CpuTime',
         'dbName'           => 'DbName',
         'diagTypes'        => 'DiagTypes',
@@ -109,6 +126,7 @@ class sqlList extends Model
         'suggestion'       => 'Suggestion',
         'sumDbTime'        => 'SumDbTime',
         'sumElapsedTime'   => 'SumElapsedTime',
+        'sumRetryCount'    => 'SumRetryCount',
         'userName'         => 'UserName',
     ];
 
@@ -130,6 +148,12 @@ class sqlList extends Model
         }
         if (null !== $this->avgGetPlanTime) {
             $res['AvgGetPlanTime'] = $this->avgGetPlanTime;
+        }
+        if (null !== $this->avgLogicalReads) {
+            $res['AvgLogicalReads'] = $this->avgLogicalReads;
+        }
+        if (null !== $this->avgRetryCount) {
+            $res['AvgRetryCount'] = $this->avgRetryCount;
         }
         if (null !== $this->cpuTime) {
             $res['CpuTime'] = $this->cpuTime;
@@ -167,6 +191,9 @@ class sqlList extends Model
         if (null !== $this->sumElapsedTime) {
             $res['SumElapsedTime'] = $this->sumElapsedTime;
         }
+        if (null !== $this->sumRetryCount) {
+            $res['SumRetryCount'] = $this->sumRetryCount;
+        }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -193,6 +220,12 @@ class sqlList extends Model
         }
         if (isset($map['AvgGetPlanTime'])) {
             $model->avgGetPlanTime = $map['AvgGetPlanTime'];
+        }
+        if (isset($map['AvgLogicalReads'])) {
+            $model->avgLogicalReads = $map['AvgLogicalReads'];
+        }
+        if (isset($map['AvgRetryCount'])) {
+            $model->avgRetryCount = $map['AvgRetryCount'];
         }
         if (isset($map['CpuTime'])) {
             $model->cpuTime = $map['CpuTime'];
@@ -231,6 +264,9 @@ class sqlList extends Model
         }
         if (isset($map['SumElapsedTime'])) {
             $model->sumElapsedTime = $map['SumElapsedTime'];
+        }
+        if (isset($map['SumRetryCount'])) {
+            $model->sumRetryCount = $map['SumRetryCount'];
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];

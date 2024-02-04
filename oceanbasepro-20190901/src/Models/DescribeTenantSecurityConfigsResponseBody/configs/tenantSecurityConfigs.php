@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class tenantSecurityConfigs extends Model
 {
     /**
+     * @description The number of detected tenant security risks.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class tenantSecurityConfigs extends Model
     public $riskCount;
 
     /**
+     * @description The list of risks.
+     *
      * @var securityConfigs[]
      */
     public $securityConfigs;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example xxx
      *
      * @var string
@@ -29,6 +35,8 @@ class tenantSecurityConfigs extends Model
     public $tenantId;
 
     /**
+     * @description The name of the tenant.
+     *
      * @example xxx
      *
      * @var string

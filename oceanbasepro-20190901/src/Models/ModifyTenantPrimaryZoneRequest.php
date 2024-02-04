@@ -72,6 +72,11 @@ class ModifyTenantPrimaryZoneRequest extends Model
      * @var string
      */
     public $userVSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'instanceId'                => 'InstanceId',
         'masterIntranetAddressZone' => 'MasterIntranetAddressZone',
@@ -81,6 +86,7 @@ class ModifyTenantPrimaryZoneRequest extends Model
         'tenantId'                  => 'TenantId',
         'userDirectVSwitchId'       => 'UserDirectVSwitchId',
         'userVSwitchId'             => 'UserVSwitchId',
+        'vpcId'                     => 'VpcId',
     ];
 
     public function validate()
@@ -113,6 +119,9 @@ class ModifyTenantPrimaryZoneRequest extends Model
         }
         if (null !== $this->userVSwitchId) {
             $res['UserVSwitchId'] = $this->userVSwitchId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -149,6 +158,9 @@ class ModifyTenantPrimaryZoneRequest extends Model
         }
         if (isset($map['UserVSwitchId'])) {
             $model->userVSwitchId = $map['UserVSwitchId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

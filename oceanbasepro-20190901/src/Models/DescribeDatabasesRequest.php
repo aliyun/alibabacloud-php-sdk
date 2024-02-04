@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabasesRequest extends Model
 {
     /**
-     * @description It is an Alibaba Cloud asset management and configuration tool, with which you can manage multiple Alibaba Cloud products and services by using commands. It is easy to use and a good helper in migration to cloud.
-     *
+     * @description The name of the database.
+     * You cannot use reserved keywords, such as test and mysql.
      * @example sms_pre
      *
      * @var string
@@ -18,15 +18,17 @@ class DescribeDatabasesRequest extends Model
     public $databaseName;
 
     /**
-     * @example ob4wibn0abo9uo
+     * @description Instance ID.
+     *
+     * @example ob****n0abo9uo
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The return result of the request.
-     *
+     * @description The number of the page returned.
+     * - Default value: 1
      * @example 1
      *
      * @var int
@@ -34,8 +36,8 @@ class DescribeDatabasesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description Alibaba Cloud provides SDKs in different languages to help you quickly integrate Alibaba Cloud products and services by using APIs. We recommend that you use an SDK to call APIs. In this way, you do not need to sign for verification.
-     *
+     * @description The number of rows returned on each page.
+     * - Default value: 10
      * @example 10
      *
      * @var int
@@ -43,7 +45,7 @@ class DescribeDatabasesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The information about the database tables.
+     * @description The search keyword.
      *
      * @example pay
      *
@@ -52,7 +54,7 @@ class DescribeDatabasesRequest extends Model
     public $searchKey;
 
     /**
-     * @description The request ID.
+     * @description The ID of the tenant.
      *
      * @example ob2mr3oae0****
      *
@@ -61,8 +63,8 @@ class DescribeDatabasesRequest extends Model
     public $tenantId;
 
     /**
-     * @description The role of the account.
-     * - DML: a role that has the DML privileges such as SELECT, INSERT, UPDATE, DELETE, and SHOW VIEW.
+     * @description Specifies whether to return the information of tables in the database.
+     * Default value: false.
      * @example true
      *
      * @var bool

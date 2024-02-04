@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @description If you have granted custom privileges on the database, this parameter indicates the custom privileges, separated by commas (,). Otherwise, no data is returned for this parameter.
+     *
+     * @example select,delete,update
+     *
      * @var string
      */
     public $privileges;
 
     /**
-     * @description The request ID.
-     *
+     * @description The role of the account.
+     * - DML: a role that has the DML privileges such as SELECT, INSERT, UPDATE, DELETE, and SHOW VIEW.
      * @example ReadOnly
      *
      * @var string
@@ -23,7 +27,7 @@ class users extends Model
     public $role;
 
     /**
-     * @description Example 1
+     * @description The name of the account.
      *
      * @example user_pay_ro
      *

@@ -93,6 +93,11 @@ class instances extends Model
     public $diskType;
 
     /**
+     * @var bool
+     */
+    public $enableReadOnlyReplicaManagement;
+
+    /**
      * @description The ID of the OceanBase cluster.
      *
      * @example true
@@ -253,35 +258,36 @@ class instances extends Model
      */
     public $vpcId;
     protected $_name = [
-        'availableZones'          => 'AvailableZones',
-        'commodityCode'           => 'CommodityCode',
-        'cpu'                     => 'Cpu',
-        'cpuArchitecture'         => 'CpuArchitecture',
-        'createTime'              => 'CreateTime',
-        'dataDiskAutoScaleConfig' => 'DataDiskAutoScaleConfig',
-        'deployMode'              => 'DeployMode',
-        'deployType'              => 'DeployType',
-        'diskSize'                => 'DiskSize',
-        'diskType'                => 'DiskType',
-        'enableUpgradeNodes'      => 'EnableUpgradeNodes',
-        'expireSeconds'           => 'ExpireSeconds',
-        'expireTime'              => 'ExpireTime',
-        'inTempCapacityStatus'    => 'InTempCapacityStatus',
-        'instanceClass'           => 'InstanceClass',
-        'instanceId'              => 'InstanceId',
-        'instanceName'            => 'InstanceName',
-        'instanceRole'            => 'InstanceRole',
-        'instanceType'            => 'InstanceType',
-        'maintainTime'            => 'MaintainTime',
-        'mem'                     => 'Mem',
-        'payType'                 => 'PayType',
-        'resource'                => 'Resource',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'series'                  => 'Series',
-        'state'                   => 'State',
-        'usedDiskSize'            => 'UsedDiskSize',
-        'version'                 => 'Version',
-        'vpcId'                   => 'VpcId',
+        'availableZones'                  => 'AvailableZones',
+        'commodityCode'                   => 'CommodityCode',
+        'cpu'                             => 'Cpu',
+        'cpuArchitecture'                 => 'CpuArchitecture',
+        'createTime'                      => 'CreateTime',
+        'dataDiskAutoScaleConfig'         => 'DataDiskAutoScaleConfig',
+        'deployMode'                      => 'DeployMode',
+        'deployType'                      => 'DeployType',
+        'diskSize'                        => 'DiskSize',
+        'diskType'                        => 'DiskType',
+        'enableReadOnlyReplicaManagement' => 'EnableReadOnlyReplicaManagement',
+        'enableUpgradeNodes'              => 'EnableUpgradeNodes',
+        'expireSeconds'                   => 'ExpireSeconds',
+        'expireTime'                      => 'ExpireTime',
+        'inTempCapacityStatus'            => 'InTempCapacityStatus',
+        'instanceClass'                   => 'InstanceClass',
+        'instanceId'                      => 'InstanceId',
+        'instanceName'                    => 'InstanceName',
+        'instanceRole'                    => 'InstanceRole',
+        'instanceType'                    => 'InstanceType',
+        'maintainTime'                    => 'MaintainTime',
+        'mem'                             => 'Mem',
+        'payType'                         => 'PayType',
+        'resource'                        => 'Resource',
+        'resourceGroupId'                 => 'ResourceGroupId',
+        'series'                          => 'Series',
+        'state'                           => 'State',
+        'usedDiskSize'                    => 'UsedDiskSize',
+        'version'                         => 'Version',
+        'vpcId'                           => 'VpcId',
     ];
 
     public function validate()
@@ -320,6 +326,9 @@ class instances extends Model
         }
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
+        }
+        if (null !== $this->enableReadOnlyReplicaManagement) {
+            $res['EnableReadOnlyReplicaManagement'] = $this->enableReadOnlyReplicaManagement;
         }
         if (null !== $this->enableUpgradeNodes) {
             $res['EnableUpgradeNodes'] = $this->enableUpgradeNodes;
@@ -421,6 +430,9 @@ class instances extends Model
         }
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
+        }
+        if (isset($map['EnableReadOnlyReplicaManagement'])) {
+            $model->enableReadOnlyReplicaManagement = $map['EnableReadOnlyReplicaManagement'];
         }
         if (isset($map['EnableUpgradeNodes'])) {
             $model->enableUpgradeNodes = $map['EnableUpgradeNodes'];

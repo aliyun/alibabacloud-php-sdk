@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantSecurityConfigsResponseBody extends Model
 {
     /**
+     * @description The list of parameters.
+     *
      * @var configs
      */
     public $configs;
 
     /**
-     * @example 523E7183-1490-590D-BA03-12DFD316614B
+     * @description The ID of the request.
+     *
+     * @example 523E7183-****-590D-****-12DFD316614B
      *
      * @var string
      */

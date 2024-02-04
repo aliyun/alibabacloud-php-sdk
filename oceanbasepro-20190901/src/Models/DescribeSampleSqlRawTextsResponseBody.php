@@ -4,30 +4,25 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSampleSqlRawTextsResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ModifyTenantResourceResponseBody extends Model
+class DescribeSampleSqlRawTextsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
+     * @var data
+     */
+    public $data;
+
+    /**
      * @example EE205C00-30E4-****-****-87E3A8A2AA0C
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description The ID of the tenant.
-     *
-     * @example t33h8y08k****
-     *
-     * @var string
-     */
-    public $tenantId;
     protected $_name = [
+        'data'      => 'Data',
         'requestId' => 'RequestId',
-        'tenantId'  => 'TenantId',
     ];
 
     public function validate()
@@ -37,11 +32,11 @@ class ModifyTenantResourceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -50,16 +45,16 @@ class ModifyTenantResourceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyTenantResourceResponseBody
+     * @return DescribeSampleSqlRawTextsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

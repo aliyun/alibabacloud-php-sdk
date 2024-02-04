@@ -132,6 +132,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectStepsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectStepsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeRecommendIndexRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeRecommendIndexResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSampleSqlRawTextsRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSampleSqlRawTextsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSecurityIpGroupsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSecurityIpGroupsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSlowSQLHistoryListRequest;
@@ -1532,7 +1534,9 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * Alibaba Cloud provides SDKs in different languages to help you quickly integrate Alibaba Cloud products and services by using APIs. We recommend that you use an SDK to call APIs. In this way, you do not need to sign for verification.
+     * Before you call this operation, ensure that the following requirements are met:
+     *   * - The cluster is in the Running state.
+     *   * - The cluster is a primary cluster and the billing method is pay-as-you-go.
      *   *
      * @param DeleteInstancesRequest $request DeleteInstancesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1571,7 +1575,9 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * Alibaba Cloud provides SDKs in different languages to help you quickly integrate Alibaba Cloud products and services by using APIs. We recommend that you use an SDK to call APIs. In this way, you do not need to sign for verification.
+     * Before you call this operation, ensure that the following requirements are met:
+     *   * - The cluster is in the Running state.
+     *   * - The cluster is a primary cluster and the billing method is pay-as-you-go.
      *   *
      * @param DeleteInstancesRequest $request DeleteInstancesRequest
      *
@@ -4073,6 +4079,70 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param DescribeSampleSqlRawTextsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeSampleSqlRawTextsResponse
+     */
+    public function describeSampleSqlRawTextsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->sqlId)) {
+            $body['SqlId'] = $request->sqlId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->traceId)) {
+            $body['TraceId'] = $request->traceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSampleSqlRawTexts',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSampleSqlRawTextsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSampleSqlRawTextsRequest $request
+     *
+     * @return DescribeSampleSqlRawTextsResponse
+     */
+    public function describeSampleSqlRawTexts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSampleSqlRawTextsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSecurityIpGroupsRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -5937,6 +6007,9 @@ class OceanBasePro extends OpenApiClient
         }
         if (!Utils::isUnset($request->userVSwitchId)) {
             $body['UserVSwitchId'] = $request->userVSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['VpcId'] = $request->vpcId;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),

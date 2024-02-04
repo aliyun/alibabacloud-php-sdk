@@ -72,6 +72,11 @@ class tenants extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableReadOnlyReplica;
+
+    /**
      * @description The number of the page to return.
      * - Default value: 1
      * @example 20
@@ -166,24 +171,25 @@ class tenants extends Model
      */
     public $vpcId;
     protected $_name = [
-        'charset'      => 'Charset',
-        'collation'    => 'Collation',
-        'cpu'          => 'Cpu',
-        'createTime'   => 'CreateTime',
-        'deployMode'   => 'DeployMode',
-        'deployType'   => 'DeployType',
-        'description'  => 'Description',
-        'mem'          => 'Mem',
-        'primaryZone'  => 'PrimaryZone',
-        'status'       => 'Status',
-        'tenantId'     => 'TenantId',
-        'tenantMode'   => 'TenantMode',
-        'tenantName'   => 'TenantName',
-        'unitCpu'      => 'UnitCpu',
-        'unitMem'      => 'UnitMem',
-        'unitNum'      => 'UnitNum',
-        'usedDiskSize' => 'UsedDiskSize',
-        'vpcId'        => 'VpcId',
+        'charset'               => 'Charset',
+        'collation'             => 'Collation',
+        'cpu'                   => 'Cpu',
+        'createTime'            => 'CreateTime',
+        'deployMode'            => 'DeployMode',
+        'deployType'            => 'DeployType',
+        'description'           => 'Description',
+        'enableReadOnlyReplica' => 'EnableReadOnlyReplica',
+        'mem'                   => 'Mem',
+        'primaryZone'           => 'PrimaryZone',
+        'status'                => 'Status',
+        'tenantId'              => 'TenantId',
+        'tenantMode'            => 'TenantMode',
+        'tenantName'            => 'TenantName',
+        'unitCpu'               => 'UnitCpu',
+        'unitMem'               => 'UnitMem',
+        'unitNum'               => 'UnitNum',
+        'usedDiskSize'          => 'UsedDiskSize',
+        'vpcId'                 => 'VpcId',
     ];
 
     public function validate()
@@ -213,6 +219,9 @@ class tenants extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->enableReadOnlyReplica) {
+            $res['EnableReadOnlyReplica'] = $this->enableReadOnlyReplica;
         }
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
@@ -279,6 +288,9 @@ class tenants extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnableReadOnlyReplica'])) {
+            $model->enableReadOnlyReplica = $map['EnableReadOnlyReplica'];
         }
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];

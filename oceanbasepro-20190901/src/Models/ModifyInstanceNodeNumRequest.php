@@ -9,18 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceNodeNumRequest extends Model
 {
     /**
+     * @description Specifies whether to perform only a dry run for the request. Default value: false. Valid values:
+     * - false: The actual request is sent and no dry run is performed. The number of nodes is changed if the requirements are met. By default, the DryRunResult parameter returns false if you set DryRun to false.
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @example ob3h8ytroxxxxx
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
      *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of nodes in the cluster. If the cluster is deployed in n-n-n mode, the number of nodes in the cluster equals n × 3.
+     *
      * @example 6
      *
      * @var string

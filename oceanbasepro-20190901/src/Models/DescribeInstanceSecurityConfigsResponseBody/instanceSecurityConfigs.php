@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class instanceSecurityConfigs extends Model
 {
     /**
+     * @description The unique identifier of the check.
+     *
      * @example xxx
      *
      * @var string
@@ -17,11 +19,17 @@ class instanceSecurityConfigs extends Model
     public $checkId;
 
     /**
+     * @description The time when the check was performed.
+     *
+     * @example 2023-08-07 15:30:00
+     *
      * @var string
      */
     public $checkTime;
 
     /**
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -29,11 +37,15 @@ class instanceSecurityConfigs extends Model
     public $instanceId;
 
     /**
+     * @description The list of check items.
+     *
      * @var securityConfigs[]
      */
     public $securityConfigs;
 
     /**
+     * @description The total number of security check items for the cluster.
+     *
      * @example 5
      *
      * @var int
@@ -41,6 +53,8 @@ class instanceSecurityConfigs extends Model
     public $totalCheckCount;
 
     /**
+     * @description The total number of detected cluster security risks.
+     *
      * @example 0
      *
      * @var int

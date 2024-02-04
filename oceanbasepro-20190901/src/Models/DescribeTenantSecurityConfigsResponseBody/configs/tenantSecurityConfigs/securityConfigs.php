@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class securityConfigs extends Model
 {
     /**
-     * @example 校验集群白名单范围是否过大
+     * @description The name of the check item.
+     *
+     * @example Check whether the scope of the cluster allowlist is too big
      *
      * @var string
      */
     public $configDescription;
 
     /**
+     * @description The group of the risk.
+     *
      * @example WHITELIST
      *
      * @var string
@@ -23,6 +27,8 @@ class securityConfigs extends Model
     public $configGroup;
 
     /**
+     * @description The name of the risk.
+     *
      * @example WHITELIST_RANGE_LARGE
      *
      * @var string
@@ -30,6 +36,8 @@ class securityConfigs extends Model
     public $configName;
 
     /**
+     * @description Indicates whether the risk causes security issues.
+     *
      * @example true
      *
      * @var bool
@@ -37,7 +45,9 @@ class securityConfigs extends Model
     public $risk;
 
     /**
-     * @example 白名单开放过大，建议按需设置
+     * @description The description of the risk.
+     *
+     * @example The scope of the allowlist is too big.
      *
      * @var string
      */

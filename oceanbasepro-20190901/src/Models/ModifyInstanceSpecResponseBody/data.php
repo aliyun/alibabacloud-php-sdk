@@ -9,12 +9,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The result of the dry-run request.
+     * - If the DryRun parameter is set to false, no dry run is performed and the DryRunResult parameter returns false.
+     * @example false
+     *
      * @var bool
      */
     public $dryRunResult;
 
     /**
-     * @example 21329031xxxxxxx
+     * @description The ID of the order that you have placed.
+     *
+     * @example 213290*********
      *
      * @var string
      */

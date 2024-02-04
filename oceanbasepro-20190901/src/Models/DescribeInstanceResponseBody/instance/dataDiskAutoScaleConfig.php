@@ -34,6 +34,16 @@ class dataDiskAutoScaleConfig extends Model
     public $upperMergeThreshold;
 
     /**
+     * @var string
+     */
+    public $upperScaleStep;
+
+    /**
+     * @var string
+     */
+    public $upperScaleStrategy;
+
+    /**
      * @var int
      */
     public $upperThreshold;
@@ -48,6 +58,8 @@ class dataDiskAutoScaleConfig extends Model
         'scaleStepInMerge'    => 'ScaleStepInMerge',
         'scaleStepInNormal'   => 'ScaleStepInNormal',
         'upperMergeThreshold' => 'UpperMergeThreshold',
+        'upperScaleStep'      => 'UpperScaleStep',
+        'upperScaleStrategy'  => 'UpperScaleStrategy',
         'upperThreshold'      => 'UpperThreshold',
         'upperbound'          => 'Upperbound',
     ];
@@ -73,6 +85,12 @@ class dataDiskAutoScaleConfig extends Model
         }
         if (null !== $this->upperMergeThreshold) {
             $res['UpperMergeThreshold'] = $this->upperMergeThreshold;
+        }
+        if (null !== $this->upperScaleStep) {
+            $res['UpperScaleStep'] = $this->upperScaleStep;
+        }
+        if (null !== $this->upperScaleStrategy) {
+            $res['UpperScaleStrategy'] = $this->upperScaleStrategy;
         }
         if (null !== $this->upperThreshold) {
             $res['UpperThreshold'] = $this->upperThreshold;
@@ -106,6 +124,12 @@ class dataDiskAutoScaleConfig extends Model
         }
         if (isset($map['UpperMergeThreshold'])) {
             $model->upperMergeThreshold = $map['UpperMergeThreshold'];
+        }
+        if (isset($map['UpperScaleStep'])) {
+            $model->upperScaleStep = $map['UpperScaleStep'];
+        }
+        if (isset($map['UpperScaleStrategy'])) {
+            $model->upperScaleStrategy = $map['UpperScaleStrategy'];
         }
         if (isset($map['UpperThreshold'])) {
             $model->upperThreshold = $map['UpperThreshold'];

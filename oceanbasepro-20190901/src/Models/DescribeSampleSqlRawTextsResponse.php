@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeZonesResponse extends Model
+class DescribeSampleSqlRawTextsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeZonesResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeZonesResponseBody
+     * @var DescribeSampleSqlRawTextsResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class DescribeZonesResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeZonesResponse
+     * @return DescribeSampleSqlRawTextsResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class DescribeZonesResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeZonesResponseBody::fromMap($map['body']);
+            $model->body = DescribeSampleSqlRawTextsResponseBody::fromMap($map['body']);
         }
 
         return $model;

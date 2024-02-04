@@ -10,19 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableMemResourceResponseBody extends Model
 {
     /**
-     * @description ```
-     * http(s)://[Endpoint]/?Action=DescribeAvailableMemResource
-     * &InstanceId=ob317v4uif****
-     * &TenantId=ob2mr3oae0****
-     * ```
+     * @description The available memory size.
+     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The number of CPU cores.
+     * @description The request ID.
      *
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+     * @example EE205C00-30E4-****-****-87E3A8A2AA0C
      *
      * @var string
      */

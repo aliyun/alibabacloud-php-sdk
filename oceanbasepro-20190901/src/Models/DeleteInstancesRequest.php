@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstancesRequest extends Model
 {
     /**
+     * @description The backup retention strategy for cluster deletion. Valid values:
+     * > <br>Default value: delete_all.
      * @example delete_all
      *
      * @var string
@@ -16,11 +18,17 @@ class DeleteInstancesRequest extends Model
     public $backupRetainMode;
 
     /**
+     * @description Specifies whether to perform only a dry run for the request. Default value: false. Valid values:
+     * - false: The actual request is sent and no dry run is performed. The instance is deleted if the requirements are met. By default, false is returned for the parameter DryRunResult if you set DryRun to false.
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description The ID of the cluster to be deleted.
+     * The value is a string in the JSON format.
      * @example [”ob ob3f6yhv9uxxxx“]
      *
      * @var string

@@ -108,11 +108,26 @@ class instance extends Model
     public $enableProxyService;
 
     /**
+     * @var bool
+     */
+    public $enableReadOnlyReplica;
+
+    /**
+     * @var bool
+     */
+    public $enableReadOnlyReplicaManagement;
+
+    /**
      * @example false
      *
      * @var bool
      */
     public $enableUpgradeLogDisk;
+
+    /**
+     * @var int
+     */
+    public $exclusiveUnitNumLimit;
 
     /**
      * @description The information of the OceanBase cluster.
@@ -252,6 +267,11 @@ class instance extends Model
     public $series;
 
     /**
+     * @var int
+     */
+    public $sharedUnitNumLimit;
+
+    /**
      * @description The information about cluster resources.
      *
      * @example ONLINE
@@ -264,6 +284,11 @@ class instance extends Model
      * @var tenantCreatable
      */
     public $tenantCreatable;
+
+    /**
+     * @var string
+     */
+    public $unitSpec;
 
     /**
      * @description You can call this operation to query the detailed information of an OceanBase cluster.
@@ -279,43 +304,48 @@ class instance extends Model
      */
     public $zones;
     protected $_name = [
-        'autoRenewal'                 => 'AutoRenewal',
-        'autoUpgradeObVersion'        => 'AutoUpgradeObVersion',
-        'availableZones'              => 'AvailableZones',
-        'cpuArchitecture'             => 'CpuArchitecture',
-        'createTime'                  => 'CreateTime',
-        'dataDiskAutoScale'           => 'DataDiskAutoScale',
-        'dataDiskAutoScaleConfig'     => 'DataDiskAutoScaleConfig',
-        'dataMergeTime'               => 'DataMergeTime',
-        'deployMode'                  => 'DeployMode',
-        'deployType'                  => 'DeployType',
-        'diskType'                    => 'DiskType',
-        'enableIsolationOptimization' => 'EnableIsolationOptimization',
-        'enableProxyService'          => 'EnableProxyService',
-        'enableUpgradeLogDisk'        => 'EnableUpgradeLogDisk',
-        'expireTime'                  => 'ExpireTime',
-        'inTempCapacityStatus'        => 'InTempCapacityStatus',
-        'instanceClass'               => 'InstanceClass',
-        'instanceId'                  => 'InstanceId',
-        'instanceName'                => 'InstanceName',
-        'instanceRole'                => 'InstanceRole',
-        'isLatestObVersion'           => 'IsLatestObVersion',
-        'isTrustEcs'                  => 'IsTrustEcs',
-        'isolationOptimization'       => 'IsolationOptimization',
-        'maintainTime'                => 'MaintainTime',
-        'nodeNum'                     => 'NodeNum',
-        'obRpmVersion'                => 'ObRpmVersion',
-        'payType'                     => 'PayType',
-        'proxyClusterId'              => 'ProxyClusterId',
-        'proxyServiceStatus'          => 'ProxyServiceStatus',
-        'readOnlyResource'            => 'ReadOnlyResource',
-        'replicaMode'                 => 'ReplicaMode',
-        'resource'                    => 'Resource',
-        'series'                      => 'Series',
-        'status'                      => 'Status',
-        'tenantCreatable'             => 'TenantCreatable',
-        'version'                     => 'Version',
-        'zones'                       => 'Zones',
+        'autoRenewal'                     => 'AutoRenewal',
+        'autoUpgradeObVersion'            => 'AutoUpgradeObVersion',
+        'availableZones'                  => 'AvailableZones',
+        'cpuArchitecture'                 => 'CpuArchitecture',
+        'createTime'                      => 'CreateTime',
+        'dataDiskAutoScale'               => 'DataDiskAutoScale',
+        'dataDiskAutoScaleConfig'         => 'DataDiskAutoScaleConfig',
+        'dataMergeTime'                   => 'DataMergeTime',
+        'deployMode'                      => 'DeployMode',
+        'deployType'                      => 'DeployType',
+        'diskType'                        => 'DiskType',
+        'enableIsolationOptimization'     => 'EnableIsolationOptimization',
+        'enableProxyService'              => 'EnableProxyService',
+        'enableReadOnlyReplica'           => 'EnableReadOnlyReplica',
+        'enableReadOnlyReplicaManagement' => 'EnableReadOnlyReplicaManagement',
+        'enableUpgradeLogDisk'            => 'EnableUpgradeLogDisk',
+        'exclusiveUnitNumLimit'           => 'ExclusiveUnitNumLimit',
+        'expireTime'                      => 'ExpireTime',
+        'inTempCapacityStatus'            => 'InTempCapacityStatus',
+        'instanceClass'                   => 'InstanceClass',
+        'instanceId'                      => 'InstanceId',
+        'instanceName'                    => 'InstanceName',
+        'instanceRole'                    => 'InstanceRole',
+        'isLatestObVersion'               => 'IsLatestObVersion',
+        'isTrustEcs'                      => 'IsTrustEcs',
+        'isolationOptimization'           => 'IsolationOptimization',
+        'maintainTime'                    => 'MaintainTime',
+        'nodeNum'                         => 'NodeNum',
+        'obRpmVersion'                    => 'ObRpmVersion',
+        'payType'                         => 'PayType',
+        'proxyClusterId'                  => 'ProxyClusterId',
+        'proxyServiceStatus'              => 'ProxyServiceStatus',
+        'readOnlyResource'                => 'ReadOnlyResource',
+        'replicaMode'                     => 'ReplicaMode',
+        'resource'                        => 'Resource',
+        'series'                          => 'Series',
+        'sharedUnitNumLimit'              => 'SharedUnitNumLimit',
+        'status'                          => 'Status',
+        'tenantCreatable'                 => 'TenantCreatable',
+        'unitSpec'                        => 'UnitSpec',
+        'version'                         => 'Version',
+        'zones'                           => 'Zones',
     ];
 
     public function validate()
@@ -364,8 +394,17 @@ class instance extends Model
         if (null !== $this->enableProxyService) {
             $res['EnableProxyService'] = $this->enableProxyService;
         }
+        if (null !== $this->enableReadOnlyReplica) {
+            $res['EnableReadOnlyReplica'] = $this->enableReadOnlyReplica;
+        }
+        if (null !== $this->enableReadOnlyReplicaManagement) {
+            $res['EnableReadOnlyReplicaManagement'] = $this->enableReadOnlyReplicaManagement;
+        }
         if (null !== $this->enableUpgradeLogDisk) {
             $res['EnableUpgradeLogDisk'] = $this->enableUpgradeLogDisk;
+        }
+        if (null !== $this->exclusiveUnitNumLimit) {
+            $res['ExclusiveUnitNumLimit'] = $this->exclusiveUnitNumLimit;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
@@ -424,11 +463,17 @@ class instance extends Model
         if (null !== $this->series) {
             $res['Series'] = $this->series;
         }
+        if (null !== $this->sharedUnitNumLimit) {
+            $res['SharedUnitNumLimit'] = $this->sharedUnitNumLimit;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->tenantCreatable) {
             $res['TenantCreatable'] = null !== $this->tenantCreatable ? $this->tenantCreatable->toMap() : null;
+        }
+        if (null !== $this->unitSpec) {
+            $res['UnitSpec'] = $this->unitSpec;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -489,8 +534,17 @@ class instance extends Model
         if (isset($map['EnableProxyService'])) {
             $model->enableProxyService = $map['EnableProxyService'];
         }
+        if (isset($map['EnableReadOnlyReplica'])) {
+            $model->enableReadOnlyReplica = $map['EnableReadOnlyReplica'];
+        }
+        if (isset($map['EnableReadOnlyReplicaManagement'])) {
+            $model->enableReadOnlyReplicaManagement = $map['EnableReadOnlyReplicaManagement'];
+        }
         if (isset($map['EnableUpgradeLogDisk'])) {
             $model->enableUpgradeLogDisk = $map['EnableUpgradeLogDisk'];
+        }
+        if (isset($map['ExclusiveUnitNumLimit'])) {
+            $model->exclusiveUnitNumLimit = $map['ExclusiveUnitNumLimit'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
@@ -549,11 +603,17 @@ class instance extends Model
         if (isset($map['Series'])) {
             $model->series = $map['Series'];
         }
+        if (isset($map['SharedUnitNumLimit'])) {
+            $model->sharedUnitNumLimit = $map['SharedUnitNumLimit'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['TenantCreatable'])) {
             $model->tenantCreatable = tenantCreatable::fromMap($map['TenantCreatable']);
+        }
+        if (isset($map['UnitSpec'])) {
+            $model->unitSpec = $map['UnitSpec'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

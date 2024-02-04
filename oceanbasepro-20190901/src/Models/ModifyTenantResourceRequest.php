@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyTenantResourceRequest extends Model
 {
     /**
-     * @description The memory size of the tenant, in GB.
+     * @description The information about the CPU resources of the tenant.
      *
      * @example 2
      *
@@ -18,8 +18,8 @@ class ModifyTenantResourceRequest extends Model
     public $cpu;
 
     /**
-     * @description The operation that you want to perform.
-     * Set the value to **ModifyTenantResource**.
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -27,12 +27,16 @@ class ModifyTenantResourceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The size of the log disk allocated to the tenant, in GB.
+     *
+     * @example 128
+     *
      * @var int
      */
     public $logDisk;
 
     /**
-     * @description The ID of the tenant.
+     * @description The memory size of the tenant, in GB.
      *
      * @example 2
      *
@@ -41,6 +45,8 @@ class ModifyTenantResourceRequest extends Model
     public $memory;
 
     /**
+     * @description Specifies to create a read-only zone. Separate the names of multiple zones with commas (,).
+     *
      * @example cn-shanghai-g-ro,cn-shanghai-h-ro
      *
      * @var string
@@ -48,7 +54,7 @@ class ModifyTenantResourceRequest extends Model
     public $readOnlyZoneList;
 
     /**
-     * @description The information about the CPU resources of the tenant.
+     * @description The ID of the tenant.
      *
      * @example ob2mr3oae0****
      *
