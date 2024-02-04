@@ -130,6 +130,11 @@ class moudle extends Model
      * @var string
      */
     public $trademarkNumber;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'bitFlag'           => 'BitFlag',
         'bizId'             => 'BizId',
@@ -155,6 +160,7 @@ class moudle extends Model
         'trademarkName'     => 'TrademarkName',
         'trademarkNameType' => 'TrademarkNameType',
         'trademarkNumber'   => 'TrademarkNumber',
+        'userId'            => 'UserId',
     ];
 
     public function validate()
@@ -235,6 +241,9 @@ class moudle extends Model
         }
         if (null !== $this->trademarkNumber) {
             $res['TrademarkNumber'] = $this->trademarkNumber;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -319,6 +328,9 @@ class moudle extends Model
         }
         if (isset($map['TrademarkNumber'])) {
             $model->trademarkNumber = $map['TrademarkNumber'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;
