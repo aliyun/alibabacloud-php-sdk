@@ -137,6 +137,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageLabelsShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageScoreRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageScoreResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageScoreShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageTextsRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageTextsResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageTextsShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectMediaMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectMediaMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectMediaMetaShrinkRequest;
@@ -3407,6 +3410,60 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detectImageScoreWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetectImageTextsRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DetectImageTextsResponse
+     */
+    public function detectImageTextsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DetectImageTextsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectImageTexts',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectImageTextsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectImageTextsRequest $request
+     *
+     * @return DetectImageTextsResponse
+     */
+    public function detectImageTexts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectImageTextsWithOptions($request, $runtime);
     }
 
     /**

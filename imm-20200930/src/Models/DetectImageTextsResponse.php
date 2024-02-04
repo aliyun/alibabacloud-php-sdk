@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteDatasetResponse extends Model
+class DetectImageTextsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DeleteDatasetResponse extends Model
     public $statusCode;
 
     /**
-     * @var DeleteDatasetResponseBody
+     * @var DetectImageTextsResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class DeleteDatasetResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteDatasetResponse
+     * @return DetectImageTextsResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class DeleteDatasetResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DeleteDatasetResponseBody::fromMap($map['body']);
+            $model->body = DetectImageTextsResponseBody::fromMap($map['body']);
         }
 
         return $model;
