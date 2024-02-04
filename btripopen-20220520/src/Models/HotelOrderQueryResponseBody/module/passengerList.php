@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class passengerList extends Model
 {
     /**
+     * @var string
+     */
+    public $applyId;
+
+    /**
      * @example 12345678
      *
      * @var int
@@ -30,6 +35,11 @@ class passengerList extends Model
     /**
      * @var string
      */
+    public $itineraryId;
+
+    /**
+     * @var string
+     */
     public $projectCode;
 
     /**
@@ -43,6 +53,11 @@ class passengerList extends Model
      * @var string
      */
     public $projectTitle;
+
+    /**
+     * @var string
+     */
+    public $thirdpartApplyId;
 
     /**
      * @example 12345678
@@ -77,12 +92,15 @@ class passengerList extends Model
      */
     public $userType;
     protected $_name = [
+        'applyId'               => 'apply_id',
         'costCenterId'          => 'cost_center_id',
         'costCenterName'        => 'cost_center_name',
         'costCenterNumber'      => 'cost_center_number',
+        'itineraryId'           => 'itinerary_id',
         'projectCode'           => 'project_code',
         'projectId'             => 'project_id',
         'projectTitle'          => 'project_title',
+        'thirdpartApplyId'      => 'thirdpart_apply_id',
         'thirdpartCostCenterId' => 'thirdpart_cost_center_id',
         'thirdpartProjectId'    => 'thirdpart_project_id',
         'userId'                => 'user_id',
@@ -97,6 +115,9 @@ class passengerList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applyId) {
+            $res['apply_id'] = $this->applyId;
+        }
         if (null !== $this->costCenterId) {
             $res['cost_center_id'] = $this->costCenterId;
         }
@@ -106,6 +127,9 @@ class passengerList extends Model
         if (null !== $this->costCenterNumber) {
             $res['cost_center_number'] = $this->costCenterNumber;
         }
+        if (null !== $this->itineraryId) {
+            $res['itinerary_id'] = $this->itineraryId;
+        }
         if (null !== $this->projectCode) {
             $res['project_code'] = $this->projectCode;
         }
@@ -114,6 +138,9 @@ class passengerList extends Model
         }
         if (null !== $this->projectTitle) {
             $res['project_title'] = $this->projectTitle;
+        }
+        if (null !== $this->thirdpartApplyId) {
+            $res['thirdpart_apply_id'] = $this->thirdpartApplyId;
         }
         if (null !== $this->thirdpartCostCenterId) {
             $res['thirdpart_cost_center_id'] = $this->thirdpartCostCenterId;
@@ -142,6 +169,9 @@ class passengerList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apply_id'])) {
+            $model->applyId = $map['apply_id'];
+        }
         if (isset($map['cost_center_id'])) {
             $model->costCenterId = $map['cost_center_id'];
         }
@@ -151,6 +181,9 @@ class passengerList extends Model
         if (isset($map['cost_center_number'])) {
             $model->costCenterNumber = $map['cost_center_number'];
         }
+        if (isset($map['itinerary_id'])) {
+            $model->itineraryId = $map['itinerary_id'];
+        }
         if (isset($map['project_code'])) {
             $model->projectCode = $map['project_code'];
         }
@@ -159,6 +192,9 @@ class passengerList extends Model
         }
         if (isset($map['project_title'])) {
             $model->projectTitle = $map['project_title'];
+        }
+        if (isset($map['thirdpart_apply_id'])) {
+            $model->thirdpartApplyId = $map['thirdpart_apply_id'];
         }
         if (isset($map['thirdpart_cost_center_id'])) {
             $model->thirdpartCostCenterId = $map['thirdpart_cost_center_id'];

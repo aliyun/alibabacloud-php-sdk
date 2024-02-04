@@ -1,3 +1,7 @@
+2024-02-04 Version: 1.10.5
+- Update API HotelOrderQueryupdate response param.
+
+
 2024-01-30 Version: 1.10.4
 - Update API FlightItineraryScanQueryupdate response param.
 - Update API FlightOrderQueryupdate response param.
