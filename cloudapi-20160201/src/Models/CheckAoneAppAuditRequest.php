@@ -12,8 +12,14 @@ class CheckAoneAppAuditRequest extends Model
      * @var string
      */
     public $aoneAppName;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'aoneAppName' => 'AoneAppName',
+        'aoneAppName'   => 'AoneAppName',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class CheckAoneAppAuditRequest extends Model
         $res = [];
         if (null !== $this->aoneAppName) {
             $res['AoneAppName'] = $this->aoneAppName;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class CheckAoneAppAuditRequest extends Model
         $model = new self();
         if (isset($map['AoneAppName'])) {
             $model->aoneAppName = $map['AoneAppName'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;
