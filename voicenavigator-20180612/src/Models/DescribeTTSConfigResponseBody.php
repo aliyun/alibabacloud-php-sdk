@@ -16,7 +16,22 @@ class DescribeTTSConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $engine;
+
+    /**
+     * @var string
+     */
+    public $engineXunfei;
+
+    /**
+     * @var string
+     */
     public $nlsServiceType;
+
+    /**
+     * @var int
+     */
+    public $pitchRate;
 
     /**
      * @example F132DDBA-66C4-5BD3-BF7E-9642FE877158
@@ -47,7 +62,10 @@ class DescribeTTSConfigResponseBody extends Model
     public $volume;
     protected $_name = [
         'appKey'         => 'AppKey',
+        'engine'         => 'Engine',
+        'engineXunfei'   => 'EngineXunfei',
         'nlsServiceType' => 'NlsServiceType',
+        'pitchRate'      => 'PitchRate',
         'requestId'      => 'RequestId',
         'speechRate'     => 'SpeechRate',
         'voice'          => 'Voice',
@@ -64,8 +82,17 @@ class DescribeTTSConfigResponseBody extends Model
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->engineXunfei) {
+            $res['EngineXunfei'] = $this->engineXunfei;
+        }
         if (null !== $this->nlsServiceType) {
             $res['NlsServiceType'] = $this->nlsServiceType;
+        }
+        if (null !== $this->pitchRate) {
+            $res['PitchRate'] = $this->pitchRate;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -94,8 +121,17 @@ class DescribeTTSConfigResponseBody extends Model
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
+        }
+        if (isset($map['EngineXunfei'])) {
+            $model->engineXunfei = $map['EngineXunfei'];
+        }
         if (isset($map['NlsServiceType'])) {
             $model->nlsServiceType = $map['NlsServiceType'];
+        }
+        if (isset($map['PitchRate'])) {
+            $model->pitchRate = $map['PitchRate'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

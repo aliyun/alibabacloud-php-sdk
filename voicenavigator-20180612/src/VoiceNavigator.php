@@ -195,8 +195,23 @@ class VoiceNavigator extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $query['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pitchRate)) {
+            $query['PitchRate'] = $request->pitchRate;
+        }
+        if (!Utils::isUnset($request->secretKey)) {
+            $query['SecretKey'] = $request->secretKey;
         }
         if (!Utils::isUnset($request->speechRate)) {
             $query['SpeechRate'] = $request->speechRate;
@@ -1930,6 +1945,12 @@ class VoiceNavigator extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appKey)) {
             $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->engineXunfei)) {
+            $query['EngineXunfei'] = $request->engineXunfei;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;

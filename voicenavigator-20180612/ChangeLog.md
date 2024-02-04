@@ -1,3 +1,14 @@
+2024-02-04 Version: 1.0.4
+- Update API AuditTTSVoiceadd AccessKey param.
+add AppKey param.
+add Engine param.
+add PitchRate param.
+add SecretKey param.
+- Update API DescribeTTSConfigupdate response param.
+- Update API ModifyTTSConfigadd Engine param.
+add EngineXunfei param.
+
+
 2023-12-27 Version: 1.0.3
 - Generated php 2018-06-12 for VoiceNavigator.
 

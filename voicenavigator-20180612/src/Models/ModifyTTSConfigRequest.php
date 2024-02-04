@@ -14,6 +14,16 @@ class ModifyTTSConfigRequest extends Model
     public $appKey;
 
     /**
+     * @var string
+     */
+    public $engine;
+
+    /**
+     * @var string
+     */
+    public $engineXunfei;
+
+    /**
      * @example 12f407b22cbe4890ac595f09985848d5
      *
      * @var string
@@ -47,6 +57,8 @@ class ModifyTTSConfigRequest extends Model
     public $volume;
     protected $_name = [
         'appKey'         => 'AppKey',
+        'engine'         => 'Engine',
+        'engineXunfei'   => 'EngineXunfei',
         'instanceId'     => 'InstanceId',
         'nlsServiceType' => 'NlsServiceType',
         'speechRate'     => 'SpeechRate',
@@ -63,6 +75,12 @@ class ModifyTTSConfigRequest extends Model
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->engineXunfei) {
+            $res['EngineXunfei'] = $this->engineXunfei;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -93,6 +111,12 @@ class ModifyTTSConfigRequest extends Model
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
+        }
+        if (isset($map['EngineXunfei'])) {
+            $model->engineXunfei = $map['EngineXunfei'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
