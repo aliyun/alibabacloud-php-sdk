@@ -741,9 +741,6 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->idFaceQuality)) {
             $query['IdFaceQuality'] = $request->idFaceQuality;
         }
-        if (!Utils::isUnset($request->idOcrPictureBase64)) {
-            $query['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
-        }
         if (!Utils::isUnset($request->idOcrPictureUrl)) {
             $query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
         }
@@ -762,8 +759,13 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->spoof)) {
             $query['Spoof'] = $request->spoof;
         }
+        $body = [];
+        if (!Utils::isUnset($request->idOcrPictureBase64)) {
+            $body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DocOcr',
@@ -817,14 +819,8 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->docType)) {
             $query['DocType'] = $request->docType;
         }
-        if (!Utils::isUnset($request->facePictureBase64)) {
-            $query['FacePictureBase64'] = $request->facePictureBase64;
-        }
         if (!Utils::isUnset($request->facePictureUrl)) {
             $query['FacePictureUrl'] = $request->facePictureUrl;
-        }
-        if (!Utils::isUnset($request->idOcrPictureBase64)) {
-            $query['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
         }
         if (!Utils::isUnset($request->idOcrPictureUrl)) {
             $query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
@@ -838,8 +834,16 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->productCode)) {
             $query['ProductCode'] = $request->productCode;
         }
+        $body = [];
+        if (!Utils::isUnset($request->facePictureBase64)) {
+            $body['FacePictureBase64'] = $request->facePictureBase64;
+        }
+        if (!Utils::isUnset($request->idOcrPictureBase64)) {
+            $body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'EkycVerify',
@@ -881,20 +885,22 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->merchantBizId)) {
             $query['MerchantBizId'] = $request->merchantBizId;
         }
-        if (!Utils::isUnset($request->sourceFacePicture)) {
-            $query['SourceFacePicture'] = $request->sourceFacePicture;
-        }
         if (!Utils::isUnset($request->sourceFacePictureUrl)) {
             $query['SourceFacePictureUrl'] = $request->sourceFacePictureUrl;
-        }
-        if (!Utils::isUnset($request->targetFacePicture)) {
-            $query['TargetFacePicture'] = $request->targetFacePicture;
         }
         if (!Utils::isUnset($request->targetFacePictureUrl)) {
             $query['TargetFacePictureUrl'] = $request->targetFacePictureUrl;
         }
+        $body = [];
+        if (!Utils::isUnset($request->sourceFacePicture)) {
+            $body['SourceFacePicture'] = $request->sourceFacePicture;
+        }
+        if (!Utils::isUnset($request->targetFacePicture)) {
+            $body['TargetFacePicture'] = $request->targetFacePicture;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'FaceCompare',
@@ -1121,9 +1127,6 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->docType)) {
             $query['DocType'] = $request->docType;
         }
-        if (!Utils::isUnset($request->facePictureBase64)) {
-            $query['FacePictureBase64'] = $request->facePictureBase64;
-        }
         if (!Utils::isUnset($request->facePictureUrl)) {
             $query['FacePictureUrl'] = $request->facePictureUrl;
         }
@@ -1172,11 +1175,19 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->sceneCode)) {
             $query['SceneCode'] = $request->sceneCode;
         }
+        if (!Utils::isUnset($request->securityLevel)) {
+            $query['SecurityLevel'] = $request->securityLevel;
+        }
         if (!Utils::isUnset($request->serviceLevel)) {
             $query['ServiceLevel'] = $request->serviceLevel;
         }
+        $body = [];
+        if (!Utils::isUnset($request->facePictureBase64)) {
+            $body['FacePictureBase64'] = $request->facePictureBase64;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'Initialize',

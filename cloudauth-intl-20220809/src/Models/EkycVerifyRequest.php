@@ -42,8 +42,6 @@ class EkycVerifyRequest extends Model
     public $docType;
 
     /**
-     * @example dsjisaj***oekwodsm
-     *
      * @var string
      */
     public $facePictureBase64;
@@ -56,8 +54,6 @@ class EkycVerifyRequest extends Model
     public $facePictureUrl;
 
     /**
-     * @example dsjisaj***oekwodsm
-     *
      * @var string
      */
     public $idOcrPictureBase64;

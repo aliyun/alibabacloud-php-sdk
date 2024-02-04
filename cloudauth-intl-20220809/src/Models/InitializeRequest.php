@@ -43,8 +43,6 @@ class InitializeRequest extends Model
     public $docType;
 
     /**
-     * @example dsjisaj***oekwodsm
-     *
      * @var string
      */
     public $facePictureBase64;
@@ -160,6 +158,11 @@ class InitializeRequest extends Model
     public $sceneCode;
 
     /**
+     * @var string
+     */
+    public $securityLevel;
+
+    /**
      * @example ****
      *
      * @var string
@@ -189,6 +192,7 @@ class InitializeRequest extends Model
         'productFlow'       => 'ProductFlow',
         'returnUrl'         => 'ReturnUrl',
         'sceneCode'         => 'SceneCode',
+        'securityLevel'     => 'SecurityLevel',
         'serviceLevel'      => 'ServiceLevel',
     ];
 
@@ -267,6 +271,9 @@ class InitializeRequest extends Model
         }
         if (null !== $this->sceneCode) {
             $res['SceneCode'] = $this->sceneCode;
+        }
+        if (null !== $this->securityLevel) {
+            $res['SecurityLevel'] = $this->securityLevel;
         }
         if (null !== $this->serviceLevel) {
             $res['ServiceLevel'] = $this->serviceLevel;
@@ -351,6 +358,9 @@ class InitializeRequest extends Model
         }
         if (isset($map['SceneCode'])) {
             $model->sceneCode = $map['SceneCode'];
+        }
+        if (isset($map['SecurityLevel'])) {
+            $model->securityLevel = $map['SecurityLevel'];
         }
         if (isset($map['ServiceLevel'])) {
             $model->serviceLevel = $map['ServiceLevel'];

@@ -16,8 +16,6 @@ class FaceCompareRequest extends Model
     public $merchantBizId;
 
     /**
-     * @example /9j/4AAQSkZJRgABAQAASxxxxxxx
-     *
      * @var string
      */
     public $sourceFacePicture;
@@ -30,8 +28,6 @@ class FaceCompareRequest extends Model
     public $sourceFacePictureUrl;
 
     /**
-     * @example /9j/4AAQSkZJRgABAQAASxxxxxxx
-     *
      * @var string
      */
     public $targetFacePicture;
