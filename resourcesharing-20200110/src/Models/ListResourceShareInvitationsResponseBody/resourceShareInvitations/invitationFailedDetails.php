@@ -21,6 +21,21 @@ class invitationFailedDetails extends Model
     public $associateType;
 
     /**
+     * @var string
+     */
+    public $failureDescription;
+
+    /**
+     * @var string
+     */
+    public $failureReason;
+
+    /**
+     * @var string
+     */
+    public $operationType;
+
+    /**
      * @description The ID of the shared resource.
      *
      * @example s-7xvh46nx5oqlre0wv***
@@ -63,11 +78,14 @@ class invitationFailedDetails extends Model
      */
     public $statusMessage;
     protected $_name = [
-        'associateType' => 'AssociateType',
-        'resourceId'    => 'ResourceId',
-        'resourceType'  => 'ResourceType',
-        'status'        => 'Status',
-        'statusMessage' => 'StatusMessage',
+        'associateType'      => 'AssociateType',
+        'failureDescription' => 'FailureDescription',
+        'failureReason'      => 'FailureReason',
+        'operationType'      => 'OperationType',
+        'resourceId'         => 'ResourceId',
+        'resourceType'       => 'ResourceType',
+        'status'             => 'Status',
+        'statusMessage'      => 'StatusMessage',
     ];
 
     public function validate()
@@ -79,6 +97,15 @@ class invitationFailedDetails extends Model
         $res = [];
         if (null !== $this->associateType) {
             $res['AssociateType'] = $this->associateType;
+        }
+        if (null !== $this->failureDescription) {
+            $res['FailureDescription'] = $this->failureDescription;
+        }
+        if (null !== $this->failureReason) {
+            $res['FailureReason'] = $this->failureReason;
+        }
+        if (null !== $this->operationType) {
+            $res['OperationType'] = $this->operationType;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -106,6 +133,15 @@ class invitationFailedDetails extends Model
         $model = new self();
         if (isset($map['AssociateType'])) {
             $model->associateType = $map['AssociateType'];
+        }
+        if (isset($map['FailureDescription'])) {
+            $model->failureDescription = $map['FailureDescription'];
+        }
+        if (isset($map['FailureReason'])) {
+            $model->failureReason = $map['FailureReason'];
+        }
+        if (isset($map['OperationType'])) {
+            $model->operationType = $map['OperationType'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

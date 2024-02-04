@@ -26,6 +26,21 @@ class associationFailedDetails extends Model
     /**
      * @var string
      */
+    public $failureDescription;
+
+    /**
+     * @var string
+     */
+    public $failureReason;
+
+    /**
+     * @var string
+     */
+    public $operationType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -33,11 +48,14 @@ class associationFailedDetails extends Model
      */
     public $statusMessage;
     protected $_name = [
-        'associateType' => 'AssociateType',
-        'entityId'      => 'EntityId',
-        'entityType'    => 'EntityType',
-        'status'        => 'Status',
-        'statusMessage' => 'StatusMessage',
+        'associateType'      => 'AssociateType',
+        'entityId'           => 'EntityId',
+        'entityType'         => 'EntityType',
+        'failureDescription' => 'FailureDescription',
+        'failureReason'      => 'FailureReason',
+        'operationType'      => 'OperationType',
+        'status'             => 'Status',
+        'statusMessage'      => 'StatusMessage',
     ];
 
     public function validate()
@@ -55,6 +73,15 @@ class associationFailedDetails extends Model
         }
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
+        }
+        if (null !== $this->failureDescription) {
+            $res['FailureDescription'] = $this->failureDescription;
+        }
+        if (null !== $this->failureReason) {
+            $res['FailureReason'] = $this->failureReason;
+        }
+        if (null !== $this->operationType) {
+            $res['OperationType'] = $this->operationType;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -82,6 +109,15 @@ class associationFailedDetails extends Model
         }
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
+        }
+        if (isset($map['FailureDescription'])) {
+            $model->failureDescription = $map['FailureDescription'];
+        }
+        if (isset($map['FailureReason'])) {
+            $model->failureReason = $map['FailureReason'];
+        }
+        if (isset($map['OperationType'])) {
+            $model->operationType = $map['OperationType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
