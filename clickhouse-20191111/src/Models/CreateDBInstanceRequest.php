@@ -240,11 +240,19 @@ class CreateDBInstanceRequest extends Model
     public $VPCId;
 
     /**
+     * @description 备专有网络交换机
+     *
+     * @example vsw-bp1gzt31twhlo0sa5****
+     *
      * @var string
      */
     public $vSwitchBak;
 
     /**
+     * @description 备专有网络交换机2
+     *
+     * @example vsw-bp1gzt31twhlo0sa5****
+     *
      * @var string
      */
     public $vSwitchBak2;
@@ -259,6 +267,8 @@ class CreateDBInstanceRequest extends Model
     public $vSwitchId;
 
     /**
+     * @example cn-hangzhou-j
+     *
      * @var string
      */
     public $zondIdBak2;
@@ -273,6 +283,8 @@ class CreateDBInstanceRequest extends Model
     public $zoneId;
 
     /**
+     * @example cn-hangzhou-k
+     *
      * @var string
      */
     public $zoneIdBak;

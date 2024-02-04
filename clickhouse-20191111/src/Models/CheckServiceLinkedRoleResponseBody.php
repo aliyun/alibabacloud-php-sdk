@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckServiceLinkedRoleResponseBody extends Model
 {
     /**
+     * @description The role.
+     *
      * @example xxxx
      *
      * @var bool
@@ -16,6 +18,8 @@ class CheckServiceLinkedRoleResponseBody extends Model
     public $hasServiceLinkedRole;
 
     /**
+     * @description The request ID.
+     *
      * @example xxx
      *
      * @var string

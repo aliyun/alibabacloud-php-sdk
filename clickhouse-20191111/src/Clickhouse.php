@@ -3358,6 +3358,9 @@ class Clickhouse extends OpenApiClient
         if (!Utils::isUnset($request->DBNodeStorage)) {
             $query['DBNodeStorage'] = $request->DBNodeStorage;
         }
+        if (!Utils::isUnset($request->dbNodeStorageType)) {
+            $query['DbNodeStorageType'] = $request->dbNodeStorageType;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }

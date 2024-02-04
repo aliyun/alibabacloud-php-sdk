@@ -69,6 +69,11 @@ class ModifyDBClusterRequest extends Model
     /**
      * @var string
      */
+    public $dbNodeStorageType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -99,6 +104,7 @@ class ModifyDBClusterRequest extends Model
         'DBClusterId'          => 'DBClusterId',
         'DBNodeGroupCount'     => 'DBNodeGroupCount',
         'DBNodeStorage'        => 'DBNodeStorage',
+        'dbNodeStorageType'    => 'DbNodeStorageType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -124,6 +130,9 @@ class ModifyDBClusterRequest extends Model
         }
         if (null !== $this->DBNodeStorage) {
             $res['DBNodeStorage'] = $this->DBNodeStorage;
+        }
+        if (null !== $this->dbNodeStorageType) {
+            $res['DbNodeStorageType'] = $this->dbNodeStorageType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -163,6 +172,9 @@ class ModifyDBClusterRequest extends Model
         }
         if (isset($map['DBNodeStorage'])) {
             $model->DBNodeStorage = $map['DBNodeStorage'];
+        }
+        if (isset($map['DbNodeStorageType'])) {
+            $model->dbNodeStorageType = $map['DbNodeStorageType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class synDbs extends Model
 {
     /**
-     * @description *   When the value **true** is returned for the **SynStatus** parameter, the system does not return the ErrorMsg parameter.
-     *   When the value **false** is returned for the **SynStatus** parameter, the system returns for the ErrorMsg parameter the cause why the data synchronization failed.
+     * @description *   If the value **true** is returned for the **SynStatus** parameter, this parameter is not returned.
+     *   If the value **false** is returned for the **SynStatus** parameter, the system returns the ErrorMsg parameter that provides the cause why the data synchronization failed.
      *
      * @example ClickHouse exception, code: 49, host: 100.100.118.132, port: 49670; Code: 49, e.displayText() = DB::Exception: Logical error: there is no global context (version 20.8.17.25)n
      *
@@ -28,7 +28,7 @@ class synDbs extends Model
     public $rdsId;
 
     /**
-     * @description The account that is used to log on to the ApsaraDB RDS for MySQL database.
+     * @description The database account that is used to log on to the ApsaraDB RDS for MySQL instance.
      *
      * @example test
      *

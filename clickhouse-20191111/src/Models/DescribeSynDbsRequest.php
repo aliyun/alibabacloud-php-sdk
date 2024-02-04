@@ -28,6 +28,8 @@ class DescribeSynDbsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +37,8 @@ class DescribeSynDbsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 20
      *
      * @var int

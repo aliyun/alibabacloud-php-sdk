@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynDbsResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -36,6 +44,10 @@ class DescribeSynDbsResponseBody extends Model
     public $synDbs;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $totalCount;

@@ -1,3 +1,10 @@
+2024-02-04 Version: 4.0.3
+- Update API CreateDBInstanceupdate VSwitchBak param.
+update VSwitchBak2 param.
+- Update API ModifyDBClusteradd DbNodeStorageType param.
+update DBClusterId param.
+
+
 2023-12-25 Version: 4.0.2
 - Generated php 2019-11-11 for clickhouse.
 

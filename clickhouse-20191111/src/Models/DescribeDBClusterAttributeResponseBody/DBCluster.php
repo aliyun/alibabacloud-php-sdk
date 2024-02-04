@@ -20,6 +20,8 @@ class DBCluster extends Model
     public $aliUid;
 
     /**
+     * @description The scheduled restart time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in Coordinated Universal Time (UTC).
+     *
      * @example 2023-11-06T12:00:00Z
      *
      * @var string
@@ -262,6 +264,8 @@ class DBCluster extends Model
     public $expireTime;
 
     /**
+     * @description The extended storage space. Unit: GB.
+     *
      * @example 500
      *
      * @var int
@@ -269,6 +273,13 @@ class DBCluster extends Model
     public $extStorageSize;
 
     /**
+     * @description The extended storage type. Valid values:
+     *
+     *   **CloudESSD**: The cluster uses an enhanced SSD (ESSD) of performance level (PL) 1.
+     *   **CloudESSD_PL2**: The cluster uses an ESSD of PL 2.
+     *   **CloudESSD_PL3**: The cluster uses an ESSD of PL 3.
+     *   **CloudEfficiency**: The cluster uses an ultra disk.
+     *
      * @example CloudESSD
      *
      * @var string
@@ -389,6 +400,8 @@ class DBCluster extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmyf65je6****
      *
      * @var string
@@ -522,6 +535,8 @@ class DBCluster extends Model
     public $zoneIdVswitchMap;
 
     /**
+     * @description The ZooKeeper specifications.
+     *
      * @example 4 Core 8 GB
      *
      * @var string
