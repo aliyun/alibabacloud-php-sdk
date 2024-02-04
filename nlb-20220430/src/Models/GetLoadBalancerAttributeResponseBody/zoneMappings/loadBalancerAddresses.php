@@ -27,6 +27,11 @@ class loadBalancerAddresses extends Model
     public $eniId;
 
     /**
+     * @var string[]
+     */
+    public $ipv4LocalAddresses;
+
+    /**
      * @description The IPv6 address of the NLB instance.
      *
      * @example 2001:db8:1:1:1:1:1:1
@@ -34,6 +39,11 @@ class loadBalancerAddresses extends Model
      * @var string
      */
     public $ipv6Address;
+
+    /**
+     * @var string[]
+     */
+    public $ipv6LocalAddresses;
 
     /**
      * @description The private IPv4 address of the NLB instance.
@@ -81,7 +91,9 @@ class loadBalancerAddresses extends Model
     protected $_name = [
         'allocationId'        => 'AllocationId',
         'eniId'               => 'EniId',
+        'ipv4LocalAddresses'  => 'Ipv4LocalAddresses',
         'ipv6Address'         => 'Ipv6Address',
+        'ipv6LocalAddresses'  => 'Ipv6LocalAddresses',
         'privateIPv4Address'  => 'PrivateIPv4Address',
         'privateIPv4HcStatus' => 'PrivateIPv4HcStatus',
         'privateIPv6HcStatus' => 'PrivateIPv6HcStatus',
@@ -101,8 +113,14 @@ class loadBalancerAddresses extends Model
         if (null !== $this->eniId) {
             $res['EniId'] = $this->eniId;
         }
+        if (null !== $this->ipv4LocalAddresses) {
+            $res['Ipv4LocalAddresses'] = $this->ipv4LocalAddresses;
+        }
         if (null !== $this->ipv6Address) {
             $res['Ipv6Address'] = $this->ipv6Address;
+        }
+        if (null !== $this->ipv6LocalAddresses) {
+            $res['Ipv6LocalAddresses'] = $this->ipv6LocalAddresses;
         }
         if (null !== $this->privateIPv4Address) {
             $res['PrivateIPv4Address'] = $this->privateIPv4Address;
@@ -134,8 +152,18 @@ class loadBalancerAddresses extends Model
         if (isset($map['EniId'])) {
             $model->eniId = $map['EniId'];
         }
+        if (isset($map['Ipv4LocalAddresses'])) {
+            if (!empty($map['Ipv4LocalAddresses'])) {
+                $model->ipv4LocalAddresses = $map['Ipv4LocalAddresses'];
+            }
+        }
         if (isset($map['Ipv6Address'])) {
             $model->ipv6Address = $map['Ipv6Address'];
+        }
+        if (isset($map['Ipv6LocalAddresses'])) {
+            if (!empty($map['Ipv6LocalAddresses'])) {
+                $model->ipv6LocalAddresses = $map['Ipv6LocalAddresses'];
+            }
         }
         if (isset($map['PrivateIPv4Address'])) {
             $model->privateIPv4Address = $map['PrivateIPv4Address'];
