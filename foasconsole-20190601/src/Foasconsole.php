@@ -566,10 +566,14 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param ModifyPrepayInstanceSpecRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2019-06-01::ModifyInstanceSpec instead.
+     *   *
+     * Deprecated
      *
-     * @return ModifyPrepayInstanceSpecResponse
+     * @param ModifyPrepayInstanceSpecRequest $request ModifyPrepayInstanceSpecRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyPrepayInstanceSpecResponse ModifyPrepayInstanceSpecResponse
      */
     public function modifyPrepayInstanceSpecWithOptions($request, $runtime)
     {
@@ -599,9 +603,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param ModifyPrepayInstanceSpecRequest $request
+     * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2019-06-01::ModifyInstanceSpec instead.
+     *   *
+     * Deprecated
      *
-     * @return ModifyPrepayInstanceSpecResponse
+     * @param ModifyPrepayInstanceSpecRequest $request ModifyPrepayInstanceSpecRequest
+     *
+     * @return ModifyPrepayInstanceSpecResponse ModifyPrepayInstanceSpecResponse
      */
     public function modifyPrepayInstanceSpec($request)
     {
@@ -611,10 +619,14 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param ModifyPrepayNamespaceSpecRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2019-06-01::ModifyNamespaceSpec instead.
+     *   *
+     * Deprecated
      *
-     * @return ModifyPrepayNamespaceSpecResponse
+     * @param ModifyPrepayNamespaceSpecRequest $request ModifyPrepayNamespaceSpecRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyPrepayNamespaceSpecResponse ModifyPrepayNamespaceSpecResponse
      */
     public function modifyPrepayNamespaceSpecWithOptions($request, $runtime)
     {
@@ -644,9 +656,13 @@ class Foasconsole extends OpenApiClient
     }
 
     /**
-     * @param ModifyPrepayNamespaceSpecRequest $request
+     * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2019-06-01::ModifyNamespaceSpec instead.
+     *   *
+     * Deprecated
      *
-     * @return ModifyPrepayNamespaceSpecResponse
+     * @param ModifyPrepayNamespaceSpecRequest $request ModifyPrepayNamespaceSpecRequest
+     *
+     * @return ModifyPrepayNamespaceSpecResponse ModifyPrepayNamespaceSpecResponse
      */
     public function modifyPrepayNamespaceSpec($request)
     {

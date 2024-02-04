@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models\DescribeInstancesResponseBody;
 
+use AlibabaCloud\SDK\Foasconsole\V20190601\Models\DescribeInstancesResponseBody\instances\haResourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\DescribeInstancesResponseBody\instances\hostAliases;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\DescribeInstancesResponseBody\instances\resourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\DescribeInstancesResponseBody\instances\storage;
@@ -39,6 +40,26 @@ class instances extends Model
     public $clusterStatus;
 
     /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
+     * @var haResourceSpec
+     */
+    public $haResourceSpec;
+
+    /**
+     * @var string[]
+     */
+    public $haVSwitchIds;
+
+    /**
+     * @var string
+     */
+    public $haZoneId;
+
+    /**
      * @var hostAliases[]
      */
     public $hostAliases;
@@ -56,6 +77,11 @@ class instances extends Model
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $monitorType;
 
     /**
      * @example NORMAL
@@ -144,9 +170,14 @@ class instances extends Model
         'askClusterId'        => 'AskClusterId',
         'chargeType'          => 'ChargeType',
         'clusterStatus'       => 'ClusterStatus',
+        'ha'                  => 'Ha',
+        'haResourceSpec'      => 'HaResourceSpec',
+        'haVSwitchIds'        => 'HaVSwitchIds',
+        'haZoneId'            => 'HaZoneId',
         'hostAliases'         => 'HostAliases',
         'instanceId'          => 'InstanceId',
         'instanceName'        => 'InstanceName',
+        'monitorType'         => 'MonitorType',
         'orderState'          => 'OrderState',
         'region'              => 'Region',
         'resourceCreateTime'  => 'ResourceCreateTime',
@@ -181,6 +212,18 @@ class instances extends Model
         if (null !== $this->clusterStatus) {
             $res['ClusterStatus'] = $this->clusterStatus;
         }
+        if (null !== $this->ha) {
+            $res['Ha'] = $this->ha;
+        }
+        if (null !== $this->haResourceSpec) {
+            $res['HaResourceSpec'] = null !== $this->haResourceSpec ? $this->haResourceSpec->toMap() : null;
+        }
+        if (null !== $this->haVSwitchIds) {
+            $res['HaVSwitchIds'] = $this->haVSwitchIds;
+        }
+        if (null !== $this->haZoneId) {
+            $res['HaZoneId'] = $this->haZoneId;
+        }
         if (null !== $this->hostAliases) {
             $res['HostAliases'] = [];
             if (null !== $this->hostAliases && \is_array($this->hostAliases)) {
@@ -195,6 +238,9 @@ class instances extends Model
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->monitorType) {
+            $res['MonitorType'] = $this->monitorType;
         }
         if (null !== $this->orderState) {
             $res['OrderState'] = $this->orderState;
@@ -265,6 +311,20 @@ class instances extends Model
         if (isset($map['ClusterStatus'])) {
             $model->clusterStatus = $map['ClusterStatus'];
         }
+        if (isset($map['Ha'])) {
+            $model->ha = $map['Ha'];
+        }
+        if (isset($map['HaResourceSpec'])) {
+            $model->haResourceSpec = haResourceSpec::fromMap($map['HaResourceSpec']);
+        }
+        if (isset($map['HaVSwitchIds'])) {
+            if (!empty($map['HaVSwitchIds'])) {
+                $model->haVSwitchIds = $map['HaVSwitchIds'];
+            }
+        }
+        if (isset($map['HaZoneId'])) {
+            $model->haZoneId = $map['HaZoneId'];
+        }
         if (isset($map['HostAliases'])) {
             if (!empty($map['HostAliases'])) {
                 $model->hostAliases = [];
@@ -279,6 +339,9 @@ class instances extends Model
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['MonitorType'])) {
+            $model->monitorType = $map['MonitorType'];
         }
         if (isset($map['OrderState'])) {
             $model->orderState = $map['OrderState'];

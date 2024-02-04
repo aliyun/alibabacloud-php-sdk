@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class describeNamespacesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
      * @example 223493C7-FCA9-13D4-B75B-AF8B32F4****
      *
      * @var string
@@ -49,6 +54,7 @@ class describeNamespacesRequest extends Model
      */
     public $tags;
     protected $_name = [
+        'ha'         => 'Ha',
         'instanceId' => 'InstanceId',
         'namespace'  => 'Namespace',
         'pageIndex'  => 'PageIndex',
@@ -64,6 +70,9 @@ class describeNamespacesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ha) {
+            $res['Ha'] = $this->ha;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -100,6 +109,9 @@ class describeNamespacesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ha'])) {
+            $model->ha = $map['Ha'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

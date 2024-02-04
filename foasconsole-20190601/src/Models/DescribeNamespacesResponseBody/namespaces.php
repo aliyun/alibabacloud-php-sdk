@@ -26,6 +26,11 @@ class namespaces extends Model
     public $gmtModified;
 
     /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
      * @example ns-1
      *
      * @var string
@@ -56,6 +61,7 @@ class namespaces extends Model
     protected $_name = [
         'gmtCreate'    => 'GmtCreate',
         'gmtModified'  => 'GmtModified',
+        'ha'           => 'Ha',
         'namespace'    => 'Namespace',
         'resourceSpec' => 'ResourceSpec',
         'resourceUsed' => 'ResourceUsed',
@@ -75,6 +81,9 @@ class namespaces extends Model
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->ha) {
+            $res['Ha'] = $this->ha;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -114,6 +123,9 @@ class namespaces extends Model
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['Ha'])) {
+            $model->ha = $map['Ha'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

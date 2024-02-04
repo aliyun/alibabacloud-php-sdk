@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models\QueryCreateInstancePriceRequest;
 
+use AlibabaCloud\SDK\Foasconsole\V20190601\Models\QueryCreateInstancePriceRequest\createInstanceRequest\haResourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\QueryCreateInstancePriceRequest\createInstanceRequest\resourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\QueryCreateInstancePriceRequest\createInstanceRequest\storage;
 use AlibabaCloud\Tea\Model;
@@ -40,6 +41,16 @@ class createInstanceRequest extends Model
      * @var string
      */
     public $extra;
+
+    /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
+     * @var haResourceSpec
+     */
+    public $haResourceSpec;
 
     /**
      * @example vvp1
@@ -112,6 +123,8 @@ class createInstanceRequest extends Model
         'chargeType'       => 'ChargeType',
         'duration'         => 'Duration',
         'extra'            => 'Extra',
+        'ha'               => 'Ha',
+        'haResourceSpec'   => 'HaResourceSpec',
         'instanceName'     => 'InstanceName',
         'pricingCycle'     => 'PricingCycle',
         'promotionCode'    => 'PromotionCode',
@@ -145,6 +158,12 @@ class createInstanceRequest extends Model
         }
         if (null !== $this->extra) {
             $res['Extra'] = $this->extra;
+        }
+        if (null !== $this->ha) {
+            $res['Ha'] = $this->ha;
+        }
+        if (null !== $this->haResourceSpec) {
+            $res['HaResourceSpec'] = null !== $this->haResourceSpec ? $this->haResourceSpec->toMap() : null;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -202,6 +221,12 @@ class createInstanceRequest extends Model
         }
         if (isset($map['Extra'])) {
             $model->extra = $map['Extra'];
+        }
+        if (isset($map['Ha'])) {
+            $model->ha = $map['Ha'];
+        }
+        if (isset($map['HaResourceSpec'])) {
+            $model->haResourceSpec = haResourceSpec::fromMap($map['HaResourceSpec']);
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];

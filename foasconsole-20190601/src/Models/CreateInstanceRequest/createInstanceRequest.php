@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20190601\Models\CreateInstanceRequest;
 
+use AlibabaCloud\SDK\Foasconsole\V20190601\Models\CreateInstanceRequest\createInstanceRequest\haResourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\CreateInstanceRequest\createInstanceRequest\resourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20190601\Models\CreateInstanceRequest\createInstanceRequest\storage;
 use AlibabaCloud\Tea\Model;
@@ -44,11 +45,36 @@ class createInstanceRequest extends Model
     public $extra;
 
     /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
+     * @var haResourceSpec
+     */
+    public $haResourceSpec;
+
+    /**
+     * @var string[]
+     */
+    public $haVSwitchIds;
+
+    /**
+     * @var string
+     */
+    public $haZoneId;
+
+    /**
      * @example vvp1
      *
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $monitorType;
 
     /**
      * @example Month
@@ -121,7 +147,12 @@ class createInstanceRequest extends Model
         'chargeType'       => 'ChargeType',
         'duration'         => 'Duration',
         'extra'            => 'Extra',
+        'ha'               => 'Ha',
+        'haResourceSpec'   => 'HaResourceSpec',
+        'haVSwitchIds'     => 'HaVSwitchIds',
+        'haZoneId'         => 'HaZoneId',
         'instanceName'     => 'InstanceName',
+        'monitorType'      => 'MonitorType',
         'pricingCycle'     => 'PricingCycle',
         'promotionCode'    => 'PromotionCode',
         'region'           => 'Region',
@@ -156,8 +187,23 @@ class createInstanceRequest extends Model
         if (null !== $this->extra) {
             $res['Extra'] = $this->extra;
         }
+        if (null !== $this->ha) {
+            $res['Ha'] = $this->ha;
+        }
+        if (null !== $this->haResourceSpec) {
+            $res['HaResourceSpec'] = null !== $this->haResourceSpec ? $this->haResourceSpec->toMap() : null;
+        }
+        if (null !== $this->haVSwitchIds) {
+            $res['HaVSwitchIds'] = $this->haVSwitchIds;
+        }
+        if (null !== $this->haZoneId) {
+            $res['HaZoneId'] = $this->haZoneId;
+        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->monitorType) {
+            $res['MonitorType'] = $this->monitorType;
         }
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
@@ -216,8 +262,25 @@ class createInstanceRequest extends Model
         if (isset($map['Extra'])) {
             $model->extra = $map['Extra'];
         }
+        if (isset($map['Ha'])) {
+            $model->ha = $map['Ha'];
+        }
+        if (isset($map['HaResourceSpec'])) {
+            $model->haResourceSpec = haResourceSpec::fromMap($map['HaResourceSpec']);
+        }
+        if (isset($map['HaVSwitchIds'])) {
+            if (!empty($map['HaVSwitchIds'])) {
+                $model->haVSwitchIds = $map['HaVSwitchIds'];
+            }
+        }
+        if (isset($map['HaZoneId'])) {
+            $model->haZoneId = $map['HaZoneId'];
+        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['MonitorType'])) {
+            $model->monitorType = $map['MonitorType'];
         }
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
