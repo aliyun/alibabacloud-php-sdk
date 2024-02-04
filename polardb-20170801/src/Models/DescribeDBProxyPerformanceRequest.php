@@ -18,6 +18,15 @@ class DescribeDBProxyPerformanceRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example pe-****************
+     *
+     * @var string
+     */
+    public $DBEndpointId;
+
+    /**
      * @description The end of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
      *
      * @example 2020-09-24T02:08Z
@@ -44,10 +53,11 @@ class DescribeDBProxyPerformanceRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'DBClusterId' => 'DBClusterId',
-        'endTime'     => 'EndTime',
-        'key'         => 'Key',
-        'startTime'   => 'StartTime',
+        'DBClusterId'  => 'DBClusterId',
+        'DBEndpointId' => 'DBEndpointId',
+        'endTime'      => 'EndTime',
+        'key'          => 'Key',
+        'startTime'    => 'StartTime',
     ];
 
     public function validate()
@@ -59,6 +69,9 @@ class DescribeDBProxyPerformanceRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->DBEndpointId) {
+            $res['DBEndpointId'] = $this->DBEndpointId;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -83,6 +96,9 @@ class DescribeDBProxyPerformanceRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['DBEndpointId'])) {
+            $model->DBEndpointId = $map['DBEndpointId'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

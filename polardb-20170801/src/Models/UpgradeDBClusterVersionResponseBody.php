@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBClusterVersionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example CAE6755F-B79A-4861-B227-801FE8******
      *
      * @var string

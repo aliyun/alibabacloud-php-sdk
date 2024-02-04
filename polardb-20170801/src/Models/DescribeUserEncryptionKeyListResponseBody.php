@@ -18,6 +18,8 @@ class DescribeUserEncryptionKeyListResponseBody extends Model
     public $DBClusterId;
 
     /**
+     * @description Cluster key list.
+     *
      * @var string[]
      */
     public $keyList;

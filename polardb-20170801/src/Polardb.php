@@ -288,8 +288,6 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\TransformDBClusterPayTypeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\TransformDBClusterPayTypeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UntagResourcesResponse;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterMinorVersionRequest;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterMinorVersionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -4557,6 +4555,9 @@ class Polardb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->DBEndpointId)) {
+            $query['DBEndpointId'] = $request->DBEndpointId;
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
@@ -9888,77 +9889,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > You can upgrade only the revision version of a PolarDB for MySQL cluster. For example, you can upgrade the version 8.0.1.1.3 of a PolarDB for MySQL cluster to the version 8.0.1.1.4.
-     *   *
-     * @param UpgradeDBClusterMinorVersionRequest $request UpgradeDBClusterMinorVersionRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return UpgradeDBClusterMinorVersionResponse UpgradeDBClusterMinorVersionResponse
-     */
-    public function upgradeDBClusterMinorVersionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->fromTimeService)) {
-            $query['FromTimeService'] = $request->fromTimeService;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->plannedEndTime)) {
-            $query['PlannedEndTime'] = $request->plannedEndTime;
-        }
-        if (!Utils::isUnset($request->plannedStartTime)) {
-            $query['PlannedStartTime'] = $request->plannedStartTime;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpgradeDBClusterMinorVersion',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpgradeDBClusterMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * > You can upgrade only the revision version of a PolarDB for MySQL cluster. For example, you can upgrade the version 8.0.1.1.3 of a PolarDB for MySQL cluster to the version 8.0.1.1.4.
-     *   *
-     * @param UpgradeDBClusterMinorVersionRequest $request UpgradeDBClusterMinorVersionRequest
-     *
-     * @return UpgradeDBClusterMinorVersionResponse UpgradeDBClusterMinorVersionResponse
-     */
-    public function upgradeDBClusterMinorVersion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->upgradeDBClusterMinorVersionWithOptions($request, $runtime);
-    }
-
-    /**
-     * >
-     *   * *   You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
-     *   * *   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
+     * > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
+     *   * >*   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
      *   *
      * @param UpgradeDBClusterVersionRequest $request UpgradeDBClusterVersionRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -10024,9 +9956,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
-     *   * *   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
+     * > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
+     *   * >*   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
      *   *
      * @param UpgradeDBClusterVersionRequest $request UpgradeDBClusterVersionRequest
      *

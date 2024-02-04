@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBClusterVersionRequest extends Model
 {
     /**
+     * @description The ID of cluster.
+     *
      * @example pc-****************
      *
      * @var string
@@ -16,6 +18,9 @@ class UpgradeDBClusterVersionRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to immediately run the task to modify parameters and restart the cluster. Valid values:
+     *
+     * > No need to use this parameter when calling this interface
      * @example false
      *
      * @var bool
@@ -35,12 +40,8 @@ class UpgradeDBClusterVersionRequest extends Model
     /**
      * @description The latest start time to run the task that updates the kernel version of the cluster. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
      *
-     * >
-     *
-     *   The value of this parameter must be at least 30 minutes later than the value of PlannedStartTime.
-     *
-     *   If you specify `PlannedStartTime` but do not specify PlannedEndTime, the latest start time of the task is `PlannedEndTime + 30 minutes`. For example, if you set `PlannedStartTime` to `2021-01-14T09:00:00Z` and do not specify PlannedEndTime, the latest start time of the task is set to `2021-01-14T09:30:00Z`.
-     *
+     * > *   The value of this parameter must be at least 30 minutes later than the value of PlannedStartTime.
+     * >*   If you specify `PlannedStartTime` but do not specify PlannedEndTime, the latest start time of the task is `PlannedEndTime + 30 minutes`. For example, if you set `PlannedStartTime` to `2021-01-14T09:00:00Z` and do not specify PlannedEndTime, the latest start time of the task is set to `2021-01-14T09:30:00Z`.
      * @example 2021-01-14T09:30:00Z
      *
      * @var string
@@ -50,12 +51,8 @@ class UpgradeDBClusterVersionRequest extends Model
     /**
      * @description The earliest start time to run the task that updates the kernel version of the cluster. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
      *
-     * >
-     *
-     *   The earliest start time of the task can be a point in time within the next 24 hours. For example, if the current time is `2021-01-14T09:00:00Z`, you can specify a point in time between `2021-01-14T09:00:00Z` and `2021-01-15T09:00:00Z`.
-     *
-     *   If you do not specify this parameter, the kernel update task runs immediately after you submit the request.
-     *
+     * > *   The earliest start time of the task can be a point in time within the next 24 hours. For example, if the current time is `2021-01-14T09:00:00Z`, you can specify a point in time between `2021-01-14T09:00:00Z` and `2021-01-15T09:00:00Z`.
+     * >*   If you do not specify this parameter, the kernel update task runs immediately after you submit the request.
      * @example 2021-01-14T09:00:00Z
      *
      * @var string
@@ -73,7 +70,7 @@ class UpgradeDBClusterVersionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description 目标版本的VersionCode，参数取值可从[DescribeDBClusterVersion](~~2319145~~)接口获取。
+     * @description The code of the version to which you want to upgrade the cluster. You can call the [DescribeDBClusterVersion](~~2319145~~) operation to query the version code.
      *
      * @example 20230707
      *
@@ -82,6 +79,8 @@ class UpgradeDBClusterVersionRequest extends Model
     public $targetDBRevisionVersionCode;
 
     /**
+     * @description Kernel version upgrade label. The value is fixed as INNOVATE.
+     * > this parameter is passed in, UpgradePolicy must pass COLD.
      * @example INNOVATE
      *
      * @var string
@@ -89,6 +88,9 @@ class UpgradeDBClusterVersionRequest extends Model
     public $upgradeLabel;
 
     /**
+     * @description Kernel version upgrade strategy. Value:
+     *
+     * - COLD: Cold upgrade. Currently, only PolarDB MySQL version 8.0 cluster version supports this upgrade method.
      * @example HOT
      *
      * @var string
@@ -96,6 +98,9 @@ class UpgradeDBClusterVersionRequest extends Model
     public $upgradePolicy;
 
     /**
+     * @description There is no need to use this parameter to upgrade the type when calling this interface. Value:
+     *
+     * - ALL (default): Upgrade both database proxy and kernel engine simultaneously
      * @example PROXY
      *
      * @var string
