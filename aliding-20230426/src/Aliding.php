@@ -133,6 +133,16 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSearchDomeHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSearchDomeRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSearchDomeResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSearchDomeShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSearchDomeShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSearchKeywordHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSearchKeywordRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSearchKeywordResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSearchKeywordShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSearchKeywordShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSheetHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSheetRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSheetResponse;
@@ -257,6 +267,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpTasksHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpTasksRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpTasksResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpTasksShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponse;
@@ -293,6 +308,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInstancesHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInstancesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInstancesResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInstancesShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetLiveReplayUrlHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetLiveReplayUrlRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetLiveReplayUrlResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetLiveReplayUrlShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetLiveReplayUrlShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMeCorpSubmissionHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMeCorpSubmissionRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMeCorpSubmissionResponse;
@@ -2891,6 +2911,168 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param CreateSearchDomeRequest $tmpReq
+     * @param CreateSearchDomeHeaders $tmpHeader
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateSearchDomeResponse
+     */
+    public function createSearchDomeWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateSearchDomeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new CreateSearchDomeShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->userIdList)) {
+            $request->userIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'UserIdList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->resId)) {
+            $body['ResId'] = $request->resId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->userIdListShrink)) {
+            $body['UserIdList'] = $request->userIdListShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSearchDome',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/watt/createSearchDome',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSearchDomeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSearchDomeRequest $request
+     *
+     * @return CreateSearchDomeResponse
+     */
+    public function createSearchDome($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateSearchDomeHeaders([]);
+
+        return $this->createSearchDomeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateSearchKeywordRequest $tmpReq
+     * @param CreateSearchKeywordHeaders $tmpHeader
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateSearchKeywordResponse
+     */
+    public function createSearchKeywordWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateSearchKeywordShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new CreateSearchKeywordShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->userIdList)) {
+            $request->userIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'UserIdList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->resId)) {
+            $body['ResId'] = $request->resId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->userIdListShrink)) {
+            $body['UserIdList'] = $request->userIdListShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSearchKeyword',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/watt/createSearchKeyword',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSearchKeywordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSearchKeywordRequest $request
+     *
+     * @return CreateSearchKeywordResponse
+     */
+    public function createSearchKeyword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateSearchKeywordHeaders([]);
+
+        return $this->createSearchKeywordWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param CreateSheetRequest $tmpReq
      * @param CreateSheetHeaders $tmpHeader
      * @param RuntimeOptions     $runtime
@@ -4860,6 +5042,75 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param GetDocContentRequest $tmpReq
+     * @param GetDocContentHeaders $tmpHeader
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDocContentResponse
+     */
+    public function getDocContentWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetDocContentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetDocContentShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dentryUuid)) {
+            $body['DentryUuid'] = $request->dentryUuid;
+        }
+        if (!Utils::isUnset($request->targetFormat)) {
+            $body['TargetFormat'] = $request->targetFormat;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDocContent',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v2/documents/getDocContent',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDocContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDocContentRequest $request
+     *
+     * @return GetDocContentResponse
+     */
+    public function getDocContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetDocContentHeaders([]);
+
+        return $this->getDocContentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param GetEventRequest $request
      * @param GetEventHeaders $tmpHeader
      * @param RuntimeOptions  $runtime
@@ -5528,6 +5779,72 @@ class Aliding extends OpenApiClient
         $headers = new GetInstancesByIdListHeaders([]);
 
         return $this->getInstancesByIdListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetLiveReplayUrlRequest $tmpReq
+     * @param GetLiveReplayUrlHeaders $tmpHeader
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetLiveReplayUrlResponse
+     */
+    public function getLiveReplayUrlWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetLiveReplayUrlShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetLiveReplayUrlShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLiveReplayUrl',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/getLiveReplayUrl',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLiveReplayUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetLiveReplayUrlRequest $request
+     *
+     * @return GetLiveReplayUrlResponse
+     */
+    public function getLiveReplayUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetLiveReplayUrlHeaders([]);
+
+        return $this->getLiveReplayUrlWithOptions($request, $headers, $runtime);
     }
 
     /**
