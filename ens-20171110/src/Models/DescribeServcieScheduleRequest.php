@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeServcieScheduleRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example 474bdef0-d149-4695-abfb-52912d9143f0
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeServcieScheduleRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter does not take effect.
+     *
      * @example android
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeServcieScheduleRequest extends Model
     public $podConfigName;
 
     /**
+     * @description The UUID of the device.
+     *
      * @example hdm_f022bf160dc69e2d8eb421e508eb9170
      *
      * @var string

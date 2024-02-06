@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeForwardTableEntriesRequest extends Model
 {
     /**
+     * @description The EIP in the DNAT entry. The public IP address is used to access the Internet.
+     *
      * @example 36.XXX.XXX.72
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeForwardTableEntriesRequest extends Model
     public $externalIp;
 
     /**
+     * @description The ID of the DNAT entry.
+     *
      * @example fwd-5tfi6f0rutmd00xrhkag7****
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeForwardTableEntriesRequest extends Model
     public $forwardEntryId;
 
     /**
+     * @description The name of the DNAT entry.
+     *
      * @example test0
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeForwardTableEntriesRequest extends Model
     public $forwardEntryName;
 
     /**
+     * @description The private IP address of the instance that uses the DNAT entry for Internet communication.
+     *
      * @example 10.XXX.XXX.50
      *
      * @var string
@@ -37,6 +45,12 @@ class DescribeForwardTableEntriesRequest extends Model
     public $internalIp;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     *   **TCP**: forwards TCP packets.
+     *   **UDP**: forwards UDP packets.
+     *   **Any**: forwards all packets.
+     *
      * @example TCP
      *
      * @var string
@@ -44,6 +58,8 @@ class DescribeForwardTableEntriesRequest extends Model
     public $ipProtocol;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example nat-5t7nh1cfm6kxiszlttr38****
      *
      * @var string
@@ -51,6 +67,9 @@ class DescribeForwardTableEntriesRequest extends Model
     public $natGatewayId;
 
     /**
+     * @description The page number. Pages start from page **1**.
+     *
+     * Default value: **1**.
      * @example 1
      *
      * @var int
@@ -58,6 +77,9 @@ class DescribeForwardTableEntriesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Maximum value: **100**.
+     *
+     * Default value: **10**.
      * @example 10
      *
      * @var int

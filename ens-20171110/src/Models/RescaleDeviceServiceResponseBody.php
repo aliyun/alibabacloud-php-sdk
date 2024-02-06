@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class RescaleDeviceServiceResponseBody extends Model
 {
     /**
+     * @description The IDs of the devices.
+     *
      * @var string[]
      */
     public $deviceIds;
 
     /**
+     * @description The ID of the order.
+     *
      * @example b3b5bb9a-4e0b-4cac-8ebf-e5e015726723
      *
      * @var string
@@ -22,7 +26,7 @@ class RescaleDeviceServiceResponseBody extends Model
     public $orderId;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 3F3F3570-E721-53F6-853F-37B7725AC6CB
      *
@@ -31,6 +35,8 @@ class RescaleDeviceServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The key properties of the device.
+     *
      * @var resourceDetailInfos[]
      */
     public $resourceDetailInfos;

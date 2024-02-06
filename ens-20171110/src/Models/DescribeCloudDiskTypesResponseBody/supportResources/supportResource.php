@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class supportResource extends Model
 {
     /**
+     * @description The category of the disk.
+     *
+     *   cloud_efficiency: ultra disk.
+     *   cloud_ssd: all-flash disk.
+     *   local_hdd: local HDD.
+     *   local_ssd: local SSD.
+     *
      * @example cloud_efficiency
      *
      * @var string
@@ -16,6 +23,8 @@ class supportResource extends Model
     public $category;
 
     /**
+     * @description The ID of the edge node.
+     *
      * @example cn-guangzhou-10
      *
      * @var string

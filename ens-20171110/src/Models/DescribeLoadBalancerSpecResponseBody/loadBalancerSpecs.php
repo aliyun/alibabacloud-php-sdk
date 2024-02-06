@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerSpecs extends Model
 {
     /**
+     * @description The display name of the instance type.
+     *
      * @example elb.s1.small
      *
      * @var string
@@ -16,6 +18,8 @@ class loadBalancerSpecs extends Model
     public $displayName;
 
     /**
+     * @description The specifications of the ELB instance.
+     *
      * @example elb.s1.small
      *
      * @var string

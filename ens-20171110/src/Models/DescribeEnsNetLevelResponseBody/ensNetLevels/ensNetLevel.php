@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ensNetLevel extends Model
 {
     /**
+     * @description The network level. Valid values:
+     *
+     *   Big: greater area.
+     *   Middle: province.
+     *   Small: city.
+     *
      * @example Big
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDiskRequest extends Model
 {
     /**
+     * @description The ID of the disk.
+     *
      * @example d-5va95bg6i5f44kgkeuazyfcxm
      *
      * @var string

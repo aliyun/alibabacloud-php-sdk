@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeServcieScheduleResponseBody extends Model
 {
     /**
+     * @description The index number of the scheduled virtual device (pod).
+     *
      * @example 2
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeServcieScheduleResponseBody extends Model
     public $index;
 
     /**
+     * @description The ID of the scheduled instance.
+     *
      * @example i-5myukg7hnpbto7m024002w8qd
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeServcieScheduleResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The IP address of the scheduled instance.
+     *
      * @example 120.26.79.96
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeServcieScheduleResponseBody extends Model
     public $instanceIp;
 
     /**
+     * @description The start port of the scheduled instance.
+     *
      * @example 3306
      *
      * @var int
@@ -38,11 +46,15 @@ class DescribeServcieScheduleResponseBody extends Model
     public $instancePort;
 
     /**
+     * @description The summary information about the scheduled virtual device.
+     *
      * @var podAbstractInfo
      */
     public $podAbstractInfo;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string
@@ -50,6 +62,8 @@ class DescribeServcieScheduleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is repeated.
+     *
      * @example false
      *
      * @var bool
@@ -57,6 +71,8 @@ class DescribeServcieScheduleResponseBody extends Model
     public $requestRepeated;
 
     /**
+     * @description The TCP port range of the scheduled instance or container. The value is in the ${from}-$-{to} format. Example: 80-88.
+     *
      * @example 80-88
      *
      * @var string

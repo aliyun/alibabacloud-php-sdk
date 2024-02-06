@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationResourceSummaryResponseBody extends Model
 {
     /**
+     * @description The statistical information about the resource quota and usage in different regions.
+     *
      * @example {
      * }
      * @var string
@@ -16,6 +18,8 @@ class DescribeApplicationResourceSummaryResponseBody extends Model
     public $applicationResource;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 50373E71-7710-4620-8AAB-133CCE49451C
      *
      * @var string

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeSelfImagesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The image information.
+     *
      * @var images
      */
     public $images;
 
     /**
+     * @description The request ID.
+     *
+     * @example A8B8EB73-B4FD-4262-8EF6-680DF39C9BA0
+     *
      * @var string
      */
     public $requestId;

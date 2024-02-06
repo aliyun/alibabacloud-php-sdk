@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAutoRenewAttributeResponseBody extends Model
 {
     /**
+     * @description The returned service code. A value of 0 indicates that the operation was successful.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeInstanceAutoRenewAttributeResponseBody extends Model
     public $code;
 
     /**
+     * @description The renewal status of the instance.
+     *
      * @var instanceRenewAttributes
      */
     public $instanceRenewAttributes;
 
     /**
+     * @description The request ID.
+     *
      * @example 4DD66F05-3116-4BAA-B588-52EB2E7F431D
      *
      * @var string

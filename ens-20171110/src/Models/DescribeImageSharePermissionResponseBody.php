@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSharePermissionResponseBody extends Model
 {
     /**
+     * @description The account information.
+     *
      * @var accounts
      */
     public $accounts;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example m-5qkf6jv9a0tzd5ipwx5fi****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -27,6 +35,8 @@ class DescribeImageSharePermissionResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 100
      *
      * @var int
@@ -34,6 +44,8 @@ class DescribeImageSharePermissionResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A44EE357-6174-5E37-A801-48F5790F9ACE
      *
      * @var string
@@ -41,6 +53,8 @@ class DescribeImageSharePermissionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of Alibaba Cloud accounts with which you share the image.
+     *
      * @example 2
      *
      * @var int

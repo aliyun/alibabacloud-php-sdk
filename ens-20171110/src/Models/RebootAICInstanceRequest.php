@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RebootAICInstanceRequest extends Model
 {
     /**
+     * @description The ID of the AIC instance.
+     *
      * @example aic-instance****
      *
      * @var string
@@ -16,11 +18,15 @@ class RebootAICInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The IDs of the AIC instance groups.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The ID of the server.
+     *
      * @example cas-instance****
      *
      * @var string

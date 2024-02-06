@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationResponseBody extends Model
 {
     /**
+     * @description The ID of the application. This is the unique identifier of the edge application.
+     *
      * @example d0639abf-789a-4527-b420-031d2cd9ad9b
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateApplicationResponseBody extends Model
     public $appId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEipAddressesRequest extends Model
 {
     /**
+     * @description The information about the EIPs.
+     *
      * @example [\"eip-5rd9i3pftfgbavl4y1b7hm4a3\"]
      *
      * @var string
@@ -16,22 +18,16 @@ class DescribeEipAddressesRequest extends Model
     public $eips;
 
     /**
+     * @description The ID of the Edge Node Service (ENS) node.
+     *
      * @example cn-nanjing-cmcc
      *
      * @var string
      */
     public $ensRegionId;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'eips'        => 'Eips',
         'ensRegionId' => 'EnsRegionId',
-        'version'     => 'Version',
     ];
 
     public function validate()
@@ -46,9 +42,6 @@ class DescribeEipAddressesRequest extends Model
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -67,9 +60,6 @@ class DescribeEipAddressesRequest extends Model
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

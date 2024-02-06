@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class DescribeInstancesRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeInstancesRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The IDs of the regions. The value is a JSON array that consists of up to 100 IDs. Separate multiple IDs with commas (,).
+     *
      * @example ["cn-suzhou-telecom","cn-chengdu-telecom"]
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeInstancesRequest extends Model
     public $ensRegionIds;
 
     /**
+     * @description The ID of the edge service. You can use the ID to query information about the instances that are created in the edge service.
+     *
      * @example ens-20190730202316s****
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeInstancesRequest extends Model
     public $ensServiceId;
 
     /**
+     * @description The ID of the image.
+     *
      * @example centos_6_08_64_20G_alibase_****
      *
      * @var string
@@ -37,6 +46,8 @@ class DescribeInstancesRequest extends Model
     public $imageId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-5iqczfxps7csjrxeca****
      *
      * @var string
@@ -44,6 +55,8 @@ class DescribeInstancesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The IDs of the instances. The value is a JSON array that consists of up to 100 IDs. Separate IDs with commas (,).
+     *
      * @example ["i-5iqczfxps7csjrxeca07****", "i-5iqczfxps7csjrxeca07****"]]
      *
      * @var string
@@ -51,6 +64,8 @@ class DescribeInstancesRequest extends Model
     public $instanceIds;
 
     /**
+     * @description The name of the instance.
+     *
      * @example TestName
      *
      * @var string
@@ -58,6 +73,13 @@ class DescribeInstancesRequest extends Model
     public $instanceName;
 
     /**
+     * @description The condition that you want to use to filter instances by category. Valid values:
+     *
+     *   EnsInstance: ENS instances that you purchase.
+     *   EnsService: ENS instances that belong to edge services.
+     *   BuildMachine: ENS instances that are configured with image builders.
+     *   EnsPostPaidInstance: Pay-as-you-go ENS instances that you purchase.
+     *
      * @example EnsService
      *
      * @var string
@@ -65,11 +87,17 @@ class DescribeInstancesRequest extends Model
     public $instanceResourceType;
 
     /**
+     * @description The internal IP address of the instance.
+     *
+     * @example 47.100.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-2zeuphj08tt7q3brd****
      *
      * @var string
@@ -77,6 +105,9 @@ class DescribeInstancesRequest extends Model
     public $networkId;
 
     /**
+     * @description The method that you want to use to sort instances. The value of this parameter is in the JSON format.
+     *
+     * You can sort instances by name, expiration time, node ID, or creation time. You can specify one or more methods.
      * @example {"InstanceNameSort":"asc","ExpireTimeSort":"asc","CreationTimeSort":"desc"}}
      *
      * @var string
@@ -84,6 +115,9 @@ class DescribeInstancesRequest extends Model
     public $orderByParams;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**.
+     *
+     * Default value: **1**.
      * @example 1
      *
      * @var int
@@ -91,6 +125,9 @@ class DescribeInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. The maximum value is **100**.
+     *
+     * Default value: **10**.
      * @example 10
      *
      * @var string
@@ -98,6 +135,8 @@ class DescribeInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The keyword that you use to query the logs of the service. You can specify the values of parameters such as **ip**, **InstanceName**, and **InstanceId** as the keyword.
+     *
      * @example Joshua
      *
      * @var string
@@ -105,6 +144,8 @@ class DescribeInstancesRequest extends Model
     public $searchKey;
 
     /**
+     * @description The ID of the security group.
+     *
      * @example sg-5kyicq2kfcapxrdds6tar7jqb
      *
      * @var string
@@ -112,6 +153,12 @@ class DescribeInstancesRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description The status of the instance. Valid values:
+     *
+     *   Running
+     *   Stopped
+     *   Expired
+     *
      * @example Running
      *
      * @var string
@@ -119,6 +166,13 @@ class DescribeInstancesRequest extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-2zeh0r1pabwtg6wcs****
      *
      * @var string
@@ -141,6 +195,7 @@ class DescribeInstancesRequest extends Model
         'searchKey'            => 'SearchKey',
         'securityGroupId'      => 'SecurityGroupId',
         'status'               => 'Status',
+        'tags'                 => 'Tags',
         'vSwitchId'            => 'VSwitchId',
     ];
 
@@ -198,6 +253,15 @@ class DescribeInstancesRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -261,6 +325,15 @@ class DescribeInstancesRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

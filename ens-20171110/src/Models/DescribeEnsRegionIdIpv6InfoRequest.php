@@ -9,21 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsRegionIdIpv6InfoRequest extends Model
 {
     /**
+     * @description The ID of the node. You can specify only one node ID in a call.
+     *
      * @example cn-chengdu-xxxx-4
      *
      * @var string
      */
     public $ensRegionId;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'ensRegionId' => 'EnsRegionId',
-        'version'     => 'Version',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class DescribeEnsRegionIdIpv6InfoRequest extends Model
         $res = [];
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -53,9 +44,6 @@ class DescribeEnsRegionIdIpv6InfoRequest extends Model
         $model = new self();
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

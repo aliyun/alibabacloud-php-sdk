@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LeaveSecurityGroupRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example i-bp67acfmxazb4p****
      *
      * @var string
@@ -16,22 +18,26 @@ class LeaveSecurityGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the ENI.
+     *
+     * @example eni-58z57orgmt6d1****
+     *
+     * @var string
+     */
+    public $networkInterfaceId;
+
+    /**
+     * @description The ID of the security group.
+     *
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
      */
     public $securityGroupId;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'securityGroupId' => 'SecurityGroupId',
-        'version'         => 'Version',
+        'instanceId'         => 'InstanceId',
+        'networkInterfaceId' => 'NetworkInterfaceId',
+        'securityGroupId'    => 'SecurityGroupId',
     ];
 
     public function validate()
@@ -44,11 +50,11 @@ class LeaveSecurityGroupRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->networkInterfaceId) {
+            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
+        }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -65,11 +71,11 @@ class LeaveSecurityGroupRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['NetworkInterfaceId'])) {
+            $model->networkInterfaceId = $map['NetworkInterfaceId'];
+        }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

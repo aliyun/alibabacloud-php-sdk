@@ -9,46 +9,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeARMServerInstancesShrinkRequest extends Model
 {
     /**
+     * @description The container specifications.
+     *
      * @var string
      */
     public $AICSpecsShrink;
 
     /**
+     * @description Spcifies whether the result contains the container information. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $describeAICInstances;
 
     /**
+     * @description The IDs of the Edge Node Service (ENS) nodes.
+     *
      * @var string
      */
     public $ensRegionIdsShrink;
 
     /**
-     * @var string
-     */
-    public $latestAction;
-
-    /**
+     * @description The end of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+     *
+     * @example 2006-01-03
+     *
      * @var string
      */
     public $maxDate;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+     *
+     * @example 2006-01-02
+     *
      * @var string
      */
     public $minDate;
 
     /**
+     * @description The name of the server.
+     *
+     * @example Server-Name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The sorting order of the results to return. Valid values: ServerIdSort, ServerNameSort, ExpireTimeSort, CreationTimeSort, and EnsRegionIdSort.
+     *
+     * asc: ascending order. desc: descending order.
      * @example {"ServerIdSort":"desc","ServerNameSort":"desc","ExpireTimeSort":"asc","CreationTimeSort":"asc","EnsRegionIdSort":"asc"}
      *
      * @var string
@@ -56,6 +81,9 @@ class DescribeARMServerInstancesShrinkRequest extends Model
     public $orderByParams;
 
     /**
+     * @description The page number. Pages start from page **1**.
+     *
+     * Default value: **1**.
      * @example 1
      *
      * @var int
@@ -63,6 +91,9 @@ class DescribeARMServerInstancesShrinkRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. The maximum value is **100**.
+     *
+     * Default value: **10**.
      * @example 10
      *
      * @var int
@@ -70,16 +101,22 @@ class DescribeARMServerInstancesShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description The IDs of the ARM servers.
+     *
      * @var string
      */
     public $serverIdsShrink;
 
     /**
+     * @description The server specifications.
+     *
      * @var string
      */
     public $serverSpecsShrink;
 
     /**
+     * @description The operation statuses.
+     *
      * @var string
      */
     public $statesShrink;
@@ -87,7 +124,6 @@ class DescribeARMServerInstancesShrinkRequest extends Model
         'AICSpecsShrink'       => 'AICSpecs',
         'describeAICInstances' => 'DescribeAICInstances',
         'ensRegionIdsShrink'   => 'EnsRegionIds',
-        'latestAction'         => 'LatestAction',
         'maxDate'              => 'MaxDate',
         'minDate'              => 'MinDate',
         'name'                 => 'Name',
@@ -115,9 +151,6 @@ class DescribeARMServerInstancesShrinkRequest extends Model
         }
         if (null !== $this->ensRegionIdsShrink) {
             $res['EnsRegionIds'] = $this->ensRegionIdsShrink;
-        }
-        if (null !== $this->latestAction) {
-            $res['LatestAction'] = $this->latestAction;
         }
         if (null !== $this->maxDate) {
             $res['MaxDate'] = $this->maxDate;
@@ -169,9 +202,6 @@ class DescribeARMServerInstancesShrinkRequest extends Model
         }
         if (isset($map['EnsRegionIds'])) {
             $model->ensRegionIdsShrink = $map['EnsRegionIds'];
-        }
-        if (isset($map['LatestAction'])) {
-            $model->latestAction = $map['LatestAction'];
         }
         if (isset($map['MaxDate'])) {
             $model->maxDate = $map['MaxDate'];

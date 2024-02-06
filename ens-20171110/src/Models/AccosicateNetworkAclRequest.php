@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AccosicateNetworkAclRequest extends Model
 {
     /**
+     * @description The ID of the network ACL.
+     *
      * @example nacl-a2do9e413e0sp****
      *
      * @var string
@@ -17,6 +19,8 @@ class AccosicateNetworkAclRequest extends Model
     public $networkAclId;
 
     /**
+     * @description The information about the resources with which you want to associate the network ACL.
+     *
      * @var resource[]
      */
     public $resource;

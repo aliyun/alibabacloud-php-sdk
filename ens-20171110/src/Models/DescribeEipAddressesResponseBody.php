@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEipAddressesResponseBody extends Model
 {
     /**
+     * @description Details of the EIPs.
+     *
      * @var eipAddresses
      */
     public $eipAddresses;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CCFD3F24-44AF-5508-B18D-5100BFC68602
      *
      * @var string

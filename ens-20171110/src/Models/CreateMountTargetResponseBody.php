@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMountTargetResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 70EACC9C-D07A-4A34-ADA4-A3DC0DE3C83E
      *
      * @var string
@@ -16,6 +18,13 @@ class CreateMountTargetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The state of the mount target. Valid values:
+     *
+     *   active
+     *   inactive
+     *   pending
+     *   deleting
+     *
      * @example pending
      *
      * @var string

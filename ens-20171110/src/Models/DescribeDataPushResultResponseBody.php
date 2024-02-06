@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataPushResultResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeDataPushResultResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,11 +28,15 @@ class DescribeDataPushResultResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The push results of data files.
+     *
      * @var pushResults
      */
     public $pushResults;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDataPushResultResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 6
      *
      * @var int

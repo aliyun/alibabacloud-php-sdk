@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class statusStat extends Model
 {
     /**
+     * @description The number of associated edge instances.
+     *
      * @example 10
      *
      * @var string
@@ -17,11 +19,21 @@ class statusStat extends Model
     public $instanceCount;
 
     /**
+     * @description The distribution status of the edge instance.
+     *
      * @var instances
      */
     public $instances;
 
     /**
+     * @description The distribution status. The value is of the enumeration type. Valid values:
+     *
+     *   SUCCESS: The distribution is successful.
+     *   FAILED: The distribution failed.
+     *   DISTING: The data is being distributed.
+     *   POD_RESTARTING: The idle pod is being restarted.
+     *   DELETED: The data is cleared or removed.
+     *
      * @example SUCCESS
      *
      * @var string

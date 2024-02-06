@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ensResourceUsage extends Model
 {
     /**
+     * @description The number of edge services. This parameter is available only when you set the ServiceType parameter to 2.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class ensResourceUsage extends Model
     public $computeResourceCount;
 
     /**
+     * @description The CPU usage. Unit: cores.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class ensResourceUsage extends Model
     public $cpuSum;
 
     /**
+     * @description The number of data disks.
+     *
      * @example 4
      *
      * @var int
@@ -30,6 +36,8 @@ class ensResourceUsage extends Model
     public $diskCount;
 
     /**
+     * @description The number of stopped VMs.
+     *
      * @example 7
      *
      * @var int
@@ -37,6 +45,8 @@ class ensResourceUsage extends Model
     public $downCount;
 
     /**
+     * @description The number of expired VM instances.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class ensResourceUsage extends Model
     public $expiredCount;
 
     /**
+     * @description The number of VM instances that are about to expire.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +63,8 @@ class ensResourceUsage extends Model
     public $expiringCount;
 
     /**
+     * @description The number of GPUs.
+     *
      * @example 6
      *
      * @var int
@@ -58,6 +72,8 @@ class ensResourceUsage extends Model
     public $gpuSum;
 
     /**
+     * @description The number of instances.
+     *
      * @example 2
      *
      * @var int
@@ -65,6 +81,8 @@ class ensResourceUsage extends Model
     public $instanceCount;
 
     /**
+     * @description The number of running instances.
+     *
      * @example 19
      *
      * @var int
@@ -72,6 +90,12 @@ class ensResourceUsage extends Model
     public $runningCount;
 
     /**
+     * @description The type of the service. Valid values:
+     *
+     *   1: subscription instance.
+     *   2: edge service instance.
+     *   3: pay-as-you-go instance.
+     *
      * @example 1
      *
      * @var string
@@ -79,6 +103,8 @@ class ensResourceUsage extends Model
     public $serviceType;
 
     /**
+     * @description The total disk size.
+     *
      * @example 5000
      *
      * @var int

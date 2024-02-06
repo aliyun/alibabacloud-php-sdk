@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class listenerPortsAndProtocols extends Model
 {
     /**
+     * @description The description of the listener.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class listenerPortsAndProtocols extends Model
     public $description;
 
     /**
+     * @description The destination listening port to which requests are forwarded.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class listenerPortsAndProtocols extends Model
     public $forwardPort;
 
     /**
+     * @description Indicates whether the listener is enabled.
+     *
      * @example off
      *
      * @var string
@@ -30,6 +36,8 @@ class listenerPortsAndProtocols extends Model
     public $listenerForward;
 
     /**
+     * @description The listener port of the instance.
+     *
      * @example 8080
      *
      * @var int
@@ -37,6 +45,8 @@ class listenerPortsAndProtocols extends Model
     public $listenerPort;
 
     /**
+     * @description The listener protocol.
+     *
      * @example tcp
      *
      * @var string

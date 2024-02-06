@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudDiskAvailableResourceInfoResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 0AE4F26E-7527-569F-A987-E3CF269A3C11
      *
@@ -19,6 +19,8 @@ class DescribeCloudDiskAvailableResourceInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The specifications of resources that you can purchase.
+     *
      * @var supportResources
      */
     public $supportResources;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEpnInstanceRequest extends Model
 {
     /**
+     * @description The ID of the EPN instance.
+     *
      * @example epn-****
      *
      * @var string

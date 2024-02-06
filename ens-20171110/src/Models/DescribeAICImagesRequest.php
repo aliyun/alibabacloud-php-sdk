@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAICImagesRequest extends Model
 {
     /**
+     * @description The description of the image.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The image ID of the AIC instance.
+     *
      * @example m-ad0ddaddc2d54adeaa09b7c0f1e****
      *
      * @var string
@@ -21,11 +25,20 @@ class DescribeAICImagesRequest extends Model
     public $imageId;
 
     /**
+     * @description The type of the image. Valid values:
+     *
+     *   **public**: public image
+     *   **private**: custom image
+     *
+     * @example public
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @description The URL of the AIC image repository.
+     *
      * @example ****.alibaba-inc.com/aic/socimage:test
      *
      * @var string
@@ -33,16 +46,26 @@ class DescribeAICImagesRequest extends Model
     public $imageUrl;
 
     /**
+     * @description The end of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+     *
+     * @example 2022-02-02
+     *
      * @var string
      */
     public $maxDate;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+     *
+     * @example 2022-01-02
+     *
      * @var string
      */
     public $minDate;
 
     /**
+     * @description The page number. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var string
@@ -50,6 +73,8 @@ class DescribeAICImagesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. The maximum value is **100**. Default value: **10**.
+     *
      * @example 10
      *
      * @var string
@@ -57,6 +82,14 @@ class DescribeAICImagesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The status of the image. Valid values:
+     *
+     *   **verifying**
+     *   **disable**
+     *   **available**
+     *
+     * @example available
+     *
      * @var string
      */
     public $status;

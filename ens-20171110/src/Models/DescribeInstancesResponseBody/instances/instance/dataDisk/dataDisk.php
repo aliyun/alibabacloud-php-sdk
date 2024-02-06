@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
+     * @description The category of the cloud disk or local disk. Valid values:
+     *
+     *   **file**: local disk.
+     *   **pangu**: ultra disk.
+     *   **local_hdd**: local HDD.
+     *
      * @example file
      *
      * @var string
@@ -16,6 +22,8 @@ class dataDisk extends Model
     public $category;
 
     /**
+     * @description The ID of the disk.
+     *
      * @example d-5ip4c2dhmas0vjd5u1r****
      *
      * @var string
@@ -23,6 +31,8 @@ class dataDisk extends Model
     public $diskId;
 
     /**
+     * @description The name of the disk.
+     *
      * @example DiskName
      *
      * @var string
@@ -30,6 +40,13 @@ class dataDisk extends Model
     public $diskName;
 
     /**
+     * @var int
+     */
+    public $diskSize;
+
+    /**
+     * @description The size of the disk. Unit: MiB.
+     *
      * @example 51200
      *
      * @var int
@@ -37,6 +54,12 @@ class dataDisk extends Model
     public $size;
 
     /**
+     * @description The extended field of the disk category. Valid values:
+     *
+     *   **file**: local disk.
+     *   **pangu**: ultra disk.
+     *   **local_hdd**: local HDD.
+     *
      * @example pangu
      *
      * @var string
@@ -44,6 +67,10 @@ class dataDisk extends Model
     public $deviceType;
 
     /**
+     * @description The type of the cloud disk or local disk. Valid values:
+     *
+     **system**: system disk. **data**: data disk.
+     *
      * @example system
      *
      * @var string
@@ -51,6 +78,8 @@ class dataDisk extends Model
     public $diskType;
 
     /**
+     * @description The name of the disk.
+     *
      * @example name
      *
      * @var string
@@ -58,6 +87,8 @@ class dataDisk extends Model
     public $name;
 
     /**
+     * @description The size of the disk. Unit: MiB.
+     *
      * @example 20480
      *
      * @var int
@@ -65,7 +96,7 @@ class dataDisk extends Model
     public $storage;
 
     /**
-     * @description UUID。
+     * @description The UUID of the disk.
      *
      * @example d-5itef1wtxj961mbff8xe9****
      *
@@ -76,6 +107,7 @@ class dataDisk extends Model
         'category'   => 'Category',
         'diskId'     => 'DiskId',
         'diskName'   => 'DiskName',
+        'diskSize'   => 'DiskSize',
         'size'       => 'Size',
         'deviceType' => 'device_type',
         'diskType'   => 'disk_type',
@@ -99,6 +131,9 @@ class dataDisk extends Model
         }
         if (null !== $this->diskName) {
             $res['DiskName'] = $this->diskName;
+        }
+        if (null !== $this->diskSize) {
+            $res['DiskSize'] = $this->diskSize;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
@@ -138,6 +173,9 @@ class dataDisk extends Model
         }
         if (isset($map['DiskName'])) {
             $model->diskName = $map['DiskName'];
+        }
+        if (isset($map['DiskSize'])) {
+            $model->diskSize = $map['DiskSize'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];

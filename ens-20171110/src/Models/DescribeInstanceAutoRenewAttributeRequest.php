@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAutoRenewAttributeRequest extends Model
 {
     /**
+     * @description The ID of an instance. Separate multiple IDs with semicolons (;).
+     *
      * @example i-5ci7l7k1m9m2zmhp4iw3o****
      *
      * @var string
@@ -19,17 +21,9 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
         'ownerId'     => 'OwnerId',
-        'version'     => 'Version',
     ];
 
     public function validate()
@@ -44,9 +38,6 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -65,9 +56,6 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

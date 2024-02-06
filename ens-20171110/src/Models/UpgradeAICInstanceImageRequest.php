@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeAICInstanceImageRequest extends Model
 {
     /**
+     * @description The ID of the AIC image.
+     *
      * @example m-****
      *
      * @var string
@@ -16,11 +18,15 @@ class UpgradeAICInstanceImageRequest extends Model
     public $imageId;
 
     /**
+     * @description The IDs of the servers.
+     *
      * @var string[]
      */
     public $serverIds;
 
     /**
+     * @description The timeout period of the update. Unit: seconds.
+     *
      * @example 1800
      *
      * @var int

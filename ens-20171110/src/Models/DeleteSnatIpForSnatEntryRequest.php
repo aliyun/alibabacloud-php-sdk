@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnatIpForSnatEntryRequest extends Model
 {
     /**
+     * @description The ID of the SNAT entry.
+     *
      * @example snat-5tfi6f8gds82mjmlofeym****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteSnatIpForSnatEntryRequest extends Model
     public $snatEntryId;
 
     /**
+     * @description The EIP that you want to delete from the SNAT entry.
+     *
      * @example 120.72.56.71
      *
      * @var string

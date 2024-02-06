@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsResourceUsageResponseBody extends Model
 {
     /**
+     * @description The resource usage data.
+     *
      * @var ensResourceUsage[]
      */
     public $ensResourceUsage;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @var string
      */

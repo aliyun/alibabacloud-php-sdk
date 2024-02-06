@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class forwardTableEntries extends Model
 {
     /**
+     * @description The EIP in the DNAT entry. The public IP address is used to access the Internet.
+     *
      * @example 120.XXX.XXX.70
      *
      * @var string
@@ -16,6 +18,8 @@ class forwardTableEntries extends Model
     public $externalIp;
 
     /**
+     * @description The external port or port range that is used in port forwarding.
+     *
      * @example 22
      *
      * @var string
@@ -23,6 +27,8 @@ class forwardTableEntries extends Model
     public $externalPort;
 
     /**
+     * @description The ID of the DNAT entry.
+     *
      * @example fwd-5tf66679oi2uoxcvlg0g2****
      *
      * @var string
@@ -30,6 +36,8 @@ class forwardTableEntries extends Model
     public $forwardEntryId;
 
     /**
+     * @description The name of the DNAT entry.
+     *
      * @example test0
      *
      * @var string
@@ -37,6 +45,8 @@ class forwardTableEntries extends Model
     public $forwardEntryName;
 
     /**
+     * @description The probe port of DNAT.
+     *
      * @example 80
      *
      * @var string
@@ -44,6 +54,8 @@ class forwardTableEntries extends Model
     public $healthCheckPort;
 
     /**
+     * @description The private IP address of the instance that uses the DNAT entry for Internet communication.
+     *
      * @example 10.XXX.XXX.3
      *
      * @var string
@@ -51,6 +63,8 @@ class forwardTableEntries extends Model
     public $internalIp;
 
     /**
+     * @description The internal port or port range that is used for port forwarding.
+     *
      * @example 22
      *
      * @var string
@@ -58,6 +72,12 @@ class forwardTableEntries extends Model
     public $internalPort;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     *   **TCP**: forwards TCP packets.
+     *   **UDP**: forwards UDP packets.
+     *   **Any**: forwards all packets.
+     *
      * @example Any
      *
      * @var string
@@ -65,6 +85,8 @@ class forwardTableEntries extends Model
     public $ipProtocol;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example nat-5tawjw5j7sgd2deujxuk0****
      *
      * @var string
@@ -72,16 +94,35 @@ class forwardTableEntries extends Model
     public $natGatewayId;
 
     /**
+     * @description The secondary EIP that is used to access the Internet.
+     *
+     * @example 101.XXX.XXX.7
+     *
      * @var string
      */
     public $standbyExternalIp;
 
     /**
+     * @description The status of the secondary EIP. Valid values:
+     *
+     *   Running
+     *   Stopping
+     *   Stopped
+     *   Starting
+     *
+     * @example Stopped
+     *
      * @var string
      */
     public $standbyStatus;
 
     /**
+     * @description The status of the DNAT entry. Valid values:
+     *
+     *   Pending: The DNAT entry is being created or modified.
+     *   Available: The DNAT entry is available.
+     *   Deleting: The DNAT entry is being deleted.
+     *
      * @example Available
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEpnBandWidthDataRequest extends Model
 {
     /**
+     * @description The ID of the EPN instance.
+     *
      * @example epn-20200825134537VyK81T
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeEpnBandWidthDataRequest extends Model
     public $EPNInstanceId;
 
     /**
+     * @description The end of the time range to query.
+     *
+     *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+     *
      * @example 2021-12-16T16:00:00Z
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeEpnBandWidthDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the Edge Node Service (ENS) node.
+     *
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeEpnBandWidthDataRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-5sg1owx0g4ojy66ab2tez77r2
      *
      * @var string
@@ -37,6 +48,13 @@ class DescribeEpnBandWidthDataRequest extends Model
     public $instanceId;
 
     /**
+     * @description The Internet service provider (ISP). Valid values:
+     *
+     *   cmcc: China Mobile
+     *   telecom: China Telecom
+     *   unicom: China Unicom
+     *   multiCarrier: multi-line ISP
+     *
      * @example cmcc
      *
      * @var string
@@ -44,6 +62,12 @@ class DescribeEpnBandWidthDataRequest extends Model
     public $isp;
 
     /**
+     * @description The networking mode. Valid values:
+     *
+     *   **SpeedUp**: intelligent acceleration network (Internet)
+     *   **Connection**: internal network
+     *   **SpeedUpAndConnection**: intelligent acceleration network and internal network
+     *
      * @example SpeedUp
      *
      * @var string
@@ -51,6 +75,8 @@ class DescribeEpnBandWidthDataRequest extends Model
     public $networkingModel;
 
     /**
+     * @description The precision of the monitoring data that you want to obtain. Valid values: 300, 1200, 3600, and 14400. Default value: 300. Unit: seconds.
+     *
      * @example 300
      *
      * @var string
@@ -58,18 +84,16 @@ class DescribeEpnBandWidthDataRequest extends Model
     public $period;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+     *
      * @example 2021-12-15T16:00:00Z
      *
      * @var string
      */
     public $startTime;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'EPNInstanceId'   => 'EPNInstanceId',
         'endTime'         => 'EndTime',
@@ -79,7 +103,6 @@ class DescribeEpnBandWidthDataRequest extends Model
         'networkingModel' => 'NetworkingModel',
         'period'          => 'Period',
         'startTime'       => 'StartTime',
-        'version'         => 'Version',
     ];
 
     public function validate()
@@ -112,9 +135,6 @@ class DescribeEpnBandWidthDataRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -151,9 +171,6 @@ class DescribeEpnBandWidthDataRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnAssociateEnsEipAddressResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 4A431388-2D4B-46F4-A96B-D4E6BD0688C1
      *
      * @var string

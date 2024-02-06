@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class bandWidthFeeData extends Model
 {
     /**
+     * @description The code of the bandwidth plan.
+     *
      * @example cn-cmcc-1
      *
      * @var string
@@ -16,11 +18,15 @@ class bandWidthFeeData extends Model
     public $costCode;
 
     /**
+     * @description The name of the bandwidth plan.
+     *
      * @var string
      */
     public $costName;
 
     /**
+     * @description The bandwidth consumption. Unit: bit/second.
+     *
      * @example 16486
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyForwardEntryRequest extends Model
 {
     /**
+     * @description The ID of the DNAT entry.
+     *
      * @example dnat-5tfjp3537mi6iokl59g5c****
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyForwardEntryRequest extends Model
     public $forwardEntryId;
 
     /**
+     * @description The name of the DNAT entry. The name must be 2 to 128 characters in length. It cannot start with `http://` or `https://`.
+     *
      * @example test0
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyForwardEntryRequest extends Model
     public $forwardEntryName;
 
     /**
+     * @description The probe port. The port must be within the internal port range. By default, this parameter is left empty.
+     *
      * @example 80
      *
      * @var int

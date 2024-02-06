@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceMonitorDataRequest extends Model
 {
     /**
+     * @description The end of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of the seconds place is not 00, the start time is automatically set to the next minute.
      * @example 2019-10-30T08:00:00Z
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeInstanceMonitorDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the instance. You can specify only one instance ID.
+     *
      * @example yourInstance ID
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeInstanceMonitorDataRequest extends Model
     public $instanceId;
 
     /**
+     * @description The precision of the monitoring data that you want to obtain. Valid values: 60, 300, 1200, 3600, and 14400. Default value: 60. Unit: seconds.
+     *
      * @example 60
      *
      * @var string
@@ -30,24 +37,19 @@ class DescribeInstanceMonitorDataRequest extends Model
     public $period;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of the seconds place is not 00, the start time is automatically set to the next minute.
      * @example 2019-10-29T23:00:00Z
      *
      * @var string
      */
     public $startTime;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'endTime'    => 'EndTime',
         'instanceId' => 'InstanceId',
         'period'     => 'Period',
         'startTime'  => 'StartTime',
-        'version'    => 'Version',
     ];
 
     public function validate()
@@ -68,9 +70,6 @@ class DescribeInstanceMonitorDataRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -95,9 +94,6 @@ class DescribeInstanceMonitorDataRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

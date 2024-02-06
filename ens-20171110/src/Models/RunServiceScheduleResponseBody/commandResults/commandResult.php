@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class commandResult extends Model
 {
     /**
+     * @description The command.
+     *
      * @example ls -l /data
      *
      * @var string
@@ -16,6 +18,8 @@ class commandResult extends Model
     public $command;
 
     /**
+     * @description The name of the container.
+     *
      * @example android
      *
      * @var string
@@ -23,6 +27,8 @@ class commandResult extends Model
     public $containerName;
 
     /**
+     * @description The execution result of the command.
+     *
      * @example success
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class serverList extends Model
 {
     /**
+     * @description The host address of the file server.
+     *
      * @example 1.1.1.1:8080
      *
      * @var string
@@ -16,6 +18,8 @@ class serverList extends Model
     public $host;
 
     /**
+     * @description The ID of the Edge Node Service (ENS) node.
+     *
      * @example cn-chenzhou-5
      *
      * @var string

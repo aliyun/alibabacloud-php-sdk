@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class networkAttributes extends Model
 {
     /**
+     * @description The IP address of the AIC instance.
+     *
      * @example 192.168.1.1
      *
      * @var string
@@ -16,6 +18,8 @@ class networkAttributes extends Model
     public $ipAddress;
 
     /**
+     * @description The network ID of the AIC instance.
+     *
      * @example n-*****
      *
      * @var string
@@ -23,6 +27,8 @@ class networkAttributes extends Model
     public $networkId;
 
     /**
+     * @description The vSwitch ID of the AIC instance.
+     *
      * @example vsw-****
      *
      * @var string

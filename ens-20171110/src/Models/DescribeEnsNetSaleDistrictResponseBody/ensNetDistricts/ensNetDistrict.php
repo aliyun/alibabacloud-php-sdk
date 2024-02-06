@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ensNetDistrict extends Model
 {
     /**
+     * @description The information about the ISP.
+     *
      * @var string
      */
     public $ensRegionIdCount;
 
     /**
+     * @description The information about the instance.
+     *
      * @example {                         "count":2,                         "code":"multiCarrier"                     }
      *
      * @var string
@@ -21,6 +25,8 @@ class ensNetDistrict extends Model
     public $instanceCount;
 
     /**
+     * @description The region code.
+     *
      * @example 100101
      *
      * @var string
@@ -28,6 +34,8 @@ class ensNetDistrict extends Model
     public $netDistrictCode;
 
     /**
+     * @description The name of the region.
+     *
      * @example northEast
      *
      * @var string
@@ -35,6 +43,8 @@ class ensNetDistrict extends Model
     public $netDistrictEnName;
 
     /**
+     * @description The parent code of the region.
+     *
      * @example 100000
      *
      * @var string
@@ -42,6 +52,12 @@ class ensNetDistrict extends Model
     public $netDistrictFatherCode;
 
     /**
+     * @description The region level. Valid values:
+     *
+     *   **Big**: area
+     *   **Middle**: province
+     *   **Small**: city
+     *
      * @example Big
      *
      * @var string
@@ -49,6 +65,8 @@ class ensNetDistrict extends Model
     public $netDistrictLevel;
 
     /**
+     * @description The Chinese name of the region.
+     *
      * @var string
      */
     public $netDistrictName;

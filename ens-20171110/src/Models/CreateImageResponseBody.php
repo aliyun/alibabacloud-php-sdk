@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateImageResponseBody extends Model
 {
     /**
+     * @description The returned service code. 0 indicates that the request was successful.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateImageResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the image.
+     *
      * @example m-5xxgg
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateImageResponseBody extends Model
     public $imageId;
 
     /**
+     * @description The request ID.
+     *
      * @example 8BEF0D72-9901-5D43-B7D3-8B42AC26C516
      *
      * @var string

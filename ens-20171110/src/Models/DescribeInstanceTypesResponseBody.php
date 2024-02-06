@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTypesResponseBody extends Model
 {
     /**
+     * @description The status code. If the request is successful, 0 is returned. If the request fails, a non-zero error code is returned.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeInstanceTypesResponseBody extends Model
     public $code;
 
     /**
+     * @description Details about the instance types.
+     *
      * @var instanceTypes
      */
     public $instanceTypes;
 
     /**
+     * @description The request ID.
+     *
      * @example D452D190-BADF-5D09-910D-599B96D42AAA
      *
      * @var string

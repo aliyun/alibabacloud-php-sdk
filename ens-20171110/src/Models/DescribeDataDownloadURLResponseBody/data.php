@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the data file expires. The time is displayed in UTC.
+     *
      * @example 2021-12-10T03:36:27Z
      *
      * @var string
@@ -17,11 +19,15 @@ class data extends Model
     public $expireTime;
 
     /**
+     * @description The file servers.
+     *
      * @var serverList[]
      */
     public $serverList;
 
     /**
+     * @description The download URL of the data file.
+     *
      * @example /file/1450088842124331/97a32f2a-aa2c-436a-b19c-05b20d258618/f0313053530fc727f81b7d03fad93cd2/e4c2e8edac362acab7123654b9e73432?ak=edgepaas-innerapi-daily&ts=1611229454&sign=Yycbax%2F4OsTgm6BLoxR6lPs5gKE%3D
      *
      * @var string

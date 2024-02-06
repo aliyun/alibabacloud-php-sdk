@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsNetSaleDistrictResponseBody extends Model
 {
     /**
+     * @description The returned service code. A value of 0 indicates that the operation was successful.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeEnsNetSaleDistrictResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the ISPs in the area.
+     *
      * @var ensNetDistricts
      */
     public $ensNetDistricts;
 
     /**
+     * @description The request ID.
+     *
      * @example 1707B55C-A12F-43EF-BC66-14FFDB9253C3
      *
      * @var string

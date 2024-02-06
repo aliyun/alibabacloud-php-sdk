@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateForwardEntryResponseBody extends Model
 {
     /**
+     * @description The ID of the DNAT entry.
+     *
      * @example fwd-5tc07cw14metghn3siv4ak8do
      *
      * @var string
@@ -16,7 +18,7 @@ class CreateForwardEntryResponseBody extends Model
     public $forwardEntryId;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example EF6D6FA4-DACA-5822-A981-81006271D263
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEpnInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the EPN instance.
+     *
      * @example epn-xxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateEpnInstanceResponseBody extends Model
     public $EPNInstanceId;
 
     /**
+     * @description The request ID.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string

@@ -12,11 +12,14 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instance
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\publicIpAddresses;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\securityGroupIds;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\systemDisk;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\tags;
 use AlibabaCloud\Tea\Model;
 
 class instance extends Model
 {
     /**
+     * @description The number of vCPUs.
+     *
      * @example 2
      *
      * @var string
@@ -24,6 +27,8 @@ class instance extends Model
     public $cpu;
 
     /**
+     * @description The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2019-07-26T06:40:43Z
      *
      * @var string
@@ -31,11 +36,15 @@ class instance extends Model
     public $creationTime;
 
     /**
+     * @description Details of the data disk.
+     *
      * @var dataDisk
      */
     public $dataDisk;
 
     /**
+     * @description The total size of the disk. Unit: MiB.
+     *
      * @example 71680
      *
      * @var int
@@ -43,6 +52,8 @@ class instance extends Model
     public $disk;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou-telecom
      *
      * @var string
@@ -50,6 +61,8 @@ class instance extends Model
     public $ensRegionId;
 
     /**
+     * @description The expiration time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2119-07-13T02:38:57Z
      *
      * @var string
@@ -57,6 +70,12 @@ class instance extends Model
     public $expiredTime;
 
     /**
+     * @description The hostname of the instance.
+     *
+     *   The hostname cannot start or end with a period (.) or hyphen (-). It cannot contain consecutive periods (.) or hyphens (-).
+     *   For a Windows instance, the hostname must be 2 to 15 characters in length and can contain letters, digits, and hyphens (-). The hostname cannot contain periods (.) or contain only digits.
+     *   For an instance that runs another operating system such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate the hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-).
+     *
      * @example testHostName
      *
      * @var string
@@ -64,6 +83,8 @@ class instance extends Model
     public $hostName;
 
     /**
+     * @description The ID of the image.
+     *
      * @example m-****
      *
      * @var string
@@ -71,11 +92,15 @@ class instance extends Model
     public $imageId;
 
     /**
+     * @description The private IP addresses of the instances.
+     *
      * @var innerIpAddress
      */
     public $innerIpAddress;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-instanc****
      *
      * @var string
@@ -83,6 +108,8 @@ class instance extends Model
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
      * @example i-5itef0f28t17bcdw9deu6meub
      *
      * @var string
@@ -90,6 +117,13 @@ class instance extends Model
     public $instanceName;
 
     /**
+     * @description The type of the instance. Valid values:
+     *
+     *   EnsInstance: ENS instances that you purchase.
+     *   EnsService: ENS instances that belong to edge services.
+     *   BuildMachine: ENS instances that are configured with image builders.
+     *   EnsPostPaidInstance: pay-as-you-go ENS instances that you purchase.
+     *
      * @example EnsService
      *
      * @var string
@@ -97,11 +131,25 @@ class instance extends Model
     public $instanceResourceType;
 
     /**
+     * @description The instance family. Valid values:
+     *
+     *   x86\_vm: x86-based computing instance.
+     *   x86\_pm: x86-based physical machine.
+     *   x86\_bmi: x86-based bare metal instance.
+     *   x86\_bm: bare metal instance with the SmartNIC.
+     *   pc_bmi: heterogeneous bare metal instance.
+     *   pc_vm: heterogeneous virtual machine.
+     *   arm_bmi: Arm-based computing instance.
+     *
+     * @example x86_vm
+     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
+     * @description The maximum outbound bandwidth. Unit: Mbit/s.
+     *
      * @example 40
      *
      * @var int
@@ -109,6 +157,8 @@ class instance extends Model
     public $internetMaxBandwidthIn;
 
     /**
+     * @description The minimum inbound bandwidth. Unit: Mbit/s.
+     *
      * @example 100
      *
      * @var int
@@ -116,6 +166,8 @@ class instance extends Model
     public $internetMaxBandwidthOut;
 
     /**
+     * @description The memory size. Unit: MB.
+     *
      * @example 2048
      *
      * @var int
@@ -123,13 +175,15 @@ class instance extends Model
     public $memory;
 
     /**
-     * @description Schema of Response
+     * @description The returned information about the network.
      *
      * @var networkAttributes
      */
     public $networkAttributes;
 
     /**
+     * @description The name of the image.
+     *
      * @example centos 6.8 x86_64
      *
      * @var string
@@ -137,26 +191,36 @@ class instance extends Model
     public $OSName;
 
     /**
+     * @description Details of the private IP addresses.
+     *
      * @var privateIpAddresses
      */
     public $privateIpAddresses;
 
     /**
+     * @description The public IP addresses of the instances.
+     *
      * @var publicIpAddress
      */
     public $publicIpAddress;
 
     /**
+     * @description Details of the public IP addresses.
+     *
      * @var publicIpAddresses
      */
     public $publicIpAddresses;
 
     /**
+     * @description The IDs of the security groups.
+     *
      * @var securityGroupIds
      */
     public $securityGroupIds;
 
     /**
+     * @description The code of the instance type.
+     *
      * @example ens.sn1.stiny
      *
      * @var string
@@ -164,6 +228,12 @@ class instance extends Model
     public $specName;
 
     /**
+     * @description The status. Valid values:
+     *
+     *   Running
+     *   Expired
+     *   Stopped
+     *
      * @example Running
      *
      * @var string
@@ -171,11 +241,16 @@ class instance extends Model
     public $status;
 
     /**
-     * @description Schema of Response
+     * @description The returned information about the disk.
      *
      * @var systemDisk
      */
     public $systemDisk;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'cpu'                     => 'Cpu',
         'creationTime'            => 'CreationTime',
@@ -202,6 +277,7 @@ class instance extends Model
         'specName'                => 'SpecName',
         'status'                  => 'Status',
         'systemDisk'              => 'SystemDisk',
+        'tags'                    => 'Tags',
     ];
 
     public function validate()
@@ -285,6 +361,9 @@ class instance extends Model
         }
         if (null !== $this->systemDisk) {
             $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -372,6 +451,9 @@ class instance extends Model
         }
         if (isset($map['SystemDisk'])) {
             $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

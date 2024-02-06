@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsNetDistrictRequest extends Model
 {
     /**
+     * @description The code of the region.
+     *
+     * If you specify this parameter, only nodes in the regions of the level that is specified by this parameter are queried.
      * @example 100106
      *
      * @var string
@@ -16,22 +19,20 @@ class DescribeEnsNetDistrictRequest extends Model
     public $netDistrictCode;
 
     /**
+     * @description The level of the region.
+     *
+     *   **Big**: area
+     *   **Middle**: province
+     *   **Small**: city
+     *
      * @example Big
      *
      * @var string
      */
     public $netLevelCode;
-
-    /**
-     * @example 2017-07-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'netDistrictCode' => 'NetDistrictCode',
         'netLevelCode'    => 'NetLevelCode',
-        'version'         => 'Version',
     ];
 
     public function validate()
@@ -46,9 +47,6 @@ class DescribeEnsNetDistrictRequest extends Model
         }
         if (null !== $this->netLevelCode) {
             $res['NetLevelCode'] = $this->netLevelCode;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -67,9 +65,6 @@ class DescribeEnsNetDistrictRequest extends Model
         }
         if (isset($map['NetLevelCode'])) {
             $model->netLevelCode = $map['NetLevelCode'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

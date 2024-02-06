@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnatAttributeResponseBody extends Model
 {
     /**
+     * @description The time when the entry was created. The time is displayed in UTC.
+     *
      * @example 2020-04-26T15:38:27Z
      *
      * @var string
@@ -17,6 +19,26 @@ class DescribeSnatAttributeResponseBody extends Model
     public $creationTime;
 
     /**
+     * @description The destination CIDR block. The rule takes effect only on requests that access the destination CIDR block.
+     *
+     * @example 101.10. XX.XX/24
+     *
+     * @var string
+     */
+    public $destCIDR;
+
+    /**
+     * @description Timeout period.
+     *
+     * @example 10
+     *
+     * @var int
+     */
+    public $idleTimeout;
+
+    /**
+     * @description The ID of the Network Address Translation (NAT) gateway.
+     *
      * @example nat-5t7nh1cfm6kxiszlttr38****
      *
      * @var string
@@ -24,7 +46,7 @@ class DescribeSnatAttributeResponseBody extends Model
     public $natGatewayId;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -33,6 +55,8 @@ class DescribeSnatAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the SNAT entry.
+     *
      * @example snat-5tfi6f8gds82mjmlofeym****
      *
      * @var string
@@ -40,6 +64,8 @@ class DescribeSnatAttributeResponseBody extends Model
     public $snatEntryId;
 
     /**
+     * @description The name of the SNAT entry.
+     *
      * @example test0
      *
      * @var string
@@ -47,42 +73,79 @@ class DescribeSnatAttributeResponseBody extends Model
     public $snatEntryName;
 
     /**
-     * @example 120.72.56.71
+     * @description The EIP specified in the SNAT entry. Multiple EIPs are separated by commas (,).
+     *
+     * @example 120.72.XX.XX
      *
      * @var string
      */
     public $snatIp;
 
     /**
+     * @description The information about the EIP specified in the SNAT entry.
+     *
      * @var snatIps[]
      */
     public $snatIps;
 
     /**
-     * @example 10.0.0.0/24
+     * @description The source CIDR block specified in the SNAT entry.
+     *
+     * @example 10.0.XX.XX/24
      *
      * @var string
      */
     public $sourceCIDR;
 
     /**
+     * @description The secondary EIP specified in the SNAT entry. Multiple secondary EIPs are separated by commas (,).
+     *
+     * @example 101.23. XX.XX
+     *
      * @var string
      */
     public $standbySnatIp;
 
     /**
+     * @description The status of the secondary EIP.
+     *
+     *   Running
+     *   Stopping
+     *   Stopped
+     *   Starting
+     *
+     * @example Stopped
+     *
      * @var string
      */
     public $standbyStatus;
 
     /**
+     * @description The status of the SNAT entry.
+     *
+     *   Pending: The SNAT entry is being created or modified.
+     *   Available: The SNAT entry is available.
+     *   Deleting: The SNAT entry is being deleted.
+     *
      * @example Available
      *
      * @var string
      */
     public $status;
+
+    /**
+     * @description The type of the NAT. Valid values:
+     *
+     * - FullCone: full cone NAT.
+     * @example FullCone
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'creationTime'  => 'CreationTime',
+        'destCIDR'      => 'DestCIDR',
+        'idleTimeout'   => 'IdleTimeout',
         'natGatewayId'  => 'NatGatewayId',
         'requestId'     => 'RequestId',
         'snatEntryId'   => 'SnatEntryId',
@@ -93,6 +156,7 @@ class DescribeSnatAttributeResponseBody extends Model
         'standbySnatIp' => 'StandbySnatIp',
         'standbyStatus' => 'StandbyStatus',
         'status'        => 'Status',
+        'type'          => 'Type',
     ];
 
     public function validate()
@@ -104,6 +168,12 @@ class DescribeSnatAttributeResponseBody extends Model
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->destCIDR) {
+            $res['DestCIDR'] = $this->destCIDR;
+        }
+        if (null !== $this->idleTimeout) {
+            $res['IdleTimeout'] = $this->idleTimeout;
         }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
@@ -141,6 +211,9 @@ class DescribeSnatAttributeResponseBody extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
 
         return $res;
     }
@@ -155,6 +228,12 @@ class DescribeSnatAttributeResponseBody extends Model
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['DestCIDR'])) {
+            $model->destCIDR = $map['DestCIDR'];
+        }
+        if (isset($map['IdleTimeout'])) {
+            $model->idleTimeout = $map['IdleTimeout'];
         }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
@@ -191,6 +270,9 @@ class DescribeSnatAttributeResponseBody extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

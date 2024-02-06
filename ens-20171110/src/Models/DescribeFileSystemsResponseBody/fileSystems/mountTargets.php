@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mountTargets extends Model
 {
     /**
+     * @description The path of the mount target.
+     *
      * @example *.*.*.*:/${FileSystemName}/{MountTargetName}
      *
      * @var string
@@ -16,6 +18,8 @@ class mountTargets extends Model
     public $mountTargetDomain;
 
     /**
+     * @description The name of the mount target.
+     *
      * @example target1
      *
      * @var string
@@ -23,6 +27,8 @@ class mountTargets extends Model
     public $mountTargetName;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-****
      *
      * @var string
@@ -30,6 +36,13 @@ class mountTargets extends Model
     public $netWorkId;
 
     /**
+     * @description The status of the mount target. Valid values:
+     *
+     *   active: The mount target is available.
+     *   inactive: The mount target is unavailable.
+     *   pending: The task is running.
+     *   deleting: The mount target is being deleted.
+     *
      * @example active
      *
      * @var string

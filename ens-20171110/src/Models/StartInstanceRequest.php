@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can start only one instance.
+     *
      * @example i-instance****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nextHops extends Model
 {
     /**
+     * @description The ID of the next hop.
+     *
      * @example i-bp1111yup9991890woxq
      *
      * @var string
@@ -16,6 +18,8 @@ class nextHops extends Model
     public $nextHopId;
 
     /**
+     * @description The type of the next hop. Valid values:
+     *
      * @example Instance
      *
      * @var string

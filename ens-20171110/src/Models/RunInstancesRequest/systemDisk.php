@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
+     * @description The category of the system disk.
+     *
+     * @example local_ssd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The size of the system disk. Unit: GiB.
+     *
      * @example 50
      *
      * @var int

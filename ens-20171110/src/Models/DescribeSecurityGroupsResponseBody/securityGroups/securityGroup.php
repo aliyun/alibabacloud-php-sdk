@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class securityGroup extends Model
 {
     /**
+     * @description The time when the security group was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC. The format is yyyy-MM-ddThh:mmZ.
+     *
      * @example 2019-11-01T06:08:46Z
      *
      * @var string
@@ -16,6 +18,8 @@ class securityGroup extends Model
     public $creationTime;
 
     /**
+     * @description The description of the security group.
+     *
      * @example TestDescription
      *
      * @var string
@@ -23,6 +27,8 @@ class securityGroup extends Model
     public $description;
 
     /**
+     * @description The number of associated instances.
+     *
      * @example 5
      *
      * @var int
@@ -30,6 +36,8 @@ class securityGroup extends Model
     public $instanceCount;
 
     /**
+     * @description The ID of the security group.
+     *
      * @example sg-bp67acfmxazb4ph***
      *
      * @var string
@@ -37,6 +45,8 @@ class securityGroup extends Model
     public $securityGroupId;
 
     /**
+     * @description The name of the security group.
+     *
      * @example DocTest
      *
      * @var string

@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEpnInstanceAttributeResponseBody extends Model
 {
     /**
+     * @description The information about the EPN configurations.
+     *
      * @var confVersions[]
      */
     public $confVersions;
 
     /**
+     * @description The ID of the EPN instance.
+     *
      * @example epn-xxxx
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeEpnInstanceAttributeResponseBody extends Model
     public $EPNInstanceId;
 
     /**
+     * @description The name of the EPN instance.
+     *
      * @example epn-test
      *
      * @var string
@@ -31,11 +37,19 @@ class DescribeEpnInstanceAttributeResponseBody extends Model
     public $EPNInstanceName;
 
     /**
+     * @description The information about the instance.
+     *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description The networking mode. Valid values:
+     *
+     *   SpeedUp: intelligent acceleration network (Internet)
+     *   Connection: internal network
+     *   SpeedUpAndConnection: intelligent acceleration network and internal network
+     *
      * @example SpeedUp
      *
      * @var string
@@ -43,6 +57,8 @@ class DescribeEpnInstanceAttributeResponseBody extends Model
     public $networkingModel;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -50,6 +66,8 @@ class DescribeEpnInstanceAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Details of the vSwitch.
+     *
      * @var vSwitches[]
      */
     public $vSwitches;

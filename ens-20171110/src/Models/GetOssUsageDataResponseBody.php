@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetOssUsageDataResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 2A8CCD48-14F9-0309-B957-7B1D74A8119D
      *
@@ -19,6 +19,8 @@ class GetOssUsageDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The array of usage data.
+     *
      * @var usageList[]
      */
     public $usageList;

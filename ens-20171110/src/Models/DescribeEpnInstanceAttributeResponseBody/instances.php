@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description The ID of the node.
+     *
      * @example cn-chengdu-telecom-4
      *
      * @var string
@@ -16,6 +18,8 @@ class instances extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example epn-xxx
      *
      * @var string
@@ -23,6 +27,8 @@ class instances extends Model
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
      * @example epn-test
      *
      * @var string
@@ -30,6 +36,12 @@ class instances extends Model
     public $instanceName;
 
     /**
+     * @description The ISP. Valid values:
+     *
+     *   cmcc: China Mobile
+     *   unicom: China Unicom
+     *   telecom: China Telecom
+     *
      * @example cmcc
      *
      * @var string
@@ -37,6 +49,8 @@ class instances extends Model
     public $isp;
 
     /**
+     * @description The private IP address.
+     *
      * @example 192.168.1.12
      *
      * @var string
@@ -44,6 +58,8 @@ class instances extends Model
     public $privateIpAddress;
 
     /**
+     * @description The public IP address.
+     *
      * @example 20.3.XX.XX
      *
      * @var string
@@ -51,6 +67,12 @@ class instances extends Model
     public $publicIpAddress;
 
     /**
+     * @description The status of the instance. Valid values:
+     *
+     *   Running
+     *   Stopped
+     *   Expired
+     *
      * @example Running
      *
      * @var string

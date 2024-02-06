@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionIspsRequest extends Model
 {
     /**
+     * @description The ID of the node. You can specify only one node ID in a call.
+     *
      * @example cn-dalian-unicom
      *
      * @var string

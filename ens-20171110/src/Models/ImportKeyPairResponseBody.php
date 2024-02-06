@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ImportKeyPairResponseBody extends Model
 {
     /**
+     * @description The fingerprint of the key pair. The message-digest algorithm 5 (MD5) is used based on the public key fingerprint format defined in RFC 4716.
+     *
      * @example fdaf8ff7a756ef843814fc****
      *
      * @var string
@@ -16,6 +18,8 @@ class ImportKeyPairResponseBody extends Model
     public $keyPairFingerPrint;
 
     /**
+     * @description The name of the key pair.
+     *
      * @example TestKeyPairName
      *
      * @var string
@@ -23,6 +27,8 @@ class ImportKeyPairResponseBody extends Model
     public $keyPairName;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string

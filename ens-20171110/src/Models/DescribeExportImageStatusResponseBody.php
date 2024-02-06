@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeExportImageStatusResponseBody extends Model
 {
     /**
+     * @description The export status of the image. Valid values:
+     *
+     *   Exporting
+     *   Exported
+     *   ExportError
+     *   Unexported
+     *
      * @example Exporting
      *
      * @var string
@@ -16,6 +23,8 @@ class DescribeExportImageStatusResponseBody extends Model
     public $imageExportStatus;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 14BBB3A0-3DBE-54F5-AEC8-01D3F6B1EBE2
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class pushResult extends Model
 {
     /**
+     * @description The name of the data file.
+     *
      * @example gcs-pre-websocket-eip-telecom
      *
      * @var string
@@ -17,11 +19,15 @@ class pushResult extends Model
     public $name;
 
     /**
+     * @description The push status of data files.
+     *
      * @var statusStatS
      */
     public $statusStatS;
 
     /**
+     * @description The version number of the data file.
+     *
      * @example standard
      *
      * @var string

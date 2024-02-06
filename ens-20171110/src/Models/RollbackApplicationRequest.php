@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RollbackApplicationRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example 474bdef0-d149-4695-abfb-52912d9143f0
      *
      * @var string
@@ -16,6 +18,8 @@ class RollbackApplicationRequest extends Model
     public $appId;
 
     /**
+     * @description The current version number.
+     *
      * @example v2-1
      *
      * @var string
@@ -23,6 +27,8 @@ class RollbackApplicationRequest extends Model
     public $fromAppVersion;
 
     /**
+     * @description The timeout period of the asynchronous rollback operation. Unit: seconds. Default value: 300.
+     *
      * @example 1800
      *
      * @var int
@@ -30,6 +36,8 @@ class RollbackApplicationRequest extends Model
     public $timeout;
 
     /**
+     * @description The target version number. By default, the system automatically rolls back the container version to the previous version.
+     *
      * @example v2
      *
      * @var string

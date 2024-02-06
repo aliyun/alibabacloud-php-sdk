@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerHTTPSListenerAttributeRequest extends Model
 {
     /**
+     * @description The frontend port that is used by the Edge Load Balance (ELB) instance. Valid values: **1** to **65535**.
+     *
      * @example 8080
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeLoadBalancerHTTPSListenerAttributeRequest extends Model
     public $listenerPort;
 
     /**
+     * @description The ID of the ELB instance.
+     *
      * @example lb-5qoxu2rsr0ytanpn4r3i****
      *
      * @var string

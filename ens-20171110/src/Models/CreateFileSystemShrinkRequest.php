@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFileSystemShrinkRequest extends Model
 {
     /**
+     * @description The information about the orders.
+     *
      * @var string
      */
     public $orderDetailsShrink;

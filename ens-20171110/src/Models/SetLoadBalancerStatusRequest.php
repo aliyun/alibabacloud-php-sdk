@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetLoadBalancerStatusRequest extends Model
 {
     /**
+     * @description The ID of the ELB instance.
+     *
      * @example lb-5t18quoohsrc3xkf86spmnu77
      *
      * @var string
@@ -16,6 +18,11 @@ class SetLoadBalancerStatusRequest extends Model
     public $loadBalancerId;
 
     /**
+     * @description The status of the ELB instance. Valid values:
+     *
+     *   **Active** (default): The listener for the instance can forward the received traffic based on the rule.
+     *   **InActive**: The listener for the instance does not forward the received traffic.
+     *
      * @example Active
      *
      * @var string

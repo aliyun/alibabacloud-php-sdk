@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeSecurityGroupEgressRequest extends Model
 {
     /**
+     * @description The destination IP addresses. CIDR blocks and IPv4 addresses are supported.
+     *
+     * This parameter is empty by default.
      * @example 10.0.XX.XX/8
      *
      * @var string
@@ -16,6 +19,14 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $destCidrIp;
 
     /**
+     * @description The transport layer protocol. The values of this parameter are case-sensitive. Valid values:
+     *
+     *   tcp: TCP.
+     *   udp: UDP.
+     *   icmp: ICMP.
+     *   gre: GRE.
+     *   all: All protocols are supported.
+     *
      * @example all
      *
      * @var string
@@ -23,6 +34,11 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $ipProtocol;
 
     /**
+     * @description The action of security group rule N that determines whether to allow inbound access. Valid values:
+     *
+     *   accept: allows access. This is the default value.
+     *   drop: denies access and returns no responses.
+     *
      * @example accept
      *
      * @var string
@@ -30,6 +46,13 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $policy;
 
     /**
+     * @description The range of destination ports that correspond to the transport layer protocol for security group rule N. Valid values:
+     *
+     *   When the IpProtocol parameter is set to tcp or udp, the port number range is **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
+     *   When the IpProtocol parameter is set to icmp, the port number range is **-1/-1**, which indicates all ports.
+     *   When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
+     *   When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
+     *
      * @example 22/22
      *
      * @var string
@@ -37,6 +60,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $portRange;
 
     /**
+     * @description The priority of the security group rule. Valid values: **1 to 100**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +69,8 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $priority;
 
     /**
+     * @description The ID of the security group.
+     *
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -51,20 +78,18 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description The range of port numbers that correspond to the transport layer protocol for the source security group. Valid values:
+     *
+     *   When the IpProtocol parameter is set to tcp or udp, the port number range is **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
+     *   When the IpProtocol parameter is set to icmp, the port number range is **-1/-1**, which indicates all ports.
+     *   When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
+     *   When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
+     *
      * @example 22/22
      *
      * @var string
      */
     public $sourcePortRange;
-
-    /**
-     * @description 2017-11-10
-     *
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'destCidrIp'      => 'DestCidrIp',
         'ipProtocol'      => 'IpProtocol',
@@ -73,7 +98,6 @@ class AuthorizeSecurityGroupEgressRequest extends Model
         'priority'        => 'Priority',
         'securityGroupId' => 'SecurityGroupId',
         'sourcePortRange' => 'SourcePortRange',
-        'version'         => 'Version',
     ];
 
     public function validate()
@@ -103,9 +127,6 @@ class AuthorizeSecurityGroupEgressRequest extends Model
         }
         if (null !== $this->sourcePortRange) {
             $res['SourcePortRange'] = $this->sourcePortRange;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -139,9 +160,6 @@ class AuthorizeSecurityGroupEgressRequest extends Model
         }
         if (isset($map['SourcePortRange'])) {
             $model->sourcePortRange = $map['SourcePortRange'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

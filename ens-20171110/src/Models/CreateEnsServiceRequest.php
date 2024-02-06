@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEnsServiceRequest extends Model
 {
     /**
+     * @description The ID of the resource that you want to obtain. You can specify only one ID in a request.
+     *
      * @example ens-20190806****
      *
      * @var string
@@ -16,22 +18,19 @@ class CreateEnsServiceRequest extends Model
     public $ensServiceId;
 
     /**
+     * @description The operation to perform after you preview the created edge service. Valid values:
+     *
+     *   **Buy**: create
+     *   **Upgrade**: change
+     *
      * @example Buy
      *
      * @var string
      */
     public $orderType;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'ensServiceId' => 'EnsServiceId',
         'orderType'    => 'OrderType',
-        'version'      => 'Version',
     ];
 
     public function validate()
@@ -46,9 +45,6 @@ class CreateEnsServiceRequest extends Model
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -67,9 +63,6 @@ class CreateEnsServiceRequest extends Model
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

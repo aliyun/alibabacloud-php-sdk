@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataDistResultResponseBody extends Model
 {
     /**
+     * @description The distribution status of data files on edge instances.
+     *
      * @var distResults
      */
     public $distResults;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeDataDistResultResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeDataDistResultResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 50373E71-7710-4620-8AAB-133CCE49451C
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDataDistResultResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 49
      *
      * @var int

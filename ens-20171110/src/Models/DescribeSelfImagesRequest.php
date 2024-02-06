@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeSelfImagesRequest extends Model
 {
     /**
+     * @description The ID of the image. Fuzzy search is supported.
+     *
+     * @example centos_6_08_64_20G_a****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The name of the image. Fuzzy search is supported.
+     *
+     * @example centos_6_08_64_20G_a****
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The page number to return. Pages start from page **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the snapshot.
+     *
+     * @example sp-5xg63dmojc1oaa3pk****
+     *
      * @var string
      */
     public $snapshotId;

@@ -9,21 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeExportImageStatusRequest extends Model
 {
     /**
+     * @description The ID of the image.
+     *
      * @example centos_6_08_64_20G_alibase_****
      *
      * @var string
      */
     public $imageId;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'imageId' => 'ImageId',
-        'version' => 'Version',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class DescribeExportImageStatusRequest extends Model
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -53,9 +44,6 @@ class DescribeExportImageStatusRequest extends Model
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

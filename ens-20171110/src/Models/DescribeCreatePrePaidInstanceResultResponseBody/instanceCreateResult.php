@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class instanceCreateResult extends Model
 {
     /**
+     * @description The status of the instance creation.
+     *
+     *   Accepted
+     *   Creating
+     *   Failed
+     *   Successed
+     *
      * @example Successed
      *
      * @var string
@@ -16,6 +23,8 @@ class instanceCreateResult extends Model
     public $instanceCreateStatus;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-6ecpqvkicnchxccozrpxxxx
      *
      * @var string

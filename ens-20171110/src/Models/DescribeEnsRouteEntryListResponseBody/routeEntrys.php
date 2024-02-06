@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class routeEntrys extends Model
 {
     /**
+     * @description Enter a description for the route.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The destination CIDR block of the route.
+     *
      * @example 101.0.45.0/24
      *
      * @var string
@@ -22,11 +26,15 @@ class routeEntrys extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The information about the next hop.
+     *
      * @var nextHops[]
      */
     public $nextHops;
 
     /**
+     * @description The ID of the route.
+     *
      * @example rte-2zeksx7h436f5unk349m1
      *
      * @var string
@@ -34,6 +42,8 @@ class routeEntrys extends Model
     public $routeEntryId;
 
     /**
+     * @description The name of the route.
+     *
      * @example test0
      *
      * @var string
@@ -41,6 +51,8 @@ class routeEntrys extends Model
     public $routeEntryName;
 
     /**
+     * @description The ID of the route table.
+     *
      * @example vtb-uf62p9o5cn35fi8xgurnm
      *
      * @var string
@@ -48,6 +60,8 @@ class routeEntrys extends Model
     public $routeTableId;
 
     /**
+     * @description The status of the route entry. Valid values:
+     *
      * @example Available
      *
      * @var string
@@ -55,6 +69,8 @@ class routeEntrys extends Model
     public $status;
 
     /**
+     * @description The type of the route entry.
+     *
      * @example Custom
      *
      * @var string

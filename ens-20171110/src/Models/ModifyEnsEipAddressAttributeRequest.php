@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyEnsEipAddressAttributeRequest extends Model
 {
     /**
+     * @description The ID of the EIP.
+     *
      * @example eip-5sw5dxzgi6umq4uexxkt8wpma
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyEnsEipAddressAttributeRequest extends Model
     public $allocationId;
 
     /**
+     * @description The peak bandwidth of the EIP. Default value: 5. Valid values: **5** to **10000**. Unit: Mbit/s.
+     *
      * @example 50
      *
      * @var int
@@ -23,6 +27,8 @@ class ModifyEnsEipAddressAttributeRequest extends Model
     public $bandwidth;
 
     /**
+     * @description The new description of the EIP. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+     *
      * @example abc
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyEnsEipAddressAttributeRequest extends Model
     public $description;
 
     /**
+     * @description The new name of the EIP. The name must be 2 to 128 characters in length and cannot start with http:// or https://.
+     *
      * @example test-api-modify
      *
      * @var string

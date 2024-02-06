@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddNetworkInterfaceToInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether to specify the instance.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class AddNetworkInterfaceToInstanceRequest extends Model
     public $autoStart;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example yourInstance ID
      *
      * @var string
@@ -23,6 +27,8 @@ class AddNetworkInterfaceToInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The network. The value is a JSON string. Only IPv6 is supported. Sample code of an IPv6 network: \[{ "ipType": "public", "ipAddressType": "ipv6" }]
+     *
      * @example [{"ipType": "public", "ipAddressType": "ipv6" }]
      *
      * @var string

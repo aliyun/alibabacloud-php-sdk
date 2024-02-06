@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AttachEnsInstancesRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can specify only one instance ID.
+     *
      * @example testInstacneId
      *
      * @var string
@@ -16,6 +18,8 @@ class AttachEnsInstancesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The command that you want to execute on the instance. The command must be encoded in Base64 or UTF-8.
+     *
      * @example wget d2dldCBodHRwOi8vYWxpYWNzLWs4cy1jbxxxx
      *
      * @var string

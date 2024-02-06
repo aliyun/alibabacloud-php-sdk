@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceFeeData extends Model
 {
     /**
+     * @description The memory size. Unit: GB.
+     *
      * @example 24
      *
      * @var int
@@ -16,6 +18,8 @@ class resourceFeeData extends Model
     public $memory;
 
     /**
+     * @description The storage capacity. Unit: GB.
+     *
      * @example 60
      *
      * @var int
@@ -23,6 +27,8 @@ class resourceFeeData extends Model
     public $storage;
 
     /**
+     * @description The number of vCPUs.
+     *
      * @example 12
      *
      * @var int

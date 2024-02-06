@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class AddDeviceInternetPortRequest extends Model
 {
     /**
+     * @description The Internet service provider (ISP). If you leave this parameter empty, the system automatically allows a random ISP. Valid values:
+     *
+     *   telecom: China Telecom
+     *   cmcc: China Mobile
+     *   unicom: China Unicom
+     *   cbn: China Broadcasting Network (CBN)
+     *
      * @example telecom
      *
      * @var string
@@ -16,6 +23,8 @@ class AddDeviceInternetPortRequest extends Model
     public $ISP;
 
     /**
+     * @description The ID of the instance. You can specify the ID of the server or container.
+     *
      * @example i-5saiou41t6ude2ia56ri902ke
      *
      * @var string
@@ -23,6 +32,8 @@ class AddDeviceInternetPortRequest extends Model
     public $instanceId;
 
     /**
+     * @description The internal IP address of the instance.
+     *
      * @example 10.0.0.50
      *
      * @var string
@@ -30,6 +41,8 @@ class AddDeviceInternetPortRequest extends Model
     public $internalIp;
 
     /**
+     * @description The internal port number. Specify this parameter in the following format: first port/last port. Separate multiple port number groups with commas (,). Example: 1026/2001,2005/2005. This parameter is required if you set NatType to DNAT. If you set NatType to SNAT, the value of this parameter is invalid.
+     *
      * @example 12022/12022
      *
      * @var string
@@ -37,6 +50,11 @@ class AddDeviceInternetPortRequest extends Model
     public $internalPort;
 
     /**
+     * @description The type of the NAT gateway. The value of this parameter is of the enumerated data type. Valid values:
+     *
+     *   SNAT
+     *   DNAT
+     *
      * @example DNAT
      *
      * @var string
@@ -44,6 +62,8 @@ class AddDeviceInternetPortRequest extends Model
     public $natType;
 
     /**
+     * @description The ID of the Edge Node Service (ENS) node.
+     *
      * @example cn-wuxi-5
      *
      * @var string

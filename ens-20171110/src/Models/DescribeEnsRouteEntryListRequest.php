@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsRouteEntryListRequest extends Model
 {
     /**
+     * @description The destination Classless Inter-Domain Routing (CIDR) block of the route entry.
+     *
      * @example 11.0.0.0/16
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeEnsRouteEntryListRequest extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The ID of the next hop.
+     *
      * @example i-2zecshuv3axtr2gc4noa
      *
      * @var string
@@ -23,6 +27,10 @@ class DescribeEnsRouteEntryListRequest extends Model
     public $nextHopId;
 
     /**
+     * @description The type of next hop of the custom route entry. Valid values:
+     *
+     *   Instance: an ENS instance.
+     *
      * @example Instance
      *
      * @var string
@@ -30,6 +38,8 @@ class DescribeEnsRouteEntryListRequest extends Model
     public $nextHopType;
 
     /**
+     * @description The page number of the returned page. Valid values: integers that are greater than 0. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +47,8 @@ class DescribeEnsRouteEntryListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Valid values: 10 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +56,8 @@ class DescribeEnsRouteEntryListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the route that you want to query.
+     *
      * @example rte-8vbdw66evgv44u2u7v3hx
      *
      * @var string
@@ -51,6 +65,8 @@ class DescribeEnsRouteEntryListRequest extends Model
     public $routeEntryId;
 
     /**
+     * @description The name of the route.
+     *
      * @example test0
      *
      * @var string
@@ -58,6 +74,11 @@ class DescribeEnsRouteEntryListRequest extends Model
     public $routeEntryName;
 
     /**
+     * @description The route type. Valid values:
+     *
+     *   Custom: custom route
+     *   System: system route
+     *
      * @example Custom
      *
      * @var string
@@ -65,6 +86,8 @@ class DescribeEnsRouteEntryListRequest extends Model
     public $routeEntryType;
 
     /**
+     * @description The ID of the route table that you want to query.
+     *
      * @example vtb-hp3wdhynneo7fsclox8hs
      *
      * @var string

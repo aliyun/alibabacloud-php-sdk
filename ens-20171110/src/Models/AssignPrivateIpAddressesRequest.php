@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssignPrivateIpAddressesRequest extends Model
 {
     /**
+     * @description The ID of the ENI.
+     *
      * @example eni-uf6533jbifugr5fo2j1w
      *
      * @var string
@@ -16,6 +18,8 @@ class AssignPrivateIpAddressesRequest extends Model
     public $networkInterfaceId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-5rllcjb3ol6duzjdnbm1ombn7
      *
      * @var string

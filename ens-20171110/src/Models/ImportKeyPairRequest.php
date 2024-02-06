@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ImportKeyPairRequest extends Model
 {
     /**
+     * @description The name of the key pair. The name must conform to the following naming conventions:
+     *
+     *   The name must be 2 to 128 characters in length.
+     *   The name must start with a letter but cannot start with `http://` or `https://`.
+     *   The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * You can specify the name of only one key pair.
      * @example TestKeyPairName
      *
      * @var string
@@ -16,22 +23,16 @@ class ImportKeyPairRequest extends Model
     public $keyPairName;
 
     /**
+     * @description The public key of the key pair. You can specify only one public key.
+     *
      * @example ssh-rsa AAAAB****
      *
      * @var string
      */
     public $publicKeyBody;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'keyPairName'   => 'KeyPairName',
         'publicKeyBody' => 'PublicKeyBody',
-        'version'       => 'Version',
     ];
 
     public function validate()
@@ -46,9 +47,6 @@ class ImportKeyPairRequest extends Model
         }
         if (null !== $this->publicKeyBody) {
             $res['PublicKeyBody'] = $this->publicKeyBody;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -67,9 +65,6 @@ class ImportKeyPairRequest extends Model
         }
         if (isset($map['PublicKeyBody'])) {
             $model->publicKeyBody = $map['PublicKeyBody'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

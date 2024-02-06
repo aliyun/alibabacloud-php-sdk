@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateImageRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically release the instance after the image is packaged and uploaded. Only image builders are supported. Default value: false. Valid values:
+     *
+     *   true: The image is released when the instance is released.
+     *   false: The image is retained when the instance is released.
+     *   If you leave this parameter empty, the default value is used.
+     *
      * @example false
      *
      * @var string
@@ -16,6 +22,8 @@ class CreateImageRequest extends Model
     public $deleteAfterImageUpload;
 
     /**
+     * @description The name of the image. The name must be 2 to 128 characters in length. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
      * @example ImageName
      *
      * @var string
@@ -23,11 +31,19 @@ class CreateImageRequest extends Model
     public $imageName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-5rr1bnyrc4tswr8cq3w6y****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the snapshot.
+     *
+     * @example s-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $snapshotId;

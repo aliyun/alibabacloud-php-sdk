@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class RevokeSecurityGroupRequest extends Model
 {
     /**
+     * @description The transport layer protocol. The value of this parameter is case-sensitive. Valid values:
+     *
+     *   tcp: TCP.
+     *   udp: UDP.
+     *   icmp: ICMP.
+     *   gre: GRE.
+     *   all: all protocols.
+     *
      * @example all
      *
      * @var string
@@ -16,6 +24,11 @@ class RevokeSecurityGroupRequest extends Model
     public $ipProtocol;
 
     /**
+     * @description The authorization policy. Valid values:
+     *
+     *   accept: allows access. This is the default value.
+     *   drop: denies access and returns no responses.
+     *
      * @example accept
      *
      * @var string
@@ -23,6 +36,13 @@ class RevokeSecurityGroupRequest extends Model
     public $policy;
 
     /**
+     * @description The range of destination ports that correspond to the transport layer protocol for the security group rule. Valid values:
+     *
+     *   When the IpProtocol parameter is set to tcp or udp, the port number range is **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
+     *   When the IpProtocol parameter is set to icmp, the port number range is **-1/-1**, which indicates all ports.
+     *   When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
+     *   When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
+     *
      * @example 22/22
      *
      * @var string
@@ -30,6 +50,8 @@ class RevokeSecurityGroupRequest extends Model
     public $portRange;
 
     /**
+     * @description The priority of security group rule N. Valid values: **1** to **100**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +59,8 @@ class RevokeSecurityGroupRequest extends Model
     public $priority;
 
     /**
+     * @description The ID of the security group.
+     *
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -44,6 +68,8 @@ class RevokeSecurityGroupRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description The source CIDR block. CIDR blocks and IPv4 addresses are supported. Default value: 0.0.XX.XX/0.
+     *
      * @example 10.0.XX.XX/8
      *
      * @var string
@@ -51,20 +77,18 @@ class RevokeSecurityGroupRequest extends Model
     public $sourceCidrIp;
 
     /**
+     * @description The range of source ports that correspond to the transport layer protocol for the security group rule. Valid values:
+     *
+     *   When the IpProtocol parameter is set to tcp or udp, the port number range is **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
+     *   When the IpProtocol parameter is set to icmp, the port number range is **-1/-1**, which indicates all ports.
+     *   When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
+     *   When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
+     *
      * @example 22/22
      *
      * @var string
      */
     public $sourcePortRange;
-
-    /**
-     * @description 2017-11-10
-     *
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'ipProtocol'      => 'IpProtocol',
         'policy'          => 'Policy',
@@ -73,7 +97,6 @@ class RevokeSecurityGroupRequest extends Model
         'securityGroupId' => 'SecurityGroupId',
         'sourceCidrIp'    => 'SourceCidrIp',
         'sourcePortRange' => 'SourcePortRange',
-        'version'         => 'Version',
     ];
 
     public function validate()
@@ -103,9 +126,6 @@ class RevokeSecurityGroupRequest extends Model
         }
         if (null !== $this->sourcePortRange) {
             $res['SourcePortRange'] = $this->sourcePortRange;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -139,9 +159,6 @@ class RevokeSecurityGroupRequest extends Model
         }
         if (isset($map['SourcePortRange'])) {
             $model->sourcePortRange = $map['SourcePortRange'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

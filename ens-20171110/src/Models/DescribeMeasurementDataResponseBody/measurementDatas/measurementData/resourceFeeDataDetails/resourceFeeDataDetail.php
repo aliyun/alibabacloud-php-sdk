@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceFeeDataDetail extends Model
 {
     /**
+     * @description The code of the resource.
+     *
      * @example vCPU
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceFeeDataDetail extends Model
     public $costCode;
 
     /**
+     * @description The name of the resource.
+     *
      * @example vCPU
      *
      * @var string
@@ -23,6 +27,12 @@ class resourceFeeDataDetail extends Model
     public $costName;
 
     /**
+     * @description The consumption of the resource.
+     *
+     *   Memory unit: GB.
+     *   CPU unit: vCPU.
+     *   Storage unit: GB.
+     *
      * @example 55
      *
      * @var int
@@ -30,6 +40,8 @@ class resourceFeeDataDetail extends Model
     public $costVal;
 
     /**
+     * @description The type of the resource.
+     *
      * @example vCPU
      *
      * @var string

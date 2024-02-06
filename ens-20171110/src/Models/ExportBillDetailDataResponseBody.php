@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExportBillDetailDataResponseBody extends Model
 {
     /**
+     * @description The download path of the exported file.
+     *
      * @example http://test-oss.com/image_01.jpeg
      *
      * @var string
@@ -16,6 +18,8 @@ class ExportBillDetailDataResponseBody extends Model
     public $filePath;
 
     /**
+     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
+     *
      * @example BEA05990-B90D-594F-8C8E-650AEEB94C5D
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesRequest extends Model
 {
     /**
+     * @description The ID of the edge node.
+     *
      * @example cn-xian-unicom
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeVSwitchesRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the VPC to which the vSwitches belong.
+     *
      * @example vpc-25cdvfeq58pl****
      *
      * @var string
@@ -23,6 +27,9 @@ class DescribeVSwitchesRequest extends Model
     public $networkId;
 
     /**
+     * @description The order in which you want to sort the returned data. Example: {"EnsRegionId":"desc"}.
+     *
+     * By default, the nodes are sorted by IDs in descending order.
      * @example {"EnsRegionId":"desc"}
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeVSwitchesRequest extends Model
     public $orderByParams;
 
     /**
+     * @description The page number of the returned page. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +46,8 @@ class DescribeVSwitchesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +55,8 @@ class DescribeVSwitchesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-5m9xhlq8oh***
      *
      * @var string
@@ -51,18 +64,13 @@ class DescribeVSwitchesRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The name of the vSwitch.
+     *
      * @example testVSwitchName
      *
      * @var string
      */
     public $vSwitchName;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'ensRegionId'   => 'EnsRegionId',
         'networkId'     => 'NetworkId',
@@ -71,7 +79,6 @@ class DescribeVSwitchesRequest extends Model
         'pageSize'      => 'PageSize',
         'vSwitchId'     => 'VSwitchId',
         'vSwitchName'   => 'VSwitchName',
-        'version'       => 'Version',
     ];
 
     public function validate()
@@ -101,9 +108,6 @@ class DescribeVSwitchesRequest extends Model
         }
         if (null !== $this->vSwitchName) {
             $res['VSwitchName'] = $this->vSwitchName;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -137,9 +141,6 @@ class DescribeVSwitchesRequest extends Model
         }
         if (isset($map['VSwitchName'])) {
             $model->vSwitchName = $map['VSwitchName'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

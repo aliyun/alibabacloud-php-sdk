@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupsResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeSecurityGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeSecurityGroupsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -31,11 +37,15 @@ class DescribeSecurityGroupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Details about security groups.
+     *
      * @var securityGroups
      */
     public $securityGroups;
 
     /**
+     * @description The total number of returned pages.
+     *
      * @example 49
      *
      * @var int

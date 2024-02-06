@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReInitDiskRequest extends Model
 {
     /**
+     * @description The ID of the disk to be initialized. You can initialize only one disk at a time.
+     *
      * @example d-5r7v69e0bejrnzger09w71yjv
      *
      * @var string
@@ -16,24 +18,16 @@ class ReInitDiskRequest extends Model
     public $diskId;
 
     /**
+     * @description The ID of the image to use to create the instance.
+     *
      * @example m-5rz3i231o531s4p4ozanxmgx7
      *
      * @var string
      */
     public $imageId;
-
-    /**
-     * @description 2017-11-10
-     *
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'diskId'  => 'DiskId',
         'imageId' => 'ImageId',
-        'version' => 'Version',
     ];
 
     public function validate()
@@ -48,9 +42,6 @@ class ReInitDiskRequest extends Model
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -69,9 +60,6 @@ class ReInitDiskRequest extends Model
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

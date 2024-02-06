@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResizeDiskRequest extends Model
 {
     /**
+     * @description The ID of the disk that you want to resize.
+     *
      * @example d-5tzm9wnhzlhjzcbtxo465****
      *
      * @var string
@@ -16,6 +18,8 @@ class ResizeDiskRequest extends Model
     public $diskId;
 
     /**
+     * @description The size of the disk that you want to resize. Unit: GiB.
+     *
      * @example 100
      *
      * @var string

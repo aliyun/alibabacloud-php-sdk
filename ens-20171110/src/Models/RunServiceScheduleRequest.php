@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunServiceScheduleRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example 474bdef0-d149-4695-abfb-52912d9143f0
      *
      * @var string
@@ -16,6 +18,8 @@ class RunServiceScheduleRequest extends Model
     public $appId;
 
     /**
+     * @description The IP address of the client.
+     *
      * @example 180.166.45.146
      *
      * @var string
@@ -23,6 +27,8 @@ class RunServiceScheduleRequest extends Model
     public $clientIp;
 
     /**
+     * @description The directory to which the data file is mounted. The value must be a full path and cannot be \"/../\". Example: \["/data/app01", "/data/user"]. Specify the relative path of the virtual device for this parameter. For example, specify /data for this parameter when the actual path of the virtual device is /data/{input path}.
+     *
      * @example [\"/data/app01\", \"/data/user\"]
      *
      * @var string
@@ -30,6 +36,8 @@ class RunServiceScheduleRequest extends Model
     public $directorys;
 
     /**
+     * @description The parameter does not take effect.
+     *
      * @example android
      *
      * @var string
@@ -37,6 +45,8 @@ class RunServiceScheduleRequest extends Model
     public $podConfigName;
 
     /**
+     * @description The maximum duration for locking an idle device. Unit: seconds. This parameter takes effect only if you set ServiceAction to PreSchedule. Default value: 300.
+     *
      * @example 300
      *
      * @var int
@@ -44,6 +54,8 @@ class RunServiceScheduleRequest extends Model
     public $preLockedTimeout;
 
     /**
+     * @description The scheduling policy of the device. The value must be a JSON string.
+     *
      * @example {\"selectLevel\": \"RegionId\", \"values\": [\"cn-chengdu-telecom-2\"]  }
      *
      * @var string
@@ -51,6 +63,21 @@ class RunServiceScheduleRequest extends Model
     public $scheduleStrategy;
 
     /**
+     * @description The scheduling operation. The value must be of the enumeration type. Valid values:
+     *
+     * Container scenario:
+     *
+     *   Start: selects and activates an idle cloud device.
+     *   Stop: stops and releases the cloud device.
+     *   Console: performs the scheduling operation when the device is in the scheduling state.
+     *
+     * Bare metal instance or virtual machine scenario:
+     *
+     *   PreSchedule: locks a virtual machine instance for scheduling.
+     *   Confirm: confirms the scheduling operation.
+     *   Cancel: cancels the scheduling operation.
+     *   Console: performs the scheduling operation when the device is in the scheduling state.
+     *
      * @example Start
      *
      * @var string
@@ -58,6 +85,8 @@ class RunServiceScheduleRequest extends Model
     public $serviceAction;
 
     /**
+     * @description The service commands. The value must be a JSON string.
+     *
      * @example [{\"containerName\": \"android\",       \"commands\":[\"cat /tmp/token.json\"]    },    {      \"commands\":[\"ls -l /data/data\"]    }]
      *
      * @var string
@@ -65,6 +94,8 @@ class RunServiceScheduleRequest extends Model
     public $serviceCommands;
 
     /**
+     * @description The UUID of the device.
+     *
      * @example hdm_d4f1059a8e1afc0956bd71b497faa433
      *
      * @var string

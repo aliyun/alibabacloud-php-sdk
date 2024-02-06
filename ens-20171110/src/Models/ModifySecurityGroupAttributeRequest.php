@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupAttributeRequest extends Model
 {
     /**
+     * @description The description of the security group.
+     *
      * @example testDescription
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifySecurityGroupAttributeRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the security group.
+     *
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -23,6 +27,12 @@ class ModifySecurityGroupAttributeRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description The name of the security group. The name of a bucket must meet the following requirements:
+     *
+     *   The name must be 2 to 128 characters in length.
+     *   The name must start with a letter but cannot start with http:// or https://.
+     *   The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
      * @example example
      *
      * @var string

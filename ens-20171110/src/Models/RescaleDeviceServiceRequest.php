@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RescaleDeviceServiceRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example 7aedc50b-b1cb-4a7c-9e3d-4cf3c9ee55a4
      *
      * @var string
@@ -16,6 +18,8 @@ class RescaleDeviceServiceRequest extends Model
     public $appId;
 
     /**
+     * @description The ID of the image.
+     *
      * @example m-5rynw9g1ow1e928lb83bqmbnf
      *
      * @var string
@@ -23,6 +27,11 @@ class RescaleDeviceServiceRequest extends Model
     public $imageId;
 
     /**
+     * @description The type of the network. The value must be of the enumerated data type. Valid values:
+     *
+     *   **1** (default): Internet
+     *   **2**: internal network
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +39,8 @@ class RescaleDeviceServiceRequest extends Model
     public $ipType;
 
     /**
+     * @description The region level of the scale-out. Set the value to RegionId. RegionId specifies that resource scale-out is performed based on the ID of the edge node.
+     *
      * @example RegionId
      *
      * @var string
@@ -37,6 +48,8 @@ class RescaleDeviceServiceRequest extends Model
     public $rescaleLevel;
 
     /**
+     * @description The scaling operation. Set the value to Add to add new resources.
+     *
      * @example Add
      *
      * @var string
@@ -44,6 +57,8 @@ class RescaleDeviceServiceRequest extends Model
     public $rescaleType;
 
     /**
+     * @description The information about the resource specification template. The value must be a JSON string.
+     *
      * @example {\"imageId\":\"m-5s4z4c10avgwvwtn33gl2vgob\",\"ipType\":2,\"specName\":\"ens.pfb-c3m7.medium\"}
      *
      * @var string
@@ -51,6 +66,8 @@ class RescaleDeviceServiceRequest extends Model
     public $resourceInfo;
 
     /**
+     * @description The required resources. The value must be a JSON string.
+     *
      * @example [{\"regionCode\": \"cn-wuxi-telecom_unicom_cmcc-3\",    \"ispCode\": \"telecom\",    \"count\": 2	},{    \"regionCode\": \"cn-shanghai-cmcc\",    \"count\": 4	}]
      *
      * @var string
@@ -58,6 +75,8 @@ class RescaleDeviceServiceRequest extends Model
     public $resourceSelector;
 
     /**
+     * @description The resource specification.
+     *
      * @example ens.a6e.large
      *
      * @var string
@@ -65,6 +84,8 @@ class RescaleDeviceServiceRequest extends Model
     public $resourceSpec;
 
     /**
+     * @description The ID of the service.
+     *
      * @example service-01c6dd6e93f040698566
      *
      * @var string
@@ -72,6 +93,8 @@ class RescaleDeviceServiceRequest extends Model
     public $serviceId;
 
     /**
+     * @description The timeout period for asynchronous scale-out. Unit: seconds. Default value: 300.
+     *
      * @example 1800
      *
      * @var int

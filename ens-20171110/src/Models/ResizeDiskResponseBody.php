@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResizeDiskResponseBody extends Model
 {
     /**
+     * @description The order ID.
+     *
      * @example 21522202681****
      *
      * @var string
@@ -16,6 +18,8 @@ class ResizeDiskResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
      * @example 689412F2-8402-181E-8C87-1EF62331DCC4
      *
      * @var string

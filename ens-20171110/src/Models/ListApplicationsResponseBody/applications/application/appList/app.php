@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class app extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example e76f8985-7965-41fc-925b-9648bb6bf650
      *
      * @var string
@@ -16,6 +18,8 @@ class app extends Model
     public $appId;
 
     /**
+     * @description The information about the application, such as the resource specification, parameter configuration, and resources.
+     *
      * @example {
      * }
      * @var string

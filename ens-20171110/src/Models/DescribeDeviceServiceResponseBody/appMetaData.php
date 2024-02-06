@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class appMetaData extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example 97a32f2a-aa2c-436a-b19c-05b20d258618
      *
      * @var string
@@ -16,6 +18,8 @@ class appMetaData extends Model
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
      * @example iotx-api-admin
      *
      * @var string
@@ -23,6 +27,8 @@ class appMetaData extends Model
     public $appName;
 
     /**
+     * @description The stable version number of the application.
+     *
      * @example v1
      *
      * @var string
@@ -30,6 +36,11 @@ class appMetaData extends Model
     public $appStableVersion;
 
     /**
+     * @description The type of the application. The value is of the enumeration type. Valid values:
+     *
+     *   Common
+     *   Scheduler
+     *
      * @example Common
      *
      * @var string
@@ -37,6 +48,8 @@ class appMetaData extends Model
     public $appType;
 
     /**
+     * @description The name of the application cluster.
+     *
      * @example poc
      *
      * @var string
@@ -44,6 +57,8 @@ class appMetaData extends Model
     public $clusterName;
 
     /**
+     * @description The time when the application was created.
+     *
      * @example 2022-03-03T03:42:11
      *
      * @var string
@@ -51,6 +66,8 @@ class appMetaData extends Model
     public $createTime;
 
     /**
+     * @description The description of the application.
+     *
      * @var string
      */
     public $description;

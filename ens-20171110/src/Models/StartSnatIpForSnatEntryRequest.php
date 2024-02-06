@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartSnatIpForSnatEntryRequest extends Model
 {
     /**
+     * @description The ID of the SNAT entry.
+     *
      * @example snat-5tfi6f8gds82mjmlofeym****
      *
      * @var string
@@ -16,6 +18,8 @@ class StartSnatIpForSnatEntryRequest extends Model
     public $snatEntryId;
 
     /**
+     * @description The EIP specified in the SNAT entry.
+     *
      * @example 219.152.82.143
      *
      * @var string

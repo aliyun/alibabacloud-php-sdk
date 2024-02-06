@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkAclEntryRequest extends Model
 {
     /**
+     * @description The source CIDR block.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateNetworkAclEntryRequest extends Model
     public $cidrBlock;
 
     /**
+     * @description The description of the network ACL.
+     *
+     * The description must be 1 to 256 characters in length and cannot start with http:// or https://.
      * @example This is my NetworkAcl.
      *
      * @var string
@@ -23,6 +28,11 @@ class CreateNetworkAclEntryRequest extends Model
     public $description;
 
     /**
+     * @description Specifies whether the ACL rule controls inbound or outbound access requests. Valid values:
+     *
+     *   **ingress**
+     *   **egress**
+     *
      * @example ingress
      *
      * @var string
@@ -30,6 +40,9 @@ class CreateNetworkAclEntryRequest extends Model
     public $direction;
 
     /**
+     * @description The name of the rule.
+     *
+     * The name must be 1 to 128 characters in length and cannot start with http:// or https://.
      * @example acl-1
      *
      * @var string
@@ -37,6 +50,8 @@ class CreateNetworkAclEntryRequest extends Model
     public $networkAclEntryName;
 
     /**
+     * @description The ID of the network ACL.
+     *
      * @example nacl-bp1lhl0taikrbgnh****
      *
      * @var string
@@ -44,6 +59,11 @@ class CreateNetworkAclEntryRequest extends Model
     public $networkAclId;
 
     /**
+     * @description The action that is performed on network traffic that matches the rule. Valid values:
+     *
+     *   **accept**: allows network traffic.
+     *   **drop**: blocks network traffic.
+     *
      * @example accept
      *
      * @var string
@@ -51,6 +71,11 @@ class CreateNetworkAclEntryRequest extends Model
     public $policy;
 
     /**
+     * @description The port range.
+     *
+     *   If you set **Protocol** to **all** or **icmp**, set this parameter to -1/-1, which specifies all ports.
+     *   If you set **Protocol** to **tcp** or **udp**, the port can be **1 to 65535**. You can set this parameter to **1/200** or **80/80**, which specifies ports 1 to 200 or port 80.
+     *
      * @example -1/-1
      *
      * @var string
@@ -58,6 +83,8 @@ class CreateNetworkAclEntryRequest extends Model
     public $portRange;
 
     /**
+     * @description The priority of the rule. Valid values: **1 to 100**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +92,13 @@ class CreateNetworkAclEntryRequest extends Model
     public $priority;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     *   **icmp**: ICMP
+     *   **tcp**: TCP
+     *   **udp**: UDP
+     *   **all**: all protocols
+     *
      * @example all
      *
      * @var string

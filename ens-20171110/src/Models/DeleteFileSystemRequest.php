@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileSystemRequest extends Model
 {
     /**
+     * @description The ID of the node.
+     *
      * @example cn-chengdu-telecom-4
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteFileSystemRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the file system that you want to delete.
+     *
      * @example e42640****
      *
      * @var string

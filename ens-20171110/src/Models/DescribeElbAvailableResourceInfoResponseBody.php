@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeElbAvailableResourceInfoResponseBody extends Model
 {
     /**
+     * @description The information about resources.
+     *
      * @var elbAvailableResourceInfo[]
      */
     public $elbAvailableResourceInfo;
 
     /**
+     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
+     *
      * @example 25AAD194-4A37-51CF-B1CA-1E86FDAC23A6
      *
      * @var string

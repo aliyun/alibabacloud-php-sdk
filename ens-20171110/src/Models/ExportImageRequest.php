@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class ExportImageRequest extends Model
 {
     /**
+     * @description The ID of the image.
+     *
+     * @example m-5ragaz3s74b7go8ks7jp9****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The OSS bucket to which you want to export the image.
+     *
+     * @example whxyl****
+     *
      * @var string
      */
     public $OSSBucket;
 
     /**
+     * @description The prefix of the object as which you want to store the image in the OSS bucket. The prefix must be 1 to 30 characters in length and can contain digits and letters.
+     *
+     * @example dataCenter/972****\/
+     *
      * @var string
      */
     public $OSSPrefix;
 
     /**
+     * @description The ID of the region.
+     *
+     * Valid values:
+     *
+     *   cn-beijing
+     *
      * @example cn-beijing
      *
      * @var string
@@ -31,6 +49,8 @@ class ExportImageRequest extends Model
     public $OSSRegionId;
 
     /**
+     * @description The name of the Resource Access Management (RAM) role.
+     *
      * @example AliyunMNSLoggingRole
      *
      * @var string

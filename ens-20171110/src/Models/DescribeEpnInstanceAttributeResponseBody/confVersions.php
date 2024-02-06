@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class confVersions extends Model
 {
     /**
+     * @description The version number.
+     *
      * @example 2017-10-11
      *
      * @var string
@@ -16,6 +18,8 @@ class confVersions extends Model
     public $confVersion;
 
     /**
+     * @description The ID of the node.
+     *
      * @example cn-chengdu-telecom
      *
      * @var string

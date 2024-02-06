@@ -5,11 +5,14 @@
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeARMServerInstancesResponseBody\servers;
 
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeARMServerInstancesResponseBody\servers\AICInstances\networkAttributes;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeARMServerInstancesResponseBody\servers\AICInstances\sdgDeployInfo;
 use AlibabaCloud\Tea\Model;
 
 class AICInstances extends Model
 {
     /**
+     * @description The refresh rate of the AIC instance. Unit: Hz.
+     *
      * @example 120
      *
      * @var int
@@ -17,6 +20,8 @@ class AICInstances extends Model
     public $frequency;
 
     /**
+     * @description The ID of the AIC image.
+     *
      * @example m-****
      *
      * @var string
@@ -24,6 +29,8 @@ class AICInstances extends Model
     public $imageId;
 
     /**
+     * @description The ID of the AIC instance.
+     *
      * @example aic-instance****
      *
      * @var string
@@ -31,21 +38,33 @@ class AICInstances extends Model
     public $instanceId;
 
     /**
+     * @description The operation that was most recently performed.
+     *
+     * @example ServerCreate
+     *
      * @var string
      */
     public $latestAction;
 
     /**
+     * @description The name of the container.
+     *
+     * @example AIC-Name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The network attributes of the AIC instance.
+     *
      * @var networkAttributes
      */
     public $networkAttributes;
 
     /**
+     * @description The resolution of the AIC instance.
+     *
      * @example 1920*1080
      *
      * @var string
@@ -53,6 +72,15 @@ class AICInstances extends Model
     public $resolution;
 
     /**
+     * @description The information about the shared data group (SDG) that is deployed on the AIC instance.
+     *
+     * @var sdgDeployInfo
+     */
+    public $sdgDeployInfo;
+
+    /**
+     * @description The specification of the AIC instance.
+     *
      * @example aic.cf53r.c2.np
      *
      * @var string
@@ -60,14 +88,29 @@ class AICInstances extends Model
     public $spec;
 
     /**
-     * @example running
+     * @description The operation status of the AIC instance. Valid values:
+     *
+     *   **success**
+     *   **failed**
+     *   **creating**
+     *   **releasing**
+     *   **rebooting**
+     *   **reseting**
+     *
+     * @example success
      *
      * @var string
      */
     public $state;
 
     /**
-     * @example success
+     * @description The running status of the AIC instance. Valid values:
+     *
+     *   **running**
+     *   **pending**
+     *   **terminating**
+     *
+     * @example running
      *
      * @var string
      */
@@ -80,6 +123,7 @@ class AICInstances extends Model
         'name'              => 'Name',
         'networkAttributes' => 'NetworkAttributes',
         'resolution'        => 'Resolution',
+        'sdgDeployInfo'     => 'SdgDeployInfo',
         'spec'              => 'Spec',
         'state'             => 'State',
         'status'            => 'Status',
@@ -112,6 +156,9 @@ class AICInstances extends Model
         }
         if (null !== $this->resolution) {
             $res['Resolution'] = $this->resolution;
+        }
+        if (null !== $this->sdgDeployInfo) {
+            $res['SdgDeployInfo'] = null !== $this->sdgDeployInfo ? $this->sdgDeployInfo->toMap() : null;
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
@@ -154,6 +201,9 @@ class AICInstances extends Model
         }
         if (isset($map['Resolution'])) {
             $model->resolution = $map['Resolution'];
+        }
+        if (isset($map['SdgDeployInfo'])) {
+            $model->sdgDeployInfo = sdgDeployInfo::fromMap($map['SdgDeployInfo']);
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
+     * @description The category of the cloud disk or local disk. Valid values:
+     *
+     *   **file**: local disk.
+     *   **pangu**: ultra disk.
+     *   **local_hdd**: local HDD.
+     *
      * @example file
      *
      * @var string
@@ -16,6 +22,8 @@ class systemDisk extends Model
     public $category;
 
     /**
+     * @description The ID of the disk.
+     *
      * @example d-5ip4c2dhmas0rn7rt0p9****
      *
      * @var string
@@ -23,6 +31,8 @@ class systemDisk extends Model
     public $diskId;
 
     /**
+     * @description The name of the disk.
+     *
      * @example DiskName
      *
      * @var string
@@ -30,6 +40,8 @@ class systemDisk extends Model
     public $diskName;
 
     /**
+     * @description The size of the disk. Unit: MiB.
+     *
      * @example 51200
      *
      * @var int
@@ -37,6 +49,12 @@ class systemDisk extends Model
     public $size;
 
     /**
+     * @description The extended field of the disk category. Valid values:
+     *
+     *   **file**: local disk.
+     *   **pangu**: ultra disk.
+     *   **local_hdd**: local HDD.
+     *
      * @example pangu
      *
      * @var string
@@ -44,6 +62,11 @@ class systemDisk extends Model
     public $deviceType;
 
     /**
+     * @description The type of the cloud disk or local disk. Valid values:
+     *
+     *   **system**: system disk.
+     *   **data**: data disk.
+     *
      * @example system
      *
      * @var string
@@ -51,6 +74,8 @@ class systemDisk extends Model
     public $diskType;
 
     /**
+     * @description The name of the disk.
+     *
      * @example DiskName
      *
      * @var string
@@ -58,6 +83,8 @@ class systemDisk extends Model
     public $name;
 
     /**
+     * @description The size of the disk. Unit: MiB.
+     *
      * @example 20480
      *
      * @var int
@@ -65,7 +92,7 @@ class systemDisk extends Model
     public $storage;
 
     /**
-     * @description UUID。
+     * @description The UUID of the disk.
      *
      * @example d-5ip4c2dhmas0rn7rt0p96****
      *

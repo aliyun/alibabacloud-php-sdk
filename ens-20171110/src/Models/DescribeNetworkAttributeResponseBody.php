@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAttributeResponseBody extends Model
 {
     /**
+     * @description The IPv4 CIDR block of the network.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -18,11 +20,15 @@ class DescribeNetworkAttributeResponseBody extends Model
     public $cidrBlock;
 
     /**
+     * @description The list of resources in the network.
+     *
      * @var cloudResources
      */
     public $cloudResources;
 
     /**
+     * @description The time when the network was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2019-06-01T00:00:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeNetworkAttributeResponseBody extends Model
     public $createdTime;
 
     /**
+     * @description The description of the network.
+     *
      * @example abc
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeNetworkAttributeResponseBody extends Model
     public $description;
 
     /**
+     * @description The ID of the edge node.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -44,11 +54,17 @@ class DescribeNetworkAttributeResponseBody extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the network access control list (ACL).
+     *
+     * @example nacl-a2do9e413e0sp****
+     *
      * @var string
      */
     public $networkAclId;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-5***
      *
      * @var string
@@ -56,6 +72,8 @@ class DescribeNetworkAttributeResponseBody extends Model
     public $networkId;
 
     /**
+     * @description The name of the network.
+     *
      * @example abc
      *
      * @var string
@@ -63,6 +81,8 @@ class DescribeNetworkAttributeResponseBody extends Model
     public $networkName;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -70,6 +90,8 @@ class DescribeNetworkAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the route table.
+     *
      * @example rtb-5***
      *
      * @var string
@@ -77,6 +99,11 @@ class DescribeNetworkAttributeResponseBody extends Model
     public $routerTableId;
 
     /**
+     * @description The status of the network. Valid values:
+     *
+     *   Pending
+     *   Available
+     *
      * @example Available
      *
      * @var string
@@ -84,6 +111,8 @@ class DescribeNetworkAttributeResponseBody extends Model
     public $status;
 
     /**
+     * @description The list of vSwitches in the network.
+     *
      * @var vSwitchIds
      */
     public $vSwitchIds;

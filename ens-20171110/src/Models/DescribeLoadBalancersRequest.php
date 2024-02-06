@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancersRequest extends Model
 {
     /**
+     * @description The IP address that the ELB instance uses to provide services.
+     *
      * @example 10.0.0.8
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeLoadBalancersRequest extends Model
     public $address;
 
     /**
+     * @description The ID of the Edge Node Service (ENS) node.
+     *
      * @example cn-guangzhou-10
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeLoadBalancersRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the ELB instance.
+     *
      * @example lb-5q73cv04zeyh43lh74lp4****
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeLoadBalancersRequest extends Model
     public $loadBalancerId;
 
     /**
+     * @description The name of the ELB instance.
+     *
      * @example example
      *
      * @var string
@@ -37,6 +45,11 @@ class DescribeLoadBalancersRequest extends Model
     public $loadBalancerName;
 
     /**
+     * @description The status of the ELB instance. Valid values:
+     *
+     *   **Active** (default): The listener for the instance can forward the received traffic based on the rule.
+     *   **InActive**: The listener for the instance does not forward the received traffic.
+     *
      * @example InActive
      *
      * @var string
@@ -44,6 +57,8 @@ class DescribeLoadBalancersRequest extends Model
     public $loadBalancerStatus;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-5s9ayrxsd9hszrlt5fgv2****
      *
      * @var string
@@ -51,6 +66,8 @@ class DescribeLoadBalancersRequest extends Model
     public $networkId;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +75,8 @@ class DescribeLoadBalancersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Valid values: **10** to **100**.
+     *
      * @example 100
      *
      * @var int
@@ -65,6 +84,8 @@ class DescribeLoadBalancersRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the backend server.
+     *
      * @example i-5f67ffjc004wwz0t****
      *
      * @var string
@@ -72,6 +93,8 @@ class DescribeLoadBalancersRequest extends Model
     public $serverId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-5sy773iy25rulsmgskmba****
      *
      * @var string

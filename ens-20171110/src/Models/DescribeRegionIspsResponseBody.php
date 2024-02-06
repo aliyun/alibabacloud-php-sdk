@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionIspsResponseBody extends Model
 {
     /**
+     * @description The list of ISPs.
+     *
      * @var isps[]
      */
     public $isps;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example DC90CC7E-23B6-5A90-9097-A17CE4A161C4
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetDeviceInstanceRequest extends Model
 {
     /**
+     * @description The ID of the application. To obtain the application ID, call the ListApplications operation. For more information, see the API documentation of ListApplications.
+     *
      * @example d0639abf-789a-4527-b420-031d2cd9ad9b
      *
      * @var string
@@ -16,6 +18,8 @@ class ResetDeviceInstanceRequest extends Model
     public $appId;
 
     /**
+     * @description The ID of the image.
+     *
      * @example m-5si16wo6simkt267p8b7hcmy3
      *
      * @var string
@@ -23,6 +27,8 @@ class ResetDeviceInstanceRequest extends Model
     public $imageId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-5sfdblzjqf3zvjnr7oh0bhhj2
      *
      * @var string

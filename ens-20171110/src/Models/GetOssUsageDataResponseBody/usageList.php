@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class usageList extends Model
 {
     /**
+     * @description The inbound bandwidth over the intranet. Unit: bit/s.
+     *
      * @example 37865147
      *
      * @var int
@@ -16,6 +18,8 @@ class usageList extends Model
     public $lanRxBw;
 
     /**
+     * @description The outbound bandwidth over the intranet. Unit: bit/s.
+     *
      * @example 22012187890
      *
      * @var int
@@ -23,6 +27,8 @@ class usageList extends Model
     public $lanTxBw;
 
     /**
+     * @description The number of time point within a day.
+     *
      * @example 144
      *
      * @var int
@@ -30,6 +36,8 @@ class usageList extends Model
     public $point;
 
     /**
+     * @description The point in time, in UTC. Format: 2010-01-21T09:50:23Z.
+     *
      * @example 2022-01-12T00:00:00Z
      *
      * @var string
@@ -37,6 +45,8 @@ class usageList extends Model
     public $pointTs;
 
     /**
+     * @description The storage usage. Unit: bytes.
+     *
      * @example 85462146217
      *
      * @var int
@@ -44,6 +54,8 @@ class usageList extends Model
     public $storageUsageByte;
 
     /**
+     * @description The outbound bandwidth over the intranet. Unit: bit/s.
+     *
      * @example 542155715
      *
      * @var int
@@ -51,6 +63,8 @@ class usageList extends Model
     public $wanRxBw;
 
     /**
+     * @description The outbound bandwidth over the Internet. Unit: bit/s.
+     *
      * @example 547126175217
      *
      * @var int

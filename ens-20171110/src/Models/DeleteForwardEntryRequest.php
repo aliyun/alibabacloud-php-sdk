@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteForwardEntryRequest extends Model
 {
     /**
+     * @description The ID of the DNAT entry that you want to delete.
+     *
      * @example fwd-5tfk8qgepr9ijjkqxt8do****
      *
      * @var string

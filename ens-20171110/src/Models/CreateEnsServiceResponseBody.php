@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEnsServiceResponseBody extends Model
 {
     /**
+     * @description The service code. 0 is returned for a successful request. An error code is returned for a failed request.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateEnsServiceResponseBody extends Model
     public $code;
 
     /**
+     * @description The request ID.
+     *
      * @example 9AF02B43-2D08-49D3-8AAF-65B9C792ED14
      *
      * @var string

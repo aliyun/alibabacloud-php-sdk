@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemovePublicIpsFromEpnInstanceRequest extends Model
 {
     /**
+     * @description The ID of the EPN instance.
+     *
      * @example epn-xxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class RemovePublicIpsFromEpnInstanceRequest extends Model
     public $EPNInstanceId;
 
     /**
+     * @description The information about the public IP addresses that you want to delete.
+     *
      * @example [{"PublicIpAddress":"2.230.XX.XX"},{"PublicIpAddress":"2.230.XX.XX"}]
      *
      * @var string

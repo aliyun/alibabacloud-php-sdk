@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class elbAvailableResourceInfo extends Model
 {
     /**
+     * @description The ID of the region.
+     *
      * @example SouthEast
      *
      * @var string
@@ -16,6 +18,8 @@ class elbAvailableResourceInfo extends Model
     public $area;
 
     /**
+     * @description The number of resources that you can purchase.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class elbAvailableResourceInfo extends Model
     public $canBuyCount;
 
     /**
+     * @description The name of the node.
+     *
      * @example cn-guangdong-10
      *
      * @var string
@@ -30,6 +36,8 @@ class elbAvailableResourceInfo extends Model
     public $enName;
 
     /**
+     * @description The ID of the Edge Node Service (ENS) node.
+     *
      * @example cn-guangdong-10
      *
      * @var string
@@ -37,11 +45,15 @@ class elbAvailableResourceInfo extends Model
     public $ensRegionId;
 
     /**
+     * @description The specifications of the ELB instances.
+     *
      * @var string[]
      */
     public $loadBalancerSpec;
 
     /**
+     * @description The Chinese name of the node.
+     *
      * @example test
      *
      * @var string
@@ -49,6 +61,8 @@ class elbAvailableResourceInfo extends Model
     public $name;
 
     /**
+     * @description The province where the node is deployed.
+     *
      * @example Shanghai
      *
      * @var string

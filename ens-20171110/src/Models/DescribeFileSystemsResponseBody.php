@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeFileSystemsResponseBody extends Model
 {
     /**
+     * @description The information about the file systems.
+     *
      * @var fileSystems[]
      */
     public $fileSystems;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeFileSystemsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 2
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeFileSystemsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 762DD527-358B-1E48-8005-CCE3ED4EB9E0
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeFileSystemsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

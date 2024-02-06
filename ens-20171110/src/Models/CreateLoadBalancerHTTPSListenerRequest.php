@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerHTTPSListenerRequest extends Model
 {
     /**
+     * @description The cookie that is configured on the server. The cookie must be **1** to **200** characters in length and contain only ASCII characters and digits.
+     *
+     * >  This parameter is required if you set StickySession to on and StickySessionType to server.
      * @example example
      *
      * @var string
@@ -16,6 +19,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $cookie;
 
     /**
+     * @description The timeout period of a cookie. Valid values: **1** to **86400**. Unit: seconds.
+     *
+     * >  This parameter is required if you set StickySession to on and StickySessionType to insert.
      * @example 100
      *
      * @var int
@@ -23,6 +29,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $cookieTimeout;
 
     /**
+     * @description The description of the listener. The description must be **1** to **80** characters in length.
+     *
+     * >  The value cannot start with `http://` or `https://`.
      * @example 监听说明
      *
      * @var string
@@ -30,6 +39,8 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $description;
 
     /**
+     * @description The listener port that is used to redirect HTTP requests to HTTPS.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +48,11 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $forwardPort;
 
     /**
+     * @description Specifies whether to enable the health check feature. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example on
      *
      * @var string
@@ -44,6 +60,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $healthCheck;
 
     /**
+     * @description The port that is used for health checks. Valid values: **1** to **65535**. If you leave this parameter empty, the port specified by BackendServerPort is used for health checks.
+     *
+     * >  This parameter takes effect only if you set HealthCheck to on.
      * @example 11
      *
      * @var int
@@ -51,6 +70,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $healthCheckConnectPort;
 
     /**
+     * @description The domain name that you want to use for health checks.
+     *
+     * >  This parameter takes effect only if you set HealthCheck to on.
      * @example example.com
      *
      * @var string
@@ -58,6 +80,14 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $healthCheckDomain;
 
     /**
+     * @description The HTTP status code for a successful health check. Valid values:
+     *
+     *   **http\_2xx** (default)
+     *   **http\_3xx**
+     *   **http\_4xx**
+     *   **http\_5xx**
+     *
+     * >  This parameter takes effect only if you set HealthCheck to on.
      * @example http_2xx
      *
      * @var string
@@ -65,6 +95,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $healthCheckHttpCode;
 
     /**
+     * @description The interval at which health checks are performed. Valid values: **1** to **50**. Default value: **2**. Unit: seconds.
+     *
+     * >  This parameter takes effect only if you set HealthCheck to on.
      * @example 2
      *
      * @var int
@@ -72,6 +105,12 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $healthCheckInterval;
 
     /**
+     * @description The health check method used by HTTP listeners. Valid values:
+     *
+     *   **head** (default): requests the head of the page.
+     *   **get**: requests the specified part of the page and returns the entity body.
+     *
+     * >  This parameter takes effect only if you set HealthCheck to on.
      * @example head
      *
      * @var string
@@ -79,6 +118,18 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $healthCheckMethod;
 
     /**
+     * @description The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the server fails to pass the health check.
+     *
+     *   Default value: 5.
+     *   Valid values: **1** to **300**.
+     *   Unit: seconds.
+     *
+     * >
+     *
+     *   This parameter takes effect only if you set HealthCheck to on.
+     *
+     *   If the value of the HealthCheckTimeout parameter is smaller than the value of the HealthCheckInterval parameter, the timeout period specified by the HealthCheckTimeout parameter becomes invalid and the value of the HealthCheckInterval parameter is used as the timeout period.
+     *
      * @example 5
      *
      * @var int
@@ -86,6 +137,12 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $healthCheckTimeout;
 
     /**
+     * @description The Uniform Resource Identifier (URI) that you want to use for health checks. The URI must be **1** to **80** characters in length.
+     *
+     * >
+     *
+     *   The URL must start with a forward slash (`/`) and contain characters other than forward slashes (`/`).
+     *
      * @example /checkpreload.htm
      *
      * @var string
@@ -93,6 +150,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $healthCheckURI;
 
     /**
+     * @description The number of consecutive successful health checks that must occur before an unhealthy and inaccessible backend server is declared healthy and accessible. Valid values: **2** to **10**. Default value: **3**.
+     *
+     * >  This parameter takes effect only if you set HealthCheck to on.
      * @example 3
      *
      * @var int
@@ -100,6 +160,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $healthyThreshold;
 
     /**
+     * @description The timeout period for idle connections. Default value: 15. Valid values: **1** to **60**. Unit: seconds.
+     *
+     * >  If no request is received within the specified timeout period, ELB closes the connection. When another request is received, ELB establishes a new connection.
      * @example 15
      *
      * @var int
@@ -107,6 +170,11 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $idleTimeout;
 
     /**
+     * @description Specifies whether to enable HTTP-to-HTTPS redirection. Valid values:
+     *
+     *   **on**
+     *   **off** (default)
+     *
      * @example off
      *
      * @var string
@@ -114,6 +182,8 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $listenerForward;
 
     /**
+     * @description The frontend port that is used by the ELB instance. Valid values: **1** to **65535**.
+     *
      * @example 8080
      *
      * @var int
@@ -121,6 +191,8 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $listenerPort;
 
     /**
+     * @description The ID of the Edge Load Balancer (ELB) instance.
+     *
      * @example lb-5s8w63yydi59w7klaikam****
      *
      * @var string
@@ -128,6 +200,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $loadBalancerId;
 
     /**
+     * @description The timeout period of requests. Default value: 60. Valid values: **1** to **180**. Unit: seconds.
+     *
+     * >  If no response is received from the backend server within the specified timeout period, ELB returns an HTTP 504 error code to the client.
      * @example 60
      *
      * @var int
@@ -135,6 +210,15 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $requestTimeout;
 
     /**
+     * @description The routing algorithm. Valid values:
+     *
+     *   **wrr** (default): Backend servers with higher weights receive more requests than backend servers with lower weights.
+     *   **wlc**: Requests are distributed based on the weight and load of each backend server. The load refers to the number of connections on a backend server. If two backend servers have the same weight, the backend server that has fewer connections receives more requests.
+     *   **rr**: Requests are distributed to backend servers in sequence.
+     *   **sch**: consistent hashing that is based on source IP addresses. Requests from the same source IP address are distributed to the same backend server.
+     *   **qch**: consistent hashing that is based on QUIC connection IDs. Requests that contain the same QUIC connection ID are distributed to the same backend server.
+     *   **iqch**: consistent hashing that is based on specific three bytes of the iQUIC CIDs. Requests whose second to fourth bytes are the same are distributed to the same backend server.
+     *
      * @example wrr
      *
      * @var string
@@ -142,6 +226,8 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $scheduler;
 
     /**
+     * @description The ID of the server certificate.
+     *
      * @example 6027667
      *
      * @var string
@@ -149,6 +235,12 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $serverCertificateId;
 
     /**
+     * @description The method that is used to handle a cookie. Valid values:
+     *
+     *   **insert**: inserts a cookie. ELB inserts a session cookie (SERVERID) into the first HTTP or HTTPS response that is sent to a client. Subsequent requests to ELB carry this cookie, and ELB determines the destination servers of the requests based on the cookies.
+     *   **server**: rewrites a cookie. When ELB detects a user-defined cookie, it overwrites the original cookie with the user-defined cookie. The next request from the client carries the user-defined cookie, and the listener forwards this request to the recorded backend server.
+     *
+     * >  This parameter is required if you set StickySession to on.
      * @example insert
      *
      * @var string
@@ -156,6 +248,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $stickySessionType;
 
     /**
+     * @description The number of consecutive failed health checks that must occur before a healthy and accessible backend server is declared unhealthy and inaccessible. Valid values: **2** to **10**. Default value: **3**.
+     *
+     * >  This parameter takes effect only if you set HealthCheck to on.
      * @example 3
      *
      * @var int

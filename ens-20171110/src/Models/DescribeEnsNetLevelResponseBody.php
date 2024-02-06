@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsNetLevelResponseBody extends Model
 {
     /**
+     * @description The returned service code. A value of 0 indicates that the operation was successful.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeEnsNetLevelResponseBody extends Model
     public $code;
 
     /**
+     * @description The network levels.
+     *
      * @var ensNetLevels
      */
     public $ensNetLevels;
 
     /**
+     * @description The request ID.
+     *
      * @example 86A6D421-A0C7-4C01-8648-47377CA6A2CE
      *
      * @var string

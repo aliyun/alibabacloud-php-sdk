@@ -9,21 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteVSwitchRequest extends Model
 {
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-5m9xhl****
      *
      * @var string
      */
     public $vSwitchId;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'vSwitchId' => 'VSwitchId',
-        'version'   => 'Version',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class DeleteVSwitchRequest extends Model
         $res = [];
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -53,9 +44,6 @@ class DeleteVSwitchRequest extends Model
         $model = new self();
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

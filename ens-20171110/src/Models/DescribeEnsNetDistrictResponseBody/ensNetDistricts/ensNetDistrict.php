@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ensNetDistrict extends Model
 {
     /**
+     * @description The number of nodes in the region.
+     *
      * @example 2
      *
      * @var string
@@ -16,6 +18,8 @@ class ensNetDistrict extends Model
     public $ensRegionIdCount;
 
     /**
+     * @description The code of the region.
+     *
      * @example 100106
      *
      * @var string
@@ -23,6 +27,8 @@ class ensNetDistrict extends Model
     public $netDistrictCode;
 
     /**
+     * @description The name of the region.
+     *
      * @example southWest
      *
      * @var string
@@ -30,6 +36,8 @@ class ensNetDistrict extends Model
     public $netDistrictEnName;
 
     /**
+     * @description The parent code of the region.
+     *
      * @example 100000
      *
      * @var string
@@ -37,6 +45,12 @@ class ensNetDistrict extends Model
     public $netDistrictFatherCode;
 
     /**
+     * @description The level of the region.
+     *
+     *   **Big**: area
+     *   **Middle**: province
+     *   **Small**: city
+     *
      * @example Big
      *
      * @var string
@@ -44,6 +58,8 @@ class ensNetDistrict extends Model
     public $netDistrictLevel;
 
     /**
+     * @description The name of the region.
+     *
      * @var string
      */
     public $netDistrictName;

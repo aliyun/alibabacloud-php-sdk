@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseARMServerInstanceRequest extends Model
 {
     /**
+     * @description The ID of the server.
+     *
      * @example yourInstance ID
      *
      * @var string

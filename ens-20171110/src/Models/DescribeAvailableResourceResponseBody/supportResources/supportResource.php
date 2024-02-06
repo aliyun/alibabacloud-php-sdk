@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class supportResource extends Model
 {
     /**
+     * @description The size of the data disk. Unit: GB.
+     *
      * @example 500
      *
      * @var string
@@ -16,6 +18,8 @@ class supportResource extends Model
     public $dataDiskSize;
 
     /**
+     * @description The ID of the edge node.
+     *
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -23,6 +27,8 @@ class supportResource extends Model
     public $ensRegionId;
 
     /**
+     * @description The specifications of the resource plan.
+     *
      * @example ens.sn1.stiny
      *
      * @var string
@@ -30,6 +36,8 @@ class supportResource extends Model
     public $instanceSpec;
 
     /**
+     * @description The number of resources that you can purchase.
+     *
      * @example 9
      *
      * @var string
@@ -37,6 +45,8 @@ class supportResource extends Model
     public $supportResourcesCount;
 
     /**
+     * @description The size of the system disk. Unit: GiB.
+     *
      * @example 20
      *
      * @var string

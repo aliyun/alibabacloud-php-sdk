@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerResponseBody extends Model
 {
     /**
+     * @description The ID of the ELB instance.
+     *
      * @example lb-5s7crik3yo3bp03gqrbp5****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateLoadBalancerResponseBody extends Model
     public $loadBalancerId;
 
     /**
+     * @description The name of the ELB instance.
+     *
      * @example gcs-pre-websocket-****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateLoadBalancerResponseBody extends Model
     public $loadBalancerName;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-5sax03dh2eyagujgsn7z9****
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateLoadBalancerResponseBody extends Model
     public $networkId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1ECC937A-AE0E-4626-BE51-DED1D6D1C888
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateLoadBalancerResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the vSwitch to which the ELB instance belongs.
+     *
      * @example vsw-5savh5ngxh8sbj14bu7n****
      *
      * @var string

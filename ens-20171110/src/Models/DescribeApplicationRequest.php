@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationRequest extends Model
 {
     /**
+     * @description The ID of the application. You can call the ListApplications operation to obtain the application ID.
+     *
      * @example a2bac6f4-75dc-455e-8389-2dc8e47526d3
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeApplicationRequest extends Model
     public $appId;
 
     /**
+     * @description The version number of the application. Separate multiple version numbers with commas (,). If you want to query data of all versions of applications, specify All for this parameter. By default, only data of applications in the stable versions are queried.
+     *
      * @example v1,v2
      *
      * @var string
@@ -23,6 +27,15 @@ class DescribeApplicationRequest extends Model
     public $appVersions;
 
     /**
+     * @description The region level by which edge resources of the application are collected. The value must be of the enumerated data type. Valid values:
+     *
+     *   National: Chinese mainland
+     *   Big: area
+     *   Middle: province
+     *   Small: city
+     *   RegionId: edge node
+     *
+     * Default value: National.
      * @example National
      *
      * @var string
@@ -30,6 +43,8 @@ class DescribeApplicationRequest extends Model
     public $level;
 
     /**
+     * @description Specifies whether to return other information about the application, such as statistics on resource instances and pods. The value must be a JSON string. By default, all information is returned.
+     *
      * @example {\"appInfo\":true,\"detailStat\": true, \"appVersionStat\": true, \"districtStat\":true ,\"instanceStat\": true, \"podCountStat\": true}
      *
      * @var string

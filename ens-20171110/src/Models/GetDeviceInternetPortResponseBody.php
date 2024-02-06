@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceInternetPortResponseBody extends Model
 {
     /**
+     * @description The ID of the instance. The value is the ID of the server or container.
+     *
      * @example i-5sadvk2xnylvra9kyejcnevi6
      *
      * @var string
@@ -17,11 +19,15 @@ class GetDeviceInternetPortResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The network mapping information about the instance.
+     *
      * @var networkInfo[]
      */
     public $networkInfo;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 36311833-83FC-57C3-A7DD-768F61F65555
      *
      * @var string

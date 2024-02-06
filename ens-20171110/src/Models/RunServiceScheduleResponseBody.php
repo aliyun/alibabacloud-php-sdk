@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class RunServiceScheduleResponseBody extends Model
 {
     /**
+     * @description The execution results of the commands.
+     *
      * @var commandResults
      */
     public $commandResults;
 
     /**
+     * @description The index number of the scheduled virtual device (pod).
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class RunServiceScheduleResponseBody extends Model
     public $index;
 
     /**
+     * @description The ID of the scheduled instance.
+     *
      * @example i-5qvji3mom4ec013dyygmtxlkj
      *
      * @var string
@@ -29,6 +35,8 @@ class RunServiceScheduleResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The IP address of the scheduled instance.
+     *
      * @example 172.16.246.11
      *
      * @var string
@@ -36,6 +44,8 @@ class RunServiceScheduleResponseBody extends Model
     public $instanceIp;
 
     /**
+     * @description The start port of the scheduled instance.
+     *
      * @example 1024
      *
      * @var int
@@ -43,6 +53,8 @@ class RunServiceScheduleResponseBody extends Model
     public $instancePort;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -50,6 +62,8 @@ class RunServiceScheduleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is repeated. This parameter is not returned if ServcieAction is set to Console.
+     *
      * @example false
      *
      * @var string
@@ -57,6 +71,8 @@ class RunServiceScheduleResponseBody extends Model
     public $requestRepeated;
 
     /**
+     * @description The TCP port range of the scheduled instance or container. The value is in the ${from}-$-{to} format. Example: 80-88.
+     *
      * @example "80-88"
      *
      * @var bool

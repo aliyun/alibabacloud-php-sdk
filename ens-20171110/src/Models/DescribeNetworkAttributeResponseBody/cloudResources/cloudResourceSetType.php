@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cloudResourceSetType extends Model
 {
     /**
+     * @description The number of resources in the network.
+     *
      * @example 3
      *
      * @var int
@@ -16,6 +18,8 @@ class cloudResourceSetType extends Model
     public $resourceCount;
 
     /**
+     * @description The resource type. VSwitch.
+     *
      * @example VSwitch
      *
      * @var string

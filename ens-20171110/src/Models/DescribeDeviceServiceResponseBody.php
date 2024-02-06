@@ -13,17 +13,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceServiceResponseBody extends Model
 {
     /**
+     * @description The basic properties of the application.
+     *
      * @var appMetaData
      */
     public $appMetaData;
 
     /**
+     * @description The status information of the application.
+     *
      * @var appStatus
      */
     public $appStatus;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 3A535110-3EE3-5EC5-B1ED-10B7067A1FC8
      *
@@ -32,11 +36,15 @@ class DescribeDeviceServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the devices.
+     *
      * @var resourceDetailInfos[]
      */
     public $resourceDetailInfos;
 
     /**
+     * @description The information about the instances.
+     *
      * @var resourceInfos[]
      */
     public $resourceInfos;

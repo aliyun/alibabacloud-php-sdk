@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class monitorData extends Model
 {
     /**
+     * @description The bandwidth data.
+     *
      * @var bandWidthMonitorData[]
      */
     public $bandWidthMonitorData;
 
     /**
+     * @description The maximum outbound bandwidth within the queried time range. Unit: bit/s.
+     *
      * @example 16817468
      *
      * @var int
@@ -22,6 +26,8 @@ class monitorData extends Model
     public $maxDownBandWidth;
 
     /**
+     * @description The maximum inbound bandwidth within the queried time range. Unit: bit/s.
+     *
      * @example 231008
      *
      * @var int

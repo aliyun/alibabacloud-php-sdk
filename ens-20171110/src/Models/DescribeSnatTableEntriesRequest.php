@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnatTableEntriesRequest extends Model
 {
     /**
+     * @description The ID of the Network Address Translation (NAT) gateway.
+     *
      * @example nat-5tawjw5j7sgd2deujxuk0****
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeSnatTableEntriesRequest extends Model
     public $natGatewayId;
 
     /**
+     * @description The page number. Pages start from page **1**.
+     *
+     * Default value: **1**.
      * @example 1
      *
      * @var int
@@ -23,6 +28,9 @@ class DescribeSnatTableEntriesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. The maximum value is **100**.
+     *
+     * Default value: **10**.
      * @example 10
      *
      * @var int
@@ -30,6 +38,8 @@ class DescribeSnatTableEntriesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the SNAT entry.
+     *
      * @example snat-5tfjp36fsrb36zs36faj0****
      *
      * @var string
@@ -37,6 +47,8 @@ class DescribeSnatTableEntriesRequest extends Model
     public $snatEntryId;
 
     /**
+     * @description The name of the SNAT entry.
+     *
      * @example test0
      *
      * @var string
@@ -44,6 +56,8 @@ class DescribeSnatTableEntriesRequest extends Model
     public $snatEntryName;
 
     /**
+     * @description The elastic IP address (EIP) specified in the SNAT entry.
+     *
      * @example 58.XXXX.XXX.29
      *
      * @var string
@@ -51,6 +65,8 @@ class DescribeSnatTableEntriesRequest extends Model
     public $snatIp;
 
     /**
+     * @description The source CIDR block specified in the SNAT entry.
+     *
      * @example 10.1.0.50/32
      *
      * @var string

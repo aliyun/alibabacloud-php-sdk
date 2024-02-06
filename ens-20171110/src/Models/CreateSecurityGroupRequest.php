@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSecurityGroupRequest extends Model
 {
     /**
+     * @description The description of the security group. The description must be 2 to 256 characters in length. It must start with a letter but cannot start with http:// or https://.
+     *
      * @example testDescription
      *
      * @var string
@@ -16,22 +18,16 @@ class CreateSecurityGroupRequest extends Model
     public $description;
 
     /**
+     * @description The name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-). By default, this parameter is empty.
+     *
      * @example Dcdn1:2_3-4
      *
      * @var string
      */
     public $securityGroupName;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'description'       => 'Description',
         'securityGroupName' => 'SecurityGroupName',
-        'version'           => 'Version',
     ];
 
     public function validate()
@@ -46,9 +42,6 @@ class CreateSecurityGroupRequest extends Model
         }
         if (null !== $this->securityGroupName) {
             $res['SecurityGroupName'] = $this->securityGroupName;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -67,9 +60,6 @@ class CreateSecurityGroupRequest extends Model
         }
         if (isset($map['SecurityGroupName'])) {
             $model->securityGroupName = $map['SecurityGroupName'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

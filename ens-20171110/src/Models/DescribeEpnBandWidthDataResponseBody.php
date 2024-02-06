@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEpnBandWidthDataResponseBody extends Model
 {
     /**
+     * @description The monitoring data of the instance.
+     *
      * @var monitorData
      */
     public $monitorData;
 
     /**
+     * @description The request ID.
+     *
      * @example 1D289DAA-F6DA-5FC4-AE47-F5C8B6277BFC
      *
      * @var string

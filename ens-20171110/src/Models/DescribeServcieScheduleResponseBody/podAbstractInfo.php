@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class podAbstractInfo extends Model
 {
     /**
+     * @description The name of the container service.
+     *
      * @example android
      *
      * @var bool
@@ -17,11 +19,15 @@ class podAbstractInfo extends Model
     public $containerService;
 
     /**
+     * @description The information about the container.
+     *
      * @var containerStatuses
      */
     public $containerStatuses;
 
     /**
+     * @description The name of the pod.
+     *
      * @example gcs-prod-websocket-eip-telecom
      *
      * @var bool
@@ -29,6 +35,8 @@ class podAbstractInfo extends Model
     public $name;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example default-aliyun
      *
      * @var bool
@@ -36,6 +44,8 @@ class podAbstractInfo extends Model
     public $namespace;
 
     /**
+     * @description The pod scope.
+     *
      * @example FDN
      *
      * @var bool
@@ -43,6 +53,8 @@ class podAbstractInfo extends Model
     public $resourceScope;
 
     /**
+     * @description The status of the pod.
+     *
      * @example RUNNING
      *
      * @var bool

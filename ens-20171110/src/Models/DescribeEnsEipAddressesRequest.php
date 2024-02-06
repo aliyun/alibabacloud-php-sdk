@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsEipAddressesRequest extends Model
 {
     /**
+     * @description The ID of the EIP that you want to query. You can specify up to 50 EIP IDs. Separate multiple IDs with commas (,).
+     *
      * @example eip-5q9uwkd9bznjpxz8hr6cirnjk
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeEnsEipAddressesRequest extends Model
     public $allocationId;
 
     /**
+     * @description The ID of the instance with which you want to associate the EIP.
+     *
      * @example lb-5t18quoohsrc3xkf86spmnu77
      *
      * @var string
@@ -23,6 +27,11 @@ class DescribeEnsEipAddressesRequest extends Model
     public $associatedInstanceId;
 
     /**
+     * @description The type of the instance with which you want to associate the EIP. Valid values:
+     *
+     *   **EnsInstance**: ENS instance in a VPC
+     *   **SlbInstance**: Edge Load Balancer (ELB) instance
+     *
      * @example SlbInstance
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeEnsEipAddressesRequest extends Model
     public $associatedInstanceType;
 
     /**
+     * @description The EIP that you want to query. You can specify up to 50 EIPs. Separate multiple EIPs with commas (,).
+     *
      * @example 192.168.0.1
      *
      * @var string
@@ -37,11 +48,17 @@ class DescribeEnsEipAddressesRequest extends Model
     public $eipAddress;
 
     /**
+     * @description The name of the EIP.
+     *
+     * @example test
+     *
      * @var string
      */
     public $eipName;
 
     /**
+     * @description The ID of the Edge Node Service (ENS) node.
+     *
      * @example cn-chengdu-telecom
      *
      * @var string
@@ -49,6 +66,8 @@ class DescribeEnsEipAddressesRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -56,6 +75,8 @@ class DescribeEnsEipAddressesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Maximum value: 100. Default value: 10.
+     *
      * @example 50
      *
      * @var int
@@ -63,6 +84,13 @@ class DescribeEnsEipAddressesRequest extends Model
     public $pageSize;
 
     /**
+     * @description Specifies whether the EIP is a secondary EIP. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var string
      */
     public $standby;

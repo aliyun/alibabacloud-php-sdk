@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataDownloadURLResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeDataDownloadURLResponseBody extends Model
     public $code;
 
     /**
+     * @description The download URLs of data files.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The response message. Success is returned for a successful request.
+     *
      * @example Success
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeDataDownloadURLResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string

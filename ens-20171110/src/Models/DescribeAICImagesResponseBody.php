@@ -10,21 +10,34 @@ use AlibabaCloud\Tea\Model;
 class DescribeAICImagesResponseBody extends Model
 {
     /**
+     * @description The information about the images.
+     *
      * @var images[]
      */
     public $images;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 72DC6C0A-D9A8-5345-A2BE-FE354CC728A0
      *
      * @var string
@@ -32,6 +45,10 @@ class DescribeAICImagesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

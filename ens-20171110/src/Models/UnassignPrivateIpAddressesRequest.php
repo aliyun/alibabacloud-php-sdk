@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnassignPrivateIpAddressesRequest extends Model
 {
     /**
+     * @description The ID of the ENI.
+     *
      * @example eni-f8z57orgmt6d144t20dw
      *
      * @var string
@@ -16,6 +18,8 @@ class UnassignPrivateIpAddressesRequest extends Model
     public $networkInterfaceId;
 
     /**
+     * @description The secondary private IP addresses that you want to unassign.
+     *
      * @var string[]
      */
     public $privateIpAddress;

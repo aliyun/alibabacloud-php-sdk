@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExportImageResponseBody extends Model
 {
     /**
+     * @description The URL that points to the exported image.
+     *
      * @example http://oss.url
      *
      * @var string
@@ -16,6 +18,8 @@ class ExportImageResponseBody extends Model
     public $exportedImageURL;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 43A426AD-3F2E-5DD9-9C08-D4DBDCA48D85
      *
      * @var string

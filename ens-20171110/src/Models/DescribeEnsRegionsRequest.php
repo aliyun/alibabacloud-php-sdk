@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsRegionsRequest extends Model
 {
     /**
+     * @description The ID of the node.
+     *
+     * By default, all available node IDs are returned.
      * @example cn-dalian-unicom
      *
      * @var string

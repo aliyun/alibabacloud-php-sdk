@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworksResponseBody extends Model
 {
     /**
+     * @description The list of networks.
+     *
      * @var networks
      */
     public $networks;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeNetworksResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 2
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeNetworksResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeNetworksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries in the list.
+     *
      * @example 3
      *
      * @var int

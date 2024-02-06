@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkInterfacesResponseBody extends Model
 {
     /**
+     * @description Details about the ENIs.
+     *
      * @var networkInterfaceSets
      */
     public $networkInterfaceSets;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeNetworkInterfacesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 50
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeNetworkInterfacesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 708AF9CE-FF92-5DF9-93F8-B7754AB1061A
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeNetworkInterfacesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries in the list.
+     *
      * @example 49
      *
      * @var int

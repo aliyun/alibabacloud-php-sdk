@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnatEntryRequest extends Model
 {
     /**
+     * @description The ID of the SNAT entry that you want to delete.
+     *
      * @example snat-5tfi6f8gds82mjmlofeym****
      *
      * @var string

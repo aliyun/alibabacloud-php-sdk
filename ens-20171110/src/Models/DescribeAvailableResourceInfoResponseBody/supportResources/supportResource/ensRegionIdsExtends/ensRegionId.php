@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ensRegionId extends Model
 {
     /**
+     * @description The region.
+     *
      * @example EastChina
      *
      * @var string
@@ -16,6 +18,8 @@ class ensRegionId extends Model
     public $area;
 
     /**
+     * @description The name. This parameter is empty by default.
+     *
      * @example EnName
      *
      * @var string
@@ -23,6 +27,8 @@ class ensRegionId extends Model
     public $enName;
 
     /**
+     * @description The ID of the edge node.
+     *
      * @example cn-chengdu-telecom-4
      *
      * @var string
@@ -30,11 +36,24 @@ class ensRegionId extends Model
     public $ensRegionId;
 
     /**
+     * @description The information about the Internet service provider (ISP).
+     *
+     * @example unicom
+     *
+     * @var string
+     */
+    public $isp;
+
+    /**
+     * @description The name of the edge node.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The province.
+     *
      * @var string
      */
     public $province;
@@ -42,6 +61,7 @@ class ensRegionId extends Model
         'area'        => 'Area',
         'enName'      => 'EnName',
         'ensRegionId' => 'EnsRegionId',
+        'isp'         => 'Isp',
         'name'        => 'Name',
         'province'    => 'Province',
     ];
@@ -61,6 +81,9 @@ class ensRegionId extends Model
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+        if (null !== $this->isp) {
+            $res['Isp'] = $this->isp;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -88,6 +111,9 @@ class ensRegionId extends Model
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
+        }
+        if (isset($map['Isp'])) {
+            $model->isp = $map['Isp'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -9,21 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteSecurityGroupRequest extends Model
 {
     /**
+     * @description The security group ID of the instance.
+     *
      * @example sg-bp67acfmxazb4ph***
      *
      * @var string
      */
     public $securityGroupId;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'securityGroupId' => 'SecurityGroupId',
-        'version'         => 'Version',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class DeleteSecurityGroupRequest extends Model
         $res = [];
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -53,9 +44,6 @@ class DeleteSecurityGroupRequest extends Model
         $model = new self();
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

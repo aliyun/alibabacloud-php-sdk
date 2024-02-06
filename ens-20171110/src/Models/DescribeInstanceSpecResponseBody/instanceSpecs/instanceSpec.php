@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceSpec extends Model
 {
     /**
+     * @description The number of CPU cores.
+     *
      * @example 1
      *
      * @var string
@@ -16,11 +18,15 @@ class instanceSpec extends Model
     public $core;
 
     /**
+     * @description The display name of the instance type.
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The type of the instance.
+     *
      * @example ens.sn1.stiny
      *
      * @var string
@@ -28,6 +34,8 @@ class instanceSpec extends Model
     public $instanceType;
 
     /**
+     * @description The memory size. Unit: MB.
+     *
      * @example 2048
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSecurityGroupResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 760bad53276431c499e30dc36f6b26be
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateSecurityGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the security group.
+     *
      * @example sg-bp1fg655nh68xyz9i***
      *
      * @var string

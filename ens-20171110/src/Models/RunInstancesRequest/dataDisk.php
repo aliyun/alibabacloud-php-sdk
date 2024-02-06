@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
+     * @description The category of the disk. Valid values:
+     *
+     *   **cloud_efficiency**: ultra disk
+     *   **cloud_ssd**: all-flash disk
+     *   **local_hdd**: local HDD
+     *   **local_ssd**: local SSD
+     *
      * @example cloud_efficiency
      *
      * @var string
@@ -16,14 +23,47 @@ class dataDisk extends Model
     public $category;
 
     /**
+     * @description Specifies whether to encrypt data disk N. Valid values:
+     *
+     *   true: encrypts the data disk.
+     *   false: does not encrypt the data disk.
+     *
+     * Default value: false.
+     * @example false
+     *
+     * @var bool
+     */
+    public $encrypted;
+
+    /**
+     * @description The ID of the Key Management Service (KMS) key that is used by the cloud disk. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
+     *
+     *
+     * >  If you set the **Encrypted** parameter to **true**, the default service key is used when the **KMSKeyId** parameter is empty.
+     * @example false
+     *
+     * @var string
+     */
+    public $KMSKeyId;
+
+    /**
+     * @description The size of a data disk. Unit: GiB.
+     *
      * @example 20
      *
      * @var int
      */
     public $size;
     protected $_name = [
-        'category' => 'Category',
-        'size'     => 'Size',
+        'category'  => 'Category',
+        'encrypted' => 'Encrypted',
+        'KMSKeyId'  => 'KMSKeyId',
+        'size'      => 'Size',
     ];
 
     public function validate()
@@ -35,6 +75,12 @@ class dataDisk extends Model
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
+        }
+        if (null !== $this->KMSKeyId) {
+            $res['KMSKeyId'] = $this->KMSKeyId;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
@@ -53,6 +99,12 @@ class dataDisk extends Model
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
+        }
+        if (isset($map['KMSKeyId'])) {
+            $model->KMSKeyId = $map['KMSKeyId'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class loadBalancer extends Model
 {
     /**
+     * @description The IP address that the ELB instance uses to provide services.
+     *
      * @example 10.10.10.10
      *
      * @var string
@@ -16,6 +18,8 @@ class loadBalancer extends Model
     public $address;
 
     /**
+     * @description The version of the IP address. Valid values: ipv4 and ipv6.
+     *
      * @example ipv4
      *
      * @var string
@@ -23,6 +27,8 @@ class loadBalancer extends Model
     public $addressIPVersion;
 
     /**
+     * @description The time when the ELB instance was created. The time is displayed in UTC.
+     *
      * @example 2021-05-06T11:13:41Z
      *
      * @var string
@@ -30,6 +36,8 @@ class loadBalancer extends Model
     public $createTime;
 
     /**
+     * @description The ID of the ENS node.
+     *
      * @example cn-wuhan-telecom
      *
      * @var string
@@ -37,6 +45,8 @@ class loadBalancer extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the ELB instance.
+     *
      * @example lb-5snthcyu1x10g7tywj7iu****
      *
      * @var string
@@ -44,6 +54,8 @@ class loadBalancer extends Model
     public $loadBalancerId;
 
     /**
+     * @description The name of the ELB instance.
+     *
      * @example example
      *
      * @var string
@@ -51,6 +63,11 @@ class loadBalancer extends Model
     public $loadBalancerName;
 
     /**
+     * @description The status of the ELB instance. Valid values:
+     *
+     *   **Active** (default): The listener for the instance can forward the received traffic based on the rule.
+     *   **InActive**: The listener for the instance does not forward the received traffic.
+     *
      * @example InActive
      *
      * @var string
@@ -58,6 +75,8 @@ class loadBalancer extends Model
     public $loadBalancerStatus;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-5rz0rj1caexauilpsjx0w****
      *
      * @var string
@@ -65,6 +84,11 @@ class loadBalancer extends Model
     public $networkId;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   **PrePaid**: subscription.
+     *   **PostPaid**: pay-as-you-go. Only this billing method is supported.
+     *
      * @example PostPaid
      *
      * @var string
@@ -72,6 +96,8 @@ class loadBalancer extends Model
     public $payType;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-5rllcjb3ol6duzjdnbm1om****
      *
      * @var string

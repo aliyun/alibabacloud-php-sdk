@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDisksResponseBody extends Model
 {
     /**
+     * @description The returned service code. 0 indicates that the request was successful.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeDisksResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the disks.
+     *
      * @var disks
      */
     public $disks;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeDisksResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 50
      *
      * @var int
@@ -36,6 +44,8 @@ class DescribeDisksResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribeDisksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned pages.
+     *
      * @example 13
      *
      * @var int

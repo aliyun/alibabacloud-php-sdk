@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerAttributeRequest extends Model
 {
     /**
+     * @description The ID of the ELB instance.
+     *
      * @example lb-5rcvo1n1t3hykfhhjwjgq****
      *
      * @var string

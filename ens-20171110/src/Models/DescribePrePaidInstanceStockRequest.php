@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePrePaidInstanceStockRequest extends Model
 {
     /**
+     * @description The ID of the datadisk.
+     *
      * @example 20
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribePrePaidInstanceStockRequest extends Model
     public $dataDiskSize;
 
     /**
+     * @description The ID of the edge node.
+     *
      * @example cn-suzhou-telecom
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribePrePaidInstanceStockRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The size of the system disk. Unit: GB.
+     *
      * @example ens.sn1.stiny
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribePrePaidInstanceStockRequest extends Model
     public $instanceSpec;
 
     /**
+     * @description The ID of the systemdisk
+     *
      * @example 100
      *
      * @var int

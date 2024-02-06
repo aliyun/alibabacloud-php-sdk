@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEpnInstancesResponseBody extends Model
 {
     /**
+     * @description Details of EPN instances.
+     *
      * @var EPNInstances
      */
     public $EPNInstances;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeEpnInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 40
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeEpnInstancesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example A1707FC0-430C-423A-B624-284046B20399
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeEpnInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 1
      *
      * @var int

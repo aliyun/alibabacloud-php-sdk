@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudDiskTypesRequest extends Model
 {
     /**
-     * @description A short description of struct
+     * @description The ID of the edge node.
      *
      * @example cn-chongqing-cmcc
      *

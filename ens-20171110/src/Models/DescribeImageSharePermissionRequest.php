@@ -9,16 +9,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSharePermissionRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 171710408091****
+     *
      * @var int
      */
     public $aliyunId;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example m-5s7qotzavwbrnzaqh4unm****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The page number. Pages start from page **1**.
+     *
+     * Default value: **1**.
      * @example 1
      *
      * @var string
@@ -26,6 +37,9 @@ class DescribeImageSharePermissionRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Maximum value: **100**.
+     *
+     * Default value: **10**.
      * @example 10
      *
      * @var string

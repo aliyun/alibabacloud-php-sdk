@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class bandWidthFeeData extends Model
 {
     /**
+     * @description The code of the billable item.
+     *
      * @example cn-cmcc-1
      *
      * @var string
@@ -16,11 +18,18 @@ class bandWidthFeeData extends Model
     public $costCode;
 
     /**
+     * @description The name of the billable item.
+     *
      * @var string
      */
     public $costName;
 
     /**
+     * @description Metering method
+     *
+     *   SpeedUp: bandwidth of intelligent acceleration
+     *   IntranetConnection: internal bandwidth
+     *
      * @example SpeedUp
      *
      * @var string
@@ -28,6 +37,8 @@ class bandWidthFeeData extends Model
     public $costType;
 
     /**
+     * @description The value of the billable item.
+     *
      * @example 16486
      *
      * @var int
@@ -35,6 +46,8 @@ class bandWidthFeeData extends Model
     public $costVal;
 
     /**
+     * @description This parameter is unavailable.
+     *
      * @var string
      */
     public $ispLine;

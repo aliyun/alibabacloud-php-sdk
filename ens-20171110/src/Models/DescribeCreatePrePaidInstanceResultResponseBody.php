@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCreatePrePaidInstanceResultResponseBody extends Model
 {
     /**
+     * @description Returned results of creating an instance.
+     *
      * @var instanceCreateResult
      */
     public $instanceCreateResult;
 
     /**
+     * @description The request ID.
+     *
      * @example AAE90880-4970-4D81-A534-A6C0F3631F74
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteApplicationRequest extends Model
 {
     /**
+     * @description The ID of the application. To obtain the application ID, call the ListApplication operation.
+     *
      * @example d0639abf-789a-4527-b420-031d2cd9ad9b
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteApplicationRequest extends Model
     public $appId;
 
     /**
+     * @description The timeout period for the asynchronous release. Unit: seconds. Default value: 300.
+     *
      * @example 1800
      *
      * @var int

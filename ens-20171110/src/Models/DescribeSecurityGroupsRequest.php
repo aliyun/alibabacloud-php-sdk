@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupsRequest extends Model
 {
     /**
+     * @description The page number.
+     *
+     *   Pages start from page 1.
+     *   Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,11 @@ class DescribeSecurityGroupsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     *   Maximum value: 50.
+     *   Default value: 10
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +33,8 @@ class DescribeSecurityGroupsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the security group.
+     *
      * @example sg-bp67acfmxazb4ph***
      *
      * @var string
@@ -30,24 +42,18 @@ class DescribeSecurityGroupsRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description The name of the security group.
+     *
      * @example DocTest
      *
      * @var string
      */
     public $securityGroupName;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
         'securityGroupId'   => 'SecurityGroupId',
         'securityGroupName' => 'SecurityGroupName',
-        'version'           => 'Version',
     ];
 
     public function validate()
@@ -68,9 +74,6 @@ class DescribeSecurityGroupsRequest extends Model
         }
         if (null !== $this->securityGroupName) {
             $res['SecurityGroupName'] = $this->securityGroupName;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -95,9 +98,6 @@ class DescribeSecurityGroupsRequest extends Model
         }
         if (isset($map['SecurityGroupName'])) {
             $model->securityGroupName = $map['SecurityGroupName'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

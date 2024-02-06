@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceDetailInfos extends Model
 {
     /**
+     * @description The ID of the device.
+     *
      * @example h-uf6009zoa6hdbjyqxcn1
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceDetailInfos extends Model
     public $ID;
 
     /**
+     * @description The IP address of the device.
+     *
      * @example 10.152.196.36
      *
      * @var string
@@ -23,6 +27,8 @@ class resourceDetailInfos extends Model
     public $IP;
 
     /**
+     * @description The Internet service provider (ISP) to which the device belongs.
+     *
      * @example telecom
      *
      * @var string
@@ -30,6 +36,8 @@ class resourceDetailInfos extends Model
     public $ISP;
 
     /**
+     * @description The media access control (MAC) address of the device.
+     *
      * @example 24:0B:88:04:71:E0
      *
      * @var string
@@ -37,6 +45,8 @@ class resourceDetailInfos extends Model
     public $mac;
 
     /**
+     * @description The ID of the edge node to which the device belongs.
+     *
      * @example cn-chongqing-1
      *
      * @var string
@@ -44,6 +54,8 @@ class resourceDetailInfos extends Model
     public $regionID;
 
     /**
+     * @description The name of the server on which the device is deployed.
+     *
      * @example ens-nc2
      *
      * @var string
@@ -51,6 +63,8 @@ class resourceDetailInfos extends Model
     public $server;
 
     /**
+     * @description The status of the device.
+     *
      * @example Running
      *
      * @var string
@@ -58,6 +72,8 @@ class resourceDetailInfos extends Model
     public $status;
 
     /**
+     * @description The type of the instance.
+     *
      * @example ens.ac6.large
      *
      * @var string

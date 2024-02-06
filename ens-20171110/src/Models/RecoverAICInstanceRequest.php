@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecoverAICInstanceRequest extends Model
 {
     /**
+     * @description The ID of the server.
+     *
      * @example cas-instance****
      *
      * @var string

@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResponseBody extends Model
 {
     /**
+     * @description The return code. A value of 0 indicates that the request is successful.
+     *
+     * >  If you call this operation by using SDKs, the return value is of the integer type. If you call this operation by using common methods or HTTP requests, the return value is of the string type.
      * @example 0
      *
      * @var int
@@ -17,11 +20,15 @@ class CreateInstanceResponseBody extends Model
     public $code;
 
     /**
+     * @description The IDs of instances.
+     *
      * @var instanceIds
      */
     public $instanceIds;
 
     /**
+     * @description The request ID.
+     *
      * @example 4A431388-2D4B-46F4-A96B-D4E6BD0688C1
      *
      * @var string

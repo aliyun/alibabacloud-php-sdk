@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RenewARMServerInstanceRequest extends Model
 {
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
+     * @description The ID of the instance that you want to renew.
+     *
      * @example yourInstance ID
      *
      * @var string
@@ -16,6 +25,8 @@ class RenewARMServerInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The renewal period. By default, instances are renewed on a monthly basis. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, and 12.
+     *
      * @example 1
      *
      * @var int
@@ -23,12 +34,18 @@ class RenewARMServerInstanceRequest extends Model
     public $period;
 
     /**
+     * @description The unit of the renewal period. Valid values:
+     *
+     *   Month (default)
+     *   Year
+     *
      * @example Month
      *
      * @var string
      */
     public $periodUnit;
     protected $_name = [
+        'autoRenew'  => 'AutoRenew',
         'instanceId' => 'InstanceId',
         'period'     => 'Period',
         'periodUnit' => 'PeriodUnit',
@@ -41,6 +58,9 @@ class RenewARMServerInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -62,6 +82,9 @@ class RenewARMServerInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

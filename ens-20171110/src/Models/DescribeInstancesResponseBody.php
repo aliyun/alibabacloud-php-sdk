@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesResponseBody extends Model
 {
     /**
+     * @description The returned service code. 0 indicates that the request was successful.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeInstancesResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned instance information. It is an array that consists of InstanceAttributesType data.
+     *
      * @var instances
      */
     public $instances;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 60
      *
      * @var int
@@ -36,6 +44,8 @@ class DescribeInstancesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribeInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

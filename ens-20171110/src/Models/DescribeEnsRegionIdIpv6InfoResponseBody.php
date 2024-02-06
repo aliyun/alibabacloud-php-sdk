@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsRegionIdIpv6InfoResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 3703C4AC-9396-458C-8F25-1D701334D309
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeEnsRegionIdIpv6InfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description IPv6 support information.
+     *
      * @var supportIpv6Info
      */
     public $supportIpv6Info;

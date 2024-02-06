@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeARMServerInstancesResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeARMServerInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeARMServerInstancesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
      * @var string
@@ -31,11 +37,15 @@ class DescribeARMServerInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the servers and the AIC instances.
+     *
      * @var servers[]
      */
     public $servers;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

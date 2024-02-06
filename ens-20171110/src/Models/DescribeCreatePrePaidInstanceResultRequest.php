@@ -9,21 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCreatePrePaidInstanceResultRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the CreateIntance operation to create an instance.
+     *
      * @example i-6ecpqvkicnchxccozrp****
      *
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'version'    => 'Version',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class DescribeCreatePrePaidInstanceResultRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -53,9 +44,6 @@ class DescribeCreatePrePaidInstanceResultRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

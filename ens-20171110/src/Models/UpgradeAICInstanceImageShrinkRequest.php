@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeAICInstanceImageShrinkRequest extends Model
 {
     /**
+     * @description The ID of the AIC image.
+     *
      * @example m-****
      *
      * @var string
@@ -16,11 +18,15 @@ class UpgradeAICInstanceImageShrinkRequest extends Model
     public $imageId;
 
     /**
+     * @description The IDs of the servers.
+     *
      * @var string
      */
     public $serverIdsShrink;
 
     /**
+     * @description The timeout period of the update. Unit: seconds.
+     *
      * @example 1800
      *
      * @var int

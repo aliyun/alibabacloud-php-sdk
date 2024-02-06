@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class snatIps extends Model
 {
     /**
+     * @description The time when the IP address was created. The time is displayed in UTC.
+     *
      * @example 2020-04-26T15:38:27Z
      *
      * @var string
@@ -16,13 +18,23 @@ class snatIps extends Model
     public $creationTime;
 
     /**
-     * @example 203.132.38.139
+     * @description The IP address.
+     *
+     * @example 203.132.XX.XX
      *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The status of the IP address.
+     *
+     *   Running
+     *   Stopping
+     *   Stopped
+     *   Starting
+     *   Releasing
+     *
      * @example Running
      *
      * @var string

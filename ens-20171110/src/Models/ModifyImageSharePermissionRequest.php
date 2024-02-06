@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageSharePermissionRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account with which you want to share the image. You can specify multiple Alibaba Cloud IDs. Separate multiple IDs with commas (,).
+     *
+     * @example 1122334455**
+     *
      * @var string
      */
     public $addAccounts;
 
     /**
+     * @description The ID of the image. You can specify only one image ID. Custom images and public images are supported.
+     *
+     * @example m-5s7qotzavwbrnzaqh4unm****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The ID of the Alibaba Cloud account from which you want to unshare the image. You can specify only one Alibaba Cloud account ID.
+     *
+     * @example 113355**
+     *
      * @var string
      */
     public $removeAccounts;

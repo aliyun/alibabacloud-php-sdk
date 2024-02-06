@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAclsRequest extends Model
 {
     /**
+     * @description The ID of the network ACL.
+     *
      * @example nacl-bp1lhl0taikrbgnh****
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeNetworkAclsRequest extends Model
     public $networkAclId;
 
     /**
+     * @description The name of the network ACL.
+     *
+     * The name must be 1 to 128 characters in length. The name cannot start with \*\*http:// **or** https://\*\*.
      * @example acl-1
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeNetworkAclsRequest extends Model
     public $networkAclName;
 
     /**
+     * @description The page number. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeNetworkAclsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var string
@@ -37,6 +46,8 @@ class DescribeNetworkAclsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the associated instance.
+     *
      * @example n-5****
      *
      * @var string

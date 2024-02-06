@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceDetailInfos extends Model
 {
     /**
+     * @description The name of the device.
+     *
      * @example 5JhF100NEgdBcpNren32
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceDetailInfos extends Model
     public $deviceName;
 
     /**
+     * @description The ID of the cloud device.
+     *
      * @example h-uf6009zoaexs5pefypbo
      *
      * @var string
@@ -23,6 +27,8 @@ class resourceDetailInfos extends Model
     public $ID;
 
     /**
+     * @description The IP address.
+     *
      * @example 120.27.219.219
      *
      * @var string
@@ -30,6 +36,8 @@ class resourceDetailInfos extends Model
     public $IP;
 
     /**
+     * @description The Internet service provider (ISP).
+     *
      * @example cmcc
      *
      * @var string
@@ -37,6 +45,8 @@ class resourceDetailInfos extends Model
     public $ISP;
 
     /**
+     * @description The ID of the image.
+     *
      * @example m-2ze40oyhjorpyw61k7be
      *
      * @var string
@@ -44,6 +54,8 @@ class resourceDetailInfos extends Model
     public $imageID;
 
     /**
+     * @description The media access control (MAC) address of the device.
+     *
      * @example AA:BB:77:88:99:03
      *
      * @var string
@@ -51,6 +63,8 @@ class resourceDetailInfos extends Model
     public $mac;
 
     /**
+     * @description The ID of the ENS node.
+     *
      * @example cn-jiaozuo-2
      *
      * @var string
@@ -58,6 +72,8 @@ class resourceDetailInfos extends Model
     public $regionID;
 
     /**
+     * @description The server name of the ENS node.
+     *
      * @example ens-nc2
      *
      * @var string
@@ -65,6 +81,8 @@ class resourceDetailInfos extends Model
     public $server;
 
     /**
+     * @description The status of the device.
+     *
      * @example Running
      *
      * @var string
@@ -72,6 +90,8 @@ class resourceDetailInfos extends Model
     public $status;
 
     /**
+     * @description The type of the device.
+     *
      * @example ens.ac6.large
      *
      * @var string

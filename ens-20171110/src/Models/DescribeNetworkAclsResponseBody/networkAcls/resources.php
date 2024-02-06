@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The ID of the ENS node.
+     *
      * @example cn-fuzhou-telecom
      *
      * @var string
@@ -16,6 +18,8 @@ class resources extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the associated resource.
+     *
      * @example n-****
      *
      * @var string
@@ -23,6 +27,8 @@ class resources extends Model
     public $resourceId;
 
     /**
+     * @description The type of the associated resource.
+     *
      * @example Network
      *
      * @var string
@@ -30,6 +36,12 @@ class resources extends Model
     public $resourceType;
 
     /**
+     * @description The association status of the resource. Valid values:
+     *
+     *   **BINDED**: The resource is associated with the network ACL.
+     *   **BINDING**: The resource is being associated with the network ACL.
+     *   **UNBINDING**: The resource is being disassociated from the network ACL.
+     *
      * @example BINDING
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExportBillDetailDataRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2020-08-30T00:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class ExportBillDetailDataRequest extends Model
     public $endDate;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2020-06-01T00:00:00Z
      *
      * @var string

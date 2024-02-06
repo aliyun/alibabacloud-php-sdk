@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSpecResponseBody extends Model
 {
     /**
+     * @description The bandwidth limit for a single instance. Unit: Mbit/s.
+     *
      * @example 0
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeInstanceSpecResponseBody extends Model
     public $bandwidthLimit;
 
     /**
+     * @description The returned service code. A value of 0 indicates that the operation was successful.
+     *
      * @example 0
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeInstanceSpecResponseBody extends Model
     public $code;
 
     /**
+     * @description The maximum capacity of a data disk. Unit: GB.
+     *
      * @example 20015
      *
      * @var int
@@ -31,6 +37,8 @@ class DescribeInstanceSpecResponseBody extends Model
     public $dataDiskMaxSize;
 
     /**
+     * @description The minimum capacity of a data disk. Unit: GB.
+     *
      * @example 0
      *
      * @var int
@@ -38,11 +46,15 @@ class DescribeInstanceSpecResponseBody extends Model
     public $dataDiskMinSize;
 
     /**
+     * @description The information about instance specifications.
+     *
      * @var instanceSpecs
      */
     public $instanceSpecs;
 
     /**
+     * @description The request ID.
+     *
      * @example 1ECC937A-AE0E-4626-BE51-DED1D6D1C888
      *
      * @var string
@@ -50,6 +62,8 @@ class DescribeInstanceSpecResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The maximum capacity of the system disk. Unit: GiB.
+     *
      * @example 80
      *
      * @var int

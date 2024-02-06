@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeEpnBandwitdhByInternetChargeTypeRequest extends Model
 {
     /**
+     * @description The end of the time range to query.
+     *
+     *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+     *
      * @example 2021-12-06T15:59:59Z
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeEpnBandwitdhByInternetChargeTypeRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the Edge Node Service (ENS) node.
+     *
      * @example cn-changsha-unicom
      *
      * @var string
@@ -23,6 +30,13 @@ class DescribeEpnBandwitdhByInternetChargeTypeRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The Internet service provider (ISP). Valid values:
+     *
+     *   cmcc: China Mobile
+     *   telecom: China Telecom
+     *   unicom: China Unicom
+     *   multiCarrier: multi-line ISP
+     *
      * @example telecom
      *
      * @var string
@@ -30,6 +44,12 @@ class DescribeEpnBandwitdhByInternetChargeTypeRequest extends Model
     public $isp;
 
     /**
+     * @description The networking mode. Valid values:
+     *
+     *   **SpeedUp**: intelligent acceleration network (Internet)
+     *   **Connection**: internal network
+     *   **SpeedUpAndConnection**: intelligent acceleration network and internal network
+     *
      * @example Connection
      *
      * @var string
@@ -37,25 +57,22 @@ class DescribeEpnBandwitdhByInternetChargeTypeRequest extends Model
     public $networkingModel;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+     *
      * @example 2021-12-02T16:00:00Z
      *
      * @var string
      */
     public $startTime;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'endTime'         => 'EndTime',
         'ensRegionId'     => 'EnsRegionId',
         'isp'             => 'Isp',
         'networkingModel' => 'NetworkingModel',
         'startTime'       => 'StartTime',
-        'version'         => 'Version',
     ];
 
     public function validate()
@@ -79,9 +96,6 @@ class DescribeEpnBandwitdhByInternetChargeTypeRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -109,9 +123,6 @@ class DescribeEpnBandwitdhByInternetChargeTypeRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

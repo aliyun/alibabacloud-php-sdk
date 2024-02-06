@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DistApplicationDataResponseBody extends Model
 {
     /**
+     * @description The list of ENS instance IDs.
+     *
      * @var distInstanceIds
      */
     public $distInstanceIds;
 
     /**
+     * @description The total number of ENS instance IDs.
+     *
      * @example 2
      *
      * @var int
@@ -23,11 +27,15 @@ class DistApplicationDataResponseBody extends Model
     public $distInstanceTotalCount;
 
     /**
+     * @description The distribution result of the data file.
+     *
      * @var distResults
      */
     public $distResults;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string

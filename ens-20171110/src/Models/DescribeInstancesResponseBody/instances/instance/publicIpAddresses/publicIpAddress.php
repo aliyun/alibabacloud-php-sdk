@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class publicIpAddress extends Model
 {
     /**
+     * @description The gateway.
+     *
      * @example 119.147.xx.xx
      *
      * @var string
@@ -16,6 +18,8 @@ class publicIpAddress extends Model
     public $gateWay;
 
     /**
+     * @description The IP address.
+     *
      * @example 119.147.xx.xx
      *
      * @var string
@@ -23,6 +27,8 @@ class publicIpAddress extends Model
     public $ip;
 
     /**
+     * @description The Internet service provider (ISP).
+     *
      * @example unicom
      *
      * @var string

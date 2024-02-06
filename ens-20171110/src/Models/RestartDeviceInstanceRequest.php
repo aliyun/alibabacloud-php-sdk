@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestartDeviceInstanceRequest extends Model
 {
     /**
+     * @description The ID of the application. To obtain the application ID, call the ListApplications operation. For more information, see the API documentation of ListApplications.
+     *
      * @example f829265e-2f6f-4088-a4be-c1fb95ab45f9
      *
      * @var string
@@ -16,6 +18,8 @@ class RestartDeviceInstanceRequest extends Model
     public $appId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-5slvdwcxf6ch81nl4r7p04j5q
      *
      * @var string

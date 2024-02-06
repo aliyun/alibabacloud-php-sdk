@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetLoadBalancerTCPListenerAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 06F00FBB-3D9E-4CCE-9D43-1A6946A75456
      *
      * @var string

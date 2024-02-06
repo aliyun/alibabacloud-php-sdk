@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyFileSystemRequest extends Model
 {
     /**
+     * @description The description of the file system.
+     *
      * @example fileSystemTest
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyFileSystemRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyFileSystemRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the file system.
+     *
      * @example c50f8*****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNatGatewayRequest extends Model
 {
     /**
+     * @description The ID of the Edge Node Service (ENS) node.
+     *
      * @example cn-suzhou-telecom
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateNatGatewayRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The instance type of the NAT gateway. Set the value to **enat.default**.
+     *
      * @example enat.default
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateNatGatewayRequest extends Model
     public $instanceType;
 
     /**
+     * @description The name of the NAT gateway. The name must be 1 to 128 characters in length. The name cannot start with `http://` or `https://`.
+     *
      * @example name
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateNatGatewayRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-5qj7ykuxmjn7k96l090sp****
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateNatGatewayRequest extends Model
     public $networkId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-5savh5ngxh8sbj14bu7n****
      *
      * @var string

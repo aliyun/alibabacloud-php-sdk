@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsResourceUsageRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Format: yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
+     *
      * @example 2018-06-15T09:07:23Z
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeEnsResourceUsageRequest extends Model
     public $expiredEndTime;
 
     /**
+     * @description The beginning of the time range to query. Format: yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
+     *
      * @example 2018-06-15T09:07:23Z
      *
      * @var string

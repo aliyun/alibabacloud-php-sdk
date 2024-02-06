@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFileSystemsRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeFileSystemsRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the file system.
+     *
      * @example c50f8*****
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeFileSystemsRequest extends Model
     public $fileSystemId;
 
     /**
+     * @description The name of the file system.
+     *
      * @example FileSystem1
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeFileSystemsRequest extends Model
     public $fileSystemName;
 
     /**
+     * @description The page number. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeFileSystemsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. The maximum value is **100**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int

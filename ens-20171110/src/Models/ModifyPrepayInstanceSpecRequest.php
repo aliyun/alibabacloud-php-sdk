@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyPrepayInstanceSpecRequest extends Model
 {
     /**
+     * @description The ID of the instance that you want to upgrade or downgrade.
+     *
      * @example i-bp67acfmxazb4p****
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyPrepayInstanceSpecRequest extends Model
     public $instanceId;
 
     /**
+     * @description The updated configuration.
+     *
      * @example ens.sn1.tiny
      *
      * @var string

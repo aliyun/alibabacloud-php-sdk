@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class permission extends Model
 {
     /**
+     * @description The time at which the security group rule was created. The time is displayed in UTC.
+     *
      * @example 2018-12-12T07:28:38Z
      *
      * @var string
@@ -16,6 +18,8 @@ class permission extends Model
     public $creationTime;
 
     /**
+     * @description The description.
+     *
      * @example testDescription1
      *
      * @var string
@@ -23,6 +27,8 @@ class permission extends Model
     public $description;
 
     /**
+     * @description The range of destination IP addresses for outbound access control.
+     *
      * @example 0.0.0.0/0
      *
      * @var string
@@ -30,6 +36,8 @@ class permission extends Model
     public $destCidrIp;
 
     /**
+     * @description The direction in which the security group rule is applied.
+     *
      * @example ingress
      *
      * @var string
@@ -37,6 +45,8 @@ class permission extends Model
     public $direction;
 
     /**
+     * @description The transport layer protocol.
+     *
      * @example TCP
      *
      * @var string
@@ -44,6 +54,8 @@ class permission extends Model
     public $ipProtocol;
 
     /**
+     * @description The policy.
+     *
      * @example Accept
      *
      * @var string
@@ -51,6 +63,8 @@ class permission extends Model
     public $policy;
 
     /**
+     * @description The source port range.
+     *
      * @example 80/80
      *
      * @var string
@@ -58,6 +72,8 @@ class permission extends Model
     public $portRange;
 
     /**
+     * @description The priority of the rule.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +81,8 @@ class permission extends Model
     public $priority;
 
     /**
+     * @description The range of source IP addresses for inbound access control.
+     *
      * @example 0.0.0.0/0
      *
      * @var string
@@ -72,6 +90,8 @@ class permission extends Model
     public $sourceCidrIp;
 
     /**
+     * @description The source port number range for the security group.
+     *
      * @example 22/22
      *
      * @var string

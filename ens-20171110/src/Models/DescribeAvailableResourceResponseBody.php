@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceResponseBody extends Model
 {
     /**
+     * @description The returned service code. 0 indicates that the request was successful.
+     *
      * @example 0
      *
      * @var int
@@ -18,11 +20,15 @@ class DescribeAvailableResourceResponseBody extends Model
     public $code;
 
     /**
+     * @description The details of the images.
+     *
      * @var images
      */
     public $images;
 
     /**
+     * @description The ID of the request. This is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeAvailableResourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The specifications of resources that you can purchase.
+     *
      * @var supportResources
      */
     public $supportResources;

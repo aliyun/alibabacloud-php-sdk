@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The ID of the instance
+     *
      * @example i-5qzje8f5un1wmi341m2yetaxv
      *
      * @var string
@@ -16,6 +18,8 @@ class instance extends Model
     public $instanceId;
 
     /**
+     * @description The start time of the distribution. The time is displayed in UTC.
+     *
      * @example 2021-11-19T07:24:52Z
      *
      * @var string
@@ -23,11 +27,15 @@ class instance extends Model
     public $startTime;
 
     /**
+     * @description The description of the distribution status.
+     *
      * @var string
      */
     public $statusDescrip;
 
     /**
+     * @description The time when the distribution status was last updated. The time is displayed in UTC.
+     *
      * @example 2021-10-11T02:38:19Z
      *
      * @var string

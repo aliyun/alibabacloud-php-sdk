@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkAclEntryRequest extends Model
 {
     /**
+     * @description The ID of the network ACL for which you want to delete a rule.
+     *
      * @example nae-5****
      *
      * @var string

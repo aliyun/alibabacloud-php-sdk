@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserBandWidthDataResponseBody extends Model
 {
     /**
+     * @description The returned service code. 0 indicates that the request was successful.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeUserBandWidthDataResponseBody extends Model
     public $code;
 
     /**
+     * @description The monitoring data.
+     *
      * @var monitorData
      */
     public $monitorData;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 50373E71-7710-4620-8AAB-133CCE49451C
      *
      * @var string

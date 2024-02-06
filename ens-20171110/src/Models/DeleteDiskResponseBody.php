@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDiskResponseBody extends Model
 {
     /**
+     * @description The returned service code. 0 indicates that the request was successful.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteDiskResponseBody extends Model
     public $code;
 
     /**
+     * @description The request ID.
+     *
      * @example 3ABEEB76-1976-55AB-B884-3D65CA6A4743
      *
      * @var string

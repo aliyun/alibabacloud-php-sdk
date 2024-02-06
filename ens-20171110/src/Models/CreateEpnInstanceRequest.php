@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEpnInstanceRequest extends Model
 {
     /**
+     * @description The name of the EPN instance.
+     *
      * @example test EPNInstanceName
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateEpnInstanceRequest extends Model
     public $EPNInstanceName;
 
     /**
+     * @description The type of the EPN instance. Set the value to **EdgeToEdge**.
+     *
      * @example EdgeToEdge
      *
      * @var string
@@ -23,6 +27,14 @@ class CreateEpnInstanceRequest extends Model
     public $EPNInstanceType;
 
     /**
+     * @description The billing method for network usage. Valid values:
+     *
+     *   **BandwidthByDay**: Pay by daily peak bandwidth.
+     *   **95BandwidthByMonth**: Pay by monthly 95th percentile bandwidth.
+     *   **PayByBandwidth4thMonth**: Pay by monthly fourth peak bandwidth.
+     *   **PayByBandwidth**: Pay by fixed bandwidth.
+     *
+     * You can specify only one metering method for network usage and cannot overwrite the existing metering method.
      * @example BandwidthByDay
      *
      * @var string
@@ -30,6 +42,8 @@ class CreateEpnInstanceRequest extends Model
     public $internetChargeType;
 
     /**
+     * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 1 to 100.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +51,12 @@ class CreateEpnInstanceRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
+     * @description The networking mode. Valid values:
+     *
+     *   **SpeedUp**: intelligent acceleration network (Internet)
+     *   **Connection**: internal network
+     *   **SpeedUpAndConnection**: intelligent acceleration network and internal network
+     *
      * @example SpeedUp
      *
      * @var string

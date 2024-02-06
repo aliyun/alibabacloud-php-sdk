@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StopInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether to forcibly stop the servers.
+     *
+     *   **true**: forcibly stops the instance.
+     *   **false**: normally stops the servers. This is the default value.
+     *
      * @example true
      *
      * @var string
@@ -16,22 +21,16 @@ class StopInstanceRequest extends Model
     public $forceStop;
 
     /**
+     * @description The ID of the instance that you want to stop. You can specify only one instance ID.
+     *
      * @example i-instanceid****
      *
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'forceStop'  => 'ForceStop',
         'instanceId' => 'InstanceId',
-        'version'    => 'Version',
     ];
 
     public function validate()
@@ -46,9 +45,6 @@ class StopInstanceRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -67,9 +63,6 @@ class StopInstanceRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeReservedResourceResponseBody extends Model
 {
     /**
+     * @description The returned service code. 0 indicates that the request was successful.
+     *
      * @example 0
      *
      * @var int
@@ -18,11 +20,15 @@ class DescribeReservedResourceResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the image.
+     *
      * @var images
      */
     public $images;
 
     /**
+     * @description The request ID.
+     *
      * @example 6666C5A5-75ED-422E-A022-7121FA18C968
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeReservedResourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resources.
+     *
      * @var supportResources
      */
     public $supportResources;

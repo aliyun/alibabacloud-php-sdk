@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EPNInstance extends Model
 {
     /**
+     * @description The time when the instance was created. The time is displayed in UTC.
+     *
      * @example 2019-11-01T06:08:46Z
      *
      * @var string
@@ -16,6 +18,8 @@ class EPNInstance extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the EPN instance.
+     *
      * @example epn****
      *
      * @var string
@@ -23,6 +27,8 @@ class EPNInstance extends Model
     public $EPNInstanceId;
 
     /**
+     * @description The name of the EPN instance.
+     *
      * @example ens_test_epn
      *
      * @var string
@@ -30,6 +36,8 @@ class EPNInstance extends Model
     public $EPNInstanceName;
 
     /**
+     * @description Set the value to EdgeToEdge.
+     *
      * @example EdgeToEdge
      *
      * @var string
@@ -37,6 +45,8 @@ class EPNInstance extends Model
     public $EPNInstanceType;
 
     /**
+     * @description The end of the time range during which the data was queried. The time is displayed in UTC.
+     *
      * @example 2019-11-01T06:08:46Z
      *
      * @var string
@@ -44,6 +54,8 @@ class EPNInstance extends Model
     public $endTime;
 
     /**
+     * @description The inbound bandwidth. Unit: Mbit/s.
+     *
      * @example 40
      *
      * @var int
@@ -51,6 +63,8 @@ class EPNInstance extends Model
     public $internetMaxBandwidthOut;
 
     /**
+     * @description The time when the instance was last modified. The time is displayed in UTC.
+     *
      * @example 2019-11-01T06:08:46Z
      *
      * @var string
@@ -58,6 +72,12 @@ class EPNInstance extends Model
     public $modifyTime;
 
     /**
+     * @description The networking mode. Valid values:
+     *
+     *   SpeedUp: intelligent acceleration network (Internet)
+     *   Connection: internal network
+     *   SpeedUpAndConnection: intelligent acceleration network and internal network
+     *
      * @example SpeedUp
      *
      * @var string
@@ -65,6 +85,8 @@ class EPNInstance extends Model
     public $networkingModel;
 
     /**
+     * @description The beginning of the time range during which the data was queried. The time is displayed in UTC.
+     *
      * @example 2019-11-01T06:08:46Z
      *
      * @var string
@@ -72,6 +94,12 @@ class EPNInstance extends Model
     public $startTime;
 
     /**
+     * @description The status of the instance. Valid values:
+     *
+     *   Running
+     *   Excuting
+     *   Stopped
+     *
      * @example Running
      *
      * @var string

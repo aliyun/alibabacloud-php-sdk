@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
+     * @description The size of the system disk. Unit: GB.
+     *
      * @example 20
      *
      * @var int

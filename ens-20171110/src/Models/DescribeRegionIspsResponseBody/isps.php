@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class isps extends Model
 {
     /**
+     * @description The code of the ISP.
+     *
      * @example cmcc
      *
      * @var string
@@ -16,6 +18,8 @@ class isps extends Model
     public $code;
 
     /**
+     * @description The name of the ISP.
+     *
      * @var string
      */
     public $name;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RebootInstanceRequest extends Model
 {
     /**
+     * @description Indicates whether to stop the instance forcibly before you reboot it. Default value: false. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var string
@@ -16,6 +21,8 @@ class RebootInstanceRequest extends Model
     public $forceStop;
 
     /**
+     * @description The ID of the instance that you want to reboot. You can specify only one instance ID.
+     *
      * @example i-instanceid****
      *
      * @var string

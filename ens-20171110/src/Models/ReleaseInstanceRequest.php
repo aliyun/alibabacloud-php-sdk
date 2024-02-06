@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceRequest extends Model
 {
     /**
+     * @description The ID of the EIP.
+     *
      * @example eip-****
      *
      * @var string

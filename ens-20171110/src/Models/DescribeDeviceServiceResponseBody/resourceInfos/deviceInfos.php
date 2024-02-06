@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class deviceInfos extends Model
 {
     /**
+     * @description The name of the device.
+     *
      * @example test-api
      *
      * @var string
@@ -17,11 +19,15 @@ class deviceInfos extends Model
     public $name;
 
     /**
+     * @description The network information.
+     *
      * @var network[]
      */
     public $network;
 
     /**
+     * @description The status.
+     *
      * @example Running
      *
      * @var string

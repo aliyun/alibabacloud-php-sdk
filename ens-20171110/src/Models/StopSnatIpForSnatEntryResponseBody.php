@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StopSnatIpForSnatEntryResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 9A415CB9-7591-566F-924B-32709578756B
      *

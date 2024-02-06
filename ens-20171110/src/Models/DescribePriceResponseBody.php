@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
+     * @description The price information.
+     *
      * @var priceInfo
      */
     public $priceInfo;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 694EB8FF-446C-5B1E-8146-9629E492551F
      *
      * @var string

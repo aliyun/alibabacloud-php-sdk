@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePrePaidInstanceStockResponseBody extends Model
 {
     /**
+     * @description The number of resources that you can purchase.
+     *
      * @example 84
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $avaliableCount;
 
     /**
+     * @description The number of vCPUs.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $cores;
 
     /**
+     * @description The size of the data disk.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $dataDiskSize;
 
     /**
+     * @description The ID of the node.
+     *
      * @example cn-suzhou-telecom
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $ensRegionId;
 
     /**
+     * @description The instance type.
+     *
      * @example ens.sn1.stiny
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $instanceSpec;
 
     /**
+     * @description The memory size. Unit: GB.
+     *
      * @example 2048
      *
      * @var int
@@ -51,6 +63,8 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $memory;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 007833C8-E819-4122-B636-0D48D7BF6DFB
      *
      * @var string
@@ -58,11 +72,17 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The reasons for resource scarcity
+     *
+     * @example StockNotEnough
+     *
      * @var string
      */
     public $resourceGap;
 
     /**
+     * @description The size of the system disk. Unit: GB.
+     *
      * @example 20
      *
      * @var int

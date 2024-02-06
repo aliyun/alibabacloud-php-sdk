@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class natGateways extends Model
 {
     /**
+     * @description The time when the NAT gateway was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2021-11-22T07:03:32Z
      *
      * @var string
@@ -16,6 +18,8 @@ class natGateways extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the ENS node.
+     *
      * @example cn-xiangyang-5
      *
      * @var string
@@ -23,6 +27,8 @@ class natGateways extends Model
     public $ensRegionId;
 
     /**
+     * @description The name of the NAT gateway.
+     *
      * @example test0
      *
      * @var string
@@ -30,6 +36,8 @@ class natGateways extends Model
     public $name;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example nat-5t7nh1cfm6kxiszlttr38****
      *
      * @var string
@@ -37,6 +45,8 @@ class natGateways extends Model
     public $natGatewayId;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-5s2ml1olj0kzaws9n1yrj****
      *
      * @var string
@@ -44,6 +54,8 @@ class natGateways extends Model
     public $networkId;
 
     /**
+     * @description The type of the NAT gateway.
+     *
      * @example enat.default
      *
      * @var string
@@ -51,6 +63,8 @@ class natGateways extends Model
     public $spec;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-5szpp1os9m55myirbflfw****
      *
      * @var string

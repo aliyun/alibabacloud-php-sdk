@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class application extends Model
 {
     /**
+     * @description Details about the application.
+     *
      * @var appList
      */
     public $appList;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example ay-ads-hz-h
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEpnMeasurementDataResponseBody extends Model
 {
     /**
+     * @description The metering data returned.
+     *
      * @var measurementDatas
      */
     public $measurementDatas;
 
     /**
+     * @description The request ID.
+     *
      * @example A6328C33-6304-5291-8641-0A00A99D0DD0
      *
      * @var string

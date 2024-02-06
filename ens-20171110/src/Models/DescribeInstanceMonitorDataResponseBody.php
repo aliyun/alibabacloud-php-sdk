@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceMonitorDataResponseBody extends Model
 {
     /**
+     * @description The returned service code. A value of 0 indicates that the operation was successful.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeInstanceMonitorDataResponseBody extends Model
     public $code;
 
     /**
+     * @description The set of InstanceMonitorDataType data.
+     *
      * @var monitorData
      */
     public $monitorData;
 
     /**
+     * @description The request ID.
+     *
      * @example C8B26B44-0189-443E-9816-D951F59623A9
      *
      * @var string

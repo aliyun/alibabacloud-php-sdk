@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
+     * @description The port of the container.
+     *
      * @example 10000-10010
      *
      * @var string
@@ -16,6 +18,8 @@ class network extends Model
     public $containerPorts;
 
     /**
+     * @description The public IP address.
+     *
      * @example 39.105.62.120
      *
      * @var string
@@ -23,6 +27,8 @@ class network extends Model
     public $externalIp;
 
     /**
+     * @description The port range.
+     *
      * @example 80-8080
      *
      * @var string
@@ -30,6 +36,11 @@ class network extends Model
     public $hostPorts;
 
     /**
+     * @description The protocol of the gateway. The value is of the enumeration type. Valid values:
+     *
+     *   TCP
+     *   UDP
+     *
      * @example TCP
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
+     * @description The IPv4 CIDR block of the network.
+     *
      * @example 10.0.xx.xx/24
      *
      * @var string
@@ -17,6 +19,8 @@ class network extends Model
     public $cidrBlock;
 
     /**
+     * @description The timestamp when the instance was created. Unit: milliseconds.
+     *
      * @example 2020-06-16T06:33:15Z
      *
      * @var string
@@ -24,6 +28,8 @@ class network extends Model
     public $createdTime;
 
     /**
+     * @description The description of the network.
+     *
      * @example exampleDescription
      *
      * @var string
@@ -31,6 +37,8 @@ class network extends Model
     public $description;
 
     /**
+     * @description The ID of the edge node.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -38,11 +46,17 @@ class network extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the network access control list (ACL).
+     *
+     * @example nacl-a2do9e413e0spxscd****
+     *
      * @var string
      */
     public $networkAclId;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-5***
      *
      * @var string
@@ -50,6 +64,8 @@ class network extends Model
     public $networkId;
 
     /**
+     * @description The name of the network.
+     *
      * @example example
      *
      * @var string
@@ -57,6 +73,8 @@ class network extends Model
     public $networkName;
 
     /**
+     * @description The route table ID.
+     *
      * @example rtb-5**
      *
      * @var string
@@ -64,6 +82,11 @@ class network extends Model
     public $routerTableId;
 
     /**
+     * @description The status of the network. Valid values:
+     *
+     *   Pending
+     *   Available
+     *
      * @example Available
      *
      * @var string
@@ -71,6 +94,8 @@ class network extends Model
     public $status;
 
     /**
+     * @description The list of vSwitches in the network.
+     *
      * @var vSwitchIds
      */
     public $vSwitchIds;

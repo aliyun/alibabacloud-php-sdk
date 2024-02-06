@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetOssStorageAndAccByBucketsResponseBody extends Model
 {
     /**
+     * @description The information about the bucket.
+     *
      * @var bucketList[]
      */
     public $bucketList;
 
     /**
+     * @description The request ID.
+     *
+     * @example 112F4860-F1B2-58DD-8FC0-75F19DA1C4BF
+     *
      * @var string
      */
     public $requestId;

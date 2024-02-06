@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnsRouteEntryRequest extends Model
 {
     /**
+     * @description The ID of the route that you want to delete.
+     *
      * @example rte-8vbmb2890wiret5maqq25
      *
      * @var string

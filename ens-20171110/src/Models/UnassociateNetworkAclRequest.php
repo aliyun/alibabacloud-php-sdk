@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UnassociateNetworkAclRequest extends Model
 {
     /**
+     * @description The ID of the network ACL that you want to disassociate from a resource.
+     *
      * @example nacl-a2do9e413e0sp****
      *
      * @var string
@@ -17,6 +19,8 @@ class UnassociateNetworkAclRequest extends Model
     public $networkAclId;
 
     /**
+     * @description The information about the associated resource.
+     *
      * @var resource[]
      */
     public $resource;

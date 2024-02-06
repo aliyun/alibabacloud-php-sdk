@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class servers extends Model
 {
     /**
+     * @description The information about the AIC instances.
+     *
      * @var AICInstances[]
      */
     public $AICInstances;
 
     /**
+     * @description The time when the instance was created.
+     *
      * @example 2022-05-07 11:59:09
      *
      * @var string
@@ -22,6 +26,8 @@ class servers extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the ENS node.
+     *
      * @example cn-hanghzou-27
      *
      * @var string
@@ -29,21 +35,35 @@ class servers extends Model
     public $ensRegionId;
 
     /**
+     * @description The time when the instance expires.
+     *
+     * @example 2027-05-07 11:59:09
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The operation that was most recently performed.
+     *
+     * @example ServerCreate
+     *
      * @var string
      */
     public $latestAction;
 
     /**
+     * @description The name of the server.
+     *
+     * @example Server-Name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The namespace of the cluster to which the server belongs.
+     *
      * @example default
      *
      * @var string
@@ -51,11 +71,17 @@ class servers extends Model
     public $namespace;
 
     /**
+     * @description The billing method.
+     *
+     * @example prepay
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The ID of the server.
+     *
      * @example cas-******
      *
      * @var string
@@ -63,6 +89,8 @@ class servers extends Model
     public $serverId;
 
     /**
+     * @description The server specification.
+     *
      * @example cas.cf53r
      *
      * @var string
@@ -70,6 +98,15 @@ class servers extends Model
     public $specName;
 
     /**
+     * @description The operation status of the server. Valid values:
+     *
+     *   **success**
+     *   **failed**
+     *   **creating**
+     *   **releasing**
+     *   **rebooting**
+     *   **upgrading**
+     *
      * @example success
      *
      * @var string
@@ -77,6 +114,13 @@ class servers extends Model
     public $state;
 
     /**
+     * @description The running status of the server. Valid values:
+     *
+     *   **running**
+     *   **stopping**
+     *   **down**
+     *   **starting**
+     *
      * @example running
      *
      * @var string

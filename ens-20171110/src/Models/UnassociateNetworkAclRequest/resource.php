@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description The ID of the resource from which you want to disassociate the network ACL.
+     *
      * @example n-5***
      *
      * @var string
@@ -16,6 +18,8 @@ class resource extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource from which you want to disassociate the network ACL. Set the value to **Network**.
+     *
      * @example Network
      *
      * @var string

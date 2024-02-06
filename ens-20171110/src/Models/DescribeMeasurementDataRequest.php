@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeMeasurementDataRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2019-08-30T00:00:00Z
      *
      * @var string
@@ -16,22 +18,16 @@ class DescribeMeasurementDataRequest extends Model
     public $endDate;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2019-06-01T00:00:00Z
      *
      * @var string
      */
     public $startDate;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'endDate'   => 'EndDate',
         'startDate' => 'StartDate',
-        'version'   => 'Version',
     ];
 
     public function validate()
@@ -46,9 +42,6 @@ class DescribeMeasurementDataRequest extends Model
         }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -67,9 +60,6 @@ class DescribeMeasurementDataRequest extends Model
         }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

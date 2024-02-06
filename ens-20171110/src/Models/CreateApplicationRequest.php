@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationRequest extends Model
 {
     /**
+     * @description The edge application template. The value must be a JSON string that contains the following information:
+     *
+     *   Basic information such as the name of the application
+     *   Information such as resource specifications and network security configurations
+     *   Service specifications
+     *   Required resources
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The timeout period for asynchronous processing. Unit: seconds. Default value: 1800.
+     *
      * @example 1800
      *
      * @var int

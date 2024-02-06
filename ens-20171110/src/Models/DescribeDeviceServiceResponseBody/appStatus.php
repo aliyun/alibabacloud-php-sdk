@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class appStatus extends Model
 {
     /**
+     * @description The status of the application. The value is of the enumeration type. Valid values:
+     *
+     * Three intermediate states:
+     *
+     *   CREATING
+     *   UPDATING
+     *   DELETING
+     *
+     * Four final states:
+     *
+     *   CREATE_FAILED
+     *   UPDATE_FAILED
+     *   DELETE_FAILED
+     *   RUNNING
+     *
      * @example CREATING
      *
      * @var string
@@ -16,11 +31,15 @@ class appStatus extends Model
     public $phase;
 
     /**
+     * @description The description of the application status.
+     *
      * @var string
      */
     public $statusDescrip;
 
     /**
+     * @description The time when the status was last updated.
+     *
      * @example 2021-01-26T05:04Z
      *
      * @var string

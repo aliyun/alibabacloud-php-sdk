@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
 {
     /**
+     * @description The backend port that is used by the ELB instance. Valid values: **1** to **65535**.
+     *
      * @example 8080
      *
      * @var int
@@ -16,6 +18,12 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $backendServerPort;
 
     /**
+     * @description The maximum bandwidth of the elastic IP address (EIP).
+     *
+     *   Default value: 5.
+     *   Valid values: **5** to **10000**.
+     *   Unit: Mbit/s.
+     *
      * @example 5
      *
      * @var int
@@ -23,6 +31,8 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $bandwidth;
 
     /**
+     * @description The description of the listener.
+     *
      * @example example
      *
      * @var string
@@ -30,6 +40,11 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $description;
 
     /**
+     * @description Indicates whether EIP pass-through is enabled. Valid values:
+     *
+     *   **on**
+     *   **off** (default)
+     *
      * @example on
      *
      * @var string
@@ -37,6 +52,11 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $eipTransmit;
 
     /**
+     * @description Specifies whether to enable the health check feature. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example on
      *
      * @var string
@@ -44,6 +64,8 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $healthCheck;
 
     /**
+     * @description The port that is used for health checks. Valid values: **1** to **65535**. If you leave this parameter empty, the port specified by BackendServerPort is used for health checks.
+     *
      * @example 8000
      *
      * @var int
@@ -51,6 +73,18 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $healthCheckConnectPort;
 
     /**
+     * @description The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the server fails to pass the health check.
+     *
+     *   Default value: 5.
+     *   Valid values: **1** to **300**.
+     *   Unit: seconds.
+     *
+     * >
+     *
+     *   This parameter takes effect only if you set HealthCheck to on.
+     *
+     *   If the value of the HealthCheckConnectTimeout parameter is smaller than that of the HealthCheckInterval parameter, the timeout period specified by the HealthCheckConnectTimeout parameter becomes invalid and the value of the HealthCheckInterval parameter is used as the timeout period.
+     *
      * @example 100
      *
      * @var int
@@ -58,6 +92,8 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $healthCheckConnectTimeout;
 
     /**
+     * @description The response string for UDP listener health checks. The string can be up to 64 characters in length and can contain only letters and digits.
+     *
      * @example ok
      *
      * @var string
@@ -65,6 +101,9 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $healthCheckExp;
 
     /**
+     * @description The interval at which health checks are performed. Valid values: **1** to **50**. Unit: seconds.
+     *
+     * >  This parameter takes effect only if you set HealthCheck to on.
      * @example 5
      *
      * @var int
@@ -72,6 +111,8 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $healthCheckInterval;
 
     /**
+     * @description The request string for UDP listener health checks. The string can be up to 64 characters in length and can contain only letters and digits.
+     *
      * @example hello
      *
      * @var string
@@ -79,6 +120,9 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $healthCheckReq;
 
     /**
+     * @description The number of consecutive successful health checks that must occur before an unhealthy and inaccessible backend server is declared healthy and accessible. Valid values: **2** to **10**.
+     *
+     * >  This parameter takes effect only if you set HealthCheck to on.
      * @example 4
      *
      * @var int
@@ -86,6 +130,8 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $healthyThreshold;
 
     /**
+     * @description The frontend port that is used by the ELB instance.
+     *
      * @example 80
      *
      * @var int
@@ -93,6 +139,8 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $listenerPort;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5D7597CF-1630-54EC-A945-624A33F2E7E8
      *
      * @var string
@@ -100,6 +148,15 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The routing algorithm. Valid values:
+     *
+     *   **wrr**: Backend servers with higher weights receive more requests than those with lower weights.
+     *   **wlc**: Requests are distributed based on the weight and load of each backend server. The load refers to the number of connections to a backend server. If two backend servers have the same weight, the backend server that has fewer connections receives more requests.
+     *   **rr**: Requests are distributed to backend servers in sequence.
+     *   **sch**: consistent hashing that is based on source IP addresses. Requests from the same source IP address are distributed to the same backend server.
+     *   **qch**: consistent hashing that is based on QUIC connection IDs. Requests that contain the same QUIC connection ID are distributed to the same backend server.
+     *   **iqch**: consistent hashing that is based on specific three bytes of the iQUIC CIDs. Requests whose second to fourth bytes are the same are distributed to the same backend server.
+     *
      * @example wrr
      *
      * @var string
@@ -107,6 +164,14 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $scheduler;
 
     /**
+     * @description The status of the listener. Valid values:
+     *
+     *   **Running**
+     *   **Stopped**
+     *   **Starting**
+     *   **Configuring**
+     *   **Stopping**
+     *
      * @example Stopped
      *
      * @var string
@@ -114,6 +179,9 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $status;
 
     /**
+     * @description The number of consecutive failed health checks that must occur before a healthy and accessible backend server is declared unhealthy and inaccessible. Valid values: **2** to **10**.
+     *
+     * >  This parameter takes effect only if you set HealthCheck to on.
      * @example 4
      *
      * @var int

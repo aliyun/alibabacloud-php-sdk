@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveVSwitchesFromEpnInstanceRequest extends Model
 {
     /**
+     * @description The ID of theEPN instance.
+     *
      * @example epn-****
      *
      * @var string
@@ -16,6 +18,8 @@ class RemoveVSwitchesFromEpnInstanceRequest extends Model
     public $EPNInstanceId;
 
     /**
+     * @description The internal networking information that you want to delete.
+     *
      * @example VSwitchesInfo=[{"VSwitchId":"vs-ixxxx"},{"VSwitchId":"vs-ixxxx"}]
      *
      * @var string

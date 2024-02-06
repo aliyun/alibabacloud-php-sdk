@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AttachDiskResponseBody extends Model
 {
     /**
+     * @description The returned service code. 0 indicates that the request was successful.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class AttachDiskResponseBody extends Model
     public $code;
 
     /**
+     * @description The request ID.
+     *
      * @example 916777D9-42D3-5928-92CE-373B1874B674
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceMonitorData extends Model
 {
     /**
+     * @description The vCPU usage of the instance, which is raw data. For example, a value of 0.02 indicates that the usage is 2%.
+     *
      * @example 0.02
      *
      * @var string
@@ -16,6 +18,8 @@ class instanceMonitorData extends Model
     public $CPU;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example yourInstance ID
      *
      * @var string
@@ -23,6 +27,8 @@ class instanceMonitorData extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is not yet supported.
+     *
      * @var string
      */
     public $memory;

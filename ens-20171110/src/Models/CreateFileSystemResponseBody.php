@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class CreateFileSystemResponseBody extends Model
 {
     /**
+     * @description The information about the file system that was created.
+     *
      * @var string[]
      */
     public $allocationId;
 
     /**
+     * @description The status code for successful operations. Valid values:
+     *
+     *   PartSuccess: The operation is partially successful.
+     *   AllSuccess: The operation is successful.
+     *
      * @example PartSuccess
      *
      * @var string
@@ -21,6 +28,8 @@ class CreateFileSystemResponseBody extends Model
     public $bizStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
      * @var string
@@ -28,6 +37,8 @@ class CreateFileSystemResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the file system that failed to be created.
+     *
      * @var string[]
      */
     public $unAllocationId;

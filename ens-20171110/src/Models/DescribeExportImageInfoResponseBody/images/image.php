@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
+     * @description The architecture of the image. Example: **x86\_64**.
+     *
      * @example x86_64
      *
      * @var string
@@ -16,6 +18,8 @@ class image extends Model
     public $architecture;
 
     /**
+     * @description The time when the image was created.
+     *
      * @example 2017-12-08T12:10:03Z
      *
      * @var string
@@ -23,6 +27,8 @@ class image extends Model
     public $creationTime;
 
     /**
+     * @description The URL of the exported image.
+     *
      * @example https://user_defined_bucket.oss-cn-beijing.aliyuncs.com/m-xxxxxxxxx1.qcow2
      *
      * @var string
@@ -30,6 +36,13 @@ class image extends Model
     public $exportedImageURL;
 
     /**
+     * @description The export status of the image. Valid values:
+     *
+     *   Exporting
+     *   Exported
+     *   ExportError
+     *   Unexported
+     *
      * @example Exported
      *
      * @var string
@@ -37,6 +50,8 @@ class image extends Model
     public $imageExportStatus;
 
     /**
+     * @description The ID of the image.
+     *
      * @example m-xxxxxxxxx1
      *
      * @var string
@@ -44,6 +59,8 @@ class image extends Model
     public $imageId;
 
     /**
+     * @description The name of the image.
+     *
      * @example m-xxxxxxxxx1
      *
      * @var string
@@ -51,6 +68,11 @@ class image extends Model
     public $imageName;
 
     /**
+     * @description The source of the image. Valid values:
+     *
+     *   system: public image
+     *   self: custom image
+     *
      * @example system
      *
      * @var string
@@ -58,6 +80,8 @@ class image extends Model
     public $imageOwnerAlias;
 
     /**
+     * @description The OS.
+     *
      * @example centos
      *
      * @var string

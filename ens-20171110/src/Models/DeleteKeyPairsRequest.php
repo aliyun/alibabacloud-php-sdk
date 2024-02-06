@@ -9,21 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DeleteKeyPairsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $keyPairId;
+
+    /**
+     * @description The key pair name. The name must conform to the following naming conventions:
+     *
+     *   The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   It can contain letters, digits, colons (:), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     *   It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * Before you delete a key pair, you can call the DescribeKeyPairs operation to query existing key pairs.
      * @example TestKeyPairName
      *
      * @var string
      */
     public $keyPairName;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
+        'keyPairId'   => 'KeyPairId',
         'keyPairName' => 'KeyPairName',
-        'version'     => 'Version',
     ];
 
     public function validate()
@@ -33,11 +38,11 @@ class DeleteKeyPairsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->keyPairId) {
+            $res['KeyPairId'] = $this->keyPairId;
+        }
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -51,11 +56,11 @@ class DeleteKeyPairsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['KeyPairId'])) {
+            $model->keyPairId = $map['KeyPairId'];
+        }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

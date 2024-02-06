@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopLoadBalancerListenerRequest extends Model
 {
     /**
+     * @description The frontend port that is used by the Edge Load Balance (ELB) instance. Valid values: **1** to **65535**.
+     *
      * @example 8080
      *
      * @var int
@@ -16,6 +18,9 @@ class StopLoadBalancerListenerRequest extends Model
     public $listenerPort;
 
     /**
+     * @description The frontend protocol that is used by the ELB instance.
+     *
+     * >  This parameter is required if the same port is used by listeners that use different protocols.
      * @example tcp
      *
      * @var string
@@ -23,6 +28,8 @@ class StopLoadBalancerListenerRequest extends Model
     public $listenerProtocol;
 
     /**
+     * @description The ID of the ELB instance.
+     *
      * @example lb-5sc1s9zrui8lpb8u7cl4f****
      *
      * @var string

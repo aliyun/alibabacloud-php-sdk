@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateKeyPairResponseBody extends Model
 {
     /**
+     * @description The fingerprint of the key pair. The message-digest algorithm 5 (MD5) is used based on the public key fingerprint format defined in RFC 4716. For more information, see [RFC 4716](https://tools.ietf.org/html/rfc4716).
+     *
      * @example 7880c1ad4687fdbf7a6da2131****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateKeyPairResponseBody extends Model
     public $keyPairFingerPrint;
 
     /**
+     * @description The ID of the SSH key pair.
+     *
      * @example ssh-5lywanlkih1zo9yl8eg****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateKeyPairResponseBody extends Model
     public $keyPairId;
 
     /**
+     * @description The name of the key pair.
+     *
      * @example TestKeyPairName
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateKeyPairResponseBody extends Model
     public $keyPairName;
 
     /**
+     * @description The private key of the key pair. The private key is encoded with PEM in the PKCS#8 format.
+     *
      * @example -----BEGIN RSA PRIVATE KEY-----\nMIIEogIBAAKCAQE****
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateKeyPairResponseBody extends Model
     public $privateKeyBody;
 
     /**
+     * @description The request ID.
+     *
      * @var string
      */
     public $requestId;

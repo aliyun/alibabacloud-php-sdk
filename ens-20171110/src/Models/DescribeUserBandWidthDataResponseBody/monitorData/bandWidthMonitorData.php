@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class bandWidthMonitorData extends Model
 {
     /**
+     * @description The outbound bandwidth. Unit: bit/s.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class bandWidthMonitorData extends Model
     public $downBandWidth;
 
     /**
+     * @description The Internet traffic to the instance. Unit: bytes.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class bandWidthMonitorData extends Model
     public $internetRX;
 
     /**
+     * @description The Internet traffic from the instance. Unit: bytes.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class bandWidthMonitorData extends Model
     public $internetTX;
 
     /**
+     * @description The timestamp when the monitoring data was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2019-10-12T05:45:00Z
      *
      * @var string
@@ -37,6 +45,8 @@ class bandWidthMonitorData extends Model
     public $timeStamp;
 
     /**
+     * @description The inbound bandwidth. Unit: bit/s.
+     *
      * @example 0
      *
      * @var int

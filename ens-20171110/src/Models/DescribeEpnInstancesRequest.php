@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEpnInstancesRequest extends Model
 {
     /**
+     * @description The version number.
+     *
      * @example 2017-11-10
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeEpnInstancesRequest extends Model
     public $EPNInstanceId;
 
     /**
+     * @description The name of the EPN instance.
+     *
      * @example testEPNInstanceName
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeEpnInstancesRequest extends Model
     public $EPNInstanceName;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeEpnInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int

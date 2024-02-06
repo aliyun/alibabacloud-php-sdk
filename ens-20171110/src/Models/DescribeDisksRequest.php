@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeDisksRequest extends Model
 {
     /**
+     * @description The category of the disk.
+     *
+     *   cloud_efficiency: ultra disk.
+     *   cloud_ssd: all-flash disk.
+     *   local_hdd: local HDD.
+     *   local_ssd: local SSD.
+     *
      * @example local_ssd
      *
      * @var string
@@ -16,6 +23,11 @@ class DescribeDisksRequest extends Model
     public $category;
 
     /**
+     * @description The billing method.
+     *
+     *   prePay: subscription.
+     *   postpay: pay-as-you-go.
+     *
      * @example prepay
      *
      * @var string
@@ -23,16 +35,26 @@ class DescribeDisksRequest extends Model
     public $diskChargeType;
 
     /**
+     * @description The ID of the disk.
+     *
+     * @example d-5soak1gqa507lyfzvz0xo****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description The ID of the disk.
+     *
+     * @example [\"d-wz99njena32z90ki****\"]
+     *
      * @var string
      */
     public $diskIds;
 
     /**
+     * @description The name of the disk.
+     *
      * @example DiskName
      *
      * @var string
@@ -40,6 +62,12 @@ class DescribeDisksRequest extends Model
     public $diskName;
 
     /**
+     * @description The purchase method of the disk. Valid values:
+     *
+     *   ServiceDisk: The disk is purchased when ENS is activated.
+     *   ResoureDisk: The disk is purchased when the instance is created.
+     *   PostPayDisk: The disk is separately purchased.
+     *
      * @example PostPayDisk
      *
      * @var string
@@ -47,6 +75,8 @@ class DescribeDisksRequest extends Model
     public $diskType;
 
     /**
+     * @description The ID of the edge node.
+     *
      * @example cn-kunming-telecom
      *
      * @var string
@@ -54,6 +84,8 @@ class DescribeDisksRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The node information.
+     *
      * @example ["cn-suzhou-telecom","cn-chengdu-telecom"]
      *
      * @var string
@@ -61,16 +93,27 @@ class DescribeDisksRequest extends Model
     public $ensRegionIds;
 
     /**
+     * @description The instance to which the disk is attached.
+     *
+     * @example i-5t77rb0yoz79m28ku60sx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The order in which you want to sort the returned data. Example: {"EnsRegionId":"desc"}. By default, the nodes are sorted by IDs in descending order.
+     *
+     * @example { "DiskNameSort":"desc","EnsRegionIdSort":"asc" }
+     *
      * @var string
      */
     public $orderByParams;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**.
+     *
+     * Default value: **1**.
      * @example 1
      *
      * @var string
@@ -78,6 +121,9 @@ class DescribeDisksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**.
+     *
+     * Default value: **10**.
      * @example 10
      *
      * @var string
@@ -85,11 +131,27 @@ class DescribeDisksRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the snapshot.
+     *
+     * @example s-897654321****
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @description The status of the disk. Valid values:
+     *
+     *   In-use: The disk is in use.
+     *   Available: The disk can be attached.
+     *   Attaching: The disk is being attached.
+     *   Detaching: The disk is being detached.
+     *   Creating: The image is being created.
+     *   ReIniting: The disk is being reset.
+     *   Deleting: The disk is being released.
+     *   Deleted: The disk is released.
+     *   Expiring: The disk is about to expire.
+     *
      * @example Available
      *
      * @var string
@@ -97,6 +159,11 @@ class DescribeDisksRequest extends Model
     public $status;
 
     /**
+     * @description The type of the disk. Valid values:
+     *
+     *   system: system disk.
+     *   data: data disk.
+     *
      * @example system
      *
      * @var string

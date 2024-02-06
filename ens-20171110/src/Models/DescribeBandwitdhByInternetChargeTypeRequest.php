@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandwitdhByInternetChargeTypeRequest extends Model
 {
     /**
+     * @description The end of the time range to query.
+     *
+     *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+     *
      * @example 2022-01-18T09:39:54Z
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeBandwitdhByInternetChargeTypeRequest extends Model
     public $endTime;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou-cbn-2
      *
      * @var string
@@ -23,6 +30,13 @@ class DescribeBandwitdhByInternetChargeTypeRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The Internet service provider (ISP). Valid values:
+     *
+     *   cmcc: China Mobile
+     *   telecom: China Telecom
+     *   unicom: China Unicom
+     *   multiCarrier: multi-line ISP
+     *
      * @example unicom
      *
      * @var string
@@ -30,24 +44,21 @@ class DescribeBandwitdhByInternetChargeTypeRequest extends Model
     public $isp;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+     *
      * @example 2021-11-15T16:00:00Z
      *
      * @var string
      */
     public $startTime;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'endTime'     => 'EndTime',
         'ensRegionId' => 'EnsRegionId',
         'isp'         => 'Isp',
         'startTime'   => 'StartTime',
-        'version'     => 'Version',
     ];
 
     public function validate()
@@ -68,9 +79,6 @@ class DescribeBandwitdhByInternetChargeTypeRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -95,9 +103,6 @@ class DescribeBandwitdhByInternetChargeTypeRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

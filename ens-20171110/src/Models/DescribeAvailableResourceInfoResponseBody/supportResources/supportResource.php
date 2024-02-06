@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponseB
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponseBody\supportResources\supportResource\ensRegionIds;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponseBody\supportResources\supportResource\ensRegionIdsExtends;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponseBody\supportResources\supportResource\instanceSpeces;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponseBody\supportResources\supportResource\isp;
 use AlibabaCloud\Tea\Model;
 
 class supportResource extends Model
@@ -18,6 +19,8 @@ class supportResource extends Model
     public $bandwidthTypes;
 
     /**
+     * @description The maximum capacity of a data disk. Unit: GB.
+     *
      * @example 200
      *
      * @var int
@@ -25,6 +28,8 @@ class supportResource extends Model
     public $dataDiskMaxSize;
 
     /**
+     * @description The minimum data disk size. Unit: GiB.
+     *
      * @example 100
      *
      * @var int
@@ -37,6 +42,8 @@ class supportResource extends Model
     public $ensRegionIds;
 
     /**
+     * @description The supplementary information about the edge nodes.
+     *
      * @var ensRegionIdsExtends
      */
     public $ensRegionIdsExtends;
@@ -47,6 +54,13 @@ class supportResource extends Model
     public $instanceSpeces;
 
     /**
+     * @var isp
+     */
+    public $isp;
+
+    /**
+     * @description The maximum size of the system disk. Unit: GiB.
+     *
      * @example 100
      *
      * @var int
@@ -54,6 +68,8 @@ class supportResource extends Model
     public $systemDiskMaxSize;
 
     /**
+     * @description The minimum capacity of a system disk. Unit: GB.
+     *
      * @example 20
      *
      * @var int
@@ -66,6 +82,7 @@ class supportResource extends Model
         'ensRegionIds'        => 'EnsRegionIds',
         'ensRegionIdsExtends' => 'EnsRegionIdsExtends',
         'instanceSpeces'      => 'InstanceSpeces',
+        'isp'                 => 'Isp',
         'systemDiskMaxSize'   => 'SystemDiskMaxSize',
         'systemDiskMinSize'   => 'SystemDiskMinSize',
     ];
@@ -94,6 +111,9 @@ class supportResource extends Model
         }
         if (null !== $this->instanceSpeces) {
             $res['InstanceSpeces'] = null !== $this->instanceSpeces ? $this->instanceSpeces->toMap() : null;
+        }
+        if (null !== $this->isp) {
+            $res['Isp'] = null !== $this->isp ? $this->isp->toMap() : null;
         }
         if (null !== $this->systemDiskMaxSize) {
             $res['SystemDiskMaxSize'] = $this->systemDiskMaxSize;
@@ -130,6 +150,9 @@ class supportResource extends Model
         }
         if (isset($map['InstanceSpeces'])) {
             $model->instanceSpeces = instanceSpeces::fromMap($map['InstanceSpeces']);
+        }
+        if (isset($map['Isp'])) {
+            $model->isp = isp::fromMap($map['Isp']);
         }
         if (isset($map['SystemDiskMaxSize'])) {
             $model->systemDiskMaxSize = $map['SystemDiskMaxSize'];

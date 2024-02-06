@@ -12,11 +12,18 @@ use AlibabaCloud\Tea\Model;
 class measurementData extends Model
 {
     /**
+     * @description The bandwidth data returned.
+     *
      * @var bandWidthFeeDatas
      */
     public $bandWidthFeeDatas;
 
     /**
+     * @description The metering method. Valid values:
+     *
+     *   ChargeByUnified: unified metering.
+     *   ChargeByGrade: differential metering.
+     *
      * @example ChargeByGrade
      *
      * @var string
@@ -24,6 +31,8 @@ class measurementData extends Model
     public $chargeModel;
 
     /**
+     * @description The metering cycle.
+     *
      * @example 2019-07-30
      *
      * @var string
@@ -31,6 +40,8 @@ class measurementData extends Model
     public $costCycle;
 
     /**
+     * @description The end time of the metering cycle.
+     *
      * @example 2019-07-30T16:00:00Z
      *
      * @var string
@@ -38,6 +49,8 @@ class measurementData extends Model
     public $costEndTime;
 
     /**
+     * @description The start time of the metering cycle.
+     *
      * @example 2019-07-29T16:00:00Z
      *
      * @var string
@@ -45,11 +58,15 @@ class measurementData extends Model
     public $costStartTime;
 
     /**
+     * @description The information about computing resources.
+     *
      * @var resourceFeeData
      */
     public $resourceFeeData;
 
     /**
+     * @description Details of the computing resources.
+     *
      * @var resourceFeeDataDetails
      */
     public $resourceFeeDataDetails;

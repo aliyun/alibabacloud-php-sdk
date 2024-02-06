@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceInternetPortRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can specify the ID of the server or container. You can specify only one ID.
+     *
      * @example i-5s6xbnx9srb3vm6tp9hg9o64e
      *
      * @var string
@@ -16,6 +18,11 @@ class GetDeviceInternetPortRequest extends Model
     public $instanceId;
 
     /**
+     * @description The type of the NAT gateway. The value must be of the enumerated data type. Valid values:
+     *
+     *   SNAT
+     *   DNAT
+     *
      * @example DNAT
      *
      * @var string
@@ -23,6 +30,8 @@ class GetDeviceInternetPortRequest extends Model
     public $natType;
 
     /**
+     * @description The ID of the rule. If you leave this parameter empty, all rules are queried.
+     *
      * @example snat-5ref5fc1l1xgqnpjzrtw1hw5a
      *
      * @var string

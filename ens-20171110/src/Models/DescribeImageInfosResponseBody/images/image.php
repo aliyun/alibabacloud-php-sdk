@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
+     * @description The computing type of the image. Valid values:
+     *
+     *   ens_vm: x86 computing.
+     *   arm_vm: ARM computing.
+     *   bare_metal: x86 bare machine.
+     *   pcfarm: heterogeneous computing.
+     *
+     * @example ens_vm
+     *
      * @var string
      */
     public $computeType;
 
     /**
+     * @description The description of the image.
+     *
      * @example centos_6_08_64_20G_alibase_2017****
      *
      * @var string
@@ -21,6 +32,8 @@ class image extends Model
     public $description;
 
     /**
+     * @description The ID of the image.
+     *
      * @example centos_6_08_64_20G_alibase_2017****
      *
      * @var string
@@ -28,6 +41,8 @@ class image extends Model
     public $imageId;
 
     /**
+     * @description The size of the image. Unit: GiB.
+     *
      * @example 20
      *
      * @var string
@@ -35,6 +50,8 @@ class image extends Model
     public $imageSize;
 
     /**
+     * @description The version of the image.
+     *
      * @example 6.8
      *
      * @var string
@@ -42,6 +59,8 @@ class image extends Model
     public $imageVersion;
 
     /**
+     * @description The type of the image. Valid values: **centos**, **debian**, **ubuntu**, and **windows**.
+     *
      * @example centos
      *
      * @var string
@@ -49,6 +68,8 @@ class image extends Model
     public $OSName;
 
     /**
+     * @description The type of the operating system.
+     *
      * @example linux
      *
      * @var string

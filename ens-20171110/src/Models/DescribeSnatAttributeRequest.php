@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnatAttributeRequest extends Model
 {
     /**
+     * @description The ID of the SNAT entry.
+     *
      * @example snat-5tc08qfj5ecblfdn2rqr9****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
+     * @description The architecture of the image. Example: **x86\_64**.
+     *
      * @example x86_64
      *
      * @var string
@@ -16,6 +18,8 @@ class image extends Model
     public $architecture;
 
     /**
+     * @description The time when the image was created. The time follows the ISO 8601 standard.
+     *
      * @example 2017-12-08T12:10:03Z
      *
      * @var string
@@ -23,11 +27,17 @@ class image extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example centos_6_08_64_20G_alibase_2017****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The name of the image.
+     *
      * @example Ubuntu_16.04
      *
      * @var string
@@ -35,6 +45,12 @@ class image extends Model
     public $imageName;
 
     /**
+     * @description The source of the image. Valid values:
+     *
+     *   system: Alibaba Cloud public images
+     *   self: your custom images
+     *   others: shared images from other Alibaba Cloud accounts, or community images published by other Alibaba Cloud accounts
+     *
      * @example system
      *
      * @var string
@@ -42,6 +58,8 @@ class image extends Model
     public $imageOwnerAlias;
 
     /**
+     * @description The size of the image. Unit: GiB.
+     *
      * @example 40
      *
      * @var string
@@ -49,6 +67,11 @@ class image extends Model
     public $imageSize;
 
     /**
+     * @description The operating system type of the image. Valid values:
+     *
+     *   Linux
+     *   Windows
+     *
      * @example centos
      *
      * @var string
@@ -56,6 +79,10 @@ class image extends Model
     public $platform;
 
     /**
+     * @description The ID of the snapshot.
+     *
+     * @example mock-clone_snapshot_id
+     *
      * @var string
      */
     public $snapshotId;

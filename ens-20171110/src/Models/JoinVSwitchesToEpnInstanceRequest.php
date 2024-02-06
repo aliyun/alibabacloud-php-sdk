@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class JoinVSwitchesToEpnInstanceRequest extends Model
 {
     /**
+     * @description The ID of the edge network instance.
+     *
      * @example epn-xxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class JoinVSwitchesToEpnInstanceRequest extends Model
     public $EPNInstanceId;
 
     /**
+     * @description The information about the internal networking to which you want to add the edge network instance.
+     *
      * @example [{"VSwitchId":"vs-ixxxx"},{"VSwitchId":"vs-ixxxx"}]
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkAclRequest extends Model
 {
     /**
+     * @description The ID of the network ACL.
+     *
      * @example nacl-bp1lhl0taikrbgnh****
      *
      * @var string

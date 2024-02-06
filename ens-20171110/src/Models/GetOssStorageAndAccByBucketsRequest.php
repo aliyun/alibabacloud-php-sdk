@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetOssStorageAndAccByBucketsRequest extends Model
 {
     /**
+     * @description The information about the bucket.
+     *
+     * @example my-bucket
+     *
      * @var string
      */
     public $bucketList;

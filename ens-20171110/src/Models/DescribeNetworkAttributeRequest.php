@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAttributeRequest extends Model
 {
     /**
+     * @description The ID of the network.
+     *
      * @example n-****
      *
      * @var string

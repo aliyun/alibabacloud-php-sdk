@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class statusStat extends Model
 {
     /**
+     * @description The total number of ENS nodes.
+     *
      * @example 2
      *
      * @var int
@@ -17,11 +19,15 @@ class statusStat extends Model
     public $regionIdCount;
 
     /**
+     * @description The push status of data files on the ENS node.
+     *
      * @var regionIds
      */
     public $regionIds;
 
     /**
+     * @description The push status. The value is of the enumeration type. Valid values: SUCCESS FAILED PUSHING
+     *
      * @example FAILED
      *
      * @var string

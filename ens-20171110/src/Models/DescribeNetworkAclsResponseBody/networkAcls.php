@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class networkAcls extends Model
 {
     /**
+     * @description The time when the network ACL was created. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
      * @example 2019-11-01T06:08:46Z
      *
      * @var string
@@ -19,6 +21,8 @@ class networkAcls extends Model
     public $creationTime;
 
     /**
+     * @description The description of the network ACL.
+     *
      * @example This is my NetworkAcl.
      *
      * @var string
@@ -26,16 +30,22 @@ class networkAcls extends Model
     public $description;
 
     /**
+     * @description Details of the outbound rules.
+     *
      * @var egressAclEntries[]
      */
     public $egressAclEntries;
 
     /**
+     * @description Details of the inbound rules.
+     *
      * @var ingressAclEntries[]
      */
     public $ingressAclEntries;
 
     /**
+     * @description The ID of the network ACL.
+     *
      * @example nacl-a2do9e413e0spxscd****
      *
      * @var string
@@ -43,6 +53,8 @@ class networkAcls extends Model
     public $networkAclId;
 
     /**
+     * @description The name of the network ACL.
+     *
      * @example acl-8
      *
      * @var string
@@ -50,11 +62,18 @@ class networkAcls extends Model
     public $networkAclName;
 
     /**
+     * @description Details of the associated resources.
+     *
      * @var resources[]
      */
     public $resources;
 
     /**
+     * @description The status of the network ACL. Valid values:
+     *
+     *   **Available**: The network ACL is available.
+     *   **Modifying**: The network ACL is being configured.
+     *
      * @example Available
      *
      * @var string

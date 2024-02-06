@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEpnInstanceAttributeRequest extends Model
 {
     /**
+     * @description The ID of the EPN instance.
+     *
      * @example epn-xxxx
      *
      * @var string

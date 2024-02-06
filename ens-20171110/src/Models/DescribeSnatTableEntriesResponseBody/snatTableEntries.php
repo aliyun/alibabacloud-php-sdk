@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class snatTableEntries extends Model
 {
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example nat-5t7nh1cfm6kxiszlttr38****
      *
      * @var string
@@ -16,6 +18,8 @@ class snatTableEntries extends Model
     public $natGatewayId;
 
     /**
+     * @description The ID of the SNAT entry.
+     *
      * @example snat-5tfjp3537mi6iokl59g5c****
      *
      * @var string
@@ -23,6 +27,8 @@ class snatTableEntries extends Model
     public $snatEntryId;
 
     /**
+     * @description The name of the SNAT entry.
+     *
      * @example test0
      *
      * @var string
@@ -30,6 +36,8 @@ class snatTableEntries extends Model
     public $snatEntryName;
 
     /**
+     * @description The EIP specified in the SNAT entry.
+     *
      * @example 120.XXX.XXX.71
      *
      * @var string
@@ -37,6 +45,8 @@ class snatTableEntries extends Model
     public $snatIp;
 
     /**
+     * @description The source CIDR block specified in the SNAT entry.
+     *
      * @example 10.0.0.13/32
      *
      * @var string
@@ -44,16 +54,35 @@ class snatTableEntries extends Model
     public $sourceCIDR;
 
     /**
+     * @description The secondary EIP. Multiple EIPs are separated by commas (,).
+     *
+     * @example 101.XXX.XXX.7
+     *
      * @var string
      */
     public $standbySnatIp;
 
     /**
+     * @description The status of the secondary EIP. Valid values:
+     *
+     *   Running
+     *   Stopping
+     *   Stopped
+     *   Starting
+     *
+     * @example Stopped
+     *
      * @var string
      */
     public $standbyStatus;
 
     /**
+     * @description The status of the SNAT entry. Valid values:
+     *
+     *   Pending: The SNAT entry is being created or modified.
+     *   Available: The SNAT entry is available.
+     *   Deleting: The SNAT entry is being deleted.
+     *
      * @example Available
      *
      * @var string

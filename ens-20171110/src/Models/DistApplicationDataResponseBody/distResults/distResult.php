@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class distResult extends Model
 {
     /**
+     * @description The name of the data file.
+     *
      * @example gcs-prod-websocket-eip-unicom
      *
      * @var string
@@ -16,6 +18,8 @@ class distResult extends Model
     public $name;
 
     /**
+     * @description The error code. The value is of the enumerated data type.
+     *
      * @example 400
      *
      * @var int
@@ -23,6 +27,8 @@ class distResult extends Model
     public $resultCode;
 
     /**
+     * @description The description of the distribution result.
+     *
      * @example Success
      *
      * @var string
@@ -30,6 +36,8 @@ class distResult extends Model
     public $resultDescrip;
 
     /**
+     * @description The version number of the data file.
+     *
      * @example standard
      *
      * @var string

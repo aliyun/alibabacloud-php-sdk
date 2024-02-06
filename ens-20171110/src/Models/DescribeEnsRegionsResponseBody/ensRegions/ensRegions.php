@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ensRegions extends Model
 {
     /**
+     * @description The code of the region.
+     *
      * @example NorthEastChina
      *
      * @var string
@@ -16,6 +18,8 @@ class ensRegions extends Model
     public $area;
 
     /**
+     * @description The name of the node.
+     *
      * @example NorthChina
      *
      * @var string
@@ -23,6 +27,8 @@ class ensRegions extends Model
     public $enName;
 
     /**
+     * @description The ID of the node.
+     *
      * @example cn-dalian-unicom
      *
      * @var string
@@ -30,11 +36,15 @@ class ensRegions extends Model
     public $ensRegionId;
 
     /**
+     * @description The name of the node.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The province where the node is deployed.
+     *
      * @var string
      */
     public $province;

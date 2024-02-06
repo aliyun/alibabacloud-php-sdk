@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkAclEntryResponseBody extends Model
 {
     /**
+     * @description The ID of the network ACL.
+     *
      * @example nae-5****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateNetworkAclEntryResponseBody extends Model
     public $networkAclEntryId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string

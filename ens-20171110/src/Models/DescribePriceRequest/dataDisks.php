@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataDisks extends Model
 {
     /**
+     * @description The category of the disk.
+     *
      * @example cloud_efficiency
      *
      * @var string
@@ -16,6 +18,8 @@ class dataDisks extends Model
     public $category;
 
     /**
+     * @description The size of the data disk. Unit: GB.
+     *
      * @example 50
      *
      * @var int

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserBandWidthDataRequest extends Model
 {
     /**
+     * @description The end of the time range to query.
+     *
+     *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+     *
      * @example 2019-05-21T12:22:00Z
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeUserBandWidthDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the node. You can specify only one node ID. By default, all nodes are queried.
+     *
      * @example cn-taiyuan-telecom
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeUserBandWidthDataRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the instance for which you want to query the data. You can specify only one instance ID. By default, all instances are queried.
+     *
      * @example i-5inkeimcipxk26yqtzm4q****
      *
      * @var string
@@ -30,6 +39,13 @@ class DescribeUserBandWidthDataRequest extends Model
     public $instanceId;
 
     /**
+     * @description The Internet service provider (ISP). Valid values:
+     *
+     *   cmcc: China Mobile
+     *   telecom: China Telecom
+     *   unicom: China Unicom
+     *   multiCarrier: multi-line ISP
+     *
      * @example cmcc
      *
      * @var string
@@ -37,6 +53,8 @@ class DescribeUserBandWidthDataRequest extends Model
     public $isp;
 
     /**
+     * @description The precision of the monitoring data that you want to obtain. Valid values: 300, 1200, 3600, and 14400. Default value: 300. Unit: seconds.
+     *
      * @example 300
      *
      * @var string
@@ -44,6 +62,11 @@ class DescribeUserBandWidthDataRequest extends Model
     public $period;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+     *
      * @example 2019-05-21T10:22:00Z
      *
      * @var string

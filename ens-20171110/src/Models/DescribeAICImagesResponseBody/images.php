@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @description The time when the image was created.
+     *
      * @example 2022-09-22 10:54:34
      *
      * @var string
@@ -16,11 +18,15 @@ class images extends Model
     public $creationTime;
 
     /**
+     * @description The description of the image.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The image ID of the AIC instance.
+     *
      * @example m-ad0ddaddc2d54adeaa09b7c0f1e****
      *
      * @var string
@@ -28,6 +34,8 @@ class images extends Model
     public $imageId;
 
     /**
+     * @description The URL of the AIC image repository.
+     *
      * @example ****.alibaba-inc.com/aic/socimage:test
      *
      * @var string
@@ -35,6 +43,8 @@ class images extends Model
     public $imageUrl;
 
     /**
+     * @description The status of the image. **Available** is returned for this parameter. Available indicates that the image is available.
+     *
      * @example available
      *
      * @var string
@@ -42,6 +52,8 @@ class images extends Model
     public $status;
 
     /**
+     * @description The username of the image repository.
+     *
      * @example user
      *
      * @var string

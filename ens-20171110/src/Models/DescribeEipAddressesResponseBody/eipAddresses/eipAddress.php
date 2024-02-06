@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class eipAddress extends Model
 {
     /**
-     * @example 203.107.44.241
+     * @description The information about an EIP.
+     *
+     * @example 203.107.XX.XX
      *
      * @var string
      */
     public $eip;
 
     /**
-     * @example 203.107.44.242
+     * @description The public IP address of the ENS instance.
+     *
+     * @example 203.107.XX.XX
      *
      * @var string
      */

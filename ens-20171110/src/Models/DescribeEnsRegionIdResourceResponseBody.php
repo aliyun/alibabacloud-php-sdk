@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsRegionIdResourceResponseBody extends Model
 {
     /**
+     * @description The returned data. For more information, see EnsRegionIdResources in sample JSON responses.
+     *
      * @var ensRegionIdResources
      */
     public $ensRegionIdResources;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeEnsRegionIdResourceResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeEnsRegionIdResourceResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 476600B1-C9E2-4245-A26F-DC7EA8071425
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeEnsRegionIdResourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of queried nodes.
+     *
      * @example 58
      *
      * @var int

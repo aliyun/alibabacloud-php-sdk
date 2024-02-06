@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeExportImageInfoRequest extends Model
 {
     /**
+     * @description The ID of the image.
+     *
      * @example m-xxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeExportImageInfoRequest extends Model
     public $imageId;
 
     /**
+     * @description The name of the image.
+     *
      * @example testImageName
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeExportImageInfoRequest extends Model
     public $imageName;
 
     /**
+     * @description The page number. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeExportImageInfoRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int

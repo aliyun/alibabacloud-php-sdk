@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageAttributeResponseBody extends Model
 {
     /**
+     * @description The service code. 0 is returned for a successful request. An error code is returned for a failed request.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class ModifyImageAttributeResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
      * @example AC66B8F3-0B0A-5FB1-9EA2-DC03B2CD5B04
      *
      * @var string

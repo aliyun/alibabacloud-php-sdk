@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceType extends Model
 {
     /**
+     * @description The number of vCPUs.
+     *
      * @example 2
      *
      * @var int
@@ -16,11 +18,15 @@ class instanceType extends Model
     public $cpuCoreCount;
 
     /**
+     * @description This parameter is unavailable.
+     *
      * @var string
      */
     public $instanceTypeId;
 
     /**
+     * @description The name of the instance type.
+     *
      * @example ens.xxx.small
      *
      * @var string
@@ -28,6 +34,8 @@ class instanceType extends Model
     public $instanceTypeName;
 
     /**
+     * @description The memory size. Unit: MB.
+     *
      * @example 8192
      *
      * @var int

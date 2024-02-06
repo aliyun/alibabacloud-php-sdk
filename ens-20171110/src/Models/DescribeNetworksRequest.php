@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworksRequest extends Model
 {
     /**
+     * @description The ID of the edge node.
+     *
      * @example cn-beijing-telecom
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeNetworksRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-5***
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeNetworksRequest extends Model
     public $networkId;
 
     /**
+     * @description The name of the network.
+     *
      * @example example
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeNetworksRequest extends Model
     public $networkName;
 
     /**
+     * @description The page number of the returned page. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeNetworksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int

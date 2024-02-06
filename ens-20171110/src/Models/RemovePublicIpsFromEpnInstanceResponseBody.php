@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemovePublicIpsFromEpnInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @var string
      */
     public $requestId;

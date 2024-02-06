@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vSwitch extends Model
 {
     /**
+     * @description The IPv4 CIDR block of the vSwitch.
+     *
      * @example 10.21.224.0/22
      *
      * @var string
@@ -16,6 +18,8 @@ class vSwitch extends Model
     public $cidrBlock;
 
     /**
+     * @description The time when the vSwitch was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2020-06-16T06:33:15Z
      *
      * @var string
@@ -23,6 +27,8 @@ class vSwitch extends Model
     public $createdTime;
 
     /**
+     * @description The description of the vSwitch.
+     *
      * @example VSwitchDescription
      *
      * @var string
@@ -30,6 +36,8 @@ class vSwitch extends Model
     public $description;
 
     /**
+     * @description The ID of the edge node.
+     *
      * @example cn-xian-unicom
      *
      * @var string
@@ -37,6 +45,8 @@ class vSwitch extends Model
     public $ensRegionId;
 
     /**
+     * @description The number of available IP addresses.
+     *
      * @example 1024
      *
      * @var int
@@ -44,6 +54,8 @@ class vSwitch extends Model
     public $freeIpCount;
 
     /**
+     * @description The ID of the network.
+     *
      * @example vpc-25cdvfeq58pl****
      *
      * @var string
@@ -51,6 +63,11 @@ class vSwitch extends Model
     public $networkId;
 
     /**
+     * @description The status of the vSwitch. Valid values:
+     *
+     *   Pending
+     *   Available
+     *
      * @example Pending
      *
      * @var string
@@ -58,6 +75,8 @@ class vSwitch extends Model
     public $status;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-5m9xhlq8oh***
      *
      * @var string
@@ -65,6 +84,8 @@ class vSwitch extends Model
     public $vSwitchId;
 
     /**
+     * @description The name of the vSwitch.
+     *
      * @example testVSwitchName
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenewInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example i-56789acfmxazb4p****
      *
      * @var string
@@ -16,6 +18,21 @@ class RenewInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The renewal duration of the subscription instance.
+     *
+     * Valid values:
+     *
+     *   1
+     *   2
+     *   3
+     *   4
+     *   5
+     *   6
+     *   7
+     *   8
+     *   9
+     *   12
+     *
      * @example 1
      *
      * @var int

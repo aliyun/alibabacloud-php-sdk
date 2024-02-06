@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatGatewaysRequest extends Model
 {
     /**
+     * @description The ID of the Edge Node Service (ENS) node.
+     *
      * @example cn-wuxi-9
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeNatGatewaysRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The name of the NAT gateway.
+     *
      * @example test0
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeNatGatewaysRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example nat-5t7nh1cfm6kxiszlttr38****
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeNatGatewaysRequest extends Model
     public $natGatewayId;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-2zeuphj08tt7q3brd****
      *
      * @var string
@@ -37,6 +45,9 @@ class DescribeNatGatewaysRequest extends Model
     public $networkId;
 
     /**
+     * @description The page number. Pages start from page **1**.
+     *
+     * Default value: **1**.
      * @example 1
      *
      * @var int
@@ -44,6 +55,9 @@ class DescribeNatGatewaysRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. The maximum value is **100**.
+     *
+     * Default value: **10**.
      * @example 10
      *
      * @var int
@@ -51,6 +65,8 @@ class DescribeNatGatewaysRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-5rllcjb3ol6duzjdnbm1o****
      *
      * @var string

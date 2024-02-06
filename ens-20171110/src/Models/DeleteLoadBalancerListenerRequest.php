@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteLoadBalancerListenerRequest extends Model
 {
     /**
+     * @description The frontend port that is used by the Edge Load Balance (ELB) instance. Valid values: **1** to **65535**.
+     *
      * @example 8080
      *
      * @var int
@@ -16,6 +18,15 @@ class DeleteLoadBalancerListenerRequest extends Model
     public $listenerPort;
 
     /**
+     * @description The frontend protocol that is used by the ELB instance.
+     *
+     * Valid values:
+     *
+     *   tcp
+     *   udp
+     *   http
+     *   https
+     *
      * @example tcp
      *
      * @var string
@@ -23,6 +34,8 @@ class DeleteLoadBalancerListenerRequest extends Model
     public $listenerProtocol;
 
     /**
+     * @description The ID of the ELB instance.
+     *
      * @example lb-5snthcyu1x10g7tywj7iu****
      *
      * @var string

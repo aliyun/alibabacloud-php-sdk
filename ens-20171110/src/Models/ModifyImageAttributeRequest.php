@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageAttributeRequest extends Model
 {
     /**
+     * @description The ID of the image.
+     *
      * @example m-5t4xwkfkbs0uxv0kymdb6uip7
      *
      * @var string
@@ -16,28 +18,14 @@ class ModifyImageAttributeRequest extends Model
     public $imageId;
 
     /**
+     * @description The name of the image.
+     *
      * @var string
      */
     public $imageName;
-
-    /**
-     * @description 2017-11-10
-     *
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
-
-    /**
-     * @var string
-     */
-    public $product;
     protected $_name = [
         'imageId'   => 'ImageId',
         'imageName' => 'ImageName',
-        'version'   => 'Version',
-        'product'   => 'product',
     ];
 
     public function validate()
@@ -52,12 +40,6 @@ class ModifyImageAttributeRequest extends Model
         }
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->product) {
-            $res['product'] = $this->product;
         }
 
         return $res;
@@ -76,12 +58,6 @@ class ModifyImageAttributeRequest extends Model
         }
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['product'])) {
-            $model->product = $map['product'];
         }
 
         return $model;

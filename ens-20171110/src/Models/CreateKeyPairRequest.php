@@ -9,21 +9,18 @@ use AlibabaCloud\Tea\Model;
 class CreateKeyPairRequest extends Model
 {
     /**
+     * @description The name of the key pair. The name must conform to the following naming conventions:
+     *
+     *   The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   It must start with a letter but cannot start with `http://` or `https://`.
+     *
      * @example TestKeyPairName
      *
      * @var string
      */
     public $keyPairName;
-
-    /**
-     * @example 2017-11-10
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'keyPairName' => 'KeyPairName',
-        'version'     => 'Version',
     ];
 
     public function validate()
@@ -35,9 +32,6 @@ class CreateKeyPairRequest extends Model
         $res = [];
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -53,9 +47,6 @@ class CreateKeyPairRequest extends Model
         $model = new self();
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

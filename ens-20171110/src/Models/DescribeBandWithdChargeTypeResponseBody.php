@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandWithdChargeTypeResponseBody extends Model
 {
     /**
+     * @description The information about the metering method.
+     *
      * @var string
      */
     public $bandWithTypeInfo;
 
     /**
+     * @description The metering type.
+     *
+     *   ChargeByUnified: unified metering.
+     *   ChargeByGrade: differential metering.
+     *
      * @example ChargeByGrade
      *
      * @var string
@@ -21,6 +28,8 @@ class DescribeBandWithdChargeTypeResponseBody extends Model
     public $chargeContractType;
 
     /**
+     * @description The metering cycle. Currently, this parameter is empty in the response.
+     *
      * @example {null}
      *
      * @var string
@@ -28,6 +37,8 @@ class DescribeBandWithdChargeTypeResponseBody extends Model
     public $chargeCycleInfo;
 
     /**
+     * @description The returned service code. A value of 0 indicates that the operation was successful.
+     *
      * @example 0
      *
      * @var int
@@ -35,6 +46,8 @@ class DescribeBandWithdChargeTypeResponseBody extends Model
     public $code;
 
     /**
+     * @description The request ID.
+     *
      * @example 791049FD-49CE-4667-BD6C-F23094DEDA7A
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagesResponseBody extends Model
 {
     /**
+     * @description The returned service code. 0 indicates that the request was successful.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeImagesResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about images.
+     *
      * @var images
      */
     public $images;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeImagesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -36,6 +44,8 @@ class DescribeImagesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 8331AA01-C16D-5481-BB47-D19CEBAA811E
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribeImagesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of images.
+     *
      * @example 4
      *
      * @var int

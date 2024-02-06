@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DistApplicationDataRequest extends Model
 {
     /**
+     * @description The ID of the application. To obtain the application ID, call the ListApplications operation.
+     *
      * @example e76f8985-7965-41fc-925b-9648bb6bf650
      *
      * @var string
@@ -16,6 +18,8 @@ class DistApplicationDataRequest extends Model
     public $appId;
 
     /**
+     * @description The list of data files that you want to distribute. The value must be a JSON string.
+     *
      * @example [{\"name\":\"app01\",        \"version\":\"1.0\",        \"destPath\":\"/root/installed\",        \"decompress\":true,        \"targetDirName\":\"target01\",        \"fileMode\":755,        \"timeout\":1000    },    {        \"name\":\"app02\",        \"version\":\"1.1\",        \"destPath\":\"/tmp/test.txt\",        \"decompress\":false    }]
      *
      * @var string
@@ -23,6 +27,8 @@ class DistApplicationDataRequest extends Model
     public $data;
 
     /**
+     * @description The canary release policy. The value must be a JSON string. You can specify multiple distribution policies. By default, all data files are distributed.
+     *
      * @example {\"name\":\"ScheduleToAllByMatchExpressions\",\"parameters\":{\"match_expressions\":[{\"key\":\"region_id\",\"operator\":\"In\",\"values\":[\"cn-wuhan-telecom_unicom_cmcc-2\"]}]}}
      *
      * @var string

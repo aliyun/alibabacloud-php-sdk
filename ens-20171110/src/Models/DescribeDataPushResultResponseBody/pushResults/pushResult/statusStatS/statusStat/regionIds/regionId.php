@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class regionId extends Model
 {
     /**
+     * @description The ID of the ENS node.
+     *
      * @example cn-wuxi-5
      *
      * @var string
@@ -16,6 +18,8 @@ class regionId extends Model
     public $regionId;
 
     /**
+     * @description The start time of the push operation. The time is displayed in UTC.
+     *
      * @example 2021-12-28T16:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class regionId extends Model
     public $startTime;
 
     /**
+     * @description The description of the status.
+     *
      * @example Success
      *
      * @var string
@@ -30,6 +36,8 @@ class regionId extends Model
     public $statusDescrip;
 
     /**
+     * @description The time when the status was last updated. The time is displayed in UTC.
+     *
      * @example 2021-12-07T02:37:10Z
      *
      * @var string

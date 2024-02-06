@@ -9,18 +9,25 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskResponseBody extends Model
 {
     /**
+     * @description IDs of instances.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @example 211456，32124
+     * @description The ID of the order. Multiple IDs are separated by commas (,).
+     *
+     * >  This parameter is not returned for the pay-as-you-go billing method.
+     * @example 21127020370****
      *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
      * @example 7030AB96-57CF-1C68-9FEE-D60E547FD79C
      *
      * @var string

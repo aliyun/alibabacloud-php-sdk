@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class StartLoadBalancerListenerRequest extends Model
 {
     /**
+     * @description The frontend port that is used by the Edge Load Balance (ELB) instance. Valid values: **1** to **65535**.
+     *
+     * >
+     *
+     *   You cannot specify port 250, 4789, or 4790 for UDP listeners. The preceding ports are system reserved ports.
+     *
+     *   We recommend that you use port 80 for HTTP.
+     *
+     *   We recommend that you use port 443 for HTTPS.
+     *
      * @example 8080
      *
      * @var int
@@ -16,6 +26,14 @@ class StartLoadBalancerListenerRequest extends Model
     public $listenerPort;
 
     /**
+     * @description The frontend protocol that is used by the ELB instance. Valid values:
+     *
+     *   tcp
+     *   udp
+     *   http
+     *   https
+     *
+     * >  This parameter is required if the same port is used by listeners that use different protocols.
      * @example tcp
      *
      * @var string
@@ -23,6 +41,8 @@ class StartLoadBalancerListenerRequest extends Model
     public $listenerProtocol;
 
     /**
+     * @description The ID of the ELB instance.
+     *
      * @example lb-5saivuir6b1mupxjfbhmk****
      *
      * @var string

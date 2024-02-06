@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class supportResource extends Model
 {
     /**
+     * @description The number of disks that you can purchase.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,13 @@ class supportResource extends Model
     public $canBuyCount;
 
     /**
+     * @description The type of the disk.
+     *
+     *   cloud_efficiency: ultra disk.
+     *   cloud_ssd: all-flash disk.
+     *   local_hdd: local HDD.
+     *   local_ssd: local SSD.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -23,6 +32,8 @@ class supportResource extends Model
     public $category;
 
     /**
+     * @description The default size of the disk. Unit: GiB.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +41,8 @@ class supportResource extends Model
     public $defaultDiskSize;
 
     /**
+     * @description The maximum size of the disk. Unit: GiB.
+     *
      * @example 80
      *
      * @var int
@@ -37,6 +50,8 @@ class supportResource extends Model
     public $diskMaxSize;
 
     /**
+     * @description The minimum size of the disk size. Unit: GiB.
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +59,8 @@ class supportResource extends Model
     public $diskMinSize;
 
     /**
+     * @description The ID of the edge node.
+     *
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -51,6 +68,8 @@ class supportResource extends Model
     public $ensRegionId;
 
     /**
+     * @description The name of the task node.
+     *
      * @var string
      */
     public $ensRegionName;

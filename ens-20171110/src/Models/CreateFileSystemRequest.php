@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFileSystemRequest extends Model
 {
     /**
+     * @description The information about the orders.
+     *
      * @var orderDetails[]
      */
     public $orderDetails;

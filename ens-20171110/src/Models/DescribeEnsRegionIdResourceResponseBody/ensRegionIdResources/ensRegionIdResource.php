@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ensRegionIdResource extends Model
 {
     /**
+     * @description The region. Set the value to West.
+     *
      * @example West
      *
      * @var string
@@ -16,6 +18,8 @@ class ensRegionIdResource extends Model
     public $area;
 
     /**
+     * @description The code of the region.
+     *
      * @example 300100
      *
      * @var string
@@ -23,6 +27,8 @@ class ensRegionIdResource extends Model
     public $areaCode;
 
     /**
+     * @description The date when the transaction was processed.
+     *
      * @example 2019-10-30
      *
      * @var string
@@ -30,6 +36,8 @@ class ensRegionIdResource extends Model
     public $bizDate;
 
     /**
+     * @description The ID of the node.
+     *
      * @example cn-hangzhou-telecom
      *
      * @var string
@@ -37,11 +45,15 @@ class ensRegionIdResource extends Model
     public $ensRegionId;
 
     /**
+     * @description The name of the node.
+     *
      * @var string
      */
     public $ensRegionIdName;
 
     /**
+     * @description The number of instances.
+     *
      * @example 10
      *
      * @var int
@@ -49,6 +61,8 @@ class ensRegionIdResource extends Model
     public $instanceCount;
 
     /**
+     * @description The public bandwidth of the instance. Unit: Bits/s.
+     *
      * @example 100
      *
      * @var int
@@ -56,6 +70,13 @@ class ensRegionIdResource extends Model
     public $internetBandwidth;
 
     /**
+     * @description The ISP. Valid values:
+     *
+     *   cmcc: China Mobile
+     *   unicom: China Unicom
+     *   telecom: China Telecom
+     *   multiCarrier: multi-line ISP
+     *
      * @example cmcc
      *
      * @var string
@@ -63,6 +84,8 @@ class ensRegionIdResource extends Model
     public $isp;
 
     /**
+     * @description The number of vCPUs.
+     *
      * @example 10
      *
      * @var int

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class supportResource extends Model
 {
     /**
+     * @description The sizes of data disks.
+     *
      * @var dataDiskSizes
      */
     public $dataDiskSizes;
 
     /**
+     * @description The ID of the node.
+     *
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -23,6 +27,8 @@ class supportResource extends Model
     public $ensRegionId;
 
     /**
+     * @description The specifications of instances.
+     *
      * @example ens.sn1.stiny
      *
      * @var string
@@ -30,6 +36,8 @@ class supportResource extends Model
     public $instanceSpec;
 
     /**
+     * @description The number of resources that you can purchase.
+     *
      * @example 9
      *
      * @var string
@@ -37,6 +45,8 @@ class supportResource extends Model
     public $supportResourcesCount;
 
     /**
+     * @description The sizes of system disks.
+     *
      * @var systemDiskSizes
      */
     public $systemDiskSizes;

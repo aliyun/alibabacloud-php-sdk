@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEpnBandwitdhByInternetChargeTypeResponseBody extends Model
 {
     /**
+     * @description The bandwidth. Unit: bit/s.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,14 @@ class DescribeEpnBandwitdhByInternetChargeTypeResponseBody extends Model
     public $bandwidthValue;
 
     /**
+     * @description The metering method. Valid values:
+     *
+     *   BandwidthByDay: Pay by daily peak bandwidth
+     *   95BandwidthByMonth: Pay by monthly 95th percentile bandwidth
+     *   PayByBandwidth4thMonth: Pay by monthly fourth peak bandwidth
+     *   PayByBandwidth: Pay by fixed bandwidth
+     *
+     * You can specify only one metering method for network usage and cannot overwrite the existing metering method.
      * @example BandwidthByDay
      *
      * @var string
@@ -23,6 +33,8 @@ class DescribeEpnBandwitdhByInternetChargeTypeResponseBody extends Model
     public $internetChargeType;
 
     /**
+     * @description The request ID.
+     *
      * @example 216BCED0-E055-5DDB-8E06-4084A62A4A44
      *
      * @var string
@@ -30,6 +42,8 @@ class DescribeEpnBandwitdhByInternetChargeTypeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The timestamp when the monitoring data was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2019-10-12T05:45:00Z
      *
      * @var string

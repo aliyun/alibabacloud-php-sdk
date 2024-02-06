@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSnatEntryRequest extends Model
 {
     /**
+     * @description The ID of the Network Address Translation (NAT) gateway.
+     *
      * @example nat-5tawjw5j7sgd2deujxuk0****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateSnatEntryRequest extends Model
     public $natGatewayId;
 
     /**
+     * @description The name of the SNAT entry. The name must be 1 to 128 characters in length. The name cannot start with `http://` or `https://`.
+     *
      * @example test0
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateSnatEntryRequest extends Model
     public $snatEntryName;
 
     /**
+     * @description The elastic IP address (EIP) in the SNAT entry. Separate multiple EIPs with commas (,).
+     *
      * @example 120.XXX.XXX.71
      *
      * @var string
@@ -30,6 +36,9 @@ class CreateSnatEntryRequest extends Model
     public $snatIp;
 
     /**
+     * @description The CIDR block. You can specify the CIDR block of a network, a vSwitch, or an instance. You can also specify a custom CIDR block. All instances within the CIDR block can access the Internet or external networks by using SNAT.
+     *
+     * >  If you specify **SourceVSwitchId** and **SourceCIDR**, **SourceVSwitchId** does not take effect. The value that you specified for **SourceCIDR** takes precedence.
      * @example 10.0.0.0/24
      *
      * @var string
@@ -37,6 +46,9 @@ class CreateSnatEntryRequest extends Model
     public $sourceCIDR;
 
     /**
+     * @description The ID of the network. This parameter specifies that all ENS instances in the network can use the SNAT entry to access the Internet.
+     *
+     * >  If you specify **SourceNetworkId** and **SourceVSwitchId** or **SourceCIDR**, **SourceNetworkId** does not take effect. The value that you specified for **SourceCIDR** takes precedence. Priority: **SourceCIDR** > **SourceVSwitchId** > **SourceNetworkId**.
      * @example n-2zeuphj08tt7q3brd****
      *
      * @var string
@@ -44,6 +56,9 @@ class CreateSnatEntryRequest extends Model
     public $sourceNetworkId;
 
     /**
+     * @description The ID of the vSwitch that you need to access over the Internet. This parameter specifies that Edge Node Service (ENS) instances in the vSwitch can use the SNAT entry to access the Internet.
+     *
+     * >  If you specify **SourceVSwitchId** and **SourceCIDR**, **SourceVSwitchId** does not take effect. The value that you specified for **SourceCIDR** takes precedence.
      * @example vsw-bp1hwx7gi495q260p****
      *
      * @var string
@@ -51,6 +66,10 @@ class CreateSnatEntryRequest extends Model
     public $sourceVSwitchId;
 
     /**
+     * @description The secondary EIP in the SNAT entry. Separate multiple secondary EIPs with commas (,).
+     *
+     * @example 101.XXX.XXX.7
+     *
      * @var string
      */
     public $standbySnatIp;

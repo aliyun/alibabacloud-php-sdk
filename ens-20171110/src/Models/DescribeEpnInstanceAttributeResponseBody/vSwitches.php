@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vSwitches extends Model
 {
     /**
+     * @description The CIDR block.
+     *
      * @example 10.0.0.1/24
      *
      * @var string
@@ -16,6 +18,8 @@ class vSwitches extends Model
     public $cidrBlock;
 
     /**
+     * @description The ID of the node.
+     *
      * @example cn-chengdu-telecom-4
      *
      * @var string
@@ -23,6 +27,8 @@ class vSwitches extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vs-xxxx
      *
      * @var string
@@ -30,6 +36,8 @@ class vSwitches extends Model
     public $vSwitchId;
 
     /**
+     * @description The name of the vSwitch.
+     *
      * @example vs-test
      *
      * @var string

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateClassicNetworkRequest extends Model
 {
     /**
+     * @description The CIDR block of the network. You can use one of the following CIDR blocks or their subnets as the CIDR block of the network:
+     *
+     *   10.0.0.0/8 (default)
+     *   172.16.0.0/12
+     *   192.168.0.0/16
+     *
      * @example 10.0.0.0/16
      *
      * @var string
@@ -16,6 +22,9 @@ class CreateClassicNetworkRequest extends Model
     public $cidrBlock;
 
     /**
+     * @description The description of the listener. The description is **1** to **80** characters in length.
+     *
+     * >  The value cannot start with `http://` or `https://`.
      * @example This is my vswitch.
      *
      * @var string
@@ -23,6 +32,8 @@ class CreateClassicNetworkRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the edge node.
+     *
      * @example cn-chengdu-xxxx-4
      *
      * @var string
@@ -30,6 +41,12 @@ class CreateClassicNetworkRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The name of the network. The name must meet the following requirements:
+     *
+     *   The name must be 2 to 128 characters in length.
+     *   The name must start with a letter but cannot start with http:// or https://.
+     *   The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
      * @example example
      *
      * @var string

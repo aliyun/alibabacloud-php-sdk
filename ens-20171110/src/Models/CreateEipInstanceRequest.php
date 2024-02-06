@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEipInstanceRequest extends Model
 {
     /**
+     * @description The peak bandwidth of the EIP. Default value: 5. Valid values: 5 to 10000. Unit: Mbit/s.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,17 @@ class CreateEipInstanceRequest extends Model
     public $bandwidth;
 
     /**
+     * @description The description of the EIP.
+     *
+     * @example yourDescription
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description The ID of the Edge Node Service (ENS) node.
+     *
      * @example cn-suzhou-telecom
      *
      * @var string
@@ -23,6 +36,8 @@ class CreateEipInstanceRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The billing method of the EIP. Set the value to **PostPaid**.
+     *
      * @example PostPaid
      *
      * @var string
@@ -30,6 +45,8 @@ class CreateEipInstanceRequest extends Model
     public $instanceChargeType;
 
     /**
+     * @description The metering method of the EIP. Set the value to **95BandwidthByMonth**.
+     *
      * @example 95BandwidthByMonth
      *
      * @var string
@@ -37,6 +54,12 @@ class CreateEipInstanceRequest extends Model
     public $internetChargeType;
 
     /**
+     * @description The Internet service provider. Valid values:
+     *
+     *   **cmcc**: China Mobile
+     *   **unicom**: China Unicom
+     *   **telecom**: China Telecom
+     *
      * @example cmcc
      *
      * @var string
@@ -44,6 +67,8 @@ class CreateEipInstanceRequest extends Model
     public $isp;
 
     /**
+     * @description The name of the EIP.
+     *
      * @example EIP1
      *
      * @var string
@@ -51,6 +76,7 @@ class CreateEipInstanceRequest extends Model
     public $name;
     protected $_name = [
         'bandwidth'          => 'Bandwidth',
+        'description'        => 'Description',
         'ensRegionId'        => 'EnsRegionId',
         'instanceChargeType' => 'InstanceChargeType',
         'internetChargeType' => 'InternetChargeType',
@@ -67,6 +93,9 @@ class CreateEipInstanceRequest extends Model
         $res = [];
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
@@ -97,6 +126,9 @@ class CreateEipInstanceRequest extends Model
         $model = new self();
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];

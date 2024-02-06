@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteImageResponseBody extends Model
 {
     /**
+     * @description The returned service code. A value of 0 indicates that the operation was successful.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteImageResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0D94920B-0349-5097-A57F-31876405F2E5
      *
      * @var string

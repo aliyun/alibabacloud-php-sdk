@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNetworkRequest extends Model
 {
     /**
+     * @description The ID of the network.
+     *
      * @example n-5***
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMountTargetRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteMountTargetRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the file system.
+     *
      * @example c50f8*****
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteMountTargetRequest extends Model
     public $fileSystemId;
 
     /**
+     * @description The name of the mount target.
+     *
      * @example TestMountPath
      *
      * @var string

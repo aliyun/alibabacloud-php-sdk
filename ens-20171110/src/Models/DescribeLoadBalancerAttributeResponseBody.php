@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerAttributeResponseBody extends Model
 {
     /**
+     * @description The IP address that the ELB instance uses to provide services.
+     *
      * @example 192.168.0.1
      *
      * @var string
@@ -18,6 +20,8 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $address;
 
     /**
+     * @description The IP version of the ELB instance. Valid values: ipv4 and ipv6.
+     *
      * @example ipv4
      *
      * @var string
@@ -25,11 +29,15 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $addressIPVersion;
 
     /**
+     * @description The backend servers.
+     *
      * @var backendServers[]
      */
     public $backendServers;
 
     /**
+     * @description The maximum bandwidth of the elastic IP address (EIP). Default value: 5. Valid values: **5** to **10000**. Unit: Mbit/s.
+     *
      * @example 2000
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $bandwidth;
 
     /**
+     * @description The time when the ELB instance was created. The time is displayed in UTC.
+     *
      * @example 2019-05-21T12:22:00Z
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The time when the ELB instance was disabled.
+     *
      * @example 2020-05-21T12:22:00Z
      *
      * @var string
@@ -51,6 +63,8 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The ID of the ENS node.
+     *
      * @example cn-chengdu-telecom
      *
      * @var string
@@ -58,16 +72,22 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $ensRegionId;
 
     /**
+     * @description The frontend ports that are used by the ELB instance.
+     *
      * @var string[]
      */
     public $listenerPorts;
 
     /**
+     * @description The frontend ports and protocols that are used by the ELB instance.
+     *
      * @var listenerPortsAndProtocols[]
      */
     public $listenerPortsAndProtocols;
 
     /**
+     * @description The ID of the ELB instance.
+     *
      * @example lb-5rcvo1n1t3hykfhhjwjgqp****
      *
      * @var string
@@ -75,6 +95,8 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $loadBalancerId;
 
     /**
+     * @description The name of the ELB instance.
+     *
      * @example example
      *
      * @var string
@@ -82,6 +104,8 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $loadBalancerName;
 
     /**
+     * @description The specifications of the ELB instance.
+     *
      * @example elb.s2.medium
      *
      * @var string
@@ -89,6 +113,11 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $loadBalancerSpec;
 
     /**
+     * @description The status of the ELB instance. Valid values:
+     *
+     *   **Active** (default): The listener for the instance can forward the received traffic based on the rule.
+     *   **InActive**: The listener for the instance does not forward the received traffic.
+     *
      * @example Active
      *
      * @var string
@@ -96,6 +125,8 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $loadBalancerStatus;
 
     /**
+     * @description The ID of the network.
+     *
      * @example n-5rwbi3g9zvgxcsiufwhw8****
      *
      * @var string
@@ -103,6 +134,11 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $networkId;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   **PrePaid**: subscription.
+     *   **PostPaid**: pay-as-you-go. Only this billing method is supported.
+     *
      * @example PostPaid
      *
      * @var string
@@ -110,6 +146,8 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $payType;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -117,6 +155,8 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-5s78m2pdr9osa0j64bn78****
      *
      * @var string

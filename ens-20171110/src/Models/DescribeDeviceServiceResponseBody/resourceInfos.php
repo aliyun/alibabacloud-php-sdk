@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class resourceInfos extends Model
 {
     /**
+     * @description The version of the application.
+     *
      * @example v1
      *
      * @var string
@@ -19,6 +21,8 @@ class resourceInfos extends Model
     public $appVersion;
 
     /**
+     * @description The area code.
+     *
      * @example 410800
      *
      * @var string
@@ -26,11 +30,15 @@ class resourceInfos extends Model
     public $areaCode;
 
     /**
+     * @description The region name.
+     *
      * @var string
      */
     public $areaName;
 
     /**
+     * @description The time when the application was created.
+     *
      * @example 2019-10-02T08:26Z
      *
      * @var string
@@ -38,11 +46,15 @@ class resourceInfos extends Model
     public $createTime;
 
     /**
+     * @description The information about the devices.
+     *
      * @var deviceInfos[]
      */
     public $deviceInfos;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-5s9boobrmh5000kv4jmi0oeai
      *
      * @var string
@@ -50,6 +62,8 @@ class resourceInfos extends Model
     public $instanceId;
 
     /**
+     * @description The status of the instance.
+     *
      * @example Running
      *
      * @var string
@@ -57,16 +71,22 @@ class resourceInfos extends Model
     public $instanceStatus;
 
     /**
+     * @description The internal IP addresses.
+     *
      * @var internalIps[]
      */
     public $internalIps;
 
     /**
+     * @description The public IP addresses.
+     *
      * @var publicIps[]
      */
     public $publicIps;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-jiaozuo-2
      *
      * @var string
@@ -74,6 +94,8 @@ class resourceInfos extends Model
     public $regionCode;
 
     /**
+     * @description The ID of the ENS node.
+     *
      * @example cn-jiaozuo-2
      *
      * @var string
@@ -81,6 +103,8 @@ class resourceInfos extends Model
     public $regionId;
 
     /**
+     * @description The name of the region.
+     *
      * @var string
      */
     public $regionName;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerSpecResponseBody extends Model
 {
     /**
+     * @description The specifications. Valid values:
+     *
      * @var loadBalancerSpecs[]
      */
     public $loadBalancerSpecs;
 
     /**
+     * @description The page number.
+     *
      * @example 10
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeLoadBalancerSpecResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Maximum value: 100. Default value: 10.
+     *
      * @example 100
      *
      * @var int
@@ -29,7 +35,7 @@ class DescribeLoadBalancerSpecResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -38,6 +44,8 @@ class DescribeLoadBalancerSpecResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 7
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyEpnInstanceRequest extends Model
 {
     /**
+     * @description The ID of the EPN instance.
+     *
      * @example epn-****
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyEpnInstanceRequest extends Model
     public $EPNInstanceId;
 
     /**
+     * @description The name of the EPN instance.
+     *
      * @example ens_test_epn
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyEpnInstanceRequest extends Model
     public $EPNInstanceName;
 
     /**
+     * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 1 Mbit/s to 100 Mbit/s.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,13 @@ class ModifyEpnInstanceRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
+     * @description The networking mode. Valid values:
+     *
+     *   **SpeedUp**: Intelligent acceleration network (Internet).
+     *   **Connection**: Internal network.
+     *   **SpeedUpAndConnection**: Intelligent acceleration network and internal network.
+     *
+     * >  The internal network supports only **Connection** and **SpeedUpAndConnection**.
      * @example SpeedUp
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceServiceRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example a2bac6f4-75dc-455e-8389-2dc8e47526d3
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDeviceServiceRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter does not take effect.
+     *
      * @example cn-chongqing-10
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDeviceServiceRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-5sg1owx0g4ojy66ab2tez77r2
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeDeviceServiceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the order.
+     *
      * @example 2661b1dd-3453-418d-8182-bb34f79e8d3c
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeDeviceServiceRequest extends Model
     public $orderId;
 
     /**
+     * @description The ID of the Edge Node Service (ENS) node.
+     *
      * @example cn-chongqing-11
      *
      * @var string

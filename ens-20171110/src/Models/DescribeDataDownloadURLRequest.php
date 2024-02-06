@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataDownloadURLRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example 474bdef0-d149-4695-abfb-52912d9143f0
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDataDownloadURLRequest extends Model
     public $appId;
 
     /**
+     * @description The name of the data file.
+     *
      * @example mirror_file/pk-1642597182026-878199448832413.tar
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDataDownloadURLRequest extends Model
     public $dataName;
 
     /**
+     * @description The version number of the data file.
+     *
      * @example 7895
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeDataDownloadURLRequest extends Model
     public $dataVersion;
 
     /**
+     * @description This parameter is reserved.
+     *
      * @example 600
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeDataDownloadURLRequest extends Model
     public $expireTimeout;
 
     /**
+     * @description The condition that you want to use to filter file servers. You can specify multiple canary release policies. By default, all resources are queried.
+     *
      * @example {\"name\": \"ScheduleToRegionId\",\"parameters\":{\"operator\": \"In\",\"values\": [\"cn-shijiazhuang-telecom_unicom_cmcc\"]}}
      *
      * @var string

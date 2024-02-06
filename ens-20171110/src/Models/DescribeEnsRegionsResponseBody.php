@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsRegionsResponseBody extends Model
 {
     /**
+     * @description The service code. 0 is returned for a successful request. An error code is returned for a failed request.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeEnsRegionsResponseBody extends Model
     public $code;
 
     /**
+     * @description The information about the regions.
+     *
      * @var ensRegions
      */
     public $ensRegions;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string

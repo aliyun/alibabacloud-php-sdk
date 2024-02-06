@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class eipAddress extends Model
 {
     /**
+     * @description The ID of the EIP.
+     *
      * @example eip-5sainglpw7qfem3icir4s****
      *
      * @var string
@@ -16,6 +18,8 @@ class eipAddress extends Model
     public $allocationId;
 
     /**
+     * @description The time when the EIP was created.
+     *
      * @example 1624885274000
      *
      * @var string
@@ -23,6 +27,8 @@ class eipAddress extends Model
     public $allocationTime;
 
     /**
+     * @description The peak bandwidth of the EIP. Default value: 5. Valid values: **5** to **10000**. Unit: Mbit/s.
+     *
      * @example 50
      *
      * @var int
@@ -30,6 +36,11 @@ class eipAddress extends Model
     public $bandwidth;
 
     /**
+     * @description The billing method of the EIP. Valid values:
+     *
+     *   **PrePaid**: subscription.
+     *   **PostPaid**: pay-as-you-go
+     *
      * @example PostPaid
      *
      * @var string
@@ -37,6 +48,8 @@ class eipAddress extends Model
     public $chargeType;
 
     /**
+     * @description The description of the EIP.
+     *
      * @example example
      *
      * @var string
@@ -44,6 +57,8 @@ class eipAddress extends Model
     public $description;
 
     /**
+     * @description The ID of the ENS node.
+     *
      * @example cn-xian-telecom
      *
      * @var string
@@ -51,6 +66,8 @@ class eipAddress extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the instance that is associated with the EIP.
+     *
      * @example lb-5sc3kum2e0sz34wbqrws9****
      *
      * @var string
@@ -58,6 +75,11 @@ class eipAddress extends Model
     public $instanceId;
 
     /**
+     * @description The type of the instance that is associated with the EIP. Valid values:
+     *
+     *   **EnsInstance**: ENS instance in a VPC
+     *   **SlbInstance**: SLB instance
+     *
      * @example SlbInstance
      *
      * @var string
@@ -65,6 +87,11 @@ class eipAddress extends Model
     public $instanceType;
 
     /**
+     * @description The metering method of the EIP.
+     *
+     *   **95BandwidthByMonth**: Pay by monthly 95th percentile bandwidth
+     *   **PayByBandwidth**: Pay by bandwidth
+     *
      * @example 95BandwidthByMonth
      *
      * @var string
@@ -72,6 +99,8 @@ class eipAddress extends Model
     public $internetChargeType;
 
     /**
+     * @description The EIP.
+     *
      * @example 10.10.10
      *
      * @var string
@@ -79,11 +108,26 @@ class eipAddress extends Model
     public $ipAddress;
 
     /**
+     * @description The running status of the EIP. This parameter is returned if the EIP is a secondary EIP. Valid values:
+     *
+     *   **Stopped**
+     *   **Running**
+     *   **Starting**
+     *   **Stopping**
+     *
+     * @example Stopped
+     *
      * @var string
      */
     public $ipStatus;
 
     /**
+     * @description The Internet service provider (ISP). Valid values:
+     *
+     *   **cmcc**: China Mobile
+     *   **unicom**: China Unicom
+     *   **telecom**: China Telecom
+     *
      * @example cmcc
      *
      * @var string
@@ -91,6 +135,8 @@ class eipAddress extends Model
     public $isp;
 
     /**
+     * @description The name of the EIP.
+     *
      * @example test
      *
      * @var string
@@ -98,11 +144,22 @@ class eipAddress extends Model
     public $name;
 
     /**
+     * @description Indicates whether the EIP is a secondary EIP.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $standby;
 
     /**
+     * @description The status of the EIP. Valid values:
+     *
+     *   **Associating**
+     *   **Unassociating**
+     *   **InUse**
+     *   **Available**
+     *
      * @example Available
      *
      * @var string

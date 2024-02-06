@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageSharePermissionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 701B3BB9-9190-544D-90D1-328B0527380C
      *
      * @var string

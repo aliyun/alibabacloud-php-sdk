@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class orderDetails extends Model
 {
     /**
+     * @description The billing method of the NAS file system. Valid values:
+     *
+     *   PrePaid: subscription. This billing method is not supported.
+     *   PostPaid: pay-as-you-go.
+     *
      * @example PostPaid
      *
      * @var string
@@ -16,6 +21,8 @@ class orderDetails extends Model
     public $chargeType;
 
     /**
+     * @description The ID of the node.
+     *
      * @example cn-suzhou-telecom
      *
      * @var string
@@ -23,6 +30,8 @@ class orderDetails extends Model
     public $ensRegionId;
 
     /**
+     * @description The name of the file system.
+     *
      * @example nasFile
      *
      * @var string
@@ -30,6 +39,8 @@ class orderDetails extends Model
     public $fileSystemName;
 
     /**
+     * @description The name of the mount target.
+     *
      * @example nasMount
      *
      * @var string
@@ -37,6 +48,8 @@ class orderDetails extends Model
     public $mountTargetDomain;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-xxx
      *
      * @var string
@@ -44,7 +57,7 @@ class orderDetails extends Model
     public $networkId;
 
     /**
-     * @description BUY。
+     * @description The type of the order.
      *
      * @example BUY
      *
@@ -53,6 +66,8 @@ class orderDetails extends Model
     public $orderType;
 
     /**
+     * @description The storage protocol. Valid values: nsf and smb.
+     *
      * @example nfs
      *
      * @var string
@@ -60,6 +75,8 @@ class orderDetails extends Model
     public $protocolType;
 
     /**
+     * @description The type of the storage. Set the value to capacity.
+     *
      * @example capacity
      *
      * @var string

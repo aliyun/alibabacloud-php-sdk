@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataDistResultShrinkRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example e76f8985-7965-41fc-925b-9648bb6bf650
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDataDistResultShrinkRequest extends Model
     public $appId;
 
     /**
+     * @description The name of the data file. Separate multiple names with commas (,). By default, all data files are queried.
+     *
      * @example cloudgame-shanghai/deploy_app/20220215/1644895216305ACG_M21B-ota-1.1.2-D-0215.0628_V1_0002-pre-weiduan.zip
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDataDistResultShrinkRequest extends Model
     public $dataNames;
 
     /**
+     * @description The version number of the data file. Separate multiple numbers with commas (,). By default, all versions of data files are queried.
+     *
      * @example 4885
      *
      * @var string
@@ -30,11 +36,15 @@ class DescribeDataDistResultShrinkRequest extends Model
     public $dataVersions;
 
     /**
+     * @description The IDs of the ENS nodes.
+     *
      * @var string
      */
     public $ensRegionIdsShrink;
 
     /**
+     * @description The IDs of ENS instances. Separate multiple IDs with commas (,). By default, all instances are queried.
+     *
      * @example i-7ecpqvkicnchxccozrp,i-6ecpqvkicnchxccozrp
      *
      * @var string
@@ -42,6 +52,8 @@ class DescribeDataDistResultShrinkRequest extends Model
     public $instanceIds;
 
     /**
+     * @description The end of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+     *
      * @example 2022-02-01
      *
      * @var string
@@ -49,6 +61,8 @@ class DescribeDataDistResultShrinkRequest extends Model
     public $maxDate;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+     *
      * @example 2022-01-02
      *
      * @var string
@@ -56,6 +70,8 @@ class DescribeDataDistResultShrinkRequest extends Model
     public $minDate;
 
     /**
+     * @description The page number. Pages start from page 1. This parameter is optional if you want to return the distribution status of all data files.
+     *
      * @example 1
      *
      * @var int
@@ -63,6 +79,8 @@ class DescribeDataDistResultShrinkRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. This parameter is optional if you want to return the distribution status of all data files.
+     *
      * @example 10
      *
      * @var int

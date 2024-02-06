@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateForwardEntryRequest extends Model
 {
     /**
+     * @description The elastic IP address (EIP) that is used to access the Internet.
+     *
      * @example 121.11.36.28
      *
      * @var string
@@ -16,6 +18,12 @@ class CreateForwardEntryRequest extends Model
     public $externalIp;
 
     /**
+     * @description The external port or port range that is used for port forwarding.
+     *
+     *   Valid values: 1 to 65535.
+     *   To specify a port range, separate the first port and the last port with a forward slash (/), such as 10/20.
+     *   If you set ExternalPort to a port range, you must also set InternalPort to a port range, and the number of ports specified must be the same for both parameters. For example, if you set ExternalPort to 10/20, you can set InternalPort to 80/90.
+     *
      * @example 22
      *
      * @var string
@@ -23,6 +31,8 @@ class CreateForwardEntryRequest extends Model
     public $externalPort;
 
     /**
+     * @description The name of the DNAT entry. The name must be 2 to 128 characters in length. The name cannot start with `http://` or `https://`.
+     *
      * @example test0
      *
      * @var string
@@ -30,11 +40,17 @@ class CreateForwardEntryRequest extends Model
     public $forwardEntryName;
 
     /**
+     * @description The probe port. The port must be within the internal port range. By default, this parameter is left empty.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $healthCheckPort;
 
     /**
+     * @description The private IP address of the instance that uses the DNAT entry for Internet communication.
+     *
      * @example 10.0.0.13
      *
      * @var string
@@ -42,6 +58,11 @@ class CreateForwardEntryRequest extends Model
     public $internalIp;
 
     /**
+     * @description The internal port or port range that is used for port forwarding.
+     *
+     *   Valid values: 1 to 65535.
+     *   To specify a port range, separate the first port and the last port with a forward slash (/), such as 10/20.
+     *
      * @example 22
      *
      * @var string
@@ -49,6 +70,12 @@ class CreateForwardEntryRequest extends Model
     public $internalPort;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     *   **TCP**: forwards TCP packets.
+     *   **UDP**: forwards UDP packets.
+     *   **Any** (default): forwards all packets.
+     *
      * @example Any
      *
      * @var string
@@ -56,6 +83,8 @@ class CreateForwardEntryRequest extends Model
     public $ipProtocol;
 
     /**
+     * @description The ID of the Network Address Translation (NAT) gateway.
+     *
      * @example nat-5t7nh1cfm6kxiszlttr383xpo
      *
      * @var string
@@ -63,6 +92,10 @@ class CreateForwardEntryRequest extends Model
     public $natGatewayId;
 
     /**
+     * @description The secondary EIP that is used to access the Internet. You need to select a secondary EIP that is bound to NAT. After the DNAT entry is created, the secondary EIP takes effect.
+     *
+     * @example 101.XXX.XXX.4
+     *
      * @var string
      */
     public $standbyExternalIp;

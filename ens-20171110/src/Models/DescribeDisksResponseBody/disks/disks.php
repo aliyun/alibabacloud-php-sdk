@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class disks extends Model
 {
     /**
+     * @description The category of the disk.
+     *
+     *   cloud_efficiency: ultra disk.
+     *   cloud_ssd: all-flash disk.
+     *   local_hdd: local HDD.
+     *   local_ssd: local SSD.
+     *
      * @example local_ssd
      *
      * @var string
@@ -16,6 +23,8 @@ class disks extends Model
     public $category;
 
     /**
+     * @description The time when the disk was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2021-11-11T14:34:55+08:00
      *
      * @var string
@@ -23,6 +32,11 @@ class disks extends Model
     public $creationTime;
 
     /**
+     * @description The billing method of the cloud disk or local disk. Valid values:
+     *
+     *   **prepaid**: subscription.
+     *   **postpaid**: pay-as-you-go.
+     *
      * @example prepaid
      *
      * @var string
@@ -30,16 +44,40 @@ class disks extends Model
     public $diskChargeType;
 
     /**
+     * @description The ID of the disk.
+     *
+     * @example d-5svum1dx1w4a4spr54lgr****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description The name of the disk.
+     *
+     * @example fvt-ecs-5cf0****
+     *
      * @var string
      */
     public $diskName;
 
     /**
+     * @description Indicates whether the cloud disk is encrypted.
+     *
+     * @example False
+     *
+     * @var bool
+     */
+    public $encrypted;
+
+    /**
+     * @var string
+     */
+    public $encryptedKeyId;
+
+    /**
+     * @description The ID of the edge node.
+     *
      * @example cn-guangzhou-10
      *
      * @var string
@@ -47,16 +85,33 @@ class disks extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-5t77rb0yoz79m28ku60sx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description Specifies whether the cloud disk or the local disk is removable. Valid values:
+     *
+     *   true: The disk is removable. A removable disk can independently exist and can be attached to or detached from an instance within the same zone.
+     *   false: The disk is not removable. A disk that is not removable cannot independently exist or be attached to or detached from an instance within the same zone.
+     *
+     * The **Portable** attribute of the following disks is **false**, and these disks share the same lifecycle with their associated instances:
+     *
+     *   Local HDD.
+     *   Local SSD.
+     *   Data disk that uses the subscription billing method.
+     *
      * @example true
      *
      * @var bool
@@ -64,11 +119,17 @@ class disks extends Model
     public $portable;
 
     /**
+     * @description The serial number.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $serialId;
 
     /**
+     * @description The size of the disk. Unit: MiB.
+     *
      * @example 20
      *
      * @var int
@@ -76,11 +137,24 @@ class disks extends Model
     public $size;
 
     /**
+     * @description The ID of the snapshot.
+     *
+     * @example s-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @description The status of the disk. Valid values:
+     *
+     *   In-use: The disk is in use.
+     *   Available: The disk can be attached.
+     *   Attaching: The disk is being attached.
+     *   Detaching: The disk is being detached.
+     *   Creating: The image is being created.
+     *   ReIniting: The disk is being reset.
+     *
      * @example Available
      *
      * @var string
@@ -88,6 +162,11 @@ class disks extends Model
     public $status;
 
     /**
+     * @description The type of the cloud disk or local disk. Valid values:
+     *
+     *   1: system disk.
+     *   2: data disk.
+     *
      * @example 1
      *
      * @var string
@@ -99,6 +178,8 @@ class disks extends Model
         'diskChargeType' => 'DiskChargeType',
         'diskId'         => 'DiskId',
         'diskName'       => 'DiskName',
+        'encrypted'      => 'Encrypted',
+        'encryptedKeyId' => 'EncryptedKeyId',
         'ensRegionId'    => 'EnsRegionId',
         'instanceId'     => 'InstanceId',
         'instanceName'   => 'InstanceName',
@@ -131,6 +212,12 @@ class disks extends Model
         }
         if (null !== $this->diskName) {
             $res['DiskName'] = $this->diskName;
+        }
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
+        }
+        if (null !== $this->encryptedKeyId) {
+            $res['EncryptedKeyId'] = $this->encryptedKeyId;
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
@@ -185,6 +272,12 @@ class disks extends Model
         }
         if (isset($map['DiskName'])) {
             $model->diskName = $map['DiskName'];
+        }
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
+        }
+        if (isset($map['EncryptedKeyId'])) {
+            $model->encryptedKeyId = $map['EncryptedKeyId'];
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];

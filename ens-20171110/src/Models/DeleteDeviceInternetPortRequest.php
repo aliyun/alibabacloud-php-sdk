@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeviceInternetPortRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can specify the ID of the server or container.
+     *
      * @example i-5scdmgpdegymqyugf85q66l1a
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteDeviceInternetPortRequest extends Model
     public $instanceId;
 
     /**
+     * @description The type of the NAT gateway. The value must be of the enumerated data type. Valid values:
+     *
+     *   SNAT
+     *   DNAT
+     *
      * @example DNAT
      *
      * @var string
@@ -23,6 +30,8 @@ class DeleteDeviceInternetPortRequest extends Model
     public $natType;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example snat-5rfzxah5gzfo869fl6epvon3y
      *
      * @var string

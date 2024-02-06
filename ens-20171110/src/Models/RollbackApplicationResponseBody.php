@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RollbackApplicationResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example C0003E8B-B930-4F59-ADC0-0E209A9012A8
      *
      * @var string

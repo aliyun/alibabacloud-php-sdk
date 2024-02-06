@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ingressAclEntries extends Model
 {
     /**
+     * @description The source CIDR block.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -16,6 +18,8 @@ class ingressAclEntries extends Model
     public $cidrBlock;
 
     /**
+     * @description The description of the inbound rule.
+     *
      * @example This is IngressAclEntries.
      *
      * @var string
@@ -23,6 +27,8 @@ class ingressAclEntries extends Model
     public $description;
 
     /**
+     * @description The ID of the inbound rule.
+     *
      * @example nae-5dk86arlydmezasw****
      *
      * @var string
@@ -30,6 +36,8 @@ class ingressAclEntries extends Model
     public $networkAclEntryId;
 
     /**
+     * @description The name of the inbound rule.
+     *
      * @example acl-3
      *
      * @var string
@@ -37,6 +45,11 @@ class ingressAclEntries extends Model
     public $networkAclEntryName;
 
     /**
+     * @description The action that is performed on network traffic that matches the rule. Valid values:
+     *
+     *   **accept**: allows the network traffic.
+     *   **drop**: blocks the network traffic.
+     *
      * @example accept
      *
      * @var string
@@ -44,6 +57,11 @@ class ingressAclEntries extends Model
     public $policy;
 
     /**
+     * @description The destination port range of the inbound rule.
+     *
+     *   If **Protocol** in the inbound rule is set to **all** or **icmp**, \*\*-1/-1\*\* is returned for this parameter. \*\*-1/-1\*\* indicates all ports.
+     *   If **Protocol** in the inbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200 and 80/80 indicates port 80. Valid values for a port: **1 to 65535**.
+     *
      * @example -1/-1
      *
      * @var string
@@ -51,6 +69,8 @@ class ingressAclEntries extends Model
     public $portRange;
 
     /**
+     * @description The priority of the rule. Valid values: **1 to 100**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +78,13 @@ class ingressAclEntries extends Model
     public $priority;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     *   **icmp**
+     *   **tcp**
+     *   **udp**
+     *   **all**
+     *
      * @example all
      *
      * @var string
@@ -65,6 +92,11 @@ class ingressAclEntries extends Model
     public $protocol;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   **system**: The rule is created by the system.
+     *   **custom**: The rule is created by a user.
+     *
      * @example system
      *
      * @var string

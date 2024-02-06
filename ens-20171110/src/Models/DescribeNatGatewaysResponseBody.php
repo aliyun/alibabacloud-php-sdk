@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatGatewaysResponseBody extends Model
 {
     /**
+     * @description Details about the NAT gateways.
+     *
      * @var natGateways[]
      */
     public $natGateways;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeNatGatewaysResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeNatGatewaysResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 2818A8F4-5E2B-5611-8732-5ACF7B677059
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeNatGatewaysResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of NAT gateways that are returned.
+     *
      * @example 49
      *
      * @var int
