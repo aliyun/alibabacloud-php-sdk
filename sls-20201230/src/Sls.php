@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDashboardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateETLRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateETLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLoggingRequest;
@@ -34,14 +36,22 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogtailPipelineConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSExportRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOssExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOssExternalStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSHDFSExportRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSHDFSExportResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSIngestionRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateScheduledSQLRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataResponse;
@@ -53,15 +63,20 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDomainResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteETLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteOSSExportResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteOSSHDFSExportResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteOSSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteSavedSearchResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteShipperResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DisableAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\EnableAlertResponse;
@@ -83,6 +98,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetDashboardResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetETLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsResponse;
@@ -99,11 +115,15 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMLServiceResultsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMLServiceResultsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetOSSExportResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetOSSHDFSExportResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetOSSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSavedSearchResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAlertsRequest;
@@ -124,6 +144,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListDashboardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListETLsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListETLsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresRequest;
@@ -134,15 +156,24 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachinesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachinesResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListOSSExportsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListOSSExportsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListOSSHDFSExportsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListOSSHDFSExportsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListOSSIngestionsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListOSSIngestionsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListSavedSearchResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListScheduledSQLsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListScheduledSQLsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListShardsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListShipperResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesShrinkRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\MergeShardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutAnnotationDataRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutAnnotationDataResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectPolicyRequest;
@@ -156,6 +187,14 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\QueryMLServiceResultsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\RemoveConfigFromMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StartETLResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StartOSSExportResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StartOSSHDFSExportResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StartOSSIngestionResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StopETLResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StopOSSExportResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StopOSSHDFSExportResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StopOSSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesRequest;
@@ -172,6 +211,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateDashboardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateDashboardResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateETLRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateETLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingRequest;
@@ -186,14 +227,22 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupMachineRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupMachineResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSExportRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOssExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOssExternalStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSHDFSExportRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSHDFSExportResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSIngestionRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOSSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateRdsExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateRdsExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSavedSearchResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateScheduledSQLRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpsertCollectionPolicyResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -400,10 +449,26 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $body               = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $body['configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->schedule)) {
+            $body['schedule'] = $request->schedule;
+        }
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateAlert',
@@ -414,7 +479,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'any',
+            'bodyType'    => 'none',
         ]);
 
         return CreateAlertResponse::fromMap($this->execute($params, $req, $runtime));
@@ -767,6 +832,66 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->createDomainWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string           $project
+     * @param CreateETLRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateETLResponse
+     */
+    public function createETLWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $body['configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateETL',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/etls',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateETLResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string           $project
+     * @param CreateETLRequest $request
+     *
+     * @return CreateETLResponse
+     */
+    public function createETL($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createETLWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -1135,6 +1260,189 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                 $project
+     * @param CreateOSSExportRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateOSSExportResponse
+     */
+    public function createOSSExportWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $body['configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOSSExport',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossexports',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateOSSExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $project
+     * @param CreateOSSExportRequest $request
+     *
+     * @return CreateOSSExportResponse
+     */
+    public function createOSSExport($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOSSExportWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                     $project
+     * @param CreateOSSHDFSExportRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateOSSHDFSExportResponse
+     */
+    public function createOSSHDFSExportWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $body['configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOSSHDFSExport',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/osshdfsexports',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateOSSHDFSExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                     $project
+     * @param CreateOSSHDFSExportRequest $request
+     *
+     * @return CreateOSSHDFSExportResponse
+     */
+    public function createOSSHDFSExport($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOSSHDFSExportWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $project
+     * @param CreateOSSIngestionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateOSSIngestionResponse
+     */
+    public function createOSSIngestionWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $body['configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->schedule)) {
+            $body['schedule'] = $request->schedule;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOSSIngestion',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossingestions',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateOSSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $project
+     * @param CreateOSSIngestionRequest $request
+     *
+     * @return CreateOSSIngestionResponse
+     */
+    public function createOSSIngestion($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOSSIngestionWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * ### [](#)Usage notes
      *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *   *
@@ -1383,6 +1691,69 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                    $project
+     * @param CreateScheduledSQLRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateScheduledSQLResponse
+     */
+    public function createScheduledSQLWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $body['configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->schedule)) {
+            $body['schedule'] = $request->schedule;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateScheduledSQL',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/scheduledsqls',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateScheduledSQLResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $project
+     * @param CreateScheduledSQLRequest $request
+     *
+     * @return CreateScheduledSQLResponse
+     */
+    public function createScheduledSQL($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createScheduledSQLWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
@@ -1444,7 +1815,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'any',
+            'bodyType'    => 'none',
         ]);
 
         return DeleteAlertResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1864,6 +2235,51 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string         $project
+     * @param string         $etlName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteETLResponse
+     */
+    public function deleteETLWithOptions($project, $etlName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteETL',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/etls/' . $etlName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteETLResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $etlName
+     *
+     * @return DeleteETLResponse
+     */
+    public function deleteETL($project, $etlName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteETLWithOptions($project, $etlName, $headers, $runtime);
+    }
+
+    /**
      * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *   *
      * @param string         $project
@@ -2159,6 +2575,141 @@ class Sls extends OpenApiClient
 
     /**
      * @param string         $project
+     * @param string         $ossExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteOSSExportResponse
+     */
+    public function deleteOSSExportWithOptions($project, $ossExportName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteOSSExport',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossexports/' . $ossExportName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteOSSExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $ossExportName
+     *
+     * @return DeleteOSSExportResponse
+     */
+    public function deleteOSSExport($project, $ossExportName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteOSSExportWithOptions($project, $ossExportName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $ossExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteOSSHDFSExportResponse
+     */
+    public function deleteOSSHDFSExportWithOptions($project, $ossExportName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteOSSHDFSExport',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/osshdfsexports/' . $ossExportName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteOSSHDFSExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $ossExportName
+     *
+     * @return DeleteOSSHDFSExportResponse
+     */
+    public function deleteOSSHDFSExport($project, $ossExportName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteOSSHDFSExportWithOptions($project, $ossExportName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $ossIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteOSSIngestionResponse
+     */
+    public function deleteOSSIngestionWithOptions($project, $ossIngestionName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteOSSIngestion',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossingestions/' . $ossIngestionName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteOSSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $ossIngestionName
+     *
+     * @return DeleteOSSIngestionResponse
+     */
+    public function deleteOSSIngestion($project, $ossIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteOSSIngestionWithOptions($project, $ossIngestionName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
@@ -2301,8 +2852,56 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * @param string         $project
+     * @param string         $scheduledSQLName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteScheduledSQLResponse
+     */
+    public function deleteScheduledSQLWithOptions($project, $scheduledSQLName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteScheduledSQL',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/scheduledsqls/' . $scheduledSQLName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteScheduledSQLResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $scheduledSQLName
+     *
+     * @return DeleteScheduledSQLResponse
+     */
+    public function deleteScheduledSQL($project, $scheduledSQLName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteScheduledSQLWithOptions($project, $scheduledSQLName, $headers, $runtime);
+    }
+
+    /**
+     * @deprecated
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *   *
+     * Deprecated
+     *
      * @param string         $project
      * @param string         $logstore
      * @param string         $shipperName
@@ -2335,8 +2934,11 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * @deprecated
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *   *
+     * Deprecated
+     *
      * @param string $project
      * @param string $logstore
      * @param string $shipperName
@@ -2376,7 +2978,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'any',
+            'bodyType'    => 'none',
         ]);
 
         return DisableAlertResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2421,7 +3023,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'any',
+            'bodyType'    => 'none',
         ]);
 
         return EnableAlertResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3128,6 +3730,51 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string         $project
+     * @param string         $etlName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetETLResponse
+     */
+    public function getETLWithOptions($project, $etlName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetETL',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/etls/' . $etlName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetETLResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $etlName
+     *
+     * @return GetETLResponse
+     */
+    public function getETL($project, $etlName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getETLWithOptions($project, $etlName, $headers, $runtime);
+    }
+
+    /**
      * *   The supported data sources of external stores include Object Storage Service (OSS) buckets and ApsaraDB RDS for MySQL databases in a virtual private cloud (VPC).
      *   * *   Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *   *
@@ -3805,6 +4452,141 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string         $project
+     * @param string         $ossExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetOSSExportResponse
+     */
+    public function getOSSExportWithOptions($project, $ossExportName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetOSSExport',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossexports/' . $ossExportName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOSSExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $ossExportName
+     *
+     * @return GetOSSExportResponse
+     */
+    public function getOSSExport($project, $ossExportName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getOSSExportWithOptions($project, $ossExportName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $ossExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetOSSHDFSExportResponse
+     */
+    public function getOSSHDFSExportWithOptions($project, $ossExportName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetOSSHDFSExport',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/osshdfsexports/' . $ossExportName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOSSHDFSExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $ossExportName
+     *
+     * @return GetOSSHDFSExportResponse
+     */
+    public function getOSSHDFSExport($project, $ossExportName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getOSSHDFSExportWithOptions($project, $ossExportName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $ossIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetOSSIngestionResponse
+     */
+    public function getOSSIngestionWithOptions($project, $ossIngestionName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetOSSIngestion',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossingestions/' . $ossIngestionName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOSSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $ossIngestionName
+     *
+     * @return GetOSSIngestionResponse
+     */
+    public function getOSSIngestion($project, $ossIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getOSSIngestionWithOptions($project, $ossIngestionName, $headers, $runtime);
+    }
+
+    /**
      * ### Usage notes
      *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *   *
@@ -4022,8 +4804,56 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * @param string         $project
+     * @param string         $scheduledSQLName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetScheduledSQLResponse
+     */
+    public function getScheduledSQLWithOptions($project, $scheduledSQLName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetScheduledSQL',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/scheduledsqls/' . $scheduledSQLName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetScheduledSQLResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $scheduledSQLName
+     *
+     * @return GetScheduledSQLResponse
+     */
+    public function getScheduledSQL($project, $scheduledSQLName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getScheduledSQLWithOptions($project, $scheduledSQLName, $headers, $runtime);
+    }
+
+    /**
+     * @deprecated
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *   *
+     * Deprecated
+     *
      * @param string                  $project
      * @param string                  $logstore
      * @param string                  $shipperName
@@ -4075,8 +4905,11 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * @deprecated
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *   *
+     * Deprecated
+     *
      * @param string                  $project
      * @param string                  $logstore
      * @param string                  $shipperName
@@ -4620,6 +5453,60 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string          $project
+     * @param ListETLsRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListETLsResponse
+     */
+    public function listETLsWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListETLs',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/etls',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListETLsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string          $project
+     * @param ListETLsRequest $request
+     *
+     * @return ListETLsResponse
+     */
+    public function listETLs($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listETLsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *   *
      * @param string                   $project
@@ -4951,6 +5838,168 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                $project
+     * @param ListOSSExportsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListOSSExportsResponse
+     */
+    public function listOSSExportsWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOSSExports',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossexports',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOSSExportsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $project
+     * @param ListOSSExportsRequest $request
+     *
+     * @return ListOSSExportsResponse
+     */
+    public function listOSSExports($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listOSSExportsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $project
+     * @param ListOSSHDFSExportsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListOSSHDFSExportsResponse
+     */
+    public function listOSSHDFSExportsWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOSSHDFSExports',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/osshdfsexports',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOSSHDFSExportsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $project
+     * @param ListOSSHDFSExportsRequest $request
+     *
+     * @return ListOSSHDFSExportsResponse
+     */
+    public function listOSSHDFSExports($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listOSSHDFSExportsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $project
+     * @param ListOSSIngestionsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListOSSIngestionsResponse
+     */
+    public function listOSSIngestionsWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOSSIngestions',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossingestions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOSSIngestionsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $project
+     * @param ListOSSIngestionsRequest $request
+     *
+     * @return ListOSSIngestionsResponse
+     */
+    public function listOSSIngestions($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listOSSIngestionsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * ### [](#)Usage notes
      *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *   *
@@ -5072,6 +6121,60 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                   $project
+     * @param ListScheduledSQLsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListScheduledSQLsResponse
+     */
+    public function listScheduledSQLsWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListScheduledSQLs',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/scheduledsqls',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListScheduledSQLsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $project
+     * @param ListScheduledSQLsRequest $request
+     *
+     * @return ListScheduledSQLsResponse
+     */
+    public function listScheduledSQLs($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listScheduledSQLsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string         $project
      * @param string         $logstore
      * @param string[]       $headers
@@ -5117,8 +6220,11 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * @deprecated
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *   *
+     * Deprecated
+     *
      * @param string         $project
      * @param string         $logstore
      * @param string[]       $headers  map
@@ -5150,8 +6256,11 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
+     * @deprecated
+     *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *   *
+     * Deprecated
+     *
      * @param string $project
      * @param string $logstore
      *
@@ -5229,6 +6338,53 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->listTagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $logstore
+     * @param string         $shard
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return MergeShardResponse
+     */
+    public function mergeShardWithOptions($project, $logstore, $shard, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'MergeShard',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/shards/' . $shard . '?action=merge',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
+
+        return MergeShardResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $logstore
+     * @param string $shard
+     *
+     * @return MergeShardResponse
+     */
+    public function mergeShard($project, $logstore, $shard)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->mergeShardWithOptions($project, $logstore, $shard, $headers, $runtime);
     }
 
     /**
@@ -5654,6 +6810,366 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string         $project
+     * @param string         $etlName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartETLResponse
+     */
+    public function startETLWithOptions($project, $etlName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StartETL',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/etls/' . $etlName . '?action=START',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return StartETLResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $etlName
+     *
+     * @return StartETLResponse
+     */
+    public function startETL($project, $etlName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startETLWithOptions($project, $etlName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $ossExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartOSSExportResponse
+     */
+    public function startOSSExportWithOptions($project, $ossExportName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StartOSSExport',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossexports/' . $ossExportName . '?action=START',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return StartOSSExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $ossExportName
+     *
+     * @return StartOSSExportResponse
+     */
+    public function startOSSExport($project, $ossExportName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startOSSExportWithOptions($project, $ossExportName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $ossExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartOSSHDFSExportResponse
+     */
+    public function startOSSHDFSExportWithOptions($project, $ossExportName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StartOSSHDFSExport',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/osshdfsexports/' . $ossExportName . '?action=START',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return StartOSSHDFSExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $ossExportName
+     *
+     * @return StartOSSHDFSExportResponse
+     */
+    public function startOSSHDFSExport($project, $ossExportName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startOSSHDFSExportWithOptions($project, $ossExportName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $ossIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartOSSIngestionResponse
+     */
+    public function startOSSIngestionWithOptions($project, $ossIngestionName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StartOSSIngestion',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossingestions/' . $ossIngestionName . '?action=START',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return StartOSSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $ossIngestionName
+     *
+     * @return StartOSSIngestionResponse
+     */
+    public function startOSSIngestion($project, $ossIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startOSSIngestionWithOptions($project, $ossIngestionName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $etlName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopETLResponse
+     */
+    public function stopETLWithOptions($project, $etlName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StopETL',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/etls/' . $etlName . '?action=STOP',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return StopETLResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $etlName
+     *
+     * @return StopETLResponse
+     */
+    public function stopETL($project, $etlName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopETLWithOptions($project, $etlName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $ossExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopOSSExportResponse
+     */
+    public function stopOSSExportWithOptions($project, $ossExportName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StopOSSExport',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossexports/' . $ossExportName . '?action=STOP',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return StopOSSExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $ossExportName
+     *
+     * @return StopOSSExportResponse
+     */
+    public function stopOSSExport($project, $ossExportName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopOSSExportWithOptions($project, $ossExportName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $ossExportName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopOSSHDFSExportResponse
+     */
+    public function stopOSSHDFSExportWithOptions($project, $ossExportName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StopOSSHDFSExport',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/osshdfsexports/' . $ossExportName . '?action=STOP',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return StopOSSHDFSExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $ossExportName
+     *
+     * @return StopOSSHDFSExportResponse
+     */
+    public function stopOSSHDFSExport($project, $ossExportName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopOSSHDFSExportWithOptions($project, $ossExportName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $ossIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopOSSIngestionResponse
+     */
+    public function stopOSSIngestionWithOptions($project, $ossIngestionName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StopOSSIngestion',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossingestions/' . $ossIngestionName . '?action=STOP',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return StopOSSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $ossIngestionName
+     *
+     * @return StopOSSIngestionResponse
+     */
+    public function stopOSSIngestion($project, $ossIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopOSSIngestionWithOptions($project, $ossIngestionName, $headers, $runtime);
+    }
+
+    /**
      * ### Usage notes
      *   * Host consists of a project name and a Log Service endpoint. You must specify a project in Host.
      *   *
@@ -5786,10 +7302,23 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
+        $body               = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $body['configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->schedule)) {
+            $body['schedule'] = $request->schedule;
+        }
+        $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateAlert',
@@ -5800,7 +7329,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'any',
+            'bodyType'    => 'none',
         ]);
 
         return UpdateAlertResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6109,6 +7638,65 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->updateDashboardWithOptions($project, $dashboardName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string           $project
+     * @param string           $etlName
+     * @param UpdateETLRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateETLResponse
+     */
+    public function updateETLWithOptions($project, $etlName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $body['configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateETL',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/etls/' . $etlName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateETLResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string           $project
+     * @param string           $etlName
+     * @param UpdateETLRequest $request
+     *
+     * @return UpdateETLResponse
+     */
+    public function updateETL($project, $etlName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateETLWithOptions($project, $etlName, $request, $headers, $runtime);
     }
 
     /**
@@ -6596,6 +8184,186 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                 $project
+     * @param string                 $ossExportName
+     * @param UpdateOSSExportRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateOSSExportResponse
+     */
+    public function updateOSSExportWithOptions($project, $ossExportName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $body['configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOSSExport',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossexports/' . $ossExportName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateOSSExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $project
+     * @param string                 $ossExportName
+     * @param UpdateOSSExportRequest $request
+     *
+     * @return UpdateOSSExportResponse
+     */
+    public function updateOSSExport($project, $ossExportName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateOSSExportWithOptions($project, $ossExportName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                     $project
+     * @param string                     $ossExportName
+     * @param UpdateOSSHDFSExportRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateOSSHDFSExportResponse
+     */
+    public function updateOSSHDFSExportWithOptions($project, $ossExportName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $body['configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOSSHDFSExport',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/osshdfsexports/' . $ossExportName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateOSSHDFSExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                     $project
+     * @param string                     $ossExportName
+     * @param UpdateOSSHDFSExportRequest $request
+     *
+     * @return UpdateOSSHDFSExportResponse
+     */
+    public function updateOSSHDFSExport($project, $ossExportName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateOSSHDFSExportWithOptions($project, $ossExportName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $project
+     * @param string                    $ossIngestionName
+     * @param UpdateOSSIngestionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateOSSIngestionResponse
+     */
+    public function updateOSSIngestionWithOptions($project, $ossIngestionName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $body['configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->schedule)) {
+            $body['schedule'] = $request->schedule;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOSSIngestion',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ossingestions/' . $ossIngestionName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateOSSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $project
+     * @param string                    $ossIngestionName
+     * @param UpdateOSSIngestionRequest $request
+     *
+     * @return UpdateOSSIngestionResponse
+     */
+    public function updateOSSIngestion($project, $ossIngestionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateOSSIngestionWithOptions($project, $ossIngestionName, $request, $headers, $runtime);
+    }
+
+    /**
      * ### [](#)Usage notes
      *   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *   *
@@ -6843,6 +8611,68 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->updateSavedSearchWithOptions($project, $savedsearchName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $project
+     * @param string                    $scheduledSQLName
+     * @param UpdateScheduledSQLRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateScheduledSQLResponse
+     */
+    public function updateScheduledSQLWithOptions($project, $scheduledSQLName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->configuration)) {
+            $body['configuration'] = $request->configuration;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->schedule)) {
+            $body['schedule'] = $request->schedule;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateScheduledSQL',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/scheduledsqls/' . $scheduledSQLName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateScheduledSQLResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $project
+     * @param string                    $scheduledSQLName
+     * @param UpdateScheduledSQLRequest $request
+     *
+     * @return UpdateScheduledSQLResponse
+     */
+    public function updateScheduledSQL($project, $scheduledSQLName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateScheduledSQLWithOptions($project, $scheduledSQLName, $request, $headers, $runtime);
     }
 
     /**

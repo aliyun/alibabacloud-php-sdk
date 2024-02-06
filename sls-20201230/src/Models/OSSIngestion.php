@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AlertResp extends Model
+class OSSIngestion extends Model
 {
     /**
-     * @var AlertConfiguration
+     * @var OSSIngestionConfiguration
      */
     public $configuration;
 
@@ -19,14 +19,14 @@ class AlertResp extends Model
     public $createTime;
 
     /**
-     * @example Alert Desc
+     * @example oss ingestion
      *
      * @var string
      */
     public $description;
 
     /**
-     * @example alertNameExample
+     * @example oss ingestion
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class AlertResp extends Model
     public $lastModifiedTime;
 
     /**
-     * @example alertExample
+     * @example ingest-oss-123456
      *
      * @var string
      */
@@ -50,7 +50,7 @@ class AlertResp extends Model
     public $schedule;
 
     /**
-     * @example Enabled/Disabled
+     * @example RUNNING
      *
      * @var string
      */
@@ -104,13 +104,13 @@ class AlertResp extends Model
     /**
      * @param array $map
      *
-     * @return AlertResp
+     * @return OSSIngestion
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['configuration'])) {
-            $model->configuration = AlertConfiguration::fromMap($map['configuration']);
+            $model->configuration = OSSIngestionConfiguration::fromMap($map['configuration']);
         }
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];

@@ -9,11 +9,35 @@ use AlibabaCloud\Tea\Model;
 class CreateAlertRequest extends Model
 {
     /**
-     * @var CreateAlertReq
+     * @var AlertConfiguration
      */
-    public $body;
+    public $configuration;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $displayName;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var Schedule
+     */
+    public $schedule;
     protected $_name = [
-        'body' => 'body',
+        'configuration' => 'configuration',
+        'description'   => 'description',
+        'displayName'   => 'displayName',
+        'name'          => 'name',
+        'schedule'      => 'schedule',
     ];
 
     public function validate()
@@ -23,8 +47,20 @@ class CreateAlertRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->configuration) {
+            $res['configuration'] = null !== $this->configuration ? $this->configuration->toMap() : null;
+        }
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
+        if (null !== $this->displayName) {
+            $res['displayName'] = $this->displayName;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+        if (null !== $this->schedule) {
+            $res['schedule'] = null !== $this->schedule ? $this->schedule->toMap() : null;
         }
 
         return $res;
@@ -38,8 +74,20 @@ class CreateAlertRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = CreateAlertReq::fromMap($map['body']);
+        if (isset($map['configuration'])) {
+            $model->configuration = AlertConfiguration::fromMap($map['configuration']);
+        }
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
+        if (isset($map['displayName'])) {
+            $model->displayName = $map['displayName'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+        if (isset($map['schedule'])) {
+            $model->schedule = Schedule::fromMap($map['schedule']);
         }
 
         return $model;

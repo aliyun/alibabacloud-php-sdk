@@ -18,9 +18,6 @@ class GetAlertResponse extends Model
      */
     public $statusCode;
 
-    /**
-     * @var AlertResp
-     */
     public $body;
     protected $_name = [
         'headers'    => 'headers',
@@ -29,9 +26,6 @@ class GetAlertResponse extends Model
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
-        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
@@ -65,7 +59,7 @@ class GetAlertResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = AlertResp::fromMap($map['body']);
+            $model->body = Alert::fromMap($map['body']);
         }
 
         return $model;

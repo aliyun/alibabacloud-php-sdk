@@ -14,7 +14,7 @@ class ListAlertsResponseBody extends Model
     public $count;
 
     /**
-     * @var AlertResp[]
+     * @var Alert[]
      */
     public $results;
 
@@ -70,7 +70,7 @@ class ListAlertsResponseBody extends Model
                 $model->results = [];
                 $n              = 0;
                 foreach ($map['results'] as $item) {
-                    $model->results[$n++] = null !== $item ? AlertResp::fromMap($item) : $item;
+                    $model->results[$n++] = null !== $item ? Alert::fromMap($item) : $item;
                 }
             }
         }

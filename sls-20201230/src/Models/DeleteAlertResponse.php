@@ -17,22 +17,13 @@ class DeleteAlertResponse extends Model
      * @var int
      */
     public $statusCode;
-
-    /**
-     * @var mixed
-     */
-    public $body;
     protected $_name = [
         'headers'    => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
-        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
@@ -43,9 +34,6 @@ class DeleteAlertResponse extends Model
         }
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
-        }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
         }
 
         return $res;
@@ -64,9 +52,6 @@ class DeleteAlertResponse extends Model
         }
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
-        }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
         }
 
         return $model;
