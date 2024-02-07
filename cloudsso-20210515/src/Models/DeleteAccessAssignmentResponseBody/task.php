@@ -57,7 +57,7 @@ class task extends Model
     public $principalType;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The task status. Valid values:
      *
      *   InProgress: The task is running.
      *   Success: The task is successful.
@@ -115,7 +115,7 @@ class task extends Model
     public $targetType;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example t-shfqw1u1edszvxw5****
      *
@@ -124,7 +124,7 @@ class task extends Model
     public $taskId;
 
     /**
-     * @description The type of the task. The value is fixed as DeleteAccessAssignment, which indicates that access permissions on an account in your resource directory are removed.
+     * @description The task type. The value is fixed as DeleteAccessAssignment, which indicates that access permissions on an account in your resource directory are removed.
      *
      * @example DeleteAccessAssignment
      *

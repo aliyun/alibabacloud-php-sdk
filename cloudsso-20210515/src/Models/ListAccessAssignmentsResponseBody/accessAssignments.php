@@ -84,7 +84,7 @@ class accessAssignments extends Model
     public $targetName;
 
     /**
-     * @description The path ID of the task object in your resource directory.
+     * @description The path ID of the task object in the resource directory.
      *
      * @example rd-3G****\/r-Wm****\/114240524784****
      *
@@ -93,7 +93,7 @@ class accessAssignments extends Model
     public $targetPath;
 
     /**
-     * @description The path name of the task object in your resource directory.
+     * @description The path name of the task object in the resource directory.
      *
      * @example rd-3G****\/root/dev-test
      *
@@ -104,7 +104,7 @@ class accessAssignments extends Model
     /**
      * @description The type of the task object.
      *
-     * The value is fixed as RD-Account, which indicates an account in your resource directory.
+     * The value is fixed as RD-Account, which indicates the accounts in the resource directory.
      * @example RD-Account
      *
      * @var string

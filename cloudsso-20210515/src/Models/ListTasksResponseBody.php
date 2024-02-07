@@ -12,8 +12,8 @@ class ListTasksResponseBody extends Model
     /**
      * @description Indicates whether the queried entries are truncated. Valid values:
      *
-     *   true: The queried entries are truncated.
-     *   false: The queried entries are not truncated.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -22,7 +22,7 @@ class ListTasksResponseBody extends Model
     public $isTruncated;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The maximum number of entries returned per page.
      *
      * @example 10
      *
@@ -31,7 +31,7 @@ class ListTasksResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that is returned for the next page.
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
      *
      * >  This parameter is returned only when the value of `IsTruncated` is `true`.
      * @example K1c3o9K7pFxoTtxH1Nm7MMLb7zrDGvftYBQBPDVv7AD3a8yhRb3Mk8L9ivmN6bFSjfkZNTAg3h4****
@@ -41,7 +41,7 @@ class ListTasksResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C0DA2DFC-EB18-59EF-BD82-C30862EBA3A3
      *

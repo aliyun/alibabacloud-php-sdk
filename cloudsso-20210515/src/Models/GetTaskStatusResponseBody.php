@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetTaskStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 005F4623-AE53-504D-830F-44825F7DC211
      *
@@ -19,7 +19,7 @@ class GetTaskStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status information of the task.
+     * @description The status information about the task.
      *
      * @var taskStatus
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessAssignmentResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4726AA56-E138-5C99-85E4-F493536D042F
      *
@@ -19,7 +19,7 @@ class CreateAccessAssignmentResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the task.
+     * @description The queried task.
      *
      * @var task
      */

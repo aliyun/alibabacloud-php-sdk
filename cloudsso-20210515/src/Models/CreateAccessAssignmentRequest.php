@@ -60,7 +60,7 @@ class CreateAccessAssignmentRequest extends Model
     public $targetId;
 
     /**
-     * @description The type of the task object. Set the value to RD-Account, which indicates an account in your resource directory.
+     * @description The type of the task object. Set the value to RD-Account, which specifies the accounts in the resource directory.
      *
      * @example RD-Account
      *

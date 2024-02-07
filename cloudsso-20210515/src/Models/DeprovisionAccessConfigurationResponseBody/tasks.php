@@ -27,7 +27,7 @@ class tasks extends Model
     public $accessConfigurationName;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The task status. Valid values:
      *
      *   InProgress: The task is running.
      *   Success: The task is successful.
@@ -58,7 +58,7 @@ class tasks extends Model
     public $targetName;
 
     /**
-     * @description The path ID of the task object in your resource directory.
+     * @description The path ID of the task object in the resource directory.
      *
      * @example rd-3G****\/r-Wm****\/114240524784****
      *
@@ -67,7 +67,7 @@ class tasks extends Model
     public $targetPath;
 
     /**
-     * @description The path name of the task object in your resource directory.
+     * @description The path name of the task object in the resource directory.
      *
      * @example rd-3G****\/root/dev-test
      *
@@ -76,7 +76,7 @@ class tasks extends Model
     public $targetPathName;
 
     /**
-     * @description The type of the task object. The value is fixed as RD-Account, which indicates an account in your resource directory.
+     * @description The type of the task object. The value is fixed as RD-Account, which indicates the accounts in the resource directory.
      *
      * @example RD-Account
      *
@@ -85,7 +85,7 @@ class tasks extends Model
     public $targetType;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example t-sh0655wnq8pdlrlc****
      *
@@ -94,7 +94,7 @@ class tasks extends Model
     public $taskId;
 
     /**
-     * @description The type of the task. The value is fixed as DeprovisionAccessConfiguration, which indicates that the access configuration is de-provisioned.
+     * @description The task type. The value is fixed as DeprovisionAccessConfiguration, which indicates that the access configuration is de-provisioned.
      *
      * @example DeprovisionAccessConfiguration
      *

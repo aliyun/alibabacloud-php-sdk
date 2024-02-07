@@ -27,7 +27,7 @@ class tasks extends Model
     public $accessConfigurationName;
 
     /**
-     * @description The time when the task ended.
+     * @description The end time of the task.
      *
      * @example 2021-11-09T05:50:50Z
      *
@@ -76,7 +76,7 @@ class tasks extends Model
     public $principalType;
 
     /**
-     * @description The time when the task started.
+     * @description The start time of the task.
      *
      * @example 2021-11-09T05:50:50Z
      *
@@ -85,7 +85,7 @@ class tasks extends Model
     public $startTime;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The task status. Valid values:
      *
      *   InProgress: The task is running.
      *   Success: The task is successful.
@@ -116,7 +116,7 @@ class tasks extends Model
     public $targetName;
 
     /**
-     * @description The path ID of the task object in your resource directory.
+     * @description The path ID of the task object in the resource directory.
      *
      * @example rd-3G****\/r-Wm****\/114240524784****
      *
@@ -125,7 +125,7 @@ class tasks extends Model
     public $targetPath;
 
     /**
-     * @description The path name of the task object in your resource directory.
+     * @description The path name of the task object in the resource directory.
      *
      * @example rd-3G****\/root/dev-test
      *
@@ -136,7 +136,7 @@ class tasks extends Model
     /**
      * @description The type of the task object.
      *
-     * The value is fixed as RD-Account, which indicates an account in your resource directory.
+     * The value is fixed as RD-Account, which indicates the accounts in the resource directory.
      * @example RD-Account
      *
      * @var string
@@ -144,7 +144,7 @@ class tasks extends Model
     public $targetType;
 
     /**
-     * @description The ID of the task.
+     * @description The ID of the job.
      *
      * @example t-sh5k4gesm6twlrqb****
      *
@@ -153,12 +153,12 @@ class tasks extends Model
     public $taskId;
 
     /**
-     * @description The type of the task. Valid values:
+     * @description The task type. Valid values:
      *
      *   ProvisionAccessConfiguration: An access configuration is provisioned.
      *   DeprovisionAccessConfiguration: An access configuration is de-provisioned.
-     *   CreateAccessAssignment: Access permissions on an account in your resource directory are assigned.
-     *   DeleteAccessAssignment: Access permissions on an account in your resource directory are removed.
+     *   CreateAccessAssignment: Access permissions on an account in the resource directory are assigned.
+     *   DeleteAccessAssignment: Access permissions on an account in the resource directory are removed.
      *
      * @example CreateAccessAssignment
      *

@@ -57,7 +57,7 @@ class task extends Model
     public $principalType;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The task status. Valid values:
      *
      *   InProgress: The task is running.
      *   Success: The task is successful.
@@ -88,7 +88,7 @@ class task extends Model
     public $targetName;
 
     /**
-     * @description The path ID of the task object in your resource directory.
+     * @description The path ID of the task object in the resource directory.
      *
      * @example rd-3G****\/r-Wm****\/114240524784****
      *
@@ -97,7 +97,7 @@ class task extends Model
     public $targetPath;
 
     /**
-     * @description The path name of the task object in your resource directory.
+     * @description The path name of the task object in the resource directory.
      *
      * @example rd-3G****\/root/dev-test
      *
@@ -106,7 +106,7 @@ class task extends Model
     public $targetPathName;
 
     /**
-     * @description The type of the task object. The value is fixed as RD-Account, which indicates an account in your resource directory.
+     * @description The type of the task object. The value is fixed as RD-Account, which indicates the accounts in the resource directory.
      *
      * @example RD-Account
      *
@@ -115,7 +115,7 @@ class task extends Model
     public $targetType;
 
     /**
-     * @description The ID of the task.
+     * @description The ID of the job.
      *
      * @example t-sh6tceylhvgejpip****
      *
@@ -124,7 +124,7 @@ class task extends Model
     public $taskId;
 
     /**
-     * @description The type of the task. The value is fixed as CreateAccessAssignment, which indicates that access permissions on an account in your resource directory are assigned.
+     * @description The task type. The value is fixed as CreateAccessAssignment, which indicates that access permissions on an account in your resource directory are assigned.
      *
      * @example CreateAccessAssignment
      *

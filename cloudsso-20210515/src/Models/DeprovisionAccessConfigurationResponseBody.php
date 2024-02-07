@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DeprovisionAccessConfigurationResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 584FE9D0-D1AC-5B19-A39C-8D244FC0538C
      *
@@ -19,7 +19,7 @@ class DeprovisionAccessConfigurationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the task.
+     * @description The task information.
      *
      * @var tasks[]
      */

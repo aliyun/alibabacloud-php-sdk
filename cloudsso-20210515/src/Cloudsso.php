@@ -62,12 +62,16 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetExternalSAMLIdentityProviderRe
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetExternalSAMLIdentityProviderResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetGroupRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetGroupResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetLoginPreferenceRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetLoginPreferenceResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationSettingInfoRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationSettingInfoResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationSettingsRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationSettingsResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationStatusRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationStatusResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetPasswordPolicyRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetPasswordPolicyResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetSCIMSynchronizationStatusRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetSCIMSynchronizationStatusResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetServiceStatusResponse;
@@ -132,8 +136,12 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\RetryUserProvisioningEventRequest
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\RetryUserProvisioningEventResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetExternalSAMLIdentityProviderRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetExternalSAMLIdentityProviderResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetLoginPreferenceRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetLoginPreferenceResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetMFAAuthenticationStatusRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetMFAAuthenticationStatusResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetPasswordPolicyRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetPasswordPolicyResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetSCIMSynchronizationStatusRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetSCIMSynchronizationStatusResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateAccessConfigurationRequest;
@@ -413,7 +421,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * When you call this operation, an asynchronous task is created. You can call the [GetTask](~~340670~~) operation to query the progress of task execution by using the value of the `TaskId` response parameter.
+     * When you call this operation, an asynchronous task is created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
      *   * For more information about how to assign permissions on an account in your resource directory, see [Overview of multi-account authorization](~~266726~~).
      *   * This topic provides an example on how to assign access permissions on the account `114240524784****` in your resource directory to the CloudSSO user `u-00q8wbq42wiltcrk****` by using the access configuration `ac-00jhtfl8thteu6uj****`. After the call is successful, the CloudSSO user can access resources within the account in the resource directory.
      *   *
@@ -463,7 +471,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * When you call this operation, an asynchronous task is created. You can call the [GetTask](~~340670~~) operation to query the progress of task execution by using the value of the `TaskId` response parameter.
+     * When you call this operation, an asynchronous task is created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
      *   * For more information about how to assign permissions on an account in your resource directory, see [Overview of multi-account authorization](~~266726~~).
      *   * This topic provides an example on how to assign access permissions on the account `114240524784****` in your resource directory to the CloudSSO user `u-00q8wbq42wiltcrk****` by using the access configuration `ac-00jhtfl8thteu6uj****`. After the call is successful, the CloudSSO user can access resources within the account in the resource directory.
      *   *
@@ -1769,6 +1777,49 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
+     * @param GetLoginPreferenceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetLoginPreferenceResponse
+     */
+    public function getLoginPreferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLoginPreference',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLoginPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetLoginPreferenceRequest $request
+     *
+     * @return GetLoginPreferenceResponse
+     */
+    public function getLoginPreference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLoginPreferenceWithOptions($request, $runtime);
+    }
+
+    /**
      * If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
      *   * This topic provides an example on how to query the MFA setting of all CloudSSO users that belong to the directory named `00q8wbq42wiltcrk****`.
      *   *
@@ -1914,6 +1965,49 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
+     * @param GetPasswordPolicyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetPasswordPolicyResponse
+     */
+    public function getPasswordPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPasswordPolicy',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPasswordPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPasswordPolicyRequest $request
+     *
+     * @return GetPasswordPolicyResponse
+     */
+    public function getPasswordPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPasswordPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * This topic provides an example on how to query the status of SCIM synchronization within the directory `d-00fc2p61****`. The returned result shows that SCIM synchronization is in the Enabled state.
      *   *
      * @param GetSCIMSynchronizationStatusRequest $request GetSCIMSynchronizationStatusRequest
@@ -2044,7 +2138,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can call the GetTaskStatus operation to query the status of an asynchronous task. If you want to query more information about an asynchronous task, you can call the [GetTask](~~340670~~) operation.
+     * You can call the GetTaskStatus operation to query the status of an asynchronous task. If you want to query more information about an asynchronous task, call the [GetTask](~~340670~~) operation.
      *   * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
      *   *
      * @param GetTaskStatusRequest $request GetTaskStatusRequest
@@ -2081,7 +2175,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * You can call the GetTaskStatus operation to query the status of an asynchronous task. If you want to query more information about an asynchronous task, you can call the [GetTask](~~340670~~) operation.
+     * You can call the GetTaskStatus operation to query the status of an asynchronous task. If you want to query more information about an asynchronous task, call the [GetTask](~~340670~~) operation.
      *   * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
      *   *
      * @param GetTaskStatusRequest $request GetTaskStatusRequest
@@ -2423,7 +2517,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory are assigned to one user.
+     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
      *   *
      * @param ListAccessAssignmentsRequest $request ListAccessAssignmentsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2477,7 +2571,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory are assigned to one user.
+     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
      *   *
      * @param ListAccessAssignmentsRequest $request ListAccessAssignmentsRequest
      *
@@ -3688,6 +3782,52 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
+     * @param SetLoginPreferenceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetLoginPreferenceResponse
+     */
+    public function setLoginPreferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->loginNetworkMasks)) {
+            $query['LoginNetworkMasks'] = $request->loginNetworkMasks;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetLoginPreference',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetLoginPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetLoginPreferenceRequest $request
+     *
+     * @return SetLoginPreferenceResponse
+     */
+    public function setLoginPreference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setLoginPreferenceWithOptions($request, $runtime);
+    }
+
+    /**
      * If a CloudSSO administrator enables username-password logon for users, CloudSSO automatically enables MFA to improve security. The administrator can call this operation to enable or disable MFA based on the business requirements.
      *   * This topic provides an example on how to enable MFA for users.
      *   *
@@ -3737,6 +3877,67 @@ class Cloudsso extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setMFAAuthenticationStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetPasswordPolicyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SetPasswordPolicyResponse
+     */
+    public function setPasswordPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->maxLoginAttempts)) {
+            $query['MaxLoginAttempts'] = $request->maxLoginAttempts;
+        }
+        if (!Utils::isUnset($request->maxPasswordAge)) {
+            $query['MaxPasswordAge'] = $request->maxPasswordAge;
+        }
+        if (!Utils::isUnset($request->minPasswordDifferentChars)) {
+            $query['MinPasswordDifferentChars'] = $request->minPasswordDifferentChars;
+        }
+        if (!Utils::isUnset($request->minPasswordLength)) {
+            $query['MinPasswordLength'] = $request->minPasswordLength;
+        }
+        if (!Utils::isUnset($request->passwordNotContainUsername)) {
+            $query['PasswordNotContainUsername'] = $request->passwordNotContainUsername;
+        }
+        if (!Utils::isUnset($request->passwordReusePrevention)) {
+            $query['PasswordReusePrevention'] = $request->passwordReusePrevention;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetPasswordPolicy',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetPasswordPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetPasswordPolicyRequest $request
+     *
+     * @return SetPasswordPolicyResponse
+     */
+    public function setPasswordPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setPasswordPolicyWithOptions($request, $runtime);
     }
 
     /**

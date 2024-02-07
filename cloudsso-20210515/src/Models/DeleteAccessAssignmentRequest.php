@@ -72,7 +72,7 @@ class DeleteAccessAssignmentRequest extends Model
     public $targetId;
 
     /**
-     * @description The type of the task object. The value is fixed as RD-Account, which indicates the accounts in the resource directory.
+     * @description The type of the task object. Set the value to RD-Account, which specifies the accounts in the resource directory.
      *
      * @example RD-Account
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class taskStatus extends Model
 {
     /**
-     * @description The time when the task ended.
+     * @description The end time of the task.
      *
      * @example 2021-11-05T02:58:08Z
      *
@@ -28,7 +28,7 @@ class taskStatus extends Model
     public $failureReason;
 
     /**
-     * @description The time when the task started.
+     * @description The start time of the task.
      *
      * @example 2021-11-05T02:58:07Z
      *
@@ -37,7 +37,7 @@ class taskStatus extends Model
     public $startTime;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The task status. Valid values:
      *
      *   InProgress: The task is running.
      *   Success: The task is successful.
@@ -50,7 +50,7 @@ class taskStatus extends Model
     public $status;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example t-shfqw1u1edszvxw5****
      *
@@ -59,7 +59,7 @@ class taskStatus extends Model
     public $taskId;
 
     /**
-     * @description The type of the task. Valid values:
+     * @description The task type. Valid values:
      *
      *   ProvisionAccessConfiguration: An access configuration is provisioned.
      *   DeprovisionAccessConfiguration: An access configuration is de-provisioned.

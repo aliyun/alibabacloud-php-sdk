@@ -36,14 +36,14 @@ class accessConfigurationProvisionings extends Model
     public $createTime;
 
     /**
-     * @description The name of the custom policy that is created for an account in your resource directory.
+     * @description The name of the custom policy that is created for an account in the resource directory.
      *
      * @var string[]
      */
     public $RAMPolicyNames;
 
     /**
-     * @description The name of the RAM role that is created for an account in your resource directory.
+     * @description The name of the RAM role that is created for an account in the resource directory.
      *
      * @example AliyunReservedSSO-VPC-Admin
      *
@@ -52,7 +52,7 @@ class accessConfigurationProvisionings extends Model
     public $RAMRoleName;
 
     /**
-     * @description The name of the Security Assertion Markup Language (SAML) identity provider (IdP) that is created within an account in your resource directory.
+     * @description The name of the Security Assertion Markup Language (SAML) identity provider (IdP) that is created within an account in the resource directory.
      *
      * @example AliyunReservedSSO-d-00fc2p61****
      *
@@ -76,7 +76,7 @@ class accessConfigurationProvisionings extends Model
     /**
      * @description The ID of the task object.
      *
-     * If the value of TargetType is `RD-Account`, the value of this parameter is the UID of an account in your resource directory.
+     * If the value of TargetType is `RD-Account`, the value of this parameter is the UID of an account in the resource directory.
      * @example 101522521960****
      *
      * @var string
@@ -93,7 +93,7 @@ class accessConfigurationProvisionings extends Model
     public $targetName;
 
     /**
-     * @description The path ID of the task object in your resource directory.
+     * @description The path ID of the task object in the resource directory.
      *
      * @example rd-3G****\/r-Wm****\/fd-pjM8oy****\/101522521960****
      *
@@ -102,7 +102,7 @@ class accessConfigurationProvisionings extends Model
     public $targetPath;
 
     /**
-     * @description The path name of the task object in your resource directory.
+     * @description The path name of the task object in the resource directory.
      *
      * @example rd-3G****\/root/Core/SharedServices_5009****
      *
@@ -113,7 +113,7 @@ class accessConfigurationProvisionings extends Model
     /**
      * @description The type of the task object.
      *
-     * The value is fixed as RD-Account, which indicates an account in your resource directory.
+     * Set the value to RD-Account, which specifies the accounts in the resource directory.
      * @example RD-Account
      *
      * @var string

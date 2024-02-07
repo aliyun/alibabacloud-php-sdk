@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTaskRequest extends Model
 {
     /**
-     * @description The ID of the directory.
+     * @description The directory ID.
      *
      * @example d-00fc2p61****
      *
@@ -18,7 +18,7 @@ class GetTaskRequest extends Model
     public $directoryId;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example t-shfqw1u1edszvxw5****
      *

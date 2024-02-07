@@ -27,7 +27,7 @@ class task extends Model
     public $accessConfigurationName;
 
     /**
-     * @description The time when the task ended.
+     * @description The end time of the task.
      *
      * @example 2021-11-05T02:58:08Z
      *
@@ -76,7 +76,7 @@ class task extends Model
     public $principalType;
 
     /**
-     * @description The time when the task started.
+     * @description The start time of the task.
      *
      * @example 2021-11-05T02:58:07Z
      *
@@ -85,7 +85,7 @@ class task extends Model
     public $startTime;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The task status. Valid values:
      *
      *   InProgress: The task is running.
      *   Success: The task is successful.
@@ -143,7 +143,7 @@ class task extends Model
     public $targetType;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example t-shfqw1u1edszvxw5****
      *
@@ -152,7 +152,7 @@ class task extends Model
     public $taskId;
 
     /**
-     * @description The type of the task. Valid values:
+     * @description The task type. Valid values:
      *
      *   ProvisionAccessConfiguration: An access configuration is provisioned.
      *   DeprovisionAccessConfiguration: An access configuration is de-provisioned.
