@@ -27,6 +27,10 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyApproveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyApproveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyApproveResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyExternalNodeStatusUpdateHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyExternalNodeStatusUpdateRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyExternalNodeStatusUpdateResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyExternalNodeStatusUpdateShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyInvoiceTaskHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyInvoiceTaskRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyInvoiceTaskResponse;
@@ -1039,6 +1043,70 @@ class BtripOpen extends OpenApiClient
         $headers = new ApplyApproveHeaders([]);
 
         return $this->applyApproveWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ApplyExternalNodeStatusUpdateRequest $tmpReq
+     * @param ApplyExternalNodeStatusUpdateHeaders $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ApplyExternalNodeStatusUpdateResponse
+     */
+    public function applyExternalNodeStatusUpdateWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ApplyExternalNodeStatusUpdateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->operationRecords)) {
+            $request->operationRecordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationRecords, 'operation_records', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $body['node_id'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->operationRecordsShrink)) {
+            $body['operation_records'] = $request->operationRecordsShrink;
+        }
+        if (!Utils::isUnset($request->processActionResult)) {
+            $body['process_action_result'] = $request->processActionResult;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyExternalNodeStatusUpdate',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/apply/v1/external-nodes/action/status-update',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyExternalNodeStatusUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ApplyExternalNodeStatusUpdateRequest $request
+     *
+     * @return ApplyExternalNodeStatusUpdateResponse
+     */
+    public function applyExternalNodeStatusUpdate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ApplyExternalNodeStatusUpdateHeaders([]);
+
+        return $this->applyExternalNodeStatusUpdateWithOptions($request, $headers, $runtime);
     }
 
     /**
