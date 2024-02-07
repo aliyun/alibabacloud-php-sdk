@@ -72,6 +72,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableSpecRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableSpecResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableZoneRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableZoneResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeBackupSetDownloadLinkRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeBackupSetDownloadLinkResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeCharsetRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeCharsetResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeDataBackupSetRequest;
@@ -2174,6 +2176,52 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAvailableZoneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBackupSetDownloadLinkRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeBackupSetDownloadLinkResponse
+     */
+    public function describeBackupSetDownloadLinkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->downloadTaskId)) {
+            $body['DownloadTaskId'] = $request->downloadTaskId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupSetDownloadLink',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBackupSetDownloadLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupSetDownloadLinkRequest $request
+     *
+     * @return DescribeBackupSetDownloadLinkResponse
+     */
+    public function describeBackupSetDownloadLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupSetDownloadLinkWithOptions($request, $runtime);
     }
 
     /**

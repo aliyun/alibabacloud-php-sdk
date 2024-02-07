@@ -1,3 +1,6 @@
+2024-02-07 Version: 2.3.0
+- Generated php 2019-09-01 for OceanBasePro.
+
 2024-02-04 Version: 2.2.0
 - Support API DescribeSampleSqlRawTexts.
 - Update API CreateInstanceupdate InstanceClass param.
