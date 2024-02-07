@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UploadBitcodeToMsaResponse extends Model
+class QueryInfoFromMdpResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UploadBitcodeToMsaResponse extends Model
     public $statusCode;
 
     /**
-     * @var UploadBitcodeToMsaResponseBody
+     * @var QueryInfoFromMdpResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class UploadBitcodeToMsaResponse extends Model
     /**
      * @param array $map
      *
-     * @return UploadBitcodeToMsaResponse
+     * @return QueryInfoFromMdpResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class UploadBitcodeToMsaResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = UploadBitcodeToMsaResponseBody::fromMap($map['body']);
+            $model->body = QueryInfoFromMdpResponseBody::fromMap($map['body']);
         }
 
         return $model;

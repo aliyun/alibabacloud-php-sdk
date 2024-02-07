@@ -1,3 +1,6 @@
+2024-02-07 Version: 1.2.0
+- Generated php 2020-10-28 for mPaaS.
+
 2024-01-19 Version: 1.1.2
 - Generated php 2020-10-28 for mPaaS.
 

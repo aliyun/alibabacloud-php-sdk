@@ -178,6 +178,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushTemplateResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushTemplateShrinkRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushUnBindRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushUnBindResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryInfoFromMdpRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryInfoFromMdpResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMappCenterAppRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMappCenterAppResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcdpAimRequest;
@@ -5475,6 +5477,67 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pushUnBindWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryInfoFromMdpRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryInfoFromMdpResponse
+     */
+    public function queryInfoFromMdpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $body['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->mobileMd5)) {
+            $body['MobileMd5'] = $request->mobileMd5;
+        }
+        if (!Utils::isUnset($request->mobileSha256)) {
+            $body['MobileSha256'] = $request->mobileSha256;
+        }
+        if (!Utils::isUnset($request->riskScene)) {
+            $body['RiskScene'] = $request->riskScene;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryInfoFromMdp',
+            'version'     => '2020-10-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryInfoFromMdpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryInfoFromMdpRequest $request
+     *
+     * @return QueryInfoFromMdpResponse
+     */
+    public function queryInfoFromMdp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInfoFromMdpWithOptions($request, $runtime);
     }
 
     /**
