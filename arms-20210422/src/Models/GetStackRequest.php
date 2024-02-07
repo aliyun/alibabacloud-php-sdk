@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetStackRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @var string
      */
     public $pid;
@@ -24,14 +29,21 @@ class GetStackRequest extends Model
     public $rpcID;
 
     /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @var string
      */
     public $traceID;
     protected $_name = [
-        'pid'      => 'Pid',
-        'regionId' => 'RegionId',
-        'rpcID'    => 'RpcID',
-        'traceID'  => 'TraceID',
+        'endTime'   => 'EndTime',
+        'pid'       => 'Pid',
+        'regionId'  => 'RegionId',
+        'rpcID'     => 'RpcID',
+        'startTime' => 'StartTime',
+        'traceID'   => 'TraceID',
     ];
 
     public function validate()
@@ -41,6 +53,9 @@ class GetStackRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
@@ -49,6 +64,9 @@ class GetStackRequest extends Model
         }
         if (null !== $this->rpcID) {
             $res['RpcID'] = $this->rpcID;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->traceID) {
             $res['TraceID'] = $this->traceID;
@@ -65,6 +83,9 @@ class GetStackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
@@ -73,6 +94,9 @@ class GetStackRequest extends Model
         }
         if (isset($map['RpcID'])) {
             $model->rpcID = $map['RpcID'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['TraceID'])) {
             $model->traceID = $map['TraceID'];

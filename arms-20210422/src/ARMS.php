@@ -2169,6 +2169,9 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->pid)) {
             $query['Pid'] = $request->pid;
         }
@@ -2177,6 +2180,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->rpcID)) {
             $query['RpcID'] = $request->rpcID;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
         if (!Utils::isUnset($request->traceID)) {
             $query['TraceID'] = $request->traceID;
