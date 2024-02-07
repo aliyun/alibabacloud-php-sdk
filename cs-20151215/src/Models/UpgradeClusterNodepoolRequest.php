@@ -43,11 +43,17 @@ class UpgradeClusterNodepoolRequest extends Model
      * @var string
      */
     public $runtimeVersion;
+
+    /**
+     * @var bool
+     */
+    public $useReplace;
     protected $_name = [
         'imageId'           => 'image_id',
         'kubernetesVersion' => 'kubernetes_version',
         'runtimeType'       => 'runtime_type',
         'runtimeVersion'    => 'runtime_version',
+        'useReplace'        => 'use_replace',
     ];
 
     public function validate()
@@ -68,6 +74,9 @@ class UpgradeClusterNodepoolRequest extends Model
         }
         if (null !== $this->runtimeVersion) {
             $res['runtime_version'] = $this->runtimeVersion;
+        }
+        if (null !== $this->useReplace) {
+            $res['use_replace'] = $this->useReplace;
         }
 
         return $res;
@@ -92,6 +101,9 @@ class UpgradeClusterNodepoolRequest extends Model
         }
         if (isset($map['runtime_version'])) {
             $model->runtimeVersion = $map['runtime_version'];
+        }
+        if (isset($map['use_replace'])) {
+            $model->useReplace = $map['use_replace'];
         }
 
         return $model;

@@ -6860,6 +6860,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->runtimeVersion)) {
             $body['runtime_version'] = $request->runtimeVersion;
         }
+        if (!Utils::isUnset($request->useReplace)) {
+            $body['use_replace'] = $request->useReplace;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
