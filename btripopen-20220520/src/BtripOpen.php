@@ -81,6 +81,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplyQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplySyncHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplySyncRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplySyncResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorHotelBillSettlementQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorHotelBillSettlementQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorHotelBillSettlementQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpAuthLinkInfoQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpTokenHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpTokenRequest;
@@ -2279,6 +2282,71 @@ class BtripOpen extends OpenApiClient
         $headers = new CommonApplySyncHeaders([]);
 
         return $this->commonApplySyncWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CooperatorHotelBillSettlementQueryRequest $request
+     * @param CooperatorHotelBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CooperatorHotelBillSettlementQueryResponse
+     */
+    public function cooperatorHotelBillSettlementQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cooperatorId)) {
+            $query['cooperator_id'] = $request->cooperatorId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['page_no'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->periodEnd)) {
+            $query['period_end'] = $request->periodEnd;
+        }
+        if (!Utils::isUnset($request->periodStart)) {
+            $query['period_start'] = $request->periodStart;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CooperatorHotelBillSettlementQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/cooperator-hotel/v1/bill-settlement',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CooperatorHotelBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CooperatorHotelBillSettlementQueryRequest $request
+     *
+     * @return CooperatorHotelBillSettlementQueryResponse
+     */
+    public function cooperatorHotelBillSettlementQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CooperatorHotelBillSettlementQueryHeaders([]);
+
+        return $this->cooperatorHotelBillSettlementQueryWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -1,3 +1,8 @@
+2024-02-19 Version: 1.12.0
+- Support API ApplyExternalNodeStatusUpdate.
+- Support API CooperatorHotelBillSettlementQuery.
+
+
 2024-02-07 Version: 1.11.0
 - Generated php 2022-05-20 for btripOpen.
 
