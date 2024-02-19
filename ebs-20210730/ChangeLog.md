@@ -4,6 +4,12 @@
 - Update API DescribeDiskMonitorData: update response param.
 
 
+2024-02-19 Version: 2.1.0
+- Support API DescribeDisks.
+- Support API GetDisk.
+- Update API DescribeDiskMonitorData: update response param.
+
+
 2024-02-02 Version: 2.0.0
 - Support API QueryDedicatedBlockStorageClusterInventoryData.
 - Delete API StartDiskMonitor.
