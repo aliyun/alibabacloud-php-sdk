@@ -45,6 +45,11 @@ class QueryContentRequest extends Model
     public $filter;
 
     /**
+     * @var bool
+     */
+    public $includeVector;
+
+    /**
      * @example cosine
      *
      * @var string
@@ -71,11 +76,21 @@ class QueryContentRequest extends Model
     public $ownerId;
 
     /**
+     * @var int[]
+     */
+    public $recallWindow;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var float
+     */
+    public $rerankFactor;
 
     /**
      * @example 10
@@ -97,11 +112,14 @@ class QueryContentRequest extends Model
         'fileName'             => 'FileName',
         'fileUrl'              => 'FileUrl',
         'filter'               => 'Filter',
+        'includeVector'        => 'IncludeVector',
         'metrics'              => 'Metrics',
         'namespace'            => 'Namespace',
         'namespacePassword'    => 'NamespacePassword',
         'ownerId'              => 'OwnerId',
+        'recallWindow'         => 'RecallWindow',
         'regionId'             => 'RegionId',
+        'rerankFactor'         => 'RerankFactor',
         'topK'                 => 'TopK',
         'useFullTextRetrieval' => 'UseFullTextRetrieval',
     ];
@@ -131,6 +149,9 @@ class QueryContentRequest extends Model
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
         }
+        if (null !== $this->includeVector) {
+            $res['IncludeVector'] = $this->includeVector;
+        }
         if (null !== $this->metrics) {
             $res['Metrics'] = $this->metrics;
         }
@@ -143,8 +164,14 @@ class QueryContentRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->recallWindow) {
+            $res['RecallWindow'] = $this->recallWindow;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->rerankFactor) {
+            $res['RerankFactor'] = $this->rerankFactor;
         }
         if (null !== $this->topK) {
             $res['TopK'] = $this->topK;
@@ -182,6 +209,9 @@ class QueryContentRequest extends Model
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
         }
+        if (isset($map['IncludeVector'])) {
+            $model->includeVector = $map['IncludeVector'];
+        }
         if (isset($map['Metrics'])) {
             $model->metrics = $map['Metrics'];
         }
@@ -194,8 +224,16 @@ class QueryContentRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['RecallWindow'])) {
+            if (!empty($map['RecallWindow'])) {
+                $model->recallWindow = $map['RecallWindow'];
+            }
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RerankFactor'])) {
+            $model->rerankFactor = $map['RerankFactor'];
         }
         if (isset($map['TopK'])) {
             $model->topK = $map['TopK'];

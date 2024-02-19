@@ -207,6 +207,7 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentAdvanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RebalanceDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RebalanceDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ReleaseInstancePublicConnectionRequest;
@@ -6390,14 +6391,19 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param QueryContentRequest $request
+     * @param QueryContentRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
      * @return QueryContentResponse
      */
-    public function queryContentWithOptions($request, $runtime)
+    public function queryContentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new QueryContentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->recallWindow)) {
+            $request->recallWindowShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recallWindow, 'RecallWindow', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->collection)) {
             $query['Collection'] = $request->collection;
@@ -6417,6 +6423,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
         }
+        if (!Utils::isUnset($request->includeVector)) {
+            $query['IncludeVector'] = $request->includeVector;
+        }
         if (!Utils::isUnset($request->metrics)) {
             $query['Metrics'] = $request->metrics;
         }
@@ -6429,8 +6438,14 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->recallWindowShrink)) {
+            $query['RecallWindow'] = $request->recallWindowShrink;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->rerankFactor)) {
+            $query['RerankFactor'] = $request->rerankFactor;
         }
         if (!Utils::isUnset($request->topK)) {
             $query['TopK'] = $request->topK;

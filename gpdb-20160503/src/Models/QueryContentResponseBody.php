@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\matches;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\usage;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\windowMatches;
 use AlibabaCloud\Tea\Model;
 
 class QueryContentResponseBody extends Model
@@ -47,6 +48,11 @@ class QueryContentResponseBody extends Model
      * @var usage
      */
     public $usage;
+
+    /**
+     * @var windowMatches
+     */
+    public $windowMatches;
     protected $_name = [
         'embeddingTokens' => 'EmbeddingTokens',
         'matches'         => 'Matches',
@@ -54,6 +60,7 @@ class QueryContentResponseBody extends Model
         'requestId'       => 'RequestId',
         'status'          => 'Status',
         'usage'           => 'Usage',
+        'windowMatches'   => 'WindowMatches',
     ];
 
     public function validate()
@@ -80,6 +87,9 @@ class QueryContentResponseBody extends Model
         }
         if (null !== $this->usage) {
             $res['Usage'] = null !== $this->usage ? $this->usage->toMap() : null;
+        }
+        if (null !== $this->windowMatches) {
+            $res['WindowMatches'] = null !== $this->windowMatches ? $this->windowMatches->toMap() : null;
         }
 
         return $res;
@@ -110,6 +120,9 @@ class QueryContentResponseBody extends Model
         }
         if (isset($map['Usage'])) {
             $model->usage = usage::fromMap($map['Usage']);
+        }
+        if (isset($map['WindowMatches'])) {
+            $model->windowMatches = windowMatches::fromMap($map['WindowMatches']);
         }
 
         return $model;

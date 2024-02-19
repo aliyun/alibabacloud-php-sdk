@@ -46,6 +46,11 @@ class matchList extends Model
     public $metadata;
 
     /**
+     * @var float
+     */
+    public $rerankScore;
+
+    /**
      * @example 1
      *
      * @var int
@@ -70,6 +75,7 @@ class matchList extends Model
         'id'              => 'Id',
         'loaderMetadata'  => 'LoaderMetadata',
         'metadata'        => 'Metadata',
+        'rerankScore'     => 'RerankScore',
         'retrievalSource' => 'RetrievalSource',
         'score'           => 'Score',
         'vector'          => 'Vector',
@@ -99,6 +105,9 @@ class matchList extends Model
         }
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
+        }
+        if (null !== $this->rerankScore) {
+            $res['RerankScore'] = $this->rerankScore;
         }
         if (null !== $this->retrievalSource) {
             $res['RetrievalSource'] = $this->retrievalSource;
@@ -138,6 +147,9 @@ class matchList extends Model
         }
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
+        }
+        if (isset($map['RerankScore'])) {
+            $model->rerankScore = $map['RerankScore'];
         }
         if (isset($map['RetrievalSource'])) {
             $model->retrievalSource = $map['RetrievalSource'];
