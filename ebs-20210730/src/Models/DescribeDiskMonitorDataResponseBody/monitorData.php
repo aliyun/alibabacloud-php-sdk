@@ -54,6 +54,11 @@ class monitorData extends Model
     public $readBPS;
 
     /**
+     * @var int
+     */
+    public $readBlockSize;
+
+    /**
      * @description The maximum number of read IOPS.
      *
      * @example 2000
@@ -61,6 +66,11 @@ class monitorData extends Model
      * @var int
      */
     public $readIOPS;
+
+    /**
+     * @var int
+     */
+    public $readLatency;
 
     /**
      * @description The timestamp that is used to query the near real-time monitoring data of the disk. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
@@ -81,6 +91,11 @@ class monitorData extends Model
     public $writeBPS;
 
     /**
+     * @var int
+     */
+    public $writeBlockSize;
+
+    /**
      * @description The maximum number of write IOPS.
      *
      * @example 2000
@@ -88,16 +103,25 @@ class monitorData extends Model
      * @var int
      */
     public $writeIOPS;
+
+    /**
+     * @var int
+     */
+    public $writeLatency;
     protected $_name = [
-        'BPSPercent'   => 'BPSPercent',
-        'burstIOCount' => 'BurstIOCount',
-        'diskId'       => 'DiskId',
-        'IOPSPercent'  => 'IOPSPercent',
-        'readBPS'      => 'ReadBPS',
-        'readIOPS'     => 'ReadIOPS',
-        'timestamp'    => 'Timestamp',
-        'writeBPS'     => 'WriteBPS',
-        'writeIOPS'    => 'WriteIOPS',
+        'BPSPercent'     => 'BPSPercent',
+        'burstIOCount'   => 'BurstIOCount',
+        'diskId'         => 'DiskId',
+        'IOPSPercent'    => 'IOPSPercent',
+        'readBPS'        => 'ReadBPS',
+        'readBlockSize'  => 'ReadBlockSize',
+        'readIOPS'       => 'ReadIOPS',
+        'readLatency'    => 'ReadLatency',
+        'timestamp'      => 'Timestamp',
+        'writeBPS'       => 'WriteBPS',
+        'writeBlockSize' => 'WriteBlockSize',
+        'writeIOPS'      => 'WriteIOPS',
+        'writeLatency'   => 'WriteLatency',
     ];
 
     public function validate()
@@ -122,8 +146,14 @@ class monitorData extends Model
         if (null !== $this->readBPS) {
             $res['ReadBPS'] = $this->readBPS;
         }
+        if (null !== $this->readBlockSize) {
+            $res['ReadBlockSize'] = $this->readBlockSize;
+        }
         if (null !== $this->readIOPS) {
             $res['ReadIOPS'] = $this->readIOPS;
+        }
+        if (null !== $this->readLatency) {
+            $res['ReadLatency'] = $this->readLatency;
         }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
@@ -131,8 +161,14 @@ class monitorData extends Model
         if (null !== $this->writeBPS) {
             $res['WriteBPS'] = $this->writeBPS;
         }
+        if (null !== $this->writeBlockSize) {
+            $res['WriteBlockSize'] = $this->writeBlockSize;
+        }
         if (null !== $this->writeIOPS) {
             $res['WriteIOPS'] = $this->writeIOPS;
+        }
+        if (null !== $this->writeLatency) {
+            $res['WriteLatency'] = $this->writeLatency;
         }
 
         return $res;
@@ -161,8 +197,14 @@ class monitorData extends Model
         if (isset($map['ReadBPS'])) {
             $model->readBPS = $map['ReadBPS'];
         }
+        if (isset($map['ReadBlockSize'])) {
+            $model->readBlockSize = $map['ReadBlockSize'];
+        }
         if (isset($map['ReadIOPS'])) {
             $model->readIOPS = $map['ReadIOPS'];
+        }
+        if (isset($map['ReadLatency'])) {
+            $model->readLatency = $map['ReadLatency'];
         }
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
@@ -170,8 +212,14 @@ class monitorData extends Model
         if (isset($map['WriteBPS'])) {
             $model->writeBPS = $map['WriteBPS'];
         }
+        if (isset($map['WriteBlockSize'])) {
+            $model->writeBlockSize = $map['WriteBlockSize'];
+        }
         if (isset($map['WriteIOPS'])) {
             $model->writeIOPS = $map['WriteIOPS'];
+        }
+        if (isset($map['WriteLatency'])) {
+            $model->writeLatency = $map['WriteLatency'];
         }
 
         return $model;

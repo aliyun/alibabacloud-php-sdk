@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairProgressRequest
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairProgressResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDisksRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDisksResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEnterpriseSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEnterpriseSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeLensServiceStatusResponse;
@@ -64,6 +66,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\GetDiskRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\GetDiskResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDedicatedBlockStorageClusterAttributeRequest;
@@ -1584,6 +1588,82 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param DescribeDisksRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeDisksResponse
+     */
+    public function describeDisksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->diskIds)) {
+            $query['DiskIds'] = $request->diskIds;
+        }
+        if (!Utils::isUnset($request->diskName)) {
+            $query['DiskName'] = $request->diskName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDisks',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDisksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDisksRequest $request
+     *
+     * @return DescribeDisksResponse
+     */
+    public function describeDisks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDisksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeEnterpriseSnapshotPolicyRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -2039,6 +2119,52 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->failoverDiskReplicaPairWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDiskRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetDiskResponse
+     */
+    public function getDiskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->diskId)) {
+            $query['DiskId'] = $request->diskId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDisk',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDiskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDiskRequest $request
+     *
+     * @return GetDiskResponse
+     */
+    public function getDisk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDiskWithOptions($request, $runtime);
     }
 
     /**
