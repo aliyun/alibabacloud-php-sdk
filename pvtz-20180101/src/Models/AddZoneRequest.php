@@ -14,6 +14,11 @@ class AddZoneRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $dnsGroup;
+
+    /**
      * @example en
      *
      * @var string
@@ -56,6 +61,7 @@ class AddZoneRequest extends Model
     public $zoneType;
     protected $_name = [
         'clientToken'     => 'ClientToken',
+        'dnsGroup'        => 'DnsGroup',
         'lang'            => 'Lang',
         'proxyPattern'    => 'ProxyPattern',
         'resourceGroupId' => 'ResourceGroupId',
@@ -73,6 +79,9 @@ class AddZoneRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dnsGroup) {
+            $res['DnsGroup'] = $this->dnsGroup;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -106,6 +115,9 @@ class AddZoneRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DnsGroup'])) {
+            $model->dnsGroup = $map['DnsGroup'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

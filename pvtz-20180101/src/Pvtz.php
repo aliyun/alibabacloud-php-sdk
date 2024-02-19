@@ -308,6 +308,9 @@ class Pvtz extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->dnsGroup)) {
+            $query['DnsGroup'] = $request->dnsGroup;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
