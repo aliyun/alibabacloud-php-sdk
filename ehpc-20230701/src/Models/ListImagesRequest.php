@@ -31,19 +31,11 @@ class ListImagesRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'imageIds'   => 'ImageIds',
         'imageNames' => 'ImageNames',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -64,9 +56,6 @@ class ListImagesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -95,9 +84,6 @@ class ListImagesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

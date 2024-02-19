@@ -28,13 +28,6 @@ class AddImageRequest extends Model
     public $name;
 
     /**
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var VMImageSpec
      */
     public $VMImageSpec;
@@ -49,7 +42,6 @@ class AddImageRequest extends Model
         'containerImageSpec' => 'ContainerImageSpec',
         'description'        => 'Description',
         'name'               => 'Name',
-        'regionId'           => 'RegionId',
         'VMImageSpec'        => 'VMImageSpec',
         'version'            => 'Version',
     ];
@@ -69,9 +61,6 @@ class AddImageRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->VMImageSpec) {
             $res['VMImageSpec'] = null !== $this->VMImageSpec ? $this->VMImageSpec->toMap() : null;
@@ -99,9 +88,6 @@ class AddImageRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['VMImageSpec'])) {
             $model->VMImageSpec = VMImageSpec::fromMap($map['VMImageSpec']);

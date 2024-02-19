@@ -93,9 +93,6 @@ class EHPC extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
         if (!Utils::isUnset($request->VMImageSpecShrink)) {
             $query['VMImageSpec'] = $request->VMImageSpecShrink;
         }
@@ -253,9 +250,6 @@ class EHPC extends OpenApiClient
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -359,9 +353,6 @@ class EHPC extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -464,9 +455,6 @@ class EHPC extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

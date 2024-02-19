@@ -14,16 +14,8 @@ class RemoveImageRequest extends Model
      * @var string
      */
     public $imageId;
-
-    /**
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
-        'imageId'  => 'ImageId',
-        'regionId' => 'RegionId',
+        'imageId' => 'ImageId',
     ];
 
     public function validate()
@@ -35,9 +27,6 @@ class RemoveImageRequest extends Model
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -53,9 +42,6 @@ class RemoveImageRequest extends Model
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;
