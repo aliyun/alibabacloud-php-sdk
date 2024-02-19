@@ -27,11 +27,17 @@ class ResetSecretByAppKeyForInnerRequest extends Model
      * @var string
      */
     public $newAppSecret;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'aliUid'       => 'AliUid',
-        'appKey'       => 'AppKey',
-        'newAppKey'    => 'NewAppKey',
-        'newAppSecret' => 'NewAppSecret',
+        'aliUid'        => 'AliUid',
+        'appKey'        => 'AppKey',
+        'newAppKey'     => 'NewAppKey',
+        'newAppSecret'  => 'NewAppSecret',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class ResetSecretByAppKeyForInnerRequest extends Model
         }
         if (null !== $this->newAppSecret) {
             $res['NewAppSecret'] = $this->newAppSecret;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class ResetSecretByAppKeyForInnerRequest extends Model
         }
         if (isset($map['NewAppSecret'])) {
             $model->newAppSecret = $map['NewAppSecret'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

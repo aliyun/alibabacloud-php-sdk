@@ -11,6 +11,11 @@ class AddTrafficSpecialControlRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $specialKey;
 
     /**
@@ -28,6 +33,7 @@ class AddTrafficSpecialControlRequest extends Model
      */
     public $trafficValue;
     protected $_name = [
+        'securityToken'    => 'SecurityToken',
         'specialKey'       => 'SpecialKey',
         'specialType'      => 'SpecialType',
         'trafficControlId' => 'TrafficControlId',
@@ -41,6 +47,9 @@ class AddTrafficSpecialControlRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
         if (null !== $this->specialKey) {
             $res['SpecialKey'] = $this->specialKey;
         }
@@ -65,6 +74,9 @@ class AddTrafficSpecialControlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
         if (isset($map['SpecialKey'])) {
             $model->specialKey = $map['SpecialKey'];
         }

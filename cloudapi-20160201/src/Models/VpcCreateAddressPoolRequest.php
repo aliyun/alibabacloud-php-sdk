@@ -26,12 +26,18 @@ class VpcCreateAddressPoolRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $token;
     protected $_name = [
-        'appId'       => 'AppId',
-        'description' => 'Description',
-        'name'        => 'Name',
-        'token'       => 'Token',
+        'appId'         => 'AppId',
+        'description'   => 'Description',
+        'name'          => 'Name',
+        'securityToken' => 'SecurityToken',
+        'token'         => 'Token',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class VpcCreateAddressPoolRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
@@ -73,6 +82,9 @@ class VpcCreateAddressPoolRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];

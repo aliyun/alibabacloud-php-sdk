@@ -27,11 +27,17 @@ class DescribeApisByRuleRequest extends Model
      * @var string
      */
     public $ruleType;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'ruleId'     => 'RuleId',
-        'ruleType'   => 'RuleType',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
+        'ruleId'        => 'RuleId',
+        'ruleType'      => 'RuleType',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class DescribeApisByRuleRequest extends Model
         }
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class DescribeApisByRuleRequest extends Model
         }
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

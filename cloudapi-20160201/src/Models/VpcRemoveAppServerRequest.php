@@ -16,6 +16,11 @@ class VpcRemoveAppServerRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $serverIp;
 
     /**
@@ -23,9 +28,10 @@ class VpcRemoveAppServerRequest extends Model
      */
     public $token;
     protected $_name = [
-        'appId'    => 'AppId',
-        'serverIp' => 'ServerIp',
-        'token'    => 'Token',
+        'appId'         => 'AppId',
+        'securityToken' => 'SecurityToken',
+        'serverIp'      => 'ServerIp',
+        'token'         => 'Token',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class VpcRemoveAppServerRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->serverIp) {
             $res['ServerIp'] = $this->serverIp;
@@ -58,6 +67,9 @@ class VpcRemoveAppServerRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['ServerIp'])) {
             $model->serverIp = $map['ServerIp'];

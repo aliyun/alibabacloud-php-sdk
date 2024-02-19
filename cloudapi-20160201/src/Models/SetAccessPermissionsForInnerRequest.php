@@ -36,6 +36,11 @@ class SetAccessPermissionsForInnerRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $source;
 
     /**
@@ -43,13 +48,14 @@ class SetAccessPermissionsForInnerRequest extends Model
      */
     public $stageName;
     protected $_name = [
-        'aliUid'      => 'AliUid',
-        'apiId'       => 'ApiId',
-        'appIds'      => 'AppIds',
-        'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'source'      => 'Source',
-        'stageName'   => 'StageName',
+        'aliUid'        => 'AliUid',
+        'apiId'         => 'ApiId',
+        'appIds'        => 'AppIds',
+        'description'   => 'Description',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
+        'source'        => 'Source',
+        'stageName'     => 'StageName',
     ];
 
     public function validate()
@@ -73,6 +79,9 @@ class SetAccessPermissionsForInnerRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -106,6 +115,9 @@ class SetAccessPermissionsForInnerRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

@@ -16,6 +16,11 @@ class DeleteUserWhiteListByTypeRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -23,9 +28,10 @@ class DeleteUserWhiteListByTypeRequest extends Model
      */
     public $uid;
     protected $_name = [
-        'entityId' => 'EntityId',
-        'type'     => 'Type',
-        'uid'      => 'Uid',
+        'entityId'      => 'EntityId',
+        'securityToken' => 'SecurityToken',
+        'type'          => 'Type',
+        'uid'           => 'Uid',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class DeleteUserWhiteListByTypeRequest extends Model
         $res = [];
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -58,6 +67,9 @@ class DeleteUserWhiteListByTypeRequest extends Model
         $model = new self();
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

@@ -16,6 +16,11 @@ class ModifyUserWhiteListValueByTypeRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -28,10 +33,11 @@ class ModifyUserWhiteListValueByTypeRequest extends Model
      */
     public $value;
     protected $_name = [
-        'description' => 'Description',
-        'type'        => 'Type',
-        'uid'         => 'Uid',
-        'value'       => 'Value',
+        'description'   => 'Description',
+        'securityToken' => 'SecurityToken',
+        'type'          => 'Type',
+        'uid'           => 'Uid',
+        'value'         => 'Value',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class ModifyUserWhiteListValueByTypeRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -67,6 +76,9 @@ class ModifyUserWhiteListValueByTypeRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

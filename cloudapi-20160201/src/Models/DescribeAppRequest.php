@@ -12,8 +12,14 @@ class DescribeAppRequest extends Model
      * @var int
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'appId' => 'AppId',
+        'appId'         => 'AppId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DescribeAppRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DescribeAppRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

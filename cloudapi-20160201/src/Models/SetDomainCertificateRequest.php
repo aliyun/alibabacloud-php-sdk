@@ -32,12 +32,18 @@ class SetDomainCertificateRequest extends Model
      * @var string
      */
     public $privateKey;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
         'certificateBody' => 'CertificateBody',
         'certificateName' => 'CertificateName',
         'domainName'      => 'DomainName',
         'groupId'         => 'GroupId',
         'privateKey'      => 'PrivateKey',
+        'securityToken'   => 'SecurityToken',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class SetDomainCertificateRequest extends Model
         }
         if (null !== $this->privateKey) {
             $res['PrivateKey'] = $this->privateKey;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class SetDomainCertificateRequest extends Model
         }
         if (isset($map['PrivateKey'])) {
             $model->privateKey = $map['PrivateKey'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

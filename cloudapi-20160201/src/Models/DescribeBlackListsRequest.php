@@ -22,10 +22,16 @@ class DescribeBlackListsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'blackType'  => 'BlackType',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'blackType'     => 'BlackType',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class DescribeBlackListsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class DescribeBlackListsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

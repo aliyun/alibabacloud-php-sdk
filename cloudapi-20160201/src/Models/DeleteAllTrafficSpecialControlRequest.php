@@ -11,8 +11,14 @@ class DeleteAllTrafficSpecialControlRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $trafficControlId;
     protected $_name = [
+        'securityToken'    => 'SecurityToken',
         'trafficControlId' => 'TrafficControlId',
     ];
 
@@ -23,6 +29,9 @@ class DeleteAllTrafficSpecialControlRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
         if (null !== $this->trafficControlId) {
             $res['TrafficControlId'] = $this->trafficControlId;
         }
@@ -38,6 +47,9 @@ class DeleteAllTrafficSpecialControlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
         if (isset($map['TrafficControlId'])) {
             $model->trafficControlId = $map['TrafficControlId'];
         }

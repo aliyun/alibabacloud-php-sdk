@@ -27,11 +27,17 @@ class DescribeSecretKeysRequest extends Model
      * @var string
      */
     public $secretKeyName;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'secretKeyId'   => 'SecretKeyId',
         'secretKeyName' => 'SecretKeyName',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class DescribeSecretKeysRequest extends Model
         }
         if (null !== $this->secretKeyName) {
             $res['SecretKeyName'] = $this->secretKeyName;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class DescribeSecretKeysRequest extends Model
         }
         if (isset($map['SecretKeyName'])) {
             $model->secretKeyName = $map['SecretKeyName'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

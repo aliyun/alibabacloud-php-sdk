@@ -22,10 +22,16 @@ class ModifyApiGroupRequest extends Model
      * @var string
      */
     public $groupName;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
+        'description'   => 'Description',
+        'groupId'       => 'GroupId',
+        'groupName'     => 'GroupName',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class ModifyApiGroupRequest extends Model
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class ModifyApiGroupRequest extends Model
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

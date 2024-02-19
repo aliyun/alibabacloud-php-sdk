@@ -31,13 +31,19 @@ class SetAccessPermissionByApisRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $stageName;
     protected $_name = [
-        'apiIds'      => 'ApiIds',
-        'appId'       => 'AppId',
-        'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'stageName'   => 'StageName',
+        'apiIds'        => 'ApiIds',
+        'appId'         => 'AppId',
+        'description'   => 'Description',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
+        'stageName'     => 'StageName',
     ];
 
     public function validate()
@@ -58,6 +64,9 @@ class SetAccessPermissionByApisRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
@@ -85,6 +94,9 @@ class SetAccessPermissionByApisRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];

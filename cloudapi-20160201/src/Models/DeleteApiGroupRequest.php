@@ -12,8 +12,14 @@ class DeleteApiGroupRequest extends Model
      * @var string
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'groupId' => 'GroupId',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DeleteApiGroupRequest extends Model
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DeleteApiGroupRequest extends Model
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

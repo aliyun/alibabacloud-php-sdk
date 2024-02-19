@@ -17,9 +17,15 @@ class VipMigrationRequest extends Model
      * @var string
      */
     public $originalVip;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'newVip'      => 'NewVip',
-        'originalVip' => 'OriginalVip',
+        'newVip'        => 'NewVip',
+        'originalVip'   => 'OriginalVip',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class VipMigrationRequest extends Model
         }
         if (null !== $this->originalVip) {
             $res['OriginalVip'] = $this->originalVip;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class VipMigrationRequest extends Model
         }
         if (isset($map['OriginalVip'])) {
             $model->originalVip = $map['OriginalVip'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

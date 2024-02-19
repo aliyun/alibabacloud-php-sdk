@@ -531,6 +531,9 @@ class CloudAPI extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->specialKey)) {
             $query['SpecialKey'] = $request->specialKey;
         }
@@ -585,6 +588,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->aliUid)) {
             $query['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -674,6 +680,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->copyList)) {
             $query['CopyList'] = $request->copyList;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -769,6 +778,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->resultType)) {
             $query['ResultType'] = $request->resultType;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->serviceAddress)) {
             $query['ServiceAddress'] = $request->serviceAddress;
         }
@@ -850,6 +862,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->resultType)) {
             $query['ResultType'] = $request->resultType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->serviceConfig)) {
             $query['ServiceConfig'] = $request->serviceConfig;
@@ -961,6 +976,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupName)) {
             $query['GroupName'] = $request->groupName;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
@@ -1009,6 +1027,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1122,6 +1143,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->extend)) {
             $query['Extend'] = $request->extend;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
@@ -1248,6 +1272,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->logoUrl)) {
             $query['LogoUrl'] = $request->logoUrl;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->shortDescription)) {
             $query['ShortDescription'] = $request->shortDescription;
         }
@@ -1303,6 +1330,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->secretValue)) {
             $query['SecretValue'] = $request->secretValue;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1351,6 +1381,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->trafficControlName)) {
             $query['TrafficControlName'] = $request->trafficControlName;
@@ -1413,6 +1446,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->limitCount)) {
             $query['LimitCount'] = $request->limitCount;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
@@ -1462,6 +1498,9 @@ class CloudAPI extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->trafficControlId)) {
             $query['TrafficControlId'] = $request->trafficControlId;
         }
@@ -1510,6 +1549,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1560,6 +1602,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1603,6 +1648,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1645,6 +1693,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1692,6 +1743,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1737,6 +1791,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1787,6 +1844,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1830,6 +1890,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->secretKeyId)) {
             $query['SecretKeyId'] = $request->secretKeyId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1870,6 +1933,9 @@ class CloudAPI extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->trafficControlId)) {
             $query['TrafficControlId'] = $request->trafficControlId;
         }
@@ -1913,6 +1979,9 @@ class CloudAPI extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->specialKey)) {
             $query['SpecialKey'] = $request->specialKey;
         }
@@ -1964,6 +2033,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->entityId)) {
             $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
@@ -2020,6 +2092,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -2075,6 +2150,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -2123,6 +2201,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2295,6 +2376,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -2347,6 +2431,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -2392,6 +2479,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2497,6 +2587,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -2546,6 +2639,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2594,6 +2690,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -2653,6 +2752,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->ruleType)) {
             $query['RuleType'] = $request->ruleType;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -2704,6 +2806,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -2763,6 +2868,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->visibility)) {
             $query['Visibility'] = $request->visibility;
         }
@@ -2815,6 +2923,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2866,6 +2977,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->ruleType)) {
             $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2922,6 +3036,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -2970,6 +3087,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3158,6 +3278,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3209,6 +3332,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
@@ -3265,6 +3391,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3305,6 +3434,9 @@ class CloudAPI extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->vip)) {
             $query['Vip'] = $request->vip;
         }
@@ -3403,6 +3535,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3448,6 +3583,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
@@ -3507,6 +3645,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -3556,6 +3697,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3601,6 +3745,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3650,6 +3797,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->historyVersion)) {
             $query['HistoryVersion'] = $request->historyVersion;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
@@ -3708,6 +3858,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
@@ -3770,6 +3923,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3816,6 +3972,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3858,6 +4017,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3966,6 +4128,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -4015,6 +4180,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4060,6 +4228,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4153,6 +4324,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -4207,6 +4381,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->secretKeyName)) {
             $query['SecretKeyName'] = $request->secretKeyName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4346,6 +4523,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -4401,6 +4581,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
@@ -4447,6 +4630,9 @@ class CloudAPI extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
@@ -4547,6 +4733,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->resultType)) {
             $query['ResultType'] = $request->resultType;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->serviceAddress)) {
             $query['ServiceAddress'] = $request->serviceAddress;
         }
@@ -4632,6 +4821,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->resultType)) {
             $query['ResultType'] = $request->resultType;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->serviceConfig)) {
             $query['ServiceConfig'] = $request->serviceConfig;
         }
@@ -4692,6 +4884,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupName)) {
             $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4791,6 +4986,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4846,6 +5044,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->extend)) {
             $query['Extend'] = $request->extend;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4894,6 +5095,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4947,6 +5151,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->secretValue)) {
             $query['SecretValue'] = $request->secretValue;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4995,6 +5202,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->trafficControlId)) {
             $query['TrafficControlId'] = $request->trafficControlId;
@@ -5050,6 +5260,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
@@ -5109,6 +5322,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5157,6 +5373,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->historyVersion)) {
             $query['HistoryVersion'] = $request->historyVersion;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
@@ -5210,6 +5429,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->historyVersion)) {
             $query['HistoryVersion'] = $request->historyVersion;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -5262,6 +5484,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->historyVersion)) {
             $query['HistoryVersion'] = $request->historyVersion;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -5310,6 +5535,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5363,6 +5591,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -5414,6 +5645,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
@@ -5470,6 +5704,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
@@ -5518,6 +5755,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->blackType)) {
             $query['BlackType'] = $request->blackType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5571,6 +5811,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->ruleType)) {
             $query['RuleType'] = $request->ruleType;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -5623,6 +5866,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -5672,6 +5918,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->blackType)) {
             $query['BlackType'] = $request->blackType;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5714,6 +5963,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appCode)) {
             $query['AppCode'] = $request->appCode;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5764,6 +6016,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->newAppCode)) {
             $query['NewAppCode'] = $request->newAppCode;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5806,6 +6061,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appKey)) {
             $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5859,6 +6117,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->newAppSecret)) {
             $query['NewAppSecret'] = $request->newAppSecret;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5910,6 +6171,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
@@ -6012,6 +6276,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -6069,6 +6336,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
@@ -6128,6 +6398,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->ruleType)) {
             $query['RuleType'] = $request->ruleType;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -6186,6 +6459,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->privateKey)) {
             $query['PrivateKey'] = $request->privateKey;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6240,6 +6516,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->privateKey)) {
             $query['PrivateKey'] = $request->privateKey;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6296,6 +6575,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6347,6 +6629,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->mockResult)) {
             $query['MockResult'] = $request->mockResult;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6452,6 +6737,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->historyVersion)) {
             $query['HistoryVersion'] = $request->historyVersion;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -6506,6 +6794,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->historyVersion)) {
             $query['HistoryVersion'] = $request->historyVersion;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
@@ -6564,6 +6855,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
@@ -6736,6 +7030,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->originalVip)) {
             $query['OriginalVip'] = $request->originalVip;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6782,6 +7079,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->originalVip)) {
             $query['OriginalVip'] = $request->originalVip;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6827,6 +7127,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->serverIp)) {
             $query['ServerIp'] = $request->serverIp;
@@ -6882,6 +7185,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->token)) {
             $query['Token'] = $request->token;
@@ -6984,6 +7290,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->token)) {
             $query['Token'] = $request->token;
         }
@@ -7029,6 +7338,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->serverIp)) {
             $query['ServerIp'] = $request->serverIp;

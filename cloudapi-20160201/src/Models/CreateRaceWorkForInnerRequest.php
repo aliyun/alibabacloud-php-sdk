@@ -31,6 +31,11 @@ class CreateRaceWorkForInnerRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $shortDescription;
 
     /**
@@ -42,6 +47,7 @@ class CreateRaceWorkForInnerRequest extends Model
         'groupId'          => 'GroupId',
         'keywords'         => 'Keywords',
         'logoUrl'          => 'LogoUrl',
+        'securityToken'    => 'SecurityToken',
         'shortDescription' => 'ShortDescription',
         'workName'         => 'WorkName',
     ];
@@ -64,6 +70,9 @@ class CreateRaceWorkForInnerRequest extends Model
         }
         if (null !== $this->logoUrl) {
             $res['LogoUrl'] = $this->logoUrl;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->shortDescription) {
             $res['ShortDescription'] = $this->shortDescription;
@@ -94,6 +103,9 @@ class CreateRaceWorkForInnerRequest extends Model
         }
         if (isset($map['LogoUrl'])) {
             $model->logoUrl = $map['LogoUrl'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['ShortDescription'])) {
             $model->shortDescription = $map['ShortDescription'];

@@ -17,9 +17,15 @@ class DeleteAppForInnerRequest extends Model
      * @var int
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'aliUid' => 'AliUid',
-        'appId'  => 'AppId',
+        'aliUid'        => 'AliUid',
+        'appId'         => 'AppId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DeleteAppForInnerRequest extends Model
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DeleteAppForInnerRequest extends Model
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

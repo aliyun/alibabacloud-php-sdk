@@ -12,8 +12,14 @@ class CheckAccountForInnerRequest extends Model
      * @var int
      */
     public $aliUid;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'aliUid' => 'AliUid',
+        'aliUid'        => 'AliUid',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class CheckAccountForInnerRequest extends Model
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class CheckAccountForInnerRequest extends Model
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

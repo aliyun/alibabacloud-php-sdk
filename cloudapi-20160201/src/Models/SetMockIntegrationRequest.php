@@ -27,11 +27,17 @@ class SetMockIntegrationRequest extends Model
      * @var string
      */
     public $mockResult;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'apiId'      => 'ApiId',
-        'groupId'    => 'GroupId',
-        'mock'       => 'Mock',
-        'mockResult' => 'MockResult',
+        'apiId'         => 'ApiId',
+        'groupId'       => 'GroupId',
+        'mock'          => 'Mock',
+        'mockResult'    => 'MockResult',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class SetMockIntegrationRequest extends Model
         }
         if (null !== $this->mockResult) {
             $res['MockResult'] = $this->mockResult;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class SetMockIntegrationRequest extends Model
         }
         if (isset($map['MockResult'])) {
             $model->mockResult = $map['MockResult'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

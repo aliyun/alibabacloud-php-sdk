@@ -26,11 +26,17 @@ class RecoveryApiDefineFromHistoricalRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $stageName;
     protected $_name = [
         'apiId'          => 'ApiId',
         'groupId'        => 'GroupId',
         'historyVersion' => 'HistoryVersion',
+        'securityToken'  => 'SecurityToken',
         'stageName'      => 'StageName',
     ];
 
@@ -49,6 +55,9 @@ class RecoveryApiDefineFromHistoricalRequest extends Model
         }
         if (null !== $this->historyVersion) {
             $res['HistoryVersion'] = $this->historyVersion;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
@@ -73,6 +82,9 @@ class RecoveryApiDefineFromHistoricalRequest extends Model
         }
         if (isset($map['HistoryVersion'])) {
             $model->historyVersion = $map['HistoryVersion'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];

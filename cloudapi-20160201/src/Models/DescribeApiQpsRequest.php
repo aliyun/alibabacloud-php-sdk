@@ -26,12 +26,18 @@ class DescribeApiQpsRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $startTime;
     protected $_name = [
-        'apiId'     => 'ApiId',
-        'endTime'   => 'EndTime',
-        'groupId'   => 'GroupId',
-        'startTime' => 'StartTime',
+        'apiId'         => 'ApiId',
+        'endTime'       => 'EndTime',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
+        'startTime'     => 'StartTime',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class DescribeApiQpsRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -73,6 +82,9 @@ class DescribeApiQpsRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

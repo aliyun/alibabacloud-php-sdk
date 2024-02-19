@@ -36,14 +36,20 @@ class SynCreateAppForInnerRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $source;
     protected $_name = [
-        'aliUid'      => 'AliUid',
-        'appKey'      => 'AppKey',
-        'appName'     => 'AppName',
-        'appSecret'   => 'AppSecret',
-        'description' => 'Description',
-        'source'      => 'Source',
+        'aliUid'        => 'AliUid',
+        'appKey'        => 'AppKey',
+        'appName'       => 'AppName',
+        'appSecret'     => 'AppSecret',
+        'description'   => 'Description',
+        'securityToken' => 'SecurityToken',
+        'source'        => 'Source',
     ];
 
     public function validate()
@@ -67,6 +73,9 @@ class SynCreateAppForInnerRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -97,6 +106,9 @@ class SynCreateAppForInnerRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

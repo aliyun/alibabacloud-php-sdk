@@ -27,11 +27,17 @@ class ModifySecretKeyRequest extends Model
      * @var string
      */
     public $secretValue;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
         'secretKey'     => 'SecretKey',
         'secretKeyId'   => 'SecretKeyId',
         'secretKeyName' => 'SecretKeyName',
         'secretValue'   => 'SecretValue',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class ModifySecretKeyRequest extends Model
         }
         if (null !== $this->secretValue) {
             $res['SecretValue'] = $this->secretValue;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class ModifySecretKeyRequest extends Model
         }
         if (isset($map['SecretValue'])) {
             $model->secretValue = $map['SecretValue'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

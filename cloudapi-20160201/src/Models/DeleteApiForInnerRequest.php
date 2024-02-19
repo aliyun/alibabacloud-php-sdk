@@ -22,10 +22,16 @@ class DeleteApiForInnerRequest extends Model
      * @var string
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'aliUid'  => 'AliUid',
-        'apiId'   => 'ApiId',
-        'groupId' => 'GroupId',
+        'aliUid'        => 'AliUid',
+        'apiId'         => 'ApiId',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class DeleteApiForInnerRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class DeleteApiForInnerRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

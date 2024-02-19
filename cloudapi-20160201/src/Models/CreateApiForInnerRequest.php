@@ -56,6 +56,11 @@ class CreateApiForInnerRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $serviceConfig;
 
     /**
@@ -82,6 +87,7 @@ class CreateApiForInnerRequest extends Model
         'requestParamters'     => 'RequestParamters',
         'resultSample'         => 'ResultSample',
         'resultType'           => 'ResultType',
+        'securityToken'        => 'SecurityToken',
         'serviceConfig'        => 'ServiceConfig',
         'serviceParameters'    => 'ServiceParameters',
         'serviceParametersMap' => 'ServiceParametersMap',
@@ -121,6 +127,9 @@ class CreateApiForInnerRequest extends Model
         }
         if (null !== $this->resultType) {
             $res['ResultType'] = $this->resultType;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->serviceConfig) {
             $res['ServiceConfig'] = $this->serviceConfig;
@@ -172,6 +181,9 @@ class CreateApiForInnerRequest extends Model
         }
         if (isset($map['ResultType'])) {
             $model->resultType = $map['ResultType'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['ServiceConfig'])) {
             $model->serviceConfig = $map['ServiceConfig'];

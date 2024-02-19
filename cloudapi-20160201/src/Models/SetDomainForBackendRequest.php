@@ -32,12 +32,18 @@ class SetDomainForBackendRequest extends Model
      * @var string
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
         'certificateBody'       => 'CertificateBody',
         'certificateName'       => 'CertificateName',
         'certificatePrivateKey' => 'CertificatePrivateKey',
         'domainName'            => 'DomainName',
         'groupId'               => 'GroupId',
+        'securityToken'         => 'SecurityToken',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class SetDomainForBackendRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class SetDomainForBackendRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

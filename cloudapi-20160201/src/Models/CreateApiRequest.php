@@ -96,6 +96,11 @@ class CreateApiRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $serviceAddress;
 
     /**
@@ -135,6 +140,7 @@ class CreateApiRequest extends Model
         'requestQueries'      => 'RequestQueries',
         'resultSample'        => 'ResultSample',
         'resultType'          => 'ResultType',
+        'securityToken'       => 'SecurityToken',
         'serviceAddress'      => 'ServiceAddress',
         'serviceProtocol'     => 'ServiceProtocol',
         'serviceTimeout'      => 'ServiceTimeout',
@@ -199,6 +205,9 @@ class CreateApiRequest extends Model
         }
         if (null !== $this->resultType) {
             $res['ResultType'] = $this->resultType;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->serviceAddress) {
             $res['ServiceAddress'] = $this->serviceAddress;
@@ -277,6 +286,9 @@ class CreateApiRequest extends Model
         }
         if (isset($map['ResultType'])) {
             $model->resultType = $map['ResultType'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['ServiceAddress'])) {
             $model->serviceAddress = $map['ServiceAddress'];

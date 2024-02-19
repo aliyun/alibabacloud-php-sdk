@@ -12,8 +12,14 @@ class RemoveAllBlackListRequest extends Model
      * @var string
      */
     public $blackType;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'blackType' => 'BlackType',
+        'blackType'     => 'BlackType',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class RemoveAllBlackListRequest extends Model
         $res = [];
         if (null !== $this->blackType) {
             $res['BlackType'] = $this->blackType;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class RemoveAllBlackListRequest extends Model
         $model = new self();
         if (isset($map['BlackType'])) {
             $model->blackType = $map['BlackType'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

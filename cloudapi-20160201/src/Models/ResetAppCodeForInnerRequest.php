@@ -22,10 +22,16 @@ class ResetAppCodeForInnerRequest extends Model
      * @var string
      */
     public $newAppCode;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'aliUid'     => 'AliUid',
-        'appCode'    => 'AppCode',
-        'newAppCode' => 'NewAppCode',
+        'aliUid'        => 'AliUid',
+        'appCode'       => 'AppCode',
+        'newAppCode'    => 'NewAppCode',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class ResetAppCodeForInnerRequest extends Model
         }
         if (null !== $this->newAppCode) {
             $res['NewAppCode'] = $this->newAppCode;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class ResetAppCodeForInnerRequest extends Model
         }
         if (isset($map['NewAppCode'])) {
             $model->newAppCode = $map['NewAppCode'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

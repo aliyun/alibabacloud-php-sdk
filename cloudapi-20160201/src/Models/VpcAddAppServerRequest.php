@@ -21,6 +21,11 @@ class VpcAddAppServerRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $serverIp;
 
     /**
@@ -30,6 +35,7 @@ class VpcAddAppServerRequest extends Model
     protected $_name = [
         'addressPoolId' => 'AddressPoolId',
         'appId'         => 'AppId',
+        'securityToken' => 'SecurityToken',
         'serverIp'      => 'ServerIp',
         'token'         => 'Token',
     ];
@@ -46,6 +52,9 @@ class VpcAddAppServerRequest extends Model
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->serverIp) {
             $res['ServerIp'] = $this->serverIp;
@@ -70,6 +79,9 @@ class VpcAddAppServerRequest extends Model
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['ServerIp'])) {
             $model->serverIp = $map['ServerIp'];

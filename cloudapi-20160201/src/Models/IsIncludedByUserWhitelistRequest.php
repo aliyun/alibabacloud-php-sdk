@@ -11,9 +11,15 @@ class IsIncludedByUserWhitelistRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
-        'type' => 'Type',
+        'securityToken' => 'SecurityToken',
+        'type'          => 'Type',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class IsIncludedByUserWhitelistRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -38,6 +47,9 @@ class IsIncludedByUserWhitelistRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

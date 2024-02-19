@@ -21,6 +21,11 @@ class DescribeUserWhiteListsRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -28,10 +33,11 @@ class DescribeUserWhiteListsRequest extends Model
      */
     public $uid;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'type'       => 'Type',
-        'uid'        => 'Uid',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
+        'securityToken' => 'SecurityToken',
+        'type'          => 'Type',
+        'uid'           => 'Uid',
     ];
 
     public function validate()
@@ -46,6 +52,9 @@ class DescribeUserWhiteListsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -70,6 +79,9 @@ class DescribeUserWhiteListsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

@@ -26,12 +26,18 @@ class CreateApiGroupForInnerRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $source;
     protected $_name = [
-        'aliUid'      => 'AliUid',
-        'description' => 'Description',
-        'groupName'   => 'GroupName',
-        'source'      => 'Source',
+        'aliUid'        => 'AliUid',
+        'description'   => 'Description',
+        'groupName'     => 'GroupName',
+        'securityToken' => 'SecurityToken',
+        'source'        => 'Source',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class CreateApiGroupForInnerRequest extends Model
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -73,6 +82,9 @@ class CreateApiGroupForInnerRequest extends Model
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

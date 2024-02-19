@@ -12,8 +12,14 @@ class ResetAppCodeRequest extends Model
      * @var string
      */
     public $appCode;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'appCode' => 'AppCode',
+        'appCode'       => 'AppCode',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class ResetAppCodeRequest extends Model
         $res = [];
         if (null !== $this->appCode) {
             $res['AppCode'] = $this->appCode;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class ResetAppCodeRequest extends Model
         $model = new self();
         if (isset($map['AppCode'])) {
             $model->appCode = $map['AppCode'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

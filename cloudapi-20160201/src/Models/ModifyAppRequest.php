@@ -22,10 +22,16 @@ class ModifyAppRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'appId'       => 'AppId',
-        'appName'     => 'AppName',
-        'description' => 'Description',
+        'appId'         => 'AppId',
+        'appName'       => 'AppName',
+        'description'   => 'Description',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class ModifyAppRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class ModifyAppRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

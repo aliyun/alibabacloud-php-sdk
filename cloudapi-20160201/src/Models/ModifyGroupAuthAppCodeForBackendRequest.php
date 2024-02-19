@@ -22,10 +22,16 @@ class ModifyGroupAuthAppCodeForBackendRequest extends Model
      * @var string
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'aliUid'      => 'AliUid',
-        'authAppCode' => 'AuthAppCode',
-        'groupId'     => 'GroupId',
+        'aliUid'        => 'AliUid',
+        'authAppCode'   => 'AuthAppCode',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class ModifyGroupAuthAppCodeForBackendRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class ModifyGroupAuthAppCodeForBackendRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

@@ -12,8 +12,14 @@ class DeleteSecretKeyRequest extends Model
      * @var string
      */
     public $secretKeyId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'secretKeyId' => 'SecretKeyId',
+        'secretKeyId'   => 'SecretKeyId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DeleteSecretKeyRequest extends Model
         $res = [];
         if (null !== $this->secretKeyId) {
             $res['SecretKeyId'] = $this->secretKeyId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DeleteSecretKeyRequest extends Model
         $model = new self();
         if (isset($map['SecretKeyId'])) {
             $model->secretKeyId = $map['SecretKeyId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

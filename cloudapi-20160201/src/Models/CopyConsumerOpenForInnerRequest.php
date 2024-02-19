@@ -12,8 +12,14 @@ class CopyConsumerOpenForInnerRequest extends Model
      * @var string
      */
     public $copyList;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'copyList' => 'CopyList',
+        'copyList'      => 'CopyList',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class CopyConsumerOpenForInnerRequest extends Model
         $res = [];
         if (null !== $this->copyList) {
             $res['CopyList'] = $this->copyList;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class CopyConsumerOpenForInnerRequest extends Model
         $model = new self();
         if (isset($map['CopyList'])) {
             $model->copyList = $map['CopyList'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

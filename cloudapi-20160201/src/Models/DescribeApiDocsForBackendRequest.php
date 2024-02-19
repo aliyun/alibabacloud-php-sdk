@@ -41,15 +41,21 @@ class DescribeApiDocsForBackendRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $stageName;
     protected $_name = [
-        'aliUid'     => 'AliUid',
-        'apiId'      => 'ApiId',
-        'apiName'    => 'ApiName',
-        'groupId'    => 'GroupId',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'stageName'  => 'StageName',
+        'aliUid'        => 'AliUid',
+        'apiId'         => 'ApiId',
+        'apiName'       => 'ApiName',
+        'groupId'       => 'GroupId',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
+        'securityToken' => 'SecurityToken',
+        'stageName'     => 'StageName',
     ];
 
     public function validate()
@@ -76,6 +82,9 @@ class DescribeApiDocsForBackendRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
@@ -109,6 +118,9 @@ class DescribeApiDocsForBackendRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];

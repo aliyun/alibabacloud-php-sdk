@@ -31,6 +31,11 @@ class CreateUserWhiteListRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -43,13 +48,14 @@ class CreateUserWhiteListRequest extends Model
      */
     public $value;
     protected $_name = [
-        'aoneId'      => 'AoneId',
-        'description' => 'Description',
-        'entityId'    => 'EntityId',
-        'limitCount'  => 'LimitCount',
-        'type'        => 'Type',
-        'uid'         => 'Uid',
-        'value'       => 'Value',
+        'aoneId'        => 'AoneId',
+        'description'   => 'Description',
+        'entityId'      => 'EntityId',
+        'limitCount'    => 'LimitCount',
+        'securityToken' => 'SecurityToken',
+        'type'          => 'Type',
+        'uid'           => 'Uid',
+        'value'         => 'Value',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class CreateUserWhiteListRequest extends Model
         }
         if (null !== $this->limitCount) {
             $res['LimitCount'] = $this->limitCount;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -103,6 +112,9 @@ class CreateUserWhiteListRequest extends Model
         }
         if (isset($map['LimitCount'])) {
             $model->limitCount = $map['LimitCount'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
