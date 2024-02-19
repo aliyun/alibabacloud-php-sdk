@@ -6,6 +6,14 @@
 - Update API QueryContent: update response param.
 
 
+2024-02-19 Version: 1.6.2
+- Update API DescribeSampleData: update response param.
+- Update API QueryContent: add param IncludeVector.
+- Update API QueryContent: add param RecallWindow.
+- Update API QueryContent: add param RerankFactor.
+- Update API QueryContent: update response param.
+
+
 2024-01-18 Version: 1.6.1
 - Generated php 2016-05-03 for gpdb.
 
