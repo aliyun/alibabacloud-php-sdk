@@ -149,6 +149,10 @@ class data extends Model
     public $grafanaFolderUrl;
 
     /**
+     * @description managed type:
+     * - agent-exporter: managed agent and exporters. The default value for the cloud service type.
+     * @example none
+     *
      * @var string
      */
     public $managedType;
@@ -206,7 +210,7 @@ class data extends Model
     public $userId;
 
     /**
-     * @description VPC ID.
+     * @description The VPC ID.
      *
      * @example vpc-8vb02uk57qbcktqcvqqqj
      *

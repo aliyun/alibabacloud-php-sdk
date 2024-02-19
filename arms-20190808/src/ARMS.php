@@ -287,6 +287,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ListActivatedAlertsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListActivatedAlertsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAddonReleasesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAddonReleasesResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAddonsRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAddonsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertEventsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertEventsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertsRequest;
@@ -3626,10 +3628,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteCmsExporterRequest $request
-     * @param RuntimeOptions           $runtime
+     * @deprecated : DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
+     *   *
+     * Deprecated
      *
-     * @return DeleteCmsExporterResponse
+     * @param DeleteCmsExporterRequest $request DeleteCmsExporterRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCmsExporterResponse DeleteCmsExporterResponse
      */
     public function deleteCmsExporterWithOptions($request, $runtime)
     {
@@ -3660,9 +3666,13 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteCmsExporterRequest $request
+     * @deprecated : DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
+     *   *
+     * Deprecated
      *
-     * @return DeleteCmsExporterResponse
+     * @param DeleteCmsExporterRequest $request DeleteCmsExporterRequest
+     *
+     * @return DeleteCmsExporterResponse DeleteCmsExporterResponse
      */
     public function deleteCmsExporter($request)
     {
@@ -5971,10 +5981,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetCloudClusterAllUrlRequest $request
-     * @param RuntimeOptions               $runtime
+     * @deprecated : GetCloudClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetRemoteWriteUrl instead.
+     *   *
+     * Deprecated
      *
-     * @return GetCloudClusterAllUrlResponse
+     * @param GetCloudClusterAllUrlRequest $request GetCloudClusterAllUrlRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCloudClusterAllUrlResponse GetCloudClusterAllUrlResponse
      */
     public function getCloudClusterAllUrlWithOptions($request, $runtime)
     {
@@ -6005,9 +6019,13 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetCloudClusterAllUrlRequest $request
+     * @deprecated : GetCloudClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetRemoteWriteUrl instead.
+     *   *
+     * Deprecated
      *
-     * @return GetCloudClusterAllUrlResponse
+     * @param GetCloudClusterAllUrlRequest $request GetCloudClusterAllUrlRequest
+     *
+     * @return GetCloudClusterAllUrlResponse GetCloudClusterAllUrlResponse
      */
     public function getCloudClusterAllUrl($request)
     {
@@ -7579,10 +7597,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param InstallCmsExporterRequest $request
-     * @param RuntimeOptions            $runtime
+     * @deprecated : InstallCmsExporter is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
+     *   *
+     * Deprecated
      *
-     * @return InstallCmsExporterResponse
+     * @param InstallCmsExporterRequest $request InstallCmsExporterRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return InstallCmsExporterResponse InstallCmsExporterResponse
      */
     public function installCmsExporterWithOptions($request, $runtime)
     {
@@ -7622,9 +7644,13 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param InstallCmsExporterRequest $request
+     * @deprecated : InstallCmsExporter is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
+     *   *
+     * Deprecated
      *
-     * @return InstallCmsExporterResponse
+     * @param InstallCmsExporterRequest $request InstallCmsExporterRequest
+     *
+     * @return InstallCmsExporterResponse InstallCmsExporterResponse
      */
     public function installCmsExporter($request)
     {
@@ -7870,6 +7896,61 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param ListAddonsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAddonsResponse
+     */
+    public function listAddonsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliyunLang)) {
+            $query['AliyunLang'] = $request->aliyunLang;
+        }
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->regexp)) {
+            $query['Regexp'] = $request->regexp;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->search)) {
+            $query['Search'] = $request->search;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAddons',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAddonsRequest $request
+     *
+     * @return ListAddonsResponse
+     */
+    public function listAddons($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAddonsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAlertEventsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -8050,10 +8131,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListCmsInstancesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @deprecated : ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead.
+     *   *
+     * Deprecated
      *
-     * @return ListCmsInstancesResponse
+     * @param ListCmsInstancesRequest $request ListCmsInstancesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCmsInstancesResponse ListCmsInstancesResponse
      */
     public function listCmsInstancesWithOptions($request, $runtime)
     {
@@ -8087,9 +8172,13 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListCmsInstancesRequest $request
+     * @deprecated : ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead.
+     *   *
+     * Deprecated
      *
-     * @return ListCmsInstancesResponse
+     * @param ListCmsInstancesRequest $request ListCmsInstancesRequest
+     *
+     * @return ListCmsInstancesResponse ListCmsInstancesResponse
      */
     public function listCmsInstances($request)
     {

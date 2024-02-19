@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class QueryAppMetadataRequest extends Model
 {
     /**
-     * @description The array of meta Ids.
+     * @description The list of metadata IDs. Separate multiple IDs with commas (,).
      *
      * @example 4c9dd447,3c76c565
      *
@@ -18,7 +18,7 @@ class QueryAppMetadataRequest extends Model
     public $metaIds;
 
     /**
-     * @description The mata type.
+     * @description The metadata type. Valid values: sql: obtains an SQL statement based on sqlId exception: obtains the exception stack based on exceptionId
      *
      * @example sql
      *
@@ -27,9 +27,8 @@ class QueryAppMetadataRequest extends Model
     public $metaType;
 
     /**
-     * @description The ID of the application.
+     * @description The process identifier (PID) of the application. For more information about how to obtain the PID, see "Obtain the PID of an application."
      *
-     * Log on to the **ARMS console**. In the left-side navigation pane, choose **Browser Monitoring** > **Browser Monitoring**. On the Browser Monitoring page, click the name of an application. The URL in the address bar contains the process ID (PID) of the application. The PID is indicated in the pid=xxx format. The PID is usually percent encoded as xxx%40xxx. You must modify this value to remove the percent encoding. For example, if the PID in the URL is eb4zdose6v%409781be0f44d\*\*\*\*, you must replace %40 with an at sign (@) to obtain eb4zdose6v@9781be0f44d\*\*\*\*.
      * @example ggxw4lnjuz@54364d85b97dc56
      *
      * @var string
@@ -37,7 +36,7 @@ class QueryAppMetadataRequest extends Model
     public $pid;
 
     /**
-     * @description The region ID.
+     * @description The region ID. Default value: cn-hangzhou.
      *
      * @example cn-hangzhou
      *
