@@ -3314,6 +3314,21 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->jobId)) {
             $query['JobId'] = $request->jobId;
         }
+        if (!Utils::isUnset($request->signature)) {
+            $query['Signature'] = $request->signature;
+        }
+        if (!Utils::isUnset($request->signatureMehtod)) {
+            $query['SignatureMehtod'] = $request->signatureMehtod;
+        }
+        if (!Utils::isUnset($request->signatureNonce)) {
+            $query['SignatureNonce'] = $request->signatureNonce;
+        }
+        if (!Utils::isUnset($request->signatureType)) {
+            $query['SignatureType'] = $request->signatureType;
+        }
+        if (!Utils::isUnset($request->signatureVersion)) {
+            $query['SignatureVersion'] = $request->signatureVersion;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
