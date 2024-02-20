@@ -19,6 +19,11 @@ class DescribeTableStatisticsRequest extends Model
     public $DBClusterId;
 
     /**
+     * @var string
+     */
+    public $keyword;
+
+    /**
      * @description The order in which to sort the retrieved records by field. Specify this value in the JSON format. The value is an ordered array that uses the order of the input array and contains `Field` and `Type`. Example: `[{ "Field":"TableName", "Type":"Asc" }]`.
      *
      *   In the example, `Field` indicates the field that is used to sort the retrieved records. Set the value of Field to `TableName`.
@@ -83,6 +88,7 @@ class DescribeTableStatisticsRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
+        'keyword'              => 'Keyword',
         'order'                => 'Order',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -102,6 +108,9 @@ class DescribeTableStatisticsRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
@@ -141,6 +150,9 @@ class DescribeTableStatisticsRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];

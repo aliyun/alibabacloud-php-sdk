@@ -4770,6 +4770,9 @@ class Adb extends OpenApiClient
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
         if (!Utils::isUnset($request->order)) {
             $query['Order'] = $request->order;
         }

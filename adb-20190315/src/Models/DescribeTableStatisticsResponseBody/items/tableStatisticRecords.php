@@ -28,6 +28,11 @@ class tableStatisticRecords extends Model
     public $dataSize;
 
     /**
+     * @var int
+     */
+    public $hotDataSize;
+
+    /**
      * @description The amount of data in indexes. Unit: byte.
      *
      * @example 3076
@@ -35,6 +40,11 @@ class tableStatisticRecords extends Model
      * @var int
      */
     public $indexSize;
+
+    /**
+     * @var int
+     */
+    public $otherSize;
 
     /**
      * @description The number of partitions.
@@ -73,6 +83,11 @@ class tableStatisticRecords extends Model
     public $schemaName;
 
     /**
+     * @var float
+     */
+    public $spaceRatio;
+
+    /**
      * @description The name of the table.
      *
      * @example test_table
@@ -80,15 +95,24 @@ class tableStatisticRecords extends Model
      * @var string
      */
     public $tableName;
+
+    /**
+     * @var int
+     */
+    public $totalSize;
     protected $_name = [
         'coldDataSize'        => 'ColdDataSize',
         'dataSize'            => 'DataSize',
+        'hotDataSize'         => 'HotDataSize',
         'indexSize'           => 'IndexSize',
+        'otherSize'           => 'OtherSize',
         'partitionCount'      => 'PartitionCount',
         'primaryKeyIndexSize' => 'PrimaryKeyIndexSize',
         'rowCount'            => 'RowCount',
         'schemaName'          => 'SchemaName',
+        'spaceRatio'          => 'SpaceRatio',
         'tableName'           => 'TableName',
+        'totalSize'           => 'TotalSize',
     ];
 
     public function validate()
@@ -104,8 +128,14 @@ class tableStatisticRecords extends Model
         if (null !== $this->dataSize) {
             $res['DataSize'] = $this->dataSize;
         }
+        if (null !== $this->hotDataSize) {
+            $res['HotDataSize'] = $this->hotDataSize;
+        }
         if (null !== $this->indexSize) {
             $res['IndexSize'] = $this->indexSize;
+        }
+        if (null !== $this->otherSize) {
+            $res['OtherSize'] = $this->otherSize;
         }
         if (null !== $this->partitionCount) {
             $res['PartitionCount'] = $this->partitionCount;
@@ -119,8 +149,14 @@ class tableStatisticRecords extends Model
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
+        if (null !== $this->spaceRatio) {
+            $res['SpaceRatio'] = $this->spaceRatio;
+        }
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
+        }
+        if (null !== $this->totalSize) {
+            $res['TotalSize'] = $this->totalSize;
         }
 
         return $res;
@@ -140,8 +176,14 @@ class tableStatisticRecords extends Model
         if (isset($map['DataSize'])) {
             $model->dataSize = $map['DataSize'];
         }
+        if (isset($map['HotDataSize'])) {
+            $model->hotDataSize = $map['HotDataSize'];
+        }
         if (isset($map['IndexSize'])) {
             $model->indexSize = $map['IndexSize'];
+        }
+        if (isset($map['OtherSize'])) {
+            $model->otherSize = $map['OtherSize'];
         }
         if (isset($map['PartitionCount'])) {
             $model->partitionCount = $map['PartitionCount'];
@@ -155,8 +197,14 @@ class tableStatisticRecords extends Model
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
+        if (isset($map['SpaceRatio'])) {
+            $model->spaceRatio = $map['SpaceRatio'];
+        }
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
+        }
+        if (isset($map['TotalSize'])) {
+            $model->totalSize = $map['TotalSize'];
         }
 
         return $model;

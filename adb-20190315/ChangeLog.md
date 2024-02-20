@@ -1,3 +1,10 @@
+2024-02-20 Version: 3.1.4
+- Update API CreateElasticPlan: update param ResourcePoolName.
+- Update API DescribeTableStatistics: add param Keyword.
+- Update API DescribeTableStatistics: update response param.
+- Update API ModifyElasticPlan: update param ResourcePoolName.
+
+
 2024-02-07 Version: 3.1.3
 - Generated php 2019-03-15 for adb.
 
