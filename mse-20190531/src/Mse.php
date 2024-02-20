@@ -15,6 +15,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\AddBlackWhiteListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddBlackWhiteListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayAuthConsumerRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayAuthConsumerResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayAuthRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayAuthResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayAuthShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayDomainRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayDomainResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayRequest;
@@ -139,6 +142,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetEngineNamepaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetEngineNamepaceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayAuthConsumerDetailRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayAuthConsumerDetailResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayAuthDetailRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayAuthDetailResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayDomainDetailRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayDomainDetailResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayOptionRequest;
@@ -791,6 +796,120 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddGatewayAuthRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AddGatewayAuthResponse
+     */
+    public function addGatewayAuthWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddGatewayAuthShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->authResourceList)) {
+            $request->authResourceListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->authResourceList, 'AuthResourceList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->externalAuthZJSON)) {
+            $request->externalAuthZJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalAuthZJSON, 'ExternalAuthZJSON', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->scopesList)) {
+            $request->scopesListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scopesList, 'ScopesList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->authResourceListShrink)) {
+            $query['AuthResourceList'] = $request->authResourceListShrink;
+        }
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->clientSecret)) {
+            $query['ClientSecret'] = $request->clientSecret;
+        }
+        if (!Utils::isUnset($request->cookieDomain)) {
+            $query['CookieDomain'] = $request->cookieDomain;
+        }
+        if (!Utils::isUnset($request->externalAuthZJSONShrink)) {
+            $query['ExternalAuthZJSON'] = $request->externalAuthZJSONShrink;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->isWhite)) {
+            $query['IsWhite'] = $request->isWhite;
+        }
+        if (!Utils::isUnset($request->issuer)) {
+            $query['Issuer'] = $request->issuer;
+        }
+        if (!Utils::isUnset($request->jwks)) {
+            $query['Jwks'] = $request->jwks;
+        }
+        if (!Utils::isUnset($request->loginUrl)) {
+            $query['LoginUrl'] = $request->loginUrl;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->redirectUrl)) {
+            $query['RedirectUrl'] = $request->redirectUrl;
+        }
+        if (!Utils::isUnset($request->scopesListShrink)) {
+            $query['ScopesList'] = $request->scopesListShrink;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->sub)) {
+            $query['Sub'] = $request->sub;
+        }
+        if (!Utils::isUnset($request->tokenName)) {
+            $query['TokenName'] = $request->tokenName;
+        }
+        if (!Utils::isUnset($request->tokenNamePrefix)) {
+            $query['TokenNamePrefix'] = $request->tokenNamePrefix;
+        }
+        if (!Utils::isUnset($request->tokenPass)) {
+            $query['TokenPass'] = $request->tokenPass;
+        }
+        if (!Utils::isUnset($request->tokenPosition)) {
+            $query['TokenPosition'] = $request->tokenPosition;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddGatewayAuth',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddGatewayAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddGatewayAuthRequest $request
+     *
+     * @return AddGatewayAuthResponse
+     */
+    public function addGatewayAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addGatewayAuthWithOptions($request, $runtime);
     }
 
     /**
@@ -4451,6 +4570,58 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getGatewayAuthConsumerDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetGatewayAuthDetailRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetGatewayAuthDetailResponse
+     */
+    public function getGatewayAuthDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['GatewayId'] = $request->gatewayId;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGatewayAuthDetail',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetGatewayAuthDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetGatewayAuthDetailRequest $request
+     *
+     * @return GetGatewayAuthDetailResponse
+     */
+    public function getGatewayAuthDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGatewayAuthDetailWithOptions($request, $runtime);
     }
 
     /**
