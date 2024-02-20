@@ -217,6 +217,12 @@ class Dm extends OpenApiClient
         if (!Utils::isUnset($request->templateName)) {
             $query['TemplateName'] = $request->templateName;
         }
+        if (!Utils::isUnset($request->unSubscribeFilterLevel)) {
+            $query['UnSubscribeFilterLevel'] = $request->unSubscribeFilterLevel;
+        }
+        if (!Utils::isUnset($request->unSubscribeLinkType)) {
+            $query['UnSubscribeLinkType'] = $request->unSubscribeLinkType;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2305,6 +2311,12 @@ class Dm extends OpenApiClient
         }
         if (!Utils::isUnset($request->toAddress)) {
             $query['ToAddress'] = $request->toAddress;
+        }
+        if (!Utils::isUnset($request->unSubscribeFilterLevel)) {
+            $query['UnSubscribeFilterLevel'] = $request->unSubscribeFilterLevel;
+        }
+        if (!Utils::isUnset($request->unSubscribeLinkType)) {
+            $query['UnSubscribeLinkType'] = $request->unSubscribeLinkType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

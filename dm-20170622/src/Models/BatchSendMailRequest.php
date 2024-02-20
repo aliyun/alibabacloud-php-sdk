@@ -62,18 +62,30 @@ class BatchSendMailRequest extends Model
      * @var string
      */
     public $templateName;
+
+    /**
+     * @var string
+     */
+    public $unSubscribeFilterLevel;
+
+    /**
+     * @var string
+     */
+    public $unSubscribeLinkType;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'addressType'          => 'AddressType',
-        'clickTrace'           => 'ClickTrace',
-        'ownerId'              => 'OwnerId',
-        'receiversName'        => 'ReceiversName',
-        'replyAddress'         => 'ReplyAddress',
-        'replyAddressAlias'    => 'ReplyAddressAlias',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tagName'              => 'TagName',
-        'templateName'         => 'TemplateName',
+        'accountName'            => 'AccountName',
+        'addressType'            => 'AddressType',
+        'clickTrace'             => 'ClickTrace',
+        'ownerId'                => 'OwnerId',
+        'receiversName'          => 'ReceiversName',
+        'replyAddress'           => 'ReplyAddress',
+        'replyAddressAlias'      => 'ReplyAddressAlias',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'tagName'                => 'TagName',
+        'templateName'           => 'TemplateName',
+        'unSubscribeFilterLevel' => 'UnSubscribeFilterLevel',
+        'unSubscribeLinkType'    => 'UnSubscribeLinkType',
     ];
 
     public function validate()
@@ -115,6 +127,12 @@ class BatchSendMailRequest extends Model
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->unSubscribeFilterLevel) {
+            $res['UnSubscribeFilterLevel'] = $this->unSubscribeFilterLevel;
+        }
+        if (null !== $this->unSubscribeLinkType) {
+            $res['UnSubscribeLinkType'] = $this->unSubscribeLinkType;
         }
 
         return $res;
@@ -160,6 +178,12 @@ class BatchSendMailRequest extends Model
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['UnSubscribeFilterLevel'])) {
+            $model->unSubscribeFilterLevel = $map['UnSubscribeFilterLevel'];
+        }
+        if (isset($map['UnSubscribeLinkType'])) {
+            $model->unSubscribeLinkType = $map['UnSubscribeLinkType'];
         }
 
         return $model;

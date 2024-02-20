@@ -82,22 +82,34 @@ class SingleSendMailRequest extends Model
      * @var string
      */
     public $toAddress;
+
+    /**
+     * @var string
+     */
+    public $unSubscribeFilterLevel;
+
+    /**
+     * @var string
+     */
+    public $unSubscribeLinkType;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'addressType'          => 'AddressType',
-        'clickTrace'           => 'ClickTrace',
-        'fromAlias'            => 'FromAlias',
-        'htmlBody'             => 'HtmlBody',
-        'ownerId'              => 'OwnerId',
-        'replyAddress'         => 'ReplyAddress',
-        'replyAddressAlias'    => 'ReplyAddressAlias',
-        'replyToAddress'       => 'ReplyToAddress',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'subject'              => 'Subject',
-        'tagName'              => 'TagName',
-        'textBody'             => 'TextBody',
-        'toAddress'            => 'ToAddress',
+        'accountName'            => 'AccountName',
+        'addressType'            => 'AddressType',
+        'clickTrace'             => 'ClickTrace',
+        'fromAlias'              => 'FromAlias',
+        'htmlBody'               => 'HtmlBody',
+        'ownerId'                => 'OwnerId',
+        'replyAddress'           => 'ReplyAddress',
+        'replyAddressAlias'      => 'ReplyAddressAlias',
+        'replyToAddress'         => 'ReplyToAddress',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'subject'                => 'Subject',
+        'tagName'                => 'TagName',
+        'textBody'               => 'TextBody',
+        'toAddress'              => 'ToAddress',
+        'unSubscribeFilterLevel' => 'UnSubscribeFilterLevel',
+        'unSubscribeLinkType'    => 'UnSubscribeLinkType',
     ];
 
     public function validate()
@@ -151,6 +163,12 @@ class SingleSendMailRequest extends Model
         }
         if (null !== $this->toAddress) {
             $res['ToAddress'] = $this->toAddress;
+        }
+        if (null !== $this->unSubscribeFilterLevel) {
+            $res['UnSubscribeFilterLevel'] = $this->unSubscribeFilterLevel;
+        }
+        if (null !== $this->unSubscribeLinkType) {
+            $res['UnSubscribeLinkType'] = $this->unSubscribeLinkType;
         }
 
         return $res;
@@ -208,6 +226,12 @@ class SingleSendMailRequest extends Model
         }
         if (isset($map['ToAddress'])) {
             $model->toAddress = $map['ToAddress'];
+        }
+        if (isset($map['UnSubscribeFilterLevel'])) {
+            $model->unSubscribeFilterLevel = $map['UnSubscribeFilterLevel'];
+        }
+        if (isset($map['UnSubscribeLinkType'])) {
+            $model->unSubscribeLinkType = $map['UnSubscribeLinkType'];
         }
 
         return $model;
