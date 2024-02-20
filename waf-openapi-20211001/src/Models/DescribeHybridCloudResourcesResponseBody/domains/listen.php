@@ -101,6 +101,11 @@ class listen extends Model
     public $httpsPorts;
 
     /**
+     * @var bool
+     */
+    public $IPv6Enabled;
+
+    /**
      * @description Indicates whether IPv6 is supported. Valid values:
      *
      *   **true**
@@ -167,6 +172,7 @@ class listen extends Model
         'http2Enabled'       => 'Http2Enabled',
         'httpPorts'          => 'HttpPorts',
         'httpsPorts'         => 'HttpsPorts',
+        'IPv6Enabled'        => 'IPv6Enabled',
         'ipv6Enabled'        => 'Ipv6Enabled',
         'protectionResource' => 'ProtectionResource',
         'TLSVersion'         => 'TLSVersion',
@@ -207,6 +213,9 @@ class listen extends Model
         }
         if (null !== $this->httpsPorts) {
             $res['HttpsPorts'] = $this->httpsPorts;
+        }
+        if (null !== $this->IPv6Enabled) {
+            $res['IPv6Enabled'] = $this->IPv6Enabled;
         }
         if (null !== $this->ipv6Enabled) {
             $res['Ipv6Enabled'] = $this->ipv6Enabled;
@@ -267,6 +276,9 @@ class listen extends Model
             if (!empty($map['HttpsPorts'])) {
                 $model->httpsPorts = $map['HttpsPorts'];
             }
+        }
+        if (isset($map['IPv6Enabled'])) {
+            $model->IPv6Enabled = $map['IPv6Enabled'];
         }
         if (isset($map['Ipv6Enabled'])) {
             $model->ipv6Enabled = $map['Ipv6Enabled'];

@@ -18,6 +18,14 @@ class template extends Model
     public $defenseScene;
 
     /**
+     * @description The sub-scenario in which the template is used. Valid values:
+     *
+     *   **web**: The template is a bot management template that is used for website protection.
+     *   **app**: The template is a bot management template that is used for app protection.
+     *   **basic**: The template is a bot management template that is used for basic protection.
+     *
+     * @example app
+     *
      * @var string
      */
     public $defenseSubScene;

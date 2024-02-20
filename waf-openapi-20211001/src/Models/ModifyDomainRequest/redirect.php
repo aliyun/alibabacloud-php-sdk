@@ -169,6 +169,11 @@ class redirect extends Model
      * @var int
      */
     public $writeTimeout;
+
+    /**
+     * @var bool
+     */
+    public $xffProto;
     protected $_name = [
         'backends'          => 'Backends',
         'cnameEnabled'      => 'CnameEnabled',
@@ -185,6 +190,7 @@ class redirect extends Model
         'sniEnabled'        => 'SniEnabled',
         'sniHost'           => 'SniHost',
         'writeTimeout'      => 'WriteTimeout',
+        'xffProto'          => 'XffProto',
     ];
 
     public function validate()
@@ -244,6 +250,9 @@ class redirect extends Model
         }
         if (null !== $this->writeTimeout) {
             $res['WriteTimeout'] = $this->writeTimeout;
+        }
+        if (null !== $this->xffProto) {
+            $res['XffProto'] = $this->xffProto;
         }
 
         return $res;
@@ -309,6 +318,9 @@ class redirect extends Model
         }
         if (isset($map['WriteTimeout'])) {
             $model->writeTimeout = $map['WriteTimeout'];
+        }
+        if (isset($map['XffProto'])) {
+            $model->xffProto = $map['XffProto'];
         }
 
         return $model;

@@ -28,6 +28,8 @@ class DescribeRuleHitsTopRuleIdRequest extends Model
     public $instanceId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $isGroupResource;
