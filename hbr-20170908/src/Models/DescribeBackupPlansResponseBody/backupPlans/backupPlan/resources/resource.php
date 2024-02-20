@@ -27,7 +27,7 @@ class resource extends Model
     public $resourceId;
 
     /**
-     * @description The type of the data source. Only **UDM_DISK** may be returned.
+     * @description The type of the data source. Valid value: **UDM_DISK**.
      *
      * @example UDMDISK
      *

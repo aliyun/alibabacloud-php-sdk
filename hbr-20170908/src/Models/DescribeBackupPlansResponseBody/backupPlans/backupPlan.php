@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class backupPlan extends Model
 {
     /**
-     * @description The ID of the data source group for backup.
+     * @description The ID of the data source group.
      *
      * @example System-Database
      *
@@ -23,7 +23,7 @@ class backupPlan extends Model
     public $backupSourceGroupId;
 
     /**
-     * @description The backup type. Only **COMPLETE** may be returned, which indicates full backup.
+     * @description The backup type. **COMPLETE** indicates full backup.
      *
      * @example COMPLETE
      *
@@ -32,7 +32,7 @@ class backupPlan extends Model
     public $backupType;
 
     /**
-     * @description This parameter is valid only if **SourceType** is set to **OSS**. This parameter indicates the name of the OSS bucket.
+     * @description This parameter is valid only when **SourceType** is set to **OSS**. This parameter indicates the name of the OSS bucket.
      *
      * @example hbr-backup-oss
      *
@@ -41,6 +41,8 @@ class backupPlan extends Model
     public $bucket;
 
     /**
+     * @description The configurations of the incremental file synchronization. This parameter is required only for data synchronization.
+     *
      * @example {"dataSourceId": "ds-123456789", "path": "/changelist"}
      *
      * @var string
@@ -48,7 +50,7 @@ class backupPlan extends Model
     public $changeListPath;
 
     /**
-     * @description The ID of a backup client.
+     * @description The ID of the backup client.
      *
      * @example c-000ge4w*****1qb
      *
@@ -66,7 +68,7 @@ class backupPlan extends Model
     public $clusterId;
 
     /**
-     * @description This parameter is valid only if **SourceType** is set to **NAS**. This parameter indicates the time when the file system was created. The value is a UNIX timestamp. Unit: seconds.
+     * @description This parameter is valid only when **SourceType** is set to **NAS**. This parameter indicates the time when the file system was created. This value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1554347313
      *
@@ -75,7 +77,7 @@ class backupPlan extends Model
     public $createTime;
 
     /**
-     * @description The time when the backup plan was created. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the backup plan was created. This value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1554347313
      *
@@ -171,7 +173,7 @@ class backupPlan extends Model
     public $disabled;
 
     /**
-     * @description This parameter is valid only if **SourceType** is set to **ECS_FILE**. This parameter indicates the paths to the files that are excluded from the backup job.
+     * @description This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates the paths to the files that are excluded from the backup job.
      *
      * @example ["/var", "/proc"]
      *
@@ -180,7 +182,7 @@ class backupPlan extends Model
     public $exclude;
 
     /**
-     * @description This parameter is valid only if **SourceType** is set to **NAS**. This parameter indicates the ID of the NAS file system.
+     * @description This parameter is valid only when **SourceType** is set to **NAS**. This parameter indicates the ID of the NAS file system.
      *
      * @example 00594
      *
@@ -189,7 +191,7 @@ class backupPlan extends Model
     public $fileSystemId;
 
     /**
-     * @description This parameter is valid only if **SourceType** is set to **ECS_FILE**. This parameter indicates the paths to the files that are backed up.
+     * @description This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates the paths to the files that are backed up.
      *
      * @example ["/home/alice/*.pdf", "/home/bob/*.txt"]
      *
@@ -198,7 +200,7 @@ class backupPlan extends Model
     public $include;
 
     /**
-     * @description The ID of the group to which the instance belongs.
+     * @description The ID of the instance group.
      *
      * @example i-**
      *
@@ -207,7 +209,7 @@ class backupPlan extends Model
     public $instanceGroupId;
 
     /**
-     * @description This parameter is valid only if **SourceType** is set to **ECS_FILE**. This parameter indicates the ID of the ECS instance.
+     * @description This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates the ID of the ECS instance.
      *
      * @example i-*********************
      *
@@ -237,12 +239,16 @@ class backupPlan extends Model
     public $keepLatestSnapshots;
 
     /**
+     * @description The latest execution job id of plan.
+     *
+     * @example j-12345678
+     *
      * @var string
      */
     public $latestExecuteJobId;
 
     /**
-     * @description This parameter is valid only if **SourceType** is set to **ECS_FILE**. This parameter indicates whether Windows Volume Shadow Copy Service (VSS) is used to define a source path.
+     * @description This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates whether VSS is used to define a source path.
      *
      * @example {"UseVSS":false}
      *
@@ -258,7 +264,7 @@ class backupPlan extends Model
     public $otsDetail;
 
     /**
-     * @description The source paths. This parameter is valid only if **SourceType** is set to **ECS_FILE**.
+     * @description The source paths. This parameter is valid only when **SourceType** is set to **ECS_FILE**.
      *
      * @var paths
      */
@@ -283,7 +289,7 @@ class backupPlan extends Model
     public $planName;
 
     /**
-     * @description This parameter is valid only if **SourceType** is set to **OSS**. This parameter indicates the prefix of objects that are backed up.
+     * @description This parameter is valid only when **SourceType** is set to **OSS**. This parameter indicates the prefix of the objects that are backed up.
      *
      * @example oss-prefix
      *
@@ -299,7 +305,7 @@ class backupPlan extends Model
     public $resources;
 
     /**
-     * @description The retention period of the backup data. Unit: day.
+     * @description The retention period of the backup data. Unit: days.
      *
      * @example 7
      *
@@ -315,9 +321,9 @@ class backupPlan extends Model
     public $rules;
 
     /**
-     * @description The backup policy. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified by `{startTime}` and the subsequent backup jobs at an interval that is specified by `{interval}`. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is complete. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+     * @description The backup policy. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified by `{startTime}` and the subsequent backup jobs at an interval that is specified by `{interval}`. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
      *
-     *   **startTime**: the time at which the system starts to run a backup job. The value is a UNIX timestamp. Unit: seconds.
+     *   **startTime**: the time at which the system starts to run a backup job. The time follows the UNIX time format. Unit: seconds.
      *   **interval**: the interval at which the system runs a backup job. The interval follows the ISO 8601 standard. For example, PT1H indicates an interval of 1 hour. P1D indicates an interval of one day.
      *
      * @example I|1602673264|P1D
@@ -342,11 +348,11 @@ class backupPlan extends Model
     public $sourceType;
 
     /**
-     * @description This parameter is valid only if **SourceType** is set to **ECS_FILE**. This parameter indicates the throttling rules. Format: `{start}|{end}|{bandwidth}`. Multiple throttling rules are separated with vertical bars (`|`). A time range cannot overlap with another one.
+     * @description This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates the throttling rules. Format: `{start}|{end}|{bandwidth}`. Multiple throttling rules are separated with vertical bars (`|`). A time range cannot overlap with another one.
      *
      *   start: the start hour.
      *   end: the end hour.
-     *   bandwidth: the bandwidth. Unit: KB/s.
+     *   bandwidth: the bandwidth. Unit: KB.
      *
      * @example 0:24:5120
      *
@@ -362,7 +368,7 @@ class backupPlan extends Model
     public $trialInfo;
 
     /**
-     * @description The time when the backup plan was updated. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the backup plan was updated. This value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1554347313
      *

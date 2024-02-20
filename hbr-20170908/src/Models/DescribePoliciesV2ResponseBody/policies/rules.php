@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @var int
+     */
+    public $archiveDays;
+
+    /**
      * @description This parameter is returned only if the value of the **RuleType** parameter is **BACKUP**. This parameter indicates the backup type. Only **COMPLETE** may be returned, which indicates full backup.
      *
      * @example COMPLETE
@@ -91,7 +96,13 @@ class rules extends Model
      * @var string
      */
     public $schedule;
+
+    /**
+     * @var string
+     */
+    public $vaultId;
     protected $_name = [
+        'archiveDays'         => 'ArchiveDays',
         'backupType'          => 'BackupType',
         'keepLatestSnapshots' => 'KeepLatestSnapshots',
         'replicationRegionId' => 'ReplicationRegionId',
@@ -100,6 +111,7 @@ class rules extends Model
         'ruleId'              => 'RuleId',
         'ruleType'            => 'RuleType',
         'schedule'            => 'Schedule',
+        'vaultId'             => 'VaultId',
     ];
 
     public function validate()
@@ -109,6 +121,9 @@ class rules extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->archiveDays) {
+            $res['ArchiveDays'] = $this->archiveDays;
+        }
         if (null !== $this->backupType) {
             $res['BackupType'] = $this->backupType;
         }
@@ -139,6 +154,9 @@ class rules extends Model
         if (null !== $this->schedule) {
             $res['Schedule'] = $this->schedule;
         }
+        if (null !== $this->vaultId) {
+            $res['VaultId'] = $this->vaultId;
+        }
 
         return $res;
     }
@@ -151,6 +169,9 @@ class rules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArchiveDays'])) {
+            $model->archiveDays = $map['ArchiveDays'];
+        }
         if (isset($map['BackupType'])) {
             $model->backupType = $map['BackupType'];
         }
@@ -180,6 +201,9 @@ class rules extends Model
         }
         if (isset($map['Schedule'])) {
             $model->schedule = $map['Schedule'];
+        }
+        if (isset($map['VaultId'])) {
+            $model->vaultId = $map['VaultId'];
         }
 
         return $model;

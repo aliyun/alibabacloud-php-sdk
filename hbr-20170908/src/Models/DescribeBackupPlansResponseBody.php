@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPlansResponseBody extends Model
 {
     /**
-     * @description The returned backup plans that meet the specified conditions.
+     * @description The queried backup plans.
      *
      * @var backupPlans
      */
