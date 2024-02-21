@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DestroyInstanceRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCz****
      *
@@ -18,7 +18,7 @@ class DestroyInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * > **InstanceId** and **DBInstanceId** serve the same function. You need only to specify one of them.
      * @example dds-bp147acd4783****
@@ -28,7 +28,7 @@ class DestroyInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * > **InstanceId** and **DBInstanceId** serve the same function. You need only to specify one of them.
      * @example dds-bp147acd4783****
@@ -48,7 +48,7 @@ class DestroyInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of a resource group.
+     * @description The ID of the resource group.
      *
      * @example rg-acfmyiu4ekp****
      *

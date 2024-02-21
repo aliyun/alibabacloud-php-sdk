@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyNodeSpecBatchRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment for the instance. Valid values:
+     * @description Specifies whether to enable automatic payment. Valid values:
      *
      *   **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
-     *   **false**: disables automatic payment. You can perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner of the page, choose **Expenses** > User Center to go to the **Billing Management** console. In the left-side navigation pane, click **Orders**. On the **Orders** page, find the order and complete the payment.
+     *   **false**: disables automatic payment. You can perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner of the page, click **Expenses** to go to the **Billing Management** console. In the left-side navigation pane, click **Orders**. On the **Orders** page, find the order and complete the payment.
      *
      * Default value: **true**.
      * @example true
@@ -31,7 +31,7 @@ class ModifyNodeSpecBatchRequest extends Model
     public $businessInfo;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCz****
      *
@@ -49,7 +49,7 @@ class ModifyNodeSpecBatchRequest extends Model
     public $couponNo;
 
     /**
-     * @description The ID of the instance whose configurations you want to modify.
+     * @description The ID of the instance whose configurations you want to change.
      *
      * @example dds-bp1337621e8f****
      *
@@ -58,7 +58,7 @@ class ModifyNodeSpecBatchRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The time when the modified configurations take effect. Valid values:
+     * @description The time when the changed configurations take effect. Valid values:
      *
      *   **Immediately**: The configurations immediately take effect.
      *   **MaintainTime**: The configurations take effect during the maintenance window of the instance.
@@ -77,7 +77,7 @@ class ModifyNodeSpecBatchRequest extends Model
     public $effectiveTime;
 
     /**
-     * @description The configuration information of the mongos nodes or shard nodes whose configurations you want to modify. For more information, see [Instance types](~~57141~~).
+     * @description The configuration information of the mongos nodes or shard nodes whose configurations you want to change. For more information, see [Instance types](~~57141~~).
      *
      * @example {"Shards":[{"DBInstanceClass":"dds.shard.mid","DBInstanceName":"d-bp14ae4572fd****","Storage":20},{"DBInstanceClass":"dds.shard.mid","DBInstanceName":"d-bp19f4f92dc5****","Storage":30}]}
      *
@@ -86,12 +86,12 @@ class ModifyNodeSpecBatchRequest extends Model
     public $nodesInfo;
 
     /**
-     * @description The type of configuration modifications. Valid values:
+     * @description The type of configuration changes. Valid values:
      *
      *   **UPGRADE**
      *   **DOWNGRADE**
      *
-     * > This parameter is available only if the billing method of the instance is subscription.
+     * > This parameter is only applicable to instances whose billing method is subscription.
      * @example UPGRADE
      *
      * @var string
@@ -109,7 +109,7 @@ class ModifyNodeSpecBatchRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~61933~~) operation to query the latest available regions.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

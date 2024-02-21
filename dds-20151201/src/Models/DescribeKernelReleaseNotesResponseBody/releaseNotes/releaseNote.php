@@ -18,7 +18,7 @@ class releaseNote extends Model
     public $kernelVersion;
 
     /**
-     * @description Publishes the log.
+     * @description The release notes.
      *
      * @example test release note.
      *

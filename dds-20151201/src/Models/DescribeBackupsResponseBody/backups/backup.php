@@ -27,7 +27,7 @@ class backup extends Model
     public $backupDownloadURL;
 
     /**
-     * @description The end of the backup time range. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and displayed in UTC.
+     * @description The end of the backup time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-01-14T03:57:34Z
      *
@@ -47,7 +47,7 @@ class backup extends Model
     /**
      * @description The internal download URL of the backup set.
      *
-     * >  You can use this URL to download the backup set from on the ECS instance which is on the same network as the ApsaraDB for MongoDB instance.
+     * > You can use this URL to download the backup set from on the Elastic Compute Service (ECS) instance which is on the same network as the ApsaraDB for MongoDB instance.
      * @example http://rdsbak-hz-v3.oss-cn-hangzhou-internal.aliyuncs.com/custins5559*****\/hins1936****_data_2022052504****_qp.xb?Expires=165361****&OSSAccessKeyId=LTAI4G2wxd32KLGARfi****&Signature=lkFPjOY%2F8adB18vnOCbtmT7ii****&Region=cn-hangzhou
      *
      * @var string
@@ -55,7 +55,7 @@ class backup extends Model
     public $backupIntranetDownloadURL;
 
     /**
-     * @description The backup method. Valid values:
+     * @description The method that is used to generate the backup set. Valid values:
      *
      *   **Snapshot**
      *   **Physical**
@@ -68,10 +68,10 @@ class backup extends Model
     public $backupMethod;
 
     /**
-     * @description The backup mode.
+     * @description The backup mode of the backup set. Valid values:
      *
-     *   **Automated**: automatic backup
-     *   **Manual**: manual backup
+     *   **Automated**:
+     *   **Manual**
      *
      * @example Automated
      *
@@ -89,7 +89,7 @@ class backup extends Model
     public $backupSize;
 
     /**
-     * @description The beginning of the backup time range. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and displayed in UTC.
+     * @description The beginning of the backup time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-01-14T03:56:17Z
      *
@@ -98,10 +98,10 @@ class backup extends Model
     public $backupStartTime;
 
     /**
-     * @description The status of the backup. Valid values:
+     * @description The status of the backup task. Valid values:
      *
-     *   **Success**: The backup task is successful.
-     *   **Failed**: The backup task failed.
+     *   **Success**
+     *   **Failed**
      *
      * @example Success
      *
@@ -110,10 +110,10 @@ class backup extends Model
     public $backupStatus;
 
     /**
-     * @description The backup method.
+     * @description The backup type. Valid values:
      *
-     *   **FullBackup**: a full backup
-     *   **IncrementalBackup**: an incremental backup
+     *   **FullBackup**
+     *   **IncrementalBackup**
      *
      * @example FullBackup
      *

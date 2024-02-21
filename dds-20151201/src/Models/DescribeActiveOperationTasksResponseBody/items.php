@@ -147,7 +147,7 @@ class items extends Model
     public $insName;
 
     /**
-     * @description The time when the O\&M task was modified. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm:ss*z format. The time is displayed in UTC.
+     * @description The time when the O\&M task was modified. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-12-24T09:48:01Z
      *
@@ -183,7 +183,7 @@ class items extends Model
     public $resultInfo;
 
     /**
-     * @description The time when the O\&M task started to run. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm:ss*z format. The time is displayed in UTC.
+     * @description The time when the O\&M task started to run. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-12-24T06:01:05Z
      *
@@ -208,7 +208,7 @@ class items extends Model
     public $subInsNames;
 
     /**
-     * @description The point in time when the switchover is performed. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm:ss*z format. The time is displayed in UTC. Service interruptions may occur during switchover.
+     * @description The point in time when the switchover is performed. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC. Service interruptions may occur during switchover.
      *
      * @example 2022-11-24T11:20:00Z
      *

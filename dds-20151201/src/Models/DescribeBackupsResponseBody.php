@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsResponseBody extends Model
 {
     /**
-     * @description Details about backup sets.
+     * @description The details of the backup sets.
      *
      * @var backups
      */
     public $backups;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -26,7 +26,11 @@ class DescribeBackupsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries returned per page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
      *
      * @example 30
      *
@@ -35,7 +39,7 @@ class DescribeBackupsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 275D43C3-F12F-5224-B375-0C6BF453BD56
      *
@@ -44,7 +48,7 @@ class DescribeBackupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of backup sets that were returned.
+     * @description The total number of backup sets.
      *
      * @example 1
      *

@@ -18,7 +18,7 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
     public $creator;
 
     /**
-     * @description The scheduled time when the key for the instance will be deleted. If the value is empty, the key will not be deleted.
+     * @description The scheduled time when the key for the instance will be deleted. If the parameter is left empty, the key will not be deleted.
      *
      * @example 2020-07-06T18:22:03Z
      *
@@ -66,7 +66,7 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
     public $keyUsage;
 
     /**
-     * @description The expiration time of the key for the instance. The time is displayed in UTC. If the value is empty, the key for the instance will not expire.
+     * @description The expiration time of the key for the instance. The time is displayed in UTC. If the parameter is left empty, the key for the instance will not expire.
      *
      * @example 2020-07-06T18:22:03Z
      *
@@ -84,7 +84,7 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
     public $origin;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 783C2062-A2D3-4EA8-88AD-E43F990C23BB
      *

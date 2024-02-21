@@ -11,9 +11,8 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The description of the account.
      *
-     *   It cannot start with http:// or https://.
-     *   It must start with a letter.
-     *   It must be 2 to 256 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The description must start with a letter and cannot start with http:// or https://.
+     *   The description must be 2 to 256 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-).
      *
      * @example superadmin
      *
@@ -22,7 +21,7 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountDescription;
 
     /**
-     * @description The name of the account for which you want to modify the description.
+     * @description The name of the account whose description is to be modified.
      *
      * @example root
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyNodeSpecBatchResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 21012719476****
      *
@@ -18,7 +18,7 @@ class ModifyNodeSpecBatchResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0637BC25-6895-5500-871F-1127CA34****
      *

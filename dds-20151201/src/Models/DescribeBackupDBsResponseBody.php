@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupDBsResponseBody extends Model
 {
     /**
-     * @description Details about the databases.
+     * @description The details of the databases.
      *
      * @var databases
      */
     public $databases;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number of the page returned.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class DescribeBackupDBsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AF0AD89-ED4F-44AD-B65F-BFC1D5CD9455
      *

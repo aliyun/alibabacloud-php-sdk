@@ -30,7 +30,7 @@ class DescribeDBInstancesOverviewRequest extends Model
     public $engineVersion;
 
     /**
-     * @description The instance type of the instance. The instance type varies based on the instance architecture. For more information about instance types supported by different instance architectures, see the following topics:
+     * @description The instance type. The instance type varies based on the instance architecture. For more information about instance types supported by different instance architectures, see the following references:
      *
      *   [Standalone instance types](~~311407~~)
      *   [Replica set instance types](~~311410~~)
@@ -45,8 +45,12 @@ class DescribeDBInstancesOverviewRequest extends Model
     /**
      * @description The ID of the instance for which you want to query the overview information.
      *
-     * > * If you do not specify this parameter, the overview information of all instances under this account is queried.
-     * > * Separate the instance IDs with commas (,).
+     * >
+     *
+     *   If you do not specify this parameter, the overview information of all instances within this account is queried.
+     *
+     *   Separate the instance IDs with commas (,).
+     *
      * @example dds-bp12c5b040dc****
      *
      * @var string
@@ -63,13 +67,17 @@ class DescribeDBInstancesOverviewRequest extends Model
     public $instanceStatus;
 
     /**
-     * @description The category of the instance. Valid values:
+     * @description The architecture of the instance. Valid values:
      *
-     * - **sharding**: sharded cluster instance
-     * - **replicate**: replica set or standalone instance
+     *   **sharding**: sharded cluster instance
+     *   **replicate**: replica set or standalone instance
      *
-     * > * To query the overview information of a sharded cluster instance, you must set the parameter to **sharding**.
-     * > * If you do not specify this parameter, the overview information of all instances under this account is queried.
+     * >
+     *
+     *   To query the overview information of a sharded cluster instance, you must set the parameter to **sharding**.
+     *
+     *   If you do not specify this parameter, the overview information of all instances within this account is queried.
+     *
      * @example replicate
      *
      * @var string
@@ -79,8 +87,8 @@ class DescribeDBInstancesOverviewRequest extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **Classic**
-     *   **VPC**
+     *   **Classic**: classic network
+     *   **VPC**: Virtual Private Cloud (VPC)
      *
      * @example Classic
      *
@@ -108,7 +116,7 @@ class DescribeDBInstancesOverviewRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group to which the instance belongs. For more information, see [View the basic information of a resource group](~~151181~~).
      *
      * @example rg-acfmyiu4ekp****
      *
@@ -127,7 +135,7 @@ class DescribeDBInstancesOverviewRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The ID of the vSwitch to which the instance is connected.
      *
      * @example vsw-bp1e7clcw529l773d****
      *
@@ -136,7 +144,7 @@ class DescribeDBInstancesOverviewRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The ID of the VPC in which the instance is deployed.
      *
      * @example vpc-bp1nme44gek34slfc****
      *
@@ -145,7 +153,7 @@ class DescribeDBInstancesOverviewRequest extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID of the instance.
      *
      * @example cn-hangzhou-b
      *

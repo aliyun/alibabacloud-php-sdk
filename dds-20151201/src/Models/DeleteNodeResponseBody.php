@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteNodeResponseBody extends Model
 {
     /**
-     * @description The order ID of the instance.
+     * @description The order ID.
      *
      * @example 111111111111111
      *
@@ -18,7 +18,7 @@ class DeleteNodeResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 9F9BDE64-BF30-41F3-BD29-C19CE4AB3404
      *

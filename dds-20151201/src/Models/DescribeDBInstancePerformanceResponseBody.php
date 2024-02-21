@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePerformanceResponseBody extends Model
 {
     /**
-     * @description The end of the time range to query. The time is in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     * @description The end of the queried time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
      *
      * @example 2022-06-13T11:58Z
      *
@@ -19,14 +19,14 @@ class DescribeDBInstancePerformanceResponseBody extends Model
     public $endTime;
 
     /**
-     * @description Details about the performance metrics.
+     * @description The details of performance metrics.
      *
      * @var performanceKeys
      */
     public $performanceKeys;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4A300BC7-6D8F-527F-A2DB-A7768D26E9AC
      *
@@ -35,7 +35,7 @@ class DescribeDBInstancePerformanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range to query. The time is in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     * @description The beginning of the queried time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
      *
      * @example 2022-06-13T10:58Z
      *

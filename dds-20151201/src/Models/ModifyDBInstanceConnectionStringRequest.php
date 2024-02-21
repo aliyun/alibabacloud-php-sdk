@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConnectionStringRequest extends Model
 {
     /**
-     * @description The current connection string, which is to be modified.
+     * @description The current endpoint that is to be modified.
      *
      * @example s-bpxxxxxxxx.mongodb.rds.aliyuncs.com
      *
@@ -18,9 +18,9 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $currentConnectionString;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
-     * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -28,9 +28,9 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The new connection string. It must be 8 to 64 characters in length and can contain letters and digits. It must start with a lowercase letter.
+     * @description The new endpoint. It must be 8 to 64 characters in length and can contain letters and digits. It must start with a lowercase letter.
      *
-     * >  You need only to specify the prefix of the connection string. The content other than the prefix cannot be modified.
+     * > You need only to specify the prefix of the endpoint. The content other than the prefix cannot be modified.
      * @example aliyuntest111
      *
      * @var string
@@ -38,8 +38,8 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $newConnectionString;
 
     /**
-     * @description The new port. The new port ranges from 1000 to 65535.
-     * >This parameter is available only when the DBInstanceId parameter is set to a cloud-disk instance ID.
+     * @description 新的端口，端口范围需要在1000~65535之间。
+     * > 当**DBInstanceId**参数传入的是云盘实例ID时，本参数才可用。
      * @example 3310
      *
      * @var int
@@ -49,7 +49,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     /**
      * @description The ID of the mongos in the specified sharded cluster instance. Only one mongos ID can be specified in each call.
      *
-     * >  This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
+     * > This parameter is valid only when you specify the **DBInstanceId** parameter to the ID of a sharded cluster instance.
      * @example s-bpxxxxxxxx
      *
      * @var string

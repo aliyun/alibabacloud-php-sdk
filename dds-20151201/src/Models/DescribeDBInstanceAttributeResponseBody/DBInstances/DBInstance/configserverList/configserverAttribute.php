@@ -63,7 +63,7 @@ class configserverAttribute extends Model
     public $nodeId;
 
     /**
-     * @description The storage capacity of the Configserver node. Unit: GB.
+     * @description The storage capacity of the Configserver node.
      *
      * @example 20
      *

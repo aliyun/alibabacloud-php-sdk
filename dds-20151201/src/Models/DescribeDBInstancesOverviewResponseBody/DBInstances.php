@@ -12,10 +12,14 @@ use AlibabaCloud\Tea\Model;
 class DBInstances extends Model
 {
     /**
-     * @description The I/O throughput consumed by the instance.
+     * @description The read and write throughput consumed by the instance.
      *
-     * > * This parameter is returned when the instance is a serverless instance.
-     * > * Serverless instances are available only in the China site (aliyun.com).
+     * >
+     *
+     *   This parameter is returned when the instance is a serverless instance.
+     *
+     *   Serverless instances are available only in the China site (aliyun.com).
+     *
      * @example 100
      *
      * @var string
@@ -35,7 +39,7 @@ class DBInstances extends Model
     public $chargeType;
 
     /**
-     * @description The time when the instance was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the instance was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-01-05T03:18:53Z
      *
@@ -44,7 +48,7 @@ class DBInstances extends Model
     public $creationTime;
 
     /**
-     * @description The instance type of the instance. The instance type varies based on the instance architecture. For more information about instance types supported by different instance architectures, see the following topics:
+     * @description The instance type. The instance type varies based on the instance architecture. For more information about instance types supported by different instance architectures, see the following references:
      *
      *   [Standalone instance types](~~311407~~)
      *   [Replica set instance types](~~311410~~)
@@ -66,7 +70,7 @@ class DBInstances extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example dds-bp12c5b040dc****
      *
@@ -84,7 +88,7 @@ class DBInstances extends Model
     public $DBInstanceStatus;
 
     /**
-     * @description The storage capacity of the instance.
+     * @description The storage space of the instance. Unit: GB.
      *
      * @example 20
      *
@@ -93,7 +97,7 @@ class DBInstances extends Model
     public $DBInstanceStorage;
 
     /**
-     * @description The category of the instance. Valid values:
+     * @description The architecture of the instance. Valid values:
      *
      *   **sharding**: sharded cluster instance
      *   **replicate**: replica set or standalone instance
@@ -105,7 +109,7 @@ class DBInstances extends Model
     public $DBInstanceType;
 
     /**
-     * @description The time when the instance data was destroyed. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the instance data was destroyed. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-12-10T16:00:00Z
      *
@@ -132,7 +136,7 @@ class DBInstances extends Model
     public $engineVersion;
 
     /**
-     * @description The time when the instance expires. The time is in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     * @description The time when the instance expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
      *
      * @example 2022-02-05T16:00Z
      *
@@ -155,7 +159,7 @@ class DBInstances extends Model
     public $kindCode;
 
     /**
-     * @description The last time when the instance was downgraded.
+     * @description The date when the last downgrade operation was performed.
      *
      * @example 2021-05-08
      *
@@ -167,11 +171,11 @@ class DBInstances extends Model
      * @description Indicates whether the instance is locked. Valid values:
      *
      *   **Unlock**: The instance is not locked.
-     *   **ManualLock**: The cluster is manually locked.
-     *   **LockByExpiration**: The instance is automatically locked after it expires.
+     *   **ManualLock**: The instance is manually locked.
+     *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
      *   **LockByRestoration**: The instance is automatically locked before it is rolled back.
-     *   **LockByDiskQuota**: The instance is automatically locked after the storage capacity is exhausted.
-     *   **Released**: The instance is released. After an instance is released, the instance cannot be unlocked. You can only restore the backup data of the instance to a new instance. This process requires an extended period of time.
+     *   **LockByDiskQuota**: The instance is automatically locked after the storage space is exhausted.
+     *   **Released**: The instance is released. After an instance is released, the instance cannot be unlocked. You can only restore the backup data of the instance to a new instance. This process requires a long period of time.
      *
      * @example Unlock
      *
@@ -180,9 +184,9 @@ class DBInstances extends Model
     public $lockMode;
 
     /**
-     * @description Details about the mongos node.
+     * @description The details of the mongos nodes.
      *
-     * >  This parameter is returned if the instance is a sharded cluster instance.
+     * >  This parameter is returned when the instance is a sharded cluster instance.
      * @var mongosList[]
      */
     public $mongosList;
@@ -211,7 +215,7 @@ class DBInstances extends Model
     /**
      * @description The number of nodes in the instance.
      *
-     * >  This parameter is returned if the instance is a replica set instance.
+     * >  This parameter is returned when the instance is a replica set instance.
      * @example 3
      *
      * @var string
@@ -219,7 +223,7 @@ class DBInstances extends Model
     public $replicationFactor;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the instance belongs.
      *
      * @example rg-acfm22cdcgc****
      *
@@ -228,25 +232,25 @@ class DBInstances extends Model
     public $resourceGroupId;
 
     /**
-     * @description Details about the shard node.
+     * @description The details of the shard nodes.
      *
-     * >  This parameter is returned if the instance is a sharded cluster instance.
+     * >  This parameter is returned when the instance is a sharded cluster instance.
      * @var shardList[]
      */
     public $shardList;
 
     /**
-     * @description The tags of the instance.
+     * @description The tags to add to the instance.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description Indicates whether password-free access within a VPC is enabled. Valid values:
+     * @description Indicates whether password-free access over VPC is enabled. Valid values:
      *
-     *   **Open**: Password-free access is enabled.
-     *   **Close**: Password-free access is disabled.
+     *   **Open**: Password-free access over VPC is enabled.
+     *   **Close**: Password-free access over VPC is disabled.
      *
      * @example Open
      *

@@ -38,7 +38,7 @@ class TagResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The list of resource IDs.
+     * @description The details of the tags bound to the instance.
      *
      * @example dds-bpxxxxxxxx
      *

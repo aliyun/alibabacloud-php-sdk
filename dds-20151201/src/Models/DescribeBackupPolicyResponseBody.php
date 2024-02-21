@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyResponseBody extends Model
 {
     /**
-     * @description The frequency at which high-frequency backups are created. Valid values:
+     * @description The frequency at which high-frequency backup is created. Valid values:
      *
-     *   **-1**: disables high-frequency backup.
+     *   **-1**: High-frequency backup is disabled.
      *   **15**: every 15 minutes.
      *   **30**: every 30 minutes.
      *   **60**: every hour.
@@ -29,7 +29,7 @@ class DescribeBackupPolicyResponseBody extends Model
     public $backupInterval;
 
     /**
-     * @description The retention period of backups. Unit: days.
+     * @description The retention period of the backup data. Unit: day.
      *
      * @example 30
      *
@@ -38,10 +38,10 @@ class DescribeBackupPolicyResponseBody extends Model
     public $backupRetentionPeriod;
 
     /**
-     * @description Indicates whether log backup is enabled. Default value: 0. Valid values:
+     * @description Indicates whether the log backup feature is enabled. Valid values:
      *
-     *   **0**: disables log backup.
-     *   **1**: enables log backup.
+     *   **0** (default): The log backup feature is disabled.
+     *   **1**: The log backup feature is enabled.
      *
      * @example 1
      *
@@ -50,7 +50,7 @@ class DescribeBackupPolicyResponseBody extends Model
     public $enableBackupLog;
 
     /**
-     * @description The number of days for which to retain log backups. Valid values: 7 to 730.
+     * @description The number of days for which log backups are retained. Valid values: 7 to 730.
      *
      * @example 7
      *
@@ -76,7 +76,7 @@ class DescribeBackupPolicyResponseBody extends Model
     public $preferredBackupPeriod;
 
     /**
-     * @description The time range to back up data. The time is in the *HH:mm*Z-*HH:mm*Z format. The time is displayed in UTC.
+     * @description The time range during which the backup was created. The time follows the ISO 8601 standard in the *HH:mm*Z-*HH:mm*Z format. The time is displayed in UTC.
      *
      * @example 09:00Z-10:00Z
      *
@@ -85,7 +85,7 @@ class DescribeBackupPolicyResponseBody extends Model
     public $preferredBackupTime;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 5A9464CA-F7DC-5434-90B1-DF7F197C****
      *
@@ -94,10 +94,10 @@ class DescribeBackupPolicyResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The snapshot backup type. Default value: Standard. Valid values:
+     * @description The snapshot backup type. Valid values:
      *
      *   **Flash**: single-digit second backup
-     *   **Standard**: standard backup
+     *   **Standard** (default): standard backup
      *
      * @example Standard
      *

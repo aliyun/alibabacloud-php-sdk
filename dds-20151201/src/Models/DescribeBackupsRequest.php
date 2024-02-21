@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsRequest extends Model
 {
     /**
-     * @description The ID of the backup set. You can call the [CreateBackup](~~62171~~) operation to obtain the value of this parameter.
+     * @description The ID of the backup set. You can call the [CreateBackup](~~62171~~) operation to query the backup set ID.
      *
-     * If you set the DBInstanceId parameter to the ID of a sharded cluster instance, the number of backup IDs is the same as the number of shards. Separate them with commas (,) in the middle.
+     * If you set the **DBInstanceId** parameter to the ID of a sharded cluster instance, the number of backup IDs is the same as the number of shard nodes. Multiple backup IDs are separated with commas (,).
      * @example 2072****,2072****,2072****
      *
      * @var string
@@ -19,9 +19,9 @@ class DescribeBackupsRequest extends Model
     public $backupId;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
-     * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
      * @example dds-bp1a7009eb24****
      *
      * @var string
@@ -29,7 +29,7 @@ class DescribeBackupsRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
      *
      * @example 2022-01-14T13:00Z
      *
@@ -40,7 +40,7 @@ class DescribeBackupsRequest extends Model
     /**
      * @description The ID of the shard node in the sharded cluster instance.
      *
-     * >  This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
+     * > This parameter takes effect only when you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
      * @example d-bp128a003436****
      *
      * @var string
@@ -58,7 +58,7 @@ class DescribeBackupsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     * @description The page number of the page to return.
      *
      * @example 1
      *
@@ -67,7 +67,11 @@ class DescribeBackupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **30, 50, and 100**. Default value: **30**.
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
      *
      * @example 30
      *
@@ -86,7 +90,7 @@ class DescribeBackupsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2022-01-13T13:00Z
      *

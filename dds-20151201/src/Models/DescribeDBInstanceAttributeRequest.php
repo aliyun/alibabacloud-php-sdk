@@ -27,11 +27,6 @@ class DescribeDBInstanceAttributeRequest extends Model
     public $engine;
 
     /**
-     * @description Specifies whether to delete the instance. Valid values:
-     *
-     *   **false**: queries the details of running instances.
-     *   **true**: queries the details of deleted instances.
-     *
      * @example false
      *
      * @var bool

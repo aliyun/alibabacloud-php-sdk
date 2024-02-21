@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalSecurityIPGroupRequest extends Model
 {
     /**
+     * @description The ID of the IP whitelist template.
+     *
      * @example g-hedmu8kg9nsabw6u42rv
      *
      * @var string
@@ -26,6 +28,8 @@ class DescribeGlobalSecurityIPGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

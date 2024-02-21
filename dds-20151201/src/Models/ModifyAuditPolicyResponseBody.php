@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyAuditPolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example DC04D812-F18D-4568-9B88-F260D9590116
      *

@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateBackupRequest extends Model
 {
     /**
-     * @description The backup method of the instance. Default value: Physical. Valid values:
+     * @description The backup method of the instance. Valid values:
      *
      *   **Logical**
-     *   **Physical**
+     *   **Physical** (default)
      *
-     * >  Only replica set instances and sharded cluster instances support this parameter. You do not need to specify this parameter for standalone instances. All standalone instances use snapshot backup.
+     * > Only replica set instances and sharded cluster instances support this parameter. You do not need to specify this parameter for standalone instances. All standalone instances use snapshot backup.
      * @example Logical
      *
      * @var string
@@ -22,7 +22,7 @@ class CreateBackupRequest extends Model
     public $backupMethod;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example d-bp2235****
      *

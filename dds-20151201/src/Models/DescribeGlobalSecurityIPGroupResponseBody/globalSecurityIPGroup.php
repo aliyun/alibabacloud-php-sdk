@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class globalSecurityIPGroup extends Model
 {
     /**
+     * @description The instances associated with the global whitelist template.
+     *
      * @var string[]
      */
     public $DBInstances;
 
     /**
+     * @description The IP addresses in the whitelist template.
+     *
+     * > Separate multiple IP addresses with commas (,). You can create up to 1,000 IP addresses or CIDR blocks for all IP address whitelists.
      * @example 117.12.202.19
      *
      * @var string
@@ -21,6 +26,8 @@ class globalSecurityIPGroup extends Model
     public $GIpList;
 
     /**
+     * @description The name of the IP whitelist template.
+     *
      * @example dev_baoxian_k8s_bj
      *
      * @var string
@@ -28,6 +35,8 @@ class globalSecurityIPGroup extends Model
     public $globalIgName;
 
     /**
+     * @description The ID of the IP whitelist template.
+     *
      * @example g-sdgwqyp4f5j1x3qk7yvm
      *
      * @var string
@@ -35,6 +44,8 @@ class globalSecurityIPGroup extends Model
     public $globalSecurityGroupId;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ResetAccountPasswordRequest extends Model
 {
     /**
-     * @description The account for which you want to reset the password. Set the value to **root**.
+     * @description The account whose password needs to be reset. Set the value to **root**.
      *
      * @example root
      *
@@ -30,12 +30,10 @@ class ResetAccountPasswordRequest extends Model
     public $accountPassword;
 
     /**
-     * @description The role of the instance. Valid values:
+     * @description 实例的角色类型，取值说明
      *
-     *   db: a shard node.
-     *   cs: a Configserver node.
-     *   mongos: a mongos node.
      *
+     * - 当实例类型为副本集时，charactertype 可为空或传入normal。
      * @example db
      *
      * @var string
@@ -43,7 +41,7 @@ class ResetAccountPasswordRequest extends Model
     public $characterType;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example dds-bpxxxxxxxx
      *

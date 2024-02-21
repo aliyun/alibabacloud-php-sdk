@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceSpecRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment. Default value: true. Valid values:
+     * @description Specifies whether to enable automatic payment. Valid values:
      *
-     *   **true**: enables automatic payment. Make sure that your Alibaba Cloud account has a sufficient balance.
+     *   **true** (default): enables automatic payment. Make sure that your Alibaba Cloud account has a sufficient balance.
      *   **false**: disables automatic payment. You can perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner of the page, choose **Expenses** > **User Center**. In the left-side navigation pane, choose **Order Management** > **Order**. On the **Orders for Services** tab, find the order and pay for the order.
      *
      * @example true
@@ -73,9 +73,9 @@ class ModifyDBInstanceSpecRequest extends Model
     public $DBInstanceStorage;
 
     /**
-     * @description The time when the changed configurations take effect. Default value: Immediately. Valid values:
+     * @description The time when the changed configurations take effect. Valid values:
      *
-     *   **Immediately**: The configurations immediately take effect.
+     *   **Immediately** (default): The configurations immediately take effect.
      *   **MaintainTime**: The configurations take effect during the maintenance window of the instance.
      *
      * @example Immediately
@@ -85,8 +85,17 @@ class ModifyDBInstanceSpecRequest extends Model
     public $effectiveTime;
 
     /**
-     * @description Additional parameter
+     * @description The additional parameter.
      *
+     * Valid values:
+     *
+     *   async
+     *
+     * <!-- -->
+     *
+     *   sync
+     *
+     * <!-- -->
      * @example async
      *
      * @var string
@@ -94,12 +103,12 @@ class ModifyDBInstanceSpecRequest extends Model
     public $extraParam;
 
     /**
-     * @description The type of the configuration change. Default value: DOWNGRADE. Valid values:
+     * @description The type of the configuration change. Valid values:
      *
      *   **UPGRADE**
-     *   **DOWNGRADE**
+     *   **DOWNGRADE** (default)
      *
-     * > This parameter can be configured only when the billing method of the instance is subscription.
+     * >  This parameter can be configured only when the billing method of the instance is subscription.
      * @example UPGRADE
      *
      * @var string
@@ -131,10 +140,10 @@ class ModifyDBInstanceSpecRequest extends Model
     /**
      * @description The number of nodes in the instance.
      *
-     *   Valid values of replica set instances: **3**, **5**, and **7**
-     *   Valid values of standalone instances: **1**
+     *   Valid values for replica set instances: **3**, **5**, and **7**
+     *   Valid values for standalone instances: **1**
      *
-     * > This parameter is not required for a serverless instance which is only available on the China site (aliyun.com).
+     * >  This parameter is not required for a serverless instance which is only available on the China site (aliyun.com).
      * @example 3
      *
      * @var string

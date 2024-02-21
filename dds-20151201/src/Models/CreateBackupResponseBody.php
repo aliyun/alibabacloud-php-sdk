@@ -18,7 +18,7 @@ class CreateBackupResponseBody extends Model
     public $backupId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 7016B12F-7F64-40A4-BAFF-013F02AC82FC
      *

@@ -9,10 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupDBsRequest extends Model
 {
     /**
-     * @description The ID of the backup set.
+     * @description The backup ID.
      *
-     * > * You can call the [DescribeBackups](~~62172~~) operation to query the backup ID.
-     * > * You must specify one of the **RestoreTime** and BackupId parameters.
+     * >
+     *
+     *   You can call the [DescribeBackups](~~62172~~) operation to query the backup ID.
+     *
+     *   You must specify one of the **RestoreTime** and BackupId parameters.
+     *
      * @example 5664****
      *
      * @var string
@@ -30,7 +34,7 @@ class DescribeBackupDBsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value of this parameter must be an integer that is greater than 0. Default value: **1**.
+     * @description The page number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
      *
      * @example 1
      *
@@ -39,7 +43,7 @@ class DescribeBackupDBsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 30. Valid values: **30**, **50**, and **100**.
+     * @description The number of entries to return per page. Default value: 30. Valid values: **30**, **50**, and **100**.
      *
      * @example 30
      *
@@ -67,10 +71,14 @@ class DescribeBackupDBsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The point in time to which the instance is restored. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The point in time to which the instance is restored. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * > * The time can be a point in time within the past seven days. The time must be earlier than the current time, but later than the time when the instance was created.
-     * > * You must specify one of the RestoreTime and **BackupId** parameters.
+     * >
+     *
+     *   The time can be a point in time within the previous seven days. The time must be earlier than the current time, but later than the time when the instance was created.
+     *
+     *   You must specify one of the RestoreTime and **BackupId** parameters.
+     *
      * @example 2019-08-22T12:00:00Z
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePerformanceRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
      * @example dds-bp2635****
@@ -19,7 +19,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
      *
      * @example 2022-06-13T11:58Z
      *
@@ -28,9 +28,9 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $endTime;
 
     /**
-     * @description A performance metric. For more information about the valid values, see [Performance metrics](~~64048~~).
+     * @description The performance metric. For more information about valid values, see [Performance metrics](~~64048~~).
      *
-     * >  If you specify multiple metrics, separate them with commas (,).
+     * >  If you need to specify multiple metrics, separate the metrics with commas (,).
      * @example CpuUsage
      *
      * @var string
@@ -40,7 +40,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @description The ID of the mongos or shard node in a sharded cluster instance. You can specify this parameter to view the performance data of a single node.
      *
-     * >  This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
+     * >  This parameter is valid when you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
      * @example d-bp2287****
      *
      * @var string
@@ -58,13 +58,17 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The role of the node in a standalone or replica set instance.
+     * @description The role of the node in a standalone or replica set instance. Valid values:
      *
-     * **Primary**
-     * **Secondary**
+     *   **Primary**
+     *   **Secondary**
      *
-     * > * This parameter is valid only when you specify the **DBInstanceId** parameter to the ID of a standalone instance or a replica set instance.
-     * > * If you set the **DBInstanceId** parameter to the ID of a standalone instance, the value of this parameter can only be **Primary**.
+     * >
+     *
+     *   This parameter is valid only when you set the **DBInstanceId** parameter to the ID of a standalone instance or a replica set instance.
+     *
+     *   If you set the **DBInstanceId** parameter to the ID of a standalone instance, the value of this parameter can only be **Primary**.
+     *
      * @example Primary
      *
      * @var string
@@ -84,7 +88,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @description The role ID of the node in a standalone or replica set instance. You can call the [DescribeReplicaSetRole](~~62134~~) operation to query the role ID of the node.
      *
-     * >  This parameter is valid only when you specify the **DBInstanceId** parameter to the ID of a standalone instance or a replica set instance.
+     * >  This parameter is available when you set the **DBInstanceId** parameter to the ID of a standalone instance or a replica set instance.
      * @example 6025****
      *
      * @var string
@@ -92,7 +96,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $roleId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2022-06-13T10:58Z
      *

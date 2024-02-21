@@ -18,7 +18,7 @@ class ModifyAuditPolicyRequest extends Model
     public $auditLogSwitchSource;
 
     /**
-     * @description Specifies whether the audit log feature is enabled. Valid values:
+     * @description Specifies whether to enable the audit log feature. Valid values:
      *
      *   **enable**
      *   **disabled**
@@ -30,7 +30,7 @@ class ModifyAuditPolicyRequest extends Model
     public $auditStatus;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example dds-bp1785659e3f****
      *
@@ -61,10 +61,10 @@ class ModifyAuditPolicyRequest extends Model
     /**
      * @description The type of the audit log feature. Valid values:
      *
-     *   **Trial**: the free trial edition
-     *   **Standard**: the official edition
+     *   **Trail**: free trial edition.
+     *   **Standard**: official edition.
      *
-     * >  Default value: **Trial**. Starting from January 6, 2022, the official edition of the audit log feature has been launched in all regions, and new applications for the free trial edition have ended. We recommend that you set this parameter to **Standard**.
+     * > The default value is **Trail**. Starting from January 6, 2022, the official edition of the audit log feature has been launched in all regions, and the free trial edition of the feature can no longer be applied for. We recommend that you set this parameter to **Standard**.
      * @example Standard
      *
      * @var string

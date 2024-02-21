@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityIpsRequest extends Model
 {
     /**
-     * @description The ID of an instance.
+     * @description The instance ID.
      *
      * @example dds-bp*****
      *
@@ -18,13 +18,13 @@ class ModifySecurityIpsRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The method of modification. Valid values:
+     * @description The method that is used to modify the IP address whitelist. Valid values:
      *
-     *   **Cover**: overwrites the whitelist.
-     *   **Append**: appends data to the whitelist.
-     *   **Delete**: deletes the whitelist.
+     *   **Cover**: overwrites the original IP address whitelist.
+     *   **Append**: appends data to the IP address whitelist.
+     *   **Delete**: deletes the IP address whitelist.
      *
-     * The default value is **Cover**.
+     * Default value: **Cover**.
      * @example Append
      *
      * @var string
@@ -52,7 +52,7 @@ class ModifySecurityIpsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The attributes of an IP address whitelist. It can contain a maximum of 120 characters in length and can contain uppercase letters, lowercase letters, and digits.
+     * @description The attribute of the IP address whitelist. It can contain a maximum of 120 characters in length and can contain uppercase letters, lowercase letters, and digits.
      *
      * This parameter is empty by default.
      * @example test
@@ -62,7 +62,7 @@ class ModifySecurityIpsRequest extends Model
     public $securityIpGroupAttribute;
 
     /**
-     * @description The name of the IP address whitelist to be modified. The default value is **default**.
+     * @description The name of the IP address whitelist that you want to modify. Default value: **default**.
      *
      * @example allowserver
      *
@@ -71,10 +71,10 @@ class ModifySecurityIpsRequest extends Model
     public $securityIpGroupName;
 
     /**
-     * @description The IP addresses in an IP address whitelist. Separate multiple IP addresses with commas (,). You can add a maximum of 1,000 different IP addresses to a whitelist. You can add IP addresses in one of the following two formats:
+     * @description The IP addresses in the IP address whitelist. Separate multiple IP addresses with commas (,). You can add a maximum of 1,000 different IP addresses to the IP address whitelist. The entries in the IP address whitelist must be in one of the following formats:
      *
-     *   IP addresses. Example: 10.23.12.24.
-     *   Classless Inter-Domain Routing (CIDR) blocks, such as 10.23.12.24/24, where 24 indicates that the prefix of the CIDR block is 24-bit long. You can replace 24 with a value within the range of 1 to 32.
+     *   IP addresses, such as 127.0.0.1.
+     *   CIDR blocks, such as 127.0.0.1/24. In this example, 24 indicates that the prefix of each IP address in the IP address whitelist is 24 bits in length. You can replace 24 with a value within the range of 1 to 32.
      *
      * @example 127.0.0.1/24,127.0.0.1
      *

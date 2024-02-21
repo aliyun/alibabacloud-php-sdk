@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalSecurityIPGroupResponseBody extends Model
 {
     /**
+     * @description The global IP whitelist templates.
+     *
      * @var globalSecurityIPGroup[]
      */
     public $globalSecurityIPGroup;
 
     /**
+     * @description The unique ID of the request. If the request fails, provide this ID for technical support to troubleshoot the failure.
+     *
      * @example 72651AF9-7897-41A7-8B67-6C15C7F26A0A
      *
      * @var string

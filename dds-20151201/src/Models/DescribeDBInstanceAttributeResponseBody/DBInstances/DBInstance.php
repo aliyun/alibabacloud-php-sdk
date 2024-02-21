@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
-     * @description Indicates whether performance burst is enabled for the ESSD AutoPL disk.
+     * @description 是否已开启突发
      *
      * @example true
      *
@@ -34,8 +34,8 @@ class DBInstance extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   **PrePaid**: subscription
-     *   **PostPaid**: pay-as-you-go
+     *   **PrePaid**: subscription.
+     *   **PostPaid**: pay-as-you-go.
      *
      * @example PostPaid
      *
@@ -44,9 +44,9 @@ class DBInstance extends Model
     public $chargeType;
 
     /**
-     * @description The information of the Configserver nodes.
+     * @description The details of the Configserver nodes.
      *
-     * >  This parameter is returned if the instance is a sharded cluster instance.
+     * > This parameter is returned if the instance is a sharded cluster instance.
      * @var configserverList
      */
     public $configserverList;
@@ -70,7 +70,7 @@ class DBInstance extends Model
     public $currentKernelVersion;
 
     /**
-     * @description The instance type of the instance.
+     * @description The instance type.
      *
      * @example dds.mongo.mid
      *
@@ -101,11 +101,13 @@ class DBInstance extends Model
      *
      *   **all_completed**: All orders are being produced or complete.
      *   **order_unpaid**: The instance has unpaid orders.
-     *   **order_wait_for_produce**: Orders are being delivered for production.
+     *   **order_wait_for_produce**: Order are being delivered for production.
      *
-     * >  The order production process includes the following steps: place an order, pay for an order, deliver an order for production, produce an order, and complete the production.
-     * > *   If an order is in the **order_wait_for_produce** state for a long time, an error occurs when the order is being delivered for production. The system will automatically retry.
-     * > *   The instance status changes only when the order is in the producing and complete state, such as changing configurations and running.
+     * > The order production process includes the following steps: place an order, pay for an order, deliver an order for production, produce an order, and complete an order.
+     *
+     *   If an order is in the **order_wait_for_produce** state for a long time, an error occurs when the order is being delivered for production. The system will automatically retry.
+     *   The instance status changes only when the order is in the producing and complete state, such as changing configurations and running.
+     *
      * @example all_completed
      *
      * @var string
@@ -115,8 +117,8 @@ class DBInstance extends Model
     /**
      * @description Indicates whether release protection is enabled for the instance. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   **true**: Release protection is enabled.
+     *   **false** Release protection is disabled.
      *
      * @example false
      *
@@ -145,8 +147,8 @@ class DBInstance extends Model
     /**
      * @description The architecture of the instance. Valid values:
      *
-     *   **replicate**: replica set instance
-     *   **sharding**: sharded cluster instance
+     *   **replicate**: replica set instance.
+     *   **sharding**: sharded cluster instance.
      *
      * @example replicate
      *
@@ -164,7 +166,7 @@ class DBInstance extends Model
     public $destroyTime;
 
     /**
-     * @description Indicates whether disk encryption is enabled.
+     * @description 是否开启云盘加密
      *
      * @example true
      *
@@ -173,7 +175,7 @@ class DBInstance extends Model
     public $encrypted;
 
     /**
-     * @description The Key Management Service (KMS) key used for disk encryption.
+     * @description 云盘加密对应的kms-key
      *
      * @example 07609cc3-3109-408f-a35e-c548e776da0b
      *
@@ -191,7 +193,7 @@ class DBInstance extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The database engine version of the instance. Valid values:
      *
      *   **6.0**
      *   **5.0**
@@ -208,7 +210,7 @@ class DBInstance extends Model
     /**
      * @description The time when the subscription instance expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
      *
-     * >  This parameter is returned if the instance is a subscription instance.
+     * > This parameter is returned if the instance is a subscription instance.
      * @example 2022-02-05T16:00Z
      *
      * @var string
@@ -221,9 +223,9 @@ class DBInstance extends Model
      *   **cn-hangzhou-g**: Hangzhou Zone G
      *   **cn-hangzhou-h**: Hangzhou Zone H
      *   **cn-hangzhou-i**: Hangzhou Zone I
-     *   **cn-hongkong-b**: Hongkong Zone B
-     *   **cn-hongkong-c**: Hongkong Zone C
-     *   **cn-hongkong-d**: Hongkong Zone D
+     *   **cn-hongkong-b**: Hong Kong Zone B
+     *   **cn-hongkong-c**: Hong Kong Zone C
+     *   **cn-hongkong-d**: Hong Kong Zone D
      *   **cn-wulanchabu-a**: Ulanqab Zone A
      *   **cn-wulanchabu-b**: Ulanqab Zone B
      *   **cn-wulanchabu-c**: Ulanqab Zone C
@@ -237,8 +239,12 @@ class DBInstance extends Model
      *   **eu-central-1b**: Frankfurt Zone B
      *   **eu-central-1c**: Frankfurt Zone C
      *
-     * > *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
-     * > *   This parameter is returned only if you use the China site (aliyun.com).
+     * >
+     *
+     *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
+     *
+     *   This parameter is returned only if you use the Chine site (aliyun.com).
+     *
      * @example cn-hangzhou-h
      *
      * @var string
@@ -248,10 +254,10 @@ class DBInstance extends Model
     /**
      * @description The kind code of the instance. Valid values:
      *
-     *   **0**: physical machine
-     *   **1**: Elastic Compute Service (ECS) instance
-     *   **2**: Docker cluster
-     *   **18**: Kubernetes cluster
+     *   **0**: physical machine.
+     *   **1**: Elastic Compute Service (ECS) instance.
+     *   **2**: Docker cluster.
+     *   **18**: Kubernetes cluster.
      *
      * @example 1
      *
@@ -274,8 +280,8 @@ class DBInstance extends Model
      *   **Unlock**: The instance is not locked.
      *   **ManualLock**: The instance is manually locked.
      *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-     *   **LockByRestoration**: The instance is automatically locked before the instance is rolled back.
-     *   **LockByDiskQuota**: The instance is automatically locked after the storage space is exhausted.
+     *   **LockByRestoration**: The instance is automatically locked before it is rolled back.
+     *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage capacity.
      *   **Released**: The instance is released.
      *
      * @example Unlock
@@ -321,7 +327,7 @@ class DBInstance extends Model
     public $maxIOPS;
 
     /**
-     * @description The maximum MBPS of the instance, Unit: MB/s.
+     * @description 实例的最大云盘吞吐量，单位MB/s。
      *
      * @example 350
      *
@@ -330,9 +336,9 @@ class DBInstance extends Model
     public $maxMBPS;
 
     /**
-     * @description The information of the mongos nodes.
+     * @description The details of the mongos nodes.
      *
-     * >  This parameter is returned if the instance is a sharded cluster instance.
+     * > This parameter is returned if the instance is a sharded cluster instance.
      * @var mongosList
      */
     public $mongosList;
@@ -340,8 +346,8 @@ class DBInstance extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **Classic**: classic network
-     *   **VPC**: VPC
+     *   **Classic**
+     *   **VPC**
      *
      * @example VPC
      *
@@ -355,7 +361,7 @@ class DBInstance extends Model
      *   **mongodb**
      *   **dynamodb**
      *
-     * >  This parameter is returned if the instance is a sharded cluster instance.
+     * > This parameter is returned if the instance is a sharded cluster instance.
      * @example mongodb
      *
      * @var string
@@ -363,7 +369,7 @@ class DBInstance extends Model
     public $protocolType;
 
     /**
-     * @description The provisioned performance of the ESSD AutoPL disk.
+     * @description 预配置性能
      *
      * @example 1960
      *
@@ -390,9 +396,9 @@ class DBInstance extends Model
     public $regionId;
 
     /**
-     * @description The logical ID of the replica set instance.
+     * @description The logical ID of the replica instance.
      *
-     * >  ApsaraDB for MongoDB does not support new instances of this type. This parameter applies only to previous-version replica set instances.
+     * > ApsaraDB for MongoDB does not support new instances of this type. This parameter applies only to previous-version replica instances.
      * @example bls-m****
      *
      * @var string
@@ -402,7 +408,7 @@ class DBInstance extends Model
     /**
      * @description The name of the replica set instance.
      *
-     * >  This parameter is returned if the instance is a replica set instance.
+     * > This parameter is returned if the instance is a replica set instance.
      * @example mgset-10ace****
      *
      * @var string
@@ -410,9 +416,9 @@ class DBInstance extends Model
     public $replicaSetName;
 
     /**
-     * @description The information of the replica set instance.
+     * @description The details of the replica set instance.
      *
-     * >  This parameter is returned if the instance is a replica set instance.
+     * > This parameter is returned if the instance is a replica set instance.
      * @var replicaSets
      */
     public $replicaSets;
@@ -420,7 +426,7 @@ class DBInstance extends Model
     /**
      * @description The number of nodes in the instance.
      *
-     * >  This parameter is returned if the instance is a replica set instance.
+     * > This parameter is returned if the instance is a replica set instance.
      * @example 3
      *
      * @var string
@@ -428,9 +434,9 @@ class DBInstance extends Model
     public $replicationFactor;
 
     /**
-     * @description The ID of the resource group to which the instance belongs.
+     * @description The ID of the resource group.
      *
-     * >  This parameter is returned only if you use the China site (aliyun.com).
+     * > This parameter is returned only if you use the China site (aliyun.com).
      * @example rg-acfmyiu4ekp****
      *
      * @var string
@@ -443,9 +449,9 @@ class DBInstance extends Model
      *   **cn-hangzhou-g**: Hangzhou Zone G
      *   **cn-hangzhou-h**: Hangzhou Zone H
      *   **cn-hangzhou-i**: Hangzhou Zone I
-     *   **cn-hongkong-b**: Hongkong Zone B
-     *   **cn-hongkong-c**: Hongkong Zone C
-     *   **cn-hongkong-d**: Hongkong Zone D
+     *   **cn-hongkong-b**: Hong Kong Zone B
+     *   **cn-hongkong-c**: Hong Kong Zone C
+     *   **cn-hongkong-d**: Hong Kong Zone D
      *   **cn-wulanchabu-a**: Ulanqab Zone A
      *   **cn-wulanchabu-b**: Ulanqab Zone B
      *   **cn-wulanchabu-c**: Ulanqab Zone C
@@ -459,8 +465,12 @@ class DBInstance extends Model
      *   **eu-central-1b**: Frankfurt Zone B
      *   **eu-central-1c**: Frankfurt Zone C
      *
-     * > *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
-     * > *   This parameter is returned only if you use the China site (aliyun.com).
+     * >
+     *
+     *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
+     *
+     *   This parameter is returned only if you use the Chine site (aliyun.com).
+     *
      * @example cn-hangzhou-i
      *
      * @var string
@@ -468,9 +478,9 @@ class DBInstance extends Model
     public $secondaryZoneId;
 
     /**
-     * @description The information of the shard nodes.
+     * @description The details of the shard nodes.
      *
-     * >  This parameter is returned if the instance is a sharded cluster instance.
+     * > This parameter is returned if the instance is a sharded cluster instance.
      * @var shardList
      */
     public $shardList;
@@ -487,7 +497,7 @@ class DBInstance extends Model
     /**
      * @description The storage type of the instance. Valid values:
      *
-     **cloud_essd1**: ESSD PL1 **cloud_essd2**: ESSD PL2 **cloud_essd3**: ESSD PL3 **local_ssd**: local SSD **cloud_essd_dbfs_s**: DBFS disk
+     **cloud_essd1**: PL1 ESSD. **cloud_essd2**: PL2. ESSD. **cloud_essd3**: PL3 ESSD. **local_ssd**: local SSD.
      *
      * @example cloud_essd1
      *
@@ -496,7 +506,7 @@ class DBInstance extends Model
     public $storageType;
 
     /**
-     * @description The progress of data synchronization in percentage. When you are changing the configurations of the instance, you must synchronize the data of the instance. You can obtain the data synchronization progress based on the value returned for this parameter.
+     * @description 数据同步进度百分比。当实例处在变配中时，需要进行数据同步等操作，可以通过该字段判断同步进度。
      *
      * @example 0.8
      *
@@ -512,11 +522,10 @@ class DBInstance extends Model
     public $tags;
 
     /**
-     * @description Indicates whether the cluster backup mode is enabled. Valid values:
+     * @description 是否使用集群备份模式。取值说明：
      *
-     *   **true**: The cluster backup mode is enabled.
-     *   **false**: The cluster backup mode is disabled.
-     *
+     * - **true**：启用集群备份模式。
+     * - **false**未启用集群备份模式。
      * @example true
      *
      * @var bool
@@ -526,7 +535,7 @@ class DBInstance extends Model
     /**
      * @description The instance ID.
      *
-     * >  This parameter is returned if the network type of the instance is VPC.
+     * > This parameter is returned if the network type of the instance is VPC.
      * @example dds-bp11483712c1****
      *
      * @var string
@@ -536,7 +545,7 @@ class DBInstance extends Model
     /**
      * @description The VPC ID of the instance.
      *
-     * >  This parameter is returned if the network type of the instance is VPC.
+     * > This parameter is returned if the network type of the instance is VPC.
      * @example vpc-bp1n3i15v90el48nx****
      *
      * @var string
@@ -546,7 +555,7 @@ class DBInstance extends Model
     /**
      * @description The vSwitch ID of the instance.
      *
-     * >  This parameter is returned if the network type of the instance is VPC.
+     * > This parameter is returned if the network type of the instance is VPC.
      * @example vsw-bp1oo2a7isyrb8igf****
      *
      * @var string
@@ -554,11 +563,11 @@ class DBInstance extends Model
     public $vSwitchId;
 
     /**
-     * @description Indicates whether password-free access within the VPC is enabled. Valid values:
+     * @description Indicates whether password-free access over VPC is enabled. Valid values:
      *
-     *   **Open**: Password-free access within the VPC is enabled.
-     *   **Close**: Password-free access within the VPC is disabled, and you must use a password for access.
-     *   **NotSupport**: Password-free access within the VPC is not supported.
+     *   **Open**: Password-free access over VPC is enabled.
+     *   **Close**: Password-free access over VPC is disabled, and you must use a password for access.
+     *   **NotSupport**: Password-free access over VPC is not supported.
      *
      * @example Open
      *
@@ -567,7 +576,7 @@ class DBInstance extends Model
     public $vpcAuthMode;
 
     /**
-     * @description The ID of the zone in which the instance resides.
+     * @description The zone ID of the instance.
      *
      * @example cn-hangzhou-b
      *

@@ -11,8 +11,7 @@ class account extends Model
     /**
      * @description The description of the account.
      *
-     * > This parameter is returned only after you configure the description of the account by calling the [ModifyAccountDescription](~~468391~~) operation.
-     * @example account description.
+     * @example Admin
      *
      * @var string
      */
@@ -28,7 +27,7 @@ class account extends Model
     public $accountName;
 
     /**
-     * @description The status of the account.
+     * @description The status of the account. Valid values:
      *
      *   **Unavailable**
      *   **Available**
@@ -42,11 +41,11 @@ class account extends Model
     /**
      * @description The role of the account. Valid values:
      *
-     *   **db**: shard
-     *   **cs**: Configserver
-     *   **mongos**: mongos
-     *   **logic:** sharded cluster instance
-     *   **normal:** replica set instance
+     *   **db**: shard node
+     *   **cs**: Configserver node
+     *   **mongos**: mongos node
+     *   **logic**: sharded cluster instance
+     *   **normal**: replica set instance
      *
      * @example mongos
      *
@@ -55,7 +54,7 @@ class account extends Model
     public $characterType;
 
     /**
-     * @description The name of the instance to which the account belongs.
+     * @description The ID of the instance to which the account belongs.
      *
      * @example dds-bp1fd530f271****
      *

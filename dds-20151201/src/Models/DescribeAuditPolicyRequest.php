@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditPolicyRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example dds-bp12c5b040dc****
      *

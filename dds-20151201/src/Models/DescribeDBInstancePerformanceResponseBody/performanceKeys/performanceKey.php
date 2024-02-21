@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class performanceKey extends Model
 {
     /**
-     * @description The performance metric.
+     * @description The performance metrics that are returned.
      *
      * @example CpuUsage
      *
@@ -19,7 +19,7 @@ class performanceKey extends Model
     public $key;
 
     /**
-     * @description Details about the performance metric values.
+     * @description The details of the performance metric values.
      *
      * @var performanceValues
      */
@@ -35,9 +35,9 @@ class performanceKey extends Model
     public $unit;
 
     /**
-     * @description The format of the performance metric value. If the performance metric contains multiple fields, the fields are separated with **\&amp;** symbols.
+     * @description The format of the performance metric value. If the performance metric contains multiple fields, the fields are separated with ampersands ( &).
      *
-     * For example, if you query disk usage, the returned **ValueFormat** value is in the **ins_size\&amp;data_size\&amp;log_size** format.
+     * For example, if you query disk space usage, the returned value of the **ValueFormat** parameter is **ins_size\&data_size\&log_size**.
      * @example cpu_usage
      *
      * @var string

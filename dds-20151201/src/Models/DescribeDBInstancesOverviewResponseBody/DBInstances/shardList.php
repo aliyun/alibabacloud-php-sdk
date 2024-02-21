@@ -36,7 +36,7 @@ class shardList extends Model
     public $nodeId;
 
     /**
-     * @description The storage capacity of the shard node. Unit: GB.
+     * @description The storage space of the shard node. Unit: GB.
      *
      * @example 10
      *

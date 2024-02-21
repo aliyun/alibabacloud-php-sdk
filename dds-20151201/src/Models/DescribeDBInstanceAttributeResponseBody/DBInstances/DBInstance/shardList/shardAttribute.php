@@ -27,7 +27,7 @@ class shardAttribute extends Model
     public $maxConnections;
 
     /**
-     * @description The maximum  MBPS of the shard node, Unit: MB/s.
+     * @description shard节点的最大云盘吞吐量。
      *
      * @example 350
      *
@@ -72,7 +72,7 @@ class shardAttribute extends Model
     public $nodeId;
 
     /**
-     * @description The storage capacity of the shard node. Unit: GB.
+     * @description The storage capacity of the shard node.
      *
      * @example 10
      *

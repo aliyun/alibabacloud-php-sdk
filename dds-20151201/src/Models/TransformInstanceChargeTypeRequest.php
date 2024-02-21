@@ -56,7 +56,10 @@ class TransformInstanceChargeTypeRequest extends Model
     public $chargeType;
 
     /**
-     * @description The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
+     * @description Specifies whether to use coupons. Default value: null. Valid values:
+     *
+     *   **default** or **null**: uses coupons.
+     *   **youhuiquan_promotion_option_id_for_blank**: does not use coupons.
      *
      * @example youhuiquan_promotion_option_id_for_blank
      *
