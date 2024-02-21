@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Hologram\V20220601\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateInstanceNameResponse extends Model
+class ListWarehousesResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UpdateInstanceNameResponse extends Model
     public $statusCode;
 
     /**
-     * @var UpdateInstanceNameResponseBody
+     * @var ListWarehousesResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class UpdateInstanceNameResponse extends Model
     /**
      * @param array $map
      *
-     * @return UpdateInstanceNameResponse
+     * @return ListWarehousesResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class UpdateInstanceNameResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = UpdateInstanceNameResponseBody::fromMap($map['body']);
+            $model->body = ListWarehousesResponseBody::fromMap($map['body']);
         }
 
         return $model;

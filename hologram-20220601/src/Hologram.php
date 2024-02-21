@@ -6,13 +6,21 @@ namespace AlibabaCloud\SDK\Hologram\V20220601;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableHiveAccessRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableHiveAccessResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetWarehouseDetailResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehousesResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RestartInstanceResponse;
@@ -61,6 +69,55 @@ class Hologram extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['instanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $body['newResourceGroupId'] = $request->newResourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeResourceGroup',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/tag/changeResourceGroup',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->changeResourceGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -259,6 +316,102 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * @param string                   $instanceId
+     * @param DisableHiveAccessRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DisableHiveAccessResponse
+     */
+    public function disableHiveAccessWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableHiveAccess',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/disableHiveAccess',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableHiveAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $instanceId
+     * @param DisableHiveAccessRequest $request
+     *
+     * @return DisableHiveAccessResponse
+     */
+    public function disableHiveAccess($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableHiveAccessWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $instanceId
+     * @param EnableHiveAccessRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return EnableHiveAccessResponse
+     */
+    public function enableHiveAccessWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableHiveAccess',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/enableHiveAccess',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableHiveAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $instanceId
+     * @param EnableHiveAccessRequest $request
+     *
+     * @return EnableHiveAccessResponse
+     */
+    public function enableHiveAccess($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableHiveAccessWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string         $instanceId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -296,6 +449,46 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->getInstanceWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetWarehouseDetailResponse
+     */
+    public function getWarehouseDetailWithOptions($instanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetWarehouseDetail',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/getWarehouseDetail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWarehouseDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return GetWarehouseDetailResponse
+     */
+    public function getWarehouseDetail($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWarehouseDetailWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
@@ -348,6 +541,46 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->listInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListWarehousesResponse
+     */
+    public function listWarehousesWithOptions($instanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListWarehouses',
+            'version'     => '2022-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/listWarehouses',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWarehousesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return ListWarehousesResponse
+     */
+    public function listWarehouses($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWarehousesWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
