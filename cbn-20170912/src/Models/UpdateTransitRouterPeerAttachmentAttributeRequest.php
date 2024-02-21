@@ -21,7 +21,7 @@ class UpdateTransitRouterPeerAttachmentAttributeRequest extends Model
     public $autoPublishRouteEnabled;
 
     /**
-     * @description The maximum bandwidth value of the inter-region connection. Unit: Mbit/s.
+     * @description The bandwidth value of the inter-region connection. Unit: Mbit/s.
      *
      *   This parameter specifies the maximum bandwidth value for the inter-region connection if you set **BandwidthType** to **BandwidthPackage**.
      *   This parameter specifies the bandwidth throttling threshold for the inter-region connection if you set **BandwidthType** to **DataTransfer**.
@@ -47,7 +47,7 @@ class UpdateTransitRouterPeerAttachmentAttributeRequest extends Model
     /**
      * @description The ID of the bandwidth plan that is used to allocate bandwidth to the inter-region connection.
      *
-     * > If you set **BandwidthType** to **DataTransfer**, you do not need to set this parameter.
+     * >  If you set **BandwidthType** to **DataTransfer**, you do not need to set this parameter.
      * @example cenbwp-3xrxupouolw5ou****
      *
      * @var string
@@ -67,9 +67,9 @@ class UpdateTransitRouterPeerAttachmentAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The default link type. Valid values:
-     * - **Platinum**: only available for the **Pay-By-Data-Transfer** bandwidth.
-     * - **Gold** (default)
+     * @description The default line type.
+     *
+     * Platinum is supported only when BandwidthType is set to DataTransfer.
      * @example Gold
      *
      * @var string

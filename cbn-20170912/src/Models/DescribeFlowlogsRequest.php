@@ -78,7 +78,7 @@ class DescribeFlowlogsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -87,7 +87,7 @@ class DescribeFlowlogsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Minimum value: **1**. Default value: **20**.
+     * @description The number of entries per page. Minimum value: **1**. Default value: **20**.
      *
      * @example 20
      *

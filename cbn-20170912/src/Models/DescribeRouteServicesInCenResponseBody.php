@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouteServicesInCenResponseBody extends Model
 {
     /**
-     * @description The number of the returned page.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeRouteServicesInCenResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class DescribeRouteServicesInCenResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 196C99CA-6997-5951-9721-AE89720DF856
      *

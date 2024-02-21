@@ -18,7 +18,7 @@ class vbrHealthCheck extends Model
     public $cenId;
 
     /**
-     * @description The description of the health check.
+     * @description The description.
      *
      * @example healthcheck_description
      *
@@ -38,11 +38,11 @@ class vbrHealthCheck extends Model
     /**
      * @description Indicates whether probing is enabled. Valid values:
      *
-     *   **true**: yes
+     *   **true**: Probing is enabled.
      *
-     * If probing is enabled, the system does not switch to another route when the detected route is not reachable.
+     * If you enable probing, the system does not switch to another route if the detected route is not reachable.
      *
-     *   **false**: no
+     *   **false**: Probing is disabled.
      *
      * If probing is disabled and a redundant route is specified, the system switches to the redundant route when the detected route is not reachable.
      * @example false
@@ -79,7 +79,7 @@ class vbrHealthCheck extends Model
     public $healthyThreshold;
 
     /**
-     * @description The ID of the VBR.
+     * @description The VBR ID.
      *
      * @example vbr-bp1kznorjeembsuhl****
      *

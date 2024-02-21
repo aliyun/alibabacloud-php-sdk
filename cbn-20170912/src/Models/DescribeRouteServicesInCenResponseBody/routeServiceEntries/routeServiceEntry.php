@@ -53,7 +53,7 @@ class routeServiceEntry extends Model
     public $host;
 
     /**
-     * @description The ID of the region where the cloud service is deployed.
+     * @description The region ID of the cloud service.
      *
      * @example cn-hangzhou
      *
@@ -62,7 +62,7 @@ class routeServiceEntry extends Model
     public $hostRegionId;
 
     /**
-     * @description The ID of the VPC that is associated with the cloud service.
+     * @description The ID of the VPC associated with the cloud service.
      *
      * @example vpc-bp1h8vbrbcgohcju5****
      *
@@ -73,9 +73,9 @@ class routeServiceEntry extends Model
     /**
      * @description The status of the cloud service. Valid values:
      *
-     *   **Creating**: The cloud service is being created.
-     *   **Active**: The cloud service is available.
-     *   **Deleting**: The cloud service is being deleted.
+     *   **Creating**
+     *   **Active**
+     *   **Deleting**
      *
      * @example Active
      *

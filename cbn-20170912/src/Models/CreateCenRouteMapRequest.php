@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateCenRouteMapRequest extends Model
 {
     /**
-     * @description The match method that is used to match routes against the AS paths. Valid values:
+     * @description The match method that is used to match routes based on AS paths. Valid values:
      *
-     *   **Include**: fuzzy match. A route meets the match condition if the AS path of the route overlaps with the AS paths specified in the match condition.
+     *   **Include**: fuzzy match. A route meets the match condition if the AS path of the route overlaps with the AS path specified in the match condition.
      *   **Complete**: exact match. A route is a match only if the AS path of the route is the same as an AS path specified in the match condition.
      *
      * @example Include
@@ -44,7 +44,7 @@ class CreateCenRouteMapRequest extends Model
      *
      *   **Include**: fuzzy match. A route is a match if the route prefix is included in the match conditions.
      *
-     * For example, if you set the match condition to 10.10.0.0/16 and fuzzy match is enabled, the route whose prefix is 10.10.1.0/24 is a match.
+     * For example, if you set the match condition to 10.10.0.0/16 and fuzzy match is applied, the route whose prefix is 10.10.1.0/24 meets the match condition.
      *
      *   **Complete**: exact match. A route is a match only if the route prefix is the same as the prefix specified in the match condition.
      *
@@ -56,7 +56,7 @@ class CreateCenRouteMapRequest extends Model
     public $cidrMatchMode;
 
     /**
-     * @description The match method that is used to match routes based on the community. Valid values:
+     * @description The match method that is used to evaluate routes based on the community. Valid values:
      *
      *   **Include**: fuzzy match. A route meets the match condition if the community of the route overlaps with the community specified in the match condition.
      *   **Complete**: exact match. A route meets the match condition only if the community of the route is the same as the community specified in the match condition.
@@ -137,7 +137,7 @@ class CreateCenRouteMapRequest extends Model
     /**
      * @description Specifies whether to exclude the destination network instance IDs. Valid values:
      *
-     *   **false** (default value): A route is a match if its destination network instance ID is in the list specified by **DestinationInstanceIds.N**.
+     *   **false** (default value): A route meets the match condition if its destination network instance ID is in the list specified by **DestinationInstanceIds.N**.
      *   **true**: A route meets the match condition if its destination network instance ID is not in the list specified by **DestinationInstanceIds.N**.
      *
      * @example false
@@ -157,7 +157,7 @@ class CreateCenRouteMapRequest extends Model
     public $destinationRouteTableIds;
 
     /**
-     * @description The action to be performed on a route that meets all match conditions. Valid values:
+     * @description The action to be performed on a route that meets all the match conditions. Valid values:
      *
      *   **Permit**: the route is permitted.
      *   **Deny**: the route is denied.
@@ -339,7 +339,7 @@ class CreateCenRouteMapRequest extends Model
     /**
      * @description Specifies whether to exclude the source network instance IDs. Valid values:
      *
-     *   **false** (default value): A route is a match if its source network instance ID is in the list specified by **SourceInstanceIds.N**.
+     *   **false** (default value): A route meets the match condition if its source network instance ID is in the list specified by **SourceInstanceIds.N**.
      *   **true**: A route is a match if its source network instance ID is not in the list specified by **SourceInstanceIds.N**.
      *
      * @example false

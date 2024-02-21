@@ -102,9 +102,9 @@ class CreateTransitRouterRequest extends Model
     public $transitRouterCidrList;
 
     /**
-     * @description The description of the Enterprise Edition transit router.
+     * @description The description of the Enterprise Edition transit router instance.
      *
-     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+     * The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
      * @example testdesc
      *
      * @var string
@@ -114,7 +114,7 @@ class CreateTransitRouterRequest extends Model
     /**
      * @description The name of the Enterprise Edition transit router.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
      * @example testname
      *
      * @var string

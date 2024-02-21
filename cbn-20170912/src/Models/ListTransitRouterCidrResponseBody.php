@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTransitRouterCidrResponseBody extends Model
 {
     /**
-     * @description The CIDR blocks of the transit router.
+     * @description The information about the CIDR block.
      *
      * @var cidrLists[]
      */

@@ -1,3 +1,7 @@
+2024-02-21 Version: 1.0.10
+- Update API DeleteTransitRouterVbrAttachment: update response param.
+
+
 2024-01-19 Version: 1.0.9
 - Generated php 2017-09-12 for Cbn.
 

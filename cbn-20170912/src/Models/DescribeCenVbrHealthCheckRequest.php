@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenVbrHealthCheckRequest extends Model
 {
     /**
-     * @description The ID of the CEN instance.
+     * @description The ID of the Cloud Enterprise Network (CEN) instance.
      *
      * @example cen-6hpdgj7ni6pz1k****
      *
@@ -65,7 +65,7 @@ class DescribeCenVbrHealthCheckRequest extends Model
     public $vbrInstanceId;
 
     /**
-     * @description The ID of the Alibaba Cloud account that owns the VBR.
+     * @description The ID of the Alibaba Cloud account that owns the VBRs.
      *
      * @example 1250123456123456
      *
@@ -74,7 +74,7 @@ class DescribeCenVbrHealthCheckRequest extends Model
     public $vbrInstanceOwnerId;
 
     /**
-     * @description The ID of the region where the VBR is deployed.
+     * @description The ID of the region where the VBRs are deployed.
      *
      * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-hangzhou

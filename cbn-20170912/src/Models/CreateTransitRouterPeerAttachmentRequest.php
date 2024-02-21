@@ -22,7 +22,10 @@ class CreateTransitRouterPeerAttachmentRequest extends Model
     public $autoPublishRouteEnabled;
 
     /**
-     * @description The maximum bandwidth value of the inter-region connection. Unit: Mbit/s.
+     * @description The bandwidth value of the inter-region connection. Unit: Mbit/s.
+     *
+     *   This parameter specifies the maximum bandwidth value for the inter-region connection if you set **BandwidthType** to **BandwidthPackage**.
+     *   This parameter specifies the bandwidth throttling threshold for the inter-region connection if you set **BandwidthType** to **DataTransfer**.
      *
      * @example 2
      *
@@ -33,7 +36,8 @@ class CreateTransitRouterPeerAttachmentRequest extends Model
     /**
      * @description The method that is used to allocate bandwidth to the inter-region connection. Valid values:
      *
-     **BandwidthPackage**: allocates bandwidth from a bandwidth plan.
+     *   **BandwidthPackage**: allocates bandwidth from a bandwidth plan.
+     *   **DataTransfer**: bandwidth is billed based on the pay-by-data-transfer metering method.
      *
      * @example BandwidthPackage
      *
@@ -44,7 +48,8 @@ class CreateTransitRouterPeerAttachmentRequest extends Model
     /**
      * @description The ID of the bandwidth plan that is used to allocate bandwidth to the inter-region connection.
      *
-     * If this parameter is not set, the system allocates bandwidth that is used for testing purposes to the inter-region connection. The default bandwidth for testing purpose is 1 Kbit/s. You can use the bandwidth to test the connectivity of IPv4 networks.
+     *   If you set **BandwidthType** to **DataTransfer**, you do not need to set this parameter.
+     *
      * @example cenbwp-3xrxupouolw5ou****
      *
      * @var string
@@ -73,9 +78,9 @@ class CreateTransitRouterPeerAttachmentRequest extends Model
     public $clientToken;
 
     /**
-     * @description The default link type. Valid values:
-     * - **Platinum**: only available for the **Pay-By-Data-Transfer** bandwidth.
-     * - **Gold** (default)
+     * @description The default line type.
+     *
+     * Platinum is supported only when BandwidthType is set to DataTransfer.
      * @example Gold
      *
      * @var string

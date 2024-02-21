@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRouteServiceInCenRequest extends Model
 {
     /**
-     * @description The ID of the region in which the network instance of the cloud service that you want to access is deployed.
+     * @description The ID of the region where the cloud service is accessed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -37,8 +36,9 @@ class DeleteRouteServiceInCenRequest extends Model
     public $host;
 
     /**
-     * @description The ID of the region in which the cloud service is deployed.
+     * @description The region ID of the cloud service.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

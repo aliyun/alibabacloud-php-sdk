@@ -30,7 +30,7 @@ class ModifyFlowLogAttributeRequest extends Model
     /**
      * @description The new description of the flow log.
      *
-     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+     * The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
      * @example myFlowlog
      *
      * @var string
@@ -49,7 +49,7 @@ class ModifyFlowLogAttributeRequest extends Model
     /**
      * @description The new name of the flow log.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
      * @example myFlowlog
      *
      * @var string

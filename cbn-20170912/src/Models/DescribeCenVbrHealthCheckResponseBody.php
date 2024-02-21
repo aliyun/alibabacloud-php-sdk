@@ -28,7 +28,7 @@ class DescribeCenVbrHealthCheckResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B8C9702E-304A-4E18-AC89-BE2D91C2C176
      *

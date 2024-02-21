@@ -29,7 +29,7 @@ class cidrLists extends Model
     /**
      * @description The type of the CIDR block.
      *
-     * The value is set to **IPv4**, which indicates that the CIDR block is of the IPv4 type.
+     * The value is **IPv4**, which indicates that the CIDR block is of the IPv4 type.
      * @example IPv4
      *
      * @var string
@@ -46,13 +46,16 @@ class cidrLists extends Model
     public $name;
 
     /**
-     * @description Indicates whether the system is allowed to automatically add a route to the route table of the transit router.
+     * @description Indicates whether the system is allowed to automatically add a route to the route table of the transit router. Valid values:
      *
-     * - **true**: yes.
+     *   **true**
      *
-     * The blackhole route is advertised only to the route tables of VBRs that are connected to the transit router.
+     * A value of **true** indicates that after you create a private VPN connection and enable route learning for the connection, the system automatically adds a blackhole route to the route table of the transit router to which the VPN connection is attached.
      *
-     * - **false**: no.
+     * The blackhole route is advertised only to the route table of the virtual border router (VBR) that is connected to the transit router.
+     *
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -60,7 +63,7 @@ class cidrLists extends Model
     public $publishCidrRoute;
 
     /**
-     * @description The ID of the CIDR block.
+     * @description The ID of the transit router CIDR block.
      *
      * @example cidr-0zv0q9crqpntzz****
      *
@@ -69,7 +72,7 @@ class cidrLists extends Model
     public $transitRouterCidrId;
 
     /**
-     * @description The ID of the transit router.
+     * @description The transit router ID.
      *
      * @example tr-p0w3x8c9em72a40nw****
      *

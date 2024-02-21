@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class transitRouterAttachments extends Model
 {
     /**
-     * @description Indicates whether the local Enterprise Edition transit router automatically advertises routes of the inter-region connection to the peer transit router. Valid values:
+     * @description Indicates whether the local Enterprise Edition transit router automatically advertises routes of the cross-region connection to the peer transit router. Valid values:
      *
-     *   **false** (default): no
-     *   **true**: yes
+     *   **false** (default)
+     *   **true**
      *
      * @example false
      *
@@ -22,7 +22,7 @@ class transitRouterAttachments extends Model
     public $autoPublishRouteEnabled;
 
     /**
-     * @description The maximum bandwidth value of the inter-region connection. Unit: Mbit/s.
+     * @description The bandwidth value of the inter-region connection. Unit: Mbit/s.
      *
      *   This parameter specifies the maximum bandwidth value for the inter-region connection if you set **BandwidthType** to **BandwidthPackage**.
      *   This parameter specifies the bandwidth throttling threshold for the inter-region connection if you set **BandwidthType** to **DataTransfer**.
@@ -36,9 +36,8 @@ class transitRouterAttachments extends Model
     /**
      * @description The bandwidth allocation method. Valid values:
      *
-     **BandwidthPackage**: allocates bandwidth from a bandwidth plan.
-     *
-     **DataTransfer**: bills bandwidth based on the pay-by-data-transfer metering method.
+     *   **BandwidthPackage**: allocates bandwidth from a bandwidth plan.
+     *   **DataTransfer**: bandwidth is billed based on the pay-by-data-transfer metering method.
      *
      * @example BandwidthPackage
      *
@@ -75,9 +74,11 @@ class transitRouterAttachments extends Model
     public $creationTime;
 
     /**
-     * @description The default link type. Valid values:
-     * - **Gold**
-     * - **Platinum**
+     * @description The default line type.
+     *
+     *   **Gold** (default)
+     *   **Platinum**
+     *
      * @example Gold
      *
      * @var string
@@ -132,7 +133,7 @@ class transitRouterAttachments extends Model
     /**
      * @description The type of the resource to which the transit router is connected. Valid values:
      *
-     *   **VPC**: VPC
+     *   **VPC**: virtual private cloud (VPC)
      *   **CCN**: Cloud Connect Network (CCN) instance
      *   **VBR**: virtual border router (VBR)
      *   **TR**: transit router
@@ -146,10 +147,10 @@ class transitRouterAttachments extends Model
     /**
      * @description The status of the inter-region connection. Valid values:
      *
-     *   **Attached**: The inter-region connection is created.
-     *   **Attaching**: The inter-region connection is being created on the transit router.
-     *   **Detaching**: The inter-region connection is being deleted from the transit router.
-     *   **Detached**: The inter-region connection is deleted from the transit router.
+     *   **Attached**
+     *   **Attaching**
+     *   **Detaching**
+     *   **Detached**
      *
      * @example Attached
      *
@@ -158,7 +159,7 @@ class transitRouterAttachments extends Model
     public $status;
 
     /**
-     * @description The tags.
+     * @description A list of tags.
      *
      * @var tags[]
      */

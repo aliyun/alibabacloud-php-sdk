@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateCenInterRegionTrafficQosPolicyAttributeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 5B8465FF-E697-5D3D-AAD5-0B4EEADFDB27
      *

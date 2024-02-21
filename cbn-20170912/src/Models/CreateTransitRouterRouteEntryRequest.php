@@ -55,7 +55,7 @@ class CreateTransitRouterRouteEntryRequest extends Model
     /**
      * @description The description of the route.
      *
-     * The description must be 0 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (\_), and hyphens (-).
+     * The description must be 1 to 256 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
      * @example testdesc
      *
      * @var string
@@ -74,7 +74,7 @@ class CreateTransitRouterRouteEntryRequest extends Model
     /**
      * @description The name of the route.
      *
-     * The name must be 0 to 128 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ \_ -.
+     * The name must be 1 to 128 characters in length, and cannot start with http:// or https://. You can also leave this parameter empty.
      * @example testname
      *
      * @var string

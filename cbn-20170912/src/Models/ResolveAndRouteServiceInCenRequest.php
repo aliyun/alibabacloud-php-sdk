@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResolveAndRouteServiceInCenRequest extends Model
 {
     /**
-     * @description The ID of the region in which the cloud service that you want to access is deployed.
+     * @description The IDs of the regions where the cloud service is accessed.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string[]
@@ -42,7 +41,7 @@ class ResolveAndRouteServiceInCenRequest extends Model
     /**
      * @description The description of the cloud service.
      *
-     * The description can be empty or 2 to 256 characters in length. It must start with a letter, and can contain digits, hyphens (-), periods (.), and underscores (\_). It cannot start with `http://` or `https://`.
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
      * @example descname
      *
      * @var string

@@ -18,7 +18,7 @@ class DescribeRouteServicesInCenRequest extends Model
     public $accessRegionId;
 
     /**
-     * @description The ID of the CEN instance.
+     * @description The ID of the Cloud Enterprise Network (CEN) instance.
      *
      * @example cen-pfa6ugf3xl0qsd****
      *
@@ -37,7 +37,7 @@ class DescribeRouteServicesInCenRequest extends Model
     public $host;
 
     /**
-     * @description The ID of the region where the cloud service is deployed.
+     * @description The region ID of the cloud service.
      *
      * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -47,7 +47,7 @@ class DescribeRouteServicesInCenRequest extends Model
     public $hostRegionId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) that is associated with the cloud service.
+     * @description The ID of the VPC associated with the cloud service.
      *
      * @example vpc-bp1h8vbrbcgohcju5****
      *
@@ -75,7 +75,7 @@ class DescribeRouteServicesInCenRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return per page. Default value: **10**. Valid values: **1** to **50**.
+     * @description The number of entries per page. Default value: **10**. Valid values: **1** to **50**.
      *
      * @example 10
      *

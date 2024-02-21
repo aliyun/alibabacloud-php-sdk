@@ -49,7 +49,7 @@ class ListTransitRouterPeerAttachmentsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The queried inter-region connections.
+     * @description A list of inter-region connections.
      *
      * @var transitRouterAttachments[]
      */
