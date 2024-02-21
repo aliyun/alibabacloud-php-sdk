@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSchedruleOnDemandResponseBody extends Model
 {
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description The ID of the request.
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
      * @example BD06F539-2FBE-450D-9391-7EFF787128F5
      *
      * @var string

@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description WB269094
+     * @description The details of route advertisement for data centers outside the Chinese mainland. This parameter is a JSON string. The following fields are included in the value:
+     *
+     *   **region**: The code of the data center outside the Chinese mainland. The value is of the STRING type. For more information, see **Codes of data centers outside the Chinese mainland**.
+     *   **declared**: indicates whether the data center advertised the route. The value is of the STRING type. Valid values: **0** and **1**. The value of 0 indicates that the data center did not advertise the route. The value of 1 indicates that the data center advertised the route.
      *
      * @example [{\"region\":\"oe24\",\"declared\":0},{\"region\":\"oe26\",\"declared\":0},{\"region\":\"oe28\",\"declared\":0},{\"region\":\"oi39\",\"declared\":0},{\"region\":\"us50\",\"declared\":0},{\"region\":\"jp141\",\"declared\":0}]
      *
@@ -18,6 +21,9 @@ class instances extends Model
     public $declared;
 
     /**
+     * @description The description of the on-demand instance.
+     *
+     * >  The value of this parameter is returned only when the information about multiple on-demand instances is returned. The value of this parameter is not returned because the information about only one on-demand instance is returned.
      * @example test
      *
      * @var string
@@ -25,8 +31,9 @@ class instances extends Model
     public $desc;
 
     /**
-     * @description DescribeOnDemandInstanceStatus
+     * @description The ID of the on-demand instance.
      *
+     * >  The value of this parameter is returned only when the information about multiple on-demand instances is returned. The value of this parameter is not returned because the information about only one on-demand instance is returned.
      * @example ddosbgp-cn-z2q1qzxb****
      *
      * @var string
@@ -34,9 +41,11 @@ class instances extends Model
     public $instanceId;
 
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description The mode used to start the on-demand instance. Valid values:
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
+     *   **manual**: The instance is manually started.
+     *   **netflow-auto**: The instance is automatically started by using NetFlow that monitors network traffic.
+     *
      * @example netflow-auto
      *
      * @var string
@@ -44,6 +53,8 @@ class instances extends Model
     public $mode;
 
     /**
+     * @description The CIDR block of the on-demand instance.
+     *
      * @example 47.***.***.0/24
      *
      * @var string
@@ -51,7 +62,7 @@ class instances extends Model
     public $net;
 
     /**
-     * @description DescribeOnDemandInstanceStatus
+     * @description The number of the autonomous system (AS). Set the value to **0**, which indicates that AS is disabled.
      *
      * @example 0
      *
@@ -60,7 +71,7 @@ class instances extends Model
     public $registedAs;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the Alibaba Cloud account.
      *
      * @example 171986973287****
      *

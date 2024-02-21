@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QuerySchedruleOnDemandRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the on-demand instance.
      *
+     * >  You can call the [DescribeOnDemandInstance](~~152120~~) operation to query the IDs of all on-demand instances.
      * @example ddosbgp-cn-z2q1qzxb****
      *
      * @var string
@@ -18,8 +19,9 @@ class QuerySchedruleOnDemandRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the on-demand instance.
+     * @description The region ID of the on-demand instance.
      *
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query all regions supported by Anti-DDoS Origin.
      * @example cn-zhangjiakou
      *
      * @var string

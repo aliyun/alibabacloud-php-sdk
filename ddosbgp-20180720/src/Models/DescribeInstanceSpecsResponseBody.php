@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSpecsResponseBody extends Model
 {
     /**
-     * @description The number of IP addresses that are protected by the Anti-DDoS Origin Enterprise instance.
+     * @description The specifications of the Anti-DDoS Origin Enterprise instance, including whether the unlimited protection feature is enabled, and the numbers of times that the unlimited protection feature can be enabled and has been enabled.
      *
      * @var instanceSpecs[]
      */
     public $instanceSpecs;
 
     /**
-     * @description The number of times that the unlimited protection feature can be enabled.
+     * @description The ID of the request.
      *
      * @example 5840AB9F-1419-4620-807D-5EA476090247
      *

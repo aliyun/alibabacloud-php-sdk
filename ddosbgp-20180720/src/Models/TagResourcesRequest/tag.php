@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description WB269094
+     * @description The key of the tag to add.
      *
+     * >  If the specified key does not exist, a key is created.
      * @example test-key
      *
      * @var string
@@ -18,6 +19,9 @@ class tag extends Model
     public $key;
 
     /**
+     * @description The value of the tag to add.
+     *
+     * >  If the specified value does not exist, a value is created.
      * @example test-value
      *
      * @var string

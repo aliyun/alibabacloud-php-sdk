@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnDemandInstanceStatusRequest extends Model
 {
     /**
-     * @description The mode used to start the on-demand instance. Valid values:
+     * @description The IDs of on-demand instances.
      *
-     *   **manual**: The instance is manually started.
-     *   **netflow-auto**: The instance is automatically started by using NetFlow that monitors network traffic.
-     *
+     * >  You can call the [DescribeOnDemandInstance](~~152120~~) operation to query the IDs of all on-demand instances.
      * @example ddosbgp-cn-z2q1qzxb****
      *
      * @var string[]
@@ -21,8 +19,9 @@ class DescribeOnDemandInstanceStatusRequest extends Model
     public $instanceIdList;
 
     /**
-     * @description The details of the on-demand instance.
+     * @description The region ID of the on-demand instance.
      *
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query all regions supported by Anti-DDoS Origin.
      * @example cn-zhangjiakou
      *
      * @var string

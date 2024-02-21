@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosEventRequest extends Model
 {
     /**
-     * @description The time when the DDoS attack stopped. This value is a UNIX timestamp. Unit: seconds.
+     * @description The end time of the DDoS attack event to query. This value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1638288000
      *
@@ -18,8 +18,9 @@ class DescribeDdosEventRequest extends Model
     public $endTime;
 
     /**
-     * @description The start time of the DDoS attack event to query. This value is a UNIX timestamp. Unit: seconds.
+     * @description The ID of the Anti-DDoS Origin instance to query.
      *
+     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
      * @example ddosbgp-cn-n6w1r7nz****
      *
      * @var string
@@ -27,12 +28,7 @@ class DescribeDdosEventRequest extends Model
     public $instanceId;
 
     /**
-     * @description The status of the DDoS attack event. Valid values:
-     *
-     *   **hole_begin**: indicates that blackhole filtering is triggered for the attacked IP address.
-     *   **hole_end**: indicates that blackhole filtering is deactivated for the attacked IP address.
-     *   **defense_begin**: indicates that attack traffic is being scrubbed.
-     *   **defense_end**: indicates that attack traffic is scrubbed.
+     * @description The attacked IP address to query.
      *
      * @example 47.89.XX.XX
      *
@@ -41,7 +37,7 @@ class DescribeDdosEventRequest extends Model
     public $ip;
 
     /**
-     * @description The attacked IP address to query.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -50,9 +46,8 @@ class DescribeDdosEventRequest extends Model
     public $pageNo;
 
     /**
-     * @description The ID of the Anti-DDoS Origin instance to query.
+     * @description The number of entries to return on each page.
      *
-     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
      * @example 10
      *
      * @var int
@@ -60,8 +55,9 @@ class DescribeDdosEventRequest extends Model
     public $pageSize;
 
     /**
-     * @description The details about the DDoS attack event.
+     * @description The ID of the region where the Anti-DDoS Origin instance resides.
      *
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -69,8 +65,9 @@ class DescribeDdosEventRequest extends Model
     public $regionId;
 
     /**
-     * @description The number of the page to return.
+     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
      *
+     * If you do not specify this parameter, the instance belongs to the default resource group.
      * @example rg-acfm2pz25js****
      *
      * @var string
@@ -78,7 +75,7 @@ class DescribeDdosEventRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeDdosEvent**
+     * @description The start time of the DDoS attack event to query. This value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1633017600
      *

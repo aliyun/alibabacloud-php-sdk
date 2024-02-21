@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ruleStatus extends Model
 {
     /**
+     * @description The CIDR block of the on-demand instance.
+     *
      * @example 47.***.***.0/24
      *
      * @var string
@@ -16,9 +18,11 @@ class ruleStatus extends Model
     public $net;
 
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description The scheduling status. Valid values:
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
+     *   **scheduled**
+     *   **unscheduled**
+     *
      * @example unscheduled
      *
      * @var string

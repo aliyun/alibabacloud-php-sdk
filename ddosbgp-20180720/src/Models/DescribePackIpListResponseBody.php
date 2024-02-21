@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePackIpListResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code of the request.
      *
+     * For more information about status codes, see [Common parameters](~~118841~~).
      * @example 200
      *
      * @var string
@@ -19,16 +20,15 @@ class DescribePackIpListResponseBody extends Model
     public $code;
 
     /**
-     * @description WB269094
+     * @description The IP addresses that are protected by the instance.
      *
      * @var ipList[]
      */
     public $ipList;
 
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description The ID of the request.
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
      * @example 4FD1578A-BD77-50B7-A969-45A374A7ED22
      *
      * @var string
@@ -36,7 +36,10 @@ class DescribePackIpListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description DescribePackIpList
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The call is successful.
+     *   **false**: The call fails.
      *
      * @example true
      *
@@ -45,7 +48,7 @@ class DescribePackIpListResponseBody extends Model
     public $success;
 
     /**
-     * @description Queries the IP addresses that are protected by a specific Anti-DDoS Origin instance.
+     * @description The number of protected IP addresses.
      *
      * @example 1
      *

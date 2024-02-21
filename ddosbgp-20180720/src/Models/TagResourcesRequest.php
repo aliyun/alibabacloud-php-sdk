@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description The ID of the region where the Anti-DDoS Origin instance resides.
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -20,8 +20,9 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **TagResources**.
+     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
      *
+     * If you do not specify this parameter, the instance belongs to the default resource group.
      * @example rg-acfm2pz25js****
      *
      * @var string
@@ -36,7 +37,7 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description Adds tags to Anti-DDoS Origin instances.
+     * @description The type of the resource to which you want to add tags. Set the value to **INSTANCE**, which indicates instances.
      *
      * @example INSTANCE
      *

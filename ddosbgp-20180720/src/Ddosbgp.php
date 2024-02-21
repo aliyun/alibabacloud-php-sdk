@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AddIpRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AddIpResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AttachAssetGroupToInstanceRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AttachAssetGroupToInstanceResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AttachAssetGroupToInstanceShrinkRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CheckAccessLogAuthRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CheckAccessLogAuthResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CheckGrantRequest;
@@ -22,6 +25,10 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteIpRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteIpResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteSchedruleOnDemandRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteSchedruleOnDemandResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeAssetGroupRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeAssetGroupResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeAssetGroupToInstanceRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeAssetGroupToInstanceResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosEventRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosEventResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeExcpetionCountRequest;
@@ -42,6 +49,9 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeTrafficRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeTrafficResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DettachAssetGroupToInstanceRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DettachAssetGroupToInstanceResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DettachAssetGroupToInstanceShrinkRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\GetSlsOpenStatusRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\GetSlsOpenStatusResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListOpenedAccessLogInstancesRequest;
@@ -174,6 +184,63 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
+     * @param AttachAssetGroupToInstanceRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AttachAssetGroupToInstanceResponse
+     */
+    public function attachAssetGroupToInstanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AttachAssetGroupToInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->assetGroupList)) {
+            $request->assetGroupListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->assetGroupList, 'AssetGroupList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->assetGroupListShrink)) {
+            $query['AssetGroupList'] = $request->assetGroupListShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachAssetGroupToInstance',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachAssetGroupToInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AttachAssetGroupToInstanceRequest $request
+     *
+     * @return AttachAssetGroupToInstanceResponse
+     */
+    public function attachAssetGroupToInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachAssetGroupToInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CheckAccessLogAuthRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -220,9 +287,9 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * Indicates whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account. Valid values:
-     *   * *   **1**: Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
-     *   * *   **0**: Anti-DDoS Origin is not authorized to obtain information about the assets within the current Alibaba Cloud account.
+     * You can call the CheckGrant operation to query whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param CheckGrantRequest $request CheckGrantRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -252,9 +319,9 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * Indicates whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account. Valid values:
-     *   * *   **1**: Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
-     *   * *   **0**: Anti-DDoS Origin is not authorized to obtain information about the assets within the current Alibaba Cloud account.
+     * You can call the CheckGrant operation to query whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param CheckGrantRequest $request CheckGrantRequest
      *
@@ -482,8 +549,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The ID of the Anti-DDoS Origin Enterprise instance.
-     *   * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin Enterprise instances.
+     * The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
      *   *
      * @param DeleteIpRequest $request DeleteIpRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -525,8 +591,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The ID of the Anti-DDoS Origin Enterprise instance.
-     *   * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin Enterprise instances.
+     * The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
      *   *
      * @param DeleteIpRequest $request DeleteIpRequest
      *
@@ -589,7 +654,125 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The number of entries to return on each page.
+     * @param DescribeAssetGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeAssetGroupResponse
+     */
+    public function describeAssetGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAssetGroup',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAssetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAssetGroupRequest $request
+     *
+     * @return DescribeAssetGroupResponse
+     */
+    public function describeAssetGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAssetGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAssetGroupToInstanceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAssetGroupToInstanceResponse
+     */
+    public function describeAssetGroupToInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAssetGroupToInstance',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAssetGroupToInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAssetGroupToInstanceRequest $request
+     *
+     * @return DescribeAssetGroupToInstanceResponse
+     */
+    public function describeAssetGroupToInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAssetGroupToInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on a specific Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeDdosEventRequest $request DescribeDdosEventRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -643,7 +826,9 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The number of entries to return on each page.
+     * You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on a specific Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeDdosEventRequest $request DescribeDdosEventRequest
      *
@@ -657,7 +842,8 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **DescribeExcpetionCount**.
+     * ## Usage notes
+     *   * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
      *   *
      * @param DescribeExcpetionCountRequest $request DescribeExcpetionCountRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -693,7 +879,8 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **DescribeExcpetionCount**.
+     * ## Usage notes
+     *   * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
      *   *
      * @param DescribeExcpetionCountRequest $request DescribeExcpetionCountRequest
      *
@@ -707,10 +894,9 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The status of the instance. Valid values:
-     *   * *   **1**: normal
-     *   * *   **2**: expired
-     *   * *   **3**: released.
+     * You can call the DescribeInstanceList operation to query the details of all Anti-DDoS Origin instances within your Alibaba Cloud account by page. The details include the ID, validity period, and status of each instance.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeInstanceListRequest $request DescribeInstanceListRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -779,10 +965,9 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The status of the instance. Valid values:
-     *   * *   **1**: normal
-     *   * *   **2**: expired
-     *   * *   **3**: released.
+     * You can call the DescribeInstanceList operation to query the details of all Anti-DDoS Origin instances within your Alibaba Cloud account by page. The details include the ID, validity period, and status of each instance.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeInstanceListRequest $request DescribeInstanceListRequest
      *
@@ -845,7 +1030,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The ID of the resource group.
+     * >  Anti-DDoS Origin API operations are available for only Anti-DDoS Origin Enterprise users.
      *   *
      * @param DescribeOnDemandDdosEventRequest $request DescribeOnDemandDdosEventRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -899,7 +1084,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The ID of the resource group.
+     * >  Anti-DDoS Origin API operations are available for only Anti-DDoS Origin Enterprise users.
      *   *
      * @param DescribeOnDemandDdosEventRequest $request DescribeOnDemandDdosEventRequest
      *
@@ -1030,7 +1215,9 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The number of entries to return on each page.
+     * You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribePackIpListRequest $request DescribePackIpListRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -1084,7 +1271,9 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The number of entries to return on each page.
+     * You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribePackIpListRequest $request DescribePackIpListRequest
      *
@@ -1144,8 +1333,10 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The bandwidth of attack traffic. Unit: bit/s.
-     *   * >  This parameter is returned only if attack traffic exists.
+     * You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.
+     *   * >  When you call this operation, you must configure the **InstanceId** parameter to specify the Anti-DDoS Origin instance whose traffic statistics you want to query.
+     *   * ## Limits
+     *   * You can call this operation once per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeTrafficRequest $request DescribeTrafficRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1202,8 +1393,10 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The bandwidth of attack traffic. Unit: bit/s.
-     *   * >  This parameter is returned only if attack traffic exists.
+     * You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.
+     *   * >  When you call this operation, you must configure the **InstanceId** parameter to specify the Anti-DDoS Origin instance whose traffic statistics you want to query.
+     *   * ## Limits
+     *   * You can call this operation once per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeTrafficRequest $request DescribeTrafficRequest
      *
@@ -1214,6 +1407,63 @@ class Ddosbgp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTrafficWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DettachAssetGroupToInstanceRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DettachAssetGroupToInstanceResponse
+     */
+    public function dettachAssetGroupToInstanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DettachAssetGroupToInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->assetGroupList)) {
+            $request->assetGroupListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->assetGroupList, 'AssetGroupList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->assetGroupListShrink)) {
+            $query['AssetGroupList'] = $request->assetGroupListShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DettachAssetGroupToInstance',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DettachAssetGroupToInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DettachAssetGroupToInstanceRequest $request
+     *
+     * @return DettachAssetGroupToInstanceResponse
+     */
+    public function dettachAssetGroupToInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dettachAssetGroupToInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -1367,8 +1617,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The ID of the region where the Anti-DDoS Origin instance resides.
-     *   * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+     * You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
      *   *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1416,8 +1665,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The ID of the region where the Anti-DDoS Origin instance resides.
-     *   * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+     * You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
      *   *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
@@ -1431,7 +1679,9 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **ModifyRemark**.
+     * You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ModifyRemarkRequest $request ModifyRemarkRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1473,7 +1723,9 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **ModifyRemark**.
+     * You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ModifyRemarkRequest $request ModifyRemarkRequest
      *
@@ -1582,8 +1834,9 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The ID of Anti-DDoS Origin Instance N to which you want to add tags.
-     *   * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
+     * You can call the TagResources operation to add tags to Anti-DDoS Origin instances.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1628,8 +1881,9 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * The ID of Anti-DDoS Origin Instance N to which you want to add tags.
-     *   * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
+     * You can call the TagResources operation to add tags to Anti-DDoS Origin instances.
+     *   * ## Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param TagResourcesRequest $request TagResourcesRequest
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
-     * @description The ID of the resource group.
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ListTagKeysRequest extends Model
     public $currentPage;
 
     /**
-     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     * @description The number of entries to return on each page. Valid values: 1 to **50**. Default value: **10**.
      *
      * @example 20
      *
@@ -27,7 +27,7 @@ class ListTagKeysRequest extends Model
     public $pageSize;
 
     /**
-     * @description The type of the resource. Valid value: **INSTANCE**.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -36,7 +36,7 @@ class ListTagKeysRequest extends Model
     public $regionId;
 
     /**
-     * @description The page number of the returned page.
+     * @description The ID of the resource group.
      *
      * @example test
      *
@@ -45,7 +45,7 @@ class ListTagKeysRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to **50**. Default value: **10**.
+     * @description The type of the resource. Valid value: **INSTANCE**.
      *
      * @example INSTANCE
      *

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class slsConfigStatus extends Model
 {
     /**
+     * @description Indicates whether log analysis was enabled for the Anti-DDoS Origin instance. Valid values:
+     *
+     *   **true**: Log analysis was enabled.
+     *   **false**: Log analysis was disabled.
+     *
      * @example true
      *
      * @var bool
@@ -16,9 +21,8 @@ class slsConfigStatus extends Model
     public $enable;
 
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description The ID of the Anti-DDoS Origin instance.
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
      * @example ddosbgp-cn-m7r1zce2****
      *
      * @var string

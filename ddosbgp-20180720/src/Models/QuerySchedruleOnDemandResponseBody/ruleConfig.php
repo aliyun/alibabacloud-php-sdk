@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ruleConfig extends Model
 {
     /**
-     * @description The stop method of the scheduling rule. Valid values:
-     *
-     *   **auto**: The scheduling rule automatically stops.
-     *   **manual**: The scheduling rule is manually stopped.
+     * @description The scheduling action. Set the value to **declare**, which indicates that the route is advertised.
      *
      * @example declare
      *
@@ -21,8 +18,9 @@ class ruleConfig extends Model
     public $ruleAction;
 
     /**
-     * @description The name of the scheduling rule.
+     * @description If the inbound bandwidth or packets consecutively exceed the threshold for the specified number of times, the scheduling rule is triggered and traffic is rerouted to the on-demand instance. The specified number of times is the value of this parameter.
      *
+     * >  The threshold of inbound bandwidth is the value of **RuleConditionMbps**. The threshold of inbound packets is the value of **RuleConditionKpps**.
      * @example 3
      *
      * @var string
@@ -30,11 +28,8 @@ class ruleConfig extends Model
     public $ruleConditionCnt;
 
     /**
-     * @description The start time of the period during which the scheduling rule is automatically stopped. The time must be in the 24-hour clock and in the `hh:mm` format.
+     * @description The threshold of inbound packets. Unit: Kpps. Minimum value: **10**.
      *
-     * If the system detects that DDoS attacks stop, the system no longer reroutes traffic to the on-demand instance from the time you specified. We recommend that you set this parameter to a value that is defined as off-peak hours.
-     *
-     * >  This parameter takes effect only when the **RuleUndoMode** parameter is set to **auto**.
      * @example 10
      *
      * @var string
@@ -42,7 +37,7 @@ class ruleConfig extends Model
     public $ruleConditionKpps;
 
     /**
-     * @description The scheduling action. Set the value to **declare**, which indicates that the route is advertised.
+     * @description The threshold of inbound bandwidth. Unit: Mbit/s. Minimum value: **100**.
      *
      * @example 100
      *
@@ -51,10 +46,7 @@ class ruleConfig extends Model
     public $ruleConditionMbps;
 
     /**
-     * @description The scheduling status. Valid values:
-     *
-     *   **scheduled**
-     *   **unscheduled**
+     * @description The name of the scheduling rule.
      *
      * @example ddosbgp-cn-z2q1qzxb****
      *
@@ -63,11 +55,11 @@ class ruleConfig extends Model
     public $ruleName;
 
     /**
-     * @description The time zone of the time when the scheduling rule automatically stops. The time zone must be in the `GMT-hh:mm` format.
+     * @description Indicates whether the scheduling rule is enabled. Valid values:
      *
-     * For example, the value `GMT-08:00` indicates that the time zone is UTC+8.
+     *   **on**: enabled
+     *   **off**: disabled
      *
-     * >  This parameter takes effect only when the **RuleUndoMode** parameter is set to **auto**.
      * @example on
      *
      * @var string
@@ -75,8 +67,11 @@ class ruleConfig extends Model
     public $ruleSwitch;
 
     /**
-     * @description The end time of the period during which the scheduling rule is automatically stopped. The time must be in the 24-hour clock and in the `hh:mm` format.
+     * @description The start time of the period during which the scheduling rule is automatically stopped. The time must be in the 24-hour clock and in the `hh:mm` format.
      *
+     * If the system detects that DDoS attacks stop, the system no longer reroutes traffic to the on-demand instance from the time you specified. We recommend that you set this parameter to a value that is defined as off-peak hours.
+     *
+     * >  This parameter takes effect only when the **RuleUndoMode** parameter is set to **auto**.
      * @example 03:00
      *
      * @var string
@@ -84,7 +79,7 @@ class ruleConfig extends Model
     public $ruleUndoBeginTime;
 
     /**
-     * @description The status of the scheduling rule.
+     * @description The end time of the period during which the scheduling rule is automatically stopped. The time must be in the 24-hour clock and in the `hh:mm` format.
      *
      * @example 03:05
      *
@@ -93,9 +88,11 @@ class ruleConfig extends Model
     public $ruleUndoEndTime;
 
     /**
-     * @description If the inbound bandwidth or packets consecutively exceed the threshold for the specified number of times, the scheduling rule is triggered and traffic is rerouted to the on-demand instance. The specified number of times is the value of this parameter.
+     * @description The stop method of the scheduling rule. Valid values:
      *
-     * >  The threshold of inbound bandwidth is the value of **RuleConditionMbps**. The threshold of inbound packets is the value of **RuleConditionKpps**.
+     *   **auto**: The scheduling rule automatically stops.
+     *   **manual**: The scheduling rule is manually stopped.
+     *
      * @example auto
      *
      * @var string
@@ -103,8 +100,11 @@ class ruleConfig extends Model
     public $ruleUndoMode;
 
     /**
-     * @description The threshold of inbound packets. Unit: Kpps. Minimum value: **10**.
+     * @description The time zone of the time when the scheduling rule automatically stops. The time zone must be in the `GMT-hh:mm` format.
      *
+     * For example, the value `GMT-08:00` indicates that the time zone is UTC+8.
+     *
+     * >  This parameter takes effect only when the **RuleUndoMode** parameter is set to **auto**.
      * @example GMT-08:00
      *
      * @var string

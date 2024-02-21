@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
+     * @description The query token. Set the value to the **NextToken** value that is returned in the last call to the ListTagResources operation. Leave this parameter empty the first time you call this operation.
      *
-     * If you do not specify this parameter, the instance belongs to the default resource group.
      * @example RGuYpqDdKhzXb8C3.D1BwQgc1tMBsoxdGiEKHHUUCf****
      *
      * @var string
@@ -20,8 +19,9 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ListTagResources**.
+     * @description The ID of the region where the Anti-DDoS Origin instance resides.
      *
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,8 +29,9 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the Anti-DDoS Origin instance.
+     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
      *
+     * If you do not specify this parameter, the instance belongs to the default resource group.
      * @example rg-acfm2pz25js****
      *
      * @var string
@@ -38,8 +39,9 @@ class ListTagResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The value of the tag that is added to the instance.
+     * @description The IDs of Anti-DDoS Origin Instances to query.
      *
+     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
      * @example ddosbgp-cn-v0h1fmwbc024
      *
      * @var string[]
@@ -47,9 +49,8 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The value of the tag to query.
+     * @description The type of the resource to query. Set the value to **INSTANCE**, which indicates instances.
      *
-     * >  The **ResourceIds.N** parameter and the key-value pair (Tag.N.Key and Tag.N.Value) cannot be left empty at the same time.
      * @example INSTANCE
      *
      * @var string
@@ -57,9 +58,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The key of the tag to query.
+     * @description The tags to query.
      *
-     * >  The **ResourceIds.N** parameter and the key-value pair (Tag.N.Key and Tag.N.Value) cannot be left empty at the same time.
      * @var tag[]
      */
     public $tag;

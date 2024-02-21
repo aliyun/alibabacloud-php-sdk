@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeExcpetionCountResponseBody extends Model
 {
     /**
-     * @description WB269094
+     * @description The number of assets that are in an abnormal state.
      *
      * @example 0
      *
@@ -18,6 +18,8 @@ class DescribeExcpetionCountResponseBody extends Model
     public $exceptionIpCount;
 
     /**
+     * @description The number of Anti-DDoS Origin instances that are about to expire.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +27,8 @@ class DescribeExcpetionCountResponseBody extends Model
     public $expireTimeCount;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4B45279A-B1BE-5EEE-87CA-58AF4183EA58
      *
      * @var string

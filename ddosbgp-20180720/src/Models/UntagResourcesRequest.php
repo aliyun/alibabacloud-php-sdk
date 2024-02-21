@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **UntagResources**.
+     * @description Specifies whether to remove all tags from the specified Anti-DDoS Origin Enterprise instances.
      *
      * @example false
      *
@@ -18,7 +18,7 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
-     * @description testKey1
+     * @description The ID of the region where the Anti-DDoS Origin Enterprise instances reside.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The type of the specified resource. Set the value to **INSTANCE**.
+     * @description The ID of the resource group.
      *
      * @example test
      *
@@ -43,7 +43,7 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The ID of the request.
+     * @description The type of the specified resource. Set the value to **INSTANCE**.
      *
      * @example INSTANCE
      *

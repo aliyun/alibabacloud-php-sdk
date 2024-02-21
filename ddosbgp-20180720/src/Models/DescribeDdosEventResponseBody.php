@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosEventResponseBody extends Model
 {
     /**
-     * @description The number of packets at the start of the DDoS attack. Unit: packets per second (PPS).
+     * @description The details about the DDoS attack event.
      *
      * @var events[]
      */
@@ -26,7 +26,7 @@ class DescribeDdosEventResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the DDoS attack started. This value is a UNIX timestamp. Unit: seconds.
+     * @description The total number of DDoS attack events.
      *
      * @example 1
      *

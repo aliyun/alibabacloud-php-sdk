@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyRemarkRequest extends Model
 {
     /**
-     * @description Adds remarks for a specific Anti-DDoS Origin instance.
+     * @description The ID of the Anti-DDoS Origin instance for which you want to add remarks.
      *
+     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
      * @example ddosbgp-cn-n6w1r7nz****
      *
      * @var string
@@ -18,6 +19,9 @@ class ModifyRemarkRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the region where the Anti-DDoS Origin instance resides.
+     *
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -25,7 +29,7 @@ class ModifyRemarkRequest extends Model
     public $regionId;
 
     /**
-     * @description ModifyRemark
+     * @description The remarks for the Anti-DDoS Origin instance.
      *
      * @example test-remark
      *
@@ -34,8 +38,9 @@ class ModifyRemarkRequest extends Model
     public $remark;
 
     /**
-     * @description WB269094
+     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
      *
+     * If you do not specify this parameter, the instance belongs to the default resource group.
      * @example rg-acfm2pz25js****
      *
      * @var string

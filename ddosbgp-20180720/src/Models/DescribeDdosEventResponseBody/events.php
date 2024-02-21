@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description The time when the DDoS attack stopped. This value is a UNIX timestamp. Unit: seconds.
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
      * @example 1637554335
      *
      * @var int
@@ -19,6 +18,8 @@ class events extends Model
     public $endTime;
 
     /**
+     * @description The attacked IP address.
+     *
      * @example 47.89.XX.XX
      *
      * @var string
@@ -26,7 +27,7 @@ class events extends Model
     public $ip;
 
     /**
-     * @description WB269094
+     * @description The volume of the request traffic at the start of the DDoS attack. Unit: Mbit/s.
      *
      * @example 0
      *
@@ -35,6 +36,8 @@ class events extends Model
     public $mbps;
 
     /**
+     * @description The number of packets at the start of the DDoS attack. Unit: packets per second (PPS).
+     *
      * @example 456
      *
      * @var int
@@ -42,7 +45,7 @@ class events extends Model
     public $pps;
 
     /**
-     * @description DescribeDdosEvent
+     * @description The time when the DDoS attack started. This value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1637554034
      *
@@ -51,7 +54,12 @@ class events extends Model
     public $startTime;
 
     /**
-     * @description Queries the details about the DDoS attack events that occurred on a specific Anti-DDoS Origin instance.
+     * @description The status of the DDoS attack event. Valid values:
+     *
+     *   **hole_begin**: indicates that blackhole filtering is triggered for the attacked IP address.
+     *   **hole_end**: indicates that blackhole filtering is deactivated for the attacked IP address.
+     *   **defense_begin**: indicates that attack traffic is being scrubbed.
+     *   **defense_end**: indicates that attack traffic is scrubbed.
      *
      * @example defense_end
      *

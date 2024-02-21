@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnDemandInstanceStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account.
+     * @description The details of the on-demand instance.
      *
      * @var instances[]
      */
     public $instances;
 
     /**
-     * @description The CIDR block of the on-demand instance.
+     * @description The ID of the request.
      *
      * @example CC49FF51-612F-429B-AB1E-374B3F115396
      *

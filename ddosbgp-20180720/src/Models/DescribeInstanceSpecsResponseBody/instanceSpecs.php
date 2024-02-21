@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class instanceSpecs extends Model
 {
     /**
-     * @description The ID of the Anti-DDoS Origin Enterprise instance. This parameter value is a string consisting of JSON arrays. Each element in a JSON array indicates an instance ID. If you want to query more than one instance, separate instance IDs with commas (,).
+     * @description The number of times that the unlimited protection feature can be enabled.
      *
-     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin Enterprise instances in a specific region.
      * @example 2
      *
      * @var int
@@ -20,7 +19,7 @@ class instanceSpecs extends Model
     public $availableDefenseTimes;
 
     /**
-     * @description The basic protection bandwidth of the Anti-DDoS Origin Enterprise instance. Unit: Gbit/s.
+     * @description The number of times that blackhole filtering can be deactivated.
      *
      * @example 100
      *
@@ -29,7 +28,12 @@ class instanceSpecs extends Model
     public $availableDeleteBlackholeCount;
 
     /**
-     * @description The number of IP addresses that can be protected by the Anti-DDoS Origin Enterprise instance.
+     * @var int
+     */
+    public $defenseTimesPercent;
+
+    /**
+     * @description The ID of the Anti-DDoS Origin Enterprise instance.
      *
      * @example ddosbgp-cn-n6w1r7nz****
      *
@@ -38,9 +42,11 @@ class instanceSpecs extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the Anti-DDoS Origin Enterprise instance.
+     * @description Indicates whether the unlimited protection feature is enabled. Valid values:
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query the name of the region.
+     *   **0**: The unlimited protection feature is disabled.
+     *   **1**: The unlimited protection feature is enabled.
+     *
      * @example 1
      *
      * @var int
@@ -48,15 +54,16 @@ class instanceSpecs extends Model
     public $isFullDefenseMode;
 
     /**
-     * @description The specifications of the Anti-DDoS Origin Enterprise instance, including whether the unlimited protection feature is enabled, and the numbers of times that the unlimited protection feature can be enabled and has been enabled.
+     * @description The configurations of the Anti-DDoS Origin Enterprise instance, including the number of protected IP addresses and protection bandwidth.
      *
      * @var packConfig
      */
     public $packConfig;
 
     /**
-     * @description The number of times that blackhole filtering can be deactivated.
+     * @description The region ID of the Anti-DDoS Origin Enterprise instance.
      *
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query the name of the region.
      * @example cn-hangzhou
      *
      * @var string
@@ -74,6 +81,7 @@ class instanceSpecs extends Model
     protected $_name = [
         'availableDefenseTimes'         => 'AvailableDefenseTimes',
         'availableDeleteBlackholeCount' => 'AvailableDeleteBlackholeCount',
+        'defenseTimesPercent'           => 'DefenseTimesPercent',
         'instanceId'                    => 'InstanceId',
         'isFullDefenseMode'             => 'IsFullDefenseMode',
         'packConfig'                    => 'PackConfig',
@@ -93,6 +101,9 @@ class instanceSpecs extends Model
         }
         if (null !== $this->availableDeleteBlackholeCount) {
             $res['AvailableDeleteBlackholeCount'] = $this->availableDeleteBlackholeCount;
+        }
+        if (null !== $this->defenseTimesPercent) {
+            $res['DefenseTimesPercent'] = $this->defenseTimesPercent;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -126,6 +137,9 @@ class instanceSpecs extends Model
         }
         if (isset($map['AvailableDeleteBlackholeCount'])) {
             $model->availableDeleteBlackholeCount = $map['AvailableDeleteBlackholeCount'];
+        }
+        if (isset($map['DefenseTimesPercent'])) {
+            $model->defenseTimesPercent = $map['DefenseTimesPercent'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

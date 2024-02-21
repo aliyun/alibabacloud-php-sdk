@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CheckAccessLogAuthResponseBody extends Model
 {
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description Indicates whether Anti-DDoS Origin was authorized to access Log Service. Valid values:
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
+     *   **true**: Anti-DDoS Origin was authorized.
+     *   **false**: Anti-DDoS Origin was not authorized.
+     *
      * @example true
      *
      * @var bool
@@ -19,6 +21,8 @@ class CheckAccessLogAuthResponseBody extends Model
     public $accessLogAuth;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 864FE2F4-CB2E-4024-B9EF-D59FD08ABD41
      *
      * @var string

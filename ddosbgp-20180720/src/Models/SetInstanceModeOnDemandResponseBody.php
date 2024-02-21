@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetInstanceModeOnDemandResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example BD06F539-2FBE-450D-9391-7EFF787128F5
      *
      * @var string

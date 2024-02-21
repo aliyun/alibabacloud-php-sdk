@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description The query token that is returned in this call.
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
      * @example RGuYpqDdKhzXb8C3.D1BwQgc1tMBsoxdGiEKHHUUCf****
      *
      * @var string
@@ -20,7 +19,7 @@ class ListTagResourcesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description ListTagResources
+     * @description The ID of the request.
      *
      * @example C3F7E6AE-43B2-4730-B6A3-FD17552B8F65
      *
@@ -29,7 +28,7 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description WB269094
+     * @description The list of tags that are added to the Anti-DDoS Origin instance.
      *
      * @var tagResources
      */

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteSchedruleOnDemandRequest extends Model
 {
     /**
-     * @description The name of the scheduling rule that you want to delete.
+     * @description The ID of the on-demand instance.
      *
+     * >  You can call the [DescribeOnDemandInstance](~~152120~~) operation to query the IDs of all on-demand instances.
      * @example ddosbgp-cn-z2q1qzxb****
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteSchedruleOnDemandRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the request.
+     * @description The region ID of the on-demand instance.
      *
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query all regions supported by Anti-DDoS Origin.
      * @example cn-zhangjiakou
      *
      * @var string
@@ -27,9 +29,8 @@ class DeleteSchedruleOnDemandRequest extends Model
     public $regionId;
 
     /**
-     * @description The region ID of the on-demand instance.
+     * @description The name of the scheduling rule that you want to delete.
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query all regions supported by Anti-DDoS Origin.
      * @example testrule
      *
      * @var string

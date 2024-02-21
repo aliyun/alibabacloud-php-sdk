@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
+     * @description The ID of the Anti-DDoS Origin instance.
+     *
      * @example ddosbgp-cn-n6w1r7nz****
      *
      * @var string
@@ -16,6 +18,8 @@ class tagResource extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource. The value is fixed as **INSTANCE**, which indicates instances.
+     *
      * @example INSTANCE
      *
      * @var string
@@ -23,6 +27,8 @@ class tagResource extends Model
     public $resourceType;
 
     /**
+     * @description The key of the tag that is added to the instance.
+     *
      * @example testKey1
      *
      * @var string
@@ -30,6 +36,8 @@ class tagResource extends Model
     public $tagKey;
 
     /**
+     * @description The value of the tag that is added to the instance.
+     *
      * @example testValue1
      *
      * @var string

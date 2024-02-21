@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckGrantResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example DB002CE5-5E6C-5F11-AE15-B525299A40F6
      *
      * @var string
@@ -16,6 +18,11 @@ class CheckGrantResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account. Valid values:
+     *
+     *   **1**: Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+     *   **0**: Anti-DDoS Origin is not authorized to obtain information about the assets within the current Alibaba Cloud account.
+     *
      * @example 1
      *
      * @var int

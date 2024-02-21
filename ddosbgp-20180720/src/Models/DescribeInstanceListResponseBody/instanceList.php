@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class instanceList extends Model
 {
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description Indicates whether auto-renewal is enabled for the instance. Valid values:
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
+     *   **true**: enabled
+     *   **false**: disabled
+     *
      * @example false
      *
      * @var bool
@@ -19,6 +21,9 @@ class instanceList extends Model
     public $autoRenewal;
 
     /**
+     * @description The number of protected public IP addresses for which blackhole filtering is triggered.
+     *
+     * >  You can call the [DeleteBlackhole](~~118692~~) operation to deactivate blackhole filtering for a protected IP address.
      * @example 0
      *
      * @var string
@@ -26,12 +31,17 @@ class instanceList extends Model
     public $blackholdingCount;
 
     /**
+     * @var string
+     */
+    public $commodityType;
+
+    /**
      * @var int
      */
     public $coverageType;
 
     /**
-     * @description DescribeInstanceList
+     * @description The time when the instance expires. This value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example 1640275200000
      *
@@ -40,6 +50,8 @@ class instanceList extends Model
     public $expireTime;
 
     /**
+     * @description The time when the instance was purchased. This value is a UNIX timestamp. Unit: milliseconds.
+     *
      * @example 1592886047000
      *
      * @var int
@@ -47,6 +59,8 @@ class instanceList extends Model
     public $gmtCreate;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example ddosbgp-cn-oew1pjrk****
      *
      * @var string
@@ -54,6 +68,11 @@ class instanceList extends Model
     public $instanceId;
 
     /**
+     * @description The mitigation plan of the instance. Valid values:
+     *
+     *   **0**: the Professional mitigation plan
+     *   **1**: the Enterprise mitigation plan
+     *
      * @example 1
      *
      * @var string
@@ -61,7 +80,10 @@ class instanceList extends Model
     public $instanceType;
 
     /**
-     * @description The ID of the request.
+     * @description The protocol type of the IP address asset that is protected by the instance. Valid values:
+     *
+     *   **Ipv4**: IPv4
+     *   **Ipv6**: IPv6
      *
      * @example IPv4
      *
@@ -70,7 +92,12 @@ class instanceList extends Model
     public $ipType;
 
     /**
-     * @description WB269094
+     * @description The type of the cloud service that is associated with the Anti-DDoS Origin instance. By default, this parameter is not returned. If the Anti-DDoS Origin instance is created by using a different cloud service, the code of the cloud service is returned.
+     *
+     * Valid values:
+     *
+     *   **gamebox**: The Anti-DDoS Origin instance is created by using Game Security Box.
+     *   **eip**: The Anti-DDoS Origin instance is created by using an elastic IP address (EIP) for which Anti-DDoS (Enhanced Edition) is enabled.
      *
      * @example gamebox
      *
@@ -79,7 +106,7 @@ class instanceList extends Model
     public $product;
 
     /**
-     * @description Queries the details of all Anti-DDoS Origin instances.
+     * @description The remarks of the instance.
      *
      * @example test
      *
@@ -88,7 +115,11 @@ class instanceList extends Model
     public $remark;
 
     /**
-     * @description The remarks of the instance.
+     * @description The status of the instance. Valid values:
+     *
+     *   **1**: normal
+     *   **2**: expired
+     *   **3**: released
      *
      * @example 1
      *
@@ -98,6 +129,7 @@ class instanceList extends Model
     protected $_name = [
         'autoRenewal'       => 'AutoRenewal',
         'blackholdingCount' => 'BlackholdingCount',
+        'commodityType'     => 'CommodityType',
         'coverageType'      => 'CoverageType',
         'expireTime'        => 'ExpireTime',
         'gmtCreate'         => 'GmtCreate',
@@ -121,6 +153,9 @@ class instanceList extends Model
         }
         if (null !== $this->blackholdingCount) {
             $res['BlackholdingCount'] = $this->blackholdingCount;
+        }
+        if (null !== $this->commodityType) {
+            $res['CommodityType'] = $this->commodityType;
         }
         if (null !== $this->coverageType) {
             $res['CoverageType'] = $this->coverageType;
@@ -166,6 +201,9 @@ class instanceList extends Model
         }
         if (isset($map['BlackholdingCount'])) {
             $model->blackholdingCount = $map['BlackholdingCount'];
+        }
+        if (isset($map['CommodityType'])) {
+            $model->commodityType = $map['CommodityType'];
         }
         if (isset($map['CoverageType'])) {
             $model->coverageType = $map['CoverageType'];

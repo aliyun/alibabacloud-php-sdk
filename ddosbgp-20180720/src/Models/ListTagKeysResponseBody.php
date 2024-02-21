@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class ListTagKeysResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description The total number of tags.
+     * @description The number of entries returned per page.
      *
      * @example 20
      *
@@ -28,7 +28,7 @@ class ListTagKeysResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the request.
      *
      * @example 97935DF1-0289-4AA2-9DD1-72377838B16B
      *
@@ -37,14 +37,14 @@ class ListTagKeysResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of tag values that correspond to each key.
+     * @description The list of tags and the details of each tag.
      *
      * @var tagKeys[]
      */
     public $tagKeys;
 
     /**
-     * @description The list of tags and the details of each tag.
+     * @description The total number of tags.
      *
      * @example 6
      *

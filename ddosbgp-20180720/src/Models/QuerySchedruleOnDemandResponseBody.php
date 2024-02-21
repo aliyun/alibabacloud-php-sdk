@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class QuerySchedruleOnDemandResponseBody extends Model
 {
     /**
-     * @description The configurations of the scheduling rule.
+     * @description The ID of the on-demand instance.
      *
      * @example ddosbgp-cn-z2q1qzxb****
      *
@@ -20,7 +20,7 @@ class QuerySchedruleOnDemandResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the Alibaba Cloud account.
+     * @description The ID of the request.
      *
      * @example 4A8F9980-5ACB-497F-9F15-48E9D6B29028
      *
@@ -29,24 +29,21 @@ class QuerySchedruleOnDemandResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The threshold of inbound bandwidth. Unit: Mbit/s. Minimum value: **100**.
+     * @description The configurations of the scheduling rule.
      *
      * @var ruleConfig[]
      */
     public $ruleConfig;
 
     /**
-     * @description The CIDR block of the on-demand instance.
+     * @description The status of the scheduling rule.
      *
      * @var ruleStatus[]
      */
     public $ruleStatus;
 
     /**
-     * @description Indicates whether the scheduling rule is enabled. Valid values:
-     *
-     *   **on**: enabled
-     *   **off**: disabled
+     * @description The ID of the Alibaba Cloud account.
      *
      * @example 171986973287****
      *

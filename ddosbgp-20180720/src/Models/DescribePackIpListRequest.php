@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePackIpListRequest extends Model
 {
     /**
-     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
+     * @description The ID of the Anti-DDoS Origin instance to query.
      *
-     * If you do not specify this parameter, the instance belongs to the default resource group.
+     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
      * @example ddosbgp-cn-n6w1r7nz****
      *
      * @var string
@@ -19,7 +19,7 @@ class DescribePackIpListRequest extends Model
     public $instanceId;
 
     /**
-     * @description The number of the page to return.
+     * @description The protected IP address to query.
      *
      * @example 47.98.XX.XX
      *
@@ -28,18 +28,31 @@ class DescribePackIpListRequest extends Model
     public $ip;
 
     /**
+     * @description The ID of the member.
+     *
+     * @example 170858869679****
+     *
      * @var string
      */
     public $memberUid;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribePackIpList**.
+     * @description The number of the page to return.
      *
      * @example 1
      *
      * @var int
      */
     public $pageNo;
+
+    /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @description The type of the cloud asset to which the protected IP address to query belongs. Valid values:
@@ -49,15 +62,6 @@ class DescribePackIpListRequest extends Model
      *   **EIP**: an elastic IP address (EIP). An Internet-facing Application Load Balancer (ALB) instance uses an EIP. If the IP address belongs to the Internet-facing ALB instance, set this parameter to EIP.
      *   **WAF**: a Web Application Firewall (WAF) instance.
      *
-     * @example 10
-     *
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @description The protected IP address to query.
-     *
      * @example ECS
      *
      * @var string
@@ -65,8 +69,9 @@ class DescribePackIpListRequest extends Model
     public $productName;
 
     /**
-     * @description The list of IP addresses that are protected by the Anti-DDoS Origin instance.
+     * @description The ID of the region where the Anti-DDoS Origin instance resides.
      *
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -74,13 +79,9 @@ class DescribePackIpListRequest extends Model
     public $regionId;
 
     /**
-     * @description The type of the cloud asset to which the IP address belongs. Valid values:
+     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
      *
-     *   **ECS**: an ECS instance.
-     *   **SLB**: an CLB instance.
-     *   **EIP**: an EIP. If the IP address belongs to an ALB instance, the value EIP is returned.
-     *   **WAF**: a WAF instance.
-     *
+     * If you do not specify this parameter, the instance belongs to the default resource group.
      * @example rg-acfm2pz25js****
      *
      * @var string

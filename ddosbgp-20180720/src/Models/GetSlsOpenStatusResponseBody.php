@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSlsOpenStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example D01666F5-541B-4C78-98A6-D29E02DAAC7C
      *
      * @var string
@@ -16,9 +18,11 @@ class GetSlsOpenStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description Indicates whether Log Service was activated. Valid values:
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
+     *   **true**: Log Service was activated.
+     *   **false**: Log Service was not activated.
+     *
      * @example true
      *
      * @var bool

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceListRequest extends Model
 {
     /**
-     * @description The details about the Anti-DDoS Origin instance.
+     * @description The IDs of the Anti-DDoS Origin instances to query. Specify the value is in the `["<Instance ID 1>","<Instance ID 2>",……]` format.
      *
      * @example ["ddosbgp-cn-oew1pjrk****"]
      *
@@ -19,7 +19,10 @@ class DescribeInstanceListRequest extends Model
     public $instanceIdList;
 
     /**
-     * @description The IDs of the Anti-DDoS Origin instances to query. Specify the value is in the `["<Instance ID 1>","<Instance ID 2>",……]` format.
+     * @description The mitigation plan of the Anti-DDoS Origin instance to query. Valid values:
+     *
+     *   **0**: the Professional mitigation plan
+     *   **1**: the Enterprise mitigation plan
      *
      * @example 0
      *
@@ -33,7 +36,7 @@ class DescribeInstanceListRequest extends Model
     public $instanceTypeList;
 
     /**
-     * @description The remarks of the Anti-DDoS Origin instance to query. Fuzzy match is supported.
+     * @description The IP address of the object that is protected by the Anti-DDoS Origin instance to query.
      *
      * @example 47.89.XX.XX
      *
@@ -42,7 +45,10 @@ class DescribeInstanceListRequest extends Model
     public $ip;
 
     /**
-     * @description The time when the instance was purchased. This value is a UNIX timestamp. Unit: milliseconds.
+     * @description The protocol type of the IP address asset that is protected by the Anti-DDoS Origin instance to query. Valid values:
+     *
+     *   **Ipv4**: IPv4
+     *   **Ipv6**: IPv6
      *
      * @example IPv4
      *
@@ -51,11 +57,9 @@ class DescribeInstanceListRequest extends Model
     public $ipVersion;
 
     /**
-     * @description The mitigation plan of the Anti-DDoS Origin instance to query. Valid values:
+     * @description The field that is used to sort the Anti-DDoS Origin instances. Set the value to **expireTime**, which indicates that the instances are sorted based on the expiration time.
      *
-     *   **0**: the Professional mitigation plan
-     *   **1**: the Enterprise mitigation plan
-     *
+     * You can set the **Orderdire** parameter to specify the sorting method.
      * @example expireTime
      *
      * @var string
@@ -63,7 +67,10 @@ class DescribeInstanceListRequest extends Model
     public $orderby;
 
     /**
-     * @description The key of the tag that is added to the Anti-DDoS Origin instance to query.
+     * @description The sorting method. Valid values:
+     *
+     *   **desc**: the descending order. This is the default value.
+     *   **asc**: the ascending order.
      *
      * @example desc
      *
@@ -72,7 +79,7 @@ class DescribeInstanceListRequest extends Model
     public $orderdire;
 
     /**
-     * @description The total number of Anti-DDoS Origin instances.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -81,7 +88,7 @@ class DescribeInstanceListRequest extends Model
     public $pageNo;
 
     /**
-     * @description The IP address of the object that is protected by the Anti-DDoS Origin instance to query.
+     * @description The number of entries to return on each page.
      *
      * @example 10
      *
@@ -100,10 +107,7 @@ class DescribeInstanceListRequest extends Model
     public $regionId;
 
     /**
-     * @description Indicates whether auto-renewal is enabled for the instance. Valid values:
-     *
-     *   **true**: enabled
-     *   **false**: disabled
+     * @description The remarks of the Anti-DDoS Origin instance to query. Fuzzy match is supported.
      *
      * @example test
      *

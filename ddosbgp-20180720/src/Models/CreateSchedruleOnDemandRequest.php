@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateSchedruleOnDemandRequest extends Model
 {
     /**
-     * @description The threshold of inbound bandwidth. Unit: Mbit/s. Minimum value: **100**.
+     * @description The ID of the on-demand instance.
      *
+     * >  You can call the [DescribeOnDemandInstance](~~152120~~) operation to query the IDs of all on-demand instances.
      * @example ddosbgp-cn-z2q1qzxb****
      *
      * @var string
@@ -18,9 +19,9 @@ class CreateSchedruleOnDemandRequest extends Model
     public $instanceId;
 
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description The region ID of the on-demand instance.
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query all regions supported by Anti-DDoS Origin.
      * @example cn-zhangjiakou
      *
      * @var string
@@ -28,10 +29,7 @@ class CreateSchedruleOnDemandRequest extends Model
     public $regionId;
 
     /**
-     * @description The stop method of the scheduling rule. Valid values:
-     *
-     *   **auto**: The scheduling rule automatically stops.
-     *   **manual**: The scheduling rule is manually stopped.
+     * @description The scheduling action. Set the value to **declare**, which indicates that the route is advertised.
      *
      * @example declare
      *
@@ -40,11 +38,9 @@ class CreateSchedruleOnDemandRequest extends Model
     public $ruleAction;
 
     /**
-     * @description Specifies whether the scheduling rule is enabled. Valid values:
+     * @description If the inbound bandwidth or packets consecutively exceed the threshold for the specified number of times, the scheduling rule is triggered and traffic is rerouted to the on-demand instance. The specified number of times is the value of this parameter.
      *
-     *   **on**: enabled
-     *   **off**: disabled
-     *
+     * >  The threshold of inbound bandwidth is the value of **RuleConditionMbps**. The threshold of inbound packets is the value of **RuleConditionKpps**.
      * @example 3
      *
      * @var string
@@ -52,7 +48,7 @@ class CreateSchedruleOnDemandRequest extends Model
     public $ruleConditionCnt;
 
     /**
-     * @description The scheduling action. Set the value to **declare**, which indicates that the route is advertised.
+     * @description The threshold of inbound packets. Unit: Kpps. Minimum value: **10**.
      *
      * @example 10
      *
@@ -61,9 +57,8 @@ class CreateSchedruleOnDemandRequest extends Model
     public $ruleConditionKpps;
 
     /**
-     * @description If the inbound bandwidth or packets consecutively exceed the threshold for the specified number of times, the scheduling rule is triggered and traffic is rerouted to the on-demand instance. The specified number of times is the value of this parameter.
+     * @description The threshold of inbound bandwidth. Unit: Mbit/s. Minimum value: **100**.
      *
-     * >  The threshold of inbound bandwidth is the value of **RuleConditionMbps**. The threshold of inbound packets is the value of **RuleConditionKpps**.
      * @example 100
      *
      * @var string
@@ -71,8 +66,9 @@ class CreateSchedruleOnDemandRequest extends Model
     public $ruleConditionMbps;
 
     /**
-     * @description The threshold of inbound packets. Unit: Kpps. Minimum value: **10**.
+     * @description The name of the scheduling rule.
      *
+     * The name can contain lowercase letters, digits, hyphens (-), and underscores (\_). The name can be up to 32 characters in length. We recommend that you use the ID of the on-demand instance as the name. Example: `ddosbgp-cn-z2q1qzxb****`.
      * @example ddosbgp-cn-z2q1qzxb****
      *
      * @var string
@@ -80,11 +76,11 @@ class CreateSchedruleOnDemandRequest extends Model
     public $ruleName;
 
     /**
-     * @description The start time of the period during which the scheduling rule is automatically stopped. The time must be in the 24-hour clock and in the `hh:mm` format.
+     * @description Specifies whether the scheduling rule is enabled. Valid values:
      *
-     * If the system detects that DDoS attacks stop, the system no longer reroutes traffic to the on-demand instance from the time you specified. We recommend that you set this parameter to a value that is defined as off-peak hours.
+     *   **on**: enabled
+     *   **off**: disabled
      *
-     * >  This parameter takes effect only when the **RuleUndoMode** parameter is set to **auto**.
      * @example on
      *
      * @var string
@@ -92,9 +88,9 @@ class CreateSchedruleOnDemandRequest extends Model
     public $ruleSwitch;
 
     /**
-     * @description The time zone of the time when the scheduling rule automatically stops. The time zone must be in the `GMT-hh:mm` format.
+     * @description The start time of the period during which the scheduling rule is automatically stopped. The time must be in the 24-hour clock and in the `hh:mm` format.
      *
-     * For example, the value `GMT-08:00` indicates that the time zone is UTC+8.
+     * If the system detects that DDoS attacks stop, the system no longer reroutes traffic to the on-demand instance from the time you specified. We recommend that you set this parameter to a value that is defined as off-peak hours.
      *
      * >  This parameter takes effect only when the **RuleUndoMode** parameter is set to **auto**.
      * @example 03:00
@@ -104,9 +100,8 @@ class CreateSchedruleOnDemandRequest extends Model
     public $ruleUndoBeginTime;
 
     /**
-     * @description The region ID of the on-demand instance.
+     * @description The end time of the period during which the scheduling rule is automatically stopped. The time must be in the 24-hour clock and in the `hh:mm` format.
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query all regions supported by Anti-DDoS Origin.
      * @example 03:05
      *
      * @var string
@@ -114,7 +109,10 @@ class CreateSchedruleOnDemandRequest extends Model
     public $ruleUndoEndTime;
 
     /**
-     * @description The end time of the period during which the scheduling rule is automatically stopped. The time must be in the 24-hour clock and in the `hh:mm` format.
+     * @description The stop method of the scheduling rule. Valid values:
+     *
+     *   **auto**: The scheduling rule automatically stops.
+     *   **manual**: The scheduling rule is manually stopped.
      *
      * @example auto
      *
@@ -123,8 +121,11 @@ class CreateSchedruleOnDemandRequest extends Model
     public $ruleUndoMode;
 
     /**
-     * @description The ID of the request.
+     * @description The time zone of the time when the scheduling rule automatically stops. The time zone must be in the `GMT-hh:mm` format.
      *
+     * For example, the value `GMT-08:00` indicates that the time zone is UTC+8.
+     *
+     * >  This parameter takes effect only when the **RuleUndoMode** parameter is set to **auto**.
      * @example GMT-08:00
      *
      * @var string

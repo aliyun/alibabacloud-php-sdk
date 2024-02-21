@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceListResponseBody extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The details about the Anti-DDoS Origin instance.
      *
      * @var instanceList[]
      */
     public $instanceList;
 
     /**
-     * @description The value of the tag that is added to the Anti-DDoS Origin instance to query.
+     * @description The ID of the request.
      *
      * @example 381D5D33-BB8F-395F-8EE4-AE3BB4B523C4
      *
@@ -26,12 +26,7 @@ class DescribeInstanceListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The type of the cloud service that is associated with the Anti-DDoS Origin instance. By default, this parameter is not returned. If the Anti-DDoS Origin instance is created by using a different cloud service, the code of the cloud service is returned.
-     *
-     * Valid values:
-     *
-     *   **gamebox**: The Anti-DDoS Origin instance is created by using Game Security Box.
-     *   **eip**: The Anti-DDoS Origin instance is created by using an elastic IP address (EIP) for which Anti-DDoS (Enhanced Edition) is enabled.
+     * @description The total number of Anti-DDoS Origin instances.
      *
      * @example 1
      *

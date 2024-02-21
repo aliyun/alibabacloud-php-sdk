@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetInstanceModeOnDemandRequest extends Model
 {
     /**
-     * @description SetInstanceModeOnDemand
+     * @description The IDs of on-demand instances.
      *
+     * >  You can call the [DescribeOnDemandInstance](~~152120~~) operation to query the IDs of all on-demand instances.
      * @example ddosbgp-cn-z2q1qzxb****
      *
      * @var string[]
@@ -18,7 +19,10 @@ class SetInstanceModeOnDemandRequest extends Model
     public $instanceIdList;
 
     /**
-     * @description SetInstanceModeOnDemand
+     * @description The scheduling mode of the on-demand instance. Valid values:
+     *
+     *   **manual**: manual scheduling
+     *   **netflow-auto**: automatic scheduling
      *
      * @example netflow-auto
      *
@@ -27,8 +31,9 @@ class SetInstanceModeOnDemandRequest extends Model
     public $mode;
 
     /**
-     * @description WB269094
+     * @description The region ID of the on-demand instance.
      *
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query all regions supported by Anti-DDoS Origin.
      * @example cn-zhangjiakou
      *
      * @var string

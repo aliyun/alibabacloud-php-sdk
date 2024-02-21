@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListOpenedAccessLogInstancesResponseBody extends Model
 {
     /**
-     * @description The ID of the Anti-DDoS Origin instance.
+     * @description The ID of the request.
      *
      * @example 4DB64811-70A1-41C9-A0CE-CD8B260ED551
      *
@@ -19,17 +19,14 @@ class ListOpenedAccessLogInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether log analysis was enabled for the Anti-DDoS Origin instance. Valid values:
-     *
-     *   **true**: Log analysis was enabled.
-     *   **false**: Log analysis was disabled.
+     * @description The configuration of log analysis for the Anti-DDoS Origin instance.
      *
      * @var slsConfigStatus[]
      */
     public $slsConfigStatus;
 
     /**
-     * @description The configuration of log analysis for the Anti-DDoS Origin instance.
+     * @description The number of the Anti-DDoS Origin instances for which log analysis was enabled.
      *
      * @example 1
      *

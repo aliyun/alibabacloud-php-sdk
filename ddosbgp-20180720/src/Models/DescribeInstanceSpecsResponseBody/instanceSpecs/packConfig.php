@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class packConfig extends Model
 {
     /**
+     * @description The bandwidth of the package configuration.
+     *
      * @example 2
      *
      * @var int
@@ -16,7 +18,7 @@ class packConfig extends Model
     public $bandwidth;
 
     /**
-     * @description The ID of the Anti-DDoS Origin Enterprise instance.
+     * @description The number of IP addresses that are protected by the Anti-DDoS Origin Enterprise instance.
      *
      * @example 0
      *
@@ -25,7 +27,7 @@ class packConfig extends Model
     public $bindIpCount;
 
     /**
-     * @description DescribeInstanceSpecs
+     * @description The burstable bandwidth of each protected IP address. Unit: Gbit/s.
      *
      * @example 300
      *
@@ -34,7 +36,7 @@ class packConfig extends Model
     public $ipAdvanceThre;
 
     /**
-     * @description WB269094
+     * @description The basic bandwidth of each protected IP address. Unit: Gbit/s.
      *
      * @example 20
      *
@@ -43,6 +45,8 @@ class packConfig extends Model
     public $ipBasicThre;
 
     /**
+     * @description The number of IP addresses that can be protected by the Anti-DDoS Origin Enterprise instance.
+     *
      * @example 100
      *
      * @var int
@@ -50,7 +54,7 @@ class packConfig extends Model
     public $ipSpec;
 
     /**
-     * @description DescribeInstanceSpecs
+     * @description The normal clean bandwidth. Unit: Mbit/s.
      *
      * @example 200
      *
@@ -59,9 +63,8 @@ class packConfig extends Model
     public $normalBandwidth;
 
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description The burstable protection bandwidth of the Anti-DDoS Origin Enterprise instance. Unit: Gbit/s.
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
      * @example 300
      *
      * @var int
@@ -69,7 +72,7 @@ class packConfig extends Model
     public $packAdvThre;
 
     /**
-     * @description The ID of the request.
+     * @description The basic protection bandwidth of the Anti-DDoS Origin Enterprise instance. Unit: Gbit/s.
      *
      * @example 20
      *

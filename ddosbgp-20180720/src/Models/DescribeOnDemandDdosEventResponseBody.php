@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnDemandDdosEventResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The list of DDoS events and the details of each event.
      *
      * @var events[]
      */
     public $events;
 
     /**
-     * @description The timestamp that indicates the start time of the attack. Unit: seconds. The timestamp follows the UNIX time format. It is the number of seconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
+     * @description The ID of the request.
      *
      * @example 6A507DC8-F657-4C13-84E2-D1D1B9400753
      *
@@ -26,7 +26,7 @@ class DescribeOnDemandDdosEventResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of DDoS events and the details of each event.
+     * @description The total number of DDoS events.
      *
      * @example 1
      *

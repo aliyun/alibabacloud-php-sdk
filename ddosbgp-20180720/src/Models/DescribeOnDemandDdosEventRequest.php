@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnDemandDdosEventRequest extends Model
 {
     /**
-     * @description The timestamp that indicates the end time of the attack. Unit: seconds. The timestamp follows the UNIX time format. It is the number of seconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
+     * @description The timestamp that specifies the end of the time range to query. Unit: seconds. The timestamp follows the UNIX time format. It is the number of seconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
      *
      * @example 1557909844
      *
@@ -18,7 +18,7 @@ class DescribeOnDemandDdosEventRequest extends Model
     public $endTime;
 
     /**
-     * @description The timestamp that specifies the beginning of the time range to query. Unit: seconds. The timestamp follows the UNIX time format. It is the number of seconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
+     * @description The ID of the on-demand instance to query.
      *
      * @example ddosbgp-cn-n6w1r7nz****
      *
@@ -27,12 +27,7 @@ class DescribeOnDemandDdosEventRequest extends Model
     public $instanceId;
 
     /**
-     * @description The status of the event. Valid values:
-     *
-     *   **hole_begin **: indicates that the event is in the blackhole state.
-     *   **hole_end **: indicates that blackhole ends.
-     *   **defense_begin **: indicates that the event is in the cleaning state.
-     *   **defense_end **: indicates that cleaning ends.
+     * @description The IP address of the protection target.
      *
      * @example 192.XX.XX.1
      *
@@ -41,7 +36,7 @@ class DescribeOnDemandDdosEventRequest extends Model
     public $ip;
 
     /**
-     * @description The IP address of the protection target.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -50,7 +45,7 @@ class DescribeOnDemandDdosEventRequest extends Model
     public $pageNo;
 
     /**
-     * @description The ID of the on-demand instance to query.
+     * @description The number of entries to return on each page. The maximum value is **50**. The default value is **10**.
      *
      * @example 10
      *
@@ -66,7 +61,7 @@ class DescribeOnDemandDdosEventRequest extends Model
     public $regionId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The ID of the resource group.
      *
      * @example rg-acfm2pz25js****
      *
@@ -75,7 +70,7 @@ class DescribeOnDemandDdosEventRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeOnDemandDdosEvent**.
+     * @description The timestamp that specifies the beginning of the time range to query. Unit: seconds. The timestamp follows the UNIX time format. It is the number of seconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
      *
      * @example 1557305044
      *

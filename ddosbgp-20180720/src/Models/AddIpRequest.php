@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddIpRequest extends Model
 {
     /**
-     * @description The ID of the resource group to which the Anti-DDoS Origin Enterprise instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+     * @description The ID of the Anti-DDoS Origin Enterprise instance.
      *
-     * For more information about resource groups, see [Create a resource group](~~94485~~).
+     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin Enterprise instances.
      * @example ddosbgp-cn-npk1z7t9****
      *
      * @var string
@@ -19,9 +19,11 @@ class AddIpRequest extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the Anti-DDoS Origin Enterprise instance.
+     * @description The list of IP addresses that you want to add to the Anti-DDoS Origin Enterprise instance. This parameter is a string consisting of JSON arrays. Each element in a JSON array is a JSON struct that includes the following field:
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query all regions supported by Anti-DDoS Origin.
+     *   **ip**: required. The IP address that you want to add. Data type: string.
+     *
+     * > The IP address must be the IP address of an asset that belongs to the current Alibaba Cloud account.
      * @example [{"ip":"1.XX.XX.1"},{"ip":"2.XX.XX.2"}]
      *
      * @var string
@@ -29,8 +31,9 @@ class AddIpRequest extends Model
     public $ipList;
 
     /**
-     * @description The ID of the request.
+     * @description The region ID of the Anti-DDoS Origin Enterprise instance.
      *
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query all regions supported by Anti-DDoS Origin.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,9 +41,9 @@ class AddIpRequest extends Model
     public $regionId;
 
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description The ID of the resource group to which the Anti-DDoS Origin Enterprise instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
      *
-     * For more information about sample requests, see the **"Examples"** section of this topic.
+     * For more information about resource groups, see [Create a resource group](~~94485~~).
      * @example rg-acfm2pz25js****
      *
      * @var string

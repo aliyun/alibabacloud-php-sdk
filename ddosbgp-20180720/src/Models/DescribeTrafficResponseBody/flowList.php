@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class flowList extends Model
 {
     /**
+     * @description The bandwidth of attack traffic. Unit: bit/s.
+     *
+     * >  This parameter is returned only if attack traffic exists.
      * @example 0
      *
      * @var int
@@ -16,8 +19,9 @@ class flowList extends Model
     public $attackBps;
 
     /**
-     * @description Queries traffic statistics of an Anti-DDoS Origin instance within a specific time period.
+     * @description The packet forwarding rate of attack traffic. Unit: packets per second.
      *
+     * >  This parameter is returned only if attack traffic exists.
      * @example 0
      *
      * @var int
@@ -25,9 +29,11 @@ class flowList extends Model
     public $attackPps;
 
     /**
-     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     * @description The type of the traffic statistics. Valid values:
      *
-     * For more information about sample requests, see the "**Examples**" section of this topic.
+     *   **max**: the peak traffic within the specified interval
+     *   **avg**: the average traffic within the specified interval
+     *
      * @example max
      *
      * @var string
@@ -35,6 +41,8 @@ class flowList extends Model
     public $flowType;
 
     /**
+     * @description The bandwidth of the total traffic. Unit: Kbit/s.
+     *
      * @example 417
      *
      * @var int
@@ -42,7 +50,7 @@ class flowList extends Model
     public $kbps;
 
     /**
-     * @description DescribeTraffic
+     * @description The ID of the traffic statistics.
      *
      * @example 8e33f19e-5644-11eb-b5c1-d89d67182200
      *
@@ -51,7 +59,7 @@ class flowList extends Model
     public $name;
 
     /**
-     * @description WB269094
+     * @description The packet forwarding rate of the total traffic. Unit: packets per second.
      *
      * @example 274
      *
@@ -60,7 +68,7 @@ class flowList extends Model
     public $pps;
 
     /**
-     * @description The ID of the request.
+     * @description The time when the traffic statistics are calculated. This value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1620951900
      *

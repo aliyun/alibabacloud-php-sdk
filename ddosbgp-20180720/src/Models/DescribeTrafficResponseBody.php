@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrafficResponseBody extends Model
 {
     /**
-     * @description The ID of the traffic statistics.
+     * @description The queried traffic statistics.
      *
      * @var flowList[]
      */
     public $flowList;
 
     /**
-     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     * @description The ID of the request.
      *
      * @example 6A507DC8-F657-4C13-84E2-D1D1B9400753
      *
