@@ -2441,6 +2441,9 @@ class ROS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->outputOption)) {
+            $query['OutputOption'] = $request->outputOption;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }

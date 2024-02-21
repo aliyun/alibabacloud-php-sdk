@@ -29,6 +29,11 @@ class stackInstance extends Model
     public $driftDetectionTime;
 
     /**
+     * @var mixed[][]
+     */
+    public $outputs;
+
+    /**
      * @description The parameters that are used to override specific parameters.
      *
      * @var parameterOverrides[]
@@ -129,6 +134,7 @@ class stackInstance extends Model
     protected $_name = [
         'accountId'          => 'AccountId',
         'driftDetectionTime' => 'DriftDetectionTime',
+        'outputs'            => 'Outputs',
         'parameterOverrides' => 'ParameterOverrides',
         'rdFolderId'         => 'RdFolderId',
         'regionId'           => 'RegionId',
@@ -152,6 +158,9 @@ class stackInstance extends Model
         }
         if (null !== $this->driftDetectionTime) {
             $res['DriftDetectionTime'] = $this->driftDetectionTime;
+        }
+        if (null !== $this->outputs) {
+            $res['Outputs'] = $this->outputs;
         }
         if (null !== $this->parameterOverrides) {
             $res['ParameterOverrides'] = [];
@@ -203,6 +212,11 @@ class stackInstance extends Model
         }
         if (isset($map['DriftDetectionTime'])) {
             $model->driftDetectionTime = $map['DriftDetectionTime'];
+        }
+        if (isset($map['Outputs'])) {
+            if (!empty($map['Outputs'])) {
+                $model->outputs = $map['Outputs'];
+            }
         }
         if (isset($map['ParameterOverrides'])) {
             if (!empty($map['ParameterOverrides'])) {

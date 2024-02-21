@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetStackInstanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $outputOption;
+
+    /**
      * @description The region ID of the stack group. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
@@ -48,6 +53,7 @@ class GetStackInstanceRequest extends Model
      */
     public $stackInstanceRegionId;
     protected $_name = [
+        'outputOption'           => 'OutputOption',
         'regionId'               => 'RegionId',
         'stackGroupName'         => 'StackGroupName',
         'stackInstanceAccountId' => 'StackInstanceAccountId',
@@ -61,6 +67,9 @@ class GetStackInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->outputOption) {
+            $res['OutputOption'] = $this->outputOption;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -85,6 +94,9 @@ class GetStackInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OutputOption'])) {
+            $model->outputOption = $map['OutputOption'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -1,3 +1,8 @@
+2024-02-21 Version: 2.3.8
+- Update API GetStackInstance: add param OutputOption.
+- Update API GetStackInstance: update response param.
+
+
 2024-02-21 Version: 2.3.7
 - Generated php 2019-09-10 for ROS.
 
