@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ListScalingGroupV2Request extends Model
 {
     /**
+     * @example C-ABC12323****
+     *
      * @var string
      */
     public $clusterBizId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $currentSize;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example id
+     *
      * @var string
      */
     public $orderField;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $orderMode;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;

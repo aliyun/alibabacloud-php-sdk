@@ -14,21 +14,29 @@ class DescribeScalingConfigItemV2ResponseBody extends Model
     public $configItemInformation;
 
     /**
+     * @example SCALING_RULE
+     *
      * @var string
      */
     public $configItemType;
 
     /**
+     * @example 6C96FD2C-95A0-4C03-8A19-7D84A4BAAA1E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SRB-0F2A154CFD4D****
+     *
      * @var string
      */
     public $scalingConfigItemBizId;
 
     /**
+     * @example SGB-0F2A154CFD4D****
+     *
      * @var string
      */
     public $scalingGroupBizId;

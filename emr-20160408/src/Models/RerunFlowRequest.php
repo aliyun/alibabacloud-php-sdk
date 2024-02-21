@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RerunFlowRequest extends Model
 {
     /**
+     * @example FI-9DDAAA3ADA5F****
+     *
      * @var string
      */
     public $flowInstanceId;
 
     /**
+     * @example FP-3535FE0BE522****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $reRunFail;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

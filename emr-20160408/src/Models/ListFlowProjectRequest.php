@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListFlowProjectRequest extends Model
 {
     /**
+     * @example my_project
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example EMR
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example FP-7A1018ADE917****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;

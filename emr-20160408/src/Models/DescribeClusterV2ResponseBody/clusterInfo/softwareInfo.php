@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class softwareInfo extends Model
 {
     /**
+     * @example HADOOP
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example EMR-3.16.0
+     *
      * @var string
      */
     public $emrVer;

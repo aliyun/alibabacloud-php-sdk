@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterTemplateResponseBody extends Model
 {
     /**
+     * @example CT-35498C56B3F1****
+     *
      * @var string
      */
     public $clusterTemplateId;
 
     /**
+     * @example 8CA40D40-2092-4A09-9F07-2F9C1399FB11
+     *
      * @var string
      */
     public $requestId;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListResourcePoolRequest extends Model
 {
     /**
+     * @example C-EBD62A703A43****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example CAPACITY_SCHEDULER
+     *
      * @var string
      */
     public $poolType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $resourceOwnerId;

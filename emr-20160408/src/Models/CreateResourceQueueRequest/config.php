@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @example QUEUE_RESOURCE_LIMIT
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example capacity
+     *
      * @var string
      */
     public $configKey;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $configValue;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListFlowCategoryRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example FC-6E8E198E6C79****
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example FP-6E8E198E6C79****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $root;

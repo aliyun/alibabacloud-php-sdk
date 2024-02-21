@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResizeClusterV2ResponseBody extends Model
 {
     /**
+     * @example C-D7958B72E59B****
+     *
      * @var string
      */
     public $clusterId;
@@ -16,10 +18,18 @@ class ResizeClusterV2ResponseBody extends Model
     /**
      * @var string
      */
+    public $operationId;
+
+    /**
+     * @example BF4FBAC6-B03E-4BFB-B6DB-EB53C34F2E22
+     *
+     * @var string
+     */
     public $requestId;
     protected $_name = [
-        'clusterId' => 'ClusterId',
-        'requestId' => 'RequestId',
+        'clusterId'   => 'ClusterId',
+        'operationId' => 'OperationId',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -31,6 +41,9 @@ class ResizeClusterV2ResponseBody extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->operationId) {
+            $res['OperationId'] = $this->operationId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -49,6 +62,9 @@ class ResizeClusterV2ResponseBody extends Model
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['OperationId'])) {
+            $model->operationId = $map['OperationId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

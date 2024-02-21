@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $applied;
 
     /**
+     * @example 111
+     *
      * @var string
      */
     public $author;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $comment;
@@ -31,11 +37,15 @@ class config extends Model
     public $configValueList;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $configVersion;
 
     /**
+     * @example 1543312717000
+     *
      * @var string
      */
     public $createTime;
@@ -46,6 +56,8 @@ class config extends Model
     public $propertyInfoList;
 
     /**
+     * @example TEZ
+     *
      * @var string
      */
     public $serviceName;

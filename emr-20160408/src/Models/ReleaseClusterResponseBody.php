@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseClusterResponseBody extends Model
 {
     /**
+     * @example BF4FBAC6-B03E-4BFB-B6DB-EB53C34F2E22
+     *
      * @var string
      */
     public $requestId;

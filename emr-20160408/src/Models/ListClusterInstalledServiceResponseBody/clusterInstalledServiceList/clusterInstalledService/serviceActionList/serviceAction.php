@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class serviceAction extends Model
 {
     /**
+     * @example CUSTOM_COMMAND
+     *
      * @var string
      */
     public $actionName;
 
     /**
+     * @example rebalance
+     *
      * @var string
      */
     public $command;
 
     /**
+     * @example DataNode
+     *
      * @var string
      */
     public $componentName;
 
     /**
+     * @example Start All Components
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example HDFS
+     *
      * @var string
      */
     public $serviceName;

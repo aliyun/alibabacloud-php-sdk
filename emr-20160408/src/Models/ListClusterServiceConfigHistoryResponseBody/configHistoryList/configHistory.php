@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class configHistory extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $applied;
 
     /**
+     * @example 1111
+     *
      * @var string
      */
     public $author;
 
     /**
+     * @example modifyConfig
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example tez-site
+     *
      * @var string
      */
     public $configFileName;
 
     /**
+     * @example tez.am.resource.memory.mb
+     *
      * @var string
      */
     public $configItemName;
 
     /**
+     * @example 1543320502944
+     *
      * @var string
      */
     public $configVersion;
 
     /**
+     * @example 1543320503000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example G-A5EA210E15FC****
+     *
      * @var string
      */
     public $hostGroupId;
@@ -54,26 +70,36 @@ class configHistory extends Model
     public $hostGroupName;
 
     /**
+     * @example i-bp146tnrkq4tcso2****
+     *
      * @var string
      */
     public $hostInstanceId;
 
     /**
+     * @example emr-header-1
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example 1280
+     *
      * @var string
      */
     public $newValue;
 
     /**
+     * @example 640
+     *
      * @var string
      */
     public $oldValue;
 
     /**
+     * @example TEZ
+     *
      * @var string
      */
     public $serviceName;

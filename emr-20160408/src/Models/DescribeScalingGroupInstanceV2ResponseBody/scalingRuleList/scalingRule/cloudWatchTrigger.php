@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class cloudWatchTrigger extends Model
 {
     /**
+     * @example >
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $evaluationCount;
 
     /**
+     * @example YARN.PendingVCores
+     *
      * @var string
      */
     public $metricDisplayName;
 
     /**
+     * @example YarnRootPendingVCores
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Average
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $threshold;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $unit;

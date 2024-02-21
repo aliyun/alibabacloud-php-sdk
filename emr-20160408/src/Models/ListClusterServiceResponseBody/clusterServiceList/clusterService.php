@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class clusterService extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $abnormalNum;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $clientType;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $healthStatus;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $installStatus;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $needRestartInfo;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $needRestartNum;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $notStartInfo;
@@ -50,21 +64,29 @@ class clusterService extends Model
     public $serviceActionList;
 
     /**
+     * @example HDFS
+     *
      * @var string
      */
     public $serviceDisplayName;
 
     /**
+     * @example HDFS
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example INSTALLED
+     *
      * @var string
      */
     public $serviceStatus;
 
     /**
+     * @example 2.7.2
+     *
      * @var string
      */
     public $serviceVersion;
@@ -75,6 +97,8 @@ class clusterService extends Model
     public $state;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $stoppedNum;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @example asa-bp18jfxw7gqnkhtz****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example A user requests to execute scaling rule \"asr-bp1d8mebzisgwu34mcn3\", changing the Total Capacity from \"0\" to \"1\".
+     *
      * @var string
      */
     public $cause;
 
     /**
+     * @example \"1\" ECS instances are added
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1600691996000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $expectNum;
 
     /**
+     * @example G-4A1833AA86EA****
+     *
      * @var string
      */
     public $hostGroupBizId;
@@ -44,11 +56,15 @@ class item extends Model
     public $hostGroupName;
 
     /**
+     * @example [\"i-bp1ci2e4xqt9eqjqtfrr\"]
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @example asr-bp19zruz0q7pru31****
+     *
      * @var string
      */
     public $scalingRuleId;
@@ -59,21 +75,29 @@ class item extends Model
     public $scalingRuleName;
 
     /**
+     * @example 1600691996000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example Successful
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCapacity;
 
     /**
+     * @example SCALE_OUT
+     *
      * @var string
      */
     public $transition;

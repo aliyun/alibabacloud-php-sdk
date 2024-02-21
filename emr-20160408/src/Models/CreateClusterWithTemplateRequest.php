@@ -11,28 +11,44 @@ class CreateClusterWithTemplateRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @example hadoop_cluster_name_1
+     *
+     * @var string
+     */
     public $clusterName;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @example CT-35498C56B3F1****
+     *
      * @var string
      */
     public $templateBizId;
 
     /**
+     * @example 60a632f0-5909-430d-b65c-1b0f248e4947
+     *
      * @var string
      */
     public $uniqueTag;
     protected $_name = [
+        'clientToken'     => 'ClientToken',
         'clusterName'     => 'ClusterName',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerId' => 'ResourceOwnerId',
@@ -47,6 +63,9 @@ class CreateClusterWithTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
@@ -74,6 +93,9 @@ class CreateClusterWithTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ZKLink extends Model
 {
     /**
+     * @example emr-worker-1,emr-header-2,emr-header-1
+     *
      * @var string
      */
     public $link;
 
     /**
+     * @example 2181
+     *
      * @var string
      */
     public $port;

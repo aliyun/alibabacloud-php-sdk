@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterNameResponseBody extends Model
 {
     /**
+     * @example 588E7707-D8C8-4618-9B74-FE54B6903A9A
+     *
      * @var string
      */
     public $requestId;

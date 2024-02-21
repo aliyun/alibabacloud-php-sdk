@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListResourcePoolResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -25,11 +29,15 @@ class ListResourcePoolResponseBody extends Model
     public $poolInfoList;
 
     /**
+     * @example A544317F-4A60-4532-AC96-191B9D80420A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $total;

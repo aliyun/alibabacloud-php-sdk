@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class healthInfo extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $agentHeartBeatLostNum;
@@ -20,11 +22,15 @@ class healthInfo extends Model
     public $badHealthNum;
 
     /**
+     * @example ResourceManager
+     *
      * @var string
      */
     public $componentName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $createdTime;
@@ -45,6 +51,8 @@ class healthInfo extends Model
     public $healthDetailList;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $healthLevel;
@@ -55,6 +63,8 @@ class healthInfo extends Model
     public $healthStatus;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $manualStoppedNum;
@@ -65,11 +75,15 @@ class healthInfo extends Model
     public $noneHealthNum;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $normalNum;
 
     /**
+     * @example YARN
+     *
      * @var string
      */
     public $serviceName;
@@ -80,11 +94,15 @@ class healthInfo extends Model
     public $stoppedHealthNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $stoppedNum;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $totalNum;

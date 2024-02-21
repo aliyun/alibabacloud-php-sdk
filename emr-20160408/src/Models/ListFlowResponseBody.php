@@ -15,21 +15,29 @@ class ListFlowResponseBody extends Model
     public $flow;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 7DDFF4C7-3AE3-485F-BFA1-BAE0AA3689DD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

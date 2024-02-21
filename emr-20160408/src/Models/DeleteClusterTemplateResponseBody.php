@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterTemplateResponseBody extends Model
 {
     /**
+     * @example F2BF8586-045D-4104-B00C-44A4AA619C05
+     *
      * @var string
      */
     public $requestId;

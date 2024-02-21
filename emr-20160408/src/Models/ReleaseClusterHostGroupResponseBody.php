@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseClusterHostGroupResponseBody extends Model
 {
     /**
+     * @example 991B3409-6C8D-48CB-903C-3B9C166E17A8
+     *
      * @var string
      */
     public $requestId;

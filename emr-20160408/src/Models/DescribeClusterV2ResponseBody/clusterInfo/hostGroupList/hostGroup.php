@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class hostGroup extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $bandWidth;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $cpuCore;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $diskCapacity;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $diskCount;
 
     /**
+     * @example CLOUD_SSD
+     *
      * @var string
      */
     public $diskType;
@@ -45,11 +57,15 @@ class hostGroup extends Model
     public $hostGroupChangeStatus;
 
     /**
+     * @example RESIZE_DISK
+     *
      * @var string
      */
     public $hostGroupChangeType;
 
     /**
+     * @example G-9D08642FB8CE****
+     *
      * @var string
      */
     public $hostGroupId;
@@ -60,36 +76,50 @@ class hostGroup extends Model
     public $hostGroupName;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $hostGroupSubType;
 
     /**
+     * @example CORE
+     *
      * @var string
      */
     public $hostGroupType;
 
     /**
+     * @example ecs.n4.2xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $lockType;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $memoryCapacity;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $nodeCount;
@@ -100,6 +130,8 @@ class hostGroup extends Model
     public $nodes;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $period;

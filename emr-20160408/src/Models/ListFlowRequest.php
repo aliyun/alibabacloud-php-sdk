@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ListFlowRequest extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example F-A32FB31D8295****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example FJ-F32FB31D8295****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example my_flow
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $periodic;
 
     /**
+     * @example FP-3535FE0BE522****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example STOP_SCHEDULE
+     *
      * @var string
      */
     public $status;

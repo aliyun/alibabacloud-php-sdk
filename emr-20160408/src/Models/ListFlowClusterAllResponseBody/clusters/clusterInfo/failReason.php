@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class failReason extends Model
 {
     /**
+     * @example 400
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example failed
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example 0d18b019-00ab-455f-b60c-2891bf02f538
+     *
      * @var string
      */
     public $requestId;

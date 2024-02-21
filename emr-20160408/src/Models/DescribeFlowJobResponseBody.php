@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowJobResponseBody extends Model
 {
     /**
+     * @example false
+     *
      * @var string
      */
     public $adhoc;
 
     /**
+     * @example "{\"items\":[{\"enable\":true,\"eventId\":\"EMR-210401001\",\"alertUserGroupIdList\":[\"AUG-52dabfbbca654b52aae05ac5acd9a0f0\"],\"alertDingDingGroupList\":[\"ADG-2c411c452e6b467b9a59fadf21d195ad\"]}]}"
+     *
      * @var string
      */
     public $alertConf;
 
     /**
+     * @example FC-5BD9575E3462****
+     *
      * @var string
      */
     public $categoryId;
@@ -40,66 +46,92 @@ class DescribeFlowJobResponseBody extends Model
     public $editLockDetail;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $envConf;
 
     /**
+     * @example CONTINUE
+     *
      * @var string
      */
     public $failAct;
 
     /**
+     * @example 1538017813000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1538017814000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example FJ-BCCAE48B90CC****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example FJI-0BA97D0BB8F3****
+     *
      * @var string
      */
     public $lastInstanceId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $maxRetry;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxRunningTimeSec;
 
     /**
+     * @example {"inputs":[{"type":"KAFKA","clusterId":"C-1234567","topics":"kafka_topic","consumer.group":"kafka_consumer_group"}],"outputs":[{"type":"KAFKA","clusterId":"C-1234567","topics":"kafka_topic"}]}
+     *
      * @var string
      */
     public $monitorConf;
 
     /**
+     * @example my_shell_job
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example {"date":"${yyyy-MM-dd}"}
+     *
      * @var string
      */
     public $paramConf;
 
     /**
+     * @example ls -l
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @example 1549175a-6d14-4c8a-89f9-5e28300f6d7e
+     *
      * @var string
      */
     public $requestId;
@@ -110,6 +142,8 @@ class DescribeFlowJobResponseBody extends Model
     public $resourceList;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $retryInterval;
@@ -120,16 +154,22 @@ class DescribeFlowJobResponseBody extends Model
     public $retryPolicy;
 
     /**
+     * @example {"priority":1,"userName":"hadoop","memory":2048,"cores":1}
+     *
      * @var string
      */
     public $runConf;
 
     /**
+     * @example SHELL
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example YARN
+     *
      * @var string
      */
     public $mode;

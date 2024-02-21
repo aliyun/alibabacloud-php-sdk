@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListFlowProjectClusterSettingRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example FP-ED2F3E844FE3****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

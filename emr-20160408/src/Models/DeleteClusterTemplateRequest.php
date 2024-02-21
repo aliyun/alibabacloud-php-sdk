@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterTemplateRequest extends Model
 {
     /**
+     * @example CT-35498C56B3F1****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $resourceOwnerId;

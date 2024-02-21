@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowProjectUserRequest extends Model
 {
     /**
+     * @example FP-257A173659F5****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example subuser1
+     *
      * @var string
      */
     public $userName;

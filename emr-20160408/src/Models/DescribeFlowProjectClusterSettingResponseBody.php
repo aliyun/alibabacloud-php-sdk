@@ -12,26 +12,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowProjectClusterSettingResponseBody extends Model
 {
     /**
+     * @example C-DCEE11B49C8F****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $defaultQueue;
 
     /**
+     * @example hadoop
+     *
      * @var string
      */
     public $defaultUser;
 
     /**
+     * @example 1541561123000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1541561123000
+     *
      * @var int
      */
     public $gmtModified;
@@ -47,6 +57,8 @@ class DescribeFlowProjectClusterSettingResponseBody extends Model
     public $k8sClusterId;
 
     /**
+     * @example FP-3535FE0BE522****
+     *
      * @var string
      */
     public $projectId;
@@ -57,6 +69,8 @@ class DescribeFlowProjectClusterSettingResponseBody extends Model
     public $queueList;
 
     /**
+     * @example F2168FB7-8E60-44EE-A946-DA887297****
+     *
      * @var string
      */
     public $requestId;

@@ -15,21 +15,29 @@ class ListFlowProjectClusterSettingResponseBody extends Model
     public $clusterSettings;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 93F6F3CF-B2AE-411A-948F-0F7293058CF5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

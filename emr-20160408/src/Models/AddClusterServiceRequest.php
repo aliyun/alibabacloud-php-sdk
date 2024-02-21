@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class AddClusterServiceRequest extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example addService
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

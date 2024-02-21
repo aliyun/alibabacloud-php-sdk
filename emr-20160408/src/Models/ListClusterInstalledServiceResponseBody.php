@@ -15,6 +15,8 @@ class ListClusterInstalledServiceResponseBody extends Model
     public $clusterInstalledServiceList;
 
     /**
+     * @example 88A94B4A-898D-448B-BC0B-6F0FE2CC64CA
+     *
      * @var string
      */
     public $requestId;

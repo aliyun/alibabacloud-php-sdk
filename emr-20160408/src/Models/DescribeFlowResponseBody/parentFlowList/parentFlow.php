@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class parentFlow extends Model
 {
     /**
+     * @example F-123456
+     *
      * @var string
      */
     public $parentFlowId;
 
     /**
+     * @example parent_flow
+     *
      * @var string
      */
     public $parentFlowName;
 
     /**
+     * @example FP-257A173659F5****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example my_project
+     *
      * @var string
      */
     public $projectName;

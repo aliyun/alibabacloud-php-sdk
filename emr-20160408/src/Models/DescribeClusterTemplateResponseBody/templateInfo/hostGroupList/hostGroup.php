@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class hostGroup extends Model
 {
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $diskCapacity;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $diskCount;
 
     /**
+     * @example CLOUD_SSD
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $hostGroupId;
@@ -39,36 +49,50 @@ class hostGroup extends Model
     public $hostGroupName;
 
     /**
+     * @example MASTER
+     *
      * @var string
      */
     public $hostGroupType;
 
     /**
+     * @example ecs.mn4.2xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example ecs.sn1.xlarge,ecs.sn2.xlarge
+     *
      * @var string
      */
     public $multiInstanceTypes;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeCount;
 
     /**
+     * @example 36
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $sysDiskCapacity;
 
     /**
+     * @example CLOUD_SSD
+     *
      * @var string
      */
     public $sysDiskType;

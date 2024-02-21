@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ecmResourcePool extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $active;
 
     /**
+     * @example 116
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example DEFAULT
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $note;
 
     /**
+     * @example CAPACITY_SCHEDULER
+     *
      * @var string
      */
     public $poolType;
 
     /**
+     * @example 1528342356764****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $yarnSiteConfig;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowProjectRequest extends Model
 {
     /**
+     * @example FP-5D55DA9DEDF2****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

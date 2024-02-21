@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class valueEntryInfo extends Model
 {
     /**
+     * @example “”
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $value;

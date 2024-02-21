@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class diskInfo extends Model
 {
     /**
+     * @example /dev/xvdb
+     *
      * @var string
      */
     public $device;
 
     /**
+     * @example d-bp15vg2nr3x2t0f37ko9
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @example disk1
+     *
      * @var string
      */
     public $diskName;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example data
+     *
      * @var string
      */
     public $type;

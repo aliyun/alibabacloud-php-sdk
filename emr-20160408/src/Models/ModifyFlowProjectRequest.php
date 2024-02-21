@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyFlowProjectRequest extends Model
 {
     /**
+     * @example my flow description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example my_project
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example FP-257A173659F5****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

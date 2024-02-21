@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListFlowProjectResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -25,11 +29,15 @@ class ListFlowProjectResponseBody extends Model
     public $projects;
 
     /**
+     * @example 83B256D4-4E95-454B-AD08-799DF31D5556
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyResourcePoolRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $active;
 
     /**
+     * @example C-0E995C0EE7E5****
+     *
      * @var string
      */
     public $clusterId;
@@ -25,16 +29,22 @@ class ModifyResourcePoolRequest extends Model
     public $config;
 
     /**
+     * @example 116
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example custompool
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -45,6 +55,8 @@ class ModifyResourcePoolRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example Yarnsiteconfig
+     *
      * @var string
      */
     public $yarnsiteconfig;

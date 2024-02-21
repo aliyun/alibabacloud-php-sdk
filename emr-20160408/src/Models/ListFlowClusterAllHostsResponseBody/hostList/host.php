@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class host extends Model
 {
     /**
+     * @example 4
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @example 119555
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example i-bp1agi4417dx08sig82j
+     *
      * @var string
      */
     public $hostInstanceId;
 
     /**
+     * @example emr-header-1.cluster-500159692
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example ecs.n4.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $privateIp;
 
     /**
+     * @example 192.0.0.1
+     *
      * @var string
      */
     public $publicIp;
 
     /**
+     * @example CORE
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example 6dc097b0-5e92-4e08-a49e-37c26c78cf9f
+     *
      * @var string
      */
     public $serialNumber;
 
     /**
+     * @example STARTING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example VM
+     *
      * @var string
      */
     public $type;

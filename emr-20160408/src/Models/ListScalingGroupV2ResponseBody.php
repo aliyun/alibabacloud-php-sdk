@@ -15,26 +15,36 @@ class ListScalingGroupV2ResponseBody extends Model
     public $items;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 123DF0CD-C5F5-4A8D-984A-C5A4331EB84F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

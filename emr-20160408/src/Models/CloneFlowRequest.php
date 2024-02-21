@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CloneFlowRequest extends Model
 {
     /**
+     * @example F-8C1EB0C6452****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example FP-53C4D36FC731****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

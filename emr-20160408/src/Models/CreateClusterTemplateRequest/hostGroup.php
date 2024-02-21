@@ -9,101 +9,141 @@ use AlibabaCloud\Tea\Model;
 class hostGroup extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example header
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example ON-DEMAND
+     *
      * @var string
      */
     public $createType;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $diskCapacity;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $diskCount;
 
     /**
+     * @example CLOUD_EFFICIENCY
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @example master_group
+     *
      * @var string
      */
     public $hostGroupName;
 
     /**
+     * @example MASTER
+     *
      * @var string
      */
     public $hostGroupType;
 
     /**
+     * @example ecs.g5.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example ["ecs.c5.xlarge","ecs.sn1ne.xlarge","ecs.hfc5.xlarge"]
+     *
      * @var string
      */
     public $multiInstanceTypes;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeCount;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example crp-bp1e4wcvoucrish****
+     *
      * @var string
      */
     public $privatePoolOptionsId;
 
     /**
+     * @example Target
+     *
      * @var string
      */
     public $privatePoolOptionsMatchCriteria;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $sysDiskCapacity;
 
     /**
+     * @example CLOUD_SSD
+     *
      * @var string
      */
     public $sysDiskType;
 
     /**
+     * @example vsw-bp10tvjyc77psy0z5****
+     *
      * @var string
      */
     public $vSwitchId;

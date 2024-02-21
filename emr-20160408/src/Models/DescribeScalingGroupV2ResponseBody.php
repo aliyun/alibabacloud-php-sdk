@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingGroupV2ResponseBody extends Model
 {
     /**
+     * @example ACTIVE
+     *
      * @var string
      */
     public $activeStatus;
 
     /**
+     * @example APPLIED
+     *
      * @var string
      */
     public $configState;
@@ -24,6 +28,8 @@ class DescribeScalingGroupV2ResponseBody extends Model
     public $description;
 
     /**
+     * @example G-5011FB3E4928****
+     *
      * @var string
      */
     public $hostGroupBizId;
@@ -34,26 +40,36 @@ class DescribeScalingGroupV2ResponseBody extends Model
     public $name;
 
     /**
+     * @example C390A685-2707-4F42-BCFA-E4BC40E4B7A3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SGB-16ABA17988F3****
+     *
      * @var string
      */
     public $scalingGroupId;
 
     /**
+     * @example DEFAULT
+     *
      * @var string
      */
     public $scalingInMode;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $scalingMaxSize;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $scalingMinSize;

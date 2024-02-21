@@ -15,6 +15,8 @@ class DescribeClusterServiceConfigResponseBody extends Model
     public $config;
 
     /**
+     * @example 094585B2-13AF-4780-96B3-C8E925418B5D
+     *
      * @var string
      */
     public $requestId;

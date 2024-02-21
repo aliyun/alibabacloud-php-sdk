@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowRequest extends Model
 {
     /**
+     * @example F-7A39731FE719****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example FP-257A173659F5****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

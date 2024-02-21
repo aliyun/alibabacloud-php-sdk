@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowProjectClusterSettingRequest extends Model
 {
     /**
+     * @example C-DCEE11B49C8F****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example FP-ED2F3E844FE3****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

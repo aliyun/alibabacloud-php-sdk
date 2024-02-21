@@ -15,21 +15,29 @@ class ListFlowNodeInstanceResponseBody extends Model
     public $flowNodeInstances;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 83B256D4-4E95-454B-AD08-799DF31D5556
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $total;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class configValue extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowCustom;
@@ -20,6 +22,8 @@ class configValue extends Model
     public $configItemValueList;
 
     /**
+     * @example tez-site
+     *
      * @var string
      */
     public $configName;
@@ -30,6 +34,8 @@ class configValue extends Model
     public $scope;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $scopeId;

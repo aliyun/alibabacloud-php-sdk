@@ -15,21 +15,29 @@ class ListClusterHostResponseBody extends Model
     public $hostList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 50F7151C-915D-4576-A291-833E8D193853
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $total;

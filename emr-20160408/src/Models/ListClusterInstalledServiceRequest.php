@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListClusterInstalledServiceRequest extends Model
 {
     /**
+     * @example C-0EF9B0EC8564****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

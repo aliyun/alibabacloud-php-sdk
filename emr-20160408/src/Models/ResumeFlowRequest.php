@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ResumeFlowRequest extends Model
 {
     /**
+     * @example FI-9DDAAA3ADA5F****
+     *
      * @var string
      */
     public $flowInstanceId;
 
     /**
+     * @example FP-3535FE0BE522****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

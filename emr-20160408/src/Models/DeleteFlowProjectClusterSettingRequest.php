@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowProjectClusterSettingRequest extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example FP-E3F1523F8FC1****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

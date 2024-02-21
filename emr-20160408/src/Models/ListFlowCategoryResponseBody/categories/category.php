@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class category extends Model
 {
     /**
+     * @example FILE
+     *
      * @var string
      */
     public $categoryType;
 
     /**
+     * @example 1563848015000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1563848015000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example FC-DF781BBF3F2E8317
+     *
      * @var string
      */
     public $id;
@@ -34,26 +42,36 @@ class category extends Model
     public $name;
 
     /**
+     * @example F-0B30759C146EA1E7
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @example FLOW
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @example FC-DF781BBF3F2E****
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example FP-179332E88F52****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example FLOW
+     *
      * @var string
      */
     public $type;

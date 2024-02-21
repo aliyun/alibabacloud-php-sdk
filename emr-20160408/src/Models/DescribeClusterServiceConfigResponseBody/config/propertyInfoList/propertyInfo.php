@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class propertyInfo extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $component;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example tez-site
+     *
      * @var string
      */
     public $displayName;
@@ -32,11 +38,15 @@ class propertyInfo extends Model
     public $effectWay;
 
     /**
+     * @example tez-site
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example tez.lib.uris
+     *
      * @var string
      */
     public $name;
@@ -52,11 +62,15 @@ class propertyInfo extends Model
     public $propertyValueAttributes;
 
     /**
+     * @example TEZ
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example ${fs.defaultFS}/apps/tez-0.9.1-1.0.2/,${fs.defaultFS}/apps/tez-0.9.1-1.0.2/lib/
+     *
      * @var string
      */
     public $value;

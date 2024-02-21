@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListFlowNodeInstanceRequest extends Model
 {
     /**
+     * @example start_time
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example FP-257A173659F5****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 1540796248000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example FAILED
+     *
      * @var string[]
      */
     public $statusList;

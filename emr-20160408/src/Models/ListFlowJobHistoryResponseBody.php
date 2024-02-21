@@ -15,21 +15,29 @@ class ListFlowJobHistoryResponseBody extends Model
     public $nodeInstances;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example F5540D8F-06E8-4E3C-B47A-D75CED72A795
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $total;

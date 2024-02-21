@@ -14,11 +14,15 @@ class RunScalingActionV2Request extends Model
     public $actionParam;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-9gLOoK****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -29,11 +33,15 @@ class RunScalingActionV2Request extends Model
     public $resourceOwnerId;
 
     /**
+     * @example START_SCALING_GROUP
+     *
      * @var string
      */
     public $scalingActionType;
 
     /**
+     * @example SGB-234242ABC****
+     *
      * @var string
      */
     public $scalingGroupBizId;

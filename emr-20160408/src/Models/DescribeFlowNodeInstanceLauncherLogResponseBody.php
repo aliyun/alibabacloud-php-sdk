@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowNodeInstanceLauncherLogResponseBody extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logEnd;
@@ -20,6 +22,8 @@ class DescribeFlowNodeInstanceLauncherLogResponseBody extends Model
     public $logEntrys;
 
     /**
+     * @example 4E216C44-F828-4D59-B398-253DCF86F23C
+     *
      * @var string
      */
     public $requestId;

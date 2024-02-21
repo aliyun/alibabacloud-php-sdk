@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyScalingGroupV2ResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example 7B804810-3C11-4927-B116-1D1A98A60BDD
+     *
      * @var string
      */
     public $requestId;

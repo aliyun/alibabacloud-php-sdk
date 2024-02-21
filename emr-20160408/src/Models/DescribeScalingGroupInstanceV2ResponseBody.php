@@ -11,41 +11,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingGroupInstanceV2ResponseBody extends Model
 {
     /**
+     * @example ByLoad
+     *
      * @var string
      */
     public $activeRuleCategory;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $defaultCooldown;
 
     /**
+     * @example G-5011FB3E4928****
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxSize;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $minSize;
 
     /**
+     * @example PRIORITY
+     *
      * @var string
      */
     public $multiAvailablePolicy;
 
     /**
+     * @example {"onDemandBaseCapacity": 1, "onDemandPercentageAboveBaseCapacity": 10, "spotInstanceRemedy": false, "spotInstancePools": 2}
+     *
      * @var string
      */
     public $multiAvailablePolicyParam;
 
     /**
+     * @example 6C96FD2C-95A0-4C03-8A19-7D84A4BAAA1E
+     *
      * @var string
      */
     public $requestId;
@@ -56,6 +72,8 @@ class DescribeScalingGroupInstanceV2ResponseBody extends Model
     public $scalingConfig;
 
     /**
+     * @example SGB-12324546568****
+     *
      * @var string
      */
     public $scalingGroupId;
@@ -66,11 +84,15 @@ class DescribeScalingGroupInstanceV2ResponseBody extends Model
     public $scalingRuleList;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $timeoutWithGrace;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $withGrace;

@@ -22,21 +22,29 @@ class emrMainVersion extends Model
     public $clusterTypeWhiteUserList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $display;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ecmVersion;
 
     /**
+     * @example EMR-3.29.1
+     *
      * @var string
      */
     public $emrVersion;
 
     /**
+     * @example m-bp1hdwryap03nxpl****
+     *
      * @var string
      */
     public $imageId;
@@ -47,16 +55,22 @@ class emrMainVersion extends Model
     public $publishType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example EMR
+     *
      * @var string
      */
     public $stackName;
 
     /**
+     * @example 3.29.1.2.2
+     *
      * @var string
      */
     public $stackVersion;

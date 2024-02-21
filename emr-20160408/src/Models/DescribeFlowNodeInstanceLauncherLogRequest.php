@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowNodeInstanceLauncherLogRequest extends Model
 {
     /**
+     * @example 1540796248000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $length;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $lines;
 
     /**
+     * @example FNI-0D2534B3AB67****
+     *
      * @var string
      */
     public $nodeInstanceId;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example FP-BECB9D35CB12****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $reverse;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $start;
 
     /**
+     * @example 1540796236000
+     *
      * @var int
      */
     public $startTime;

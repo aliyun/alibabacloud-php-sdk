@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class clusterOperationHostTask extends Model
 {
     /**
+     * @example 100
+     *
      * @var string
      */
     public $percentage;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 111
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example START_SparkHistory_ON_emr-header-1
+     *
      * @var string
      */
     public $taskName;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class clusterOperationHost extends Model
 {
     /**
+     * @example 111
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example emr-worker-1
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $percentage;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

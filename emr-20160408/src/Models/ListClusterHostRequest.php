@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ListClusterHostRequest extends Model
 {
     /**
+     * @example C-D7CA98AAA96A****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example HiveServer2
+     *
      * @var string
      */
     public $componentName;
 
     /**
+     * @example MASTER
+     *
      * @var string
      */
     public $groupType;
 
     /**
+     * @example G-A5EA210E15FC****
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @example i-bp11vdyh3l6xvmnl****
+     *
      * @var string
      */
     public $hostInstanceId;
 
     /**
+     * @example emr-header-1
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 192.***.***.***
+     *
      * @var string
      */
     public $privateIp;
 
     /**
+     * @example 47.***.***.***
+     *
      * @var string
      */
     public $publicIp;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -69,6 +91,8 @@ class ListClusterHostRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example ["NORMAL"]
+     *
      * @var string[]
      */
     public $statusList;

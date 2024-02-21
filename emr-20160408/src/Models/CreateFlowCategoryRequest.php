@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowCategoryRequest extends Model
 {
     /**
+     * @example myFolder
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example FC-AF08490649B8****
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example FP-AC84F265C8E4****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example FLOW
+     *
      * @var string
      */
     public $type;

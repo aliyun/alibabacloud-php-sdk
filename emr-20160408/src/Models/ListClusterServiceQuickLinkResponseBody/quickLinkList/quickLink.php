@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class quickLink extends Model
 {
     /**
+     * @example 8443
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @example https
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example knox.C-A15B381E446C****.cn-hangzhou.emr.aliyuncs.com:8443/gateway/cluster-topo/sparkhistory/
+     *
      * @var string
      */
     public $quickLinkAddress;
 
     /**
+     * @example Spark
+     *
      * @var string
      */
     public $serviceDisplayName;
 
     /**
+     * @example SPARK
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example KNOX
+     *
      * @var string
      */
     public $type;

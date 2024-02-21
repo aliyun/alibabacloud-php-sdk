@@ -15,6 +15,8 @@ class ListFlowClusterAllHostsResponseBody extends Model
     public $hostList;
 
     /**
+     * @example 2E429517-6A50-4082-9A30-47755CE9F9A5
+     *
      * @var string
      */
     public $requestId;

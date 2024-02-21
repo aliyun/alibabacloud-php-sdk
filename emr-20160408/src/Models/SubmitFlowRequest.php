@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SubmitFlowRequest extends Model
 {
     /**
+     * @example {"cyctime":"1542783967503"}
+     *
      * @var string
      */
     public $conf;
 
     /**
+     * @example F-FD06A29AF6D2****
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @example FP-AC84F265C8E4****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

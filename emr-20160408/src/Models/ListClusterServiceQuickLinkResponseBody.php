@@ -15,6 +15,8 @@ class ListClusterServiceQuickLinkResponseBody extends Model
     public $quickLinkList;
 
     /**
+     * @example 621094BA-8C21-4199-9F04-CA9AA5B63955
+     *
      * @var string
      */
     public $requestId;

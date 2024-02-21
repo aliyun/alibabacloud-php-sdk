@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListClusterServiceQuickLinkRequest extends Model
 {
     /**
+     * @example C-A15B381E446C****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $directType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @example SPARK
+     *
      * @var string
      */
     public $serviceName;

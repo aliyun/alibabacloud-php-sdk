@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RunScalingActionV2ResponseBody extends Model
 {
     /**
+     * @example asg-uf6iir8uwwpb7j4****
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example 123DF0CD-C5F5-4A8D-984A-C5A4331EB84F
+     *
      * @var string
      */
     public $requestId;

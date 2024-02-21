@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class templateInfo extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowNotebook;
@@ -23,6 +25,8 @@ class templateInfo extends Model
     public $bootstrapActionList;
 
     /**
+     * @example HADOOP
+     *
      * @var string
      */
     public $clusterType;
@@ -33,36 +37,50 @@ class templateInfo extends Model
     public $configList;
 
     /**
+     * @example [{"classification": "core-site","properties": {"fs.trash.interval": "61"}},{"classification": "hadoop-log4j","properties": {"hadoop.log.file": "hadoop1.log","hadoop.root.logger": "INFO","a.b.c": "ABC"}}]
+     *
      * @var string
      */
     public $configurations;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $createSource;
 
     /**
+     * @example HALF_MANAGED
+     *
      * @var string
      */
     public $depositType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $easEnable;
 
     /**
+     * @example 1601361773000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1601361773000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $highAvailabilityEnable;
@@ -73,76 +91,106 @@ class templateInfo extends Model
     public $hostGroupList;
 
     /**
+     * @example CT-53B394A1B559****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $initCustomHiveMetaDb;
 
     /**
+     * @example ecs-3
+     *
      * @var string
      */
     public $instanceGeneration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ioOptimized;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isOpenPublicIp;
 
     /**
+     * @example test_kp
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $logEnable;
 
     /**
+     * @example oss//bucketname/path
+     *
      * @var string
      */
     public $logPath;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $machineType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $masterNodeTotal;
 
     /**
+     * @example rdsxxx.com
+     *
      * @var string
      */
     public $metaStoreConf;
 
     /**
+     * @example local
+     *
      * @var string
      */
     public $metaStoreType;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @example sg-bp1gldj1nzq5t3b8****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example emr_sg
+     *
      * @var string
      */
     public $securityGroupName;
@@ -153,46 +201,66 @@ class templateInfo extends Model
     public $softwareInfoList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sshEnable;
 
     /**
+     * @example template_name_2
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useCustomHiveMetaDb;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useLocalMetaDb;
 
     /**
+     * @example AliyunEmrEcsDefaultRole
+     *
      * @var string
      */
     public $userDefinedEmrEcsRole;
 
     /**
+     * @example 125046002175****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example vsw-bp1g6ftcv6p1w6h8x****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example pc-bp15pknn5td3mkc4g****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

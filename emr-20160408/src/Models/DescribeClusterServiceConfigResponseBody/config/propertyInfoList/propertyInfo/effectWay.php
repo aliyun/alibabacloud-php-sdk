@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class effectWay extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $effectType;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $invokeServiceName;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowJobRequest extends Model
 {
     /**
+     * @example FJ-BBCAE48B90CCB37B
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example FP-257A173659F59685
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

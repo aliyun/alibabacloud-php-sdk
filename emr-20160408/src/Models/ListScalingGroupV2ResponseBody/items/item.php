@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @example ACTIVE
+     *
      * @var string
      */
     public $activeStatus;
@@ -19,31 +21,43 @@ class item extends Model
     public $description;
 
     /**
+     * @example G-3242ABC24****
+     *
      * @var string
      */
     public $hostGroupBizId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example SGB-242342ABC****
+     *
      * @var string
      */
     public $scalingGroupId;
 
     /**
+     * @example GRACEFUL
+     *
      * @var string
      */
     public $scalingInMode;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $scalingMaxSize;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $scalingMinSize;

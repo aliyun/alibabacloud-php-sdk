@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListClusterOperationRequest extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
@@ -19,31 +21,43 @@ class ListClusterOperationRequest extends Model
     public $operationId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @example YARN
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

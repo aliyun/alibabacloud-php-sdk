@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListFlowNodeSqlResultRequest extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $length;
 
     /**
+     * @example FE4BD156E939****
+     *
      * @var string
      */
     public $nodeInstanceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example FP-7A1018ADE917****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $sqlIndex;

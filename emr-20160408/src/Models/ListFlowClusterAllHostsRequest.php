@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListFlowClusterAllHostsRequest extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example FP-3535FE0BE522****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

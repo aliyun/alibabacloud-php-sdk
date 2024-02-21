@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterTemplateRequest extends Model
 {
     /**
+     * @example CT-35498C56B3F1****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example rg-acfmv6jutt6****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $resourceOwnerId;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class clusterOperation extends Model
 {
     /**
+     * @example Create cluster
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example 303
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 41027
+     *
      * @var string
      */
     public $operationId;
 
     /**
+     * @example CREATE
+     *
      * @var string
      */
     public $operationName;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $percentage;
 
     /**
+     * @example 1543312720000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class emrInstanceType extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $baselineCredit;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $cpuCoreCount;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $eniQuantity;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $GPUAmount;
 
     /**
+     * @example NVIDIA P100
+     *
      * @var string
      */
     public $GPUSpec;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $initialCredit;
 
     /**
+     * @example 1536000
+     *
      * @var int
      */
     public $instanceBandwidthRx;
 
     /**
+     * @example 1536000
+     *
      * @var int
      */
     public $instanceBandwidthTx;
 
     /**
+     * @example 500000
+     *
      * @var int
      */
     public $instancePpsRx;
 
     /**
+     * @example 500000
+     *
      * @var int
      */
     public $instancePpsTx;
 
     /**
+     * @example ecs.g5.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example ecs.g5
+     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $localStorageAmount;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $localStorageCapacity;
 
     /**
+     * @example local_ssd_pro
+     *
      * @var string
      */
     public $localStorageCategory;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $memorySize;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListFlowNodeInstanceContainerStatusRequest extends Model
 {
     /**
+     * @example FNI-FE4BD156E939****
+     *
      * @var string
      */
     public $nodeInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example FP-AC84F265C8E4****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

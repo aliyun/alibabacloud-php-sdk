@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceQueueRequest extends Model
 {
     /**
+     * @example C-0E995C0EE7E5****
+     *
      * @var string
      */
     public $clusterId;
@@ -20,26 +22,36 @@ class CreateResourceQueueRequest extends Model
     public $config;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $leaf;
 
     /**
+     * @example DefaultQueue
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 225
+     *
      * @var int
      */
     public $parentQueueId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $qualifiedName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -50,6 +62,8 @@ class CreateResourceQueueRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 115
+     *
      * @var int
      */
     public $resourcePoolId;

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowProjectClusterSettingRequest extends Model
 {
     /**
+     * @example C-DCEE11B49C8F****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $defaultQueue;
 
     /**
+     * @example hadoop
+     *
      * @var string
      */
     public $defaultUser;
 
     /**
+     * @example emr-header-1.cluster-12345
+     *
      * @var string[]
      */
     public $hostList;
 
     /**
+     * @example FP-ED2F3E844FE3****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example queue1
+     *
      * @var string[]
      */
     public $queueList;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example hadoop
+     *
      * @var string[]
      */
     public $userList;

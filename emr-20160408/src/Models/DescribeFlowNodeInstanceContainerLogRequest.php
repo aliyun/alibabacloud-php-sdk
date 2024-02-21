@@ -9,41 +9,59 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowNodeInstanceContainerLogRequest extends Model
 {
     /**
+     * @example application_1542620905989_****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description Conintainer ID。
+     *
+     * @example container_1542620905989_0010_01_00****
+     *
      * @var string
      */
     public $containerId;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $length;
 
     /**
+     * @example stderr
+     *
      * @var string
      */
     public $logName;
 
     /**
+     * @example FNI-0D2534B3AB67****
+     *
      * @var string
      */
     public $nodeInstanceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @example FP-BECB9D35CB12****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

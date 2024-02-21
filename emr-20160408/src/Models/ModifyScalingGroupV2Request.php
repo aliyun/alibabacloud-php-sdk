@@ -14,16 +14,22 @@ class ModifyScalingGroupV2Request extends Model
     public $description;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmv6jutt6****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -34,6 +40,8 @@ class ModifyScalingGroupV2Request extends Model
     public $resourceOwnerId;
 
     /**
+     * @example SGB-12324AC3****
+     *
      * @var string
      */
     public $scalingGroupBizId;

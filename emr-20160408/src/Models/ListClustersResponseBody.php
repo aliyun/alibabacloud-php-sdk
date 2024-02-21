@@ -15,21 +15,29 @@ class ListClustersResponseBody extends Model
     public $clusters;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example BF4FBAC6-B03E-4BFB-B6DB-EB53C34F2E22
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $totalCount;

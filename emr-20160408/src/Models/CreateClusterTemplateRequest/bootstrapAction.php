@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class bootstrapAction extends Model
 {
     /**
+     * @example --arg1
+     *
      * @var string
      */
     public $arg;
 
     /**
+     * @example FAILED_BLOCKED
+     *
      * @var string
      */
     public $executionFailStrategy;
 
     /**
+     * @example BEFORE_INSTALL
+     *
      * @var string
      */
     public $executionMoment;
 
     /**
+     * @example core_group
+     *
      * @var string
      */
     public $executionTarget;
 
     /**
+     * @example init_script
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example oss://bucket/path
+     *
      * @var string
      */
     public $path;

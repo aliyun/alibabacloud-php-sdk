@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class relateClusterInfo extends Model
 {
     /**
+     * @example C-D7958B72E59B****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example main
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example HADOOP
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

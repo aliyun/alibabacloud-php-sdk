@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @example fs.trash.interval
+     *
      * @var string
      */
     public $configKey;
 
     /**
+     * @example 60
+     *
      * @var string
      */
     public $configValue;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $encrypt;
 
     /**
+     * @example yarn-site
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $replace;
 
     /**
+     * @example YARN
+     *
      * @var string
      */
     public $serviceName;

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class scalingConfig extends Model
 {
     /**
+     * @example ssd
+     *
      * @var string
      */
     public $dataDiskCategory;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $dataDiskCount;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $dataDiskSize;
@@ -31,6 +37,8 @@ class scalingConfig extends Model
     public $instanceTypeList;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $payType;
@@ -41,16 +49,22 @@ class scalingConfig extends Model
     public $spotPriceLimits;
 
     /**
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @example ssd
+     *
      * @var string
      */
     public $sysDiskCategory;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $sysDiskSize;

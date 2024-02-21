@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class schedulerTrigger extends Model
 {
     /**
+     * @example 600
+     *
      * @var int
      */
     public $launchExpirationTime;
 
     /**
+     * @example 1434321345621
+     *
      * @var int
      */
     public $launchTime;
 
     /**
+     * @example 1434321345621
+     *
      * @var int
      */
     public $recurrenceEndTime;
 
     /**
+     * @example Daily
+     *
      * @var string
      */
     public $recurrenceType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $recurrenceValue;

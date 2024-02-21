@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyScalingConfigItemV2Request extends Model
 {
     /**
+     * @example SCB-232423A****
+     *
      * @var string
      */
     public $configItemBizId;
@@ -19,16 +21,22 @@ class ModifyScalingConfigItemV2Request extends Model
     public $configItemInformation;
 
     /**
+     * @example SCALING_RULE
+     *
      * @var string
      */
     public $configItemType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmv6jutt6****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -39,6 +47,8 @@ class ModifyScalingConfigItemV2Request extends Model
     public $resourceOwnerId;
 
     /**
+     * @example SGB-1232423AB****
+     *
      * @var string
      */
     public $scalingGroupBizId;

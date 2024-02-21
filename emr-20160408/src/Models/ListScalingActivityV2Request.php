@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListScalingActivityV2Request extends Model
 {
     /**
+     * @example C-12324352352****
+     *
      * @var string
      */
     public $clusterBizId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $currentSize;
 
     /**
+     * @example G-2342423****
+     *
      * @var string
      */
     public $hostGroupId;
@@ -29,41 +35,57 @@ class ListScalingActivityV2Request extends Model
     public $hostGroupName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example id
+     *
      * @var string
      */
     public $orderField;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $orderMode;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pageCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmv6jutt6****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -74,6 +96,8 @@ class ListScalingActivityV2Request extends Model
     public $resourceOwnerId;
 
     /**
+     * @example SGB-A2343453****
+     *
      * @var string
      */
     public $scalingGroupBizId;
@@ -84,6 +108,8 @@ class ListScalingActivityV2Request extends Model
     public $scalingRuleName;
 
     /**
+     * @example Successful
+     *
      * @var string
      */
     public $status;

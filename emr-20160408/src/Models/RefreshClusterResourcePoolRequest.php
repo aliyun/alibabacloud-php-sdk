@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RefreshClusterResourcePoolRequest extends Model
 {
     /**
+     * @example C-0E995C0EE7E5****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -24,6 +28,8 @@ class RefreshClusterResourcePoolRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 115
+     *
      * @var int
      */
     public $resourcePoolId;

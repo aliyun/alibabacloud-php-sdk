@@ -14,16 +14,22 @@ class AddScalingConfigItemV2Request extends Model
     public $configItemInformation;
 
     /**
+     * @example SCALING_RULE
+     *
      * @var string
      */
     public $configItemType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmv6jutt6****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -34,6 +40,8 @@ class AddScalingConfigItemV2Request extends Model
     public $resourceOwnerId;
 
     /**
+     * @example SGB-A4521231C****
+     *
      * @var string
      */
     public $scalingGroupBizId;

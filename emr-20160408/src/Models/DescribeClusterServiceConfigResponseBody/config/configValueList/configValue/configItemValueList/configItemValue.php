@@ -9,29 +9,43 @@ use AlibabaCloud\Tea\Model;
 class configItemValue extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isCustom;
 
     /**
+     * @example tez.history.logging.service.class
+     *
      * @var string
      */
     public $itemName;
 
     /**
+     * @example org.apache.tez.dag.history.logging.ats.ATSHistoryLoggingService
+     *
      * @var string
      */
     public $value;
+
+    /**
+     * @var string
+     */
+    public $valueScope;
     protected $_name = [
         'description' => 'Description',
         'isCustom'    => 'IsCustom',
         'itemName'    => 'ItemName',
         'value'       => 'Value',
+        'valueScope'  => 'ValueScope',
     ];
 
     public function validate()
@@ -52,6 +66,9 @@ class configItemValue extends Model
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
+        }
+        if (null !== $this->valueScope) {
+            $res['ValueScope'] = $this->valueScope;
         }
 
         return $res;
@@ -76,6 +93,9 @@ class configItemValue extends Model
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
+        }
+        if (isset($map['ValueScope'])) {
+            $model->valueScope = $map['ValueScope'];
         }
 
         return $model;

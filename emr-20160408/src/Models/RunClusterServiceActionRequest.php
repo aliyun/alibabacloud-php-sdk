@@ -9,91 +9,127 @@ use AlibabaCloud\Tea\Model;
 class RunClusterServiceActionRequest extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example test run action
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example Tomcat
+     *
      * @var string
      */
     public $componentNameList;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $customCommand;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $customParams;
 
     /**
+     * @example FAILED_BLOCK
+     *
      * @var string
      */
     public $executeStrategy;
 
     /**
+     * @example 1
+     *
      * @var string[]
      */
     public $hostGroupIdList;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $hostIdList;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRolling;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeCountPerBatch;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $onlyRestartStaleConfigNodes;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @example STOP
+     *
      * @var string
      */
     public $serviceActionName;
 
     /**
+     * @example TEZ
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totlerateFailCount;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $turnOnMaintenanceMode;

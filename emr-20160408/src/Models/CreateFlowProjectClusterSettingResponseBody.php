@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowProjectClusterSettingResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example 0AD9FF20-F585-4E0A-870D-B8A8F884CCE6
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class containerStatus extends Model
 {
     /**
+     * @description Application ID。
+     *
+     * @example application_1542333181298_0016
+     *
      * @var string
      */
     public $applicationId;
 
     /**
+     * @description Container ID。
+     *
+     * @example container_1542333181298_0016_01_000015
+     *
      * @var string
      */
     public $containerId;
 
     /**
+     * @example 192.168.xx.xx
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example KILLED
+     *
      * @var string
      */
     public $status;

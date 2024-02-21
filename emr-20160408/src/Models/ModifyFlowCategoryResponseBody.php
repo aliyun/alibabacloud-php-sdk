@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyFlowCategoryResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example CEA9AFD2-B340-41F4-A661-8916CBF07C32
+     *
      * @var string
      */
     public $requestId;

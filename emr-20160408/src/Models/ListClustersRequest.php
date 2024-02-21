@@ -10,71 +10,99 @@ use AlibabaCloud\Tea\Model;
 class ListClustersRequest extends Model
 {
     /**
+     * @example ["HADOOP","KAFKA"]
+     *
      * @var string[]
      */
     public $clusterTypeList;
 
     /**
+     * @example ON-DEMAND
+     *
      * @var string
      */
     public $createType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $defaultStatus;
 
     /**
+     * @example HALF_MANAGED
+     *
      * @var string
      */
     public $depositType;
 
     /**
+     * @example 0
+     *
      * @var string[]
      */
     public $expiredTagList;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDesc;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $machineType;
 
     /**
+     * @example cluster_name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @example ["CREATING","IDLE"]
+     *
      * @var string[]
      */
     public $statusList;
@@ -85,6 +113,8 @@ class ListClustersRequest extends Model
     public $tag;
 
     /**
+     * @example vpc-bp1c85tzgqu1bf5b****
+     *
      * @var string
      */
     public $vpcId;

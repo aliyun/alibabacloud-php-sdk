@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListFlowInstanceRequest extends Model
 {
     /**
+     * @example F-1B4018ADE917****
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @example my_flow
+     *
      * @var string
      */
     public $flowName;
@@ -24,56 +28,78 @@ class ListFlowInstanceRequest extends Model
     public $id;
 
     /**
+     * @example FI-7CAF9709CD32****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example FJI-54FEBB063136****
+     *
      * @var string
      */
     public $nodeInstanceId;
 
     /**
+     * @example id
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @example ASC
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example 1230404****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example FP-7A1018ADE917****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example RUNNING
+     *
      * @var string[]
      */
     public $statusList;
 
     /**
+     * @example {"type": "range", "from": 1608263168000, "to": 1608263169000}
+     *
      * @var string
      */
     public $timeRange;

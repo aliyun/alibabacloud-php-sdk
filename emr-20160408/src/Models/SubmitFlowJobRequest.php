@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class SubmitFlowJobRequest extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $conf;
 
     /**
+     * @example emr-header-1.cluster-12345
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example FJ-1A2FB31D8295****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example FJI-9DDAAA3ADA5F****
+     *
      * @var string
      */
     public $jobInstanceId;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example FP-3535FE0BE5228***
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

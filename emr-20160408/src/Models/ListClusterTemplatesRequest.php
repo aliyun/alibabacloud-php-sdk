@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListClusterTemplatesRequest extends Model
 {
     /**
+     * @example CT-1422C105DE88****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example EMR
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $resourceOwnerId;

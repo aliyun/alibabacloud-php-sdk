@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterTemplateRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
@@ -23,11 +25,15 @@ class CreateClusterTemplateRequest extends Model
     public $bootstrapAction;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example HADOOP
+     *
      * @var string
      */
     public $clusterType;
@@ -38,26 +44,50 @@ class CreateClusterTemplateRequest extends Model
     public $config;
 
     /**
+     * @example [{"classification": "core-site","properties": {"fs.trash.interval": "61"}},{"classification": "hadoop-log4j","properties": {"hadoop.log.file": "hadoop1.log","hadoop.root.logger": "INFO","a.b.c": "ABC"}}]
+     *
      * @var string
      */
     public $configurations;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $dataDiskEncrypted;
+
+    /**
+     * @example false
+     *
+     * @var string
+     */
+    public $dataDiskKMSKeyId;
+
+    /**
+     * @example HALF_MANAGED
+     *
      * @var string
      */
     public $depositType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $easEnable;
 
     /**
+     * @example EMR-3.35.0
+     *
      * @var string
      */
     public $emrVer;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $highAvailabilityEnable;
@@ -68,96 +98,134 @@ class CreateClusterTemplateRequest extends Model
     public $hostGroup;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $initCustomHiveMetaDb;
 
     /**
+     * @example ecs-3
+     *
      * @var string
      */
     public $instanceGeneration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ioOptimized;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isOpenPublicIp;
 
     /**
+     * @example test_pair
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example oss://bucket/path
+     *
      * @var string
      */
     public $logPath;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $machineType;
 
     /**
+     * @example pwd
+     *
      * @var string
      */
     public $masterPwd;
 
     /**
+     * @example {"dbUrl":"jdbc:mysql://rm-xxxxxxxxxx.mysql.rds.aliyuncs.com/hmsdata?createDatabaseIfNotExist=true&amp;characterEncoding=UTF-8","dbUserName":"xxxxxxx","dbPassword":"xxxxxx"}
+     *
      * @var string
      */
     public $metaStoreConf;
 
     /**
+     * @example user_rds
+     *
      * @var string
      */
     public $metaStoreType;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @example ["HBASE","FLINK"]
+     *
      * @var string[]
      */
     public $optionSoftWareList;
 
     /**
+     * @example 36
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @example sg-bp1id7ajv83kmqwq****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example sg-name
+     *
      * @var string
      */
     public $securityGroupName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sshEnable;
@@ -168,36 +236,52 @@ class CreateClusterTemplateRequest extends Model
     public $tag;
 
     /**
+     * @example ETLClusterTemplate
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useCustomHiveMetaDb;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useLocalMetaDb;
 
     /**
+     * @example AliyunEmrEcsDefaultRole
+     *
      * @var string
      */
     public $userDefinedEmrEcsRole;
 
     /**
+     * @example vsw-bp10tvjyc77psy0z5****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp1l4urd87xlh7i4b****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
@@ -208,6 +292,8 @@ class CreateClusterTemplateRequest extends Model
         'clusterType'            => 'ClusterType',
         'config'                 => 'Config',
         'configurations'         => 'Configurations',
+        'dataDiskEncrypted'      => 'DataDiskEncrypted',
+        'dataDiskKMSKeyId'       => 'DataDiskKMSKeyId',
         'depositType'            => 'DepositType',
         'easEnable'              => 'EasEnable',
         'emrVer'                 => 'EmrVer',
@@ -278,6 +364,12 @@ class CreateClusterTemplateRequest extends Model
         }
         if (null !== $this->configurations) {
             $res['Configurations'] = $this->configurations;
+        }
+        if (null !== $this->dataDiskEncrypted) {
+            $res['DataDiskEncrypted'] = $this->dataDiskEncrypted;
+        }
+        if (null !== $this->dataDiskKMSKeyId) {
+            $res['DataDiskKMSKeyId'] = $this->dataDiskKMSKeyId;
         }
         if (null !== $this->depositType) {
             $res['DepositType'] = $this->depositType;
@@ -428,6 +520,12 @@ class CreateClusterTemplateRequest extends Model
         }
         if (isset($map['Configurations'])) {
             $model->configurations = $map['Configurations'];
+        }
+        if (isset($map['DataDiskEncrypted'])) {
+            $model->dataDiskEncrypted = $map['DataDiskEncrypted'];
+        }
+        if (isset($map['DataDiskKMSKeyId'])) {
+            $model->dataDiskKMSKeyId = $map['DataDiskKMSKeyId'];
         }
         if (isset($map['DepositType'])) {
             $model->depositType = $map['DepositType'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class daemonInfo extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $name;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListEmrMainVersionRequest extends Model
 {
     /**
+     * @example EMR-3.16.0
+     *
      * @var string
      */
     public $emrVersion;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @example EMR
+     *
      * @var string
      */
     public $stackName;
 
     /**
+     * @example 3.16.0.1.2
+     *
      * @var string
      */
     public $stackVersion;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class securityGroup extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $availableInstanceAmount;
 
     /**
+     * @example 2018-12-03T10:11:55Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example sgdesc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $ecsCount;
 
     /**
+     * @example sg-bp1j1n0xcwfs19y9****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example ziguansg
+     *
      * @var string
      */
     public $securityGroupName;
@@ -44,6 +56,10 @@ class securityGroup extends Model
     public $securityGroupType;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp1d618azoa9go6wo****
+     *
      * @var string
      */
     public $vpcId;

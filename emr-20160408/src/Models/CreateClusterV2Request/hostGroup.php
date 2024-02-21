@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class hostGroup extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
@@ -34,21 +38,29 @@ class hostGroup extends Model
     public $createType;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $diskCapacity;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $diskCount;
 
     /**
+     * @example CLOUD_EFFICIENCY
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example cuda9
+     *
      * @var string
      */
     public $gpuDriver;
@@ -64,46 +76,64 @@ class hostGroup extends Model
     public $hostGroupName;
 
     /**
+     * @example MASTER
+     *
      * @var string
      */
     public $hostGroupType;
 
     /**
+     * @example ecs.g6.2xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example crp-bp1e4wcvoucrish*****
+     *
      * @var string
      */
     public $privatePoolOptionsId;
 
     /**
+     * @example Target
+     *
      * @var string
      */
     public $privatePoolOptionsMatchCriteria;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $sysDiskCapacity;
 
     /**
+     * @example CLOUD_SSD
+     *
      * @var string
      */
     public $sysDiskType;
 
     /**
+     * @example vsw-bp10tvjyc77psy0z5****
+     *
      * @var string
      */
     public $vSwitchId;

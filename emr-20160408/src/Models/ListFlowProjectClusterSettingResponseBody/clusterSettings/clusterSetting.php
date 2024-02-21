@@ -12,31 +12,43 @@ use AlibabaCloud\Tea\Model;
 class clusterSetting extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example mingbo-v199v1
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $defaultQueue;
 
     /**
+     * @example hadoop
+     *
      * @var string
      */
     public $defaultUser;
 
     /**
+     * @example 1541561123000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1541561123000
+     *
      * @var int
      */
     public $gmtModified;
@@ -52,6 +64,8 @@ class clusterSetting extends Model
     public $k8sClusterId;
 
     /**
+     * @example FP-F958DB9A2BA****
+     *
      * @var string
      */
     public $projectId;

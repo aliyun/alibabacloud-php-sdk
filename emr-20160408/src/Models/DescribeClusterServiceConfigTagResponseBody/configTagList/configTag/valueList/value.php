@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class value extends Model
 {
     /**
+     * @example BASIC
+     *
      * @var string
      */
     public $value;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingGroupV2Request extends Model
 {
     /**
+     * @example G-AB342535346545****
+     *
      * @var string
      */
     public $hostGroupBizId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmv6jutt6****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -29,6 +35,8 @@ class DescribeScalingGroupV2Request extends Model
     public $resourceOwnerId;
 
     /**
+     * @example SGB-232432123245****
+     *
      * @var string
      */
     public $scalingGroupBizId;

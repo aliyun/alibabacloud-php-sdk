@@ -15,6 +15,8 @@ class emrMainVersion extends Model
     public $clusterTypeInfoList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ecmVersion;
@@ -25,11 +27,15 @@ class emrMainVersion extends Model
     public $extraInfo;
 
     /**
+     * @example EMR-3.15.1
+     *
      * @var string
      */
     public $mainVersionName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $onCloudNative;
@@ -40,16 +46,22 @@ class emrMainVersion extends Model
     public $publishType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example EMR
+     *
      * @var string
      */
     public $stackName;
 
     /**
+     * @example EMR-3.15.1
+     *
      * @var string
      */
     public $stackVersion;

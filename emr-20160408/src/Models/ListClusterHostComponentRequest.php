@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListClusterHostComponentRequest extends Model
 {
     /**
+     * @example C-F32FB31D82954C64
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example TezInit
+     *
      * @var string
      */
     public $componentName;
 
     /**
+     * @example STARTED
+     *
      * @var string
      */
     public $componentStatus;
 
     /**
+     * @example i-xxx
+     *
      * @var string
      */
     public $hostInstanceId;
 
     /**
+     * @example emr-worker-1
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example CORE
+     *
      * @var string
      */
     public $hostRole;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -59,6 +77,8 @@ class ListClusterHostComponentRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example TEZ
+     *
      * @var string
      */
     public $serviceName;

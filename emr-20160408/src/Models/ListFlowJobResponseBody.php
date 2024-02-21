@@ -15,21 +15,29 @@ class ListFlowJobResponseBody extends Model
     public $jobList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 7D2B1B2E-8D89-49C1-8D31-097C83879D20
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $total;

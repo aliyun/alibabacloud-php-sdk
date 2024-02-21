@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class gatewayClusterInfo extends Model
 {
     /**
+     * @example C-1AD4D95AF8B6****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example test_gateway
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example IDLE
+     *
      * @var string
      */
     public $status;

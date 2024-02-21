@@ -15,26 +15,36 @@ class ListScalingConfigItemV2ResponseBody extends Model
     public $items;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 7B804810-3C11-4927-B116-1D1A98A60BDD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

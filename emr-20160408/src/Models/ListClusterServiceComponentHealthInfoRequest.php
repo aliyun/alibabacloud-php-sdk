@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListClusterServiceComponentHealthInfoRequest extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
@@ -19,6 +21,8 @@ class ListClusterServiceComponentHealthInfoRequest extends Model
     public $componentName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -29,6 +33,8 @@ class ListClusterServiceComponentHealthInfoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example TEZ
+     *
      * @var string
      */
     public $serviceName;

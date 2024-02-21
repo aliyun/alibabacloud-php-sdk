@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class hostGroup extends Model
 {
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
@@ -19,86 +21,120 @@ class hostGroup extends Model
     public $comment;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $costSavingPercent;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $dataDiskCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $dataDiskSize;
 
     /**
+     * @example CLOUD_SSD
+     *
      * @var string
      */
     public $dataDiskType;
 
     /**
+     * @example IN_PROGRESS
+     *
      * @var string
      */
     public $hostGroupChangeStatus;
 
     /**
+     * @example RESIZE_DISK
+     *
      * @var string
      */
     public $hostGroupChangeType;
 
     /**
+     * @example G-EBAA5D6566E7****
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @example Core_Group
+     *
      * @var string
      */
     public $hostGroupName;
 
     /**
+     * @example AutoScaling
+     *
      * @var string
      */
     public $hostGroupSubType;
 
     /**
+     * @example CORE
+     *
      * @var string
      */
     public $hostGroupType;
 
     /**
+     * @example ecs.c5.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example Your account balance is insufficient
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @example ACCOUNT_ARREARS
+     *
      * @var string
      */
     public $lockType;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $nodeCount;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $payType;
@@ -119,11 +155,15 @@ class hostGroup extends Model
     public $scalingGroupConfigState;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $scalingGroupMaxNode;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $scalingGroupMinNode;
@@ -134,41 +174,57 @@ class hostGroup extends Model
     public $scalingInMode;
 
     /**
+     * @example sg-xxx
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $systemDiskCount;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $systemDiskSize;
 
     /**
+     * @example CLOUD_SSD
+     *
      * @var string
      */
     public $systemDiskType;
 
     /**
+     * @example vsw-bp1aij6ynkt53ntnf****
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
+     * @example 1597042920000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 1597043525000
+     *
      * @var string
      */
     public $gmtModified;

@@ -23,6 +23,8 @@ class ListEmrAvailableConfigResponseBody extends Model
     public $keyPairNameList;
 
     /**
+     * @example BF4FBAC6-B03E-4BFB-B6DB-EB53C34F2E22
+     *
      * @var string
      */
     public $requestId;

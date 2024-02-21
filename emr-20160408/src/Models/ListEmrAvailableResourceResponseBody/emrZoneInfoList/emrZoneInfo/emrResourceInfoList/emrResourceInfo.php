@@ -15,6 +15,8 @@ class emrResourceInfo extends Model
     public $supportedResourceList;
 
     /**
+     * @example DataDisk
+     *
      * @var string
      */
     public $type;

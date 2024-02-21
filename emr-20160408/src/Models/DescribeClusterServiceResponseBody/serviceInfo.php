@@ -28,11 +28,15 @@ class serviceInfo extends Model
     public $needRestartHostIdList;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $needRestartInfo;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $needRestartNum;
@@ -43,16 +47,22 @@ class serviceInfo extends Model
     public $serviceActionList;
 
     /**
+     * @example YARN
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example INSTALLED
+     *
      * @var string
      */
     public $serviceStatus;
 
     /**
+     * @example 2.7.2
+     *
      * @var string
      */
     public $serviceVersion;

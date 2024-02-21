@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterServiceRequest extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -24,6 +28,8 @@ class DescribeClusterServiceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example HDFS
+     *
      * @var string
      */
     public $serviceName;

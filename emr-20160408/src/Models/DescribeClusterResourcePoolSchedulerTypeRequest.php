@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterResourcePoolSchedulerTypeRequest extends Model
 {
     /**
+     * @example C-EBD62A703A43****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

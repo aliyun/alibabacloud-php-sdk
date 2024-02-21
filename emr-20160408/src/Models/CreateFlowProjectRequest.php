@@ -14,21 +14,29 @@ class CreateFlowProjectRequest extends Model
     public $description;
 
     /**
+     * @example my_project
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example EMR
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;

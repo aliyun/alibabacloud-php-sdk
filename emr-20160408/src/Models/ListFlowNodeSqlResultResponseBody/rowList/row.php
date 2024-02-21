@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class row extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $rowIndex;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceQueueResponseBody extends Model
 {
     /**
+     * @example A1153E6C-9FB9-466C-AC11-1ED0BC12858E
+     *
      * @var string
      */
     public $requestId;

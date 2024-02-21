@@ -22,21 +22,29 @@ class clusterInfo extends Model
     public $accessInfo;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoScalingAllowed;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoScalingByLoadAllowed;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoScalingEnable;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoScalingSpotWithLimitAllowed;
@@ -47,6 +55,8 @@ class clusterInfo extends Model
     public $autoScalingVersion;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoScalingWithGraceAllowed;
@@ -57,56 +67,88 @@ class clusterInfo extends Model
     public $bootstrapActionList;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $bootstrapFailed;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example []
+     *
      * @var string
      */
     public $configurations;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $coreNodeInService;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $coreNodeTotal;
 
     /**
+     * @example ECM_EMR
+     *
      * @var string
      */
     public $createResource;
 
     /**
+     * @example MANUAL
+     *
      * @var string
      */
     public $createType;
 
     /**
+     * @var bool
+     */
+    public $dataDiskEncrypted;
+
+    /**
+     * @var string
+     */
+    public $dataDiskKMSKeyId;
+
+    /**
+     * @example HALF_MANAGED
+     *
      * @var string
      */
     public $depositType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $easEnable;
 
     /**
+     * @example 1544076205000
+     *
      * @var int
      */
     public $expiredTime;
 
     /**
+     * @example -None-
+     *
      * @var string
      */
     public $extraInfo;
@@ -117,6 +159,8 @@ class clusterInfo extends Model
     public $failReason;
 
     /**
+     * @example C-D7958B72E59B****
+     *
      * @var string
      */
     public $gatewayClusterIds;
@@ -127,6 +171,8 @@ class clusterInfo extends Model
     public $gatewayClusterInfoList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $highAvailabilityEnable;
@@ -142,21 +188,29 @@ class clusterInfo extends Model
     public $hostPoolInfo;
 
     /**
+     * @example C-E331B8AC12BF****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example m-bp118knl07yk88y8s6cj
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example ecs-3
+     *
      * @var string
      */
     public $instanceGeneration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ioOptimized;
@@ -167,61 +221,85 @@ class clusterInfo extends Model
     public $k8sClusterId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $localMetaDb;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $logEnable;
 
     /**
+     * @example oss://bucketname/path
+     *
      * @var string
      */
     public $logPath;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $machineType;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $masterNodeInService;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $masterNodeTotal;
 
     /**
+     * @example LOCAL
+     *
      * @var string
      */
     public $metaStoreType;
 
     /**
+     * @example cluster_name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @example 36
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example C-D7958B72E59****
+     *
      * @var string
      */
     public $relateClusterId;
@@ -232,26 +310,36 @@ class clusterInfo extends Model
     public $relateClusterInfo;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $resizeDiskEnable;
 
     /**
+     * @example 1102
+     *
      * @var int
      */
     public $runningTime;
 
     /**
+     * @example sg-bp1bvompzxgx7q0****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example emr-default-securitygroup
+     *
      * @var string
      */
     public $securityGroupName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $showSoftwareInterface;
@@ -262,51 +350,73 @@ class clusterInfo extends Model
     public $softwareInfo;
 
     /**
+     * @example 1543804234000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example IDLE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1543804234000
+     *
      * @var int
      */
     public $stopTime;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $taskNodeInService;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $taskNodeTotal;
 
     /**
+     * @example AliyunEmrEcsDefaultRole
+     *
      * @var string
      */
     public $userDefinedEmrEcsRole;
 
     /**
+     * @example 125046002175****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example vsw-bp11qjbyggil4pow0****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp1l4urd87xlh7i4****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
@@ -326,6 +436,8 @@ class clusterInfo extends Model
         'coreNodeTotal'                   => 'CoreNodeTotal',
         'createResource'                  => 'CreateResource',
         'createType'                      => 'CreateType',
+        'dataDiskEncrypted'               => 'DataDiskEncrypted',
+        'dataDiskKMSKeyId'                => 'DataDiskKMSKeyId',
         'depositType'                     => 'DepositType',
         'easEnable'                       => 'EasEnable',
         'expiredTime'                     => 'ExpiredTime',
@@ -423,6 +535,12 @@ class clusterInfo extends Model
         }
         if (null !== $this->createType) {
             $res['CreateType'] = $this->createType;
+        }
+        if (null !== $this->dataDiskEncrypted) {
+            $res['DataDiskEncrypted'] = $this->dataDiskEncrypted;
+        }
+        if (null !== $this->dataDiskKMSKeyId) {
+            $res['DataDiskKMSKeyId'] = $this->dataDiskKMSKeyId;
         }
         if (null !== $this->depositType) {
             $res['DepositType'] = $this->depositType;
@@ -612,6 +730,12 @@ class clusterInfo extends Model
         }
         if (isset($map['CreateType'])) {
             $model->createType = $map['CreateType'];
+        }
+        if (isset($map['DataDiskEncrypted'])) {
+            $model->dataDiskEncrypted = $map['DataDiskEncrypted'];
+        }
+        if (isset($map['DataDiskKMSKeyId'])) {
+            $model->dataDiskKMSKeyId = $map['DataDiskKMSKeyId'];
         }
         if (isset($map['DepositType'])) {
             $model->depositType = $map['DepositType'];

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyFlowCategoryRequest extends Model
 {
     /**
+     * @example FC-ABCDEFGHI****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example Test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example FC-ABCDEFGHI****
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example FP-ABCDEFGHI****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class ListEmrAvailableResourceRequest extends Model
 {
     /**
+     * @example C-D7958B72E59B****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example HADOOP
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $dataDiskType;
 
     /**
+     * @example HALF_MANAGED
+     *
      * @var string
      */
     public $depositType;
 
     /**
+     * @example DataDisk
+     *
      * @var string
      */
     public $destinationResource;
 
     /**
+     * @example EMR-3.16.0
+     *
      * @var string
      */
     public $emrVersion;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @example ecs.g5.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @example SpotWithPriceLimit
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $systemDiskType;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

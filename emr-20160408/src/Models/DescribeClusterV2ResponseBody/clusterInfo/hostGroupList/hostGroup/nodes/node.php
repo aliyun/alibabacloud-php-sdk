@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class node extends Model
 {
     /**
+     * @example 1543804242000
+     *
      * @var string
      */
     public $createTime;
@@ -26,41 +28,57 @@ class node extends Model
     public $diskInfos;
 
     /**
+     * @example 2099-12-31T15:59Z
+     *
      * @var string
      */
     public $emrExpiredTime;
 
     /**
+     * @example 2099-12-31T15:59Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example 192.168.128.236
+     *
      * @var string
      */
     public $innerIp;
 
     /**
+     * @example i-bp1ftve3lzvpm16hp7lo
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 47.99.***.***
+     *
      * @var string
      */
     public $pubIp;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $supportIpV6;
 
     /**
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $zoneId;

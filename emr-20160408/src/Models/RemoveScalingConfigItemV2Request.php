@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RemoveScalingConfigItemV2Request extends Model
 {
     /**
+     * @example SRB-54CCB030511A****
+     *
      * @var string
      */
     public $configItemBizId;
 
     /**
+     * @example SCALING_RULE
+     *
      * @var string
      */
     public $configItemType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmv6jutt6****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -34,6 +42,8 @@ class RemoveScalingConfigItemV2Request extends Model
     public $resourceOwnerId;
 
     /**
+     * @example SGB-32242E323****
+     *
      * @var string
      */
     public $scalingGroupBizId;

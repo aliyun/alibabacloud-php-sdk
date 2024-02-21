@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class userInfo extends Model
 {
     /**
+     * @example pwd
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example username
+     *
      * @var string
      */
     public $userName;

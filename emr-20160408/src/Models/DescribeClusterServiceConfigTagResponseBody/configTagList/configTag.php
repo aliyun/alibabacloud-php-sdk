@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class configTag extends Model
 {
     /**
+     * @example PROPERTY_TYPE
+     *
      * @var string
      */
     public $tag;

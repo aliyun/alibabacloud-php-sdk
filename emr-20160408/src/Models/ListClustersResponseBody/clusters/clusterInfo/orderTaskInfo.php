@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class orderTaskInfo extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $currentCount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $orderIdList;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $targetCount;

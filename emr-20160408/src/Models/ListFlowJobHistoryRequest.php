@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListFlowJobHistoryRequest extends Model
 {
     /**
+     * @example FJ-BCCAE48B90CC****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example FJI-BCCAE48B90CC****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example SHELL
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example FP-257A173659F5****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ["FAILED"]
+     *
      * @var string[]
      */
     public $statusList;
 
     /**
+     * @example {"type":"range","from":1564416000000,"to":1567008000000}
+     *
      * @var string
      */
     public $timeRange;

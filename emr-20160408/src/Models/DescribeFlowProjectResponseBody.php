@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowProjectResponseBody extends Model
 {
     /**
+     * @example integration_test_project
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1542934807000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1542934809000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example FP-5D55DA9DEDF2****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example project_name_demo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ACD3A7A5-CD6E-48DA-823B-ACE5B01DA43D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 12345****
+     *
      * @var string
      */
     public $userId;

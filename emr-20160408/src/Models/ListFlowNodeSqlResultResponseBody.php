@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ListFlowNodeSqlResultResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $end;
@@ -21,6 +23,8 @@ class ListFlowNodeSqlResultResponseBody extends Model
     public $headerList;
 
     /**
+     * @example 90F14544-832D-4D81-8F8C-8F8547AE5B9D
+     *
      * @var string
      */
     public $requestId;

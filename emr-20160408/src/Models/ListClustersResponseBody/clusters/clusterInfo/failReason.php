@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class failReason extends Model
 {
     /**
+     * @example InvalidImageId.NotFound
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The specified ImageId does not exist.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example B8DC3A91-3953-4444-92BB-DBC29C47EC1A
+     *
      * @var string
      */
     public $requestId;

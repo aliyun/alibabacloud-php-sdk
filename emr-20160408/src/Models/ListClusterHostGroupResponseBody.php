@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListClusterHostGroupResponseBody extends Model
 {
     /**
+     * @example C-D7958B72E59B****
+     *
      * @var string
      */
     public $clusterId;
@@ -20,21 +22,29 @@ class ListClusterHostGroupResponseBody extends Model
     public $hostGroupList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example BF4FBAC6-B03E-4BFB-B6DB-EB53C34F2E22
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $total;

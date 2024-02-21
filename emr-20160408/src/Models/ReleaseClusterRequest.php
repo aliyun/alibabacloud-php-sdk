@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ReleaseClusterRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $forceRelease;
 
     /**
+     * @example C-D7958B72E59B****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $resourceOwnerId;

@@ -16,11 +16,15 @@ class supportedResource extends Model
     public $emrInstanceType;
 
     /**
+     * @example 32768
+     *
      * @var int
      */
     public $max;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $min;
@@ -31,11 +35,15 @@ class supportedResource extends Model
     public $supportNodeTypeList;
 
     /**
+     * @example GiB
+     *
      * @var string
      */
     public $unit;
 
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $value;

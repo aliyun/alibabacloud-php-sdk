@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowResponseBody extends Model
 {
     /**
+     * @example {"items":[{"enable":true,"eventId":"EMR-210401001","alertUserGroupIdList":["AUG-b79bb29bb6e14ddd89674a242623851b"],"alertDingDingGroupList":["ADG-af1f9689d6194e2dbd89927d5c515172"]},{"enable":true,"eventId":"EMR-110401015","alertUserGroupIdList":["AUG-b79bb29bb6e14ddd89674a242623851b"],"alertDingDingGroupList":["ADG-af1f9689d6194e2dbd89927d5c515172"]},{"enable":true,"eventId":"EMR-110401002","alertUserGroupIdList":["AUG-b79bb29bb6e14ddd89674a242623851b"],"alertDingDingGroupList":["ADG-af1f9689d6194e2dbd89927d5c515172"]}]}
+     *
      * @var string
      */
     public $alertConf;
 
     /**
+     * @example AUG-c917bbfaf6494bbfacdee69c8284967c
+     *
      * @var string
      */
     public $alertDingDingGroupBizId;
 
     /**
+     * @example ADG-0a00d00abb7743ff9f812f1a997f3d87
+     *
      * @var string
      */
     public $alertUserGroupBizId;
 
     /**
+     * @example {"nodeDefMap":{":start:":{"name":":start:","type":":start:","transitions":["cluster"]},"cluster":{"id":"CT-0C74281682CF03B4","name":"cluster","type":":Cluster:","transitions":["job1"]},"job1":{"jobId":"FJ-242AB240DBAF4195","name":"job1","type":":action:","transitions":["end"]},"end":{"name":"end","type":":end:"}}}
+     *
      * @var string
      */
     public $application;
 
     /**
+     * @example FC-F2495319DA05****
+     *
      * @var string
      */
     public $categoryId;
 
     /**
+     * @example C-A23BD131A862****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $createCluster;
 
     /**
+     * @example 0 0 0-23/1 * * ?
+     *
      * @var string
      */
     public $cronExpr;
@@ -55,36 +71,50 @@ class DescribeFlowResponseBody extends Model
     public $description;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $editLockDetail;
 
     /**
+     * @example 1538018814000
+     *
      * @var int
      */
     public $endSchedule;
 
     /**
+     * @example 1538017814000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1538017814000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example {"nodes":[{"id":"48d474ea","index":0,"spmAnchorId":"0.0.0.i0.766645eb2cmNtQ","attribute":{"type":"START"},"shape":"startControlNode","type":"node","y":250,"size":"80*34","x":500},{"id":"7ba480b3","index":1,"spmAnchorId":"5176.8250060.0.i19.771e28d0IPNQGE","attribute":{"jobType":"SHELL","jobId":"FJ-7BE1062897B19D25","type":"JOB"},"config":{"hostName":""},"label":"fail_job","shape":"shellJobNode","type":"node","y":398.5,"size":"170*34","x":470.5},{"id":"33202d60","index":2,"spmAnchorId":"5176.8250060.0.i23.771e28d0IPNQGE","attribute":{"type":"END"},"shape":"endControlNode","type":"node","y":562.5,"size":"80*34","x":430.5}],"edges":[{"id":"28167ea0","index":3,"source":"48d474ea","sourceAnchor":0,"target":"7ba480b3","targetAnchor":0},{"id":"e8d5ff52","index":4,"source":"7ba480b3","sourceAnchor":1,"target":"33202d60","targetAnchor":0}]}
+     *
      * @var string
      */
     public $graph;
 
     /**
+     * @example emr-header-1.cluster-123456
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example F-7A39731FE719****
+     *
      * @var string
      */
     public $id;
@@ -100,6 +130,8 @@ class DescribeFlowResponseBody extends Model
     public $logArchiveLocation;
 
     /**
+     * @example my_flow_demo
+     *
      * @var string
      */
     public $name;
@@ -115,26 +147,36 @@ class DescribeFlowResponseBody extends Model
     public $parentFlowList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $periodic;
 
     /**
+     * @example 243D5A48-96A5-4C0C-8966-93CBF65635ED
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1538017814000
+     *
      * @var int
      */
     public $startSchedule;
 
     /**
+     * @example STOP_SCHEDULE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example EMR
+     *
      * @var string
      */
     public $type;

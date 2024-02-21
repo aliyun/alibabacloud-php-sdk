@@ -15,21 +15,29 @@ class ListClusterOperationResponseBody extends Model
     public $clusterOperationList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example DF202AC2-5D5D-4288-B608-B7B1595B5C7C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

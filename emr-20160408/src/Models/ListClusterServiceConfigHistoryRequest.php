@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListClusterServiceConfigHistoryRequest extends Model
 {
     /**
+     * @example 111
+     *
      * @var string
      */
     public $author;
 
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
@@ -34,31 +38,43 @@ class ListClusterServiceConfigHistoryRequest extends Model
     public $configItemKey;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $configVersion;
 
     /**
+     * @example G-A5EA210E15FC****
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @example i-bp146tnrkq4tcso2****
+     *
      * @var string
      */
     public $hostInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -69,6 +85,8 @@ class ListClusterServiceConfigHistoryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example TEZ
+     *
      * @var string
      */
     public $serviceName;

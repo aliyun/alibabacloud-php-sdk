@@ -15,11 +15,15 @@ class ListEmrAvailableResourceResponseBody extends Model
     public $emrZoneInfoList;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example BF4FBAC6-B03E-4BFB-B6DB-EB53C34F2E22
+     *
      * @var string
      */
     public $requestId;

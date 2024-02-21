@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListClusterServiceComponentHealthInfoResponseBody extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
@@ -20,6 +22,8 @@ class ListClusterServiceComponentHealthInfoResponseBody extends Model
     public $healthInfoList;
 
     /**
+     * @example DF202AC2-5D5D-4288-B608-B7B1595B5C7C
+     *
      * @var string
      */
     public $requestId;

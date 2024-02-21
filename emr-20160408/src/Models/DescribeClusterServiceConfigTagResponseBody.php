@@ -15,6 +15,8 @@ class DescribeClusterServiceConfigTagResponseBody extends Model
     public $configTagList;
 
     /**
+     * @example EBB4D49C-4064-4818-B3AE-4C6BE5FC8264
+     *
      * @var string
      */
     public $requestId;

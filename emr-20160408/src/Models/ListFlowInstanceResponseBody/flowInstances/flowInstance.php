@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class flowInstance extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 12000
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 1540796248000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example F-35683D0E4573****
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @example flow-hive
+     *
      * @var string
      */
     public $flowName;
 
     /**
+     * @example 1540796248000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1540796248000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $hasNodeFailed;
 
     /**
+     * @example FI-7CAF9709CD32****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example ****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example FP-7A1018ADE917****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example 1554110977000
+     *
      * @var int
      */
     public $scheduleTime;
 
     /**
+     * @example 1540796236000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example SUCCEEDED
+     *
      * @var string
      */
     public $status;

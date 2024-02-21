@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @example demo.jar
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @example oss://path/demo.jar
+     *
      * @var string
      */
     public $path;

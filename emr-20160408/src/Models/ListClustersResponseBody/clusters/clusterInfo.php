@@ -12,26 +12,36 @@ use AlibabaCloud\Tea\Model;
 class clusterInfo extends Model
 {
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example ECM_EMR
+     *
      * @var string
      */
     public $createResource;
 
     /**
+     * @example 1542784048000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example HALF_MANAGED
+     *
      * @var string
      */
     public $depositType;
 
     /**
+     * @example 1542784048000
+     *
      * @var int
      */
     public $expiredTime;
@@ -42,11 +52,15 @@ class clusterInfo extends Model
     public $failReason;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $hasUncompletedOrder;
 
     /**
+     * @example C-010A704DA760****
+     *
      * @var string
      */
     public $id;
@@ -57,26 +71,36 @@ class clusterInfo extends Model
     public $k8sClusterId;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $machineType;
 
     /**
+     * @example LOCAL
+     *
      * @var string
      */
     public $metaStoreType;
 
     /**
+     * @example cluster_name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1111
+     *
      * @var int
      */
     public $operationId;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $orderList;
@@ -87,16 +111,22 @@ class clusterInfo extends Model
     public $orderTaskInfo;
 
     /**
+     * @example 36
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example 2345
+     *
      * @var int
      */
     public $runningTime;
 
     /**
+     * @example IDEL
+     *
      * @var string
      */
     public $status;
@@ -107,6 +137,8 @@ class clusterInfo extends Model
     public $tags;
 
     /**
+     * @example HADOOP
+     *
      * @var string
      */
     public $type;

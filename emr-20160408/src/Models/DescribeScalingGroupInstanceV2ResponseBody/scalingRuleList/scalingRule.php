@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class scalingRule extends Model
 {
     /**
+     * @example QuantityChangeInCapacity
+     *
      * @var string
      */
     public $adjustmentType;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $adjustmentValue;
@@ -26,41 +30,57 @@ class scalingRule extends Model
     public $cloudWatchTrigger;
 
     /**
+     * @example 600
+     *
      * @var int
      */
     public $cooldown;
 
     /**
+     * @example sgr-34234eed234242
+     *
      * @var string
      */
     public $essScalingRuleId;
 
     /**
+     * @example 600
+     *
      * @var int
      */
     public $launchExpirationTime;
 
     /**
+     * @example 2020-07-22T03:09Z
+     *
      * @var string
      */
     public $launchTime;
 
     /**
+     * @example 2020-07-22T03:09Z
+     *
      * @var string
      */
     public $recurrenceEndTime;
 
     /**
+     * @example Daily
+     *
      * @var string
      */
     public $recurrenceType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $recurrenceValue;
 
     /**
+     * @example ByLoad
+     *
      * @var string
      */
     public $ruleCategory;
@@ -71,6 +91,8 @@ class scalingRule extends Model
     public $ruleName;
 
     /**
+     * @example 122
+     *
      * @var int
      */
     public $scalingGroupId;
@@ -81,16 +103,22 @@ class scalingRule extends Model
     public $schedulerTrigger;
 
     /**
+     * @example ACTIVE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $timeoutWithGrace;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $withGrace;

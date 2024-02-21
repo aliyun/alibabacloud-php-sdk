@@ -15,6 +15,8 @@ class emrZoneInfo extends Model
     public $emrResourceInfoList;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

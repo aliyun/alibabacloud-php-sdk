@@ -14,11 +14,15 @@ class disk extends Model
     public $blockMountPoint;
 
     /**
+     * @example /dev/xvde
+     *
      * @var string
      */
     public $device;
 
     /**
+     * @example d-bp1aq78lhbig6iel****
+     *
      * @var string
      */
     public $diskId;
@@ -29,11 +33,15 @@ class disk extends Model
     public $diskMountPoint;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $diskSize;
 
     /**
+     * @example CLOUD_ESSD
+     *
      * @var string
      */
     public $diskType;
@@ -44,6 +52,8 @@ class disk extends Model
     public $event;
 
     /**
+     * @example data
+     *
      * @var string
      */
     public $type;

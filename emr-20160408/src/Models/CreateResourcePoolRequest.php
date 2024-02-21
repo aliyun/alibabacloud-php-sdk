@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateResourcePoolRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $active;
 
     /**
+     * @example C-0E995C0EE7E5****
+     *
      * @var string
      */
     public $clusterId;
@@ -25,6 +29,8 @@ class CreateResourcePoolRequest extends Model
     public $config;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $name;
@@ -35,21 +41,29 @@ class CreateResourcePoolRequest extends Model
     public $note;
 
     /**
+     * @example CAPACITY_SCHEDULER
+     *
      * @var string
      */
     public $poolType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @example configList
+     *
      * @var string
      */
     public $yarnSiteConfig;

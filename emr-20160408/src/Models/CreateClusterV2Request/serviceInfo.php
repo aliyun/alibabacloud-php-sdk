@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class serviceInfo extends Model
 {
     /**
+     * @example HDFS
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example 2.3.3-1.0.2
+     *
      * @var string
      */
     public $serviceVersion;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class clusterServiceInfo extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $mandatory;
 
     /**
+     * @example Hive
+     *
      * @var string
      */
     public $serviceDisplayName;
 
     /**
+     * @example HIVE
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example 2.3.3
+     *
      * @var string
      */
     public $serviceVersion;

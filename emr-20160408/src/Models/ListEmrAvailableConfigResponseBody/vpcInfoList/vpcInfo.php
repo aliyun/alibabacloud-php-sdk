@@ -10,31 +10,45 @@ use AlibabaCloud\Tea\Model;
 class vpcInfo extends Model
 {
     /**
+     * @example 192.168.0.0/16
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example 2018-11-22T07:38:44Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example vpc_desc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $VRouterId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp1d618azoa9go6wo****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example zgtest
+     *
      * @var string
      */
     public $vpcName;

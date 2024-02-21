@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class flow extends Model
 {
     /**
+     * @example "{\"items\":[{\"enable\":true,\"eventId\":\"EMR-210401001\",\"alertUserGroupIdList\":[\"AUG-52dabfbbca654b52aae05ac5acd9a0f0\"],\"alertDingDingGroupList\":[\"ADG-2c411c452e6b467b9a59fadf21d195ad\"]}]}"
+     *
      * @var string
      */
     public $alertConf;
@@ -24,86 +26,120 @@ class flow extends Model
     public $alertUserGroupBizId;
 
     /**
+     * @example FC-2CF58396A189****
+     *
      * @var string
      */
     public $categoryId;
 
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $createCluster;
 
     /**
+     * @example 0 0 0 * * ?
+     *
      * @var string
      */
     public $cronExpr;
 
     /**
+     * @example my flow demo
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 4102416001000
+     *
      * @var int
      */
     public $endSchedule;
 
     /**
+     * @example 1541561048000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1542902401000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example {"nodes":[{"id":"48d474ea","index":0,"spmAnchorId":"0.0.0.i0.766645eb2cmNtQ","attribute":{"type":"START"},"shape":"startControlNode","type":"node","y":250,"size":"80*34","x":500},{"id":"7ba480b3","index":1,"spmAnchorId":"5176.8250060.0.i19.771e28d0IPNQGE","attribute":{"jobType":"SHELL","jobId":"FJ-7BE1062897B19D25","type":"JOB"},"config":{"hostName":""},"label":"fail_job","shape":"shellJobNode","type":"node","y":398.5,"size":"170*34","x":470.5},{"id":"33202d60","index":2,"spmAnchorId":"5176.8250060.0.i23.771e28d0IPNQGE","attribute":{"type":"END"},"shape":"endControlNode","type":"node","y":562.5,"size":"80*34","x":430.5}],"edges":[{"id":"28167ea0","index":3,"source":"48d474ea","sourceAnchor":0,"target":"7ba480b3","targetAnchor":0},{"id":"e8d5ff52","index":4,"source":"7ba480b3","sourceAnchor":1,"target":"33202d60","targetAnchor":0}]}
+     *
      * @var string
      */
     public $graph;
 
     /**
+     * @example emr-header-1.cluster-123456
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example 7A39731FE719****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example my_flow_demo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $periodic;
 
     /**
+     * @example FP-3535FE0BE522****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example 1541561443000
+     *
      * @var int
      */
     public $startSchedule;
 
     /**
+     * @example UNDER_SCHEDULE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example EMR
+     *
      * @var string
      */
     public $type;

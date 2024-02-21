@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowRequest extends Model
 {
     /**
+     * @example {"items":[{"enable":true,"eventId":"EMR-210401001","alertUserGroupIdList":["AUG-b79bb29bb6e14ddd89674a242623851b"],"alertDingDingGroupList":["ADG-af1f9689d6194e2dbd89927d5c515172"]},{"enable":true,"eventId":"EMR-110401015","alertUserGroupIdList":["AUG-b79bb29bb6e14ddd89674a242623851b"],"alertDingDingGroupList":["ADG-af1f9689d6194e2dbd89927d5c515172"]},{"enable":true,"eventId":"EMR-110401002","alertUserGroupIdList":["AUG-b79bb29bb6e14ddd89674a242623851b"],"alertDingDingGroupList":["ADG-af1f9689d6194e2dbd89927d5c515172"]}]}
+     *
      * @var string
      */
     public $alertConf;
@@ -24,21 +26,29 @@ class CreateFlowRequest extends Model
     public $alertUserGroupBizId;
 
     /**
+     * @example {"nodeDefMap":{":start:":{"name":":start:","type":":start:","transitions":["cluster"]},"cluster":{"id":"CT-0C74281682CF03B4","name":"cluster","type":":Cluster:","transitions":["job1"]},"job1":{"jobId":"FJ-242AB240DBAF4195","name":"job1","type":":action:","transitions":["end"]},"end":{"name":"end","type":":end:"}}}
+     *
      * @var string
      */
     public $application;
 
     /**
+     * @example C-F32FB31D82954C64
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $createCluster;
 
     /**
+     * @example 0 0 0-23/1 * * ?
+     *
      * @var string
      */
     public $cronExpr;
@@ -49,11 +59,15 @@ class CreateFlowRequest extends Model
     public $description;
 
     /**
+     * @example 1542783967503
+     *
      * @var int
      */
     public $endSchedule;
 
     /**
+     * @example emr-header-1.cluster-12345
+     *
      * @var string
      */
     public $hostName;
@@ -69,6 +83,8 @@ class CreateFlowRequest extends Model
     public $logArchiveLocation;
 
     /**
+     * @example my_demo_flow
+     *
      * @var string
      */
     public $name;
@@ -79,26 +95,36 @@ class CreateFlowRequest extends Model
     public $namespace;
 
     /**
+     * @example FC-FC396F988E07C06F
+     *
      * @var string
      */
     public $parentCategory;
 
     /**
+     * @example F-62ECFC6E1BF6EAD2,F-1E6528634E67B615,F-7E0A84332E9D9A89
+     *
      * @var string
      */
     public $parentFlowList;
 
     /**
+     * @example FP-3535FE0BE5224A47
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1542783867503
+     *
      * @var int
      */
     public $startSchedule;

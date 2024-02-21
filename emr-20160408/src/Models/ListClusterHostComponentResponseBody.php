@@ -15,21 +15,29 @@ class ListClusterHostComponentResponseBody extends Model
     public $componentList;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example DF202AC2-5D5D-4288-B608-B7B1595B5C7C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $total;

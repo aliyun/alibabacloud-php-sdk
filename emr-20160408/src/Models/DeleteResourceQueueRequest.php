@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteResourceQueueRequest extends Model
 {
     /**
+     * @example C-EBD62A703A430E23
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -24,6 +28,8 @@ class DeleteResourceQueueRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 248
+     *
      * @var string
      */
     public $resourceQueueId;

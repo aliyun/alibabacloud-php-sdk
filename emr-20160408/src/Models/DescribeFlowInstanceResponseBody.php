@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowInstanceResponseBody extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
@@ -26,36 +28,50 @@ class DescribeFlowInstanceResponseBody extends Model
     public $dependencyFlowList;
 
     /**
+     * @example 12000
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 1540796248000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example F-35683D0E4573****
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @example flow-hive
+     *
      * @var string
      */
     public $flowName;
 
     /**
+     * @example 1540796248000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1540796248000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example {"nodes":[{"shape":"startControlNode","size":"80*34","spmAnchorId":"0.0.0.i0.766645eb2cmNtQ","x":500,"y":250,"index":0,"id":"48d474ea","attribute":{"type":"START"},"type":"node"},{"shape":"hiveSQLJobNode","size":"170*34","spmAnchorId":"5176.8250060.0.i11.499128d0KWdQvq","x":515,"y":334.5,"index":1,"id":"2f089966","label":"hive-test","attribute":{"jobId":"FJ-C6C794219DE652B9","type":"JOB","jobType":"HIVE_SQL"},"type":"node","config":{"hostName":"","clusterId":""}},{"shape":"endControlNode","size":"80*34","spmAnchorId":"5176.8250060.0.i15.499128d0KWdQvq","x":532,"y":453.5,"index":2,"id":"ac092a54","attribute":{"type":"END"},"type":"node"}],"edges":[{"sourceAnchor":0,"targetAnchor":0,"index":3,"source":"48d474ea","id":"77e6117c","target":"2f089966"},{"sourceAnchor":1,"targetAnchor":0,"index":4,"source":"2f089966","id":"95ba3716","target":"ac092a54"}]}
+     *
      * @var string
      */
     public $graph;
@@ -66,6 +82,8 @@ class DescribeFlowInstanceResponseBody extends Model
     public $hasNodeFailed;
 
     /**
+     * @example FI-7CAF9709CD32****
+     *
      * @var string
      */
     public $id;
@@ -91,11 +109,15 @@ class DescribeFlowInstanceResponseBody extends Model
     public $nodeInstance;
 
     /**
+     * @example FP-7A1018ADE917****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example EDF99BA3-F7AF-49B2-ABA1-36430A31F482
+     *
      * @var string
      */
     public $requestId;
@@ -106,11 +128,15 @@ class DescribeFlowInstanceResponseBody extends Model
     public $scheduleTime;
 
     /**
+     * @example 1540796236000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example SUCCEEDED
+     *
      * @var string
      */
     public $status;

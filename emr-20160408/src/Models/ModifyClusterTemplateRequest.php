@@ -13,11 +13,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterTemplateRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example CT-4A6799A79D73****
+     *
      * @var string
      */
     public $bizId;
@@ -28,11 +32,15 @@ class ModifyClusterTemplateRequest extends Model
     public $bootstrapAction;
 
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example HADOOP
+     *
      * @var string
      */
     public $clusterType;
@@ -43,26 +51,46 @@ class ModifyClusterTemplateRequest extends Model
     public $config;
 
     /**
+     * @example [{"classification": "core-site","properties": {"fs.trash.interval": "61"}},{"classification": "hadoop-log4j","properties": {"hadoop.log.file": "hadoop1.log","hadoop.root.logger": "INFO","a.b.c": "ABC"}}]
+     *
      * @var string
      */
     public $configurations;
 
     /**
+     * @var bool
+     */
+    public $dataDiskEncrypted;
+
+    /**
+     * @var string
+     */
+    public $dataDiskKMSKeyId;
+
+    /**
+     * @example HALF_MANAGED
+     *
      * @var string
      */
     public $depositType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $easEnable;
 
     /**
+     * @example EMR-3.15.0
+     *
      * @var string
      */
     public $emrVer;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $highAvailabilityEnable;
@@ -73,96 +101,134 @@ class ModifyClusterTemplateRequest extends Model
     public $hostGroup;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $initCustomHiveMetaDb;
 
     /**
+     * @example ecs-3
+     *
      * @var string
      */
     public $instanceGeneration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ioOptimized;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isOpenPublicIp;
 
     /**
+     * @example test_kp
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example oss//bucketname/path
+     *
      * @var string
      */
     public $logPath;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $machineType;
 
     /**
+     * @example pwd
+     *
      * @var string
      */
     public $masterPwd;
 
     /**
+     * @example rdsxxx.com
+     *
      * @var string
      */
     public $metaStoreConf;
 
     /**
+     * @example local
+     *
      * @var string
      */
     public $metaStoreType;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @example ["ZOOKEEPER","LIVY"]
+     *
      * @var string[]
      */
     public $optionSoftWareList;
 
     /**
+     * @example 36
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $resourceOwnerId;
 
     /**
+     * @example sg-bp1id7ajv83kmqwq****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example emr_sg
+     *
      * @var string
      */
     public $securityGroupName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sshEnable;
@@ -173,36 +239,52 @@ class ModifyClusterTemplateRequest extends Model
     public $tag;
 
     /**
+     * @example new_template_name
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useCustomHiveMetaDb;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useLocalMetaDb;
 
     /**
+     * @example AliyunEmrEcsDefaultRole
+     *
      * @var string
      */
     public $userDefinedEmrEcsRole;
 
     /**
+     * @example vsw-bp10tvjyc77psy0z5****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp1l4urd87xlh7i4b****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
@@ -214,6 +296,8 @@ class ModifyClusterTemplateRequest extends Model
         'clusterType'            => 'ClusterType',
         'config'                 => 'Config',
         'configurations'         => 'Configurations',
+        'dataDiskEncrypted'      => 'DataDiskEncrypted',
+        'dataDiskKMSKeyId'       => 'DataDiskKMSKeyId',
         'depositType'            => 'DepositType',
         'easEnable'              => 'EasEnable',
         'emrVer'                 => 'EmrVer',
@@ -287,6 +371,12 @@ class ModifyClusterTemplateRequest extends Model
         }
         if (null !== $this->configurations) {
             $res['Configurations'] = $this->configurations;
+        }
+        if (null !== $this->dataDiskEncrypted) {
+            $res['DataDiskEncrypted'] = $this->dataDiskEncrypted;
+        }
+        if (null !== $this->dataDiskKMSKeyId) {
+            $res['DataDiskKMSKeyId'] = $this->dataDiskKMSKeyId;
         }
         if (null !== $this->depositType) {
             $res['DepositType'] = $this->depositType;
@@ -440,6 +530,12 @@ class ModifyClusterTemplateRequest extends Model
         }
         if (isset($map['Configurations'])) {
             $model->configurations = $map['Configurations'];
+        }
+        if (isset($map['DataDiskEncrypted'])) {
+            $model->dataDiskEncrypted = $map['DataDiskEncrypted'];
+        }
+        if (isset($map['DataDiskKMSKeyId'])) {
+            $model->dataDiskKMSKeyId = $map['DataDiskKMSKeyId'];
         }
         if (isset($map['DepositType'])) {
             $model->depositType = $map['DepositType'];

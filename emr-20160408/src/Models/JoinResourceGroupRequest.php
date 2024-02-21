@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class JoinResourceGroupRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example C-3652B95F654AF****
+     *
      * @var string
      */
     public $resourceId;
@@ -29,6 +35,8 @@ class JoinResourceGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;

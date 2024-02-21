@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class templateInfo extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $allowNotebook;
@@ -24,6 +26,8 @@ class templateInfo extends Model
     public $bootstrapActionList;
 
     /**
+     * @example HADOOP
+     *
      * @var string
      */
     public $clusterType;
@@ -34,41 +38,67 @@ class templateInfo extends Model
     public $configList;
 
     /**
+     * @example [{"classification": "core-site","properties": {"fs.trash.interval": "61"}},{"classification": "hadoop-log4j","properties": {"hadoop.log.file": "hadoop1.log","hadoop.root.logger": "INFO","a.b.c": "ABC"}}]
+     *
      * @var string
      */
     public $configurations;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $createSource;
 
     /**
+     * @var bool
+     */
+    public $dataDiskEncrypted;
+
+    /**
+     * @var string
+     */
+    public $dataDiskKMSKeyId;
+
+    /**
+     * @example HALF_MANAGED
+     *
      * @var string
      */
     public $depositType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $easEnable;
 
     /**
+     * @example EMR-3.16.0
+     *
      * @var string
      */
     public $emrVer;
 
     /**
+     * @example 1543765033000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1543765033000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $highAvailabilityEnable;
@@ -79,81 +109,113 @@ class templateInfo extends Model
     public $hostGroupList;
 
     /**
+     * @example CT-4A6799A79D73****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $initCustomHiveMetaDb;
 
     /**
+     * @example ecs-3
+     *
      * @var string
      */
     public $instanceGeneration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ioOptimized;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isOpenPublicIp;
 
     /**
+     * @example test_kp
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $logEnable;
 
     /**
+     * @example oss//bucketname/path
+     *
      * @var string
      */
     public $logPath;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $machineType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $masterNodeTotal;
 
     /**
+     * @example testpd
+     *
      * @var string
      */
     public $masterPwd;
 
     /**
+     * @example rds-xxx.com
+     *
      * @var string
      */
     public $metaStoreConf;
 
     /**
+     * @example LOCAL
+     *
      * @var string
      */
     public $metaStoreType;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @example sg-bp1id7ajv83kmqwq2isx
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example emr_sg
+     *
      * @var string
      */
     public $securityGroupName;
@@ -164,6 +226,8 @@ class templateInfo extends Model
     public $softwareInfoList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sshEnable;
@@ -174,41 +238,59 @@ class templateInfo extends Model
     public $tags;
 
     /**
+     * @example template_name_2
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useCustomHiveMetaDb;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useLocalMetaDb;
 
     /**
+     * @example AliyunEmrEcsDefaultRole
+     *
      * @var string
      */
     public $userDefinedEmrEcsRole;
 
     /**
+     * @example 125046002175****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example vsw-bp10tvjyc77psy0z5****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp1l4urd87xlh7i4b****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
@@ -219,6 +301,8 @@ class templateInfo extends Model
         'configList'             => 'ConfigList',
         'configurations'         => 'Configurations',
         'createSource'           => 'CreateSource',
+        'dataDiskEncrypted'      => 'DataDiskEncrypted',
+        'dataDiskKMSKeyId'       => 'DataDiskKMSKeyId',
         'depositType'            => 'DepositType',
         'easEnable'              => 'EasEnable',
         'emrVer'                 => 'EmrVer',
@@ -279,6 +363,12 @@ class templateInfo extends Model
         }
         if (null !== $this->createSource) {
             $res['CreateSource'] = $this->createSource;
+        }
+        if (null !== $this->dataDiskEncrypted) {
+            $res['DataDiskEncrypted'] = $this->dataDiskEncrypted;
+        }
+        if (null !== $this->dataDiskKMSKeyId) {
+            $res['DataDiskKMSKeyId'] = $this->dataDiskKMSKeyId;
         }
         if (null !== $this->depositType) {
             $res['DepositType'] = $this->depositType;
@@ -411,6 +501,12 @@ class templateInfo extends Model
         }
         if (isset($map['CreateSource'])) {
             $model->createSource = $map['CreateSource'];
+        }
+        if (isset($map['DataDiskEncrypted'])) {
+            $model->dataDiskEncrypted = $map['DataDiskEncrypted'];
+        }
+        if (isset($map['DataDiskKMSKeyId'])) {
+            $model->dataDiskKMSKeyId = $map['DataDiskKMSKeyId'];
         }
         if (isset($map['DepositType'])) {
             $model->depositType = $map['DepositType'];

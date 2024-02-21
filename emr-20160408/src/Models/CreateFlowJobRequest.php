@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowJobRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $adhoc;
@@ -20,76 +22,106 @@ class CreateFlowJobRequest extends Model
     public $alertConf;
 
     /**
+     * @example C-A23BD131A862****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example {\"scope\":\"PROJECT\",\"entityId\":\"FP-80C2FDDBF35D9CC5\",\"variables\":[{\"name\":\"v1\",\"value\":\"1\",\"properties\":{\"password\":true}}]}
+     *
      * @var string
      */
     public $customVariables;
 
     /**
+     * @example Job description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $envConf;
 
     /**
+     * @example CONTINUE
+     *
      * @var string
      */
     public $failAct;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $maxRetry;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $maxRunningTimeSec;
 
     /**
+     * @example YARN
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example {"inputs":[{"type":"KAFKA","clusterId":"C-1234567","topics":"kafka_topic","consumer.group":"kafka_consumer_group"}],"outputs":[{"type":"KAFKA","clusterId":"C-1234567","topics":"kafka_topic"}]}
+     *
      * @var string
      */
     public $monitorConf;
 
     /**
+     * @example my_shell_job
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example {"date":"${yyyy-MM-dd}"}
+     *
      * @var string
      */
     public $paramConf;
 
     /**
+     * @example ls -l
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @example FC-5BD9575E3462****
+     *
      * @var string
      */
     public $parentCategory;
 
     /**
+     * @example FP-257A173659F5****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -100,6 +132,8 @@ class CreateFlowJobRequest extends Model
     public $resourceList;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $retryInterval;
@@ -110,11 +144,15 @@ class CreateFlowJobRequest extends Model
     public $retryPolicy;
 
     /**
+     * @example {"priority":1,"userName":"hadoop","memory":2048,"cores":1}
+     *
      * @var string
      */
     public $runConf;
 
     /**
+     * @example SHELL
+     *
      * @var string
      */
     public $type;

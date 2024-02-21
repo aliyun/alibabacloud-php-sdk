@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class healthRuleParam extends Model
 {
     /**
+     * @example Ecm-Agent
+     *
      * @var string
      */
     public $component;
 
     /**
+     * @example emr-worker-1
+     *
      * @var string
      */
     public $hostNames;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $pass;
@@ -29,16 +35,22 @@ class healthRuleParam extends Model
     public $ruleDescription;
 
     /**
+     * @example 111
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @example AgentHeartBeatCheck
+     *
      * @var string
      */
     public $ruleTitle;
 
     /**
+     * @example YARN
+     *
      * @var string
      */
     public $service;

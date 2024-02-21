@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class failReason extends Model
 {
     /**
+     * @example ClusterId.NotFound
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ClusterId [null] does not exist.
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @example FDFFCB97-1609-469A-B153-F511CA9FC1F5
+     *
      * @var string
      */
     public $requestId;

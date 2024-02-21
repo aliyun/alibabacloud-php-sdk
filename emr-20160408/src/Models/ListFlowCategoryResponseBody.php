@@ -15,21 +15,29 @@ class ListFlowCategoryResponseBody extends Model
     public $categories;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 5ECD6EA1-838E-4BDF-96C8-AEAA40F04F48
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $total;

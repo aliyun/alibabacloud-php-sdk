@@ -14,21 +14,29 @@ class CreateScalingGroupV2Request extends Model
     public $description;
 
     /**
+     * @example G-AB1234567****
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmv6jutt6****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -15,6 +15,8 @@ class healthDetail extends Model
     public $healthRuleParam;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;

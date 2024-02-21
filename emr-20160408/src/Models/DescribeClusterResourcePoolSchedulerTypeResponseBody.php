@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterResourcePoolSchedulerTypeResponseBody extends Model
 {
     /**
+     * @example FAIR_SCHEDULER
+     *
      * @var string
      */
     public $currentSchedulerType;
 
     /**
+     * @example CAPACITY_SCHEDULER
+     *
      * @var string
      */
     public $defaultSchedulerType;
 
     /**
+     * @example 7DEE7967-3F9E-44AE-8B4E-021CBCA3A26C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example CAPACITY_SCHEDULER,FAIR_SCHEDULER
+     *
      * @var string
      */
     public $supportSchedulerType;

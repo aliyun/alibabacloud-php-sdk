@@ -15,21 +15,29 @@ class ListClusterServiceConfigHistoryResponseBody extends Model
     public $configHistoryList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example DF202AC2-5D5D-4288-B608-B7B1595B5C7C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $totalCount;

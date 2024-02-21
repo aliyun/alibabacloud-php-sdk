@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class clusterTypeWhiteUser extends Model
 {
     /**
+     * @example HADOOP
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example 1528342356764****
+     *
      * @var string
      */
     public $userId;

@@ -15,36 +15,50 @@ class propertyValueAttributes extends Model
     public $entries;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hidden;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $incrememtStep;
 
     /**
+     * @example 10000
+     *
      * @var string
      */
     public $maximum;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $mimimum;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $readOnly;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example MB
+     *
      * @var string
      */
     public $unit;

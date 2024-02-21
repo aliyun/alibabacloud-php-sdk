@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterServiceConfigRequest extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example modify tez config
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example {"tez-site":{"tez.am.resource.memory.mb":"640"}}
+     *
      * @var string
      */
     public $configParams;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $configType;
 
     /**
+     * @example {"tez-site":{"key1":{"Value":"value1"}}}
+     *
      * @var string
      */
     public $customConfigParams;
 
     /**
+     * @example C-XXX
+     *
      * @var string[]
      */
     public $gatewayClusterIdList;
 
     /**
+     * @example G-xxx
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example i-bp146tnrkq4tcso2****
+     *
      * @var string
      */
     public $hostInstanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $refreshHostConfig;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -64,6 +84,8 @@ class ModifyClusterServiceConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example TEZ
+     *
      * @var string
      */
     public $serviceName;

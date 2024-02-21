@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowJobRequest extends Model
 {
     /**
+     * @example FJ-BCCAE48B90CC****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example FP-257A173659F5****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

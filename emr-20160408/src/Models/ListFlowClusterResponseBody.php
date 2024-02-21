@@ -15,21 +15,29 @@ class ListFlowClusterResponseBody extends Model
     public $clusters;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 0d18b019-00ab-455f-b60c-2891bf02f538
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

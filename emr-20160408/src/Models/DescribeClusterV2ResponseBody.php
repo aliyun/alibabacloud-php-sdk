@@ -15,6 +15,8 @@ class DescribeClusterV2ResponseBody extends Model
     public $clusterInfo;
 
     /**
+     * @example 14E9C045-9B8D-4D1E-8D23-FC0027B6D947
+     *
      * @var string
      */
     public $requestId;

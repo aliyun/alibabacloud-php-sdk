@@ -14,26 +14,36 @@ class user extends Model
     public $accountUserId;
 
     /**
+     * @example 1541561123000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1541561123000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example FP-3535FE0BE522****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example testUser
+     *
      * @var string
      */
     public $userName;

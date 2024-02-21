@@ -15,21 +15,29 @@ class clusterInstalledService extends Model
     public $serviceActionList;
 
     /**
+     * @example YARN
+     *
      * @var string
      */
     public $serviceDisplayName;
 
     /**
+     * @example 3.7.2.2.7
+     *
      * @var string
      */
     public $serviceEcmVersion;
 
     /**
+     * @example YARN
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example 3.7.2
+     *
      * @var string
      */
     public $serviceVersion;
@@ -40,31 +48,43 @@ class clusterInstalledService extends Model
     public $state;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $abnormalNum;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $needRestartNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $notStartedNum;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $onlyClient;
 
     /**
+     * @example INSTALLING
+     *
      * @var string
      */
     public $serviceStatus;

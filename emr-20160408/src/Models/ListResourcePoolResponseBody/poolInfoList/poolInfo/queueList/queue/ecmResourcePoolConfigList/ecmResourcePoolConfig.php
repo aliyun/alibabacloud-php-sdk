@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ecmResourcePoolConfig extends Model
 {
     /**
+     * @example QUEUE_RESOURCE_LIMIT
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example minimum-user-limit-percent
+     *
      * @var string
      */
     public $configKey;
 
     /**
+     * @example RESOURCE_QUEUE_CONFIG
+     *
      * @var string
      */
     public $configType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $configValue;
 
     /**
+     * @example 2926
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $note;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;

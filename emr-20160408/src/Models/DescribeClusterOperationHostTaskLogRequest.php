@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterOperationHostTaskLogRequest extends Model
 {
     /**
+     * @example C-F32FB31D82954C64
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 41008
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example 11123
+     *
      * @var string
      */
     public $operationId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,11 +42,15 @@ class DescribeClusterOperationHostTaskLogRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1098803
+     *
      * @var string
      */
     public $taskId;

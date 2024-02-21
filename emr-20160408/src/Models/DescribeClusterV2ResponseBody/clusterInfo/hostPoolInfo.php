@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class hostPoolInfo extends Model
 {
     /**
+     * @example id
+     *
      * @var string
      */
     public $hpBizId;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $hpName;

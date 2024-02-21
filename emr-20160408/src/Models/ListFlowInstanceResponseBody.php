@@ -15,21 +15,29 @@ class ListFlowInstanceResponseBody extends Model
     public $flowInstances;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example EDF99BA3-F7AF-49B2-ABA1-36430A31F482
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 42
+     *
      * @var int
      */
     public $total;

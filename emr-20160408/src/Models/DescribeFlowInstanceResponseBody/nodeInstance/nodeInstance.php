@@ -9,116 +9,162 @@ use AlibabaCloud\Tea\Model;
 class nodeInstance extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 11000
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 1540796248000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example application_1540362938289_1858
+     *
      * @var string
      */
     public $externalId;
 
     /**
+     * @example empty
+     *
      * @var string
      */
     public $externalInfo;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $externalStatus;
 
     /**
+     * @example STOP
+     *
      * @var string
      */
     public $failAct;
 
     /**
+     * @example 1540796236000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1540796247000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example emr-header-1.cluster-12345
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example FNI-9D14A7CCF26****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example FJ-C6C794219DE6****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example hive-test
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @example HIVE_SQL
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $maxRetry;
 
     /**
+     * @example 2f089966
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $pending;
 
     /**
+     * @example FP-7A1018ADE917****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $retries;
 
     /**
+     * @example 15
+     *
      * @var string
      */
     public $retryInterval;
 
     /**
+     * @example 1540796237000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example JOB
+     *
      * @var string
      */
     public $type;

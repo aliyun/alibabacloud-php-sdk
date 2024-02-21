@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteResourcePoolResponseBody extends Model
 {
     /**
+     * @example 26CE1B1C-C2FE-49DC-8CDF-5D9055B663A2
+     *
      * @var string
      */
     public $requestId;

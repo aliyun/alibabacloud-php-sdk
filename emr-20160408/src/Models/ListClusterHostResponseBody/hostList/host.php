@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class host extends Model
 {
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @example 1599635156000
+     *
      * @var string
      */
     public $createTime;
@@ -35,76 +41,106 @@ class host extends Model
     public $emrExpiredTime;
 
     /**
+     * @example 32493801600000
+     *
      * @var int
      */
     public $expiredTime;
 
     /**
+     * @example G-A5EA210E15FC****
+     *
      * @var string
      */
     public $hostGroupId;
 
     /**
+     * @example i-bp1cfwf2cwgji7ds****
+     *
      * @var string
      */
     public $hostInstanceId;
 
     /**
+     * @example emr-header-1
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @example ecs.mn4.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @example 192.***.****.***
+     *
      * @var string
      */
     public $privateIp;
 
     /**
+     * @example 47.***.***.***
+     *
      * @var string
      */
     public $publicIp;
 
     /**
+     * @example MASTER
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example 3c2a5078-778d-4c18-87e4-1a38fbcb****
+     *
      * @var string
      */
     public $serialNumber;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $supportIpV6;
 
     /**
+     * @example VM
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

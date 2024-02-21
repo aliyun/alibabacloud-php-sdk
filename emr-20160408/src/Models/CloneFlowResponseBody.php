@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CloneFlowResponseBody extends Model
 {
     /**
+     * @example F-CDFE2BF3A796****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 12E7685E-C7A2-4BED-878B-07AF5BAD475F
+     *
      * @var string
      */
     public $requestId;

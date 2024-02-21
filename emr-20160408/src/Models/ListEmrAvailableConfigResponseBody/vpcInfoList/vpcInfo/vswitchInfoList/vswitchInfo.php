@@ -9,41 +9,59 @@ use AlibabaCloud\Tea\Model;
 class vswitchInfo extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $availableIpAddressCount;
 
     /**
+     * @example 192.168.0.0/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example 2018-11-22T07:38:49Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example switch desc
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp1d618azoa9go6wo****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vsw-bp18amcazibt1u0d8****
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
+     * @example hangzhou_g
+     *
      * @var string
      */
     public $vswitchName;
 
     /**
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

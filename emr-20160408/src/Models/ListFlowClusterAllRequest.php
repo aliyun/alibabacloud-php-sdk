@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListFlowClusterAllRequest extends Model
 {
     /**
+     * @example EMR
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;

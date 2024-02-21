@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterTemplateResponseBody extends Model
 {
     /**
+     * @example 29A1D3B7-661C-4FCD-8577-DE93C8F6CA55
+     *
      * @var string
      */
     public $requestId;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class serviceInfo extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $display;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $mandatory;
 
     /**
+     * @example Hive
+     *
      * @var string
      */
     public $serviceDisplayName;
 
     /**
+     * @example 2.3.3
+     *
      * @var string
      */
     public $serviceDisplayVersion;
 
     /**
+     * @example HIVE
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example 2.3.3.0.1
+     *
      * @var string
      */
     public $serviceVersion;

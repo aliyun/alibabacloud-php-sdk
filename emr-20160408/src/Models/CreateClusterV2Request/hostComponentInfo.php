@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class hostComponentInfo extends Model
 {
     /**
+     * @example NAMENODE
+     *
      * @var string[]
      */
     public $componentNameList;
 
     /**
+     * @example emr-header-1
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example HDFS
+     *
      * @var string
      */
     public $serviceName;

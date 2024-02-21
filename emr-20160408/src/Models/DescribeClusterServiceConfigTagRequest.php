@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterServiceConfigTagRequest extends Model
 {
     /**
+     * @example C-F32FB31D8295****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example PROPERTY_TYPE
+     *
      * @var string
      */
     public $configTag;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -29,6 +35,8 @@ class DescribeClusterServiceConfigTagRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example TEZ
+     *
      * @var string
      */
     public $serviceName;

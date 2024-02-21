@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowCategoryResponseBody extends Model
 {
     /**
+     * @example FILE
+     *
      * @var string
      */
     public $categoryType;
 
     /**
+     * @example 1542783867503
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1542783867503
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example FC-075AB9477DAE****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example my_category
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example F-EB3021F73E51****
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @example FLOW
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @example FC-3A749C1F5D12****
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example FP-E3F1523F8FC1****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example BCEDC663-43F1-4202-9C49-9D3D66EA93D7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example FLOW
+     *
      * @var string
      */
     public $type;

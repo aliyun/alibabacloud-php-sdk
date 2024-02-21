@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowCategoryResponseBody extends Model
 {
     /**
+     * @example FC-AF08490649B8****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 2670BCFB-925D-4C3E-9994-8D12F7A9F538
+     *
      * @var string
      */
     public $requestId;

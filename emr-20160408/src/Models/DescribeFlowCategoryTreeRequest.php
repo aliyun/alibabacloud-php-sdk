@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowCategoryTreeRequest extends Model
 {
     /**
+     * @example FC-5BD9575E3462****
+     *
      * @var string
      */
     public $categoryId;
@@ -19,21 +21,29 @@ class DescribeFlowCategoryTreeRequest extends Model
     public $keyword;
 
     /**
+     * @example YARN
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example FP-ABD24A6163D3****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example FLOW
+     *
      * @var string
      */
     public $type;

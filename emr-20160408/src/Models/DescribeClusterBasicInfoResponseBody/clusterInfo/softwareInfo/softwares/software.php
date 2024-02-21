@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class software extends Model
 {
     /**
+     * @example HDFS
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example HDFS
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $onlyDisplay;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $startTpe;
 
     /**
+     * @example 2.8.5
+     *
      * @var string
      */
     public $version;

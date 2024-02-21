@@ -15,21 +15,29 @@ class ListFlowNodeInstanceContainerStatusResponseBody extends Model
     public $containerStatusList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example E82E504E-F1A8-4D05-AA8F-360BD9DF423A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

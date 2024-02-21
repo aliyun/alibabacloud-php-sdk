@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @example DEFAULT_SETTINGS
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example capacity
+     *
      * @var string
      */
     public $configKey;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $configValue;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $id;

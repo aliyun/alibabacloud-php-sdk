@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunClusterServiceActionResponseBody extends Model
 {
     /**
+     * @example 9AEDC439-1F63-491D-B8C6-9737C372BF3A
+     *
      * @var string
      */
     public $requestId;

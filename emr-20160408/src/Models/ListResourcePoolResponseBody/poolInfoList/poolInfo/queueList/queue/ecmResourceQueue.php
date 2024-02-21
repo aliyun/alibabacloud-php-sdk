@@ -9,46 +9,66 @@ use AlibabaCloud\Tea\Model;
 class ecmResourceQueue extends Model
 {
     /**
+     * @example 2928
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $leaf;
 
     /**
+     * @example DEFAULT2
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 116
+     *
      * @var int
      */
     public $parentQueueId;
 
     /**
+     * @description QualifiedName。
+     *
+     * @example default
+     *
      * @var string
      */
     public $qualifiedName;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $queueType;
 
     /**
+     * @example 116
+     *
      * @var int
      */
     public $resourcePoolId;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1528342356764****
+     *
      * @var string
      */
     public $userId;

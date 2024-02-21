@@ -12,11 +12,22 @@ use AlibabaCloud\Tea\Model;
 class ResizeClusterV2Request extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoPayOrder;
 
     /**
+     * @example {"resizeType":"RESIZE_REPLICA"}
+     *
+     * @var string
+     */
+    public $clickhouseConf;
+
+    /**
+     * @example C-D7958B72E59B****
+     *
      * @var string
      */
     public $clusterId;
@@ -32,6 +43,8 @@ class ResizeClusterV2Request extends Model
     public $hostGroup;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isOpenPublicIp;
@@ -42,16 +55,21 @@ class ResizeClusterV2Request extends Model
     public $promotionInfo;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vsw-bp10tvjyc77psy0z5****
+     *
      * @var string
      */
     public $vswitchId;
     protected $_name = [
         'autoPayOrder'      => 'AutoPayOrder',
+        'clickhouseConf'    => 'ClickhouseConf',
         'clusterId'         => 'ClusterId',
         'hostComponentInfo' => 'HostComponentInfo',
         'hostGroup'         => 'HostGroup',
@@ -70,6 +88,9 @@ class ResizeClusterV2Request extends Model
         $res = [];
         if (null !== $this->autoPayOrder) {
             $res['AutoPayOrder'] = $this->autoPayOrder;
+        }
+        if (null !== $this->clickhouseConf) {
+            $res['ClickhouseConf'] = $this->clickhouseConf;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
@@ -124,6 +145,9 @@ class ResizeClusterV2Request extends Model
         $model = new self();
         if (isset($map['AutoPayOrder'])) {
             $model->autoPayOrder = $map['AutoPayOrder'];
+        }
+        if (isset($map['ClickhouseConf'])) {
+            $model->clickhouseConf = $map['ClickhouseConf'];
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];

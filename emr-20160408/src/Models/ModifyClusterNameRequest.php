@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterNameRequest extends Model
 {
     /**
+     * @example C-D7958B72E59B****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example bi_hadoop
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 12344
+     *
      * @var int
      */
     public $resourceOwnerId;

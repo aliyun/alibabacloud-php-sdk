@@ -14,16 +14,22 @@ class component extends Model
     public $commissionStatus;
 
     /**
+     * @example Tez Client
+     *
      * @var string
      */
     public $componentDisplayName;
 
     /**
+     * @example TezInit
+     *
      * @var string
      */
     public $componentName;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $cpu;
@@ -39,66 +45,92 @@ class component extends Model
     public $healthStatus;
 
     /**
+     * @example 111
+     *
      * @var string
      */
     public $hostId;
 
     /**
+     * @example i-xxx
+     *
      * @var string
      */
     public $hostInstanceId;
 
     /**
+     * @example emr-worker-1
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example ecs.sn1.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needRestart;
 
     /**
+     * @example 192.168.1.1
+     *
      * @var string
      */
     public $privateIp;
 
     /**
+     * @example 48.20.119.10
+     *
      * @var string
      */
     public $publicIp;
 
     /**
+     * @example CORE
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example x11-05e5-4d36-b773-8ae4106babd4
+     *
      * @var string
      */
     public $serialNumber;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $serverStatus;
 
     /**
+     * @example Tez
+     *
      * @var string
      */
     public $serviceDisplayName;
 
     /**
+     * @example TEZ
+     *
      * @var string
      */
     public $serviceName;
@@ -109,6 +141,8 @@ class component extends Model
     public $state;
 
     /**
+     * @example STARTED
+     *
      * @var string
      */
     public $status;

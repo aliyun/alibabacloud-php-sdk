@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class job extends Model
 {
     /**
+     * @example false
+     *
      * @var string
      */
     public $adhoc;
 
     /**
+     * @example "{\"items\":[{\"enable\":true,\"eventId\":\"EMR-210401001\",\"alertUserGroupIdList\":[\"AUG-52dabfbbca654b52aae05ac5acd9a0f0\"],\"alertDingDingGroupList\":[\"ADG-2c411c452e6b467b9a59fadf21d195ad\"]}]}"
+     *
      * @var string
      */
     public $alertConf;
 
     /**
+     * @example FC-5BD9575E34623940
+     *
      * @var string
      */
     public $categoryId;
 
     /**
+     * @example "{\"scope\":\"PROJECT\",\"entityId\":\"FP-80C2FDDBF35D9CC5\",\"variables\":[{\"name\":\"v1\",\"value\":\"1\",\"properties\":{\"password\":true}}]}"
+     *
      * @var string
      */
     public $customVariables;
@@ -35,56 +43,78 @@ class job extends Model
     public $description;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $envConf;
 
     /**
+     * @example STOP
+     *
      * @var string
      */
     public $failAct;
 
     /**
+     * @example 1538017814000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1538017814000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example FJ-BCCAE48B90CCB37B
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $lastInstanceDetail;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $maxRetry;
 
     /**
+     * @example {"inputs":[{"type":"KAFKA","clusterId":"C-1234567","topics":"kafka_topic","consumer.group":"kafka_consumer_group"}],"outputs":[{"type":"KAFKA","clusterId":"C-1234567","topics":"kafka_topic"}]}
+     *
      * @var string
      */
     public $monitorConf;
 
     /**
+     * @example my_shell_job
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example {"date":"${yyyy-MM-dd}"}
+     *
      * @var string
      */
     public $paramConf;
 
     /**
+     * @example ls -l
+     *
      * @var string
      */
     public $params;
@@ -95,21 +125,29 @@ class job extends Model
     public $resourceList;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $retryInterval;
 
     /**
+     * @example {"priority":1,"userName":"hadoop","memory":2048,"cores":1}
+     *
      * @var string
      */
     public $runConf;
 
     /**
+     * @example SHELL
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example YARN
+     *
      * @var string
      */
     public $mode;

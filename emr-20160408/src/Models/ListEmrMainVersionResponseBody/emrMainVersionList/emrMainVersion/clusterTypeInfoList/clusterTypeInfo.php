@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class clusterTypeInfo extends Model
 {
     /**
+     * @example HADOOP
+     *
      * @var string
      */
     public $clusterType;

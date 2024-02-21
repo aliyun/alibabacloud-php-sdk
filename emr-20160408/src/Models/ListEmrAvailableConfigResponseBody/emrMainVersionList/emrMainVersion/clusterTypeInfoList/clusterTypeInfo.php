@@ -15,6 +15,8 @@ class clusterTypeInfo extends Model
     public $clusterServiceInfoList;
 
     /**
+     * @example HADOOP
+     *
      * @var string
      */
     public $clusterType;

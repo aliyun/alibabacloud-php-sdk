@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class clusterServiceSummary extends Model
 {
     /**
+     * @example ""
+     *
      * @var string
      */
     public $alertInfo;
 
     /**
+     * @example MASTER
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $desiredStoppedValue;
 
     /**
+     * @example NodeManager
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example NodeManager
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example COMPONENT
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 20/20 Started
+     *
      * @var string
      */
     public $value;

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ListFlowJobRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $adhoc;
 
     /**
+     * @example FJ-BCCAE48B90CCB37B
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example my_shell_job
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example FP-257A173659F5****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example SHELL
+     *
      * @var string
      */
     public $type;
