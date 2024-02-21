@@ -46,7 +46,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
      * @description The service state of the endpoint. Valid values:
      *
      *   **Normal**: The endpoint runs as expected.
-     *   **FinacialLocked**: The endpoint is locked due to overdue payments.
+     *   **FinancialLocked**: The endpoint is locked due to overdue payments.
      *
      * @example Normal
      *
@@ -194,10 +194,10 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $vpcId;
 
     /**
-     * @description Indicates whether zone affinity is enabled. Valid values:
+     * @description Indicates whether the domain name of the nearest endpoint that is associated with the endpoint service is resolved first. Valid values:
      *
-     *   **true**: Zone affinity is enabled.
-     *   **false**: Zone affinity is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

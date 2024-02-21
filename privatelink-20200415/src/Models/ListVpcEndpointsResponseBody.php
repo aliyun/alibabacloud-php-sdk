@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointsResponseBody extends Model
 {
     /**
+     * @description The information about the endpoints.
+     *
      * @var endpoints[]
      */
     public $endpoints;
 
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 50
      *
      * @var int
@@ -22,6 +26,11 @@ class ListVpcEndpointsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
+     *   If a next request is to be performed, set the parameter to the value of **NextToken** that is returned from the last call.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -29,6 +38,8 @@ class ListVpcEndpointsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
      * @var string
@@ -36,6 +47,8 @@ class ListVpcEndpointsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 12
      *
      * @var int

@@ -20,11 +20,11 @@ class resource extends Model
     /**
      * @description The type of the service resource that is added to the endpoint service. You can add up to 20 service resources to the endpoint service. Valid values:
      *
-     *   **slb**: a CLB instance
-     *   **alb**: an ALB instance
-     *   **nlb**: a NLB instance
+     *   **slb**: Classic Load Balancer (CLB) instance
+     *   **alb**: Application Load Balancer (ALB) instance
+     *   **nlb**: Network Load Balancer (NLB) instance
      *
-     * >  In regions where PrivateLink is supported, CLB instances deployed in virtual private clouds (VPCs) can serve as service resources of the endpoint service.
+     * >  In regions where PrivateLink is supported, CLB instances deployed in virtual private clouds (VPCs) can serve as the service resources of the endpoint service.
      * @example slb
      *
      * @var string

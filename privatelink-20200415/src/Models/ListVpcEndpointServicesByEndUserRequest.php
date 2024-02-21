@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointServicesByEndUserRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **50**.
+     *
      * @example 50
      *
      * @var int
@@ -17,6 +19,11 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
+     *   If a next request is to be performed, set the value to the value of **NextToken** that is returned from the last call.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -24,6 +31,9 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     public $nextToken;
 
     /**
+     * @description The region ID of the endpoint.
+     *
+     * You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
      * @example cn-huhehaote
      *
      * @var string
@@ -31,6 +41,8 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmy*****
      *
      * @var string
@@ -38,6 +50,8 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the endpoint service that you want to query.
+     *
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -45,6 +59,8 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     public $serviceId;
 
     /**
+     * @description The name of the endpoint service that you want to query.
+     *
      * @example com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3xdsq46ael67lo****
      *
      * @var string
@@ -52,6 +68,9 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     public $serviceName;
 
     /**
+     * @description The type of the endpoint service.
+     *
+     * Set the value to **Interface**. You can specify CLB and ALB instances as service resources for the endpoint service.
      * @example Interface
      *
      * @var string
@@ -59,6 +78,8 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     public $serviceType;
 
     /**
+     * @description The list of tags.
+     *
      * @var tag[]
      */
     public $tag;

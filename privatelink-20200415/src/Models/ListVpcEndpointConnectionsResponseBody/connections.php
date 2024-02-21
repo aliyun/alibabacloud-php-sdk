@@ -21,13 +21,13 @@ class connections extends Model
     /**
      * @description The state of the endpoint connection. Valid values:
      *
-     *   **Pending**: The endpoint connection is being modified.
-     *   **Connecting**: The endpoint connection is being established.
-     *   **Connected**: The endpoint connection is established.
+     *   **Pending**: The connection is being modified.
+     *   **Connecting**: The connection is being established.
+     *   **Connected**: The connection is established.
      *   **Disconnecting**: The endpoint is being disconnected from the endpoint service.
      *   **Disconnected**: The endpoint is disconnected from the endpoint service.
-     *   **Deleting**: The endpoint connection is being deleted.
-     *   **ServiceDeleted**: The corresponding endpoint service is deleted.
+     *   **Deleting**: The connection is being deleted.
+     *   **ServiceDeleted**: The corresponding endpoint service has been deleted.
      *
      * @example Disconnected
      *
@@ -63,7 +63,7 @@ class connections extends Model
     public $endpointVpcId;
 
     /**
-     * @description The time when the endpoint connection was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the endpoint connection was modified.
      *
      * @example 2021-09-28T10:34:46Z
      *
@@ -102,7 +102,7 @@ class connections extends Model
     public $serviceId;
 
     /**
-     * @description The information about the zones.
+     * @description The zones.
      *
      * @var zones[]
      */

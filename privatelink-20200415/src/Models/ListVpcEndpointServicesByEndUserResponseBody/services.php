@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
+     * @description The payer. Valid values:
+     *
+     *   **Endpoint**: the service consumer
+     *   **EndpointService**: the service provider
+     *
      * @example Endpoint
      *
      * @var string
@@ -17,6 +22,8 @@ class services extends Model
     public $payer;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmy*****
      *
      * @var string
@@ -24,6 +31,8 @@ class services extends Model
     public $resourceGroupId;
 
     /**
+     * @description The domain name of the endpoint service that can be associated with the endpoint.
+     *
      * @example epsrv-hp3vpx8yqxblby3i****.cn-huhehaote.privatelink.aliyuncs.com
      *
      * @var string
@@ -31,6 +40,8 @@ class services extends Model
     public $serviceDomain;
 
     /**
+     * @description The ID of the endpoint service that can be associated with the endpoint.
+     *
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -38,6 +49,8 @@ class services extends Model
     public $serviceId;
 
     /**
+     * @description The name of the endpoint service that can be associated with the endpoint.
+     *
      * @example com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -52,6 +65,11 @@ class services extends Model
     public $serviceResourceType;
 
     /**
+     * @description Indicates whether IPv6 is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -59,6 +77,9 @@ class services extends Model
     public $serviceSupportIPv6;
 
     /**
+     * @description The type of the endpoint service.
+     *
+     * Only **Interface** is returned, which indicates an interface endpoint. You can specify **CLB** and **ALB** instances as service resources.
      * @example Interface
      *
      * @var string
@@ -66,11 +87,15 @@ class services extends Model
     public $serviceType;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The zones of the endpoint service that can be associated with the endpoint.
+     *
      * @var string[]
      */
     public $zones;

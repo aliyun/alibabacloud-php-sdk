@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointServicesRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically accept endpoint connection requests. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example false
      *
      * @var bool
@@ -17,6 +22,8 @@ class ListVpcEndpointServicesRequest extends Model
     public $autoAcceptEnabled;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **50**.
+     *
      * @example 50
      *
      * @var int
@@ -24,6 +31,11 @@ class ListVpcEndpointServicesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
+     *   If a next request is to be performed, set the parameter to the value of NextToken that is returned from the last call.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -31,6 +43,9 @@ class ListVpcEndpointServicesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The region ID of the endpoint service.
+     *
+     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
      * @example cn-huhehaote
      *
      * @var string
@@ -38,6 +53,8 @@ class ListVpcEndpointServicesRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmy*****
      *
      * @var string
@@ -45,6 +62,8 @@ class ListVpcEndpointServicesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The service resource ID.
+     *
      * @example lb-hp32z1wp5peaoox2q****
      *
      * @var string
@@ -52,6 +71,11 @@ class ListVpcEndpointServicesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The service state of the endpoint service. Valid values:
+     *
+     *   **Normal**: The endpoint service runs as expected.
+     *   **FinancialLocked**: The endpoint service is locked due to overdue payments.
+     *
      * @example Normal
      *
      * @var string
@@ -59,6 +83,8 @@ class ListVpcEndpointServicesRequest extends Model
     public $serviceBusinessStatus;
 
     /**
+     * @description The endpoint service ID.
+     *
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -66,6 +92,8 @@ class ListVpcEndpointServicesRequest extends Model
     public $serviceId;
 
     /**
+     * @description The name of the endpoint service.
+     *
      * @example com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -73,6 +101,11 @@ class ListVpcEndpointServicesRequest extends Model
     public $serviceName;
 
     /**
+     * @description The type of the service resource. Valid values:
+     *
+     *   **slb**: a Classic Load Balancer (CLB) instance
+     *   **alb**: an Application Load Balancer (ALB) instance
+     *
      * @example slb
      *
      * @var string
@@ -80,6 +113,13 @@ class ListVpcEndpointServicesRequest extends Model
     public $serviceResourceType;
 
     /**
+     * @description The state of the endpoint service. Valid values:
+     *
+     *   **Creating**: The endpoint service is being created.
+     *   **Pending**: The endpoint service is being modified.
+     *   **Active**: The endpoint service is available.
+     *   **Deleting**: The endpoint service is being deleted
+     *
      * @example Active
      *
      * @var string
@@ -87,11 +127,18 @@ class ListVpcEndpointServicesRequest extends Model
     public $serviceStatus;
 
     /**
+     * @description The list of tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description Specifies whether to first resolve the domain name of the nearest endpoint that is associated with the endpoint service. Valid values:
+     *
+     *   **true** (default)
+     *   **false**
+     *
      * @example true
      *
      * @var bool

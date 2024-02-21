@@ -41,6 +41,8 @@ class ListVpcEndpointServiceUsersResponseBody extends Model
     public $requestId;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $totalCount;

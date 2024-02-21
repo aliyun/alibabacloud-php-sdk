@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
+     * @description The bandwidth of the endpoint connection. Unit: Mbit/s.
+     *
      * @example 1024
      *
      * @var int
@@ -17,6 +19,16 @@ class endpoints extends Model
     public $bandwidth;
 
     /**
+     * @description The state of the endpoint connection. Valid values:
+     *
+     *   **Pending**: The endpoint connection is being modified.
+     *   **Connecting**: The endpoint connection is being established.
+     *   **Connected**: The endpoint connection is established.
+     *   **Disconnecting**: The endpoint is being disconnected from the endpoint service.
+     *   **Disconnected**: The endpoint is disconnected from the endpoint service.
+     *   **Deleting**: The endpoint connection is being deleted.
+     *   **ServiceDeleted**: The corresponding service is deleted.
+     *
      * @example Disconnected
      *
      * @var string
@@ -24,6 +36,8 @@ class endpoints extends Model
     public $connectionStatus;
 
     /**
+     * @description The time when the endpoint was created.
+     *
      * @example 2021-09-24T18:00:07Z
      *
      * @var string
@@ -31,6 +45,11 @@ class endpoints extends Model
     public $createTime;
 
     /**
+     * @description The service state of the endpoint. Valid values:
+     *
+     *   **Normal**: The endpoint runs as expected.
+     *   **FinancialLocked**: The endpoint is locked due to overdue payments.
+     *
      * @example Normal
      *
      * @var string
@@ -38,6 +57,8 @@ class endpoints extends Model
     public $endpointBusinessStatus;
 
     /**
+     * @description The description of the endpoint.
+     *
      * @example This is my Endpoint.
      *
      * @var string
@@ -45,6 +66,8 @@ class endpoints extends Model
     public $endpointDescription;
 
     /**
+     * @description The domain name of the endpoint.
+     *
      * @example ep-hp33b2e43fays7s8****.epsrv-hp3xdsq46ael67lo****.cn-huhehaote.privatelink.aliyuncs.com
      *
      * @var string
@@ -52,6 +75,8 @@ class endpoints extends Model
     public $endpointDomain;
 
     /**
+     * @description The ID of the endpoint.
+     *
      * @example ep-hp33b2e43fays7s8****
      *
      * @var string
@@ -59,6 +84,8 @@ class endpoints extends Model
     public $endpointId;
 
     /**
+     * @description The name of the endpoint.
+     *
      * @example test
      *
      * @var string
@@ -66,6 +93,13 @@ class endpoints extends Model
     public $endpointName;
 
     /**
+     * @description The state of the endpoint. Valid values:
+     *
+     *   **Creating**: The endpoint is being created.
+     *   **Active**: The endpoint is available.
+     *   **Pending**: The endpoint is being modified.
+     *   **Deleting**: The endpoint is being deleted.
+     *
      * @example Active
      *
      * @var string
@@ -73,6 +107,9 @@ class endpoints extends Model
     public $endpointStatus;
 
     /**
+     * @description The type of the endpoint.
+     *
+     * Only **Interface** may be returned, which indicates an interface endpoint. You can specify Application Load Balancer (ALB) instances, Classic Load Balancer (CLB) instances, and Network Load Balancer (NLB) instances as service resources.
      * @example Interface
      *
      * @var string
@@ -80,6 +117,8 @@ class endpoints extends Model
     public $endpointType;
 
     /**
+     * @description The region ID of the endpoint.
+     *
      * @example cn-huhehaote
      *
      * @var string
@@ -87,6 +126,8 @@ class endpoints extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example 1
      *
      * @var string
@@ -94,6 +135,11 @@ class endpoints extends Model
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the endpoint and the endpoint service belong to the same Alibaba Cloud account. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -101,6 +147,8 @@ class endpoints extends Model
     public $resourceOwner;
 
     /**
+     * @description The ID of the endpoint service that is associated with the endpoint.
+     *
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -108,6 +156,8 @@ class endpoints extends Model
     public $serviceId;
 
     /**
+     * @description The name of the endpoint service that is associated with the endpoint.
+     *
      * @example com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3xdsq46ael67lo****
      *
      * @var string
@@ -115,11 +165,15 @@ class endpoints extends Model
     public $serviceName;
 
     /**
+     * @description The tags added to the resource.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the endpoint belongs.
+     *
      * @example vpc-hp356stwkxg3fn2xe****
      *
      * @var string
@@ -127,6 +181,11 @@ class endpoints extends Model
     public $vpcId;
 
     /**
+     * @description Indicates whether the domain name of the nearest endpoint that is associated with the endpoint service is resolved first. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

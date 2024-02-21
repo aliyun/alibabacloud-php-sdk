@@ -31,8 +31,11 @@ class UpdateVpcEndpointServiceAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The default bandwidth of the endpoint connection. Valid values: **100** to **10240**. Unit: Mbit/s.
+     * @description The default maximum bandwidth of the endpoint connection. Unit: Mbit/s. Default value: **3072**.
      *
+     * Valid values: **100** to **10240**.
+     *
+     * >  You can specify this parameter only if you specify Classic Load Balancer (CLB) instances or Application Load Balancer (ALB) instances as service resources.
      * @example 200
      *
      * @var int
@@ -92,10 +95,10 @@ class UpdateVpcEndpointServiceAttributeRequest extends Model
     public $serviceSupportIPv6;
 
     /**
-     * @description Specifies whether to enable zone affinity. Valid values:
+     * @description Specifies whether to first resolve the domain name of the nearest endpoint that is associated with the endpoint service. Valid values:
      *
-     *   **true**
-     *   **false** (default)
+     *   **true** (default)
+     *   **false**
      *
      * @example true
      *

@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -17,6 +20,11 @@ class ListTagResourcesRequest extends Model
     public $clientToken;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     *   If this is your first request or no next requests are to be sent, you do not need to specify this parameter.
+     *   If a next request is to be sent, you must specify the token that is obtained from the previous request as the value of **NextToken**.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -24,6 +32,8 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the region where the resource resides. You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -31,11 +41,18 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource IDs. You can specify up to 50 resource IDs.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   **vpcendpoint**: endpoint
+     *   **vpcendpointservice**: endpoint service
+     *
      * @example vpcendpoint
      *
      * @var string
@@ -43,6 +60,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags to add to the resource.
+     *
      * @var tag[]
      */
     public $tag;

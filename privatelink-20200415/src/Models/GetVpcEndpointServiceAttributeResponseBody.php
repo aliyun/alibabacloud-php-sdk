@@ -21,7 +21,7 @@ class GetVpcEndpointServiceAttributeResponseBody extends Model
     public $autoAcceptEnabled;
 
     /**
-     * @description The default bandwidth of the endpoint connection. Valid values: **100** to 10240. Unit: Mbit/s.
+     * @description The default maximum bandwidth of the endpoint connection. Unit: Mbit/s. Valid values: **100** to 10240.
      *
      * @example 1024
      *
@@ -193,9 +193,9 @@ class GetVpcEndpointServiceAttributeResponseBody extends Model
     public $serviceType;
 
     /**
-     * @description Indicates whether zone affinity is enabled. Valid values:
+     * @description Indicates whether the domain name of the nearest endpoint that is associated with the endpoint service is resolved first. Valid values:
      *
-     *   **true**
+     *   **true** (default)
      *   **false**
      *
      * @example true

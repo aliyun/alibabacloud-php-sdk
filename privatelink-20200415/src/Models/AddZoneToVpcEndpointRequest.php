@@ -68,7 +68,7 @@ class AddZoneToVpcEndpointRequest extends Model
     public $zoneId;
 
     /**
-     * @description The IP address of the endpoint ENI in the zone that you want to add.
+     * @description The IP address of the endpoint elastic network interface (ENI) in the zone that you want to add.
      *
      * @example 192.XX.XX.32
      *

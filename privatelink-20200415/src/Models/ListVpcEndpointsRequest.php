@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointsRequest extends Model
 {
     /**
+     * @description The state of the endpoint connection. Valid values:
+     *
+     *   **Pending**: The endpoint connection is being modified.
+     *   **Connecting**: The endpoint connection is being established.
+     *   **Connected**: The endpoint connection is established.
+     *   **Disconnecting**: The endpoint is being disconnected from the endpoint service.
+     *   **Disconnected**: The endpoint is disconnected from the endpoint service.
+     *   **Deleting**: The connection is being deleted.
+     *   **ServiceDeleted**: The corresponding endpoint service has been deleted.
+     *
      * @example Disconnected
      *
      * @var string
@@ -17,6 +27,8 @@ class ListVpcEndpointsRequest extends Model
     public $connectionStatus;
 
     /**
+     * @description The ID of the endpoint.
+     *
      * @example ep-hp33b2e43fays7s8****
      *
      * @var string
@@ -24,6 +36,8 @@ class ListVpcEndpointsRequest extends Model
     public $endpointId;
 
     /**
+     * @description The name of the endpoint.
+     *
      * @example test
      *
      * @var string
@@ -31,6 +45,13 @@ class ListVpcEndpointsRequest extends Model
     public $endpointName;
 
     /**
+     * @description The state of the endpoint. Valid values:
+     *
+     *   **Creating**: The endpoint is being created.
+     *   **Active**: The endpoint is available.
+     *   **Pending**: The endpoint is being modified.
+     *   **Deleting**: The endpoint is being deleted.
+     *
      * @example Active
      *
      * @var string
@@ -38,6 +59,9 @@ class ListVpcEndpointsRequest extends Model
     public $endpointStatus;
 
     /**
+     * @description The type of the endpoint.
+     *
+     * Set the value to **Interface**. Then, you can specify Application Load Balancer (ALB) and Classic Load Balancer (CLB) instances as service resources for the endpoint service.
      * @example Interface
      *
      * @var string
@@ -45,6 +69,8 @@ class ListVpcEndpointsRequest extends Model
     public $endpointType;
 
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 50
      *
      * @var int
@@ -52,6 +78,11 @@ class ListVpcEndpointsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
+     *   If a next request is to be performed, set the parameter to the value of **NextToken** that is returned from the last call.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string
@@ -59,6 +90,9 @@ class ListVpcEndpointsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The region ID of the endpoint.
+     *
+     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
      * @example cn-huhehaote
      *
      * @var string
@@ -66,6 +100,8 @@ class ListVpcEndpointsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example 1
      *
      * @var string
@@ -73,6 +109,8 @@ class ListVpcEndpointsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The name of the endpoint service with which the endpoint is associated.
+     *
      * @example com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -80,11 +118,15 @@ class ListVpcEndpointsRequest extends Model
     public $serviceName;
 
     /**
+     * @description The list of tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the VPC to which the endpoint belongs.
+     *
      * @example vpc-fdjkf789dfdfdfde****
      *
      * @var string

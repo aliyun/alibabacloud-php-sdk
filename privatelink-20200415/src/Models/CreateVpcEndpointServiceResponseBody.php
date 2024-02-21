@@ -51,7 +51,7 @@ class CreateVpcEndpointServiceResponseBody extends Model
      * @description The service state of the endpoint service. Valid values:
      *
      *   **Normal**: The endpoint service runs as expected.
-     *   **FinacialLocked**: The endpoint service is locked due to overdue payments.
+     *   **FinancialLocked**: The endpoint service is locked due to overdue payments.
      *
      * @example Normal
      *
@@ -102,7 +102,6 @@ class CreateVpcEndpointServiceResponseBody extends Model
      *   **Pending**: The endpoint service is being modified.
      *   **Active**: The endpoint service is available.
      *   **Deleting**: The endpoint service is being deleted.
-     *   **Inactive**: The endpoint service is unavailable.
      *
      * @example Active
      *

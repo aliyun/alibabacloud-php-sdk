@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointConnectionsResponseBody extends Model
 {
     /**
-     * @description The information about the endpoint connections.
+     * @description The endpoint connections.
      *
      * @var connections[]
      */
@@ -47,8 +47,6 @@ class ListVpcEndpointConnectionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
      * @example 1
      *
      * @var string

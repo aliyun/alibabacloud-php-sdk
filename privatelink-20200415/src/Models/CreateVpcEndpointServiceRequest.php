@@ -118,7 +118,7 @@ class CreateVpcEndpointServiceRequest extends Model
     public $serviceSupportIPv6;
 
     /**
-     * @description The list of tags.
+     * @description The tags to add to the resource.
      *
      * @var tag[]
      */

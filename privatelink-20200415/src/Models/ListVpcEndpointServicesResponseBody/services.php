@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
+     * @description Indicates whether endpoint connection requests are automatically accepted. Valid values:
+     *
+     *   **true**: Endpoint connection requests are automatically accepted.
+     *   **false**: Endpoint connection requests are not automatically accepted.
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +22,8 @@ class services extends Model
     public $autoAcceptEnabled;
 
     /**
+     * @description The default maximum bandwidth of the endpoint connection. Unit: Mbit/s.
+     *
      * @example 1024
      *
      * @var int
@@ -24,6 +31,8 @@ class services extends Model
     public $connectBandwidth;
 
     /**
+     * @description The time when the endpoint service was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2021-09-24T17:15:10Z
      *
      * @var string
@@ -31,6 +40,8 @@ class services extends Model
     public $createTime;
 
     /**
+     * @description The maximum bandwidth of the endpoint connection. Unit: Mbit/s.
+     *
      * @example 1024
      *
      * @var int
@@ -38,6 +49,8 @@ class services extends Model
     public $maxBandwidth;
 
     /**
+     * @description The minimum bandwidth of the endpoint connection. Unit: Mbit/s.
+     *
      * @example 100
      *
      * @var int
@@ -45,6 +58,11 @@ class services extends Model
     public $minBandwidth;
 
     /**
+     * @description The payer. Valid values:
+     *
+     *   **Endpoint**: service consumer
+     *   **EndpointService**: service provider
+     *
      * @example Endpoint
      *
      * @var string
@@ -52,6 +70,8 @@ class services extends Model
     public $payer;
 
     /**
+     * @description The region ID of the endpoint service.
+     *
      * @example cn-huhehaote
      *
      * @var string
@@ -59,6 +79,8 @@ class services extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmy*****
      *
      * @var string
@@ -66,6 +88,11 @@ class services extends Model
     public $resourceGroupId;
 
     /**
+     * @description The service state of the endpoint service. Valid values:
+     *
+     *   **Normal**: The endpoint service runs as expected.
+     *   **FinancialLocked**: The endpoint service is locked due to overdue payments.
+     *
      * @example Normal
      *
      * @var string
@@ -73,6 +100,8 @@ class services extends Model
     public $serviceBusinessStatus;
 
     /**
+     * @description The description of the endpoint service.
+     *
      * @example This is my EndpointService.
      *
      * @var string
@@ -80,6 +109,8 @@ class services extends Model
     public $serviceDescription;
 
     /**
+     * @description The domain name of the endpoint service.
+     *
      * @example epsrv-hp3vpx8yqxblby3i****.cn-huhehaote.privatelink.aliyuncs.com
      *
      * @var string
@@ -87,6 +118,8 @@ class services extends Model
     public $serviceDomain;
 
     /**
+     * @description The ID of the endpoint service.
+     *
      * @example epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -94,6 +127,8 @@ class services extends Model
     public $serviceId;
 
     /**
+     * @description The name of the endpoint service.
+     *
      * @example com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3vpx8yqxblby3i****
      *
      * @var string
@@ -101,6 +136,12 @@ class services extends Model
     public $serviceName;
 
     /**
+     * @description The type of the service resource. Valid values:
+     *
+     *   **slb**: Classic Load Balancer (CLB) instance
+     *   **alb**: Application Load Balancer (ALB) instance
+     *   **nlb**: Network Load Balancer (NLB) instance
+     *
      * @example slb
      *
      * @var string
@@ -108,6 +149,13 @@ class services extends Model
     public $serviceResourceType;
 
     /**
+     * @description The state of the endpoint service. Valid values:
+     *
+     *   **Creating**: The endpoint service is being created.
+     *   **Pending**: The endpoint service is being modified.
+     *   **Active**: The endpoint service is available.
+     *   **Deleting**: The endpoint service is being deleted.
+     *
      * @example Active
      *
      * @var string
@@ -115,6 +163,11 @@ class services extends Model
     public $serviceStatus;
 
     /**
+     * @description Indicates whether the endpoint service supports IPv6. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -122,6 +175,10 @@ class services extends Model
     public $serviceSupportIPv6;
 
     /**
+     * @description The type of the endpoint service.
+     *
+     *   Only **Interface** may be returned. You can specify CLB, ALB, and NLB instances as the service resources of the endpoint service.
+     *
      * @example Interface
      *
      * @var string
@@ -129,11 +186,18 @@ class services extends Model
     public $serviceType;
 
     /**
+     * @description The tags added to the resource.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description Indicates whether zone affinity is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

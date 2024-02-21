@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
-     * @description The endpoint ENI ID.
+     * @description The ID of the endpoint ENI.
      *
      * @example eni-hp3c8qj1tyct8aqy****
      *
@@ -47,7 +47,7 @@ class zones extends Model
     /**
      * @description The domain name of the zone.
      *
-     * After the endpoint is connected to the endpoint service, you can access the service resources in the endpoint service by using the domain name of the zone.
+     * After the endpoint in the zone is connected to the endpoint service, you can access the service resources of the endpoint service by using the domain name of the zone.
      * @example ep-hp3f033dp24c5yc9****-cn-huhehaote.epsrv-hp3itcpowf37m3d5****.cn-huhehaote-a.privatelink.aliyuncs.com
      *
      * @var string
@@ -64,7 +64,7 @@ class zones extends Model
     public $zoneId;
 
     /**
-     * @description Indicates whether IPv6 is enabled for the endpoint service. Valid values:
+     * @description Indicates whether the endpoint service supports IPv6. Valid values:
      *
      *   **true**
      *   **false** (default)

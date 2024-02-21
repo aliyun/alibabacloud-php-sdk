@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of the tag.
+     * @description The key of the tag to add to the resource.
      *
      * @example env
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of the tag.
+     * @description The value of the tag to add to the resource.
      *
      * @example prod
      *

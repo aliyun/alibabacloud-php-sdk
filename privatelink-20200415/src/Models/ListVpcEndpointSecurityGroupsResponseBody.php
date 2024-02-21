@@ -40,7 +40,7 @@ class ListVpcEndpointSecurityGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The security groups that are associated with the endpoint.
+     * @description The information about the security groups.
      *
      * @var securityGroups[]
      */

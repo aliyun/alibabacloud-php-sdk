@@ -94,9 +94,8 @@ class CreateVpcEndpointRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the security group that is associated with the endpoint ENI. The security group can be used to control data transfer between the VPC and the endpoint ENI.
+     * @description The IDs of security groups that are associated with the endpoint elastic network interface (ENI).
      *
-     * The endpoint can be associated with up to 10 security groups.
      * @example sg-hp33bw6ynvm2yb0e****
      *
      * @var string[]
@@ -122,7 +121,7 @@ class CreateVpcEndpointRequest extends Model
     public $serviceName;
 
     /**
-     * @description The list of tags.
+     * @description The tags to add to the resource.
      *
      * @var tag[]
      */

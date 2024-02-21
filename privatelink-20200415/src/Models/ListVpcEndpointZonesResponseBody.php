@@ -40,7 +40,7 @@ class ListVpcEndpointZonesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The zones.
+     * @description The information about the zones.
      *
      * @var zones[]
      */
