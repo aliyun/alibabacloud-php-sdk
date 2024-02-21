@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class RunCommandRequest extends Model
 {
     /**
+     * @description The command that you want to run.\
+     * The name can be up to 1024 bytes in length and can contain only letters, digits, underscores (\_), periods (.), slashes (/), colons (:), and hyphens (-).
+     * @example ls -al /
+     *
      * @var string
      */
     public $command;
 
     /**
+     * @description The IDs of the instances on which you want to run the command.\
+     * Valid values of N: 1 to 10.
      * @var string[]
      */
     public $instanceId;
@@ -29,6 +35,10 @@ class RunCommandRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -116,10 +116,13 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param CancelTaskRequest $request
-     * @param RuntimeOptions    $runtime
+     * When you call this operation, take note of the following item:
+     *   * *   If the task is executed, you fail to call the operation and an error is returned.
+     *   *
+     * @param CancelTaskRequest $request CancelTaskRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelTaskResponse
+     * @return CancelTaskResponse CancelTaskResponse
      */
     public function cancelTaskWithOptions($request, $runtime)
     {
@@ -165,9 +168,12 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param CancelTaskRequest $request
+     * When you call this operation, take note of the following item:
+     *   * *   If the task is executed, you fail to call the operation and an error is returned.
+     *   *
+     * @param CancelTaskRequest $request CancelTaskRequest
      *
-     * @return CancelTaskResponse
+     * @return CancelTaskResponse CancelTaskResponse
      */
     public function cancelTask($request)
     {
@@ -177,10 +183,15 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param CopyImageRequest $request
-     * @param RuntimeOptions   $runtime
+     * When you call this operation, take note of the following items:
+     *   * *   The custom image that you want to copy must be in the Available state.
+     *   * *   You can only copy images within your own Alibaba Cloud account. Images cannot be copied from one account to another.
+     *   * *   A single region can have only one image copy task running at a time. Other image copy tasks queue up for the current task to complete before they run in sequence.
+     *   *
+     * @param CopyImageRequest $request CopyImageRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CopyImageResponse
+     * @return CopyImageResponse CopyImageResponse
      */
     public function copyImageWithOptions($request, $runtime)
     {
@@ -238,9 +249,14 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param CopyImageRequest $request
+     * When you call this operation, take note of the following items:
+     *   * *   The custom image that you want to copy must be in the Available state.
+     *   * *   You can only copy images within your own Alibaba Cloud account. Images cannot be copied from one account to another.
+     *   * *   A single region can have only one image copy task running at a time. Other image copy tasks queue up for the current task to complete before they run in sequence.
+     *   *
+     * @param CopyImageRequest $request CopyImageRequest
      *
-     * @return CopyImageResponse
+     * @return CopyImageResponse CopyImageResponse
      */
     public function copyImage($request)
     {
@@ -250,10 +266,14 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param CreateImageRequest $request
-     * @param RuntimeOptions     $runtime
+     * When you call this operation, take note of the following items:
+     *   * *   You need to only specify the ID (InstanceId) of an ECP instance. The instance is used as a template. The instance must be in the Running or Stopped state.
+     *   * *   You can use the created custom image only if the image is in the Available state.
+     *   *
+     * @param CreateImageRequest $request CreateImageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateImageResponse
+     * @return CreateImageResponse CreateImageResponse
      */
     public function createImageWithOptions($request, $runtime)
     {
@@ -308,9 +328,13 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param CreateImageRequest $request
+     * When you call this operation, take note of the following items:
+     *   * *   You need to only specify the ID (InstanceId) of an ECP instance. The instance is used as a template. The instance must be in the Running or Stopped state.
+     *   * *   You can use the created custom image only if the image is in the Available state.
+     *   *
+     * @param CreateImageRequest $request CreateImageRequest
      *
-     * @return CreateImageResponse
+     * @return CreateImageResponse CreateImageResponse
      */
     public function createImage($request)
     {
@@ -320,10 +344,15 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param DeleteImagesRequest $request
-     * @param RuntimeOptions      $runtime
+     * ## [](#)Usage notes
+     *   * When you call this operation, take note of the following items:
+     *   * *   Images that are shared with recipient users can be deleted only after you unshare the images.
+     *   * *   Images that are used by other Elastic Cloud Phone (ECP) instances can only be forcefully deleted.
+     *   *
+     * @param DeleteImagesRequest $request DeleteImagesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteImagesResponse
+     * @return DeleteImagesResponse DeleteImagesResponse
      */
     public function deleteImagesWithOptions($request, $runtime)
     {
@@ -372,9 +401,14 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param DeleteImagesRequest $request
+     * ## [](#)Usage notes
+     *   * When you call this operation, take note of the following items:
+     *   * *   Images that are shared with recipient users can be deleted only after you unshare the images.
+     *   * *   Images that are used by other Elastic Cloud Phone (ECP) instances can only be forcefully deleted.
+     *   *
+     * @param DeleteImagesRequest $request DeleteImagesRequest
      *
-     * @return DeleteImagesResponse
+     * @return DeleteImagesResponse DeleteImagesResponse
      */
     public function deleteImages($request)
     {
@@ -448,10 +482,14 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param DeleteKeyPairsRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   Before you call the operation, take note of the following items:
+     *   *     *   If you delete a key pair of a cloud phone, you cannot query the key pair of the cloud phone by calling the ListKeyPairs operation.
+     *   *     *   If you delete a key pair that is bound to an existing Elastic Cloud Phone (ECP) instance, Alibaba Cloud no longer saves the key pair for you, but the ECP instance can use the key pair as expected.
+     *   *
+     * @param DeleteKeyPairsRequest $request DeleteKeyPairsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteKeyPairsResponse
+     * @return DeleteKeyPairsResponse DeleteKeyPairsResponse
      */
     public function deleteKeyPairsWithOptions($request, $runtime)
     {
@@ -497,9 +535,13 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param DeleteKeyPairsRequest $request
+     * *   Before you call the operation, take note of the following items:
+     *   *     *   If you delete a key pair of a cloud phone, you cannot query the key pair of the cloud phone by calling the ListKeyPairs operation.
+     *   *     *   If you delete a key pair that is bound to an existing Elastic Cloud Phone (ECP) instance, Alibaba Cloud no longer saves the key pair for you, but the ECP instance can use the key pair as expected.
+     *   *
+     * @param DeleteKeyPairsRequest $request DeleteKeyPairsRequest
      *
-     * @return DeleteKeyPairsResponse
+     * @return DeleteKeyPairsResponse DeleteKeyPairsResponse
      */
     public function deleteKeyPairs($request)
     {
@@ -579,10 +621,15 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ImportImageRequest $request
-     * @param RuntimeOptions     $runtime
+     * When you call this operation, take note of the following items:
+     *   * *   Before you import the image, you must upload the image to an Object Storage Service (OSS) bucket. For more information, see [Upload objects](~~31886~~).
+     *   * *   When you import an image for the first time, you must use Resource Access Management (RAM) to grant permissions on the access to OSS buckets in advance to obtain [Cloud Resource Access Authorization](https://ram.console.aliyun.com/role/authorization?request=%7B%22Services%22%3A%5B%7B%22Service%22%3A%22CloudPhone%22%2C%22Roles%22%3A%5B%7B%22RoleName%22%3A%22AliyunCloudPhoneDefaultRole%22%2C%22TemplateId%22%3A%22AliyunCloudPhoneDefaultRole%22%7D%5D%7D%5D%2C%22ReturnUrl%22%3A%22https%3A%2F%2Fcloudphone.console.aliyun.com%2F%23%2Finstances%22%7D) with one click.
+     *   * *   You can import an image only to a region that is the same as that of the OSS bucket to which the image file was imported.
+     *   *
+     * @param ImportImageRequest $request ImportImageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportImageResponse
+     * @return ImportImageResponse ImportImageResponse
      */
     public function importImageWithOptions($request, $runtime)
     {
@@ -646,9 +693,14 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ImportImageRequest $request
+     * When you call this operation, take note of the following items:
+     *   * *   Before you import the image, you must upload the image to an Object Storage Service (OSS) bucket. For more information, see [Upload objects](~~31886~~).
+     *   * *   When you import an image for the first time, you must use Resource Access Management (RAM) to grant permissions on the access to OSS buckets in advance to obtain [Cloud Resource Access Authorization](https://ram.console.aliyun.com/role/authorization?request=%7B%22Services%22%3A%5B%7B%22Service%22%3A%22CloudPhone%22%2C%22Roles%22%3A%5B%7B%22RoleName%22%3A%22AliyunCloudPhoneDefaultRole%22%2C%22TemplateId%22%3A%22AliyunCloudPhoneDefaultRole%22%7D%5D%7D%5D%2C%22ReturnUrl%22%3A%22https%3A%2F%2Fcloudphone.console.aliyun.com%2F%23%2Finstances%22%7D) with one click.
+     *   * *   You can import an image only to a region that is the same as that of the OSS bucket to which the image file was imported.
+     *   *
+     * @param ImportImageRequest $request ImportImageRequest
      *
-     * @return ImportImageResponse
+     * @return ImportImageResponse ImportImageResponse
      */
     public function importImage($request)
     {
@@ -658,10 +710,14 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ImportKeyPairRequest $request
-     * @param RuntimeOptions       $runtime
+     * Usage notes Before you call this operation, take note of the following items:
+     *   * *   You can create up to 500 key pairs in each region.
+     *   * *   The imported public key pair must generate the public key of a key pair for Android Debug Bridge (ADB).
+     *   *
+     * @param ImportKeyPairRequest $request ImportKeyPairRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportKeyPairResponse
+     * @return ImportKeyPairResponse ImportKeyPairResponse
      */
     public function importKeyPairWithOptions($request, $runtime)
     {
@@ -710,9 +766,13 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ImportKeyPairRequest $request
+     * Usage notes Before you call this operation, take note of the following items:
+     *   * *   You can create up to 500 key pairs in each region.
+     *   * *   The imported public key pair must generate the public key of a key pair for Android Debug Bridge (ADB).
+     *   *
+     * @param ImportKeyPairRequest $request ImportKeyPairRequest
      *
-     * @return ImportKeyPairResponse
+     * @return ImportKeyPairResponse ImportKeyPairResponse
      */
     public function importKeyPair($request)
     {
@@ -990,10 +1050,24 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceVncUrlRequest $request
-     * @param RuntimeOptions            $runtime
+     * ## [](#)Usage notes
+     *   * When you call this operation, take note of the following items:
+     *   * *   The URL returned is valid only for 15 seconds. If no connection is established within 15 seconds after a successful query, the URL expires. You must query the URL again if you still want to use the URL.
+     *   * *   The keep-alive duration of a single URL of a management terminal is 60 seconds. If no interaction is detected within the 60 seconds, the management terminal is automatically disconnected.
+     *   * *   After the management terminal is disconnected, you can only reconnect to the terminal up to 30 times per minute.
+     *   * *   You need to add vncUrl=\\*\\*\\*\\*, instanceId= ****and password=**** to the end of the link https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.8/index.html? and use ampersands (&) between the parameters. Parameter description:
+     *   *     *   vncUrl: the value that is returned after the operation is called.
+     *   *     *   instanceId: the instance ID.
+     *   *     *   (Optional) password: the password for remote connection of the instance, which can contain six characters in length. The password can be digits or letters. If you specify this parameter, you do not need to enter your password again when the management terminal is being connected.
+     *   * Example:
+     *   * https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.8/index.html?vncUrl=ws%3A%2F%****\\&instanceId=cp-wz9hhwq5a6tm****
+     *   * Or:
+     *   * https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.8/index.html?vncUrl=ws%3A%2F%****\\&instanceId=cp-wz9hhwq5a6tm****\\&password=\\*\\*\\*\\*.
+     *   *
+     * @param ListInstanceVncUrlRequest $request ListInstanceVncUrlRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceVncUrlResponse
+     * @return ListInstanceVncUrlResponse ListInstanceVncUrlResponse
      */
     public function listInstanceVncUrlWithOptions($request, $runtime)
     {
@@ -1039,9 +1113,23 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceVncUrlRequest $request
+     * ## [](#)Usage notes
+     *   * When you call this operation, take note of the following items:
+     *   * *   The URL returned is valid only for 15 seconds. If no connection is established within 15 seconds after a successful query, the URL expires. You must query the URL again if you still want to use the URL.
+     *   * *   The keep-alive duration of a single URL of a management terminal is 60 seconds. If no interaction is detected within the 60 seconds, the management terminal is automatically disconnected.
+     *   * *   After the management terminal is disconnected, you can only reconnect to the terminal up to 30 times per minute.
+     *   * *   You need to add vncUrl=\\*\\*\\*\\*, instanceId= ****and password=**** to the end of the link https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.8/index.html? and use ampersands (&) between the parameters. Parameter description:
+     *   *     *   vncUrl: the value that is returned after the operation is called.
+     *   *     *   instanceId: the instance ID.
+     *   *     *   (Optional) password: the password for remote connection of the instance, which can contain six characters in length. The password can be digits or letters. If you specify this parameter, you do not need to enter your password again when the management terminal is being connected.
+     *   * Example:
+     *   * https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.8/index.html?vncUrl=ws%3A%2F%****\\&instanceId=cp-wz9hhwq5a6tm****
+     *   * Or:
+     *   * https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.8/index.html?vncUrl=ws%3A%2F%****\\&instanceId=cp-wz9hhwq5a6tm****\\&password=\\*\\*\\*\\*.
+     *   *
+     * @param ListInstanceVncUrlRequest $request ListInstanceVncUrlRequest
      *
-     * @return ListInstanceVncUrlResponse
+     * @return ListInstanceVncUrlResponse ListInstanceVncUrlResponse
      */
     public function listInstanceVncUrl($request)
     {
@@ -1051,10 +1139,14 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
-     * @param RuntimeOptions       $runtime
+     * *   This operation only supports the NextToken query method.
+     *   * *   Results are returned in descending order based on the time when ECP instances were created.
+     *   * *   When you use NextToken to specify a query token, set the value to the NextToken value that is returned in the last call to the ListInstances operation. Then, use MaxResults to specify the maximum number of entries to return on each page.
+     *   *
+     * @param ListInstancesRequest $request ListInstancesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $runtime)
     {
@@ -1062,6 +1154,9 @@ class Cloudphone extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
         }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
@@ -1136,9 +1231,13 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
+     * *   This operation only supports the NextToken query method.
+     *   * *   Results are returned in descending order based on the time when ECP instances were created.
+     *   * *   When you use NextToken to specify a query token, set the value to the NextToken value that is returned in the last call to the ListInstances operation. Then, use MaxResults to specify the maximum number of entries to return on each page.
+     *   *
+     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -1148,10 +1247,12 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ListKeyPairsRequest $request
-     * @param RuntimeOptions      $runtime
+     * You can call this operation to query one or more key pairs of cloud phones.
+     *   *
+     * @param ListKeyPairsRequest $request ListKeyPairsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListKeyPairsResponse
+     * @return ListKeyPairsResponse ListKeyPairsResponse
      */
     public function listKeyPairsWithOptions($request, $runtime)
     {
@@ -1206,9 +1307,11 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ListKeyPairsRequest $request
+     * You can call this operation to query one or more key pairs of cloud phones.
+     *   *
+     * @param ListKeyPairsRequest $request ListKeyPairsRequest
      *
-     * @return ListKeyPairsResponse
+     * @return ListKeyPairsResponse ListKeyPairsResponse
      */
     public function listKeyPairs($request)
     {
@@ -1218,10 +1321,12 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ListRegionsRequest $request
-     * @param RuntimeOptions     $runtime
+     * *   You can call this operation to query regions where ECP is available.
+     *   *
+     * @param ListRegionsRequest $request ListRegionsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRegionsResponse
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegionsWithOptions($request, $runtime)
     {
@@ -1264,9 +1369,11 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ListRegionsRequest $request
+     * *   You can call this operation to query regions where ECP is available.
+     *   *
+     * @param ListRegionsRequest $request ListRegionsRequest
      *
-     * @return ListRegionsResponse
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegions($request)
     {
@@ -1535,10 +1642,13 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ListZonesRequest $request
-     * @param RuntimeOptions   $runtime
+     * ## [](#)Usage notes
+     *   * *   You can call the operation to query zones available in a specified region.
+     *   *
+     * @param ListZonesRequest $request ListZonesRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListZonesResponse
+     * @return ListZonesResponse ListZonesResponse
      */
     public function listZonesWithOptions($request, $runtime)
     {
@@ -1581,9 +1691,12 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ListZonesRequest $request
+     * ## [](#)Usage notes
+     *   * *   You can call the operation to query zones available in a specified region.
+     *   *
+     * @param ListZonesRequest $request ListZonesRequest
      *
-     * @return ListZonesResponse
+     * @return ListZonesResponse ListZonesResponse
      */
     public function listZones($request)
     {
@@ -1657,10 +1770,12 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param RenewInstancesRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   You can call the operation to renew multiple ECP instances at a time.
+     *   *
+     * @param RenewInstancesRequest $request RenewInstancesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewInstancesResponse
+     * @return RenewInstancesResponse RenewInstancesResponse
      */
     public function renewInstancesWithOptions($request, $runtime)
     {
@@ -1718,9 +1833,11 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param RenewInstancesRequest $request
+     * *   You can call the operation to renew multiple ECP instances at a time.
+     *   *
+     * @param RenewInstancesRequest $request RenewInstancesRequest
      *
-     * @return RenewInstancesResponse
+     * @return RenewInstancesResponse RenewInstancesResponse
      */
     public function renewInstances($request)
     {
@@ -1730,10 +1847,15 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ResetInstancesRequest $request
-     * @param RuntimeOptions        $runtime
+     * ## [](#)Usage notes
+     *   * When you call this operation, take note of the following items:
+     *   * *   This operation is valid only for ECP instances that are in the Stopped state.
+     *   * *   If the images based on which the instances are created are deleted, the instances cannot be reset.
+     *   *
+     * @param ResetInstancesRequest $request ResetInstancesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetInstancesResponse
+     * @return ResetInstancesResponse ResetInstancesResponse
      */
     public function resetInstancesWithOptions($request, $runtime)
     {
@@ -1782,9 +1904,14 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param ResetInstancesRequest $request
+     * ## [](#)Usage notes
+     *   * When you call this operation, take note of the following items:
+     *   * *   This operation is valid only for ECP instances that are in the Stopped state.
+     *   * *   If the images based on which the instances are created are deleted, the instances cannot be reset.
+     *   *
+     * @param ResetInstancesRequest $request ResetInstancesRequest
      *
-     * @return ResetInstancesResponse
+     * @return ResetInstancesResponse ResetInstancesResponse
      */
     public function resetInstances($request)
     {
@@ -1858,10 +1985,17 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param RunInstancesRequest $request
-     * @param RuntimeOptions      $runtime
+     * Preparations:
+     *   * *   The real-name verification is complete. For more information, see [Real-name verification](~~428525~~).
+     *   * Precautions:
+     *   * *   You can create up to 100 ECP instances at a time.
+     *   * *   You can call this operation to create and start ECP instances.
+     *   * *   If an ECP instance fails to be created due to force majeure factors, such as insufficient inventory, the ECP instance is automatically rolled back and released.
+     *   *
+     * @param RunInstancesRequest $request RunInstancesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunInstancesResponse
+     * @return RunInstancesResponse RunInstancesResponse
      */
     public function runInstancesWithOptions($request, $runtime)
     {
@@ -1955,9 +2089,16 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param RunInstancesRequest $request
+     * Preparations:
+     *   * *   The real-name verification is complete. For more information, see [Real-name verification](~~428525~~).
+     *   * Precautions:
+     *   * *   You can create up to 100 ECP instances at a time.
+     *   * *   You can call this operation to create and start ECP instances.
+     *   * *   If an ECP instance fails to be created due to force majeure factors, such as insufficient inventory, the ECP instance is automatically rolled back and released.
+     *   *
+     * @param RunInstancesRequest $request RunInstancesRequest
      *
-     * @return RunInstancesResponse
+     * @return RunInstancesResponse RunInstancesResponse
      */
     public function runInstances($request)
     {
@@ -2351,10 +2492,14 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param UpdateImageAttributeRequest $request
-     * @param RuntimeOptions              $runtime
+     * When you call this operation, take note of the following items:
+     *   * *   You can share only your own custom images with other Alibaba Cloud accounts.
+     *   * *   You can share a custom image with up to 10 Alibaba Cloud accounts at a time.
+     *   *
+     * @param UpdateImageAttributeRequest $request UpdateImageAttributeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateImageAttributeResponse
+     * @return UpdateImageAttributeResponse UpdateImageAttributeResponse
      */
     public function updateImageAttributeWithOptions($request, $runtime)
     {
@@ -2412,9 +2557,13 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param UpdateImageAttributeRequest $request
+     * When you call this operation, take note of the following items:
+     *   * *   You can share only your own custom images with other Alibaba Cloud accounts.
+     *   * *   You can share a custom image with up to 10 Alibaba Cloud accounts at a time.
+     *   *
+     * @param UpdateImageAttributeRequest $request UpdateImageAttributeRequest
      *
-     * @return UpdateImageAttributeResponse
+     * @return UpdateImageAttributeResponse UpdateImageAttributeResponse
      */
     public function updateImageAttribute($request)
     {
@@ -2424,10 +2573,12 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can call this operation to modify the name, key pair, Virtual Network Computing (VNC) password, and resolution of an ECP instance. Take note that the modified key pair and resolution takes effect the next time you restart the instance.
+     *   *
+     * @param UpdateInstanceAttributeRequest $request UpdateInstanceAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceAttributeResponse
+     * @return UpdateInstanceAttributeResponse UpdateInstanceAttributeResponse
      */
     public function updateInstanceAttributeWithOptions($request, $runtime)
     {
@@ -2488,9 +2639,11 @@ class Cloudphone extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceAttributeRequest $request
+     * You can call this operation to modify the name, key pair, Virtual Network Computing (VNC) password, and resolution of an ECP instance. Take note that the modified key pair and resolution takes effect the next time you restart the instance.
+     *   *
+     * @param UpdateInstanceAttributeRequest $request UpdateInstanceAttributeRequest
      *
-     * @return UpdateInstanceAttributeResponse
+     * @return UpdateInstanceAttributeResponse UpdateInstanceAttributeResponse
      */
     public function updateInstanceAttribute($request)
     {

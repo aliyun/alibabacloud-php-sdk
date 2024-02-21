@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RebootInstancesRequest extends Model
 {
     /**
+     * @description Specifies whether to forcefully restart the instance. Valid values:
+     *
+     *   true If you set this parameter to true, cache data that is not written to storage in the instance will be lost after you call this operation, which is similar to the effect of a power-off action.
+     *   false (default)
+     *
+     * @example false
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @description The instance IDs.
+     *
+     * @example cp-xxxxxx
+     *
      * @var string[]
      */
     public $instanceId;
@@ -29,6 +40,10 @@ class RebootInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzou
+     *
      * @var string
      */
     public $regionId;

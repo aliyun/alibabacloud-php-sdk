@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesRequest extends Model
 {
     /**
+     * @description The tag key whose values you want to query.
+     *
+     * @example TestKey
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * @example ADBAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
@@ -29,6 +37,10 @@ class ListTagValuesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +51,12 @@ class ListTagValuesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The resource type. Valid value:
+     *
+     *   instance: Elastic Cloud Phone (ECP) instance
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteKeyPairsRequest extends Model
 {
     /**
+     * @description The name of the key pair that the cloud phone uses. The value can be a JSON array that consists of up to 100 SSH key pair names. Separate multiple key pair names with commas (,).
+     *
+     * @example [keyPairName1, keyPairNam2, keyPairName3]
+     *
      * @var string[]
      */
     public $keyPairName;
@@ -24,6 +28,10 @@ class DeleteKeyPairsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the key pair that you want to delete.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

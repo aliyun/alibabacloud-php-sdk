@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class keyPair extends Model
 {
     /**
+     * @description The time when the key pair was created.
+     *
+     * @example 2021-03-04T13:35:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The fingerprint of the key pair.
+     *
+     * @example ABC1234567
+     *
      * @var string
      */
     public $keyPairFingerPrint;
 
     /**
+     * @description The name of the SSH key pair.
+     *
+     * @example testKeyPairName
+     *
      * @var string
      */
     public $keyPairName;

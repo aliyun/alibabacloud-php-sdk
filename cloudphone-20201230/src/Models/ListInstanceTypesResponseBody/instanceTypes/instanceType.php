@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class instanceType extends Model
 {
     /**
+     * @description The number of vCPUs supported by the instance type.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $cpuCoreCount;
 
     /**
+     * @description The default resolution supported by the instance type.
+     *
+     * @example 720*1280
+     *
      * @var string
      */
     public $defaultResolution;
 
     /**
+     * @description The instance type.
+     *
+     * @example ecp.ce.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The instance type family.
+     *
+     * @example ecp.ce
+     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
+     * @description The memory size supported by the instance type. Unit: GiB.
+     *
+     * @example 4096
+     *
      * @var string
      */
     public $memorySize;
 
     /**
+     * @description The name of the instance type in Chinese.
+     *
+     * @example Performance Type
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the instance type in English.
+     *
+     * @example Performance Type
+     *
      * @var string
      */
     public $nameEn;
 
     /**
+     * @description The resolutions supported by the instance type.
+     *
      * @var resolutions
      */
     public $resolutions;

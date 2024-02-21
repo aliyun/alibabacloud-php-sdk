@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ResetInstancesRequest extends Model
 {
     /**
+     * @description The image ID of the instance. If you do not specify this parameter, the image of the current instance is used to reset the instance.
+     *
+     * @example cpm-xxxxxx
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The instance IDs. Valid values of N: 1 to 100.
+     *
+     * @example cp-xxxxxx
+     *
      * @var string[]
      */
     public $instanceId;
@@ -29,6 +37,10 @@ class ResetInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListImageSharePermissionResponseBody extends Model
 {
     /**
+     * @description The list of Alibaba Cloud accounts.
+     *
      * @var accounts
      */
     public $accounts;
 
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

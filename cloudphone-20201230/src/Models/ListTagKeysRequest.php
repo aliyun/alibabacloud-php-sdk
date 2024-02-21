@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * @example ADBAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
@@ -24,6 +28,10 @@ class ListTagKeysRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +42,12 @@ class ListTagKeysRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The resource type. Valid value:
+     *
+     *   instance: Elastic Cloud Phone (ECP) instance
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;

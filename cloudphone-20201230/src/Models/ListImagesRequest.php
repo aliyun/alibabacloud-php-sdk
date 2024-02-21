@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ListImagesRequest extends Model
 {
     /**
+     * @description The image source. Valid values:
+     *
+     *   system: public images provided by Alibaba Cloud.
+     *   self: custom images that you create.
+     *   others: shared images from other Alibaba Cloud accounts.
+     *
+     * @example system
+     *
      * @var string
      */
     public $imageCategory;
 
     /**
+     * @description The image IDs. Valid values of N: 1 to 100.
+     *
      * @var string[]
      */
     public $imageId;
 
     /**
+     * @description The image name. The name must be 2 to 128 characters in length. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     *
+     * @example testImageName
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The instance type.
+     *
+     * @example ecp.ce.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The maximum number of entries to return on each page. Valid values: 1 to 100.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example ADBAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
@@ -49,6 +75,10 @@ class ListImagesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -64,6 +94,17 @@ class ListImagesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The image state. Valid values:
+     *
+     *   Waiting
+     *   Creating
+     *   Copying
+     *   Importing
+     *   Available (default)
+     *   CreateFailed
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;

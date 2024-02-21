@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UninstallApplicationRequest extends Model
 {
     /**
+     * @description The IDs of the instances on which you want to run the command. Valid values of N: 1 to 10.
+     *
      * @var string[]
      */
     public $instanceId;
@@ -24,11 +26,19 @@ class UninstallApplicationRequest extends Model
     public $ownerId;
 
     /**
+     * @description The name of the application that you want to uninstall. The name can be up to 1024 bytes in length and can contain only letters, digits, underscores (\_), periods (.), slashes (/), colons (:), and hyphens (-).
+     *
+     * @example com.theapp.test
+     *
      * @var string
      */
     public $packageName;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

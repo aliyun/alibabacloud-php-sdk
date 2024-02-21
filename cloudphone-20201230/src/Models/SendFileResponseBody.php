@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SendFileResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The task IDs. Valid values of N: 1 to 100.
+     *
      * @var taskId
      */
     public $taskId;

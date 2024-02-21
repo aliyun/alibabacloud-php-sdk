@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteImagesResponseBody extends Model
 {
     /**
+     * @description Details about images that are deleted.
+     *
      * @var imageResponses
      */
     public $imageResponses;
 
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

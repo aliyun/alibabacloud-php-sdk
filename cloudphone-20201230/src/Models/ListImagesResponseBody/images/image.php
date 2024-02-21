@@ -9,66 +9,121 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
+     * @description The time when the image was created. The time follows the ISO 8601 standard.
+     *
+     * @example 2021-01-01T01:07:58Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The image description.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The image type.
+     *
+     * @example system
+     *
      * @var string
      */
     public $imageCategory;
 
     /**
+     * @description The image ID.
+     *
+     * @example cpm-xxxxxxxx
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The image name.
+     *
+     * @example testImageName
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description Indicates whether the image is shared with other Alibaba Cloud accounts.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isSelfShared;
 
     /**
+     * @description The display name of the OS in Chinese.
+     *
+     * @example Android 9.0
+     *
      * @var string
      */
     public $OSName;
 
     /**
+     * @description The display name of the OS in English.
+     *
+     * @example Android 9.0
+     *
      * @var string
      */
     public $OSNameEn;
 
     /**
+     * @description The image OS.
+     *
+     * @example android
+     *
      * @var string
      */
     public $OSType;
 
     /**
+     * @description The OS distribution.
+     *
+     * @example Android 9.0
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description The progress of image creation.
+     *
+     * @example 100%
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The image state.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Indicates whether the image is used by instances. Valid values:
+     *
+     *   none: The image is idle.
+     *   instance: The image is used by instances.
+     *
+     * @example none
+     *
      * @var string
      */
     public $usage;

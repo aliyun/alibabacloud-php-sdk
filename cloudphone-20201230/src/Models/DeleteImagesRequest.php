@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteImagesRequest extends Model
 {
     /**
+     * @description Specifies whether to forcefully delete the image. Default value: false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @description The image IDs. You can specify up to 100 images.
+     *
+     * @example cpm-xxxxxxxx
+     *
      * @var string[]
      */
     public $imageId;
@@ -29,6 +37,10 @@ class DeleteImagesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

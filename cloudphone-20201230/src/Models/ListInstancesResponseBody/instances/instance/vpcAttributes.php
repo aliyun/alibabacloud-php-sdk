@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class vpcAttributes extends Model
 {
     /**
+     * @description The private IP address.
+     *
+     * @example 192.168.0.85
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-bp1kbwqxxxxx
+     *
      * @var string
      */
     public $vSwitchId;

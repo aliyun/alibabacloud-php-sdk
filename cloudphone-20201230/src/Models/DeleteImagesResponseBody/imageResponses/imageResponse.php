@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class imageResponse extends Model
 {
     /**
+     * @description The HTTP status code that is returned when the image is deleted.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the image that is requested for deletion.
+     *
+     * @example cpm-xxxxxxxx
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The message that is returned when the image is deleted.
+     *
+     * @example Success.
+     *
      * @var string
      */
     public $message;

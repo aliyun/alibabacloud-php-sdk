@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
+     * @description The endpoint that corresponds to the region.
+     *
+     * @example cloudphone.cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

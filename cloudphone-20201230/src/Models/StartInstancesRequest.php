@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class StartInstancesRequest extends Model
 {
     /**
+     * @description The instance IDs.
+     *
+     * @example cp-xxxxx
+     *
      * @var string[]
      */
     public $instanceId;
@@ -24,6 +28,10 @@ class StartInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesResponseBody extends Model
 {
     /**
+     * @description Details of the instances.
+     *
      * @var instances
      */
     public $instances;
 
     /**
+     * @description The maximum number of entries returned on each page. Valid values: 1 to 100.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
+     * @example ADBAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries that is returned.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;

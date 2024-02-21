@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class RenewInstancesResponseBody extends Model
 {
     /**
+     * @description The IDs of the instances that are renewed.
+     *
      * @var instanceIds
      */
     public $instanceIds;
 
     /**
+     * @description The order ID.
+     *
+     * @example 10000
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

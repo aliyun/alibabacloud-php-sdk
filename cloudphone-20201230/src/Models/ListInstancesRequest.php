@@ -4,47 +4,88 @@
 
 namespace AlibabaCloud\SDK\Cloudphone\V20201230\Models;
 
+use AlibabaCloud\SDK\Cloudphone\V20201230\Models\ListInstancesRequest\filter;
 use AlibabaCloud\SDK\Cloudphone\V20201230\Models\ListInstancesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListInstancesRequest extends Model
 {
     /**
+     * @description The billing method. Valid values:
+     *
+     *   PrePaid: subscription
+     *   PostPaid: pay-as-you-go
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @var filter[]
+     */
+    public $filter;
+
+    /**
+     * @description The image ID.
+     *
+     * @example cpm-xxxxxxxxx
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The instance IDs. Valid values of N: 1 to 100.
+     *
+     * @example cp-xxxxxxxxxx
+     *
      * @var string[]
      */
     public $instanceId;
 
     /**
+     * @description The instance name.
+     *
+     * @example phone
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The instance type.
+     *
+     * @example ecp.ce.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The key pair name. The name must be globally unique. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example testKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @description The maximum number of entries returned on each page. Valid values: 1 to 100.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example ADBAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
@@ -60,11 +101,19 @@ class ListInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The instance resolution.
+     *
+     * @example 1920*1080
+     *
      * @var string
      */
     public $resolution;
@@ -80,26 +129,48 @@ class ListInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether webRtcToken is returned in the query result.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $showWebRtcToken;
 
     /**
+     * @description The instance status. Valid values:
+     *
+     *   Pending: The instance is being created.
+     *   Running: The instance is running.
+     *   Starting: The instance is being started.
+     *   Stopping: The instance is being stopped.
+     *   Stopped: The instance is stopped.
+     *   Expired: The instance has expired.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The instances that you want to filter by using a specified tag.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the zone where the instance resides.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'chargeType'           => 'ChargeType',
+        'filter'               => 'Filter',
         'imageId'              => 'ImageId',
         'instanceId'           => 'InstanceId',
         'instanceName'         => 'InstanceName',
@@ -128,6 +199,15 @@ class ListInstancesRequest extends Model
         $res = [];
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->filter) {
+            $res['Filter'] = [];
+            if (null !== $this->filter && \is_array($this->filter)) {
+                $n = 0;
+                foreach ($this->filter as $item) {
+                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -200,6 +280,15 @@ class ListInstancesRequest extends Model
         $model = new self();
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['Filter'])) {
+            if (!empty($map['Filter'])) {
+                $model->filter = [];
+                $n             = 0;
+                foreach ($map['Filter'] as $item) {
+                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

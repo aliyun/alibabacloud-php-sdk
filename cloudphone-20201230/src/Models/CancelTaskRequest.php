@@ -19,6 +19,10 @@ class CancelTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +38,10 @@ class CancelTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The task ID.
+     *
+     * @example t-bp1hvgwromzv32iq****
+     *
      * @var string
      */
     public $taskId;

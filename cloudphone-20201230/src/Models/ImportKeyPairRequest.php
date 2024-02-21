@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ImportKeyPairRequest extends Model
 {
     /**
+     * @description The name of the key pair. The name must be globally unique. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example testKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
@@ -24,11 +28,19 @@ class ImportKeyPairRequest extends Model
     public $ownerId;
 
     /**
+     * @description The public key of the key pair.
+     *
+     * @example ABC1234567
+     *
      * @var string
      */
     public $publicKeyBody;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

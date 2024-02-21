@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class FetchFileRequest extends Model
 {
     /**
+     * @description The ID of the instance on which you want to run the command. Valid values of N: 1 to 10.
+     *
+     * @example cp-acfmxazb4p***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The OSS bucket to which the file that you want to upload.
+     *
+     * >  Before you import an APK file to the OSS bucket for the first time, add a Resource Access Management (RAM) policy. Otherwise, NoSetRoletoECSServiceAcount appears.
+     * @example bucket
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @description The name that you want to save to OSS.
+     *
+     * @example test.txt
+     *
      * @var string
      */
     public $ossObject;
@@ -34,11 +47,19 @@ class FetchFileRequest extends Model
     public $ownerId;
 
     /**
+     * @description The path in which you want to store the file in the cloud phone.
+     *
+     * @example /sdcard/test.txt
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

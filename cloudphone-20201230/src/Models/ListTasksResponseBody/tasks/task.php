@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @description The time when the task was created.
+     *
+     * @example 2021-04-15 10:10:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The content that is returned after the task is executed. The content can be up to 1,024 bytes in length.
+     *
+     * @example file1 file2
+     *
      * @var string
      */
     public $executeMsg;
 
     /**
+     * @description The time when the task ended.
+     *
+     * @example 2021-04-15 10:10:01
+     *
      * @var string
      */
     public $finishedTime;
 
     /**
+     * @description The instance ID.
+     *
+     * @example cp-acfmxazb4p***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The task progress.
+     *
+     * @example 100%
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The task ID.
+     *
+     * @example t-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The task state.
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @description The task type.
+     *
+     * @example Shell
+     *
      * @var string
      */
     public $taskType;

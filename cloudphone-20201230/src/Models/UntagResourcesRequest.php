@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to delete all tags. This parameter takes effect only when the TagKey.N parameter is not specified. Valid values: true and false. Default value: false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $all;
@@ -24,11 +28,17 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The resource IDs. You can specify up to 50 resources.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -39,11 +49,19 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The resource type. Valid value:
+     *
+     *   instance: Elastic Cloud Phone (ECP) instance
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tag keys. You can specify up to 20 tag keys.
+     *
      * @var string[]
      */
     public $tagKey;

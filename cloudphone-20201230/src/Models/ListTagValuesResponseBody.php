@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesResponseBody extends Model
 {
     /**
+     * @description The maximum number of entries that is returned on each page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. If the NextToken parameter is empty, no next page exists.
+     *
+     * @example ADBAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of resources.
+     *
      * @var values
      */
     public $values;

@@ -10,21 +10,37 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceAttributeRequest extends Model
 {
     /**
+     * @description The instance description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
+     * @example myDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The instance ID.
+     *
+     * @example cp-bp67acfmxazb4p***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The instance name. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
+     * @example myInstanceName
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The name of the key pair that is used to connect to the instance. To improve the security of an instance, we recommend that you use a key pair to connect to the instance.
+     *
+     * @example myKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
@@ -40,11 +56,19 @@ class UpdateInstanceAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The instance resolution.
+     *
+     * @example 1920*1080
+     *
      * @var string
      */
     public $resolution;
@@ -55,11 +79,17 @@ class UpdateInstanceAttributeRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description Details of tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The VNC password of the instance. The password must be six characters in length and can contain only uppercase letters, lowercase letters, and digits.
+     *
+     * @example Cp1234
+     *
      * @var string
      */
     public $vncPassword;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListKeyPairsRequest extends Model
 {
     /**
+     * @description The fingerprint of the key pair. The message-digest algorithm 5 (MD5) is used based on the public key fingerprint format defined in RFC 4716.
+     *
+     * @example ABC1234567
+     *
      * @var string
      */
     public $keyPairFingerPrint;
 
     /**
+     * @description The name of the key pair.
+     *
+     * @example testKeyPair
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @description The maximum number of entries per page. Valid values: 1 to 100.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example ADBAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
@@ -39,6 +55,10 @@ class ListKeyPairsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the key pair resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

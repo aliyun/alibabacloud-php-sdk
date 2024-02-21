@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstancesRequest extends Model
 {
     /**
+     * @description Specifies whether to forcefully release the instance if it is in the Running status. Valid values:
+     *
+     *   true. If you set the Force parameter to true, temporary data in the memory and storage of the instance is erased and cannot be restored after you call the operation, which is similar to the effect of a power-off action.
+     *   false (default)
+     *
+     * @example false
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @description The instance IDs. Valid values of N: 1 to 100.
+     *
      * @var string[]
      */
     public $instanceId;
@@ -29,6 +38,10 @@ class DeleteInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

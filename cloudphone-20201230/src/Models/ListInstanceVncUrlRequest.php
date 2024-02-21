@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceVncUrlRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * @example cp-xxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
@@ -24,6 +28,10 @@ class ListInstanceVncUrlRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

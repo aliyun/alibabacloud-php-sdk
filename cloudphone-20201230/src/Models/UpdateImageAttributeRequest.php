@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpdateImageAttributeRequest extends Model
 {
     /**
+     * @description The IDs of the Alibaba Cloud accounts that are authorized to share images. You can specify up to 10 Alibaba Cloud accounts.
+     *
+     * @example 123456******
+     *
      * @var string[]
      */
     public $addAccount;
 
     /**
+     * @description The description of the custom image. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`. By default, this parameter is empty, which indicates that the original description is retained.
+     *
+     * @example newDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The image ID.
+     *
+     * @example cpm-xxxxxxxx
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The name of the custom image. The name must be 2 to 128 characters in length. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It cannot start with `http://` or `https://`. By default, this parameter is empty, which indicates that the original name is retained.
+     *
+     * @example newImageName
+     *
      * @var string
      */
     public $imageName;
@@ -39,11 +55,19 @@ class UpdateImageAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IDs of the Alibaba Cloud accounts from which you want to revoke image sharing permissions. You can specify up to 10 Alibaba Cloud accounts.
+     *
+     * @example 987654******
+     *
      * @var string[]
      */
     public $removeAccount;

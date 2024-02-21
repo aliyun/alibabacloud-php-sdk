@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListImageSharePermissionRequest extends Model
 {
     /**
+     * @description The ID of the image that you want to import to the instance.
+     *
+     * @example cpm-xxxxxxxx
+     *
      * @var string
      */
     public $imageId;
@@ -24,6 +28,10 @@ class ListImageSharePermissionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

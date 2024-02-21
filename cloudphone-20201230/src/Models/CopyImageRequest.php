@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CopyImageRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see How to ensure idempotence.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The image description. The description must be 2 to 256 characters in length but cannot start with http:// or https://.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The destination region to which you want to copy the image.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $destinationRegionId;
 
     /**
+     * @description The ID of the image that you want to copy.
+     *
+     * @example cpm-xxxxxxxx
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The image name. The name must be 2 to 128 characters in length. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-). The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter but cannot start with http:// or https://.
+     *
+     * @example myCustomImage
+     *
      * @var string
      */
     public $imageName;
@@ -44,6 +64,10 @@ class CopyImageRequest extends Model
     public $ownerId;
 
     /**
+     * @description The source region from which you want to copy the image.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

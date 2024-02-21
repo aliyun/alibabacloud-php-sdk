@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceTypesRequest extends Model
 {
     /**
+     * @description The names of the instance types. Valid values of N: 1 to 100.
+     *
      * @var string[]
      */
     public $instanceType;
 
     /**
+     * @description The instance type family.
+     *
+     * @example ecp.ce
+     *
      * @var string
      */
     public $instanceTypeFamily;
@@ -29,6 +35,10 @@ class ListInstanceTypesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

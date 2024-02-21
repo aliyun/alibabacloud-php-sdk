@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class InstallApplicationRequest extends Model
 {
     /**
+     * @description The IDs of the instances on which you want to run the command. Valid values of N: 1 to 10.
+     *
+     * @example cp-acfmxazb4p***
+     *
      * @var string[]
      */
     public $instanceId;
 
     /**
+     * @description The Object Storage Service (OSS) bucket in which you want to store the application file.
+     *
+     * >  Before you import application files to the OSS bucket for the first time, add a Resource Access Management (RAM) policy. Otherwise, NoSetRoletoECSServiceAcount appears.
+     * @example phoneapplication
+     *
      * @var string
      */
     public $ossBucket;
 
     /**
+     * @description The name (key) of the application file that is used as an OSS object.
+     *
+     * @example test.apk
+     *
      * @var string
      */
     public $ossObject;
@@ -34,6 +47,10 @@ class InstallApplicationRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

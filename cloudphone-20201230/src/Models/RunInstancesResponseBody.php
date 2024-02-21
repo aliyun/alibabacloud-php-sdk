@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class RunInstancesResponseBody extends Model
 {
     /**
+     * @description The IDs of the ECP instances.
+     *
      * @var instanceIds
      */
     public $instanceIds;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 9611111323245
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The price of the ECP resource.
+     *
+     * @example 133.32
+     *
      * @var float
      */
     public $tradePrice;

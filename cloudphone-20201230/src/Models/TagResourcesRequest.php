@@ -20,11 +20,17 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The resource IDs. You can specify up to 50 resources.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -35,11 +41,19 @@ class TagResourcesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The resource type. Valid value:
+     *
+     *   instance: Elastic Cloud Phone (ECP) instance
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags. You can specify up to 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

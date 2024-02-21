@@ -2,26 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudphone\V20201230\Models\RunInstancesRequest;
+namespace AlibabaCloud\SDK\Cloudphone\V20201230\Models\ListInstancesRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class tag extends Model
+class filter extends Model
 {
     /**
-     * @description The tag key of the ECP instance. Valid values of N: 1 to 20.
-     *
-     * @example TestKey
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value of the ECP instance. Valid values of N: 1 to 20.
-     *
-     * @example TestValue
-     *
      * @var string
      */
     public $value;
@@ -50,7 +42,7 @@ class tag extends Model
     /**
      * @param array $map
      *
-     * @return tag
+     * @return filter
      */
     public static function fromMap($map = [])
     {

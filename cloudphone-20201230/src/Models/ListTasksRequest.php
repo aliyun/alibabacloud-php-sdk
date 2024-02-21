@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ListTasksRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * @example cp-acfmxazb4p***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The maximum number of entries to return on each page. Valid values: 1 to 100. Default value: 50.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example 55C15B1C-D507-45F0-B490-69D6E0F113C6
+     *
      * @var string
      */
     public $nextToken;
@@ -34,6 +46,10 @@ class ListTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,16 +65,39 @@ class ListTasksRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The task IDs. Valid values of N: 1 to 100.
+     *
+     * @example t-bp67acfmxazb4p****
+     *
      * @var string[]
      */
     public $taskId;
 
     /**
+     * @description The task state. Valid values:
+     *
+     *   Finished
+     *   Processing
+     *   Failed
+     *
+     * >  The system only queries tasks that are in the Finished, Processing, and Failed states and ignores other values.
+     * @example Finished
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @description The name of the operation that you can call to execute the task on the instance. Valid values:
+     *
+     *   Shell: runs a shell command.
+     *   InstallApplication: installs an application.
+     *   UninstallApplication: uninstalls an application.
+     *   SendFile: uploads a file.
+     *   ImportImage: imports an image.
+     *
+     * @example Shell
+     *
      * @var string
      */
     public $taskType;

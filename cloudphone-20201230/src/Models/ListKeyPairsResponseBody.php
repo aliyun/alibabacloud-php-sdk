@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListKeyPairsResponseBody extends Model
 {
     /**
+     * @description The key pairs that are returned.
+     *
      * @var keyPairs
      */
     public $keyPairs;
 
     /**
+     * @description The maximum number of entries per page. Valid values: 1 to 100.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
+     * @example t
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of key pairs.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;

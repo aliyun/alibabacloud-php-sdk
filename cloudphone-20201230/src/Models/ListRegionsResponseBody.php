@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListRegionsResponseBody extends Model
 {
     /**
+     * @description The details of the regions.
+     *
      * @var regions
      */
     public $regions;
 
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

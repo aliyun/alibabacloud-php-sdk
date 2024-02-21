@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class UninstallApplicationResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 55C15B1C-D507-45F0-B490-69D6E0F113C6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @var taskId
      */
     public $taskId;
