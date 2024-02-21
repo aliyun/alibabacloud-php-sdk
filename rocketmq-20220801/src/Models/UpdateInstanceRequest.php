@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceRequest extends Model
 {
     /**
-     * @description The new name of the instance.
+     * @description The updated name of the instance.
      *
      * @example test_instance
      *
@@ -20,21 +20,21 @@ class UpdateInstanceRequest extends Model
     public $instanceName;
 
     /**
-     * @description The new network information about the instance.
+     * @description The updated network information about the instance.
      *
      * @var networkInfo
      */
     public $networkInfo;
 
     /**
-     * @description The extended configurations of the instance.
+     * @description Additional configurations of the instance.
      *
      * @var productInfo
      */
     public $productInfo;
 
     /**
-     * @description The new remarks on the instance.
+     * @description The updated description of the instance.
      *
      * @example This is the remark for test.
      *

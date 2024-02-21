@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether to enable auto-renewal. This parameter takes effect only when the PaymentType parameter is set to Subscription.
+     * @description Specifies whether to enable auto-renewal for the instance. This parameter takes effect only if you set PaymentType to Subscription.
      *
      *   true: enable
      *   false: disable
@@ -23,7 +23,7 @@ class CreateInstanceRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal cycle of the instance. This parameter takes effect only when the autoRenew parameter is set to true. Unit: months.
+     * @description The auto-renewal cycle of the instance. This parameter takes effect only if you set autoRenew to true. Unit: months.
      *
      * Valid values:
      *
@@ -36,6 +36,13 @@ class CreateInstanceRequest extends Model
     public $autoRenewPeriod;
 
     /**
+     * @description The commodity code.
+     *
+     *   ons_rmqpost_public_intl: pay-as-you-go
+     *   ons_rmqsub_public_intl: subscription
+     *
+     * @example ons_ rmqpost_public_cn
+     *
      * @var string
      */
     public $commodityCode;
@@ -51,7 +58,7 @@ class CreateInstanceRequest extends Model
     public $instanceName;
 
     /**
-     * @description The information about the network.
+     * @description The network configurations.
      *
      * @var networkInfo
      */
@@ -62,7 +69,7 @@ class CreateInstanceRequest extends Model
      *
      * Valid values:
      *
-     *   PayAsYouGo: pay-as-you go. This billing method allows you to use resources before you pay for the resources.
+     *   PayAsYouGo: This billing method allows you to use resources before you pay for the resources.
      *   Subscription: This billing method allows you to use resources after you pay for the resources.
      *
      * For more information, see [Billing methods](~~427234~~).
@@ -73,7 +80,7 @@ class CreateInstanceRequest extends Model
     public $paymentType;
 
     /**
-     * @description The subscription duration of the instance. This parameter takes effect only when the PaymentType parameter is set to Subscription.
+     * @description The subscription duration of the instance. This parameter takes effect only if you set PaymentType to Subscription.
      *
      * Valid values:
      *
@@ -101,14 +108,14 @@ class CreateInstanceRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The information about the instance specification.
+     * @description The information about the instance specifications.
      *
      * @var productInfo
      */
     public $productInfo;
 
     /**
-     * @description The description of the instance.
+     * @description The instance description.
      *
      * @example This is the remark for test.
      *
@@ -117,7 +124,7 @@ class CreateInstanceRequest extends Model
     public $remark;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-aekzy6pist7uuna
      *
@@ -134,7 +141,7 @@ class CreateInstanceRequest extends Model
      *   ultimate: Enterprise Platinum Edition
      *   professional: Professional Edition
      *
-     * > After you create a ApsaraMQ for RocketMQ instance, you can only upgrade the primary edition of the instance. The following editions are sorted in ascending order: Standard Edition, Professional Edition, and Platinum Edition. For example, an instance of Standard Edition can be upgraded to Professional Edition. However, an instance of Professional Edition cannot be downgraded to Standard Edition.
+     * >  After an instance is created, you can only upgrade the primary edition of the instance. The following editions are sorted in ascending order: Standard Edition, Professional Edition, Enterprise Platinum Edition. For example, you can upgrade an instance of Standard Edition to Professional Edition, but cannot downgrade an instance of Professional Edition to Standard Edition.
      * @example standard
      *
      * @var string
@@ -155,10 +162,10 @@ class CreateInstanceRequest extends Model
      *
      * Valid values:
      *
-     *   cluster_ha: Cluster High-availability Edition
+     *   cluster_ha: High-availability Cluster Edition
      *   single_node: Standalone Edition
      *
-     * > After you create a ApsaraMQ for RocketMQ instance, you cannot change the sub-category edition of the instance.
+     * >  After an instance is created, you cannot change the sub-category edition of the instance.
      * @example cluster_ha
      *
      * @var string

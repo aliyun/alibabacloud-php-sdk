@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class productInfo extends Model
 {
     /**
+     * @description Whether to enable tracking capability. Non-serverless instances are enabled by default, and serverless instances are optional for users.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $traceOn;

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class productInfo extends Model
 {
     /**
-     * @description Specifies whether to enable burst scaling for the instance.
+     * @description Specifies whether to enable the elastic transactions per second (TPS) feature for the instance.
      *
      * Valid values:
      *
      *   true
      *   false
      *
-     * > Only specific types of instances support burst scaling. For more information, see [Instance specifications](~~444715~~).
+     * >  The elastic TPS feature is supported only by specific instance editions. For more information, see [Instance editions](~~444715~~).
      * @example true
      *
      * @var bool
@@ -26,7 +26,7 @@ class productInfo extends Model
     /**
      * @description The retention period of messages. Unit: hours.
      *
-     * The storage of ApsaraMQ for RocketMQ messages is in serverless scaling mode. You are charged based on the actual used storage. You can adjust the storage retention period to reduce storage usage and costs. For more information, see [Storage fees](~~427238~~).
+     * ApsaraMQ for RocketMQ supports serverless scaling of message storage. You are charged storage fees based on your actual storage usage. You can change the retention period of messages to manage storage capacity. For more information, see [Storage fees](~~427238~~).
      * @example 72
      *
      * @var int
@@ -34,7 +34,7 @@ class productInfo extends Model
     public $messageRetentionTime;
 
     /**
-     * @description The ratio of the number of messages that you can send to the number of messages that you can receive in the instance.
+     * @description The ratio of the number of messages that you can send to the number of messages that you can receive on the instance.
      *
      * Value values: 0.25 to 1.
      * @example 0.5
@@ -44,6 +44,14 @@ class productInfo extends Model
     public $sendReceiveRatio;
 
     /**
+     * @description Specifies whether to enable the message trace feature.
+     *
+     *   true
+     *   false
+     *
+     * This parameter is not in use. By default, the message trace feature is enabled for ApsaraMQ for RocketMQ instances, regardless of whether this parameter is configured.
+     * @example true
+     *
      * @var bool
      */
     public $traceOn;

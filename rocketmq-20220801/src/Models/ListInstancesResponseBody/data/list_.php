@@ -79,6 +79,8 @@ class list_ extends Model
     public $paymentType;
 
     /**
+     * @description The product information of instance.
+     *
      * @var productInfo
      */
     public $productInfo;

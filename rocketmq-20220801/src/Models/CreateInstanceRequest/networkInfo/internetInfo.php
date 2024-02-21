@@ -19,12 +19,12 @@ class internetInfo extends Model
     public $flowOutBandwidth;
 
     /**
-     * @description The metering method for Internet usage.
+     * @description The billing method of Internet usage.
      *
      * Valid values:
      *
-     *   payByBandwidth: pay-by-bandwidth. If the Internet access feature is enabled, specify this value for the parameter.
-     *   uninvolved: N/A. If the Internet access feature is disabled, specify this value for the parameter.
+     *   payByBandwidth: pay-by-bandwidth. If Internet access is enabled for an instance, specify this value for the parameter.
+     *   uninvolved: No billing method is involved. If Internet access is disabled for an instance, specify this value for the parameter.
      *
      * @example uninvolved
      *
@@ -40,7 +40,7 @@ class internetInfo extends Model
      *   enable
      *   disable
      *
-     * By default, ApsaraMQ for RocketMQ instances are accessed in VPCs. If you enable the Internet access feature, you are charged for Internet outbound bandwidth. For more information, see [Internet access fee](~~427240~~).
+     * By default, ApsaraMQ for RocketMQ allows you to access instances in VPCs. If you enable Internet access for an instance, you can access the instance over the Internet. After you enable this feature, you are charged for outbound Internet traffic. For more information, see [Internet access fee](~~427240~~).
      * @example disable
      *
      * @var string
@@ -48,10 +48,10 @@ class internetInfo extends Model
     public $internetSpec;
 
     /**
-     * @description The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only when you use a public endpoint to access the ApsaraMQ for RocketMQ broker.
+     * @description The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only if you use a public endpoint to access the instance.
      *
-     *   If this parameter is not configured, all IP addresses are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-     *   If this parameter is configured, only the IP addresses that are included in the whitelist can access the ApsaraMQ for RocketMQ broker over the Internet.
+     *   If you do not configure an IP address whitelist, all CIDR blocks are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+     *   If configure an IP address whitlist, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
      *
      * @var string[]
      */

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class vpcInfo extends Model
 {
     /**
+     * @description The ID of the security group with which the instance is associated.
+     *
+     * @example sg-hp35r2hc3a3sv8q2sb16
+     *
      * @var string
      */
     public $securityGroupIds;

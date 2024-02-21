@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class vpcInfo extends Model
 {
     /**
+     * @description The ID of the security group to which the instance belongs.
+     *
+     * @example sg-bp17hpmgz96tvnsdy6so
+     *
      * @var string
      */
     public $securityGroupIds;
 
     /**
-     * @description The ID of the vSwitch with which the instance is associated.
+     * @description The ID of the vSwitch with which you want to associate the instance.
      *
-     * > After you create a ApsaraMQ for RocketMQ instance, you cannot change the vSwitch to which the instance is connected. If you want to change the vSwitch with which a ApsaraMQ for RocketMQ is associated, you must release the instance and purchase a new instance.
+     * >  After an ApsaraMQ for RocketMQ instance is created, you cannot change the vSwitch with which the instance is associated. If you want to change the vSwitch with which the instance is associated, you must release the instance and purchase a new instance.
      * @example vsw-uf6gwtbn6etadpv*******
      *
      * @var string
@@ -24,9 +28,9 @@ class vpcInfo extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC with which the instance that you want to create is associated.
+     * @description The ID of the VPC in which you want to deploy the instance.
      *
-     * > After you create a ApsaraMQ for RocketMQ instance, you cannot change the VPC in which the instance is created. If you want to change the VPC with which a ApsaraMQ for RocketMQ is associated, you must release the instance and purchase a new instance.
+     * >  After an ApsaraMQ for RocketMQ instance is created, you cannot change the VPC in which the instance is deployed. If you want to change the VPC in which the instance is deployed, you must release the instance and create a new instance.
      * @example vpc-wz9qt50xhtj9krb******
      *
      * @var string

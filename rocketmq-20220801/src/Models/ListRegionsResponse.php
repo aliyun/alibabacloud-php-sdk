@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateConsumerGroupResponse extends Model
+class ListRegionsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UpdateConsumerGroupResponse extends Model
     public $statusCode;
 
     /**
-     * @var UpdateConsumerGroupResponseBody
+     * @var ListRegionsResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class UpdateConsumerGroupResponse extends Model
     /**
      * @param array $map
      *
-     * @return UpdateConsumerGroupResponse
+     * @return ListRegionsResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class UpdateConsumerGroupResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = UpdateConsumerGroupResponseBody::fromMap($map['body']);
+            $model->body = ListRegionsResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -16,7 +16,7 @@ class productInfo extends Model
      *   true: enable
      *   false: disable
      *
-     * > The elastic TPS feature is supported by only specific instance editions. For more information, see [Instance specifications](~~444715~~).
+     * >  The elastic TPS feature is supported only by instances of specific editions. For more information, see [Instance editions](~~444715~~).
      * @example true
      *
      * @var bool
@@ -24,11 +24,24 @@ class productInfo extends Model
     public $autoScaling;
 
     /**
+     * @description The billing method.
+     *
+     * Valid values:
+     *
+     *   provisioned
+     *   ondemand
+     *
+     * @example provisioned
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description This parameter is no longer used. You do not need to configure this parameter.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $intranetSpec;
@@ -36,7 +49,7 @@ class productInfo extends Model
     /**
      * @description The retention period of messages. Unit: hours.
      *
-     * The storage of messages in ApsaraMQ for RocketMQ is serverless and scalable. You are charged for message storage based on your actual usage. You can change the retention period of messages to adjust storage capacity. For more information, see [Storage fee](~~427238~~).
+     * ApsaraMQ for RocketMQ supports serverless scaling of message storage. You are charged storage fees based on your actual storage usage. You can change the retention period of messages to manage storage capacity. For more information, see [Storage fees](~~427238~~).
      * @example 72
      *
      * @var int
@@ -44,7 +57,7 @@ class productInfo extends Model
     public $messageRetentionTime;
 
     /**
-     * @description The computing specification that is used to send and receive messages. For information about the upper limit of TPS, see [Instance specifications](~~444715~~).
+     * @description The computing specification that specifies the messaging transactions per second (TPS) of the instance. For information about computing specification limits, see [Instance specifications](~~444715~~).
      *
      * @example rmq.s2.2xlarge
      *
@@ -53,9 +66,9 @@ class productInfo extends Model
     public $msgProcessSpec;
 
     /**
-     * @description The ratio between sent messages and received messages in the instance.
+     * @description The proportion of message sending TPS to the messaging TPS on the instance.
      *
-     * Value values: 0.2 to 0.5.
+     * Valid values: 0 to 1. Default value: 0.5.
      * @example 0.5
      *
      * @var float

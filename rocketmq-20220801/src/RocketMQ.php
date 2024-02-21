@@ -20,11 +20,13 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteTopicResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTopicResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListAvailableZonesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupSubscriptionsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTopicsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTopicsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTopicsShrinkRequest;
@@ -612,6 +614,43 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAvailableZonesResponse
+     */
+    public function listAvailableZonesWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListAvailableZones',
+            'version'     => '2022-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/zones',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListAvailableZonesResponse
+     */
+    public function listAvailableZones()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAvailableZonesWithOptions($headers, $runtime);
+    }
+
+    /**
      * @param string         $instanceId
      * @param string         $consumerGroupId
      * @param string[]       $headers
@@ -771,6 +810,43 @@ class RocketMQ extends OpenApiClient
         $headers = [];
 
         return $this->listInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListRegionsResponse
+     */
+    public function listRegionsWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListRegions',
+            'version'     => '2022-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/regions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListRegionsResponse
+     */
+    public function listRegions()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRegionsWithOptions($headers, $runtime);
     }
 
     /**
