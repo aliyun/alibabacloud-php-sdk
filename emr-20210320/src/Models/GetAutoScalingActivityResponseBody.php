@@ -19,6 +19,8 @@ class GetAutoScalingActivityResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the scaling activity.
+     *
      * @var scalingActivity
      */
     public $scalingActivity;

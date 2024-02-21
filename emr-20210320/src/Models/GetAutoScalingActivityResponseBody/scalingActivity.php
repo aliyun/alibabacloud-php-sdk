@@ -20,7 +20,7 @@ class scalingActivity extends Model
     public $activityId;
 
     /**
-     * @description The instances corresponding to this scaling activity.
+     * @description The instances that correspond to the scaling activity.
      *
      * @var ScalingActivityResult[]
      */

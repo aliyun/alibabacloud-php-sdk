@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListDoctorHBaseTablesResponseBody extends Model
 {
     /**
-     * @description The returned data.
+     * @description The response parameters.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description 本次请求所返回的最大记录条数。
+     * @description The maximum number of entries returned.
      *
      * @example 20
      *
@@ -26,7 +26,7 @@ class ListDoctorHBaseTablesResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description 返回读取到的数据位置，空代表数据已经读取完毕。
+     * @description The page number of the next page returned.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -35,7 +35,7 @@ class ListDoctorHBaseTablesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description 请求ID。
+     * @description The ID of the request.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *
@@ -44,7 +44,7 @@ class ListDoctorHBaseTablesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 本次请求条件下的数据总量。
+     * @description The total number of entries returned.
      *
      * @example 200
      *

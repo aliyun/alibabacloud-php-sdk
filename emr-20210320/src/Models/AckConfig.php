@@ -45,7 +45,7 @@ class AckConfig extends Model
     /**
      * @description Pod的内存限制值。
      *
-     * @var string
+     * @var float
      */
     public $limitMemory;
 
@@ -78,7 +78,7 @@ class AckConfig extends Model
     /**
      * @description Pod的内存请求值。
      *
-     * @var string
+     * @var float
      */
     public $requestMemory;
 

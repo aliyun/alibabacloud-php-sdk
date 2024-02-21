@@ -3233,7 +3233,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 设置弹性伸缩规则。
+     * You can call this operation to configure auto scaling policies.
      *   *
      * @param PutAutoScalingPolicyRequest $request PutAutoScalingPolicyRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3278,7 +3278,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 设置弹性伸缩规则。
+     * You can call this operation to configure auto scaling policies.
      *   *
      * @param PutAutoScalingPolicyRequest $request PutAutoScalingPolicyRequest
      *

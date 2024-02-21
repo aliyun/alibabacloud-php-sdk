@@ -40,7 +40,7 @@ class metrics extends Model
     public $coldAccessDay;
 
     /**
-     * @description The number of consecutive days without access to data before the data is considered as cold data.
+     * @description The number of consecutive days without access to data before the data is considered as very cold data.
      *
      * @var coldConfigDay
      */
@@ -82,7 +82,7 @@ class metrics extends Model
     public $dailyWriteRequestDayGrowthRatio;
 
     /**
-     * @description The number of consecutive days without access to data before the data is considered as very cold data.
+     * @description The number of consecutive days without access to data before the data was considered as very cold data.
      *
      * @var freezeConfigDay
      */
@@ -124,14 +124,14 @@ class metrics extends Model
     public $regionBalance;
 
     /**
-     * @description The number of partitions that are composed of the table.
+     * @description The number of regions that host the table.
      *
      * @var regionCount
      */
     public $regionCount;
 
     /**
-     * @description The daily increment ratio of the number of partitions.
+     * @description The daily increment ratio of the number of regions.
      *
      * @var regionCountDayGrowthRatio
      */
@@ -180,7 +180,7 @@ class metrics extends Model
     public $tableSizeDayGrowthRatio;
 
     /**
-     * @description The number of consecutive days without access to data before the data is considered as warm data.
+     * @description The number of consecutive days without access to data before the data is considered as cold data.
      *
      * @var warmConfigDay
      */

@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetClusterResponseBody extends Model
 {
     /**
+     * @description The details of the master instance.
+     *
      * @var Cluster
      */
     public $cluster;
 
     /**
-     * @description 请求ID。
+     * @description The ID of the request.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *

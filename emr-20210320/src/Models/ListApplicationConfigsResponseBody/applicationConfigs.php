@@ -36,7 +36,7 @@ class applicationConfigs extends Model
     public $configFileName;
 
     /**
-     * @description The name of the configuration item.
+     * @description The key of the configuration item.
      *
      * @example dfs.replication
      *
@@ -54,7 +54,7 @@ class applicationConfigs extends Model
     public $configItemValue;
 
     /**
-     * @description The time when the application was created.
+     * @description The creation time.
      *
      * @example 1628589439114
      *
@@ -99,7 +99,7 @@ class applicationConfigs extends Model
     public $modifier;
 
     /**
-     * @description The ID of the node group.
+     * @description The node group ID.
      *
      * @example ng-d555335ced5****
      *
@@ -117,7 +117,7 @@ class applicationConfigs extends Model
     public $nodeId;
 
     /**
-     * @description The time when the application was updated.
+     * @description The update time.
      *
      * @example 1628589439114
      *

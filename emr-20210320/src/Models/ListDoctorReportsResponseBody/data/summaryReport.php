@@ -20,12 +20,16 @@ class summaryReport extends Model
     /**
      * @description The optimization suggestion.
      *
+     * @example block
+     *
      * @var string
      */
     public $suggestion;
 
     /**
      * @description The summary of the report.
+     *
+     * @example eastbuy-mse-plugin-auth
      *
      * @var string
      */

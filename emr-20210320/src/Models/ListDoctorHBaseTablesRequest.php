@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDoctorHBaseTablesRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The ID of the cluster.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,6 +18,8 @@ class ListDoctorHBaseTablesRequest extends Model
     public $clusterId;
 
     /**
+     * @description The query date.
+     *
      * @example 2023-01-01
      *
      * @var string
@@ -25,7 +27,7 @@ class ListDoctorHBaseTablesRequest extends Model
     public $dateTime;
 
     /**
-     * @description 一次获取的最大记录数。取值范围：1~100。
+     * @description The maximum number of entries that are returned.
      *
      * @example 20
      *
@@ -34,7 +36,7 @@ class ListDoctorHBaseTablesRequest extends Model
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description Marks the current position to start reading. If this field is empty, the data is read from the beginning.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -43,6 +45,12 @@ class ListDoctorHBaseTablesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The field that you use to sort the query results.
+     *
+     * Valid values:
+     *
+     *   tableSize
+     *
      * @example tableSize
      *
      * @var string
@@ -50,6 +58,11 @@ class ListDoctorHBaseTablesRequest extends Model
     public $orderBy;
 
     /**
+     * @description The order in which you want to sort the query results. Valid value:
+     *
+     *   ASC: in ascending order
+     *   DESC: in descending order
+     *
      * @example ASC
      *
      * @var string
@@ -57,7 +70,7 @@ class ListDoctorHBaseTablesRequest extends Model
     public $orderType;
 
     /**
-     * @description 区域ID。
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -66,6 +79,8 @@ class ListDoctorHBaseTablesRequest extends Model
     public $regionId;
 
     /**
+     * @description The table names, which are used to filter the query results.
+     *
      * @example null
      *
      * @var string[]

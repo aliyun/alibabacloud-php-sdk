@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class analysis extends Model
 {
     /**
-     * @description The score for the distribution of files of different sizes stored in the Hive table.
+     * @description The score for the file sizes of the Hive table.
      *
      * @example 80
      *
@@ -18,7 +18,7 @@ class analysis extends Model
     public $hiveDistributionScore;
 
     /**
-     * @description The score for the distribution of files stored in different formats in the Hive table.
+     * @description The score for the data formats of the Hive table.
      *
      * @example 60
      *

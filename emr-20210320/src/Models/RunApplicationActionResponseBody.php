@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class RunApplicationActionResponseBody extends Model
 {
     /**
-     * @description 异常节点列表。
+     * @description The abnormal nodes.
      *
      * @var abnInstances[]
      */

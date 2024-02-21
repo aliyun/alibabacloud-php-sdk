@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The service types.
+     * @description The component types.
      *
      * Valid values:
      *

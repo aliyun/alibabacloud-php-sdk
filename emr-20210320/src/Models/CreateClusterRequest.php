@@ -9,28 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
-     * @description 应用配置。数组元素个数N的取值范围：1~1000。
+     * @description The configurations of the applications. Valid values of N: 1 to 1000.
      *
      * @var ApplicationConfig[]
      */
     public $applicationConfigs;
 
     /**
-     * @description 应用列表。数组元素个数N的取值范围：1~100。
+     * @description The applications that you want to add to the cluster. Valid values of N: 1 to 100.
      *
      * @var Application[]
      */
     public $applications;
 
     /**
-     * @description 引导脚本。数组元素个数N的取值范围：1~10。
+     * @description The array of scripts for the bootstrap actions. Valid values of N: 1 to 10.
      *
      * @var Script[]
      */
     public $bootstrapScripts;
 
     /**
-     * @description 幂等客户端TOKEN。同一个ClientToken多次调用的返回结果一致，同一个ClientToken最多只创建一个集群。
+     * @description The idempotent client token. If you call the same ClientToken multiple times, the returned results are the same. Only one cluster can be created with the same ClientToken.
      *
      * @example A7D960FA-6DBA-5E07-8746-A63E3E4D****
      *
@@ -39,7 +39,7 @@ class CreateClusterRequest extends Model
     public $clientToken;
 
     /**
-     * @description 集群名称。长度为1~128个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、半角冒号（:）、下划线（_）、半角句号（.）或者短划线（-）
+     * @description The name of the cluster. The name must be 1 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
      *
      * @example emrtest
      *
@@ -48,8 +48,16 @@ class CreateClusterRequest extends Model
     public $clusterName;
 
     /**
-     * @description 创建的EMR集群类型。取值范围：
-     * - HADOOP：旧版数据湖（不推荐使用，建议使用新版数据湖）。
+     * @description The type of the cluster. Valid values:
+     *
+     *   DATALAKE: data lake
+     *   OLAP: online analytical processing (OLAP)
+     *   DATAFLOW: Dataflow
+     *   DATASERVING: DataServing
+     *   CUSTOM: a custom hybrid cluster.
+     *   HADOOP: the old data lake. We recommend that you use the new data lake.
+     *
+     * If you create an EMR cluster for the first time after 17:00 (UTC +8) on December 19, 2022, you cannot select the HADOOP, DATA_SCIENCE, PRESTO, or ZOOKEEPER cluster type.
      * @example DATALAKE
      *
      * @var string
@@ -57,8 +65,11 @@ class CreateClusterRequest extends Model
     public $clusterType;
 
     /**
-     * @description 集群中的应用部署模式。取值范围：
-     * 默认值：NORMAL。
+     * @description The deployment mode of applications in the cluster. Valid values:
+     *
+     *   NORMAL: regular mode. A master node is deployed in the cluster.
+     *   HA: high availability mode. At least three master nodes are deployed in the cluster.
+     *
      * @example HA
      *
      * @var string
@@ -66,15 +77,15 @@ class CreateClusterRequest extends Model
     public $deployMode;
 
     /**
-     * @description 节点属性。集群中的ECS节点基础属性。
+     * @description The attributes of all Elastic Compute Service (ECS) nodes in the cluster. The basic attributes of all ECS nodes in the cluster.
      *
      * @var NodeAttributes
      */
     public $nodeAttributes;
 
     /**
-     * @description 节点组。数组元素个数N的取值范围：1~100。
-     * <p>
+     * @description The array of configurations of the node groups. Valid values of N: 1 to 100.
+     *
      * @example NORMAL
      *
      * @var NodeGroupConfig[]
@@ -82,8 +93,12 @@ class CreateClusterRequest extends Model
     public $nodeGroups;
 
     /**
-     * @description 集群的付费类型。取值范围：
-     * 默认值：PayAsYouGo。
+     * @description The billing cycle of the instance. Valid values:
+     *
+     *   PayAsYouGo: pay-as-you-go
+     *   Subscription: subscription
+     *
+     * Default value: PayAsYouGo.
      * @example PayAsYouGo
      *
      * @var string
@@ -91,7 +106,7 @@ class CreateClusterRequest extends Model
     public $paymentType;
 
     /**
-     * @description 区域ID。
+     * @description The ID of the region in which you want to create the instance.
      *
      * @example cn-hangzhou
      *
@@ -100,7 +115,7 @@ class CreateClusterRequest extends Model
     public $regionId;
 
     /**
-     * @description EMR发行版。
+     * @description The version of EMR. You can view the EMR release version on the EMR cluster purchase page.
      *
      * @example EMR-5.8.0
      *
@@ -109,7 +124,7 @@ class CreateClusterRequest extends Model
     public $releaseVersion;
 
     /**
-     * @description 集群所在的企业资源组ID。
+     * @description The ID of the resource group to which to assign the ENI.
      *
      * @example rg-acfmzabjyop****
      *
@@ -118,8 +133,11 @@ class CreateClusterRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description Kerberos安全模式。取值范围：
-     * 默认值：NORMAL
+     * @description The security mode of the cluster. Valid values:
+     *
+     *   NORMAL: regular mode. Kerberos is not enabled.
+     *   KERBEROS: Kerberos mode. Kerberos is enabled.
+     *
      * @example NORMAL
      *
      * @var string
@@ -127,14 +145,14 @@ class CreateClusterRequest extends Model
     public $securityMode;
 
     /**
-     * @description 预付费配置。当PaymentType取值Subscription时该参数生效。
+     * @description The subscription configurations. This parameter is required when the PaymentType parameter is set to Subscription.
      *
      * @var SubscriptionConfig
      */
     public $subscriptionConfig;
 
     /**
-     * @description 标签。数组元数个数N的取值范围：0~20。
+     * @description The tag that you want to add to the cloud desktop. Valid values of N: 0 to 20.
      *
      * @example A7D960FA-6DBA-5E07-8746-A63E3E4D****
      *

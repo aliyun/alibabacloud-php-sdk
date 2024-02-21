@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class formats extends Model
 {
     /**
-     * @description The daily increment of storage format-specific data.
+     * @description The daily increment of data in the format.
      *
      * @example 1000
      *
@@ -27,7 +27,7 @@ class formats extends Model
     public $formatName;
 
     /**
-     * @description The proportion of data in a specific storage format.
+     * @description The proportion of the data in the format.
      *
      * @example 0.5
      *
@@ -36,7 +36,7 @@ class formats extends Model
     public $formatRatio;
 
     /**
-     * @description The amount of storage format-specific data.
+     * @description The amount of data in the format.
      *
      * @example 1000
      *
@@ -45,7 +45,7 @@ class formats extends Model
     public $formatSize;
 
     /**
-     * @description The day-to-day growth rate of storage format-specific data.
+     * @description The day-to-day growth rate of data in the format.
      *
      * @example 0.5
      *
@@ -54,7 +54,7 @@ class formats extends Model
     public $formatSizeDayGrowthRatio;
 
     /**
-     * @description The unit of the amount of storage format-specific data.
+     * @description The unit of the amount of data in the format.
      *
      * @example MB
      *

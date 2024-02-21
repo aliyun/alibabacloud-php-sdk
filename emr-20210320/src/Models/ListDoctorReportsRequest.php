@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDoctorReportsRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac8fe****
      *
@@ -18,7 +18,7 @@ class ListDoctorReportsRequest extends Model
     public $clusterId;
 
     /**
-     * @description 一次获取的最大记录数。取值范围：1~100。
+     * @description The number of entries to return on each page.
      *
      * @example 20
      *
@@ -27,7 +27,7 @@ class ListDoctorReportsRequest extends Model
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description The pagination token that is used in the request to retrieve a new page of results.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -36,7 +36,7 @@ class ListDoctorReportsRequest extends Model
     public $nextToken;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

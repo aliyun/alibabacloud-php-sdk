@@ -44,7 +44,7 @@ class ListApplicationConfigsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of pages.
+     * @description The total number of pages returned.
      *
      * @example 100
      *
