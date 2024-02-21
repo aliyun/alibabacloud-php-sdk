@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CdnMigrateRegisterRequest extends Model
 {
     /**
+     * @description The accelerated domain name for which you want to register the dynamic routing feature. You can specify only one domain name in each request.
+     *
      * @example example.com
      *
      * @var string

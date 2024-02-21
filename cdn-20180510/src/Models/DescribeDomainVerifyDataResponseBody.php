@@ -6,21 +6,21 @@ namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ChangeCdnDomainToDcdnResponseBody extends Model
+class DescribeDomainVerifyDataResponseBody extends Model
 {
     /**
-     * @description The content of the migration instructions.
+     * @description The verification content.
      *
      * @example {
      * }
-     * @var mixed[]
+     * @var string
      */
     public $content;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
-     * @example E6172599-7DA7-5471-9D22-359A4E0C9B94
+     * @example F61CDR30-E83C-4FDA-BF73-9A94CDD44229
      *
      * @var string
      */
@@ -50,7 +50,7 @@ class ChangeCdnDomainToDcdnResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ChangeCdnDomainToDcdnResponseBody
+     * @return DescribeDomainVerifyDataResponseBody
      */
     public static function fromMap($map = [])
     {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeCdnDomainToDcdnRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one domain name in each request.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,10 @@ class ChangeCdnDomainToDcdnRequest extends Model
     public $domainName;
 
     /**
+     * @description The operation that you want to perform on the check items. Valid values:
+     *
+     **preCheck**: return the verification result.
+     *
      * @example preCheck
      *
      * @var string

@@ -226,6 +226,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainUsageDataRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainUsageDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainUvDataRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainUvDataResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainVerifyDataRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainVerifyDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeEsExceptionDataRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeEsExceptionDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeEsExecuteDataRequest;
@@ -675,8 +677,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * **
-     *   * **The maximum number of times that each user can call this operation per second is 20.
+     * >The maximum number of times that each user can call this operation per second is 20.
      *   *
      * @param BatchDescribeCdnIpInfoRequest $request BatchDescribeCdnIpInfoRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -709,8 +710,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * **
-     *   * **The maximum number of times that each user can call this operation per second is 20.
+     * >The maximum number of times that each user can call this operation per second is 20.
      *   *
      * @param BatchDescribeCdnIpInfoRequest $request BatchDescribeCdnIpInfoRequest
      *
@@ -6779,6 +6779,56 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDomainUvDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call this operation to query the verification content of an accelerated domain name based on whether the global resource plan is enabled.
+     *   *
+     * @param DescribeDomainVerifyDataRequest $request DescribeDomainVerifyDataRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainVerifyDataResponse DescribeDomainVerifyDataResponse
+     */
+    public function describeDomainVerifyDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->globalResourcePlan)) {
+            $query['GlobalResourcePlan'] = $request->globalResourcePlan;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainVerifyData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainVerifyDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can call this operation to query the verification content of an accelerated domain name based on whether the global resource plan is enabled.
+     *   *
+     * @param DescribeDomainVerifyDataRequest $request DescribeDomainVerifyDataRequest
+     *
+     * @return DescribeDomainVerifyDataResponse DescribeDomainVerifyDataResponse
+     */
+    public function describeDomainVerifyData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainVerifyDataWithOptions($request, $runtime);
     }
 
     /**

@@ -11,12 +11,8 @@ class BatchDescribeCdnIpInfoRequest extends Model
     /**
      * @description The list of IP addresses to query. Separate IP addresses with commas (,). You can specify up to 20 IP addresses at a time.
      *
-     * >
-     *
-     *   Example of an IPv4 address: 192.0.2.1
-     *
-     *   Example of an IPv6 address: 2001:db8:ffff:ffff:ffff:ffff:ffff:ffff
-     *
+     * > *   Example of an IPv4 address: 192.0.2.1
+     * >*   Example of an IPv6 address: 2001:db8:ffff:ffff:ffff:\*\*\*\*:ffff.
      * @example 111.XXX.XXX.230,47.XXX.XXX.243
      *
      * @var string

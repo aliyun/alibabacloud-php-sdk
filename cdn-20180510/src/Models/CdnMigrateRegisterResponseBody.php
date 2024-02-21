@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CdnMigrateRegisterResponseBody extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class CdnMigrateRegisterResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The request ID.
+     *
      * @example 64D28B53-5902-409B-94F6-FD46680144FE
      *
      * @var string
@@ -23,6 +27,12 @@ class CdnMigrateRegisterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The registration status. Valid values:
+     *
+     *   **running**
+     *   **succeed**
+     *   **failed**
+     *
      * @example succeed
      *
      * @var string

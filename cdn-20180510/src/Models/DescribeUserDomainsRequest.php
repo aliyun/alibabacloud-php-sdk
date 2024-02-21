@@ -116,7 +116,7 @@ class DescribeUserDomainsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Valid values: **1** to **100000**.
+     * @description The page number. Valid values: **1** to **100000**.
      *
      * @example 1
      *
@@ -125,7 +125,7 @@ class DescribeUserDomainsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1 to 50**. Default value: **20**. Maximum value: **50**.
+     * @description The number of entries to return on each page. Valid values: **1 to 500**. Default value: **20**. Maximum value: **500**.
      *
      * @example 5
      *

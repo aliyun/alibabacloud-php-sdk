@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDomainUvDataResponse extends Model
+class DescribeDomainVerifyDataResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeDomainUvDataResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeDomainUvDataResponseBody
+     * @var DescribeDomainVerifyDataResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class DescribeDomainUvDataResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDomainUvDataResponse
+     * @return DescribeDomainVerifyDataResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class DescribeDomainUvDataResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeDomainUvDataResponseBody::fromMap($map['body']);
+            $model->body = DescribeDomainVerifyDataResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -39,7 +39,7 @@ class ipInfoList extends Model
     public $country;
 
     /**
-     * @description The IP address of the client.
+     * @description The IP address.
      *
      * @example 111.XXX.XXX.230
      *
