@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Actiontrail\V20200706\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetGlobalEventsStorageRegionResponse extends Model
+class EnableInsightResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetGlobalEventsStorageRegionResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetGlobalEventsStorageRegionResponseBody
+     * @var EnableInsightResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class GetGlobalEventsStorageRegionResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetGlobalEventsStorageRegionResponse
+     * @return EnableInsightResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class GetGlobalEventsStorageRegionResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetGlobalEventsStorageRegionResponseBody::fromMap($map['body']);
+            $model->body = EnableInsightResponseBody::fromMap($map['body']);
         }
 
         return $model;

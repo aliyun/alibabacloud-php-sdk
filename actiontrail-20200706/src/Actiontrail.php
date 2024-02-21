@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeTrailsRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeTrailsResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\EnableInsightRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\EnableInsightResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedEventsRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedEventsResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedInfoRequest;
@@ -451,6 +453,49 @@ class Actiontrail extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTrailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableInsightRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return EnableInsightResponse
+     */
+    public function enableInsightWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->insightType)) {
+            $query['InsightType'] = $request->insightType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableInsight',
+            'version'     => '2020-07-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableInsightResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableInsightRequest $request
+     *
+     * @return EnableInsightResponse
+     */
+    public function enableInsight($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableInsightWithOptions($request, $runtime);
     }
 
     /**
