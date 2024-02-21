@@ -37,7 +37,7 @@ class QueryDedicatedBlockStorageClusterInventoryDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The time interval （seconds） between data retrieval points.
+     * @description The time interval (seconds) between data retrieval points.
      *
      * @example 60
      *

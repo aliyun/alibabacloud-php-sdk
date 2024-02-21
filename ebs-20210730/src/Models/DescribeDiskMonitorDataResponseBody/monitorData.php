@@ -45,7 +45,7 @@ class monitorData extends Model
     public $IOPSPercent;
 
     /**
-     * @description The read bandwidth of the disk. Unit: Mbit/s.
+     * @description The read bandwidth of the disk. Unit: MByte/s.
      *
      * @example 10
      *
@@ -54,6 +54,10 @@ class monitorData extends Model
     public $readBPS;
 
     /**
+     * @description Read IO block size. Unit: Bytes
+     *
+     * @example 4096
+     *
      * @var int
      */
     public $readBlockSize;
@@ -68,6 +72,10 @@ class monitorData extends Model
     public $readIOPS;
 
     /**
+     * @description Read IO latency. Unit:  microsecond
+     *
+     * @example 100
+     *
      * @var int
      */
     public $readLatency;
@@ -82,7 +90,7 @@ class monitorData extends Model
     public $timestamp;
 
     /**
-     * @description The write bandwidth of the disk. Unit: Mbit/s.
+     * @description The write bandwidth of the disk. Unit: MByte/s.
      *
      * @example 204
      *
@@ -91,6 +99,10 @@ class monitorData extends Model
     public $writeBPS;
 
     /**
+     * @description Write IO block size. Unit: Bytes
+     *
+     * @example 4096
+     *
      * @var int
      */
     public $writeBlockSize;
@@ -105,6 +117,10 @@ class monitorData extends Model
     public $writeIOPS;
 
     /**
+     * @description Write IO latency. Unit: microsecond
+     *
+     * @example 100
+     *
      * @var int
      */
     public $writeLatency;
