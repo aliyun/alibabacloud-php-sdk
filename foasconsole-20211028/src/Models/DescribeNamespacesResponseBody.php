@@ -15,31 +15,43 @@ class DescribeNamespacesResponseBody extends Model
     public $namespaces;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 67F33190-946B-1105-B6A1-E2DF0426DD51
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalPage;

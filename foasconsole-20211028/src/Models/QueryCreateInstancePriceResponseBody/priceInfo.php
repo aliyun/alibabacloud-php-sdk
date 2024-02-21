@@ -11,21 +11,29 @@ use AlibabaCloud\Tea\Model;
 class priceInfo extends Model
 {
     /**
+     * @example ORDER.INST_HAS_UNPAID_ORDER
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 655.2
+     *
      * @var float
      */
     public $discountAmount;
 
     /**
+     * @example 存在未支付订单，请先支付或取消原有订单
+     *
      * @var string
      */
     public $message;
@@ -36,6 +44,8 @@ class priceInfo extends Model
     public $optionalPromotions;
 
     /**
+     * @example 4368
+     *
      * @var float
      */
     public $originalAmount;
@@ -46,6 +56,8 @@ class priceInfo extends Model
     public $rules;
 
     /**
+     * @example 3712.8
+     *
      * @var float
      */
     public $tradeAmount;

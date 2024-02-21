@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSupportedRegionsResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -25,21 +29,29 @@ class DescribeSupportedRegionsResponseBody extends Model
     public $regions;
 
     /**
+     * @example B21DC47E-8928-199A-9F32-36D45E4693B4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalPage;

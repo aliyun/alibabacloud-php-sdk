@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class oss extends Model
 {
     /**
+     * @example oss-flink-cn-shanghai-260343971602724445
+     *
      * @var string
      */
     public $bucket;

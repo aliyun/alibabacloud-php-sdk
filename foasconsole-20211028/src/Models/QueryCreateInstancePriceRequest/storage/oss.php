@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class oss extends Model
 {
     /**
+     * @example quicktracing
+     *
      * @var string
      */
     public $bucket;

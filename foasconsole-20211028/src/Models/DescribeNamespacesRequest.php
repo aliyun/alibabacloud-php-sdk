@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespacesRequest extends Model
 {
     /**
+     * @example f-cn-wwo36qj4g06
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example di-590843445844225
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;

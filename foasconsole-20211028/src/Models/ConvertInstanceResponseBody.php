@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ConvertInstanceResponseBody extends Model
 {
     /**
+     * @example 211473228320700
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 67F33190-946B-1105-B6A1-E2DF0426DD51
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

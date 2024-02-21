@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class namespaces extends Model
 {
     /**
+     * @example 1629879567394
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1629879567394
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @example ns-1
+     *
      * @var string
      */
     public $namespace;
@@ -37,6 +43,8 @@ class namespaces extends Model
     public $resourceUsed;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

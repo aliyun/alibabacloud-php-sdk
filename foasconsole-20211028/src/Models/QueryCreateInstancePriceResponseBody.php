@@ -15,6 +15,8 @@ class QueryCreateInstancePriceResponseBody extends Model
     public $priceInfo;
 
     /**
+     * @example 67F33190-946B-1105-B6A1-E2DF0426DD51
+     *
      * @var string
      */
     public $requestId;

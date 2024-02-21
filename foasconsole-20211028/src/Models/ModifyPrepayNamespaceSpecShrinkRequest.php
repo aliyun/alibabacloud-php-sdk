@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyPrepayNamespaceSpecShrinkRequest extends Model
 {
     /**
+     * @example f-cn-wwo36qj4g06
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example di-593440219799842
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $region;

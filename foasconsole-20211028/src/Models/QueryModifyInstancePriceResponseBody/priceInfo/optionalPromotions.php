@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class optionalPromotions extends Model
 {
     /**
+     * @example ￥1,391.5 优惠券 (有效期至 03/23/2022)
+     *
      * @var string
      */
     public $promotionDesc;
 
     /**
+     * @example ￥1,391.5 优惠券
+     *
      * @var string
      */
     public $promotionName;
 
     /**
+     * @example 500011220010099
+     *
      * @var string
      */
     public $promotionOptionNo;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $selected;

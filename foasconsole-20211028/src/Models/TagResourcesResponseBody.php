@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 67F33190-946B-1105-B6A1-E2DF0426DD51
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 154FT
+     *
      * @var string
      */
     public $tagResponseId;

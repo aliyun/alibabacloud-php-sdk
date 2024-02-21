@@ -12,46 +12,64 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @example PRE
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $clusterStatus;
 
     /**
+     * @example f-cn-zvp2q0zik06
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example vvp1
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $orderState;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 1629879567394
+     *
      * @var int
      */
     public $resourceCreateTime;
 
     /**
+     * @example 1637337600000
+     *
      * @var int
      */
     public $resourceExpiredTime;
 
     /**
+     * @example b3690a1655da47
+     *
      * @var string
      */
     public $resourceId;
@@ -72,6 +90,8 @@ class instances extends Model
     public $tags;
 
     /**
+     * @example 1838996687368452
+     *
      * @var string
      */
     public $uid;
@@ -82,11 +102,15 @@ class instances extends Model
     public $vSwitchIds;
 
     /**
+     * @example vpc-2ze9*******nxfmfcdi
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-beijing-g
+     *
      * @var string
      */
     public $zoneId;

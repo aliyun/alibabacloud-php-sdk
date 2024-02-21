@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryModifyInstancePriceRequest extends Model
 {
     /**
+     * @example f-cn-wwo36qj4g06
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;

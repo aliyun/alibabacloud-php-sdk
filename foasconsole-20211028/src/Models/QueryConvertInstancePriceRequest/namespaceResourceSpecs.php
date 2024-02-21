@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class namespaceResourceSpecs extends Model
 {
     /**
+     * @example lm-test-default
+     *
      * @var string
      */
     public $namespace;

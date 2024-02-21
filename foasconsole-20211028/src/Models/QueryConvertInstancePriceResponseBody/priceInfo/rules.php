@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @example 买满1年，立享官网价格8.5折优惠。
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 587
+     *
      * @var int
      */
     public $ruleId;

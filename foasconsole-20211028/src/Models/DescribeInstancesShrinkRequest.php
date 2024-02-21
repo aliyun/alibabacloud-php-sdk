@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesShrinkRequest extends Model
 {
     /**
+     * @example PRE
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example f-cn-wwo36qj4g06
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $region;

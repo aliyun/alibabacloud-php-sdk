@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryRenewInstancePriceRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example sc_flinkserverless_public_cn-7e22ae5sess
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;

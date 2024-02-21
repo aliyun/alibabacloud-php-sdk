@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QueryConvertInstancePriceRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example f-cn-wwo36qj4g06
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAutoRenew;
@@ -30,11 +36,15 @@ class QueryConvertInstancePriceRequest extends Model
     public $namespaceResourceSpecs;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;

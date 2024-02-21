@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeSupportedZonesResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 23A9C718-DDAB-1696-B025-18FBC830F7C5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPage;

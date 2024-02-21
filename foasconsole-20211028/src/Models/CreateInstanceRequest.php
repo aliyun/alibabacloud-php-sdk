@@ -11,36 +11,50 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example PRE
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example rtc-e2e-test-pre
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example 500043499350689
+     *
      * @var string
      */
     public $promotionCode;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;
@@ -61,11 +75,15 @@ class CreateInstanceRequest extends Model
     public $vSwitchIds;
 
     /**
+     * @example vpc-2ze9xoh8qyt1rnxfmfcdi
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-beijing-g
+     *
      * @var string
      */
     public $zoneId;

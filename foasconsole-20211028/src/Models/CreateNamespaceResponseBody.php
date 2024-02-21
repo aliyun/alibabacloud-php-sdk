@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateNamespaceResponseBody extends Model
 {
     /**
+     * @example 67F33190-946B-1105-B6A1-E2DF0426DD51
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 是否成功
+     *
      * @var bool
      */
     public $success;
