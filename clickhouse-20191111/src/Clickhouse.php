@@ -811,6 +811,9 @@ class Clickhouse extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
         if (!Utils::isUnset($request->backupSetID)) {
             $query['BackupSetID'] = $request->backupSetID;
         }

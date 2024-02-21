@@ -442,10 +442,10 @@ class DBCluster extends Model
     public $supportBackup;
 
     /**
-     * @description Indicates whether the cluster supports an HTTP port. Valid values:
+     * @description Indicates whether HTTPS ports are supported. Valid values:
      *
-     *   **true**: An HTTP port is supported.
-     *   **false**: An HTTP port is not supported.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -530,6 +530,10 @@ class DBCluster extends Model
     public $zoneId;
 
     /**
+     * @description The list of vSwitch IDs in multi-zone clusters.
+     *
+     * @example cn-shanghai-f: vsw-zm0n42d5vvuo****
+     *
      * @var mixed[]
      */
     public $zoneIdVswitchMap;

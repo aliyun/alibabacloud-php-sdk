@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
      * @description The ID of the backup set. You can call the [DescribeBackups](~~360339~~) operation to query the backup sets.
      *
      * >  If you want to restore the data of an ApsaraDB for ClickHouse cluster, this parameter is required.
@@ -289,6 +294,7 @@ class CreateDBInstanceRequest extends Model
      */
     public $zoneIdBak;
     protected $_name = [
+        'autoRenew'            => 'AutoRenew',
         'backupSetID'          => 'BackupSetID',
         'clientToken'          => 'ClientToken',
         'DBClusterCategory'    => 'DBClusterCategory',
@@ -327,6 +333,9 @@ class CreateDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
         if (null !== $this->backupSetID) {
             $res['BackupSetID'] = $this->backupSetID;
         }
@@ -426,6 +435,9 @@ class CreateDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
         if (isset($map['BackupSetID'])) {
             $model->backupSetID = $map['BackupSetID'];
         }
