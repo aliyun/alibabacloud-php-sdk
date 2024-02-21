@@ -152,6 +152,12 @@ class dtsJobList extends Model
     public $destinationEndpoint;
 
     /**
+     * @description The environment tag of the DTS instance. Valid values:
+     *
+     * - **normal**
+     * - **online**
+     * @example normal
+     *
      * @var string
      */
     public $dtsBisLabel;

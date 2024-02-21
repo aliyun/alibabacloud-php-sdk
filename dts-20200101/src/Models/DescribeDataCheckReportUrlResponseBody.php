@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataCheckReportUrlResponseBody extends Model
 {
     /**
+     * @description The URL for downloading the verification report.
+     *
      * @example https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/dw612cru18e****\/dtsdb/diff/student.diff.zip?Expires=****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDataCheckReportUrlResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example InternalError
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDataCheckReportUrlResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example The Value of Input Parameter %s is not valid.
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeDataCheckReportUrlResponseBody extends Model
     public $errMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeDataCheckReportUrlResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example AF2DE23-B692-5B85-90B7-44B6F4D8****
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeDataCheckReportUrlResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var string

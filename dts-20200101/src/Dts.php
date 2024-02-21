@@ -5206,10 +5206,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ModifyDtsJobRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * When you configure a data synchronization task in the Data Transmission Service (DTS) console, you can move the pointer over **Next: Save Task Settings and Precheck** in the **Advanced Settings** step and click **Preview OpenAPI parameters** to view the parameters that are used to configure the task by calling an API operation.
+     *   *
+     * @param ModifyDtsJobRequest $tmpReq  ModifyDtsJobRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDtsJobResponse
+     * @return ModifyDtsJobResponse ModifyDtsJobResponse
      */
     public function modifyDtsJobWithOptions($tmpReq, $runtime)
     {
@@ -5283,9 +5285,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ModifyDtsJobRequest $request
+     * When you configure a data synchronization task in the Data Transmission Service (DTS) console, you can move the pointer over **Next: Save Task Settings and Precheck** in the **Advanced Settings** step and click **Preview OpenAPI parameters** to view the parameters that are used to configure the task by calling an API operation.
+     *   *
+     * @param ModifyDtsJobRequest $request ModifyDtsJobRequest
      *
-     * @return ModifyDtsJobResponse
+     * @return ModifyDtsJobResponse ModifyDtsJobResponse
      */
     public function modifyDtsJob($request)
     {
@@ -6456,10 +6460,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param StartReverseWriterRequest $request
-     * @param RuntimeOptions            $runtime
+     * Before you call this operation, make sure that your instance is not released and is paused. You can check the status of the instance in the Data Transmission Service (DTS) console or by calling the [DescribeDtsJobDetail](~~208925~~) operation.
+     *   *
+     * @param StartReverseWriterRequest $request StartReverseWriterRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartReverseWriterResponse
+     * @return StartReverseWriterResponse StartReverseWriterResponse
      */
     public function startReverseWriterWithOptions($request, $runtime)
     {
@@ -6490,9 +6496,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param StartReverseWriterRequest $request
+     * Before you call this operation, make sure that your instance is not released and is paused. You can check the status of the instance in the Data Transmission Service (DTS) console or by calling the [DescribeDtsJobDetail](~~208925~~) operation.
+     *   *
+     * @param StartReverseWriterRequest $request StartReverseWriterRequest
      *
-     * @return StartReverseWriterResponse
+     * @return StartReverseWriterResponse StartReverseWriterResponse
      */
     public function startReverseWriter($request)
     {

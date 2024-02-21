@@ -30,11 +30,21 @@ class migrationMode extends Model
     public $dataSynchronization;
 
     /**
+     * @description Indicates whether full data verification is performed. Valid values:
+     * -  **true**: yes
+     * -  **false**: no
+     * @example true
+     *
      * @var bool
      */
     public $fullDataCheck;
 
     /**
+     * @description Indicates whether incremental data verification is performed. Valid values:
+     * -  **true**: yes
+     * -  **false**: no
+     * @example true
+     *
      * @var bool
      */
     public $incDataCheck;

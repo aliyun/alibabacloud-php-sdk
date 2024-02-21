@@ -18,6 +18,12 @@ class DescribeDtsJobsRequest extends Model
     public $dedicatedClusterId;
 
     /**
+     * @description The environment tag of the DTS instance. Valid values:
+     *
+     * - **normal**
+     * - **online**
+     * @example normal
+     *
      * @var string
      */
     public $dtsBisLabel;

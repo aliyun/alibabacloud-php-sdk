@@ -35,7 +35,7 @@ class migrationMode extends Model
     /**
      * @description Indicates whether full data verification is performed. Valid values:
      * -  **true**: yes
-     * -   **false**: no
+     * -  **false**: no
      * @example true
      *
      * @var bool
@@ -45,7 +45,7 @@ class migrationMode extends Model
     /**
      * @description Indicates whether incremental data verification is performed. Valid values:
      * -  **true**: yes
-     * -   **false**: no
+     * -  **false**: no
      * @example true
      *
      * @var bool

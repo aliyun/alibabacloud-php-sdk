@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class fullDataCheckStatus extends Model
 {
     /**
+     * @description The error message returned if the task failed.
+     *
+     * @example java.lang.NumberFormatException: For input string: ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The progress of the full data verification task. Unit: percentage.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @description The progress of the full data verification task.
+     *
+     * @example 1 rows/s (row: 5/5, table: 1/1)
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The state of the full data verification task. Valid values:
+     *
+     * - **NotStarted**: The verification is not started.
+     * - **Checking**: The verification is in progress.
+     * - **Failed**: The verification failed.
+     * - **Finished**: The verification is complete.
+     * @example Checking
+     *
      * @var string
      */
     public $status;

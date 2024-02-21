@@ -18,19 +18,38 @@ class ModifyDtsJobRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform full data migration or synchronization. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dataInitialization;
 
     /**
+     * @description Specifies whether to perform incremental data migration or synchronization. Valid values:
+     *
+     *   **false**
+     *   **true**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dataSynchronization;
 
     /**
-     * @description The objects of the data synchronization task after modification. The value is a JSON string. For more information, see [Objects of DTS tasks](~~209545~~).
+     * @description The objects of the data synchronization task after modification. The value must be a JSON string. For more information, see [Objects of DTS tasks](~~209545~~).
      *
-     * >  Before you call the ModifyDtsJob operation, we recommend that you call the [DescribeDtsJobDetail](~~208925~~) to query the current objects of the data synchronization task. Then, you can specify the new objects based on your business requirements. For example, if the current objects are Table A and Table B and you need to add Table C, you must specify Table A, Table B, and Table C for this parameter.
+     * >
+     *
+     *   The new value of DbList overwrites the original value. Make sure that all the objects that you want to synchronize are specified. Otherwise, some objects may be lost. Specify this parameter with caution.
+     *
+     *   Before you call the ModifyDtsJob operation, we recommend that you call the [DescribeDtsJobDetail](~~208925~~) operation to query the current objects of the data synchronization task. Then, you can specify the new objects based on your business requirements. For example, if the current objects are Table A and Table B and you need to add Table C, you must specify Table A, Table B, and Table C for this parameter.
+     *
      * @example {"dtstest":{"name":"dtstest","all":true}}
      *
      * @var mixed[]
@@ -47,6 +66,10 @@ class ModifyDtsJobRequest extends Model
     public $dtsInstanceId;
 
     /**
+     * @description The synchronization task ID. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     *
+     * @example fpx1149rw7p***
+     *
      * @var string
      */
     public $dtsJobId;
@@ -106,6 +129,13 @@ class ModifyDtsJobRequest extends Model
     public $reserved;
 
     /**
+     * @description Specifies whether to perform schema migration or synchronization. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $structureInitialization;

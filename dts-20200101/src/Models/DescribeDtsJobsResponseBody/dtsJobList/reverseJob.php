@@ -185,11 +185,15 @@ class reverseJob extends Model
     public $expireTime;
 
     /**
+     * @description The state information about the full data verification task.
+     *
      * @var fullDataCheckStatus
      */
     public $fullDataCheckStatus;
 
     /**
+     * @description The state information about the incremental data verification task.
+     *
      * @var incDataCheckStatus
      */
     public $incDataCheckStatus;

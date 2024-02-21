@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class StartReverseWriterRequest extends Model
 {
     /**
+     * @description The offset of the Incremental Write module. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * > The default value is the offset that is automatically saved by DTS when the task is paused.
      * @example 1695613785
      *
      * @var string
@@ -16,6 +19,8 @@ class StartReverseWriterRequest extends Model
     public $checkPoint;
 
     /**
+     * @description The ID of the reverse task that was created by calling the CreateReverseDtsJob operation.
+     *
      * @example n99m9jx822k****
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataCheckReportUrlRequest extends Model
 {
     /**
+     * @description The data verification method. Valid values:
+     *
+     *   **1**: full data verification.
+     *   **2**: incremental data verification.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,8 @@ class DescribeDataCheckReportUrlRequest extends Model
     public $checkType;
 
     /**
+     * @description The name of the verified source database.
+     *
      * @example dtsdb
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeDataCheckReportUrlRequest extends Model
     public $dbName;
 
     /**
+     * @description The ID of the Data Transmission Service (DTS) task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     *
      * @example f4612nr2182****
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeDataCheckReportUrlRequest extends Model
     public $dtsJobId;
 
     /**
+     * @description The name of the table verified in the source database.
+     *
      * @example student
      *
      * @var string

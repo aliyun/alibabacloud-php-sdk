@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartReverseWriterResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
      * @example InternalError
      *
      * @var string
@@ -16,6 +18,8 @@ class StartReverseWriterResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example The Value of Input Parameter %s is not valid.
      *
      * @var string
@@ -23,6 +27,8 @@ class StartReverseWriterResponseBody extends Model
     public $errMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 291BA4F1-2035-3FAA-6D5A-5D2015CC****
      *
      * @var string
@@ -30,6 +36,8 @@ class StartReverseWriterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var string
