@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class deploymentTargets extends Model
 {
     /**
+     * @description The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
+     *
+     * > To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information about a folder](~~111223~~).
      * @var string[]
      */
     public $accountIds;

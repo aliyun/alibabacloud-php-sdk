@@ -55,7 +55,7 @@ class UpdateTemplateScratchShrinkRequest extends Model
     public $logicalIdStrategy;
 
     /**
-     * @description The parameters that you want to configure for the scenario.
+     * @description The preference parameters of the resource scenario.
      *
      * @var string
      */

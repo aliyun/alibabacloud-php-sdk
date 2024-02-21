@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class preferenceParameters extends Model
 {
     /**
-     * @description The name of the parameter.
+     * @description The parameter name.
      *
      * @example DeletionPolicy
      *
@@ -18,7 +18,7 @@ class preferenceParameters extends Model
     public $parameterKey;
 
     /**
-     * @description The value of the parameter.
+     * @description The parameter value.
      *
      * @example Retain
      *

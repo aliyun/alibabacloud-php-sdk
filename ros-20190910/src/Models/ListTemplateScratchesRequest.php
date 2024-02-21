@@ -78,7 +78,7 @@ class ListTemplateScratchesRequest extends Model
     public $templateScratchId;
 
     /**
-     * @description The type of the scenario. Valid values:
+     * @description The type of the resource scenario. Valid values:
      *
      *   ArchitectureReplication: resource replication
      *   ArchitectureDetection: resource detection
