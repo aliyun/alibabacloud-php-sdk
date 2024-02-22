@@ -17,6 +17,11 @@ class tableMetas extends Model
     public $canDelete;
 
     /**
+     * @var string
+     */
+    public $config;
+
+    /**
      * @example this is a test table
      *
      * @var string
@@ -99,6 +104,7 @@ class tableMetas extends Model
     public $url;
     protected $_name = [
         'canDelete'       => 'CanDelete',
+        'config'          => 'Config',
         'description'     => 'Description',
         'fields'          => 'Fields',
         'gmtCreateTime'   => 'GmtCreateTime',
@@ -122,6 +128,9 @@ class tableMetas extends Model
         $res = [];
         if (null !== $this->canDelete) {
             $res['CanDelete'] = $this->canDelete;
+        }
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -179,6 +188,9 @@ class tableMetas extends Model
         $model = new self();
         if (isset($map['CanDelete'])) {
             $model->canDelete = $map['CanDelete'];
+        }
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

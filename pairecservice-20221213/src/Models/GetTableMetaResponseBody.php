@@ -17,6 +17,11 @@ class GetTableMetaResponseBody extends Model
     public $canDelete;
 
     /**
+     * @var string
+     */
+    public $config;
+
+    /**
      * @example this is a test table
      *
      * @var string
@@ -34,6 +39,11 @@ class GetTableMetaResponseBody extends Model
      * @var string
      */
     public $gmtCreateTime;
+
+    /**
+     * @var string
+     */
+    public $gmtImportedTime;
 
     /**
      * @example 2021-12-15:24:33
@@ -71,6 +81,11 @@ class GetTableMetaResponseBody extends Model
     public $resourceId;
 
     /**
+     * @var string
+     */
+    public $tableMetaId;
+
+    /**
      * @example table_mysql
      *
      * @var string
@@ -92,14 +107,17 @@ class GetTableMetaResponseBody extends Model
     public $url;
     protected $_name = [
         'canDelete'       => 'CanDelete',
+        'config'          => 'Config',
         'description'     => 'Description',
         'fields'          => 'Fields',
         'gmtCreateTime'   => 'GmtCreateTime',
+        'gmtImportedTime' => 'GmtImportedTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'module'          => 'Module',
         'name'            => 'Name',
         'requestId'       => 'RequestId',
         'resourceId'      => 'ResourceId',
+        'tableMetaId'     => 'TableMetaId',
         'tableName'       => 'TableName',
         'type'            => 'Type',
         'url'             => 'Url',
@@ -114,6 +132,9 @@ class GetTableMetaResponseBody extends Model
         $res = [];
         if (null !== $this->canDelete) {
             $res['CanDelete'] = $this->canDelete;
+        }
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -130,6 +151,9 @@ class GetTableMetaResponseBody extends Model
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
+        if (null !== $this->gmtImportedTime) {
+            $res['GmtImportedTime'] = $this->gmtImportedTime;
+        }
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
@@ -144,6 +168,9 @@ class GetTableMetaResponseBody extends Model
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->tableMetaId) {
+            $res['TableMetaId'] = $this->tableMetaId;
         }
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
@@ -169,6 +196,9 @@ class GetTableMetaResponseBody extends Model
         if (isset($map['CanDelete'])) {
             $model->canDelete = $map['CanDelete'];
         }
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -184,6 +214,9 @@ class GetTableMetaResponseBody extends Model
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
+        if (isset($map['GmtImportedTime'])) {
+            $model->gmtImportedTime = $map['GmtImportedTime'];
+        }
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
@@ -198,6 +231,9 @@ class GetTableMetaResponseBody extends Model
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['TableMetaId'])) {
+            $model->tableMetaId = $map['TableMetaId'];
         }
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];

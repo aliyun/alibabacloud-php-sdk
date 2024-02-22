@@ -58,6 +58,36 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     public $featurePriority;
 
     /**
+     * @var string
+     */
+    public $featureStoreItemId;
+
+    /**
+     * @var string
+     */
+    public $featureStoreModelId;
+
+    /**
+     * @var string
+     */
+    public $featureStoreProjectId;
+
+    /**
+     * @var string
+     */
+    public $featureStoreProjectName;
+
+    /**
+     * @var string
+     */
+    public $featureStoreSeqFeatureView;
+
+    /**
+     * @var string
+     */
+    public $featureStoreUserId;
+
+    /**
      * @example 1.0.0
      *
      * @var string
@@ -149,6 +179,11 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     public $serviceId;
 
     /**
+     * @var bool
+     */
+    public $useFeatureStore;
+
+    /**
      * @example user_id
      *
      * @var string
@@ -190,6 +225,12 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
         'featureDisplayExclude'         => 'FeatureDisplayExclude',
         'featureLandingResourceId'      => 'FeatureLandingResourceId',
         'featurePriority'               => 'FeaturePriority',
+        'featureStoreItemId'            => 'FeatureStoreItemId',
+        'featureStoreModelId'           => 'FeatureStoreModelId',
+        'featureStoreProjectId'         => 'FeatureStoreProjectId',
+        'featureStoreProjectName'       => 'FeatureStoreProjectName',
+        'featureStoreSeqFeatureView'    => 'FeatureStoreSeqFeatureView',
+        'featureStoreUserId'            => 'FeatureStoreUserId',
         'fgJarVersion'                  => 'FgJarVersion',
         'fgJsonFileName'                => 'FgJsonFileName',
         'generateZip'                   => 'GenerateZip',
@@ -203,6 +244,7 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
         'sampleRate'                    => 'SampleRate',
         'sceneId'                       => 'SceneId',
         'serviceId'                     => 'ServiceId',
+        'useFeatureStore'               => 'UseFeatureStore',
         'userIdField'                   => 'UserIdField',
         'userTable'                     => 'UserTable',
         'userTablePartitionField'       => 'UserTablePartitionField',
@@ -237,6 +279,24 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
         }
         if (null !== $this->featurePriority) {
             $res['FeaturePriority'] = $this->featurePriority;
+        }
+        if (null !== $this->featureStoreItemId) {
+            $res['FeatureStoreItemId'] = $this->featureStoreItemId;
+        }
+        if (null !== $this->featureStoreModelId) {
+            $res['FeatureStoreModelId'] = $this->featureStoreModelId;
+        }
+        if (null !== $this->featureStoreProjectId) {
+            $res['FeatureStoreProjectId'] = $this->featureStoreProjectId;
+        }
+        if (null !== $this->featureStoreProjectName) {
+            $res['FeatureStoreProjectName'] = $this->featureStoreProjectName;
+        }
+        if (null !== $this->featureStoreSeqFeatureView) {
+            $res['FeatureStoreSeqFeatureView'] = $this->featureStoreSeqFeatureView;
+        }
+        if (null !== $this->featureStoreUserId) {
+            $res['FeatureStoreUserId'] = $this->featureStoreUserId;
         }
         if (null !== $this->fgJarVersion) {
             $res['FgJarVersion'] = $this->fgJarVersion;
@@ -276,6 +336,9 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
         }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->useFeatureStore) {
+            $res['UseFeatureStore'] = $this->useFeatureStore;
         }
         if (null !== $this->userIdField) {
             $res['UserIdField'] = $this->userIdField;
@@ -325,6 +388,24 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
         if (isset($map['FeaturePriority'])) {
             $model->featurePriority = $map['FeaturePriority'];
         }
+        if (isset($map['FeatureStoreItemId'])) {
+            $model->featureStoreItemId = $map['FeatureStoreItemId'];
+        }
+        if (isset($map['FeatureStoreModelId'])) {
+            $model->featureStoreModelId = $map['FeatureStoreModelId'];
+        }
+        if (isset($map['FeatureStoreProjectId'])) {
+            $model->featureStoreProjectId = $map['FeatureStoreProjectId'];
+        }
+        if (isset($map['FeatureStoreProjectName'])) {
+            $model->featureStoreProjectName = $map['FeatureStoreProjectName'];
+        }
+        if (isset($map['FeatureStoreSeqFeatureView'])) {
+            $model->featureStoreSeqFeatureView = $map['FeatureStoreSeqFeatureView'];
+        }
+        if (isset($map['FeatureStoreUserId'])) {
+            $model->featureStoreUserId = $map['FeatureStoreUserId'];
+        }
         if (isset($map['FgJarVersion'])) {
             $model->fgJarVersion = $map['FgJarVersion'];
         }
@@ -363,6 +444,9 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
         }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['UseFeatureStore'])) {
+            $model->useFeatureStore = $map['UseFeatureStore'];
         }
         if (isset($map['UserIdField'])) {
             $model->userIdField = $map['UserIdField'];

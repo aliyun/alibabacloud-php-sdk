@@ -1046,6 +1046,24 @@ class PaiRecService extends OpenApiClient
         if (!Utils::isUnset($request->featurePriority)) {
             $body['FeaturePriority'] = $request->featurePriority;
         }
+        if (!Utils::isUnset($request->featureStoreItemId)) {
+            $body['FeatureStoreItemId'] = $request->featureStoreItemId;
+        }
+        if (!Utils::isUnset($request->featureStoreModelId)) {
+            $body['FeatureStoreModelId'] = $request->featureStoreModelId;
+        }
+        if (!Utils::isUnset($request->featureStoreProjectId)) {
+            $body['FeatureStoreProjectId'] = $request->featureStoreProjectId;
+        }
+        if (!Utils::isUnset($request->featureStoreProjectName)) {
+            $body['FeatureStoreProjectName'] = $request->featureStoreProjectName;
+        }
+        if (!Utils::isUnset($request->featureStoreSeqFeatureView)) {
+            $body['FeatureStoreSeqFeatureView'] = $request->featureStoreSeqFeatureView;
+        }
+        if (!Utils::isUnset($request->featureStoreUserId)) {
+            $body['FeatureStoreUserId'] = $request->featureStoreUserId;
+        }
         if (!Utils::isUnset($request->fgJarVersion)) {
             $body['FgJarVersion'] = $request->fgJarVersion;
         }
@@ -1084,6 +1102,9 @@ class PaiRecService extends OpenApiClient
         }
         if (!Utils::isUnset($request->serviceId)) {
             $body['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->useFeatureStore)) {
+            $body['UseFeatureStore'] = $request->useFeatureStore;
         }
         if (!Utils::isUnset($request->userIdField)) {
             $body['UserIdField'] = $request->userIdField;
@@ -2844,6 +2865,9 @@ class PaiRecService extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -2855,6 +2879,9 @@ class PaiRecService extends OpenApiClient
         }
         if (!Utils::isUnset($request->sceneId)) {
             $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4803,6 +4830,24 @@ class PaiRecService extends OpenApiClient
         if (!Utils::isUnset($request->featurePriority)) {
             $body['FeaturePriority'] = $request->featurePriority;
         }
+        if (!Utils::isUnset($request->featureStoreItemId)) {
+            $body['FeatureStoreItemId'] = $request->featureStoreItemId;
+        }
+        if (!Utils::isUnset($request->featureStoreModelId)) {
+            $body['FeatureStoreModelId'] = $request->featureStoreModelId;
+        }
+        if (!Utils::isUnset($request->featureStoreProjectId)) {
+            $body['FeatureStoreProjectId'] = $request->featureStoreProjectId;
+        }
+        if (!Utils::isUnset($request->featureStoreProjectName)) {
+            $body['FeatureStoreProjectName'] = $request->featureStoreProjectName;
+        }
+        if (!Utils::isUnset($request->featureStoreSeqFeatureView)) {
+            $body['FeatureStoreSeqFeatureView'] = $request->featureStoreSeqFeatureView;
+        }
+        if (!Utils::isUnset($request->featureStoreUserId)) {
+            $body['FeatureStoreUserId'] = $request->featureStoreUserId;
+        }
         if (!Utils::isUnset($request->fgJarVersion)) {
             $body['FgJarVersion'] = $request->fgJarVersion;
         }
@@ -4814,6 +4859,9 @@ class PaiRecService extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->isUseFeatureStore)) {
+            $body['IsUseFeatureStore'] = $request->isUseFeatureStore;
         }
         if (!Utils::isUnset($request->itemIdField)) {
             $body['ItemIdField'] = $request->itemIdField;

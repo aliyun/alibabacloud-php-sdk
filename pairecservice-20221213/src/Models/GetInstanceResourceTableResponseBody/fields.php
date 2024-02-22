@@ -16,6 +16,11 @@ class fields extends Model
     public $isDimensionField;
 
     /**
+     * @var bool
+     */
+    public $isPartitionField;
+
+    /**
      * @example ""
      *
      * @var string
@@ -37,6 +42,7 @@ class fields extends Model
     public $type;
     protected $_name = [
         'isDimensionField' => 'IsDimensionField',
+        'isPartitionField' => 'IsPartitionField',
         'meaning'          => 'Meaning',
         'name'             => 'Name',
         'type'             => 'Type',
@@ -51,6 +57,9 @@ class fields extends Model
         $res = [];
         if (null !== $this->isDimensionField) {
             $res['IsDimensionField'] = $this->isDimensionField;
+        }
+        if (null !== $this->isPartitionField) {
+            $res['IsPartitionField'] = $this->isPartitionField;
         }
         if (null !== $this->meaning) {
             $res['Meaning'] = $this->meaning;
@@ -75,6 +84,9 @@ class fields extends Model
         $model = new self();
         if (isset($map['IsDimensionField'])) {
             $model->isDimensionField = $map['IsDimensionField'];
+        }
+        if (isset($map['IsPartitionField'])) {
+            $model->isPartitionField = $map['IsPartitionField'];
         }
         if (isset($map['Meaning'])) {
             $model->meaning = $map['Meaning'];

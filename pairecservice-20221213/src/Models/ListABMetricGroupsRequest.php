@@ -16,6 +16,11 @@ class ListABMetricGroupsRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $order;
+
+    /**
      * @example 1
      *
      * @var int
@@ -42,12 +47,19 @@ class ListABMetricGroupsRequest extends Model
      * @var string
      */
     public $sceneId;
+
+    /**
+     * @var string
+     */
+    public $sortBy;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'order'      => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'realtime'   => 'Realtime',
         'sceneId'    => 'SceneId',
+        'sortBy'     => 'SortBy',
     ];
 
     public function validate()
@@ -60,6 +72,9 @@ class ListABMetricGroupsRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -71,6 +86,9 @@ class ListABMetricGroupsRequest extends Model
         }
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
+        }
+        if (null !== $this->sortBy) {
+            $res['SortBy'] = $this->sortBy;
         }
 
         return $res;
@@ -87,6 +105,9 @@ class ListABMetricGroupsRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -98,6 +119,9 @@ class ListABMetricGroupsRequest extends Model
         }
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
+        }
+        if (isset($map['SortBy'])) {
+            $model->sortBy = $map['SortBy'];
         }
 
         return $model;
