@@ -19,7 +19,7 @@ class DescribeCustomizeRuleTestHistogramResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The return value for the request.
      *
      * @example 123456
      *

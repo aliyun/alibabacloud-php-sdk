@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PostAutomateResponseConfigRequest extends Model
 {
     /**
-     * @description The configuration of the action that is performed after the rule is hit. The value is in JSON format.
+     * @description The action configuration of the automated response rule. The value is in the JSON format.
      *
      * @example [
      * ]
@@ -18,11 +18,11 @@ class PostAutomateResponseConfigRequest extends Model
     public $actionConfig;
 
     /**
-     * @description The action that is performed after the rule is hit. Separate multiple values with commas (,). Valid values:
+     * @description The type of the handling action. Multiple types are separated by commas (,). Valid values:
      *
-     *   doPlaybook: Execute a playbook.
-     *   changeEventStatus: Change the event status.
-     *   changeThreatLevel: Change the threat level of the event.
+     *   **doPlaybook**: runs the playbook.
+     *   **changeEventStatus**: changes the event status.
+     *   **changeThreatLevel**: changes the threat level of the event.
      *
      * @example doPlaybook,changeEventStatus
      *
@@ -31,10 +31,10 @@ class PostAutomateResponseConfigRequest extends Model
     public $actionType;
 
     /**
-     * @description The rule type. Valid values:
+     * @description The type of the automated response rule. Valid values:
      *
-     *   event
-     *   alert
+     *   **event**
+     *   **alert**
      *
      * @example event
      *
@@ -43,7 +43,7 @@ class PostAutomateResponseConfigRequest extends Model
     public $autoResponseType;
 
     /**
-     * @description The trigger condition of the rule. The value is in JSON format.
+     * @description The trigger condition of the automated response rule. The value is in the JSON format.
      *
      * @example [{"left":{"value":"alert_name"},"operator":"containsString","right":{"value":"webshell_online"}}]
      *
@@ -61,10 +61,10 @@ class PostAutomateResponseConfigRequest extends Model
     public $id;
 
     /**
-     * @description The data management center of the threat analysis feature. Specify this parameter based on the region in which your assets reside. Valid values:
+     * @description The data management center of the threat analysis feature. Specify this parameter based on the regions in which your assets reside. Valid values:
      *
-     *   cn-hangzhou: Your assets reside in regions inside China.
-     *   ap-southeast-1: Your assets reside in regions outside China.
+     *   **cn-hangzhou**: Your assets reside in regions in China.
+     *   **ap-southeast-1**: Your assets reside in regions outside China.
      *
      * @example cn-hangzhou
      *

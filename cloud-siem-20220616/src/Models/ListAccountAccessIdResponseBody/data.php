@@ -50,7 +50,7 @@ class data extends Model
      *   0: no
      *   1: yes
      *
-     * @example 123xxxxxx|xxxx|ABCXXXXX
+     * @example 1
      *
      * @var int
      */

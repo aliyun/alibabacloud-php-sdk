@@ -11,7 +11,7 @@ class responseData extends Model
     /**
      * @description The description of the alert.
      *
-     * @example The account you logged in this time is not in the legal account category defined by you. Please confirm the legality of the login behavior。
+     * @example The account you logged in this time is not in the legal account category defined by you. Please confirm the legality of the login behavior.
      *
      * @var string
      */

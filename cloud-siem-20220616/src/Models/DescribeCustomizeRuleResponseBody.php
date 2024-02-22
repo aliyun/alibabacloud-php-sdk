@@ -19,7 +19,7 @@ class DescribeCustomizeRuleResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The return value for the request.
      *
      * @example 123456
      *
@@ -48,8 +48,8 @@ class DescribeCustomizeRuleResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true
-     *   false
+     *   **true**
+     *   **false**
      *
      * @example true
      *

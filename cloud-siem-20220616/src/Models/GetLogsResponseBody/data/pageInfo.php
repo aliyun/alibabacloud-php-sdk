@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The total number of entries.
+     * @description The total number of logs.
      *
      * @example 200
      *

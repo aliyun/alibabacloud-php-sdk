@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddUserResponseBody extends Model
 {
     /**
-     * @description Indicates whether the Alibaba Cloud account is added to the threat analysis feature.
+     * @description Indicates whether the cloud account is added to the threat analysis feature.
      *
      * @example true
      *

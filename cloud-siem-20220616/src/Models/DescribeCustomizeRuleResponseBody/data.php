@@ -27,7 +27,7 @@ class data extends Model
     public $alertTypeMds;
 
     /**
-     * @description The ID of the Alibaba Cloud account in SIEM.
+     * @description The ID of the Alibaba Cloud account for which the threat analysis feature is enabled.
      *
      * @example 127608589417****
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $aliuid;
 
     /**
-     * @description The extended information about event generation. If the value of eventTransferType is allToSingle, the value of this parameter indicates the length and unit of the alert aggregation window. The HTML escape characters are reversed.
+     * @description The extended information about event generation. If **eventTransferType** is set to **allToSingle**, a value is returned for EventTransferExt. The return value indicates the length and time unit of the alert aggregation window. The HTML escape characters are reversed.
      *
      * @example {&quot;time&quot;:&quot;1&quot;,&quot;unit&quot;:&quot;MINUTE&quot;}
      *
@@ -59,9 +59,9 @@ class data extends Model
     /**
      * @description The event generation method. Valid values:
      *
-     *   default: The default method is used.
-     *   singleToSingle: The system generates an event for each alert.
-     *   allToSingle: The system generates an event for alerts within a period of time.
+     *   **default**: The default method is used.
+     *   **singleToSingle**: The system generates an event for each alert.
+     *   **allToSingle**: The system generates an event for alerts within a period of time.
      *
      * @example allToSingle
      *
@@ -187,7 +187,7 @@ class data extends Model
     public $ruleThreshold;
 
     /**
-     * @description The type of the rule. Valid values:
+     * @description The rule type. Valid values:
      *
      *   predefine
      *   customize
@@ -201,11 +201,11 @@ class data extends Model
     /**
      * @description The rule status. Valid values:
      *
-     *   0: The rule is in the initial state.
-     *   10: The simulation data is tested.
-     *   15: The business data is being tested.
-     *   20: The business data test ends.
-     *   100: The rule takes effect.
+     *   **0**: the initial status.
+     *   **10**: The simulation data is tested.
+     *   **15**: The business data is being tested.
+     *   **20**: The business data test ends.
+     *   **100**: The rule takes effect.
      *
      * @example 0
      *
@@ -214,11 +214,11 @@ class data extends Model
     public $status;
 
     /**
-     * @description The risk level. Valid values:
+     * @description The threat level. Valid values:
      *
-     *   serious: high
-     *   suspicious: medium
-     *   remind: low
+     *   **serious**: high risk
+     *   **suspicious**: medium risk
+     *   **remind**: low risk
      *
      * @example remind
      *

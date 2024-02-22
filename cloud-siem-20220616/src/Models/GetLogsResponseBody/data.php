@@ -18,7 +18,7 @@ class data extends Model
     public $pageInfo;
 
     /**
-     * @description The log.
+     * @description The content of the log.
      *
      * @var responseData
      */

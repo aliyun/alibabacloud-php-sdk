@@ -30,7 +30,7 @@ class PostCustomizeRuleTestRequest extends Model
     public $regionId;
 
     /**
-     * @description The simulation data for the testing. This parameter is available only when TestType is set to simulate.
+     * @description The simulation data for the test. This parameter is available only when TestType is set to simulate.
      *
      * @example [{"key1":"value1","key2":"value2","key3":"value3","key4":"value4","key5":"value5"}]
      *
@@ -39,7 +39,7 @@ class PostCustomizeRuleTestRequest extends Model
     public $simulatedData;
 
     /**
-     * @description The testing type. Valid values:
+     * @description The test type. Valid values:
      *
      *   simulate: simulation data test
      *   business: business data test

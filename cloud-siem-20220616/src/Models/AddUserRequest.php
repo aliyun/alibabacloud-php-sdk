@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddUserRequest extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account.
+     * @description The ID of the cloud account.
      *
-     * @example 123XXXXXXXX。
+     * @example 123XXXXXXXX
      *
      * @var int
      */
