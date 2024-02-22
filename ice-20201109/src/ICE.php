@@ -361,8 +361,6 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSnapshotJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSnapshotJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitStandardCustomizedVoiceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitStandardCustomizedVoiceJobResponse;
-use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSubtitleProduceJobRequest;
-use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSubtitleProduceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSyncMediaInfoJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSyncMediaInfoJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSyncMediaInfoJobShrinkRequest;
@@ -9365,78 +9363,6 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitStandardCustomizedVoiceJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param SubmitSubtitleProduceJobRequest $request SubmitSubtitleProduceJobRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
-     *
-     * @return SubmitSubtitleProduceJobResponse SubmitSubtitleProduceJobResponse
-     */
-    public function submitSubtitleProduceJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->editingConfig)) {
-            $query['EditingConfig'] = $request->editingConfig;
-        }
-        if (!Utils::isUnset($request->inputConfig)) {
-            $query['InputConfig'] = $request->inputConfig;
-        }
-        if (!Utils::isUnset($request->isAsync)) {
-            $query['IsAsync'] = $request->isAsync;
-        }
-        if (!Utils::isUnset($request->outputConfig)) {
-            $query['OutputConfig'] = $request->outputConfig;
-        }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitSubtitleProduceJob',
-            'version'     => '2020-11-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SubmitSubtitleProduceJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param SubmitSubtitleProduceJobRequest $request SubmitSubtitleProduceJobRequest
-     *
-     * @return SubmitSubtitleProduceJobResponse SubmitSubtitleProduceJobResponse
-     */
-    public function submitSubtitleProduceJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitSubtitleProduceJobWithOptions($request, $runtime);
     }
 
     /**
