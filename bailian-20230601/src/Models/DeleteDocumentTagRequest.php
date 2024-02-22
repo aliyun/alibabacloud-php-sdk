@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDocumentTagRequest extends Model
 {
     /**
+     * @example 2818xxxx_p_efm
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example 471dxxxx3427
+     *
      * @var string
      */
     public $tagId;

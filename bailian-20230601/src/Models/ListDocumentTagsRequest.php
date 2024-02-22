@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDocumentTagsRequest extends Model
 {
     /**
+     * @example 2818xxxx_p_efm
+     *
      * @var string
      */
     public $agentKey;
@@ -33,6 +35,8 @@ class ListDocumentTagsRequest extends Model
     public $pageSize;
 
     /**
+     * @example 471dxxxx3427
+     *
      * @var string
      */
     public $tagId;

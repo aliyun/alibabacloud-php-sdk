@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDocumentTagRequest extends Model
 {
     /**
+     * @example 2818xxxx_p_efm
+     *
      * @var string
      */
     public $agentKey;
@@ -19,6 +21,8 @@ class UpdateDocumentTagRequest extends Model
     public $name;
 
     /**
+     * @example 471dxxxx3427
+     *
      * @var string
      */
     public $tagId;

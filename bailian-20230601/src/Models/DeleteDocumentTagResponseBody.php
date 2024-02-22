@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteDocumentTagResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example 17204B98-xxxx-4F9A-8464-2446A84821CA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 471dxxxx3427
+     *
      * @var string
      */
     public $tagId;

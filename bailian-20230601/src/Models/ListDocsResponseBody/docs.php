@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class docs extends Model
 {
     /**
+     * @example 8C8FxxxxC3EE
+     *
      * @var string
      */
     public $docId;
@@ -25,11 +27,15 @@ class docs extends Model
     public $name;
 
     /**
+     * @example 22968
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example 1.08MB
+     *
      * @var string
      */
     public $size;
@@ -45,11 +51,15 @@ class docs extends Model
     public $tags;
 
     /**
+     * @example RAW
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 2024-01-12 10:43:02
+     *
      * @var string
      */
     public $uploadTime;

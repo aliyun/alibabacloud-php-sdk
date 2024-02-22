@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateDocAttributeResponseBody extends Model
 {
     /**
+     * @example 8C8FxxxxC3EE
+     *
      * @var string
      */
     public $docId;
 
     /**
+     * @description Id of the request
+     *
+     * @example 17204B98-xxxx-4F9A-8464-2446A84821CA
+     *
      * @var string
      */
     public $requestId;

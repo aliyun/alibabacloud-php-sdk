@@ -15,11 +15,19 @@ class DescribeDocumentImportJobResponseBody extends Model
     public $docs;
 
     /**
+     * @description Id of the request
+     *
+     * @example 20230718xxxx-146c93bf
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description Id of the request
+     *
+     * @example 35A267BF-xxxx-54DB-8394-AA3B0742D833
+     *
      * @var string
      */
     public $requestId;

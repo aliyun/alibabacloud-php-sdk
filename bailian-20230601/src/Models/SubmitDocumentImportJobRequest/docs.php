@@ -19,6 +19,8 @@ class docs extends Model
     public $ownerId;
 
     /**
+     * @example 661dxxxx904f
+     *
      * @var string
      */
     public $storeId;
@@ -29,11 +31,15 @@ class docs extends Model
     public $tagIds;
 
     /**
+     * @example RAW
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example http://xxxx.com
+     *
      * @var string
      */
     public $URL;

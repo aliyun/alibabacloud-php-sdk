@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class ListDocumentTagsResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Id of the request
+     *
+     * @example 778C0B3B-xxxx-5FC1-A947-36EDD13606AB
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +38,8 @@ class ListDocumentTagsResponseBody extends Model
     public $tagList;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $total;

@@ -15,21 +15,31 @@ class ListDocsResponseBody extends Model
     public $docs;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Id of the request
+     *
+     * @example 17204B98-xxxx-4F9A-8464-2446A84821CA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $total;

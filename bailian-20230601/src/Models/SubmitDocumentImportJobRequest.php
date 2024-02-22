@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitDocumentImportJobRequest extends Model
 {
     /**
+     * @example 2818xxxx_p_efm
+     *
      * @var string
      */
     public $agentKey;

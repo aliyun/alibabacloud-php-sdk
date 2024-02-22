@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class docs extends Model
 {
     /**
+     * @example 8C8FxxxxC3EE
+     *
      * @var string
      */
     public $docId;

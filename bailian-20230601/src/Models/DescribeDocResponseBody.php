@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDocResponseBody extends Model
 {
     /**
+     * @example 8C8FxxxxC3EE
+     *
      * @var string
      */
     public $docId;
@@ -25,16 +27,24 @@ class DescribeDocResponseBody extends Model
     public $name;
 
     /**
+     * @example 19539
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description Id of the request
+     *
+     * @example 778C0B3B-xxxx-5FC1-A947-36EDD13606AB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1.12MB
+     *
      * @var string
      */
     public $size;
@@ -50,11 +60,15 @@ class DescribeDocResponseBody extends Model
     public $tags;
 
     /**
+     * @example RAW
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 2024-01-12 10:43:02
+     *
      * @var string
      */
     public $uploadTime;

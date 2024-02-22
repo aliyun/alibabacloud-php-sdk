@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDocumentImportJobRequest extends Model
 {
     /**
+     * @example 2818xxxx_p_efm
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example 20230718xxxx-146c93bf
+     *
      * @var string
      */
     public $jobId;

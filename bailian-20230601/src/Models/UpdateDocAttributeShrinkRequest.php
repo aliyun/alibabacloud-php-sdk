@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateDocAttributeShrinkRequest extends Model
 {
     /**
+     * @example 2818xxxx_p_efm
+     *
      * @var string
      */
     public $agentKey;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $delAllTags;
 
     /**
+     * @example 8C8FxxxxC3EE
+     *
      * @var string
      */
     public $docId;

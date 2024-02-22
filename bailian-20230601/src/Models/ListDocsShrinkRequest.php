@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDocsShrinkRequest extends Model
 {
     /**
+     * @example 2818xxxx_p_efm
+     *
      * @var string
      */
     public $agentKey;
@@ -33,6 +35,8 @@ class ListDocsShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @example 661dxxxx904f
+     *
      * @var string
      */
     public $storeId;

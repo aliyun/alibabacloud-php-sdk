@@ -14,6 +14,8 @@ class tagList extends Model
     public $name;
 
     /**
+     * @example 471dxxxx3427
+     *
      * @var string
      */
     public $tagId;
