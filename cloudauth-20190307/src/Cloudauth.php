@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Cloudauth\V20190307;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\AIGCFaceVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\AIGCFaceVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFacesRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFacesResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFaceVerifyRequest;
@@ -91,6 +93,69 @@ class Cloudauth extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AIGCFaceVerifyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AIGCFaceVerifyResponse
+     */
+    public function aIGCFaceVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->faceContrastPictureUrl)) {
+            $query['FaceContrastPictureUrl'] = $request->faceContrastPictureUrl;
+        }
+        if (!Utils::isUnset($request->ossBucketName)) {
+            $query['OssBucketName'] = $request->ossBucketName;
+        }
+        if (!Utils::isUnset($request->ossObjectName)) {
+            $query['OssObjectName'] = $request->ossObjectName;
+        }
+        if (!Utils::isUnset($request->outerOrderNo)) {
+            $query['OuterOrderNo'] = $request->outerOrderNo;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->faceContrastPicture)) {
+            $body['FaceContrastPicture'] = $request->faceContrastPicture;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AIGCFaceVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AIGCFaceVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AIGCFaceVerifyRequest $request
+     *
+     * @return AIGCFaceVerifyResponse
+     */
+    public function aIGCFaceVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->aIGCFaceVerifyWithOptions($request, $runtime);
     }
 
     /**

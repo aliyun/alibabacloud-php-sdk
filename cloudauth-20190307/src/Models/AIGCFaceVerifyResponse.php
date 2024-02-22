@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateVerifySettingResponse extends Model
+class AIGCFaceVerifyResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateVerifySettingResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreateVerifySettingResponseBody
+     * @var AIGCFaceVerifyResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class CreateVerifySettingResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateVerifySettingResponse
+     * @return AIGCFaceVerifyResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class CreateVerifySettingResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateVerifySettingResponseBody::fromMap($map['body']);
+            $model->body = AIGCFaceVerifyResponseBody::fromMap($map['body']);
         }
 
         return $model;
