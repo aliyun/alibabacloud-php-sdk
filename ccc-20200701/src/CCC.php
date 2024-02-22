@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AbortCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AbortCampaignResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AddBlacklistCallTaggingRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AddBlacklistCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddCasesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddCasesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddCasesShrinkRequest;
@@ -301,6 +303,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDevicesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RegisterDevicesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReleaseCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReleaseCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RemoveBlacklistCallTaggingRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RemoveBlacklistCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RemoveDoNotCallNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RemoveDoNotCallNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RemovePersonalNumbersFromUserRequest;
@@ -472,6 +476,55 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->abortCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddBlacklistCallTaggingRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AddBlacklistCallTaggingResponse
+     */
+    public function addBlacklistCallTaggingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->number)) {
+            $query['Number'] = $request->number;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddBlacklistCallTagging',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddBlacklistCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddBlacklistCallTaggingRequest $request
+     *
+     * @return AddBlacklistCallTaggingResponse
+     */
+    public function addBlacklistCallTagging($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addBlacklistCallTaggingWithOptions($request, $runtime);
     }
 
     /**
@@ -8165,6 +8218,55 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->releaseCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveBlacklistCallTaggingRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RemoveBlacklistCallTaggingResponse
+     */
+    public function removeBlacklistCallTaggingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->number)) {
+            $query['Number'] = $request->number;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveBlacklistCallTagging',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveBlacklistCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveBlacklistCallTaggingRequest $request
+     *
+     * @return RemoveBlacklistCallTaggingResponse
+     */
+    public function removeBlacklistCallTagging($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeBlacklistCallTaggingWithOptions($request, $runtime);
     }
 
     /**

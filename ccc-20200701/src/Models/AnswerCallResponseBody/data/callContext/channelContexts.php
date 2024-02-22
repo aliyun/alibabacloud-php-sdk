@@ -42,6 +42,11 @@ class channelContexts extends Model
     public $destination;
 
     /**
+     * @var int
+     */
+    public $index;
+
+    /**
      * @example job-6538214103685****
      *
      * @var string
@@ -102,6 +107,7 @@ class channelContexts extends Model
         'channelState'     => 'ChannelState',
         'channelVariables' => 'ChannelVariables',
         'destination'      => 'Destination',
+        'index'            => 'Index',
         'jobId'            => 'JobId',
         'originator'       => 'Originator',
         'releaseInitiator' => 'ReleaseInitiator',
@@ -133,6 +139,9 @@ class channelContexts extends Model
         }
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
+        }
+        if (null !== $this->index) {
+            $res['Index'] = $this->index;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
@@ -184,6 +193,9 @@ class channelContexts extends Model
         }
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
+        }
+        if (isset($map['Index'])) {
+            $model->index = $map['Index'];
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
