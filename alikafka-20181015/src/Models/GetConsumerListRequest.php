@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetConsumerListRequest extends Model
 {
     /**
+     * @example alikafka_post-cn-v0h18sav****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

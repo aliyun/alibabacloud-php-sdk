@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class offsetList extends Model
 {
     /**
-     * @var int
-     */
-    public $partition;
-
-    /**
+     * @example 9
+     *
      * @var int
      */
     public $brokerOffset;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $consumerOffset;
 
     /**
+     * @example 1566874931649
+     *
      * @var int
      */
     public $lastTimestamp;
+
+    /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $partition;
     protected $_name = [
-        'partition'      => 'Partition',
         'brokerOffset'   => 'BrokerOffset',
         'consumerOffset' => 'ConsumerOffset',
         'lastTimestamp'  => 'LastTimestamp',
+        'partition'      => 'Partition',
     ];
 
     public function validate()
@@ -41,9 +49,6 @@ class offsetList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->partition) {
-            $res['Partition'] = $this->partition;
-        }
         if (null !== $this->brokerOffset) {
             $res['BrokerOffset'] = $this->brokerOffset;
         }
@@ -52,6 +57,9 @@ class offsetList extends Model
         }
         if (null !== $this->lastTimestamp) {
             $res['LastTimestamp'] = $this->lastTimestamp;
+        }
+        if (null !== $this->partition) {
+            $res['Partition'] = $this->partition;
         }
 
         return $res;
@@ -65,9 +73,6 @@ class offsetList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Partition'])) {
-            $model->partition = $map['Partition'];
-        }
         if (isset($map['BrokerOffset'])) {
             $model->brokerOffset = $map['BrokerOffset'];
         }
@@ -76,6 +81,9 @@ class offsetList extends Model
         }
         if (isset($map['LastTimestamp'])) {
             $model->lastTimestamp = $map['LastTimestamp'];
+        }
+        if (isset($map['Partition'])) {
+            $model->partition = $map['Partition'];
         }
 
         return $model;

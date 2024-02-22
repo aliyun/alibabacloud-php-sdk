@@ -10,29 +10,35 @@ use AlibabaCloud\Tea\Model;
 class topicList extends Model
 {
     /**
-     * @var int
-     */
-    public $totalDiff;
-
-    /**
+     * @example 1566874931649
+     *
      * @var int
      */
     public $lastTimestamp;
 
     /**
+     * @var offsetList
+     */
+    public $offsetList;
+
+    /**
+     * @example kafka-test
+     *
      * @var string
      */
     public $topic;
 
     /**
-     * @var offsetList
+     * @example 0
+     *
+     * @var int
      */
-    public $offsetList;
+    public $totalDiff;
     protected $_name = [
-        'totalDiff'     => 'TotalDiff',
         'lastTimestamp' => 'LastTimestamp',
-        'topic'         => 'Topic',
         'offsetList'    => 'OffsetList',
+        'topic'         => 'Topic',
+        'totalDiff'     => 'TotalDiff',
     ];
 
     public function validate()
@@ -42,17 +48,17 @@ class topicList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalDiff) {
-            $res['TotalDiff'] = $this->totalDiff;
-        }
         if (null !== $this->lastTimestamp) {
             $res['LastTimestamp'] = $this->lastTimestamp;
+        }
+        if (null !== $this->offsetList) {
+            $res['OffsetList'] = null !== $this->offsetList ? $this->offsetList->toMap() : null;
         }
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
-        if (null !== $this->offsetList) {
-            $res['OffsetList'] = null !== $this->offsetList ? $this->offsetList->toMap() : null;
+        if (null !== $this->totalDiff) {
+            $res['TotalDiff'] = $this->totalDiff;
         }
 
         return $res;
@@ -66,17 +72,17 @@ class topicList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalDiff'])) {
-            $model->totalDiff = $map['TotalDiff'];
-        }
         if (isset($map['LastTimestamp'])) {
             $model->lastTimestamp = $map['LastTimestamp'];
+        }
+        if (isset($map['OffsetList'])) {
+            $model->offsetList = offsetList::fromMap($map['OffsetList']);
         }
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }
-        if (isset($map['OffsetList'])) {
-            $model->offsetList = offsetList::fromMap($map['OffsetList']);
+        if (isset($map['TotalDiff'])) {
+            $model->totalDiff = $map['TotalDiff'];
         }
 
         return $model;

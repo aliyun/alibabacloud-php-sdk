@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteConsumerGroupRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
+     * @example testconsumer
+     *
      * @var string
      */
     public $consumerId;
 
     /**
+     * @example alikafka_post-cn-mp91a44k****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'consumerId' => 'ConsumerId',
+        'instanceId' => 'InstanceId',
         'regionId'   => 'RegionId',
     ];
 
@@ -35,11 +41,11 @@ class DeleteConsumerGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->consumerId) {
             $res['ConsumerId'] = $this->consumerId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -56,11 +62,11 @@ class DeleteConsumerGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ConsumerId'])) {
             $model->consumerId = $map['ConsumerId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -10,23 +10,27 @@ use AlibabaCloud\Tea\Model;
 class consumerProgress extends Model
 {
     /**
+     * @example 1566874931671
+     *
      * @var int
      */
     public $lastTimestamp;
 
     /**
-     * @var int
-     */
-    public $totalDiff;
-
-    /**
      * @var topicList
      */
     public $topicList;
+
+    /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $totalDiff;
     protected $_name = [
         'lastTimestamp' => 'LastTimestamp',
-        'totalDiff'     => 'TotalDiff',
         'topicList'     => 'TopicList',
+        'totalDiff'     => 'TotalDiff',
     ];
 
     public function validate()
@@ -39,11 +43,11 @@ class consumerProgress extends Model
         if (null !== $this->lastTimestamp) {
             $res['LastTimestamp'] = $this->lastTimestamp;
         }
-        if (null !== $this->totalDiff) {
-            $res['TotalDiff'] = $this->totalDiff;
-        }
         if (null !== $this->topicList) {
             $res['TopicList'] = null !== $this->topicList ? $this->topicList->toMap() : null;
+        }
+        if (null !== $this->totalDiff) {
+            $res['TotalDiff'] = $this->totalDiff;
         }
 
         return $res;
@@ -60,11 +64,11 @@ class consumerProgress extends Model
         if (isset($map['LastTimestamp'])) {
             $model->lastTimestamp = $map['LastTimestamp'];
         }
-        if (isset($map['TotalDiff'])) {
-            $model->totalDiff = $map['TotalDiff'];
-        }
         if (isset($map['TopicList'])) {
             $model->topicList = topicList::fromMap($map['TopicList']);
+        }
+        if (isset($map['TotalDiff'])) {
+            $model->totalDiff = $map['TotalDiff'];
         }
 
         return $model;

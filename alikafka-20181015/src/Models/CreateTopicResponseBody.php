@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateTopicResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example operation success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 9C0F207C-77A6-43E5-991C-9D98510A****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

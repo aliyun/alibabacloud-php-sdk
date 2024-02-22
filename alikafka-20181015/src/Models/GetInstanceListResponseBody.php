@@ -10,35 +10,43 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceListResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @var instanceList
+     */
+    public $instanceList;
+
+    /**
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example ABA4A7FD-E10F-45C7-9774-A5236015****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
-
-    /**
-     * @var instanceList
-     */
-    public $instanceList;
     protected $_name = [
         'code'         => 'Code',
+        'instanceList' => 'InstanceList',
         'message'      => 'Message',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
-        'instanceList' => 'InstanceList',
     ];
 
     public function validate()
@@ -51,6 +59,9 @@ class GetInstanceListResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->instanceList) {
+            $res['InstanceList'] = null !== $this->instanceList ? $this->instanceList->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -59,9 +70,6 @@ class GetInstanceListResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->instanceList) {
-            $res['InstanceList'] = null !== $this->instanceList ? $this->instanceList->toMap() : null;
         }
 
         return $res;
@@ -78,6 +86,9 @@ class GetInstanceListResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['InstanceList'])) {
+            $model->instanceList = instanceList::fromMap($map['InstanceList']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -86,9 +97,6 @@ class GetInstanceListResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['InstanceList'])) {
-            $model->instanceList = instanceList::fromMap($map['InstanceList']);
         }
 
         return $model;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteConsumerGroupResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example operation success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1AA2A2AD-2727-4573-B1C7-A0388BCD****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

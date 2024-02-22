@@ -10,11 +10,8 @@ use AlibabaCloud\Tea\Model;
 class topicStatus extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
+     * @example 1566470063575
+     *
      * @var int
      */
     public $lastTimeStamp;
@@ -23,10 +20,17 @@ class topicStatus extends Model
      * @var offsetTable
      */
     public $offsetTable;
+
+    /**
+     * @example 423
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount'    => 'TotalCount',
         'lastTimeStamp' => 'LastTimeStamp',
         'offsetTable'   => 'OffsetTable',
+        'totalCount'    => 'TotalCount',
     ];
 
     public function validate()
@@ -36,14 +40,14 @@ class topicStatus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->lastTimeStamp) {
             $res['LastTimeStamp'] = $this->lastTimeStamp;
         }
         if (null !== $this->offsetTable) {
             $res['OffsetTable'] = null !== $this->offsetTable ? $this->offsetTable->toMap() : null;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -57,14 +61,14 @@ class topicStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['LastTimeStamp'])) {
             $model->lastTimeStamp = $map['LastTimeStamp'];
         }
         if (isset($map['OffsetTable'])) {
             $model->offsetTable = offsetTable::fromMap($map['OffsetTable']);
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

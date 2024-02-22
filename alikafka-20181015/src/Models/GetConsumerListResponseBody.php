@@ -10,35 +10,43 @@ use AlibabaCloud\Tea\Model;
 class GetConsumerListResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @var consumerList
+     */
+    public $consumerList;
+
+    /**
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 808F042B-CB9A-4FBC-9009-00E7DDB6****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
-
-    /**
-     * @var consumerList
-     */
-    public $consumerList;
     protected $_name = [
         'code'         => 'Code',
+        'consumerList' => 'ConsumerList',
         'message'      => 'Message',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
-        'consumerList' => 'ConsumerList',
     ];
 
     public function validate()
@@ -51,6 +59,9 @@ class GetConsumerListResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->consumerList) {
+            $res['ConsumerList'] = null !== $this->consumerList ? $this->consumerList->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -59,9 +70,6 @@ class GetConsumerListResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->consumerList) {
-            $res['ConsumerList'] = null !== $this->consumerList ? $this->consumerList->toMap() : null;
         }
 
         return $res;
@@ -78,6 +86,9 @@ class GetConsumerListResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['ConsumerList'])) {
+            $model->consumerList = consumerList::fromMap($map['ConsumerList']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -86,9 +97,6 @@ class GetConsumerListResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ConsumerList'])) {
-            $model->consumerList = consumerList::fromMap($map['ConsumerList']);
         }
 
         return $model;

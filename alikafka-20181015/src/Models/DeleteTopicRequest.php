@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteTopicRequest extends Model
 {
     /**
+     * @example alikafka_post-cn-mp91a44k****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $topic;
-
-    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @example Kafkatest
+     *
+     * @var string
+     */
+    public $topic;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'topic'      => 'Topic',
         'regionId'   => 'RegionId',
+        'topic'      => 'Topic',
     ];
 
     public function validate()
@@ -38,11 +44,11 @@ class DeleteTopicRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -59,11 +65,11 @@ class DeleteTopicRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

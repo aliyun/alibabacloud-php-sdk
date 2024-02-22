@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class consumerVO extends Model
 {
     /**
+     * @example CID_c34a6f44915f80d70cb42c4b14ee40c3_4
+     *
      * @var string
      */
     public $consumerId;
 
     /**
+     * @example alikafka_post-cn-v0h18sav0001
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class upgradeServiceDetailInfoVO extends Model
 {
     /**
+     * @example 0.10
+     *
      * @var string
      */
     public $current2OpenSourceVersion;

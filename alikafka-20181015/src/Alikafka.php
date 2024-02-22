@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Alikafka\V20181015;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\CreateConsumerGroupResponse;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\CreateTopicRequest;
@@ -26,6 +27,7 @@ use AlibabaCloud\SDK\Alikafka\V20181015\Models\GetTopicStatusResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Alikafka extends OpenApiClient
@@ -34,43 +36,6 @@ class Alikafka extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-2-pop'          => 'alikafka.aliyuncs.com',
-            'ap-southeast-2'              => 'alikafka.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'alikafka.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'alikafka.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'alikafka.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'alikafka.aliyuncs.com',
-            'cn-edge-1'                   => 'alikafka.aliyuncs.com',
-            'cn-fujian'                   => 'alikafka.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'alikafka.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'alikafka.aliyuncs.com',
-            'cn-hangzhou-internal-prod-1' => 'alikafka.aliyuncs.com',
-            'cn-hangzhou-internal-test-1' => 'alikafka.aliyuncs.com',
-            'cn-hangzhou-internal-test-2' => 'alikafka.aliyuncs.com',
-            'cn-hangzhou-internal-test-3' => 'alikafka.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'alikafka.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'alikafka.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'alikafka.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'alikafka.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'alikafka.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'alikafka.aliyuncs.com',
-            'cn-shanghai-inner'           => 'alikafka.aliyuncs.com',
-            'cn-shanghai-internal-test-1' => 'alikafka.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'alikafka.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'alikafka.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'alikafka.aliyuncs.com',
-            'cn-wuhan'                    => 'alikafka.aliyuncs.com',
-            'cn-wulanchabu'               => 'alikafka.aliyuncs.com',
-            'cn-yushanfang'               => 'alikafka.aliyuncs.com',
-            'cn-zhangbei'                 => 'alikafka.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'alikafka.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'alikafka.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'alikafka.aliyuncs.com',
-            'eu-west-1-oxs'               => 'alikafka.aliyuncs.com',
-            'me-east-1'                   => 'alikafka.aliyuncs.com',
-            'rus-west-1-pop'              => 'alikafka.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('alikafka', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -107,11 +72,32 @@ class Alikafka extends OpenApiClient
     public function createConsumerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->consumerId)) {
+            $query['ConsumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateConsumerGroup',
+            'version'     => '2018-10-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateConsumerGroupResponse::fromMap($this->doRPCRequest('CreateConsumerGroup', '2018-10-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -135,11 +121,35 @@ class Alikafka extends OpenApiClient
     public function createTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTopic',
+            'version'     => '2018-10-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTopicResponse::fromMap($this->doRPCRequest('CreateTopic', '2018-10-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -163,11 +173,32 @@ class Alikafka extends OpenApiClient
     public function deleteConsumerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->consumerId)) {
+            $query['ConsumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteConsumerGroup',
+            'version'     => '2018-10-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteConsumerGroupResponse::fromMap($this->doRPCRequest('DeleteConsumerGroup', '2018-10-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -191,11 +222,32 @@ class Alikafka extends OpenApiClient
     public function deleteTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTopic',
+            'version'     => '2018-10-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTopicResponse::fromMap($this->doRPCRequest('DeleteTopic', '2018-10-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -219,11 +271,29 @@ class Alikafka extends OpenApiClient
     public function getConsumerListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConsumerList',
+            'version'     => '2018-10-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetConsumerListResponse::fromMap($this->doRPCRequest('GetConsumerList', '2018-10-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConsumerListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -247,11 +317,32 @@ class Alikafka extends OpenApiClient
     public function getConsumerProgressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->consumerId)) {
+            $query['ConsumerId'] = $request->consumerId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConsumerProgress',
+            'version'     => '2018-10-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetConsumerProgressResponse::fromMap($this->doRPCRequest('GetConsumerProgress', '2018-10-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConsumerProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -275,11 +366,26 @@ class Alikafka extends OpenApiClient
     public function getInstanceListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInstanceList',
+            'version'     => '2018-10-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetInstanceListResponse::fromMap($this->doRPCRequest('GetInstanceList', '2018-10-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -303,11 +409,35 @@ class Alikafka extends OpenApiClient
     public function getTopicListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTopicList',
+            'version'     => '2018-10-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTopicListResponse::fromMap($this->doRPCRequest('GetTopicList', '2018-10-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTopicListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -331,11 +461,32 @@ class Alikafka extends OpenApiClient
     public function getTopicStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $query['Topic'] = $request->topic;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTopicStatus',
+            'version'     => '2018-10-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTopicStatusResponse::fromMap($this->doRPCRequest('GetTopicStatus', '2018-10-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTopicStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

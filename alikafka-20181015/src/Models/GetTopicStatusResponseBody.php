@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class GetTopicStatusResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example operation success.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E475C7E2-8C35-46EF-BE7D-5D2A9F5D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
