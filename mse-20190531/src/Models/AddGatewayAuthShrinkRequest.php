@@ -93,7 +93,7 @@ class AddGatewayAuthShrinkRequest extends Model
     public $jwks;
 
     /**
-     * @description The URL that is used to log on to the IDaaS instance. For more information, see [OAuth2.0 Application User Manual](https://help.aliyun.com/document_detail/193871.html).
+     * @description The URL that is used to log on to the IDaaS instance.
      *
      * @example ***
      *

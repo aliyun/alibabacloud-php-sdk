@@ -24,11 +24,15 @@ class authResourceList extends Model
     public $domainId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ignoreCase;
 
     /**
+     * @example EQUAL
+     *
      * @var string
      */
     public $matchType;

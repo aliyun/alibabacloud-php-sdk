@@ -23,6 +23,8 @@ class externalAuthZJSON extends Model
     public $allowUpstreamHeaders;
 
     /**
+     * @example 4000000
+     *
      * @var int
      */
     public $bodyMaxBytes;
@@ -73,6 +75,8 @@ class externalAuthZJSON extends Model
     public $tokenKey;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $withRequestBody;

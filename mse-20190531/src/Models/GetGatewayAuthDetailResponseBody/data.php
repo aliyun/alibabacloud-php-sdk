@@ -119,7 +119,9 @@ class data extends Model
     public $resourceList;
 
     /**
-     * @var string[]
+     * @example ["openid","email"]
+     *
+     * @var string
      */
     public $scopesList;
 
@@ -350,9 +352,7 @@ class data extends Model
             }
         }
         if (isset($map['ScopesList'])) {
-            if (!empty($map['ScopesList'])) {
-                $model->scopesList = $map['ScopesList'];
-            }
+            $model->scopesList = $map['ScopesList'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
