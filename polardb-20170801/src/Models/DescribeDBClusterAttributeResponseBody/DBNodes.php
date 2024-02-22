@@ -150,6 +150,11 @@ class DBNodes extends Model
     public $memorySize;
 
     /**
+     * @var string
+     */
+    public $remoteMemorySize;
+
+    /**
      * @description Indicates whether the global consistency (high-performance mode) feature is enabled for the node. Valid values:
      *
      *   **ON**
@@ -208,6 +213,7 @@ class DBNodes extends Model
         'maxConnections'   => 'MaxConnections',
         'maxIOPS'          => 'MaxIOPS',
         'memorySize'       => 'MemorySize',
+        'remoteMemorySize' => 'RemoteMemorySize',
         'sccMode'          => 'SccMode',
         'serverWeight'     => 'ServerWeight',
         'serverlessType'   => 'ServerlessType',
@@ -263,6 +269,9 @@ class DBNodes extends Model
         }
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
+        }
+        if (null !== $this->remoteMemorySize) {
+            $res['RemoteMemorySize'] = $this->remoteMemorySize;
         }
         if (null !== $this->sccMode) {
             $res['SccMode'] = $this->sccMode;
@@ -332,6 +341,9 @@ class DBNodes extends Model
         }
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
+        }
+        if (isset($map['RemoteMemorySize'])) {
+            $model->remoteMemorySize = $map['RemoteMemorySize'];
         }
         if (isset($map['SccMode'])) {
             $model->sccMode = $map['SccMode'];

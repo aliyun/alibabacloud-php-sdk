@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAttributeResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $aiCreatingTime;
+
+    /**
      * @description The information status of the AI node. Valid values:
      *
      *   SearchNode: search node.
@@ -530,6 +535,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
      */
     public $zoneIds;
     protected $_name = [
+        'aiCreatingTime'            => 'AiCreatingTime',
         'aiType'                    => 'AiType',
         'architecture'              => 'Architecture',
         'blktagTotal'               => 'BlktagTotal',
@@ -593,6 +599,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aiCreatingTime) {
+            $res['AiCreatingTime'] = $this->aiCreatingTime;
+        }
         if (null !== $this->aiType) {
             $res['AiType'] = $this->aiType;
         }
@@ -779,6 +788,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiCreatingTime'])) {
+            $model->aiCreatingTime = $map['AiCreatingTime'];
+        }
         if (isset($map['AiType'])) {
             $model->aiType = $map['AiType'];
         }
