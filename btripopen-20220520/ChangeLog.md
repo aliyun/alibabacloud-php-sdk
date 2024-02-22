@@ -1,3 +1,9 @@
+2024-02-22 Version: 2.0.0
+- Support API ApplyExternalNodeStatusUpdate.
+- Support API CooperatorFlightBillSettlementQuery.
+- Support API CooperatorHotelBillSettlementQuery.
+
+
 2024-02-19 Version: 1.12.0
 - Support API ApplyExternalNodeStatusUpdate.
 - Support API CooperatorHotelBillSettlementQuery.

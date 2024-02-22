@@ -2,21 +2,47 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorHotelBillSettlementQueryResponseBody\module;
+namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\CooperatorFlightBillSettlementQueryResponseBody\module;
 
 use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
-     * @example 124
+     * @example 1
+     *
+     * @var int
+     */
+    public $advanceDay;
+
+    /**
+     * @example AB
+     *
+     * @var string
+     */
+    public $airlineCorpCode;
+
+    /**
+     * @var string
+     */
+    public $airlineCorpName;
+
+    /**
+     * @example 123aaa
+     *
+     * @var string
+     */
+    public $alipayId;
+
+    /**
+     * @example a123
      *
      * @var string
      */
     public $alipayTradeNo;
 
     /**
-     * @example 123
+     * @example CD
      *
      * @var string
      */
@@ -28,7 +54,7 @@ class items extends Model
     public $applyArrCityName;
 
     /**
-     * @example 123
+     * @example AB
      *
      * @var string
      */
@@ -45,18 +71,49 @@ class items extends Model
     public $applyExtendField;
 
     /**
-     * @example sdasdas123324
+     * @example 1004430880
      *
      * @var string
      */
     public $applyId;
 
     /**
-     * @example 1.0
+     * @example CKG
      *
-     * @var float
+     * @var string
      */
-    public $averageNights;
+    public $arrAirportCode;
+
+    /**
+     * @var string
+     */
+    public $arrCity;
+
+    /**
+     * @example CKG
+     *
+     * @var string
+     */
+    public $arrCityCode;
+
+    /**
+     * @example 2023-01-01
+     *
+     * @var string
+     */
+    public $arrDate;
+
+    /**
+     * @var string
+     */
+    public $arrStation;
+
+    /**
+     * @example 12:00:00
+     *
+     * @var string
+     */
+    public $arrTime;
 
     /**
      * @example 2023-01-01 00:00:00
@@ -71,11 +128,6 @@ class items extends Model
     public $bookMode;
 
     /**
-     * @var string
-     */
-    public $bookReason;
-
-    /**
      * @example 2023-01-01 00:00:00
      *
      * @var string
@@ -83,14 +135,14 @@ class items extends Model
     public $bookTime;
 
     /**
-     * @example 123
+     * @example 1234
      *
      * @var string
      */
     public $bookerId;
 
     /**
-     * @example zs123
+     * @example A1234
      *
      * @var string
      */
@@ -102,19 +154,37 @@ class items extends Model
     public $bookerName;
 
     /**
-     * @var string
+     * @example 100.0
+     *
+     * @var float
      */
-    public $brandGroup;
+    public $btripCouponFee;
 
     /**
-     * @var string
+     * @example 50.0
+     *
+     * @var float
      */
-    public $brandName;
+    public $buildFee;
 
     /**
      * @var string
      */
     public $businessTripResult;
+
+    /**
+     * @example A
+     *
+     * @var string
+     */
+    public $cabin;
+
+    /**
+     * @example YS
+     *
+     * @var string
+     */
+    public $cabinClass;
 
     /**
      * @var string
@@ -127,42 +197,16 @@ class items extends Model
     public $cascadeDepartment;
 
     /**
-     * @example 2024-02-13
+     * @example 100.0
      *
-     * @var string
+     * @var float
      */
-    public $checkInDate;
-
-    /**
-     * @example 2024-02-15
-     *
-     * @var string
-     */
-    public $checkoutDate;
+    public $changeFee;
 
     /**
      * @var string
      */
-    public $city;
-
-    /**
-     * @example 330100
-     *
-     * @var string
-     */
-    public $cityCode;
-
-    /**
-     * @var string
-     */
-    public $cityCounty;
-
-    /**
-     * @example 330100
-     *
-     * @var int
-     */
-    public $cityCountyCode;
+    public $changeResult;
 
     /**
      * @example IN240102113438277278
@@ -177,25 +221,25 @@ class items extends Model
     public $cooperatorName;
 
     /**
-     * @example HO20240125162800280928
+     * @example DF24020163776907739
      *
      * @var string
      */
     public $cooperatorOrderId;
 
     /**
-     * @example 0.1
+     * @example 100.0
      *
      * @var float
      */
-    public $corpRefundFee;
+    public $corpPayOrderFee;
 
     /**
      * @example 100.0
      *
      * @var float
      */
-    public $corpTotalFee;
+    public $corpSettlePrice;
 
     /**
      * @var string
@@ -203,11 +247,32 @@ class items extends Model
     public $costCenter;
 
     /**
-     * @example 123
+     * @example cs1
      *
      * @var string
      */
     public $costCenterNumber;
+
+    /**
+     * @example 0.0
+     *
+     * @var float
+     */
+    public $coupon;
+
+    /**
+     * @example JHG
+     *
+     * @var string
+     */
+    public $depAirportCode;
+
+    /**
+     * @example TAO
+     *
+     * @var string
+     */
+    public $depCityCode;
 
     /**
      * @var string
@@ -215,11 +280,42 @@ class items extends Model
     public $department;
 
     /**
-     * @example 123
+     * @example 1112
      *
      * @var string
      */
     public $departmentId;
+
+    /**
+     * @var string
+     */
+    public $deptCity;
+
+    /**
+     * @example 2023-01-01
+     *
+     * @var string
+     */
+    public $deptDate;
+
+    /**
+     * @var string
+     */
+    public $deptStation;
+
+    /**
+     * @example 09:30:00
+     *
+     * @var string
+     */
+    public $deptTime;
+
+    /**
+     * @example 1
+     *
+     * @var string
+     */
+    public $discount;
 
     /**
      * @var string
@@ -232,30 +328,11 @@ class items extends Model
     public $feeType;
 
     /**
-     * @example 10.0
+     * @example CZ3590
      *
-     * @var float
-     */
-    public $fees;
-
-    /**
-     * @example 1.0
-     *
-     * @var float
-     */
-    public $fines;
-
-    /**
-     * @example 10.0
-     *
-     * @var float
-     */
-    public $fuPointFee;
-
-    /**
      * @var string
      */
-    public $hotelName;
+    public $flightNo;
 
     /**
      * @example 1
@@ -265,6 +342,27 @@ class items extends Model
     public $index;
 
     /**
+     * @example 111
+     *
+     * @var string
+     */
+    public $insOrderId;
+
+    /**
+     * @example 0.0
+     *
+     * @var float
+     */
+    public $insuranceFee;
+
+    /**
+     * @example 1234A
+     *
+     * @var string
+     */
+    public $insuranceNumber;
+
+    /**
      * @var string
      */
     public $invoiceTitle;
@@ -272,24 +370,82 @@ class items extends Model
     /**
      * @var string
      */
-    public $isEarlyDeparture;
+    public $itemType;
 
     /**
+     * @example 6666666666
+     *
      * @var string
      */
-    public $isNegotiation;
+    public $itineraryNum;
 
     /**
-     * @var string
+     * @example 100.0
+     *
+     * @var float
      */
-    public $isShareStr;
+    public $itineraryPrice;
 
     /**
-     * @example 2
+     * @example 100
      *
      * @var int
      */
-    public $nights;
+    public $mileage;
+
+    /**
+     * @example 2023-01-01 00:00:00
+     *
+     * @var string
+     */
+    public $mostDifferenceDeptTime;
+
+    /**
+     * @example 1
+     *
+     * @var string
+     */
+    public $mostDifferenceDiscount;
+
+    /**
+     * @example 123
+     *
+     * @var string
+     */
+    public $mostDifferenceFlightNo;
+
+    /**
+     * @example 100.0
+     *
+     * @var float
+     */
+    public $mostDifferencePrice;
+
+    /**
+     * @var string
+     */
+    public $mostDifferenceReason;
+
+    /**
+     * @example 100.0
+     *
+     * @var float
+     */
+    public $mostPrice;
+
+    /**
+     * @example 0.0
+     *
+     * @var float
+     */
+    public $negotiationCouponFee;
+
+    /**
+     * @example 30.0
+     *
+     * @var float
+     */
+    public $oilFee;
 
     /**
      * @example 3137168772101111000
@@ -299,21 +455,9 @@ class items extends Model
     public $orderId;
 
     /**
-     * @example 100.0
-     *
-     * @var float
-     */
-    public $orderPrice;
-
-    /**
      * @var string
      */
     public $orderStatusDesc;
-
-    /**
-     * @var string
-     */
-    public $orderType;
 
     /**
      * @example 123
@@ -335,21 +479,19 @@ class items extends Model
     public $paymentDepartmentName;
 
     /**
-     * @example 0.1
-     *
-     * @var float
-     */
-    public $personRefundFee;
-
-    /**
-     * @example 10.0
+     * @example 100.0
      *
      * @var float
      */
     public $personSettlePrice;
 
     /**
-     * @example 72328485
+     * @var string
+     */
+    public $preBookTip;
+
+    /**
+     * @example 60399513
      *
      * @var int
      */
@@ -368,11 +510,23 @@ class items extends Model
     public $projectName;
 
     /**
-     * @example 0.0
+     * @example 100.0
      *
      * @var float
      */
-    public $promotionFee;
+    public $refundFee;
+
+    /**
+     * @var string
+     */
+    public $refundResult;
+
+    /**
+     * @example 20.0
+     *
+     * @var float
+     */
+    public $refundUpgradeCost;
 
     /**
      * @var string
@@ -380,45 +534,26 @@ class items extends Model
     public $remark;
 
     /**
-     * @example 10
-     *
-     * @var int
-     */
-    public $reserveRule;
-
-    /**
      * @var string
      */
-    public $roomNo;
+    public $repeatRefund;
 
     /**
-     * @example 1
-     *
-     * @var int
-     */
-    public $roomNumber;
-
-    /**
-     * @example 105.0
+     * @example 100.0
      *
      * @var float
      */
-    public $roomPrice;
+    public $sealPrice;
 
     /**
-     * @var string
-     */
-    public $roomType;
-
-    /**
-     * @example 5.0
+     * @example 0.0
      *
      * @var float
      */
     public $serviceFee;
 
     /**
-     * @example 110.0
+     * @example 200.0
      *
      * @var float
      */
@@ -444,19 +579,14 @@ class items extends Model
     public $settlementType;
 
     /**
-     * @var string
-     */
-    public $star;
-
-    /**
-     * @example 2
+     * @example 0
      *
      * @var int
      */
     public $status;
 
     /**
-     * @example 166564408
+     * @example 169551103
      *
      * @var string
      */
@@ -470,35 +600,42 @@ class items extends Model
     public $taxRate;
 
     /**
-     * @example 1
+     * @example cs2
      *
      * @var string
      */
     public $thirdInvoiceId;
 
     /**
-     * @example 123
+     * @example 11
      *
      * @var string
      */
     public $thirdItineraryId;
 
     /**
-     * @example 2
+     * @example 123-2345
      *
-     * @var int
+     * @var string
      */
-    public $totalNights;
+    public $ticketId;
 
     /**
-     * @example 123
+     * @example 1
+     *
+     * @var string
+     */
+    public $trade;
+
+    /**
+     * @example A1234
      *
      * @var string
      */
     public $travelerId;
 
     /**
-     * @example zs123
+     * @example A1234
      *
      * @var string
      */
@@ -520,12 +657,28 @@ class items extends Model
     public $travelerName;
 
     /**
-     * @example 1
+     * @example 100.0
+     *
+     * @var float
+     */
+    public $upgradeCost;
+
+    /**
+     * @example 11
      *
      * @var int
      */
     public $voucherType;
+
+    /**
+     * @var string
+     */
+    public $voyageName;
     protected $_name = [
+        'advanceDay'             => 'advance_day',
+        'airlineCorpCode'        => 'airline_corp_code',
+        'airlineCorpName'        => 'airline_corp_name',
+        'alipayId'               => 'alipay_id',
         'alipayTradeNo'          => 'alipay_trade_no',
         'applyArrCityCode'       => 'apply_arr_city_code',
         'applyArrCityName'       => 'apply_arr_city_name',
@@ -533,83 +686,100 @@ class items extends Model
         'applyDepCityName'       => 'apply_dep_city_name',
         'applyExtendField'       => 'apply_extend_field',
         'applyId'                => 'apply_id',
-        'averageNights'          => 'average_nights',
+        'arrAirportCode'         => 'arr_airport_code',
+        'arrCity'                => 'arr_city',
+        'arrCityCode'            => 'arr_city_code',
+        'arrDate'                => 'arr_date',
+        'arrStation'             => 'arr_station',
+        'arrTime'                => 'arr_time',
         'billRecordTime'         => 'bill_record_time',
         'bookMode'               => 'book_mode',
-        'bookReason'             => 'book_reason',
         'bookTime'               => 'book_time',
         'bookerId'               => 'booker_id',
         'bookerJobNo'            => 'booker_job_no',
         'bookerName'             => 'booker_name',
-        'brandGroup'             => 'brand_group',
-        'brandName'              => 'brand_name',
+        'btripCouponFee'         => 'btrip_coupon_fee',
+        'buildFee'               => 'build_fee',
         'businessTripResult'     => 'business_trip_result',
+        'cabin'                  => 'cabin',
+        'cabinClass'             => 'cabin_class',
         'capitalDirection'       => 'capital_direction',
         'cascadeDepartment'      => 'cascade_department',
-        'checkInDate'            => 'check_in_date',
-        'checkoutDate'           => 'checkout_date',
-        'city'                   => 'city',
-        'cityCode'               => 'city_code',
-        'cityCounty'             => 'city_county',
-        'cityCountyCode'         => 'city_county_code',
+        'changeFee'              => 'change_fee',
+        'changeResult'           => 'change_result',
         'cooperatorBillCode'     => 'cooperator_bill_code',
         'cooperatorName'         => 'cooperator_name',
         'cooperatorOrderId'      => 'cooperator_order_id',
-        'corpRefundFee'          => 'corp_refund_fee',
-        'corpTotalFee'           => 'corp_total_fee',
+        'corpPayOrderFee'        => 'corp_pay_order_fee',
+        'corpSettlePrice'        => 'corp_settle_price',
         'costCenter'             => 'cost_center',
         'costCenterNumber'       => 'cost_center_number',
+        'coupon'                 => 'coupon',
+        'depAirportCode'         => 'dep_airport_code',
+        'depCityCode'            => 'dep_city_code',
         'department'             => 'department',
         'departmentId'           => 'department_id',
+        'deptCity'               => 'dept_city',
+        'deptDate'               => 'dept_date',
+        'deptStation'            => 'dept_station',
+        'deptTime'               => 'dept_time',
+        'discount'               => 'discount',
         'exceedReason'           => 'exceed_reason',
         'feeType'                => 'fee_type',
-        'fees'                   => 'fees',
-        'fines'                  => 'fines',
-        'fuPointFee'             => 'fu_point_fee',
-        'hotelName'              => 'hotel_name',
+        'flightNo'               => 'flight_no',
         'index'                  => 'index',
+        'insOrderId'             => 'ins_order_id',
+        'insuranceFee'           => 'insurance_fee',
+        'insuranceNumber'        => 'insurance_number',
         'invoiceTitle'           => 'invoice_title',
-        'isEarlyDeparture'       => 'is_early_departure',
-        'isNegotiation'          => 'is_negotiation',
-        'isShareStr'             => 'is_share_str',
-        'nights'                 => 'nights',
+        'itemType'               => 'item_type',
+        'itineraryNum'           => 'itinerary_num',
+        'itineraryPrice'         => 'itinerary_price',
+        'mileage'                => 'mileage',
+        'mostDifferenceDeptTime' => 'most_difference_dept_time',
+        'mostDifferenceDiscount' => 'most_difference_discount',
+        'mostDifferenceFlightNo' => 'most_difference_flight_no',
+        'mostDifferencePrice'    => 'most_difference_price',
+        'mostDifferenceReason'   => 'most_difference_reason',
+        'mostPrice'              => 'most_price',
+        'negotiationCouponFee'   => 'negotiation_coupon_fee',
+        'oilFee'                 => 'oil_fee',
         'orderId'                => 'order_id',
-        'orderPrice'             => 'order_price',
         'orderStatusDesc'        => 'order_status_desc',
-        'orderType'              => 'order_type',
         'overApplyId'            => 'over_apply_id',
         'paymentDepartmentId'    => 'payment_department_id',
         'paymentDepartmentName'  => 'payment_department_name',
-        'personRefundFee'        => 'person_refund_fee',
         'personSettlePrice'      => 'person_settle_price',
+        'preBookTip'             => 'pre_book_tip',
         'primaryId'              => 'primary_id',
         'projectCode'            => 'project_code',
         'projectName'            => 'project_name',
-        'promotionFee'           => 'promotion_fee',
+        'refundFee'              => 'refund_fee',
+        'refundResult'           => 'refund_result',
+        'refundUpgradeCost'      => 'refund_upgrade_cost',
         'remark'                 => 'remark',
-        'reserveRule'            => 'reserve_rule',
-        'roomNo'                 => 'room_no',
-        'roomNumber'             => 'room_number',
-        'roomPrice'              => 'room_price',
-        'roomType'               => 'room_type',
+        'repeatRefund'           => 'repeat_refund',
+        'sealPrice'              => 'seal_price',
         'serviceFee'             => 'service_fee',
         'settlementFee'          => 'settlement_fee',
         'settlementGrantFee'     => 'settlement_grant_fee',
         'settlementTime'         => 'settlement_time',
         'settlementType'         => 'settlement_type',
-        'star'                   => 'star',
         'status'                 => 'status',
         'subOrderId'             => 'sub_order_id',
         'taxRate'                => 'tax_rate',
         'thirdInvoiceId'         => 'third_invoice_id',
         'thirdItineraryId'       => 'third_itinerary_id',
-        'totalNights'            => 'total_nights',
+        'ticketId'               => 'ticket_id',
+        'trade'                  => 'trade',
         'travelerId'             => 'traveler_id',
         'travelerJobNo'          => 'traveler_job_no',
         'travelerMemberType'     => 'traveler_member_type',
         'travelerMemberTypeName' => 'traveler_member_type_name',
         'travelerName'           => 'traveler_name',
+        'upgradeCost'            => 'upgrade_cost',
         'voucherType'            => 'voucher_type',
+        'voyageName'             => 'voyage_name',
     ];
 
     public function validate()
@@ -619,6 +789,18 @@ class items extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->advanceDay) {
+            $res['advance_day'] = $this->advanceDay;
+        }
+        if (null !== $this->airlineCorpCode) {
+            $res['airline_corp_code'] = $this->airlineCorpCode;
+        }
+        if (null !== $this->airlineCorpName) {
+            $res['airline_corp_name'] = $this->airlineCorpName;
+        }
+        if (null !== $this->alipayId) {
+            $res['alipay_id'] = $this->alipayId;
+        }
         if (null !== $this->alipayTradeNo) {
             $res['alipay_trade_no'] = $this->alipayTradeNo;
         }
@@ -640,17 +822,29 @@ class items extends Model
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
         }
-        if (null !== $this->averageNights) {
-            $res['average_nights'] = $this->averageNights;
+        if (null !== $this->arrAirportCode) {
+            $res['arr_airport_code'] = $this->arrAirportCode;
+        }
+        if (null !== $this->arrCity) {
+            $res['arr_city'] = $this->arrCity;
+        }
+        if (null !== $this->arrCityCode) {
+            $res['arr_city_code'] = $this->arrCityCode;
+        }
+        if (null !== $this->arrDate) {
+            $res['arr_date'] = $this->arrDate;
+        }
+        if (null !== $this->arrStation) {
+            $res['arr_station'] = $this->arrStation;
+        }
+        if (null !== $this->arrTime) {
+            $res['arr_time'] = $this->arrTime;
         }
         if (null !== $this->billRecordTime) {
             $res['bill_record_time'] = $this->billRecordTime;
         }
         if (null !== $this->bookMode) {
             $res['book_mode'] = $this->bookMode;
-        }
-        if (null !== $this->bookReason) {
-            $res['book_reason'] = $this->bookReason;
         }
         if (null !== $this->bookTime) {
             $res['book_time'] = $this->bookTime;
@@ -664,14 +858,20 @@ class items extends Model
         if (null !== $this->bookerName) {
             $res['booker_name'] = $this->bookerName;
         }
-        if (null !== $this->brandGroup) {
-            $res['brand_group'] = $this->brandGroup;
+        if (null !== $this->btripCouponFee) {
+            $res['btrip_coupon_fee'] = $this->btripCouponFee;
         }
-        if (null !== $this->brandName) {
-            $res['brand_name'] = $this->brandName;
+        if (null !== $this->buildFee) {
+            $res['build_fee'] = $this->buildFee;
         }
         if (null !== $this->businessTripResult) {
             $res['business_trip_result'] = $this->businessTripResult;
+        }
+        if (null !== $this->cabin) {
+            $res['cabin'] = $this->cabin;
+        }
+        if (null !== $this->cabinClass) {
+            $res['cabin_class'] = $this->cabinClass;
         }
         if (null !== $this->capitalDirection) {
             $res['capital_direction'] = $this->capitalDirection;
@@ -679,23 +879,11 @@ class items extends Model
         if (null !== $this->cascadeDepartment) {
             $res['cascade_department'] = $this->cascadeDepartment;
         }
-        if (null !== $this->checkInDate) {
-            $res['check_in_date'] = $this->checkInDate;
+        if (null !== $this->changeFee) {
+            $res['change_fee'] = $this->changeFee;
         }
-        if (null !== $this->checkoutDate) {
-            $res['checkout_date'] = $this->checkoutDate;
-        }
-        if (null !== $this->city) {
-            $res['city'] = $this->city;
-        }
-        if (null !== $this->cityCode) {
-            $res['city_code'] = $this->cityCode;
-        }
-        if (null !== $this->cityCounty) {
-            $res['city_county'] = $this->cityCounty;
-        }
-        if (null !== $this->cityCountyCode) {
-            $res['city_county_code'] = $this->cityCountyCode;
+        if (null !== $this->changeResult) {
+            $res['change_result'] = $this->changeResult;
         }
         if (null !== $this->cooperatorBillCode) {
             $res['cooperator_bill_code'] = $this->cooperatorBillCode;
@@ -706,11 +894,11 @@ class items extends Model
         if (null !== $this->cooperatorOrderId) {
             $res['cooperator_order_id'] = $this->cooperatorOrderId;
         }
-        if (null !== $this->corpRefundFee) {
-            $res['corp_refund_fee'] = $this->corpRefundFee;
+        if (null !== $this->corpPayOrderFee) {
+            $res['corp_pay_order_fee'] = $this->corpPayOrderFee;
         }
-        if (null !== $this->corpTotalFee) {
-            $res['corp_total_fee'] = $this->corpTotalFee;
+        if (null !== $this->corpSettlePrice) {
+            $res['corp_settle_price'] = $this->corpSettlePrice;
         }
         if (null !== $this->costCenter) {
             $res['cost_center'] = $this->costCenter;
@@ -718,11 +906,35 @@ class items extends Model
         if (null !== $this->costCenterNumber) {
             $res['cost_center_number'] = $this->costCenterNumber;
         }
+        if (null !== $this->coupon) {
+            $res['coupon'] = $this->coupon;
+        }
+        if (null !== $this->depAirportCode) {
+            $res['dep_airport_code'] = $this->depAirportCode;
+        }
+        if (null !== $this->depCityCode) {
+            $res['dep_city_code'] = $this->depCityCode;
+        }
         if (null !== $this->department) {
             $res['department'] = $this->department;
         }
         if (null !== $this->departmentId) {
             $res['department_id'] = $this->departmentId;
+        }
+        if (null !== $this->deptCity) {
+            $res['dept_city'] = $this->deptCity;
+        }
+        if (null !== $this->deptDate) {
+            $res['dept_date'] = $this->deptDate;
+        }
+        if (null !== $this->deptStation) {
+            $res['dept_station'] = $this->deptStation;
+        }
+        if (null !== $this->deptTime) {
+            $res['dept_time'] = $this->deptTime;
+        }
+        if (null !== $this->discount) {
+            $res['discount'] = $this->discount;
         }
         if (null !== $this->exceedReason) {
             $res['exceed_reason'] = $this->exceedReason;
@@ -730,47 +942,65 @@ class items extends Model
         if (null !== $this->feeType) {
             $res['fee_type'] = $this->feeType;
         }
-        if (null !== $this->fees) {
-            $res['fees'] = $this->fees;
-        }
-        if (null !== $this->fines) {
-            $res['fines'] = $this->fines;
-        }
-        if (null !== $this->fuPointFee) {
-            $res['fu_point_fee'] = $this->fuPointFee;
-        }
-        if (null !== $this->hotelName) {
-            $res['hotel_name'] = $this->hotelName;
+        if (null !== $this->flightNo) {
+            $res['flight_no'] = $this->flightNo;
         }
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
+        if (null !== $this->insOrderId) {
+            $res['ins_order_id'] = $this->insOrderId;
+        }
+        if (null !== $this->insuranceFee) {
+            $res['insurance_fee'] = $this->insuranceFee;
+        }
+        if (null !== $this->insuranceNumber) {
+            $res['insurance_number'] = $this->insuranceNumber;
+        }
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
         }
-        if (null !== $this->isEarlyDeparture) {
-            $res['is_early_departure'] = $this->isEarlyDeparture;
+        if (null !== $this->itemType) {
+            $res['item_type'] = $this->itemType;
         }
-        if (null !== $this->isNegotiation) {
-            $res['is_negotiation'] = $this->isNegotiation;
+        if (null !== $this->itineraryNum) {
+            $res['itinerary_num'] = $this->itineraryNum;
         }
-        if (null !== $this->isShareStr) {
-            $res['is_share_str'] = $this->isShareStr;
+        if (null !== $this->itineraryPrice) {
+            $res['itinerary_price'] = $this->itineraryPrice;
         }
-        if (null !== $this->nights) {
-            $res['nights'] = $this->nights;
+        if (null !== $this->mileage) {
+            $res['mileage'] = $this->mileage;
+        }
+        if (null !== $this->mostDifferenceDeptTime) {
+            $res['most_difference_dept_time'] = $this->mostDifferenceDeptTime;
+        }
+        if (null !== $this->mostDifferenceDiscount) {
+            $res['most_difference_discount'] = $this->mostDifferenceDiscount;
+        }
+        if (null !== $this->mostDifferenceFlightNo) {
+            $res['most_difference_flight_no'] = $this->mostDifferenceFlightNo;
+        }
+        if (null !== $this->mostDifferencePrice) {
+            $res['most_difference_price'] = $this->mostDifferencePrice;
+        }
+        if (null !== $this->mostDifferenceReason) {
+            $res['most_difference_reason'] = $this->mostDifferenceReason;
+        }
+        if (null !== $this->mostPrice) {
+            $res['most_price'] = $this->mostPrice;
+        }
+        if (null !== $this->negotiationCouponFee) {
+            $res['negotiation_coupon_fee'] = $this->negotiationCouponFee;
+        }
+        if (null !== $this->oilFee) {
+            $res['oil_fee'] = $this->oilFee;
         }
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
-        if (null !== $this->orderPrice) {
-            $res['order_price'] = $this->orderPrice;
-        }
         if (null !== $this->orderStatusDesc) {
             $res['order_status_desc'] = $this->orderStatusDesc;
-        }
-        if (null !== $this->orderType) {
-            $res['order_type'] = $this->orderType;
         }
         if (null !== $this->overApplyId) {
             $res['over_apply_id'] = $this->overApplyId;
@@ -781,11 +1011,11 @@ class items extends Model
         if (null !== $this->paymentDepartmentName) {
             $res['payment_department_name'] = $this->paymentDepartmentName;
         }
-        if (null !== $this->personRefundFee) {
-            $res['person_refund_fee'] = $this->personRefundFee;
-        }
         if (null !== $this->personSettlePrice) {
             $res['person_settle_price'] = $this->personSettlePrice;
+        }
+        if (null !== $this->preBookTip) {
+            $res['pre_book_tip'] = $this->preBookTip;
         }
         if (null !== $this->primaryId) {
             $res['primary_id'] = $this->primaryId;
@@ -796,26 +1026,23 @@ class items extends Model
         if (null !== $this->projectName) {
             $res['project_name'] = $this->projectName;
         }
-        if (null !== $this->promotionFee) {
-            $res['promotion_fee'] = $this->promotionFee;
+        if (null !== $this->refundFee) {
+            $res['refund_fee'] = $this->refundFee;
+        }
+        if (null !== $this->refundResult) {
+            $res['refund_result'] = $this->refundResult;
+        }
+        if (null !== $this->refundUpgradeCost) {
+            $res['refund_upgrade_cost'] = $this->refundUpgradeCost;
         }
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
-        if (null !== $this->reserveRule) {
-            $res['reserve_rule'] = $this->reserveRule;
+        if (null !== $this->repeatRefund) {
+            $res['repeat_refund'] = $this->repeatRefund;
         }
-        if (null !== $this->roomNo) {
-            $res['room_no'] = $this->roomNo;
-        }
-        if (null !== $this->roomNumber) {
-            $res['room_number'] = $this->roomNumber;
-        }
-        if (null !== $this->roomPrice) {
-            $res['room_price'] = $this->roomPrice;
-        }
-        if (null !== $this->roomType) {
-            $res['room_type'] = $this->roomType;
+        if (null !== $this->sealPrice) {
+            $res['seal_price'] = $this->sealPrice;
         }
         if (null !== $this->serviceFee) {
             $res['service_fee'] = $this->serviceFee;
@@ -832,9 +1059,6 @@ class items extends Model
         if (null !== $this->settlementType) {
             $res['settlement_type'] = $this->settlementType;
         }
-        if (null !== $this->star) {
-            $res['star'] = $this->star;
-        }
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -850,8 +1074,11 @@ class items extends Model
         if (null !== $this->thirdItineraryId) {
             $res['third_itinerary_id'] = $this->thirdItineraryId;
         }
-        if (null !== $this->totalNights) {
-            $res['total_nights'] = $this->totalNights;
+        if (null !== $this->ticketId) {
+            $res['ticket_id'] = $this->ticketId;
+        }
+        if (null !== $this->trade) {
+            $res['trade'] = $this->trade;
         }
         if (null !== $this->travelerId) {
             $res['traveler_id'] = $this->travelerId;
@@ -868,8 +1095,14 @@ class items extends Model
         if (null !== $this->travelerName) {
             $res['traveler_name'] = $this->travelerName;
         }
+        if (null !== $this->upgradeCost) {
+            $res['upgrade_cost'] = $this->upgradeCost;
+        }
         if (null !== $this->voucherType) {
             $res['voucher_type'] = $this->voucherType;
+        }
+        if (null !== $this->voyageName) {
+            $res['voyage_name'] = $this->voyageName;
         }
 
         return $res;
@@ -883,6 +1116,18 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['advance_day'])) {
+            $model->advanceDay = $map['advance_day'];
+        }
+        if (isset($map['airline_corp_code'])) {
+            $model->airlineCorpCode = $map['airline_corp_code'];
+        }
+        if (isset($map['airline_corp_name'])) {
+            $model->airlineCorpName = $map['airline_corp_name'];
+        }
+        if (isset($map['alipay_id'])) {
+            $model->alipayId = $map['alipay_id'];
+        }
         if (isset($map['alipay_trade_no'])) {
             $model->alipayTradeNo = $map['alipay_trade_no'];
         }
@@ -904,17 +1149,29 @@ class items extends Model
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];
         }
-        if (isset($map['average_nights'])) {
-            $model->averageNights = $map['average_nights'];
+        if (isset($map['arr_airport_code'])) {
+            $model->arrAirportCode = $map['arr_airport_code'];
+        }
+        if (isset($map['arr_city'])) {
+            $model->arrCity = $map['arr_city'];
+        }
+        if (isset($map['arr_city_code'])) {
+            $model->arrCityCode = $map['arr_city_code'];
+        }
+        if (isset($map['arr_date'])) {
+            $model->arrDate = $map['arr_date'];
+        }
+        if (isset($map['arr_station'])) {
+            $model->arrStation = $map['arr_station'];
+        }
+        if (isset($map['arr_time'])) {
+            $model->arrTime = $map['arr_time'];
         }
         if (isset($map['bill_record_time'])) {
             $model->billRecordTime = $map['bill_record_time'];
         }
         if (isset($map['book_mode'])) {
             $model->bookMode = $map['book_mode'];
-        }
-        if (isset($map['book_reason'])) {
-            $model->bookReason = $map['book_reason'];
         }
         if (isset($map['book_time'])) {
             $model->bookTime = $map['book_time'];
@@ -928,14 +1185,20 @@ class items extends Model
         if (isset($map['booker_name'])) {
             $model->bookerName = $map['booker_name'];
         }
-        if (isset($map['brand_group'])) {
-            $model->brandGroup = $map['brand_group'];
+        if (isset($map['btrip_coupon_fee'])) {
+            $model->btripCouponFee = $map['btrip_coupon_fee'];
         }
-        if (isset($map['brand_name'])) {
-            $model->brandName = $map['brand_name'];
+        if (isset($map['build_fee'])) {
+            $model->buildFee = $map['build_fee'];
         }
         if (isset($map['business_trip_result'])) {
             $model->businessTripResult = $map['business_trip_result'];
+        }
+        if (isset($map['cabin'])) {
+            $model->cabin = $map['cabin'];
+        }
+        if (isset($map['cabin_class'])) {
+            $model->cabinClass = $map['cabin_class'];
         }
         if (isset($map['capital_direction'])) {
             $model->capitalDirection = $map['capital_direction'];
@@ -943,23 +1206,11 @@ class items extends Model
         if (isset($map['cascade_department'])) {
             $model->cascadeDepartment = $map['cascade_department'];
         }
-        if (isset($map['check_in_date'])) {
-            $model->checkInDate = $map['check_in_date'];
+        if (isset($map['change_fee'])) {
+            $model->changeFee = $map['change_fee'];
         }
-        if (isset($map['checkout_date'])) {
-            $model->checkoutDate = $map['checkout_date'];
-        }
-        if (isset($map['city'])) {
-            $model->city = $map['city'];
-        }
-        if (isset($map['city_code'])) {
-            $model->cityCode = $map['city_code'];
-        }
-        if (isset($map['city_county'])) {
-            $model->cityCounty = $map['city_county'];
-        }
-        if (isset($map['city_county_code'])) {
-            $model->cityCountyCode = $map['city_county_code'];
+        if (isset($map['change_result'])) {
+            $model->changeResult = $map['change_result'];
         }
         if (isset($map['cooperator_bill_code'])) {
             $model->cooperatorBillCode = $map['cooperator_bill_code'];
@@ -970,11 +1221,11 @@ class items extends Model
         if (isset($map['cooperator_order_id'])) {
             $model->cooperatorOrderId = $map['cooperator_order_id'];
         }
-        if (isset($map['corp_refund_fee'])) {
-            $model->corpRefundFee = $map['corp_refund_fee'];
+        if (isset($map['corp_pay_order_fee'])) {
+            $model->corpPayOrderFee = $map['corp_pay_order_fee'];
         }
-        if (isset($map['corp_total_fee'])) {
-            $model->corpTotalFee = $map['corp_total_fee'];
+        if (isset($map['corp_settle_price'])) {
+            $model->corpSettlePrice = $map['corp_settle_price'];
         }
         if (isset($map['cost_center'])) {
             $model->costCenter = $map['cost_center'];
@@ -982,11 +1233,35 @@ class items extends Model
         if (isset($map['cost_center_number'])) {
             $model->costCenterNumber = $map['cost_center_number'];
         }
+        if (isset($map['coupon'])) {
+            $model->coupon = $map['coupon'];
+        }
+        if (isset($map['dep_airport_code'])) {
+            $model->depAirportCode = $map['dep_airport_code'];
+        }
+        if (isset($map['dep_city_code'])) {
+            $model->depCityCode = $map['dep_city_code'];
+        }
         if (isset($map['department'])) {
             $model->department = $map['department'];
         }
         if (isset($map['department_id'])) {
             $model->departmentId = $map['department_id'];
+        }
+        if (isset($map['dept_city'])) {
+            $model->deptCity = $map['dept_city'];
+        }
+        if (isset($map['dept_date'])) {
+            $model->deptDate = $map['dept_date'];
+        }
+        if (isset($map['dept_station'])) {
+            $model->deptStation = $map['dept_station'];
+        }
+        if (isset($map['dept_time'])) {
+            $model->deptTime = $map['dept_time'];
+        }
+        if (isset($map['discount'])) {
+            $model->discount = $map['discount'];
         }
         if (isset($map['exceed_reason'])) {
             $model->exceedReason = $map['exceed_reason'];
@@ -994,47 +1269,65 @@ class items extends Model
         if (isset($map['fee_type'])) {
             $model->feeType = $map['fee_type'];
         }
-        if (isset($map['fees'])) {
-            $model->fees = $map['fees'];
-        }
-        if (isset($map['fines'])) {
-            $model->fines = $map['fines'];
-        }
-        if (isset($map['fu_point_fee'])) {
-            $model->fuPointFee = $map['fu_point_fee'];
-        }
-        if (isset($map['hotel_name'])) {
-            $model->hotelName = $map['hotel_name'];
+        if (isset($map['flight_no'])) {
+            $model->flightNo = $map['flight_no'];
         }
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }
+        if (isset($map['ins_order_id'])) {
+            $model->insOrderId = $map['ins_order_id'];
+        }
+        if (isset($map['insurance_fee'])) {
+            $model->insuranceFee = $map['insurance_fee'];
+        }
+        if (isset($map['insurance_number'])) {
+            $model->insuranceNumber = $map['insurance_number'];
+        }
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];
         }
-        if (isset($map['is_early_departure'])) {
-            $model->isEarlyDeparture = $map['is_early_departure'];
+        if (isset($map['item_type'])) {
+            $model->itemType = $map['item_type'];
         }
-        if (isset($map['is_negotiation'])) {
-            $model->isNegotiation = $map['is_negotiation'];
+        if (isset($map['itinerary_num'])) {
+            $model->itineraryNum = $map['itinerary_num'];
         }
-        if (isset($map['is_share_str'])) {
-            $model->isShareStr = $map['is_share_str'];
+        if (isset($map['itinerary_price'])) {
+            $model->itineraryPrice = $map['itinerary_price'];
         }
-        if (isset($map['nights'])) {
-            $model->nights = $map['nights'];
+        if (isset($map['mileage'])) {
+            $model->mileage = $map['mileage'];
+        }
+        if (isset($map['most_difference_dept_time'])) {
+            $model->mostDifferenceDeptTime = $map['most_difference_dept_time'];
+        }
+        if (isset($map['most_difference_discount'])) {
+            $model->mostDifferenceDiscount = $map['most_difference_discount'];
+        }
+        if (isset($map['most_difference_flight_no'])) {
+            $model->mostDifferenceFlightNo = $map['most_difference_flight_no'];
+        }
+        if (isset($map['most_difference_price'])) {
+            $model->mostDifferencePrice = $map['most_difference_price'];
+        }
+        if (isset($map['most_difference_reason'])) {
+            $model->mostDifferenceReason = $map['most_difference_reason'];
+        }
+        if (isset($map['most_price'])) {
+            $model->mostPrice = $map['most_price'];
+        }
+        if (isset($map['negotiation_coupon_fee'])) {
+            $model->negotiationCouponFee = $map['negotiation_coupon_fee'];
+        }
+        if (isset($map['oil_fee'])) {
+            $model->oilFee = $map['oil_fee'];
         }
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }
-        if (isset($map['order_price'])) {
-            $model->orderPrice = $map['order_price'];
-        }
         if (isset($map['order_status_desc'])) {
             $model->orderStatusDesc = $map['order_status_desc'];
-        }
-        if (isset($map['order_type'])) {
-            $model->orderType = $map['order_type'];
         }
         if (isset($map['over_apply_id'])) {
             $model->overApplyId = $map['over_apply_id'];
@@ -1045,11 +1338,11 @@ class items extends Model
         if (isset($map['payment_department_name'])) {
             $model->paymentDepartmentName = $map['payment_department_name'];
         }
-        if (isset($map['person_refund_fee'])) {
-            $model->personRefundFee = $map['person_refund_fee'];
-        }
         if (isset($map['person_settle_price'])) {
             $model->personSettlePrice = $map['person_settle_price'];
+        }
+        if (isset($map['pre_book_tip'])) {
+            $model->preBookTip = $map['pre_book_tip'];
         }
         if (isset($map['primary_id'])) {
             $model->primaryId = $map['primary_id'];
@@ -1060,26 +1353,23 @@ class items extends Model
         if (isset($map['project_name'])) {
             $model->projectName = $map['project_name'];
         }
-        if (isset($map['promotion_fee'])) {
-            $model->promotionFee = $map['promotion_fee'];
+        if (isset($map['refund_fee'])) {
+            $model->refundFee = $map['refund_fee'];
+        }
+        if (isset($map['refund_result'])) {
+            $model->refundResult = $map['refund_result'];
+        }
+        if (isset($map['refund_upgrade_cost'])) {
+            $model->refundUpgradeCost = $map['refund_upgrade_cost'];
         }
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
         }
-        if (isset($map['reserve_rule'])) {
-            $model->reserveRule = $map['reserve_rule'];
+        if (isset($map['repeat_refund'])) {
+            $model->repeatRefund = $map['repeat_refund'];
         }
-        if (isset($map['room_no'])) {
-            $model->roomNo = $map['room_no'];
-        }
-        if (isset($map['room_number'])) {
-            $model->roomNumber = $map['room_number'];
-        }
-        if (isset($map['room_price'])) {
-            $model->roomPrice = $map['room_price'];
-        }
-        if (isset($map['room_type'])) {
-            $model->roomType = $map['room_type'];
+        if (isset($map['seal_price'])) {
+            $model->sealPrice = $map['seal_price'];
         }
         if (isset($map['service_fee'])) {
             $model->serviceFee = $map['service_fee'];
@@ -1096,9 +1386,6 @@ class items extends Model
         if (isset($map['settlement_type'])) {
             $model->settlementType = $map['settlement_type'];
         }
-        if (isset($map['star'])) {
-            $model->star = $map['star'];
-        }
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
@@ -1114,8 +1401,11 @@ class items extends Model
         if (isset($map['third_itinerary_id'])) {
             $model->thirdItineraryId = $map['third_itinerary_id'];
         }
-        if (isset($map['total_nights'])) {
-            $model->totalNights = $map['total_nights'];
+        if (isset($map['ticket_id'])) {
+            $model->ticketId = $map['ticket_id'];
+        }
+        if (isset($map['trade'])) {
+            $model->trade = $map['trade'];
         }
         if (isset($map['traveler_id'])) {
             $model->travelerId = $map['traveler_id'];
@@ -1132,8 +1422,14 @@ class items extends Model
         if (isset($map['traveler_name'])) {
             $model->travelerName = $map['traveler_name'];
         }
+        if (isset($map['upgrade_cost'])) {
+            $model->upgradeCost = $map['upgrade_cost'];
+        }
         if (isset($map['voucher_type'])) {
             $model->voucherType = $map['voucher_type'];
+        }
+        if (isset($map['voyage_name'])) {
+            $model->voyageName = $map['voyage_name'];
         }
 
         return $model;
