@@ -91,6 +91,8 @@ class CreateInstanceRequest extends Model
     public $queueCapacity;
 
     /**
+     * @description autoRenew和renewStatus都是续费方式，当两个同时填写时，以renewStatus为准
+     *
      * @var string
      */
     public $renewStatus;
