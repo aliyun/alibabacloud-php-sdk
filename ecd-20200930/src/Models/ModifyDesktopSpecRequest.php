@@ -31,7 +31,7 @@ class ModifyDesktopSpecRequest extends Model
     public $desktopId;
 
     /**
-     * @description The new cloud desktop type. You can call the [DescribeDesktopTypes](~~188882~~) operation to query the IDs of supported cloud desktop types.
+     * @description The desktop type. You can call the [DescribeDesktopTypes](~~188882~~) operation to query the IDs of supported desktop types.
      *
      * @example eds.general.2c8g
      *

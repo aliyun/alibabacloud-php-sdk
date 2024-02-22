@@ -354,6 +354,16 @@ class ModifyPolicyGroupRequest extends Model
     public $recordingStartTime;
 
     /**
+     * @var string
+     */
+    public $recordingUserNotify;
+
+    /**
+     * @var string
+     */
+    public $recordingUserNotifyMessage;
+
+    /**
      * @description The ID of the region where the cloud desktop resides.
      *
      * @example cn-hangzhou
@@ -462,6 +472,11 @@ class ModifyPolicyGroupRequest extends Model
     public $watermark;
 
     /**
+     * @var string
+     */
+    public $watermarkAntiCam;
+
+    /**
      * @description The font color of the watermark. Valid values: 0 to 16777215.
      *
      * @example 0
@@ -499,6 +514,11 @@ class ModifyPolicyGroupRequest extends Model
      * @var string
      */
     public $watermarkFontStyle;
+
+    /**
+     * @var string
+     */
+    public $watermarkPower;
 
     /**
      * @description The number of watermark rows. This parameter is not in use.
@@ -584,6 +604,8 @@ class ModifyPolicyGroupRequest extends Model
         'recordingExpires'              => 'RecordingExpires',
         'recordingFps'                  => 'RecordingFps',
         'recordingStartTime'            => 'RecordingStartTime',
+        'recordingUserNotify'           => 'RecordingUserNotify',
+        'recordingUserNotifyMessage'    => 'RecordingUserNotifyMessage',
         'regionId'                      => 'RegionId',
         'remoteCoordinate'              => 'RemoteCoordinate',
         'revokeAccessPolicyRule'        => 'RevokeAccessPolicyRule',
@@ -595,10 +617,12 @@ class ModifyPolicyGroupRequest extends Model
         'videoRedirect'                 => 'VideoRedirect',
         'visualQuality'                 => 'VisualQuality',
         'watermark'                     => 'Watermark',
+        'watermarkAntiCam'              => 'WatermarkAntiCam',
         'watermarkColor'                => 'WatermarkColor',
         'watermarkDegree'               => 'WatermarkDegree',
         'watermarkFontSize'             => 'WatermarkFontSize',
         'watermarkFontStyle'            => 'WatermarkFontStyle',
+        'watermarkPower'                => 'WatermarkPower',
         'watermarkRowAmount'            => 'WatermarkRowAmount',
         'watermarkSecurity'             => 'WatermarkSecurity',
         'watermarkTransparency'         => 'WatermarkTransparency',
@@ -733,6 +757,12 @@ class ModifyPolicyGroupRequest extends Model
         if (null !== $this->recordingStartTime) {
             $res['RecordingStartTime'] = $this->recordingStartTime;
         }
+        if (null !== $this->recordingUserNotify) {
+            $res['RecordingUserNotify'] = $this->recordingUserNotify;
+        }
+        if (null !== $this->recordingUserNotifyMessage) {
+            $res['RecordingUserNotifyMessage'] = $this->recordingUserNotifyMessage;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -784,6 +814,9 @@ class ModifyPolicyGroupRequest extends Model
         if (null !== $this->watermark) {
             $res['Watermark'] = $this->watermark;
         }
+        if (null !== $this->watermarkAntiCam) {
+            $res['WatermarkAntiCam'] = $this->watermarkAntiCam;
+        }
         if (null !== $this->watermarkColor) {
             $res['WatermarkColor'] = $this->watermarkColor;
         }
@@ -795,6 +828,9 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (null !== $this->watermarkFontStyle) {
             $res['WatermarkFontStyle'] = $this->watermarkFontStyle;
+        }
+        if (null !== $this->watermarkPower) {
+            $res['WatermarkPower'] = $this->watermarkPower;
         }
         if (null !== $this->watermarkRowAmount) {
             $res['WatermarkRowAmount'] = $this->watermarkRowAmount;
@@ -945,6 +981,12 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['RecordingStartTime'])) {
             $model->recordingStartTime = $map['RecordingStartTime'];
         }
+        if (isset($map['RecordingUserNotify'])) {
+            $model->recordingUserNotify = $map['RecordingUserNotify'];
+        }
+        if (isset($map['RecordingUserNotifyMessage'])) {
+            $model->recordingUserNotifyMessage = $map['RecordingUserNotifyMessage'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -998,6 +1040,9 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['Watermark'])) {
             $model->watermark = $map['Watermark'];
         }
+        if (isset($map['WatermarkAntiCam'])) {
+            $model->watermarkAntiCam = $map['WatermarkAntiCam'];
+        }
         if (isset($map['WatermarkColor'])) {
             $model->watermarkColor = $map['WatermarkColor'];
         }
@@ -1009,6 +1054,9 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (isset($map['WatermarkFontStyle'])) {
             $model->watermarkFontStyle = $map['WatermarkFontStyle'];
+        }
+        if (isset($map['WatermarkPower'])) {
+            $model->watermarkPower = $map['WatermarkPower'];
         }
         if (isset($map['WatermarkRowAmount'])) {
             $model->watermarkRowAmount = $map['WatermarkRowAmount'];

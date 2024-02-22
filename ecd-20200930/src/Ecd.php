@@ -231,6 +231,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DetachEndUserRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DetachEndUserResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DisableDesktopsInGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DisableDesktopsInGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DisconnectDesktopSessionsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DisconnectDesktopSessionsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DissociateNetworkPackageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DissociateNetworkPackageResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportClientEventsRequest;
@@ -419,7 +421,8 @@ class Ecd extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ecd', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -3093,6 +3096,12 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->recordingStartTime)) {
             $query['RecordingStartTime'] = $request->recordingStartTime;
         }
+        if (!Utils::isUnset($request->recordingUserNotify)) {
+            $query['RecordingUserNotify'] = $request->recordingUserNotify;
+        }
+        if (!Utils::isUnset($request->recordingUserNotifyMessage)) {
+            $query['RecordingUserNotifyMessage'] = $request->recordingUserNotifyMessage;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -3120,6 +3129,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->watermark)) {
             $query['Watermark'] = $request->watermark;
         }
+        if (!Utils::isUnset($request->watermarkAntiCam)) {
+            $query['WatermarkAntiCam'] = $request->watermarkAntiCam;
+        }
         if (!Utils::isUnset($request->watermarkColor)) {
             $query['WatermarkColor'] = $request->watermarkColor;
         }
@@ -3131,6 +3143,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->watermarkFontStyle)) {
             $query['WatermarkFontStyle'] = $request->watermarkFontStyle;
+        }
+        if (!Utils::isUnset($request->watermarkPower)) {
+            $query['WatermarkPower'] = $request->watermarkPower;
         }
         if (!Utils::isUnset($request->watermarkRowAmount)) {
             $query['WatermarkRowAmount'] = $request->watermarkRowAmount;
@@ -4034,7 +4049,6 @@ class Ecd extends OpenApiClient
      * Before you delete a workspace, make sure that the following requirements are met:
      *   * *   All cloud desktops in the workspace are released.
      *   * *   The data that you want to retain is backed up.
-     *   * **
      *   * **Warning** After you delete a workspace, the resources and data of the workspace cannot be recovered. Exercise with caution.
      *   *
      * @param DeleteOfficeSitesRequest $request DeleteOfficeSitesRequest
@@ -4074,7 +4088,6 @@ class Ecd extends OpenApiClient
      * Before you delete a workspace, make sure that the following requirements are met:
      *   * *   All cloud desktops in the workspace are released.
      *   * *   The data that you want to retain is backed up.
-     *   * **
      *   * **Warning** After you delete a workspace, the resources and data of the workspace cannot be recovered. Exercise with caution.
      *   *
      * @param DeleteOfficeSitesRequest $request DeleteOfficeSitesRequest
@@ -7484,6 +7497,55 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param DisconnectDesktopSessionsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisconnectDesktopSessionsResponse
+     */
+    public function disconnectDesktopSessionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->preCheck)) {
+            $query['PreCheck'] = $request->preCheck;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sessions)) {
+            $query['Sessions'] = $request->sessions;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisconnectDesktopSessions',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisconnectDesktopSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisconnectDesktopSessionsRequest $request
+     *
+     * @return DisconnectDesktopSessionsResponse
+     */
+    public function disconnectDesktopSessions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disconnectDesktopSessionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DissociateNetworkPackageRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -10729,6 +10791,12 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->recordingStartTime)) {
             $query['RecordingStartTime'] = $request->recordingStartTime;
         }
+        if (!Utils::isUnset($request->recordingUserNotify)) {
+            $query['RecordingUserNotify'] = $request->recordingUserNotify;
+        }
+        if (!Utils::isUnset($request->recordingUserNotifyMessage)) {
+            $query['RecordingUserNotifyMessage'] = $request->recordingUserNotifyMessage;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -10762,6 +10830,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->watermark)) {
             $query['Watermark'] = $request->watermark;
         }
+        if (!Utils::isUnset($request->watermarkAntiCam)) {
+            $query['WatermarkAntiCam'] = $request->watermarkAntiCam;
+        }
         if (!Utils::isUnset($request->watermarkColor)) {
             $query['WatermarkColor'] = $request->watermarkColor;
         }
@@ -10773,6 +10844,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->watermarkFontStyle)) {
             $query['WatermarkFontStyle'] = $request->watermarkFontStyle;
+        }
+        if (!Utils::isUnset($request->watermarkPower)) {
+            $query['WatermarkPower'] = $request->watermarkPower;
         }
         if (!Utils::isUnset($request->watermarkRowAmount)) {
             $query['WatermarkRowAmount'] = $request->watermarkRowAmount;

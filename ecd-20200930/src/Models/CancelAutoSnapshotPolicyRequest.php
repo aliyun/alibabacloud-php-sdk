@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CancelAutoSnapshotPolicyRequest extends Model
 {
     /**
-     * @description The IDs of the cloud desktops. Valid values of N: 1 to 50. You cannot leave this parameter empty. The value can be up to 64 characters in length and cannot start with acs: or aliyun. It cannot contain [http:// or https://.](http://https://。)
+     * @description The IDs of the cloud desktops. Valid values of N: 1 to 50. You cannot leave this parameter empty. The value can be up to 64 characters in length and cannot start with acs: or aliyun. It cannot contain `http://` or `https://`.
      *
      * @var string[]
      */

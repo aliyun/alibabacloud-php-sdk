@@ -529,6 +529,16 @@ class describePolicyGroups extends Model
     public $recordingStartTime;
 
     /**
+     * @var string
+     */
+    public $recordingUserNotify;
+
+    /**
+     * @var string
+     */
+    public $recordingUserNotifyMessage;
+
+    /**
      * @description The permissions on the keyboard and mouse to control the cloud desktop during remote assistance. Valid values:
      *
      *   fullControl: The keyboard and mouse are fully controlled.
@@ -639,6 +649,11 @@ class describePolicyGroups extends Model
     public $watermark;
 
     /**
+     * @var string
+     */
+    public $watermarkAntiCam;
+
+    /**
      * @description The font color of the watermark. Valid values: 0 to 16777215.
      *
      * @example 0
@@ -685,6 +700,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $watermarkFontStyle;
+
+    /**
+     * @var string
+     */
+    public $watermarkPower;
 
     /**
      * @description The number of watermark rows. This parameter is now invalid.
@@ -805,6 +825,8 @@ class describePolicyGroups extends Model
         'recordingExpires'              => 'RecordingExpires',
         'recordingFps'                  => 'RecordingFps',
         'recordingStartTime'            => 'RecordingStartTime',
+        'recordingUserNotify'           => 'RecordingUserNotify',
+        'recordingUserNotifyMessage'    => 'RecordingUserNotifyMessage',
         'remoteCoordinate'              => 'RemoteCoordinate',
         'scope'                         => 'Scope',
         'scopeValue'                    => 'ScopeValue',
@@ -813,11 +835,13 @@ class describePolicyGroups extends Model
         'videoRedirect'                 => 'VideoRedirect',
         'visualQuality'                 => 'VisualQuality',
         'watermark'                     => 'Watermark',
+        'watermarkAntiCam'              => 'WatermarkAntiCam',
         'watermarkColor'                => 'WatermarkColor',
         'watermarkCustomText'           => 'WatermarkCustomText',
         'watermarkDegree'               => 'WatermarkDegree',
         'watermarkFontSize'             => 'WatermarkFontSize',
         'watermarkFontStyle'            => 'WatermarkFontStyle',
+        'watermarkPower'                => 'WatermarkPower',
         'watermarkRowAmount'            => 'WatermarkRowAmount',
         'watermarkSecurity'             => 'WatermarkSecurity',
         'watermarkTransparency'         => 'WatermarkTransparency',
@@ -1006,6 +1030,12 @@ class describePolicyGroups extends Model
         if (null !== $this->recordingStartTime) {
             $res['RecordingStartTime'] = $this->recordingStartTime;
         }
+        if (null !== $this->recordingUserNotify) {
+            $res['RecordingUserNotify'] = $this->recordingUserNotify;
+        }
+        if (null !== $this->recordingUserNotifyMessage) {
+            $res['RecordingUserNotifyMessage'] = $this->recordingUserNotifyMessage;
+        }
         if (null !== $this->remoteCoordinate) {
             $res['RemoteCoordinate'] = $this->remoteCoordinate;
         }
@@ -1036,6 +1066,9 @@ class describePolicyGroups extends Model
         if (null !== $this->watermark) {
             $res['Watermark'] = $this->watermark;
         }
+        if (null !== $this->watermarkAntiCam) {
+            $res['WatermarkAntiCam'] = $this->watermarkAntiCam;
+        }
         if (null !== $this->watermarkColor) {
             $res['WatermarkColor'] = $this->watermarkColor;
         }
@@ -1050,6 +1083,9 @@ class describePolicyGroups extends Model
         }
         if (null !== $this->watermarkFontStyle) {
             $res['WatermarkFontStyle'] = $this->watermarkFontStyle;
+        }
+        if (null !== $this->watermarkPower) {
+            $res['WatermarkPower'] = $this->watermarkPower;
         }
         if (null !== $this->watermarkRowAmount) {
             $res['WatermarkRowAmount'] = $this->watermarkRowAmount;
@@ -1258,6 +1294,12 @@ class describePolicyGroups extends Model
         if (isset($map['RecordingStartTime'])) {
             $model->recordingStartTime = $map['RecordingStartTime'];
         }
+        if (isset($map['RecordingUserNotify'])) {
+            $model->recordingUserNotify = $map['RecordingUserNotify'];
+        }
+        if (isset($map['RecordingUserNotifyMessage'])) {
+            $model->recordingUserNotifyMessage = $map['RecordingUserNotifyMessage'];
+        }
         if (isset($map['RemoteCoordinate'])) {
             $model->remoteCoordinate = $map['RemoteCoordinate'];
         }
@@ -1290,6 +1332,9 @@ class describePolicyGroups extends Model
         if (isset($map['Watermark'])) {
             $model->watermark = $map['Watermark'];
         }
+        if (isset($map['WatermarkAntiCam'])) {
+            $model->watermarkAntiCam = $map['WatermarkAntiCam'];
+        }
         if (isset($map['WatermarkColor'])) {
             $model->watermarkColor = $map['WatermarkColor'];
         }
@@ -1304,6 +1349,9 @@ class describePolicyGroups extends Model
         }
         if (isset($map['WatermarkFontStyle'])) {
             $model->watermarkFontStyle = $map['WatermarkFontStyle'];
+        }
+        if (isset($map['WatermarkPower'])) {
+            $model->watermarkPower = $map['WatermarkPower'];
         }
         if (isset($map['WatermarkRowAmount'])) {
             $model->watermarkRowAmount = $map['WatermarkRowAmount'];
