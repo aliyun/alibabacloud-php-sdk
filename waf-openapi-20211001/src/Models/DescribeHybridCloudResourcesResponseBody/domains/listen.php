@@ -106,18 +106,6 @@ class listen extends Model
     public $IPv6Enabled;
 
     /**
-     * @description Indicates whether IPv6 is supported. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
-     * @var bool
-     */
-    public $ipv6Enabled;
-
-    /**
      * @description The type of the protection resource. Valid values:
      *
      *   **share:** shared cluster.
@@ -173,7 +161,6 @@ class listen extends Model
         'httpPorts'          => 'HttpPorts',
         'httpsPorts'         => 'HttpsPorts',
         'IPv6Enabled'        => 'IPv6Enabled',
-        'ipv6Enabled'        => 'Ipv6Enabled',
         'protectionResource' => 'ProtectionResource',
         'TLSVersion'         => 'TLSVersion',
         'xffHeaderMode'      => 'XffHeaderMode',
@@ -216,9 +203,6 @@ class listen extends Model
         }
         if (null !== $this->IPv6Enabled) {
             $res['IPv6Enabled'] = $this->IPv6Enabled;
-        }
-        if (null !== $this->ipv6Enabled) {
-            $res['Ipv6Enabled'] = $this->ipv6Enabled;
         }
         if (null !== $this->protectionResource) {
             $res['ProtectionResource'] = $this->protectionResource;
@@ -279,9 +263,6 @@ class listen extends Model
         }
         if (isset($map['IPv6Enabled'])) {
             $model->IPv6Enabled = $map['IPv6Enabled'];
-        }
-        if (isset($map['Ipv6Enabled'])) {
-            $model->ipv6Enabled = $map['Ipv6Enabled'];
         }
         if (isset($map['ProtectionResource'])) {
             $model->protectionResource = $map['ProtectionResource'];
