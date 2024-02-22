@@ -18,8 +18,9 @@ class DescribeAlertLogListRequest extends Model
     public $contactGroup;
 
     /**
-     * @description The end timestamp of the alert logs to be queried. Unit: milliseconds.
+     * @description The end timestamp of the alert logs to be queried.
      *
+     * >  The time period between the start time specified by `StartTime` and end time specified by `EndTime` must be less than or equal to 15 days. You must specify StartTime and EndTime at the same time, or leave StartTime and EndTime empty at the same time. If you do not specify this parameter, the alert logs within the last 15 minutes are queried by default.
      * @example 1610074409694
      *
      * @var int
@@ -27,12 +28,19 @@ class DescribeAlertLogListRequest extends Model
     public $endTime;
 
     /**
+     * @description The type of the alert event. Valid values:
+     *
+     *   TRIGGERED: The alert is triggered.
+     *   RESOLVED: The alert is resolved.
+     *
+     * @example TRIGGERED
+     *
      * @var string
      */
     public $eventType;
 
     /**
-     * @description The dimension based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL. Valid values:
+     * @description The dimensions based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL. Valid values:
      *
      *   `product`: aggregates data by cloud service.
      *   `level`: aggregates data by alert level.
@@ -89,7 +97,7 @@ class DescribeAlertLogListRequest extends Model
     /**
      * @description The namespace of the cloud service.
      *
-     * > For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * >  For information about how to query the namespace of a cloud service, see [Appendix 1: Metrics](~~163515~~).
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -97,8 +105,9 @@ class DescribeAlertLogListRequest extends Model
     public $namespace;
 
     /**
-     * @description The page number. Default value: 1.
+     * @description The page number.
      *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -106,8 +115,9 @@ class DescribeAlertLogListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: 10.
+     * @description The number of entries per page.
      *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -115,8 +125,9 @@ class DescribeAlertLogListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The abbreviation of the cloud service name.
+     * @description The abbreviation of the service name.
      *
+     * For information about how to obtain the abbreviation of a cloud service name, see [DescribeProductsOfActiveMetricRule](~~114930~~).
      * @example ECS
      *
      * @var string
@@ -129,8 +140,9 @@ class DescribeAlertLogListRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the alert rule. For more information about how to query the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * @description The ID of the alert rule.
      *
+     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
      * @example bc369e8_30f87e517ed2fc****
      *
      * @var string
@@ -172,6 +184,8 @@ class DescribeAlertLogListRequest extends Model
     public $sendStatus;
 
     /**
+     * @description The type of the alert rule. Valid value: METRIC. This value indicates an alert rule for time series metrics.
+     *
      * @example METRIC
      *
      * @var string
@@ -179,8 +193,9 @@ class DescribeAlertLogListRequest extends Model
     public $sourceType;
 
     /**
-     * @description The start timestamp of the alert logs to be queried. Unit: milliseconds.
+     * @description The start timestamp of the alert logs to be queried.
      *
+     * >  The time period between the start time specified by `StartTime` and the end time specified by `EndTime` must be less than or equal to 15 days. You must specify StartTime and EndTime at the same time, or leave StartTime and EndTime empty at the same time. If you do not specify this parameter, the alert logs within the last 15 minutes are queried by default.
      * @example 1609988009694
      *
      * @var int

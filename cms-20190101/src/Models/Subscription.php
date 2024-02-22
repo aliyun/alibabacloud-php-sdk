@@ -25,9 +25,19 @@ class Subscription extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enabled;
+
+    /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $product;
 
     /**
      * @var string
@@ -52,7 +62,9 @@ class Subscription extends Model
         'conditions'   => 'Conditions',
         'createTime'   => 'CreateTime',
         'description'  => 'Description',
+        'enabled'      => 'Enabled',
         'name'         => 'Name',
+        'product'      => 'Product',
         'relation'     => 'Relation',
         'strategyUuid' => 'StrategyUuid',
         'updateTime'   => 'UpdateTime',
@@ -81,8 +93,14 @@ class Subscription extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
         }
         if (null !== $this->relation) {
             $res['Relation'] = $this->relation;
@@ -123,8 +141,14 @@ class Subscription extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
         }
         if (isset($map['Relation'])) {
             $model->relation = $map['Relation'];

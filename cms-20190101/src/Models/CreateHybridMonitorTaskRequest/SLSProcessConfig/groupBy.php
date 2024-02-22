@@ -18,7 +18,7 @@ class groupBy extends Model
     public $alias;
 
     /**
-     * @description The name of the key that is used to aggregate logs imported from Log Service.
+     * @description The name of the key that is used to aggregate logs imported from Simple Log Service.
      *
      * @example code
      *

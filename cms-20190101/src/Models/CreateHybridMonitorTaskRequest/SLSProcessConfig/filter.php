@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
-     * @description The conditions that are used to filter logs imported from Log Service.
+     * @description The conditions that are used to filter logs imported from Simple Log Service.
      *
      * @var filters[]
      */
@@ -19,7 +19,7 @@ class filter extends Model
     /**
      * @description The relationship between multiple filter conditions. Valid values:
      *
-     *   and (default value): Logs are processed only if all filter conditions are met.
+     *   and (default): Logs are processed only if all filter conditions are met.
      *   or: Logs are processed if one of the filter conditions is met.
      *
      * @example and

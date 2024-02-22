@@ -47,7 +47,7 @@ class DescribeSystemEventAttributeResponseBody extends Model
     public $success;
 
     /**
-     * @description The details of the system event.
+     * @description The details of the event.
      *
      * @var systemEvents
      */

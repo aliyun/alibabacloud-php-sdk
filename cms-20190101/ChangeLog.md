@@ -1,3 +1,11 @@
+2024-02-22 Version: 7.0.53
+- Update API CreateGroupMetricRules: update param GroupMetricRules.
+- Update API CreateHybridMonitorTask: add param CloudAccessId.
+- Update API CreateHybridMonitorTask: update param TaskType.
+- Update API DescribeMetricData: update response param.
+- Update API PutGroupMetricRule: add param Options.
+
+
 2023-12-07 Version: 7.0.52
 - Generated php 2019-01-01 for Cms.
 

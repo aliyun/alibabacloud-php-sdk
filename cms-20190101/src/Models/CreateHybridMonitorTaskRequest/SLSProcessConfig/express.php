@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class express extends Model
 {
     /**
-     * @description The alias of the extended field that specifies the result of basic operations that are performed on aggregation results.
+     * @description The alias of the extended field that specifies the result of basic operations performed on aggregation results.
      *
      * @example SuccRate
      *
@@ -18,7 +18,7 @@ class express extends Model
     public $alias;
 
     /**
-     * @description The extended field that specifies the result of basic operations that are performed on aggregation results.
+     * @description The extended field that specifies the result of basic operations performed on aggregation results.
      *
      * @example success_count
      *

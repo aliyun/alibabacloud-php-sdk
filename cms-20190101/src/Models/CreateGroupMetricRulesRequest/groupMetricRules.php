@@ -246,6 +246,11 @@ class groupMetricRules extends Model
     public $noEffectiveInterval;
 
     /**
+     * @var string
+     */
+    public $options;
+
+    /**
      * @description The aggregation period of the metric data. Valid values of N: 1 to 200.
      *
      * Set the `Period` parameter to an integral multiple of 60. Unit: seconds. Default value: 300.
@@ -305,6 +310,7 @@ class groupMetricRules extends Model
         'namespace'           => 'Namespace',
         'noDataPolicy'        => 'NoDataPolicy',
         'noEffectiveInterval' => 'NoEffectiveInterval',
+        'options'             => 'Options',
         'period'              => 'Period',
         'ruleId'              => 'RuleId',
         'ruleName'            => 'RuleName',
@@ -360,6 +366,9 @@ class groupMetricRules extends Model
         }
         if (null !== $this->noEffectiveInterval) {
             $res['NoEffectiveInterval'] = $this->noEffectiveInterval;
+        }
+        if (null !== $this->options) {
+            $res['Options'] = $this->options;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -429,6 +438,9 @@ class groupMetricRules extends Model
         }
         if (isset($map['NoEffectiveInterval'])) {
             $model->noEffectiveInterval = $map['NoEffectiveInterval'];
+        }
+        if (isset($map['Options'])) {
+            $model->options = $map['Options'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];

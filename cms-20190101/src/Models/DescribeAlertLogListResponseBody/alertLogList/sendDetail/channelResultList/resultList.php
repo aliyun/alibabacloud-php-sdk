@@ -51,8 +51,6 @@ class resultList extends Model
     public $success;
 
     /**
-     * @description The queried resources.
-     *
      * @var string[]
      */
     public $notifyTargetList;

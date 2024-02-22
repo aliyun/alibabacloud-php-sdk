@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class systemEvent extends Model
 {
     /**
-     * @description The details of the system event.
+     * @description The details of the event.
      *
      * @example [{"product":"CloudMonitor","content":"{\"ipGroup\":\"112.126.XX.XX,10.163.XX.XX\",\"tianjimonVersion\":\"1.2.22\"}","groupId":"176,177,178,179,180,692,120812,1663836,96,2028302","time":"1552209568000","resourceId":"acs:ecs:cn-beijing:173651113438****:instance/i-25k35****","level":"CRITICAL","status":"stopped","instanceName":"cmssiteprobebj-6","name":"Agent_Status_Stopped","regionId":"cn-beijing"}]
      *
@@ -32,7 +32,7 @@ class systemEvent extends Model
     public $id;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example instanceId1
      *
@@ -41,11 +41,11 @@ class systemEvent extends Model
     public $instanceName;
 
     /**
-     * @description The level of the system event. Valid values:
+     * @description The severity level of the alert. Valid values:
      *
-     *   CRITICAL: critical
-     *   WARN: warning
-     *   INFO: information
+     *   CRITICAL
+     *   WARN
+     *   INFO
      *
      * @example WARN
      *
@@ -54,7 +54,7 @@ class systemEvent extends Model
     public $level;
 
     /**
-     * @description The name of the system event.
+     * @description The event name.
      *
      * @example Agent_Status_Stopped
      *
@@ -72,7 +72,7 @@ class systemEvent extends Model
     public $product;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -81,7 +81,7 @@ class systemEvent extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example xxxxx-1
      *
@@ -90,7 +90,7 @@ class systemEvent extends Model
     public $resourceId;
 
     /**
-     * @description The status of the system event.
+     * @description The status of the event.
      *
      * @example normal
      *
@@ -99,7 +99,7 @@ class systemEvent extends Model
     public $status;
 
     /**
-     * @description The timestamp when the system event occurred.
+     * @description The time when the event occurred. The value is a timestamp.
      *
      * Unit: milliseconds.
      * @example 1552199984000

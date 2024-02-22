@@ -20,6 +20,16 @@ class AlertEvent extends Model
     public $alertStatus;
 
     /**
+     * @var string
+     */
+    public $arn;
+
+    /**
+     * @var string
+     */
+    public $content;
+
+    /**
      * @var mixed[]
      */
     public $customLabels;
@@ -42,12 +52,22 @@ class AlertEvent extends Model
     /**
      * @var string
      */
+    public $eventType;
+
+    /**
+     * @var string
+     */
     public $expression;
 
     /**
      * @var metrics[]
      */
     public $metrics;
+
+    /**
+     * @var string
+     */
+    public $product;
 
     /**
      * @var mixed[]
@@ -91,12 +111,16 @@ class AlertEvent extends Model
     protected $_name = [
         'alertName'    => 'AlertName',
         'alertStatus'  => 'AlertStatus',
+        'arn'          => 'Arn',
+        'content'      => 'Content',
         'customLabels' => 'CustomLabels',
         'deDupId'      => 'DeDupId',
         'details'      => 'Details',
         'eventName'    => 'EventName',
+        'eventType'    => 'EventType',
         'expression'   => 'Expression',
         'metrics'      => 'Metrics',
+        'product'      => 'Product',
         'resourceInfo' => 'ResourceInfo',
         'ruleName'     => 'RuleName',
         'severity'     => 'Severity',
@@ -120,6 +144,12 @@ class AlertEvent extends Model
         if (null !== $this->alertStatus) {
             $res['AlertStatus'] = $this->alertStatus;
         }
+        if (null !== $this->arn) {
+            $res['Arn'] = $this->arn;
+        }
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
         if (null !== $this->customLabels) {
             $res['CustomLabels'] = $this->customLabels;
         }
@@ -132,6 +162,9 @@ class AlertEvent extends Model
         if (null !== $this->eventName) {
             $res['EventName'] = $this->eventName;
         }
+        if (null !== $this->eventType) {
+            $res['EventType'] = $this->eventType;
+        }
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
@@ -143,6 +176,9 @@ class AlertEvent extends Model
                     $res['Metrics'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
         }
         if (null !== $this->resourceInfo) {
             $res['ResourceInfo'] = $this->resourceInfo;
@@ -186,6 +222,12 @@ class AlertEvent extends Model
         if (isset($map['AlertStatus'])) {
             $model->alertStatus = $map['AlertStatus'];
         }
+        if (isset($map['Arn'])) {
+            $model->arn = $map['Arn'];
+        }
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
         if (isset($map['CustomLabels'])) {
             $model->customLabels = $map['CustomLabels'];
         }
@@ -198,6 +240,9 @@ class AlertEvent extends Model
         if (isset($map['EventName'])) {
             $model->eventName = $map['EventName'];
         }
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
+        }
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
@@ -209,6 +254,9 @@ class AlertEvent extends Model
                     $model->metrics[$n++] = null !== $item ? metrics::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
         }
         if (isset($map['ResourceInfo'])) {
             $model->resourceInfo = $map['ResourceInfo'];

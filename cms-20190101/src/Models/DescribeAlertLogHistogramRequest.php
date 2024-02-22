@@ -33,6 +33,13 @@ class DescribeAlertLogHistogramRequest extends Model
     public $endTime;
 
     /**
+     * @description The type of the alert event. Valid values:
+     *
+     *   TRIGGERED: The alert is triggered.
+     *   RESOLVED: The alert is resolved.
+     *
+     * @example RESOLVED
+     *
      * @var string
      */
     public $eventType;
@@ -137,6 +144,11 @@ class DescribeAlertLogHistogramRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the alert rule.
+     *
+     * For more information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * @example ae06917_75a8c43178ab66****
+     *
      * @var string
      */
     public $ruleId;

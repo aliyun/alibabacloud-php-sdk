@@ -11,7 +11,7 @@ class escalation extends Model
     /**
      * @description The description of the alert rule.
      *
-     * > The content of the alert rule. If the metric value meets the alert condition, an alert is triggered.
+     * >  The content of the alert rule. This parameter indicates the conditions that trigger an alert.
      * @example $Average<90
      *
      * @var string
@@ -19,7 +19,7 @@ class escalation extends Model
     public $expression;
 
     /**
-     * @description The severity level and notification methods of the alert. Valid values:
+     * @description The alert level and the methods that are used to send alert notifications. Valid values:
      *
      *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
      *   OK: No alert is generated.

@@ -16,7 +16,7 @@ class rules extends Model
     public $escalations;
 
     /**
-     * @description The alert contact group. The alert notifications are sent to the alert contacts in the alert contact group.
+     * @description The alert contact groups. The alert notifications are sent to the alert contacts in the alert contact group.
      *
      * >  An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](~~114923~~) and [PutContactGroup](~~114929~~).
      * @example ECS_Group
@@ -44,7 +44,7 @@ class rules extends Model
     public $emailSubject;
 
     /**
-     * @description The interval at which the alert rule is executed.
+     * @description The interval at which alerts are triggered based on the alert rule.
      *
      * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
      * @example 60
@@ -54,12 +54,14 @@ class rules extends Model
     public $interval;
 
     /**
+     * @description If the metric meets the specified condition in the alert rule and CloudMonitor sends an alert notification, the tag is also written to the metric and displayed in the alert notification.
+     *
      * @var labels[]
      */
     public $labels;
 
     /**
-     * @description The name of the metric.
+     * @description The metric name.
      *
      * For information about how to query the name of a metric, see [Appendix 1: Metrics](~~163515~~).
      * @example cpu_total
@@ -81,7 +83,7 @@ class rules extends Model
     /**
      * @description The method that is used to handle alerts when no monitoring data is found. Valid values:
      *
-     *   KEEP_LAST_STATE (default value): No operation is performed.
+     *   KEEP_LAST_STATE (default): No operation is performed.
      *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
      *   OK: The status is considered normal.
      *
@@ -113,7 +115,7 @@ class rules extends Model
     public $period;
 
     /**
-     * @description The information about the resource. Examples: `[{"instanceId":"i-uf6j91r34rnwawoo****"}]` and `[{"userId":"100931896542****"}]`.
+     * @description The information about the resource. Example: `[{"instanceId":"i-uf6j91r34rnwawoo****"}]` or `[{"userId":"100931896542****"}]`.
      *
      * For more information about the supported dimensions that are used to query resources, see [Appendix 1: Metrics](~~163515~~).
      * @example [{"instanceId":"i-uf6j91r34rnwawoo****"}]
@@ -125,7 +127,7 @@ class rules extends Model
     /**
      * @description The ID of the alert rule.
      *
-     * >  If you specify a new ID, you create a threshold-triggered alert rule.
+     * >  If you specify a new ID, a threshold-triggered alert rule is created.
      * @example a151cd6023eacee2f0978e03863cc1697c89508****
      *
      * @var string
@@ -135,7 +137,7 @@ class rules extends Model
     /**
      * @description The name of the alert rule.
      *
-     * >  If you specify a new name, you create a threshold-triggered alert rule.
+     * >  If you specify a new name, a threshold-triggered alert rule is created.
      * @example test123
      *
      * @var string
@@ -143,7 +145,7 @@ class rules extends Model
     public $ruleName;
 
     /**
-     * @description The mute period during which new alerts are not sent even if the trigger conditions are met.
+     * @description The mute period during which new alert notifications are not sent even if the trigger conditions are met.
      *
      * >  If an alert is not cleared after the mute period ends, CloudMonitor resends an alert notification.
      * @example 86400

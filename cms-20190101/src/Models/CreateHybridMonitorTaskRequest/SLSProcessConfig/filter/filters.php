@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
-     * @description The method that is used to filter logs imported from Log Service. Valid values:
+     * @description The method that is used to filter logs imported from Simple Log Service. Valid values:
      *
      *   `contain`: contains
      *   `notContain`: does not contain
@@ -27,7 +27,7 @@ class filters extends Model
     public $operator;
 
     /**
-     * @description The name of the key that is used to filter logs imported from Log Service.
+     * @description The name of the key that is used to filter logs imported from Simple Log Service.
      *
      * @example code
      *
@@ -36,7 +36,7 @@ class filters extends Model
     public $SLSKeyName;
 
     /**
-     * @description The value of the key that is used to filter logs imported from Log Service.
+     * @description The value of the key that is used to filter logs imported from Simple Log Service.
      *
      * @example 200
      *

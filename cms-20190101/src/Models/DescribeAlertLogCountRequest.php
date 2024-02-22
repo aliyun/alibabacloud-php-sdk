@@ -20,7 +20,7 @@ class DescribeAlertLogCountRequest extends Model
     /**
      * @description The end timestamp of the alert logs to be queried.
      *
-     * >  The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
+     * >  The interval between the start time (StartTime) and end time (EndTime) must be less than or equal to 15 days. The start time and end time must be specified or left empty at the same time. If you do not specify the start time and end time, the alert logs within the last 15 minutes are queried by default.
      * @example 1610074409694
      *
      * @var int
@@ -28,6 +28,13 @@ class DescribeAlertLogCountRequest extends Model
     public $endTime;
 
     /**
+     * @description The type of the alert event. Valid values:
+     *
+     *   TRIGGERED: The alert is triggered.
+     *   RESOLVED: The alert is resolved.
+     *
+     * @example TRIGGERED
+     *
      * @var string
      */
     public $eventType;
@@ -136,6 +143,11 @@ class DescribeAlertLogCountRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the alert rule.
+     *
+     * For more information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * @example bfae2ca5b4e07d2c7278772e***********
+     *
      * @var string
      */
     public $ruleId;
@@ -186,7 +198,7 @@ class DescribeAlertLogCountRequest extends Model
     /**
      * @description The start timestamp of the alert logs to be queried.
      *
-     * >  The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
+     * >  The interval between the start time (StartTime) and end time (EndTime) must be less than or equal to 15 days. The start time and end time must be specified or left empty at the same time. If you do not specify the start time and end time, the alert logs within the last 15 minutes are queried by default.
      * @example 1609988009694
      *
      * @var int

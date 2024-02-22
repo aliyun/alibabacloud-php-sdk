@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
-     * @description The key of the tag.
+     * @description The tag key.
      *
      * @example tagKey1
      *
@@ -18,7 +18,7 @@ class labels extends Model
     public $key;
 
     /**
-     * @description The value of the tag.
+     * @description The tag value.
      *
      * >  You can use a template parameter to specify a tag value. CloudMonitor replaces the value of the template parameter with an actual tag value.
      * @example ECS

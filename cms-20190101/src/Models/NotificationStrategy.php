@@ -43,6 +43,11 @@ class NotificationStrategy extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $product;
+
+    /**
      * @var pushingSetting
      */
     public $pushingSetting;
@@ -68,6 +73,7 @@ class NotificationStrategy extends Model
         'filterSetting'     => 'FilterSetting',
         'groupingSetting'   => 'GroupingSetting',
         'name'              => 'Name',
+        'product'           => 'Product',
         'pushingSetting'    => 'PushingSetting',
         'updateTime'        => 'UpdateTime',
         'userId'            => 'UserId',
@@ -98,6 +104,9 @@ class NotificationStrategy extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
         }
         if (null !== $this->pushingSetting) {
             $res['PushingSetting'] = null !== $this->pushingSetting ? $this->pushingSetting->toMap() : null;
@@ -140,6 +149,9 @@ class NotificationStrategy extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
         }
         if (isset($map['PushingSetting'])) {
             $model->pushingSetting = pushingSetting::fromMap($map['PushingSetting']);

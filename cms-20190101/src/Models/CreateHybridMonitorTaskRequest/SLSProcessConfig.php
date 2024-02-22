@@ -13,14 +13,14 @@ use AlibabaCloud\Tea\Model;
 class SLSProcessConfig extends Model
 {
     /**
-     * @description The extended fields that specify the results of basic operations that are performed on aggregation results.
+     * @description The extended fields that specify the results of basic operations performed on aggregation results.
      *
      * @var express[]
      */
     public $express;
 
     /**
-     * @description The conditions that are used to filter logs imported from Log Service.
+     * @description The conditions that are used to filter logs imported from Simple Log Service.
      *
      * @var filter
      */
@@ -34,6 +34,8 @@ class SLSProcessConfig extends Model
     public $groupBy;
 
     /**
+     * @description The method that is used to aggregate logs imported from Simple Log Service.
+     *
      * @var statistics[]
      */
     public $statistics;

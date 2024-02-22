@@ -11,15 +11,23 @@ use AlibabaCloud\Tea\Model;
 class CreateHybridMonitorTaskRequest extends Model
 {
     /**
+     * @description The tags of the metric.
+     *
+     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
      * @var attachLabels[]
      */
     public $attachLabels;
 
     /**
-     * @description The interval at which metrics are collected. Valid values:
+     * @var string[]
+     */
+    public $cloudAccessId;
+
+    /**
+     * @description The collection period of the metric. Valid values:
      *
      *   15
-     *   60 (default value)
+     *   60 (default)
      *
      * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
      * @example 60
@@ -73,7 +81,7 @@ class CreateHybridMonitorTaskRequest extends Model
     public $regionId;
 
     /**
-     * @description The configurations of the logs that are imported from Log Service.
+     * @description The configurations of the logs that are imported from Simple Log Service.
      *
      * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
      * @var SLSProcessConfig
@@ -104,7 +112,7 @@ class CreateHybridMonitorTaskRequest extends Model
      * @description The name of the metric import task.
      *
      *   If the `TaskType` parameter is set to `aliyun_fc`, enter the name of the metric import task.
-     *   If the `TaskType` parameter is set to `aliyun_sls`, enter the name of the metric for logs imported from Log Service.
+     *   If the `TaskType` parameter is set to `aliyun_sls`, enter the name of the metric for logs imported from Simple Log Service.
      *
      * @example aliyun_task
      *
@@ -113,10 +121,10 @@ class CreateHybridMonitorTaskRequest extends Model
     public $taskName;
 
     /**
-     * @description Specifies whether to create a metric import task for an Alibaba Cloud service or create a metric for logs imported from Log Service. Valid values:
+     * @description The type of the metric import task. Valid values:
      *
-     *   aliyun_fc: creates a metric import task for an Alibaba Cloud service
-     *   aliyun_sls: creates a metric for logs imported from Log Service
+     *   aliyun_fc: metric import tasks for Alibaba Cloud services.
+     *   aliyun_sls: metrics for logs imported from Simple Log Service.
      *
      * @example aliyun_fc
      *
@@ -138,6 +146,7 @@ class CreateHybridMonitorTaskRequest extends Model
     public $YARMConfig;
     protected $_name = [
         'attachLabels'      => 'AttachLabels',
+        'cloudAccessId'     => 'CloudAccessId',
         'collectInterval'   => 'CollectInterval',
         'collectTargetType' => 'CollectTargetType',
         'description'       => 'Description',
@@ -167,6 +176,9 @@ class CreateHybridMonitorTaskRequest extends Model
                     $res['AttachLabels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->cloudAccessId) {
+            $res['CloudAccessId'] = $this->cloudAccessId;
         }
         if (null !== $this->collectInterval) {
             $res['CollectInterval'] = $this->collectInterval;
@@ -223,6 +235,11 @@ class CreateHybridMonitorTaskRequest extends Model
                 foreach ($map['AttachLabels'] as $item) {
                     $model->attachLabels[$n++] = null !== $item ? attachLabels::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['CloudAccessId'])) {
+            if (!empty($map['CloudAccessId'])) {
+                $model->cloudAccessId = $map['CloudAccessId'];
             }
         }
         if (isset($map['CollectInterval'])) {

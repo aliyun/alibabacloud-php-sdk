@@ -15,8 +15,9 @@ use AlibabaCloud\Tea\Model;
 class alertLogList extends Model
 {
     /**
-     * @description The timestamp that was generated when the alert was triggered. Unit: milliseconds.
+     * @description The timestamp that was generated when the alert was triggered.
      *
+     * Unit: milliseconds.
      * @example 1610043776621
      *
      * @var string
@@ -51,46 +52,31 @@ class alertLogList extends Model
     public $blackListUUID;
 
     /**
-     * @description The TradeManager IDs of the alert contacts.
-     *
-     * > This parameter is valid only on the China site (aliyun.com).
      * @var string[]
      */
     public $contactALIIWWList;
 
     /**
-     * @description The DingTalk chatbots of the alert contacts.
-     *
      * @var string[]
      */
     public $contactDingList;
 
     /**
-     * @description The alert contact groups.
-     *
      * @var string[]
      */
     public $contactGroups;
 
     /**
-     * @description The email addresses of the alert contacts.
-     *
      * @var string[]
      */
     public $contactMailList;
 
     /**
-     * @description The phone numbers of the alert contacts that receive alert phone calls.
-     *
-     * > This parameter is valid only on the China site (aliyun.com).
      * @var string[]
      */
     public $contactOnCallList;
 
     /**
-     * @description The phone numbers of the alert contacts that receive alert text messages.
-     *
-     * > This parameter is valid only on the China site (aliyun.com).
      * @var string[]
      */
     public $contactSMSList;
@@ -103,8 +89,6 @@ class alertLogList extends Model
     public $dimensions;
 
     /**
-     * @description The webhook URLs of the alert contacts.
-     *
      * @var string[]
      */
     public $dingdingWebhookList;
@@ -169,7 +153,7 @@ class alertLogList extends Model
     public $instanceName;
 
     /**
-     * @description The severity level and notification methods of the alert. Valid values:
+     * @description The alert level and the methods that are used to send alert notifications. Valid values:
      *
      *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
      *   OK: No alert is generated.
@@ -257,7 +241,7 @@ class alertLogList extends Model
     public $ruleName;
 
     /**
-     * @description The details of the alert notification method.
+     * @description The details about the sending results of alert notifications.
      *
      * @var sendDetail
      */

@@ -11,7 +11,7 @@ class sendResultList extends Model
     /**
      * @description The category of the alert notification method. Valid values:
      *
-     *   Mail: email
+     *   MAIL: email
      *   ALIIM: TradeManager
      *   SMS: text message
      *   CALL: phone call
@@ -25,7 +25,7 @@ class sendResultList extends Model
     public $key;
 
     /**
-     * @description The alert notification methods.
+     * @description The notification object corresponding to the alert notification method.
      *
      * @var string[]
      */
