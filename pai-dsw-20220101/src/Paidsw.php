@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceShutdownTimerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceSnapshotResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetIdleInstanceCullerResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceEventsRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceEventsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceMetricsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceMetricsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponse;
@@ -585,6 +587,60 @@ class Paidsw extends OpenApiClient
         $headers = [];
 
         return $this->getInstanceWithOptions($InstanceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $InstanceId
+     * @param GetInstanceEventsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetInstanceEventsResponse
+     */
+    public function getInstanceEventsWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxEventsNum)) {
+            $query['MaxEventsNum'] = $request->maxEventsNum;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInstanceEvents',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/events',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInstanceEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $InstanceId
+     * @param GetInstanceEventsRequest $request
+     *
+     * @return GetInstanceEventsResponse
+     */
+    public function getInstanceEvents($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getInstanceEventsWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
