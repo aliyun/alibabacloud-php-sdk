@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateCategoryRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateCategoryResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateConnQuestionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateConnQuestionResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDocRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDocResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDSEntityRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDSEntityResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDSEntityValueRequest;
@@ -59,6 +61,8 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteCategoryRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteCategoryResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteConnQuestionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteConnQuestionResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteDocRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteDocResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteDSEntityRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteDSEntityResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteDSEntityValueRequest;
@@ -81,6 +85,8 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteUserSayRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteUserSayResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeCategoryRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeCategoryResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeDocRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeDocResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeDSEntityRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeDSEntityResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeFaqRequest;
@@ -137,6 +143,11 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\NluRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\NluResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\QueryPerspectivesRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\QueryPerspectivesResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\RetryDocRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\RetryDocResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\SearchDocRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\SearchDocResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\SearchDocShrinkRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\SearchFaqRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\SearchFaqResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\SearchFaqShrinkRequest;
@@ -144,6 +155,8 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateCategoryRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateCategoryResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateConnQuestionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateConnQuestionResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDocRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDocResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDSEntityRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDSEntityResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDSEntityValueRequest;
@@ -595,6 +608,12 @@ class Chatbot extends OpenApiClient
             $query['AgentKey'] = $request->agentKey;
         }
         $body = [];
+        if (!Utils::isUnset($request->bizCode)) {
+            $body['BizCode'] = $request->bizCode;
+        }
+        if (!Utils::isUnset($request->knowledgeType)) {
+            $body['KnowledgeType'] = $request->knowledgeType;
+        }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
         }
@@ -795,6 +814,70 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDSEntityValueWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDocRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateDocResponse
+     */
+    public function createDocWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->meta)) {
+            $query['Meta'] = $request->meta;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDoc',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDocRequest $request
+     *
+     * @return CreateDocResponse
+     */
+    public function createDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDocWithOptions($request, $runtime);
     }
 
     /**
@@ -1530,6 +1613,52 @@ class Chatbot extends OpenApiClient
     }
 
     /**
+     * @param DeleteDocRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteDocResponse
+     */
+    public function deleteDocWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->knowledgeId)) {
+            $query['KnowledgeId'] = $request->knowledgeId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDoc',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDocRequest $request
+     *
+     * @return DeleteDocResponse
+     */
+    public function deleteDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDocWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteFaqRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -2013,6 +2142,55 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDSEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDocRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DescribeDocResponse
+     */
+    public function describeDocWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->knowledgeId)) {
+            $query['KnowledgeId'] = $request->knowledgeId;
+        }
+        if (!Utils::isUnset($request->showDetail)) {
+            $query['ShowDetail'] = $request->showDetail;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDoc',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDocRequest $request
+     *
+     * @return DescribeDocResponse
+     */
+    public function describeDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDocWithOptions($request, $runtime);
     }
 
     /**
@@ -2675,6 +2853,9 @@ class Chatbot extends OpenApiClient
             $query['AgentKey'] = $request->agentKey;
         }
         $body = [];
+        if (!Utils::isUnset($request->knowledgeType)) {
+            $body['KnowledgeType'] = $request->knowledgeType;
+        }
         if (!Utils::isUnset($request->parentCategoryId)) {
             $body['ParentCategoryId'] = $request->parentCategoryId;
         }
@@ -3385,6 +3566,151 @@ class Chatbot extends OpenApiClient
     }
 
     /**
+     * @param RetryDocRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return RetryDocResponse
+     */
+    public function retryDocWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->knowledgeId)) {
+            $query['KnowledgeId'] = $request->knowledgeId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RetryDoc',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RetryDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RetryDocRequest $request
+     *
+     * @return RetryDocResponse
+     */
+    public function retryDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retryDocWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchDocRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return SearchDocResponse
+     */
+    public function searchDocWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SearchDocShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->categoryIds)) {
+            $request->categoryIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->categoryIdsShrink)) {
+            $query['CategoryIds'] = $request->categoryIdsShrink;
+        }
+        if (!Utils::isUnset($request->createTimeBegin)) {
+            $query['CreateTimeBegin'] = $request->createTimeBegin;
+        }
+        if (!Utils::isUnset($request->createTimeEnd)) {
+            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+        if (!Utils::isUnset($request->createUserName)) {
+            $query['CreateUserName'] = $request->createUserName;
+        }
+        if (!Utils::isUnset($request->endTimeBegin)) {
+            $query['EndTimeBegin'] = $request->endTimeBegin;
+        }
+        if (!Utils::isUnset($request->endTimeEnd)) {
+            $query['EndTimeEnd'] = $request->endTimeEnd;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->modifyTimeBegin)) {
+            $query['ModifyTimeBegin'] = $request->modifyTimeBegin;
+        }
+        if (!Utils::isUnset($request->modifyTimeEnd)) {
+            $query['ModifyTimeEnd'] = $request->modifyTimeEnd;
+        }
+        if (!Utils::isUnset($request->modifyUserName)) {
+            $query['ModifyUserName'] = $request->modifyUserName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->processStatus)) {
+            $query['ProcessStatus'] = $request->processStatus;
+        }
+        if (!Utils::isUnset($request->searchScope)) {
+            $query['SearchScope'] = $request->searchScope;
+        }
+        if (!Utils::isUnset($request->startTimeBegin)) {
+            $query['StartTimeBegin'] = $request->startTimeBegin;
+        }
+        if (!Utils::isUnset($request->startTimeEnd)) {
+            $query['StartTimeEnd'] = $request->startTimeEnd;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchDoc',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchDocRequest $request
+     *
+     * @return SearchDocResponse
+     */
+    public function searchDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchDocWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SearchFaqRequest $tmpReq
      * @param RuntimeOptions   $runtime
      *
@@ -3496,6 +3822,9 @@ class Chatbot extends OpenApiClient
             $query['AgentKey'] = $request->agentKey;
         }
         $body = [];
+        if (!Utils::isUnset($request->bizCode)) {
+            $body['BizCode'] = $request->bizCode;
+        }
         if (!Utils::isUnset($request->categoryId)) {
             $body['CategoryId'] = $request->categoryId;
         }
@@ -3702,6 +4031,76 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDSEntityValueWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDocRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateDocResponse
+     */
+    public function updateDocWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->docName)) {
+            $query['DocName'] = $request->docName;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->knowledgeId)) {
+            $query['KnowledgeId'] = $request->knowledgeId;
+        }
+        if (!Utils::isUnset($request->meta)) {
+            $query['Meta'] = $request->meta;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDoc',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDocRequest $request
+     *
+     * @return UpdateDocResponse
+     */
+    public function updateDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDocWithOptions($request, $runtime);
     }
 
     /**

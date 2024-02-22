@@ -18,6 +18,16 @@ class CreateCategoryRequest extends Model
     /**
      * @var string
      */
+    public $bizCode;
+
+    /**
+     * @var int
+     */
+    public $knowledgeType;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -28,6 +38,8 @@ class CreateCategoryRequest extends Model
     public $parentCategoryId;
     protected $_name = [
         'agentKey'         => 'AgentKey',
+        'bizCode'          => 'BizCode',
+        'knowledgeType'    => 'KnowledgeType',
         'name'             => 'Name',
         'parentCategoryId' => 'ParentCategoryId',
     ];
@@ -41,6 +53,12 @@ class CreateCategoryRequest extends Model
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
+        }
+        if (null !== $this->bizCode) {
+            $res['BizCode'] = $this->bizCode;
+        }
+        if (null !== $this->knowledgeType) {
+            $res['KnowledgeType'] = $this->knowledgeType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -62,6 +80,12 @@ class CreateCategoryRequest extends Model
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
+        }
+        if (isset($map['BizCode'])) {
+            $model->bizCode = $map['BizCode'];
+        }
+        if (isset($map['KnowledgeType'])) {
+            $model->knowledgeType = $map['KnowledgeType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

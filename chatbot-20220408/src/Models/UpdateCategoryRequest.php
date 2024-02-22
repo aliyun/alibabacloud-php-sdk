@@ -16,6 +16,11 @@ class UpdateCategoryRequest extends Model
     public $agentKey;
 
     /**
+     * @var string
+     */
+    public $bizCode;
+
+    /**
      * @example 231001028593
      *
      * @var int
@@ -28,6 +33,7 @@ class UpdateCategoryRequest extends Model
     public $name;
     protected $_name = [
         'agentKey'   => 'AgentKey',
+        'bizCode'    => 'BizCode',
         'categoryId' => 'CategoryId',
         'name'       => 'Name',
     ];
@@ -41,6 +47,9 @@ class UpdateCategoryRequest extends Model
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
+        }
+        if (null !== $this->bizCode) {
+            $res['BizCode'] = $this->bizCode;
         }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
@@ -62,6 +71,9 @@ class UpdateCategoryRequest extends Model
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
+        }
+        if (isset($map['BizCode'])) {
+            $model->bizCode = $map['BizCode'];
         }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListCategoryRequest extends Model
+class DescribeDocRequest extends Model
 {
     /**
      * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -16,20 +16,22 @@ class ListCategoryRequest extends Model
     public $agentKey;
 
     /**
-     * @var int
-     */
-    public $knowledgeType;
-
-    /**
-     * @example -1
+     * @example 30001979424
      *
      * @var int
      */
-    public $parentCategoryId;
+    public $knowledgeId;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $showDetail;
     protected $_name = [
-        'agentKey'         => 'AgentKey',
-        'knowledgeType'    => 'KnowledgeType',
-        'parentCategoryId' => 'ParentCategoryId',
+        'agentKey'    => 'AgentKey',
+        'knowledgeId' => 'KnowledgeId',
+        'showDetail'  => 'ShowDetail',
     ];
 
     public function validate()
@@ -42,11 +44,11 @@ class ListCategoryRequest extends Model
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-        if (null !== $this->knowledgeType) {
-            $res['KnowledgeType'] = $this->knowledgeType;
+        if (null !== $this->knowledgeId) {
+            $res['KnowledgeId'] = $this->knowledgeId;
         }
-        if (null !== $this->parentCategoryId) {
-            $res['ParentCategoryId'] = $this->parentCategoryId;
+        if (null !== $this->showDetail) {
+            $res['ShowDetail'] = $this->showDetail;
         }
 
         return $res;
@@ -55,7 +57,7 @@ class ListCategoryRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListCategoryRequest
+     * @return DescribeDocRequest
      */
     public static function fromMap($map = [])
     {
@@ -63,11 +65,11 @@ class ListCategoryRequest extends Model
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-        if (isset($map['KnowledgeType'])) {
-            $model->knowledgeType = $map['KnowledgeType'];
+        if (isset($map['KnowledgeId'])) {
+            $model->knowledgeId = $map['KnowledgeId'];
         }
-        if (isset($map['ParentCategoryId'])) {
-            $model->parentCategoryId = $map['ParentCategoryId'];
+        if (isset($map['ShowDetail'])) {
+            $model->showDetail = $map['ShowDetail'];
         }
 
         return $model;
