@@ -44,6 +44,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyInstancePayTypeRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyInstancePayTypeResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\OpenComputeEngineRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\OpenComputeEngineResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\OpenComputePreCheckRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\OpenComputePreCheckResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\RenewLindormInstanceRequest;
@@ -1429,6 +1431,70 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openComputeEngineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OpenComputePreCheckRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return OpenComputePreCheckResponse
+     */
+    public function openComputePreCheckWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cpuLimit)) {
+            $query['CpuLimit'] = $request->cpuLimit;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->memoryLimit)) {
+            $query['MemoryLimit'] = $request->memoryLimit;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenComputePreCheck',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OpenComputePreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OpenComputePreCheckRequest $request
+     *
+     * @return OpenComputePreCheckResponse
+     */
+    public function openComputePreCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openComputePreCheckWithOptions($request, $runtime);
     }
 
     /**
