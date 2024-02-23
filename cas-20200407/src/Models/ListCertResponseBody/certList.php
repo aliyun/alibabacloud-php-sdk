@@ -78,7 +78,7 @@ class certList extends Model
     public $issuer;
 
     /**
-     * @description The domain names that are bound to the certificate. Multiple domain names are separated by commas.
+     * @description All domain names that are bound to the certificate. Multiple domain names are separated by commas (,).
      *
      * @example *.alibaba.com,aliyun.alibaba.com
      *
@@ -111,7 +111,7 @@ class certList extends Model
     public $status;
 
     /**
-     * @description The ID of the certificate repository.
+     * @description The ID of the certificate application repository.
      *
      * @example 2
      *
@@ -120,7 +120,7 @@ class certList extends Model
     public $whId;
 
     /**
-     * @description The instance ID of the certificate repository.
+     * @description The instance ID of the certificate application repository.
      *
      * @example test_whInstanceId
      *

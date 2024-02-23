@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListCertResponseBody extends Model
 {
     /**
-     * @description An array that consists of the certificates.
+     * @description The certificates.
      *
      * @var certList[]
      */

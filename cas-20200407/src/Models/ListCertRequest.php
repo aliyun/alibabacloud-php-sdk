@@ -30,7 +30,7 @@ class ListCertRequest extends Model
     public $currentPage;
 
     /**
-     * @description The keyword for the query. You can enter a name, domain name, or Subject Alternative Name (SAN) extension. Fuzzy match is supported.
+     * @description The keyword that is used for queries. The value can be a name, domain name, or subject alternative name (SAN) attribute. Fuzzy match is supported.
      *
      * @example test_name
      *
@@ -72,7 +72,7 @@ class ListCertRequest extends Model
     public $status;
 
     /**
-     * @description The ID of the certificate repository. You can call the [ListCertWarehouse](~~453246~~) operation to query the IDs of certificate repositories.
+     * @description The ID of the certificate repository. You can call the ListCertWarehouse API operation to query the IDs of certificate repositories.
      *
      * @example 12
      *
