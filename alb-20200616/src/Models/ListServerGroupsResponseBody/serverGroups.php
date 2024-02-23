@@ -4,7 +4,9 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody;
 
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups\connectionDrainConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups\healthCheckConfig;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups\slowStartConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups\stickySessionConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups\tags;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups\uchConfig;
@@ -23,6 +25,11 @@ class serverGroups extends Model
      * @var bool
      */
     public $configManagedEnabled;
+
+    /**
+     * @var connectionDrainConfig
+     */
+    public $connectionDrainConfig;
 
     /**
      * @description The time when the resource was created.
@@ -155,6 +162,11 @@ class serverGroups extends Model
     public $serviceName;
 
     /**
+     * @var slowStartConfig
+     */
+    public $slowStartConfig;
+
+    /**
      * @description The configuration of session persistence.
      *
      * @var stickySessionConfig
@@ -197,6 +209,7 @@ class serverGroups extends Model
     public $vpcId;
     protected $_name = [
         'configManagedEnabled'     => 'ConfigManagedEnabled',
+        'connectionDrainConfig'    => 'ConnectionDrainConfig',
         'createTime'               => 'CreateTime',
         'healthCheckConfig'        => 'HealthCheckConfig',
         'ipv6Enabled'              => 'Ipv6Enabled',
@@ -210,6 +223,7 @@ class serverGroups extends Model
         'serverGroupStatus'        => 'ServerGroupStatus',
         'serverGroupType'          => 'ServerGroupType',
         'serviceName'              => 'ServiceName',
+        'slowStartConfig'          => 'SlowStartConfig',
         'stickySessionConfig'      => 'StickySessionConfig',
         'tags'                     => 'Tags',
         'uchConfig'                => 'UchConfig',
@@ -226,6 +240,9 @@ class serverGroups extends Model
         $res = [];
         if (null !== $this->configManagedEnabled) {
             $res['ConfigManagedEnabled'] = $this->configManagedEnabled;
+        }
+        if (null !== $this->connectionDrainConfig) {
+            $res['ConnectionDrainConfig'] = null !== $this->connectionDrainConfig ? $this->connectionDrainConfig->toMap() : null;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -266,6 +283,9 @@ class serverGroups extends Model
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+        if (null !== $this->slowStartConfig) {
+            $res['SlowStartConfig'] = null !== $this->slowStartConfig ? $this->slowStartConfig->toMap() : null;
+        }
         if (null !== $this->stickySessionConfig) {
             $res['StickySessionConfig'] = null !== $this->stickySessionConfig ? $this->stickySessionConfig->toMap() : null;
         }
@@ -301,6 +321,9 @@ class serverGroups extends Model
         $model = new self();
         if (isset($map['ConfigManagedEnabled'])) {
             $model->configManagedEnabled = $map['ConfigManagedEnabled'];
+        }
+        if (isset($map['ConnectionDrainConfig'])) {
+            $model->connectionDrainConfig = connectionDrainConfig::fromMap($map['ConnectionDrainConfig']);
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -342,6 +365,9 @@ class serverGroups extends Model
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['SlowStartConfig'])) {
+            $model->slowStartConfig = slowStartConfig::fromMap($map['SlowStartConfig']);
         }
         if (isset($map['StickySessionConfig'])) {
             $model->stickySessionConfig = stickySessionConfig::fromMap($map['StickySessionConfig']);

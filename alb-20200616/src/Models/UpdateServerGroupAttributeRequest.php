@@ -4,7 +4,9 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest\connectionDrainConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest\healthCheckConfig;
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest\slowStartConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest\stickySessionConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest\uchConfig;
 use AlibabaCloud\Tea\Model;
@@ -20,6 +22,11 @@ class UpdateServerGroupAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var connectionDrainConfig
+     */
+    public $connectionDrainConfig;
 
     /**
      * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
@@ -82,6 +89,11 @@ class UpdateServerGroupAttributeRequest extends Model
     public $serviceName;
 
     /**
+     * @var slowStartConfig
+     */
+    public $slowStartConfig;
+
+    /**
      * @description The configuration of session persistence.
      *
      * @var stickySessionConfig
@@ -103,12 +115,14 @@ class UpdateServerGroupAttributeRequest extends Model
     public $upstreamKeepaliveEnabled;
     protected $_name = [
         'clientToken'              => 'ClientToken',
+        'connectionDrainConfig'    => 'ConnectionDrainConfig',
         'dryRun'                   => 'DryRun',
         'healthCheckConfig'        => 'HealthCheckConfig',
         'scheduler'                => 'Scheduler',
         'serverGroupId'            => 'ServerGroupId',
         'serverGroupName'          => 'ServerGroupName',
         'serviceName'              => 'ServiceName',
+        'slowStartConfig'          => 'SlowStartConfig',
         'stickySessionConfig'      => 'StickySessionConfig',
         'uchConfig'                => 'UchConfig',
         'upstreamKeepaliveEnabled' => 'UpstreamKeepaliveEnabled',
@@ -123,6 +137,9 @@ class UpdateServerGroupAttributeRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->connectionDrainConfig) {
+            $res['ConnectionDrainConfig'] = null !== $this->connectionDrainConfig ? $this->connectionDrainConfig->toMap() : null;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
@@ -141,6 +158,9 @@ class UpdateServerGroupAttributeRequest extends Model
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->slowStartConfig) {
+            $res['SlowStartConfig'] = null !== $this->slowStartConfig ? $this->slowStartConfig->toMap() : null;
         }
         if (null !== $this->stickySessionConfig) {
             $res['StickySessionConfig'] = null !== $this->stickySessionConfig ? $this->stickySessionConfig->toMap() : null;
@@ -166,6 +186,9 @@ class UpdateServerGroupAttributeRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['ConnectionDrainConfig'])) {
+            $model->connectionDrainConfig = connectionDrainConfig::fromMap($map['ConnectionDrainConfig']);
+        }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
@@ -183,6 +206,9 @@ class UpdateServerGroupAttributeRequest extends Model
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['SlowStartConfig'])) {
+            $model->slowStartConfig = slowStartConfig::fromMap($map['SlowStartConfig']);
         }
         if (isset($map['StickySessionConfig'])) {
             $model->stickySessionConfig = stickySessionConfig::fromMap($map['StickySessionConfig']);

@@ -1285,6 +1285,9 @@ class Alb extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->connectionDrainConfig)) {
+            $query['ConnectionDrainConfig'] = $request->connectionDrainConfig;
+        }
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;
         }
@@ -1308,6 +1311,9 @@ class Alb extends OpenApiClient
         }
         if (!Utils::isUnset($request->serviceName)) {
             $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->slowStartConfig)) {
+            $query['SlowStartConfig'] = $request->slowStartConfig;
         }
         if (!Utils::isUnset($request->stickySessionConfig)) {
             $query['StickySessionConfig'] = $request->stickySessionConfig;
@@ -5003,6 +5009,9 @@ class Alb extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->connectionDrainConfig)) {
+            $query['ConnectionDrainConfig'] = $request->connectionDrainConfig;
+        }
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;
         }
@@ -5020,6 +5029,9 @@ class Alb extends OpenApiClient
         }
         if (!Utils::isUnset($request->serviceName)) {
             $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->slowStartConfig)) {
+            $query['SlowStartConfig'] = $request->slowStartConfig;
         }
         if (!Utils::isUnset($request->stickySessionConfig)) {
             $query['StickySessionConfig'] = $request->stickySessionConfig;
