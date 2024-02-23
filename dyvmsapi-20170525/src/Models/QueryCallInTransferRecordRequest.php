@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class QueryCallInTransferRecordRequest extends Model
 {
     /**
+     * @description The calling number of the inbound call.
+     *
+     * @example 150****0000
+     *
      * @var string
      */
     public $callInCaller;
@@ -19,21 +23,38 @@ class QueryCallInTransferRecordRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The phone number to which a call is transferred.
+     *
+     * @example 400****
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @description The time at which call transfer records are queried, in the YYYY-MM-DD hh:mm:ss format.
+     *
+     * > The query result is all the call transfer records of the specified day.
+     * @example 2021-06-28 00:00:00
+     *
      * @var string
      */
     public $queryDate;

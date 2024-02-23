@@ -14,11 +14,19 @@ class QueryRobotTaskListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -34,16 +42,39 @@ class QueryRobotTaskListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The task state. Valid values:
+     *
+     *   **INIT**: The task is not started.
+     *   **READY**: The task is ready to start.
+     *   **DISPATCH**: The task is being parsed.
+     *   **EXCUTING**: The task is being executed.
+     *   **MANUAL_STOP**: The task is manually suspended.
+     *   **SYSTEM_STOP**: The task is suspended by the system.
+     *   **ARREARS_STOP**: The task is suspended due to overdue payments.
+     *   **CANCEL**: The task is manually canceled.
+     *   **SYSTEM_CANCEL**: The task is canceled by the system.
+     *   **FINISH**: The task is complete.
+     *
+     * @example EXCUTING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The task name.
+     *
+     * @example Test Template
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The date when the task is created, in the yyyy-MM-dd format.
+     *
+     * @example 2019-06-14
+     *
      * @var string
      */
     public $time;

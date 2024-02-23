@@ -9,36 +9,73 @@ use AlibabaCloud\Tea\Model;
 class QueryRobotTaskCallListRequest extends Model
 {
     /**
+     * @description The call result. Valid values:
+     *
+     *   **200002**: The line is busy.
+     *   **200005**: The called party cannot be connected.
+     *   **200010**: The phone of the called party is powered off.
+     *   **200011**: The called party is out of service.
+     *   **200012**: The call is lost.
+     *
+     * @example 200002
+     *
      * @var string
      */
     public $callResult;
 
     /**
+     * @description The called number.
+     *
+     * @example 1300****0000
+     *
      * @var string
      */
     public $called;
 
     /**
+     * @description The minimum number of conversation rounds in the call.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $dialogCountFrom;
 
     /**
+     * @description The maximum number of conversation rounds in the call.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $dialogCountTo;
 
     /**
+     * @description The minimum call duration.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $durationFrom;
 
     /**
+     * @description The maximum call duration.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $durationTo;
 
     /**
+     * @description The party who hangs up. Valid values:
+     *
+     *   **0**: the called party.
+     *   **1**: the robot.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hangupDirection;
@@ -49,11 +86,19 @@ class QueryRobotTaskCallListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -69,6 +114,10 @@ class QueryRobotTaskCallListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The unique ID of the robocall task. You can call the [CreateRobotTask](~~393531~~) operation to obtain the task ID.
+     *
+     * @example 1045001****
+     *
      * @var string
      */
     public $taskId;

@@ -10,31 +10,61 @@ use AlibabaCloud\Tea\Model;
 class IvrCallRequest extends Model
 {
     /**
+     * @description The end voice.
+     *
+     *   If you use a voice notification file, this parameter specifies the voice ID. You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), choose **Voice Messages** > **Voice Notifications**, and then click the **Voice Notification Files** tab to view the voice ID.
+     *   If you use a TTS template, this parameter specifies the template ID. You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), choose **Voice Messages** > **Voice Notifications**, and then click the **TTS Template** tab to view the template ID.
+     *
+     * > The value of the ByeCode parameter must be of the same type as the value of the StartCode parameter. This means that both parameters must specify voice IDs or TTS template IDs.
+     * @example TTS_1234****
+     *
      * @var string
      */
     public $byeCode;
 
     /**
+     * @description The variables in the TTS template, in the JSON format.
+     *
+     * > This parameter is required when the ByeCode parameter is set to the ID of a TTS template that contains variables.
+     * @example {"name":"xxx","code":"123"}
+     *
      * @var string
      */
     public $byeTtsParams;
 
     /**
+     * @description The called number.
+     *
+     * Only phone numbers in the Chinese mainland are supported. Each request supports only one called number.
+     * @example 1590****000
+     *
      * @var string
      */
     public $calledNumber;
 
     /**
+     * @description The calling number.
+     *
+     * The value must be a number you purchased. Each request supports only one calling number. In most cases, a calling number is configured with the maximum number of concurrent requests. New requests fail if the maximum number of concurrent requests is reached. You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home) and choose **Real Number Service > Real Number Management** to view the number you purchased.
+     * @example 0571****5678
+     *
      * @var string
      */
     public $calledShowNumber;
 
     /**
+     * @description The information about the key pressed by the subscriber.
+     *
      * @var menuKeyMap[]
      */
     public $menuKeyMap;
 
     /**
+     * @description The ID that is reserved for the caller of the operation. This ID is returned to the caller in a receipt message.
+     *
+     * The value is of the STRING type and must be 1 to 15 bytes in length.
+     * @example PR0210428****
+     *
      * @var string
      */
     public $outId;
@@ -45,6 +75,10 @@ class IvrCallRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of replay times. Valid values: 1 to 3.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $playTimes;
@@ -60,16 +94,32 @@ class IvrCallRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The voice that is played when the call begins.
+     *
+     *   If you use a voice notification file, this parameter specifies the voice ID. You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), choose **Voice Messages** > Voice Notifications, and then click the **Voice Notification Files** tab to view the voice ID.
+     *   If you use a text-to-speech (TTS) template, this parameter specifies the template ID. You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), choose **Voice Messages** > **Voice Notifications**, and then click the **TTS Template** tab to view the template ID.
+     *
+     * @example TTS_1234****
+     *
      * @var string
      */
     public $startCode;
 
     /**
+     * @description The variables in the TTS template, in the JSON format.
+     *
+     * > This parameter is required when the StartCode parameter is set to the ID of a TTS template that contains variables.
+     * @example {"name":"xxx","code":"123"}
+     *
      * @var string
      */
     public $startTtsParams;
 
     /**
+     * @description The timeout period for the subscriber to press a key. Unit: milliseconds.
+     *
+     * @example 3000
+     *
      * @var int
      */
     public $timeout;

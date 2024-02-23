@@ -9,21 +9,47 @@ use AlibabaCloud\Tea\Model;
 class CreateCallTaskRequest extends Model
 {
     /**
+     * @description The type of the task template. Valid values:
+     *
+     *   **VMS_VOICE_TTS**: the text-to-speech (TTS) notification template.
+     *   **VMS_VOICE_CODE**: the voice notification template.
+     *   **VMS_TTS**: the voice verification code template.
+     *
+     * @example VMS_VOICE_TTS
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @description The called numbers.
+     *
+     *   If you set DataType to LIST, the value of Data is in the LIST format.
+     *   If you set DataType to JSON, the value of Data is in the JSON format.
+     *
+     * @example { "paramNames":["name1","name2","key3"], "calleeList":[ { "callee":"131222222", "params":["zangsan","zhangsan01","zhangsan02"] }, { "callee":"131222222", "params":["zangsan","zhangsan01","zhangsan02"] }, ] }
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The type of called numbers. Valid values:
+     *
+     *   **LIST**: the called numbers that are separated by commas (,).
+     *   **JSON**: a JSON-formatted list of called numbers with template parameters.
+     *
+     * @example JSON
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @description This parameter is unavailable.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $fireTime;
@@ -34,6 +60,10 @@ class CreateCallTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The calling number. Only virtual numbers are supported.
+     *
+     * @example 05516214****
+     *
      * @var string
      */
     public $resource;
@@ -49,31 +79,55 @@ class CreateCallTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the calling number. Set the value to **LIST**.
+     *
+     * @example LIST
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description This parameter is unavailable.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $scheduleType;
 
     /**
+     * @description This parameter is unavailable.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $stopTime;
 
     /**
+     * @description The task name.
+     *
+     * @example Aliyun
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The template ID.
+     *
+     * @example TTS_2122****
+     *
      * @var string
      */
     public $templateCode;
 
     /**
+     * @description The template name.
+     *
+     * @example Test Template
+     *
      * @var string
      */
     public $templateName;

@@ -6,8 +6,6 @@ namespace AlibabaCloud\SDK\Dyvmsapi\V20170525;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddRtcAccountRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddRtcAccountResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddVirtualNumberRelationRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddVirtualNumberRelationResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\BatchRobotSmartCallRequest;
@@ -24,14 +22,8 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DeleteRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DeleteRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetCallInfoRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetCallInfoResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetHotlineQualificationByOrderRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetHotlineQualificationByOrderResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetMqttTokenRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetMqttTokenResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetRtcTokenRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetRtcTokenResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetTokenRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetTokenResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\IvrCallRequest;
@@ -72,8 +64,6 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoiceFileAuditInfoRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoiceFileAuditInfoResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RecoverCallInConfigRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RecoverCallInConfigResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RefreshMqttTokenRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RefreshMqttTokenResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SendVerificationRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SendVerificationResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SetTransferCalleePoolConfigRequest;
@@ -136,62 +126,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param AddRtcAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 200 times per second per account.
+     *   *
+     * @param AddVirtualNumberRelationRequest $request AddVirtualNumberRelationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddRtcAccountResponse
-     */
-    public function addRtcAccountWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddRtcAccount',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddRtcAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AddRtcAccountRequest $request
-     *
-     * @return AddRtcAccountResponse
-     */
-    public function addRtcAccount($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addRtcAccountWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddVirtualNumberRelationRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return AddVirtualNumberRelationResponse
+     * @return AddVirtualNumberRelationResponse AddVirtualNumberRelationResponse
      */
     public function addVirtualNumberRelationWithOptions($request, $runtime)
     {
@@ -240,9 +181,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param AddVirtualNumberRelationRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 200 times per second per account.
+     *   *
+     * @param AddVirtualNumberRelationRequest $request AddVirtualNumberRelationRequest
      *
-     * @return AddVirtualNumberRelationResponse
+     * @return AddVirtualNumberRelationResponse AddVirtualNumberRelationResponse
      */
     public function addVirtualNumberRelation($request)
     {
@@ -252,10 +196,18 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param BatchRobotSmartCallRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+     *   * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
+     *   * ## Prerequisites
+     *   * *   You have passed the real-name verification for an enterprise user and passed the enterprise qualification review.
+     *   * *   You have purchased numbers in the [Voice Messaging Service console](https://dyvms.console.aliyun.com/dyvms.htm#/number/normal).
+     *   * *   You have added communication scripts on the [Communication script management](https://dyvms.console.aliyun.com/dyvms.htm#/smart-call/saas/robot/list) page, and the communication scripts have been approved.
+     *   * > Before you call this operation, make sure that you are familiar with the [billing](https://www.aliyun.com/price/product#/vms/detail) of Voice Messaging Service (VMS).
+     *   *
+     * @param BatchRobotSmartCallRequest $request BatchRobotSmartCallRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchRobotSmartCallResponse
+     * @return BatchRobotSmartCallResponse BatchRobotSmartCallResponse
      */
     public function batchRobotSmartCallWithOptions($request, $runtime)
     {
@@ -322,9 +274,17 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param BatchRobotSmartCallRequest $request
+     * *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+     *   * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
+     *   * ## Prerequisites
+     *   * *   You have passed the real-name verification for an enterprise user and passed the enterprise qualification review.
+     *   * *   You have purchased numbers in the [Voice Messaging Service console](https://dyvms.console.aliyun.com/dyvms.htm#/number/normal).
+     *   * *   You have added communication scripts on the [Communication script management](https://dyvms.console.aliyun.com/dyvms.htm#/smart-call/saas/robot/list) page, and the communication scripts have been approved.
+     *   * > Before you call this operation, make sure that you are familiar with the [billing](https://www.aliyun.com/price/product#/vms/detail) of Voice Messaging Service (VMS).
+     *   *
+     * @param BatchRobotSmartCallRequest $request BatchRobotSmartCallRequest
      *
-     * @return BatchRobotSmartCallResponse
+     * @return BatchRobotSmartCallResponse BatchRobotSmartCallResponse
      */
     public function batchRobotSmartCall($request)
     {
@@ -334,10 +294,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param CancelOrderRobotTaskRequest $request
-     * @param RuntimeOptions              $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param CancelOrderRobotTaskRequest $request CancelOrderRobotTaskRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelOrderRobotTaskResponse
+     * @return CancelOrderRobotTaskResponse CancelOrderRobotTaskResponse
      */
     public function cancelOrderRobotTaskWithOptions($request, $runtime)
     {
@@ -374,9 +337,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param CancelOrderRobotTaskRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param CancelOrderRobotTaskRequest $request CancelOrderRobotTaskRequest
      *
-     * @return CancelOrderRobotTaskResponse
+     * @return CancelOrderRobotTaskResponse CancelOrderRobotTaskResponse
      */
     public function cancelOrderRobotTask($request)
     {
@@ -386,10 +352,14 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param CancelRobotTaskRequest $request
-     * @param RuntimeOptions         $runtime
+     * Only a task in progress can be terminated by calling the CancelRobotTask operation, and the task cannot be resumed after it is terminated.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param CancelRobotTaskRequest $request CancelRobotTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelRobotTaskResponse
+     * @return CancelRobotTaskResponse CancelRobotTaskResponse
      */
     public function cancelRobotTaskWithOptions($request, $runtime)
     {
@@ -426,9 +396,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param CancelRobotTaskRequest $request
+     * Only a task in progress can be terminated by calling the CancelRobotTask operation, and the task cannot be resumed after it is terminated.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param CancelRobotTaskRequest $request CancelRobotTaskRequest
      *
-     * @return CancelRobotTaskResponse
+     * @return CancelRobotTaskResponse CancelRobotTaskResponse
      */
     public function cancelRobotTask($request)
     {
@@ -438,10 +412,14 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateCallTaskRequest $request
-     * @param RuntimeOptions        $runtime
+     * You can create up to 1,000 voice notifications for each task.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param CreateCallTaskRequest $request CreateCallTaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCallTaskResponse
+     * @return CreateCallTaskResponse CreateCallTaskResponse
      */
     public function createCallTaskWithOptions($request, $runtime)
     {
@@ -508,9 +486,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateCallTaskRequest $request
+     * You can create up to 1,000 voice notifications for each task.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param CreateCallTaskRequest $request CreateCallTaskRequest
      *
-     * @return CreateCallTaskResponse
+     * @return CreateCallTaskResponse CreateCallTaskResponse
      */
     public function createCallTask($request)
     {
@@ -520,10 +502,14 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateRobotTaskRequest $request
-     * @param RuntimeOptions         $runtime
+     * You can call this operation to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console. In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param CreateRobotTaskRequest $request CreateRobotTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRobotTaskResponse
+     * @return CreateRobotTaskResponse CreateRobotTaskResponse
      */
     public function createRobotTaskWithOptions($request, $runtime)
     {
@@ -587,9 +573,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateRobotTaskRequest $request
+     * You can call this operation to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console. In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param CreateRobotTaskRequest $request CreateRobotTaskRequest
      *
-     * @return CreateRobotTaskResponse
+     * @return CreateRobotTaskResponse CreateRobotTaskResponse
      */
     public function createRobotTask($request)
     {
@@ -599,10 +589,14 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteRobotTaskRequest $request
-     * @param RuntimeOptions         $runtime
+     * You can call this operation to delete only tasks that are not started, that are completed, and that are terminated.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param DeleteRobotTaskRequest $request DeleteRobotTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRobotTaskResponse
+     * @return DeleteRobotTaskResponse DeleteRobotTaskResponse
      */
     public function deleteRobotTaskWithOptions($request, $runtime)
     {
@@ -639,9 +633,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteRobotTaskRequest $request
+     * You can call this operation to delete only tasks that are not started, that are completed, and that are terminated.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param DeleteRobotTaskRequest $request DeleteRobotTaskRequest
      *
-     * @return DeleteRobotTaskResponse
+     * @return DeleteRobotTaskResponse DeleteRobotTaskResponse
      */
     public function deleteRobotTask($request)
     {
@@ -651,10 +649,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ExecuteCallTaskRequest $request
-     * @param RuntimeOptions         $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param ExecuteCallTaskRequest $request ExecuteCallTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExecuteCallTaskResponse
+     * @return ExecuteCallTaskResponse ExecuteCallTaskResponse
      */
     public function executeCallTaskWithOptions($request, $runtime)
     {
@@ -697,9 +698,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ExecuteCallTaskRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param ExecuteCallTaskRequest $request ExecuteCallTaskRequest
      *
-     * @return ExecuteCallTaskResponse
+     * @return ExecuteCallTaskResponse ExecuteCallTaskResponse
      */
     public function executeCallTask($request)
     {
@@ -709,62 +713,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetCallInfoRequest $request
-     * @param RuntimeOptions     $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param GetHotlineQualificationByOrderRequest $request GetHotlineQualificationByOrderRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCallInfoResponse
-     */
-    public function getCallInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->rtcId)) {
-            $query['RtcId'] = $request->rtcId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetCallInfo',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetCallInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetCallInfoRequest $request
-     *
-     * @return GetCallInfoResponse
-     */
-    public function getCallInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getCallInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetHotlineQualificationByOrderRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return GetHotlineQualificationByOrderResponse
+     * @return GetHotlineQualificationByOrderResponse GetHotlineQualificationByOrderResponse
      */
     public function getHotlineQualificationByOrderWithOptions($request, $runtime)
     {
@@ -801,9 +756,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetHotlineQualificationByOrderRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param GetHotlineQualificationByOrderRequest $request GetHotlineQualificationByOrderRequest
      *
-     * @return GetHotlineQualificationByOrderResponse
+     * @return GetHotlineQualificationByOrderResponse GetHotlineQualificationByOrderResponse
      */
     public function getHotlineQualificationByOrder($request)
     {
@@ -813,117 +771,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetMqttTokenRequest $request
-     * @param RuntimeOptions      $runtime
+     * ### QPS limits
+     *   * You can call this operation up to five times per second per account.
+     *   *
+     * @param GetTokenRequest $request GetTokenRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMqttTokenResponse
-     */
-    public function getMqttTokenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetMqttToken',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetMqttTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetMqttTokenRequest $request
-     *
-     * @return GetMqttTokenResponse
-     */
-    public function getMqttToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMqttTokenWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetRtcTokenRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetRtcTokenResponse
-     */
-    public function getRtcTokenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
-        }
-        if (!Utils::isUnset($request->isCustomAccount)) {
-            $query['IsCustomAccount'] = $request->isCustomAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetRtcToken',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetRtcTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetRtcTokenRequest $request
-     *
-     * @return GetRtcTokenResponse
-     */
-    public function getRtcToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getRtcTokenWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetTokenRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return GetTokenResponse
+     * @return GetTokenResponse GetTokenResponse
      */
     public function getTokenWithOptions($request, $runtime)
     {
@@ -960,9 +814,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param GetTokenRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to five times per second per account.
+     *   *
+     * @param GetTokenRequest $request GetTokenRequest
      *
-     * @return GetTokenResponse
+     * @return GetTokenResponse GetTokenResponse
      */
     public function getToken($request)
     {
@@ -972,10 +829,16 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param IvrCallRequest $request
-     * @param RuntimeOptions $runtime
+     * *   Your enterprise qualification is approved. For more information, see [Submit enterprise qualifications](~~149795~~).
+     *   * *   Voice numbers are purchased. For more information, see [Purchase numbers](~~149794~~).
+     *   * *   When the subscriber answers the call, the subscriber hears a voice that instructs the subscriber to press a key as needed. If the [message receipt](~~112503~~) feature is enabled, the Voice Messaging Service (VMS) platform returns the information about the key pressed by the subscriber to the business system. The key information includes the order confirmation, questionnaire survey, and satisfaction survey completed by the subscriber.
+     *   * ## QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param IvrCallRequest $request IvrCallRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return IvrCallResponse
+     * @return IvrCallResponse IvrCallResponse
      */
     public function ivrCallWithOptions($request, $runtime)
     {
@@ -1039,9 +902,15 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param IvrCallRequest $request
+     * *   Your enterprise qualification is approved. For more information, see [Submit enterprise qualifications](~~149795~~).
+     *   * *   Voice numbers are purchased. For more information, see [Purchase numbers](~~149794~~).
+     *   * *   When the subscriber answers the call, the subscriber hears a voice that instructs the subscriber to press a key as needed. If the [message receipt](~~112503~~) feature is enabled, the Voice Messaging Service (VMS) platform returns the information about the key pressed by the subscriber to the business system. The key information includes the order confirmation, questionnaire survey, and satisfaction survey completed by the subscriber.
+     *   * ## QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param IvrCallRequest $request IvrCallRequest
      *
-     * @return IvrCallResponse
+     * @return IvrCallResponse IvrCallResponse
      */
     public function ivrCall($request)
     {
@@ -1051,10 +920,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ListCallTaskRequest $request
-     * @param RuntimeOptions      $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param ListCallTaskRequest $request ListCallTaskRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCallTaskResponse
+     * @return ListCallTaskResponse ListCallTaskResponse
      */
     public function listCallTaskWithOptions($request, $runtime)
     {
@@ -1109,9 +981,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ListCallTaskRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param ListCallTaskRequest $request ListCallTaskRequest
      *
-     * @return ListCallTaskResponse
+     * @return ListCallTaskResponse ListCallTaskResponse
      */
     public function listCallTask($request)
     {
@@ -1121,10 +996,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ListCallTaskDetailRequest $request
-     * @param RuntimeOptions            $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param ListCallTaskDetailRequest $request ListCallTaskDetailRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCallTaskDetailResponse
+     * @return ListCallTaskDetailResponse ListCallTaskDetailResponse
      */
     public function listCallTaskDetailWithOptions($request, $runtime)
     {
@@ -1173,9 +1051,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ListCallTaskDetailRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param ListCallTaskDetailRequest $request ListCallTaskDetailRequest
      *
-     * @return ListCallTaskDetailResponse
+     * @return ListCallTaskDetailResponse ListCallTaskDetailResponse
      */
     public function listCallTaskDetail($request)
     {
@@ -1185,10 +1066,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ListHotlineTransferNumberRequest $request
-     * @param RuntimeOptions                   $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param ListHotlineTransferNumberRequest $request ListHotlineTransferNumberRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHotlineTransferNumberResponse
+     * @return ListHotlineTransferNumberResponse ListHotlineTransferNumberResponse
      */
     public function listHotlineTransferNumberWithOptions($request, $runtime)
     {
@@ -1234,9 +1118,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ListHotlineTransferNumberRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param ListHotlineTransferNumberRequest $request ListHotlineTransferNumberRequest
      *
-     * @return ListHotlineTransferNumberResponse
+     * @return ListHotlineTransferNumberResponse ListHotlineTransferNumberResponse
      */
     public function listHotlineTransferNumber($request)
     {
@@ -1246,10 +1133,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ListHotlineTransferRegisterFileRequest $request
-     * @param RuntimeOptions                         $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param ListHotlineTransferRegisterFileRequest $request ListHotlineTransferRegisterFileRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHotlineTransferRegisterFileResponse
+     * @return ListHotlineTransferRegisterFileResponse ListHotlineTransferRegisterFileResponse
      */
     public function listHotlineTransferRegisterFileWithOptions($request, $runtime)
     {
@@ -1295,9 +1185,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ListHotlineTransferRegisterFileRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param ListHotlineTransferRegisterFileRequest $request ListHotlineTransferRegisterFileRequest
      *
-     * @return ListHotlineTransferRegisterFileResponse
+     * @return ListHotlineTransferRegisterFileResponse ListHotlineTransferRegisterFileResponse
      */
     public function listHotlineTransferRegisterFile($request)
     {
@@ -1307,10 +1200,14 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryCallDetailByCallIdRequest $request
-     * @param RuntimeOptions                 $runtime
+     * QueryCallDetailByCallId is a common query operation. You can call this operation to query the details of a voice notification, voice verification code, interactive voice response (IVR), intelligent inbound voice call, intelligent outbound voice call, or intelligent robocall.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryCallDetailByCallIdRequest $request QueryCallDetailByCallIdRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCallDetailByCallIdResponse
+     * @return QueryCallDetailByCallIdResponse QueryCallDetailByCallIdResponse
      */
     public function queryCallDetailByCallIdWithOptions($request, $runtime)
     {
@@ -1353,9 +1250,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryCallDetailByCallIdRequest $request
+     * QueryCallDetailByCallId is a common query operation. You can call this operation to query the details of a voice notification, voice verification code, interactive voice response (IVR), intelligent inbound voice call, intelligent outbound voice call, or intelligent robocall.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryCallDetailByCallIdRequest $request QueryCallDetailByCallIdRequest
      *
-     * @return QueryCallDetailByCallIdResponse
+     * @return QueryCallDetailByCallIdResponse QueryCallDetailByCallIdResponse
      */
     public function queryCallDetailByCallId($request)
     {
@@ -1423,10 +1324,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryCallInPoolTransferConfigRequest $request
-     * @param RuntimeOptions                       $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryCallInPoolTransferConfigRequest $request QueryCallInPoolTransferConfigRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCallInPoolTransferConfigResponse
+     * @return QueryCallInPoolTransferConfigResponse QueryCallInPoolTransferConfigResponse
      */
     public function queryCallInPoolTransferConfigWithOptions($request, $runtime)
     {
@@ -1463,9 +1367,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryCallInPoolTransferConfigRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryCallInPoolTransferConfigRequest $request QueryCallInPoolTransferConfigRequest
      *
-     * @return QueryCallInPoolTransferConfigResponse
+     * @return QueryCallInPoolTransferConfigResponse QueryCallInPoolTransferConfigResponse
      */
     public function queryCallInPoolTransferConfig($request)
     {
@@ -1475,10 +1382,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryCallInTransferRecordRequest $request
-     * @param RuntimeOptions                   $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryCallInTransferRecordRequest $request QueryCallInTransferRecordRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCallInTransferRecordResponse
+     * @return QueryCallInTransferRecordResponse QueryCallInTransferRecordResponse
      */
     public function queryCallInTransferRecordWithOptions($request, $runtime)
     {
@@ -1527,9 +1437,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryCallInTransferRecordRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryCallInTransferRecordRequest $request QueryCallInTransferRecordRequest
      *
-     * @return QueryCallInTransferRecordResponse
+     * @return QueryCallInTransferRecordResponse QueryCallInTransferRecordResponse
      */
     public function queryCallInTransferRecord($request)
     {
@@ -1591,10 +1504,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRobotTaskCallDetailRequest $request
-     * @param RuntimeOptions                  $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryRobotTaskCallDetailRequest $request QueryRobotTaskCallDetailRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRobotTaskCallDetailResponse
+     * @return QueryRobotTaskCallDetailResponse QueryRobotTaskCallDetailResponse
      */
     public function queryRobotTaskCallDetailWithOptions($request, $runtime)
     {
@@ -1637,9 +1553,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRobotTaskCallDetailRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryRobotTaskCallDetailRequest $request QueryRobotTaskCallDetailRequest
      *
-     * @return QueryRobotTaskCallDetailResponse
+     * @return QueryRobotTaskCallDetailResponse QueryRobotTaskCallDetailResponse
      */
     public function queryRobotTaskCallDetail($request)
     {
@@ -1649,10 +1568,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRobotTaskCallListRequest $request
-     * @param RuntimeOptions                $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryRobotTaskCallListRequest $request QueryRobotTaskCallListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRobotTaskCallListResponse
+     * @return QueryRobotTaskCallListResponse QueryRobotTaskCallListResponse
      */
     public function queryRobotTaskCallListWithOptions($request, $runtime)
     {
@@ -1716,9 +1638,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRobotTaskCallListRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryRobotTaskCallListRequest $request QueryRobotTaskCallListRequest
      *
-     * @return QueryRobotTaskCallListResponse
+     * @return QueryRobotTaskCallListResponse QueryRobotTaskCallListResponse
      */
     public function queryRobotTaskCallList($request)
     {
@@ -1728,10 +1653,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRobotTaskDetailRequest $request
-     * @param RuntimeOptions              $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryRobotTaskDetailRequest $request QueryRobotTaskDetailRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRobotTaskDetailResponse
+     * @return QueryRobotTaskDetailResponse QueryRobotTaskDetailResponse
      */
     public function queryRobotTaskDetailWithOptions($request, $runtime)
     {
@@ -1768,9 +1696,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRobotTaskDetailRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryRobotTaskDetailRequest $request QueryRobotTaskDetailRequest
      *
-     * @return QueryRobotTaskDetailResponse
+     * @return QueryRobotTaskDetailResponse QueryRobotTaskDetailResponse
      */
     public function queryRobotTaskDetail($request)
     {
@@ -1780,10 +1711,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRobotTaskListRequest $request
-     * @param RuntimeOptions            $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryRobotTaskListRequest $request QueryRobotTaskListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRobotTaskListResponse
+     * @return QueryRobotTaskListResponse QueryRobotTaskListResponse
      */
     public function queryRobotTaskListWithOptions($request, $runtime)
     {
@@ -1832,9 +1766,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRobotTaskListRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryRobotTaskListRequest $request QueryRobotTaskListRequest
      *
-     * @return QueryRobotTaskListResponse
+     * @return QueryRobotTaskListResponse QueryRobotTaskListResponse
      */
     public function queryRobotTaskList($request)
     {
@@ -1844,10 +1781,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRobotv2AllListRequest $request
-     * @param RuntimeOptions             $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryRobotv2AllListRequest $request QueryRobotv2AllListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRobotv2AllListResponse
+     * @return QueryRobotv2AllListResponse QueryRobotv2AllListResponse
      */
     public function queryRobotv2AllListWithOptions($request, $runtime)
     {
@@ -1881,9 +1821,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRobotv2AllListRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryRobotv2AllListRequest $request QueryRobotv2AllListRequest
      *
-     * @return QueryRobotv2AllListResponse
+     * @return QueryRobotv2AllListResponse QueryRobotv2AllListResponse
      */
     public function queryRobotv2AllList($request)
     {
@@ -1893,10 +1836,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryVirtualNumberRequest $request
-     * @param RuntimeOptions            $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryVirtualNumberRequest $request QueryVirtualNumberRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryVirtualNumberResponse
+     * @return QueryVirtualNumberResponse QueryVirtualNumberResponse
      */
     public function queryVirtualNumberWithOptions($request, $runtime)
     {
@@ -1942,9 +1888,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryVirtualNumberRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param QueryVirtualNumberRequest $request QueryVirtualNumberRequest
      *
-     * @return QueryVirtualNumberResponse
+     * @return QueryVirtualNumberResponse QueryVirtualNumberResponse
      */
     public function queryVirtualNumber($request)
     {
@@ -1954,10 +1903,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryVirtualNumberRelationRequest $request
-     * @param RuntimeOptions                    $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 200 times per second per account.
+     *   *
+     * @param QueryVirtualNumberRelationRequest $request QueryVirtualNumberRelationRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryVirtualNumberRelationResponse
+     * @return QueryVirtualNumberRelationResponse QueryVirtualNumberRelationResponse
      */
     public function queryVirtualNumberRelationWithOptions($request, $runtime)
     {
@@ -2018,9 +1970,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryVirtualNumberRelationRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 200 times per second per account.
+     *   *
+     * @param QueryVirtualNumberRelationRequest $request QueryVirtualNumberRelationRequest
      *
-     * @return QueryVirtualNumberRelationResponse
+     * @return QueryVirtualNumberRelationResponse QueryVirtualNumberRelationResponse
      */
     public function queryVirtualNumberRelation($request)
     {
@@ -2137,62 +2092,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param RefreshMqttTokenRequest $request
-     * @param RuntimeOptions          $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param SendVerificationRequest $request SendVerificationRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshMqttTokenResponse
-     */
-    public function refreshMqttTokenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RefreshMqttToken',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RefreshMqttTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RefreshMqttTokenRequest $request
-     *
-     * @return RefreshMqttTokenResponse
-     */
-    public function refreshMqttToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->refreshMqttTokenWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SendVerificationRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SendVerificationResponse
+     * @return SendVerificationResponse SendVerificationResponse
      */
     public function sendVerificationWithOptions($request, $runtime)
     {
@@ -2235,9 +2141,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendVerificationRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param SendVerificationRequest $request SendVerificationRequest
      *
-     * @return SendVerificationResponse
+     * @return SendVerificationResponse SendVerificationResponse
      */
     public function sendVerification($request)
     {
@@ -2247,10 +2156,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SetTransferCalleePoolConfigRequest $request
-     * @param RuntimeOptions                     $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param SetTransferCalleePoolConfigRequest $request SetTransferCalleePoolConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetTransferCalleePoolConfigResponse
+     * @return SetTransferCalleePoolConfigResponse SetTransferCalleePoolConfigResponse
      */
     public function setTransferCalleePoolConfigWithOptions($request, $runtime)
     {
@@ -2296,9 +2208,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SetTransferCalleePoolConfigRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param SetTransferCalleePoolConfigRequest $request SetTransferCalleePoolConfigRequest
      *
-     * @return SetTransferCalleePoolConfigResponse
+     * @return SetTransferCalleePoolConfigResponse SetTransferCalleePoolConfigResponse
      */
     public function setTransferCalleePoolConfig($request)
     {
@@ -2308,10 +2223,15 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SingleCallByTtsRequest $request
-     * @param RuntimeOptions         $runtime
+     * *   Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+     *   * *   For more information about voice plans or voice service billing, see [Pricing of VMS on China site (aliyun.com)](~~150083~~).
+     *   * ### QPS limits
+     *   * You can call this operation up to 1,000 times per second per account.
+     *   *
+     * @param SingleCallByTtsRequest $request SingleCallByTtsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SingleCallByTtsResponse
+     * @return SingleCallByTtsResponse SingleCallByTtsResponse
      */
     public function singleCallByTtsWithOptions($request, $runtime)
     {
@@ -2369,9 +2289,14 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SingleCallByTtsRequest $request
+     * *   Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+     *   * *   For more information about voice plans or voice service billing, see [Pricing of VMS on China site (aliyun.com)](~~150083~~).
+     *   * ### QPS limits
+     *   * You can call this operation up to 1,000 times per second per account.
+     *   *
+     * @param SingleCallByTtsRequest $request SingleCallByTtsRequest
      *
-     * @return SingleCallByTtsResponse
+     * @return SingleCallByTtsResponse SingleCallByTtsResponse
      */
     public function singleCallByTts($request)
     {
@@ -2381,10 +2306,15 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SingleCallByVoiceRequest $request
-     * @param RuntimeOptions           $runtime
+     * > Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+     *   * You can call the [SingleCallByTts](~~393519~~) operation to send voice notifications with variables.
+     *   * ### QPS limits
+     *   * You can call this operation up to 1,200 times per second per account.
+     *   *
+     * @param SingleCallByVoiceRequest $request SingleCallByVoiceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SingleCallByVoiceResponse
+     * @return SingleCallByVoiceResponse SingleCallByVoiceResponse
      */
     public function singleCallByVoiceWithOptions($request, $runtime)
     {
@@ -2439,9 +2369,14 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SingleCallByVoiceRequest $request
+     * > Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+     *   * You can call the [SingleCallByTts](~~393519~~) operation to send voice notifications with variables.
+     *   * ### QPS limits
+     *   * You can call this operation up to 1,200 times per second per account.
+     *   *
+     * @param SingleCallByVoiceRequest $request SingleCallByVoiceRequest
      *
-     * @return SingleCallByVoiceResponse
+     * @return SingleCallByVoiceResponse SingleCallByVoiceResponse
      */
     public function singleCallByVoice($request)
     {
@@ -2451,10 +2386,15 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SmartCallRequest $request
-     * @param RuntimeOptions   $runtime
+     * *   The SmartCall operation must be used together with the [intelligent outbound HTTP operation](~~112703~~). After the call initiated by the Voice Messaging Service (VMS) platform is connected, the VMS platform sends the text converted from speech back to the business side, and the business side then returns the follow-up action to the VMS platform.
+     *   * *   The SmartCall operation does not support the following characters: `@ = : "" $ { } ^ * ￥`.
+     *   * ### QPS limits
+     *   * You can call this operation up to 1,000 times per second per account.
+     *   *
+     * @param SmartCallRequest $request SmartCallRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SmartCallResponse
+     * @return SmartCallResponse SmartCallResponse
      */
     public function smartCallWithOptions($request, $runtime)
     {
@@ -2566,9 +2506,14 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SmartCallRequest $request
+     * *   The SmartCall operation must be used together with the [intelligent outbound HTTP operation](~~112703~~). After the call initiated by the Voice Messaging Service (VMS) platform is connected, the VMS platform sends the text converted from speech back to the business side, and the business side then returns the follow-up action to the VMS platform.
+     *   * *   The SmartCall operation does not support the following characters: `@ = : "" $ { } ^ * ￥`.
+     *   * ### QPS limits
+     *   * You can call this operation up to 1,000 times per second per account.
+     *   *
+     * @param SmartCallRequest $request SmartCallRequest
      *
-     * @return SmartCallResponse
+     * @return SmartCallResponse SmartCallResponse
      */
     public function smartCall($request)
     {
@@ -2578,10 +2523,15 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SmartCallOperateRequest $request
-     * @param RuntimeOptions          $runtime
+     * You can call this operation to initiate a specified action on the called number of an outbound robocall when the call is transferred to an agent of the call center.
+     *   * > You can only initiate the action of bridging a called number and an agent of the call center.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param SmartCallOperateRequest $request SmartCallOperateRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SmartCallOperateResponse
+     * @return SmartCallOperateResponse SmartCallOperateResponse
      */
     public function smartCallOperateWithOptions($request, $runtime)
     {
@@ -2624,9 +2574,14 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SmartCallOperateRequest $request
+     * You can call this operation to initiate a specified action on the called number of an outbound robocall when the call is transferred to an agent of the call center.
+     *   * > You can only initiate the action of bridging a called number and an agent of the call center.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param SmartCallOperateRequest $request SmartCallOperateRequest
      *
-     * @return SmartCallOperateResponse
+     * @return SmartCallOperateResponse SmartCallOperateResponse
      */
     public function smartCallOperate($request)
     {
@@ -2636,10 +2591,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param StartRobotTaskRequest $request
-     * @param RuntimeOptions        $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param StartRobotTaskRequest $request StartRobotTaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartRobotTaskResponse
+     * @return StartRobotTaskResponse StartRobotTaskResponse
      */
     public function startRobotTaskWithOptions($request, $runtime)
     {
@@ -2679,9 +2637,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param StartRobotTaskRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param StartRobotTaskRequest $request StartRobotTaskRequest
      *
-     * @return StartRobotTaskResponse
+     * @return StartRobotTaskResponse StartRobotTaskResponse
      */
     public function startRobotTask($request)
     {
@@ -2743,10 +2704,14 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param StopRobotTaskRequest $request
-     * @param RuntimeOptions       $runtime
+     * After you stop a robocall task, you can call the [StartRobotTask](~~StartRobotTask~~) operation to start it again.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param StopRobotTaskRequest $request StopRobotTaskRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopRobotTaskResponse
+     * @return StopRobotTaskResponse StopRobotTaskResponse
      */
     public function stopRobotTaskWithOptions($request, $runtime)
     {
@@ -2783,9 +2748,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param StopRobotTaskRequest $request
+     * After you stop a robocall task, you can call the [StartRobotTask](~~StartRobotTask~~) operation to start it again.
+     *   * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param StopRobotTaskRequest $request StopRobotTaskRequest
      *
-     * @return StopRobotTaskResponse
+     * @return StopRobotTaskResponse StopRobotTaskResponse
      */
     public function stopRobotTask($request)
     {
@@ -2795,10 +2764,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitHotlineTransferRegisterRequest $request
-     * @param RuntimeOptions                       $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param SubmitHotlineTransferRegisterRequest $request SubmitHotlineTransferRegisterRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitHotlineTransferRegisterResponse
+     * @return SubmitHotlineTransferRegisterResponse SubmitHotlineTransferRegisterResponse
      */
     public function submitHotlineTransferRegisterWithOptions($request, $runtime)
     {
@@ -2862,9 +2834,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param SubmitHotlineTransferRegisterRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param SubmitHotlineTransferRegisterRequest $request SubmitHotlineTransferRegisterRequest
      *
-     * @return SubmitHotlineTransferRegisterResponse
+     * @return SubmitHotlineTransferRegisterResponse SubmitHotlineTransferRegisterResponse
      */
     public function submitHotlineTransferRegister($request)
     {
@@ -2874,10 +2849,13 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param UploadRobotTaskCalledFileRequest $request
-     * @param RuntimeOptions                   $runtime
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param UploadRobotTaskCalledFileRequest $request UploadRobotTaskCalledFileRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadRobotTaskCalledFileResponse
+     * @return UploadRobotTaskCalledFileResponse UploadRobotTaskCalledFileResponse
      */
     public function uploadRobotTaskCalledFileWithOptions($request, $runtime)
     {
@@ -2923,9 +2901,12 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param UploadRobotTaskCalledFileRequest $request
+     * ### QPS limits
+     *   * You can call this operation up to 100 times per second per account.
+     *   *
+     * @param UploadRobotTaskCalledFileRequest $request UploadRobotTaskCalledFileRequest
      *
-     * @return UploadRobotTaskCalledFileResponse
+     * @return UploadRobotTaskCalledFileResponse UploadRobotTaskCalledFileResponse
      */
     public function uploadRobotTaskCalledFile($request)
     {

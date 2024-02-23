@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class SetTransferCalleePoolConfigResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   For more information about other response codes, see [API error codes](~~112502~~).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the phone numbers for transferring the call were configured.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example E7518CE1-B0FF-4C6F-9252-BF80271B2F99
+     *
      * @var string
      */
     public $requestId;

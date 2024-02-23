@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class StartRobotTaskResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   For more information about other response codes, see [API error codes](~~112502~~).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+     *
      * @var string
      */
     public $requestId;

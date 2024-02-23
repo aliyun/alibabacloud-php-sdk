@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListCallTaskRequest extends Model
 {
     /**
+     * @description The type of the task template. Valid values:
+     *
+     *   **VMS_VOICE_TTS**: the text-to-speech (TTS) notification template.
+     *   **VMS_VOICE_CODE**: the voice notification template.
+     *   **VMS_TTS**: the voice verification code template.
+     *
+     * @example VMS_VOICE_CODE
+     *
      * @var string
      */
     public $bizType;
@@ -19,11 +27,19 @@ class ListCallTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,21 +55,46 @@ class ListCallTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The task state. Valid values:
+     *
+     *   **INIT**: The task is in the initial state.
+     *   **RELEASE**: The task is being parsed.
+     *   **RUNNING**: The task is running.
+     *   **STOP**: The task is suspended.
+     *   **SYSTEM_STOP**: The task is suspended by the system.
+     *   **CANCEL**: The task is canceled.
+     *   **SYSTEM_CANCEL**: The task is canceled by the system.
+     *   **DONE**: The task is complete.
+     *
+     * @example DONE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The task ID.
+     *
+     * @example 151001****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The task name.
+     *
+     * @example Aliyun
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The template name.
+     *
+     * @example Test Template
+     *
      * @var string
      */
     public $templateName;

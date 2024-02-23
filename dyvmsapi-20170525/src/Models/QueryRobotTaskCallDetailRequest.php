@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class QueryRobotTaskCallDetailRequest extends Model
 {
     /**
+     * @description The called number.
+     *
+     * @example 130****0000
+     *
      * @var string
      */
     public $callee;
@@ -19,6 +23,10 @@ class QueryRobotTaskCallDetailRequest extends Model
     public $ownerId;
 
     /**
+     * @description The timestamp of the time at which the call details you want to query.
+     *
+     * @example 2020-10-21 08:23:21
+     *
      * @var int
      */
     public $queryDate;
@@ -34,6 +42,10 @@ class QueryRobotTaskCallDetailRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The unique ID of the robocall task. You can call the [CreateRobotTask](~~393531~~) operation to obtain the task ID.
+     *
+     * @example 1045001
+     *
      * @var int
      */
     public $taskId;

@@ -14,36 +14,65 @@ class QueryVirtualNumberRelationRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The virtual number.
+     *
+     * @example 05516214****
+     *
      * @var string
      */
     public $phoneNum;
 
     /**
+     * @description The service name. Default value: **dyvms**.
+     *
+     * @example dyvms
+     *
      * @var string
      */
     public $prodCode;
 
     /**
+     * @description The qualification ID.
+     *
+     * You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home), choose **Qualifications\&Communication Scripts > Qualification Management**, and then click **Details** in the Actions column to view the qualification ID.
+     * @example 1000000542****
+     *
      * @var int
      */
     public $qualificationId;
 
     /**
+     * @description The city to which the virtual number belongs.
+     *
+     * @example hangzhou
+     *
      * @var string
      */
     public $regionNameCity;
 
     /**
+     * @description The real number.
+     *
+     * @example 1705559****
+     *
      * @var string
      */
     public $relatedNum;
@@ -59,11 +88,25 @@ class QueryVirtualNumberRelationRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The route type. Valid values:
+     *
+     **0**: number location first. **1**: random.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $routeType;
 
     /**
+     * @description The number type. Valid values:
+     *
+     *   **1**: the number provided by a virtual network operator, in the 05710000\*\*\*\* format.
+     *   **2**: the number provided by an Internet service provider (ISP).
+     *   **3**: a 5-digit phone number that starts with 95.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $specId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class StopCallInConfigRequest extends Model
 {
     /**
+     * @description The China 400 number from which the inbound call to be stopped is transferred.
+     *
+     * @example 400***
+     *
      * @var string
      */
     public $number;

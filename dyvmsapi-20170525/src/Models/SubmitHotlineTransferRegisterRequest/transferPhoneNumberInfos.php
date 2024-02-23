@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class transferPhoneNumberInfos extends Model
 {
     /**
+     * @description The ID card number of the number owner.
+     *
+     * @example 500***
+     *
      * @var string
      */
     public $identityCard;
 
     /**
+     * @description The China 400 number that you want to submit for registration.
+     *
+     * @example 1580000****
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @description The real name or company name of the number owner.
+     *
+     * @example A***
+     *
      * @var string
      */
     public $phoneNumberOwnerName;

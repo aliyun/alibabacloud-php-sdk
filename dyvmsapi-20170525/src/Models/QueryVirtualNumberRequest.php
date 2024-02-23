@@ -14,16 +14,28 @@ class QueryVirtualNumberRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The service name. Default value: **dyvms**.
+     *
+     * @example dyvms
+     *
      * @var string
      */
     public $prodCode;
@@ -39,6 +51,13 @@ class QueryVirtualNumberRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The route type. Valid values:
+     *
+     *   **0**: number location first.
+     *   **1**: random.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $routeType;

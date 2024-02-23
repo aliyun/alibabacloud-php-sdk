@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class UploadRobotTaskCalledFileResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   For more information about other response codes, see [API error codes](~~112502~~).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The unique ID of the robocall task.
+     *
+     * You can call the [QueryRobotTaskDetail](~~QueryRobotTaskDetail~~) operation to query the details of the robocall task based on the task ID.
+     * @example 10450****
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+     *
      * @var string
      */
     public $requestId;

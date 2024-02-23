@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The call mode. Valid values:
+     *
+     *   **roundRobin**
+     *   **random**
+     *
+     * @example random
+     *
      * @var string
      */
     public $calledRouteMode;
 
     /**
+     * @description The details of the response parameters.
+     *
      * @var details[]
      */
     public $details;
 
     /**
+     * @description The time when the call transfer task was created.
+     *
+     * @example 1623137002000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @description The timeout period for transferring the call.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $transferTimeout;

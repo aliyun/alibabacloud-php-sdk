@@ -24,6 +24,10 @@ class CancelOrderRobotTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The unique ID of the robocall task. You can call the [CreateRobotTask](~~393531~~) operation to obtain the ID of the robocall task.
+     *
+     * @example 1045001
+     *
      * @var int
      */
     public $taskId;

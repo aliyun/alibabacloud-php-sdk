@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class SendVerificationResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   For more information about other response codes, see [API error codes](~~112502~~).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the verification code was sent successfully.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 6086693B-2250-17CE-A41F-06259AB6DB1B
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SendVerificationRequest extends Model
 {
     /**
+     * @description The business type. Set the value to **CONTACT**.
+     *
+     * @example CONTACT
+     *
      * @var string
      */
     public $bizType;
@@ -29,11 +33,19 @@ class SendVerificationRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The mobile phone number that receives the SMS verification code.
+     *
+     * @example 150****0000
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @description The mode of sending the SMS verification code. Set the value to **SMS**.
+     *
+     * @example SMS
+     *
      * @var string
      */
     public $verifyType;

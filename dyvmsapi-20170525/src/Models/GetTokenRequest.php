@@ -24,6 +24,10 @@ class GetTokenRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The token type.
+     *
+     * @example dyvms
+     *
      * @var string
      */
     public $tokenType;

@@ -14,6 +14,10 @@ class QueryCallInPoolTransferConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The China 400 number used to transfer the call.
+     *
+     * @example 400****
+     *
      * @var string
      */
     public $phoneNumber;

@@ -9,31 +9,60 @@ use AlibabaCloud\Tea\Model;
 class BatchRobotSmartCallRequest extends Model
 {
     /**
+     * @description The called number. Only mobile phone numbers in the Chinese mainland are supported.
+     *
+     * You can set up to 1,000 called numbers and separate the numbers with commas (,).
+     * @example 1390000****
+     *
      * @var string
      */
     public $calledNumber;
 
     /**
+     * @description The number displayed to called parties, which must be a number you purchased. You can view the numbers you purchased in the [Voice Messaging Service console](https://dyvms.console.aliyun.com/dyvms.htm#/number/normal).
+     *
+     * You can set up to 100 numbers and separate the numbers with commas (,).
+     * @example 222
+     *
      * @var string
      */
     public $calledShowNumber;
 
     /**
+     * @description The company name, which must be the same as the **company name** specified on the [qualification management page](https://dyvms.console.aliyun.com/dyvms.htm#/corp/normal).
+     *
+     * > This parameter is optional if **isSelfLine** is set to **true**.
+     * @example Alibaba
+     *
      * @var string
      */
     public $corpName;
 
     /**
+     * @description The ID of the robot or communication script that is used to initiate a call.
+     *
+     * You can obtain the **communication script ID** from the [Communication script management](https://dyvms.console.aliyun.com/dyvms.htm#/smart-call/saas/robot/list) page.
+     * @example 1234567
+     *
      * @var string
      */
     public $dialogId;
 
     /**
+     * @description The speech recognition identifier of early media. The default value is **false**, which means that the speech recognition identifier of early media is not enabled.
+     *
+     * Set the parameter to **true** if you want to enable the speech recognition identifier of early media.
+     * @example true
+     *
      * @var bool
      */
     public $earlyMediaAsr;
 
     /**
+     * @description Specifies whether to call the self-managed line. Default value: **false**.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSelfLine;
@@ -54,26 +83,49 @@ class BatchRobotSmartCallRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether the call is scheduled. If you set this parameter to **true**, the **ScheduleTime** parameter is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $scheduleCall;
 
     /**
+     * @description The preset call time. This value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * >  This parameter is required only when **ScheduleCall** is set to **true**.
+     * @example 12
+     *
      * @var int
      */
     public $scheduleTime;
 
     /**
+     * @description The task name. The task name can be up to 30 characters in length.
+     *
+     * @example Batch Tasks
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The variable value of the TTS template, in the JSON format.
+     *
+     * The variable value must correspond to a number. The TtsParam parameter must be used together with the TtsParamHead parameter.
+     * @example [{"number":"1390000****","params":[“Miss li”,"miss wang","Mr.li"]}]
+     *
      * @var string
      */
     public $ttsParam;
 
     /**
+     * @description The call tasks with variables, in the JSON format.
+     *
+     * The parameter value is a list of variable names. The TtsParamHead parameter must be used together with the TtsParam parameter.
+     * @example ["name1","name2","name3"]
+     *
      * @var string
      */
     public $ttsParamHead;

@@ -10,41 +10,76 @@ use AlibabaCloud\Tea\Model;
 class SubmitHotlineTransferRegisterRequest extends Model
 {
     /**
+     * @description The authenticity of the commitment. Valid values:
+     *
+     *   **true**: The commitment is authentic.
+     *   **false**: The commitment is not authentic.
+     *
+     * @example true
+     *
      * @var string
      */
     public $agreement;
 
     /**
+     * @description The China 400 number.
+     *
+     * @example 400****
+     *
      * @var string
      */
     public $hotlineNumber;
 
     /**
+     * @description The ID card number of the handler.
+     *
+     * @example 5****************9
+     *
      * @var string
      */
     public $operatorIdentityCard;
 
     /**
+     * @description The email address of the handler.
+     *
+     * @example username@example.com
+     *
      * @var string
      */
     public $operatorMail;
 
     /**
+     * @description The verification code that is received by the mailbox of the handler.
+     *
+     * @example 1234
+     *
      * @var string
      */
     public $operatorMailVerifyCode;
 
     /**
+     * @description The mobile phone number of the handler.
+     *
+     * @example 158****7230
+     *
      * @var string
      */
     public $operatorMobile;
 
     /**
+     * @description The verification code that is received by the mobile phone of the handler.
+     *
+     * @example 1234
+     *
      * @var string
      */
     public $operatorMobileVerifyCode;
 
     /**
+     * @description The name of the handler.
+     *
+     * @example A***
+     *
      * @var string
      */
     public $operatorName;
@@ -55,6 +90,10 @@ class SubmitHotlineTransferRegisterRequest extends Model
     public $ownerId;
 
     /**
+     * @description The qualification ID. You can call the [GetHotlineQualificationByOrder](~~393548~~) operation to obtain the qualification ID.
+     *
+     * @example 10000004933****
+     *
      * @var string
      */
     public $qualificationId;
@@ -70,6 +109,8 @@ class SubmitHotlineTransferRegisterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The registration information about the China 400 number.
+     *
      * @var transferPhoneNumberInfos[]
      */
     public $transferPhoneNumberInfos;

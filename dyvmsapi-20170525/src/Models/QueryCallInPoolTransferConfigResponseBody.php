@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class QueryCallInPoolTransferConfigResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   For more information about other response codes, see [API error codes](~~112502~~).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 7BF47617-7851-48F7-A3A1-2021342A78E2
+     *
      * @var string
      */
     public $requestId;

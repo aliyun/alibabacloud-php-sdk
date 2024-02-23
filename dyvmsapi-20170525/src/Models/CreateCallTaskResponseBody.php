@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateCallTaskResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The task ID.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
+     * @example ED815433-724A-4357-9991-A54AD2FF09FD
+     *
      * @var string
      */
     public $requestId;

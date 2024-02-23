@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryRobotInfoListRequest extends Model
 {
     /**
+     * @description The review state. Valid values:
+     *
+     *   **CONFIGURABLE**
+     *   **AUDITING**
+     *   **AUDITPASS**
+     *   **AUDITFAIL**
+     *
+     * @example AUDITING
+     *
      * @var string
      */
     public $auditStatus;

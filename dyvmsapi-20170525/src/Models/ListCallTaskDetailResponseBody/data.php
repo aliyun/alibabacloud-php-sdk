@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The called number.
+     *
+     * @example 1300000****
+     *
      * @var string
      */
     public $calledNum;
 
     /**
+     * @description The calling number.
+     *
+     * @example 0571000****
+     *
      * @var string
      */
     public $caller;
 
     /**
+     * @description The call duration. Unit: seconds.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description This parameter is unavailable.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The task state. Valid values:
+     *
+     *   **SUCCESS**: The task was successful.
+     *   **FAIL**: The task failed.
+     *   **INIT**: The task was not started.
+     *
+     * @example FAIL
+     *
      * @var string
      */
     public $status;

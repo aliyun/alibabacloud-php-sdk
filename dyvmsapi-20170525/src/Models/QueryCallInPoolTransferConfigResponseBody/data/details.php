@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
+     * @description The number used to transfer the call.
+     *
+     * @example 400****
+     *
      * @var string
      */
     public $called;

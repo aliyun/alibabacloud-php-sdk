@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListHotlineTransferNumberRequest extends Model
 {
     /**
+     * @description The China 400 number.
+     *
+     * @example 400****
+     *
      * @var string
      */
     public $hotlineNumber;
@@ -19,16 +23,28 @@ class ListHotlineTransferNumberRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The qualification ID. You can call the [GetHotlineQualificationByOrder](~~393548~~) operation to obtain the qualification ID.
+     *
+     * @example 100***
+     *
      * @var string
      */
     public $qualificationId;

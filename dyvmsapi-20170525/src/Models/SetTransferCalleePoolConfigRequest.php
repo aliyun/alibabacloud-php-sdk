@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class SetTransferCalleePoolConfigRequest extends Model
 {
     /**
+     * @description The call mode. Valid values:
+     *
+     *   **roundRobin**
+     *   **random**
+     *
+     * @example roundRobin
+     *
      * @var string
      */
     public $calledRouteMode;
 
     /**
+     * @description The information about the phone numbers for transferring the call.
+     *
      * @var details[]
      */
     public $details;
@@ -25,11 +34,19 @@ class SetTransferCalleePoolConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The phone number used for transferring the call.
+     *
+     * @example 400****
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @description The qualification ID. You can call the [GetHotlineQualificationByOrder](~~393548~~) operation to obtain the qualification ID.
+     *
+     * @example 190***
+     *
      * @var string
      */
     public $qualificationId;

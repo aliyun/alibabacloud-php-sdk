@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class values extends Model
 {
     /**
+     * @description The authenticity of the commitment.
+     *
+     * @example true
+     *
      * @var string
      */
     public $agree;
 
     /**
+     * @description The enterprise name.
+     *
+     * @example A**
+     *
      * @var string
      */
     public $corpName;
 
     /**
+     * @description The China 400 number.
+     *
+     * @example 400****
+     *
      * @var string
      */
     public $hotlineNumber;
 
     /**
+     * @description The ID card number of the handler.
+     *
+     * @example 5****************9
+     *
      * @var string
      */
     public $mngOpIdentityCard;
 
     /**
+     * @description The email address of the handler.
+     *
+     * @example username@example.com
+     *
      * @var string
      */
     public $mngOpMail;
 
     /**
+     * @description The mobile phone number of the handler.
+     *
+     * @example 150****0000
+     *
      * @var string
      */
     public $mngOpMobile;
 
     /**
+     * @description The name of the handler.
+     *
+     * @example A***
+     *
      * @var string
      */
     public $mngOpName;
 
     /**
+     * @description The qualification ID.
+     *
+     * @example 1234****
+     *
      * @var string
      */
     public $qualificationId;
 
     /**
+     * @description The unique code of the query operation.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $resUniqueCode;

@@ -10,36 +10,65 @@ use AlibabaCloud\Tea\Model;
 class ListCallTaskDetailResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   For more information about other response codes, see [API error codes](~~112502~~).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The information about the task.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example D692AC3D-CBA8-417F-BEB9-5B73718922D4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of called numbers.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $total;
 
     /**
+     * @description The total number of pages.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalPage;

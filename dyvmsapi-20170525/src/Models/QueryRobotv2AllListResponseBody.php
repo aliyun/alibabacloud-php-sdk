@@ -9,21 +9,44 @@ use AlibabaCloud\Tea\Model;
 class QueryRobotv2AllListResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   For more information about other response codes, see [API error codes](~~112502~~).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The information about the robot communication script, in the JSON format.
+     *
+     *   **id**: the ID of the robot communication script.
+     *   **robotName**: the name of the robot communication script.
+     *   **robotType**: the type of the robot communication script.
+     *
+     * @example {"id":100000007****,"robotName":"Robot","robotType":"CUSTOM"}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+     *
      * @var string
      */
     public $requestId;

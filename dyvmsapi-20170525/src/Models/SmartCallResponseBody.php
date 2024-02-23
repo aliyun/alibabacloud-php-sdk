@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class SmartCallResponseBody extends Model
 {
     /**
+     * @description The unique receipt ID for this call.
+     *
+     * You can call the [QueryCallDetailByCallId](~~QueryCallDetailByCallId~~) operation to query the details of the call based on the receipt ID.
+     * @example 116012854210^10281427****
+     *
      * @var string
      */
     public $callId;
 
     /**
+     * @description The response code.
+     *
+     *   The value OK indicates that the request was successful.
+     *   For more information about other response codes, see [API error codes](~~112502~~).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example A90E4451-FED7-49D2-87C8-00700A8C4D0D
+     *
      * @var string
      */
     public $requestId;

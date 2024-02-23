@@ -24,11 +24,19 @@ class StartRobotTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The time scheduled for starting the robocall task, in the yyyy-MM-dd HH:mm:ss format.
+     *
+     * @example 2019-06-14 14:55:23
+     *
      * @var string
      */
     public $scheduleTime;
 
     /**
+     * @description The unique ID of the robocall task. You can call the [CreateRobotTask](~~CreateRobotTask~~) operation to obtain the task ID.
+     *
+     * @example 104500****
+     *
      * @var int
      */
     public $taskId;

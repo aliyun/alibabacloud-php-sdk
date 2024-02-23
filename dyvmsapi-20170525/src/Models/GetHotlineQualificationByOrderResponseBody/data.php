@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the qualification application ticket.
+     *
+     * @example 22456****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The qualification ID.
+     *
+     * @example 1478*****
+     *
      * @var string
      */
     public $qualificationId;
 
     /**
+     * @description The qualification state. Valid values:
+     *
+     *   **NORMAL**
+     *   **OTHER**
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;

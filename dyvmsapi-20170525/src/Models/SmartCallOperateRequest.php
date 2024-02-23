@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class SmartCallOperateRequest extends Model
 {
     /**
+     * @description The unique receipt ID of the call. You can call the [SmartCall](~~393526~~) operation to obtain the receipt ID.
+     *
+     * @example 116012854210^1028142****
+     *
      * @var string
      */
     public $callId;
 
     /**
+     * @description The action that is initiated to the called number of an outbound robocall.
+     *
+     * > Only the value **parallelBridge** is supported. This value indicates that a bridge action is initiated between a called number and an agent of the call center.
+     * @example parallelBridge
+     *
      * @var string
      */
     public $command;
@@ -24,6 +33,10 @@ class SmartCallOperateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The extended field.
+     *
+     * @example Param
+     *
      * @var string
      */
     public $param;

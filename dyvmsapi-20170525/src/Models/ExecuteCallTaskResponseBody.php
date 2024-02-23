@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ExecuteCallTaskResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
+     * @example 53D0F0Fe-cbbB-De28-6FCd-DdbBcefA46dD
+     *
      * @var string
      */
     public $requestId;

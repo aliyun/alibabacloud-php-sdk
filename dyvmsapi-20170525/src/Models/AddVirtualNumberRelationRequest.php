@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AddVirtualNumberRelationRequest extends Model
 {
     /**
+     * @description The company names. Separate multiple company names with commas (,).
+     *
+     * @example Company 1
+     *
      * @var string
      */
     public $corpNameList;
 
     /**
+     * @description The real numbers. Separate multiple real numbers with commas (,).
+     *
+     * @example 1321111****,1322222****
+     *
      * @var string
      */
     public $numberList;
@@ -24,11 +32,19 @@ class AddVirtualNumberRelationRequest extends Model
     public $ownerId;
 
     /**
+     * @description The virtual number.
+     *
+     * @example 05516214****
+     *
      * @var string
      */
     public $phoneNum;
 
     /**
+     * @description The service name. Default value: **dyvms**.
+     *
+     * @example dyvms
+     *
      * @var string
      */
     public $prodCode;
@@ -44,6 +60,13 @@ class AddVirtualNumberRelationRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The route type. Valid values:
+     *
+     *   **0**: number location first.
+     *   **1**: random.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $routeType;

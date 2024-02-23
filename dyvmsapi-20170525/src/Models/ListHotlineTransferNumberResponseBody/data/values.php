@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class values extends Model
 {
     /**
+     * @description The China 400 number.
+     *
+     * @example 400****
+     *
      * @var string
      */
     public $hotlineNumber;
 
     /**
+     * @description The ID card number of the number owner.
+     *
+     * @example 500***4119
+     *
      * @var string
      */
     public $identityCard;
 
     /**
+     * @description The real name of the number owner or the company name.
+     *
+     * @example A***
+     *
      * @var string
      */
     public $numberOwnerName;
 
     /**
+     * @description The registered phone number.
+     *
+     * @example 1580000****
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @description The qualification ID.
+     *
+     * @example 100***
+     *
      * @var string
      */
     public $qualificationId;
 
     /**
+     * @description The resource code.
+     *
+     * @example 1***
+     *
      * @var string
      */
     public $resUniqueCode;

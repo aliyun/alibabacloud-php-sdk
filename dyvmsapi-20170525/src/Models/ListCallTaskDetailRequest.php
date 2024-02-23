@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListCallTaskDetailRequest extends Model
 {
     /**
+     * @description The called number.
+     *
+     * @example 1300000****
+     *
      * @var string
      */
     public $calledNum;
@@ -19,11 +23,19 @@ class ListCallTaskDetailRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,11 +51,23 @@ class ListCallTaskDetailRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The task state. Valid values:
+     *
+     *   **SUCCESS**: The task is successful.
+     *   **FAIL**: The task fails.
+     *   **INIT**: The task is not started.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The task ID.
+     *
+     * @example 150001****
+     *
      * @var int
      */
     public $taskId;

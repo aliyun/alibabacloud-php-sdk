@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class StopCallInConfigResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the inbound call was stopped. Valid values:
+     *
+     *   true: The inbound call was stopped.
+     *   false: The inbound call failed to be stopped.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example test
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example a78278ff-26bb-48ec-805c-26a0f4c102***
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ExecuteCallTaskRequest extends Model
 {
     /**
+     * @description The time when the call task is executed, in the yyyy-MM-dd HH:mm:ss format.
+     *
+     * > You can leave this parameter empty.
+     * @example 2021-03-09 00:00:00
+     *
      * @var string
      */
     public $fireTime;
@@ -29,11 +34,23 @@ class ExecuteCallTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The task state. Valid values:
+     *
+     *   **RUNNING**
+     *   **STOP**
+     *   **CANCEL**
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The task ID. You can call the [CreateCallTask](~~CreateCallTask~~) operation to obtain the task ID.
+     *
+     * @example 2256****
+     *
      * @var int
      */
     public $taskId;
