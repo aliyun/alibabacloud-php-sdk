@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @description The type of the MSE engine that can be activated.
      *
      * @example Zookeeper
@@ -17,6 +22,7 @@ class data extends Model
      */
     public $showName;
     protected $_name = [
+        'code'     => 'Code',
         'showName' => 'ShowName',
     ];
 
@@ -27,6 +33,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->showName) {
             $res['ShowName'] = $this->showName;
         }
@@ -42,6 +51,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['ShowName'])) {
             $model->showName = $map['ShowName'];
         }
