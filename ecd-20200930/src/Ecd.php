@@ -398,6 +398,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\StopInvocationRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\StopInvocationResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\UnbindUserDesktopRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\UnbindUserDesktopResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UnlockVirtualMFADeviceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UnlockVirtualMFADeviceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UntagResourcesRequest;
@@ -12439,6 +12441,64 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnbindUserDesktopRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UnbindUserDesktopResponse
+     */
+    public function unbindUserDesktopWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->desktopAgentIds)) {
+            $query['DesktopAgentIds'] = $request->desktopAgentIds;
+        }
+        if (!Utils::isUnset($request->desktopGroupId)) {
+            $query['DesktopGroupId'] = $request->desktopGroupId;
+        }
+        if (!Utils::isUnset($request->desktopIds)) {
+            $query['DesktopIds'] = $request->desktopIds;
+        }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->userDesktopIds)) {
+            $query['UserDesktopIds'] = $request->userDesktopIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindUserDesktop',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnbindUserDesktopResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnbindUserDesktopRequest $request
+     *
+     * @return UnbindUserDesktopResponse
+     */
+    public function unbindUserDesktop($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindUserDesktopWithOptions($request, $runtime);
     }
 
     /**

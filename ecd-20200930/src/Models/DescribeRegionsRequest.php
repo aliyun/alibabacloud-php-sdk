@@ -9,8 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @description The ID of the region.
+     * @description The display language of the specified service in a location.
      *
+     * Valid values:
+     *
+     *   en
+     *
+     * : English
+     *
+     *   zh (default)
+     *
+     * : Chinese
      * @example zh
      *
      * @var string
@@ -18,7 +27,7 @@ class DescribeRegionsRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The list of regions.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
