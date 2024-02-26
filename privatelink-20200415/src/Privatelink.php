@@ -418,8 +418,8 @@ class Privatelink extends OpenApiClient
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            $query['ResourceRegionId'] = $request->resourceRegionId;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

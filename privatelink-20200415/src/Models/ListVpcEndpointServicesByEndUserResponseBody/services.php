@@ -58,6 +58,12 @@ class services extends Model
     public $serviceName;
 
     /**
+     * @description The type of the service resource. Valid values:
+     *
+     *   **slb**: Classic Load Balancer (CLB) instance
+     *   **alb**: Application Load Balancer (ALB) instance
+     *   **nlb**: Network Load Balancer (NLB) instance
+     *
      * @example slb
      *
      * @var string

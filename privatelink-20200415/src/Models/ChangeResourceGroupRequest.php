@@ -20,24 +20,27 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The resource IDs. You can specify up to 50 resource IDs.
      *
-     * @example lb-hp32z1wp5peaoox2q****
+     * @example ep-hp3i05294c2d2d****
      *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description The region ID of the resource group.
+     * @description The type of resource. Valid values:
      *
-     * @example cn-huhehaote
+     *   **vpcendpoint**: endpoint
+     *   **vpcendpointservice**: endpoint service
+     *
+     * @example vpcendpoint
      *
      * @var string
      */
-    public $resourceRegionId;
+    public $resourceType;
     protected $_name = [
-        'resourceGroupId'  => 'ResourceGroupId',
-        'resourceId'       => 'ResourceId',
-        'resourceRegionId' => 'ResourceRegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId'      => 'ResourceId',
+        'resourceType'    => 'ResourceType',
     ];
 
     public function validate()
@@ -53,8 +56,8 @@ class ChangeResourceGroupRequest extends Model
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
-        if (null !== $this->resourceRegionId) {
-            $res['ResourceRegionId'] = $this->resourceRegionId;
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -74,8 +77,8 @@ class ChangeResourceGroupRequest extends Model
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
-        if (isset($map['ResourceRegionId'])) {
-            $model->resourceRegionId = $map['ResourceRegionId'];
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;
