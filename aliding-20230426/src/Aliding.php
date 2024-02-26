@@ -65,6 +65,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CancelScheduleConferenceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CancelScheduleConferenceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CancelScheduleConferenceShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CancelScheduleConferenceShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CheckUserIsGroupMemberHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CheckUserIsGroupMemberRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CheckUserIsGroupMemberResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CheckUserIsGroupMemberShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ClearDataHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ClearDataRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ClearDataResponse;
@@ -250,6 +254,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteTaskHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteTaskRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteTaskResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteTaskShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ExpandGroupCapacityHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ExpandGroupCapacityRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ExpandGroupCapacityResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ExpandGroupCapacityShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ExpandGroupCapacityShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetActivityListResponse;
@@ -259,6 +268,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetConversaionSpaceHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetConversaionSpaceRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetConversaionSpaceResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetConversaionSpaceShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetConversaionSpaceShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpAccomplishmentTasksHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpAccomplishmentTasksRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetCorpAccomplishmentTasksResponse;
@@ -280,6 +294,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFieldDefByUuidHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFieldDefByUuidRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFieldDefByUuidResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFieldDefByUuidShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileDownloadInfoHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileDownloadInfoRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileDownloadInfoResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileDownloadInfoShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileDownloadInfoShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormComponentDefinitionListHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormComponentDefinitionListRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormComponentDefinitionListResponse;
@@ -292,6 +311,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormListInAppHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormListInAppRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormListInAppResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormListInAppShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInnerGroupMembersHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInnerGroupMembersRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInnerGroupMembersResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInnerGroupMembersShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInstanceByIdHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInstanceByIdRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInstanceByIdResponse;
@@ -327,6 +350,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMineWorkspaceShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNewestInnerGroupsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNewestInnerGroupsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNewestInnerGroupsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNewestInnerGroupsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNewestInnerGroupsShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodeByUrlHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodeByUrlRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodeByUrlResponse;
@@ -363,6 +391,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRangeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRangeResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRangeShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRangeShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRelatedWorkspacesHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRelatedWorkspacesRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRelatedWorkspacesResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRelatedWorkspacesShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRelatedWorkspacesShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetReportTemplateByNameHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetReportTemplateByNameRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetReportTemplateByNameResponse;
@@ -444,6 +477,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ListCalendarsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListCalendarsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListCalendarsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListCalendarsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDentriesHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDentriesRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDentriesResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDentriesShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDentriesShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsResponse;
@@ -631,6 +669,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchFormDatasHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchFormDatasRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchFormDatasResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchFormDatasShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchInnerGroupsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchInnerGroupsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchInnerGroupsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchInnerGroupsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SendBannerHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SendBannerRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SendBannerResponse;
@@ -730,6 +772,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConferenceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConferenceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConferenceShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConferenceShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConfSettingsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConfSettingsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConfSettingsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConfSettingsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConfSettingsShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateStatusHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateStatusRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateStatusResponse;
@@ -1706,6 +1753,64 @@ class Aliding extends OpenApiClient
         $headers = new CancelScheduleConferenceHeaders([]);
 
         return $this->cancelScheduleConferenceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CheckUserIsGroupMemberRequest $request
+     * @param CheckUserIsGroupMemberHeaders $tmpHeader
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CheckUserIsGroupMemberResponse
+     */
+    public function checkUserIsGroupMemberWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new CheckUserIsGroupMemberShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->openConversationId)) {
+            $body['OpenConversationId'] = $request->openConversationId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckUserIsGroupMember',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/im/checkUserIsGroupMember',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckUserIsGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckUserIsGroupMemberRequest $request
+     *
+     * @return CheckUserIsGroupMemberResponse
+     */
+    public function checkUserIsGroupMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CheckUserIsGroupMemberHeaders([]);
+
+        return $this->checkUserIsGroupMemberWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4739,6 +4844,72 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param ExpandGroupCapacityRequest $tmpReq
+     * @param ExpandGroupCapacityHeaders $tmpHeader
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ExpandGroupCapacityResponse
+     */
+    public function expandGroupCapacityWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ExpandGroupCapacityShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new ExpandGroupCapacityShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->openConversationId)) {
+            $body['OpenConversationId'] = $request->openConversationId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExpandGroupCapacity',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/aliding/v1/im/expandGroupCapacity',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExpandGroupCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExpandGroupCapacityRequest $request
+     *
+     * @return ExpandGroupCapacityResponse
+     */
+    public function expandGroupCapacity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ExpandGroupCapacityHeaders([]);
+
+        return $this->expandGroupCapacityWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param GetActivityListRequest $request
      * @param GetActivityListHeaders $tmpHeader
      * @param RuntimeOptions         $runtime
@@ -4869,6 +5040,72 @@ class Aliding extends OpenApiClient
         $headers = new GetAllSheetsHeaders([]);
 
         return $this->getAllSheetsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetConversaionSpaceRequest $tmpReq
+     * @param GetConversaionSpaceHeaders $tmpHeader
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetConversaionSpaceResponse
+     */
+    public function getConversaionSpaceWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetConversaionSpaceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetConversaionSpaceShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->openConversationId)) {
+            $body['OpenConversationId'] = $request->openConversationId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConversaionSpace',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/documents/getConversaionSpace',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetConversaionSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetConversaionSpaceRequest $request
+     *
+     * @return GetConversaionSpaceResponse
+     */
+    public function getConversaionSpace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetConversaionSpaceHeaders([]);
+
+        return $this->getConversaionSpaceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5241,6 +5478,81 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param GetFileDownloadInfoRequest $tmpReq
+     * @param GetFileDownloadInfoHeaders $tmpHeader
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetFileDownloadInfoResponse
+     */
+    public function getFileDownloadInfoWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetFileDownloadInfoShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetFileDownloadInfoShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->option)) {
+            $request->optionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->option, 'Option', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dentryId)) {
+            $body['DentryId'] = $request->dentryId;
+        }
+        if (!Utils::isUnset($request->optionShrink)) {
+            $body['Option'] = $request->optionShrink;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFileDownloadInfo',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/documents/getFileDownloadInfo',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFileDownloadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetFileDownloadInfoRequest $request
+     *
+     * @return GetFileDownloadInfoResponse
+     */
+    public function getFileDownloadInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetFileDownloadInfoHeaders([]);
+
+        return $this->getFileDownloadInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param GetFormComponentDefinitionListRequest $request
      * @param GetFormComponentDefinitionListHeaders $tmpHeader
      * @param RuntimeOptions                        $runtime
@@ -5442,6 +5754,70 @@ class Aliding extends OpenApiClient
         $headers = new GetFormListInAppHeaders([]);
 
         return $this->getFormListInAppWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetInnerGroupMembersRequest $request
+     * @param GetInnerGroupMembersHeaders $tmpHeader
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetInnerGroupMembersResponse
+     */
+    public function getInnerGroupMembersWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new GetInnerGroupMembersShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->openConversationId)) {
+            $body['OpenConversationId'] = $request->openConversationId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInnerGroupMembers',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/im/getInnerGroupMembers',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInnerGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetInnerGroupMembersRequest $request
+     *
+     * @return GetInnerGroupMembersResponse
+     */
+    public function getInnerGroupMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetInnerGroupMembersHeaders([]);
+
+        return $this->getInnerGroupMembersWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6071,6 +6447,69 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param GetNewestInnerGroupsRequest $tmpReq
+     * @param GetNewestInnerGroupsHeaders $tmpHeader
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetNewestInnerGroupsResponse
+     */
+    public function getNewestInnerGroupsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetNewestInnerGroupsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetNewestInnerGroupsShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->request)) {
+            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->requestShrink)) {
+            $body['Request'] = $request->requestShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNewestInnerGroups',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/im/getNewestInnerGroups',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetNewestInnerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetNewestInnerGroupsRequest $request
+     *
+     * @return GetNewestInnerGroupsResponse
+     */
+    public function getNewestInnerGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetNewestInnerGroupsHeaders([]);
+
+        return $this->getNewestInnerGroupsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param GetNodeRequest $tmpReq
      * @param GetNodeHeaders $tmpHeader
      * @param RuntimeOptions $runtime
@@ -6672,6 +7111,72 @@ class Aliding extends OpenApiClient
         $headers = new GetRangeHeaders([]);
 
         return $this->getRangeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetRelatedWorkspacesRequest $tmpReq
+     * @param GetRelatedWorkspacesHeaders $tmpHeader
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetRelatedWorkspacesResponse
+     */
+    public function getRelatedWorkspacesWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetRelatedWorkspacesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetRelatedWorkspacesShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->includeRecent)) {
+            $body['IncludeRecent'] = $request->includeRecent;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRelatedWorkspaces',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/documents/getRelatedWorkspaces',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRelatedWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRelatedWorkspacesRequest $request
+     *
+     * @return GetRelatedWorkspacesResponse
+     */
+    public function getRelatedWorkspaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetRelatedWorkspacesHeaders([]);
+
+        return $this->getRelatedWorkspacesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7897,6 +8402,90 @@ class Aliding extends OpenApiClient
         $headers = new ListCalendarsHeaders([]);
 
         return $this->listCalendarsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListDentriesRequest $tmpReq
+     * @param ListDentriesHeaders $tmpHeader
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListDentriesResponse
+     */
+    public function listDentriesWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListDentriesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new ListDentriesShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $body['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $body['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $body['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->withThumbnail)) {
+            $body['WithThumbnail'] = $request->withThumbnail;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDentries',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/documents/listDentries',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDentriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDentriesRequest $request
+     *
+     * @return ListDentriesResponse
+     */
+    public function listDentries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListDentriesHeaders([]);
+
+        return $this->listDentriesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -9743,11 +10332,11 @@ class Aliding extends OpenApiClient
             $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
         }
         $body = [];
-        if (!Utils::isUnset($request->requestUnionId)) {
-            $body['RequestUnionId'] = $request->requestUnionId;
-        }
         if (!Utils::isUnset($request->tenantContextShrink)) {
             $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->scheduleConferenceId)) {
+            $body['scheduleConferenceId'] = $request->scheduleConferenceId;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -10898,6 +11487,67 @@ class Aliding extends OpenApiClient
         $headers = new SearchFormDatasHeaders([]);
 
         return $this->searchFormDatasWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SearchInnerGroupsRequest $request
+     * @param SearchInnerGroupsHeaders $tmpHeader
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SearchInnerGroupsResponse
+     */
+    public function searchInnerGroupsWithOptions($request, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($request);
+        $headers = new SearchInnerGroupsShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $body['SearchKey'] = $request->searchKey;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchInnerGroups',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/im/searchInnerGroups',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchInnerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchInnerGroupsRequest $request
+     *
+     * @return SearchInnerGroupsResponse
+     */
+    public function searchInnerGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SearchInnerGroupsHeaders([]);
+
+        return $this->searchInnerGroupsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -12386,6 +13036,78 @@ class Aliding extends OpenApiClient
         $headers = new UpdateRangeHeaders([]);
 
         return $this->updateRangeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateScheduleConfSettingsRequest $tmpReq
+     * @param UpdateScheduleConfSettingsHeaders $tmpHeader
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateScheduleConfSettingsResponse
+     */
+    public function updateScheduleConfSettingsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateScheduleConfSettingsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new UpdateScheduleConfSettingsShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->scheduleConfSettingModel)) {
+            $request->scheduleConfSettingModelShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfSettingModel, 'ScheduleConfSettingModel', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->scheduleConfSettingModelShrink)) {
+            $body['ScheduleConfSettingModel'] = $request->scheduleConfSettingModelShrink;
+        }
+        if (!Utils::isUnset($request->scheduleConferenceId)) {
+            $body['ScheduleConferenceId'] = $request->scheduleConferenceId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateScheduleConfSettings',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/updateScheduleConfSettings',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateScheduleConfSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateScheduleConfSettingsRequest $request
+     *
+     * @return UpdateScheduleConfSettingsResponse
+     */
+    public function updateScheduleConfSettings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateScheduleConfSettingsHeaders([]);
+
+        return $this->updateScheduleConfSettingsWithOptions($request, $headers, $runtime);
     }
 
     /**

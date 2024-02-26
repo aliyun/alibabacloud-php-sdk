@@ -6,22 +6,22 @@ namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryScheduleConferenceShrinkRequest extends Model
+class ExpandGroupCapacityShrinkRequest extends Model
 {
+    /**
+     * @example cidt*****Xa4K10w==
+     *
+     * @var string
+     */
+    public $openConversationId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
-
-    /**
-     * @example 2a489c68-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-     *
-     * @var string
-     */
-    public $scheduleConferenceId;
     protected $_name = [
-        'tenantContextShrink'  => 'TenantContext',
-        'scheduleConferenceId' => 'scheduleConferenceId',
+        'openConversationId'  => 'OpenConversationId',
+        'tenantContextShrink' => 'TenantContext',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class QueryScheduleConferenceShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->openConversationId) {
+            $res['OpenConversationId'] = $this->openConversationId;
+        }
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
-        }
-        if (null !== $this->scheduleConferenceId) {
-            $res['scheduleConferenceId'] = $this->scheduleConferenceId;
         }
 
         return $res;
@@ -44,16 +44,16 @@ class QueryScheduleConferenceShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryScheduleConferenceShrinkRequest
+     * @return ExpandGroupCapacityShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OpenConversationId'])) {
+            $model->openConversationId = $map['OpenConversationId'];
+        }
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
-        }
-        if (isset($map['scheduleConferenceId'])) {
-            $model->scheduleConferenceId = $map['scheduleConferenceId'];
         }
 
         return $model;

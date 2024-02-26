@@ -4,25 +4,25 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceRequest\tenantContext;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRelatedWorkspacesRequest\tenantContext;
 use AlibabaCloud\Tea\Model;
 
-class QueryScheduleConferenceRequest extends Model
+class GetRelatedWorkspacesRequest extends Model
 {
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $includeRecent;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
-
-    /**
-     * @example 2a489c68-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-     *
-     * @var string
-     */
-    public $scheduleConferenceId;
     protected $_name = [
-        'tenantContext'        => 'TenantContext',
-        'scheduleConferenceId' => 'scheduleConferenceId',
+        'includeRecent' => 'IncludeRecent',
+        'tenantContext' => 'TenantContext',
     ];
 
     public function validate()
@@ -32,11 +32,11 @@ class QueryScheduleConferenceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->includeRecent) {
+            $res['IncludeRecent'] = $this->includeRecent;
+        }
         if (null !== $this->tenantContext) {
             $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
-        }
-        if (null !== $this->scheduleConferenceId) {
-            $res['scheduleConferenceId'] = $this->scheduleConferenceId;
         }
 
         return $res;
@@ -45,16 +45,16 @@ class QueryScheduleConferenceRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryScheduleConferenceRequest
+     * @return GetRelatedWorkspacesRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IncludeRecent'])) {
+            $model->includeRecent = $map['IncludeRecent'];
+        }
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
-        }
-        if (isset($map['scheduleConferenceId'])) {
-            $model->scheduleConferenceId = $map['scheduleConferenceId'];
         }
 
         return $model;
