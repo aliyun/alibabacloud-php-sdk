@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskRequest;
 
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskRequest\commonSetting\customHost;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskRequest\commonSetting\customVPCSetting;
 use AlibabaCloud\Tea\Model;
 
 class commonSetting extends Model
@@ -13,6 +14,11 @@ class commonSetting extends Model
      * @var customHost
      */
     public $customHost;
+
+    /**
+     * @var customVPCSetting
+     */
+    public $customVPCSetting;
 
     /**
      * @example 0
@@ -43,12 +49,13 @@ class commonSetting extends Model
      */
     public $xtraceRegion;
     protected $_name = [
-        'customHost'      => 'CustomHost',
-        'ipType'          => 'IpType',
-        'isOpenTrace'     => 'IsOpenTrace',
-        'monitorSamples'  => 'MonitorSamples',
-        'traceClientType' => 'TraceClientType',
-        'xtraceRegion'    => 'XtraceRegion',
+        'customHost'       => 'CustomHost',
+        'customVPCSetting' => 'CustomVPCSetting',
+        'ipType'           => 'IpType',
+        'isOpenTrace'      => 'IsOpenTrace',
+        'monitorSamples'   => 'MonitorSamples',
+        'traceClientType'  => 'TraceClientType',
+        'xtraceRegion'     => 'XtraceRegion',
     ];
 
     public function validate()
@@ -60,6 +67,9 @@ class commonSetting extends Model
         $res = [];
         if (null !== $this->customHost) {
             $res['CustomHost'] = null !== $this->customHost ? $this->customHost->toMap() : null;
+        }
+        if (null !== $this->customVPCSetting) {
+            $res['CustomVPCSetting'] = null !== $this->customVPCSetting ? $this->customVPCSetting->toMap() : null;
         }
         if (null !== $this->ipType) {
             $res['IpType'] = $this->ipType;
@@ -90,6 +100,9 @@ class commonSetting extends Model
         $model = new self();
         if (isset($map['CustomHost'])) {
             $model->customHost = customHost::fromMap($map['CustomHost']);
+        }
+        if (isset($map['CustomVPCSetting'])) {
+            $model->customVPCSetting = customVPCSetting::fromMap($map['CustomVPCSetting']);
         }
         if (isset($map['IpType'])) {
             $model->ipType = $map['IpType'];

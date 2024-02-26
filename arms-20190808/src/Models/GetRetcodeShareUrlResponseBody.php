@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetRetcodeShareUrlResponseBody extends Model
 {
     /**
-     * @description Queries the logon-free URL of a Browser Monitoring application.
+     * @description The request ID.
      *
      * @example 01FF8DD9-A09C-47A1-895A-B6E321BE77B6
      *
@@ -18,7 +18,7 @@ class GetRetcodeShareUrlResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request.
+     * @description The logon-free URL of the application.
      *
      * @example http://arms-daily.console.aliyun.com:8080/shareapi/retcode.json?login_arms_t3h_token=XXXxxx&action=RetcodeAction&eventSubmitDoGetData=1
      *

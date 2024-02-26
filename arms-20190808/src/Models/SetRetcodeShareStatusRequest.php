@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetRetcodeShareStatusRequest extends Model
 {
     /**
-     * @description Turns on or turns off logon-free sharing for an application monitored by Browser Monitoring.
+     * @description The name of the application that is monitored by Browser Monitoring.
      *
      * @example test-app
      *
@@ -18,10 +18,7 @@ class SetRetcodeShareStatusRequest extends Model
     public $appName;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
-     *
-     *   `true`: The call is successful.
-     *   `false`: The call fails.
+     * @description The process identifier (PID) of the application. For more information, see [Obtain the PID of an application](https://www.alibabacloud.com/help/zh/doc-detail/186100.htm?spm=a2cdw.13409063.0.0.7a72281f0bkTfx#title-imy-7gj-qhr).
      *
      * @example atc889zkcf@d8deedfa9bf****
      *
@@ -30,7 +27,10 @@ class SetRetcodeShareStatusRequest extends Model
     public $pid;
 
     /**
-     * @description SetRetcodeShareStatus
+     * @description Specifies whether to turn on or turn off the logon-free sharing switch. Valid values:
+     *
+     *   `true`: Turn on the switch.
+     *   `false`: Turn off the switch.
      *
      * @example true
      *

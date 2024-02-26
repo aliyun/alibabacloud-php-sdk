@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteWebhookContactRequest extends Model
 {
     /**
+     * @description The ID of the webhook alert contact.
+     *
      * @example 123
      *
      * @var int

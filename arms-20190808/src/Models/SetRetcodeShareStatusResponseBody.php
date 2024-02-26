@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SetRetcodeShareStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the application. Log on to the ARMS console. In the left-side navigation pane, choose **Browser Monitoring** > **Browser Monitoring**. On the Browser Monitoring page, click the name of an application. The URL in the address bar contains the process ID (PID) of the application. The PID is indicated in the pid=xxx format. The PID is usually percent encoded as xxx%40xxx. You must modify this value to remove the percent encoding. For example, if the PID in the URL is xxx%4074xxx, you must replace %40 with the at sign (@) to obtain xxx@74xxx.
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   `true`: The call is successful.
+     *   `false`: The call fails.
      *
      * @example true
      *
@@ -18,10 +21,7 @@ class SetRetcodeShareStatusResponseBody extends Model
     public $isSuccess;
 
     /**
-     * @description Specifies whether to turn on logon-free sharing. Valid values:
-     *
-     *   `true`: turns on logon-free sharing.
-     *   `false`: turns off logon-free sharing.
+     * @description The ID of the request.
      *
      * @example 40B10E04-81E8-4643-970D-F1B38F2E****
      *

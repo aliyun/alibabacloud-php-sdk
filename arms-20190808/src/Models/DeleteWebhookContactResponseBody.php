@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteWebhookContactResponseBody extends Model
 {
     /**
+     * @description Indicates whether the webhook alert contact was deleted.
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DeleteWebhookContactResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The request ID.
+     *
      * @example C21AB7CF-B7AF-410F-BD61-82D1567F****
      *
      * @var string

@@ -2027,6 +2027,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->managedType)) {
             $query['ManagedType'] = $request->managedType;
         }
+        if (!Utils::isUnset($request->prometheusInstanceId)) {
+            $query['PrometheusInstanceId'] = $request->prometheusInstanceId;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }

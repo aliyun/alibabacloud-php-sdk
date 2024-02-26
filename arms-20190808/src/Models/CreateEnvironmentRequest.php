@@ -72,6 +72,11 @@ class CreateEnvironmentRequest extends Model
     public $managedType;
 
     /**
+     * @var string
+     */
+    public $prometheusInstanceId;
+
+    /**
      * @description The region ID.
      *
      * @example cn-hangzhou
@@ -96,15 +101,16 @@ class CreateEnvironmentRequest extends Model
      */
     public $tags;
     protected $_name = [
-        'aliyunLang'         => 'AliyunLang',
-        'bindResourceId'     => 'BindResourceId',
-        'environmentName'    => 'EnvironmentName',
-        'environmentSubType' => 'EnvironmentSubType',
-        'environmentType'    => 'EnvironmentType',
-        'managedType'        => 'ManagedType',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'tags'               => 'Tags',
+        'aliyunLang'           => 'AliyunLang',
+        'bindResourceId'       => 'BindResourceId',
+        'environmentName'      => 'EnvironmentName',
+        'environmentSubType'   => 'EnvironmentSubType',
+        'environmentType'      => 'EnvironmentType',
+        'managedType'          => 'ManagedType',
+        'prometheusInstanceId' => 'PrometheusInstanceId',
+        'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'tags'                 => 'Tags',
     ];
 
     public function validate()
@@ -131,6 +137,9 @@ class CreateEnvironmentRequest extends Model
         }
         if (null !== $this->managedType) {
             $res['ManagedType'] = $this->managedType;
+        }
+        if (null !== $this->prometheusInstanceId) {
+            $res['PrometheusInstanceId'] = $this->prometheusInstanceId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -176,6 +185,9 @@ class CreateEnvironmentRequest extends Model
         }
         if (isset($map['ManagedType'])) {
             $model->managedType = $map['ManagedType'];
+        }
+        if (isset($map['PrometheusInstanceId'])) {
+            $model->prometheusInstanceId = $map['PrometheusInstanceId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
